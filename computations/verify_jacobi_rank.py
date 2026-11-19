@@ -1,6 +1,6 @@
 """Exact nonzero-minor certificates for generic cubic Poisson schemes.
 
-Use --generate FILE to generate the N=5,...,9 certificates, or --verify FILE
+Use --generate FILE to generate the N=5,...,10 certificates, or --verify FILE
 for an independent determinant check of the stored minors. Integer tensor T
 means F=(1/6) sum_{i,j,k} T_ijk z_i z_j z_k. Coordinates are zero-based.
 Only integer arithmetic modulo the prime 32003 is used; no numerical ranks.
@@ -17,6 +17,19 @@ import numpy as np
 
 def plucker_quadrics(n: int) -> int:
     return 5 * comb(n + 1, 6)
+
+
+def jacobi_rank_bound(n: int) -> int:
+    """Plucker bound and the independent universal exterior relations."""
+    return min(plucker_quadrics(n), n * comb(n, 4) - comb(n, 3))
+
+
+def nonstandard_columns(n: int):
+    """Coordinates complementary to degree-two standard Plucker monomials."""
+    triples = list(combinations(range(n), 3))
+    pairs = combinations_with_replacement(range(len(triples)), 2)
+    return [i for i, (a, b) in enumerate(pairs)
+            if not all(x <= y for x, y in zip(triples[a], triples[b]))]
 
 
 def jacobi_matrix(n: int, tensor: dict, prime: int) -> np.ndarray:
@@ -108,15 +121,19 @@ def generate(n: int, seed: int = 901, prime: int = 32003):
     rng = random.Random(seed)
     tensor = {t: rng.randrange(prime) for t in combinations_with_replacement(range(n), 3)}
     a = jacobi_matrix(n, tensor, prime)
-    rows, columns, determinant = nonzero_minor(a, prime)
-    target = plucker_quadrics(n)
+    # Restricting to nonstandard columns speeds up N=10. The resulting minor
+    # still has its original column indices in the full integer matrix.
+    selected = nonstandard_columns(n) if n >= 10 else list(range(a.shape[1]))
+    rows, reduced_columns, determinant = nonzero_minor(a[:, selected], prime)
+    columns = [selected[i] for i in reduced_columns]
+    target = jacobi_rank_bound(n)
     assert len(rows) == target
     assert determinant != 0
     return {
         "N": n, "n": n - 2, "prime": prime, "generation_seed": seed,
         "hessian_tensor": [list(t) + [value] for t, value in tensor.items()],
         "matrix_rows": n * comb(n, 4), "matrix_columns": comb(comb(n, 3) + 1, 2),
-        "plucker_quadrics": target,
+        "plucker_quadrics": plucker_quadrics(n), "rank_upper_bound": target,
         "minor_rows_in_order": rows, "minor_columns": columns,
         "minor_determinant_mod_prime": determinant,
     }
@@ -130,8 +147,11 @@ def verify(case):
     a = jacobi_matrix(n, tensor, prime)
     assert a.shape == (case["matrix_rows"], case["matrix_columns"])
     rows, columns = case["minor_rows_in_order"], case["minor_columns"]
-    assert len(rows) == len(set(rows)) == plucker_quadrics(n)
-    assert len(columns) == len(set(columns)) == plucker_quadrics(n)
+    target = jacobi_rank_bound(n)
+    assert case["plucker_quadrics"] == plucker_quadrics(n)
+    assert case["rank_upper_bound"] == target
+    assert len(rows) == len(set(rows)) == target
+    assert len(columns) == len(set(columns)) == target
     value = determinant_mod(a[np.ix_(rows, columns)], prime)
     assert value == case["minor_determinant_mod_prime"] != 0
     return {"N": n, "minor_order": len(rows), "prime": prime, "determinant": value}
@@ -145,11 +165,11 @@ def main():
     args = parser.parse_args()
     if args.generate:
         cases = []
-        for n in range(5, 10):
+        for n in range(5, 11):
             case = generate(n)
             cases.append(case)
-            print(json.dumps({"N": n, "minor_order": case["plucker_quadrics"], "determinant": case["minor_determinant_mod_prime"]}), flush=True)
-        payload = {"schema": 1, "date": "2026-11-20", "interpretation": "Nonzero integer minors modulo 32003 imply nonzero minors in characteristic zero; no vanishing modulo a prime is used to prove an identity.", "cases": cases}
+            print(json.dumps({"N": n, "minor_order": case["rank_upper_bound"], "determinant": case["minor_determinant_mod_prime"]}), flush=True)
+        payload = {"schema": 2, "date": "2026-11-20", "version": "v2", "interpretation": "Nonzero integer minors modulo 32003 attain the minimum of the Plucker bound and N*binom(N,4)-binom(N,3). Nonzero integer minors modulo a prime are nonzero in characteristic zero; no modular vanishing proves an identity.", "cases": cases}
         args.generate.parent.mkdir(parents=True, exist_ok=True)
         args.generate.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n")
     else:

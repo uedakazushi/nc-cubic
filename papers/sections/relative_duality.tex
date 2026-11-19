@@ -1,0 +1,421 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{一ブロック族の普遍相対双対性}
+\label{sec:nfm-relative-duality}
+
+本節は、次数付きモジュライから構造対象付き Abel 圏へ移る際の
+相対双対入力を構成する。
+$N=n+2\geq5$、$r=N-3=n-1$ とする。
+三様体稿\cite{Threefold}の potential 解消と導来局所化の方法を、
+中心変数が $r$ 個の場合に展開する。
+有限中心性、楕円平行移動の有限位数性、あるいは tails の dg smoothness は使わない。
+
+\subsection{中心差の Koszul 解消と真正な双加群双対}
+
+次の仮定は、既に用いた一ブロックの相対 PBW 入力を、
+双加群解消の構成に必要な形で明記したものである。
+$R$ は被約な有限型 $\mathbf C$-代数、
+$Q=R[u_1,\ldots,u_r]$ とし、全ての $u_\alpha,x,y,z$ の次数を一とする。
+$Q$ 上の cyclic potential
+\[
+ \Phi=xyz-yxz-\operatorname{Symm}(F),\qquad
+ B=Q\langle x,y,z\rangle/(\partial_x\Phi,\partial_y\Phi,\partial_z\Phi)
+\]
+を考える。純中心三次は cyclic 微分で消えるので任意に除いてよい。
+active 次数の最高三次部分を $\Phi_3$、その Jacobian 代数を
+$S=R\langle x,y,z\rangle/(\partial\Phi_3)$ とする。
+以下では次を仮定する。
+\begin{enumerate}
+\item 各 $S_a$ は有限射影 $R$-加群であり、全ての幾何学的ファイバーは
+三次元二次 Koszul CY 代数で Hilbert 級数 $(1-t)^{-3}$ を持つ。
+\item active PBW 同型 $\operatorname{gr}_{\mathrm{act}}B=S\otimes_RQ$ があり、
+その濾過は $Q$-加群として分裂する。
+この同型と分裂は任意の係数変更後にも PBW 性を与える。
+\end{enumerate}
+滑らかな純 active 三次を持つ Jacobian 族では、体上の入力は
+Mori--Smith\cite[Theorem~4.2]{MoriSmith}と
+Berger--Taillefer\cite[Theorems~3.1, 3.6]{NFMBeTa}による。
+相対 PBW 分裂は入力論文\cite{NCCubicA}の表示チャートで構成される。
+以下の結論はこれらの体上の定理を任意係数環へ直接引用したものではなく、
+有限射影複体と普遍恒等式から導く。
+
+\begin{theorem}[任意個の中心変数を持つ相対 CY 解消]
+\label{thm:nfm-relative-ambient-cy}
+上の仮定の下で、$B$ は有限な相対二次 Koszul 双加群解消
+\[
+ K_B^{-i}=B\otimes_RW_i\otimes_RB\quad(0\leq i\leq N),
+ \qquad K_B\xrightarrow{\sim}B
+\]
+を持つ。$W_i$ は内部次数 $i$、階数 $\binom Ni$ の有限射影加群であり、
+$W_0=R$、$W_N$ は可逆である。
+この解消とその片側 augmentation は任意の可換 $R$-代数への係数変更後にも完全である。
+また active 変数と中心変数の順序を固定すると、真正な次数付き双加群として
+\begin{equation}
+\label{eq:nfm-relative-ambient-cy}
+ \Theta_{B/R}:=
+ \mathbf R\underline{\operatorname{Hom}}_{B\otimes_RB^{\mathrm{op}}}
+       (B,B\otimes_RB^{\mathrm{op}})
+ \simeq B(N)[-N]
+\end{equation}
+を得る。この同型も任意の、非平坦・非被約な係数変更と両立する。
+\end{theorem}
+
+\begin{proof}
+まず $Q$ に相対的な長さ三の potential 複体を作る。
+$x_1=x,x_2=y,x_3=z$、$r_i=\partial_{x_i}\Phi$ とし、
+$D=B\otimes_QB^{\mathrm{op}}$ と置く。
+自由基底 $e_i,f_i,e$ の内部次数をそれぞれ $1,2,3$ とする。
+\[
+ K_Q:\quad 0\longrightarrow D(-3)\longrightarrow D(-2)^3
+ \longrightarrow D(-1)^3\longrightarrow D\longrightarrow0
+\]
+の微分を
+\[
+ d_1(e_i)=\delta_i,\qquad
+ d_2(f_i)=\sum_jH_{ji}e_j,\qquad
+ d_3(e)=\sum_i\delta_i f_i
+\]
+で定める。ここで
+\[
+ \delta_i=x_i\otimes1-1\otimes x_i^{\mathrm{op}},\qquad
+ H_{ji}=\sum_{r_i=a x_j b}a\otimes b^{\mathrm{op}}
+\]
+とし、最後の和は $r_i$ を自由 $Q$-代数の語で展開して係数付きで取る。
+普遍微分の telescoping と cyclic 恒等式 $\sum_i[x_i,r_i]=0$ により
+\[
+ \sum_jH_{ji}\delta_j=r_i\otimes1-1\otimes r_i^{\mathrm{op}},\qquad
+ \sum_i\delta_iH_{ji}=r_j\otimes1-1\otimes r_j^{\mathrm{op}}.
+\]
+従って $K_Q$ は複体である。
+active 濾過の随伴複体は $S$ の potential 解消を $Q$ へ延長したものである。
+$S$ の解消の各内部次数は有限射影 $R$-加群の有界複体であり、
+増大複体は全幾何学的ファイバーで完全である。
+有限射影複体を右端から局所的に分裂することにより、
+この完全性は任意係数変更後にも保たれる。
+active 濾過は各全次数で有限なので、元の $K_Q\to B$ も普遍的に完全である。
+
+自己双対性は fibre ごとの CY 性から推測しない。
+反自己同型 $\tau(a\otimes b^{\mathrm{op}})=b\otimes a^{\mathrm{op}}$ により
+右 $D$-加群を通常の双加群へ戻す規約を取ると、
+cyclic 語の二文字の位置を交換する恒等式から
+\[
+ H_{ji}=\tau(H_{ij}),\qquad \tau(\delta_i)=-\delta_i
+\]
+を得る。
+双対複体の微分を $d^j(f)=(-1)^{j+1}f d$ とすれば、
+\[
+ 1^\vee\mapsto e,\quad e_i^\vee\mapsto-f_i,\quad
+ f_i^\vee\mapsto e_i,\quad e^\vee\mapsto-1
+\]
+は複体の同型 $K_Q^\vee\simeq K_Q(3)[-3]$ を与える。
+従って $\Theta_{B/Q}\simeq B(3)[-3]$ である。
+これは Berger--Taillefer の potential 解消の自己双対性を
+同じ符号規約で係数環 $Q$ 上に書いた計算である。
+
+次に $C=B\otimes_RB^{\mathrm{op}}$ と置く。
+PBW 分裂により $B$ は $Q$ 上射影で、$C$ は
+$Q\otimes_RQ=R[u_L,u_R]$ 上平坦である。
+従って
+\[
+ z_\alpha=u_{\alpha,L}-u_{\alpha,R}\quad(1\leq\alpha\leq r)
+\]
+は $C$ 上の中心正則列で、$D=C/(z_1,\ldots,z_r)$ である。
+順序を指定したこの正則列の Koszul 解消を双対化すると、
+真正な $D$--$C$ 双加群として
+\[
+ \mathbf R\underline{\operatorname{Hom}}_C(D,C)\simeq D(r)[-r]
+\]
+を得る。左 $D$-作用は定義域の右掛算による前合成から生じ、
+唯一の cohomology 上では通常の左掛算となる。
+中心列であるため normalizing automorphism は現れない。
+change of rings の随伴により
+\[
+ \mathbf R\underline{\operatorname{Hom}}_C(B,C)
+ \simeq \mathbf R\underline{\operatorname{Hom}}_D
+       (B,D(r)[-r])
+ \simeq B(r+3)[-r-3]
+\]
+となる。全ての右作用を保持したままの随伴であり、
+反転規約によって \eqref{eq:nfm-relative-ambient-cy} を得る。
+$D$ は $C$-perfect、$B$ は $D$-perfect なので $B$ は $C$-perfect でもある。
+
+最後に二次 Koszul 模型を指定する。
+$V=B_1$、$R_2=\ker(V^{\otimes2}\to B_2)$ とし、
+$W_i\subset V^{\otimes i}$ を全ての位置の $R_2$ の交わりで定める。
+各体値では、全次数を固定した有限の active 濾過の bar spectral sequence により、
+$\operatorname{gr}_{\mathrm{act}}B=S\otimes k[u]$ の Koszul 性が $B$ へ移る。
+Hilbert 級数は $(1-t)^{-N}$ なので
+$\dim W_i=\binom Ni$、$W_{N+1}=0$ である。
+$W_i$ を定める有限行列に対し、被約な有限型基底上の一定階数の判定を
+$2\leq i\leq N+1$ に適用する。
+これにより $W_i$ は有限射影で、その形成は任意係数変更と可換する。
+標準 Koszul 双加群複体の各全次数は有限射影複体で、全ファイバーで完全であるから、
+同じ局所分裂の議論で普遍的に完全である。
+片側で見れば $B$ の有界な射影解消なので分裂し、augmentation との tensor も完全となる。
+先に構成した双対同型をこの有限解消で表すと、各内部次数の cone は有界な
+flat 加群の完全複体であるから、任意係数変更後にも同型である。
+\end{proof}
+
+\subsection{中心三次商の全 twist と compact 対象}
+
+以下では可換環 $R$ 上の $B$ について、定理\ref{thm:nfm-relative-ambient-cy}の
+有限 Koszul 解消と双対同型が任意係数変更に両立して与えられているとする。
+また $w\in Z(B)_3$、$A=B/(w)$ について、全整数 $a$ の列
+\begin{equation}
+\label{eq:nfm-relative-central-split}
+ 0\longrightarrow B_{a-3}\xrightarrow{w}B_a\longrightarrow A_a\longrightarrow0
+\end{equation}
+が完全で、$A_a$ は有限射影 $R$-加群であると仮定する。
+従ってこの列は係数線型に分裂し、任意底変更後にも正則である。
+一ブロックの中心三次 $G+g$ では、PBW 最高記号の正則性と
+各次数の一定階数によりこの入力が得られる。
+
+\begin{theorem}[普遍的線コホモロジーと相対 properness]
+\label{thm:nfm-relative-line-cohomology}
+任意の可換 $R$-代数 $T$ と整数 $i,j$ に対し、$a=j-i$ と置くと
+\begin{equation}
+\label{eq:nfm-relative-line-cohomology}
+ \mathbf R\operatorname{Hom}_{\operatorname{QGr}A_T}
+   (\mathcal O(i),\mathcal O(j))\simeq
+ \begin{cases}
+  (A_T)_a[0],&a\geq0,\\
+  0,&-r<a<0,\\
+  (A_T)_{-a-r}^{\vee}[-n],&a\leq-r.
+ \end{cases}
+\end{equation}
+ここで双対は $T$ 上で取る。
+この同型は任意の係数変更と両立する。
+全ての $\mathcal O(i)$ は compact であり、
+$\bigoplus_{i=0}^{N-1}\mathcal O(i)$ は
+$D(\operatorname{QGr}A_T)$ の compact generator である。
+compact 対象間の RHom は $T$-perfect で、その形成は任意の導来係数変更と可換する。
+\end{theorem}
+
+\begin{proof}
+基底を $T$ に変更して $R=T$ と書く。
+$M_{<q}=B/B_{\geq q}$ は有限射影係数加群であり、
+$K_q=M_{<q}\otimes_BK_B$ は有限生成射影右 $B$-加群の長さ $N$ の解消である。
+従って
+\[
+ C_B(M)=\varinjlim_q\underline{\operatorname{Hom}}_B(K_q,M)
+\]
+は通常の derived torsion $\mathbf R\Gamma_B(M)$ を計算する。
+各項は exact な関手で filtered colimit と直和を保ち、横方向の長さが $N$ なので、
+非有界複体にも有限幅の全複体として適用できる。
+
+この模型が torsion 複体上で恒等となることも確認する。
+内部次数が上に有界な加群 $L$ では、各固定内部次数について
+$\underline{\operatorname{Hom}}_B(K_q,L)$ は $q\gg0$ で
+$\underline{\operatorname{Hom}}_B(K_B,L)$ に安定し、その cohomology は $L$ のみである。
+任意の torsion 加群は有限個の斉次元で生成される、内部次数が上に有界な
+部分加群の filtered colimit である。
+従って $\mathbf R\Gamma_B(L)=L$ となり、有界振幅による truncation 比較から
+同じ結論が torsion cohomology を持つ非有界複体にも成立する。
+torsion 部分圏の包含は完全で、その右随伴が $\Gamma_B$ である。
+上で計算した導来随伴の単位が torsion 複体上で同型となるので、
+$D(\operatorname{Tors}B)$ は $D(\operatorname{Gr}B)$ に完全忠実に埋め込まれ、
+その像は torsion cohomology を持つ複体全体である。
+また $\pi_B$ は完全なので、その右随伴 $\omega_B$ は K-injective 複体を保つ。
+$\pi_B\omega_B=\operatorname{id}$ から
+$\pi_B\mathbf R\omega_B=\operatorname{id}$ が従う。
+従って非有界導来 Gabriel 商は
+$D(\operatorname{Gr}B)/D_{\mathrm{tors}}(\operatorname{Gr}B)
+\simeq D(\operatorname{QGr}B)$ であり、局所化には三角
+\[
+ \mathbf R\Gamma_B(M)\longrightarrow M\longrightarrow
+ \mathbf R\omega_B\pi_BM\longrightarrow
+\]
+があり、$\mathbf R\omega_B$ は直和を保つ。
+従って全ての $\mathcal O_B(i)$ は compact generators となる。
+augmentation Koszul 解消を tails に送ると $N+1$ 個の twist の完全列を得る。
+その両端の係数が可逆なので、任意の連続する $N$ 個の twist が全 twist を thick に生成する。
+
+有限射影係数加群 $M$ に対し、項別の tensor--Hom 随伴は
+\[
+ \mathbf R\underline{\operatorname{Hom}}_B(M,B)
+ \simeq \Theta_{B/R}\otimes_B^{\mathbf L}M^\vee
+ \simeq M^\vee(N)[-N]
+\]
+を与える。追加の左作用も保持される。
+$M=M_{<q}$ として colimit を取ると、真正な双加群として
+\[
+ \mathbf R\Gamma_B(B)\simeq B^\vee(N)[-N]
+\]
+となる。
+局所化三角の内部次数 $a$ により、周囲の線コホモロジーは
+$B_a$ $(a\geq0)$、零 $(-N<a<0)$、
+$B_{-a-N}^{\vee}[-N+1]$ $(a\leq-N)$ である。
+
+中心商の導来圏を扱う前に、通常の derived torsion の比較
+\begin{equation}
+\label{eq:nfm-relative-torsion-comparison}
+ i_*\mathbf R\Gamma_A(M)\simeq\mathbf R\Gamma_B(i_*M)
+\end{equation}
+を確認する。
+$J$ を injective $A$-加群とする。induction と restriction の随伴により
+\[
+ \operatorname{Ext}^q_B(B/B_{\geq l},i_*J)
+ \simeq\operatorname{Hom}_A(\operatorname{Tor}^B_q(B/B_{\geq l},A),J)
+\]
+である。
+$q>1$ の Tor は零である。
+$q=1$ の kernel は、元の次数が $l-3,l-2,l-1$ の部分にのみ存在するので、
+$l'\geq l+3$ に対する遷移は零である。
+colimit を取ると $i_*J$ は $\Gamma_B$-acyclic となる。
+先の有限幅模型を injective 解消へ適用すれば、非有界複体にも比較が成立する。
+従って $\mathbf R\Gamma_A$ も有界振幅を持ち、直和を保ち、torsion 複体上では恒等である。
+$B$ の場合と同じ導来随伴の議論により、
+$D(\operatorname{Tors}A)\simeq D_{\mathrm{tors}}(\operatorname{Gr}A)$ である。
+また $\pi_A$ の完全性と $\pi_A\mathbf R\omega_A=\operatorname{id}$ から
+$D(\operatorname{Gr}A)/D_{\mathrm{tors}}(\operatorname{Gr}A)
+\simeq D(\operatorname{QGr}A)$ を得る。
+この局所化の fibre は $\mathbf R\Gamma_A$ なので、$\mathbf R\omega_A$ も直和を保つ。
+
+中心商への induction と restriction は、この tails の非有界導来圏に随伴
+$\mathbf Lj^*\dashv j_*$ を誘導する。
+restriction は exact、保守的、直和保存である。
+ここで $A$-torsion と忘却後の $B$-torsion は一致し、
+$-\otimes_B^{\mathbf L}A$ は $w:M(-3)\to M$ の cone なので torsion 複体を保つ。
+従ってこれらの随伴を導来 Gabriel 商へ降ろせる。
+また
+\[
+ j_*\mathcal O_A(a)=\operatorname{Cone}
+ \bigl(\mathcal O_B(a-3)\xrightarrow{w}\mathcal O_B(a)\bigr).
+\]
+周囲の線コホモロジーをこの cone に適用する。
+$a\geq0$ では \eqref{eq:nfm-relative-central-split} が $A_a$ を与え、
+$-r<a<0$ では両項が零である。
+$a\leq-r$ では高次 cohomology 上の写像が
+$B_{-a-r}^{\vee}\to B_{-a-N}^{\vee}$ となる。
+これは双加群としての自然性により $w$ の双対であり、全射で kernel は
+$A_{-a-r}^{\vee}$ である。
+cone の次数は $N-2=n$ なので \eqref{eq:nfm-relative-line-cohomology} を得る。
+
+$j_*$ が直和を保つので $\mathbf Lj^*\mathcal O_B(i)=\mathcal O_A(i)$ は compact である。
+$j_*$ の保守性から、周囲の compact generator の像も generator となる。
+compact 部分はその thick 閉包である\cite[Theorems~3.4, 3.8]{NFMKellerDg}。
+線対象間の RHom は表示式により係数 perfect で、全ての係数変更と両立する。
+両変数について有限 cone、shift、直和因子で閉じれば、全 compact 対象に結論が延びる。
+\end{proof}
+
+\subsection{両側局所双対から相対 Serre trace へ}
+
+以下の双対は内部次数を反転する係数双対
+$(M^\vee)_a=\mathbf R\operatorname{Hom}_R(M_{-a},R)$ である。
+双加群を双対化すると左右の作用も交換する。
+
+\begin{theorem}[中心三次商の普遍相対 Serre 双対]
+\label{thm:nfm-relative-serre}
+前定理の入力の下で、任意の可換 $R$-代数 $T$ に対し
+$D(\operatorname{QGr}A_T)^c$ の相対 Serre 自己同値は
+\[
+ \mathsf S=(-r)[n]=(1-n)[n]
+\]
+である。すなわち任意の compact $K,L$ について、両変数に自然な同型
+\[
+ \mathbf R\operatorname{Hom}_T
+   \bigl(\mathbf R\operatorname{Hom}(K,L),T\bigr)
+ \simeq\mathbf R\operatorname{Hom}(L,K(-r)[n])
+\]
+がある。この同型と合成 pairing・trace は任意の係数変更と両立する。
+\end{theorem}
+
+\begin{proof}
+$T=R$ と書く。前定理の証明で
+\eqref{eq:nfm-relative-torsion-comparison}と非有界 Gabriel 局所化を構成した。
+その $\mathbf R\Gamma_A$ は torsion cohomology の導来部分圏への右随伴である。
+
+中心正則元の二項解消と coinduction の随伴から、有限射影係数の $A$-加群 $M$ について
+\[
+ \mathbf R\underline{\operatorname{Hom}}_B(M,B)
+ \simeq\mathbf R\underline{\operatorname{Hom}}_A(M,A)(3)[-1].
+\]
+前定理で得た $B$ 上の双対を代入すると
+$\mathbf R\underline{\operatorname{Hom}}_A(M,A)
+ \simeq M^\vee(r)[-N+1]$ である。
+$M=A/A_{\geq l}$ のとき、最初は左 $B$ と右 $A$ の作用を保持して計算するが、
+唯一の cohomology 上の左 $B$-作用は全射 $B\to A$ を通る。
+従ってこれは真正な $A$-双加群の同型である。
+colimit と次数ごとの係数双対を取ることにより
+\begin{equation}
+\label{eq:nfm-relative-local-dual}
+ \Gamma:=\mathbf R\Gamma_A(A)\simeq A^\vee(r)[-N+1],\qquad
+ \Gamma^\vee\simeq A(-r)[N-1]
+\end{equation}
+を真正な双加群として得る。
+
+ここから trace へ進むため、導来局所化を双加群のレベルで記述する。
+$E=\pi A$ に左 $A$-作用を残した injective 解消 $E\to I$ を取り、
+\[
+ Q_a=\operatorname{Hom}^{\bullet}(I,I(a))
+\]
+とする。左作用付き対象の圏は、完全な monad
+$M\mapsto\bigoplus_{a\geq0}A_a\otimes_RM(-a)$ の加群圏である。
+その自由関手が完全なので、作用を忘れた $I(a)$ も K-injective である。
+合成により $Q=\bigoplus_aQ_a$ は内部次数付き dg 代数となり、
+左作用は strict な写像 $A\to Q$ を与える。
+線対象族の dg Morita 表示\cite[Theorem~3.8(c)]{NFMKellerDg}により
+\[
+ D(\operatorname{QGr}A)\simeq D(\operatorname{Gr}Q).
+\]
+この表示で $\mathbf R\omega$ は $A$ への restriction、$\pi$ は extension である。
+従って $Q\otimes_A^{\mathbf L}Q\simeq Q$ であり、
+基礎 $A$-双加群として $Q\simeq\mathbf R\omega\pi A$ となる。
+
+局所化三角 $\Gamma\to A\to Q\to$ を係数双対化する。
+両側局所化 $\mathcal L^e(M)=Q\otimes_A^{\mathbf L}M\otimes_A^{\mathbf L}Q$ は
+$Q$-双加群上では恒等である。
+実際、任意の $Q$-双加群 $M$ に対し、結合則と homological epimorphism の恒等式から
+\[
+ Q\otimes_A^{\mathbf L}M
+ \simeq(Q\otimes_A^{\mathbf L}Q)\otimes_Q^{\mathbf L}M
+ \simeq M
+\]
+となり、右側の tensor にも同じ計算を適用する。
+特に $Q^\vee$ は積を双対化した真正な $Q$-双加群なので
+$\mathcal L^e(Q^\vee)\simeq Q^\vee$ である。
+一方 $A^\vee$ は内部次数が非正に有界な torsion 加群なので
+$\mathcal L^e(A^\vee)=0$ である。
+従って \eqref{eq:nfm-relative-local-dual} を使うと、真正な $Q$-双加群の三角
+\[
+ Q^\vee\longrightarrow0\longrightarrow Q(-r)[N-1]
+ \longrightarrow Q^\vee[1]
+\]
+を得る。その境界写像から
+\[
+ Q^\vee\simeq Q(-r)[N-2]=Q(-r)[n]
+\]
+が従う。必要なら係数環上 K-flat な模型を取り、$Q^e$ を導来 tensor で定める。
+これにより高次 cohomology から来る両側作用も保持される。
+
+perfect な次数付き $Q$-加群 $K,L$ に対し、評価から来る標準の dg 双対性は
+\[
+ \mathbf R\operatorname{Hom}_R(\mathbf R\operatorname{Hom}_Q(K,L),R)
+ \simeq\mathbf R\operatorname{Hom}_Q
+       (L,K\otimes_Q^{\mathbf L}Q^\vee)
+\]
+である。有限自由 shift では双対の定義であり、両変数について thick に延びる。
+先の双加群同型を代入すれば主張を得る。
+trace は $L=K$ の双対同型と恒等射での評価によって定める。
+この構成は両側作用を保つ dg 写像から来るので、合成 pairing の両変数自然性も従う。
+
+最後に係数変更を確認する。
+前定理の有限射影模型は、線対象間の標準 Hom 比較が任意係数変更で同型であることを与える。
+導来係数延長は torsion 加群を torsion cohomology の複体へ送るので、
+dg 導来商へ降り、合成を保つ比較
+$Q_R\otimes_R^{\mathbf L}T\simeq Q_T$ を与える。
+局所化三角の fibre も、$B$ 上の有限幅の torsion 模型から標準写像ごと係数変更と可換する。
+各内部次数の $Q$ は係数 perfect なので係数双対も可換する。
+従って上の境界写像、評価、trace の全構成が任意の係数変更と両立する。
+\end{proof}
+
+\begin{remark}[供給された入力と残るモジュライ上の問題]
+良い相対 PBW 表示チャートと中心三次の正則性の下で、
+各次数の有限射影性、全 twist の compact 性、compact 部分の相対 properness、
+真正な相対 Serre 双対、および compact Hom の任意底変更は、本節で供給された。
+CY の規格化に用いた座標の順序は双対の構成のためのもので、
+Abel 圏の対象に新しい標識を追加したものではない。
+一方、一般の Abel 圏族の定義と係数作用、全同値の fpqc 降下、
+表示チャートから大域モジュライへの効果的な降下は別の問題として残る。
+本節は tails の dg smoothness、全 Abel モジュライの代数性、
+あるいは大域残余射の存在を結論しない。
+\end{remark}

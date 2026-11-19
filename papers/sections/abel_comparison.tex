@@ -1,0 +1,211 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{構造対象だけを保つ Abel 同値への条件付き移行}
+\label{sec:nfm-abel-conditional}
+
+\begin{lemma}[中心正則対による全次数の切断飽和性]
+\label{lem:nfm-central-saturation}
+$R$ を可換環、$A=\bigoplus_{j\geq0}A_j$ を
+$A_0=R$ を満たす次数一生成の $R$-代数とし、$A_1$ は有限生成とする。
+階数 $s\geq2$ の有限局所自由 $R$-加群 $U$ と中心的な次数付き写像
+\[
+ C=\operatorname{Sym}_R U\longrightarrow A
+\]
+があり、$A$ は $C$-加群として平坦であると仮定する。
+$\operatorname{QGr}A$ は、次数付き右 $A$-加群の圏を
+\[
+ \operatorname{Tors}A
+ =\{M\mid \text{各斉次元 }m\in M\text{ は、ある }q
+       \text{ について }mA_{\geq q}=0\}
+\]
+で割った Gabriel 商とし、$\mathcal O_A=\pi A$ と置く。
+このとき全整数 $j$ について、左乗法による標準写像
+\begin{equation}
+\label{eq:nfm-central-saturation}
+ A_j\xrightarrow{\ \sim\ }
+ \operatorname{Hom}_{\operatorname{QGr}A}
+     (\mathcal O_A,\mathcal O_A(j))
+\end{equation}
+は同型である。ここで $j<0$ なら $A_j=0$ とする。
+特に $\operatorname{End}(\mathcal O_A)=R$ である。
+結論は任意の可換 $R$-代数への係数変更後にも成立し、
+標準写像は係数変更と両立する。
+\end{lemma}
+
+\begin{proof}
+$A_1$ の有限生成性と次数一生成性により各 $A_q$ は有限生成である。
+従って $\operatorname{Tors}A$ は部分対象・商・拡大・任意直和に閉じた
+localizing 部分圏であり、表示した Gabriel 商が存在する。
+拡大に閉じることは、$mA_{\geq q}$ が torsion 部分に入ったとき、
+有限生成な $A_q$ の像の有限個の生成元を同時に消す上界を取り、
+次数一生成性を用いれば従う。
+
+まず、$A(j)$ に非零 torsion 部分加群は存在しない。
+これは $U$ を局所自明化し、その基底元 $u$ を一つ取れば分かる。
+$u$ は $C$ 上非零因子であり、$C$-平坦性によって $A$ 上も非零因子となる。
+torsion 元はある $u$ の冪で零になるので、元自身が零である。
+この消滅は基底の局所被覆から従う。
+
+Gabriel 商の射の表示
+\cite[Chapitre~III, \S1, p.~365]{NFMGabrielQuotient} では、
+射は $A/I$ が torsion である斉次右イデアル $I\subset A$ と
+標的の torsion 部分対象についての filtered colimit で与えられる。
+今は標的 $A(j)$ の torsion 部分は零である。
+また $A/I$ は $1$ の像で生成されるので、これが torsion なら
+$A_{\geq m}\subset I$ となる $m\geq1$ が存在する。
+従って
+\begin{equation}
+\label{eq:nfm-gabriel-colimit}
+ \operatorname{Hom}_{\operatorname{QGr}A}
+       (\mathcal O_A,\mathcal O_A(j))
+ \simeq\varinjlim_{m\geq1}
+       \operatorname{Hom}_{\operatorname{Gr}A}
+       (A_{\geq m},A(j)).
+\end{equation}
+この議論には $R$ や $A$ の noetherian 性を必要としない。
+
+右辺の射を、次数零の右 $A$-線型写像
+$f:A_{\geq m}\to A(j)$ で表す。
+$U$ が自由な基底開上で、二つの異なる基底元を $u,v$ とする。
+多項式環の二変数 \v{C}ech 列を $C$-平坦な $A$ と tensor すれば
+\[
+ A=A[u^{-1}]\cap A[v^{-1}]
+       \quad\text{in } A[(uv)^{-1}]
+\]
+を得る。各局所化への写像は単射である。
+$\alpha=f(u^m)$、$\beta=f(v^m)$ と置くと、中心性と右線型性から
+\[
+ \alpha v^m=f(u^mv^m)=f(v^mu^m)=\beta u^m.
+\]
+よって
+\[
+ a=\alpha u^{-m}=\beta v^{-m}
+ \in A[u^{-1}]\cap A[v^{-1}]=A.
+\]
+$f$ の次数から $a\in A_j$ である。
+任意の斉次元 $b\in A_{\geq m}$ に対して
+\[
+ f(b)u^m=f(bu^m)=f(u^mb)=\alpha b=a u^m b=a b u^m
+\]
+となり、$u$ の非零因子性から $f(b)=ab$ となる。
+従って $f$ は左乗法による写像 $A\to A(j)$ に一意に延長する。
+一意性は、延長の差が $u^m$ を零に送れば差の係数も零になることによる。
+局所自明化上で得られる元 $a$ はこの一意性により重なりで一致し、
+$R$-加群 $A_j$ の切断として貼り合わさる。
+ここでは一般の Hom に局所化が可換することを仮定していない。
+既に与えた $f$ を局所化し、回復した係数 $a$ を貼り合わせている。
+以上を \eqref{eq:nfm-gabriel-colimit} に適用すれば
+\eqref{eq:nfm-central-saturation} が従う。
+
+最後に、任意の $R\to R_1$ に対して
+$C_{R_1}=\operatorname{Sym}_{R_1}U_{R_1}$ であり、
+$A_{R_1}\simeq A\otimes_C C_{R_1}$ は $C_{R_1}$ 上平坦である。
+次数一の有限生成性と非負次数性も保たれる。
+従って同じ証明を $R_1$ 上で繰り返せる。
+同型は左乗法という標準写像から作ったものであるから、
+係数変更の比較もこの写像の可換図式によって与えられる。
+\end{proof}
+
+
+\begin{lemma}[一般 Veronese の Gabriel 復元]
+\label{lem:nfm-gabriel}
+$A$ は可換環 $R$ 上の非負次数付き、次数一生成代数で、
+$A_1$ は有限生成とする。任意の $d\geq1$ に対して
+\[
+ \operatorname{QGr}A\simeq\operatorname{QGr}A^{(d)}
+\]
+である。全整数 $i$ を用いた切断関手
+\[
+ N\longmapsto\bigoplus_{i\in\mathbf Z}
+ \operatorname{Hom}(\mathcal O_A(-di),N)
+\]
+はこの同値の下で Gabriel 右随伴に一致し、完全忠実である。
+\end{lemma}
+\begin{proof}
+$Q=A^{(d)}$、$F(M)=M^{(d)}$ とし、
+$G(N)=N^{\mathrm{rescale}}\otimes_{Q^{\mathrm{rescale}}}A$ とする。
+rescale は次数を $d$ 倍する操作である。
+$FG=1$ であり、counit $GFM\to M$ の核と余核は
+$d$ の倍数の次数で零となる。
+次数一生成性から、その斉次元は高々 $d-1$ 個の生成元を掛ければ
+$d$ の倍数の次数へ達して零になるので、これらは tails-torsion である。
+
+$F$ が torsion を反映することも同様である。
+斉次元 $m$ に次数を $d$ の倍数へ合わせる長さ $<d$ の生成語を掛け、
+有限個の生成語の像を同時に消す次数上界を取ればよい。
+よって $F,G$ は torsion 同値を保ち、商上で互いに逆となる。
+$F(\mathcal O_A(-di))=\mathcal O_Q(-i)$ であるから、
+表示した切断関手は $\operatorname{Gr}Q\to\operatorname{QGr}Q$ の Gabriel 右随伴である。
+その完全忠実性が最後の主張を与える。
+\end{proof}
+
+\begin{theorem}[相対全 $\mathcal O$-保存同値の比較]
+\label{thm:nfm-full-hom-conditional}
+$R$ を可換 $\mathbf C$-代数、$n\geq3$, $d=n-1$ とする。
+$A,A'$ は定理\ref{thm:nfm-central-veronese}の普遍中心条件と平坦性を満たすとする。
+さらに任意の可換係数変更後に次の入力を仮定する。
+\begin{enumerate}
+\item 各 $A_j,A'_j$ は有限局所自由である。
+中心平坦性と補題\ref{lem:nfm-central-saturation}により、
+全整数 $j$ で標準切断写像は同型となり、負次数の Hom は零である。
+特に $\operatorname{End}(\mathcal O_A)=R$ であり、
+$C_d\subset A_d$ と $A'_d$ の対応する単射により $A_d,A'_d$ は忠実である。
+\item 全ての $\mathcal O_A(i)$ は $D(\operatorname{QGr}A)$ で compact であり、
+compact 部分は係数環上 proper な相対 Serre 双対を持ち、
+その Serre 関手は $(-d)[n]$ に同型である。$A'$ も同様である。
+\item 係数作用の延長、固定模型間の Hom の fpqc 降下、
+標準の Gabriel 局所化が与えられた族の係数変更と両立する。
+\end{enumerate}
+このとき自然な fpqc 層の同型
+\[
+ \underline{\operatorname{Isom}}_{\mathrm{gr},R}(A,A')/\mathbf G_m
+ \simeq
+ \underline{\operatorname{Eq}}_{\mathcal O,R}
+ (\operatorname{QGr}A,\operatorname{QGr}A')
+\]
+がある。右辺は構造対象を保つ全ての完全線型同値を自然同型で割った層である。
+構造対象上で恒等である自然自己同型は自明である。
+\end{theorem}
+
+\begin{proof}
+完全線型同値 $F$ は複体に項別に作用し、非有界導来圏と compact 部分を同定する。
+相対 Hom と係数双対を保つので、表現対象の一意性から Serre 関手と可換する。
+$H=\mathsf S^{-1}[n]=(d)$ とすると、$F(\mathcal O_A)=\mathcal O_{A'}$ と
+一つの可換同型 $FH\simeq H'F$ の正負の反復によって、
+全ての $\mathcal O_A(di)$ とその間の Hom・合成が対応する。
+補題\ref{lem:nfm-central-saturation}の切断飽和性により、次数付き同型
+$\phi:A^{(d)}\simeq(A')^{(d)}$ を得る。
+一つの可換同型を一貫して反復しているので、
+この同型は orbit 列全体の section $\mathbf Z$-代数の作用を記述する。
+
+補題\ref{lem:nfm-gabriel}により、その全 section 代数上の作用は
+元の関手 $F$ を自然同型まで決定する。
+定理\ref{thm:nfm-central-veronese}で $\phi$ を fpqc 局所的に
+$A\simeq A'$ へ持ち上げれば、その構造移送と $F$ は自然同型となる。
+これで層としての全射性を得る。
+
+構造移送が標識付き恒等関手となる次数付き自己同型を考える。
+各 $\mathcal O_A(di)$ 上の自然同型の成分は基底の単元であり、
+隣接 Hom $A_d$ の忠実性と合成の整合性から、その Veronese 上の作用は
+新次数 $j$ に $a^j$ を掛ける一つの次数スカラーとなる。
+fpqc 局所で $a$ の $d$ 乗根を取り、それを元の次数スカラーで除くと、
+残る作用は定理\ref{thm:nfm-central-veronese}の $\mu_d$ に属する。
+これも元の次数スカラーなので、核はちょうど $\mathbf G_m$ である。
+
+自然自己同型の各 orbit 線上の成分も、隣接 Hom の忠実性から全て等しい。
+$\mathcal O_A$ 上で恒等なら全て一であり、Gabriel 切断の完全忠実性から
+関手全体で恒等である。最後に仮定した Hom 降下と係数変更の整合性により、
+局所的に構成した比較は元の基底へ降下する。
+\end{proof}
+
+\begin{remark}[証明の状態と適用の境界]
+定理\ref{thm:nfm-relative-ambient-cy}、\ref{thm:nfm-relative-line-cohomology}、
+\ref{thm:nfm-relative-serre}により、良い相対 PBW 表示チャートでは、
+有限 Koszul 対角、真正な相対双加群双対、compact 性、相対 properness、
+Serre trace とその非平坦係数変更が供給される。
+残る入力は、一般の Abel 圏族の係数作用、全同値の fpqc 降下、
+およびそれらと表示模型の係数変更との整合性である。
+これらを備えたモジュライ問題に対して、$\mathfrak C_n$ は
+全 $\mathcal O$-保存 Abel 問題の全部分 stack へ移る。
+この条件付き結論から全 Abel モジュライの代数性・成分性や
+Kuznetsov 残余射の幾何化を推論しない。
+\end{remark}

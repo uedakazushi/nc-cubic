@@ -120,6 +120,76 @@ Pl\"ucker環の標準単項式基底を用いる
 である。従って$q_N=5\binom N5+5\binom N6=5\binom{N+1}{6}$を得る。
 \end{proof}
 
+\begin{lemma}[Jacobi 二次式の普遍的な一次従属]
+\label{lem:nfold-universal-row-relations}
+$N\ge5$とし、$T\in\operatorname{Sym}^3W^*$を任意の対称三次テンソルとする。
+式\eqref{eq:nfold-jacobi-quadrics}の係数写像を
+\[
+ \Phi_T:W\otimes\Lambda^4W^*\longrightarrow (J_N)_2,
+ \qquad e_r\otimes\alpha\longmapsto B_{H_r}(P)(\alpha)
+\]
+と書く。ただし$\alpha$に関する評価は線形に延長する。
+座標に依存しない分裂単射
+\[
+ \iota:\Lambda^3W^*\longrightarrow W\otimes\Lambda^4W^*,
+ \qquad\beta\longmapsto\sum_{r=1}^N e_r\otimes(dz_r\wedge\beta)
+\]
+について$\Phi_T\iota=0$であり、従って
+\[
+ \dim(I_F)_2\le N\binom N4-\binom N3.
+\]
+さらに、全ての対称三次テンソルを同時に考えた共通核は
+\[
+ \bigcap_{T\in\operatorname{Sym}^3W^*}\ker\Phi_T=\operatorname{im}\iota
+\]
+に等しい。この共通核の等式だけから、固定した一般の$T$で核が
+$\operatorname{im}\iota$に等しいとは結論しない。
+\end{lemma}
+\begin{proof}
+任意の$a<b<c$について、Jacobi二次式の間に
+\[
+ \sum_{r=1}^N B_{H_r}(P)(dz_r,dz_a,dz_b,dz_c)=0
+\]
+がある。実際、左辺を展開すると
+\[
+ \sum_{r,i,j}T_{ijr}
+ \bigl(p_{rai}p_{bcj}+p_{abi}p_{rcj}+p_{bri}p_{acj}\bigr)
+\]
+である。第一項・第三項では$(r,i)$、第二項では$(r,j)$を交換すると、
+$T$は不変で該当する$p$は符号を変えるので、各和は零である。
+これが$\Phi_T\iota=0$を示す。
+縮約写像
+\[
+ \kappa:W\otimes\Lambda^4W^*\longrightarrow\Lambda^3W^*,
+ \qquad e_r\otimes\alpha\longmapsto\iota_{e_r}\alpha
+\]
+に対し$\kappa\iota=(N-3)\operatorname{id}$だから、
+$\iota$は分裂単射であり、$\binom N3$個の独立な従属関係を得る。
+
+共通核を調べる。$u=\sum e_r\otimes\alpha_r$をその元とし、
+任意の$\ell\in W^*$に対して$T=\ell^3$を代入する。
+$H_r=\ell(e_r)\ell^2$であるから、
+$\alpha(\ell):=\sum\ell(e_r)\alpha_r$は
+全ての$P$に対して$B_{\ell^2}(P)$を消す。
+$\ell\ne0$なら$\iota_\ell P$は$\Lambda^2\ker\ell$の任意の元を走り、
+$B_{\ell^2}(P)$はその外積二乗の非零定数倍である。
+二重ベクトルの外積二乗は$\Lambda^4\ker\ell$を張るので、
+$\alpha(\ell)$の$\ker\ell$への制限は零、すなわち
+$\ell\wedge\alpha(\ell)=0$である。
+
+最後の条件から$\alpha(\ell)=\ell\wedge\beta$となる
+一定の$\beta\in\Lambda^3W^*$が存在することを座標で確認する。
+$\ell=dz_i$を代入すると$\alpha_i=dz_i\wedge\beta_i$と書ける。
+$\ell=dz_i+dz_j$を代入すると
+$dz_i\wedge dz_j\wedge(\beta_j-\beta_i)=0$である。
+任意の三元添字集合$K$について、$i\notin K$の場合の
+$\beta_i$の$dz_K$係数は$i$によらない。この共通係数を$\beta$の
+$dz_K$係数とすれば、全ての$i$について
+$\alpha_i=dz_i\wedge\beta$を得る。
+従って$u=\iota(\beta)$である。
+\end{proof}
+
+
 \subsection{一般三次における被約化と未被約構造}
 ここで既存稿\cite[系\texttt{cor:pg-generic}]{NCCubicA}を明示的な入力とする：
 一般の滑らかな三次式$F$について、全ての非零Poisson構造は一般階数二であり、
@@ -140,25 +210,25 @@ $n\ge8$、すなわち$N\ge10$とする。
 $\operatorname{Pois}(X_F)$は非被約であり、その被約化は$\widehat G_N$である。
 冪零根基の次数二部分は少なくとも
 \begin{equation}\label{eq:nfold-nilpotent-lower-bound}
- \delta_N:=5\binom{N+1}{6}-N\binom N4
- =\frac{N(N-1)(N-2)(N-3)(N^2-9N-4)}{144}>0
+ \epsilon_N:=5\binom{N+1}{6}-N\binom N4+\binom N3
+ =\frac{(N+1)N(N-1)(N-2)(N-4)(N-9)}{144}>0
 \end{equation}
 次元を持つ。
-特に$n=8$では$\delta_{10}=210$である。
+特に$n=8$では$\epsilon_{10}=330$である。
 \end{theorem}
 \begin{proof}
-補題\ref{lem:nfold-jacobi-scheme}と\ref{lem:nfold-plucker-count}から
+補題\ref{lem:nfold-universal-row-relations}と\ref{lem:nfold-plucker-count}から
 \[
- \dim (J_N)_2-\dim (I_F)_2\ge\delta_N>0
+ \dim (J_N)_2-\dim (I_F)_2\ge\epsilon_N>0
 \]
 となり、$I_F\subsetneq J_N$である。
 \eqref{eq:nfold-reduced-cone}の下では$J_N/I_F$が冪零根基であり、
-その二次部分は少なくとも$\delta_N$次元である。
+その二次部分は少なくとも$\epsilon_N$次元である。
 
 頂点の極大イデアルを$\mathfrak m$とする。
 $I_F$も$J_N$も二次斉次式で生成され、一次部分は零なので、
 対応する局所環の$\mathfrak m/\mathfrak m^2$はともに次元$\binom N3$であるが、
-$\mathfrak m^2/\mathfrak m^3$の次元には少なくとも$\delta_N$の差がある。
+$\mathfrak m^2/\mathfrak m^3$の次元には少なくとも$\epsilon_N$の差がある。
 この数は局所環の抽象同型および完備化で不変だから、完備局所環は同型でない。
 冪零根基の次数二の元が局所化で消えないことも、定数項が非零の多項式を掛けて
 $I_F$に入るなら、その二次成分を比較して元の二次式が$I_F$に入ることから分かる。
@@ -174,26 +244,40 @@ Grassmann錐をなすことと両立する。
 Grassmann錐の完備化に置き換えることはできない。
 \end{remark}
 
-\subsection{七次元以下の一般三次に対する計算補助定理}
-\begin{theorem}[一般三次のJacobiイデアルがPl\"uckerイデアルとなる範囲]
+\subsection{有限次元の最大階数を与える計算証明書}
+\begin{theorem}[八次元以下の一般Jacobi行列の階数]
 \label{thm:nfold-low-dimensional-generic}
-$3\le n\le7$、すなわち$5\le N\le9$とする。
+$3\le n\le8$、すなわち$5\le N\le10$とする。
 滑らかな三次式のパラメータ空間には非空Zariski開集合が存在し、
-その上で$I_F=J_N$が成り立つ。
-従って一般の$X_F$のPoissonスキームは、被約化を取る前から
+その上で
+\[
+ \dim(I_F)_2=min\left\{5\binom{N+1}{6},\,
+                  N\binom N4-\binom N3\right\}
+\]
+が成り立つ。従って$3\le n\le7$の一般の$X_F$のPoissonスキームは、被約化を取る前から
 $\operatorname{Gr}(3,N)$のアフィン錐である。
-局所的に三次式の代表を選んだ相対Poissonスキームも、この開集合上で
-Grassmann錐との積になる。
+この範囲では、局所的に三次式の代表を選んだ相対Poissonスキームも
+この開集合上でGrassmann錐との積になる。
+$n=8$では一般に$\dim(I_F)_2=1980$、
+$\dim(J_{10}/I_F)_2=330$である。
+また$N=9,10$では一般の$F$について
+$\ker\Phi_{T_F}=\operatorname{im}\iota$である。
 $n=3$で全ての滑らかな三次に対する等式は既知であり
 \cite[Theorem~1, \S2.2]{Mayanskiy}、ここで新たに用いるのは$n=4,5,6,7$の
-有限行列による一般点の判定である。
+一般点のイデアル一致と$n=8$の不足次元の厳密な判定である。
 \end{theorem}
 \begin{proof}
 補題\ref{lem:nfold-jacobi-scheme}から$(I_F)_2\subset(J_N)_2$である。
-従ってJacobi二次式の係数行列が階数$q_N$を持つ三次テンソルが一つあれば十分である。
+補題\ref{lem:nfold-universal-row-relations}も合わせると、
+表示した最小値が階数の上界である。
+従ってJacobi二次式の係数行列がこの上界を達成する三次テンソルが一つあれば十分である。
 この階数条件は三次式の係数に関する非空Zariski開条件であり、
 滑らかな三次式の非空開集合と交わる。
-Pl\"uckerイデアルは二次式で生成されるので、二次部分の一致からイデアル全体の一致が従う。
+$N\le9$ではPl\"uckerイデアルが二次式で生成されることから、
+二次部分の一致はイデアル全体の一致を与える。
+$N=10$では$\dim(J_{10})_2=2310$から$1980$を引いて$330$を得る。
+$N=9,10$の核の主張は、その次元が$\binom N3$に等しいことと
+普遍的な分裂単射$\iota$から従う。
 
 再現コード\path{computations/verify_jacobi_rank.py}と
 証明書\path{computations/jacobi_rank_certificate.json}は、各$N$に対して
@@ -210,27 +294,331 @@ $F_T=\frac16\sum_{i,j,r}T_{ijr}z_i z_j z_r$であり、Hessianの$z_r$係数は$
 証明書は小行列の行番号・列番号と、法$32003$での非零行列式を含む：
 \begin{center}
 \begin{tabular}{c|r|r|r}
-$N$ & Jacobi二次式の本数 & 小行列の次数$q_N$ & 行列式$\bmod 32003$\\
+$N$ & Jacobi二次式の本数 & 小行列の次数 & 行列式$\bmod 32003$\\
 \hline
 5 & 25 & 5 & 15512\\
 6 & 90 & 35 & 14374\\
 7 & 245 & 140 & 7973\\
 8 & 560 & 420 & 508\\
-9 & 1134 & 1050 & 13073
+9 & 1134 & 1050 & 13073\\
+10 & 2100 & 1980 & 16095
 \end{tabular}
 \end{center}
 法素数で非零の整数行列式は特性零でも非零である。
 ここでは有限体での零を特性零の恒等式と見なす推論を使っていない。
 証明書の生成と、指定された小行列の行列式の再計算は別の手順で実行する。
 
-最後に、ある小行列式が可逆な係数開集合では、
+最後に$N\le9$で、ある小行列式が可逆な係数開集合では、
 Jacobi二次式から$(J_N)_2$の固定基底を係数環上で解き出せる。
 従って相対イデアルも$J_N$の係数拡大に等しく、相対積表示を得る。
 \end{proof}
 
+\subsection{非零分解可能点の接空間と頂点に集中する冪零構造}
+
+非被約性が非零のPoisson構造の近傍にも残るかどうかは、二次方程式の
+総数だけからは分からない。以下では滑らかな三次に対する接空間を計算し、
+被約化がGrassmann錐となる場合には、余分なスキーム構造が頂点だけに
+支持されることを示す。
+
+$T_F\in\operatorname{Sym}^3W^*$を三階微分テンソル
+$T_F(v,w,u)=\partial_v\partial_w\partial_uF$とする。
+非零分解可能な$P\in\Lambda^3W$の三次元supportを$A$と書き、
+\begin{equation}\label{eq:nfold-transverse-kernel}
+ K_{F,A}:=\{w\in W\mid T_F(a,w,u)=0
+                 \text{ for all }a\in A,\ u\in W\}
+\end{equation}
+と置く。これは$W\to A^*\otimes W^*$、
+$w\mapsto T_F(-,w,-)|_{A\times W}$の核であり、$P$の尺度に依存しない。
+
+\begin{theorem}[非零分解可能点の法方向]\label{thm:nfold-normal-tangent}
+$F$が滑らかな三次超曲面を定めるとする。任意の非零分解可能な$P$について
+$A\cap K_{F,A}=0$であり、自然な同型
+\begin{equation}\label{eq:nfold-normal-tangent}
+ \frac{T_P\operatorname{Pois}(X_F)}{T_P\widehat G_N}
+       \simeq\Lambda^3K_{F,A}
+\end{equation}
+が成り立つ。右辺から左辺への写像は
+$\Lambda^3K_{F,A}\subset\Lambda^3W$を接ベクトルとみなすことによる。
+従って
+\[
+ \dim T_P\operatorname{Pois}(X_F)
+ =3(N-3)+1+\binom{\dim K_{F,A}}3.
+\]
+さらに、$P$のあるZariski近傍で$I_F=J_N$となることと
+$\dim K_{F,A}\le2$は同値である。
+\end{theorem}
+\begin{proof}
+$0\ne w\in A\cap K_{F,A}$なら$T_F(w,w,u)=0$が全ての$u\in W$について
+成り立つ。三次式の同次性から$dF(w)(u)=T_F(w,w,u)/2$であるので、
+$[w]\in\mathbb P(W)$は$X_F$の特異点となる。これは滑らかさに反する。
+従って$K:=K_{F,A}$を含む補空間$B$を選んで$W=A\oplus B$とできる。
+$P=e_1\wedge e_2\wedge e_3$となる$A$の基底を選ぶ。
+
+Grassmann錐の$P$での接空間は
+$\Lambda^3A\oplus(\Lambda^2A\otimes B)$である。
+$I_F\subset J_N$だから、この接空間は全てのJacobi方程式の微分で消える。
+従って法方向の代表は一意に
+\[
+ Q=\sum_{a=1}^3e_a\wedge\beta_a+\gamma,
+ \qquad\beta_a\in\Lambda^2B,\quad\gamma\in\Lambda^3B
+\]
+と書ける。$B$の基底を$e_4,\ldots,e_N$とし、$b<c$を$B$の添字とする。
+$\{a,a',a''\}=\{1,2,3\}$について、Jacobi二次式の
+$(a',a'',b,c)$成分を$P$で微分すると、非零の符号を除いて
+\begin{equation}\label{eq:nfold-normal-equations}
+ T_F(e_a,q_{bc},e_r)=0\quad(1\le r\le N),\qquad
+ q_{bc}:=\sum_{j=1}^3\beta_j^{bc}e_j
+             +\sum_{j=4}^N\gamma^{bcj}e_j
+\end{equation}
+を得る。実際、\eqref{eq:nfold-certificate-matrix}の積のうち、
+$P$の成分が非零となるのは二つの$A$添字を持つ因子だけである。
+従って\eqref{eq:nfold-normal-equations}は$q_{bc}\in K$を意味する。
+$K\subset B$なので、まず全ての$\beta_j^{bc}$が零となる。
+残る条件は$\gamma$の全ての二重縮約が$K$に属することであり、
+これは$\gamma\in\Lambda^3K$と同値である。
+最後の同値は$B=K\oplus B'$に沿う外積の分解で、$B'$を含む成分を
+二重縮約すれば$B'$方向のベクトルが得られることから従う。
+
+逆に$Q=\gamma\in\Lambda^3K$なら、上の$(2A,2B)$成分の微分は零である。
+残りの可能な$(3A,1B)$成分の微分は
+$\sum_{a=1}^3\sum_{j\in B}T_F(e_a,e_j,e_r)\beta_a^{bj}$であり、
+$\beta=0$なので零である。$A$添字が一つ以下の成分の微分は、
+$P$の非零成分を含めないので初めから零である。
+これで\eqref{eq:nfold-normal-tangent}を得る。
+$\Lambda^3K$の接空間商への写像は補空間$B$を選ばずに定まるので、
+同型は自然である。
+
+$\dim K\le2$なら、Jacobi零スキームとGrassmann錐の接空間は一致する。
+$P\ne0$ではGrassmann錐は滑らかである。
+周囲の正則局所環を$\mathcal R$、その極大イデアルを$\mathfrak m$とし、
+$I=I_F\mathcal R\subset J=J_N\mathcal R$と置く。
+滑らかな埋込みなので$J/\mathfrak mJ\to\mathfrak m/\mathfrak m^2$は単射である。
+接空間の一致から$I$の像が$J/\mathfrak mJ$を生成し、
+$J=I+\mathfrak mJ$を得る。有限生成加群$J/I$にNakayamaの補題を適用して
+$J=I$となる。有限生成性により、この等式は$P$のあるZariski近傍で成り立つ。
+逆に局所イデアルが等しければ接空間も等しいため、
+$\Lambda^3K=0$、すなわち$\dim K\le2$である。
+\end{proof}
+
+\begin{lemma}[非零層の横断性を与える係数開集合]
+\label{lem:nfold-generic-transverse}
+$N\ge6$とする。
+滑らかな三次式のうち、ある三次元部分空間$A\subset W$に対して
+$\dim K_{F,A}\ge3$となるものは、三次式の係数空間内で
+余次元少なくとも$3N$の閉部分集合の中に含まれる。
+従って、滑らかな三次式の非空Zariski開集合上では、
+全ての非零分解可能な$P$の近傍で$I_F=J_N$となる。
+この局所的な結論には、一般三次の被約Poisson分類を用いない。
+$N=5$では同じ局所的な結論が全ての滑らかな三次に対して成り立つ。
+\end{lemma}
+\begin{proof}
+$N\ge6$とする。交わらない三次元部分空間の対$(A,L)$の空間は
+$\operatorname{Gr}(3,W)^2$の開部分であり、次元は$6(N-3)$である。
+一つの対を固定して$W=A\oplus L\oplus C$と分解する。
+条件$T_F(A,L,W)=0$は、$F$の単項式のうち、
+$A$と$L$の座標を少なくとも一つずつ含むものの係数が零であることを意味する。
+これらは型$(2A,1L)$、$(1A,2L)$、$(1A,1L,1C)$に分かれ、
+独立な線形条件の数は
+\[
+ \binom42\,3+3\binom42+3\cdot3\,(N-6)=9N-18
+\]
+である。従って、この条件を満たす$(F,A,L)$のincidenceの次元は
+\[
+ \dim\operatorname{Sym}^3W^*-(9N-18)+(6N-18)
+ =\dim\operatorname{Sym}^3W^*-3N
+\]
+である。その係数空間への像の閉包の余次元も少なくとも$3N$となる。
+
+$F$が滑らかで$\dim K_{F,A}\ge3$なら、
+$K_{F,A}$内に三次元部分空間$L$を選べる。
+定理\ref{thm:nfold-normal-tangent}により$A\cap L=0$であり、
+$T_F(A,L,W)=0$だから、$F$は上のincidenceの像に属する。
+像の閉包の補集合を滑らかな三次式の開集合と交わらせれば、
+求める非空開集合を得る。そこでの局所イデアルの一致は
+定理\ref{thm:nfold-normal-tangent}による。
+$N=5$では$A\cap K_{F,A}=0$だけで$\dim K_{F,A}\le2$となる。
+\end{proof}
+
+\begin{remark}
+このincidenceの議論は、Grassmann錐上の全非零点での局所構造を制御する。
+Grassmann錐から離れたPoisson構造の不在は、この議論だけからは結論しない。
+次の系では、その点に既存の被約分類を用いる。
+\end{remark}
+
+\begin{corollary}[冪零構造の支持]\label{cor:nfold-vertex-support}
+$F$は滑らかで、さらに$\sqrt{I_F}=J_N$と仮定する。
+このとき全ての非零分解可能な$P$について$\dim K_{F,A}\le2$である。
+従って
+\begin{equation}\label{eq:nfold-punctured-equality}
+ \operatorname{Pois}(X_F)\setminus\{0\}
+       =\widehat G_N\setminus\{0\}
+\end{equation}
+はスキームとしての等式であり、
+\begin{equation}\label{eq:nfold-projective-equality}
+ \operatorname{Proj}(R_N/I_F)\simeq\operatorname{Gr}(3,W).
+\end{equation}
+冪零根基$\mathcal N_F=J_N/I_F$は有限長加群である。
+特に、ある整数$s$について
+\begin{equation}\label{eq:nfold-nilradical-annihilator}
+ \mathfrak m_0^s\mathcal N_F=0,
+ \qquad \mathfrak m_0=(p_{ijk})\subset R_N
+\end{equation}
+となり、$I_F$の斉次極大イデアルに関する飽和は$J_N$に等しい。
+これらの結論は全ての$n\ge3$の一般の滑らかな三次に適用できる。
+$n\ge8$では定理\ref{thm:nfold-high-dimensional-nilpotents}により
+$\mathcal N_F\ne0$なので、その支持は正確に頂点である。
+\end{corollary}
+\begin{proof}
+ある$P$について$\dim K_{F,A}\ge3$と仮定し、
+$K_{F,A}$内の三次元部分空間をsupportとする非零分解可能な
+$Q\in\Lambda^3K_{F,A}$を選ぶ。
+$P$と$Q$はそれぞれ全てのJacobi二次式を満たす。
+その混合項は全て$T_F(A,K_{F,A},W)=0$により零となるので、
+$P+tQ$も任意の$t\in\mathbb C$についてJacobi方程式を満たす。
+$A\cap K_{F,A}=0$であり、$t\ne0$なら$P+tQ$のsupportは六次元である。
+従って$P+tQ$は分解可能でなく、$\sqrt{I_F}=J_N$に反する。
+
+定理\ref{thm:nfold-normal-tangent}により、$\widehat G_N$の全ての
+非零点の近傍で$I_F=J_N$となる。
+被約化の仮定により他の点は存在しないので、
+\eqref{eq:nfold-punctured-equality}と\eqref{eq:nfold-projective-equality}を得る。
+$\mathcal N_F$は有限生成加群で支持が頂点に含まれるため、有限長であり、
+ある$s$について\eqref{eq:nfold-nilradical-annihilator}が成り立つ。
+$I_F\subset J_N$、$J_N$の飽和性、およびこの包含から
+$(I_F:\mathfrak m_0^\infty)=J_N$が従う。
+一般の三次への適用には、既存稿の被約分類
+\eqref{eq:nfold-reduced-cone}を用いる。
+\end{proof}
+
+\begin{remark}[相対的な非零層]\label{rem:nfold-relative-punctured}
+三次式の代表を選び、\eqref{eq:nfold-reduced-cone}が成立する非空係数開集合を
+$U$とする。上の結論は各ファイバーだけでなく、
+$U$上の相対Jacobiスキームの非零部分にも適用できる。
+実際、$J_N$は固定されたGrassmannイデアルの係数拡大であり、
+$R_N/J_N$もそのイデアルも係数環上平坦である。
+従って相対商加群$J_N/I$のファイバーは$J_N/I_F$である。
+各非零閉点でこのファイバーが零であることから、Nakayamaの補題により
+相対商加群自体が零となる。従って相対非零Poissonスキームは
+$U\times(\widehat G_N\setminus\{0\})$である。
+この主張は任意の係数変更で保たれる。
+三次式の代表の変更に伴う直線束の捻りを戻せば、
+一般三次上の非零Poisson対の全スキームは滑らかであり、
+その被約化だけを取り出す必要はない。
+\end{remark}
+
+\begin{corollary}[頂点の局所コホモロジー]\label{cor:nfold-embedded-vertex}
+系\ref{cor:nfold-vertex-support}の仮定の下で
+\[
+ H^0_{\mathfrak m_0}(R_N/I_F)=J_N/I_F
+\]
+が成り立つ。特に$n\ge8$の一般の滑らかな三次について、
+$\mathfrak m_0$は$R_N/I_F$の埋め込まれた随伴素イデアルであり、
+\[
+ \operatorname{Ass}_{R_N}(R_N/I_F)=\{J_N,\mathfrak m_0\},\qquad
+ \operatorname{depth}\bigl((R_N/I_F)_{\mathfrak m_0}\bigr)=0.
+\]
+従ってJacobiスキームは頂点でCohen--Macaulayではない。
+\end{corollary}
+\begin{proof}
+$J_N/I_F$は有限長なので全て$\mathfrak m_0$-torsionである。
+一方、$R_N/J_N$は正の次元を持つ整域であり、
+$H^0_{\mathfrak m_0}(R_N/J_N)=0$である。
+完全列
+$0\to J_N/I_F\to R_N/I_F\to R_N/J_N\to0$から最初の等式を得る。
+$n\ge8$では$J_N/I_F\ne0$なので、有限長加群の非零socleに属する元は
+ちょうど$\mathfrak m_0$で消される。
+従って$\mathfrak m_0$は随伴素イデアルで、頂点の深さは零である。
+唯一の極小素イデアルは$J_N$であり、
+$\dim(R_N/J_N)=3(N-3)+1>0$だから、これは埋め込まれた素イデアルである。
+上の完全列から随伴素イデアルは$J_N$と$\mathfrak m_0$以外には存在しない。
+同じ次元の正値性からCohen--Macaulay性も成り立たない。
+\end{proof}
+
+\subsection{高次数の下界と冪零部分の次数幅}
+
+頂点に支持されることは、冪零部分が次数二だけに集中することを意味しない。
+この点はGrassmann環のHilbert関数と生成二次式の数から定量化できる。
+$m_N=\binom N3$、$a_N=N\binom N4-\binom N3$と置き、$d\ge2$について
+\begin{align}
+ h_N(d)&:=\dim(R_N/J_N)_d
+ =\frac{2\prod_{i=1}^3\prod_{j=1}^d(N+j-i)}{d!(d+1)!(d+2)!},
+ \label{eq:nfold-grassmann-hilbert}\\
+ L_{N,d}&:=\binom{m_N+d-1}{d}-h_N(d)
+            -a_N\binom{m_N+d-3}{d-2}
+ \label{eq:nfold-higher-defect}
+\end{align}
+と定める。
+
+\begin{proposition}[高次数の差と次数幅の非一様性]
+\label{prop:nfold-higher-nilradical}
+任意の滑らかな$F$と$d\ge2$について
+\[
+ \dim(J_N/I_F)_d\ge L_{N,d}
+\]
+である。特に$N\ge13$では$L_{N,3}>0$であり、$N=13$では
+\[
+ \dim(J_{13}/I_F)_3\ge179179.
+\]
+さらに、各固定した$d\ge2$について、十分大きな$N$では$L_{N,d}>0$となる。
+従って、一般三次の有限長冪零根基の非零成分が現れる最高次数、
+およびそのsocleが現れる最高次数は、$N$によらない定数では抑えられない。
+また$\mathfrak m_0^s(J_N/I_F)=0$となる最小の$s$も一様には抑えられない。
+この主張は冪零根基の冪零指数が非有界であることを意味しない。
+\end{proposition}
+\begin{proof}
+Grassmann環の標準単項式基底\cite[\S2.4, Theorem~2.3]{BCMStandardMonomial}は、
+次数$d$では形$(d,d,d)$の半標準Young表に対応する。
+Weylの次元公式をこの長方形に適用すると、その分母は
+\[
+ \prod_{j=1}^d j(j+1)(j+2)
+ =\frac{d!(d+1)!(d+2)!}{2}
+\]
+であり、分子は式\eqref{eq:nfold-grassmann-hilbert}の積になる。
+従って
+\[
+ \dim(J_N)_d=\binom{m_N+d-1}{d}-h_N(d).
+\]
+$I_F$は二次式で生成されるので、乗法
+$(R_N)_{d-2}\otimes(I_F)_2\twoheadrightarrow(I_F)_d$は全射である。
+補題\ref{lem:nfold-universal-row-relations}により
+$\dim(I_F)_2\le a_N$であり、これらを引けば下界を得る。
+
+$d=3$では展開により
+\[
+ L_{N,3}=
+ \frac{N(N-4)(N-2)(N-1)(N+1)}{25920}
+ \bigl(17N^4-258N^3+631N^2-270N-360\bigr).
+\]
+括弧内を$N=t+13$で書くと
+$17t^4+626t^3+7807t^2+34726t+21480$となる。
+従って$N\ge13$で正であり、$N=13$を代入すると$179179$を得る。
+
+一般の固定した$d\ge2$については
+\[
+ L_{N,d}=
+ \left(\frac1{6^dd!}-\frac2{d!(d+1)!(d+2)!}\right)N^{3d}
+       +O(N^{3d-1}).
+\]
+実際、$m_N=N^3/6+O(N^2)$であり、最後の生成式数による項は
+$O(N^5N^{3d-6})=O(N^{3d-1})$である。
+先頭係数は$(d+1)!(d+2)!>2\cdot6^d$により正である。
+最後の不等式は$d=2$で成立し、$d$を一つ増やすと左辺の倍率が
+$(d+2)(d+3)>6$となるため全ての$d\ge2$で成立する。
+よって十分大きな$N$で$(J_N/I_F)_d\ne0$である。
+
+一般の三次では$J_N/I_F$は系\ref{cor:nfold-vertex-support}の有限長冪零根基である。
+その最高非零次数の成分は全ての正次数変数で消えるのでsocleに含まれる。
+従って各$d$に対して最高socle次数が$d$以上となる次元が存在する。
+さらに$J_N$が二次式で生成されることから、$J_N/I_F$も次数二で生成される
+$R_N$-加群である。従って$(J_N/I_F)_d\ne0$なら
+$\mathfrak m_0^{d-2}(J_N/I_F)\ne0$であり、極大イデアルによる消滅指数も非有界である。
+ここでは座標環の正次数元による作用を調べており、
+冪零根基自身の積の長さを決定してはいない。
+\end{proof}
+
 \subsection{非零階数二層と特殊な高階数構造}
 $M_n=\binom{n+4}{3}-(n+2)^2$を滑らかな三次$n$-foldのモジュライの次元とする。
-既存稿の被約階数二層の記述から、非零Poisson対の被約階数二モジュライは
+三次式と非零分解可能な$P$の対のモジュライは
 \begin{equation}\label{eq:nfold-rank-two-dimension}
  M_n+\dim\widehat G_N=M_n+3n-2
 \end{equation}
@@ -241,9 +629,11 @@ $\mathcal O(-1)$で捻ったGrassmann錐の頂点を除いた束である。
 その相対次元は$3(N-3)+1=3n-2$であり、
 $\operatorname{PGL}(W)$の商を取ると上式を得る。
 滑らかな三次の射影自己同型群は有限なので商はDeligne--Mumfordである。
+一般三次の係数開上では注意\ref{rem:nfold-relative-punctured}により、
+これは非零Poisson対の全スキームを与え、被約化を取る必要はない。
 この次元はPoisson対の底の次元であり、固定した量子化パラメータで得られる
 非可換Abel圏の同型類の像の次元を意味しない。
-また$n\ge8$では、この滑らかな被約層から未被約な全Jacobiスキームの構造は決まらない。
+また$n\ge8$では、一般のJacobiスキームの非被約性は零Poisson構造に集中する。
 
 全ての滑らかな三次に対するGrassmann表示は、$n\ge4$では複素点の集合としても偽である。
 例えば

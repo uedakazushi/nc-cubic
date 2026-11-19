@@ -46,34 +46,30 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 中心復元・点スキーム・Jacobi 方程式の次元境界}
 \author{}
-\date{2026年11月20日・研究稿 v1}
+\date{2026年11月20日・研究稿 v2}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={中心復元・点スキーム・Jacobi方程式の次元境界}}
 \begin{document}
 \maketitle
 \vspace{-0.6\baselineskip}
 \begin{abstract}
-三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ
-三次超曲面の量子化について、三様体のモジュライ構成を一般次元で検討する。
-中心多項式環上の平坦性と普遍的な低次数中心条件の下で、
-任意の $d$-Veronese から元の次数付き代数を fpqc 局所で復元し、
-同型の持上げ層が $\mu_d$-torsor になることを示す。
-既存の一 Jacobian ブロック量子化を入力として、
-次元 $(n^2+7n-4)/2$ の次数付き周囲代数の滑らかな DM stack と、
-その上の階数 $\binom{n+1}{3}$ の中心三次 torsor を構成する。
-構造対象だけを保つ全 Abel 同値への比較は、相対 Serre 双対性等を明示した条件付き定理である。
+三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ三次超曲面の量子化を扱う。
+中心平坦性と普遍的な低次数中心条件の下で、任意の $d$-Veronese から
+元の代数を fpqc 局所で復元し、同型の持上げが $\mu_d$-torsor となることを示す。
+既存の一ブロック量子化を入力として、次元 $(n^2+7n-4)/2$ の次数付き DM stack と、
+階数 $\binom{n+1}{3}$ の中心三次 torsor を構成する。
+良い相対 PBW チャートでは、任意底変更に両立する真正な双加群双対と
+Serre 関手 $(1-n)[n]$ を構成する。全 Abel 比較には係数作用と Hom 降下の条件を明示する。
+楕円境界と正則切断条件の下で、点スキームの定常成分は型 $(2,2,2,3)$ の完全交叉となる。
 
-楕円境界と正則切断条件の下で、点スキームの定常成分は型 $(2,2,2,3)$、次元 $n-3$、次数 $24$ の完全交叉となる。
-特に四次元では、滑らかな場合に種数 $37$ の曲線を得る。
-別に、滑らかな三次 $n$-fold 上の Poisson 構造の自然な Jacobi スキームを調べる。
-明示的な整数小行列の証明書により、$3\le n\le7$ の一般三次では
-このスキームが $\operatorname{Gr}(3,n+2)$ のアフィン錐に等しいことを示す。
-$n\ge8$ では、任意の滑らかな三次について二次方程式の数が不足し、
-頂点完備化さえこの錐と同型にならない。
-既存の被約 Poisson 分類を入力すれば、一般三次の Jacobi スキームは非被約となる。
-最後に既知の Hochschild 計算と圏変形理論を用い、$n\ne4$ では
-通常の Artin 基底上の残余圏の一次切断変形を幾何的変形として認識する。
-四次元の余分な二方向と、rotation の回復に現れる $n$ modulo $3$ の区別を明示する。
+別に、滑らかな三次の Poisson 構造の Jacobi スキームを調べる。
+整数小行列の証明書により、$3\le n\le7$ の一般三次では Grassmann 錐との一致を示す。
+$n\ge8$ では二次方程式に普遍的な従属があり、一般の $n=8$ の不足次元は $330$ である。
+既存の被約分類の下で、全次元の非零部分と射影化は Grassmann のものに一致し、
+$n\ge8$ の冪零根基は頂点に支持される有限長加群となる。
+その最高次数と極大イデアルによる消滅指数は次元によらず有界ではない。
+最後に既知の Hochschild 計算と圏変形理論を用い、$n\ne4$ の通常 Artin 基底上で
+残余圏の一次切断変形を幾何的変形として認識し、rotation の回復の次元依存を整理する。
 \end{abstract}
 \setcounter{tocdepth}{1}
 \vspace{-0.5\baselineskip}
@@ -111,7 +107,11 @@ Poisson 方程式のスキーム構造にも八次元から新しい現象が生
 関連する公刊研究との関係は次の通りである。
 Etingof--Ginzburg \cite{NFMEG} は三変数 potential の PBW 変形と中心元を構成し、
 Mori--Smith \cite{MoriSmith} は三生成元三二次関係の Calabi--Yau 代数を分類する。
-これらは一ブロック量子化の入力であり、$n$ に依存する全同型問題や torsor の降下は別に扱う。
+Berger--Taillefer \cite{NFMBeTa} の potential 解消と PBW--CY 定理も入力とし、
+本稿では任意個の中心差の Koszul 解消と有限射影模型によって、
+非平坦・非被約な底変更にも両立する相対双対と trace を構成する。
+体上の CY 性や PBW 定理自体を新規成果としては数えず、
+$n$ に依存する全同型問題や torsor の降下と区別する。
 Le Bruyn--Smith--Van den Bergh \cite{LBSV} の一点中心拡大における
 楕円曲線と八点、および二次関係の復元に対して、本稿は任意個数の中心変数を扱い、
 有限平坦な八重被覆と高次元の二十四次完全交叉を得る。
@@ -123,7 +123,8 @@ Fraenkel \cite[Proposition~4.1, Theorem~4.3]{Fraenkel} の先行研究がある�
 Carles \cite[Section~8, Lemma~8.35]{Carles} および
 Carles--M\'arquez \cite[Section~3]{CarlesMarquez} に既知である。
 本稿で問題にするのは、三次超曲面に付随する Hessian--Jacobi イデアルと
-Grassmann 錐の比較、およびその次元境界と次数二の量的な下界である。
+Grassmann 錐の比較、その次元境界、普遍的な従属関係、
+および頂点に支持される有限長冪零部分の構造である。
 Lin--Zhang \cite{NFLZSerre}、Pirozhkov \cite{NFPirozhkov}、
 Huybrechts--Rennemo \cite{NFHuybrechtsRennemo} の既知の圏論的不変量と Torelli 理論は、
 本稿の残余変形の入力である。
@@ -183,12 +184,16 @@ $n$&可換三次の次元 $M_n$&周囲 $b_n$&中心三次 $s_n$&対 $c_n$\\\hlin
 ここで $M_n=\binom{n+4}{3}-(n+2)^2=\binom{n+2}{3}$ である。
 $c_n-M_n=3n-2$ という数値一致から、可換モジュライへの射の存在や
 そのファイバーの次元を結論してはいない。
-全 $\mathcal O$-保存 Abel 同値への比較は、
-各次数の有限局所自由性、compact 性、相対 proper Serre 双対性、係数変更と Hom 降下を
-明示した定理\ref{thm:nfm-full-hom-conditional}である。
+良い相対 PBW 表示チャートでは、定理\ref{thm:nfm-relative-ambient-cy}により
+真正な双加群双対 $\Theta_{B/R}\simeq B(N)[-N]$ を構成する。
+定理\ref{thm:nfm-relative-line-cohomology}と\ref{thm:nfm-relative-serre}は、
+任意底変更後の compact generation、相対 properness、相対 Serre 関手
+$S=(1-n)[n]$ とその trace を与える。
+全 $\mathcal O$-保存 Abel 同値への比較は、これらに加えて
+係数作用と全 Hom の fpqc 降下を明示した定理\ref{thm:nfm-full-hom-conditional}である。
 切断飽和性自体は中心正則対によって全整数次数で証明する
 （補題\ref{lem:nfm-central-saturation}）。
-この族で残る相対双対性等の入力を全て構成することは、現在の課題である。
+表示された族を越える一般の Abel 圏族の定義と、その効果的な降下は現在の課題である。
 
 \subsection{点スキームと Poisson スキームの異なる一般次元化}
 \begin{maintheorem}[二十四次完全交叉と Jacobi スキームの境界]
@@ -215,9 +220,18 @@ $n\ge8$ では任意の滑らかな $F$ についてこの等式は成立せず�
 $\operatorname{Pois}(X_F)$ は非被約であり、
 冪零根基の次数二部分の次元は少なくとも
 \[
- \delta_N=5\binom{N+1}{6}-N\binom N4>0\quad(N=n+2\ge10)
+ \epsilon_N=5\binom{N+1}{6}-N\binom N4+\binom N3>0\quad(N=n+2\ge10)
 \]
-である。特に $n=8$ では $\delta_N=210$ となる。
+である。$n=8$ ではこの次元は一般にちょうど $330$ である。
+さらに全ての $n\ge3$ の一般三次について
+\[
+ \operatorname{Pois}(X_F)\setminus\{0\}
+ =\widehat{\operatorname{Gr}}(3,N)\setminus\{0\},\qquad
+ \operatorname{Proj}(R_N/I_F)=\operatorname{Gr}(3,N)
+\]
+がスキームとして成り立つ。
+$n\ge8$ では冪零根基は頂点に支持される非零の有限長加群であり、
+頂点の局所環は深さ零である。
 \end{maintheorem}
 
 点関手は基底上の次数零成分を自明化した規約を用い、
@@ -227,10 +241,17 @@ $\C F\oplus\Sym^3U$ の復元も\S\ref{sec:points}で示す。
 これは特定の古典三次式の選択や、点スキームと Poisson 零スキームの同一視ではない。
 
 Jacobi スキームの主張は\S\ref{sec:nfold-jacobi-scheme}で証明する。
-Jacobi イデアル $I_F$ は $N\binom N4$ 個の二次式で生成され、
-Pl\"ucker イデアル $J_N$ は二次部分だけで $5\binom{N+1}{6}$ 次元を持つ。
-この比較が高次元の不一致を与える。
-低次元の等式は、明示的な整数小行列が法 $32003$ で非零であるという有限証明書を伴う。
+Jacobi イデアル $I_F$ の $N\binom N4$ 個の生成二次式の間には
+$\binom N3$ 個の普遍的な独立従属関係がある。
+Pl\"ucker イデアル $J_N$ の二次部分の次元 $5\binom{N+1}{6}$ との比較が上の下界を与える。
+$N\le10$ の最大階数は、明示的な整数小行列が法 $32003$ で非零であるという証明書を伴う。
+非零分解可能 $P$ の support を $A$ とし、
+$K_{F,A}=\{w\in W:T_F(A,w,W)=0\}$ と置くと、法方向の接空間は
+$\Lambda^3K_{F,A}$ となる（定理\ref{thm:nfold-normal-tangent}）。
+これが非零部分の一致と頂点支持を与える。
+高次数の Hilbert 関数の比較から、冪零部分の最高次数と
+頂点の極大イデアルによる消滅指数が次元によらず一様に有界ではないことも示す
+（命題\ref{prop:nfold-higher-nilradical}）。
 非被約性の結論に用いる被約分類の依存と、方程式数の比較だけで従う結論を分ける。
 また、これらの Poisson スキームを全 Abel 圏の Artin 変形空間と同一視したわけではない。
 
@@ -270,6 +291,8 @@ $n\equiv1\pmod3$ ではこの方法は使えない。
 本稿をそれらが完成した主張として読むことはできない。
 
 \input{papers/sections/graded_moduli.tex}
+\input{papers/sections/relative_duality.tex}
+\input{papers/sections/abel_comparison.tex}
 \input{papers/sections/point_schemes.tex}
 \input{papers/sections/poisson_schemes.tex}
 \input{papers/sections/residual_categories.tex}
