@@ -1,0 +1,308 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{強い affine 持上げと Poisson 対からの逆構成}
+\label{sec:poisson-inverse}
+
+体上の三次超曲面の双ベクトル表示
+\eqref{eq:nfold-bivector}は入力論文\cite[命題
+\texttt{prop:pg-represent}]{NCCubicA}にある。
+ここではその任意基底上の形を証明し、Poisson 射の標的から affine lift の
+追加データを外す。さらに良い一ブロック型では逆構成を与え、
+前節の射がどの開部分を同定するかを明示する。
+この逆構成は、得られる三次の Kuznetsov 成分との同値を意味しない。
+
+\subsection{任意基底上の強い持上げ}
+
+$R$ を可換 $\mathbf C$-代数、$V$ を階数 $N=n+2\ge5$ の有限局所自由
+$R$-加群、$W=V^*$ とする。局所的に
+$H\in\Sym^3V$ が $R$ 上滑らかな三次超曲面
+$X\subset\mathbb P(W)$ を定めるとする。
+$E=\sum z_i\partial_{z_i}$ を Euler ベクトル場と書く。
+二次係数の斉次 affine 双ベクトル
+$\Pi\in\Sym^2V\otimes\Lambda^2W$ が
+\[
+ \iota_{dH}\Pi=0
+\]
+を多項式の恒等式として満たすとき、$H$ に対する\emph{強い持上げ}と呼ぶ。
+これは $H$ による剰余での接性より強い条件である。
+
+\begin{theorem}[強い affine 持上げの存在と一意性]
+\label{thm:poisson-strong-lift}
+任意の $\pi\in H^0(X,\Lambda^2T_{X/R})$ は一意な強い持上げを持つ。
+その持上げは、一意な定数三重ベクトル $P\in\Lambda^3W$ を用いて
+\[
+ \Pi=\iota_{dH}P
+\]
+と書ける。これらの同定は任意の基底変更と両立する。
+$H$ の生成元を変えたときには $H\mapsto cH$, $P\mapsto c^{-1}P$ となる。
+従って三次方程式の直線束を $\mathcal L_H$ と書けば、全体として
+\begin{equation}\label{eq:poisson-relative-bivectors}
+ p_*\Lambda^2T_{X/R}\simeq\mathcal L_H\otimes\Lambda^3W
+\end{equation}
+である。特に左辺は有限局所自由で、任意の基底変更と両立する。
+また $\pi$ が Poisson であることと、強い持上げ $\Pi$ が affine Poisson
+双ベクトルであることは同値である。この同値も非被約基底を含めて成立する。
+\end{theorem}
+
+\begin{proof}
+基底を局所化して $V$ と方程式直線を自明化する。
+$\mathbb P=\mathbb P^{N-1}_R$ と書く。
+Euler 列とその二次外冪の列は
+\[
+ 0\to\OO\to W\otimes\OO(1)\to T_{\mathbb P/R}\to0,\qquad
+ 0\to T_{\mathbb P/R}\to\Lambda^2W\otimes\OO(2)
+      \to\Lambda^2T_{\mathbb P/R}\to0
+\]
+である。相対次元が $N-1\ge4$ なので、射影空間の線束コホモロジーから
+\[
+ R^ip_*\bigl(\Lambda^2T_{\mathbb P/R}(-3)\bigr)=0
+ \quad(i=0,1),\qquad R^1p_*T_{\mathbb P/R}=0
+\]
+を得る。これらの消滅は任意の係数環上で成立する。
+従って $\mathbb P$ 上の双ベクトルの $X$ への制限は同型であり、
+各切断は二次係数の affine 双ベクトル $q$ で表せる。
+この affine 表示の核は、一次係数ベクトル場 $L$ に対する $E\wedge L$ である。
+
+$q$ が $X$ 上で $\Lambda^2T_{X/R}$ に値を持つため、
+$\iota_{dH}q$ の $T_{\mathbb P/R}(3)|_X$ における像は零である。
+制限列と Euler 列の核を用いて
+\[
+ \iota_{dH}q=HL+aE
+\]
+と書ける。ここで $L$ は一次係数のベクトル場、$a$ は三次式である。
+もう一度 $dH$ と縮約すると $H(L(H)+3a)=0$ を得る。
+滑らかな相対三次の方程式 $H$ は、任意基底変更後にも多項式環上の非零因子である。
+従って $a=-L(H)/3$ であり、
+\[
+ \Pi=q-\tfrac13E\wedge L
+\]
+は強い持上げである。
+二つの強い持上げの差は $\Delta=E\wedge L$ と書ける。
+その縮約は $3HL-L(H)E=0$ であるから、さらに $E$ と外積を取ると
+$3H\Delta=0$ となる。$H$ の非零因子性から $\Delta=0$ であり、一意性を得る。
+
+滑らかな三次の偏微分 $H_1,\ldots,H_N$ の Koszul 複体は、
+各次数の有限自由複体をファイバー上の完全性から局所的に分離することで、
+任意基底変更後にも完全である。
+従って二次係数の $\Pi$ に対する $\iota_{dH}\Pi=0$ は
+$\Pi=\iota_{dH}P$ と同値である。
+係数次数が零なので $P$ は定数三重ベクトルであり、
+次の Koszul 項の係数次数は $-2$ だから、その $P$ は一意である。
+構成の一意性によって局所表示は貼り合わさり、全ての基底変更と座標変更に両立する。
+
+最後に Jacobi 条件を確認する。
+標準体積形式の divergence を $\delta$ と書くと、
+$\Pi=\iota_{dH}P$ は $\delta\Pi=0$ を満たす。
+$J=[\Pi,\Pi]$ は $\delta J=0$ および $\iota_{dH}J=0$ を満たす。
+$J$ の射影化が $X$ 上で零なら、Euler 列の三次外冪と制限列により
+\[
+ J=HT+E\wedge B,\qquad
+ T\in\Lambda^3W,\quad B\in\Sym^2V\otimes\Lambda^2W
+\]
+と書ける。同じ Euler コホモロジー計算がこの表示を任意基底上で与える。
+$\delta(E\wedge B)=NB-E\wedge\delta B$ より
+\[
+ E\wedge B=-N^{-1}E\wedge\iota_{dH}T,\qquad
+ 0=\iota_{dH}J=(1-3/N)H\iota_{dH}T.
+\]
+$N\ne3$、$H$ は非零因子であり、定数三重ベクトル上の
+$\iota_{dH}$ は上述の Koszul 計算で単射なので、$T=0$、従って $J=0$ となる。
+逆向きは制限するだけである。
+\end{proof}
+
+\begin{corollary}[一ブロック support の回復]
+\label{cor:poisson-support-recovery}
+定理の $P$ が非零分解可能なら、その support
+$K\subset W$ は階数三の部分束として回復される。
+$U=\operatorname{ann}(K)$ は $\Pi$ の一次 Poisson 中心に等しい。
+従って滑らかな三次の Poisson 対とその超平面偏極類から、
+強い持上げ、中心一次部分、および一ブロック support を回復できる。
+\end{corollary}
+\begin{proof}
+相対的な「非零分解可能」とは、非零 Pl\"ucker 錐のスキームを通るという条件とする。
+これは、階数三の部分束 $K$ と
+$\mathcal L_H\otimes\det K$ の非零切断を与えることに等しい。
+従って support の形成は任意基底変更と両立する。
+一次式 $u$ が Poisson 中心に属すれば
+$\iota_{dH}(\iota_{du}P)=0$ である。
+定数二重ベクトル上でも Koszul 微分は単射だから、$\iota_{du}P=0$、
+すなわち $u\in\operatorname{ann}(K)$ である。逆向きは直接従う。
+\end{proof}
+
+\subsection{分解可能な Poisson 対と良い量子化の開}
+
+$\mathcal H_N^{\mathrm{sm}}\subset\mathbb P(\Sym^3V)$ を滑らかな三次式の開、
+$\mathcal L_H\subset\Sym^3V\otimes\OO_{\mathcal H_N^{\mathrm{sm}}}$ を普遍直線とする。
+$\mathcal Z_N^{\mathrm{dec}}$ を、$([H],\Theta)$ で
+$0\ne\Theta\in\mathcal L_H\otimes\Lambda^3W$ が分解可能なものの相対スキームとする。
+具体的には、$\mathcal H_N^{\mathrm{sm}}\times\operatorname{Gr}(3,W)$ 上の
+直線束 $\mathcal L_H\otimes\det\mathcal K$ の零切断を除いた空間である。
+従ってこれは滑らかで既約である。
+次数スカラーの重みは $3-3=0$ なので $\operatorname{PGL}(V)$ が作用する。
+\[
+ \mathfrak P_n^{\mathrm{dec}}
+   =[\mathcal Z_N^{\mathrm{dec}}/\operatorname{PGL}(V)]
+\]
+と置く。前定理によりこれは、強い lift に対応する三重ベクトルが
+非零分解可能な滑らかな三次 Poisson 対と超平面偏極類のモジュライである。
+affine lift 自体を追加標識として保持する必要はない。
+偏極類を保つ同型は、局所的に $\OO_X(1)$ を同定し全切断を取ることで、
+ambient の射影同型へ一意に延長する。
+ここでは $p_*\OO_X(1)=V$ および任意基底変更との整合を使う。
+
+有限安定化子を要求する前の良い一ブロック PBW 開を
+$T^{\mathrm{alg}}$ と書く。
+ここには、相対 PBW・普遍中心・相対 Serre 双対・全
+$\mathcal O$-同値比較に必要な入力を全て課すが、
+周囲代数 $B$ 単独の安定化子が有限という条件は課さない。
+これらの入力が成立することは、対象とする表示チャートごとに必要である。
+中心三次 torsor を $J^{\mathrm{alg}}$ とする。
+その上で境界 Jacobi 評価 $\epsilon$ の同型条件、相対点スキームの良い条件、
+および $H_w=\mathfrak d_\Pi(w)$ の滑らかさを課した非空開を
+$J^{\mathrm{sm}}$ と書く。
+\[
+ \mathfrak M_n^{\mathrm{sm}}=[J^{\mathrm{sm}}/\overline P]
+\]
+はこれらの良い\emph{対}を局所模型とする $\mathcal O$-marked 圏族の stack である。
+必要なら旧 $T^{\mathrm{good}}$ を縮め、旧 Poisson 射の定義域
+$\mathfrak M_n^{\mathrm{Pois}}$ がこの stack の有限周囲安定化子部分の
+非空開になるようにする。
+旧 $\mathfrak M_n^{\mathrm{loc}}$ 全体は $H_w$ の滑らかさ等を要求していないので、
+その全体を $\mathfrak M_n^{\mathrm{sm}}$ の開と同一視しない。
+
+\begin{theorem}[Poisson 対からの逆構成と開部分の同定]
+\label{thm:poisson-good-open-isomorphism}
+$\mathfrak P_n^{\mathrm{dec}}$ には次の条件で定まる非空開
+$\mathfrak P_n^{\mathrm{good}}$ があり、trace--Hessian 射は同型
+\begin{equation}\label{eq:poisson-good-open-isomorphism}
+ \mathfrak M_n^{\mathrm{sm}}\xrightarrow{\sim}
+ \mathfrak P_n^{\mathrm{good}}
+\end{equation}
+を与える。
+\begin{enumerate}
+\item 強い持上げ $\Pi$ から定める二次代数
+\[
+ B_\Pi=T(V)/
+ \bigl(v\otimes v'-v'\otimes v-\operatorname{sym}\Pi(v,v')\bigr)
+\]
+が $T^{\mathrm{alg}}$ の良い模型であり、境界評価 $\epsilon$ が同型である。
+\item 一意な中心直線
+\[
+ [w]=\mathfrak d_\Pi^{-1}([H])\subset Z(B_\Pi)_3
+\]
+が相対点スキームの良い条件を満たす。
+\end{enumerate}
+同型は任意の基底変更と両立し、全ての自己同型群を同定する。
+$\mathfrak M_n^{\mathrm{sm}}$ は滑らかな既約有限型 DM stack で、次元は
+\[
+ \binom{n+4}{3}-(n+2)^2+3n-2
+ =\binom{n+2}{3}+3n-2
+\]
+である。周囲代数 $B$ の安定化子が正次元であっても、
+ここに列挙した良い入力と $H_w$ の滑らかさがあれば適用できる。
+\end{theorem}
+
+\begin{proof}
+support を局所的に固定し、$K$ の体積元 $P_0$ を一つ選ぶ。
+$\Theta=H\otimes tP_0$ と書けば、対応する二次代数の potential は
+$F=tH$ modulo $\Sym^3U$ である。
+$H\mapsto cH$ に対して $t\mapsto c^{-1}t$ なので、この $F$ は変わらない。
+support を保つ frame の変更では、従来と同じ
+$\det(g|_{V/U})^{-1}g(F)$ の作用となる。
+従って条件(1)は $P$-不変な良い表示開の引戻しであり、開条件である。
+その上では trace--Hessian 同型が任意基底変更で定義される。
+条件(1)に含まれる active 楕円三次の仮定により、
+$H|_{\mathbb P(K)}$ が滑らかであるため $[H]$ は純中心方向でなく、
+条件(2)の中心直線は一意に定まる。条件(2)も相対 norm による開条件である。
+従来の非空開 $J^{\mathrm{Pois}}$ の像を含むので、得られる開は非空である。
+
+この逆構成から $A=B_\Pi/(w)$ を作る。
+次数一生成元束は一般には表示 gerbe 上にあるが、
+第\ref{sec:nfm-local-moduli}節の重み付き tails の構成は
+周囲の有限安定化子を用いないので、$\mathcal O$-marked 圏族を与える。
+全 $\mathcal O$-同値比較も同じ入力だけを使うため、
+この圏族の同型問題は $[J^{\mathrm{sm}}/\overline P]$ に一致する。
+
+量子側から出発すると、元の $\Pi$ は $H_w$ に対する強い持上げである。
+定理\ref{thm:poisson-strong-lift}の一意性により、Poisson 対から回復する持上げは
+元の $\Pi$ と等しい。従って $B$ をその二次関係から回復し、
+trace--Hessian 同型の逆で元の中心直線 $[w]$ を得る。
+逆に Poisson 側から作った $A$ に trace--Hessian 射を適用すると、
+定義により元の $[H]$ と $\Pi|_X$ に戻る。
+これらは係数変更と表示変更に両立する、相互に逆な構成である。
+
+射も一致する。Poisson 対の偏極類を保つ同型は ambient の射影同型を与え、
+強い持上げの一意性から $\Pi$ を保つ。
+従って $K,U,B_\Pi$ を保ち、trace--Hessian の共変性から $[w]$ も保つ。
+逆に全 $\mathcal O$-同値は局所的に次数付き同型に持ち上がるため、
+Poisson 対の同型を与える。二つの線型持上げの差は次数スカラーである。
+これにより幾何点の全単射だけでなく、fpqc stack の同型を得る。
+
+DM 性を直接確認する。
+滑らかな三次 $H$ の射影安定化子の Lie 代数に属する一次ベクトル場 $L$ は
+$L(H)=cH$ を満たす。Euler の公式を引けば
+\[
+ \sum_i(L_i-cz_i/3)H_i=0
+\]
+となる。滑らかな三次の偏微分の正則列には一次係数の syzygy がないため、
+$L=cE/3$ であり、射影 Lie 代数では零である。
+従って射影安定化子は有限で、標数零では非分岐である。
+Poisson 対の安定化子はその部分群なので、同じ結論を持つ。
+$J^{\mathrm{sm}}$ は滑らかな既約表示空間上の加法 torsor の非空開であり、
+$\overline P$ は滑らかなので、商は滑らかかつ既約である。
+表示空間と群の次元を引けば主張の次元を得る。
+\end{proof}
+
+\begin{corollary}[拡大した対の stack における Brauer 障害]
+\label{cor:poisson-enlarged-brauer}
+$[J^{\mathrm{sm}}/P]\to\mathfrak M_n^{\mathrm{sm}}$ の表示 gerbe の類を
+$\beta^{\mathrm{sm}}$ とする。
+$n\not\equiv1\pmod3$ では中立であり、
+$n\equiv1\pmod3$ ではどの非空開上でも位数が正確に三である。
+\end{corollary}
+\begin{proof}
+determinant character による $r\beta=3\beta=0$ と
+$\gcd(r,3)=1$ の場合の中立化には、有限安定化子は使われない。
+$\gcd(r,3)=3$ の場合、旧 $\mathfrak M_n^{\mathrm{Pois}}$ は
+既約な $\mathfrak M_n^{\mathrm{sm}}$ の非空開なので稠密である。
+任意の非空開との交わりに定理\ref{thm:nfm-brauer-dense-open}を適用すれば、
+障害が非零の体値点を得る。これで位数三が従う。
+\end{proof}
+
+\subsection{全 Poisson モジュライの一般部分との関係}
+
+\begin{corollary}[一般三次上の開埋込みと支配的成分]
+\label{cor:poisson-generic-open-immersion}
+系\ref{cor:nfold-vertex-support}と注意\ref{rem:nfold-relative-punctured}が適用される
+滑らかな三次式の非空不変開を $\mathcal H_N^\circ$ とする。
+この開上では、非零三次 Poisson 対の全モジュライは
+$\mathfrak P_n^{\mathrm{dec}}$ の制限に等しい。
+従って\eqref{eq:poisson-good-open-isomorphism}の制限は、
+全非零 Poisson モジュライへの非空な開埋込みである。
+その像は滑らかな三次のモジュライを支配する。
+
+滑らかな三次 Poisson 対の全モジュライには、三次のモジュライを支配する
+既約成分が一つだけある。本構成はその一般部分の非空開を同定する。
+特殊な三次の locus 上にのみ存在する他の既約成分を排除する主張ではない。
+\end{corollary}
+\begin{proof}
+相対非零 Jacobi スキームと非零 Pl\"ucker 錐の等式は、引用した結果により
+任意の基底変更と両立する。三次方程式の直線束の捻りと射影群の商を戻すと、
+表示したモジュライの等式を得る。
+$\mathcal Z_N^{\mathrm{dec}}\to\mathcal H_N^{\mathrm{sm}}$ は滑らかな全射であり、
+各幾何ファイバーは非零 Grassmann 錐で既約である。
+従ってその任意の非空開の像は基底の非空開となり、支配性が従う。
+一般の三次上で全 Poisson スキームの台は一つの Grassmann 錐であるため、
+一般ファイバーは既約である。有限型の全モジュライで基底を支配する
+既約成分は一般ファイバーの既約成分に対応するので、一つだけである。
+頂点に支持される非被約構造は、この台の既約性の主張を変えない。
+\end{proof}
+
+\begin{remark}[開埋込みの範囲]
+分解可能な三重ベクトルの条件は、全ての滑らかな三次を動かす空間では
+一般に閉条件であり、非零条件を加えても自動的に開にはならない。
+従って定理\ref{thm:poisson-good-open-isomorphism}の無条件の標的は
+$\mathfrak P_n^{\mathrm{dec}}$ である。
+全非零 Poisson モジュライへの開埋込みには、上の一般三次の開への制限を用いる。
+また、一般対象の局所一ブロック表示をこの Poisson 対のモジュライの範囲で得たことと、
+未構成の全 intrinsic $\mathcal O$-marked 圏モジュライの全成分を分類することは異なる。
+\end{remark}

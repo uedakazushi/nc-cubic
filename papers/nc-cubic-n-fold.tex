@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v5}
+\date{2026年11月20日・研究稿 v6}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -65,6 +65,15 @@ $n\equiv1\pmod3$ ではどの非空開上でも位数三である。
 非空開上で埋込み点対応から中心三次商を復元できる。
 八重被覆の正規化 trace と境界の Hessian を用いて量子中心三次を古典 Casimir へ同定し、
 非空開上で滑らかな三次 Poisson 対のモジュライへの射を構成する。
+さらに任意基底上で強い affine 持上げの一意性を証明し、逆構成によって
+良い一ブロック型の圏 stack を分解可能な Poisson 対の非空開と同定する。
+既存の被約分類の下で、この像は三次のモジュライを支配する唯一の Poisson 成分の
+一般部分の開を与える。
+他方、固定入力の残余復元定理の下で、trace--Hessian 三次と残余復元三次は
+任意の次元の明示 Hesse 族で幾何学的一般点において異なる。
+同じ周囲 Poisson tensor の Casimir を選び直しても、この相違は解消できない。
+混合係数の一般点についても、指定した中心規格化と formality 模型の二次 jet に、
+特殊ファイバーの標識を保つ形式比較の障害を与える。
 
 別に、三次超曲面の Jacobi スキームを Koszul flattening と Pl\"ucker 関係によって調べる。
 $3\le n\le7$ の一般三次では Grassmann 錐に一致する。
@@ -75,8 +84,9 @@ $n=8$ の一般三次では、その頂点に長さ330、次数二に集中す�
 高次元の冪零部分の最高次数と極大イデアルによる消滅指数は一様に有界ではない。
 最後に既知の Hochschild 計算と圏変形理論から、$n\ne4$ の通常 Artin 基底上で
 残余圏の一次切断変形を幾何的変形として認識する。
-全ての内在的成分の被覆と、構成した Poisson 三次に対する残余圏の比較は未解決である。
+全ての内在的成分の被覆、および残余圏と整合する Poisson tensor の構成と降下は未解決である。
 \end{abstract}
+\clearpage
 \setcounter{tocdepth}{1}
 \vspace{-0.5\baselineskip}
 \begingroup\small
@@ -141,7 +151,12 @@ Poisson 対への射を構成する。この射と既存量子化の単純な逆
 形式量子化の中心と Poisson 中心の同型は
 Etingof--Ginzburg\cite[Proposition~8.1.1, equation~(8.1.3)]{NFMEG}
 にも既に現れる。本稿で扱うのは、有限の非零パラメータでの三次部分に対する
-trace と Hessian の明示的処方、およびその任意底変更とモジュライへの降下である。
+trace と Hessian の明示的処方、その任意底変更、全同値に関する降下と逆構成である。
+Dito\cite[Section~2, equation~(3); Section~3, Theorem~2]{NFMDito} の一般 Poisson
+星積の二次項と Weyl gauge、および Shoikhet\cite[Sections~1.3, 2.3.1]{NFMShoikhet}
+の内向き wheel の消滅を用いて、固定入力の残余 potential の二次計算を
+全混合係数へ広げる。星積や wheel 消滅自体は既知結果であり、
+本稿では trace--Hessian 処方との差が全次元で非零となる開条件を調べる。
 Mayanskiy \cite{Mayanskiy} の三様体における Schouten 方程式の計算に対して、
 本稿は高次元での Jacobi イデアル自体を比較する。
 affine 超曲面の Poisson 延長を gradient の Koszul 複体で記述する手法には
@@ -290,7 +305,8 @@ $\mathfrak M_n^{\mathrm{Pois}}\subset\mathfrak M_n^{\mathrm{loc}}$ 上で
 Poisson 射の標的は、斉次 quadratic Poisson tensor と滑らかな三次 Casimir の
 局所閉スキームの $\PGL(V)$ 商として具体的に構成する
 （定理\ref{thm:point-trace-hessian}）。
-斉次 affine lift を忘れれば、Brauer--Severi 周囲空間内の Poisson 対を得る。
+定理\ref{thm:poisson-strong-lift}により affine lift は実は Poisson 対から一意に回復する。
+従って追加の lift 標識なしに、Brauer--Severi 周囲空間と偏極類を持つ対を扱える。
 $n\equiv1\pmod3$ で実際の相対線束 $\OO(1)$ を標識に加えるには、
 上記の Brauer 障害への対処が必要である。
 
@@ -298,7 +314,68 @@ $n\equiv1\pmod3$ で実際の相対線束 $\OO(1)$ を標識に加えるには�
 正規化 trace と、境界 Jacobian 環の次数三部分への Hessian 同型を使う。
 中心元の単純な可換化は古典 Casimir の制限と一致しない
 （命題\ref{prop:point-casimir-restriction-obstruction}）。
-また、得られた三次と残余圏からの可換復元の一致はまだ証明していない。
+逆構成は次のように強められる。
+
+\begin{maintheorem}[Poisson 対の開部分との同型]
+任意の可換 $\C$-代数上の滑らかな三次 $X_H\subset\PP(W)$ について、
+各相対双ベクトルは一意な斉次二次 affine 持上げ
+$\Pi=\iota_{dH}P$ を持ち、$\iota_{dH}\Pi=0$ を多項式として満たす。
+この同定と Poisson 条件の同値は任意基底変更に両立する。
+
+$P$ が非零分解可能な Poisson 対の stack を $\mathfrak P_n^{\mathrm{dec}}$ とする。
+周囲代数単独の有限安定化子を要求せず、良い PBW・中心・相対双対・全同値比較の
+入力と滑らかな $H_w$ を課した圏 stack $\mathfrak M_n^{\mathrm{sm}}$ には同型
+\[
+ \mathfrak M_n^{\mathrm{sm}}\simeq
+ \mathfrak P_n^{\mathrm{good}}\subset\mathfrak P_n^{\mathrm{dec}}
+\]
+がある。右辺は非空開であり、両辺は次元 $\binom{n+2}{3}+3n-2$ の
+滑らかな既約有限型 DM stack である。逆写像は $\Pi$ の二次関係と
+$[w]=\mathfrak d_\Pi^{-1}([H])$ による。表示 gerbe の位数の区分も同じである。
+
+既存の一般三次の被約 Poisson 分類を入力すると、一般三次の非空開上で
+これは全非零 Poisson モジュライへの開埋込みとなる。
+全 Poisson モジュライのうち滑らかな三次のモジュライを支配する既約成分は一つで、
+本構成はその一般部分の開を同定する。
+\end{maintheorem}
+
+証明は第\ref{sec:poisson-inverse}節に置く。
+これは全 intrinsic 圏モジュライの成分分類でも、Kuznetsov 成分の同値定理でもない。
+後者の比較では、むしろ次の障害がある。
+
+\begin{maintheorem}[残余復元との比較障害]
+固定入力論文Bの完備 MF 移送と一般点復元を仮定する。
+全ての $n\ge3$ に対し、一ブロック中心三次族で
+\[
+ H^{\mathrm{TH}}=F_0+hxyz,\qquad
+ H^{\mathrm{res}}=F_0+
+ \frac{h+h^2/3+h^5/12}{1-h^4/4}xyz,\qquad
+ F_0=\frac{x^3+y^3+z^3+\sum_{i=1}^{n-1}u_i^3}{3}
+\]
+となるものがある。二つの滑らかな一般ファイバーは代数閉拡大後も射影同型でない。
+従って非可換残余圏と $\operatorname{Ku}(V(H^{\mathrm{TH}}))$ との間には
+rotation を保つ dg Morita 同値がない。
+$n\not\equiv1\pmod3$ では rotation を指定しない dg Morita 同値もない。
+同じ周囲 tensor の滑らかな三次 Casimir の選択だけでは、この障害を解消できない。
+
+一般の混合 Hesse 表示では、短い中心公式から $h^2ABC/6$ を引いて
+Hessian 二次 jet を持つ中心元に規格化する。指定した生成元固定の formality 模型の下で
+\[
+ W_{\mathrm{res}}-H^{\mathrm{TH}}
+ =h^2\left(\frac{\mathscr H_F}{24}
+       +\frac{\operatorname{tr}(\mathscr H_F)}{12}\right)+O(h^3),
+ \qquad \mathscr H_F=\det\operatorname{Hess}_{x,y,z}F.
+\]
+括弧内の全 Jacobi 環の class は非空 Zariski 開で非零である。
+従って特殊ファイバーを恒等に標識した形式比較は、一般の表示係数においても
+既に二次 jet で成立しない。
+\end{maintheorem}
+
+厳密 Hesse 係数は固定入力の計算であり、次元に一様な比較障害への適用、
+固定 tensor の全 Casimir に対する障害、混合係数上の二次 class を本稿で証明する
+（第\ref{sec:nfm-residual-th-obstruction}節）。
+一般混合係数における有限 jet の障害から、標識を外した全ての一般ファイバーの
+圏非同値までを結論してはいない。
 
 \subsection{Jacobi スキームの次元境界}
 \begin{maintheorem}[Jacobi スキームの境界と平方零構造]
@@ -391,15 +468,15 @@ $n\equiv1\pmod3$ ではこの方法は使えない。
 本稿の各定理には証明または明示的な入力を記し、
 計算補助の主張には再現可能な証明書を添える。
 全 $\mathcal O$-marked moduli の代数性と各成分の一般対象の被覆は未完成である。
-局所一ブロック型では Poisson 射を構成したが、各成分への拡張と残余圏との整合は残る。
-量子中心三次に trace と Hessian で対応させた古典三次の直線と
-Poisson tensor の尺度は、この局所一ブロック型では全 $\mathcal O$-同値に関して降下する。
-一方、残余圏からの可換三次の復元は別の構成であり、
-その出力と Poisson 射の underlying cubic が一致することを比較する必要がある。
-同じ $X$ について非可換側の残余圏と $\operatorname{Ku}(X)$ が同値となり、
-その同値が一般の族と必要な標識に両立して降下することを期待するが、
-これは現時点で全成分に対して証明された定理ではない。
-まず一般点と必要な係数拡大上で構成し、可能な稠密開への拡張を目指す。
+良い局所一ブロック型では、全 $\mathcal O$-同値に関して降下する
+trace--Hessian 射と逆構成により、Poisson 対の開部分を同定した。
+一方、この処方が選ぶ underlying cubic と残余復元の出力は一般には同一視できず、
+固定した周囲 tensor の純中心補正だけでは修復できない例がある。
+同じ $X$ に対する残余圏と $\operatorname{Ku}(X)$ の同値という目標を追求するには、
+formality で補正された Poisson tensor または残余の低 rotation 積から
+Poisson データを構成し、その選択依存性と降下を調べる必要がある。
+この修正された構成は未完成である。まず各成分の一般点と必要な係数拡大上で構成し、
+有限表示と同値核の降下を示して稠密開への拡張を目指す。
 boundary や全 Abel 形式近傍の記述は、この一般次元の構成に必要な障害を解消する
 範囲で扱い、本稿に得た個別次元の証明と計算資産はその検査例として保持する。
 
@@ -410,8 +487,10 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/point_schemes.tex}
 \input{papers/sections/relative_points.tex}
 \input{papers/sections/poisson_morphism.tex}
+\input{papers/sections/poisson_inverse.tex}
 \input{papers/sections/poisson_schemes.tex}
 \input{papers/sections/residual_categories.tex}
+\input{papers/sections/residual_comparison.tex}
 \par\begingroup\small
 \input{papers/references.tex}
 \endgroup

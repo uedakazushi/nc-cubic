@@ -1,17 +1,18 @@
 # 非可換三次 n-fold のモジュライ
 
-2026年11月20日 / v5。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
+2026年11月20日 / v6。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
 
 **再開時は [研究方針](00_research_plan.md) を最初に読む。**
 
 ## 内容
 
-- [公表用研究稿](papers/nc-cubic-n-fold.tex)：中心復元、局所一ブロック型の O-marked DM stack と Brauer 障害、相対点関手と中心商の復元、trace–Hessian による Poisson 対への射、Jacobi スキーム、残余圏の通常 Artin 形式認識。
+- [公表用研究稿](papers/nc-cubic-n-fold.tex)：中心復元、局所一ブロック型の O-marked DM stack と Brauer 障害、相対点関手と中心商の復元、trace–Hessian による Poisson 対の開部分との同型、残余復元との比較障害、Jacobi スキーム、残余圏の通常 Artin 形式認識。
 - [研究ノート](notes/research_notes.md)：主張の依存・適用範囲、反例・障害、文献の確認箇所、次の計算の入口。
 - [検証範囲](notes/validation.md)：原稿点検・組版・厳密計算を区別した確認状態。
 - [Jacobi 行列検証コード](computations/verify_jacobi_rank.py) と [整数小行列証明書](computations/jacobi_rank_certificate.json)。
 - [八次元の頂点構造の検証コード](computations/verify_jacobi_vertex.py)、[C++ 検証器](computations/verify_binary_minor.cpp)、[次数三の全射性の証明書](computations/jacobi_vertex_certificate.json)。
 - [中心評価・Hessian・trace の厳密検算](computations/verify_center_hessian.py)。
+- [幾何補正・残余比較の厳密検算](computations/verify_geometric_corrections.py)：全次元の Jacobi 双対証明書、trace、普遍二次テンソル、Hesse 不変量。
 - [参考文献](papers/references.tex)。外部文献PDFは含めない。
 
 直接の入力は [nc-cubic](https://github.com/uedakazushi/nc-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) の論文A・B。これらが既に扱う一般次元の正規形・量子化・一般点復元を、新しい成果として数えていない。
@@ -20,7 +21,7 @@
 
 **一般次元の O-marked moduli、point scheme、Poisson 多様体のモジュライへの射、Kuznetsov 成分の比較**を中心に進める。各既約成分の general / very general な対象を優先し、次元に一様な定理と族の構成を目指す。general な稠密開と very general な点集合、一ブロックの表示成分と全モジュライの成分は区別する。
 
-良い一ブロック型で O-marked 圏族の効果化、相対点関手の降下、Poisson 対 (X_w,π_w) への射を構成した。次は、この X_w と残余圏が復元する X_res の一致、および同じ X に対する非可換残余圏と Ku(X) の同値を比較する。同時に、各 intrinsic 成分の一般対象を覆う局所表示を研究する。Ku 同値や全成分の被覆は未完成である。
+良い一ブロック型で、O-marked 圏 stack と分解可能な Poisson 対の非空開の同型を構成した。一方、固定入力の残余復元の下で **trace–Hessian 射の X_TH と X_res が異なる全次元の Hesse 族**があり、固定した周囲 tensor の純中心補正では修復できない。一般混合係数でも、指定 formality 模型の下で marked な形式比較に二次 jet の障害がある。次は残余圏と整合する Poisson tensor の構成・代数化・降下を進め、同時に各 intrinsic 成分の一般対象を覆う表示を研究する。
 
 個別次元の Jacobi 計算と boundary の精査は、この一般目標の具体的な障害を解消する場合に行う。八次元の頂点構造等の既存成果と証明書は保持する。次の具体的な着手方法と各目標の到達基準は [研究方針](00_research_plan.md) にまとめ、全体の要約は [research-hub](https://github.com/uedakazushi/research-hub) に反映する。
 
@@ -34,7 +35,13 @@
 
 楕円境界・固定点なし・中心三次非零因子の条件下で、相対点スキームは `E⊔D`。臨界スキーム C=V(F_x,F_y,F_z) は中心への有限局所自由八重被覆であり、その三次切断 D は型 `(2,2,2,3)`、各 fibre の次元 `n−3`、次数24である。これらの構成は任意基底変更に両立する。点商関手・shift・中心射影は O-marked stack 上に降下し、非空開では埋込み点対応から中心直線 [w] まで回復する。従って A=B/(w) 全体を復元できる。
 
-正規化 trace `Tr/8` と尺度付き Hessian によって、量子中心三次と古典三次 Casimir の空間を、純中心三次上で恒等となる同変線型同型で結ぶ。その射影化は中心三次 torsor の同型であり、滑らかな三次を与える非空開から Poisson 対への射を得る。具体的標的は斉次 affine Poisson lift を持つ明示的 PGL 商で、lift を忘れても Brauer–Severi ambient と偏極類を持つ三次 Poisson 対を得る。実際の相対 O(1) の大域存在や、Ku 比較との一致は含まない。単純な可換化が古典 Casimir の制限と一致しないことも、Rains の中心公式から証明した。
+正規化 trace `Tr/8` と尺度付き Hessian によって量子中心三次と古典三次 Casimir を同定する。さらに任意基底上で、滑らかな三次の相対双ベクトルには `ι(dH)Π=0` を満たす一意な強い affine lift `Π=ι(dH)P` がある。この結果から Poisson 対だけで support・二次関係・中心直線を回復し、**Msm≅Pgood⊂Pdec** を得る。周囲 B 単独の有限安定化子は要求せず、良い PBW・中心・相対双対・全同値比較を満たす pair を扱う。次元は `binom(n+2,3)+3n−2`、Brauer 障害の位数も同じである。標的は Brauer–Severi ambient と偏極類を許し、実際の相対 O(1) の存在は別条件である。
+
+既存の一般三次の被約 Poisson 分類を使うと、一般三次の非空開上では全非零 Poisson moduli への開埋込みとなる。滑らかな三次 moduli を支配する Poisson 成分は一つだけで、本構成はその一般部分の開を同定する。特殊三次上の別成分や、全 intrinsic 圏成分の分類を含む主張ではない。
+
+**Kuznetsov 比較には具体的な障害がある。** 固定入力論文Bの完備移送・一般点復元の下で、全 n≥3 の split Hesse 族に対し `λ_TH=h`、`λ_res=(h+h²/3+h⁵/12)/(1−h⁴/4)` を得る。三重線形形式の symmetrizer が active な平面三次を回復し、その j 不変量の差は `13824h⁴+O(h⁵)`。従って一般ファイバーは代数閉拡大後も同型でなく、非可換残余圏と Ku(X_TH) との rotation 保存 dg Morita 同値はない。`n≢1 mod3` では rotation なしでも同値はない。同じ ambient Π のどの smooth cubic Casimir を選んでも、この例の X_res は得られない。
+
+一般混合 Hesse 表示では、短い中心式から h²ABC/6 を引いた Hessian jet の規格化を固定する。Dito の二次星積と Shoikhet の内向き wheel 消滅を用いる指定 formality 模型で、残余 potential と trace–Hessian 像の最初の差は `h²(Hess_active(F)/24+tr(Hess_active(F))/12)` となる。その全 Jacobi 類は非空 Zariski 開で非零であり、marked な形式比較を妨げる。この有限 jet の結果から、標識を外した全ての一般ファイバーの圏非同値までは結論しない。入力定数族に対する純中心補正の非自明性も別に全次元で証明した。
 
 一般の滑らかな三次に対して、`3 ≤ n ≤ 7` では Jacobi スキームが Grassmann 錐に等しい。`n=8`、すなわち `N=n+2=10` では、整数行列の証明書から全次数の差
 `J₁₀/I_F ≃ C(−2)^330` を決定した。冪零根基は頂点に支持される長さ330の二乗零イデアルで、頂点の極大イデアルで消え、socle 全体に等しい。Hilbert 級数は Grassmann 環のものに `330t²` を加えたものであり、この平方零拡大は次数付き代数としても頂点の完備局所代数としても分裂しない。この八次元の結果は、既存の一般三次の被約分類に依存しない。
@@ -45,7 +52,7 @@
 
 Jacobi 行列の普遍的な階数上界は Gesmundo–Landsberg の Koszul flattening の既知の結果に対応する。`N=9,10` の二次行列の最大階数の達成も Boij（1999, Remark 6）の apolar Betti 計算に対応し、独立した新規成果として数えない。現行稿はこの対応を明示し、計算証明書を再現可能な独立検証として保持する。正確な参照箇所は [参考文献](papers/references.tex) と [研究ノート](notes/research_notes.md) に記す。
 
-通常 Artin 基底上の残余圏の一次切断変形は `n ≠ 4` で幾何的変形として認識できる。四次元の categorical hull は22次元、幾何的変形は20次元。全 intrinsic 成分の一般対象の局所表示、構成した Poisson 三次と残余復元の一致、大域残余射、全 Abel 形式近傍の完成は主張していない。新規性の網羅的確認・外部査読は未完了。
+通常 Artin 基底上の残余圏の一次切断変形は `n ≠ 4` で幾何的変形として認識できる。四次元の categorical hull は22次元、幾何的変形は20次元。全 intrinsic 成分の一般対象の局所表示、残余圏と整合する修正 Poisson 射、大域残余射、全 Abel 形式近傍の完成は主張していない。新規性の網羅的確認・外部査読は未完了。
 
 ## 再生成
 
@@ -57,12 +64,13 @@ Jacobi 行列の普遍的な階数上界は Gesmundo–Landsberg の Koszul flat
 python3 -m pip install -r requirements.txt
 python3 scripts/check_sources.py
 python3 computations/verify_center_hessian.py
+python3 computations/verify_geometric_corrections.py
 python3 computations/verify_jacobi_rank.py --verify computations/jacobi_rank_certificate.json
 python3 computations/verify_jacobi_vertex.py --verify computations/jacobi_vertex_certificate.json
 latexmk papers/nc-cubic-n-fold.tex
 ```
 
-中心・Hessian の検算は有理係数の記号恒等式と八次自由代数の trace を再現する。入力論文の混合中心公式の中心性そのものは再検証しない。組版設定は既存の repo ルート基準のパスを維持し、PDF と SyncTeX を `build/` に揃えている。研究hubの現行テンプレートと設定も参照し、LaTeX Workshop の推奨拡張を指定した。
+中心・Hessian と幾何補正の検算は有理係数の記号恒等式、八次自由代数の trace、Jacobi 商の双対証明書、普遍 cofactor 恒等式と Hesse の j 差を再現する。入力論文の混合中心公式の中心性そのものは再検証しない。組版設定は既存の repo ルート基準のパスを維持し、PDF と SyncTeX を `build/` に揃えている。研究hubの現行テンプレートと設定も参照し、LaTeX Workshop の推奨拡張を指定した。
 
 証明書の再生成も可能である：
 

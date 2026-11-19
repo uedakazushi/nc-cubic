@@ -1,73 +1,71 @@
 # 非可換三次 n-fold：研究方針
 
-2026年11月20日 / v5。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+2026年11月20日 / v6。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
 
 ## 基本目標と優先順位
 
-任意の n≥3 に対して、非可換三次 n-fold の **O-marked moduli の構成、point scheme の研究、Poisson 多様体のモジュライへの射、Kuznetsov 成分の比較**を一つの研究として進める。各既約成分の一般点・very general な対象で成り立つ、次元に一様な構造定理を優先する。
+任意の n≥3 に対して、非可換三次 n-fold の **O-marked moduli の構成、point scheme の研究、Poisson 多様体のモジュライへの射、同じ X の Kuznetsov 成分との比較**を一つの研究として進める。各既約成分の一般点・very general な対象で成り立つ、次元に一様な構造定理を優先する。
 
-O-marked の基本対象は Abel 圏と構造対象の対 (C,O) であり、射は O を保つ同値とする。次数一 shift、次数付き表示、量子化パラメータ、rotation 等は構成のための補助データと、モジュライに本質的に残す標識とを区別する。表示依存の写像を、その降下を示さず O-marked moduli の射とは呼ばない。
+O-marked の基本対象は Abel 圏と構造対象の対 (C,O) であり、射は O を保つ同値とする。次数一 shift、次数付き表示、量子化パラメータ、rotation 等は補助データと、本質的に保持する標識とを区別する。表示依存の写像を、その降下を示さず O-marked moduli の射とは呼ばない。
 
-主公表原稿は `papers/nc-cubic-n-fold.tex`。日本語 LuaLaTeX、著者欄は空欄。達成基準は、各対象成分について、一般の族を扱うモジュライの構成と point scheme、Poisson 対への射の定義域・降下、対応する Kuznetsov 成分の同値を、正確な仮定と十分な証明で結び付けることである。Ku の同値は現時点では研究上の期待であり、全成分に対する証明済み主張ではない。
+主公表原稿は `papers/nc-cubic-n-fold.tex`。日本語 LuaLaTeX、著者欄は空欄。達成基準は、各対象成分について、一般の族を扱うモジュライと point scheme、Poisson 射の定義域・降下、対応する Kuznetsov 成分の同値を、正確な仮定と十分な証明で結び付けることである。
 
-良い一ブロック型では、局所表示を持つ O-marked 圏族の効果化、相対点関手の降下、量子中心三次から Poisson 対への射までを現行稿に構成した。このため次の中心課題を、得られた三次と残余圏が復元する三次の比較、および各成分の一般対象への局所表示の拡張へ進める。これは基本目標の変更ではなく、局所一ブロック型で解決した構成と、全成分について残る分類・比較を分けるためである。八次元 Jacobi 頂点の証明と計算資産は保持する。N=11,12 の個別 Hilbert 関数や boundary の精密分類は、一般目標に具体的に寄与するときに扱う。
+良い一ブロック型の O-marked 圏 stack は、強い affine lift の一意性と逆構成により、分解可能な Poisson 対の非空開と同型になった。しかし **trace–Hessian 射が選ぶ三次に対する rotation を保つ Ku 比較は一般には成立しない**（n≢1 mod3 では rotation を指定しない dg Morita 同値もない）。固定入力の残余復元の下で、全次元の明示 Hesse 族に幾何学的一般点の反例があり、周囲 tensor を固定したまま純中心三次だけを補正しても修復できない。さらに混合 Hesse 係数の一般点では、指定 formality 模型の下で marked な形式比較が二次 jet で妨げられる。
+
+従って次の中心課題は、**残余圏と整合する Poisson tensor 自体の構成・選択独立性・降下**である。これは同じ X の Ku 比較という目標を維持し、成立しない特定の処方を期待から外す変更である。開部分のモジュライ同型、相対点復元、Brauer 障害は独立に有効である。八次元 Jacobi 頂点の成果・証明書も保持し、次元別の追加計算や boundary の精密化は一般目標の具体的な障害を解消する場合に扱う。
 
 ## 一般性と成分の扱い
 
-- **各既約成分ごとに**、対象、一般点で成立する仮定、必要な開集合、既知の表示による被覆範囲を明記する。一ブロック表示空間が既約であることや、その非空開を構成したことだけから、全 O-marked moduli の全成分を扱ったとは結論しない。未構成のモジュライでは、表示空間の成分と期待するモジュライの成分を区別する。
-- **general** は各成分の稠密 Zariski 開上、**very general** は複素数上で可算個の真の閉部分集合を除いた範囲という意味で区別する。例えば有限個の小位数除外と無限位数条件を混同しない。very general な点集合を代数的な開部分 stack と呼ばない。
-- 射はまず各成分の関数体・幾何学的一般点で構成し、可能なら稠密開へ広げる。関数体上だけで得たものは一般点上の構成として記し、必要な有限表示と稠密開への拡張を示した後に有理射と呼ぶ。有限拡大後にだけ得た構成は、その範囲を明記する。複素数点での対応、族の射、降下した stack の射を区別する。
-- boundary、特殊点、非被約な形式近傍、compactification は、一般点での構成に必要な障害を解消する場合に優先する。独立した既約成分の一般点を、他成分の境界に見えることだけを理由に除外しない。point scheme の楕円成分 E は引き続き研究対象であり、モジュライの boundary の優先順位とは別である。
-- 個別次元の計算は、一般定理の仮説・帰納法・反例・構成の障害を判定する具体的な目的を持つときに行う。既存の公表価値ある結果と検証可能性は維持する。
+- 各既約成分について対象、仮定、非空開、表示による被覆範囲を明記する。一ブロック表示空間の既約性から全 intrinsic O-marked moduli の全成分を扱ったとは結論しない。Poisson 側の唯一の支配成分の結果と、未構成の圏 moduli の成分分類を分ける。
+- general は稠密 Zariski 開、very general は可算個の真の閉集合を除いた範囲と区別する。有限個の小位数除外と無限位数条件は異なる。点集合だけから代数的な開 stack や族の射を結論しない。
+- 関数体上、有限拡大上、形式完備化上、有限 Artin jet 上の結果を区別する。有限 jet の marked 非同型から一般ファイバーの unmarked 非同型を結論しない。Hesse 例の一般ファイバーの非同型は、別の j 不変量と symmetrizer の証明による。
+- 射はまず一般点で構成し、有限表示と必要な降下を確認して稠密開へ広げる。実際の相対 O(1) と偏極類、split ambient と Brauer–Severi ambient を区別する。
+- boundary・非被約形式近傍・個別次元の計算は一般構成の具体的な障害を解消するときに優先する。独立成分の一般点や point scheme の楕円成分 E を、この方針を理由に除外しない。
 
 ## 固定した入力と現在の到達点
 
-直接の入力は [nc-cubic](https://github.com/uedakazushi/nc-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) の固定 commit `eabe601c1341777742964584dde5314c0bcf64a9`（論文A A-v61、論文B B-v59）。三様体の比較対象は [nc-cubic-threefold-moduli](https://github.com/uedakazushi/nc-cubic-threefold-moduli/tree/6c35d2c84671c2538e61836a6bf3a511392eacce) の固定 commit `6c35d2c84671c2538e61836a6bf3a511392eacce`（v22）。これらは読取り専用とする。
+直接の入力は [nc-cubic](https://github.com/uedakazushi/nc-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) の固定 commit `eabe601c1341777742964584dde5314c0bcf64a9`（論文A A-v61、論文B B-v59）。三様体の比較対象は [nc-cubic-threefold-moduli](https://github.com/uedakazushi/nc-cubic-threefold-moduli/tree/6c35d2c84671c2538e61836a6bf3a511392eacce) の固定 commit `6c35d2c84671c2538e61836a6bf3a511392eacce`（v22）。両 repo は読取り専用とする。
 
-入力の全次元 Poisson 正規形・中心量子化・一般点残余復元、体上の potential/PBW/CY 定理を新規成果に数えない。未公表入力の全証明を独立に再検証したとは主張しない。書誌と仮定は `notes/research_notes.md`、確認状態は `notes/validation.md` に置く。
+入力の全次元 Poisson 正規形・中心量子化・完備 MF 移送・一般点残余復元・Hesse の exact residual potential、および公刊の PBW/CY・星積・wheel 消滅を新規成果に数えない。未公表入力の全証明を独立に再検証したとは主張しない。書誌・参照箇所は `notes/research_notes.md`、確認状態は `notes/validation.md` に置く。
 
 | 基本目標 | 現行稿に証明のある到達点 | 未解決の核心 |
 |---|---|---|
-| O-marked moduli | 全 O-同値の比較と重み付き tails により、良い一ブロック表示を fpqc 局所に持つ Grothendieck 圏族を滑らかな既約 DM stack として構成。表示 gerbe は n≢1 mod3 で中立、n≡1 mod3 では全ての非空開上で位数3 | 各 intrinsic 成分の一般対象の局所表示、成分性、複数ブロック型への拡張。実際の次数一線束の有無と偏極類を区別 |
-| point scheme | 相対 Pt(A)=E⊔D、臨界スキーム C の中心への有限局所自由八重被覆、その三次切断 D の型 (2,2,2,3) と shift・点商関手を全 O-同値に沿って降下。非空開上で点対応から B と中心直線 [w]、従って A 全体を復元 | 各成分の一般点の幾何と、点データからの intrinsic image の認識。相対随伴には基底 determinant 因子を残す |
-| Poisson moduli への射 | 正規化 trace と尺度付き Hessian により Z(B)₃≃R_Π を同変に構成。任意底変更と両立し、非空開で滑らかな三次 Poisson 対への射を得る。標的は斉次 lift を持つ明示的 PGL 商を経由し、Brauer–Severi ambient と偏極類を許す | 像・ファイバー・各成分での射の範囲。実際の O(1) を要求する場合の Brauer 中立化。自然な逆量子化としての一意性は未証明 |
-| Kuznetsov 成分の比較 | 入力論文Bの rotation・指定三次周期を保つ一般点復元、現行稿の n≠4 の通常 Artin 残余形式認識 | trace–Hessian 射の X_w と残余復元の X_res の同型、および同じ X に対する K_A≃Ku(X) とその降下。n≡1 mod3 の rotation、n=4 の幾何 locus |
+| O-marked moduli | 全 O-同値比較と重み付き tails による効果化。滑らかな出力を持つ良い pair では周囲単独の有限安定化子を外せ、滑らかな既約 DM stack Msm を構成。表示 gerbe は n≢1 mod3 で中立、n≡1 mod3 では全非空開上で位数3 | 各 intrinsic 成分の一般対象の局所表示、複数ブロック型、成分性 |
+| point scheme | 相対 Pt(A)=E⊔D、中心への八重有限平坦被覆、型 (2,2,2,3) の定常成分。点関手・shift・中心射影を降下し、非空開で埋込み点対応から A 全体を復元 | 各成分の一般点の幾何、点データだけによる像の認識、分岐と自己同型 |
+| Poisson moduli | 任意基底で一意な強い lift Π=ι(dH)P。Msm≅Pgood⊂Pdec、次元 binom(n+2,3)+3n−2。既存被約分類の下で一般三次上の全非零 Poisson moduli への開埋込みと唯一の支配成分 | 特殊三次上の別成分、全 intrinsic 圏成分との関係、Ku と整合する別の tensor の構成 |
+| Kuznetsov 比較 | 固定入力を使う全次元 Hesse 族で X_TH と X_res の一般ファイバー非同型。rotation 保存 dg Morita 同値なし、n≢1 mod3 では rotation なしでも同値なし。同じ Π の全 smooth cubic Casimir に障害。一般混合係数では marked 形式比較の二次障害 | formality 補正 Π または残余低積による Poisson データの構成・代数化・全同値への降下。一般混合係数の unmarked 一般点比較、n≡1 mod3 の rotation、n=4 の幾何 locus |
 
-主要証明は `thm:nfm-local-moduli`, `prop:nfm-presentation-gerbe`, `thm:nfm-brauer-dense-open`, `thm:relative-point-nfold`, `thm:point-omarked-descent`, `thm:point-central-recovery`, `lem:point-relative-casimirs`, `thm:point-trace-hessian`。相対双対・全同値の入力は `thm:nfm-relative-serre`, `thm:nfm-fixed-model-comparison`、形式認識は `thm:nf-residual-formal`。
+主証明は `thm:nfm-local-moduli`, `thm:point-trace-hessian`, `thm:poisson-strong-lift`, `thm:poisson-good-open-isomorphism`, `cor:poisson-generic-open-immersion`, `thm:nfm-th-residual-obstruction`, `cor:nfm-casimir-selection-obstruction`, `prop:nfm-relative-residual-second-jet`, `cor:nfm-generic-marked-comparison-obstruction`。相対点復元は `thm:relative-point-nfold`, `thm:point-omarked-descent`, `thm:point-central-recovery`、残余形式認識は `thm:nf-residual-formal`。
 
-保持する補助成果：指定同値の大域持上げ線束と自由な次数一表示での三捩れ障害、その明示例（`prop:nfm-lifting-line`, `cor:nfm-three-torsion-lift`, `prop:nfm-nontrivial-three-torsion`）。八次元の J/I=C(−2)^330 と非分裂平方零構造、横断切片、直和 retract、一般次元の高次数下界（`thm:nfold-eightfold-square-zero`, `thm:nfold-transverse-slice`, `prop:nfold-ts-retract`, `prop:nfold-higher-nilradical`）。Koszul 階数上界と N=9,10 の二次階数は Gesmundo–Landsberg・Boij の既知結果に対応し、新規性を主張しない。詳細な証明・計算は現行稿とノートに保持する。
+保持する補助成果：指定同値の持上げ線束と三捩れ障害・その明示例、八次元の J/I=C(−2)^330 と非分裂平方零構造、横断切片・直和 retract・高次数下界。Koszul 階数上界と N=9,10 の二次階数は既知結果に対応し、新規性を主張しない。証明・厳密計算資産は現行稿に保持する。
 
-## 次に進める四つの課題
+## 優先する次の課題と具体的な着手
 
-### 1. Poisson 射の三次と残余復元の三次を比較する
+### 1. 残余復元と両立する Poisson tensor を作る
 
-最優先は、構成済みの X_w=V(d_Π(w)) と入力論文Bが与える X_res を、関数体上または必要な有限拡大上で比較することである。零ファイバーで一致することや変形次元が一致することを、一般パラメータでの一致と取り違えない。
+最優先。固定 ambient Π の Casimir 選択だけによる修復は Hesse 族で不可能である。したがって中心補正だけを探索する方針を採らない。
 
-具体的な着手：一般の一ブロック中心三次族の形式パラメータ h について、X_w の h²・h⁴係数と、残余圏の幾何的 Kodaira–Spencer 写像を比較する。現行ノートの全混合係数例では、指定 Hessian jet を持つ中心元であっても d_Π(w) は入力 F と純中心補正だけ異なる。この補正が座標変換・幾何変形で消えるかを最初に判定する。必要なら、trace–Hessian 射の規格化や中心補正を、残余圏と整合するよう修正する。現在の射の存在は証明したが、これが期待する Ku 比較と両立することはまだ結論しない。
+具体的な着手は、指定 formality 模型の formal tensor と residual potential W の組を、h³ の tensor 係数から比較すること。Hesse 族では active potential を g_h から g_λres へ替える候補があるが、一般混合係数では全中心方向と尺度・座標 gauge を追跡する。Hessian jet に規格化した中心元 Ω̃（短い式から h²ABC/6 を引く）について、普遍恒等式 Θ=−2 adj(Hess_active F)、ρ₂F=Hess_active(F)/8 と、残余 potential の W=F+h²Hess_active(F)/24+O(h³) を出発点にする。
 
-一致が得られた場合に、既存一般点同値の核の有限表示、全忠実性、本質的全射性、cocycle を確認して稠密開へ広げる。n≡1 mod3 の rotation・指定三次周期と、n=4 の幾何 locus は別途保持する。
+別経路として、残余圏の低 rotation 積の核 Q_ρ を計算し、既に存在する可換模型の勾配空間を回復する。そこから rank3 support または Poisson bivector を選ぶ構造が何かを特定する。低積の次元や可積分性だけから圏同値や canonical な tensor を結論しない。
 
-### 2. 各成分の一般対象を覆う局所表示を調べる
+次の達成基準は、一般点または明示した有限拡大上の (X_res,π_res) と K_A≃Ku(X_res) の整合、および選択の変換則。形式級数しか得られない段階では代数的モジュライ射と呼ばず、代数化・有限表示・cocycle と全 O-同値への降下を別に示す。
 
-現在の stack は良い一ブロック表示を局所的に持つという条件を課したもの。任意の intrinsic Abel 圏族の局所表示、全成分の被覆、成分性は未証明である。入力論文Aの各ブロック型を用い、一般点における中心、PBW 平坦性、Serre 軌道と Veronese 復元の仮定を点検する。
+### 2. 各 intrinsic 成分の一般対象を覆う表示を調べる
 
-具体的な着手：複数ブロック型で中心一次階数と普遍低次数中心をまず調べる。rank U≥2 が失われる型には二変数中心交叉をそのまま適用できない。中心三次の商束が階数 k になる場合は P(E)\P(W)→P(E/W) 上の torsor を使い、既存の一ブロック直線同型を無条件に流用しない。各型がどの成分の一般点を表すかは、独立の変形・表示定理を得た範囲で述べる。
+現在の Msm は良い一ブロック局所模型を持つ圏族である。Poisson 側の唯一の支配成分を同定したことは、全 intrinsic 圏モジュライの成分分類を意味しない。
 
-### 3. 一般の point scheme の幾何とモジュライ内の像を研究する
+具体的には入力論文Aの各ブロック型で、中心一次階数、普遍低次数中心、PBW 平坦性、Serre 軌道と Veronese 復元の仮定を点検する。rank U≥2 が失われる型には中心正則対の議論をそのまま使わない。中心三次の商束が階数一でない場合は P(E)\P(W)→P(E/W) の torsor を用い、一ブロック直線の同型を無条件に流用しない。
 
-点商関手、shift、中心射影と中心商の復元は、良い一ブロック型で任意基底変更に対応した。次はその像を幾何学的に特徴付け、各成分の一般点について定常完全交叉の連結性・滑らかさ、被覆の分岐、自己同型、点対応の同型問題を調べる。
+### 3. 一般の点対応からモジュライ内の像を認識する
 
-具体的な着手：復元した二次関係・中心直線から good PBW 条件を判定する有限条件を整理し、点対応によるモジュライ写像の忠実性と像の条件を定式化する。全 O-同値の局所持上げと、埋込み点対応の復元を使う。抽象的な D 単独から同じ復元ができるとは仮定しない。相対 O(1) の存在は ambient の Brauer 障害と関係し、点空間への引戻しでは普遍点の次数一線束によって障害が消える点を保つ。
+相対点関手、shift、中心射影、中心三次の復元は構成した。次はその像の有限条件、定常完全交叉の一般の滑らかさ・連結性、八重被覆の分岐、自己同型を調べる。
 
-### 4. Poisson 射の像・ファイバー・標的を精密化する
+具体的には埋込み点対応から復元した二次関係・中心直線について、good PBW 条件を判定する条件を整理する。抽象的な D だけで同じ復元ができるとは仮定しない。D の滑らかさは全定理の仮定ではなく、相対完全交叉と正則切断から区別する。相対随伴の determinant 因子と Brauer 障害も保持する。
 
-現在の射は局所一ブロック型の非空開から、滑らかな三次と尺度込み Poisson tensor のモジュライへ降下する。量子・古典の中心三次 torsor は明示的に同型だが、全 Poisson モジュライへの全射性やファイバーの次元は未証明である。
+### 4. 公表価値と新規性の確認
 
-具体的な着手：斉次 affine lift を忘れた後にどの情報が失われるか、Poisson 三次から ambient tensor と中心 support が復元されるかを調べる。n≡1 mod3 ではどの非空開でも表示 gerbe が中立にならないため、まず偏極類または Brauer–Severi ambient を許す標的を用いる。実際の線束を持つ標的が必要なら、source の中立化 gerbe 上で構成し、残余圏比較に必要なデータとの関係を明記する。
-
-## 公表と二次的課題
-
-公表稿の中心を上の一般次元のモジュライ・点スキーム・Poisson 射・残余圏比較に沿わせる。証明済みの個別次元結果は削除せず、必要なら論理的にまとまった独立論文へ整理する。n=9,10 の高次数 Jacobi 計算、特殊点・boundary の精査は、主目標に対する具体的な役割が明らかになった段階で着手する。重要な既知結果の一次資料確認と新規性調査は、選んだ中心定理について継続する。
+中心を一般次元のモジュライ同型・点復元・残余比較の障害と修正へ置く。Dito・Shoikhet の一次資料との比較を含め、既知の formality そのものと本稿の具体的な補正差を区別する。未公表入力の主要な依存は、必要な範囲から独立検証を進める。公表に向けて全引用・被引用文献の確認を継続し、既存の個別次元結果は削除せず論理的な配置を維持する。
 
 ## 研究全体に共通する一般原則と保存許可
 

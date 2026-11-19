@@ -359,7 +359,243 @@ $\mathfrak d_{h\Pi_F}(\Omega_{F,h})=F+O(h^2)$ となる。
 前者の境界 Jacobi 類を消すのではなく、その非零類を Hessian 同型によって
 古典 Casimir 方向の係数へ読み替え、純中心成分を trace で指定している。
 これにより Poisson 三次対への射は構成できるが、
-$X_w$ と残余圏が回復する可換三次多様体 $X_{\mathrm{res}}$ の同型、
-および $\operatorname{Ku}(A)\simeq\operatorname{Ku}(X_w)$ は別の比較問題として残る。
+$X_w$ と残余復元の $X_{\mathrm{res}}$ の一致は別の問題である。
+第\ref{sec:nfm-residual-th-obstruction}節では、この射をそのまま用いる比較に
+次元に一様な障害を与える。
 特定の量子化 chart の写像を全ての内在的モジュライ成分の写像に拡張したとは主張しない。
+\end{remark}
+
+\subsection{Trace--Hessian 補正の非自明な幾何変形}
+\label{sec:trace-geometric-correction}
+
+指定された Hessian 二次 jet を持つ中心元でも、trace--Hessian 射が
+入力の可換三次超曲面を定数族として返すとは限らない。
+以下ではこの相違が、任意の $n\ge3$ において座標変換で消えない
+幾何変形を与えることを証明する。
+比較の相手は入力の三次式であり、残余圏から復元した三次式ではない。
+
+\begin{proposition}[全次元に共通する非零 Jacobi 類]
+\label{prop:trace-uniform-jacobi-class}
+$n\ge3$、$m=n-2$ とし、$x,y,z,u,v_1,\ldots,v_m$ を次数一の変数とする。
+\begin{equation}\label{eq:trace-test-family}
+ F_t=\frac{x^3+y^3+z^3+u^3+\sum_{a=1}^{m}v_a^3}{3}
+       +tu(xy+yz+zx)
+\end{equation}
+と置く。$X_t=V(F_t)\subset\mathbb P^{n+1}$ が滑らかであるための条件は
+\begin{equation}\label{eq:trace-test-smooth}
+ (1+12t^3)(1+2t^3+5t^6)\ne0
+\end{equation}
+である。
+さらに、$t\ne0$ ならば滑らかさの有無にかかわらず
+\begin{equation}\label{eq:trace-u-cube-nonzero}
+ [u^3]\ne0\quad\text{in}\quad
+ (J_{F_t})_3,
+ \qquad
+ J_{F_t}=k[x,y,z,u,v_1,\ldots,v_m]/(\partial F_t).
+\end{equation}
+特に $t=1$ は全ての $n\ge3$ に共通する滑らかな明示例である。
+\end{proposition}
+
+\begin{proof}
+$\partial F_t/\partial v_a=v_a^2$ なので、射影特異点では全ての $v_a$ が零である。
+残る四変数の偏微分は
+\[
+ f_x=x^2+tu(y+z),\quad f_y=y^2+tu(x+z),\quad
+ f_z=z^2+tu(x+y),\quad f_u=u^2+t(xy+yz+zx).
+\]
+$u=0$ ならば三つの active 偏微分から $x=y=z=0$ となるため、
+射影特異点は存在しない。従って $u=1$ に規格化できる。
+差分
+\[
+ f_x-f_y=(x-y)(x+y-t)
+\]
+とその巡回形から、$x,y,z$ が全て異なることは不可能である。
+全て等しく $x=y=z=a$ ならば、$a(a+2t)=0$ と
+$1+3ta^2=0$ を同時に満たす必要があり、$a=-2t$、$1+12t^3=0$ を得る。
+ちょうど二つが等しい場合には $x=y=a$、$z=b\ne a$ としてよく、
+$a+b=t$、$a^2+t^2=0$、$1+t^3+2t^2a=0$ となる。
+$a$ を消去すると $1+2t^3+5t^6=0$ である。
+逆に各例外条件から表示した特異点を構成できるので、滑らかさの条件を得る。
+
+Jacobi 類の非消滅には、二十個の四変数三次単項式に対する
+次の汎関数だけで十分である。
+$\{x_1,x_2,x_3\}=\{x,y,z\}$ とし、
+\begin{equation}\label{eq:trace-jacobi-functional}
+ \begin{array}{c|c}
+ \text{単項式}&\ell_t\text{ の値}\\ \hline
+ x_i^3&2t\\
+ x_i^2x_j\quad(i\ne j)&t\\
+ xyz&-2t\\
+ ux_ix_j\quad(i\ne j)&-1\\
+ u^3&3t
+ \end{array}
+\end{equation}
+と置き、その他の三次単項式の値を零とする。
+特に $ux_i^2$、$u^2x_i$ および $v_a$ を含む単項式の値は零である。
+この定義は $x,y,z$ の置換に不変である。
+十六個の一次式倍 $x_i f_{x_j}$ に対する確認は、対称性により
+\[
+ \begin{aligned}
+ \ell_t(xf_x)&=2t-t-t=0,&
+ \ell_t(yf_x)&=t-t=0,\\
+ \ell_t(uf_x)&=0,&
+ \ell_t(xf_u)&=t(t-2t+t)=0,\\
+ \ell_t(uf_u)&=3t-t-t-t=0
+ \end{aligned}
+\]
+に帰着する。
+$v_a$ に関する偏微分の一次式倍、または既存偏微分の $v_a$ 倍の値も零である。
+従って $\ell_t$ は全 Jacobi 環の次数三部分へ降下し、
+$\ell_t(u^3)=3t\ne0$ から結論を得る。
+追加の Fermat 変数については、同じことを
+\[
+ J_{F_t}\simeq
+ k[x,y,z,u]/(f_x,f_y,f_z,f_u)
+ \otimes_k\bigotimes_{a=1}^{m}k[v_a]/(v_a^2)
+\]
+というテンソル積表示からも確認できる。
+\end{proof}
+
+\begin{proposition}[Hessian 正規化後にも残る二次変形]
+\label{prop:trace-nonconstant-classical-family}
+式\eqref{eq:trace-test-family}について、$t\ne0$ と
+\eqref{eq:trace-test-smooth}を仮定する。
+active Poisson tensor を $h\Pi_{F_t}$ とし、入力論文Aの
+\texttt{hesse\_mixed\_universal\_center.tex}、
+系\texttt{cor:pg-hesse-hessian-form}\cite{NCCubicA}の短い中心元から
+純中心項 $h^2t^3u^3/6$ を引いた中心元を $\widetilde\Omega_{t,h}$ とする。
+これは指定 jet
+\[
+ \widetilde\Omega_{t,h}
+ =\operatorname{sym}\left(F_t-\frac{h^2}{12}
+     \det\operatorname{Hess}_{x,y,z}(F_t)+O(h^4)\right)
+\]
+を持つ。入力の中心性と PBW 開の下で、trace--Hessian 射は厳密に
+\begin{equation}\label{eq:trace-test-image}
+ \mathfrak d_{h\Pi_{F_t}}(\widetilde\Omega_{t,h})
+       =F_t+h^2t^3u^3
+\end{equation}
+を与える。
+従って $V(F_t+h^2t^3u^3)$ の $k[[h]]$ 上の形式族は、
+$X_t$ の定数族と同型ではない。相違は既に $k[h]/(h^3)$ 上で検出される。
+\end{proposition}
+
+\begin{proof}
+混合係数は $A=B=C=tu$、$D=E=H=0$ である。
+入力の有限中心公式は
+\[
+ \widetilde\Omega_{t,h}
+ =\operatorname{sym}\left(F_t-\frac{h^2}{12}\mathscr H_t
+       +\frac{h^4}{18}(Z_2-R_{11})\right),
+\]
+ただし
+\[
+ \begin{aligned}
+ \mathscr H_t&=8xyz-2t^2u^2(x+y+z)+2t^3u^3,\\
+ Z_2&=tu(x^2+y^2+z^2),\qquad
+ R_{11}=t^2u^2(x+y+z)
+ \end{aligned}
+\]
+を与える。
+$S=k[u,v_1,\ldots,v_m]$ 上の八次自由代数
+$T=S[x,y,z]/(f_x,f_y,f_z)$ の平方自由単項式基底で乗法行列の trace を取ると、
+正規化 $\operatorname{tr}=\operatorname{Tr}_{T/S}/8$ に対し
+\[
+ \operatorname{tr}(x)=\operatorname{tr}(y)=\operatorname{tr}(z)=0,
+ \quad \operatorname{tr}(xyz)=-\frac74t^3u^3,
+ \quad \operatorname{tr}(\mathscr H_t)=-12t^3u^3,
+ \quad \operatorname{tr}(Z_2-R_{11})=0
+\]
+となる。
+また境界 $u=v_a=0$ の Jacobi 線では
+$\epsilon(\widetilde\Omega_{t,h})=-2h^2[xyz]/3$、
+$\nu_{h\Pi_{F_t}}([F_t])=8h^2[xyz]$ なので、
+trace--Hessian 式の非純中心方向の係数は厳密に一である。
+従って $\mathfrak d(\widetilde\Omega)=F_t+
+\operatorname{tr}(\widetilde\Omega-F_t)$ となり、
+式\eqref{eq:trace-test-image}を得る。
+この計算は入力公式の中心性自体を再証明するものではない。
+
+幾何的非自明性を示す。滑らかな三次超曲面について
+$H^1(X_t,T_{X_t})\simeq(J_{F_t})_3$ であり、
+$H^0(X_t,T_{X_t})=0$ である
+（補題\ref{lem:nf-geometric-smooth}とその直前の Euler 列・正規列の計算）。
+小拡大 $k[h]/(h^3)\to k[h]/(h^2)$ の核は $kh^2$ である。
+表示した族は $h^2$ を法として定数族に等しく、
+その定数持上げとの差は
+\[
+ t^3[u^3]\otimes h^2\in H^1(X_t,T_{X_t})\otimes kh^2
+\]
+である。命題\ref{prop:trace-uniform-jacobi-class}によりこれは非零である。
+特殊ファイバー上恒等な同型は $h^2$ を法としても恒等でなければならないので、
+この相違を消せない。
+特殊ファイバー上の任意の自己同型を許しても、それを定数族側の自己同型で
+打ち消して特殊ファイバー上恒等にできるため、結論は変わらない。
+よって抽象的な形式族としても同型ではなく、当然、偏極付き族としても同型ではない。
+\end{proof}
+
+\begin{corollary}[表示係数の一般点における相違]
+\label{cor:trace-generic-geometric-correction}
+中心平行移動で対角二次混合を除いた Hesse 表示
+\[
+ F=g_\lambda+Axy+Byz+Czx+Dx+Ey+Hz+G
+\]
+の係数を全て動かす既約係数空間で、active 三次 $g_\lambda$ と
+全体の三次式 $F$ がともに滑らかな開を考える。
+入力の短い Hesse 中心元から $h^2ABC/6$ を引いた規格化を用いると、
+trace--Hessian 像の $h^2$ 係数は
+\begin{equation}\label{eq:trace-general-second-correction}
+ K_2(F)=-\frac1{12}\operatorname{tr}_{T/S}
+          \bigl(\det\operatorname{Hess}_{x,y,z}(F)\bigr)
+ \in\Sym^3U
+\end{equation}
+である。ここでも $\operatorname{tr}_{T/S}$ は八で割った trace を意味する。
+全 Jacobi 環の次数三における $[K_2(F)]$ は非空 Zariski 開で非零となる。
+従ってこの表示係数空間の一般点で、trace 像の形式三次族は入力の定数族と異なる。
+\end{corollary}
+
+\begin{proof}
+入力の有限公式を
+\[
+ \widetilde\Omega_{F,h}=\operatorname{sym}
+     \left(F-\frac{h^2}{12}\mathscr H_F+h^4\Psi_\lambda(F)\right)
+\]
+と書く。同入力の表示式から、境界への制限は
+\[
+ \Psi_\lambda(F)|_{U=0}
+       =\frac{\lambda(8-\lambda^3)}{48}g_\lambda
+\]
+である。これは境界 Jacobi 環で零なので、
+$\epsilon(\widetilde\Omega_{F,h})=-h^2[\det\operatorname{Hess}(g_\lambda)]/12$
+は $h^4$ 項を含めても厳密等式である。
+従って非純中心方向の規格化係数は一であり、
+\[
+ \mathfrak d(\widetilde\Omega_{F,h})
+   =F-\frac{h^2}{12}\operatorname{tr}(\mathscr H_F)
+        +h^4\operatorname{tr}(\Psi_\lambda(F)).
+\]
+特に $h^4$ 項を $h^2$ で割る際に生じ得る追加の $F$ 方向の補正は、
+この規格化には存在しない。
+
+active 勾配の臨界代数 $T$ は $S$ 上有限局所自由なので、
+上の trace は係数空間上で正則である。
+また滑らかな $F$ の全勾配は普遍的な正則列となるため、
+$(J_F)_3$ は階数 $\binom{n+2}{3}$ の局所自由束であり、任意の基底変更と両立する。
+従って $[K_2(F)]$ はこの束の正則切断である。
+式\eqref{eq:trace-test-family}の $t=1$、$\lambda=0$ の点では
+$K_2(F)=u^3$ の類が非零なので、その非消滅開は非空である。
+この Hesse 表示と中心平行移動は、一般の楕円型一ブロック表示を覆う。
+係数空間の既約性により、既存の良い一ブロック表示の非空開とも交わる。
+\end{proof}
+
+\begin{remark}[結論の範囲]
+明示例の周囲代数そのものが、周囲代数の有限安定化子等の
+全ての良い開条件を満たすとは主張しない。
+明示例は Jacobi 束の切断の非零性を証明するために用い、
+良い開との両立は最後の既約係数空間上の非消滅開で得ている。
+ここで判定したのは、trace--Hessian 像と\emph{入力した}三次式の定数族との差である。
+残余復元の $X_{\mathrm{res}}$ がその定数族であることは示していない。
+従って本結果は
+$\operatorname{Ku}(A)\simeq\operatorname{Ku}(X_w)$ の反例ではなく、
+その比較において有限係数の純中心補正を無視できないという障害である。
 \end{remark}

@@ -1,0 +1,550 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{Trace--Hessian 三次と残余復元三次の比較障害}
+\label{sec:nfm-residual-th-obstruction}
+
+本節では、Trace--Hessian 写像が与える三次と、
+rotation を備えた残余圏から復元される三次を区別する。
+固定入力論文Bの完備移送・一般点復元定理を用いる箇所を明示する。
+同入力の全証明の独立再検証を行ったという意味ではない。
+特に、可換特殊ファイバーとの一致や同じ一次変形類だけでは、
+二つの復元を同一視できないことを、任意の次元の一ブロック族で示す。
+
+\subsection{残余復元が選ぶデータ}
+
+固定入力論文B\cite{NFNCCubicB}の定理
+\texttt{cft:thm:complete}は、次数別有限自由な完備中心三次対
+$(B,\Omega)$ に対し、特殊ファイバー $F$ を持つ形式三次式 $W$ と、
+内部 shift および指定三次周期を保つ graded MF 同値を構成する。
+同入力の補題\texttt{cft:lem:model}, \texttt{cft:lem:center}で、
+formality と星積模型への厳密同型 $\phi$ を選んだ後の $W$ は
+\begin{equation}
+\label{eq:nfm-formality-central-inverse}
+ W=C_\pi^{-1}\phi(\Omega),\qquad
+ C_\pi(f)=\sum_{j\ge0}\frac1{j!}
+ \mathcal U_{j+1}(f,\pi,\ldots,\pi)
+\end{equation}
+として定まる。従って $W\bmod h=F$ ではあるが、$W=F$ は結論ではない。
+この写像は有限次数内の形式級数であり、
+量子関係式から直接回復する尺度付き二次 Poisson tensor と、
+formality が構成する formal Poisson tensor とも区別する。
+
+三次周期は $\deg t=(2,-3)$ の周期変数を係数として固定することにより保存される。
+したがって、potential の単元倍を行ったときには周期の規格化も追跡する必要がある。
+一方、rotation の次数一・二の積から復元するのは勾配空間であり、
+指定周期だけから量子中心と古典三次の Trace--Hessian 同定が強制されるわけではない。
+
+一般点での低次数不変量は
+\[
+ V_\rho=H^0\operatorname{RHom}_{\mathcal K^e}(\Delta,P_\rho),\qquad
+ U_\rho=H^0\operatorname{RHom}_{\mathcal K^e}
+ (\Delta,P_\rho\otimes_{\mathcal K}^{\mathbf L}P_\rho),
+ \qquad
+ Q_\rho=\ker\bigl(\operatorname{Sym}^2V_\rho\to U_\rho\bigr)
+\]
+である。固定入力の定理\texttt{gcd:thm:field-model}は、
+\emph{滑らかな可換模型の幾何学的存在を得た後に}この勾配空間を積分し、
+方程式の定義体を元の関数体へ降ろす。
+有限体拡大が不要なのは方程式であり、同値核とその周期比較には有限拡大が残る。
+この降下から、方程式が $h=0$ で正則であることや剰余が $F$ であることを
+一般には結論できない。
+
+\begin{proposition}[既知の可換模型がある場合の比較判定]
+\label{prop:nfm-residual-low-product-test}
+$k$ を標数零の体とし、$(\mathcal K,\rho)$ は smooth proper な dg pair で、
+ある代数閉拡大体上で滑らかな三次超曲面の rotation 付き Kuznetsov pair に
+同値であると仮定する。
+滑らかな三次式 $H\in\operatorname{Sym}^3W$ に対して、次は同値である。
+\begin{enumerate}
+\item 代数閉包上で $(\mathcal K,\rho)\simeq(\operatorname{Ku}(V(H)),\rho_H)$ である。
+\item 代数閉包上の線型同型 $V_\rho\simeq W$ が存在し、
+$Q_\rho$ を $\langle\partial_iH\rangle$ に移す。
+\end{enumerate}
+成立する場合、同値はある有限代数拡大上に取れる。
+元の幾何的模型との同値が指定三次周期を保っていれば、
+必要な有限拡大と方程式の規格化の後、その周期も保存できる。
+\end{proposition}
+
+\begin{proof}
+同値から低 rotation 積を比較する向きは、固定入力の
+命題\texttt{prop:ej-geometric-low-degree}である。
+逆に既存の可換模型 $Y$ を取ると、第二条件の下で $Y$ と $V(H)$ の勾配空間が一致する。
+滑らかな三次式の勾配空間による射影的一意性
+\textup{(}同入力の命題\texttt{prop:ej-projective-uniqueness}\textup{)}により、
+両者は代数閉包上で射影同型となる。
+既存の残余同値と合成すればよい。
+座標変換によって方程式が $cH$ に移る場合は、$c$ の三乗根で
+全座標を一様に調整して potential の厳密同型にする。
+これにより内部 shift と指定 MF 周期を保てる。
+座標変換と同値核は、固定入力の有限降下補題\texttt{rog:lem:descent}により
+有限拡大上へ降下する。
+なお幾何的模型の存在の仮定を除き、低積の次元や可積分性だけから
+圏同値を結論したわけではない。
+\end{proof}
+
+\subsection{次元に一様な split Hesse 族}
+
+$r=n-1\ge2$、$R=\mathbf C[h]_{(h)}$、$K=\mathbf C(h)$ とする。
+$D_R$ を
+\[
+ [y,z]=h x^2+\frac{h^2}{2}(yz+zy),\qquad
+ [z,x]=h y^2+\frac{h^2}{2}(zx+xz),\qquad
+ [x,y]=h z^2+\frac{h^2}{2}(xy+yx)
+\]
+で定義し、$B_R=D_R[u_1,\ldots,u_r]$ と置く。
+中心変数と混同しない係数を $a_h,b_h$ と書いて
+\[
+ \begin{split}
+ S&=x^3+y^3+z^3,\qquad P=xyz,\qquad
+ G=\frac13\sum_{i=1}^r u_i^3,\qquad F_0=S/3+G,\\
+ a_h&=1+\frac{h^4}{2}+\frac{h^5}{6}-\frac{h^8}{48},\qquad
+ b_h=\frac{(4-h^4)(12h+h^5-8h^2)}{48},\\
+ w_h&=\frac{a_h}{3}S+b_h\operatorname{sym}(xyz)+G
+ \end{split}
+\]
+とする。
+固定入力論文Bの命題\texttt{gre:prop:input}の Sklyanin 中心公式と
+次数別自由性の証明は active な三変数で完結している。
+従って中心変数を任意個付加しても、$B_R$ は次数別有限自由で、
+$w_h$ は中心三次元、剰余 $F_0$ は滑らかな三次式である。
+
+\begin{proposition}[Trace--Hessian 出力の厳密計算]
+\label{prop:nfm-th-hesse-exact}
+上の族の一般点において、Trace--Hessian 写像の $-12$ 規格化は
+\[
+ H_h^{\mathrm{TH}}=\mathfrak d_\Pi(w_h)=F_0+hxyz
+\]
+を厳密に与える。
+従ってこの射の当該 trait に沿う出力は $h=0$ まで正則に延長する。
+これは Trace--Hessian 構成そのものを、中心次元が跳ぶ可換特殊点全体へ
+延長したという主張ではない。
+\end{proposition}
+
+\begin{proof}
+尺度付き二次 tensor は $\Pi=h\Pi_{g_h}$、$g_h=S/3+hP$ である。
+最大可換代数商は
+\[
+ T=K[u_1,\ldots,u_r]\otimes_K
+ K[x,y,z]/(x^2+hyz,\ y^2+hzx,\ z^2+hxy)
+\]
+となる。active な正次数元による乗法は active 次数を真に上げるので、
+その trace は零である。従って $\operatorname{tr}(w_{h,\mathrm{ab}})=G$、
+$s_{\mathrm{cl}}(\overline g_h)=g_h$ である。
+Jacobi 線上で $x^3=y^3=z^3=-hP$ だから
+\[
+ \epsilon(\overline w_h)=(b_h-ha_h)[P]
+ =-\frac23h^2(1+h^3)[P].
+\]
+一方 Hessian 同型は
+\[
+ \nu_\Pi(\overline g_h)=8h^2(1+h^3)[P]
+\]
+を与える。よって
+$-12\nu_\Pi^{-1}\epsilon(\overline w_h)=\overline g_h$ であり、
+trace の純中心成分 $G$ を加えると主張を得る。
+\end{proof}
+
+\begin{proposition}[指定周期付き残余復元の Hesse 係数]
+\label{prop:nfm-residual-hesse-input}
+固定入力論文Bの完備移送定理とその明示 Hesse 計算を用いると、
+上の族の残余圏は有限拡大後に
+\[
+ H_h^{\mathrm{res}}=F_0+\lambda_{\mathrm{res}}(h)xyz,
+ \qquad
+ \lambda_{\mathrm{res}}(h)
+ =\frac{h+h^2/3+h^5/12}{1-h^4/4}
+\]
+の三次超曲面の Kuznetsov 成分と、rotation および指定三次周期を保って同値になる。
+特に
+\[
+ H_h^{\mathrm{res}}-H_h^{\mathrm{TH}}
+ =\frac{h^2}{3}xyz+O(h^3).
+\]
+\end{proposition}
+
+\begin{proof}
+入力の命題\texttt{gre:prop:hesse-normalform}は、formality と中心逆像を
+active な三変数だけで構成し、中心多項式環上へ自明に延長する。
+この証明では中心変数が二個であることを用いていない。
+正規化も active 座標だけを $A(h)^{-1/3}$ 倍するもので、全ての $u_i$、
+底の $h$、周期変数 $t$ を固定する。
+従って任意の $r$ で同じ active Hesse 係数を得る。
+
+同入力の定理\texttt{gre:thm:exact-potential}は、この active MF 圏を
+指定した中心商の相対楕円曲線の $\operatorname{Perf}$ と比較する。
+分数体上の楕円曲線の導来同値から $j$ 不変量の一致を得て、
+一次項が $h$ である分枝を選ぶことにより、表示した有理式を決定する。
+二次係数は、同入力の命題\texttt{gre:prop:jet}でも、
+生成元を固定する harmonic-angle formality と中心写像から独立に計算されている。
+この二次計算では Weyl gauge の eye 項と中心写像の inner-wheel 項を区別しており、
+中心元の可換化だけを用いているのではない。
+
+任意の $N=r+3\ge5$ について、固定三対象への制限・Laurent 局所化・生成・有限降下は
+同入力の一般次元定理を適用できる。
+period を固定した完備比較と上の exact potential 座標変更を用いるため、
+同値は $w_h$ と表示した規格化 $H_h^{\mathrm{res}}$ の三次周期を保つ。
+分母を払った方程式を使う場合は、この周期の規格化を別途保持する。
+\end{proof}
+
+\subsection{有限 jet と幾何学的一般点の障害}
+
+\begin{lemma}[同じ低次 jet を持つ三次族の最初の差]
+\label{lem:nfm-first-difference-jet}
+$F$ を滑らかな三次式とし、$H,W\in k[[h]][x_1,\ldots,x_N]_3$ が
+$H\bmod h=W\bmod h=F$ および $H\equiv W\pmod{h^m}$ を満たすとする。
+既に固定した低次の標識の下で、$h^{m+1}$ を法とする両族の
+射影座標同型が存在するための障害は
+\[
+ \left[\frac{W-H}{h^m}\bmod h\right]\in\operatorname{Jac}(F)_3
+\]
+である。これが非零なら、剰余を恒等とする形式射影同型は存在しない。
+\end{lemma}
+
+\begin{proof}
+方程式の単元倍は、その形式三乗根による scalar 座標変換に吸収する。
+滑らかな三次超曲面には無限小射影自己同型がない。
+従って低次で同じ方程式を保つ、剰余が恒等の座標変換は、
+射影 scalar を除いて $h^m$ を法として恒等でなければならない。
+$I+h^mM$ による最初の変化は $\sum_{i,j}M_{ij}x_jF_{x_i}$ であり、
+これは Jacobian イデアルの次数三部分全体を動く。
+Euler の公式によって $F$ の scalar 倍も同じ部分に含まれる。
+これで一段の存在の必要十分条件と、非零の場合の障害を得る。
+\end{proof}
+
+\begin{theorem}[Trace--Hessian と残余復元の比較障害]
+\label{thm:nfm-th-residual-obstruction}
+上の split Hesse 族について、次が成立する。
+\begin{enumerate}
+\item 二つの出力の $h^2$ の差の class は
+$\tfrac13[xyz]\ne0$ in $\operatorname{Jac}(F_0)_3$ である。
+従って可換特殊ファイバーの標識と底のパラメータ $h$ を保つ形式射影同型は存在しない。
+\item 二つの一般ファイバーは、共通の代数閉拡大体上でも射影同型でない。
+\item 固定入力の残余復元定理を用いると、非可換側の残余圏と
+$\operatorname{Ku}(V(H_h^{\mathrm{TH}}))$ の間に rotation を保つ dg Morita 同値は存在しない。
+さらに $n\not\equiv1\pmod3$ では、rotation を指定しない dg Morita 同値も存在しない。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+$\operatorname{Jac}(F_0)=k[x,y,z,u_1,\ldots,u_r]/(x^2,y^2,z^2,u_1^2,\ldots,u_r^2)$
+なので $xyz$ の class は非零である。第一項は前補題から従う。
+
+一般点では $g_\lambda=S/3+\lambda xyz$ の symmetrizer は scalar だけである。
+実際、Hessian の対称条件は $\lambda(\lambda^3-8)\ne0$ のとき
+対角成分を等しくし、非対角成分を零にする。
+具体的には各 Hessian 係数行列に対する上三角三成分を並べた
+九元一次方程式の係数行列に、行列式 $\lambda^2(\lambda^3-8)^2$ の
+八次小行列がある。恒等行列は核に入るので、核はちょうど scalar である。
+小行列の指定と厳密検算を付属コードに収録する。
+$\lambda=h$ と $\lambda=\lambda_{\mathrm{res}}(h)$ はともにこの条件を満たす。
+この場合の分解の一意性は、一般的な分解定理なしに確認できる。
+$H(x)=T_H(x,x,x)$ に対し
+\[
+ E(H)=\{L:T_H(Lu,v,w)=T_H(u,Lv,w)\ \text{for all }u,v,w\}
+\]
+と置く。この空間は線型座標変換によって共役される。
+滑らかな三次の $T_H$ は第一引数について非退化である。
+実際、$T_H(a,-,-)=0$ なる $a\ne0$ があれば、その方向の座標に方程式が依存せず、
+$[a]$ が特異点となる。
+この非退化性の下で $E(H)$ は可換な単位的部分代数になる。
+$L,M\in E(H)$ に対し、三つの引数間で作用を移すと
+\[
+ \begin{aligned}
+ T_H(LMu,v,w)&=T_H(u,MLv,w),\\
+ T_H(LMu,v,w)&=T_H(Mu,v,Lw)
+             =T_H(u,Mv,Lw)=T_H(u,LMv,w).
+ \end{aligned}
+\]
+非退化性から $LM=ML$、さらに同じ等式から $LM\in E(H)$ を得る。
+Hessian を $\operatorname{Hess}(H)=\sum_i x_iH_i$ と書けば、条件は
+$L^{\mathsf t}H_i=H_iL$ である。
+中心変数 $u_i$ の係数行列は $2E_{ii}$ なので、各中心行の非対角成分は零である。
+active な係数行列との条件から、中心列の active 成分も零となる。
+実際、それらは active な全 Hessian 係数行列の共通核に入るが、
+その核は滑らかさにより零である。
+active ブロックには前段の scalar 条件が適用できるから
+\[
+ E(H)=K I_3\oplus\bigoplus_{i=1}^r K E_{u_i u_i}
+ \simeq K^{r+1}.
+\]
+この代数の原始冪等元のうち階数三のものは active ブロックへの射影ただ一つであり、
+残りは全て階数一である。この計算は任意の体拡大後にも成立する。
+従って全体の射影同型があれば、唯一の階数三の像を保ち、
+active 平面三次の同型を与える。
+
+Hesse 平面三次の $j$ 不変量は、
+\cite[Section~2, equations~(4)--(5)]{NFMArtebaniDolgachev} の
+Weierstrass 形に $(t_0,t_1)=(1,3\lambda)$ を入れると
+\[
+ j(\lambda)=\frac{27\lambda^3(8-\lambda^3)^3}{(1+\lambda^3)^3}
+\]
+であり、厳密有理式の展開は
+\[
+ j(\lambda_{\mathrm{res}}(h))-j(h)
+ =13824h^4+4608h^5+512h^6+O(h^7)\ne0
+\]
+となる。従って任意の体拡大後も active 三次は同型でなく、第二項を得る。
+
+rotation を保つ Kuznetsov pair の同値があれば、低 rotation 積から
+二つの滑らかな三次の射影同型を得るので矛盾する。
+$n\not\equiv1\pmod3$ では命題\ref{prop:nf-rotation}により rotation は
+Serre 関手と cohomological shift の積から回復できる。
+任意の dg Morita 同値はそれらを保つため、rotation の標識を外しても同じ矛盾を得る。
+$n\equiv1\pmod3$ で rotation を外した同値の不存在は、この議論からは結論しない。
+\end{proof}
+
+\begin{corollary}[Casimir の選択だけでは比較を修復できない]
+\label{cor:nfm-casimir-selection-obstruction}
+上の split 族で、尺度付き周囲 tensor $\Pi=h\Pi_{g_h}$ を固定する。
+その三次 Casimir $H$ が滑らかな超曲面を定めるなら、
+$V(H)$ は $V(H_h^{\mathrm{res}})$ と幾何学的に射影同型でない。
+従って Trace--Hessian 写像の非零の数値規格化や、
+純中心三次成分の選択を替えるだけでは、この例の比較を修復できない。
+\end{corollary}
+
+\begin{proof}
+三次 Casimir は $H=cg_h+G'(u)$ と書ける。
+滑らかさから $c\ne0$ であり、$G'$ の勾配の共通零点も原点だけである。
+二つの部分の対称三重線形形式はそれぞれ第一引数について非退化なので、
+前証明と同じ mixed-block の条件から
+$E(H)=E(cg_h)\times E(G')$ となる。
+第一因子は体 $K$ なので、$G'$ のさらなる分解の有無にかかわらず、
+active 部分への射影 $(1,0)$ は階数三の原始冪等元である。
+もし $V(H)\simeq V(H_h^{\mathrm{res}})$ なら、
+この冪等元は後者の唯一の階数三の原始冪等元へ移る。
+従って $g_h$ と $g_{\lambda_{\mathrm{res}}}$ の平面三次は同型となり、
+前定理の $j$ 不一致に反する。
+\end{proof}
+
+\begin{remark}[一般性と適用範囲]
+この族の ambient は中心変数への連続自己同型を持つため、
+周囲代数だけに有限安定化子を要求した $T^{\mathrm{fin}}$ には属さない。
+従って上の定理だけから、その特定の開上で一般対象が比較不能であるとは結論しない。
+一方、量子中心で切った pair の有限安定化子条件は ambient の条件とは異なる。
+Trace--Hessian 出力が滑らかなら、pair の安定化子はその滑らかな三次の
+射影自己同型群へ単射するため有限である。
+全同値比較と相対双対入力を保ち、ambient の有限性を要求しない
+定理\ref{thm:poisson-good-open-isomorphism}の pair モジュライを用いればよい。
+
+split 族でも、$T$ 上の $w_{h,\mathrm{ab}}$ の乗法は
+$G$ 倍と active な次数を上げる冪零作用の和である。
+従ってその determinant は $G^8\ne0$ で、$w_{h,\mathrm{ab}}$ は非零因子となる。
+よって定常点スキームの完全交叉条件は満たす。
+定常点スキーム自体の滑らかさは主張せず、上の比較にも必要ない。
+PBW 性は $D_R$ の次数別自由性と中心多項式変数の付加から得られる。
+点曲線の平行移動切断は
+$p=(1-h^2/2:-1-h^2/2:-h)$ で、$h=0$ では原点 $e=(1:-1:0)$ に特殊化するが、
+形式近傍では $p\ne e$ である。
+標数零の楕円形式群の乗算 $[m]$ は線型項 $m$ を持つ可逆な形式写像なので、
+任意の整数 $m>0$ について $[m]p\ne e$ である。
+従って一般点の平行移動は無限位数であり、必要な有限個の位数除外を満たす。
+Sklyanin の中心入力と既存の相対双対定理を適用する範囲で、
+中心条件・相対双対性・$\epsilon$ の非消滅を確認できる。
+
+混合 potential の一般点における、特殊ファイバーの標識を保つ形式比較は
+次小節の有限 jet で判定できる。
+一般ファイバー上で標識を外した圏同値の不存在は、
+その有限 jet の計算だけからは結論しない。
+\end{remark}
+
+\subsection{混合係数の一般点における二次 jet 障害}
+
+以下の計算では入力論文Aの Hesse 中心公式と、入力論文Bの
+harmonic-angle formality による完備 MF 移送を使う。
+後者の存在定理を任意の係数環へ無条件に拡張するのではなく、
+各複素点における形式模型の二次 jet を同じ有限式で計算する。
+その有限式自体は係数空間上の正則切断となる。
+
+$U=\langle u_1,\ldots,u_r\rangle$、$r=n-1\ge2$ とし、
+次の全混合 Hesse 係数空間を考える。
+\[
+ F=g_\lambda+Axy+Byz+Czx+Dx+Ey+Hz+G,\qquad
+ g_\lambda=(x^3+y^3+z^3)/3+\lambda xyz,
+\]
+ただし $A,B,C\in U$、$D,E,H\in\Sym^2U$、$G\in\Sym^3U$ である。
+$F$ と $g_\lambda$ がともに滑らかな三次を定める開を $\mathcal S_n$ とする。
+$\mathscr H_F=\det\operatorname{Hess}_{x,y,z}(F)$ と書き、
+\[
+ T_F=\operatorname{Sym}U[x,y,z]/(F_x,F_y,F_z),\qquad
+ \tau_F=\tfrac18\operatorname{Tr}_{T_F/\operatorname{Sym}U}
+\]
+と置く。$\tau_F$ は商への写像との合成として多項式にも適用する。
+これは全混合係数と両立する $\operatorname{Sym}U$-線型写像である。
+量子関係は $[a,b]=h\operatorname{sym}\Pi_F(a,b)$ とし、
+入力の短い中心元から $h^2ABC/6$ を引いた規格化を
+\[
+ \widetilde\Omega_{F,h}
+ =\operatorname{sym}\left(F-\frac{h^2}{12}\mathscr H_F
+                              +h^4\Psi_\lambda(F)\right)
+\]
+とする。中心性・次数別 PBW 性は固定入力の該当開で用いる。
+
+\begin{proposition}[残余復元と trace 像の普遍二次 jet]
+\label{prop:nfm-relative-residual-second-jet}
+Kontsevich の harmonic-angle formality と、次数一生成元を固定する
+厳密同型 $\phi$ を選ぶ。
+入力の中心逆像 $W^{\mathrm{res}}=C_\pi^{-1}\phi(\widetilde\Omega_{F,h})$ は
+\begin{equation}\label{eq:nfm-residual-universal-jet}
+ W^{\mathrm{res}}=F+\frac{h^2}{24}\mathscr H_F+O(h^3)
+\end{equation}
+を満たす。同じ中心元の trace--Hessian 像は
+\begin{equation}\label{eq:nfm-th-universal-jet}
+ H^{\mathrm{TH}}
+ =F-\frac{h^2}{12}\tau_F(\mathscr H_F)
+      +h^4\tau_F(\Psi_\lambda(F))
+\end{equation}
+である。この式は $h\ne0$ で定義した射の出力が当該 trait に沿って正則に延びたもので、
+可換特殊点での最大可換商を $T_F$ と同一視するものではない。
+従って差の最初の候補は
+\begin{equation}\label{eq:nfm-relative-comparison-class}
+ \Delta_2(F)=
+ \left[\frac1{24}\mathscr H_F+
+             \frac1{12}\tau_F(\mathscr H_F)\right]
+ \in (J_F)_3
+\end{equation}
+となる。この類は $\mathcal S_n$ 上の Jacobi 束の正則切断であり、
+その形成は任意の係数変更と両立する。
+各 $n\ge3$ について非消滅開 $\mathcal S_n^{\mathrm{diff}}$ は非空である。
+\end{proposition}
+
+\begin{proof}
+Weyl 対称化を $\sigma$ と書く。
+$h\mapsto-h$ と語順の反転は反対代数を同定するので、
+対称化で戻した積の一次項は $\frac12\Pi_F$ である。
+入力論文Bの補題\texttt{cft:lem:model}の逐次構成を
+$h^2$ を法とする恒等写像から始め、次数一成分を線型座標変更で調整すると、
+$\phi\sigma=1+O(h^2)$ を保って全生成元を固定できる。
+ここで $P_0^{ij}=\Pi_F(z_i,z_j)$ とし、添字は全 $N=n+2$ 変数を走る。
+Dito の一般 Poisson tensor に対する二次積
+\cite[Section~2, equation~(3)]{NFMDito}は、$\pi=P_0/2$ という規約で
+\[
+ \begin{aligned}
+ B_2(P_0;f,g)={}&\frac18P_0^{ij}P_0^{kl}f_{ik}g_{jl}\\
+ &+\frac1{12}P_0^{ij}(\partial_iP_0^{kl})
+                  (f_{jl}g_k+f_kg_{jl})
+   -\frac1{24}\Theta^{ik}f_i g_k
+ \end{aligned}
+\]
+である。線型形式 $X=a_i z_i$ の冪と $X$ に適用すると、第一項は二階微分、
+第二項は反対称性により消え、二-cycle 項だけが残る。
+入力の命題\texttt{gre:prop:jet}と同じ polarization により
+\[
+ \phi\sigma=1+h^2\rho_2+O(h^3),\qquad
+ \rho_2=-\frac1{48}\Theta^{ik}\partial_i\partial_k,
+ \qquad
+ \Theta^{ik}=(\partial_lP_0^{ij})(\partial_jP_0^{kl})
+\]
+を得る。
+実際、$X=a_i z_i$ の星積冪の二次項では二-cycle 項だけが残り、
+$-r(r-1)X^{r-2}\Theta^{ik}a_i a_k/48$ となる。
+二次積は対称なので、量子生成元の関係との比較から
+formal Poisson tensor の $h^2$ 係数も零である。
+
+$P_0$ の非零成分は active な三添字だけを持つ。
+$M=(F_{ab})_{a,b=x,y,z}$ と置けば
+$P_0^{ij}=\varepsilon^{ija}F_a$ であり、縮約恒等式
+\[
+ \Theta^{ik}
+ =\varepsilon^{ija}\varepsilon^{klb}M_{al}M_{bj}
+ =-2\operatorname{adj}(M)_{ik}
+\]
+を得る。その他の成分は零である。
+従って、$M\operatorname{adj}(M)=(\det M)I_3$ より
+\[
+ \rho_2F=\tfrac1{24}\operatorname{tr}(\operatorname{adj}(M)M)
+        =\tfrac18\det M=\tfrac18\mathscr H_F.
+\]
+これは混合係数を含む対称三次式についての多項式恒等式である。
+
+中心写像について、$\mathcal U_2(f,q)=0$ は二本の辺の反対称性による。
+$\mathcal U_3(f,P_0,P_0)$ に寄与し得るグラフは inner 二輪だけであり、
+その harmonic-angle 重みは零である
+\cite[Section~1.3, Theorem]{NFMShoikhet}。
+ここではグラフの重みの消滅だけを使い、Poisson tensor の線形性を仮定しない。
+逆向き wheel の非零重みとは区別する\cite[Section~2.3.1]{NFMShoikhet}。
+よって $C_\pi=1+O(h^3)$ であり、
+\[
+ C_\pi^{-1}\phi(\widetilde\Omega_{F,h})
+  =F+h^2(-\mathscr H_F/12+\rho_2F)+O(h^3)
+\]
+から\eqref{eq:nfm-residual-universal-jet}を得る。
+生成元を固定すること、eye 項を含む星積と同じ formality の中心写像を使うことが
+この係数の規約を定めている。
+
+trace 側では、入力の有限 Hesse 公式により
+\[
+ \Psi_\lambda(F)|_{U=0}
+       =\lambda(8-\lambda^3)g_\lambda/48
+\]
+である。右辺は境界 Jacobi 環で零なので、
+$\epsilon(\widetilde\Omega_{F,h})=-h^2[\det\operatorname{Hess}(g_\lambda)]/12$
+は厳密等式である。
+$\nu_{h\Pi_F}$ が $h^2$ を含むことによる高次項の繰り下がりは、
+この規格化では生じない。
+従って trace--Hessian 式の非純中心方向の係数は厳密に一であり、
+\eqref{eq:nfm-th-universal-jet}を得る。
+一般の $F-h^2\mathscr H_F/12+O(h^4)$ という jet だけから
+この結論を出したわけではない。
+
+有限局所自由な臨界代数の trace は係数空間上正則である。
+滑らかな $F$ の勾配 Koszul 複体は次数別に普遍的に完全であり、
+$(J_F)_3$ は階数 $\binom{n+2}{3}$ の局所自由束となる。
+従って\eqref{eq:nfm-relative-comparison-class}は任意の係数変更と両立する正則切断である。
+Fermat 点
+\[
+ F_*=(x^3+y^3+z^3+u_1^3+\cdots+u_r^3)/3
+\]
+では $\mathscr H_{F_*}=8xyz$、$\tau_{F_*}(\mathscr H_{F_*})=0$ であり、
+\[
+ \Delta_2(F_*)=\tfrac13[xyz]\ne0,
+ \qquad J_{F_*}=k[x,y,z,u]/(x^2,y^2,z^2,u_1^2,\ldots,u_r^2).
+\]
+これで非消滅開の非空性を得る。
+\end{proof}
+
+\begin{corollary}[一般混合係数での標識付き形式比較の障害]
+\label{cor:nfm-generic-marked-comparison-obstruction}
+$F\in\mathcal S_n^{\mathrm{diff}}(\C)$ を、前命題の中心量子化・次数別 PBW・
+指定 formality 模型の入力が成立する開の複素点とし、特殊ファイバーを $V(F)$ と同定する。
+同じ完備 MF 入力が適用できる係数体についても、同じ主張が成立する。
+二つの三次族 $V(W^{\mathrm{res}})$ と $V(H^{\mathrm{TH}})$ は、
+既に $\C[h]/(h^3)$ 上で、この同定を保つ同型を持たない。
+固定入力の完備 MF 移送と相対 window 同定を適用する場合、
+量子中心商の残余圏と $\operatorname{Ku}(V(H^{\mathrm{TH}}))$ の間にも、
+同じ $h$ を固定し特殊ファイバー上恒等となる
+$\C[[h]]$-線型 dg Morita 同値は存在しない。
+この第二の主張は $n=4$ を含む全 $n\ge3$ に対する、入力付きの有限 jet 障害である。
+\end{corollary}
+
+\begin{proof}
+両族は $h^2$ を法として $V(F)$ の定数族であり、
+小拡大 $\C[h]/(h^3)\to\C[h]/(h^2)$ 上の持上げの差は
+$h^2\Delta_2(F)$ である。
+$H^0(V(F),T_{V(F)})=0$ なので、特殊ファイバー上恒等な同型は
+$h^2$ を法としても恒等である。
+そのような同型があれば差は $(J_F)_3$ で零となり、仮定に反する。
+
+圏については、命題\ref{prop:nf-hh}の実際の幾何的 Kodaira--Spencer 写像
+\[
+ \eta_F:(J_F)_3\hookrightarrow HH^2(\operatorname{Ku}(V(F)))
+\]
+が全ての次元で単射であり、$HH^1=0$ である。
+従って恒等特殊ファイバーを持つ圏同値の一次の曖昧さはなく、
+二つの幾何的残余変形の持上げの差は非零の
+$h^2\eta_F(\Delta_2(F))$ である。
+入力の完備 MF 同値は剰余で恒等であり、各 Artin 切断と両立するので、
+量子残余変形にも同じ結論が移る。
+ここで全 Artin 形式認識の全射性は用いず、
+四次元でも成立する幾何的接写像の単射性だけを使う。
+\end{proof}
+
+\begin{remark}[一般性と依存範囲]
+全混合 Hesse 係数空間は既約であり、Hesse 座標と中心平行移動は
+一般の一ブロック表示を覆う。
+従って上の非消滅開は、既存の良い一ブロック入力が成立する非空開とも交わる。
+ただしここで代数的に相対化したのは二次 jet とその Jacobi 類である。
+全次数の残余射を係数空間上に構成したこと、任意の非被約係数環上の
+完備 MF 移送を新たに証明したこと、あるいは一般ファイバー上の
+標識を外した Kuznetsov 圏が非同値であることは主張しない。
+特に、有限 jet 障害と先の split 族における有理式・$j$ 不変量による
+幾何学的一般点の障害を区別する。
+\end{remark}
