@@ -1,0 +1,490 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+
+\begin{proposition}[混合五次 tensor の普遍定数]
+\label{prop:nfm-mixed-fifth-explicit}
+命題\ref{prop:nfm-mixed-fifth-reduction}の harmonic-angle 規格化において
+\[
+ \beta=\frac1{60},\qquad \gamma=\frac1{240}.
+\]
+従って全ての $n\ge3$ の混合三次 $F$ に対し
+\[
+ \boxed{\quad\pi_5(F)=\frac1{240}\Pi_{\,4I(F)+J(F)-2S(g)F}\quad}
+\]
+となる。この式は普遍係数の多項式恒等式であり、既存の普遍 PBW 模型からの
+任意の基底変更と両立する。
+\end{proposition}
+
+\begin{proof}
+先の二定数への還元により、二つの独立な局所 jet で正規化再帰を評価すれば足りる。
+一つの中心変数 $u$ を用いた斉次三次
+\[
+ F_A=xyz+\frac12uz^2,\qquad F_B=xyz+u^2z
+\]
+を採用する。$u=1$ とし、$p=(x,y,z)=(0,0,1)$ で評価する。
+いずれも $g=xyz$、$S(g)=1$ であり、完全縮約の定義から
+\[
+\begin{array}{c|cc}
+ &I(F)-S(g)F&J(F)-S(g)F\\\hline
+ F_A&-2uz^2/3&-uz^2/6\\
+ F_B&-u^2z&-2u^2z/3
+\end{array}
+\]
+を得る。従って求める二つの成分は
+\[
+ \pi_5(F_A)^{xy}(p)=\frac1{80}-\frac{4\beta+\gamma}{3},\qquad
+ \pi_5(F_B)^{xy}(p)=\frac1{80}-\beta-\frac23\gamma.
+\]
+ここでは特異な二つの三次を独立 jet の評価に用いている。
+一般対象の主張を特異な例から直接推定するのではなく、
+既に証明した普遍多項式の二定数表示に代入している。
+
+$P=\Pi_F$、$R=\Pi_{\det\operatorname{Hess}_K(F)}/24$ とする。
+$B_k(P^{\otimes k};f,g)$ を、先頭項が $fg+\frac12 P(df,dg)$ となる
+Kontsevich 星積の $k$ 頂点部分とし、$B_k[P^{k-1},R]$ は
+各頂点への $R$ の挿入の和を表す。
+$q^{ij}=P(dx_i,dx_j)$ とすると、生成元固定再帰の五次部分は
+\begin{align*}
+ \pi_5^{ij}
+ ={}&-2\left(B_5[P^5;x_i,x_j]+B_3[P^2,R;x_i,x_j]\right)\\
+ &+\frac12\sum_{a,b=1}^3 \partial_a\partial_b q^{ij}
+ \left(B_4[P^4;x_a,x_b]+B_2[P,R;x_a,x_b]\right).
+\end{align*}
+偶奇性により奇数頂点部分は交換子に二倍で現れ、
+右辺の最後の項は二次式の Weyl 対称化から生じる。
+
+この有限式の評価には、Banks--Panzer--Pym\cite[Corollary~1.3; Section~6]{NFMBanksPanzerPym}の harmonic weights を
+Buring\cite[Sections~3.4--3.6]{NFMBuringGraphs}がまとめた \texttt{star5.txt} と、同じ著者資料の
+\texttt{kontsevich\_2\_k.txt},
+\texttt{weights\_kontsevich\_2\_k.txt} ($1\le k\le5$) を用いる。
+規約は Buring の学位論文 Section~3.4.1--3.4.2, pp.~74--76 にある。
+前者の $k$ 次係数は $fg+hP(df,dg)$ の規約であり、
+本稿の規約では $2^k$ で割る。
+頂点置換と outgoing edge の交換をまとめた multiplicity は
+$m(\Gamma)=2^k k!/|\operatorname{Aut}\Gamma|$ なので、
+元の weight $w(\Gamma)$ に対する本稿の係数は
+$w(\Gamma)/|\operatorname{Aut}\Gamma|$ となる。
+この二種類のデータの一致も、有理数演算と有限置換の列挙で確認できる。
+
+線型入力では二つの sink の入次数がともに一でなければ項が消え、
+二次 tensor では aerial vertex の入次数が三以上なら項が消える。
+これらの条件で残る非零項数は $k=1,2,3,4,5$ の順に
+$1,1,1,19,51$ である。
+上の式の三項の評価は次の表になる。
+最後の列 $W$ は $\frac12\sum_{a,b}\partial_{ab}q^{xy}(B_4+B_2)$ を表す。
+\[
+\begin{array}{c|ccc|c}
+ F&B_5^{xy}&B_3[P^2,R]^{xy}&W&-2(B_5+B_3)+W\\\hline
+ F_A&1/480&0&-1/144&-1/90\\
+ F_B&1/720&0&-1/240&-1/144
+\end{array}
+\]
+全ての項は保存した73項の有限 graph certificate と\texttt{verify\_mixed\_fifth.py}で有理数として評価される。
+この計算は既知の graph weight を入力とし、その積分自体を再計算してはいない。
+元の graph--weight 対との符号・自己同型群を含む照合、
+公刊の二変数 log-canonical 星積の五次までの係数との照合も行う。
+従って
+\[
+ 4\beta+\gamma=\frac{17}{240},\qquad
+ \beta+\frac23\gamma=\frac7{360},
+\]
+であり、これを解くと $\beta=1/60$、$\gamma=1/240$ を得る。
+\end{proof}
+
+
+\subsubsection{中心逆像の四次項と一つの幾何的障害}
+
+以下では指定した Hessian 正規化中心元を
+\[
+ \widetilde\Omega_h=\operatorname{sym}
+ \left(F-\frac{h^2}{12}\mathscr H_F+h^4\Psi_\lambda(F)\right)
+\]
+とする。$S,I,J$ の規約は命題\ref{prop:nfm-mixed-fifth-reduction}と同じである。
+この中心元の規格化は四次のスカラーを決めるために必要であり、
+任意の単元倍に対して同じスカラー公式を主張するものではない。
+
+\begin{lemma}[四次中心逆像の局所共変式]
+\label{lem:nfm-fourth-center-locality}
+固定した harmonic-angle 模型に依存する二定数 $d,e\in\C$ があって、
+全混合係数に対して
+\[
+ W_4(F)=\Psi_\lambda(F)+d I(F)+e J(F)
+\]
+となる。二定数は $n\ge3$ に依存しない。
+\end{lemma}
+
+\begin{proof}
+$R_{\pi_h}=\phi\circ\operatorname{sym}$ と置く。
+これは可換多項式を同じ生成元の星積で完全対称化する写像である。
+Kontsevich グラフと完全対称化は active な affine 座標変更に共変であり、
+$R_{\pi_h}(1)=C_{\pi_h}(1)=1$ である。
+したがって正次数の係数をある点で評価すると、
+入力関数を少なくとも一回微分した局所 jet の多項式で表せる。
+具体的には、その点を原点へ移して入力多項式を Taylor 展開すればよい。
+定数項への作用は単位の保存で零となり、
+残る有限個の単項式の星積は有限個のグラフで計算される。
+グラフの微分添字は全て active 方向であるので、
+純中心関数への正次数の作用も零である。
+
+$h^4$ の係数には、$R$ と $C^{-1}$ の四次項のほか、
+$\pi_3=\Pi_{\mathscr H_F}/24$ を二次項へ入れた項と、
+$-h^2\mathscr H_F/12$ への二次作用が含まれる。
+いずれも $F$ の係数次数は五、全座標次数は三である。
+中心元の $h^4\Psi_\lambda(F)$ 自身への正次数の作用は
+$h^4$ の係数には寄与しない。
+従って $W_4-\Psi_\lambda(F)$ は、
+$q_i=F_i$, $M_{ij}=F_{ij}$, $T_{ijk}=F_{ijk}$
+だけの局所多項式であり、微分されない $F$ は現れない。
+次数から可能な型は $qMT^3$ と $M^3T^2$ に限られる。
+
+この二型の $\operatorname{SL}_3$ スカラー共変式の空間はいずれも一次元である。
+命題\ref{prop:nfm-mixed-fifth-reduction}の Weyl 係数公式を
+最高重み $(4,4,4)$ に適用すると、六項はそれぞれ
+\[
+ \begin{aligned}
+ H_{1,1}H_{2,1}H_{3,3}&:
+       &&156,-136,-136,100,109,-92,\\
+ H_{2,3}H_{3,2}&:
+       &&122,-105,-105,78,84,-73
+ \end{aligned}
+\]
+で、和はともに一である。
+非零の $J,I$ がそれぞれを張るので表示を得る。
+有効な微分添字は三つの active 方向に限られ、二定数は $n$ に依存しない。
+\end{proof}
+
+\begin{lemma}[Hessian 写像と Aronhold 不変式による表示]
+\label{lem:nfm-classical-mixed-covariants}
+$\mathscr H(F)=\det\operatorname{Hess}_K(F)$ とし、
+$T=D_K^3F$, $M=D_K^2F$, $q=d_KF$ と置く。
+$S(T)$ は上の規格化の Aronhold 四次式である。
+このとき
+\[
+ \begin{aligned}
+ I(F)
+ &=\frac1{12}\operatorname{tr}
+       \bigl(\operatorname{adj}(M)\operatorname{Hess}_K(\mathscr H(F))\bigr)
+   =\frac1{12}D\mathscr H_F[\mathscr H(F)],\\
+ J(F)&=\frac14(dS)_T[M\odot q],\qquad
+ (M\odot q)_{ijk}
+       =\frac{M_{ij}q_k+M_{ik}q_j+M_{jk}q_i}{3}.
+ \end{aligned}
+\]
+第二式の微分は対称三階 tensor $T$ の空間上で取り、
+$M\odot q$ の対称化には表示した平均を用いる。
+従って $I,J$ は Hessian 写像の微分と Aronhold 四次式の微分によって
+計算でき、独立した新しい不変式を導入する必要はない。
+\end{lemma}
+
+\begin{proof}
+第一式の trace は $M^3T^2$ 型、第二式の右辺は $qMT^3$ 型の
+スカラー共変式である。
+それぞれの共変式空間は前の計数により一次元なので、
+$I,J$ との比例定数を一つの非零評価で決められる。
+$F=xyz$ と $(x,y,z)=(1,1,1)$ を取る。
+このとき $\mathscr H(F)=2F$ であり、
+\[
+ \operatorname{tr}\bigl(\operatorname{adj}(M)
+           \operatorname{Hess}(\mathscr H(F))\bigr)
+       =2\operatorname{tr}(\operatorname{adj}(M)M)=12.
+\]
+一方 $I=1$ である。
+また $T_{123}=1$ と添字対称性だけが非零で、
+$q=(1,1,1)$、$M_{ii}=0$, $M_{ij}=1$ ($i\ne j$) となる。
+$S(T)=1$、$(M\odot q)_{123}=1$ であり、
+四次式を微分すると $(dS)_T[M\odot q]=4$、$J=1$ となる。
+これで両比例定数が定まる。
+Hessian 写像の方向微分の表示は、行列式の微分公式による。
+\end{proof}
+
+体積を局所的に固定しない表示では、同じ公式で
+$\mathscr H$ を $\mathscr H_P$、$S$ を $S_P$ に置き換え、
+方向微分では $P$ を固定する。
+これは各式の四つの $P$ の重みと一致する。
+
+\begin{lemma}[Hesse 中心元の四次恒等式]
+\label{lem:nfm-fourth-center-symbol}
+\[
+ F=g_\lambda+Axy+Byz+Czx+Dx+Ey+Hz+G
+\]
+とし、$A,B,C$ は中心一次式、$D,E,H$ は中心二次式、$G$ は中心三次式とする。
+$S=\lambda(\lambda^3-8)$ と書く。
+指定中心元の四次 Weyl symbol は恒等的に
+\[
+ \Psi_\lambda(F)=-\frac{S}{80}F-\frac1{40}I(F)
+                         +\frac1{60}J(F)+\mathcal C_4(U),
+\]
+ただし
+\[
+ \mathcal C_4(U)=
+  \frac{\lambda}{60}(A^3+B^3+C^3)
+  +\frac{\lambda^2}{40}ABC
+  +\frac{2-\lambda^3}{180}(AH+BD+CE)
+  +\frac{S}{80}G
+\]
+である。
+\end{lemma}
+
+\begin{proof}
+固定入力論文A\cite{NCCubicA}の
+系\texttt{cor:pg-hesse-hessian-form}、式\texttt{eq:pg-hesse-hessian-closed}
+にある有限中心公式を $h^4$ について展開する。
+$Q=Axy+Byz+Czx$, $Z_2=Az^2+Bx^2+Cy^2$,
+$L=Dx+Ey+Hz$, $R_2=B^2x+C^2y+A^2z$,
+$R_{11}=ACx+ABy+BCz$ と置けば、その係数は
+\[
+ \Psi_\lambda(F)=
+ -\frac S{48}g_\lambda-\frac{\lambda^4}{48}Q
+ +\frac{2-\lambda^3}{36}Z_2-\frac S{144}L
+ -\frac{\lambda^2}{24}R_2-\frac{\lambda^3+4}{72}R_{11}.
+\]
+$T_{111}=T_{222}=T_{333}=2$, $T_{123}=\lambda$
+および添字対称性を、$I,J$ の完全縮約へ代入して整理すると上の恒等式を得る。
+これは全係数を独立記号とした有限多項式恒等式であり、
+保存した検証器は左辺と右辺の全係数差が零であることを確認する。
+ここで検算したのは固定入力の中心公式の Weyl symbol であり、
+非可換中心性そのものをこの計算で証明したという意味ではない。
+\end{proof}
+
+
+
+\begin{theorem}[混合残余 potential の普遍四次係数]
+\label{thm:nfm-mixed-fourth-potential}
+五次 tensor の係数 $\beta=1/60$, $\gamma=1/240$ を用いると、
+指定中心元に対して全 $n\ge3$ で
+\[
+ \boxed{\quad W_4=\Psi_\lambda(F)+\frac1{24}I(F)-\frac1{80}J(F)\quad}
+\]
+であり、同値に
+\[
+ W_4=-\frac S{80}F+\frac1{60}I+\frac1{240}J+\mathcal C_4(U).
+\]
+さらに Casimir 分解のスカラーは
+\[
+ a_h=h\left(1+\frac{S}{240}h^4\right)+O(h^7)
+\]
+である。従って先の表示における純中心項 $G_4$ は
+$\mathcal C_4(U)$ に等しい。
+\end{theorem}
+
+\begin{proof}
+局所共変式の補題によって $W_4=\Psi+dI+eJ$ と書く。
+まず $U=0$ へ制限する。
+$I(g)=J(g)=Sg$, $\Psi(g)=-Sg/48$ および
+$\pi_5(g)=S\Pi_g/80$ を用いると
+\[
+ a_4=S(1/30-d-e)
+\]
+となる。$a_4$ は座標変数に依存しないので、この式は混合係数にもそのまま有効である。
+前補題の恒等式を微分し、
+$\pi_5=a_4\Pi_F+\Pi_{W_4}$ と比較する。
+$S\,d_KF$, $d_KI$, $d_KJ$ は既に確認した独立な三つの共変式なので
+\[
+ d-\frac1{40}=\beta=\frac1{60},\qquad
+ e+\frac1{60}=\gamma=\frac1{240}
+\]
+を得る。従って $d=1/24$, $e=-1/80$, $a_4=S/240$ である。
+最後の純中心項の同定も、前補題の恒等式から従う。
+\end{proof}
+
+\begin{corollary}[四次の幾何的比較類]
+\label{cor:nfm-fourth-jacobi-class}
+$\tau_F$ を従来の八次 active Jacobi 代数の正規化 trace とする。
+全変数の Jacobi 環で
+\[
+ \boxed{\quad
+ [W_4-\tau_F(\Psi_\lambda(F))]
+ =\frac1{60}[I(F)]+\frac1{40}[\tau_F(I(F))]
+             +\frac S{80}[\tau_F(F)] .\quad}
+\]
+特に四次の幾何的比較には $\gamma$ と $a_4$ を別途評価する必要はなく、
+純中心項の別のグラフ積分も不要である。
+\end{corollary}
+
+\begin{proof}
+$J$ の縮約は $q_l=F_l$ を一つ含むので、
+$J=\sum_l B_l F_l$ と書ける。各 $B_l$ は全座標の一次式である。
+従って $[J]=0$ かつ $\tau_F(J)=0$。
+また Euler の公式から全 Jacobi 環では $[F]=0$ である。
+中心 symbol の恒等式に $\tau_F$ を適用して
+\[
+ \mathcal C_4-\tau_F(\Psi)
+       =\frac S{80}\tau_F(F)+\frac1{40}\tau_F(I)
+\]
+を得る。これを四次 potential の公式へ代入すればよい。
+\end{proof}
+
+\begin{proposition}[Fermat active 切断上の混合公式と一般次元の非消滅]
+\label{prop:nfm-fourth-uniform-witness}
+$\lambda=0$ の上記全混合族では
+\[
+ [W_4-\tau_F(\Psi_0(F))]
+ =\frac19[ACx+ABy+BCz+AH+BD+CE].
+\]
+従って各 $n\ge3$ の滑らかな全混合係数空間で、
+この四次比較類が非零となる Zariski 開は非空である。
+\end{proposition}
+
+\begin{proof}
+$R_{11}=ACx+ABy+BCz$, $K=AH+BD+CE$ と書く。
+縮約式を $\lambda=0$ で展開すると
+\[
+ I=-\frac83(Az^2+Bx^2+Cy^2)+\frac43R_{11},\qquad
+ J=-\frac23(AF_z+BF_x+CF_y).
+\]
+$F_x=x^2+Ay+Cz+D$ 等を使えば
+\[
+ I+\frac83(AF_z+BF_x+CF_y)
+        =\frac{20}{3}R_{11}+\frac83K.
+\]
+八つの平方自由単項式を基底とする active Jacobi 代数では
+$\tau_F(x)=\tau_F(y)=\tau_F(z)=0$ なので $\tau_F(I)=8K/3$ である。
+前系を適用すると所望の $[R_{11}+K]/9$ を得る。
+
+非消滅には、全次元に共通して
+\[
+ F_*=\frac13\left(x^3+y^3+z^3+u^3+v^3+\sum_j w_j^3\right)
+                    +u xy+v yz
+\]
+を使える。$n=3$ では $w_j$ はなく、それ以外では $n-3$ 個を加える。
+この三次は滑らかである。実際、全偏微分が零なら $w_j=0$。
+$y=0$ なら残りも全て零なので、非零解があれば $y=1$ と規格化できる。
+そのとき $x^2+u=u^2+x=0$ から $xu\in\{0,1\}$、
+$z^2+v=v^2+z=0$ から $zv\in\{0,1\}$ となるが、
+$F_y=1+xu+zv$ は零にならない。
+
+三次多項式の空間上の線型汎関数 $\ell$ を
+\[
+ \ell(vx^2)=\ell(uz^2)=1,\qquad \ell(uvy)=-1
+\]
+とし、その他の三次単項式では零と定める。
+これは全ての $z_i\partial_{z_j}F_*$ と全ての純中心三次を消す。
+非自明な確認は
+$vF_x=vx^2+uvy$ と $uF_z=uz^2+uvy$ の二つだけである。
+従って全 Jacobi 環上の汎関数へ降り、
+\[
+ \ell\left(W_4-\tau_F(\Psi_0(F_*))\right)
+      =\ell(uvy)/9=-1/9\ne0
+\]
+を得る。実際の比較類は滑らかな係数開上の Jacobi 束の正則切断なので、
+非消滅は Zariski 開である。
+ここでは純中心三次の像でさらに商を取った束の一定階数性を仮定していない。
+\end{proof}
+
+\begin{corollary}[Hessian 補正後にも残る標識付き比較の障害]
+\label{cor:nfm-corrected-fourth-obstruction}
+各 $n\ge3$ について、前命題の四次類が非零となる開の複素点で、
+指定した中心量子化・PBW・formality の入力を満たすものを取る。
+残余三次 $V(W_h)$ と有限補正三次 $V(H^\sharp)$ の間には、
+同じ $h$ と特殊ファイバーの同定を保つ
+$\C[h]/(h^5)$ 上の同型は存在しない。
+固定入力の完備 MF 移送と相対 window 比較を適用する場合には、
+量子残余圏と $\operatorname{Ku}(V(H^\sharp))$ の間にも、
+同じ標識を保つ $\C[[h]]$-線型 dg Morita 同値は存在しない。
+後者は $n=4$ を含む全 $n\ge3$ で成立する入力付きの主張である。
+\end{corollary}
+
+\begin{proof}
+二つの三次は $h^4$ を法として同じである。
+小拡大 $\C[h]/(h^5)\to\C[h]/(h^4)$ 上の持上げの差は
+$h^4[W_4-\tau_F(\Psi)]$ である。
+滑らかな三次の $H^0(T)=0$ により、特殊ファイバー上で恒等な同型は、
+逐次の小拡大を通じて $h^4$ を法として恒等となる。
+従ってそのような同型が存在すれば四次の差が Jacobi 環で零となり、矛盾する。
+
+圏についても、命題\ref{prop:nf-hh}の $HH^1=0$ と
+実際の幾何的 Kodaira--Spencer 写像
+$(J_F)_3\hookrightarrow HH^2(\operatorname{Ku}(V(F)))$ の単射性を使う。
+共通の $h^4$ 切断の持上げの差は、非零の四次類の像である。
+特殊ファイバー上恒等な同値の曖昧さは $HH^1=0$ により逐次消えるため、
+この差を同値で消せない。最後に、剰余で恒等かつ Artin 切断と両立する
+固定入力の MF・window 同値を用いる。
+四次元の幾何的変形の全射性は必要ない。
+\end{proof}
+
+この結論は、一般ファイバー上で標識を忘れた三次超曲面または
+Kuznetsov 成分の非同値を意味しない。
+また、Hessian 補正 $\Phi$ の全 O-降下と次数九の定理はそのまま有効であり、
+ここで否定したのは $\Phi$ の三次と残余三次の全次数での標識付き一致である。
+
+\subsubsection{四次まで適合する代数的 Poisson 射}
+
+四次の差も座標不変に打ち消せる。
+$P\in\det K$ を使い、$S_P(H),I_P(H),J_P(H)$ を
+先の完全縮約の四つの $\varepsilon$ を $P$ に置き換えて定義する。
+局所体積枠で $P=sP_0$ なら、それぞれ
+$s^4S(H|_K),s^4I(H),s^4J(H)$ である。
+$\tau=\tau_{H,K}$ と書き、
+\begin{align}
+ \mathcal E_P(H)
+  &=\frac{I_P(H)}{60}+\frac{J_P(H)}{240}
+     -\frac{S_P(H)}{80}\bigl(H-\tau(H)\bigr)
+     +\frac{\tau(I_P(H))}{40},\label{eq:nfm-fourth-invariant-correction}\\
+ H^{[4]}&=H^\sharp+\mathcal E_P(H),&
+ P^{[4]}&=\left(1+\frac{S_P(H)}{240}\right)P
+ \label{eq:nfm-fourth-corrected-pair}
+\end{align}
+と置く。
+
+\begin{theorem}[全 O-同値へ降下する四次補正]
+\label{thm:nfm-fourth-algebraic-correction}
+$H,H|_K,H^{[4]},H^{[4]}|_K$ が滑らかで
+$1+S_P(H)/240$ が可逆な非空開上で、
+\[
+ \Phi^{[4]}:(H,P)\longmapsto(H^{[4]},P^{[4]})
+\]
+は分解可能な三次 Poisson 対の代数的射を定める。
+この射は任意の基底変更・方程式の生成元の変更・全射影同型と両立し、
+既存の良い O-marked moduli の対応する開へ降下する。
+
+指定中心元の trace--Hessian 像
+$H=H^{\mathrm{TH}}_{F,h}$ と $P=hP_0$ に沿って、
+固定 harmonic-angle 模型では全混合係数・全 $n\ge3$ に対して
+\[
+ H^{[4]}\equiv W_h\pmod{h^6},\qquad
+ \iota_{dH^{[4]}}P^{[4]}\equiv\pi_h\pmod{h^7}
+\]
+が成立する。この有限式の射と、その全次数での残余比較は別の主張であり、
+後者の収束・代数化・同値核の降下はここでは結論しない。
+\end{theorem}
+
+\begin{proof}
+四つの縮約は $K$ の枠によらず、$\tau$ は任意底変更と両立する。
+$(H,P)$ を同じ Poisson 対を表す $(cH,c^{-1}P)$ に替えると、
+$S_P(H)$ は不変、$I_P(H),J_P(H)$ は $c$ 倍になる。
+従って $\mathcal E_P(H)$ と $H^{[4]}$ は $c$ 倍、
+$P^{[4]}$ は $c^{-1}$ 倍となる。全射影同型への共変性も同じ縮約から従う。
+また、$H$ に純中心三次 $G(U)$ を加えても、
+$S,I,J$ と active 臨界代数は変わらず、
+$H-\tau(H)$ も変わらない。従って $\mathcal E_P$ はこの変更に不変である。
+
+$P^{[4]}$ は $P$ の座標に依存しない単元倍なので、
+出力は同じ rank 三 support を持つ Jacobian Poisson tensor を定める。
+滑らかさと単元条件は開条件であり、$P=sP_0$ の $s=0$ では
+$H^{[4]}=H$、単元は一となる。滑らかな三次と active 制限を出発点に取れば、
+この形式 trait の一般点で必要な開条件を満たす。
+既存の good 一ブロック開との交わりも非空である。
+表示上の射を全同値へ降下する議論は
+定理\ref{thm:nfm-algebraic-hessian-correction}と同じである。
+
+jet の比較では $H^{\mathrm{TH}}_{F,h}-F$ が純中心三次であることを使う。
+そのため
+\[
+ \mathcal E_{hP_0}(H^{\mathrm{TH}}_{F,h})
+ =h^4\left(\frac I{60}+\frac J{240}
+          -\frac S{80}(F-\tau_F(F))+\frac{\tau_F(I)}{40}\right)
+ =h^4\bigl(W_4-\tau_F(\Psi)\bigr).
+\]
+$H^\sharp=F+h^2\mathscr H_F/24+h^4\tau_F(\Psi)$ と偶奇性から
+最初の合同を得る。
+さらに $P^{[4]}=h(1+Sh^4/240)P_0$ と
+定理\ref{thm:nfm-mixed-fourth-potential}の $a_h$ の式を
+$\pi_h=a_h\iota_{dW_h}P_0$ へ代入すれば二つ目の合同を得る。
+\end{proof}
+
+\begin{remark}[有限補正の二つの役割]
+従来の $\Phi$ は量子側の楕円点曲線との厳密な一致と一般次数九を持つ。
+新しい $\Phi^{[4]}$ についてここで証明したのは、全混合係数でのより高い残余 jet の一致である。
+実際、純 active 三次では $\mathcal E_{hP_0}(g)=h^4S(g)g/120$ となるため、
+新しい有限式に従来の点曲線との厳密な一致をそのまま移してはいない。
+新しい射の一般次数も上の議論では決定していない。
+\end{remark}

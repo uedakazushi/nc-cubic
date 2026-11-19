@@ -1095,7 +1095,7 @@ tensor のスカラーを忘れた比較、残余三次の四次 jet、
 \subsubsection{五次の混合項と残余四次項}
 
 次に、五次 tensor の全混合係数を二つの普遍定数へ還元する。
-ここでの還元は定数そのものの graph weight の評価とは区別する。
+まず共変式の空間を決定し、続いて既知の graph weight を使って二定数を評価する。
 active 微分について
 \[
  T_{ijk}=F_{ijk},\qquad M_{ij}=F_{ij},\qquad q_i=F_i
@@ -1219,34 +1219,17 @@ $\alpha+\beta+\gamma=1/80$ が従い、表示された形を得る。
 局所 jet の多項式恒等式なので、普遍模型からの任意の基底変更とも両立する。
 \end{proof}
 
-\begin{remark}[分離型で消える二方向と残余四次項]
+\begin{remark}[分離型で消える二方向]
 \label{rem:nfm-mixed-fifth-potential}
 $I-SF$ と $J-SF$ は $U=0$ に制限すると零となる。
 より一般に $F=g(x+a(U))+G(U)$ という中心平行移動された分離型では、
 両者は純中心三次 $-S(g)G(U)$ に等しく、その active 勾配は零である。
-従って境界三次とこの分離型の計算だけでは $\beta,\gamma$ は定まらない。
-この二つの勾配が一般混合係数の共変式として独立であることは上で確認したが、
-全 Jacobi 環で非零であることや座標変換で除去できないことは主張していない。
-
-指定中心元に対して
-$a_h=h(1+a_4h^4)+O(h^7)$ と書けば、既存の Casimir 分解から
-\[
- W_4=Q_5-a_4F+G_4(U)
-\]
-という形になる。全変数の Jacobi 環
-$J_F=\operatorname{Sym}V/(\partial_vF:v\in V^*)$ では、
-Euler の公式から $[F]=0$ である。従って補正三次との四次の差は
-\[
- [W_4-\tau_F(\Psi_\lambda(F))]
- =\beta[I(F)]+\gamma[J(F)]
-       +[G_4(U)-\tau_F(\Psi_\lambda(F))]\quad\text{in }(J_F)_3.
-\]
-この幾何的な四次障害の判定には $a_4$ の評価は不要である。
-$\beta,\gamma$ と純中心項 $G_4$ の評価は残っている。
-従ってこの有限次元への還元を、四次 potential の決定、
-$H^\sharp$ との全次数一致、または残余圏の比較の証明とは区別する。
-
+従ってこの分離型の計算だけでは二つの普遍定数を区別できない。
+以下では二つの混合 Taylor jet で定数を決定し、
+さらに中心逆像の局所性から四次 potential とその幾何的比較類を求める。
 \end{remark}
+
+\input{papers/sections/fourth_correction}
 
 有限式
 \[
@@ -1255,7 +1238,8 @@ $H^\sharp$ との全次数一致、または残余圏の比較の証明とは区
 \]
 は全ての $h$ に対して Jacobi 恒等式と Casimir 条件を満たす。
 しかし、固定 formality の実際の tensor との差は一般に五次から現れる。
-残余三次の四次項と、三次の単元倍を許した全次数比較はなお別の課題である。
+四次 potential と新たな有限補正は上で決定したが、
+三次の単元倍を許した全次数比較はなお別の課題である。
 
 補正の座標共変性は内在的に書ける。
 $K$ を rank 三の active 方向、$P\in\det K$ として

@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v8}
+\date{2026年11月20日・研究稿 v9}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -57,15 +57,12 @@ pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ三次超曲面の量子化を扱う。
 中心平坦性と普遍低次数中心条件の下で任意の Veronese から元の代数を復元し、
 良い一ブロック表示を局所的に持つ $\mathcal O$-marked 圏族の滑らかな DM stack を構成する。
-相対 Serre 双対、全同値の比較、および重み付き加群の tails により、
-次数一 shift を標識に含めず対象の効果的降下を示す。
+相対双対と全同値の降下により、次数一 shift を標識から外す。
 大域表示の Brauer 障害は $n\not\equiv1\pmod3$ では消え、
 $n\equiv1\pmod3$ ではどの非空開上でも位数三である。
 点スキームは相対的に楕円成分と型 $(2,2,2,3)$ の定常成分へ分かれ、
 非空開上で埋込み点対応から中心三次商を復元できる。
-八重被覆の正規化 trace と境界の Hessian を用いて量子中心三次を古典 Casimir へ同定し、
-非空開上で滑らかな三次 Poisson 対のモジュライへの射を構成する。
-さらに任意基底上で強い affine 持上げの一意性を証明し、逆構成によって
+八重被覆の正規化 trace と Hessian、および任意基底上の強い affine 持上げの一意性により、
 良い一ブロック型の圏 stack を分解可能な Poisson 対の非空開と同定する。
 既存の被約分類の下で、この像は三次のモジュライを支配する唯一の Poisson 成分の
 一般部分の開を与える。
@@ -77,9 +74,12 @@ $n\equiv1\pmod3$ ではどの非空開上でも位数三である。
 補正後の active 平面切断は量子側の楕円点曲線に一致する。
 固定 formality の全次数では、元の support が保存され、
 残余三次が tensor を形式スカラー倍まで決定する。
-三次のスカラー補正の消滅と偶奇性により全混合係数の jet を強め、
-四次不変式を用いて代数的 tensor 補正との五次の相違を示す。
-さらに全混合係数の五次項を次元によらない二つの普遍定数へ還元する。
+さらに既知の harmonic graph weights と共変式の還元により、
+全混合係数の五次 tensor、残余三次の四次項、およびスカラー補正を決定する。
+有限 Hessian 補正との四次の Jacobi 類は全次元の非空開で非零であり、
+特殊ファイバーの同定を保つ形式的な残余比較を妨げる。
+この差を打ち消す追加の代数的 Poisson 射を構成し、全 O-同値への降下と、
+三次式の六次未満・tensor の七次未満での一致を証明する。
 分離型 Hesse 族では、固定入力の下で補正後三次への残余同値を有限拡大上で得る。
 
 別に、三次超曲面の Jacobi スキームを Koszul flattening と Pl\"ucker 関係によって調べる。
@@ -157,7 +157,9 @@ Poisson 対への射を構成する。この射と既存量子化の単純な逆
 および残余圏からの可換復元とは区別する。
 形式量子化の中心と Poisson 中心の同型は
 Etingof--Ginzburg\cite[Proposition~8.1.1, equation~(8.1.3)]{NFMEG}
-にも既に現れる。本稿で扱うのは、有限の非零パラメータでの三次部分に対する
+にも既に現れ、その証明では unimodularity から相対形式 Poisson tensor を
+Jacobian potential で表している（Section~8.1, pp.~1407--1408）。
+本稿で扱うのは、有限の非零パラメータでの三次部分に対する
 trace と Hessian の明示的処方、その任意底変更、全同値に関する降下と逆構成である。
 Dito\cite[Section~2, equation~(3); Section~3, Theorem~2]{NFMDito} の一般 Poisson
 星積の二次項と Weyl gauge、および Shoikhet\cite[Sections~1.3, 2.3.1]{NFMShoikhet}
@@ -172,10 +174,20 @@ O-marked moduli 上へ降下し、全混合係数での一般次数九と残余�
 さらに Lindberg--Pym\cite[Section~1.6; Theorem~6.9 and Remark~6.10]{NFMLindbergPym}
 の量子トーラスの交換比 $q=e^\hbar$ を既知の入力として、
 生成元固定の逆 tensor の五次項を三変数三次の共変式から決定する。
+全混合項の定数評価には
+Banks--Panzer--Pym\cite[Corollary~1.3; Section~6]{NFMBanksPanzerPym}の
+harmonic graph weights と、Buring\cite[Sections~3.4--3.6]{NFMBuringGraphs}の
+公開データを用いる。線型入力と二次 tensor に有効な73項を抽出し、
+元の weight と多重度、生成元固定再帰を有理数として検証する。
+既知の graph 積分値自体を新規成果とは数えず、
+本稿の貢献は混合項の一様な公式、残余三次の四次比較類とその非消滅、
+および全同値へ降下する追加補正への適用である。
 形式対応の存在、点曲線公式、量子トーラスの交換比そのものを新規成果とは数えない。
 次数計算に用いる Hesse 還元は、純 Hessian 写像に対する
 Ciliberto--Ottaviani\cite[Theorem~5.7]{NFMCilibertoOttaviani}の議論にもあり、
 四次の $S$ は古典的な Aronhold 不変式\cite{NFMOttavianiAronhold}である。
+$I,J$ も Hessian 写像と Aronhold 四次式の方向微分で表示できる
+（補題\ref{lem:nfm-classical-mixed-covariants}）。
 本稿ではこれらを一般混合係数と商 stack の次数、および固定逆 tensor の係数へ適用する。
 Mayanskiy \cite{Mayanskiy} の三様体における Schouten 方程式の計算に対して、
 本稿は高次元での Jacobi イデアル自体を比較する。
@@ -426,12 +438,15 @@ active 臨界代数の正規化 trace を $\tau_{H,K}$ と置く。
 その相対化は被約有限型の普遍 PBW 係数模型とその任意底変更で成立する。
 
 二次関係の係数が $h$ に依存せず、Hessian 正規化中心元を用いると、
-$\pi_h$ と $a_h$ は奇級数、$W_h$ は偶級数であり、全混合係数について
+$\pi_h$ と $a_h$ は奇級数、$W_h$ は偶級数である。
+$g=F|_{U=0}$、$S(xyz)=1$ と規格化した四次不変式を $S$ とすると、
+全混合係数について
 \[
- a_h=h+O(h^5),\qquad
- \pi_h=h\Pi_F+\frac{h^3}{24}\Pi_{\mathscr H_F}+O(h^5)
+a_h=h+\frac{S(g)}{240}h^5+O(h^7),\qquad
+ \pi_h=h\Pi_F+\frac{h^3}{24}\Pi_{\mathscr H_F}
+                 +h^5\Pi_{Q_5}+O(h^7)
 \]
-を得る。また $g=F|_{U=0}$、$S(xyz)=1$ と規格化した四次不変式 $S$ に対し
+を得る。また active 制限は
 \[
  [h^5]\pi_h|_{U=0}=\frac{S(g)}{80}\Pi_g.
 \]
@@ -440,9 +455,34 @@ $\pi_h$ と $a_h$ は奇級数、$W_h$ は偶級数であり、全混合係数�
 五次 tensor の全混合係数は、明示的な相対三次式 $I(F),J(F)$ を用いて
 \[
  \pi_5(F)=\Pi_{Q_5(F)},\qquad
- Q_5(F)=\frac{S(g)}{80}F+\beta(I(F)-S(g)F)+\gamma(J(F)-S(g)F)
+ Q_5(F)=\frac{4I(F)+J(F)-2S(g)F}{240}
 \]
-と書ける。$\beta,\gamma$ は次元によらない二つの未評価の普遍定数である。
+と書ける。指定した中心元
+$\operatorname{sym}(F-h^2\mathscr H_F/12+h^4\Psi_\lambda(F))$ の残余三次は
+\[
+ W_h=F+\frac{h^2}{24}\mathscr H_F
+       +h^4\left(\Psi_\lambda(F)+\frac{I(F)}{24}-\frac{J(F)}{80}\right)+O(h^6)
+\]
+である。全 Jacobi 環での有限補正三次との差は
+\[
+ [h^{-4}(W_h-H^\sharp)]_{h=0}
+ =\frac{[I(F)]}{60}+\frac{[\tau_F(I(F))]}{40}
+                      +\frac{S(g)[\tau_F(F)]}{80}.
+\]
+この類は各 $n\ge3$ の混合係数の非空開で非零であり、
+$\C[h]/(h^5)$ 上で特殊ファイバーの同定を保つ三次の同型を妨げる。
+固定 MF・window 入力の下では、同じ標識を保つ残余圏の同値も妨げる。
+
+一方、式\eqref{eq:nfm-fourth-invariant-correction}の座標不変な三次式
+$\mathcal E_P(H)$ による
+\[
+ (H,P)\longmapsto
+ \left(H^\sharp+\mathcal E_P(H),
+       \left(1+\frac{S_P(H)}{240}\right)P\right)
+\]
+は、適切な非空開で任意底変更と全 O-同値へ降下する。
+指定中心族に沿い、この出力三次は $W_h$ と $h^6$ を法として、
+出力 tensor は $\pi_h$ と $h^7$ を法として一致する。
 
 
 分離型 $g_\lambda+G(U)$、
@@ -465,11 +505,17 @@ $(\mathcal K_{B/(w)},\rho)\simeq
 \ref{thm:nfm-correction-degree-nine}、形式構成は定理\ref{thm:nfm-residual-formal-poisson}、
 jet と五次の相違は系\ref{cor:nfm-mixed-even-jet}、
 \ref{cor:nfm-fifth-restriction-obstruction}、混合項の還元は
-命題\ref{prop:nfm-mixed-fifth-reduction}、split 比較は
+命題\ref{prop:nfm-mixed-fifth-reduction}、\ref{prop:nfm-mixed-fifth-explicit}、
+四次 potential と比較障害は定理\ref{thm:nfm-mixed-fourth-potential}、
+系\ref{cor:nfm-corrected-fourth-obstruction}、
+追加の代数的射は定理\ref{thm:nfm-fourth-algebraic-correction}、
+split 比較は
 定理\ref{thm:nfm-split-corrected-residual}に置く。
-一般混合係数の残余三次の四次項、単元倍を許した全次数比較、
+単元倍を許した一般混合係数の全次数比較、
 および残余同値の全 O-降下は未解決である。
-固定 tensor の五次の相違から、同じ三次の Ku 比較の不成立までは結論しない。
+有限 jet の標識付き障害から、一般ファイバーで標識を外した Ku の非同値は結論しない。
+従来の $\Phi$ の一般次数九と点曲線の厳密な一致を、
+追加補正の射にも自動的に移すことはしない。
 
 \subsection{Jacobi スキームの次元境界}
 \begin{maintheorem}[Jacobi スキームの境界と平方零構造]

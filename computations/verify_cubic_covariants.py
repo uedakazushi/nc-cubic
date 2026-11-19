@@ -1,6 +1,7 @@
 """Exact finite certificates for low-degree ternary cubic covariants.
 
-2026-11-20. Standard library only. No graph weights or beta/gamma constants are evaluated here.
+2026-11-20 / v9. Standard library only. Graph constants are evaluated separately
+in verify_mixed_fifth.py; this file supplies the common contraction and weight counts.
 """
 from collections import Counter
 from fractions import Fraction
@@ -124,7 +125,7 @@ def contraction(tensors, edges):
         for tensor, indices in zip(tensors, labels):
             coefficient *= tensor.get(tuple(indices), 0)
         answer += coefficient
-    return Fraction(answer, 24)
+    return Fraction(1, 24) * answer
 
 
 SE = ((0, 1, 2), (0, 1, 3), (0, 2, 3), (1, 2, 3))
@@ -179,7 +180,16 @@ def check_mixed():
     J0 = contraction([T, T, T, M0, q], JE)
     assert I0 == J0 == S / 3
     print('PASS: active-restriction constants I|g=J|g=S(g)g')
-    print('NOT COMPUTED: beta, gamma, scalar a_4, pure-central W_4, Jacobi classes')
+    first = multiply(multiply(weight_counts(1, 1), weight_counts(1, 2)),
+                     weight_counts(3, 3))
+    second = multiply(weight_counts(3, 2), weight_counts(2, 3))
+    scalar_rows = [weyl_terms(first, (4, 4, 4)),
+                   weyl_terms(second, (4, 4, 4))]
+    assert scalar_rows == [[156, -136, -136, 100, 109, -92],
+                           [122, -105, -105, 78, 84, -73]]
+    assert list(map(sum, scalar_rows)) == [1, 1]
+    print('PASS: fourth-potential scalar jet multiplicities 1, 1; terms =', scalar_rows)
+    print('Graph coefficients and fourth potential: see verify_mixed_fifth.py and verify_fourth_potential.py.')
 
 
 
