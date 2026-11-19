@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v6}
+\date{2026年11月20日・研究稿 v7}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -72,8 +72,12 @@ $n\equiv1\pmod3$ ではどの非空開上でも位数三である。
 他方、固定入力の残余復元定理の下で、trace--Hessian 三次と残余復元三次は
 任意の次元の明示 Hesse 族で幾何学的一般点において異なる。
 同じ周囲 Poisson tensor の Casimir を選び直しても、この相違は解消できない。
-混合係数の一般点についても、指定した中心規格化と formality 模型の二次 jet に、
-特殊ファイバーの標識を保つ形式比較の障害を与える。
+混合係数の一般点での二次障害を打ち消す代数的 Hessian--trace 補正を構成し、
+その支配性、非空開での \'etale 性、全同値への降下を示す。
+補正後の active 平面切断は量子側の楕円点曲線に一致する。
+固定 formality の全次数では、元の support が保存され、
+残余三次が tensor を形式スカラー倍まで決定する。
+分離型 Hesse 族では、固定入力の下で補正後三次への残余同値を有限拡大上で得る。
 
 別に、三次超曲面の Jacobi スキームを Koszul flattening と Pl\"ucker 関係によって調べる。
 $3\le n\le7$ の一般三次では Grassmann 錐に一致する。
@@ -84,7 +88,7 @@ $n=8$ の一般三次では、その頂点に長さ330、次数二に集中す�
 高次元の冪零部分の最高次数と極大イデアルによる消滅指数は一様に有界ではない。
 最後に既知の Hochschild 計算と圏変形理論から、$n\ne4$ の通常 Artin 基底上で
 残余圏の一次切断変形を幾何的変形として認識する。
-全ての内在的成分の被覆、および残余圏と整合する Poisson tensor の構成と降下は未解決である。
+全ての内在的成分の被覆、一般混合係数での全次数比較と残余同値の降下は未解決である。
 \end{abstract}
 \clearpage
 \setcounter{tocdepth}{1}
@@ -157,6 +161,12 @@ Dito\cite[Section~2, equation~(3); Section~3, Theorem~2]{NFMDito} の一般 Pois
 の内向き wheel の消滅を用いて、固定入力の残余 potential の二次計算を
 全混合係数へ広げる。星積や wheel 消滅自体は既知結果であり、
 本稿では trace--Hessian 処方との差が全次元で非零となる開条件を調べる。
+二次代数と二次 Poisson 構造の形式対応は既に
+Kontsevich\cite[Section~2.3, Proposition~6]{NFMKontsevichAlg}にある。
+また点曲線の Hessian 公式は Mori--Smith\cite[Theorems~1.2, 7.2]{MoriSmith}の結果である。
+本稿はこれらを既知の入力として、混合係数の trace を加えた代数的補正を
+O-marked moduli 上へ降下し、その点曲線と残余比較への適合を調べる。
+形式対応の存在や点曲線公式そのものを新規成果とは数えない。
 Mayanskiy \cite{Mayanskiy} の三様体における Schouten 方程式の計算に対して、
 本稿は高次元での Jacobi イデアル自体を比較する。
 affine 超曲面の Poisson 延長を gradient の Koszul 複体で記述する手法には
@@ -377,6 +387,56 @@ Hessian 二次 jet を持つ中心元に規格化する。指定した生成元�
 一般混合係数における有限 jet の障害から、標識を外した全ての一般ファイバーの
 圏非同値までを結論してはいない。
 
+
+\subsection{残余三次に適合する補正}
+
+\begin{maintheorem}[代数的補正と形式的な残余比較]
+分解可能な Poisson 対を $(H,P)$ と表し、$K=\operatorname{supp}P$、
+$U=\operatorname{ann}K$ とする。$H$ と $H|_{\PP(K)}$ が滑らかな開で、
+active 臨界代数の正規化 trace を $\tau_{H,K}$ と置く。
+座標不変な三次式
+\[
+ \mathcal D_P(H)=\langle\det(D_K^2H),P^{\otimes2}\rangle,
+ \qquad H^\sharp=H+\frac{\mathcal D_P(H)}{24}
+                      +\frac{\tau_{H,K}(\mathcal D_P(H))}{12}
+\]
+は、非空開で Poisson 対の代数的射 $\Phi:(H,P)\mapsto(H^\sharp,P)$ を定める。
+この射は支配的で、非空開上 \emph{\'etale} であり、任意底変更と全 O-同値に両立する。
+補正後の active 平面切断は量子側の楕円点曲線に等しく、
+指定した中心正規化では残余三次の二次 jet と一致する。
+
+一方、滑らかな先頭三次と滑らかな active 制限を持つ一ブロック族について、
+固定 formality の生成元固定模型では、形式 Poisson tensor $\pi_h$ は
+元の中心一次空間を厳密に保存し、残余 potential $W_h$ に対して
+\[
+ \pi_h=a_h\,\iota_{dW_h}P_0,\qquad a_h=h+O(h^2)
+\]
+と一意に書ける。この tensor は周囲二次代数だけから決まる。
+その相対化は被約有限型の普遍 PBW 係数模型とその任意底変更で成立する。
+
+分離型 $g_\lambda+G(U)$、
+$g_\lambda=(x^3+y^3+z^3)/3+\lambda xyz$、$1+\lambda^3\ne0$ では、
+$G$ の偏微分の共通零点が原点だけであると仮定する。
+量子化尺度 $s$ に対する補正後三次は
+\[
+ H^{\mathrm{corr}}=g_\lambda+G+
+               \frac{s^2}{24}\det\operatorname{Hess}(g_\lambda).
+\]
+固定入力論文Bの完備 MF・相対 window・固定標的への有限降下と
+coherent 残余圏の飽和性を仮定すると、
+全 $n\ge3$ において、ある有限拡大 $K'/\C(s)$ 上で
+$(\mathcal K_{B/(w)},\rho)\simeq
+(\operatorname{Ku}(V(H^{\mathrm{corr}})),\rho_{\mathrm{corr}})$
+が指定三次周期を保って成立する。
+\end{maintheorem}
+
+代数的射は定理\ref{thm:nfm-algebraic-hessian-correction}、
+形式 tensor の構成は定理\ref{thm:nfm-residual-formal-poisson}、
+split 族の比較は定理\ref{thm:nfm-split-corrected-residual}に置く。
+一般の混合係数で、代数的補正が形式復元と全次数で一致すること、
+その残余同値が全 O-同値へ降下することは未解決である。
+固定 formality の tensor に生じる形式スカラーと、代数的補正の尺度も区別する。
+
 \subsection{Jacobi スキームの次元境界}
 \begin{maintheorem}[Jacobi スキームの境界と平方零構造]
 滑らかな可換三次 $X_F\subset\PP^{n+1}$ の自然な Jacobi スキームについて、
@@ -472,11 +532,13 @@ $n\equiv1\pmod3$ ではこの方法は使えない。
 trace--Hessian 射と逆構成により、Poisson 対の開部分を同定した。
 一方、この処方が選ぶ underlying cubic と残余復元の出力は一般には同一視できず、
 固定した周囲 tensor の純中心補正だけでは修復できない例がある。
-同じ $X$ に対する残余圏と $\operatorname{Ku}(X)$ の同値という目標を追求するには、
-formality で補正された Poisson tensor または残余の低 rotation 積から
-Poisson データを構成し、その選択依存性と降下を調べる必要がある。
-この修正された構成は未完成である。まず各成分の一般点と必要な係数拡大上で構成し、
-有限表示と同値核の降下を示して稠密開への拡張を目指す。
+この障害に対して、支配的な代数的補正 $\Phi$ と、固定 formality による
+全次数の形式 Poisson 対を構成した。split 族では、補正後三次と残余復元の
+全次数の比較が固定入力の下で成立する。
+一般混合係数における $\Phi$ と残余復元の全次数の一致、形式構成の代数化、
+および残余同値の全 O-同値への降下を次に調べる。
+各成分の一般点と必要な係数拡大上で、有限表示と同値核の降下を確認し、
+稠密開への拡張を目指す。
 boundary や全 Abel 形式近傍の記述は、この一般次元の構成に必要な障害を解消する
 範囲で扱い、本稿に得た個別次元の証明と計算資産はその検査例として保持する。
 
@@ -491,6 +553,7 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/poisson_schemes.tex}
 \input{papers/sections/residual_categories.tex}
 \input{papers/sections/residual_comparison.tex}
+\input{papers/sections/poisson_correction.tex}
 \par\begingroup\small
 \input{papers/references.tex}
 \endgroup

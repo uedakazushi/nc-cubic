@@ -1,0 +1,795 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{残余比較のための Poisson 補正}
+\label{sec:nfm-poisson-correction}
+
+比較障害の後に残る問題は、残余圏が復元する三次と同じ三次を選ぶ
+Poisson 対を、一般次元の族として構成することである。
+まず全 O-同値に降下する代数的補正を与え、次に固定 formality による
+全次数の形式構成と比較する。最後に分離型の族では、固定入力の下で
+代数的な補正後三次への全次数の残余比較を示す。
+三つの構成の適用範囲を区別し、一般混合係数での全次数の一致を仮定しない。
+
+\subsection{Hessian と trace による代数的な補正}
+\label{sec:nfm-algebraic-correction}
+
+有限 jet の障害は、周囲 Poisson tensor を変えることで取り除ける。
+ここではその二次 jet を持つ、座標に依存しない代数的な処方を構成する。
+この処方の全次数が残余復元と一致するとは主張しない。
+
+$R$ を可換 $\mathbf C$-代数、$V$ を階数 $N=n+2$ の有限局所自由加群、
+$W=V^*$ とする。分解可能 Poisson 対を局所的に $(H,P)$ と表し、
+$K=\operatorname{supp}(P)\subset W$、$U=\operatorname{ann}(K)\subset V$ と置く。
+$H$ の定める三次超曲面と、その $\mathbb P(K)$ への制限がともに滑らかとする。
+$S=\operatorname{Sym}U$ および
+\[
+ T_{H,K}=\operatorname{Sym}V/(\partial_kH:k\in K),\qquad
+ \tau_{H,K}=\tfrac18\operatorname{Tr}_{T_{H,K}/S}
+\]
+と置く。ここでも trace には商への写像を合成する。
+active な勾配の最高次部分が三変数の正則列をなすので、
+$T_{H,K}$ は $S$ 上階数八の有限局所自由代数である。
+この性質と trace は任意の基底変更と両立する。
+
+$K$ 方向の二階微分は
+$D_K^2H\in\operatorname{Sym}^2K^*\otimes V$ であり、その行列式は
+$(\det K^*)^{\otimes2}\otimes\operatorname{Sym}^3V$ に属する。
+従って次の三次式は $K$ の座標と体積形式の選択に依存しない。
+\begin{equation}\label{eq:nfm-intrinsic-hessian-correction}
+ \mathcal D_P(H)=\langle\det(D_K^2H),P\otimes P\rangle,
+ \qquad
+ \mathcal C_P(H)=\frac1{24}\mathcal D_P(H)
+       +\frac1{12}\tau_{H,K}(\mathcal D_P(H)).
+\end{equation}
+例えば $P=t\,\partial_x\wedge\partial_y\wedge\partial_z$ なら
+$\mathcal D_P(H)=t^2\det\operatorname{Hess}_{x,y,z}(H)$ である。
+trace 項は $\operatorname{Sym}^3U$ に属する。
+
+\begin{theorem}[良い Poisson 対の代数的 Hessian 補正]
+\label{thm:nfm-algebraic-hessian-correction}
+active な平面三次も滑らかな $\mathfrak P_n^{\mathrm{dec}}$ の開を
+$\mathfrak P_n^{\mathrm{ell}}$ と書く。
+次の処方は、出力の三次と active な平面三次がともに滑らかな非空開上で、
+代数的な射
+\[
+ \Phi:\mathfrak P_n^{\mathrm{ell}}\dashrightarrow
+             \mathfrak P_n^{\mathrm{ell}},\qquad
+ (H,P)\longmapsto(H^\sharp,P),\quad H^\sharp=H+\mathcal C_P(H)
+\]
+を定める。これは任意の基底変更、方程式の生成元変更、
+全ての射影座標同型と両立する。
+補正後の強い lift は厳密に
+\begin{equation}\label{eq:nfm-corrected-algebraic-tensor}
+ \Pi^\sharp=\iota_{dH^\sharp}P
+ =\Pi+\frac1{24}\iota_{d\mathcal D_P(H)}P
+\end{equation}
+であり、同じ $K$ と $U$ を持つ Poisson tensor である。
+
+この有理射は支配的で、非空開への制限は \emph{\'etale} である。
+従って定理\ref{thm:poisson-good-open-isomorphism}を介し、
+$\mathfrak M_n^{\mathrm{sm}}$ の非空開から Poisson 対のモジュライへの射を与える。
+必要なら定義域をさらに縮め、出力も $\mathfrak P_n^{\mathrm{good}}$ に入るようにできる。
+ただしこのことは、元の非可換圏とその出力の Kuznetsov 成分の
+全次数の同値を意味しない。
+\end{theorem}
+
+\begin{proof}
+三次方程式を $H\mapsto cH$ とすると、強い lift の表示は
+$P\mapsto c^{-1}P$ となる。
+Hessian 行列式は $c^3$ 倍、$P^{\otimes2}$ は $c^{-2}$ 倍になるから
+\[
+ \mathcal D_{c^{-1}P}(cH)=c\mathcal D_P(H).
+\]
+active な勾配イデアルは変わらず、trace も変わらない。
+従って $\mathcal C_{c^{-1}P}(cH)=c\mathcal C_P(H)$ であり、
+出力 $H^\sharp\otimes P$ は方程式の生成元に依存しない。
+Hessian の縮約と有限局所自由代数の trace は線型座標変換に共変である。
+特に active 変数に中心一次式を加える frame 変更も含み、
+$V\twoheadrightarrow K^*$ の分裂を選ぶ必要はない。
+次数スカラーの重みも相殺するので、射影群の商 stack へ降下する。
+有限局所自由性と trace の基底変更により、非平坦・非被約の場合も含めて
+任意の基底変更と両立する。
+
+局所的に $K$ の座標を選ぶと、$\Pi^\sharp$ は三変数の Jacobian 括弧で、
+残りの変数は中心である。従って Jacobi 恒等式は多項式恒等式として成立し、
+$H^\sharp$ はその Casimir である。
+trace 項の微分は $K$ 方向で零なので、式
+\eqref{eq:nfm-corrected-algebraic-tensor}を得る。
+出力が滑らかなら、系\ref{cor:poisson-support-recovery}により一次中心は
+ちょうど $U$ である。
+
+定義域の非空性と支配性を一様に確認する。
+滑らかな三次と active な平面三次の開
+\[
+ B\subset\mathbb P(\operatorname{Sym}^3V)\times\operatorname{Gr}(3,W)
+\]
+上で、$\mathcal L_H\otimes\det\mathcal K$ の全空間 $\overline Z$ を取り、
+零切断も許す。ただし零切断では $K$ を忘れない。
+式\eqref{eq:nfm-intrinsic-hessian-correction}は $P=0$ でも定義でき、
+補正は線束方向の二次以上である。
+したがって $\Phi$ は零切断を含む開で定義され、零切断を各点ごとに固定し、
+そこでの微分は恒等である。
+$\overline Z$ は滑らかなので、$\Phi$ は零切断の近傍で \emph{\'etale} となる。
+この近傍の零切断を除いた部分は非空で、像は開かつ稠密である。
+よって元の非零部分上の有理射は支配的であり、非空開で \emph{\'etale} である。
+同じ群による同変商に移すと、この性質は stack 上にも降りる。
+
+$\mathfrak P_n^{\mathrm{good}}$ は既約な
+$\mathfrak P_n^{\mathrm{ell}}$ の非空開である。
+支配性により、その逆像と定義域中の
+$\mathfrak P_n^{\mathrm{good}}$ の交わりも非空開となる。
+そこに既存の O-marked moduli との同型を適用すればよい。
+\end{proof}
+
+\begin{corollary}[flag を残した零切断の形式近傍]
+\label{cor:nfm-correction-formal-automorphism}
+上の $\overline Z$ の零切断に沿う形式完備化上で、$\Phi$ は
+恒等を剰余に持つ形式自己同型である。
+同じことは射影群の商にも成立する。
+\end{corollary}
+\begin{proof}
+零切断を固定する \emph{\'etale} 射に対し、零切断上の恒等写像の
+持上げは各冪零厚みで一意である。
+これらを順次持ち上げると、任意の有限厚み上で相互に逆な写像を得る。
+その逆極限が形式逆写像を与える。一意性により群作用とも両立する。
+これは明示的な補正 $\Phi$ 自身の形式可逆性であり、
+formality の中心写像との全次数の一致ではない。
+\end{proof}
+
+\begin{proposition}[楕円点曲線との厳密な整合]
+\label{prop:nfm-correction-point-cubic}
+良い一ブロック型の ambient 二次代数 $B_\Pi$ を考える。
+$g=H|_{\mathbb P(K)}$ とすると、補正後の制限は
+\[
+ H^\sharp|_{\mathbb P(K)}
+ =g+\frac1{24}\mathcal D_P(g)
+\]
+であり、これは $B_\Pi$ の active な楕円点曲線の方程式である。
+従って補正射は、回復した support 平面の中で、
+量子側の楕円点曲線と同じ平面三次を選ぶ。
+この主張は点曲線の shift を保持した対応全体や、
+定常点成分の同定を含まない。
+\end{proposition}
+
+三生成元の二次 Calabi--Yau 代数の点曲線を Hessian によって記述することは、
+Mori--Smith\cite[Theorems~1.2, 7.2]{MoriSmith}の既知の結果である。
+以下の証明は本稿の係数規約を確認するもので、その点曲線公式自体の新規性を主張しない。
+本節ではこれを混合係数の trace と組み合わせ、
+全次元の Poisson 対および O-marked moduli 上の代数的補正に用いる。
+
+\begin{proof}
+trace 項は純中心三次なので、$\mathbb P(K)$ への制限で零になる。
+局所座標で $P=t\,\partial_x\wedge\partial_y\wedge\partial_z$ と書き、
+$p=(x,y,z)^{\mathsf t}$ とする。二次関係の双線型化は
+\[
+ \left(C(p)-\frac t2\operatorname{Hess}(g)(p)\right)q=0,
+ \qquad C(p)q=p\times q
+\]
+である。対称行列 $M$ に対する三次恒等式
+\[
+ \det(C(p)+sM)=s\,p^{\mathsf t}Mp+s^3\det M
+\]
+と $p^{\mathsf t}\operatorname{Hess}(g)(p)p=6g(p)$ より、
+その行列式は
+\[
+ -3t\left(g+\frac{t^2}{24}\det\operatorname{Hess}(g)\right)
+\]
+である。非零の $P$ を持つ相対チャートでは $t$ は単元に取れる。
+行列式恒等式は、$\operatorname{adj}C(p)=pp^{\mathsf t}$ と
+転置による $s$ の偶数次係数の消滅からも直接分かる。
+この三次が滑らかな開では、係数行列の階数は曲線上の全ての幾何点で二である。
+階数が一以下なら全ての余因子が消え、行列式の全偏微分も消えるので、
+滑らかさに反する。さらに $Mq=0$ に $\operatorname{adj}(M)$ を掛けると
+$\det(M)q=0$ となり、射影座標の局所的な可逆成分から incidence は
+行列式曲線をスキームとして経由する。
+可逆な二次小行列を使えば、任意基底上で核は直線部分束となる。
+従って核は任意基底変更と両立する直線部分束であり、
+双線型関係の incidence はこの曲線からの射のグラフとなる。
+左右の変数を交換すると $t$ の符号が変わるだけなので、
+右射影の三次行列式も同じ曲線を与え、その核も直線部分束である。
+従って両射影は同型で、incidence は曲線の自己同型のグラフである。
+これにより三次が楕円点曲線であることも任意基底上で確認できる。
+$t=0$ で得られる三次はこの族の極限であり、
+可換多項式環の点スキームそのものと同一視しない。
+\end{proof}
+
+\begin{corollary}[残余復元の二次 jet を実現する代数的処方]
+\label{cor:nfm-corrected-residual-jet}
+命題\ref{prop:nfm-relative-residual-second-jet}の規約と入力を使う。
+Hessian 正規化中心元の trace--Hessian 出力に $\Phi$ を適用すると、
+\[
+ H^\sharp
+ =F+\frac{h^2}{24}\mathscr H_F+h^4\tau_F(\Psi_\lambda(F)),
+ \qquad H^\sharp\equiv W^{\mathrm{res}}\pmod{h^3}.
+\]
+その強い lift は
+\[
+ \Pi^\sharp=h\Pi_F+\frac{h^3}{24}\Pi_{\mathscr H_F}
+\]
+である。従って前節の二次 Jacobi 障害を、この代数的な補正により除去できる。
+\end{corollary}
+\begin{proof}
+trace--Hessian 出力と $F$ の差は純中心三次なので、
+active な勾配、Hessian、および $\tau_F$ は変わらない。
+その強い lift の表示は $P=hP_0$ である。
+従って $\mathcal D_{hP_0}(H^{\mathrm{TH}})=h^2\mathscr H_F$ となり、
+二つの trace 項が相殺して表示した式を得る。
+tensor の式は純中心項の縮約が零であることから従う。
+この計算は $h\ne0$ の対に対する代数的処方を当該 trait に沿って延長したもので、
+可換特殊点全体の O-marked moduli に非零 Poisson tensor を付与するものではない。
+\end{proof}
+
+\begin{remark}[残る比較問題]
+$\Phi$ は特定の formality の全次数の逆写像として定義したものではない。
+ここで示したのは、任意基底の代数的構成、全 O-同値への降下、
+楕円点曲線との一致、および指定中心元に対する残余三次の二次 jet との一致である。
+実際の formal Poisson tensor は scalar formal unit による規格化も持ち得る。
+従ってその tensor との比較には、potential と support の比較に加えて尺度を追跡する。
+全次数での $\operatorname{Ku}(V(H^\sharp))$ との同値、
+またはこの処方の一意性は、二次 jet の一致からは従わない。
+\end{remark}
+
+\subsection{残余復元と両立する形式 Poisson 対}
+\label{sec:nfm-corrected-formal-poisson}
+
+前節の障害は、量子代数の二次関係から直読する tensor と、
+formality の逆対応が与える tensor を区別することで解消される。
+本節では harmonic-angle formality を一つ固定し、形式パラメータ $h$ と
+次数一生成元を保つ模型を用いる。
+次数付き二次代数と二次 Poisson tensor の形式対応そのものは
+Kontsevich\cite[Section~2.3, Proposition~6]{NFMKontsevichAlg}の既知結果である。
+ここで明らかにするのは、一ブロックの場合の中心一次空間の保存、
+残余三次による全次数の tensor の決定、および前節の障害を打ち消す補正である。
+構成は形式的なものであり、非零の複素数 $h$ への収束・代数化とは区別する。
+
+\subsubsection{次数一を固定する模型と有限係数の再帰}
+
+$R$ を複素代数、$V_R$ を階数 $N$ の有限自由加群とし、
+$S_R=\operatorname{Sym}_R V_R$ と置く。
+次数一生成元を $z_1,\ldots,z_N$ とする。
+次数別に $h$ 進完備な二次代数
+\[
+ B_h=T_R(V_R)[[h]]\Big/
+ \left(z_i z_j-z_j z_i-h\operatorname{sym}(q_{ij})\right),
+ \qquad q_{ij}\in\operatorname{Sym}^2_R V_R[[h]],\quad q_{ji}=-q_{ij},
+\]
+を考える。完備化は各内部次数で行い、最後にその直和を取る。
+PBW 条件とは、この各内部次数が $S_R[[h]]$ と同じ有限局所自由加群になることをいう。
+以下で存在を用いるのは、固定入力論文Bの
+補題\texttt{cft:lem:model}が適用できる完備模型、
+または後述の被約有限型の普遍係数模型からの基底変更である。
+
+\begin{lemma}[生成元を固定する正規化の一意性]
+\label{lem:nfm-normalized-star-model}
+固定した affine-equivariant な Kontsevich 星積\cite[Section~6.3]{NFMKontsevich}について、
+$h$ を固定し、全ての次数一生成元を固定する厳密同型
+\[
+ \phi:B_h\xrightarrow{\sim}(S_R[[h]],*_{\pi_h})
+\]
+が存在するなら、二次係数の formal Poisson tensor $\pi_h$ と $\phi$ は一意である。
+もとの formality 同型が次数を保ち剰余で恒等なら、
+形式的な線型座標変換によりこの正規化を行える。
+従って正規化された対応は、係数に依存する可逆な線型座標変換にも共変である。
+\end{lemma}
+
+\begin{proof}
+もとの同型の次数一部分は、剰余で恒等な可逆行列である。
+その逆による線型座標変換を標的へ合成する。
+グラフ写像の線型共変性により、標的は変換した tensor の同じ Kontsevich 星積であり、
+全生成元が固定される。
+
+二つの正規化された tensor が初めて $h^m$ で異なり、
+$\pi'_h-\pi_h=h^mD\pmod{h^{m+1}}$ とする。
+二頂点以上のグラフにこの差を入れると、他の tensor 入力が $h$ の倍数なので
+$h^{m+1}$ の倍数になる。従って星積の差は
+\[
+ f*_{\pi'_h}g-f*_{\pi_h}g
+ =\frac{h^m}{2}D(df,dg)\pmod{h^{m+1}}.
+\]
+同じ二次関係を両標的で評価すると、交換子の差は
+$h^mD(dz_i,dz_j)$ である。
+関係式の右辺には既に $h$ が掛かっているため、その差は $h^{m+1}$ に入る。
+よって全ての $i,j$ について $D(dz_i,dz_j)=0$ であり、$D=0$ となる。
+これは任意の最初の相違を排除する。
+$B_h$ は次数一で生成されるので、tensor が等しければ $\phi$ も等しい。
+座標変換した模型も同じ生成元固定条件を満たすため、最後の共変性は一意性から従う。
+\end{proof}
+
+この議論は構成的である。$\pi_{<m}=\sum_{j<m}h^j\pi_j$ が得られたとき、
+\begin{equation}
+\label{eq:nfm-normalized-tensor-recursion}
+ \pi_m(dz_i,dz_j)=
+ -[h^m]\left(
+ z_i*_{\pi_{<m}}z_j-z_j*_{\pi_{<m}}z_i
+ -h\operatorname{sym}_{*_{\pi_{<m}}}(q_{ij})\right)
+\end{equation}
+で次の係数が定まる。右辺の星積は、この段階ではグラフによる双微分式として評価する。
+最終的な Maurer--Cartan 恒等式は、formality による存在と一意性から確認する。
+各固定次数で使うグラフは有限個であり、右辺は二次多項式である。
+従って $\pi_m$ は、$q_{ij}$ の有限個の係数と固定したグラフ重みの有限式である。
+
+\begin{proposition}[普遍係数上での正則性と基底変更]
+\label{prop:nfm-normalized-model-basechange}
+$T$ を被約な有限型複素スキームとし、その上に上記の次数別 PBW 二次代数族と
+形式中心三次 $\Omega_h$ があるとする。
+各複素閉点で固定入力の星積模型が存在すると仮定する。
+このとき正規化された $\pi_h,\phi$ および
+\[
+ W_h=C_{\pi_h}^{-1}\phi(\Omega_h)
+\]
+は、各 $h$ 係数が $T$ 上正則な形式族として一意に構成される。
+その形成は $T$ からの任意の基底変更と両立する。
+基底変更先は非被約でも非平坦でもよい。
+\end{proposition}
+
+\begin{proof}
+局所枠で\eqref{eq:nfm-normalized-tensor-recursion}を使う。
+各係数は有限式なので正則であり、前補題の共変性により局所枠の間で貼り合わさる。
+各閉点で再帰は formality の正規化された解と一致する。
+従って $[\pi_h,\pi_h]=0$ の各係数は、被約有限型複素スキームの全閉点で零となり、
+$T$ 上で零である。これで得られた tensor の星積は結合的である。
+再帰により二次関係が成立するので、生成元を固定する代数準同型 $\phi$ が存在する。
+各内部次数でこれは剰余が恒等な有限自由加群間の行列であり、
+$h$ 進幾何級数によって逆を持つ。
+
+$C_{\pi_h}$ は次数三の有限局所自由加群上で $1+O(h)$ である。
+従ってその逆も係数wise正則であり、$W_h$ が正則に得られる。
+中心性と formality の接写像の chain 恒等式から
+$[\pi_h,W_h]=0$ となる。これは固定入力の補題\texttt{cft:lem:center}と同じ
+$h$ 進の HKR 単射性の議論である。
+以上は全て有限係数の恒等式と $h$ 進の行列逆であるため、
+任意の基底変更後も成立する。
+ここで非被約基底について用いたのは、既に構成した恒等式の基底変更であり、
+その閉点だけを調べて恒等式を証明したのではない。
+\end{proof}
+
+\subsubsection{中心一次空間と一ブロック support の保存}
+
+$U_R=\langle u_1,\ldots,u_r\rangle\subset V_R$ を中心一次空間とし、
+$V_R=\langle x,y,z\rangle\oplus U_R$、$P=\partial_x\wedge\partial_y\wedge\partial_z$ とする。
+この分解は証明用の局所座標であり、結論はその選択に依存しない。
+
+\begin{lemma}[線型中心の厳密な保存]
+\label{lem:nfm-formal-linear-center}
+上の生成元固定模型で $u\in U_R$ が $B_h$ の中心に属するなら、
+$\iota_{du}\pi_h=0$ である。
+さらに任意の $f\in\operatorname{Sym}U_R[[h]]$ について
+\[
+ C_{\pi_h}(f)=f,
+ \qquad f*_{\pi_h}a=fa=a*_{\pi_h}f
+\]
+が成立する。従って補正後の tensor も、元の中心変数方向を微分しない。
+\end{lemma}
+
+\begin{proof}
+$h$ の次数について帰納法を使う。
+$h^m$ 未満の全 tensor 係数が $U_R$ を消すと仮定する。
+これらの係数のみを使う正の次数のグラフで、境界入力に線型関数 $u$ を置く。
+$u$ へ辺が入れば、その辺の添字は $U_R$ 方向であり、
+出発頂点の tensor のその成分は零である。
+辺が一本も入らない場合のグラフの総寄与は、単位の正規化によって零である。
+従って $u* a-a*u$ の $h^m$ 係数に寄与するのは
+HKR 項 $\pi_m(du,da)$ だけである。
+$\phi$ は $u$ を固定し、$u$ は中心元なのでこの交換子は零である。
+$a=z_i$ として全成分の消滅を得る。帰納法により $\pi_h$ 全体が相対的となる。
+
+これ以降、$f(U)$ への全 active 微分は零である。
+星積の正次数グラフも同じ理由で零となる。
+中心写像のグラフで関数頂点 $f(U)$ に辺が入れば零であり、
+一本も入らなければその関数頂点は孤立する。
+孤立頂点を忘れると積分形式は必要な次元より低い配置空間からの引戻しとなるため、
+正次数の重みは零である。これは $C_{\pi_h}(1)=1$ のグラフによる証明でもある。
+よって $C_{\pi_h}(f)=f$ を得る。
+\end{proof}
+
+\begin{lemma}[三次 Casimir による相対二次 tensor の決定]
+\label{lem:nfm-relative-casimir-tensor}
+$W_h\in R[[h]][x,y,z,u_1,\ldots,u_r]_3$ とし、
+その active 偏微分 $W_x,W_y,W_z$ の Koszul 複体が普遍的に完全であるとする。
+二次係数の相対 bivector $Q$ が $\iota_{dW_h}Q=0$ を満たすなら、
+一意な $a\in R[[h]]$ によって
+\[
+ Q=a\,\iota_{dW_h}P
+\]
+と書ける。$a$ は座標変数に依存しない。
+\end{lemma}
+
+\begin{proof}
+$Q=Q^{yz}\partial_y\wedge\partial_z+
+Q^{zx}\partial_z\wedge\partial_x+Q^{xy}\partial_x\wedge\partial_y$ とし、
+$\alpha=Q^{yz}dx+Q^{zx}dy+Q^{xy}dz$ と置く。
+Casimir 条件は $d_KW_h\wedge\alpha=0$ である。
+三つの偏微分による wedge Koszul 複体の一次完全性から
+$\alpha=a\,d_KW_h$ を得る。
+$\alpha$ と $d_KW_h$ の係数次数はいずれも二なので、
+次数零成分を取れば $a$ は $R[[h]]$ に属する。
+次数零の Koszul 単射性により一意である。
+全ての座標を内部次数一と数えているため、$a$ に中心変数の依存も残らない。
+\end{proof}
+
+active 制限 $g=F|_{U=0}$ が滑らかな平面三次を定める場合、
+必要な Koszul 完全性は、active 勾配による八次有限局所自由代数とその次数別分裂完全性から従う。
+$h$ 進変形については各固定内部次数で持上げ、完備性により極限を取る。
+この議論は、その普遍係数模型からの任意の基底変更と両立する。
+
+\begin{theorem}[残余三次に適合する形式 Poisson 対]
+\label{thm:nfm-residual-formal-poisson}
+良い一ブロックの PBW 中心三次族に対し、上の固定 formality による
+生成元固定模型を取る。量子関係の先頭を
+$[a,b]=h\operatorname{sym}\Pi_F(a,b)$、$\Pi_F=\iota_{dF}P$ とし、
+$\Omega_h\bmod h=F$ とする。
+$V(F)$ と active な平面三次がともに基底上滑らかなら、一意な形式スカラー $a_h=h+O(h^2)$ が存在して
+\begin{equation}
+\label{eq:nfm-residual-formal-factor}
+ \pi_h=a_h\,\iota_{dW_h}P,
+ \qquad W_h=C_{\pi_h}^{-1}\phi(\Omega_h)
+\end{equation}
+となる。従って $\pi_h/h$ の線は $W_h$ と元の rank 三 support によって決まり、
+$h$ を逆にした後の $(V(W_h),\pi_h|_{V(W_h)})$ は非零の一ブロック Poisson 対である。
+
+固定入力の完備 MF 移送と相対 window 比較が適用できる場合には、同じ $W_h$ に対し
+\[
+ \mathcal K_{B_h/(\Omega_h)}\simeq\operatorname{Ku}(V(W_h))
+\]
+を得る。従ってこの形式 Poisson 対では、残余比較の対象となる三次超曲面が一致する。
+この圏同値は入力の結論を適用したものであり、本節で完備 MF 定理の全証明を
+独立に再検証したという意味ではない。
+\end{theorem}
+
+\begin{proof}
+中心逆像の構成から $[\pi_h,W_h]=0$ であり、前補題から $\pi_h$ は相対 bivector である。
+Koszul 補題を適用して\eqref{eq:nfm-residual-formal-factor}を得る。
+$\pi_h\equiv h\Pi_F\pmod{h^2}$ と $W_h\bmod h=F$ を比較すると
+$a_h\equiv h\pmod{h^2}$ である。
+従って $a_h/h$ は単元であり、$h$ の逆元を許すと tensor は非零となる。
+Jacobi 恒等式は formality 模型の性質から従うが、
+相対三変数の Jacobian tensor の表示からも直接従う。
+$W_h$ は滑らかな $F$ の形式変形なので、対応する各 Artin 切断とその形式的極限は滑らかな射影三次の変形である。
+最後は $W_h$ の定義が固定入力の完備 MF 移送で用いる中心逆像そのものであることによる。
+\end{proof}
+
+$\pi_h/h$ の次数一 Poisson 中心は厳密に $U_R[[h]]$ である。
+実際、余分な active 線型中心があれば、その定数 active 勾配が
+$d_KW_h$ と wedge 零となる。
+同じ Koszul 完全性は、それが係数次数 $-2$ の倍数であることを要求するため零である。
+従って元の中心一次空間と rank 三 support は、形式変形の途中でも保存される。
+
+\begin{corollary}[形式中心と Casimir 空間の線型同定]
+\label{cor:nfm-formal-center-casimir}
+上の仮定の下で、補正された $\pi_h$ は $B_h$ だけから定まり、
+選んだ中心三次には依存しない。中心逆像は線型同型
+\[
+ C_{\pi_h}^{-1}\phi:
+ Z(B_h)_3\xrightarrow{\sim}
+ \operatorname{Cas}(\pi_h)_3
+ =R[[h]]W_h\oplus\operatorname{Sym}^3 U_R[[h]]
+\]
+を与え、純中心三次の部分加群上で恒等である。
+特に $\Omega_h$ を $b\Omega_h+G(U)$ に替えると、
+$W_h$ は $bW_h+G(U)$ に変わり、$\pi_h$ は変わらない。
+ここでは $h$ 進形式中心を扱っており、$h=0$ での通常の中心や、
+有限 Artin 切断で新たに現れる $h$-torsion の中心元と同一視しない。
+\end{corollary}
+
+\begin{proof}
+$\pi_h,\phi$ の構成は二次関係だけを使う。
+formality の接写像の chain 恒等式と、その vector 場上での最低次の単射性により、
+$C_{\pi_h}$ は Casimir と星積中心の間の双射である。
+次数を保つので次数三に制限でき、純中心三次上の恒等性は
+補題\ref{lem:nfm-formal-linear-center}による。
+$h$ は $R[[h]]$ 上非零因子、$a_h/h$ は単元なので、
+三次 $H$ が Casimir である条件は
+$d_KH\wedge d_KW_h=0$ である。
+Koszul 完全性と次数により $d_KH=c\,d_KW_h$、$c\in R[[h]]$ を得る。
+標数零であるため $H-cW_h$ は active 変数に依存せず、純中心三次になる。
+和が直和であることも active 勾配の Koszul 単射性から従う。
+\end{proof}
+
+\subsubsection{Hessian 補正と変換則}
+
+命題\ref{prop:nfm-relative-residual-second-jet}と同じ中心元の正規化を使い、
+$F$ の係数を $h$ に関して定数とする。
+$\mathscr H_F=\det\operatorname{Hess}_{x,y,z}(F)$ と書く。
+二次の星積は対称であるため、正規化された逆 tensor は
+$\pi_h=h\Pi_F+O(h^3)$ である。
+これと $W_h=F+h^2\mathscr H_F/24+O(h^3)$ を
+\eqref{eq:nfm-residual-formal-factor}へ代入すると、
+$a_h=h(1+c_2h^2+O(h^3))$ かつ
+\begin{equation}
+\label{eq:nfm-corrected-poisson-third}
+ \pi_h
+ =h\Pi_F+h^3\left(\frac1{24}\Pi_{\mathscr H_F}+c_2\Pi_F\right)+O(h^4)
+\end{equation}
+となる。ここで $c_2\in R$ は、固定した formality の再帰で決まる scalar である。
+Casimir 条件だけでは $c_2$ を決められず、勝手に零と置かない。
+一方、単元倍を除いた tensor の補正は
+\[
+ \frac{\pi_h}{a_h}
+ =\Pi_F+\frac{h^2}{24}\Pi_{\mathscr H_F}+O(h^3)
+\]
+として一意である。
+
+この式から、有限式による近似対も得られる。
+\[
+ W_h^{[2]}=F+\frac{h^2}{24}\mathscr H_F,
+ \qquad
+ \pi_h^{[2]}=h\iota_{dW_h^{[2]}}P.
+\]
+これは全ての $h$ に対して厳密に Jacobi 恒等式と Casimir 条件を満たす代数的な対であり、
+原点の形式近傍では滑らかな三次を与える。
+ただし、この有限式の高次係数が $W_h$ や $\pi_h$ と一致すること、
+非零 $h$ の全域で元の非可換圏との同値があることは結論しない。
+残余 potential との一致は $h^3$ を法として、
+実際の formal tensor との一致は scalar 単元倍を除いて上の次数までである。
+
+補正の座標共変性は内在的に書ける。
+$K$ を rank 三の active 方向、$P\in\det K$ として
+\[
+ \mathscr H_{P}(F)
+ =\bigl(\det\operatorname{Hess}_{K}F\bigr)(P\otimes P)
+\]
+と定める。局所的に $P=e_1\wedge e_2\wedge e_3$ と書けば
+$\mathscr H_P(F)=\det(e_i e_jF)$ である。
+従ってこれは補空間やその基底の選択に依存せず、
+全線型座標変換に共変である。また
+\[
+ \mathscr H_{bP}(aF)=a^3b^2\mathscr H_P(F).
+\]
+特に $(F,P)\mapsto(aF,a^{-1}P)$ という方程式直線の局所自明化変更では、
+$F+h^2\mathscr H_P(F)/24$ は $a$ 倍され、対応する tensor は変わらない。
+従って有限 jet の補正は、方程式の代表や volume の選択から独立に定義される。
+
+\begin{remark}[形式的な降下と残る代数化]
+固定 formality と $h$ を保つ次数付き中心三次対の線型同型は、
+正規化の一意性により形式 Poisson 対の同型を誘導する。
+中心元を単元 $b$ 倍すると $W_h$ は $b$ 倍され、$\pi_h$ は変わらない。
+従って構成は中心直線についても自然であり、
+形式的な表示 groupoid 上では座標変更と cocycle に両立する。
+この主張には formal Poisson tensor を単に候補として選ぶ曖昧さはない。
+
+一方、ここで固定した formality 自体を変えた場合の比較、
+形式級数の収束・代数化、$h$ の標識を忘れる操作、
+および全 intrinsic O-marked 圏族への降下は別問題である。
+Kontsevich\cite[Section~2.3, Conjecture~1 and Questions~1]{NFMKontsevichAlg}の
+形式対応の収束・周期に関する問題とも区別する。
+本節から有限 $h$ の一般点における代数的モジュライ射を宣言しない。
+既存の全 O-同値比較を用いる場合も、形式変形とその標識を保つ同値が
+表示 groupoid の同値へ移るという適用条件を確認してから降下する。
+\end{remark}
+
+\subsection{点曲線が決める split 族の厳密補正}
+
+ここでは量子化の尺度 $s$ と Hesse 係数 $\lambda$ を独立に扱う。
+点曲線の Hessian 表示は Mori--Smith\cite[Theorems~1.2, 7.2]{MoriSmith}
+に既にある結果であり、新規性を主張する対象ではない。
+本小節の用途は、その Hessian 表示を残余復元と結び付け、
+補正後の Poisson 対の尺度と定義体を明記することである。
+
+$\lambda\in\C$ を $1+\lambda^3\ne0$ なる定数とし、
+$R=\C[s]_{(s)}$、$\widehat R=\C[[s]]$、$K=\C(s)$ と置く。
+$S=x^3+y^3+z^3$、$P=xyz$、$g_\lambda=S/3+\lambda P$ と書く。
+$D_R$ は
+\[
+ \begin{aligned}
+ [y,z]&=s\left(x^2+\frac\lambda2(yz+zy)\right),\\
+ [z,x]&=s\left(y^2+\frac\lambda2(zx+xz)\right),\\
+ [x,y]&=s\left(z^2+\frac\lambda2(xy+yx)\right).
+ \end{aligned}
+\]
+で定まる代数とする。$r=n-1\ge2$ とし、中心変数を加えて
+$B_R=D_R[u_1,\ldots,u_r]$ と置く。
+$G\in\C[u_1,\ldots,u_r]_3$ の偏微分の共通零点は原点だけと仮定する。
+特に $G=\sum u_i^3/3$ を全ての $n$ に一様に使える。
+\[
+ \begin{aligned}
+ a_{\lambda,s}&=1+\frac{s^2\lambda^2}{2}
+                       +\frac{s^4\lambda}{6}-\frac{s^4\lambda^4}{48},\\
+ b_{\lambda,s}&=\lambda-\frac{s^2\lambda^3}{6}-\frac{2s^2}{3}
+                       +\frac{s^4\lambda^2}{6}-\frac{s^4\lambda^5}{48},\\
+ \Omega_D&=a_{\lambda,s}S/3+b_{\lambda,s}\operatorname{sym}(P),
+ \qquad w=\Omega_D+G.
+ \end{aligned}
+\]
+これらは既存の Hesse 中心公式の二パラメータ表示である。
+$r$ 個の中心変数を付加しても、各次数の有限自由性と中心性は保存される。
+
+\begin{proposition}[点曲線の厳密な Hessian 補正]
+\label{prop:nfm-hesse-point-correction}
+$\mathscr H_\lambda=\det\operatorname{Hess}_{x,y,z}(g_\lambda)$ と置き、
+\[
+ \begin{aligned}
+ A_{\lambda,s}&=1-\frac{s^2\lambda^2}{4},\\
+ B_{\lambda,s}&=\lambda+\frac{s^2(4+\lambda^3)}{12},\\
+ J_{\lambda,s}&=g_\lambda+\frac{s^2}{24}\mathscr H_\lambda
+       =A_{\lambda,s}S/3+B_{\lambda,s}P,\\
+ \nu(\lambda,s)&=\frac{B_{\lambda,s}}{A_{\lambda,s}}
+       =\frac{\lambda+s^2(4+\lambda^3)/12}{1-s^2\lambda^2/4}
+ \end{aligned}
+\]
+とする。一般点の active な点曲線は $V(J_{\lambda,s})$ である。
+この曲線の $R$ 上の滑らかな閉包は $V(S+3\nu(\lambda,s)P)$ であり、
+$s=0$ のファイバーは $V(g_\lambda)$ である。
+ただし $s=0$ の可換代数自体の点スキームは $\mathbb P^2$ であり、
+この閉包と混同しない。
+
+Trace--Hessian 出力は $H^{\mathrm{TH}}=g_\lambda+G$ であり、
+補正後の対
+\[
+ H^{\mathrm{corr}}=J_{\lambda,s}+G,
+ \qquad
+ \Pi^{\mathrm{corr}}
+ =s\,\iota_{dH^{\mathrm{corr}}}
+       (\partial_x\wedge\partial_y\wedge\partial_z)
+\]
+は $K$ 上の滑らかな三次超曲面と非零 Poisson 構造を定める。
+その active な平面切断は、もとの代数の点曲線と埋込みも含めて一致する。
+\end{proposition}
+
+\begin{proof}
+Sklyanin 係数は
+$a=1-s\lambda/2$、$b=-1-s\lambda/2$、$c=-s$ である。
+De Laet--Le Bruyn\cite[Section~2, preprint p.~3]{NFMDLL}の中心元
+（固定入力\cite{NFNCCubicB}の式\texttt{gre:eq:known-center}も参照）を
+$C=xyz+yzx+zxy$、$D=yxz+xzy+zyx$ により
+\[
+ a(b^3-c^3)C+b(c^3-a^3)D+c(a^3-b^3)S
+\]
+と書き、関係式 $C-D=sS+(s\lambda/2)(C+D)$ を代入すると
+$-9s\Omega_D$ を得る。
+一般点は滑らかな楕円型の Sklyanin 代数であり、
+剰余は三変数多項式環である。
+両者の Hilbert 関数が一致するので、DVR 上の構造定理により全次数が自由である。
+一般点の中心性は次数四の torsionfree 性により $R$ 上へ戻る。
+この次数別自由性と多項式環への特殊化により、固定入力の
+$\texttt{gcd:prop:automatic-as}$ の仮定も満たされる。
+従って一般点の $B$ は両側 noetherian な Koszul AS 正則代数であり、
+大域次元と Gorenstein parameter は $N=n+2$ である。
+また $w\bmod s=g_\lambda+G\ne0$ なので $w$ は正則で、中心商も次数別に自由である。
+
+点曲線の行列式は
+\[
+ -\frac{a^3+b^3+c^3}{3abc}
+ =\frac{\lambda+s^2(4+\lambda^3)/12}{1-s^2\lambda^2/4}
+\]
+を与える。直接計算でも
+\[
+ \mathscr H_\lambda=(8+2\lambda^3)P-2\lambda^2S
+\]
+であり、表示した $J_{\lambda,s}$ を得る。
+$A_{\lambda,s}$ と $1+\nu(\lambda,s)^3$ は $R$ の単元なので曲線は滑らかである。
+点自己同型を与える切断は $(a:b:c)$ であり、$s=0$ では $(1:-1:0)$ に特殊化する。
+
+active な Jacobi 環で $x^3=y^3=z^3=-\lambda P$ であるから
+\[
+ b_{\lambda,s}-\lambda a_{\lambda,s}
+ =-\frac23s^2(1+\lambda^3),\qquad
+ \nu_{s\Pi_{g_\lambda}}(\overline g_\lambda)
+ =8s^2(1+\lambda^3)[P].
+\]
+正次数の active 元の乗法 trace は零であり、純中心成分は $G$ となる。
+従って $-12$ 規格化の Trace--Hessian 出力は $g_\lambda+G$ である。
+$H^{\mathrm{corr}}\bmod s=g_\lambda+G$ は滑らかなので、
+$R$ 上の族と一般ファイバーは滑らかである。
+Jacobian 形の三変数 Poisson tensor は全ての $u_i$ を Casimir とし、
+$H^{\mathrm{corr}}$ も Casimir であるから、表示した対を得る。
+\end{proof}
+
+\begin{theorem}[split 族での残余圏と補正後三次の比較]
+\label{thm:nfm-split-corrected-residual}
+上の族について、固定入力論文Bの完備 MF 移送、相対 window、
+固定対象の局所化および有限降下、coherent 残余圏の飽和性の入力を用いる。
+特に最後の入力は $\texttt{crs:prop:residual-smooth}$ と
+$\texttt{crs:thm:coherent}$ である。
+このとき、完備残余復元の Hesse 係数は全次数で $\nu(\lambda,s)$ に等しい。
+さらに、ある有限代数拡大 $K'/K$ 上で
+\[
+ (\mathcal K_{B/(w)},\rho)
+ \simeq
+ (\operatorname{Ku}(V(H^{\mathrm{corr}})),\rho_{\mathrm{corr}})
+\]
+という dg Morita 同値が存在する。
+同値は $w$ と表示した $H^{\mathrm{corr}}$ に由来する指定三次周期を保存する。
+これは任意の $n\ge3$ と任意の定数 $\lambda\in\C$、$1+\lambda^3\ne0$ に成立する。
+\end{theorem}
+
+\begin{proof}
+固定入力の一パラメータ式へ単に記号を代入するのではなく、
+その構成を本族について確認する。
+まず三変数の $D_{\widehat R}$ と $\Omega_D$ に完備移送を適用する。
+$g_\lambda$ は滑らかで、上で次数別自由性と中心性を確認したので、その仮定を満たす。
+巡回置換と $(x,y,z)\mapsto(x,\omega y,\omega^2z)$ が生成する有限 Heisenberg 群は、
+全ての $s$ に対して関係式と $\Omega_D$ を保存する。
+ここでも harmonic-angle formality と、次数一生成元を固定する模型を使う。
+補題\ref{lem:nfm-normalized-star-model}の一意性と線型共変性により、
+この模型は自動的に Heisenberg 群と同変である。
+従って固定入力の $\texttt{gre:prop:hesse-normalform}$ と同じ不変三次空間に入り、
+active potential は
+\[
+ W_{\mathrm{act}}=a(s)S/3+b(s)P,
+ \qquad a(0)=1,\quad b(0)=\lambda
+\]
+となる。中心多項式変数への自明な延長により、全 potential は
+$W=W_{\mathrm{act}}+G$ である。
+active 座標だけを $a(s)^{-1/3}$ 倍して得る Hesse 係数を
+$\mu(s)=b(s)/a(s)$ と書く。
+普遍二次 jet 計算により
+\[
+ a(s)=1-\frac{s^2\lambda^2}{4}+O(s^3),\qquad
+ b(s)=\lambda+\frac{s^2(4+\lambda^3)}{12}+O(s^3),
+\]
+従って
+\[
+ \mu(s)=\lambda+\frac{1+\lambda^3}{3}s^2+O(s^3).
+\]
+
+$D_R/(\Omega_D)$ の相対 THCR 表示も同じ証明で得られる。
+すなわち、滑らかな点曲線と平行移動切断を $R$ 上で取り、
+その $\mathcal O(1)$ の twisted tensor 冪の切断環への写像を次数一から構成する。
+各正次数の切断加群は有限自由であり、一般点で二次関係と $\Omega_D$ が消えるので、
+torsionfree 性によりこの写像は $R$ 上で $D_R/(\Omega_D)$ を経由する。
+また $\Omega_D\bmod s=g_\lambda$ は非零因子であるから、
+次数別 Nakayama と分裂単射によって商の各次数も有限自由となる。点曲線と平行移動切断の剰余は
+$(V(g_\lambda),(1:-1:0))$ であり、剰余の商写像は通常の斉次座標環の同型である。
+各次数で同じ階数の有限自由加群の間の写像なので Nakayama により同型となる。
+相対 ampleness と三変数の指数零の MF 比較は固定入力の
+$\texttt{gre:prop:elliptic-quotient}$、$\texttt{gre:lem:elliptic-mf}$ の証明通りである。
+ここでは Fermat という条件を使わず、$V(g_\lambda)$ の滑らかさだけを使う。
+従って $\C((s))$ 上で $E_\mu$ と $E_\nu$ の導来同値を得る。
+両者は $(1:-1:0)$ を原点に持つ楕円曲線なので、
+Antieau--Krashen--Ward\cite[Theorem~2.2]{NFMAKW}により同型となり、
+$j(\mu)=j(\nu)$ である。
+
+この等式から分枝を一意に決める。
+$j(z)$ は $z=\lambda$ で正則な非定数有理関数なので、ある整数 $e\ge1$ と
+形式的可逆変数 $\psi(z)=z+O(z^2)$、非零定数 $c$ により
+\[
+ j(\lambda+z)-j(\lambda)=c\,\psi(z)^e
+\]
+と書ける。$\mu-\lambda$ と $\nu-\lambda$ はともに
+$(1+\lambda^3)s^2/3+O(s^3)$ で始まり、その係数は非零である。
+$j$ の等式から二つの $\psi$ の値の比は $e$ 乗根となり、
+その剰余は一だから比は一である。
+$\psi$ の形式逆により $\mu=\nu$ を得る。
+この証明は $j'(\lambda)=0$ の場合も含む。
+
+従って全 potential は $a(s)g_\nu+G$ である。
+active 座標だけを $(A_{\lambda,s}/a(s))^{1/3}$ 倍すれば、
+厳密に $H^{\mathrm{corr}}=A_{\lambda,s}g_\nu+G$ へ移る。
+この根は剰余が一であり、底の $s$、中心変数、周期変数 $t$ を固定する。
+従って内部 shift と指定三次周期を保つ完備 MF 比較が得られる。
+
+$H^{\mathrm{corr}}$ 自体は $K$ 上の多項式である。
+固定入力の一般次元の固定対象への制限、局所化、生成性および有限降下を
+この既に指定した代数的標的へ適用すると、ある有限 $K'/K$ 上で
+まず線束生成残余部分について同値を得る。
+ここで用いる局所化と有限降下は $\texttt{rog:lem:localization}$ と
+$\texttt{rog:lem:descent}$ である。
+全 coherent 残余圏への移行には、さらに上記の残余 smoothness と
+coherent 飽和性の入力を用いる。これにより表示した $\mathcal K$ 全体の同値となる。
+完備化上の形式座標変換そのものが $K'$ 上に代数化されることは使わない。
+また、特殊点を含む $R$ 上の代数的相対圏同値はここでは結論しない。
+\end{proof}
+
+\begin{remark}[尺度と既存の一パラメータ例]
+$A=A_{\lambda,s}$ と書く。
+$A$ の三乗根を加え、active 座標に $x,y,z\mapsto A^{-1/3}(x,y,z)$ を施すと、
+補正後の対は
+\[
+ \left(g_\nu+G,\ sA\,\Pi_{g_\nu}\right)
+\]
+へ移る。三次式を規格化するだけで tensor を $s\Pi_{g_\nu}$ と書くのは正しくない。
+三重ベクトルは逆 determinant によって $A$ 倍されるためである。
+補正前の表示 $(H^{\mathrm{corr}},\Pi^{\mathrm{corr}})$ は既に $K$ 上にあり、
+三乗根は規格化した表示との同型のためにだけ必要となる。
+
+前節の $\lambda=s=h$ の族では
+$A=1-h^4/4$、$\nu=\lambda_{\mathrm{res}}(h)$ となる。
+従って補正後の代数的三次は、前節で独立に決定した残余三次と
+有限三乗根拡大後に厳密な座標変換で一致する。
+この場合の残余比較は、前節の固定入力の exact formula からも直接従う。
+
+上の $\Pi^{\mathrm{corr}}$ は、点曲線と Hessian 共変式によって選んだ
+代数的 Poisson tensor である。
+固定した Kontsevich 比較の formal Poisson tensor の全次数と同一だとは証明していない。
+後者の尺度や gauge の全高次比較、一般混合係数での残余比較、
+全 O-同値に対する残余同値の降下は別の課題として残る。
+\end{remark}

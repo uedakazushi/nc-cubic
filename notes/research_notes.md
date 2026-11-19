@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月20日 / v6。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは依存・適用範囲・障害・再現の入口をまとめる。
+2026年11月20日 / v7。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは依存・適用範囲・障害・再現の入口をまとめる。
 
 ## 1. 記法と成果の確実性
 
@@ -27,6 +27,9 @@ n ≥ 3、N = n+2、r = n−1。次数一生成元空間は V、中心部分は 
 | Trace–Hessian 補正の非自明な幾何変形 | 固定入力の中心公式の下で、全 n の明示族 F_t の KS 類を証明し、非消滅を混合係数の非空開へ拡張。比較相手は入力の定数族 | `prop:trace-uniform-jacobi-class`, `prop:trace-nonconstant-classical-family`, `cor:trace-generic-geometric-correction` |
 | Trace–Hessian と残余復元の不一致 | 固定入力の残余復元を用いる全 n の split Hesse 族。一般ファイバーの射影非同型、rotation 保存 dg Morita 同値の不存在。n≢1 mod3 では rotation 標識も不要 | `thm:nfm-th-residual-obstruction` |
 | 固定周囲 Π の全三次 Casimir に対する障害 | 同じ Hesse 族で、純中心三次や非零規格化を替えても X_res と射影同型にならない。中心側がさらに分解する場合も含む | `cor:nfm-casimir-selection-obstruction` |
+| 代数的 Hessian–trace 補正 | 支配的・非空開で étale、任意基底と全 O-同値へ降下。active 切断は元の楕円点曲線。残余二次 jet と一致 | `thm:nfm-algebraic-hessian-correction`, `prop:nfm-correction-point-cubic`, `cor:nfm-corrected-residual-jet` |
+| 固定 formality の全次数補正 | 正規化逆 tensor の一意性、元の中心一次空間の保存、π_h=a_hι(dW_h)P と中心逆像。被約有限型普遍模型から任意基底変更。代数化・formality 独立性は含まない | `thm:nfm-residual-formal-poisson`, `cor:nfm-formal-center-casimir` |
+| split 族の補正後三次と残余比較 | 全 n、任意の滑らかな固定 λ。MF・相対 window・有限降下・coherent 飽和性の入力の下で、有限拡大上の rotation・周期保存同値 | `thm:nfm-split-corrected-residual` |
 | 一般混合係数の二次比較障害 | 指定 harmonic-angle formality・厳密模型・MF/window 入力の下で、特殊ファイバー上恒等の形式比較を全 n で排除。一般ファイバーの unmarked 非同値は結論しない | `prop:nfm-relative-residual-second-jet`, `cor:nfm-generic-marked-comparison-obstruction` |
 | 3≤n≤7 の一般 Jacobi スキーム | 整数小行列の非零証明書により証明 | `thm:nfold-low-dimensional-generic` |
 | n≥8 の I_F≠J_N、頂点完備化非同型 | 全滑らか F。被約分類に依存しない方程式数の証明 | `thm:nfold-high-dimensional-nilpotents` |
@@ -49,7 +52,7 @@ n ≥ 3、N = n+2、r = n−1。次数一生成元空間は V、中心部分は 
 
 Poisson 射は、正規化 trace と尺度付き Hessian から量子中心三次 w に古典 Casimir H_w を対応させることで構成した。滑らかな X_w=V(H_w) 上の tensor は一意な強い affine lift を持つため、lift を補助標識として保持せず、非零分解可能な三次 Poisson 対と偏極類のモジュライを標的にできる。良い開では逆構成があり、Msm≃Pgood となる。実際の相対 O(1) と偏極類は区別し、Brauer–Severi ambient を許す。この同型は指定した trace–Hessian 処方についてのものであり、Ku と整合する唯一の逆量子化を意味しない。
 
-残余圏の復元が与える X_res と、trace–Hessian 射の X_TH は一致するとは限らない。全 n の split Hesse 族では、固定入力の下で幾何学的一般ファイバーの射影非同型を証明した。同じ周囲 Π の三次 Casimir を選び直しても解消しない。従って同じ X について K_A≃Ku(X) を構成・降下するという目標に対し、次に必要なのは formality 補正または残余低積からの Poisson tensor 自体の構成である。一般混合係数で得た二次 jet 障害は marked な形式比較の結果であり、unmarked な一般ファイバーの反例へ無条件に拡張しない。必要な有限係数拡大、rotation・三次周期、同値核の降下は保持する。
+残余圏の復元が与える X_res と、trace–Hessian 射の X_TH は一致するとは限らない。全 n の split Hesse 族では、固定入力の下で幾何学的一般ファイバーの射影非同型を証明した。同じ周囲 Π の三次 Casimir を選び直しても解消しない。これに対し、座標不変な代数的補正 Φ と、固定 formality の形式 Poisson tensor を構成した。Φ は全 O-同値へ降下し、形式 tensor は元の support を全次数で保存する。split 族では Φ の三次への残余比較を入力Bの下で得る。次に必要なのは一般混合係数の全次数比較と残余同値の降下である。一般混合係数で得た二次 jet 障害は marked な形式比較の結果であり、unmarked な一般ファイバーの反例へ無条件に拡張しない。必要な有限係数拡大、rotation・三次周期、同値核の降下は保持する。
 
 general の稠密 Zariski 開、幾何学的一般点、very general の可算例外除去を区別する。very general な同値の存在だけでは、代数的な族の射や同値核の降下を得ない。まず関数体上の構成とその定義体を調べ、有限表示等の必要条件を確認して稠密開へ広げる。n=4 の幾何 locus と n≡1 mod3 の rotation 問題は、general を仮定するだけでは解決しない。
 
@@ -60,7 +63,7 @@ general の稠密 Zariski 開、幾何学的一般点、very general の可算�
 - 論文A `poisson_geometry.tex`：`prop:pg-represent` の bivector 表示、`prop:pg-jacobi-extension` の affine Jacobi 延長、`thm:pg-normal` の複数 Jacobian ブロック正規形、`cor:pg-generic` の一般三次における被約 Grassmann 錐。全次元の一般 Jacobi スキームの有限長冪零根基を論じる際には最後の被約分類を使う。二次方程式の不足、n=8 の長さ330の定理、およびその直和から作る特殊三次の非零冪零例は、この被約分類に依存しない。
 - 論文A `general_dimension_universal_quantization.tex`：`thm:pg-all-dimensions`, `prop:pg-ad-relative-chart` が中心量子化の入力。一ブロック相対 PBW 開と中心三次束の存在は、この研究稿と Etingof–Ginzburg の既知の構成から取る。今回その全証明を独立に再検証したわけではない。
 - 論文B `generic_recovery/main_result.tex` 等：既に全 n≥3 が対象。C[h]_(h) 上の次数別有限自由な中心三次対が、多項式環と滑らかな三次式へ特殊化する場合を扱う。一般点の coherent 残余模型は rotation と指定三次周期を保つ。方程式は C(h)、同値核は有限拡大上という区別を守る。全パラメータ・任意の nc cubic・核の基底体への降下を自動的に含まない。
-- 同論文Bの `cft:thm:complete`, `cft:lem:model`, `cft:lem:center`：選んだ formality と厳密同型 φ に対し、残余 potential は W=C_π^(-1)φ(w) である。W mod h=F は W=F を意味しない。`gcd:thm:field-model` は幾何的な可換模型の存在を得た後の方程式の関数体への降下であり、h=0 での正則性や同値核の同じ体への降下を自動的に与えない。`gre:prop:input`, `gre:prop:hesse-normalform`, `gre:thm:exact-potential`, `gre:prop:jet` の split Hesse 公式を全 n の比較例に用いる。これらの未公表入力の全証明を今回独立に再検証したとは主張しない。
+- 同論文Bの `cft:thm:complete`, `cft:lem:model`, `cft:lem:center`：選んだ formality と厳密同型 φ に対し、残余 potential は W=C_π^(-1)φ(w) である。W mod h=F は W=F を意味しない。`gcd:thm:field-model` は幾何的な可換模型の存在を得た後の方程式の関数体への降下であり、h=0 での正則性や同値核の同じ体への降下を自動的に与えない。`gre:prop:input`, `gre:prop:hesse-normalform`, `gre:thm:exact-potential`, `gre:prop:jet` の split Hesse 公式を全 n の比較例に用いる。固定標的への一般点比較には `rog:lem:localization`, `rog:lem:descent` を使い、線束生成部分から全 coherent 残余圏へ移るには `crs:prop:residual-smooth`, `crs:thm:coherent` をさらに使う。これらの未公表入力の全証明を今回独立に再検証したとは主張しない。
 - 三様体稿 v22 の固定 commit は `6c35d2c84671c2538e61836a6bf3a511392eacce`。任意係数の全 Hom 比較と点スキームの出発点を参照するが、n=3 の形式環を高次元にそのまま転用しない。
 
 古い一般次元ノート中の別リポジトリ名を現行の依存先として使わない。上記の固定 commit と現行稿の参考文献が参照の正本である。
@@ -396,15 +399,43 @@ F=g_λ+Axy+Byz+Czx+Dx+Ey+Hz+G とし、A,B,C∈U、D,E,H∈Sym²U、G∈Sym³U�
 
 を得る（`prop:nfm-relative-residual-second-jet`）。三変数縮約の普遍恒等式 Θ=−2 adj(Hess_active F) と Dito の二次星積から ρ₂F=Δ_F/8、同じ harmonic-angle formality の Shoikhet の wheel 消滅から中心写像 C_π=1+O(h³) を得ることが、係数 1/24 の根拠である。trace 側では固定入力の h⁴ 境界項が λ(8−λ³)g_λ/48 であり、境界 Jacobi 環で零になるため、ν が h² を含んでも非純中心方向の倍率は厳密に一となる。一般の O(h⁴) という jet のみからこの倍率を推論していない。
 
-Fermat 点 F_*=(x³+y³+z³+Σu_i³)/3 では Δ_{F_*}=8xyz、τ_{F_*}(Δ_{F_*})=0、D₂(F_*)=[xyz]/3≠0 である。D₂ は全混合係数の Jacobi 束の正則切断なので、各 n≥3 の既約係数空間に非空な非消滅開を与え、良い一ブロック入力の開とも交わる。任意係数変更と両立するのは、この有限式と Jacobi 類の形成である。全次数の formality/MF 移送を任意の非被約基底に新たに構成したという主張ではない。
+Fermat 点 F_*=(x³+y³+z³+Σu_i³)/3 では Δ_{F_*}=8xyz、τ_{F_*}(Δ_{F_*})=0、D₂(F_*)=[xyz]/3≠0 である。D₂ は全混合係数の Jacobi 束の正則切断なので、各 n≥3 の既約係数空間に非空な非消滅開を与え、良い一ブロック入力の開とも交わる。任意係数変更と両立するのは、この有限式と Jacobi 類の形成である。この二次 jet 計算だけから全次数の formality/MF 移送を得たという主張ではない。後述の正規化再帰により普遍 PBW 模型からの形式 Poisson 構成は任意基底変更へ移せるが、完備 MF 同値自体の任意基底版は別の入力である。
 
 非消滅開と中心量子化・次数別 PBW・指定 formality の入力が成立する開との交差の複素点では、W_res と H_TH の族は同じ底 h と特殊ファイバーの同定を保つ形式同型を持たない。さらに固定入力の完備 MF 移送・相対 window 同定を適用すれば、実際の幾何的 KS 写像 η_F:(J_F)₃→HH²(Ku X_F) の単射性と HH¹=0 により、同じ h を固定し特殊ファイバー上恒等となる C[[h]]-線型 dg Morita 同値も存在しない（`cor:nfm-generic-marked-comparison-obstruction`）。この部分は n=4 でも成立し、全 Artin 形式認識の全射性を必要としない。ただし、一般混合係数の一般ファイバーにおける **unmarked** な Ku 非同値は、この二次 jet だけからは結論しない。
 
-### 比較研究を再開するための次の構成
+### 代数的 Hessian–trace 補正と点曲線
 
-固定 Π の Casimir を純中心項で調整するだけでは足りない。次は formality の formal tensor の h³ 係数と W_res の関係を計算し、量子交換関係から得る Π と異なる補正 tensor が残余 potential を Casimir に持つかを調べる。split Hesse では g_h を g_{λres} へ替える候補があり、一般混合係数では中心方向を含む座標変換と尺度の変換則も必要となる。
+Poisson 対 (H,P)、K=supp(P)、U=ann(K) に対して、T=Sym(V)/(∂_kH:k∈K) は Sym(U) 上の八次有限局所自由代数である。正規化 trace τ=Tr/8 と D_P(H)=〈det(D_K²H),P⊗P〉から、H♯=H+D_P(H)/24+τ(D_P(H))/12 を定める。この定義は補空間を選ばず、(H,P)→(cH,c⁻¹P) と全線型座標変更に共変で、任意底変更に両立する（`thm:nfm-algebraic-hessian-correction`）。滑らかな出力の非空開で Φ を得て、Msm≃Pgood を介し全 O-同値に降下する。
 
-低 rotation 積 Q_ρ を使う別経路では、既知の幾何的模型から回復した勾配空間に、rank3 support や Poisson bivector を選ぶための追加構造が何かを調べる。どちらの経路も、選んだ formality・厳密模型・座標 gauge への依存、関数体と有限拡大、三次周期、全 O-同値の cocycle を追跡する。形式級数の構成、代数化、Brauer–Severi ambient への降下を別の段階として扱う。
+support K を保持して P=0 を許すと、補正は線束方向の二次以上で、零切断上の微分は恒等。従って Φ は支配的で非空開上 étale、flag 付き零切断の形式完備化では自己同型である。これは零 tensor のとき K を忘れたモジュライの形式自己同型や、大域的な有理同型ではない。
+
+trace は純中心なので H♯|K=g+D_P(g)/24、Π♯=Π+ι(dD_P(H))P/24 となる。三変数の双線型化行列 C(p)−t Hess(g)/2 の行列式が −3t(g+t²Hess(g)/24) であることから、H♯|K は元の楕円点曲線と一致する。これは Mori–Smith の既知の点曲線公式を本稿の規約で使ったもの。左右の kernel line による相対証明を本文に置く（`prop:nfm-correction-point-cubic`）。曲線の一致だけで shift 付き対応全体や定常成分 D の同定を結論しない。
+
+Hessian 正規化中心元では、H_TH−F は純中心だから active gradient・Hessian・trace は変わらない。厳密に H♯=F+h²Hess_active(F)/24+h⁴τ_F(Ψ_λ(F))、Π♯=hΠ_F+h³Π_Hess/24 となる。従って W_res との一致は mod h³ である。ここから全次数の Ku 比較はまだ従わない。
+
+### 固定 formality の全次数の補正
+
+Kontsevich の affine-equivariant harmonic-angle formality を固定する。生成元固定模型で、二つの formal tensor の最初の差 h^mD は交換子の h^m 係数に現れるが、二次関係右辺の差にはさらに h が掛かる。この一意性により係数を有限 graph の再帰で得る（`lem:nfm-normalized-star-model`）。形式二次対応そのものは Kontsevich 2001 Proposition 6 の既知結果である。
+
+被約有限型の普遍 PBW 係数模型では各係数が正則となり、全閉点での存在から MC 恒等式を証明した後、非被約・非平坦を含む任意基底へ移せる。中心一次関数を入力するグラフと単位正規化を調べると、π_h は U を全次数で消し、星積は Sym(U)-線型、C_π は純中心関数を固定する。active gradient の Koszul 完全性と内部次数から π_h=a_hι(dW_h)P、a_h∈hR[[h]]、a_h/h は単元となる。滑らかな Poisson 対の主張には全 F の滑らかさも要る。active 平面三次だけ滑らかでも、中心変数に依存しない F は cone となる。
+
+π_h は B_h だけから決まり、中心逆像は Z(B_h)₃≃R[[h]]W_h⊕Sym³U[[h]] を与える。従って中心元の単元倍・純中心加算に自然である（`cor:nfm-formal-center-casimir`）。これは h 進形式中心であり、有限 Artin 切断の余分な h-torsion 中心と区別する。
+
+指定した中心正規化では π_h=hΠ_F+h³(Π_Hess/24+c₂Π_F)+O(h⁴)。未評価の scalar c₂を Casimir 条件だけで零としない。固定 formality の形式表示 groupoid 上の降下と、有限 h の代数的 moduli 射・formality 独立性・全 intrinsic O-降下は別である。完備 MF/window 比較そのものは固定入力を適用する条件付きの結論である。
+
+### split 族での全次数比較と尺度
+
+任意の固定 λ∈C、1+λ³≠0 と量子化尺度 s を分け、g_λ=(x³+y³+z³)/3+λxyz、H_TH=g_λ+G(U) とする。Φ が与える Hcorr=J+G は、J=g_λ+s²Hess(g_λ)/24=A g_ν、A=1−s²λ²/4、ν=[λ+s²(4+λ³)/12]/A である。
+
+固定入力Bの完備 MF・相対 window・固定標的への有限降下・coherent 飽和性の下で、全 n≥3 に対し K_A≃Ku(V(Hcorr)) をある有限拡大 C(s)⊂K′上で得る（`thm:nfm-split-corrected-residual`）。Heisenberg 同変性は生成元固定模型の一意性から従う。active quotient の楕円曲線比較には、原点のある楕円曲線の導来同値から同型を得る AKW Theorem 2.2 を使う。復元係数 μ と点曲線係数 ν はともに λ+(1+λ³)s²/3+… で始まるため、j の分岐点でも同じ形式分枝を選び μ=ν となる。単なる一パラメータ式への代入ではない。
+
+形式 active 係数 a(s) を代数的 A へ移す座標変換 (A/a)^(1/3) と、既に代数的な標的への同値核の有限降下を分ける。形式座標変換自体の代数化は使わない。Hcorr を g_ν+G へ規格化すると tensor は sAΠ_gν となり、sΠ_gν ではない。指定三次周期は potential を厳密に移す座標変換で保持する。
+
+補正の大域可逆性を予想する際の注意：この規格化した **framed** な二パラメータ chart で p=s、q=sλ と置くと、(p,q)↦(p(1−q²/4),q+p³/3+q³/12) となる。p′=a≠0 を固定すると q′=q+q³/12+a³/[3(1−q²/4)³] は、分子次数9・分母次数6で互いに素な有理関数なので、この chart の射の一般次数は9である。これは Hesse 座標の有限同定を施す前の結果であり、intrinsic moduli の次数や非双有理性をこのまま結論しない。
+
+### 次の比較計算
+
+一般混合係数で、上の一意なグラフ再帰から W_res の h³・h⁴ と scalar c₂を求め、Φ の厳密式との差を全 Jacobi 環で評価する。split 族の点曲線一致は強い検査例だが、一般混合係数の全三次の復元を保証しない。残余低 rotation 積による勾配回復は、形式写像の選択依存性と全 O-降下を調べる別経路として保持する。
 
 ## 7. 一次資料の確認箇所と引用上の注意
 
@@ -418,7 +449,11 @@ Fermat 点 F_*=(x³+y³+z³+Σu_i³)/3 では Δ_{F_*}=8xyz、τ_{F_*}(Δ_{F_*})
 - Stacks Tags058G,0781,03R6：Lazard、代数的stack上のQCohがGrothendieck圏、PGL torsorと中心単純代数。Tags063P,063U,062Y,056Q：相対正則埋込み・相対Cartier因子の任意底変更。本文の相対構成に使う範囲を一次資料で確認。
 - Berger–Taillefer, J.Noncommut.Geom.1(2007), Theorems3.1,3.6 と Theorem3.6 の証明：potential による PBW 変形と自己双対解消。体上の定理を任意係数環へ直接適用せず、cyclic Hessian と分裂濾過から相対複体を構成する。
 - Keller, *On differential graded categories*, arXiv:math/0601185v5, Theorems3.4,3.8(c)：compact 部分の thick 生成と compact generators による dg Morita 表示。基底は一般の可換環。本文では dg orbit 模型 A→Q とその両側作用を明示して用いる。
-- Mori–Smith, arXiv:1502.07403v2, Theorem4.2：滑らかな三変数三次に付随する二次 Calabi–Yau 代数。
+- Mori–Smith, arXiv:1502.07403v2, Theorem4.2：滑らかな三変数三次に付随する二次 Calabi–Yau 代数。Theorems1.2,7.2 と Lemma7.1：点曲線の Hessian 公式と対称行列＋交代行列の行列式。点曲線公式を新規とは数えない。[一次資料](https://arxiv.org/abs/1502.07403v2)。
+- De Laet–Le Bruyn, *The geometry of representations of 3-dimensional Sklyanin algebras*, Algebr.Represent.Theory18(2015),761–776、arXiv:1405.1158v1 §2 p.3：巡回和で書いた中心元 a(b³−c³)C+b(c³−a³)D+c(a³−b³)S。非巡回の Rains 式とは出典箇所を区別する。[一次資料](https://arxiv.org/abs/1405.1158v1)、[刊行版](https://doi.org/10.1007/s10468-014-9515-6)。
+- Kontsevich, *Deformation quantization of algebraic varieties*, LMP56(2001),271–294、§2.3 Proposition6：二次 Poisson tensor と二次代数の形式的 GL 同変対応。Conjecture1・Questions1 の収束・周期の問題と、本稿の有限 jet・形式構成を区別する。[一次資料](https://arxiv.org/abs/math/0106006)、[刊行版](https://doi.org/10.1023/A:1017957408559)。
+- Kontsevich, *Deformation quantization of Poisson manifolds*, LMP66(2003),157–216、Theorem4.6、§§4.6.2,6.3：formality とグラフ構成・線型共変性。選択した formality 自体の独立性を主張しない。[著者最終稿](https://www.ihes.fr/~maxim/TEXTS/DefQuant_final.pdf)、[刊行版](https://doi.org/10.1023/B:MATH.0000027508.00421.bf)。
+- Antieau–Krashen–Ward, *Derived categories of torsors for abelian schemes*, Adv.Math.306(2017),1–23、Theorem2.2：体上の原点を持つ楕円曲線の k-linear 導来同値は k-同型を導く。点のない genus-one torsor に同じ結論を流用しない。[一次資料](https://arxiv.org/abs/1409.2580)、[刊行版](https://doi.org/10.1016/j.aim.2016.09.037)。
 - Le Bruyn–Smith–Van den Bergh, Math.Z.222(1996), Theorem4.2.2, Proposition4.2.5, §4.3：一点中心拡大の点対応と二次関係。
 - Mayanskiy, arXiv:1303.5916v1, Theorem1, §2.2：三様体の Plücker 方程式。被約分類と scheme structure を区別する注意があり、後者には実際の Schouten 計算を使う。
 - Bonala–Clarke–Mohammadi, arXiv:2103.16208v1, §2.4 Theorem2.3：標準単項式基底。本稿はその次数二の比較不能対を列挙して 5 binom(N+1,6) を導く。
@@ -445,7 +480,7 @@ Fermat 点 F_*=(x³+y³+z³+Σu_i³)/3 では Δ_{F_*}=8xyz、τ_{F_*}(Δ_{F_*})
 
 Lie algebra law の Jacobi スキーム一般に非被約性があることは既知である。また本稿の二次階数の上界、N=9,10 の最大性、および差330という数値も上記の既存研究に由来する。「Jacobi スキームに初めて冪零元を見つけた」あるいは「330という二次の不足次元を初めて計算した」という主張をしない。
 
-現在証明を持つ寄与候補の中心は、全 O-同値の係数降下と局所模型 stack、全非空開に残る表示障害、相対点対応からの中心商復元、trace–Hessian と強い lift による Poisson 開の逆構成、ならびに残余復元との具体的な比較障害である。強い lift の Koszul 手法、formality と中心対応、二次星積、wheel 消滅、残余 MF 模型そのものは既存入力と区別する。全成分のモジュライや Ku と整合する新たな Poisson 射は未完成である。
+現在証明を持つ寄与候補の中心は、全 O-同値の係数降下と局所模型 stack、全非空開に残る表示障害、相対点対応からの中心商復元、trace–Hessian と強い lift による Poisson 開の逆構成、ならびに残余復元との比較障害、混合 trace を含む代数的補正の降下・支配性、形式 support 保存と split 族での補正後残余比較である。強い lift の Koszul 手法、formality と中心対応、二次星積、wheel 消滅、残余 MF 模型そのものは既存入力と区別する。全成分のモジュライ、一般混合係数の全次数 Ku 比較、残余同値の全 O-降下は未完成である。
 
 保持する補助成果には、n=8 の**次数三以降を含む** Jacobi イデアルの決定、頂点の長さ330の平方零拡大と完備局所非分裂性、全 polar 方向を残した横断切片、直和の retraction による特殊三次の非零冪零例、実現する大域持上げ障害がある。二次階数だけでは得られない主張として証明を置く。全引用・被引用文献や MathSciNet/zbMATH の網羅的調査は未実施であり、以上の寄与候補、比較障害、残余形式認識の厳密な初出は継続して確認する。
 

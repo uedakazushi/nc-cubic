@@ -1,6 +1,6 @@
 # Research instructions
 
-2026-11-20 / v6.
+2026-11-20 / v7.
 
 Read `00_research_plan.md` first, then `notes/research_notes.md` and the current paper. The common principles and standing authorization in the research plan apply to all work in this repository.
 
@@ -18,7 +18,7 @@ Read `00_research_plan.md` first, then `notes/research_notes.md` and the current
 
 - Pursue results uniform in n. The central goals are O-marked moduli, point schemes, a morphism to moduli of Poisson varieties, and comparison with the Kuznetsov components of the same underlying varieties; equivalence is a research expectation, not an established result on all components.
 - Prioritize general or very general objects of each irreducible component. Distinguish dense Zariski opens, geometric generic points, and complements of countably many proper closed subsets. Do not identify a one-block presentation component with all components of the intrinsic moduli.
-- Treat the degree-one shift and presentation as auxiliary unless their recovery from (C,O) is proved. The trace–Hessian map identifies a good Poisson open, but the pinned residual input gives uniform counterexamples to its compatibility with Ku. Keep that obstruction; pursue a corrected Poisson tensor, not only a pure-central Casimir correction. Distinguish marked finite-jet obstructions from unmarked generic-fiber non-equivalence.
+- Treat the degree-one shift and presentation as auxiliary unless their recovery from (C,O) is proved. The trace–Hessian map identifies a good Poisson open, but the pinned residual input gives uniform counterexamples to its compatibility with Ku. Keep that obstruction. The algebraic Hessian–trace correction now descends to a nonempty O-marked open; the fixed-formality tensor preserves support to all orders, and the split Hesse family has a conditional all-order residual comparison. Next compare the general mixed coefficients to all orders and descend the residual equivalence. Do not identify the algebraic correction with the entire formal inverse, or infer algebraization from finite jets. Distinguish marked finite-jet obstructions from unmarked generic-fiber non-equivalence.
 - Study boundaries and dimension-specific examples when they resolve a concrete obstruction to these general goals. Retain all valid existing proofs and exact certificates; do not make successive dimension-specific Hilbert calculations the default next task.
 
 ## Maintain research-hub
