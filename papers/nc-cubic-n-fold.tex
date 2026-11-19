@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 中心復元・点スキーム・Jacobi 方程式の次元境界}
 \author{}
-\date{2026年11月20日・研究稿 v3}
+\date{2026年11月20日・研究稿 v4}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={中心復元・点スキーム・Jacobi方程式の次元境界}}
 \begin{document}
@@ -82,8 +82,15 @@ $n=8$ の一般三次では、その頂点に長さ330、次数二に集中す�
 \label{sec:introduction}
 
 \subsection{目的と既存研究からの出発点}
-滑らかな三次超曲面の量子化から得られる Abel 圏を、
-表示された関係式の族だけでなく、その全同型を含むモジュライとして理解したい。
+本研究の基本目標は、一般次元の非可換三次超曲面について、構造対象を保つ
+$\mathcal O$-marked moduli を構成し、point scheme を調べ、
+Poisson 多様体のモジュライへの射と Kuznetsov 成分の比較を結び付けることである。
+対象は Abel 圏と構造対象の対 $(\mathcal C,\mathcal O)$ とし、
+各既約成分の一般点で成立する、次元に一様な構成を優先する。
+次数付き表示や次数一 shift は、その内在的な回復を示すまでは補助データとして扱う。
+一ブロックの表示空間の一般点での結果を、全モジュライの各成分へ自動的に広げない。
+また、稠密 Zariski 開上の general な主張と、可算個の真の閉集合を除く
+very general な主張を区別する。後者の点集合だけから代数的な族の射を結論しない。
 三様体では、中心一次空間、二次包絡、中心三次の直線、
 および Kuznetsov 残余圏を結び付ける構成がある \cite{Threefold}。
 この構成を一般次元へ移すとき、次元だけを置き換えることはできない。
@@ -129,7 +136,7 @@ Carles--M\'arquez \cite[Section~3]{CarlesMarquez} に既知である。
 従って普遍階数上界自体は既知であり、本稿は座標による再証明を与える。
 apolar Gorenstein 代数の Betti 数を計算した Boij \cite[Remark~6]{NFMBoijBetti}
 との関係も明示し、$N=9,10$ の二次階数の達成を新規とは数えない。
-中心となる対象は、三次超曲面に付随する Hessian--Jacobi イデアルと
+Jacobi 節で扱う中心的対象は、三次超曲面に付随する Hessian--Jacobi イデアルと
 Grassmann 錐のスキーム論的な差、次数三の乗法が決める長さ330の平方零構造、
 および特殊三次の非零点の局所構造である。
 Hessian と apolar 積、Thom--Sebastiani 分解の関係については
@@ -318,10 +325,19 @@ $n\equiv1\pmod3$ ではこの方法は使えない。
 
 本稿の各定理には証明または明示的な入力を記し、
 計算補助の主張には再現可能な証明書を添える。
-全 $\mathcal O$-保存 Abel モジュライの代数性、
-そこから可換三次モジュライへの大域残余射、
-および高次元での全 Abel 形式近傍の記述は未完成である。
-本稿をそれらが完成した主張として読むことはできない。
+全 $\mathcal O$-marked moduli の代数性と各成分の一般対象の被覆、
+ならびに Poisson 対 $(X,\pi)$ のモジュライへの射は未完成である。
+点対応から回復する Casimir 空間の中で、量子中心三次に対応する古典三次の直線を
+選ぶこと、その選択と Poisson tensor の尺度を全 $\mathcal O$-同値に対して
+降下することが必要となる。
+一方、残余圏からの可換三次の復元は別の構成であり、
+その出力と Poisson 射の underlying cubic が一致することを比較する必要がある。
+同じ $X$ について非可換側の残余圏と $\operatorname{Ku}(X)$ が同値となり、
+その同値が一般の族と必要な標識に両立して降下することを期待するが、
+これは現時点で全成分に対して証明された定理ではない。
+まず一般点と必要な係数拡大上で構成し、可能な稠密開への拡張を目指す。
+boundary や全 Abel 形式近傍の記述は、この一般次元の構成に必要な障害を解消する
+範囲で扱い、本稿に得た個別次元の証明と計算資産はその検査例として保持する。
 
 \input{papers/sections/graded_moduli.tex}
 \input{papers/sections/relative_duality.tex}
@@ -329,5 +345,7 @@ $n\equiv1\pmod3$ ではこの方法は使えない。
 \input{papers/sections/point_schemes.tex}
 \input{papers/sections/poisson_schemes.tex}
 \input{papers/sections/residual_categories.tex}
+\par\begingroup\small
 \input{papers/references.tex}
+\endgroup
 \end{document}

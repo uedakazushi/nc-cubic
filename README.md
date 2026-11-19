@@ -1,6 +1,6 @@
 # 非可換三次 n-fold のモジュライ
 
-2026年11月20日 / v3。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
+2026年11月20日 / v4。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
 
 **再開時は [研究方針](00_research_plan.md) を最初に読む。**
 
@@ -14,6 +14,14 @@
 - [参考文献](papers/references.tex)。外部文献PDFは含めない。
 
 直接の入力は [nc-cubic](https://github.com/uedakazushi/nc-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) の論文A・B。これらが既に扱う一般次元の正規形・量子化・一般点復元を、新しい成果として数えていない。
+
+## 現在の研究目標
+
+**一般次元の O-marked moduli、point scheme、Poisson 多様体のモジュライへの射、Kuznetsov 成分の比較**を中心に進める。各既約成分の general / very general な対象を優先し、次元に一様な定理と族の構成を目指す。general な稠密開と very general な点集合、一ブロックの表示成分と全モジュライの成分は区別する。
+
+まず固定模型の全 O-同値比較を O-marked な族の構成に用い、点対応からの包絡・Casimir 空間の復元を、量子中心三次から Poisson 対 (X,π) を選ぶ射へ接続する。Poisson 射で得る同じ X について、非可換側の残余圏と Ku(X) の同値を期待し、その構成と降下を研究する。この同値や全成分のモジュライ射が既に完成したとは主張しない。
+
+個別次元の Jacobi 計算と boundary の精査は、この一般目標の具体的な障害を解消する場合に行う。八次元の頂点構造等の既存成果と証明書は保持する。次の具体的な着手方法と各目標の到達基準は [研究方針](00_research_plan.md) にまとめ、全体の要約は [research-hub](https://github.com/uedakazushi/research-hub) に反映する。
 
 ## 主要結果と未完成部分
 
