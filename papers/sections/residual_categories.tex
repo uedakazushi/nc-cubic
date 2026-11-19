@@ -1,0 +1,411 @@
+\section{残余圏の形式変形と次元に依存する算術}
+\label{sec:nf-residual}
+
+本節では $k=\mathbb C$、$n\geq3$、$N=n+2$ とし、
+$X=V(F)\subset\mathbb P^{N-1}$ を滑らかな三次超曲面とする。
+残余圏と rotation の規約は
+\[
+ \mathcal K_X=\operatorname{Ku}(X)
+   =\langle\mathcal O_X,\ldots,\mathcal O_X(n-2)\rangle^\perp,
+ \qquad
+ \mathsf R_X=L_{\mathcal O_X}\circ(-\otimes\mathcal O_X(1))
+\]
+である。dg enhancement と冪等完備化を伴う圏を用い、
+圏の変形を考える際には
+$\mathcal D_X=\operatorname{Ind}(\mathcal K_X)$ を用いる。
+ここで扱うのは、通常の可換局所 Artin $k$-代数を基底とする変形である。
+全ての変形には特殊ファイバーと $X$、または $\mathcal D_X$ との同定を付ける。
+
+\subsection{Hochschild 計算と幾何的 Kodaira--Spencer 写像}
+
+次数付き Jacobian 環を
+\[
+ J_F=k[x_1,\ldots,x_N]/(F_{x_1},\ldots,F_{x_N})
+\]
+と置く。負の次数成分は零と解釈する。
+次の計算は matrix factorization の既知の sector 公式の三次の場合であり、
+本稿の新しい Hochschild 計算とは数えない。
+
+\begin{proposition}[三次超曲面の Hochschild 次数]
+\label{prop:nf-hh}
+ベクトル空間として
+\begin{equation}
+\label{eq:nf-hh}
+ HH^q(\mathcal K_X)\simeq
+ \begin{cases}
+   (J_F)_{3q/2},&q\text{ が偶数},\\
+   0,&q\text{ が奇数}
+ \end{cases}
+ \ \oplus\
+ \begin{cases}
+   k^2,&3\mid N,\ q=N/3,\\
+   0,&\text{それ以外}
+ \end{cases}
+\end{equation}
+である。特に $HH^q=0$ for $q<0$、$HH^0=k$、$HH^1=0$ であり、
+\[
+ \dim HH^2(\mathcal K_X)=
+ \begin{cases}
+  22,&n=4,\\
+  \binom{n+2}{3},&n\neq4.
+ \end{cases}
+\]
+幾何的変形から誘導される実際の写像
+\begin{equation}
+\label{eq:nf-geometric-ks}
+ \eta_X:H^1(X,T_X)\longrightarrow HH^2(\mathcal K_X)
+\end{equation}
+は単射である。$n\neq4$ では同型、$n=4$ では余核は二次元である。
+\end{proposition}
+
+\begin{proof}
+滑らかさと Euler の公式により、$F$ の affine cone の特異点は原点だけである。
+graded matrix factorization による dg 比較と
+\cite[Theorem~5.39 の一般式とその証明]{NFBFKKernels}、
+\cite[Theorem~3.5]{NFLZSerre} を使う。
+後者の表示式の parity は、cohomological degree $q$ から conormal rank を引いたものと読む。
+前者の一般式では Koszul コホモロジーの偶奇が区別され、
+孤立特異点の場合には次数零の Jacobian 成分だけが残る。
+恒等 sector の $q$ 次成分は、$q$ が偶数なら $(J_F)_{3q/2}$、
+奇数なら零である。
+非恒等な $\mu_3$ の二つの元は、それぞれ原点だけを固定する。
+その conormal rank は $N$、determinant の重みは $-N$ なので、
+不変部分が現れる条件は
+\[
+ q\equiv N\pmod2,\qquad
+ N+\frac32(q-N)=0
+\]
+となる。これは $3\mid N$ かつ $q=N/3$ と同値である。
+この場合には各元から一次元が寄与し、
+\eqref{eq:nf-hh} を得る。
+
+偏微分は $N$ 個の二次式からなる正則列であるから
+\[
+ \operatorname{Hilb}(J_F,t)=(1+t)^N,\qquad
+ \dim(J_F)_3=\binom N3.
+\]
+Euler 列と正規列により
+$H^1(X,T_X)\simeq(J_F)_3$ である。
+写像 \eqref{eq:nf-geometric-ks} の単射性には、
+単なるベクトル空間の同型でなく、
+\cite[Lemma~5.2]{NFPirozhkov} の幾何的写像を用いる。
+同補題の入力は、直交部分が例外列で生成されることと
+$X$ の Hodge diamond が対角的でないことである。
+前者は上の半直交分解、後者は同論文 Lemma~5.1 により $n\geq3$ の三次の場合に成立する。
+次元を比較すれば結論を得る。
+四次元の場合の余核二次元は
+\cite[Remark~3.8 and the proof of Proposition~3.5]{NFHuybrechtsRennemo}
+にも明記されている。
+\end{proof}
+
+\begin{lemma}[三次超曲面の通常の変形空間]
+\label{lem:nf-geometric-smooth}
+特殊ファイバーを固定した $X$ の通常の変形群oidは、
+次元 $\binom N3$ の滑らかな形式円板に同値である。
+各 Artin 基底上の自己同型で特殊ファイバー上恒等なものは恒等だけである。
+\end{lemma}
+
+\begin{proof}
+超曲面の制限列から、$0<i<n$ と任意の整数 $a$ について
+$H^i(X,\mathcal O_X(a))=0$ である。
+また $X$ は Fano なので $H^n(X,\mathcal O_X)=0$ である。
+Euler 列と
+\[
+ 0\longrightarrow T_X\longrightarrow
+ T_{\mathbb P^{N-1}}|_X\longrightarrow\mathcal O_X(3)
+ \longrightarrow0
+\]
+から $H^2(X,T_X)=0$ を得る。
+線型ベクトル場が $X$ に接していれば
+$\sum_i\ell_iF_{x_i}=cF$ であり、Euler の公式により
+\[
+ \sum_i\left(\ell_i-\frac c3x_i\right)F_{x_i}=0
+\]
+となる。正則な二次式列の Koszul 複体には線型係数の一次 syzygy がない。
+従ってこのベクトル場は scalar であり、射影空間上では零である。
+よって $H^0(X,T_X)=0$ である。
+標準的な小拡大の変形・障害理論から、変形関手は滑らかで、
+形式自己同型群は自明となる。
+接空間は前命題の $(J_F)_3$ であり、次元は $\binom N3$ である。
+
+この変形を埋込み付き三次として扱うこともできる。
+$H^1(X,\mathcal O_X)=H^2(X,\mathcal O_X)=0$ によって
+$\mathcal O_X(1)$ は同型類として小拡大へ一意に延長し、
+$H^1(X,\mathcal O_X(1))=0$ によってその切断を持ち上げられる。
+従って局所 Artin 基底上で射影空間への埋込みが延長し、
+方程式は再び三次の一式となる。
+\end{proof}
+
+\subsection{滑らかな幾何的族からの形式認識}
+
+次の補題は、接空間の次元一致だけから全形式変形を結論するものではない。
+全ての幾何的変形を送る実際の自然変換と、
+その出発点の形式的滑らかさを同時に使う。
+
+\begin{lemma}[滑らかな源と接写像同型]
+\label{lem:nf-smooth-source}
+$k$ を標数零の体、$\mathfrak g$ を dg Lie 代数とし、
+$H^0(\mathfrak g)=0$、$V=H^1(\mathfrak g)$ と
+$H^2(\mathfrak g)$ は有限次元とする。
+その形式 moduli problem を通常の局所 Artin $k$-代数へ制限し、
+一次切断した群oidを $\tau_{\leq1}\mathcal F_{\mathfrak g}$ と書く。
+$d=\dim V$ とし、自然変換
+\[
+ \phi:\operatorname{Spf}k[[t_1,\ldots,t_d]]
+       \longrightarrow\tau_{\leq1}\mathcal F_{\mathfrak g}
+\]
+の接写像が同型なら、$\phi$ は同値である。
+$H^2(\mathfrak g)=0$ は仮定しない。
+\end{lemma}
+
+\begin{proof}
+標数零での形式 moduli problem と dg Lie 代数の比較
+\cite[Section~2]{NFDAGX} を用い、
+$H=H^\bullet(\mathfrak g)$ 上へ極小 $L_\infty$ 構造
+$\ell_j$ を移す。通常の Artin 環 $A$ に対する
+Maurer--Cartan 元は $x\in V\otimes\mathfrak m_A$ であり、
+方程式は
+\begin{equation}
+\label{eq:nf-mc}
+ Q(x)=\sum_{j\geq2}\frac1{j!}\ell_j(x,\ldots,x)=0
+       \quad\text{in }H^2(\mathfrak g)\otimes\mathfrak m_A
+\end{equation}
+である。$A$ ごとにこの和は有限である。
+$H^0(\mathfrak g)=0$ なので gauge による異なる $x$ の同一視はなく、
+一次切断の自己同型群も自明である。
+従ってこの群oidは、
+$k[[V^\vee]]$ を $Q$ の成分で割った完備局所環による離散群oidで表される。
+
+$V$ の座標を選ぶと、$\phi$ は
+$x=f(t)\in V\otimes(t_1,\ldots,t_d)k[[t_1,\ldots,t_d]]$
+で表される。これは全 Artin 切断で両立する自然変換から得られる。
+接写像の仮定により $f$ の線型項は可逆である。
+形式逆写像定理から $f$ は形式座標変換である。
+また $\phi$ が全ての次数で定義されるので、
+$Q(f(t))=0$ は形式冪級数の恒等式である。
+$f^{-1}$ を代入すれば $Q(x)=0$ が恒等的に成り立つ。
+従って上の商環は $k[[V^\vee]]$ 自身であり、
+$\phi$ は形式座標変換による同値である。
+この議論は、高次の $L_\infty$ 演算全部が零であるとは主張しない。
+\end{proof}
+
+以下の $\operatorname{CatDef}^{c}_{\mathcal D_X}(A)$ は、
+特殊ファイバーを $\mathcal D_X$ と同定した
+compactly generated な $A$-線型圏の変形空間である。
+$\tau_{\leq1}$ を取ると、射は圏同値を自然同型で割ったものとなる。
+自然変換の scalar 自己同型まで保持する二群oidとの同一視ではない。
+
+\begin{theorem}[四次元を除く残余圏の通常の Artin 形式認識]
+\label{thm:nf-residual-formal}
+$n\geq3$、$n\neq4$ とする。
+滑らかな三次超曲面 $X$ について、自然な残余操作は
+通常の局所 Artin $k$-代数上の群oidの同値
+\begin{equation}
+\label{eq:nf-formal-recognition}
+ \operatorname{Def}_X
+ \ \xrightarrow{\ \sim\ }\
+ \tau_{\leq1}\operatorname{CatDef}^{c}_{\mathcal D_X}
+\end{equation}
+を与える。
+両辺の特殊ファイバーは固定している。
+同型類関手は次元 $\binom{n+2}{3}$ の形式円板である。
+これは全 Abel 圏の変形を中心三次対で表示する定理ではない。
+\end{theorem}
+
+\begin{proof}
+$X_A$ の相対半直交分解から得られる
+$\operatorname{Ind}\operatorname{Ku}(X_A)$ は、
+実際の compactly generated な圏の変形を与える。
+相対射影・mutation の核は有限個の線束から作られ、
+通常の Artin 係数変更と両立する。
+線束の延長の自明化に含まれる基底の単元は、
+射影核を作る $E^\vee\boxtimes E$ では相殺される。
+従って上の自然変換はその選択に依存しない。
+これで \eqref{eq:nf-formal-recognition} の自然変換を得る。
+
+その微分は \eqref{eq:nf-geometric-ks} の写像である。
+実際、幾何的な一次変形の Hochschild 類は
+$H^1(T_X)\to HH^2(X)$ で与えられ、
+相対射影核による変形の制限は $HH^2(X)\to HH^2(\mathcal K_X)$ に対応する。
+両者の合成が、上で構成した相対半直交成分の一次変形を記述する。
+これは幾何的変形・Hochschild 類・admissible 射影の自然性であり、
+接空間の抽象的な次元一致を代用するものではない。
+
+$\mathcal D_X$ は proper な compact 部分圏で生成されるので
+tamely compactly generated である。
+\cite[Theorems~5.1.9, 5.3.16, Proposition~5.3.21]{NFDAGX}
+および \cite[Sections~3.3 and~4.3]{NFBKP} により、
+形式 hull への自然変換
+\[
+ \theta:\operatorname{CatDef}^{c}_{\mathcal D_X}
+       \longrightarrow\operatorname{CatDef}^{\wedge}_{\mathcal D_X}
+\]
+は $(-1)$-truncated である。
+従って $\pi_0$ 上単射であり、
+既に存在する対象における全ての高次 homotopy group 上同型である。
+通常の可換 Artin 環へ制限した hull を支配する dg Lie 代数は
+\[
+ H^i(\mathfrak g)=HH^{i+1}(\mathcal K_X)
+\]
+を満たす。
+命題 \ref{prop:nf-hh} により $H^0(\mathfrak g)=0$、
+幾何的接写像は同型である。
+補題 \ref{lem:nf-geometric-smooth} と
+補題 \ref{lem:nf-smooth-source} により
+\[
+ \operatorname{Def}_X
+ \xrightarrow{\sim}
+ \tau_{\leq1}\operatorname{CatDef}^{\wedge}_{\mathcal D_X}.
+\]
+この全ての対象は幾何的変形から来るので、
+$\theta$ の $\pi_0$ 上の像は hull の全体である。
+$(-1)$-truncated 性による単射性と
+$\pi_1$ の比較を合わせると主張を得る。
+\end{proof}
+
+\begin{remark}[七次元と高次自己同型]
+\label{rem:nf-seven}
+$n=7$ では $N=9$ であり、
+$HH^3(\mathcal K_X)=k^2$ が実際に残る。
+従って $HH^3=0$ を前提にする証明はこの次元に適用できない。
+上の証明は滑らかな幾何的変形からの全次数の自然変換を使うため、
+この場合も成り立つ。
+また、一般に $HH^0=k$ に対応する高次 scalar は消えない。
+例えば $A=k[\epsilon]/(\epsilon^2)$ では
+$\pi_2$ に $k\epsilon$ が現れる。
+定理は $\tau_{\leq1}$ と通常の基底上の主張であり、
+未切断の高次群oidや導来 Artin 基底について幾何変形との同値を主張しない。
+\end{remark}
+
+\begin{proposition}[四次元の形式的障害]
+\label{prop:nf-fourfold-obstruction}
+$n=4$ のとき、残余圏の形式 hull の同型類関手は
+二十二次元の滑らかな形式円板である。
+幾何的変形の二十次元形式円板はその中の滑らかな余次元二の形式部分空間となる。
+従って定理 \ref{thm:nf-residual-formal} の hull 版は四次元では成立しない。
+\end{proposition}
+
+\begin{proof}
+\eqref{eq:nf-hh} より $HH^\bullet(\mathcal K_X)$ は次数 $0,2,4$ にのみ存在し、
+その次元は $1,22,1$ である。
+従って $\mathfrak g$ の極小模型は次数 $-1,1,3$ にのみ存在する。
+$j$ 項演算の次数は $2-j$ であり、
+奇数次数の $j$ 個の入力に対する出力は偶数次数になる。
+極小模型には偶数次数成分がないので全ての演算は零である。
+通常の Artin 基底上の $\pi_0$ は二十二次元形式円板となる。
+幾何的写像の接写像は命題 \ref{prop:nf-hh} により単射である。
+二十個の標的座標を選んで接写像を可逆にし、形式逆写像を使うと、
+写像は残り二座標の形式グラフで表される。
+標的の形式座標を変更すれば、このグラフは最後の二座標が零の部分空間となる。
+\end{proof}
+
+この余次元二は、指定した非可換中心三次族の残余圏が
+非幾何的になることを示すものではない。
+その族の形式写像が上の幾何的部分空間に入ることは、
+中心性や matrix factorization の追加構造によって起こり得る。
+また、ここで二十二次元と計算したのは明示した形式 hull である。
+
+\subsection{rotation、Serre 安定性と三を法とする場合分け}
+
+\begin{proposition}[rotation を回復する算術]
+\label{prop:nf-rotation}
+$S_X$ を $\mathcal K_X$ の Serre 自己同値とすると、
+\begin{equation}
+\label{eq:nf-serre-rotation}
+ \mathsf R_X^3\simeq[2],\qquad
+ S_X\simeq\mathsf R_X^{-(n-1)}[n]
+          \simeq\mathsf R_X^{-N}[N]
+\end{equation}
+である。従って
+\begin{equation}
+\label{eq:nf-rotation-cases}
+ \begin{array}{c|c|c}
+ n&S_X&\mathsf R_X\\ \hline
+ 3q&\mathsf R_X[q]&S_X[-q]\\
+ 3q+1&[q+1]&\text{Serre と整数 shift の積では表せない}\\
+ 3q+2&\mathsf R_X^{-1}[q+2]&S_X^{-1}[q+2]
+ \end{array}
+\end{equation}
+となる。中段の否定は、他の圏論的構造を使った rotation の復元まで否定するものではない。
+\end{proposition}
+
+\begin{proof}
+\eqref{eq:nf-serre-rotation} は graded matrix factorization の周期性と
+Serre 公式である
+\cite[Section~3.3, Corollary~3.18, Lemma~3.19]{NFKuznetsovFCY},
+\cite[proof of Proposition~3.7]{NFLZSerre}。
+$n$ を三で割った余りに従って指数を整理すると表を得る。
+中段では Serre と整数 shift が生成する群は整数 shift だけからなる。
+もし $\mathsf R_X\simeq[a]$ なら $\mathsf R_X^3\simeq[2]$ から $[3a]\simeq[2]$ となる。
+非零 proper 圏において shift は無限位数である。
+実際、非零対象が非零 shift と同型なら、その自己 Ext は無限に多くの次数で非零となり、
+proper 性に反する。従って $3a=2$ が必要となり、矛盾する。
+\end{proof}
+
+rotation の算術的回復と、それを用いる categorical Torelli は
+\cite[Proposition~3.7, Theorems~4.1 and~5.1]{NFLZSerre}
+の既知結果である。本稿で必要なのは、これを残余射の構成に使う際、
+三次元で自動的だったどの条件を一般次元で記憶すべきかを明示することである。
+
+\begin{proposition}[rotation に安定な像の生成]
+\label{prop:nf-rotation-generation}
+$\mathcal T\subset\mathcal K_X$ を非零の thick 部分圏とする。
+$\mathsf R_X$ とその逆で安定なら $\mathcal T=\mathcal K_X$ である。
+従って $n\not\equiv1\pmod3$ なら、
+$S_X$ とその逆に安定な非零 thick 部分圏も全体に等しい。
+特に、冪等完備な非零三角圏から $\mathcal K_X$ への完全忠実関手の像が
+該当する自己同値で安定なら、その関手は同値である。
+\end{proposition}
+
+\begin{proof}
+graded Orlov 比較で $\mathcal K_X$ を
+$k[x_1,\ldots,x_N]/(F)$ の graded 特異圏と同定する。
+任意の非零対象 $M$ に対し
+$M\oplus\mathsf R_XM\oplus\mathsf R_X^2M$ は全体を生成する
+\cite[Theorem~5.15]{NFBFKOrlov}。
+これは次数三・孤立特異点の場合への既知定理の直接の適用である。
+従って $\mathcal T$ は生成対象を含み、全体に等しい。
+Serre に関する主張は \eqref{eq:nf-rotation-cases} に従う。
+完全忠実関手については、冪等完備性により像が thick となるので同じ議論を使う。
+像の Serre 安定性そのものはこの命題の仮定であり、
+完全忠実性だけからは結論しない。
+\end{proof}
+
+\begin{remark}[四次元での Serre 安定性の不足]
+\label{rem:nf-serre-insufficient}
+滑らかな Pfaffian 三次四様体 $X$ には、
+K3 曲面 $Y$ と同値 $\mathcal K_X\simeq D^b(Y)$ がある
+\cite[Theorem~3.1]{NFKuznetsovCubicFourfolds}。
+$y\in Y$ に支持された複体全体は、非零で真の thick 部分圏である。
+これは $S=[2]$ に安定である。
+従って四次元では「Serre に安定な非零 thick 部分圏は全体」という命題自体が偽である。
+rotation 安定性を仮定する前命題は、この次元でも成立する。
+\end{remark}
+
+\subsection{既存の一般点復元と新しいモジュライ問題の境界}
+
+研究稿 \cite{NFNCCubicB} の主定理は既に任意の $n\geq3$ を対象としている。
+その入力は、$R=\mathbb C[h]_{(h)}$ 上の次数別有限自由な中心三次対
+$(B_R,w_R)$ で、
+特殊ファイバーが多項式環と滑らかな三次式になることである。
+同稿の定理を入力すれば、一般点の全 coherent 残余圏に、
+rotation と中心元からの指定三次周期を保つ可換模型が存在する。
+方程式は $\mathbb C(h)$ 上、同値核はある有限拡大上に得られ、
+幾何学的な射影同型類は一意である。
+これは本研究で初めて得る一般次元化ではなく、
+同稿の未公表の一般点復元定理を用いる結論として扱う。
+
+以上から、一般次元のモジュライ研究では次を分ける必要がある。
+第一に、線型偏極を記憶した中心三次対の族では rotation が与えられる。
+第二に、構造対象 $\mathcal O$ だけを保つ全 Abel 同値へ移るには、
+例外列と残余構成の独立性・相対降下を別に証明する必要がある。
+第三に、可換模型の存在、模型の一意性、全 Artin 形式認識は異なる入力である。
+$n\neq4$ では定理 \ref{thm:nf-residual-formal} が形式認識を与えるが、
+$n\equiv1\pmod3$ では rotation の Serre による回復は依然として使えない。
+$n=4$ では一般の圏変形の形式認識も成立せず、
+指定された中心三次族の追加構造を使う必要がある。
+
+本節だけから、一般次元の全 $\mathcal O$-marked Abel モジュライの代数性、
+そこから可換三次モジュライへの射、相対次元、滑らかさや全射性を結論しない。
+それらには、二次包絡の族、全 Hom の比較、残余の相対構成と有限表示による降下を
+組み合わせた別の証明が必要である。

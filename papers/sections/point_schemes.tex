@@ -1,0 +1,257 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{一ブロック量子化の点スキームと二十四次の定常成分}
+\label{sec:points}
+
+この節では $k$ を標数零の代数閉体、$n\geq3$、$r=n-1$、
+$V=\langle x,y,z,u_1,\ldots,u_r\rangle$ を生成元空間とする。
+$F\in\Sym^3V$ と $h\in k^\times$ に対し、$u_\alpha$ を中心とし
+\begin{equation}\label{eq:point-relations}
+ [y,z]=h\operatorname{sym}(F_x),\qquad
+ [z,x]=h\operatorname{sym}(F_y),\qquad
+ [x,y]=h\operatorname{sym}(F_z)
+\end{equation}
+を課した二次代数を $B$ とする。
+$g=F|_{u=0}$ は滑らかな平面三次式と仮定する。
+さらに $B/(u)$ の双線型関係の零スキームが、滑らかな平面三次曲線
+$E\subset\PP(\langle x,y,z\rangle^*)$ 上の固定点を持たない自己同型
+$\sigma$ のグラフであると仮定する。
+$w\in Z(B)_3$ の境界への像は、この $E$ の全点加群を消すものとし、
+$A=B/(w)$ と置く。
+これらは、適切な開にある楕円型一ブロック中心商の仮定である。
+古典曲線 $V(g)$ と量子境界 $E$ は区別する。
+
+一点の中心拡大における楕円曲線と八点、および点対応からの
+二次関係の復元は Le Bruyn--Smith--Van den Bergh
+\cite[Theorem~4.2.2, Proposition~4.2.5 and \S4.3]{LBSV} に先行する。
+三様体稿 \cite[\S23]{Threefold} の二中心変数の議論を、ここでは
+$r$ 個の中心変数へ拡張する。定常成分は $n>3$ で正次元となる。
+
+\begin{theorem}[点関手の分解]\label{thm:point-nfold}
+$w$ の tensor 代表の可換化を $w_{\mathrm{ab}}$ とし、
+\begin{equation}\label{eq:point-CD}
+ C=V(F_x,F_y,F_z),\qquad
+ D=V(F_x,F_y,F_z,w_{\mathrm{ab}})\subset\PP(V^*)
+\end{equation}
+と置く。$D$ は代表の選択に依存しない。
+ここで点加群は、基底 $S$ 上で次数零から生成され、各次数成分が可逆層であり、
+$M_0\simeq\OO_S$ の同定を備えるものとする。同型はこの同定を保つ。
+この正規化された点加群の関手は
+\begin{equation}\label{eq:point-disjoint}
+ \operatorname{Pt}(B)=E\amalg C,\qquad
+ \operatorname{Pt}(A)=E\amalg D
+\end{equation}
+で表される。shift は $E$ 上で $\sigma$、定常成分上で恒等である。
+$C$ は型 $(2,2,2)$、次元 $n-2$、次数 $8$ の完全交叉であり、
+中心座標への射
+\begin{equation}\label{eq:point-critical-cover}
+ f:C\longrightarrow\PP^{r-1}_{u_1:\cdots:u_r}
+\end{equation}
+は次数 $8$ の有限平坦射である。
+$w_{\mathrm{ab}}$ が $C$ の各既約成分上で非零ならば、
+$D$ は型 $(2,2,2,3)$ の完全交叉であり、
+\begin{equation}\label{eq:point-invariants}
+ \dim D=n-3,\qquad \deg D=24,\qquad
+ \omega_D\simeq\OO_D(7-n).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+二次関係の双線型化の零スキームを $\Gamma_B$ とし、その二座標を $p,q$ と書く。
+中心関係は全ての一次生成元 $v_i$ に対し
+\[
+ u_\alpha(p)v_i(q)-v_i(p)u_\alpha(q)=0
+\]
+を与える。$u_\alpha(p)$ が可逆な chart では、第二因子の一座標を
+可逆に取ってこの式を使えば $u_\alpha(q)$ も可逆である。
+両者を一に規格化すると $p=q$ となり、残りの関係は
+$F_x=F_y=F_z=0$ である。この計算は非被約な基底上でも成り立つ。
+
+一方、$p,q$ の二座標の小行列式が可逆な chart では、中心関係の
+二本から全ての $u_\alpha(p),u_\alpha(q)$ が零となる。
+従ってこの部分は $\Gamma_\sigma$ に等しい。
+幾何点で中心座標が全て零なら境界の対応上にあり、$\sigma$ が
+固定点を持たないため、この小行列式 chart がその全体を覆う。
+$C$ と平面 $V(u)$ は交わらない。交点があれば
+$g_x=g_y=g_z=0$ となり、Euler の公式と $V(g)$ の滑らかさに反する。
+従って二種類の chart は全体を覆い、scheme として
+\[
+ \Gamma_B=\Gamma_\sigma\amalg\Delta_C
+\]
+を得る。これは自己同型のグラフなので、二次関係を満たす無限点列は
+初期点から一意に定まる。
+
+中心三次関係を加えると、$E$ 上では仮定によって三重線型化が零である。
+滑らかな $E$ 上の切断として零なので、任意の基底変更でも零である。
+定常列上では三重線型化は $w_{\mathrm{ab}}(p)$ となる。
+二つの tensor 代表の差の可換化は $(F_x,F_y,F_z)$ に属するので、
+$D$ は代表に依存しない。これで点関手の主張を得た。
+
+有限平坦性を環上で証明する。$S=k[u_1,\ldots,u_r]$ と置き、
+\[
+ T=S[x,y,z]/(F_x,F_y,F_z)
+\]
+を active 次数で濾過する。三つの最高記号 $g_x,g_y,g_z$ は
+$k[x,y,z]$ の正則列である。従って、濾過 Koszul 複体の最高記号からの
+帰納法により
+\[
+ \operatorname{gr}T\simeq
+ S\otimes_k k[x,y,z]/(g_x,g_y,g_z)
+\]
+となる。具体的には、最高次数の関係を Koszul syzygy で消し、
+active 次数を下げれば、初期イデアルに新しい生成元が生じないことが分かる。
+右辺の Jacobian 環の Hilbert 級数は $(1+t)^3$ である。
+その斉次基底を持ち上げると、$T$ は $S$ 上自由であり、全次数付き加群として
+\begin{equation}\label{eq:critical-free-module}
+ T\simeq S\oplus S(-1)^3\oplus S(-2)^3\oplus S(-3)
+\end{equation}
+を得る。この分解自体の標準性は主張しない。
+$C\cap V(u)=\varnothing$ と合わせて Proj を取れば、$f$ は有限平坦で
+\begin{equation}\label{eq:critical-pushforward}
+ f_*\OO_C\simeq\OO\oplus\OO(-1)^3\oplus\OO(-2)^3\oplus\OO(-3)
+\end{equation}
+となる。
+
+環 $T$ の次元は $r$ なので、三つの二次式の高さは三であり、
+多項式環の Cohen--Macaulay 性から正則列となる。
+従って $C$ の次元と次数が従う。
+完全交叉は埋込み素点を持たないので、各既約成分で非零な
+$w_{\mathrm{ab}}$ は非零因子である。
+正則列に三次式を加えて次元と次数を得る。
+随伴公式により
+$\omega_D=\OO_D(2+2+2+3-(n+2))=\OO_D(7-n)$ である。
+\end{proof}
+
+\begin{corollary}[中心射影と二十四次の行列式]\label{cor:point-norm}
+定理の完全交叉条件の下で、$\mathcal V=f_*\OO_C$ と置くと
+\begin{equation}\label{eq:point-norm-sequence}
+ 0\longrightarrow\mathcal V(-3)
+ \xrightarrow{\cdot w_{\mathrm{ab}}}\mathcal V
+ \longrightarrow f_*\OO_D\longrightarrow0
+\end{equation}
+は完全である。この乗法行列の行列式は非零な
+$\OO_{\PP^{r-1}}(24)$ の切断であり、$f_*\OO_D$ の
+零次 Fitting イデアルを定める。
+$n=4$ で $D$ が滑らかならば、$D$ は次数 $24$、種数 $37$ の連結曲線である。
+\end{corollary}
+
+\begin{proof}
+中心座標が基点を持たないので $\OO_C(1)=f^*\OO(1)$ である。
+$f$ は有限、$w_{\mathrm{ab}}$ は非零因子だから、中心三次切断の完全列を
+押し出して表示した完全列を得る。階数 $8$ より行列式の次数は $3\cdot8=24$。
+一般点で乗法は同型なので行列式は非零である。
+これは scheme 論的像の被約方程式や、$D$ の射影先への双有理性を主張するものではない。
+正次元の射影完全交叉では Koszul 解消と射影空間の線束コホモロジーから
+$H^0(D,\OO_D)=k$ であり、従って連結である。
+$n=4$ では $\omega_D=\OO_D(3)$ なので
+$2g(D)-2=3\cdot24=72$ となる。
+\end{proof}
+
+\begin{remark}[滑らかな定常成分の非空性]\label{rem:point-nonempty}
+三つの一般の二次式 $Q_i(u)$ に対して
+\[
+ F=(x^3+y^3+z^3)/3-xQ_1(u)-yQ_2(u)-zQ_3(u)+G(u)
+\]
+とすると、$C$ は $x^2=Q_1,y^2=Q_2,z^2=Q_3$ で与えられる。
+$\PP^{r-1}$ 上の三つの分岐二次超曲面を滑らかで交わりが横断的になるよう選べば、
+その二重被覆のファイバー積は滑らかである。
+局所的には分岐因子の方程式を座標の一部に取り、その平方根を新座標にすればよい。
+$r=2$ では分岐点を全て異なるものに取る。
+純中心三次式を動かす線型系は $C$ 上基点を持たないため、
+Bertini により一般の中心三次切断 $D$ は滑らかである。
+これは $n=3$ では被約な二十四点を意味する。
+境界の滑らかさ・固定点なしの条件と、後の Hessian 条件も、係数空間の
+非空開条件として共通に課せる。ここで示すのは該当する開の非空性であり、
+全ての分離型や全ての中心三次切断が滑らかだという主張ではない。
+\end{remark}
+
+\begin{theorem}[点対応からの包絡復元]\label{thm:point-envelope}
+定理\ref{thm:point-nfold}の完全交叉条件を仮定し、
+$R_B\subset V\otimes V$ を二次関係空間とする。
+全点スキーム上の shift のグラフ
+$\Gamma_A=\Gamma_\sigma\amalg\Delta_D$ について
+\begin{equation}\label{eq:point-envelope}
+ H^0(\mathcal I_{\Gamma_A}(1,1))=R_B
+\end{equation}
+が成立する。従って、埋込み点スキームと shift から二次包絡 $B$ と、
+式\eqref{eq:point-relations}の尺度込みの双ベクトル $h\Pi_F$ を復元できる。
+\end{theorem}
+
+\begin{proof}
+完全交叉のイデアルは飽和しており、三次生成元は二次部分に寄与しないから
+$Q=I(D)_2=\langle F_x,F_y,F_z\rangle$ である。
+従って $\Delta_D$ 上で消える双線型形式は
+$\bigwedge^2V\oplus\operatorname{sym}(Q)$ で、次元は $\binom N2+3$ である。
+$U=\langle u_1,\ldots,u_r\rangle$ を含む反対称部分は
+次元 $\binom N2-3$ であり、境界上で零となる。
+これで割った六次元の候補空間は
+\[
+ \bigwedge^2(V/U)\oplus
+ \operatorname{sym}\langle g_x,g_y,g_z\rangle
+ \subset(V/U)^{\otimes2}
+\]
+に単射する。
+
+$L=\OO_E(1)$、$M=\sigma^*L$ とすると、乗法
+$H^0(L)\otimes H^0(M)\to H^0(LM)$ は全射である。
+$L\not\simeq M$ の場合は $L$ の基点のない pencil の完全列と
+$H^1(ML^{-1})=0$、$L\simeq M$ の場合は平面三次に二次関係がないことから従う。
+従って $\Gamma_\sigma$ の双線型イデアルは三次元であり、これは境界代数の
+三つの関係で生成される。候補空間に含まれるこの三次元核を戻せば
+全体の核の次元は $\binom N2$ である。
+既に $R_B$ を含み、$R_B$ は反対称成分への射影が同型なので、両者は等しい。
+関係を $v_i\otimes v_j-v_j\otimes v_i-\operatorname{sym}(q_{ij})$ と一意に書けば
+$\sum q_{ij}\partial_{v_i}\wedge\partial_{v_j}$ が復元される。
+本模型では定義から $h\Pi_F$ に等しい。
+\end{proof}
+
+\begin{proposition}[古典 Casimir 空間]\label{prop:point-casimir}
+上の完全交叉条件に加えて、$g$ の Hessian に対する定数行列の条件
+\begin{equation}\label{eq:point-hessian-scalar}
+ M\operatorname{Hess}(g)\text{ が対称}\quad\Longrightarrow\quad M=cI_3
+\end{equation}
+を仮定する。このとき埋込み点スキームから
+\[
+ U=I(E)_1,\qquad Q=I(D)_2,
+\]
+および
+\begin{equation}\label{eq:point-casimir}
+ \mathcal R_Q=\{H\in\Sym^3V:\partial_aH\in Q\text{ for all }a\in\operatorname{ann}(U)\}
+ =kF\oplus\Sym^3U
+\end{equation}
+を復元できる。従って $\dim\mathcal R_Q=1+\binom{n+1}{3}$ であり、
+古典 Jacobian Poisson 直線 $[\Pi_F]$ が定まる。
+\end{proposition}
+
+\begin{proof}
+$E$ はその境界平面を張る。
+$n=3$ では正次元成分、$n>4$ では一次元成分として $E$ を識別できる。
+$n=4$ では $D$ は連結な次数 $24$ の完全交叉曲線なので、
+次数 $3$ の連結成分 $E$ と区別できる。
+よって $U$ と $Q$ は埋込みデータから得られる。
+$H\in\mathcal R_Q$ に対して
+$\nabla_{x,y,z}H=M\nabla_{x,y,z}F$ となる定数行列 $M$ がある。
+偏微分の可換性と $u=0$ への制限から式\eqref{eq:point-hessian-scalar}が適用でき、
+$M=cI$ である。従って $H-cF$ は中心変数だけの三次式となる。
+逆包含は直接従う。
+$F$ を $cF+G(u)$ に替えることは Jacobian 括弧を $c$ 倍するだけなので、
+中心空間と表示した三次空間は $[\Pi_F]$ を定める。
+
+さらにこの空間は affine Poisson 括弧の三次 Casimir 全体でもある。
+Casimir $H$ の active 勾配は分数体上で $a/b$ 倍の $\nabla F$ となる。
+$F_x,F_y,F_z$ は正則列で共通因子を持たないので、既約表示の分母 $b$ は単元である。
+斉次次数を比較して $a/b$ は定数となり、同じ結論を得る。
+この最後の Casimir 計算自体には式\eqref{eq:point-hessian-scalar}を必要としない。
+\end{proof}
+
+\begin{remark}[明示的な非空条件と限界]
+$g=(x^3+y^3+z^3)/3+\lambda xyz$ では
+$\lambda(\lambda^3-8)\ne0$ のとき式\eqref{eq:point-hessian-scalar}が成り立つ。
+実際、$M\operatorname{Hess}(g)$ の対称性は対角成分を等しくし、非対角成分には
+$\lambda m_{13}=2m_{21}$、$\lambda m_{21}=2m_{32}$、$\lambda m_{32}=2m_{13}$
+ともう一組の循環式を課すので、全非対角成分が零になる。
+滑らかさの条件 $\lambda^3\ne-1$ と合わせても非空である。
+この条件による勾配復元の原理と、本稿での任意 $r$ の点関手への適用を区別する。
+また $\mathcal R_Q/\Sym^3U$ の直線を得ることは、その中の特定の三次式を
+選ぶことではない。量子中心から残余圏が定める可換三次式への補正は別問題であり、
+点スキームを有限係数の Poisson 零スキームと同一視してはいない。
+\end{remark}

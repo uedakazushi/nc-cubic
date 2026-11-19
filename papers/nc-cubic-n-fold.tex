@@ -1,0 +1,277 @@
+% !TEX root = nc-cubic-n-fold.tex
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm,mathrsfs}
+\usepackage{luatexja-fontspec}
+\usepackage{enumitem,booktabs,array,needspace}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\IfFileExists{/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc}{%
+  \setmainjfont[Path=/usr/share/fonts/opentype/noto/]{NotoSerifCJK-Regular.ttc}%
+}{\setmainjfont{HaranoAjiMincho-Regular}}
+\setlength{\textwidth}{15.6cm}
+\setlength{\oddsidemargin}{0.25cm}
+\setlength{\evensidemargin}{0.25cm}
+\setlength{\textheight}{22.6cm}
+\setlength{\topmargin}{-0.2cm}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{maintheorem}{主定理}
+\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{example}[theorem]{例}
+\renewcommand{\proofname}{証明}
+\newcommand{\C}{\mathbb C}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Proj}{\operatorname{Proj}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\QGr}{\operatorname{QGr}}
+\title{非可換三次 $n$-fold のモジュライ\\
+\large 中心復元・点スキーム・Jacobi 方程式の次元境界}
+\author{}
+\date{2026年11月20日・研究稿 v1}
+\hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
+pdfsubject={中心復元・点スキーム・Jacobi方程式の次元境界}}
+\begin{document}
+\maketitle
+\vspace{-0.6\baselineskip}
+\begin{abstract}
+三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ
+三次超曲面の量子化について、三様体のモジュライ構成を一般次元で検討する。
+中心多項式環上の平坦性と普遍的な低次数中心条件の下で、
+任意の $d$-Veronese から元の次数付き代数を fpqc 局所で復元し、
+同型の持上げ層が $\mu_d$-torsor になることを示す。
+既存の一 Jacobian ブロック量子化を入力として、
+次元 $(n^2+7n-4)/2$ の次数付き周囲代数の滑らかな DM stack と、
+その上の階数 $\binom{n+1}{3}$ の中心三次 torsor を構成する。
+構造対象だけを保つ全 Abel 同値への比較は、相対 Serre 双対性等を明示した条件付き定理である。
+
+楕円境界と正則切断条件の下で、点スキームの定常成分は型 $(2,2,2,3)$、次元 $n-3$、次数 $24$ の完全交叉となる。
+特に四次元では、滑らかな場合に種数 $37$ の曲線を得る。
+別に、滑らかな三次 $n$-fold 上の Poisson 構造の自然な Jacobi スキームを調べる。
+明示的な整数小行列の証明書により、$3\le n\le7$ の一般三次では
+このスキームが $\operatorname{Gr}(3,n+2)$ のアフィン錐に等しいことを示す。
+$n\ge8$ では、任意の滑らかな三次について二次方程式の数が不足し、
+頂点完備化さえこの錐と同型にならない。
+既存の被約 Poisson 分類を入力すれば、一般三次の Jacobi スキームは非被約となる。
+最後に既知の Hochschild 計算と圏変形理論を用い、$n\ne4$ では
+通常の Artin 基底上の残余圏の一次切断変形を幾何的変形として認識する。
+四次元の余分な二方向と、rotation の回復に現れる $n$ modulo $3$ の区別を明示する。
+\end{abstract}
+\setcounter{tocdepth}{1}
+\vspace{-0.5\baselineskip}
+\begingroup\small
+\tableofcontents
+\endgroup
+
+\section{序論と主結果}
+\label{sec:introduction}
+
+\subsection{目的と既存研究からの出発点}
+滑らかな三次超曲面の量子化から得られる Abel 圏を、
+表示された関係式の族だけでなく、その全同型を含むモジュライとして理解したい。
+三様体では、中心一次空間、二次包絡、中心三次の直線、
+および Kuznetsov 残余圏を結び付ける構成がある \cite{Threefold}。
+この構成を一般次元へ移すとき、次元だけを置き換えることはできない。
+Serre 関手が回復する twist の次数が変わり、
+残余圏の Hochschild 群には四次元と七次元で追加成分が現れ、
+Poisson 方程式のスキーム構造にも八次元から新しい現象が生じる。
+
+本稿の直接の出発点は、リポジトリ \texttt{nc-cubic} の
+論文A \cite{NCCubicA} と論文B \cite{NFNCCubicB} である。
+参照するソースは次の固定 commit に統一する：
+\begin{center}
+\texttt{eabe601c1341777742964584dde5314c0bcf64a9}.
+\end{center}
+論文Aは既に任意次元の Poisson 正規形と代数的中心量子化を扱い、
+論文Bは既に $n\ge3$ の一般点における rotation と指定三次周期を保つ
+可換残余模型を扱う。
+これらを今回新しく得た一般次元化として数えない。
+本稿は、これらの研究稿を明示した入力として、次数付きモジュライ、
+任意次数の中心復元、点関手、Jacobi スキーム、および残余圏の形式変形を整理する。
+引用した未公表稿の全証明を本稿内で再証明したという意味ではない。
+
+関連する公刊研究との関係は次の通りである。
+Etingof--Ginzburg \cite{NFMEG} は三変数 potential の PBW 変形と中心元を構成し、
+Mori--Smith \cite{MoriSmith} は三生成元三二次関係の Calabi--Yau 代数を分類する。
+これらは一ブロック量子化の入力であり、$n$ に依存する全同型問題や torsor の降下は別に扱う。
+Le Bruyn--Smith--Van den Bergh \cite{LBSV} の一点中心拡大における
+楕円曲線と八点、および二次関係の復元に対して、本稿は任意個数の中心変数を扱い、
+有限平坦な八重被覆と高次元の二十四次完全交叉を得る。
+Mayanskiy \cite{Mayanskiy} の三様体における Schouten 方程式の計算に対して、
+本稿は高次元での Jacobi イデアル自体を比較する。
+affine 超曲面の Poisson 延長を gradient の Koszul 複体で記述する手法には
+Fraenkel \cite[Proposition~4.1, Theorem~4.3]{Fraenkel} の先行研究がある。
+また、一般の Lie 代数 law の Jacobi スキームに冪零元が現れることは
+Carles \cite[Section~8, Lemma~8.35]{Carles} および
+Carles--M\'arquez \cite[Section~3]{CarlesMarquez} に既知である。
+本稿で問題にするのは、三次超曲面に付随する Hessian--Jacobi イデアルと
+Grassmann 錐の比較、およびその次元境界と次数二の量的な下界である。
+Lin--Zhang \cite{NFLZSerre}、Pirozhkov \cite{NFPirozhkov}、
+Huybrechts--Rennemo \cite{NFHuybrechtsRennemo} の既知の圏論的不変量と Torelli 理論は、
+本稿の残余変形の入力である。
+既知の公式からの帰結と、本稿に証明を与える拡張は以下で区別する。
+これらの拡張について、独立な新規性の網羅的確認はなお完了していない。
+
+\subsection{中心復元と次数付きモジュライ}
+以下 $n\ge3$、$N=n+2$、$r=n-1$ とする。
+生成元空間を $V$、中心一次空間を $U\subset V$、$\dim U=r$ と書く。
+点の空間は $W=V^*$ であり、$\PP(W)$ 上の三次式は
+$\Sym^3W^*=\Sym^3V$ の元である。
+周囲の二次代数を $B$、中心三次商を $A=B/(w)$ と書く。
+
+\begin{maintheorem}[中心 Veronese 復元と一ブロックモジュライ]
+可換 $\C$-代数上の次数一生成代数 $A,A'$ が、それぞれ
+中心多項式環 $C=\Sym U,C'=\Sym U'$ 上平坦、
+$\rank U=\rank U'\ge2$ であり、
+普遍的に $Z(A)_d=\Sym^dU$ と $Z(A')_d=\Sym^dU'$ を満たすとする。
+このとき $d$-Veronese 間の次数付き同型は fpqc 局所で $A\simeq A'$ へ持ち上がり、
+持上げ層は $\mu_d$-torsor である。
+
+一ブロック PBW・楕円中心条件を満たす非空開上で、
+次数スカラーを除いた次数付き周囲代数の同型問題は、
+有限安定化子開に制限すると滑らかな既約有限型 DM stack $\mathfrak B_n$ となる。
+中心三次直線の stack $\mathfrak C_n$ からの射
+$\tau_n:\mathfrak C_n\to\mathfrak B_n$ は、
+階数 $s_n$ のベクトル束の加法群の torsor であり、
+\[
+ \dim\mathfrak B_n=b_n=\frac{n^2+7n-4}{2},\qquad
+ s_n=\binom{n+1}{3},\qquad
+ \dim\mathfrak C_n=b_n+s_n=\binom{n+2}{3}+3n-2.
+\]
+\end{maintheorem}
+
+正確な普遍中心条件と証明は定理\ref{thm:nfm-central-veronese}に、
+表示空間と全次数付き同型の比較は命題\ref{prop:nfm-graded-presentation}に、
+有限安定化子と torsor の証明は定理\ref{thm:nfm-ambient-dimension}、
+\ref{thm:nfm-central-torsor}に置く。
+相対 Serre 関手が与える $d=r$ にこの復元を適用するため、
+楕円自己同型 $\sigma$ には
+$\sigma^j\ne1$ $(1\le j\le\max(3,r))$ を課す。
+中心スカラーの重みを考慮した束
+$\mathcal Hom(\mathcal L,\Sym^3\mathcal U)$ が商 stack 上に降下する。
+$\mathcal U$ や中心三次束そのものの降下を主張するものではない。
+
+\begin{center}
+\begin{tabular}{r|r|r|r|r}
+$n$&可換三次の次元 $M_n$&周囲 $b_n$&中心三次 $s_n$&対 $c_n$\\\hline
+3&10&13&4&17\\
+4&20&20&10&30\\
+5&35&28&20&48\\
+6&56&37&35&72\\
+7&84&47&56&103\\
+8&120&58&84&142
+\end{tabular}
+\end{center}
+ここで $M_n=\binom{n+4}{3}-(n+2)^2=\binom{n+2}{3}$ である。
+$c_n-M_n=3n-2$ という数値一致から、可換モジュライへの射の存在や
+そのファイバーの次元を結論してはいない。
+全 $\mathcal O$-保存 Abel 同値への比較は、
+各次数の有限局所自由性、compact 性、相対 proper Serre 双対性、係数変更と Hom 降下を
+明示した定理\ref{thm:nfm-full-hom-conditional}である。
+切断飽和性自体は中心正則対によって全整数次数で証明する
+（補題\ref{lem:nfm-central-saturation}）。
+この族で残る相対双対性等の入力を全て構成することは、現在の課題である。
+
+\subsection{点スキームと Poisson スキームの異なる一般次元化}
+\begin{maintheorem}[二十四次完全交叉と Jacobi スキームの境界]
+一ブロック模型の楕円境界、固定点なしの shift、および中心三次の正則切断条件の下で、
+\[
+ \operatorname{Pt}(A)=E\amalg D,\qquad
+ D\subset\PP^{n+1}\text{ は型 }(2,2,2,3)\text{ の完全交叉},
+\]
+\[
+ \dim D=n-3,\qquad\deg D=24,\qquad\omega_D=\OO_D(7-n).
+\]
+三つの偏微分で定まる $C$ は $\PP^{n-2}$ への次数八の有限平坦被覆である。
+$n=4$ で $D$ が滑らかなら、$D$ は種数 $37$ の連結曲線である。
+
+一方、滑らかな可換三次 $X_F\subset\PP^{n+1}$ の自然な Jacobi スキームについて、
+$3\le n\le7$ の一般三次では
+\[
+ \operatorname{Pois}(X_F)\simeq\widehat{\operatorname{Gr}}(3,n+2)
+\]
+である。
+$n\ge8$ では任意の滑らかな $F$ についてこの等式は成立せず、
+頂点完備化も抽象局所環として同型でない。
+論文Aの一般三次に対する被約分類を入力すると、この場合の一般の
+$\operatorname{Pois}(X_F)$ は非被約であり、
+冪零根基の次数二部分の次元は少なくとも
+\[
+ \delta_N=5\binom{N+1}{6}-N\binom N4>0\quad(N=n+2\ge10)
+\]
+である。特に $n=8$ では $\delta_N=210$ となる。
+\end{maintheorem}
+
+点関手は基底上の次数零成分を自明化した規約を用い、
+非被約基底上でも分解を証明する。
+点対応からの二次包絡の復元、追加の Hessian 条件下での
+$\C F\oplus\Sym^3U$ の復元も\S\ref{sec:points}で示す。
+これは特定の古典三次式の選択や、点スキームと Poisson 零スキームの同一視ではない。
+
+Jacobi スキームの主張は\S\ref{sec:nfold-jacobi-scheme}で証明する。
+Jacobi イデアル $I_F$ は $N\binom N4$ 個の二次式で生成され、
+Pl\"ucker イデアル $J_N$ は二次部分だけで $5\binom{N+1}{6}$ 次元を持つ。
+この比較が高次元の不一致を与える。
+低次元の等式は、明示的な整数小行列が法 $32003$ で非零であるという有限証明書を伴う。
+非被約性の結論に用いる被約分類の依存と、方程式数の比較だけで従う結論を分ける。
+また、これらの Poisson スキームを全 Abel 圏の Artin 変形空間と同一視したわけではない。
+
+\subsection{残余圏と現在の到達範囲}
+\begin{maintheorem}[残余圏の通常の Artin 形式認識]
+滑らかな三次 $X$ の dg 残余圏を $\mathcal K_X=\operatorname{Ku}(X)$ とし、
+$\mathcal D_X=\operatorname{Ind}(\mathcal K_X)$ とする。
+$n\ge3$、$n\ne4$ なら、特殊ファイバーを同定した通常の可換局所 Artin 基底上で
+\[
+ \operatorname{Def}_X\simeq
+ \tau_{\le1}\operatorname{CatDef}^{c}_{\mathcal D_X}.
+\]
+両辺の同型類は $\binom{n+2}{3}$ 次元の滑らかな形式円板となる。
+$n=4$ では圏変形の形式 hull の通常 Artin 同型類関手が
+二十二次元形式円板となり、幾何的変形の円板は二十次元である。
+\end{maintheorem}
+
+証明は定理\ref{thm:nf-residual-formal}に与える。
+既知の sector 公式と幾何的 Kodaira--Spencer 単射性から得る接写像同型を、
+実際の幾何的変形の全次数の自然変換と合わせる。
+$HH^3$ の消滅に依存しないため、$HH^3=\C^2$ となる $n=7$ も含む。
+圏変形の形式 hull と実際の compactly generated 変形の比較には
+Lurie \cite{NFDAGX} の tame 圏に対する結果を用いる。
+未切断の高次群oidや導来 Artin 基底上での同値は主張しない。
+
+rotation $\mathsf R$ と Serre 関手 $S$ の既知の関係は
+$\mathsf R^3=[2]$、$S=\mathsf R^{-(n-1)}[n]$ である。
+$n\not\equiv1\pmod3$ では rotation を Serre と shift から回復できるが、
+$n\equiv1\pmod3$ ではこの方法は使えない。
+これは四次元の形式認識の例外とは異なる区分である。
+
+本稿の各定理には証明または明示的な入力を記し、
+計算補助の主張には再現可能な証明書を添える。
+全 $\mathcal O$-保存 Abel モジュライの代数性、
+そこから可換三次モジュライへの大域残余射、
+および高次元での全 Abel 形式近傍の記述は未完成である。
+本稿をそれらが完成した主張として読むことはできない。
+
+\input{papers/sections/graded_moduli.tex}
+\input{papers/sections/point_schemes.tex}
+\input{papers/sections/poisson_schemes.tex}
+\input{papers/sections/residual_categories.tex}
+\input{papers/references.tex}
+\end{document}

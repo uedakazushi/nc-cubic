@@ -1,0 +1,650 @@
+\section{中心 Veronese 錐による次数一の復元}
+\label{sec:nfm-veronese}
+
+本節では $n\geq3$, $N=n+2$, $r=n-1$ とする。
+周囲の二次代数を $B$、中心三次商を $A=B/(w)$ と書く。
+次数一の生成元空間を $V$、その中心部分を $U\subset V$ とする。
+一般次元では相対 Serre 関手が与えるのは $r$ 次の twist である。
+これから次数一を回復するためには、$r$-Veronese の中心に含まれる
+Veronese 錐を用いる。
+以下の代数的復元は、Serre 双対性の構成とは独立である。
+
+\subsection{中心 Veronese の同型の持上げ}
+
+\begin{lemma}[Veronese 錐の同型層]
+\label{lem:nfm-veronese-cone}
+$R$ を可換 $\mathbf C$-代数、$U,U'$ を同じ階数 $s\geq2$ の
+有限局所自由 $R$-加群、$d\geq1$ とする。
+$C=\operatorname{Sym}_R U$, $C'=\operatorname{Sym}_R U'$ と置く。
+次数を $d$ で割った Veronese 代数について、自然な写像
+\[
+ \underline{\operatorname{Isom}}_R(U,U')
+ \longrightarrow
+ \underline{\operatorname{Isom}}_{\mathrm{gr},R}(C^{(d)},(C')^{(d)})
+\]
+は fpqc 層として $\mu_d$-torsor である。
+\end{lemma}
+
+\begin{proof}
+基底上で局所的に $U,U'$ を自由としてよい。
+Veronese 環の Proj はそれぞれ $\mathbf P^{s-1}_R$ であり、
+その新しい次数一の線束は通常の $\mathcal O(d)$ である。
+次数付き同型はこの線束を保つ射影空間の同型 $f$ を誘導する。
+各幾何学的ファイバーでは $f^*\mathcal O(1)=\mathcal O(1)$ なので、
+$M=f^*\mathcal O(1)\otimes\mathcal O(-1)$ は各ファイバーで自明である。
+射影空間の $H^0(\mathcal O)=R$, $H^i(\mathcal O)=0$ $(i>0)$ と
+cohomology and base change により、$M=\pi^*L$ となる基底の可逆層 $L$ がある。
+この議論は有限表示のデータを noetherian 部分環へ降ろしてもよいので、
+$R$ の noetherian 性を必要としない。
+基底を被覆して $L$ を自明化すると、次数一切断への作用から
+$f$ は線型同型 $g:U\to U'$ に持ち上がる。
+ここでは projective bundle の切断の同定を用いた
+\cite[Section~27.21]{NFMStacksProjective}。
+
+与えた Veronese 同型と $\operatorname{Sym}^{(d)}g$ の差は Proj 上で恒等である。
+$\mathcal O(d)$ 上の自己同型は基底の単元 $a\in R^\times$ であり、
+$C^{(d)}$ は新次数一で生成されるので、この差は新次数 $j$ に $a^j$ を掛ける。
+忠実平坦な有限 \'etale 被覆
+$R\to R[t]/(t^d-a)$ 上で $t$ を選び、$g$ を $tg$ に置き換えれば差を消せる。
+二つの持上げの比は射影空間上で恒等なので $\lambda\operatorname{id}$ であり、
+$\lambda^d=1$ が必要十分である。
+従って各同型の持上げ層は $\mu_d$ により単純推移的に作用され、局所的に非空である。
+\end{proof}
+
+\begin{theorem}[中心を用いた任意次数の Veronese 復元]
+\label{thm:nfm-central-veronese}
+$R$ を可換 $\mathbf C$-代数、$d\geq1$ とする。
+$A,A'$ は非負次数付きで次数一生成の $R$-代数、$A_0=A'_0=R$ とする。
+階数 $s\geq2$ の有限局所自由加群 $U,U'$ に対し、中心的な単射
+\[
+ C=\operatorname{Sym}_R U\longrightarrow A,
+ \qquad C'=\operatorname{Sym}_R U'\longrightarrow A'
+\]
+があり、$A,A'$ はそれぞれ $C,C'$ 上平坦とする。
+さらに任意の可換 $R$-代数 $R_1$ への変更後に
+\[
+ Z(A_{R_1})_d=\operatorname{Sym}^d_{R_1}U_{R_1},
+ \qquad
+ Z(A'_{R_1})_d=\operatorname{Sym}^d_{R_1}U'_{R_1}
+\]
+が成り立つと仮定する。このとき制限写像
+\[
+ \underline{\operatorname{Isom}}_{\mathrm{gr},R}(A,A')
+ \longrightarrow
+ \underline{\operatorname{Isom}}_{\mathrm{gr},R}(A^{(d)},(A')^{(d)})
+\]
+は $\mu_d$-torsor である。
+その核の $\lambda\in\mu_d$ は、元の次数 $j$ に $\lambda^j$ を掛ける。
+\end{theorem}
+
+\begin{proof}
+$U$ を自由にし、基底を $u_1,\ldots,u_s$ とする。
+$Q=A^{(d)}$ と置く。
+$z\in Z(Q)$ と次数一の元 $a\in A_1$ について
+$u_1^{d-1}a$ は $Q$ に属し、
+\[
+ u_1^{d-1}[z,a]=[z,u_1^{d-1}a]=0
+\]
+である。$A$ の $C$-平坦性により $u_1$ は $A$ 上の非零因子なので、
+$[z,a]=0$。次数一生成性から
+$Z(Q)=Z(A)^{(d)}$ を得る。
+従って $Z(Q)_1=\operatorname{Sym}^dU$ であり、
+その生成する中心部分代数は内在的に $D=C^{(d)}$ と同定される。
+また $Z(A)_1=U$ も従う。実際、$z\in Z(A)_1$ なら
+$u_i^{d-1}z\in C_d$ なので、$i=1,2$ を用いて
+$z\in C[u_1^{-1}]\cap C[u_2^{-1}]=C$ と書ける。
+局所化した $C$ は局所化した $A$ に単射であり、Laurent 多項式の比較でこの交叉を取れる。
+次数一部分を取れば $z\in U$ である。従って全ての次数付き同型は
+指定した中心多項式環を保つ。
+
+$Q\simeq Q'$ は $D\simeq D'$ を誘導する。
+補題\ref{lem:nfm-veronese-cone}により、fpqc 局所でこの同型を
+$C\simeq C'$ へ持ち上げる。
+以下では Veronese 側の次数を $d$ 倍して元の次数に戻す。
+各 $u_i$ について積写像
+\[
+ Q[(u_i^d)^{-1}]
+ \otimes_{D[(u_i^d)^{-1}]}C[u_i^{-1}]
+ \longrightarrow A[u_i^{-1}]
+\]
+は同型である。実際、左辺の第二因子は
+\[
+ C[u_i^{-1}]
+ =\bigoplus_{j=0}^{d-1}u_i^jD[(u_i^d)^{-1}]
+\]
+と分解し、右辺の次数が $j$ modulo $d$ の部分も
+$u_i^jQ[(u_i^d)^{-1}]$ と一致する。
+よって $Q\simeq Q'$ と選んだ $C\simeq C'$ は、全てのこの局所化を同定する。
+
+$C$ の二変数 $u_1,u_2$ に関する列
+\[
+ 0\longrightarrow C\longrightarrow
+ C[u_1^{-1}]\oplus C[u_2^{-1}]
+ \longrightarrow C[(u_1u_2)^{-1}]
+\]
+は最初の二箇所で完全である。
+これは多項式の Laurent 展開から任意の係数環上で直接確かめられる。
+$A$ は $C$ 上平坦なので、これを tensor して
+\[
+ A=A[u_1^{-1}]\cap A[u_2^{-1}]
+ \quad\text{in }A[(u_1u_2)^{-1}]
+\]
+を得る。従って局所化の同型は一意に $A\simeq A'$ を与える。
+構成は局所化の重なりで一致し、$U$ の自明化を変えても一意性により降下する。
+
+$C$ への持上げを固定すると $A$ の持上げは一意であり、
+$C$ の二つの持上げの差 $u_i\mapsto\lambda u_i$ は
+上の modulo $d$ 分解で次数 $j$ に $\lambda^j$ を掛ける。
+よって持上げ層はちょうど $\mu_d$-torsor である。
+全ての段階が係数変更と両立する。
+\end{proof}
+
+\begin{remark}
+この定理は低次数中心の仮定を省略した Veronese 復元を主張しない。
+また $s\geq2$ は最後の二変数交叉に使われる。
+同型持上げの $\mu_d$ は次数スカラー $\mathbf G_m$ の部分群であり、
+構造対象付き Abel 圏の新しい慣性ではない。
+一つの同型の大域持上げ障害は $H^1_{\mathrm{fppf}}(-,\mu_d)$ にあり、
+対象の有効降下に現れる $H^2$ の障害とは区別する。
+\end{remark}
+
+\subsection{一ブロック族での低次数中心}
+
+\begin{proposition}[有限個の楕円位数条件]
+\label{prop:nfm-center-bound}
+$k$ を代数閉体、$\operatorname{char}k=0$、$U$ を階数 $r\geq2$ の
+次数一次元からなる空間とし、$C=\operatorname{Sym}_kU$ とする。
+$B$ は三つの active 生成元を持つ濾過付き二次代数で
+\[
+ \operatorname{gr}_{\mathrm{act}}B=S\otimes_k C,
+ \qquad S/(\Omega)=H(E,\mathcal L,\sigma)
+\]
+とする。ここで $S$ は三次元楕円 AS 正則代数、
+$\Omega\in Z(S)_3$ は正則元、$E$ は滑らかな楕円曲線である。
+$G\in Z(B)_3$ の最高 active 記号が $\Omega$ であるとし、
+$\sigma^j\ne\operatorname{id}$ が
+$1\leq j\leq q:=\max(3,d)$ について成り立つとする。
+このとき
+\[
+ Z(B)_1=U,\qquad Z(B)_3=kG\oplus\operatorname{Sym}^3U.
+\]
+任意の $g\in\operatorname{Sym}^3U$ に対して
+$A=B/(G+g)$ は $C$ 上自由であり、
+\[
+ \operatorname{gr}_{\mathrm{act}}A=H(E,\mathcal L,\sigma)\otimes_k C,
+ \qquad Z(A)_d=\operatorname{Sym}^dU.
+\]
+従って $d=r=n-1$ の場合に定理\ref{thm:nfm-central-veronese}を適用できる。
+\end{proposition}
+
+\begin{proof}
+$H=H(E,\mathcal L,\sigma)$ は捻った Laurent 関数環
+$k(E)[t,t^{-1};\sigma]$ に埋め込まれる。
+次数 $j>0$ の非零中心元 $a t^j$ があれば、
+次数一切断との可換性から $\sigma^j$ はその全ての比を固定する。
+$\deg\mathcal L=3$ の完全線型系は $E$ を埋め込むので、
+これらの比は $k(E)$ を生成する。従って $\sigma^j=\operatorname{id}$ となる。
+ゆえに $Z(H)_j=0$ $(1\leq j\leq q)$ である。
+$S/(\Omega)=H$ から
+$Z(S)_1=Z(S)_2=0$, $Z(S)_3=k\Omega$ を得る。
+
+$B$ の中心元の最高 active 記号も中心である。
+次数一では正の active 成分が消え、$Z(B)_1=U$。
+次数三では active 三次の成分は $k\Omega$ に属するので $G$ の倍を引き、
+次いで active 次数二、一の成分を消せば純中心三次だけが残る。
+
+$G+g$ の最高記号は正則元 $\Omega$ なので、
+最高次数に関する帰納法により $G+g$ は左右正則で、表示した商の associated graded を得る。
+$H$ の各次数の $k$-基底を斉次に持ち上げれば、
+それらは $A$ の $C$-基底を与える。
+最後に $a\in Z(A)_d$ の正の最高 active 次数 $j\leq d$ は
+$Z(H)_j\otimes C_{d-j}=0$ に属するため不可能である。
+よって $a\in C_d$ である。
+\end{proof}
+
+\begin{remark}[相対版で必要な普遍性]
+\label{rem:nfm-relative-center}
+有限型被約 $\mathbf C$-基底上で、上記の PBW 分裂と中心三次の
+最高記号の直和因子性が係数変更と両立しているとする。
+このとき $U\subset B_1$、$RG\oplus\operatorname{Sym}^3U\subset B_3$、
+$\operatorname{Sym}^dU\subset A_d$ を除いた商は有限局所自由である。
+各商から三つの active 生成元との交換子を取る写像は全閉点で単射なので、
+最大小行列式の可逆開上で分裂単射になる。
+従って中心の三つの等式は任意の、非平坦・非被約な底変更後にも成立する。
+この分裂単射の確認をせずに、幾何ファイバーの中心計算だけを普遍的な等式へ拡張しない。
+
+固定した $n$ では除外する条件は有限個である。
+楕円曲線の平行移動を動かす空間で $\sigma^j=1$ は閉条件であり、
+無限位数の平行移動は全てのこれらの閉集合を避ける。
+従って所定の楕円パラメータ空間における共通開は非空である。
+三様体の低次数中心条件だけで任意の $n$ を扱うことはできない。
+\end{remark}
+
+\section{一ブロックの次数付きモジュライと中心三次 torsor}
+\label{sec:nfm-graded-stack}
+
+\subsection{表示空間と全ての次数付き同型}
+
+$V=X\oplus U$, $\dim X=3$, $\dim U=r$ とし、
+$X$ の基底を $x,y,z$ とする。
+$F\in\operatorname{Sym}^3V/\operatorname{Sym}^3U$ に対して
+\[
+ B_F=T(V)/\bigl([U,V],\ [y,z]-\operatorname{sym}(F_x),\
+ [z,x]-\operatorname{sym}(F_y),\ [x,y]-\operatorname{sym}(F_z)\bigr)
+\]
+と置く。
+$F$ は生成元を可換化した多項式として扱う規約であり、
+純中心三次の変更は関係式を変えない。
+$P\subset\operatorname{GL}(V)$ を $U$ を保つ parabolic、
+$\overline P=P/\mathbf G_m$ とする。
+$g\in P$ の $V/U$ 上の作用を $M$ とすると、作用は
+\[
+ g\cdot F=(\det M)^{-1}g(F)\pmod{\operatorname{Sym}^3U}
+\]
+である。中心スカラーはこの作用に自明に作用する。
+
+一ブロックの PBW・楕円・中心三次の入力を満たす $P$-不変な非空開を
+$T\subset\operatorname{Sym}^3V/\operatorname{Sym}^3U$ とする。
+ここでいう入力は、命題\ref{prop:nfm-center-bound}の associated graded と中心元が
+相対的に存在し、注意\ref{rem:nfm-relative-center}の有限局所自由性を持つことを含む。
+この開の一ブロック量子化入力は既存の一般次元量子化構成から得られる
+\cite{NCCubicA}。
+具体的には、純 active 三次を滑らかな Hesse 開に取り、
+active 次数を下げる混合 potential の PBW 変形を用いる。
+中心変数の個数はこの三変数 PBW 計算の係数環を変えるだけである。
+Hesse 座標と中心平行移動で三つの混合二次交叉項を消した開では、
+Rains の有限中心公式の係数に $u$ の一次式・二次式を代入できる
+\cite[Theorem~3.3.2 and Section~9]{NFMEG}。
+有限個の分母と最高 active 記号の係数を反転し、
+$\sigma^j\ne1$ $(1\leq j\leq\max(3,r))$ を課す。
+この開を $P$ で飽和すれば、所要の非空不変開を得る。
+相対 PBW 分裂と中心核の普遍性は注意\ref{rem:nfm-relative-center}の有限行列で確認する。
+この一ブロック入力自体を本節で新しく証明した結果とは数えない。
+
+\begin{proposition}[表示空間の同型問題の忠実性]
+\label{prop:nfm-graded-presentation}
+$F,F'\in T$ に対して、$B_F\simeq B_{F'}$ の次数付き同型は、
+$g(F)=(\det M)F'$ modulo $\operatorname{Sym}^3U$ を満たす $g\in P$ に一致する。
+従って $[T/\overline P]$ は、この族の次数付き周囲代数を
+次数スカラーで割った同型問題を表す。
+\end{proposition}
+
+\begin{proof}
+次数一生成性から代数同型は $V$ 上の線型同型で決まる。
+中心一次部分が $U$ なので、この同型は $P$ に属する。
+標数零での分解 $V^{\otimes2}=\bigwedge^2V\oplus\operatorname{Sym}^2V$ に関して、
+$B_F$ の関係空間は二次双ベクトル
+$\pi_F:\bigwedge^2V\to\operatorname{Sym}^2V$ の graph である。
+従って関係空間から $\pi_F$ は一意に復元される。
+$\pi_F$ は三つの active 偏微分によって決まり、
+それらが全て零となる三次式は $\operatorname{Sym}^3U$ に限る。
+active 三重ベクトルは $M$ により $(\det M)^{-1}$ 倍されるので、
+関係空間を移す条件はちょうど表示した式である。
+逆向きは関係式への代入で従う。
+この議論は有限局所自由関係束を用いれば係数環上でも同じである。
+\end{proof}
+
+\begin{lemma}[有限安定化子を持つ点]
+\label{lem:nfm-finite-stabilizer}
+$T$ の中で $\overline P$-安定化子が有限となる部分 $T^{\mathrm{fin}}$ は
+非空な不変開である。
+\end{lemma}
+
+\begin{proof}
+滑らかな純 active 三次式 $F_3(x,y,z)$ を所定の楕円開に取り、
+\[
+ F=F_3+xQ_1(u)+yQ_2(u)+zQ_3(u),\qquad
+ Q_1=\sum_{i=1}^r u_i^2,\quad Q_2=\sum_{i=1}^r\lambda_i u_i^2
+\]
+とする。ここで $\lambda_i$ は互いに異なり、$Q_3$ は任意である。
+ここではまず、全表示アフィン空間上の $\overline P$-安定化子を調べる。
+この計算自体に PBW 条件は必要ない。
+
+$\mathfrak p$ の元を active 部分 $M$、中心部分 $D$、
+active から中心への項 $T_x,T_y,T_z\in U$ に分ける。
+安定化の式の純 active 三次部分は
+$M(F_3)=\operatorname{tr}(M)F_3$ である。
+滑らかな平面三次の射影自己同型群は有限なので $M=aI_3$ である。
+実際、その楕円曲線上の平行移動のうち次数三の埋込みを保つものは三捩れ点に限られ、
+原点を保つ自己同型群も標数零では有限である。
+active 次数二の成分は
+\[
+ T_x(F_3)_x+T_y(F_3)_y+T_z(F_3)_z=0
+\]
+である。滑らかな $F_3$ の三つの偏微分は線型独立なので全ての $T_i$ は零となる。
+active 次数一の成分から $D(Q_i)=2aQ_i$ $(i=1,2)$ を得る。
+$D-aI_r=H$ と置けば
+\[
+ H^{\mathsf t}+H=0,\qquad
+ H^{\mathsf t}\Lambda+\Lambda H=0,
+ \qquad \Lambda=\operatorname{diag}(\lambda_1,\ldots,\lambda_r).
+\]
+よって $H$ は $\Lambda$ と可換する反対称行列であり、固有値が相異なるので $H=0$。
+残る安定化子の Lie 代数は次数スカラーのみである。
+従って $\overline P$ の安定化子の Lie 代数は零となる。
+標数零の有限型代数群は滑らかなので、この安定化子は有限である。
+
+一般の点でも無限小安定化子は係数に多項式的に依存する有限行列の核である。
+従って核が零となる条件は全表示空間の非空開である。
+表示アフィン空間は既約で、$T$ も非空開なので、両者の交わりは非空である。
+\end{proof}
+
+\begin{theorem}[一ブロックの代数的周囲モジュライ]
+\label{thm:nfm-ambient-dimension}
+$\mathfrak B_n=[T^{\mathrm{fin}}/\overline P]$ は滑らかな既約有限型
+Deligne--Mumford stack で、その次元は
+\[
+ b_n=\binom{n+4}{3}-\binom{n+1}{3}
+       -\bigl((n-1)^2+3(n-1)+8\bigr)
+     =\frac{n^2+7n-4}{2}
+\]
+である。これは次数付き代数の stack についての結論であり、
+周囲の全ての無偏極 Abel 圏同値を分類するとは主張しない。
+\end{theorem}
+
+\begin{proof}
+$T^{\mathrm{fin}}$ は次元
+$\binom{r+5}{3}-\binom{r+2}{3}$ のアフィン空間の非空開である。
+$\overline P$ は次元 $r^2+3r+8$ の滑らかな連結代数群である。
+従って商 stack は滑らかで既約、有限型である。
+安定化子は有限で無限小部分を持たないので対角は非分岐であり、商は DM である。
+商 stack の次元公式から表示した値を得る。
+\end{proof}
+
+\subsection{中心三次の射影空間と加法 torsor}
+
+\begin{theorem}[一般次元の中心三次 torsor]
+\label{thm:nfm-central-torsor}
+$T^{\mathrm{fin}}$ 上で
+\[
+ \mathcal E=Z(\mathcal B)_3,\qquad
+ \mathcal W=\operatorname{Sym}^3\mathcal U,\qquad
+ \mathcal L=\mathcal E/\mathcal W
+\]
+と置く。$\mathcal L$ は可逆層である。
+$\mathbf P_{\mathrm{lines}}$ を一次元部分束の規約とし、
+\[
+ J=\mathbf P_{\mathrm{lines}}(\mathcal E)
+      \setminus\mathbf P_{\mathrm{lines}}(\mathcal W)
+\]
+とする。この $J\to T^{\mathrm{fin}}$ は
+$\mathcal{H}om(\mathcal L,\mathcal W)$ の加法群の torsor であり、
+商によって
+\[
+ \tau_n:\mathfrak C_n=[J/\overline P]\longrightarrow\mathfrak B_n
+\]
+を得る。射 $\tau_n$ はスキームで表現可能、アフィン、滑らか、全射で、相対次元は
+\[
+ s_n=\binom{n+1}{3}
+\]
+である。$\mathfrak C_n$ は滑らかな既約有限型 DM stack で、
+\[
+ c_n=\dim\mathfrak C_n
+ =\binom{n+4}{3}-(n+2)^2+3n-2.
+\]
+$J$ の全ての線は左右正則な中心三次元を与え、
+その商は一般次元の三次 Hilbert 級数を持つ。
+\end{theorem}
+
+\begin{proof}
+$0\to\mathcal W\to\mathcal E\to\mathcal L\to0$ を考える。
+$J$ の $S$-点である直線 $M\subset\mathcal E_S$ は
+$M\to\mathcal L_S$ が同型であるという条件を満たす。
+従って $J$ はこの完全列の分裂の層を表す。
+二つの分裂の差は $\mathcal{H}om(\mathcal L,\mathcal W)$ の一意な切断であり、
+局所自由層の列は Zariski 局所で分裂する。
+よって $J$ は所定の加法群の torsor である。
+
+中心スカラーの重みは $\mathcal U$ 上で一、
+$\mathcal E,\mathcal W,\mathcal L$ 上で三である。
+従って $\mathcal{H}om(\mathcal L,\mathcal W)$ 上の重みは零で、
+$\overline P$ へ降下する。一方 $J$ も直線の空間なので中心スカラーは自明に作用する。
+分裂の差による作用と torsor 同型は同変であり、商へ降下する。
+任意の $S\to\mathfrak B_n$ を $\overline P$-torsor 上で表示して基底変更すると、
+得られる射はアフィン空間束である。
+fpqc アフィン降下 \cite[Lemma~35.37.1, Tag~0245]{NFMStacksAffineDescent} により、
+元の基底でもアフィンスキームで表現される。
+滑らかさ、全射性、相対次元も降下する。
+
+局所的に一つの中心元 $G$ を選べば $J$ の全ての線は $k(G+g)$
+$(g\in\operatorname{Sym}^3U)$ と書ける。
+命題\ref{prop:nfm-center-bound}により最高 active 記号は常に $\Omega$ であり、
+正則性と商の PBW 基底が得られる。
+特に次数 $j$ の Hilbert 関数は
+$\binom{j+N-1}{N-1}-\binom{j+N-4}{N-1}$ である。
+最後に滑らかなアフィン空間束と前定理から stack の性質と次元公式を得る。
+\end{proof}
+
+\begin{remark}[ファイバーの意味]
+周囲代数とその同定を固定した幾何学的 $2$-ファイバーは
+$\mathbf A^{s_n}$ の torsor である。
+周囲の同型類だけを固定した同型類の集合には有限群
+$\operatorname{Aut}_{\mathrm{gr}}(B)/\mathbf G_m$ の作用が残る。
+また $\mathcal U,\mathcal E$ 自体を $\mathfrak B_n$ 上の通常の束として降下させたわけではない。
+原点を選ばずに torsor を零切断付きベクトル束と同一視しない。
+\end{remark}
+
+\begin{proposition}[複数ブロックでの正しい相対形]
+\label{prop:nfm-multiblock-torsor}
+一般に $0\to W\to E\to L\to0$ が有限局所自由層の完全列で
+$\operatorname{rank}L=k$ なら、
+$\mathbf P_{\mathrm{lines}}(E)\setminus\mathbf P_{\mathrm{lines}}(W)$ は
+$\mathbf P_{\mathrm{lines}}(L)$ 上の
+$\mathcal{H}om(\mathcal O(-1),W)$ の加法 torsor である。
+従って $k\geq2$ では固定周囲上の中心線の空間にも
+射影的な $k-1$ 次元の方向が残る。
+\end{proposition}
+\begin{proof}
+$\mathbf P_{\mathrm{lines}}(L)$ 上の普遍直線
+$\mathcal O(-1)\subset L$ に沿って元の完全列を引き戻す。
+$\mathbf P(E)\setminus\mathbf P(W)$ の点は、その引戻し列の分裂と一対一に対応する。
+前定理と同じ分裂の差の議論を適用する。
+\end{proof}
+
+\section{構造対象だけを保つ Abel 同値への条件付き移行}
+\label{sec:nfm-abel-conditional}
+
+\begin{lemma}[中心正則対による全次数の切断飽和性]
+\label{lem:nfm-central-saturation}
+$R$ を可換環、$A=\bigoplus_{j\geq0}A_j$ を
+$A_0=R$ を満たす次数一生成の $R$-代数とし、$A_1$ は有限生成とする。
+階数 $s\geq2$ の有限局所自由 $R$-加群 $U$ と中心的な次数付き写像
+\[
+ C=\operatorname{Sym}_R U\longrightarrow A
+\]
+があり、$A$ は $C$-加群として平坦であると仮定する。
+$\operatorname{QGr}A$ は、次数付き右 $A$-加群の圏を
+\[
+ \operatorname{Tors}A
+ =\{M\mid \text{各斉次元 }m\in M\text{ は、ある }q
+       \text{ について }mA_{\geq q}=0\}
+\]
+で割った Gabriel 商とし、$\mathcal O_A=\pi A$ と置く。
+このとき全整数 $j$ について、左乗法による標準写像
+\begin{equation}
+\label{eq:nfm-central-saturation}
+ A_j\xrightarrow{\ \sim\ }
+ \operatorname{Hom}_{\operatorname{QGr}A}
+     (\mathcal O_A,\mathcal O_A(j))
+\end{equation}
+は同型である。ここで $j<0$ なら $A_j=0$ とする。
+特に $\operatorname{End}(\mathcal O_A)=R$ である。
+結論は任意の可換 $R$-代数への係数変更後にも成立し、
+標準写像は係数変更と両立する。
+\end{lemma}
+
+\begin{proof}
+$A_1$ の有限生成性と次数一生成性により各 $A_q$ は有限生成である。
+従って $\operatorname{Tors}A$ は部分対象・商・拡大・任意直和に閉じた
+localizing 部分圏であり、表示した Gabriel 商が存在する。
+拡大に閉じることは、$mA_{\geq q}$ が torsion 部分に入ったとき、
+有限生成な $A_q$ の像の有限個の生成元を同時に消す上界を取り、
+次数一生成性を用いれば従う。
+
+まず、$A(j)$ に非零 torsion 部分加群は存在しない。
+これは $U$ を局所自明化し、その基底元 $u$ を一つ取れば分かる。
+$u$ は $C$ 上非零因子であり、$C$-平坦性によって $A$ 上も非零因子となる。
+torsion 元はある $u$ の冪で零になるので、元自身が零である。
+この消滅は基底の局所被覆から従う。
+
+Gabriel 商の射の表示
+\cite[Chapitre~III, \S1, p.~365]{NFMGabrielQuotient} では、
+射は $A/I$ が torsion である斉次右イデアル $I\subset A$ と
+標的の torsion 部分対象についての filtered colimit で与えられる。
+今は標的 $A(j)$ の torsion 部分は零である。
+また $A/I$ は $1$ の像で生成されるので、これが torsion なら
+$A_{\geq m}\subset I$ となる $m\geq1$ が存在する。
+従って
+\begin{equation}
+\label{eq:nfm-gabriel-colimit}
+ \operatorname{Hom}_{\operatorname{QGr}A}
+       (\mathcal O_A,\mathcal O_A(j))
+ \simeq\varinjlim_{m\geq1}
+       \operatorname{Hom}_{\operatorname{Gr}A}
+       (A_{\geq m},A(j)).
+\end{equation}
+この議論には $R$ や $A$ の noetherian 性を必要としない。
+
+右辺の射を、次数零の右 $A$-線型写像
+$f:A_{\geq m}\to A(j)$ で表す。
+$U$ が自由な基底開上で、二つの異なる基底元を $u,v$ とする。
+多項式環の二変数 \v{C}ech 列を $C$-平坦な $A$ と tensor すれば
+\[
+ A=A[u^{-1}]\cap A[v^{-1}]
+       \quad\text{in } A[(uv)^{-1}]
+\]
+を得る。各局所化への写像は単射である。
+$\alpha=f(u^m)$、$\beta=f(v^m)$ と置くと、中心性と右線型性から
+\[
+ \alpha v^m=f(u^mv^m)=f(v^mu^m)=\beta u^m.
+\]
+よって
+\[
+ a=\alpha u^{-m}=\beta v^{-m}
+ \in A[u^{-1}]\cap A[v^{-1}]=A.
+\]
+$f$ の次数から $a\in A_j$ である。
+任意の斉次元 $b\in A_{\geq m}$ に対して
+\[
+ f(b)u^m=f(bu^m)=f(u^mb)=\alpha b=a u^m b=a b u^m
+\]
+となり、$u$ の非零因子性から $f(b)=ab$ となる。
+従って $f$ は左乗法による写像 $A\to A(j)$ に一意に延長する。
+一意性は、延長の差が $u^m$ を零に送れば差の係数も零になることによる。
+局所自明化上で得られる元 $a$ はこの一意性により重なりで一致し、
+$R$-加群 $A_j$ の切断として貼り合わさる。
+ここでは一般の Hom に局所化が可換することを仮定していない。
+既に与えた $f$ を局所化し、回復した係数 $a$ を貼り合わせている。
+以上を \eqref{eq:nfm-gabriel-colimit} に適用すれば
+\eqref{eq:nfm-central-saturation} が従う。
+
+最後に、任意の $R\to R_1$ に対して
+$C_{R_1}=\operatorname{Sym}_{R_1}U_{R_1}$ であり、
+$A_{R_1}\simeq A\otimes_C C_{R_1}$ は $C_{R_1}$ 上平坦である。
+次数一の有限生成性と非負次数性も保たれる。
+従って同じ証明を $R_1$ 上で繰り返せる。
+同型は左乗法という標準写像から作ったものであるから、
+係数変更の比較もこの写像の可換図式によって与えられる。
+\end{proof}
+
+
+\begin{lemma}[一般 Veronese の Gabriel 復元]
+\label{lem:nfm-gabriel}
+$A$ は可換環 $R$ 上の非負次数付き、次数一生成代数で、
+$A_1$ は有限生成とする。任意の $d\geq1$ に対して
+\[
+ \operatorname{QGr}A\simeq\operatorname{QGr}A^{(d)}
+\]
+である。全整数 $i$ を用いた切断関手
+\[
+ N\longmapsto\bigoplus_{i\in\mathbf Z}
+ \operatorname{Hom}(\mathcal O_A(-di),N)
+\]
+はこの同値の下で Gabriel 右随伴に一致し、完全忠実である。
+\end{lemma}
+\begin{proof}
+$Q=A^{(d)}$、$F(M)=M^{(d)}$ とし、
+$G(N)=N^{\mathrm{rescale}}\otimes_{Q^{\mathrm{rescale}}}A$ とする。
+rescale は次数を $d$ 倍する操作である。
+$FG=1$ であり、counit $GFM\to M$ の核と余核は
+$d$ の倍数の次数で零となる。
+次数一生成性から、その斉次元は高々 $d-1$ 個の生成元を掛ければ
+$d$ の倍数の次数へ達して零になるので、これらは tails-torsion である。
+
+$F$ が torsion を反映することも同様である。
+斉次元 $m$ に次数を $d$ の倍数へ合わせる長さ $<d$ の生成語を掛け、
+有限個の生成語の像を同時に消す次数上界を取ればよい。
+よって $F,G$ は torsion 同値を保ち、商上で互いに逆となる。
+$F(\mathcal O_A(-di))=\mathcal O_Q(-i)$ であるから、
+表示した切断関手は $\operatorname{Gr}Q\to\operatorname{QGr}Q$ の Gabriel 右随伴である。
+その完全忠実性が最後の主張を与える。
+\end{proof}
+
+\begin{theorem}[相対全 $\mathcal O$-保存同値の比較]
+\label{thm:nfm-full-hom-conditional}
+$R$ を可換 $\mathbf C$-代数、$n\geq3$, $d=n-1$ とする。
+$A,A'$ は定理\ref{thm:nfm-central-veronese}の普遍中心条件と平坦性を満たすとする。
+さらに任意の可換係数変更後に次の入力を仮定する。
+\begin{enumerate}
+\item 各 $A_j,A'_j$ は有限局所自由である。
+中心平坦性と補題\ref{lem:nfm-central-saturation}により、
+全整数 $j$ で標準切断写像は同型となり、負次数の Hom は零である。
+特に $\operatorname{End}(\mathcal O_A)=R$ であり、
+$C_d\subset A_d$ と $A'_d$ の対応する単射により $A_d,A'_d$ は忠実である。
+\item 全ての $\mathcal O_A(i)$ は $D(\operatorname{QGr}A)$ で compact であり、
+compact 部分は係数環上 proper な相対 Serre 双対を持ち、
+その Serre 関手は $(-d)[n]$ に同型である。$A'$ も同様である。
+\item 係数作用の延長、固定模型間の Hom の fpqc 降下、
+標準の Gabriel 局所化が与えられた族の係数変更と両立する。
+\end{enumerate}
+このとき自然な fpqc 層の同型
+\[
+ \underline{\operatorname{Isom}}_{\mathrm{gr},R}(A,A')/\mathbf G_m
+ \simeq
+ \underline{\operatorname{Eq}}_{\mathcal O,R}
+ (\operatorname{QGr}A,\operatorname{QGr}A')
+\]
+がある。右辺は構造対象を保つ全ての完全線型同値を自然同型で割った層である。
+構造対象上で恒等である自然自己同型は自明である。
+\end{theorem}
+
+\begin{proof}
+完全線型同値 $F$ は複体に項別に作用し、非有界導来圏と compact 部分を同定する。
+相対 Hom と係数双対を保つので、表現対象の一意性から Serre 関手と可換する。
+$H=\mathsf S^{-1}[n]=(d)$ とすると、$F(\mathcal O_A)=\mathcal O_{A'}$ と
+一つの可換同型 $FH\simeq H'F$ の正負の反復によって、
+全ての $\mathcal O_A(di)$ とその間の Hom・合成が対応する。
+補題\ref{lem:nfm-central-saturation}の切断飽和性により、次数付き同型
+$\phi:A^{(d)}\simeq(A')^{(d)}$ を得る。
+一つの可換同型を一貫して反復しているので、
+この同型は orbit 列全体の section $\mathbf Z$-代数の作用を記述する。
+
+補題\ref{lem:nfm-gabriel}により、その全 section 代数上の作用は
+元の関手 $F$ を自然同型まで決定する。
+定理\ref{thm:nfm-central-veronese}で $\phi$ を fpqc 局所的に
+$A\simeq A'$ へ持ち上げれば、その構造移送と $F$ は自然同型となる。
+これで層としての全射性を得る。
+
+構造移送が標識付き恒等関手となる次数付き自己同型を考える。
+各 $\mathcal O_A(di)$ 上の自然同型の成分は基底の単元であり、
+隣接 Hom $A_d$ の忠実性と合成の整合性から、その Veronese 上の作用は
+新次数 $j$ に $a^j$ を掛ける一つの次数スカラーとなる。
+fpqc 局所で $a$ の $d$ 乗根を取り、それを元の次数スカラーで除くと、
+残る作用は定理\ref{thm:nfm-central-veronese}の $\mu_d$ に属する。
+これも元の次数スカラーなので、核はちょうど $\mathbf G_m$ である。
+
+自然自己同型の各 orbit 線上の成分も、隣接 Hom の忠実性から全て等しい。
+$\mathcal O_A$ 上で恒等なら全て一であり、Gabriel 切断の完全忠実性から
+関手全体で恒等である。最後に仮定した Hom 降下と係数変更の整合性により、
+局所的に構成した比較は元の基底へ降下する。
+\end{proof}
+
+\begin{remark}[証明の状態と適用の境界]
+一般次元の中心三次量子化、次数付きモジュライ、中心 Veronese 復元だけでは、
+この定理の相対 Serre 入力を供給したことにはならない。
+一ブロック族の全係数上の有限 Koszul 対角解消、真正な相対双加群双対、
+compact 対象上の trace とその非平坦係数変更を別に構成する必要がある。
+それらが揃う場合には、$\mathfrak C_n$ は全 $\mathcal O$-保存 Abel 問題の全部分 stack へ移る。
+この条件付き結論から全 Abel モジュライの代数性・成分性や
+Kuznetsov 残余射の幾何化を推論しない。
+\end{remark}

@@ -1,0 +1,259 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{JacobiスキームとGrassmann錐の次元境界}
+\label{sec:nfold-jacobi-scheme}
+
+本節は、Poisson構造の被約な分類と、その未被約スキーム構造を区別する。
+$N=n+2\ge5$、$W=\mathbb C^N$とし、$F\in\operatorname{Sym}^3W^*$が
+滑らかな三次超曲面$X_F\subset\mathbb P(W)$を定めるとする。
+$\widehat{G}_N\subset\Lambda^3W$を$\operatorname{Gr}(3,W)$のPl\"uckerアフィン錐とし、
+$J_N\subset R_N:=\operatorname{Sym}((\Lambda^3W)^*)$をその斉次イデアルとする。
+双ベクトルのスカラーは割らない。
+
+\subsection{Hessian二次式によるスキームの表示}
+座標を$z_1,\ldots,z_N$、$F_i=\partial_iF$、
+$F_{ijr}=\partial_i\partial_j\partial_rF$とする。
+$P\in\Lambda^3W$に対し
+$q_P=\iota_{dF}P$と置く。
+既存稿\cite[命題\texttt{prop:pg-represent}]{NCCubicA}の
+Euler列とgradientのKoszul複体による表示は、
+\begin{equation}\label{eq:nfold-bivector}
+ \Lambda^3W\xrightarrow{\sim}H^0(X_F,\Lambda^2T_{X_F}),
+ \qquad P\longmapsto q_P|_{X_F}
+\end{equation}
+を与える。$F$を$aF$へ取り替えると$P$は$a^{-1}P$へ取り替える。
+以下のイデアルはこの選択に依存せず同型となる。
+
+$H\in\operatorname{Sym}^2W^*$について、
+\begin{align}\label{eq:nfold-hessian-B}
+ B_H(P)(\alpha,\beta,\gamma,\eta)
+ &=H(P(\alpha,\beta),P(\gamma,\eta))\notag\\
+ &\quad+H(P(\beta,\gamma),P(\alpha,\eta))
+       +H(P(\gamma,\alpha),P(\beta,\eta))
+\end{align}
+と定める。ここで$P(\alpha,\beta)\in W$は
+$\eta(P(\alpha,\beta))=P(\alpha,\beta,\eta)$で定める。
+$B_H(P)$は四つの共変ベクトルに関して交代的であり、$\Lambda^4W$の元である。
+$H_r=(F_{ijr})_{ij}$と置き、$I_F\subset R_N$を
+\begin{equation}\label{eq:nfold-jacobi-quadrics}
+ B_{H_r}(P)(dz_a,dz_b,dz_c,dz_d),
+ \qquad 1\le r\le N,\quad a<b<c<d
+\end{equation}
+で生成される二次斉次イデアルとする。
+
+\begin{lemma}\label{lem:nfold-jacobi-scheme}
+Poisson構造の自然なJacobi零スキームは
+\begin{equation}\label{eq:nfold-poisson-scheme}
+ \operatorname{Pois}(X_F)=\operatorname{Spec}(R_N/I_F)
+\end{equation}
+である。この同定は任意の可換$\mathbb C$-代数、特に非被約なArtin係数への
+基底変更と両立する。また
+\begin{equation}\label{eq:nfold-quadratic-inclusion}
+ I_F\subset J_N,\qquad
+ \dim_{\mathbb C}(I_F)_2\le N\binom N4
+\end{equation}
+が成り立つ。
+\end{lemma}
+\begin{proof}
+既存稿のJacobi延長の議論を、係数環を含めて確認する。
+$E=\sum z_i\partial_i$と標準体積形式のdivergence $\delta$を用いると、
+$q_P$は$\delta q_P=0$および$\iota_{dF}q_P=0$を満たす。
+$J=[q_P,q_P]$の射影化が$X_F$で零なら、Euler列と制限列から
+$J=FT+E\wedge B$、$T\in\Lambda^3W$、
+$B\in\operatorname{Sym}^2W^*\otimes\Lambda^2W$と書ける。
+$\delta J=0$と
+$\delta(E\wedge B)=NB-E\wedge\delta B$により
+$E\wedge B=-N^{-1}E\wedge\iota_{dF}T$。
+さらに$\iota_{dF}J=0$から
+$(1-3/N)F\iota_{dF}T=0$を得る。
+$N\ne3$、$F$は零因子でなく、$F_i$は定数係数で独立なので$T=0$、$J=0$となる。
+この議論は\cite[命題\texttt{prop:pg-jacobi-extension}]{NCCubicA}と同じものである。
+
+アフィンJacobiatorの$ijk$成分は、非零定数倍と符号を除いて
+\begin{equation}\label{eq:nfold-J-linearized}
+ \sum_a F_a L_a^{ijk},\qquad
+ L_a^{ijk}=
+ \sum_{r,b}\bigl(P^{ira}P^{jkb}+P^{jra}P^{kib}+P^{kra}P^{ijb}\bigr)F_{br}
+\end{equation}
+である。$F_1,\ldots,F_N$は二次式の正則列なので、
+一次式を係数とするsyzygyは存在しない。
+従って$J=0$と全ての$L_a^{ijk}=0$は同値であり、後者は
+\eqref{eq:nfold-jacobi-quadrics}に一致する。
+ここで用いた写像
+$\bigoplus_a\operatorname{Sym}^1W^*\to\operatorname{Sym}^3W^*$、
+$(\ell_a)\mapsto\sum\ell_aF_a$は、有限次元$\mathbb C$-ベクトル空間の
+分裂単射である。Euler列から得た有限次元の同型も分裂し、
+$F$による乗法も各次数で分裂単射である。
+従って任意の係数環へテンソルしても、上の同値は保たれる。
+これは複素点の集合の等式だけでなく、零スキームの等式を示す。
+
+$P$が分解可能なら、そのsupportの三次元部分空間に沿う
+Jacobian括弧となるため、任意の$F$についてJacobi恒等式を満たす。
+従って全ての生成二次式は$\widehat G_N$上で消え、$I_F\subset J_N$となる。
+最後の上界は\eqref{eq:nfold-jacobi-quadrics}の本数である。
+\end{proof}
+
+\begin{lemma}\label{lem:nfold-plucker-count}
+Grassmann錐の二次イデアルの次元は
+\begin{equation}\label{eq:nfold-plucker-count}
+ q_N:=\dim(J_N)_2
+ =5\binom{N+1}{6}=N\binom N5-\binom N6
+\end{equation}
+である。
+\end{lemma}
+\begin{proof}
+Pl\"ucker環の標準単項式基底を用いる
+\cite[\S2.4, Theorem~2.3]{BCMStandardMonomial}。
+三元部分集合を増加列として書き、成分ごとの順序を用いると、
+次数二の標準単項式は$p_Ap_B$、$A\le B$である。
+従って$(J_N)_2$の次元は、辞書式に$A\le_{\mathrm{lex}}B$と並べた
+三元部分集合対で、成分ごとには比較できないものの個数に等しい。
+二つ以上の添字を共有する対は比較可能である。
+和集合の大きさが五の場合、固定した五元集合上には比較不能な対が五個ある。
+添字を$1,\ldots,5$へ移した表示は
+\[
+ (125,134),\ (125,234),\ (135,234),\ (145,234),\ (145,235).
+\]
+和集合の大きさが六の場合も五個であり、
+\[
+ (126,345),\ (136,245),\ (145,236),\ (146,235),\ (156,234)
+\]
+である。従って$q_N=5\binom N5+5\binom N6=5\binom{N+1}{6}$を得る。
+\end{proof}
+
+\subsection{一般三次における被約化と未被約構造}
+ここで既存稿\cite[系\texttt{cor:pg-generic}]{NCCubicA}を明示的な入力とする：
+一般の滑らかな三次式$F$について、全ての非零Poisson構造は一般階数二であり、
+\eqref{eq:nfold-bivector}の下で分解可能な三重ベクトルに対応する。
+これは既存稿の全次元正規形と高階数層の次元評価の帰結である。
+したがって、ある非空Zariski開集合上で
+\begin{equation}\label{eq:nfold-reduced-cone}
+ \sqrt{I_F}=J_N
+\end{equation}
+となる。以下では、この被約化の主張からは決まらないスキーム構造を調べる。
+
+\begin{theorem}[八次元以上のJacobiスキームの非被約性]
+\label{thm:nfold-high-dimensional-nilpotents}
+$n\ge8$、すなわち$N\ge10$とする。
+任意の滑らかな三次式$F$に対し$I_F\ne J_N$であり、
+頂点での完備局所環も$\widehat G_N$の頂点完備化と同型ではない。
+さらに\eqref{eq:nfold-reduced-cone}を満たす一般の$F$について、
+$\operatorname{Pois}(X_F)$は非被約であり、その被約化は$\widehat G_N$である。
+冪零根基の次数二部分は少なくとも
+\begin{equation}\label{eq:nfold-nilpotent-lower-bound}
+ \delta_N:=5\binom{N+1}{6}-N\binom N4
+ =\frac{N(N-1)(N-2)(N-3)(N^2-9N-4)}{144}>0
+\end{equation}
+次元を持つ。
+特に$n=8$では$\delta_{10}=210$である。
+\end{theorem}
+\begin{proof}
+補題\ref{lem:nfold-jacobi-scheme}と\ref{lem:nfold-plucker-count}から
+\[
+ \dim (J_N)_2-\dim (I_F)_2\ge\delta_N>0
+\]
+となり、$I_F\subsetneq J_N$である。
+\eqref{eq:nfold-reduced-cone}の下では$J_N/I_F$が冪零根基であり、
+その二次部分は少なくとも$\delta_N$次元である。
+
+頂点の極大イデアルを$\mathfrak m$とする。
+$I_F$も$J_N$も二次斉次式で生成され、一次部分は零なので、
+対応する局所環の$\mathfrak m/\mathfrak m^2$はともに次元$\binom N3$であるが、
+$\mathfrak m^2/\mathfrak m^3$の次元には少なくとも$\delta_N$の差がある。
+この数は局所環の抽象同型および完備化で不変だから、完備局所環は同型でない。
+冪零根基の次数二の元が局所化で消えないことも、定数項が非零の多項式を掛けて
+$I_F$に入るなら、その二次成分を比較して元の二次式が$I_F$に入ることから分かる。
+\end{proof}
+
+\begin{remark}[被約な分類と形式変形]
+この定理は、一般の高次元三次でも非零Poisson構造の複素点が
+Grassmann錐をなすことと両立する。
+相違は非被約係数を許したJacobiスキームに現れる。
+ここから全Abel圏変形の形式環との同一視を結論してはいない。
+その比較には、相対formality、非可換模型の平坦性、および降下の独立した証明が必要である。
+少なくとも、被約なPoisson分類だけから全Artin変形を
+Grassmann錐の完備化に置き換えることはできない。
+\end{remark}
+
+\subsection{七次元以下の一般三次に対する計算補助定理}
+\begin{theorem}[一般三次のJacobiイデアルがPl\"uckerイデアルとなる範囲]
+\label{thm:nfold-low-dimensional-generic}
+$3\le n\le7$、すなわち$5\le N\le9$とする。
+滑らかな三次式のパラメータ空間には非空Zariski開集合が存在し、
+その上で$I_F=J_N$が成り立つ。
+従って一般の$X_F$のPoissonスキームは、被約化を取る前から
+$\operatorname{Gr}(3,N)$のアフィン錐である。
+局所的に三次式の代表を選んだ相対Poissonスキームも、この開集合上で
+Grassmann錐との積になる。
+$n=3$で全ての滑らかな三次に対する等式は既知であり
+\cite[Theorem~1, \S2.2]{Mayanskiy}、ここで新たに用いるのは$n=4,5,6,7$の
+有限行列による一般点の判定である。
+\end{theorem}
+\begin{proof}
+補題\ref{lem:nfold-jacobi-scheme}から$(I_F)_2\subset(J_N)_2$である。
+従ってJacobi二次式の係数行列が階数$q_N$を持つ三次テンソルが一つあれば十分である。
+この階数条件は三次式の係数に関する非空Zariski開条件であり、
+滑らかな三次式の非空開集合と交わる。
+Pl\"uckerイデアルは二次式で生成されるので、二次部分の一致からイデアル全体の一致が従う。
+
+再現コード\path{computations/verify_jacobi_rank.py}と
+証明書\path{computations/jacobi_rank_certificate.json}は、各$N$に対して
+対称整数テンソル$T_{ijr}$を明示している。
+対応する三次式は
+$F_T=\frac16\sum_{i,j,r}T_{ijr}z_i z_j z_r$であり、Hessianの$z_r$係数は$T_{ijr}$である。
+行は$(r,a<b<c<d)$、列は辞書式に並べたPl\"ucker変数の非順序二次単項式で添字付ける。
+行列の各行は
+\begin{equation}\label{eq:nfold-certificate-matrix}
+ \sum_{i,j}T_{ijr}
+ \bigl(p_{abi}p_{cdj}+p_{bci}p_{adj}+p_{cai}p_{bdj}\bigr)
+\end{equation}
+の係数であり、添字の重複を持つ$p$は零、その他は交代符号で増加順に直す。
+証明書は小行列の行番号・列番号と、法$32003$での非零行列式を含む：
+\begin{center}
+\begin{tabular}{c|r|r|r}
+$N$ & Jacobi二次式の本数 & 小行列の次数$q_N$ & 行列式$\bmod 32003$\\
+\hline
+5 & 25 & 5 & 15512\\
+6 & 90 & 35 & 14374\\
+7 & 245 & 140 & 7973\\
+8 & 560 & 420 & 508\\
+9 & 1134 & 1050 & 13073
+\end{tabular}
+\end{center}
+法素数で非零の整数行列式は特性零でも非零である。
+ここでは有限体での零を特性零の恒等式と見なす推論を使っていない。
+証明書の生成と、指定された小行列の行列式の再計算は別の手順で実行する。
+
+最後に、ある小行列式が可逆な係数開集合では、
+Jacobi二次式から$(J_N)_2$の固定基底を係数環上で解き出せる。
+従って相対イデアルも$J_N$の係数拡大に等しく、相対積表示を得る。
+\end{proof}
+
+\subsection{非零階数二層と特殊な高階数構造}
+$M_n=\binom{n+4}{3}-(n+2)^2$を滑らかな三次$n$-foldのモジュライの次元とする。
+既存稿の被約階数二層の記述から、非零Poisson対の被約階数二モジュライは
+\begin{equation}\label{eq:nfold-rank-two-dimension}
+ M_n+\dim\widehat G_N=M_n+3n-2
+\end{equation}
+次元の滑らかなDeligne--Mumford stackであり、三次モジュライへの忘却射は
+相対次元$3n-2$の滑らかな全射である。
+実際、三次式の係数開上では、これは
+$\mathcal O(-1)$で捻ったGrassmann錐の頂点を除いた束である。
+その相対次元は$3(N-3)+1=3n-2$であり、
+$\operatorname{PGL}(W)$の商を取ると上式を得る。
+滑らかな三次の射影自己同型群は有限なので商はDeligne--Mumfordである。
+この次元はPoisson対の底の次元であり、固定した量子化パラメータで得られる
+非可換Abel圏の同型類の像の次元を意味しない。
+また$n\ge8$では、この滑らかな被約層から未被約な全Jacobiスキームの構造は決まらない。
+
+全ての滑らかな三次に対するGrassmann表示は、$n\ge4$では複素点の集合としても偽である。
+例えば
+\begin{equation}\label{eq:nfold-fermat-rank-four}
+ F=z_1^3+\cdots+z_N^3,\qquad
+ P=e_1\wedge e_2\wedge e_3+e_4\wedge e_5\wedge e_6
+\end{equation}
+は、二つの独立なJacobian括弧の和としてPoisson構造を与え、一般階数は四である。
+$P$のsupportは六次元なので分解可能でない。
+$N=6$ではEuler方向が像に入る条件が
+$z_1^3+z_2^3+z_3^3=z_4^3+z_5^3+z_6^3=0$であり、$X_F$の真の閉集合をなす。
+$N>6$では一般点のEuler方向が残りの座標成分を持つので、やはり射影化で階数は落ちない。
+従って、一般の三次に関する定理と、特殊な三次の全Poisson構造の分類を区別する必要がある。
