@@ -1,6 +1,6 @@
 # Research instructions
 
-2026-11-20 / v7.
+2026-11-20 / v8.
 
 Read `00_research_plan.md` first, then `notes/research_notes.md` and the current paper. The common principles and standing authorization in the research plan apply to all work in this repository.
 
@@ -18,7 +18,7 @@ Read `00_research_plan.md` first, then `notes/research_notes.md` and the current
 
 - Pursue results uniform in n. The central goals are O-marked moduli, point schemes, a morphism to moduli of Poisson varieties, and comparison with the Kuznetsov components of the same underlying varieties; equivalence is a research expectation, not an established result on all components.
 - Prioritize general or very general objects of each irreducible component. Distinguish dense Zariski opens, geometric generic points, and complements of countably many proper closed subsets. Do not identify a one-block presentation component with all components of the intrinsic moduli.
-- Treat the degree-one shift and presentation as auxiliary unless their recovery from (C,O) is proved. The trace–Hessian map identifies a good Poisson open, but the pinned residual input gives uniform counterexamples to its compatibility with Ku. Keep that obstruction. The algebraic Hessian–trace correction now descends to a nonempty O-marked open; the fixed-formality tensor preserves support to all orders, and the split Hesse family has a conditional all-order residual comparison. Next compare the general mixed coefficients to all orders and descend the residual equivalence. Do not identify the algebraic correction with the entire formal inverse, or infer algebraization from finite jets. Distinguish marked finite-jet obstructions from unmarked generic-fiber non-equivalence.
+- Treat the degree-one shift and presentation as auxiliary unless their recovery from (C,O) is proved. The trace–Hessian map identifies a good Poisson open, but the pinned residual input gives uniform counterexamples to its compatibility with Ku. Keep that obstruction. The algebraic Hessian–trace correction now descends to a nonempty O-marked open; the fixed-formality tensor preserves support to all orders, and the split Hesse family has a conditional all-order residual comparison. The correction is generically finite étale of degree 9 on quotient stacks. In the fixed harmonic model c2 vanishes and parity gives W = Hsharp modulo h4, but the tensor differs at order h5 on a dense open by the active quartic invariant. The full mixed order-five tensor is reduced to two unevaluated universal constants beta/gamma; the order-four geometric obstruction additionally needs the pure-central term, while the scalar multiple of F vanishes in the full Jacobi ring. Next evaluate these constants and the central term, then compare the underlying cubics and descend the residual equivalence. Keep tensor scale distinct from the cubic and Ku comparison; do not infer algebraization from finite jets. Distinguish marked finite-jet obstructions from unmarked generic-fiber non-equivalence.
 - Study boundaries and dimension-specific examples when they resolve a concrete obstruction to these general goals. Retain all valid existing proofs and exact certificates; do not make successive dimension-specific Hilbert calculations the default next task.
 
 ## Maintain research-hub

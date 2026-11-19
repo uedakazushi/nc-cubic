@@ -91,4 +91,47 @@ assert num_poly.degree() == 9 and den_poly.degree() == 6
 assert s.gcd(num_poly, den_poly).degree() == 0
 print("PASS: framed two-parameter correction has generic degree nine")
 
+
+
+x, y, z, p, q, b = s.symbols("x y z p q b")
+g = p * (x**3 + y**3 + z**3) / 3 + q*x*y*z
+hess = s.hessian(g, (x, y, z))
+P = p*(1-q*q/4)
+Q = q+p**3/3+q**3/12
+assert s.expand(g+hess.det()/24-(P*(x**3+y**3+z**3)/3+Q*x*y*z)) == 0
+assert s.factor(s.det(s.Matrix([P, Q]).jacobian([p, q]))-(8*p**3*q-q**4+16)/16) == 0
+print("PASS: Hesse correction and two-dimensional Jacobian")
+
+mons = [x*x, y*z, y*y, z*x, z*z, x*y]
+L = s.zeros(6)
+for j, mon in enumerate(mons):
+    image = s.Poly(mon+s.trace(hess.adjugate()*s.hessian(mon, (x,y,z)))/24, x,y,z)
+    for i, out in enumerate(mons):
+        L[i,j] = image.coeff_monomial(out)
+assert s.factor(L.det()-(1+(8*p**3*q-q**4)/144)**3) == 0
+print("PASS: mixed quadratic block determinant")
+
+# Optional, not needed for generic degree 9: derivative on all active cubics.
+mons3 = [x**3,y**3,z**3,x*x*y,x*x*z,x*y*y,y*y*z,x*z*z,y*z*z,x*y*z]
+J = s.zeros(10)
+for j, mon in enumerate(mons3):
+    image = s.Poly(mon+s.trace(hess.adjugate()*s.hessian(mon,(x,y,z)))/24,x,y,z)
+    for i, out in enumerate(mons3):
+        J[i,j] = image.coeff_monomial(out)
+R = s.cancel(P*(P**3+Q**3)/(p*(p**3+q**3)))
+assert s.factor(J.det()-(1+(8*p**3*q-q**4)/16)*R**2) == 0
+print("PASS: active 10-dimensional derivative determinant")
+
+# Optional monodromy certificate over the line p'=1.
+poly = -q**9+12*b*q**6+96*q**5-144*b*q**4-512*q**3+576*b*q**2+768*q-768*b+256
+branch = (59049*b**10-19683*b**9-1574640*b**8+708588*b**7
+          +14870871*b**6+25194240*b**5-63004392*b**4
+          +298539351*b**3-100776960*b**2+428452416*b+148976413)
+disc = s.resultant(poly, s.diff(poly,q), q)
+assert s.cancel(disc/branch) == 363087263602825104457728
+assert s.gcd(s.Poly(branch,b),s.Poly(s.diff(branch,b),b)).degree() == 0
+assert s.degree(branch,b) == 10
+assert s.gcd(s.Poly(poly,q),s.Poly(1-q*q/4,q)).degree() == 0
+print("PASS: ten distinct simple finite branch values; framed monodromy S9")
+
 print("All Poisson-correction identities verified over rational function fields.")

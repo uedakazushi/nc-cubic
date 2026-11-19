@@ -1,8 +1,8 @@
 # 非可換三次 n-fold：現行稿の検証範囲
 
-2026年11月20日 / v7。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
+2026年11月20日 / v8。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
 
-本版では、全次元の代数的 Hessian–trace 補正、その支配性・étale 性・全 O-降下、楕円点曲線との一致、固定 formality の正規化・support 保存・形式中心比較、split Hesse 族の全次数の残余比較を統合した。新しい証明を執筆担当以外が読解点検し、統合時にも仮定・係数・引用を確認した。新しい有限式は有理係数の厳密記号計算で検算した。
+本版では、全混合係数を含む補正射の一般次数9、三次スカラー c₂の消滅、harmonic-angle 模型の偶奇性、純 active 五次 tensor と一般混合係数の制限障害、全混合五次項の二定数への還元を統合した。次数定理・スカラー消滅・偶奇性・五次共変式の各証明は、執筆担当以外による読解点検と統合時の点検を行った。新しい有限式は有理数上の厳密計算で検算した。既存のモジュライ・点復元・形式 support 保存・split 残余比較の証明は保持した。
 
 既存の Jacobi 証明書・検証器、中心評価コード、幾何補正コードは、前の保存済み tree の Git blob SHA と手元の SHA-256 で内容不変を確認した。これらの既存計算は本版で再実行していない。未公表の完備 MF・一般点復元・coherent 飽和性の全証明の独立検証、外部査読、形式証明とは区別する。
 
@@ -27,6 +27,8 @@ Artebani–Dolgachev の公刊版§2、Lemma2.1 と式(4)–(5)・p.240を本文
 
 Antieau–Krashen–Ward arXiv:1409.2580 の Theorem2.2 と証明を確認し、原点を持つ楕円曲線の導来同値から同型への帰結を使用した。De Laet–Le Bruyn arXiv:1405.1158v1 の §2 p.3 にある巡回和の中心元も直接確認した。この式は Rains の非巡回式とは引用箇所を分けた。追加した四文献の刊行年・巻・頁・DOIを出版社の情報と照合した。固定入力Bの `field_model.tex`, `generic_descent.tex`, `coherent_saturation.tex` の該当定理文と仮定を固定commitから読み、`gcd:prop:automatic-as`、`rog:lem:localization`, `rog:lem:descent`、`crs:prop:residual-smooth`, `crs:thm:coherent` の役割を区別した。線束生成残余部分から全 coherent 残余圏へ移る入力を、有限降下だけで代用しない。
 
+今回、Kontsevich の harmonic-angle 配置空間と向き（著者最終稿§§2.2,6.2）を反射による偶奇性と照合した。Lindberg–Pym arXiv:2408.16685v1 §1.6と§6.7 Theorem6.9、Remark6.10を一次資料で確認し、qが原生成元の星積係数比であること、元のKontsevich formalityが適用範囲に含まれること、任意stable formalityへの拡張に残る条件を点検した。Ciliberto–Ottaviani arXiv:2006.07213v1 Theorem5.7とp.17の二回合成、Ottavianiの2024年刊行版§3のAronhold不変式の25項・古典的縮約も確認し、今回の射や応用と既知の構成要素を区別した。限定的な文献検索で今回の普遍五次公式と混合次数定理の既出箇所は確保できていないが、新規性が確認済みという意味ではない。
+
 ## 2. 証明の記載と読解点検
 
 現行の中心復元、次数付きモジュライ、相対双対、点関手、Jacobi 方程式、残余圏の形式認識の証明を保持した。固定模型の降下、Picard 障害と明示例、Koszul/apolar 同定、八次元の全 Hilbert 関数、横断切片・retract には、執筆担当以外の担当による読解点検と統合時の点検を行った。これは外部査読や形式検証ではない。
@@ -47,9 +49,13 @@ Antieau–Krashen–Ward arXiv:1409.2580 の Theorem2.2 と証明を確認し、
 | 幾何補正 | F_tの滑らかさ因子、全nに一様なJacobi双対証明書、trace補正u³の非消滅、係数空間の非空開 | 入力の中心性を使用。入力定数族との差と残余復元との差を区別 |
 | split Hesse 比較 | exact λ_THとλ_res、j差、symmetrizerの可換代数性と唯一rank3 primitive、固定Πの全smooth cubic Casimirへの障害 | 残余の同定は固定入力Bを使用。rotation保存dg Morita同値なし。n≢1 mod3でのみrotationなしの結論 |
 | 一般混合係数の二次 jet | Dito二次式、Θ=−2adj、ρ₂F=Hess/8、inner二輪消滅、h⁴境界のJacobi消滅、Jacobi束切断Δ₂の非消滅開 | 指定formality模型・MF/window入力の下で複素点のmarked形式比較を妨げる。完備MF同値自体の任意基底版・一般混合係数のunmarked一般点非同値は未主張 |
-| 代数的 Poisson 補正 | Hessian 縮約と trace の座標共変性、方程式直線の尺度、任意基底変更、flag 付き零切断での微分、étale・支配性、全 O-降下 | 出力と active 制限が滑らかな非空開。有理自己同型・全次数の formality 逆写像とは未同定 |
+| 代数的 Poisson 補正 | Hessian 縮約と trace の座標共変性、方程式直線の尺度、任意基底変更、flag 付き零切断での微分、étale・支配性、全 O-降下 | 出力と active 制限が滑らかな非空開。次数9により非双有理。固定 tensor は五次で形式逆と異なる稠密開あり |
+| 補正射の一般次数 | ψの基点なしP²拡張・次数9、SL₃×A²被覆の微分と次数乗法性、混合の三角復元、traceのf₀独立性、全分枝を残す開、同一群の商への降下 | 全n≥3、商stack上の表現可能有限étale階数9。粗モジュライ次数は別。未公表MF入力に依存しない |
 | 点曲線との一致 | 普遍 determinant 恒等式、adjugate による incidence の scheme 的因子化、相対 rank2 の核直線、左右射影 | Mori–Smith の既知公式。shift 付き対応全体と定常成分の同一視は含めない。零パラメータの実際の点スキームは別 |
-| 全次数の形式 tensor | 最初の差による正規化一意性、有限 graph 再帰、被約普遍係数上の恒等式と任意底変更、単位正規化、線型中心保存、Koszul と次数による scalar factorization、中心逆像 | 固定 formality・固定 h・PBW/存在入力。滑らかな Poisson 対には全 F も滑らかと仮定。形式 scalar c₂未評価、有限 Artin 中心とは区別 |
+| 全次数の形式 tensor | 最初の差による正規化一意性、有限 graph 再帰、被約普遍係数上の恒等式と任意底変更、単位正規化、線型中心保存、Koszul と次数による scalar factorization、中心逆像 | 固定 formality・固定 h・PBW/存在入力。滑らかな Poisson 対には全 F も滑らかと仮定。c₂=0を別途証明。有限 Artin 中心とは区別 |
+| c₂と偶奇性 | 普遍係数の多項式性と原始係数ベクトルによる分母除去、二次SL₃不変式の消滅、混合制限、配置空間と商群の反射符号、中心写像と反対積 | h独立の二次関係、指定harmonic-angle模型、偶数Weyl中心元。W≡H♯ mod h⁴、π≡Π♯ mod h⁵ |
+| 五次tensor | smooth split拡張からのclosedness、Euler積分、最高ウェイト(7,4,4)の重複度、原生成元q比とPBW同型、Sの規格化、混合制限と非空稠密開 | 純active公式とmixed制限。mixed π₅は別命題で二定数へ還元。W₄やKu非同値をこの式だけでは決めない |
+| 全混合五次項の還元 | Weyl再帰の局所jet性、型qT⁴/M²T³、次元1+2、ε縮約I,J、det−35/3、独立Taylor jetの斉次実現、純active普遍恒等式、中心平行移動、[F]=0による尺度項除去 | 二普遍定数β,γと中心項G₄は未評価。graph weightsやJacobi非消滅の決定は含まない |
 | split 族の正の残余比較 | 独立 λ,s の中心係数と TH 出力、点曲線 ν、Heisenberg 同変性、j 分岐点を含む形式枝、active scale、固定標的への有限降下と coherent 飽和性 | 全 n≥3・各固定 λ、1+λ³≠0。MF・window・生成性・有限降下・coherent 飽和性は固定入力。一般混合係数や全 O-同値への残余同値の降下は含まない |
 | Jacobi の二次式と既知結果 | 全係数環の式、Plücker 空間、普遍核、ρK/2 の係数と符号、Koszul strand の双対、N=5 の終端、total Betti 数から必要な graded Betti 数への帰着 | N≥11 の一般階数の最大性は未決定。一般 Koszul 性から β₄,₆=0 を推論しない |
 | 八次元の頂点 | I₃=J₃ から全次数の一致、J/I=C(−2)^330、socle・飽和・根基、非分裂性、任意底変更の相対版、一次分解 | この結果は一般点被約分類に依存しない。長さ330は J/I の長さであり、明示した m-primary 成分の商 R/Q の長さ5401とは異なる |
@@ -142,28 +148,36 @@ traceについては、別担当がGroebner基底と八次乗法行列を別実�
 
 ### Poisson 補正の新しい厳密検算
 
-`python3 computations/verify_poisson_correction.py` を実行し、SymPy 1.14.0 で全assertionと7個のPASSを確認した。独立した十個の三次係数、六個の対称行列係数、独立な λ,s を用い、浮動小数点・補間・有限標本への特殊化を使わない。
+`python3 computations/verify_poisson_correction.py` を実行し、SymPy 1.14.0 で全assertionと11個のPASSを確認した。独立した十個の三次係数、六個の対称行列係数、独立な λ,s を用い、浮動小数点・補間・有限標本への特殊化を使わない。
 
 - `adj(C(p))=ppᵀ` と `det(C(p)+tM)=t pᵀMp+t³det M`。
 - 全三変数三次での Euler–Hessian 恒等式と点曲線 `g+s²det(Hess(g))/24`。
 - 二パラメータ Hesse 係数 A,B,ν、変位 ν−λ、中心元の係数を既知の cyclic 式から変換した恒等式、Hessian 正規化と h⁴ 項。
 - Sklyanin 点曲線の係数と移動切断、λ=s=h での固定入力の式、二次・四次係数。
 - 方程式直線の rescaling と active 座標だけによる規格化。
-- 研究ノートの framed 二パラメータ chart における一般次数9。分子次数9・分母次数6・多項式 gcd が1であることを有理関数体で確認し、intrinsic moduli の次数とは扱わない。
+- 研究ノートの framed 二パラメータ chart における一般次数9。分子次数9・分母次数6・多項式 gcd が1であることを有理関数体で確認した。全混合係数と商 stack の次数9には別途本文の証明を使う。
+- 混合二次項の線型写像Lの6×6行列式、active全十係数での微分行列式。
+- framed p′=1 被覆の判別式の全係数とresultant、次数10・平方因子なし。S₉という群の帰結は研究ノートの位相的議論を併用する。
 
 Hesse 係数と cyclic 中心式の変換は、別担当の短い独立実装でも確認した。共有 repo には重複実装を残さず、上の検証器へ必要な assertion を統合した。この検算自体は非可換中心性、formality の存在、MF 同値、有限降下を機械的に証明するものではない。
 
+### 五次共変式の厳密検算
+
+`python3 computations/verify_cubic_covariants.py` を実行した。Python標準ライブラリの整数とFractionのみを使い、次数1〜8の三次共変式の重複度 `1,0,1,0,1,0,2,0`、不変式の次数2,4,6の重複度 `0,1,1` を有限の重み計数で確認した。四つのε縮約の6⁴項を有理数として展開し、Sが25個の整数係数単項式を持つこと、S(xyz)=1、S(g_λ)=λ(λ³−8) を確認した。五次tensorの係数1/80はこの計算だけから得たものではなく、Lindberg–Pymの既知定理と本文のPBW・一意性の証明を用いる。Kontsevichグラフ重みを直接積分した検証や形式証明器による確認ではない。
+
+同じ検証器で混合jet型の重複度1,2、三つの勾配共変式の独立性の行列式−35/3、I(g)=J(g)=S(g)gの比例係数を確認し、3個の追加PASSを得た。重み計数は別担当が別の多重集合列挙でも照合した。保存コードは共通の有限重み計数を共有し、重複実装を残していない。β,γ、a₄、純中心W₄とJacobi類の値は未計算である。
+
 ## 6. ソース・組版の確認
 
-`python3 scripts/check_sources.py` は14個のTeXソース、198個の相異なるラベル、116個の参照ラベル、46個の引用キーについて成功した。方針・README・研究ノート・本書から参照する現行本文ラベルも照合した。本文の著者欄とPDFのauthorメタデータは空である。分割原稿のroot指定、LuaLaTeXとlatexmk、PDF・SyncTeXの `build/` 出力を確認した。既存の有効なビルド・エディタ設定を保持した。VS Code UIによる実行はしていない。
+`python3 scripts/check_sources.py` は14個のTeXソース、215個の相異なるラベル、126個の参照ラベル、49個の引用キーについて成功した。方針・README・研究ノート・本書から参照する現行本文ラベルも照合した。本文の著者欄とPDFのauthorメタデータは空である。分割原稿のroot指定、LuaLaTeXとlatexmk、PDF・SyncTeXの `build/` 出力を確認した。既存の有効なビルド・エディタ設定を保持した。VS Code UIによる実行はしていない。
 
-最終ソースからLuaLaTeX 1.24.0・latexmkで組版を完了した。PDFが全TeXソースより新しく、新しく追加した一次文献を含むことも確認した。生成PDFは109ページ、1147096 bytes、SHA-256は次の通り。
+最終ソースからLuaLaTeX 1.24.0・latexmkで組版を完了した。PDFが全TeXソースより新しく、新しく追加した一次文献を含むことも確認した。生成PDFは119ページ、1219649 bytes、SHA-256は次の通り。
 
 ```text
-a4b1eaa40f96894f1815fb1d035cc61c0d2cc15f99344d84906a016b5eafed40
+baa249a404ae47934cd880e48af9a88d8158749b0d017360b931ec534758e738
 ```
 
-全109ページを画像化し、10枚の一覧ですべてを目視した。冒頭と新しい補正・形式中心・split比較の主要ページを拡大確認した。長い関係式の表示を分割してはみ出しを修正し、最終版では文字の重なり・欠けを認めず、全ページの文字領域の端点検査も通過した。最終ログに未定義参照・未定義引用・missing character・overfull・underfullはない。
+全119ページを画像化し、10枚の一覧ですべてを目視した。冒頭、主定理、次数9、c₂、偶奇性、五次共変式、混合還元、書誌の主要ページを拡大確認した。Weyl係数式を独立行の数式にしてはみ出しを修正し、最終版では文字の重なり・欠けを認めず、全ページの文字領域の端点検査も通過した。最終ログに未定義参照・未定義引用・missing character・overfull・underfullはない。
 
 環境由来の `lltjp-array` の `@tabular 2` patch診断と、4.5ptの数式フォントを5ptへ置換する警告は残る。表と数式の表示は画像で確認し、組版エラーや本文の欠落は認めなかった。警告が一切ない組版、または異なる環境で同じPDFハッシュが得られることは主張しない。
 

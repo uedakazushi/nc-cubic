@@ -65,6 +65,8 @@ $\mathfrak P_n^{\mathrm{ell}}$ と書く。
 であり、同じ $K$ と $U$ を持つ Poisson tensor である。
 
 この有理射は支配的で、非空開への制限は \emph{\'etale} である。
+さらに定理\ref{thm:nfm-correction-degree-nine}で、始域と終域を適切に縮めると
+有限 \emph{\'etale} で階数 $9$ となることを示す。
 従って定理\ref{thm:poisson-good-open-isomorphism}を介し、
 $\mathfrak M_n^{\mathrm{sm}}$ の非空開から Poisson 対のモジュライへの射を与える。
 必要なら定義域をさらに縮め、出力も $\mathfrak P_n^{\mathrm{good}}$ に入るようにできる。
@@ -199,7 +201,7 @@ Hessian 正規化中心元の trace--Hessian 出力に $\Phi$ を適用すると
 \[
  H^\sharp
  =F+\frac{h^2}{24}\mathscr H_F+h^4\tau_F(\Psi_\lambda(F)),
- \qquad H^\sharp\equiv W^{\mathrm{res}}\pmod{h^3}.
+ \qquad H^\sharp\equiv W^{\mathrm{res}}\pmod{h^4}.
 \]
 その強い lift は
 \[
@@ -214,6 +216,8 @@ active な勾配、Hessian、および $\tau_F$ は変わらない。
 従って $\mathcal D_{hP_0}(H^{\mathrm{TH}})=h^2\mathscr H_F$ となり、
 二つの trace 項が相殺して表示した式を得る。
 tensor の式は純中心項の縮約が零であることから従う。
+残余二次 jet と以下の系\ref{cor:nfm-mixed-even-jet}の偶奇性により、
+合同の剰余は $h^4$ まで改善する。
 この計算は $h\ne0$ の対に対する代数的処方を当該 trait に沿って延長したもので、
 可換特殊点全体の O-marked moduli に非零 Poisson tensor を付与するものではない。
 \end{proof}
@@ -226,6 +230,189 @@ $\Phi$ は特定の formality の全次数の逆写像として定義したも�
 従ってその tensor との比較には、potential と support の比較に加えて尺度を追跡する。
 全次数での $\operatorname{Ku}(V(H^\sharp))$ との同値、
 またはこの処方の一意性は、二次 jet の一致からは従わない。
+\end{remark}
+
+\subsection{一般混合係数における補正射の次数}
+\label{sec:nfm-correction-degree}
+
+Hessian 補正の零切断に沿う形式逆写像は、大域の有理逆写像ではない。
+この相違は分離型の族に限らず、任意次元の一般混合係数で定量化できる。
+以下の次数は、同じ射影座標群による商 stack の間の表現可能射の次数である。
+粗モジュライの関数体の次数を、慣性群の比較なしに言い換えてはいない。
+Hesse pencil と同変性による還元は、射影的な純 Hessian 写像の次数三を扱う
+Ciliberto--Ottaviani\cite[Section~5, Theorem~5.7]{NFMCilibertoOttaviani}にも現れる。
+本稿で数えるのは $f\mapsto f+\det\operatorname{Hess}(f)/24$ とその混合拡張であり、
+純 Hessian 写像の二回合成の次数九とも異なる。
+
+\begin{theorem}[補正射の一般次数]
+\label{thm:nfm-correction-degree-nine}
+任意の $n\geq3$ に対し、代数的 Hessian--trace 補正
+\[
+ \Phi:\mathfrak P_n^{\mathrm{ell}}\dashrightarrow
+       \mathfrak P_n^{\mathrm{ell}}
+\]
+の一般次数は $9$ である。
+より正確には、始域と終域に非空開部分 stack を取ると、$\Phi$ は
+表現可能な有限 \emph{\'etale} 射で、階数は $9$ となる。
+両方の開を $\mathfrak P_n^{\mathrm{good}}$ に含めてよい。
+従って既存の $\mathfrak M_n^{\mathrm{sm}}\simeq
+\mathfrak P_n^{\mathrm{good}}$ を介しても、同じ次数の射を得る。
+特に、この補正射自身は有理同型ではない。
+\end{theorem}
+
+\begin{proof}
+まず support $K$ を固定し、その体積三重ベクトル $P_0$ を選ぶ。
+局所表示 $P=sP_0$ に対し、方程式の生成元変更によって
+$(H,sP_0)$ を $(F,P_0)$、$F=sH$ と同一視する。
+この表示における補正は
+\begin{equation}\label{eq:nfm-normalized-correction-map}
+ F\longmapsto F+\frac1{24}\Delta_F
+                  +\frac1{12}\tau_F(\Delta_F),
+ \qquad \Delta_F=\det\operatorname{Hess}_K(F).
+\end{equation}
+trace は $F$ の純中心部分に依存しない。
+
+\smallskip\noindent
+\textbf{active な三次の次数。}
+三次元の体積座標 $(x,y,z)$ における多項式写像
+\[
+ \phi_3:\operatorname{Sym}^3\mathbf C^3{}^*
+   \longrightarrow\operatorname{Sym}^3\mathbf C^3{}^*,
+ \qquad f\longmapsto f+\tfrac1{24}\det\operatorname{Hess}(f)
+\]
+を考える。$g_{p,q}=p(x^3+y^3+z^3)/3+qxyz$ とおくと
+\[
+ \phi_3(g_{p,q})=g_{\psi_1(p,q),\psi_2(p,q)},\qquad
+ \psi(p,q)=\left(p(1-q^2/4),\ q+p^3/3+q^3/12\right).
+\]
+この $\psi$ は、射影平面の射
+\begin{equation}\label{eq:nfm-projective-correction-chart}
+ [p:q:t]\longmapsto
+ [3p(4t^2-q^2):12qt^2+4p^3+q^3:12t^3]
+\end{equation}
+へ拡張する。$t\ne0$ では最後の成分が零でなく、$t=0$ では
+$pq^2=4p^3+q^3=0$ の非零解はないので基点はない。
+この射は $\mathcal O(1)$ を $\mathcal O(3)$ に引き戻す。
+従って有限かつ次数 $3^2=9$ である。
+無限遠直線の逆像は同じ無限遠直線なので、$\psi$ 自身も有限であり、
+滑らかな二次元の始域と終域の間の有限射として平坦、階数 $9$ となる。
+
+ここで
+\[
+ \vartheta:\operatorname{SL}_3\times\mathbb A^2
+    \longrightarrow\operatorname{Sym}^3\mathbf C^3{}^*,
+ \qquad (A,p,q)\longmapsto A\cdot g_{p,q}
+\]
+は支配的かつ一般に有限である。
+実際、$(1,1,0)$ における微分は、$\mathfrak{sl}_3$ の非対角成分から
+六つの $x_i^2x_j$、対角成分から二つの $x_i^3$ の差、$p,q$ から
+$x^3+y^3+z^3$ と $xyz$ を与える。これらは十次元の三次式空間の基底である。
+Hessian は $\operatorname{SL}_3$ 同変なので
+\[
+ \vartheta\circ(1\times\psi)=\phi_3\circ\vartheta.
+\]
+一般次数の乗法性により
+\[
+ (\deg\vartheta)\,9=(\deg\phi_3)(\deg\vartheta),
+ \qquad \deg\phi_3=9.
+\]
+この論証は Hesse frame の有限同定の個数を仮定していない。
+
+\smallskip\noindent
+\textbf{混合係数の復元。}
+補空間を一時的に選び、active 次数で
+\[
+ F=f_3+f_2+f_1+f_0,\qquad
+ f_i\in\operatorname{Sym}^iK^*\otimes
+                    \operatorname{Sym}^{3-i}U
+\]
+と書く。$\operatorname{Hess}_K(F)$ は $f_3+f_2$ だけに依存する。
+従って $\Delta_F=\delta_3+\delta_2+\delta_1+\delta_0$ と分けると
+\[
+ \delta_3=\det\operatorname{Hess}(f_3),\qquad
+ \delta_2=\operatorname{tr}\bigl(
+   \operatorname{adj}(\operatorname{Hess}(f_3))
+                       \operatorname{Hess}_K(f_2)\bigr),
+\]
+また $\delta_1,\delta_0$ は $f_3,f_2$ だけから決まる。
+式\eqref{eq:nfm-normalized-correction-map}は次の三角形の形になる。
+\begin{align*}
+ f'_3&=\phi_3(f_3),\\
+ f'_2&=(L_{f_3}\otimes1_U)f_2,\\
+ f'_1&=f_1+\delta_1/24,\\
+ f'_0&=f_0+\delta_0/24+\tau_F(\Delta_F)/12,
+\end{align*}
+ここで
+\[
+ L_f(b)=b+\tfrac1{24}\operatorname{tr}\bigl(
+   \operatorname{adj}(\operatorname{Hess}(f))\operatorname{Hess}(b)\bigr)
+ \quad (b\in\operatorname{Sym}^2K^*).
+\]
+$L_f$ は一般の $f$ で可逆である。
+例えば $f=g_{p,q}$ の場合、順序 $(x^2,yz)$、$(y^2,zx)$、$(z^2,xy)$
+では同じ二次正方行列の三つの直和になり、各行列は
+\[
+ \begin{pmatrix}
+  1-q^2/12&-pq/6\\ p^2/3&1+q^2/12
+ \end{pmatrix}.
+ \qquad
+ \det L_{g_{p,q}}
+   =\left(1+\frac{8p^3q-q^4}{144}\right)^3.
+\]
+特に $g_{1,0}$ で行列式は $1$ である。
+一般の $f'_3$ には九つの $f_3$ があり、それらすべてで $L_{f_3}$ を
+可逆にするよう終域の開を縮めてよい。
+各 $f_3$ を選ぶと、上式から $f_2$、次に $f_1$、最後に $f_0$ が一意に決まる。
+最後の trace は $f_0$ に依存しないため、そこで新たな方程式は発生しない。
+よって任意の $\dim U=n-1$ に対して一般次数は同じく $9$ である。
+
+\smallskip\noindent
+\textbf{開の選択と商。}
+ここまでの計算は有限型既約な係数空間の一般点の計算である。
+一般に有限な写像では、始域の真の閉集合は終域を支配できない。
+従って full cubic の特異点条件や good 開の補集合を除いても、
+終域を縮めれば九つの一般分枝はすべて残る。
+active 三次の滑らかさにより、trace を定める次数八の代数は有限局所自由で、
+trace は正則である。全三次の滑らかさ、補正後の滑らかさ、
+および既存の good 条件もそれぞれ非空開である。
+一般に有限な写像では、取り除いた真の閉集合の像の閉包は終域を覆わない。
+したがって有限性の開を取り、分岐像およびこれらの除外集合の像を取り除くと、
+有限 \emph{\'etale} 階数 $9$ の射が得られる。
+階数は一般の混合係数から求めており、特殊な分離型部分空間の次数を
+そのまま全空間へ移したのではない。
+
+表示 $(H,P)$ の方程式スカラーを商にした係数空間は、
+$\operatorname{Gr}(3,W)$ 上の
+$\operatorname{Sym}^3V\otimes\det\mathcal K$ の非零部分の開と見られる。
+実際、その点は $H\otimes P$ である。
+$\operatorname{PGL}(W)$ は support $K$ に推移的に作用し、
+$K$ を固定して $P_0$ を選ぶと上の $F\otimes P_0$ 表示を得る。
+$K$ の安定化群の作用は、体積の変化を $F$ の倍率へ吸収した作用であり、
+始域と終域で同じである。従って support を固定した計算の次数 $9$ は、
+support と体積 frame を動かした係数空間でも変わらない。
+構成は同じ射影座標群 $G$ に関して同変であり、
+有限 \emph{\'etale} 性を持つ終域の開を $G$ 不変に選べる。
+一般に $G$ 同変な $X\to Y$ に対して
+\[
+ [X/G]\mathbin{\times}_{[Y/G]}Y\simeq X
+\]
+である。従って $[X/G]\to[Y/G]$ は表現可能であり、
+有限 \emph{\'etale} 性と階数 $9$ はこの忠実平坦被覆から降下する。
+以上により主張を得る。
+\end{proof}
+
+\begin{remark}[Hesse pencil と楕円曲線の乗法写像]
+\label{rem:nfm-degree-not-multiplication}
+active な入力と出力は同じ Hesse pencil に属するが、一般には同じ楕円曲線ではない。
+例えば $q=0$、$p\ne0$ の入力曲線は Fermat 曲線である一方、出力の
+Hesse 係数は $q'/p'=p^2/3$ であり、その $j$ 不変量は非定数である。
+従って上の次数 $9$ を、入力の楕円曲線上の $[3]$ と同一視できない。
+Hesse pencil とその $j$ 関数については
+\cite[Section~2, Lemma~2.1, equations~(4)--(5)]{NFMArtebaniDolgachev}を参照。
+Sklyanin 中心三次を別の superpotential と見たときに現れる
+$(E,p)\mapsto(E,[-2]p)$\cite[Section~2]{NFMDLL}とも異なる。
+後者は同じ $E$ を保つ。
+今回の次数定理は、形式逆量子化の代数化や残余圏の全次数比較を主張していない。
 \end{remark}
 
 \subsection{残余復元と両立する形式 Poisson 対}
@@ -484,42 +671,591 @@ Koszul 完全性と次数により $d_KH=c\,d_KW_h$、$c\in R[[h]]$ を得る。
 和が直和であることも active 勾配の Koszul 単射性から従う。
 \end{proof}
 
-\subsubsection{Hessian 補正と変換則}
+\subsubsection{三次 tensor のスカラー消滅}
 
 命題\ref{prop:nfm-relative-residual-second-jet}と同じ中心元の正規化を使い、
 $F$ の係数を $h$ に関して定数とする。
 $\mathscr H_F=\det\operatorname{Hess}_{x,y,z}(F)$ と書く。
-二次の星積は対称であるため、正規化された逆 tensor は
-$\pi_h=h\Pi_F+O(h^3)$ である。
-これと $W_h=F+h^2\mathscr H_F/24+O(h^3)$ を
+二次の星積の対称性と既知の残余二次 jet を
 \eqref{eq:nfm-residual-formal-factor}へ代入すると、
 $a_h=h(1+c_2h^2+O(h^3))$ かつ
 \begin{equation}
 \label{eq:nfm-corrected-poisson-third}
- \pi_h
- =h\Pi_F+h^3\left(\frac1{24}\Pi_{\mathscr H_F}+c_2\Pi_F\right)+O(h^4)
+ \pi_h=h\Pi_F+h^3\left(\frac1{24}\Pi_{\mathscr H_F}
+                  +c_2\Pi_F\right)+O(h^4)
 \end{equation}
-となる。ここで $c_2\in R$ は、固定した formality の再帰で決まる scalar である。
-Casimir 条件だけでは $c_2$ を決められず、勝手に零と置かない。
-一方、単元倍を除いた tensor の補正は
-\[
- \frac{\pi_h}{a_h}
- =\Pi_F+\frac{h^2}{24}\Pi_{\mathscr H_F}+O(h^3)
-\]
-として一意である。
+となる。Casimir 条件に加えて普遍係数の多項式性と不変式を使うことで、
+この $c_2$ を決定できる。
 
-この式から、有限式による近似対も得られる。
+\begin{lemma}[三変数三次形式の二次不変式]
+\label{lem:nfm-no-quadratic-cubic-invariant}
+三変数三次形式の係数に関する斉次二次の
+$\operatorname{SL}_3$ 不変多項式は零である。
+\end{lemma}
+
+\begin{proof}
+$g=\sum_{i+j+k=3}a_{ijk}x^iy^jz^k$ と書く。
+行列式一の対角行列に対する重みを比較すると、不変な斉次二次式は
 \[
- W_h^{[2]}=F+\frac{h^2}{24}\mathscr H_F,
- \qquad
- \pi_h^{[2]}=h\iota_{dW_h^{[2]}}P.
+ Q=Aa_{210}a_{012}+Ba_{201}a_{021}
+   +Ca_{120}a_{102}+Da_{111}^2
 \]
-これは全ての $h$ に対して厳密に Jacobi 恒等式と Casimir 条件を満たす代数的な対であり、
-原点の形式近傍では滑らかな三次を与える。
-ただし、この有限式の高次係数が $W_h$ や $\pi_h$ と一致すること、
-非零 $h$ の全域で元の非可換圏との同値があることは結論しない。
-残余 potential との一致は $h^3$ を法として、
-実際の formal tensor との一致は scalar 単元倍を除いて上の次数までである。
+という形に限られる。実際、二つの係数の添字の和は
+$(2,2,2)$ でなければならない。
+せん断 $x\mapsto x+ty$ と $x\mapsto x+tz$ に対する
+$t=0$ での微分を、それぞれ $L_y,L_z$ とする。
+\[
+\begin{aligned}
+ L_yQ={}&3Aa_{300}a_{012}
+       +(A+2C)a_{210}a_{102}+(B+4D)a_{201}a_{111},\\
+ L_zQ={}&3Ba_{300}a_{021}
+       +(B+2C)a_{201}a_{120}+(A+4D)a_{210}a_{111}.
+\end{aligned}
+\]
+これらはともに零である。まず $A=B=0$ を得て、続いて
+$C=D=0$ を得る。
+\end{proof}
+
+\begin{proposition}[三次の補正スカラーの消滅]
+\label{prop:nfm-third-tensor-scalar-zero}
+命題\ref{prop:nfm-relative-residual-second-jet}の正規化と
+定理\ref{thm:nfm-residual-formal-poisson}の仮定を用いる。
+$F$ の係数は $h$ に依存せず、二次関係を厳密に
+$[z_i,z_j]=h\operatorname{sym}(\Pi_F(z_i,z_j))$ とする。
+harmonic-angle formality による生成元固定模型では
+\begin{equation}
+\label{eq:nfm-third-tensor-no-scalar}
+ \pi_h=h\Pi_F+\frac{h^3}{24}\Pi_{\mathscr H_F}+O(h^4),
+ \qquad a_h=h+O(h^4).
+\end{equation}
+特に\eqref{eq:nfm-corrected-poisson-third}の $c_2$ は零である。
+この恒等式は普遍係数模型からの任意の基底変更と両立する。
+\end{proposition}
+
+\begin{proof}
+まず\eqref{eq:nfm-normalized-tensor-recursion}を普遍係数で評価する。
+関係の係数が $h$ に依存しない場合、$\pi_m$ はその係数に関する
+斉次次数 $m$ の多項式である。
+これは帰納法による。星積の $h^m$ 係数の各グラフでは、
+tensor 入力の $h$ 次数の和が $m$ である。
+右辺 $h\operatorname{sym}_*(\Pi_F(z_i,z_j))$ の寄与では、
+tensor 入力の次数の和が $m-1$ であり、さらに関係の係数が一つ入る。
+従ってどちらの寄与も係数次数 $m$ を持つ。
+固定次数でグラフは有限個であり、再帰に係数による除算はない。
+またこの多項式構成は線型座標変更に共変である。
+
+中心変数を含まない普遍三次形式
+\[
+ g=\sum_{|\alpha|=3}a_\alpha x^\alpha,
+ \qquad A=\C[a_\alpha:|\alpha|=3],
+ \qquad P=\partial_x\wedge\partial_y\wedge\partial_z
+\]
+を考え、
+\[
+ D=\pi_3(g)-\frac1{24}\Pi_{\det\operatorname{Hess}(g)}
+\]
+と置く。$D$ の係数は $A$ の斉次三次式である。
+滑らかな三次形式の稠密開では、既存の Casimir の分解と二次 jet により
+$D=c\Pi_g$ である。この主張は、必要なら
+$g+\sum_j u_j^3$ という滑らかな分離型模型を用いて適用できる。
+
+$v$ を $\Pi_g$ の二次単項式係数を並べたベクトル、$d$ を
+$D$ の同じ係数ベクトルとする。
+$d_i v_j-d_j v_i$ は稠密開で零なので $A$ 内で恒等的に零である。
+従って $\operatorname{Frac}(A)$ 上で $d=cv$ となる。
+ここで $c=p/q$ を互いに素な分子・分母で書くと、$cv_i\in A$ より
+$q$ は全ての $v_i$ を割る。
+一方、$v$ の非零成分は普遍係数 $a_\alpha$ の非零整数倍であり、
+全ての $a_\alpha$ が現れる。従ってそれらの最大公約元は $1$ である。
+$A$ は一意分解整域なので $q$ は単元、すなわち $c\in A$ を得る。
+この分母の除去は、判別式の補集合上の正則性だけからは従わない点に注意する。
+
+斉次性から $c$ は係数次数二である。
+$P$ は $\operatorname{SL}_3$ に不変であり、再帰と Hessian は共変なので、
+$d=cv$ におけるスカラーの一意性から $c$ は
+$\operatorname{SL}_3$ 不変である。
+補題\ref{lem:nfm-no-quadratic-cubic-invariant}により $c=0$ となる。
+
+次に中心変数と任意の混合係数を許す。
+補題\ref{lem:nfm-formal-linear-center}により全ての tensor 入力は
+active 方向だけを持つ。従ってグラフと再帰の全微分は active 方向であり、
+$U=0$ への制限と可換である。
+$g=F|_{U=0}$ とすれば
+\[
+ \pi_3(F)|_{U=0}=\pi_3(g),\qquad
+ \mathscr H_F|_{U=0}=\det\operatorname{Hess}(g).
+\]
+既存の分解
+$\pi_3(F)-\Pi_{\mathscr H_F}/24=c_2(F)\Pi_F$ のスカラーは
+中心変数を含む全座標に依存しない。
+制限を取ると $c_2(F)\Pi_g=0$ となり、active 勾配の
+次数零 Koszul 単射性から $c_2(F)=0$ を得る。
+以上の普遍恒等式を基底変更すれば、非被約基底についても同じ結論を得る。
+最後に $W_h=F+h^2\mathscr H_F/24+O(h^3)$ と
+$\pi_h=a_h\iota_{dW_h}P$ を比較すれば $a_h=h+O(h^4)$ となる。
+\end{proof}
+
+\begin{remark}[規格化と適用範囲]
+この証明が用いる中心元の情報は二次 jet だけである。
+高次の中心元を Hesse 座標で記述した際の選択は、
+$D=\pi_3-\Pi_{\mathscr H}/24$ の普遍多項式性と共変性に影響しない。
+一方、一般の formality への変更、$h$ の再パラメータ化、
+または $h$ に依存する二次関係を追加した場合には、
+同じ係数式をそのまま主張しない。
+
+偶奇性を用いた剰余の改善は、以下の系\ref{cor:nfm-mixed-even-jet}で証明する。
+\end{remark}
+
+\subsubsection{反対積による全次数の偶奇性}
+
+ここでは harmonic-angle の Kontsevich formality を固定する。
+一般の angle form や、任意に gauge 変換した formality に同じ偶奇性を
+無条件に主張するものではない。
+\begin{lemma}[harmonic-angle グラフの反転]
+\label{lem:nfm-harmonic-parity}
+同じ bivector $\pi$ を $k$ 個入れた星積の項を $B_k(\pi;f,g)$ と書く。
+このとき
+\[
+ B_k(\pi;g,f)=(-1)^kB_k(\pi;f,g),\qquad
+ f*_{-\pi}g=g*_{\pi}f.
+\]
+さらに関数上の接 formality 写像について
+\[
+ C_{-\pi}(f)=C_{\pi}(f)
+\]
+が成立する。最後の等式は各奇数 $k$ に対して
+$\mathcal U_{k+1}(f,\pi,\ldots,\pi)=0$ であることから従う。
+\end{lemma}
+
+\begin{proof}
+Kontsevich の配置空間と向きの規約を用いる
+\cite[Sections~2.2 and~6.2]{NFMKontsevich}。
+上半平面の反射 $r(z)=-\overline z$ は harmonic-angle 一形式を
+$r^*d\varphi=-d\varphi$ に変える。
+星積では境界の二点を $0,1$ に固定した表示を使い、
+$z\mapsto1-\overline z$ により両境界点のラベルを交換する。
+内部点は $k$ 個なので配置空間の向きは $(-1)^k$ 倍される。
+辺は $2k$ 本であり角形式の積には符号が生じない。
+従って両入力を交換したグラフの重みは $(-1)^k$ 倍になり、第一式を得る。
+多重線型性から第二式も従う。
+
+中心写像の $k$ 次項では、内部点は bivector の $k$ 頂点と関数の一頂点の
+合計 $k+1$ 個、境界点は零個、辺は $2k$ 本である。
+配置空間 $C_{k+1,0}$ の次元は $2k$ である。
+商を取る前の配置空間の向きは反射により $(-1)^{k+1}$ 倍される一方、
+実平行移動と正の拡大の二次元群の向きは $-1$ 倍される。
+従って商の向きは $(-1)^k$ 倍される。
+ここでは境界ラベルの交換はなく、同じグラフに戻る。
+角形式は $2k$ 個なのでその積は不変であり、
+重み $w_\Gamma$ は $w_\Gamma=(-1)^k w_\Gamma$ を満たす。
+標数零では奇数 $k$ の重みは零である。
+これは二次 tensor の線型性・二次性を仮定しないグラフの対称性であり、
+偶数次数の中心グラフ全てが消えるという主張ではない。
+\end{proof}
+
+\begin{proposition}[生成元固定模型の偶奇性]
+\label{prop:nfm-normalized-parity}
+補題\ref{lem:nfm-normalized-star-model}の存在仮定の下で、
+二次関係の $q_{ij}$ は $h$ に依存しないとする。
+すると正規化した tensor は
+\[
+ \pi_{-h}=-\pi_h
+\]
+を満たす。Weyl 対称化を $\sigma_h$ とすれば、線型写像
+$T_h=\phi_h\sigma_h$ も $T_{-h}=T_h$ を満たす。
+特に $\Omega_h=\sigma_h(F_h)$、$F_{-h}=F_h$ という規格化の形式中心元に対し、
+\[
+ W_h=C_{\pi_h}^{-1}\phi_h(\Omega_h)
+ \quad\text{は}\quad W_{-h}=W_h
+\]
+を満たす。
+\end{proposition}
+
+\begin{proof}
+生成元を固定して語順を逆にする写像は
+$B_{-h}\simeq B_h^{\mathrm{op}}$ を与える。
+前補題により $*_{-\pi_h}$ は $*_{\pi_h}$ の反対積である。
+従って $B_{-h}$ の生成元固定模型を二通りに書き、
+補題\ref{lem:nfm-normalized-star-model}の一意性を適用すれば
+$\pi_{-h}=-\pi_h$ となる。
+
+Weyl 対称化された語の総和は語順を逆にしても不変である。
+このため同じ反対積の比較で $T_{-h}=T_h$ を得る。
+また $C_{\pi_{-h}}=C_{-\pi_h}=C_{\pi_h}$ なので、
+$F_h$ が偶数級数なら $C_{\pi_h}^{-1}T_h(F_h)$ も偶数級数になる。
+全ての等式は各係数の有限グラフ恒等式であり、
+命題\ref{prop:nfm-normalized-model-basechange}で得た普遍族からの
+任意の基底変更後も成立する。
+\end{proof}
+
+\begin{corollary}[全混合係数における jet の改善]
+\label{cor:nfm-mixed-even-jet}
+命題\ref{prop:nfm-relative-residual-second-jet}の全混合 Hesse 族で、
+同じ規格化中心元 $\widetilde\Omega_{F,h}$ を用いる。
+このとき
+\[
+ W_h=F+\frac{h^2}{24}\mathscr H_F+h^4W_4(F)+O(h^6),
+ \qquad
+ W_h\equiv H^\sharp\pmod{h^4}.
+\]
+また形式スカラー $a_h$ も奇数級数である。
+命題\ref{prop:nfm-third-tensor-scalar-zero}の $c_2=0$ と合わせると
+\[
+ \pi_h=h\Pi_F+\frac{h^3}{24}\Pi_{\mathscr H_F}+O(h^5)
+       \equiv\Pi^\sharp\pmod{h^5}.
+\]
+これは全 $n\ge3$、全混合係数についての合同である。
+次に決定すべき potential の係数は $W_4$ であり、
+$h^3$ の混合補正は存在しない。
+\end{corollary}
+
+\begin{proof}
+指定中心元は
+$\sigma_h(F-h^2\mathscr H_F/12+h^4\Psi_\lambda(F))$
+と書かれ、括弧内は $h$ の偶数多項式である。
+前命題と既知の二次 jet を合わせる。
+代数的補正は厳密に
+$H^\sharp=F+h^2\mathscr H_F/24+h^4\tau_F(\Psi_\lambda(F))$
+であるため、第一の合同が従う。
+$\pi_h=a_h\Pi_{W_h}$ に $h\mapsto-h$ を施すと
+$(a_{-h}+a_h)\Pi_{W_h}=0$ となる。
+相対勾配 Koszul 複体の完全性からスカラーの作用は単射であり、
+$a_{-h}=-a_h$ を得る。
+最後は $c_2=0$ と tensor の奇数性による。
+ここでは $W_4=\tau_F(\Psi_\lambda(F))$ とも、
+有限式 $H^\sharp$ が全次数の中心逆像であるとも結論していない。
+\end{proof}
+
+\begin{remark}[中心次数の filtration]
+\label{rem:nfm-central-filtration}
+相対グラフの全ての微分方向は $x,y,z$ であり、中心変数を微分しない。
+従って $I=(U)$ による filtration を保ち、$U=0$ への制限は
+生成元固定再帰、Weyl 対称化の像、中心写像およびその逆と可換である。
+さらに各グラフの中心次数は、各頂点に選んだ係数の中心次数の和である。
+従って tensor の係数を $I^d/I^{d+1}$ で求めるために、
+元の関係の中心次数 $d$ を超える係数は不要である。
+これは $\pi_h$ の境界部分を純三変数の計算から求める根拠となるが、
+その情報のみから正の中心次数を持つ全混合係数は決まらない。
+中心三次自身の選択に正の中心次数の係数が含まれる場合には、
+もちろんその指定係数も入力に含める。
+\end{remark}
+
+\subsubsection{五次の尺度補正と代数的処方の適用範囲}
+
+\begin{lemma}[log-canonical 模型の厳密な逆 tensor]
+\label{lem:nfm-log-canonical-inverse}
+$g=xyz$ とし、二次関係を
+$[x,y]=h(xy+yx)/2$ およびその巡回置換とする。
+harmonic-angle formality の生成元固定模型では
+\[
+ \pi_h(g)=\log\left(\frac{1+h/2}{1-h/2}\right)\Pi_g
+       =\left(h+\frac{h^3}{12}+\frac{h^5}{80}+O(h^7)\right)\Pi_g.
+\]
+\end{lemma}
+
+\begin{proof}
+Kontsevich の元の星積による
+$\sigma=\sum_{i<j}\lambda_{ij}x_ix_j\partial_i\wedge\partial_j$
+の量子化では、原座標に関する交換比が
+$q_{ij}(t\sigma)=\exp(t\lambda_{ij})$ となる
+\cite[Section~1.6; Theorem~6.9 and Remark~6.10, pp.~59--60]{NFMLindbergPym}。
+ここで交換比は、トーラス同変性による
+$x_i\star x_j=w_{ij}x_ix_j$ の係数の比 $w_{ij}/w_{ji}$ である。
+従って抽象的な量子トーラスの同型による生成元変更は不要である。
+
+$q_h=(1+h/2)/(1-h/2)$、$\ell(h)=\log q_h$ と置き、
+この恒等式を $t\mapsto\ell(h)$ で形式的に基底変更する。
+$\ell(h)\Pi_{xyz}$ の星積は、原生成元で
+$x\star y=q_h y\star x$ とその巡回置換を満たす。
+これは指定した $h$ を保った二次関係と同値である。
+単元係数の $q$-交換関係には順序単項式の PBW 基底があり、
+星積側も同じ単項式の単元倍を基底に持つ。
+従って生成元を固定する準同型は、各内部次数で剰余が恒等な
+$\C[[h]]$-線型同型である。
+補題\ref{lem:nfm-normalized-star-model}の一意性が所望の式を与える。
+ここで $\ell(h)$ は標的 tensor の係数であり、
+比較の際に指定されたパラメータ $h$ 自体を取り替えたのではない。
+\end{proof}
+
+\begin{proposition}[純 active 族の五次 tensor]
+\label{prop:nfm-active-fifth-covariant}
+普遍三変数三次形式 $g$ に対する生成元固定 tensor を
+$\pi_h(g)=\sum_{m\ge1}h^m\pi_m(g)$ とする。
+$x_1=x,x_2=y,x_3=z$、$\varepsilon^{123}=1$ と規約を取り、
+$t_{ijk}=\partial_i\partial_j\partial_k g/6$ とし、
+\[
+ S(g)=54\,t_{abc}t_{def}t_{ghi}t_{jkl}
+             \varepsilon^{adg}\varepsilon^{bej}
+             \varepsilon^{chk}\varepsilon^{fil}
+\]
+と定める。添字は $1,2,3$ を走り、反復添字について和を取る。
+この $S$ は古典的な四次 Aronhold 不変式であり、
+四つの volume の縮約による表示も既知である
+\cite[Section~3, after Remark~3.3]{NFMOttavianiAronhold}。
+ここでは $S(xyz)=1$ と規格化する。
+harmonic-angle formality の生成元固定模型では
+\[
+ \pi_5(g)=\frac1{80}S(g)\Pi_g
+\]
+となる。
+\end{proposition}
+
+\begin{proof}
+$\pi_m(g)$ と volume によって双対な一次形式を $\alpha_m(g)$ とする。
+滑らかな $g$ に純中心 Fermat 三次を加えた分離型を用いると、
+Casimir の分解と $U=0$ への制限により
+$\sum_m h^m\alpha_m=a_h\,dW_h$ であり、$a_h$ は座標に依存しない。
+従って $d\alpha_m=0$ である。
+これは普遍係数に関する多項式恒等式なので、全ての $g$ で成立する。
+$E=x\partial_x+y\partial_y+z\partial_z$ に対し
+\[
+ G_m(g)=\frac13\iota_E\alpha_m(g)
+\]
+と置くと、Cartan の公式と内部次数により $dG_m=\alpha_m$ となる。
+従って $G_m$ は係数次数 $m$、変数次数三の
+$\operatorname{SL}_3$ 共変式である。
+
+この型の共変式の次元は
+$\operatorname{Sym}^m(\operatorname{Sym}^3\C^3)$ における
+最高ウェイト $(m+2,m-1,m-1)$ の重複度に等しい。
+重みの個数を
+\[
+ p_m(a,b,c)=[t^mX^aY^bZ^c]
+     \prod_{i+j+k=3}(1-tX^iY^jZ^k)^{-1}
+\]
+と置く。$\delta=(2,1,0)$ とすれば、Weyl の交代和より
+最高ウェイト $\lambda$ の重複度は
+\[
+ \sum_{\sigma\in S_3}\operatorname{sgn}(\sigma)
+             p_m(\lambda+\delta-\sigma\delta)
+\]
+である。$m=5$、$\lambda=(7,4,4)$ では、この六項は
+\[
+ 41-35-30+23+21-19=1
+\]
+となる。
+一方、上に定義した $S$ は明示的な volume 縮約により不変であり、
+$S(xyz)=1$ なので非零である。
+従って $g\mapsto S(g)g$ は当該一次元空間を張り、
+$G_5(g)=\kappa S(g)g$ を得る。
+補題\ref{lem:nfm-log-canonical-inverse}と $S(xyz)=1$ により
+$\kappa=1/80$ と決まる。
+\end{proof}
+
+\begin{corollary}[混合係数の制限と代数的 tensor 補正の限界]
+\label{cor:nfm-fifth-restriction-obstruction}
+任意の混合三次 $F$ に対し $g=F|_{U=0}$ と置くと、
+\[
+ \pi_5(F)|_{U=0}=\frac1{80}S(g)\Pi_g
+\]
+となる。従って先の Hessian 規格化の族に対する代数的補正
+\[
+ \pi_h^\sharp=h\Pi_F+\frac{h^3}{24}\Pi_{\mathscr H_F}
+\]
+は、$S(g)\ne0$ なる稠密開では、固定した $h$ と生成元の下で
+実際の形式 tensor $\pi_h$ と $h^5$ の係数から異なる。
+この開は全ての $n\ge3$ で非空である。
+\end{corollary}
+
+\begin{proof}
+線型中心の保存により全グラフの微分は active 方向であるため、
+$U=0$ への制限と再帰は可換である。
+従って純 active の公式を制限に適用できる。
+代数的 tensor 補正の $h^5$ 係数は零であるが、
+上の制限は $S(g)\ne0$ で零でない。
+五次より低い次数の一致は系\ref{cor:nfm-mixed-even-jet}による。
+実際、$g=(x^3+y^3+z^3)/3+xyz$ は滑らかで $S(g)=-7$ であり、
+$F=g+\sum_j u_j^3$ は全次元で滑らかな分離型を与える。
+普遍係数空間の既約性から非消滅条件は稠密開を定める。
+\end{proof}
+
+\begin{remark}[規格化の検算と混合係数]
+上の四つの $\varepsilon$ の縮約は $6^4$ 個の有理数項で厳密に展開できる。
+得られる $S$ は通常の単項式係数に関する整数係数二十五項であり、
+\[
+ S\left(\frac{x^3+y^3+z^3}{3}+\lambda xyz\right)
+       =\lambda(\lambda^3-8)
+\]
+を満たす。
+共変式の同じ重複度を $m=1,\ldots,8$ で計算すると
+$1,0,1,0,1,0,2,0$ となる。
+これらは上の有限生成関数による整数計数であり、
+Kontsevich グラフ重みや残余同値を計算したものではない。
+
+この結果は純 active 係数についての還元である。
+中心変数を含む一般の混合三次について、
+$\pi_5(F)=S(F|_{U=0})\Pi_F/80$ と結論することはできない。
+active 方向の局所 jet による別の共変式が混合項に寄与する可能性は残る。
+また系\ref{cor:nfm-fifth-restriction-obstruction}は固定された tensor の不一致であり、
+tensor のスカラーを忘れた比較、残余三次の四次 jet、
+または Kuznetsov 成分の非同値までは結論しない。
+\end{remark}
+
+
+\subsubsection{五次の混合項と残余四次項}
+
+次に、五次 tensor の全混合係数を二つの普遍定数へ還元する。
+ここでの還元は定数そのものの graph weight の評価とは区別する。
+active 微分について
+\[
+ T_{ijk}=F_{ijk},\qquad M_{ij}=F_{ij},\qquad q_i=F_i
+\]
+と置く。$T$ は座標 $x,y,z,U$ に依存せず、$F|_{U=0}=g$ だけから決まる。
+全添字は $1,2,3$ を走り、$\varepsilon^{123}=1$ とする。
+次の完全縮約を定義する。
+\begin{align*}
+ S(T)&=\frac1{24}
+ T_{adg}T_{bej}T_{chk}T_{fil}
+ \varepsilon^{abc}\varepsilon^{def}\varepsilon^{ghi}\varepsilon^{jkl},\\
+ I(F)&=\frac1{24}
+ T_{adg}T_{bej}M_{cf}M_{hk}M_{il}
+ \varepsilon^{abc}\varepsilon^{def}\varepsilon^{ghi}\varepsilon^{jkl},\\
+ J(F)&=\frac1{24}
+ T_{adg}T_{bej}T_{chk}M_{fi}q_l
+ \varepsilon^{abc}\varepsilon^{def}\varepsilon^{ghi}\varepsilon^{jkl}.
+\end{align*}
+$S$ は $S(xyz)=1$ の規格化の四次 Aronhold 不変式であり、
+$S(g_\lambda)=\lambda(\lambda^3-8)$ である。
+$I(F),J(F)$ は全変数に関する三次式である。
+
+\begin{proposition}[五次の混合項の二定数への還元]
+\label{prop:nfm-mixed-fifth-reduction}
+固定 harmonic-angle formality に依存する二つの普遍定数
+$\beta,\gamma\in\mathbf C$ があり、全 $n\ge3$ の全混合係数について
+\[
+ \pi_5(F)=\Pi_{Q_5(F)},\qquad
+ Q_5(F)=\frac1{80}S(g)F
+       +\beta\bigl(I(F)-S(g)F\bigr)
+       +\gamma\bigl(J(F)-S(g)F\bigr).
+\]
+ここで $\pi_h=h\Pi_F+h^3\Pi_{\mathscr H_F}/24+h^5\pi_5+O(h^7)$ である。
+係数 $1/80$ は別途得た純三変数の五次 tensor の計算を用いる。
+この入力を使わない場合も、右辺は三つの普遍定数
+$\alpha S(g)F+\beta I(F)+\gamma J(F)$ の勾配へ還元できる。
+
+\end{proposition}
+
+\begin{proof}
+生成元固定再帰の $\pi_5$ は、関係 $\Pi_F$ の係数に関する
+斉次次数五の微分多項式であり、active 方向だけを微分する。
+再帰の Weyl 対称化も局所 jet で書けることを確認しておく。
+任意の二次式 $r$ に対して
+\[
+ \operatorname{sym}_*(r)=r+\frac12\sum_{a,b}
+      (\partial_a\partial_b r)(z_a*z_b-z_az_b)
+\]
+である。$r=\Pi_F(z_i,z_j)$ なら、その active 二階微分は $T$ の成分である。
+片方の添字が中心なら括弧内は零となる。
+active 添字の場合、正次数の単位正規化グラフは各線型入力をちょうど一回微分するので、
+括弧内も下位 tensor の jet だけで書け、裸の座標は残らない。
+従って帰納的に再帰の全項が以下の局所 jet 型に入る。
+各係数をある点で評価すると、使える jet は $q,M,T$ だけである。
+$F$ 自身は二次関係には現れない。
+$q,M,T$ の全座標次数はそれぞれ $2,1,0$ であり、
+$\pi_5$ の係数は全座標に関する次数二の多項式である。
+従って現れ得る型は $qT^4$ と $M^2T^3$ の二つに限られる。
+固定体積形式により $\pi_5$ を一形式 $\alpha_5$ と同一視する。
+$\operatorname{SL}_3$ 共変性と determinant weight を合わせると、
+これら二型の共変式空間の次元はそれぞれ $1,2$ である。
+
+この小さい表現論の計算は、次の有限係数計算で直接確認できる。
+$H_{d,k}(X,Y,Z)$ を
+\[
+ H_{d,k}=[t^k]\prod_{a+b+c=d}(1-tX^aY^bZ^c)^{-1}
+\]
+と置く。$\lambda$ の重複度は
+$\rho=(2,1,0)$ として次の式で与えられる。
+\[
+ \sum_{w\in\mathfrak S_3}\operatorname{sgn}(w)
+ [X^{\lambda_1+\rho_1-(w\rho)_1}
+  Y^{\lambda_2+\rho_2-(w\rho)_2}
+  Z^{\lambda_3+\rho_3-(w\rho)_3}]H.
+\]
+二型について $\lambda=(5,4,4)$ を使うと
+\[
+\begin{array}{c|c|c}
+H&\text{六つの符号付き係数}&\text{和}\\\hline
+H_{1,1}H_{3,4}&67,-58,-55,41,42,-36&1\\
+H_{2,2}H_{3,3}&158,-136,-126,94,92,-80&2
+\end{array}
+\]
+となる。
+
+三つの一形式 $S(g)d_KF,d_KI(F),d_KJ(F)$ はこの三次元空間に属し、
+一次独立である。具体的には $T$ を $g_1$ の三階微分とし、
+ある点で
+\[
+ q=(1,0,0),\qquad
+ M=\begin{pmatrix}1&1&0\\1&0&0\\0&0&0\end{pmatrix}
+\]
+とすると、三つの一形式を列に持つ行列は
+\[
+ \begin{pmatrix}
+ -7&-2/3&-10/3\\
+ 0&-2/3&-1\\
+ 0&5/3&0
+ \end{pmatrix},\qquad \det=-35/3\ne0
+\]
+となる。ここで $q,M,T$ は独立な Taylor 係数として指定できる。
+実際、一つの中心変数 $u_1$ を用いて
+$F=T_{ijk}x_ix_jx_k/6+u_1M_{ij}x_ix_j/2+u_1^2q_ix_i+cu_1^3$
+とし、$(x,u_1)=(0,1)$ で評価すればよい。
+したがってこの独立性は全ての $n\ge3$ に有効である。
+したがって三つの勾配は共変式空間全体を張る。
+このため $\alpha_5=d_K(\alpha SF+\beta I+\gamma J)$ と書ける。
+全 graph の有効添字は三つの active 方向に限られるため、
+三定数は中心変数の個数に依存しない。
+
+純三変数の場合、$I(g),J(g)$ はいずれも
+$S(g)g$ に等しい。これも小さい共変式計算で確認できる。
+$H_{3,5}$ に $\lambda=(7,4,4)$ を適用した六項は
+$41,-35,-30,23,21,-19$ で、和は一である。
+従って次数五・三次出力の共変式は $S(g)g$ の一次元空間である。
+$g=g_1$、$(x,y,z)=(1,0,0)$ で
+$S=-7$、$g=1/3$、$I=J=-7/3$ を計算すれば比例定数は一となる。
+純 active 計算 $\pi_5(g)=S(g)\Pi_g/80$ から
+$\alpha+\beta+\gamma=1/80$ が従い、表示された形を得る。
+以上の係数計算と縮約の評価は、保存した検証コードでも有理数として確認できる。
+局所 jet の多項式恒等式なので、普遍模型からの任意の基底変更とも両立する。
+\end{proof}
+
+\begin{remark}[分離型で消える二方向と残余四次項]
+\label{rem:nfm-mixed-fifth-potential}
+$I-SF$ と $J-SF$ は $U=0$ に制限すると零となる。
+より一般に $F=g(x+a(U))+G(U)$ という中心平行移動された分離型では、
+両者は純中心三次 $-S(g)G(U)$ に等しく、その active 勾配は零である。
+従って境界三次とこの分離型の計算だけでは $\beta,\gamma$ は定まらない。
+この二つの勾配が一般混合係数の共変式として独立であることは上で確認したが、
+全 Jacobi 環で非零であることや座標変換で除去できないことは主張していない。
+
+指定中心元に対して
+$a_h=h(1+a_4h^4)+O(h^7)$ と書けば、既存の Casimir 分解から
+\[
+ W_4=Q_5-a_4F+G_4(U)
+\]
+という形になる。全変数の Jacobi 環
+$J_F=\operatorname{Sym}V/(\partial_vF:v\in V^*)$ では、
+Euler の公式から $[F]=0$ である。従って補正三次との四次の差は
+\[
+ [W_4-\tau_F(\Psi_\lambda(F))]
+ =\beta[I(F)]+\gamma[J(F)]
+       +[G_4(U)-\tau_F(\Psi_\lambda(F))]\quad\text{in }(J_F)_3.
+\]
+この幾何的な四次障害の判定には $a_4$ の評価は不要である。
+$\beta,\gamma$ と純中心項 $G_4$ の評価は残っている。
+従ってこの有限次元への還元を、四次 potential の決定、
+$H^\sharp$ との全次数一致、または残余圏の比較の証明とは区別する。
+
+\end{remark}
+
+有限式
+\[
+ W_h^{[2]}=F+\frac{h^2}{24}\mathscr H_F,\qquad
+ \pi_h^{[2]}=h\iota_{dW_h^{[2]}}P
+\]
+は全ての $h$ に対して Jacobi 恒等式と Casimir 条件を満たす。
+しかし、固定 formality の実際の tensor との差は一般に五次から現れる。
+残余三次の四次項と、三次の単元倍を許した全次数比較はなお別の課題である。
 
 補正の座標共変性は内在的に書ける。
 $K$ を rank 三の active 方向、$P\in\det K$ として
