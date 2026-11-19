@@ -1,0 +1,365 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{点対応による中心復元と Poisson 三次対への射}
+\label{sec:poisson-morphism}
+
+\subsection{中心三次の評価と境界 Jacobi 線}
+
+この節では一ブロックの良い点スキーム開をさらに縮める。
+全ての主張は $n\ge3$、$r=n-1\ge2$ に一様である。
+次数三中心の束を $\mathcal E$、純中心三次の部分束を
+$\mathcal W=\Sym^3U$、商線束を $\mathcal L=\mathcal E/\mathcal W$ とする。
+固定ファイバーでは
+\[
+ S=k[U],\qquad T=\Sym(V)/(F_x,F_y,F_z),\qquad
+ J_g=T/(U)=k[x,y,z]/(g_x,g_y,g_z)
+\]
+と書く。$T$ は $B$ の最大可換\emph{代数}商である。
+これは交換子の張る線形部分空間による商 $\mathrm{HH}_0(B)$ とは異なる。
+代数の可換化は中心上の評価写像
+\[
+ \alpha:\mathcal E\longrightarrow T_3
+\]
+を与える。tensor 代表を可換化し、三つの偏微分のイデアルで割る表示と同じ写像である。
+純中心三次は $J_g$ で零となるので、合成は
+\begin{equation}\label{eq:point-boundary-jacobi-map}
+ \epsilon:\mathcal L=\mathcal E/\mathcal W\longrightarrow (J_g)_3
+\end{equation}
+を定める。右辺は階数一である。
+$C\cap V(U)=\varnothing$ であるから、この商を $C$ と境界平面との
+scheme 理論的交叉への制限と解釈してはならない。
+これは次数付き切断環の Artin 商であり、
+$T_3=H^0(C,\mathcal O_C(3))$ を用いて
+\[
+ (J_g)_3=T_3/(U\cdot T_2)
+\]
+と求めるものである。
+
+\begin{proposition}[境界 Jacobi 線と中心評価]\label{prop:point-jacobi-evaluation}
+$\epsilon$ が同型である条件は、表示変更群 $P$ に不変な非空開条件である。
+この開上で $\alpha:\mathcal E\to T_3$ は余核が局所自由な単射であり、
+任意の基底変更後にも単射である。
+ここで分裂は局所的な存在の主張であり、標準的な大域分裂は選ばない。
+\end{proposition}
+
+\begin{proof}
+$g$ の滑らかさより三つの偏微分は正則列であり、
+$J_g$ の Hilbert 級数は $(1+t)^3$ である。
+従って $(J_g)_3$ は線束となり、\eqref{eq:point-boundary-jacobi-map}
+が同型であることは線束間の写像の非消滅条件である。
+全ての写像は代数 $B$ とその中心一次空間 $U$ から定まるので $P$-共変である。
+
+非空性を、公刊された Etingof--Ginzburg の Rains 中心公式
+\cite[\S9, p.~1414]{NFMEG} で確認する。
+\[
+ g=(x^3+y^3+z^3)/3+\lambda xyz,\qquad 1+\lambda^3\ne0,
+ \qquad \delta=1-h\lambda/2\ne0
+\]
+とし、$q=(1+h\lambda/2)/\delta$、$t=h/\delta$ と置く。
+境界の関係は $xy-qyx-tz^2=0$ およびその巡回形となる。
+同文献の式で全ての低次係数を零とした中心元は
+\begin{equation}\label{eq:point-rains-homogeneous}
+ \Psi=t(q+1)\bigl[
+ t(t^3+1)y^3+(q^3-t^3)yzx-q(t^3+1)zyx+t(q^3-t^3)z^3
+ \bigr].
+\end{equation}
+$J_g$ では $x^3=y^3=z^3=-\lambda xyz$ であり、
+\begin{equation}\label{eq:point-rains-socle}
+ [\Psi_{\mathrm{ab}}]
+ =-\frac{4h^4(1+\lambda^3)}{\delta^6}[xyz]\ne0.
+\end{equation}
+この計算では $[xyz]\ne0$ も必要である。
+例えば $x^2y=-\lambda y^2z=\lambda^2xz^2=-\lambda^3x^2y$
+から、次数三の二種類の変数を含む単項式は全て零である。
+立方は上の式で $xyz$ の倍数になり、$(J_g)_3$ は一次元なので $xyz$ は非零である。
+係数恒等式の直接の証明書は
+\[
+ \Psi_{\mathrm{ab}}-\kappa xyz
+ =t^2(q+1)\bigl((t^3+1)y g_y+(q^3-t^3)z g_z\bigr),\qquad
+ \kappa=-4h^4(1+\lambda^3)/\delta^6
+\]
+である。
+良い Sklyanin 開では中心三次は一次元であるから、その任意の非零生成元にも
+同じ非消滅が成立する。混合中心係数を加えても境界への像は変わらない。
+従来の PBW・滑らかな楕円境界・必要な有限範囲の位数除外の各非空開と交わらせられる。
+全ての有限位数を除く場合には、これとは別に very general 条件として扱う。
+
+次に $\mathcal W\to T_3$ は単射で、局所的には直和因子である。
+実際、active 次数の濾過と $J_g$ の斉次基底の持上げにより
+$T\simeq S\oplus S(-1)^3\oplus S(-2)^3\oplus S(-3)$ となり、
+最初の項に $\mathcal W=S_3$ が含まれる。
+商 $T_3/\mathcal W$ への $\mathcal L$ の写像は、さらに $(J_g)_3$ へ写したとき
+同型である。従ってこれは局所的な直和因子であり、
+$\mathcal E\to T_3$ も単射、余核も局所自由である。
+この議論は有限局所自由な加群と単元を用いるため、任意の基底変更後にも成立する。
+\end{proof}
+
+\begin{theorem}[点対応から中心商までの復元]\label{thm:point-central-recovery}
+上の開と点スキームの完全交叉条件を仮定する。
+埋込み点スキームと shift のグラフから、二次包絡 $B$ に加えて
+中心三次直線 $[w]\subset Z(B)_3$、従って $A=B/(w)$ を復元できる。
+復元は表示変更と両立する。
+相対的には定理\ref{thm:relative-point-nfold}の良い点スキーム開に
+$\epsilon$ の同型条件を加えれば、中心直線の復元も任意の基底変更と両立する。
+\end{theorem}
+
+\begin{proof}
+定理\ref{thm:point-envelope}で $B$ を復元した後、$U=Z(B)_1$、
+$Q=\langle F_x,F_y,F_z\rangle$、$C=V(Q)$ と $\alpha$ は全て定まる。
+固定点部分は $D$ である。完全交叉イデアルの次数三部分から
+\[
+ I(D)_3/I(C)_3=k[w_{\mathrm{ab}}]\subset T_3
+\]
+を得る。命題\ref{prop:point-jacobi-evaluation}の単射 $\alpha$ による
+この直線の逆像は、ただ一つの直線 $kw\subset\mathcal E$ である。
+従って二次関係にこの三次関係を加えることで $A$ が決まる。
+
+$n=3$ で $D$ が零次元でも、型 $(2,2,2,3)$ の斉次完全交叉イデアルは
+飽和している。この場合に $T_{D,3}=H^0(D,\mathcal O_D(3))$ という
+誤った全射性を使う必要はなく、多項式からの制限写像の核を取ればよい。
+相対版では命題\ref{prop:relative-point-envelope}および
+式\eqref{eq:relative-point-ideal-pieces}により、二次包絡と
+$p_*\mathcal I_D(3)/(Q\cdot V)$ の直線部分束が任意の基底変更と両立して定まる。
+中心評価の余核は局所自由なので、その逆像の形成も基底変更と両立する。
+\end{proof}
+
+\begin{remark}[中心変数の個数と復元]
+中心三次の復元では $r\ge2$ が本質的である。
+比較のため $r=1$ とし、$C$ が八つの被約点である周囲代数を固定する。
+純中心三次を加えるパラメータのうち有限個を除けば、
+中心三次の可換化は $C$ の全ての点で非零となるので $D=\varnothing$ である。
+従って中心商の点対応は同じ $\Gamma_\sigma$ だけになり、中心直線を復元できない。
+一点中心拡大の周囲二次関係を復元する
+\cite[Proposition~4.2.5]{LBSV}と、本稿の $r\ge2$ における中心商の復元を区別する。
+\end{remark}
+
+\begin{proposition}[定常三次切断と古典 Casimir の相違]
+\label{prop:point-casimir-restriction-obstruction}
+上の開で、古典 Casimir 空間を $\mathcal R=kF\oplus\Sym^3U$ とする。
+その $T_3$ への制限像は $(J_g)_3$ への写像の核に入る。
+一方、$w\notin\Sym^3U$ ならば $[w_{\mathrm{ab}}]$ はこの核に入らない。
+特に、
+\[
+ \alpha(Z(B)_3)\cap \operatorname{im}(\mathcal R\longrightarrow T_3)
+ =\Sym^3U.
+\]
+従って $w_{\mathrm{ab}}|_C$ を古典 Casimir の制限と同一視する構成、
+および純中心三次だけを加えてその同一視を実現する構成は成立しない。
+$D$ が上記の Cartier 切断であるとき、古典 Casimir $H$ の切断により
+$D=C\cap V(H)$ を scheme として実現することもできない。
+\end{proposition}
+
+\begin{proof}
+$F$ の $J_g$ への像は $g$ の類であり、
+$3g=xg_x+yg_y+zg_z$ なので零である。
+純中心三次の像も零である。
+一方、中心三次の像は同型 $\epsilon$ を経て零になるのが純中心三次の場合に限る。
+さらに $S_3\subset T_3$ は単射なので、交叉についての等式も従う。
+
+幾何学的な切断としての主張のために、$T_3=H^0(C,\mathcal O_C(3))$ を確認する。
+$T$ は次元 $r\ge2$ の Cohen--Macaulay な斉次完全交叉環なので、
+irrelevant ideal に関する局所コホモロジーの次数零と一次は消える。
+切断環との標準完全列から、全ての次数で $T_j=H^0(C,\mathcal O_C(j))$ となる。
+また $H^0(C,\mathcal O_C)=k$ である。
+二つの非零因子切断が同じ Cartier 零スキームを定めるなら、
+その比は $C$ の大域可逆関数なので $k^\times$ に属する。
+従って同じ $D$ を与える古典 Casimir が存在すれば、
+その制限は $w_{\mathrm{ab}}|_C$ の非零定数倍となり、既に示した障害に反する。
+\end{proof}
+
+\begin{remark}[古典制限写像そのものの一般単射性]
+上の障害は古典 Casimir の制限写像の核が大きいことによるものではない。
+$\mathcal R\to T_3$ 自体は非空開上で単射となる。
+実際、$F=g-xu_1^2$ と取れば、Euler の式から $[F]=-(2/3)xu_1^2$ であり、
+active 次数の濾過によりこれは純中心三次の像に属さない。
+従って $kF\oplus S_3$ の制限は単射であり、単射性は係数空間の開条件である。
+三変数制限の Hessian 剛性条件や良い点スキーム条件とも交わらせられる。
+一方、$F=g+G(u)$ では $[F]=G(u)$ となるから、この単射性は全係数点の主張ではない。
+この相違は補正を用いる Poisson モジュライへの射の非存在を意味しない。
+次の trace と Hessian による構成は、この相違を保ったまま中心三次の両空間を同定する。
+\end{remark}
+
+\subsection{Trace と Hessian による Poisson 三次対への射}
+
+\begin{lemma}[任意基底上の三次 Poisson 中心]\label{lem:point-relative-casimirs}
+定理\ref{thm:relative-point-nfold}の良い周囲族を考える。
+任意の、非被約・非平坦なものも含む係数環への基底変更後に、
+三次 Poisson Casimir の加群は
+\[
+ Z_{\mathrm{Pois}}(\Sym(V))_3=R_0F\oplus\Sym^3U
+\]
+となる。ここで局所表示の係数環を $R_0$ と書いた。
+従ってこれは普遍的な局所自由加群であり、その形成は任意の基底変更と両立する。
+Hessian のスカラー剛性条件は、この主張には不要である。
+\end{lemma}
+
+\begin{proof}
+$A_0=\Sym_{R_0}(V)$ とし、$f=(F_x,F_y,F_z)$ と置く。
+相対点定理の仮定により、この三元は任意の基底変更後にも正則列である。
+三次式 $H$ が Jacobian Poisson 括弧の Casimir であることは
+$\nabla_{x,y,z}H\wedge f=0$ と同値である。
+正則列の Koszul cochain 複体の $A_0^3$ における完全性から
+$\nabla H=a f$ となる $a\in A_0$ が一意に存在する。
+両辺の斉次次数を比較し、$A_0\to A_0^3$, $a\mapsto af$ の単射性を使うと
+$a\in R_0$ である。
+従って $H-aF$ の三つの active 偏微分は零となる。
+$R_0$ は標数零の体上の代数なので、$H-aF$ は純中心三次である。
+逆包含は定義から明らかである。
+滑らかな三変数制限は各点で非零なので、表示した和は局所的に直和となる。
+\end{proof}
+
+尺度を含む周囲 Poisson tensor $\Pi=h\Pi_F$ を固定する。
+その support は点ベクトル空間 $V^*$ の三次元部分空間
+$K=\operatorname{ann}(U)$ である。
+ここでは既存の二次包絡復元から得られる $\Pi$ の尺度を捨てない。
+$\mathcal R=kF\oplus\Sym^3U$ を補題\ref{lem:point-relative-casimirs}の
+三次 Poisson Casimir の空間とし、
+$\mathcal L_{\mathrm{cl}}=\mathcal R/\Sym^3U$ と置く。
+尺度込みの $\Pi$ を用いているので、命題\ref{prop:point-casimir}で
+$Q$ だけから復元するための Hessian 剛性条件を追加する必要はない。
+
+有限自由 $S$-代数 $T$ は階数八なので、正規化した trace
+\begin{equation}\label{eq:point-normalized-trace}
+ \operatorname{tr}:T\longrightarrow S,
+ \qquad a\longmapsto\frac18\operatorname{Tr}_{T/S}(m_a)
+\end{equation}
+が定まる。これは次数を保ち、$S$ 上で恒等である。
+任意の係数環上でも有限局所自由代数の乗法行列の trace で定義されるため、
+任意の基底変更と可換する。
+以下、$\operatorname{tr}(H)$ は $H$ を $T$ に送ってから trace を取る意味とする。
+従って
+\begin{equation}\label{eq:point-trace-splittings}
+ \begin{aligned}
+ \mathcal E&=\mathcal W\oplus\mathcal E^0,
+ &\mathcal E^0&=\ker(\operatorname{tr}\circ\alpha),\\
+ \mathcal R&=\mathcal W\oplus\mathcal R^0,
+ &\mathcal R^0&=\ker(\operatorname{tr}|_{\mathcal R})
+ \end{aligned}
+\end{equation}
+は標準的な分裂であり、後半は標準的な持上げ
+$s_{\mathrm{cl}}:\mathcal L_{\mathrm{cl}}\to\mathcal R^0$ を与える。
+
+\begin{lemma}[尺度付き Hessian 同型]\label{lem:point-hessian-line}
+尺度込みの $\Pi$ から、表示に依存しない線束同型
+\begin{equation}\label{eq:point-hessian-line}
+ \nu_\Pi:\mathcal L_{\mathrm{cl}}\xrightarrow{\sim}(J_g)_3
+\end{equation}
+が定まる。局所的に非零の $\overline F\in\mathcal L_{\mathrm{cl}}$ を選び、
+$\Pi=\iota_{dF}P$ となる $P\in\Lambda^3K$ を取れば、
+\[
+ \nu_\Pi(\overline F)=
+ \left[\mathscr H(P,F)\right],\qquad
+ \mathscr H(P,F)=\frac16\sum P^{ijk}P^{abc}F_{ia}F_{jb}F_{kc}.
+\]
+特に $\Pi=h\Pi_F$、$P=h\partial_x\wedge\partial_y\wedge\partial_z$ ならば
+$\nu_\Pi(\overline F)=h^2[\det\operatorname{Hess}(g)]$ である。
+\end{lemma}
+
+\begin{proof}
+この縮約はテンソルとして定義され、基底変更に不変である。
+$F$ に純中心三次を加えても $K$ に沿う Hessian は変わらない。
+さらに $F$ を $cF$ に替えると、同じ $\Pi$ を与える $P$ は $c^{-1}P$ となり、
+縮約は $c$ 倍となる。従って表示した式は商直線上の線形写像を定める。
+Hesse 座標では
+\[
+ [\det\operatorname{Hess}(g)]=8(1+\lambda^3)[xyz]\ne0
+\]
+なので同型である。滑らかな三変数三次式を Hesse 形にする変換と
+縮約の共変性から一般の場合が従う。
+族の場合にも、全ての幾何ファイバー上の非消滅により線束同型となる。
+\end{proof}
+
+\begin{theorem}[Trace--Hessian による中心三次の同定]
+\label{thm:point-trace-hessian}
+境界 Jacobi 写像 $\epsilon$ が同型となる良い一ブロック開上で、
+\begin{equation}\label{eq:point-trace-hessian-map}
+ \mathfrak d_\Pi:\mathcal E\xrightarrow{\sim}\mathcal R,
+ \qquad
+ w\longmapsto
+ -12\,s_{\mathrm{cl}}\bigl(\nu_\Pi^{-1}(\epsilon(\overline w))\bigr)
+ +\operatorname{tr}(\alpha(w))
+\end{equation}
+は線型同型であり、純中心三次上で恒等である。
+これは基底変更および次数付き表示変更と両立する。
+従って中心三次直線の torsor の同型
+\begin{equation}\label{eq:point-central-classical-torsors}
+ \mathbb P(\mathcal E)\setminus\mathbb P(\mathcal W)
+ \xrightarrow{\sim}
+ \mathbb P(\mathcal R)\setminus\mathbb P(\mathcal W)
+\end{equation}
+を定める。
+
+$H_w=\mathfrak d_\Pi(w)$ が滑らかな射影三次超曲面を定める非空開上で、
+\begin{equation}\label{eq:point-poisson-pair}
+ [w]\longmapsto (X_w,\pi_w),\qquad
+ X_w=V(H_w),\quad \pi_w=\Pi|_{X_w}
+\end{equation}
+は次数付き表示のスカラー商上の射となる。
+より具体的には、$\mathcal Z_N^{\mathrm{sm}}$ を
+\[
+ \mathbb P(\Sym^3V)\times
+ \bigl(\Sym^2V\otimes\Lambda^2V^*\bigr)
+\]
+内で、三次式の滑らかさおよび $[\Pi,\Pi]=0$、$\Pi(dH,-)=0$ を満たす
+$([H],\Pi)$ の局所閉スキームとすれば、標的を代数的商
+$[\mathcal Z_N^{\mathrm{sm}}/\mathrm{PGL}(V)]$ と取れる。
+斉次 affine lift のデータを忘れることで、Brauer--Severi 周囲空間内の
+滑らかな埋込み三次 Poisson 対とその偏極\emph{類}へ射を得る。
+大域的な $\mathcal O(1)$ 自体の降下を仮定する必要はない。
+定理\ref{thm:point-omarked-descent}と局所的な良い表示のモジュライ比較により、
+この射は同じ開の $\mathcal O$-marked な族についても表示に依存しない。
+\end{theorem}
+
+\begin{proof}
+\eqref{eq:point-trace-splittings} の両分裂の下で、写像は $\mathcal W$ 上の恒等と、
+商直線間の同型 $-12\nu_\Pi^{-1}\epsilon$ の直和である。
+従って線型同型であり、非純中心の直線を非純中心の直線へ送る。
+全ての構成は最大可換代数商、有限局所自由代数の trace、
+尺度付き Poisson tensor およびその三次 Casimir から定まる。
+これらは表示変更に共変で、任意の基底変更と両立する。
+次数付きスカラーは両三次空間で重み三を持つため、
+射影化後には自明に作用する。
+このことが表示のスカラー商とその fpqc forms 上での降下を与える。
+
+$H_w$ は $\Pi$ の Casimir であるから、その斉次イデアルは Poisson イデアルである。
+括弧は次数零を持つので $\operatorname{Proj}$ 上にも Poisson tensor を定める。
+一般点では中心座標が非零で Euler 方向が active support の外にあるため、
+得られる射影 Poisson tensor は階数二である。
+
+滑らかな三次式の非空性も各固定周囲で確認できる。
+$F+G(u)$ を $G\in\Sym^3U$ で動かす線型系は $V(U)$ の外で基点を持たない。
+基点部分 $V(U,g)$ では active 勾配が非零なので、各 $F+G$ は滑らかである。
+Bertini により一般の $G$ はその外でも滑らかな超曲面を与える。
+同型\eqref{eq:point-central-classical-torsors}で引き戻せば、各固定周囲の
+中心三次 torsor に非空開を得る。
+全パラメータ空間では、既に課した良い点スキーム開や
+滑らかな定常成分の非空開とも交わらせられる。
+後者を全ての固定周囲で主張しているのではない。
+\end{proof}
+
+\begin{remark}[規格化・既存量子化・残余圏との比較]
+式\eqref{eq:point-trace-hessian-map}の同型自体は、係数 $-12$ を
+任意の固定した非零定数に替えても成立する。
+この値は入力研究\cite[Proposition \texttt{prop:pg-ad-intrinsic-hessian}]{NCCubicA}の
+二次 jet に合わせたものである。
+すなわち、指定した Weyl 表示の二次 jet
+\[
+ \Omega_{F,h}=\operatorname{sym}
+ \left(F-\frac{h^2}{12}\det\operatorname{Hess}_{x,y,z}(F)+O(h^4)\right)
+\]
+を満たす族に限れば、$\epsilon(\overline\Omega)
+=-h^2[\det\operatorname{Hess}(g)]/12+O(h^4)$ なので、
+$\mathfrak d_{h\Pi_F}(\Omega_{F,h})=F+O(h^2)$ となる。
+ここで指定するのは、同入力命題で純中心二次補正を調整した中心元である。
+同入力の短い混合 Hesse 公式には $h^2ABC/6$ という純中心項もあり、
+それを引く前の式を上の $O(h^4)$ 表示と同一視しない。
+有限の非零 $h$ で常に入力の $F$ と一致するとは主張しない。
+またこの同変な構成の存在は、自然な逆量子化の一意性を意味しない。
+
+点スキームの定常切断 $w_{\mathrm{ab}}|_C$ と $H_w|_C$ は異なる。
+前者の境界 Jacobi 類を消すのではなく、その非零類を Hessian 同型によって
+古典 Casimir 方向の係数へ読み替え、純中心成分を trace で指定している。
+これにより Poisson 三次対への射は構成できるが、
+$X_w$ と残余圏が回復する可換三次多様体 $X_{\mathrm{res}}$ の同型、
+および $\operatorname{Ku}(A)\simeq\operatorname{Ku}(X_w)$ は別の比較問題として残る。
+特定の量子化 chart の写像を全ての内在的モジュライ成分の写像に拡張したとは主張しない。
+\end{remark}

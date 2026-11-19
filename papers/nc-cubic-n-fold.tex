@@ -45,22 +45,26 @@
 \newcommand{\qgr}{\operatorname{qgr}}
 \newcommand{\QGr}{\operatorname{QGr}}
 \title{非可換三次 $n$-fold のモジュライ\\
-\large 中心復元・点スキーム・Jacobi 方程式の次元境界}
+\large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v4}
+\date{2026年11月20日・研究稿 v5}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
-pdfsubject={中心復元・点スキーム・Jacobi方程式の次元境界}}
+pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
 \maketitle
 \vspace{-0.6\baselineskip}
 \begin{abstract}
 三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ三次超曲面の量子化を扱う。
 中心平坦性と普遍低次数中心条件の下で任意の Veronese から元の代数を復元し、
-一ブロックの次数付き DM stack と中心三次 torsor を構成する。
-良い PBW 表示模型では任意底変更に両立する相対 Serre 双対を構成し、
-全 $\mathcal O$-保存同値の係数変更と降下を証明する。
-同値の次数付き代表を大域に選ぶ障害は線束であり、自由な次数一表示では三捩れに限られる。
-点スキームの定常成分は、明示した楕円・正則切断条件の下で型 $(2,2,2,3)$ の完全交叉となる。
+良い一ブロック表示を局所的に持つ $\mathcal O$-marked 圏族の滑らかな DM stack を構成する。
+相対 Serre 双対、全同値の比較、および重み付き加群の tails により、
+次数一 shift を標識に含めず対象の効果的降下を示す。
+大域表示の Brauer 障害は $n\not\equiv1\pmod3$ では消え、
+$n\equiv1\pmod3$ ではどの非空開上でも位数三である。
+点スキームは相対的に楕円成分と型 $(2,2,2,3)$ の定常成分へ分かれ、
+非空開上で埋込み点対応から中心三次商を復元できる。
+八重被覆の正規化 trace と境界の Hessian を用いて量子中心三次を古典 Casimir へ同定し、
+非空開上で滑らかな三次 Poisson 対のモジュライへの射を構成する。
 
 別に、三次超曲面の Jacobi スキームを Koszul flattening と Pl\"ucker 関係によって調べる。
 $3\le n\le7$ の一般三次では Grassmann 錐に一致する。
@@ -71,6 +75,7 @@ $n=8$ の一般三次では、その頂点に長さ330、次数二に集中す�
 高次元の冪零部分の最高次数と極大イデアルによる消滅指数は一様に有界ではない。
 最後に既知の Hochschild 計算と圏変形理論から、$n\ne4$ の通常 Artin 基底上で
 残余圏の一次切断変形を幾何的変形として認識する。
+全ての内在的成分の被覆と、構成した Poisson 三次に対する残余圏の比較は未解決である。
 \end{abstract}
 \setcounter{tocdepth}{1}
 \vspace{-0.5\baselineskip}
@@ -115,6 +120,12 @@ Poisson 方程式のスキーム構造にも八次元から新しい現象が生
 関連する公刊研究との関係は次の通りである。
 Etingof--Ginzburg \cite{NFMEG} は三変数 potential の PBW 変形と中心元を構成し、
 Mori--Smith \cite{MoriSmith} は三生成元三二次関係の Calabi--Yau 代数を分類する。
+Behrend--Noohi \cite[Sections~2.3, 3.1.2]{NFMBehrendNoohi} は
+次数スカラーによる rigidification、重み付き代数の gerbe、
+determinant character による中立化、および偏極付き Grothendieck 圏を扱う。
+これらの一般的方法を新規とは数えず、本稿では全 $\mathcal O$-同値の復元を用いて
+shift の標識を外した局所一ブロック型の圏 stack と同定し、
+階数 $(n-1,3)$ に依存する、全ての非空開上の Brauer 障害を決定する。
 Berger--Taillefer \cite{NFMBeTa} の potential 解消と PBW--CY 定理も入力とし、
 本稿では任意個の中心差の Koszul 解消と有限射影模型によって、
 非平坦・非被約な底変更にも両立する相対双対と trace を構成する。
@@ -123,6 +134,14 @@ $n$ に依存する全同型問題や torsor の降下と区別する。
 Le Bruyn--Smith--Van den Bergh \cite{LBSV} の一点中心拡大における
 楕円曲線と八点、および二次関係の復元に対して、本稿は任意個数の中心変数を扱い、
 有限平坦な八重被覆と高次元の二十四次完全交叉を得る。
+さらに Rains の中心公式 \cite[\S9, p.~1414]{NFMEG} の境界評価から
+中心三次の復元を強め、相対 trace と尺度付き Hessian による
+Poisson 対への射を構成する。この射と既存量子化の単純な逆写像、
+および残余圏からの可換復元とは区別する。
+形式量子化の中心と Poisson 中心の同型は
+Etingof--Ginzburg\cite[Proposition~8.1.1, equation~(8.1.3)]{NFMEG}
+にも既に現れる。本稿で扱うのは、有限の非零パラメータでの三次部分に対する
+trace と Hessian の明示的処方、およびその任意底変更とモジュライへの降下である。
 Mayanskiy \cite{Mayanskiy} の三様体における Schouten 方程式の計算に対して、
 本稿は高次元での Jacobi イデアル自体を比較する。
 affine 超曲面の Poisson 延長を gradient の Koszul 複体で記述する手法には
@@ -148,14 +167,14 @@ Huybrechts--Rennemo \cite{NFHuybrechtsRennemo} の既知の圏論的不変量と
 既知の公式からの帰結と、本稿に証明を与える拡張は以下で区別する。
 これらの拡張について、独立な新規性の網羅的確認はなお完了していない。
 
-\subsection{中心復元と次数付きモジュライ}
+\subsection{中心復元と構造対象付きモジュライ}
 以下 $n\ge3$、$N=n+2$、$r=n-1$ とする。
 生成元空間を $V$、中心一次空間を $U\subset V$、$\dim U=r$ と書く。
 点の空間は $W=V^*$ であり、$\PP(W)$ 上の三次式は
 $\Sym^3W^*=\Sym^3V$ の元である。
 周囲の二次代数を $B$、中心三次商を $A=B/(w)$ と書く。
 
-\begin{maintheorem}[中心 Veronese 復元と一ブロックモジュライ]
+\begin{maintheorem}[中心復元と局所一ブロック型モジュライ]
 可換 $\C$-代数上の次数一生成代数 $A,A'$ が、それぞれ
 中心多項式環 $C=\Sym U,C'=\Sym U'$ 上平坦、
 $\rank U=\rank U'\ge2$ であり、
@@ -174,6 +193,13 @@ $\tau_n:\mathfrak C_n\to\mathfrak B_n$ は、
  s_n=\binom{n+1}{3},\qquad
  \dim\mathfrak C_n=b_n+s_n=\binom{n+2}{3}+3n-2.
 \]
+普遍相対双対と全同値比較の良い開に制限すると、
+$\mathfrak C_n^{\mathrm{good}}$ は fpqc 局所的にこれらの表示を持つ
+$\mathcal O$-marked Grothendieck Abel 圏族の stack
+$\mathfrak M_n^{\mathrm{loc}}$ に同値である。
+大域の次数付き表示を妨げる gerbe の類 $\beta$ は
+$\gcd(n-1,3)\beta=0$ を満たす。
+$n\equiv1\pmod3$ では、その制限は任意の非空開上で位数がちょうど三である。
 \end{maintheorem}
 
 正確な普遍中心条件と証明は定理\ref{thm:nfm-central-veronese}に、
@@ -216,10 +242,15 @@ $n\equiv1\pmod3$ では、滑らかな affine 楕円曲線上で非零障害の�
 （命題\ref{prop:nfm-nontrivial-three-torsion}）。
 切断飽和性自体は中心正則対によって全整数次数で証明する
 （補題\ref{lem:nfm-central-saturation}）。
-表示された族を越える一般の Abel 圏族の定義と、その効果的な降下は現在の課題である。
+定理\ref{thm:nfm-local-moduli}では、係数変更を圏内の係数作用として定義し、
+表示 gerbe 上の重み付き次数加群の tails により対象の効果化を構成する。
+表示 gerbe の $H^2$ の類と、指定同値の上の $H^1$ の線束障害は異なる。
+定理\ref{thm:nfm-brauer-dense-open}は、$n\equiv1\pmod3$ では
+どの非空開にも $\C(s,t)$ 上で非零 Brauer 障害を持つ対象が存在することを示す。
+全ての内在的成分の一般点に局所一ブロック表示がある、という分類は主張しない。
 
-\subsection{点スキームと Poisson スキームの異なる一般次元化}
-\begin{maintheorem}[二十四次完全交叉と Jacobi スキームの境界]
+\subsection{相対点対応と Poisson 対への射}
+\begin{maintheorem}[相対点スキーム、中心復元、Poisson 対]
 一ブロック模型の楕円境界、固定点なしの shift、および中心三次の正則切断条件の下で、
 \[
  \operatorname{Pt}(A)=E\amalg D,\qquad
@@ -230,8 +261,48 @@ $n\equiv1\pmod3$ では、滑らかな affine 楕円曲線上で非零障害の�
 \]
 三つの偏微分で定まる $C$ は $\PP^{n-2}$ への次数八の有限平坦被覆である。
 $n=4$ で $D$ が滑らかなら、$D$ は種数 $37$ の連結曲線である。
+これらは任意底変更と両立する相対完全交叉と八重被覆を与え、
+点商の関手、shift のグラフ、中心射影は
+$\mathfrak M_n^{\mathrm{loc}}$ の良い開上へ降下する。
+ambient は一般には Brauer--Severi 束であり、上の双対化層の式は
+各ファイバーでの式である。
 
-一方、滑らかな可換三次 $X_F\subset\PP^{n+1}$ の自然な Jacobi スキームについて、
+非空開上では、埋込み点対応から $B$ と中心直線 $[w]$、従って $A$ を復元できる。
+さらに尺度込みの周囲 Poisson tensor $\Pi$ に対し、
+中心三次束と古典三次 Casimir 束の間に、純中心三次を固定する同変同型
+\[
+ \mathfrak d_\Pi:Z(B)_3\xrightarrow{\sim}
+ \mathcal R_\Pi=\C F\oplus\Sym^3U
+\]
+を構成できる。この同型は任意の基底変更と両立する。
+従って滑らかな三次を与える非空開
+$\mathfrak M_n^{\mathrm{Pois}}\subset\mathfrak M_n^{\mathrm{loc}}$ 上で
+\[
+ (\mathcal C,\mathcal O)\longmapsto
+ \bigl(V(\mathfrak d_\Pi(w)),\Pi|_{V(\mathfrak d_\Pi(w))}\bigr)
+\]
+が、偏極類を持つ三次 Poisson 対への射を定める。
+\end{maintheorem}
+
+相対点関手と束の正確な降下は定理\ref{thm:relative-point-nfold}、
+\ref{thm:point-omarked-descent}に、中心直線の復元は
+定理\ref{thm:point-central-recovery}に置く。
+Poisson 射の標的は、斉次 quadratic Poisson tensor と滑らかな三次 Casimir の
+局所閉スキームの $\PGL(V)$ 商として具体的に構成する
+（定理\ref{thm:point-trace-hessian}）。
+斉次 affine lift を忘れれば、Brauer--Severi 周囲空間内の Poisson 対を得る。
+$n\equiv1\pmod3$ で実際の相対線束 $\OO(1)$ を標識に加えるには、
+上記の Brauer 障害への対処が必要である。
+
+この射は、最大可換代数商の八重有限平坦構造が与える
+正規化 trace と、境界 Jacobian 環の次数三部分への Hessian 同型を使う。
+中心元の単純な可換化は古典 Casimir の制限と一致しない
+（命題\ref{prop:point-casimir-restriction-obstruction}）。
+また、得られた三次と残余圏からの可換復元の一致はまだ証明していない。
+
+\subsection{Jacobi スキームの次元境界}
+\begin{maintheorem}[Jacobi スキームの境界と平方零構造]
+滑らかな可換三次 $X_F\subset\PP^{n+1}$ の自然な Jacobi スキームについて、
 $3\le n\le7$ の一般三次では
 \[
  \operatorname{Pois}(X_F)\simeq\widehat{\operatorname{Gr}}(3,n+2)
@@ -265,12 +336,6 @@ $n\ge8$ では冪零根基は頂点に支持される非零の有限長加群で
 一方、全ての $n\ge11$ で、非零 Poisson 点の局所環に
 330次元の平方零部分空間を持つ滑らかな特殊三次が存在し、射影化しても非被約である。
 \end{maintheorem}
-
-点関手は基底上の次数零成分を自明化した規約を用い、
-非被約基底上でも分解を証明する。
-点対応からの二次包絡の復元、追加の Hessian 条件下での
-$\C F\oplus\Sym^3U$ の復元も\S\ref{sec:points}で示す。
-これは特定の古典三次式の選択や、点スキームと Poisson 零スキームの同一視ではない。
 
 Jacobi スキームの主張は\S\ref{sec:nfold-jacobi-scheme}で証明する。
 Jacobi イデアル $I_F$ の $N\binom N4$ 個の生成二次式の間には
@@ -325,11 +390,10 @@ $n\equiv1\pmod3$ ではこの方法は使えない。
 
 本稿の各定理には証明または明示的な入力を記し、
 計算補助の主張には再現可能な証明書を添える。
-全 $\mathcal O$-marked moduli の代数性と各成分の一般対象の被覆、
-ならびに Poisson 対 $(X,\pi)$ のモジュライへの射は未完成である。
-点対応から回復する Casimir 空間の中で、量子中心三次に対応する古典三次の直線を
-選ぶこと、その選択と Poisson tensor の尺度を全 $\mathcal O$-同値に対して
-降下することが必要となる。
+全 $\mathcal O$-marked moduli の代数性と各成分の一般対象の被覆は未完成である。
+局所一ブロック型では Poisson 射を構成したが、各成分への拡張と残余圏との整合は残る。
+量子中心三次に trace と Hessian で対応させた古典三次の直線と
+Poisson tensor の尺度は、この局所一ブロック型では全 $\mathcal O$-同値に関して降下する。
 一方、残余圏からの可換三次の復元は別の構成であり、
 その出力と Poisson 射の underlying cubic が一致することを比較する必要がある。
 同じ $X$ について非可換側の残余圏と $\operatorname{Ku}(X)$ が同値となり、
@@ -342,7 +406,10 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/graded_moduli.tex}
 \input{papers/sections/relative_duality.tex}
 \input{papers/sections/abel_comparison.tex}
+\input{papers/sections/local_moduli.tex}
 \input{papers/sections/point_schemes.tex}
+\input{papers/sections/relative_points.tex}
+\input{papers/sections/poisson_morphism.tex}
 \input{papers/sections/poisson_schemes.tex}
 \input{papers/sections/residual_categories.tex}
 \par\begingroup\small

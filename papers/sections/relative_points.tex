@@ -1,0 +1,417 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{相対点関手と構造対象付きモジュライへの降下}
+\label{sec:relative-points}
+
+\subsection{相対点関手と任意の基底変更}
+\label{subsec:relative-points}
+
+点スキームを族にする際には、中心三次の生成元ではなくその直線を用いる。
+また、各ファイバーでの完全交叉性と、非平坦な基底変更後にも保たれる
+相対完全交叉性を区別する。
+以下の $S$ は良い一ブロック表示チャートの任意の基底変更とし、
+$\mathcal V$ は階数 $N=n+2$ の生成元束、
+$\mathcal U\subset\mathcal V$ は階数 $r=n-1$ の中心部分束、
+$\mathcal X=\mathcal V/\mathcal U$ とする。
+$\mathbb P(\mathcal V^*)$ は $\mathcal V$ の可逆商を表す規約とし、
+その標準全射を $\mathcal V\otimes\OO\to\OO(1)$ と書く。
+
+局所的に $\mathcal V=\langle x,y,z,u_1,\ldots,u_r\rangle$ と表示し、
+式\eqref{eq:point-relations}の関係を用いる。
+$g=F|_{u=0}$ は各幾何学的ファイバーで滑らかな平面三次式とする。
+境界の双線型関係スキームは、相対的に滑らかな平面三次曲線
+$\mathcal E\to S$ の固定点を持たない $S$-自己同型
+$\sigma$ のグラフであると仮定する。
+中心三次直線を $\ell\subset Z(\mathcal B)_3$ とし、
+その境界への像は $\mathcal E$ 上の普遍点加群を消すものとする。
+この最後の条件は切断の恒等式であり、幾何点での消滅だけを仮定するのではない。
+$\mathcal A=\mathcal B/(\ell)$ と置く。
+
+三つの偏微分が張る階数三の部分束を
+$\mathcal Q\subset\operatorname{Sym}^2\mathcal V$ とする。
+中心三次の可換化は、代表に依存しない写像
+\[
+ \ell\longrightarrow
+ \bigl(\operatorname{Sym}\mathcal V/(\mathcal Q)\bigr)_3
+\]
+を与える。
+これにより
+\[
+ \mathcal C=V(\mathcal Q),\qquad
+ \mathcal D=V(\mathcal Q,\ell_{\mathrm{ab}})
+ \subset\mathbb P(\mathcal V^*)
+\]
+を定める。各幾何学的ファイバーの $\mathcal C$ 上で
+$\ell_{\mathrm{ab}}$ が非零因子を生成する開を、点スキームの良い開と呼ぶ。
+これは以下の行列式によって検出される開条件である。
+
+\begin{theorem}[普遍的な相対点スキーム]
+\label{thm:relative-point-nfold}
+以上の点スキームの良い開上では、任意の $S$-スキーム $S'$ に対して
+正規化された相対点加群の関手が
+\[
+ \operatorname{Pt}_{S'}(\mathcal B_{S'})
+   =\mathcal E_{S'}\amalg\mathcal C_{S'},\qquad
+ \operatorname{Pt}_{S'}(\mathcal A_{S'})
+   =\mathcal E_{S'}\amalg\mathcal D_{S'}
+\]
+で表される。ここで各次数成分は $S'$ 上の可逆層で、次数零を
+$\OO_{S'}$ と同定し、次数零から生成されることを要求する。
+shift は $\mathcal E$ 上で $\sigma$、$\mathcal C,\mathcal D$ 上で恒等である。
+
+中心射影
+\[
+ f:\mathcal C\longrightarrow\mathbb P(\mathcal U^*)
+\]
+は次数八の有限局所自由射である。
+$\mathcal C\to S$ と $\mathcal D\to S$ は平坦であり、
+それぞれ型 $(2,2,2)$ と $(2,2,2,3)$ の相対完全交叉である。
+これらの主張、正則埋込み、および点関手の同定は、任意の基底変更と両立する。
+各ファイバーの次元と次数は、それぞれ $(n-2,8)$ と $(n-3,24)$ である。
+
+$p_D:\mathcal D\to S$ とすると、相対双対化層は
+\begin{equation}\label{eq:relative-point-dualizing}
+ \omega_{\mathcal D/S}\simeq
+ \OO_{\mathcal D}(7-n)\otimes
+ p_D^*\bigl(\det\mathcal V\otimes
+              (\det\mathcal Q)^{-1}\otimes\ell^{-1}\bigr).
+\end{equation}
+従って基底上の determinant 因子を自明化していない族では、
+右辺を単に $\OO_{\mathcal D}(7-n)$ と書かない。
+\end{theorem}
+
+\begin{proof}
+まず有限局所自由性を係数環上で確認する。
+局所的に $S=\operatorname{Spec}R$ として
+\[
+ K=R[x,y,z]/(g_x,g_y,g_z),\qquad K_i=K_i^{\mathrm{gr}}
+\]
+と置く。三つの偏微分の Koszul 複体の各次数部分は有限自由複体である。
+各幾何学的ファイバーでは正次数のホモロジーが零であり、
+$K_i$ の階数は $i=0,1,2,3$ に対して $1,3,3,1$、それ以外では零である。
+有限自由複体で可逆な小行列式を順に分離すると、
+各次数の複体は局所的に可縮な複体と次数零に置いた自由加群の直和になる。
+従って $K_i$ は表示した階数の有限局所自由加群であり、
+この Koszul 完全性と $K_i$ の形成は任意の係数変更と両立する。
+これは被約基底上の階数計算だけを非被約基底へ移す議論ではない。
+
+$R_u=R[u_1,\ldots,u_r]$ および
+\[
+ T=R_u[x,y,z]/(F_x,F_y,F_z)
+\]
+を考える。active 次数の最高記号は $g_x,g_y,g_z$ である。
+最高記号の Koszul 関係で最高次数を消す帰納法により
+\[
+ \operatorname{gr}_{\mathrm{act}}T\simeq R_u\otimes_R K
+\]
+を得る。この帰納法は全ての係数変更後にも同じである。
+従って $T$ は長さ四の有限濾過を持ち、その次数付き随伴商は
+$R_u(-i)\otimes_R K_i$ $(0\leq i\leq3)$ である。
+各 $K_i$ が局所自由なので、局所的に斉次持上げを選べば
+\begin{equation}\label{eq:relative-critical-free}
+ T\simeq R_u\oplus R_u(-1)^3\oplus
+                 R_u(-2)^3\oplus R_u(-3)
+\end{equation}
+となる。この分解の標準性は主張しない。
+とくに $T$ は $R_u$ 上階数八で有限局所自由である。
+
+滑らかな $g$ の偏微分は射影平面上に共通零点を持たないから、
+$\mathcal C$ は $V(\mathcal U)$ と交わらない。
+よって中心射影は全域で定義され、\eqref{eq:relative-critical-free} の Proj により
+有限局所自由性を得る。
+$\mathcal C$ の三つの方程式についても、上の Koszul 複体は完全であり、
+その商は $S$ 上平坦である。
+射影空間は $S$ 上平坦かつ有限表示なので、これは相対正則埋込みであり、
+任意の基底変更後にも正則である
+\cite[Tags~063P, 063U]{NFMStacksRelativeRegular}。
+
+三次直線の像は各ファイバー上の非零因子である。
+平坦かつ有限表示な $\mathcal C\to S$ 上の局所主イデアルに対する
+ファイバー判定により、$\mathcal D\subset\mathcal C$ は相対有効 Cartier 因子である
+\cite[Tag~062Y]{NFMStacksRelativeCartier}。
+従って $\mathcal D\to S$ は平坦で、この Cartier 性は
+非平坦なものを含む全ての基底変更で保たれる
+\cite[Tag~056Q]{NFMStacksRelativeCartier}。
+完全交叉型とファイバーの次元・次数が従う。
+
+点関手については、定理\ref{thm:point-nfold}の二種類の chart の議論を
+そのまま係数環上で用いる。
+中心座標の一つが可逆なら中心関係から二つの点は等しく、
+残りの式は $\mathcal Q=0$ となる。
+二点の二次小行列式の一つが可逆なら、全中心座標が零となって
+境界の $\sigma$ のグラフを得る。
+固定点なしの仮定と $\mathcal C\cap V(\mathcal U)=\varnothing$ により
+これらは全体を覆う。従って scheme として
+\[
+ \Gamma_{\mathcal B}=\Gamma_\sigma\amalg\Delta_{\mathcal C}
+\]
+である。この対応は自己同型のグラフなので、無限点列は初期点から一意に決まる。
+三次直線の多重線型化は境界上で恒等的に零であり、
+定常列上では $\ell_{\mathrm{ab}}$ の評価となる。
+これで任意の基底上の点関手と shift の主張を得る。
+
+最後に、射影空間の相対標準束は
+$\OO(-N)\otimes\det\mathcal V$ である。
+二次三本と三次直線の conormal determinant は
+$\OO(-9)\otimes\det\mathcal Q\otimes\ell$ なので、
+相対随伴公式から\eqref{eq:relative-point-dualizing}を得る。
+\end{proof}
+
+\begin{corollary}[相対 norm と良い点スキーム開]
+\label{cor:relative-point-norm}
+$p_U:\mathbb P(\mathcal U^*)\to S$、
+$\mathcal H=f_*\OO_{\mathcal C}$ と置く。
+点スキームの良い開上には、任意の基底変更と両立する完全列
+\[
+ 0\longrightarrow p_U^*\ell\otimes\mathcal H(-3)
+ \longrightarrow\mathcal H
+ \longrightarrow f_*\OO_{\mathcal D}\longrightarrow0
+\]
+がある。最初の写像の行列式は
+\[
+ \mathcal N\in
+ H^0\bigl(\mathbb P(\mathcal U^*),
+       \OO(24)\otimes p_U^*\ell^{-8}\bigr)
+\]
+であり、$f_*\OO_{\mathcal D}$ の零次 Fitting イデアルを定める。
+各ファイバーで $\mathcal N$ が零切断でないという条件は基底の開条件であり、
+上の非零因子条件と同値である。
+良い一ブロック表示族ではこの開は非空である。
+\end{corollary}
+
+\begin{proof}
+中心射影から $\OO_{\mathcal C}(1)=f^*\OO(1)$ である。
+相対 Cartier 因子の完全列を有限射で押し出せば表示した完全列を得る。
+$\mathcal H$ の階数は八なので、その determinant は
+$\OO(24)\otimes p_U^*\ell^{-8}$ に値を持つ。
+各ファイバーでは $T$ は多項式環 $k[u]$ 上自由であり、
+その上の三次乗法の単射性は行列式が非零多項式であることと同値である。
+$T$ は $k[u]$ 上自由なので、三次乗法の核に射影化で消える
+非零部分加群はない。従ってこれは $\mathcal C$ 上の非零因子条件とも同値である。
+行列式の全係数が同時に零になる条件は閉条件なので、所定の条件は開である。
+
+非空性のため、一つの良い周囲代数とその中心三次の持上げを固定する。
+純中心三次を加える線型系は $\mathcal C$ 上基点を持たない。
+有限個の既約成分のいずれかで恒等的に零となる条件はそれぞれ真の affine
+線型条件であるから、その和集合を避けることができる。
+これは一ブロック表示成分の非空開についての主張である。
+\end{proof}
+
+\begin{proposition}[相対点対応からの二次包絡]
+\label{prop:relative-point-envelope}
+$\rho=\sigma\amalg\operatorname{id}_{\mathcal D}$ とし、
+$\Gamma=\Gamma_\rho\subset
+\mathbb P(\mathcal V^*)\times_S\mathbb P(\mathcal V^*)$ と置く。
+$p$ をこの積から $S$ への射とすると
+\begin{equation}\label{eq:relative-point-envelope}
+ p_*\mathcal I_\Gamma(1,1)=\mathcal R_{\mathcal B}
+ \subset\mathcal V\otimes\mathcal V
+\end{equation}
+であり、左辺の形成は任意の基底変更と両立する。
+また、埋込みイデアルの低次数部分は任意の基底変更と両立して
+\begin{equation}\label{eq:relative-point-ideal-pieces}
+ p_*\mathcal I_{\mathcal D}(2)=\mathcal Q,
+ \qquad
+ p_*\mathcal I_{\mathcal C}(3)=\mathcal Q\otimes\mathcal V,
+ \qquad
+ p_*\mathcal I_{\mathcal D}(3)\big/
+       p_*\mathcal I_{\mathcal C}(3)\simeq\ell
+\end{equation}
+となる。ここで後二式の $p$ は射影空間から $S$ への射を表す。
+\end{proposition}
+
+\begin{proof}
+型 $(2,2,2,3)$ の Koszul 解消に $\OO(2)$ または $\OO(3)$ を tensor する。
+射影空間の相対次元は $n+1\geq4$、イデアル層のこの解消の長さは三なので、
+射影空間の最高次コホモロジーは全次数零の計算に寄与しない。
+中間コホモロジーも零であり、残る次数零の列から
+\eqref{eq:relative-point-ideal-pieces}を得る。
+二次生成元の一次係数による syzygy はないので、
+$\mathcal Q\otimes\mathcal V\to\operatorname{Sym}^3\mathcal V$ は単射である。
+三次生成元の tensor 代表を替えた差はその像に入るため、最後の同型は代表に依存しない。
+この相対 Koszul 計算は全ての基底変更後にも同じである。
+とくに $n=3$ で $\mathcal D$ が零次元でも成立するが、
+$\operatorname{Sym}^3\mathcal V\to p_*\OO_{\mathcal D}(3)$ の全射性は主張しない。
+
+従って対角成分上で消える双線型形式の束は
+$\bigwedge^2\mathcal V\oplus\operatorname{sym}(\mathcal Q)$ である。
+その中の $\mathcal U\wedge\mathcal V$ を割ると、境界での候補は
+\[
+ \bigwedge^2\mathcal X\oplus
+ \operatorname{sym}\langle g_x,g_y,g_z\rangle
+ \subset\mathcal X^{\otimes2}
+\]
+となる。境界の $L=\OO_{\mathcal E}(1)$ に対して
+$L\otimes\sigma^*L$ は相対次数六であるから、その切断束は階数六で、
+任意の基底変更と両立する。
+乗法 $p_*L\otimes p_*\sigma^*L\to p_*(L\otimes\sigma^*L)$ は
+各幾何学的ファイバーで全射であることを
+定理\ref{thm:point-envelope}の pencil の議論で確認できる。
+従って相対的にも分裂全射であり、三次元の核は境界の二次関係束そのものである。
+これを上の候補束に引き戻すと、核は $\mathcal R_{\mathcal B}$ に等しい。
+全てが部分束と分裂全射で計算されるので、この等式も任意の基底変更で保たれる。
+\end{proof}
+
+\subsection{$\mathcal O$-marked モジュライへの点データの降下}
+\label{subsec:point-descent}
+
+上の条件を満たす $P$-不変な非空開を $J^{\mathrm{pt}}\subset J^{\mathrm{good}}$ とし、
+\[
+ \mathfrak M_n^{\mathrm{pt}}
+  =[J^{\mathrm{pt}}/\overline P]
+  \subset\mathfrak M_n^{\mathrm{loc}}
+\]
+と置く。最後の同定には定理\ref{thm:nfm-local-moduli}を用いる。
+これは良い一ブロック表示に fpqc 局所的に同値な圏族の開であり、
+全ての内在的成分の一般点を覆うとは主張しない。
+
+\begin{theorem}[点関手、shift、中心射影の $\mathcal O$-marked 降下]
+\label{thm:point-omarked-descent}
+$\mathfrak M_n^{\mathrm{pt}}$ 上には Brauer--Severi 束
+\[
+ \mathfrak P_V=[\mathbb P(\mathcal V^*)/\overline P],
+ \qquad
+ \mathfrak P_U=[\mathbb P(\mathcal U^*)/\overline P]
+\]
+と、それぞれに付随するデータ
+\[
+ \mathfrak Y=\mathfrak E\amalg\mathfrak D\hookrightarrow\mathfrak P_V,
+ \qquad \rho:\mathfrak Y\xrightarrow{\sim}\mathfrak Y,
+ \qquad f:\mathfrak C\longrightarrow\mathfrak P_U
+\]
+がある。$f$ は次数八で有限局所自由であり、
+$\mathfrak C\hookrightarrow\mathfrak P_V$ と
+$\mathfrak D\hookrightarrow\mathfrak P_V$ はそれぞれ fpqc 局所的に
+型 $(2,2,2)$ と $(2,2,2,3)$ の相対完全交叉である。
+これらは全ての $\mathcal O$-保存同値に関して自然であり、基底変更と両立する。
+
+さらに $\mathfrak Y$ は次の標識を増やさない点関手を表す。
+対象 $(\mathscr C,\mathcal O)$ に対し、基底 $T$ 上の点とは全射
+\[
+ q:\mathcal O_T\twoheadrightarrow\mathcal P
+\]
+であって、fpqc 局所的に良い表示
+$(\mathscr C_T,\mathcal O_T)\simeq
+ (\operatorname{QGr}\mathcal A_T,\pi\mathcal A_T)$ の下で、
+正規化された点加群 $\mathcal A_T\twoheadrightarrow M$ の tails に同型となるものとする。
+射は $q$ を保つ同型とする。
+この条件は良い表示の選択によらず、当該 groupoid は自己同型を持たない。
+従って $\mathfrak Y$ 上にはこの意味での普遍点商が存在する。
+次数一 shift の大域的な選択を点関手の定義に加える必要はない。
+\end{theorem}
+
+\begin{proof}
+次数付き同型は生成元の射影空間、全関係、点加群、およびその正規化 shift を移す。
+次数スカラー $\lambda$ は射影空間上で恒等であり、点加群の次数 $j$ には
+$\lambda^j$ を掛ける標準同型を与える。
+次数零の同定は保たれるので、この作用は正規化点加群の同型類上で自明である。
+従って幾何データは $P$ から $\overline P$ へ降下する。
+定理\ref{thm:nfm-fixed-model-comparison}により、全ての
+$\mathcal O$-保存同値は局所的に次数付き同型から来て、
+二つの持上げは次数スカラーだけ異なる。
+よってこの降下は表示同型だけでなく全ての $\mathcal O$-保存同値に関して自然である。
+有限局所自由性、平坦性、および相対正則埋込みも fpqc 降下する。
+
+点関手と tails の関係を確認する。
+点加群は各次数から上へ生成されるので非零 torsion 部分加群を持たない。
+二つの点加群の tails が同型なら、その同型と逆は十分大きい次数で互いに逆な
+次数付き写像により表せる。これは点加群が次数零の一つの可逆層で生成され、
+各打切り $M_{\geq m}$ も一つの有限局所自由次数成分から生成されることによる。
+従って十分大きい次数以後の点列が等しい。
+点対応 $\rho$ が自己同型なので、その初期点も等しい。
+相対点関手の表示から、元の正規化点加群は同型である。
+また $q$ は全射なので、$q$ を保つ自己同型は恒等だけである。
+これにより点加群と上述の局所点商の同型類を同定できる。
+
+全 $\mathcal O$-同値の局所持上げによって、局所点商という条件は
+良い表示から独立である。
+圏族と対象の有効 fpqc 降下により、この点商は貼り合わさる。
+正規化 shift は局所的に
+\[
+ M\longmapsto M(1)_{\geq0}\otimes M_1^{-1}
+\]
+であり、初期点を $\rho$ で移す。
+次数スカラーに関してこの式の次数 $j$ の重みは再び $j$ になるので、
+これも点商の関手とそのグラフとして降下する。
+ここでは圏全体の次数一 shift を大域に選んだわけではない。
+\end{proof}
+
+\begin{proposition}[偏極、双対化層、包絡の正確な降下形]
+\label{prop:point-polarization-descent}
+命題\ref{prop:nfm-presentation-gerbe}の表示 gerbe
+\[
+ \mathfrak G=[J^{\mathrm{pt}}/P]
+   \longrightarrow\mathfrak M_n^{\mathrm{pt}}
+\]
+の類を $\beta$ とし、$e=\gcd(r,3)$ とする。
+整数 $a,b$ を $ar+3b=e$ となるように一組固定し、
+$\chi=(\det\mathcal U)^a\otimes(\det\mathcal X)^b$ と置く。
+gerbe 上の線束
+\begin{equation}\label{eq:point-descended-polarization}
+ \OO_{\mathbb P(\mathcal V^*)}(e)\otimes p_V^*\chi^{-1},
+ \qquad
+ \OO_{\mathbb P(\mathcal U^*)}(e)\otimes p_U^*\chi^{-1}
+\end{equation}
+はそれぞれ $\mathfrak P_V,\mathfrak P_U$ 上の相対 ample 線束に降下する。
+中心射影によるそれらの引戻しは $\mathfrak C$ 上で一致する。
+別の整数解を用いた降下線束との差は、モジュライ基底上の線束の引戻しである。
+
+特に ambient Brauer--Severi 束上で、
+$n\not\equiv1\pmod3$ なら幾何学的ファイバーで
+$\OO(1)$ となる偏極を選べる。
+$n\equiv1\pmod3$ では幾何学的に $\OO(3)$ となる偏極は常に選べるが、
+$\OO(1)$ の存在は $\beta$ の消滅と同値である。
+素の標準 $P$-線型化を持つ $\OO(1)$ は、いずれの場合にも重み一なので
+そのまま $\overline P$ へ降りるわけではない。
+
+一方、$\omega_{\mathcal D/S}$、$f_*\OO_{\mathcal C}$、
+相対 norm の切断とその Fitting 因子、および
+\eqref{eq:relative-point-envelope}が定める二次包絡の
+次数スカラーを除いた同型類は、追加の偏極を選ばずに降下する。
+通常の生成元束 $\mathcal V$ や二次関係束 $\mathcal R_{\mathcal B}$ 自体の
+降下を主張するものではない。
+\end{proposition}
+
+\begin{proof}
+gerbe の中心スカラーの重みは、
+$\mathcal V,\mathcal U,\mathcal X$ 上で一、
+$\OO(1)$ 上で一、$\mathcal Q$ 上で二、$\ell$ 上で三である。
+$\chi$ の重みは $e$ なので、\eqref{eq:point-descended-polarization} の重みは零となる。
+重み零の準連接層の fpqc 降下を用いれば表示した線束を得る。
+その相対 ample 性は局所的な $\OO(e)$ の ample 性から従う。
+二つの $\chi$ の比は重み零の基底線束なので、選択の差についての主張も従う。
+$\OO(1)$ 型線束の存在と Brauer 類の消滅の同値、および
+$r\beta=3\beta=0$ は命題\ref{prop:nfm-presentation-gerbe}による。
+
+式\eqref{eq:relative-point-dualizing}の基底因子の重みは $N-9=n-7$ であり、
+$\OO(7-n)$ の重みと相殺する。
+norm の値を取る線束の重みも $24-8\cdot3=0$ である。
+$\mathcal C$ とその構造層には次数スカラーが自明に作用するので、
+$f_*\OO_{\mathcal C}$ は通常の有限局所自由層として降下する。
+
+包絡の関係束 $\mathcal R_{\mathcal B}$ は重み二である。
+従って一般には、これをモジュライ基底上の通常の部分束と記すことはできない。
+しかし埋込みグラフのイデアルそのものは降下し、各表示上での
+\eqref{eq:relative-point-envelope}による復元は射影的座標変更と両立する。
+よって二次包絡は次数スカラーを除いた同型問題として復元される。
+反対称部分への射影を用いて関係から復元する
+$\bigwedge^2\mathcal V\to\operatorname{Sym}^2\mathcal V$ は重み零であるため、
+対応する尺度込みの相対 Poisson 双ベクトルも ambient Brauer--Severi 束上へ降下する。
+この結論だけから中心三次に対応する古典 Casimir を選択したことにはならない。
+\end{proof}
+
+\begin{remark}[普遍点加群と普遍点商]
+普遍点加群の次数 $j$ の可逆層は gerbe 上で重み $j$ を持つ。
+したがって、普遍点商が $\mathcal O$-marked な圏族に降下するという主張と、
+全次数成分が通常の線束として降下するという主張は異なる。
+前者は上で証明したが、素の線型化を持つ次数成分は通常の線束として降下しない。
+モジュライ基底上に通常の次数付き代数族を置き、その点加群として記述するには、
+表示 gerbe の中立化を選ぶ必要がある。
+これは点スキーム自身への引戻しで障害が消えることとは矛盾しない。
+実際、点スキームへの引戻し gerbe 上では普遍点加群の $M_1$ が重み一の線束であり、
+これによってその gerbe は中立化される。
+そこで次数 $j$ ごとに $\mathcal A_j$ と $M_j$ の双方を
+$M_1^{-j}$ で捻れば、点空間上では通常の次数付き代数とその普遍点加群を得る。
+またここでの $\beta\in H^2(\mathbf G_m)$ は対象の表示障害であり、
+命題\ref{prop:nfm-lifting-line}の一つの同値の持上げを妨げる
+$\operatorname{Pic}$ 上の線束とは別の障害である。
+\end{remark}

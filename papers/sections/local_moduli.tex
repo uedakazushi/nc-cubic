@@ -1,0 +1,454 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{局所一ブロック型の構造対象付き圏モジュライ}
+\label{sec:nfm-local-moduli}
+
+本節では、固定表示模型間の全同値比較を対象の効果化へ進める。
+扱う族の範囲を、良い一ブロック模型を fpqc 局所的に持つ族に限定する。
+この局所表示条件を満たすこと自体を、任意の非可換三次多様体に対して
+証明するわけではない。
+一方、この範囲では次数一 shift を標識として要求せず、
+構造対象を持つ Grothendieck 圏の族を代数的 stack として分類する。
+
+次数スカラーを除く商と、その上の次数別に重みを持つ twisted algebra は
+Behrend--Noohi\cite[Section~2.3]{NFMBehrendNoohi}の一般的構成に既に現れる。
+同論文の偏極付き Grothendieck 圏は自己同値もデータに含む
+\cite[Section~3.1.2]{NFMBehrendNoohi}。
+ここで必要な追加点は、定理\ref{thm:nfm-fixed-model-comparison}により
+\emph{全ての} $\mathcal O$-保存同値を表示の同型へ戻すことと、
+twisted algebra から大域の $\mathcal O$-marked 圏を実際に構成することである。
+後半では、一ブロックの中心階数と active 階数から
+持上げ障害の正確な位数を調べる。
+
+\subsection{係数変更を備えた圏族}
+
+$R$ を可換 $\mathbf C$-代数とする。
+$R$-線型 Grothendieck Abel 圏 $\mathcal C$ と可換 $R$-代数 $T$ に対し、
+\[
+ \mathcal C_T=\operatorname{Mod}_T(\mathcal C)
+\]
+は $T$-作用付き対象の圏を表す。
+係数延長は copower $X\mapsto T\otimes_RX$ であり、
+反復係数変更には標準の結合同型を用いる。
+したがって $(\mathcal C,\mathcal O)$ は、各 affine $R$-scheme 上の
+圏と構造対象 $(\mathcal C_T,T\otimes_R\mathcal O)$ を定める。
+この係数変更構造を持つ族だけを以下で扱い、
+幾何学的ファイバーの圏を単に並べたものとは区別する。
+
+\begin{lemma}[Grothendieck 圏内の忠実平坦降下]
+\label{lem:nfm-grothendieck-fpqc}
+$\mathcal C$ を $R$-線型 Grothendieck Abel 圏とする。
+任意の忠実平坦 $R\to T$ に対して、
+\[
+ T\otimes_R-:\mathcal C\longrightarrow\mathcal C_T
+\]
+は完全かつ保守的であり、$\mathcal C$ は $\mathcal C_T$ の
+通常の fpqc descent datum の圏に同値である。
+また、二つのこのような係数圏族の間の線型完全同値、自然同型、
+および指定対象上の同定は fpqc 降下を満たす。
+\end{lemma}
+
+\begin{proof}
+加群 $M$ による copower $M\otimes_R X$ は、自由加群による表示を用いて
+余核として構成でき、$M$ と $X$ のそれぞれについて colimit を保つ。
+Lazard の定理\cite[Theorem~10.81.4, Tag~058G]{NFMStacksLazard}により、
+平坦 $T$ は有限自由加群の filtered colimit である。
+Grothendieck 圏の filtered colimit は完全なので、$T\otimes_R-$ は完全である。
+
+保守性のために、任意の $X$ に対して $X\to T\otimes_RX$ が単射であることを示す。
+忠実平坦性により $R\to T$ は純単射で、$Q=T/R$ は平坦である。
+実際、任意の $R$-加群 $M$ に対する $M\to T\otimes_RM$ は、
+$T$ を tensor した後には積写像による左逆を持つため単射であり、
+$\operatorname{Tor}_1^R(Q,M)=0$ が従う。
+$Q=\varinjlim Q_i$ を有限自由加群による表示とし、
+$T_i=T\times_QQ_i$ と置くと
+\[
+ 0\longrightarrow R\longrightarrow T_i\longrightarrow Q_i\longrightarrow0
+\]
+は分裂完全で、$\varinjlim T_i=T$ である。
+これらに $-\otimes_RX$ を施し、完全な filtered colimit を取ると
+$X\to T\otimes_RX$ は単射となる。
+完全性と合わせて保守性を得る。
+
+対象と射の降下は、補題\ref{lem:nfm-tails-fpqc}の等化子による証明を適用する。
+必要な入力は、今証明した完全性・保守性と Abel 圏内の核だけである。
+具体的に、descent datum を持つ $Y\in\mathcal C_T$ の coaction を
+$\theta:UY\to T\otimes_RUY$ と書けば、
+\[
+ X=\ker\bigl(\theta-\eta:UY\rightrightarrows T\otimes_RUY\bigr)
+\]
+が降下対象である。cocycle 恒等式と $T$-作用の counit 恒等式から
+$T\otimes_RX\simeq Y$ を得る。
+同じ等化子は射にも適用できる。
+
+関手と自然同型の降下には命題\ref{prop:nfm-equivalence-descent}の証明を用いる。
+局所同値を降下対象ごとに適用して関手を作り、逆同値も降下させる。
+得られた関手の係数変更が元の関手と一致することは、自由 $T$-作用付き対象と
+標準の reflexive coequalizer
+\[
+ T\otimes_RT\otimes_RUY\rightrightarrows T\otimes_RUY\longrightarrow Y
+\]
+上で確認する。同値は colimit を保つので、この確認で全対象を扱える。
+指定対象上の同定は降下対象間の射として降下する。
+\end{proof}
+
+以後 $r=n-1\ge2$, $N=n+2=r+3$ とする。
+第\ref{sec:nfm-graded-stack}節の $T^{\mathrm{fin}}$ を、
+必要ならさらに $P$-不変な非空開 $T^{\mathrm{good}}$ へ制限する。
+この開上の一ブロック模型は、普遍中心条件、中心上の平坦性、
+次数別有限局所自由性、および
+定理\ref{thm:nfm-fixed-model-comparison}に必要な相対双対性を
+全ての係数変更後に満たすものとする。
+相対 PBW 分裂と純 active Koszul CY 入力は
+第\ref{sec:nfm-relative-duality}節の仮定である。
+これらは本節で追加の分類定理として証明するものではない。
+中心三次の torsor をこの開へ制限して $J^{\mathrm{good}}$ と書き、
+\[
+ \mathfrak C_n^{\mathrm{good}}=[J^{\mathrm{good}}/\overline P]
+\]
+と置く。以下の議論はこの stack の任意の非空開部分にも制限できる。
+
+\begin{definition}[局所一ブロック型の圏族]
+\label{def:nfm-local-category}
+$\mathfrak M_n^{\mathrm{loc}}(R)$ の対象は、
+$R$-線型 Grothendieck Abel 圏と指定対象の対 $(\mathcal C,\mathcal O)$ であって、
+ある忠実平坦 $R$-代数 $T$ と $j\in J^{\mathrm{good}}(T)$ に対し
+\[
+ (\mathcal C_T,\mathcal O_T)
+ \simeq (\operatorname{QGr} A_j,\mathcal O_{A_j})
+\]
+となるものとする。
+射は $R$-線型完全同値 $F$ と同定
+$\alpha:F(\mathcal O)\xrightarrow{\sim}\mathcal O'$ の対、
+二射は $\alpha$ を保つ自然同型とする。
+圏族の係数変更は上で定めた $\operatorname{Mod}_T$ によるものとし、
+次数一 shift、次数一生成元の束、および局所表示は対象の標識に含めない。
+\end{definition}
+
+\subsection{twisted graded module による対象の効果化}
+
+$x\in\mathfrak C_n^{\mathrm{good}}(R)$ とし、
+対応する $\overline P$-torsor を $Q\to\operatorname{Spec}R$ とする。
+中心拡大
+\[
+ 1\longrightarrow\mathbf G_m\longrightarrow P
+ \longrightarrow\overline P\longrightarrow1
+\]
+に関する $Q$ の持上げ gerbe を $\mathcal G_x$ と書く。
+これは $x$ による $[J^{\mathrm{good}}/P]$ の引戻しである。
+普遍次数付き代数は $\mathcal G_x$ 上の代数
+$\mathcal A=\bigoplus_{j\ge0}\mathcal A_j$ を与え、
+inertia の $\lambda\in\mathbf G_m$ は $\mathcal A_j$ 上で $\lambda^j$ として作用する。
+この規約を「重み $j$」と呼ぶ。
+
+\begin{lemma}[重み付き tails の大域模型]
+\label{lem:nfm-weighted-tails}
+$\operatorname{Gr}^{\mathrm{wt}}_{\mathcal G_x}(\mathcal A)$ を、
+各 $M_j$ が重み $j$ の準連接層であるような次数付き右
+$\mathcal A$-加群 $M=\bigoplus_{j\in\mathbf Z}M_j$ の圏とする。
+fpqc 局所的に通常の graded torsion となる加群全体を
+$\operatorname{Tors}^{\mathrm{wt}}$ と書けば、
+\[
+ \mathcal C_x=
+ \operatorname{Gr}^{\mathrm{wt}}_{\mathcal G_x}(\mathcal A)
+ /\operatorname{Tors}^{\mathrm{wt}},\qquad
+ \mathcal O_x=\pi\mathcal A
+\]
+は $R$-線型 Grothendieck Abel 圏とその指定対象を定める。
+任意の $R$-代数 $T$ について標準同値
+\[
+ (\mathcal C_x)_T\simeq\mathcal C_{x_T}
+\]
+があり、構造対象と反復係数変更を保つ。
+gerbe を中立化する fpqc 被覆上では、これは通常の
+$(\operatorname{QGr}A,\mathcal O_A)$ に同値である。
+\end{lemma}
+
+\begin{proof}
+代数的 stack 上の準連接層の圏は Grothendieck 圏である
+\cite[Proposition~96.15.2, Tag~0781]{NFMStacksQCohGrothendieck}。
+$\mathbf G_m$-gerbe 上の準連接層には重み分解があり、
+各重みへの射影は完全で colimit を保つ。
+この主張は gerbe を中立化した後の $\mathbf G_m$-表現の重み分解で確認でき、
+fpqc 降下により大域化する。
+従って各重みの圏、さらにその全整数にわたる積も Grothendieck 圏である。
+ここで generator は各重みへ射影した generator の直和から得られる。
+
+重み付き次数付き層から自由右 $\mathcal A$-加群を作る関手は
+\[
+ (E_i)_i\longmapsto
+ \left(\bigoplus_{i\le j}E_i\otimes\mathcal A_{j-i}\right)_j
+\]
+である。加群の核、余核、filtered colimit は各次数で計算でき、
+この自由加群関手を generator に適用すると加群圏の generator が得られる。
+したがって $\operatorname{Gr}^{\mathrm{wt}}(\mathcal A)$ は Grothendieck 圏である。
+次数一の有限生成性により torsion は部分対象、商、拡大、直和で閉じる。
+このことは fpqc 局所で通常の次数付き加群の証明に帰着する。
+従ってこれは localizing 部分圏で、表示した Gabriel 商も Grothendieck 圏である。
+
+次に係数変更を調べる。
+$\mathcal G_{x_T}\to\mathcal G_x$ は affine base change であるから、
+その上の準連接層は $\mathcal G_x$ 上の $T$-作用付き準連接層に等しい。
+この同一視は affine atlas 上の加群の同一視と、その fpqc 降下から従い、
+inertia の重みおよび $\mathcal A$-作用を保つ。
+従って
+\[
+ \operatorname{Gr}^{\mathrm{wt}}_{\mathcal G_{x_T}}(\mathcal A_T)
+ \simeq\operatorname{Mod}_T
+ \bigl(\operatorname{Gr}^{\mathrm{wt}}_{\mathcal G_x}(\mathcal A)\bigr).
+\]
+Gabriel 商の完全左随伴と完全忠実右随伴に $T$-作用を持たせる。
+補題\ref{lem:nfm-coefficient-objects}と同様に、その核はちょうど
+$\mathcal A_T$-torsion である。
+これで任意の、非平坦なものも含む係数変更との整合を得る。
+
+最後に $\mathcal G_x$ を中立化すると、各重み $j$ の準連接層は通常の
+$R$-加群に一意に対応し、$\mathcal A$ は通常の次数付き代数になる。
+重み付き加群・torsion・構造対象はそれぞれ通常のものへ移る。
+\end{proof}
+
+\begin{theorem}[局所一ブロック型の $\mathcal O$-marked モジュライ]
+\label{thm:nfm-local-moduli}
+上記の良い表示の入力の下で、
+\[
+ \mathfrak C_n^{\mathrm{good}}
+ \xrightarrow{\ \sim\ }
+ \mathfrak M_n^{\mathrm{loc}},\qquad
+ x\longmapsto(\mathcal C_x,\mathcal O_x)
+\]
+は fpqc stack の同値である。
+右辺の $2$-groupoid は通常の groupoid と同値であり、
+指定対象上で恒等となる自然自己同型は全て恒等である。
+特に $\mathfrak M_n^{\mathrm{loc}}$ は滑らかな既約有限型 DM stack であり、
+\[
+ \dim\mathfrak M_n^{\mathrm{loc}}
+ =\binom{n+4}{3}-(n+2)^2+3n-2.
+\]
+この結論は、任意の局所模型の descent datum に対し、
+大域の Grothendieck Abel 圏とその構造対象が有効に存在することを含む。
+\end{theorem}
+
+\begin{proof}
+まず射を比較する。二つの表示 $A=B/(w)$ と $A'=B'/(w')$ の間の
+次数付き同型は、次数二の関係空間から $B\simeq B'$ を誘導する。
+実際、三次関係は次数二の関係を変えず、$B$ はその二次関係で定義される。
+得られた同型は三次の核直線を互いに移すので、
+命題\ref{prop:nfm-graded-presentation}により $J^{\mathrm{good}}$ の $P$-作用の射に一致する。
+定理\ref{thm:nfm-fixed-model-comparison}により、次数スカラーを除いたこの射の層は
+全ての $\mathcal O$-保存同値の層に一致する。
+したがって主張する射は fpqc 局所で完全忠実である。
+補題\ref{lem:nfm-grothendieck-fpqc}により、この完全忠実性は大域化する。
+
+局所模型の同値の自然自己同型はスカラーであり、
+その $\mathcal O$ 上の成分を恒等に指定するとスカラーは一となる
+\textup{(}補題\ref{lem:nfm-natural-scalars}\textup{)}。
+一般の対象でも、自然自己同型を良い被覆へ延長してこの結論を適用し、
+忠実平坦降下で恒等性を確認できる。
+従って各同値の groupoid は離散 groupoid に同値である。
+ここで構造対象の標識を忘れた二自己同型の $\mathbf G_m$ と、
+表示の次数スカラーを除いた通常の stack とを混同しない。
+
+次に $(\mathcal C,\mathcal O)\in\mathfrak M_n^{\mathrm{loc}}(R)$ を取り、
+定義の被覆上で $(\mathcal C_T,\mathcal O_T)$ を模型 $A_j$ と同定する。
+重なりで得られる marked equivalence の類は、前段により
+商 stack の射に一意に対応する。
+元の係数圏族の結合同型は cocycle を与え、
+marked natural automorphism の自明性により三重重なりでの曖昧さはない。
+商 stack の対象降下から $x\in[J^{\mathrm{good}}/\overline P](R)$ を得る。
+補題\ref{lem:nfm-weighted-tails}で構成した $(\mathcal C_x,\mathcal O_x)$ は
+同じ局所模型と同じ同値の cocycle を持つ。
+両者間の局所同値は補題\ref{lem:nfm-grothendieck-fpqc}で降下するので、
+$(\mathcal C,\mathcal O)\simeq(\mathcal C_x,\mathcal O_x)$ である。
+
+同じ議論は、最初から大域の $(\mathcal C,\mathcal O)$ が与えられていない
+局所対象と marked equivalence の descent datum にも適用できる。
+商 stack 上の対象を先に降下し、重み付き tails を作ることで、
+大域の Grothendieck 圏を得る。
+したがって対象の効果化を定義に含めて仮定したのではない。
+滑らかさ、既約性、有限型性、DM 性と次元は
+定理\ref{thm:nfm-central-torsor}から従う。
+\end{proof}
+
+\begin{remark}[証明した範囲]
+局所的に良い一ブロック表示を持つという条件の下で、
+標識は $(\mathcal C,\mathcal O)$ だけで十分である。
+ただし、この条件が全ての内在的モジュライ成分の一般点で成立すること、
+この stack が未構成の全モジュライの開かつ閉な成分をなすこと、
+任意の Abel 圏の変形が局所表示条件を保つことは、この定理には含まれない。
+これらには独立の局所表示・変形・成分の定理が必要である。
+\end{remark}
+
+\subsection{大域次数付き表示の gerbe と三捩れ障害}
+
+\begin{proposition}[表示の持上げ gerbe]
+\label{prop:nfm-presentation-gerbe}
+写像
+\[
+ \rho_n:[J^{\mathrm{good}}/P]\longrightarrow
+ \mathfrak M_n^{\mathrm{loc}}
+\]
+は $\mathbf G_m$-gerbe である。
+その class を $\beta$ とし、$e=\gcd(r,3)=\gcd(n-1,3)$ と置くと
+\[
+ r\beta=3\beta=0,\qquad e\beta=0.
+\]
+任意の affine $S$ と $x\in\mathfrak M_n^{\mathrm{loc}}(S)$ に対し、
+$\beta_x=0$ であることと、$x$ が同じ良い一ブロック型の
+大域次数付き代数の tails として表示されることは同値である。
+ここで次数一は有限局所自由でよく、自由な基底や中心三次直線の生成元は要求しない。
+
+特に $n\not\equiv1\pmod3$ ならこの gerbe は全体で中立である。
+$ar+3b=1$ となる整数 $a,b$ を一つ固定すると、
+\[
+ \chi(g)=\det(g|_U)^a\det(g|_{V/U})^b
+\]
+がその中立化を与える。
+\end{proposition}
+
+\begin{proof}
+次数スカラーは $J^{\mathrm{good}}$ に自明に作用するため、
+$P$ から $\overline P$ への商の fibre は
+その torsor の $P$-持上げの gerbe である。
+$[J^{\mathrm{good}}/P]$ 上には、重み一の階数 $r$ の束 $\mathcal U$ と
+階数三の束 $\mathcal V/\mathcal U$ がある。
+その determinant はそれぞれ重み $r$ と三の可逆層である。
+gerbe 上の重み $m$ の可逆層は $m\beta=0$ を与える。
+これは局所表示の三重重なりの scalar cocycle $c_{ijk}$ に対し、
+可逆層の遷移写像が $c_{ijk}^{m}$ を coboundary として消すことから分かる。
+従って表示した annihilator を得る。
+
+$\beta_x=0$ は持上げ gerbe の中立性、すなわち $P$-torsor への持上げの存在と同値である。
+持上げを取れば $P$-同変な普遍代数が $S$ 上へ降下し、
+次数一は有限局所自由、中心一次部分は階数 $r$ の部分束になる。
+三次関係は中心三次の可逆部分束で生成される。
+逆にこの種の大域次数付き表示の、中心一次部分を保つ frame torsor は
+$P$-torsor となり、$x$ を $[J^{\mathrm{good}}/P]$ へ持ち上げる。
+
+$e=1$ のとき、$\chi(\lambda\operatorname{id}_V)=\lambda$ である。
+写像 $p\mapsto\chi(p)^{-1}p$ は $\overline P$ の $\ker\chi$ への同型を与え、
+\[
+ P\simeq\mathbf G_m\times\ker\chi,\qquad
+ \overline P\simeq\ker\chi
+\]
+と中心拡大を分裂する。
+従って全ての $\overline P$-torsor はこの分裂により持ち上がる。
+同じことは、gerbe 上の普遍次数 $j$ の代数束を
+$\mathcal A_j\otimes\chi^{-j}$ に置き換えると重みが零になることからも分かる。
+これは同じ局所代数を表すが、選んだ整数 $a,b$ に依存する中立化である。
+\end{proof}
+
+\begin{remark}[対象の障害と同値の障害]
+$\beta_x\in H^2_{\mathrm{fpqc}}(S,\mathbf G_m)$ は
+\emph{対象}が大域次数付き表示を持つかどうかの障害である。
+一つの持上げが存在すれば、他の持上げとの差は基底の可逆層 $L$ であり、
+代数は $\mathcal A_j\mapsto\mathcal A_j\otimes L^{\otimes j}$ と変わる。
+一方、命題\ref{prop:nfm-lifting-line}の $L_F$ は、
+\emph{既に二つの大域模型を固定した後}の指定同値の持上げ障害である。
+後者の $H^1$ の現象から前者の $H^2$ の効果化を推測してはならない。
+また $\beta_x=0$ は次数一が自由であること、中心三次直線が自明であること、
+あるいは次数一 shift の標準的な選択を意味しない。
+\end{remark}
+
+\begin{theorem}[三捩れ障害はどの非空開でも消えない]
+\label{thm:nfm-brauer-dense-open}
+$n\equiv1\pmod3$、すなわち $r=3m$ とする。
+任意の非空開部分 stack
+$\mathfrak U\subset\mathfrak M_n^{\mathrm{loc}}$ に対し、
+\[
+ K=\mathbf C(s,t),\qquad x\in\mathfrak U(K)
+\]
+で $\beta_x\ne0$ となるものが存在する。
+従って $\beta|_{\mathfrak U}$ は位数がちょうど三であり、
+$\rho_n$ はどの非空開部分上でも中立化しない。
+この主張は非空開全体についてのもので、特殊次元や境界点の例に依存しない。
+\end{theorem}
+
+\begin{proof}
+まず $K$ 上の非自明な degree 三の中心 division algebra を固定する。
+$\zeta$ を原始三乗根とし、
+\[
+ D=(s,t)_3
+ =K\langle a,b\rangle/
+ (a^3-s,\ b^3-t,\ ba-\zeta ab)
+\]
+と置く。$a^i b^j$ $(0\le i,j<3)$ は基底であり、中心は $K$ である。
+division 性は $K'=\mathbf C(s)((t))$ へ延長して確認できる。
+$L=\mathbf C(s)(a)$、$a^3=s$ とすると $[L:\mathbf C(s)]=3$ で、
+$D\otimes_KK'$ は
+\[
+ f_0+f_1b+f_2b^2,\qquad f_i\in L((t)),\qquad
+ bf=\sigma(f)b,\quad\sigma(a)=\zeta a
+\]
+と書ける。非零元について
+\[
+ v(f_0+f_1b+f_2b^2)
+ =\min_i\bigl(v_t(f_i)+i/3\bigr)
+\]
+と定める。
+三つの候補値は小数部分が異なるので最小項は一意であり、
+積の最小項も一意で消えない。従って積の valuation は和に等しく、
+この有限次元代数に零因子はない。
+有限次元代数の非零元による乗法は単射なら全射なので、これは division algebra である。
+よって $D$ 自身も division algebra であり、その Brauer class は非零である。
+
+$U\simeq\mathbf C^3\otimes\mathbf C^m$、$V/U\simeq\mathbf C^3$ を選び、
+\[
+ \operatorname{GL}_3\longrightarrow P,\qquad
+ g\longmapsto\operatorname{diag}(g^{\oplus m},g)
+\]
+を考える。中心スカラーは $V$ 全体の同じスカラーへ移るから、
+$\operatorname{PGL}_3\to\overline P$ を誘導する。
+この写像に沿って $P\to\overline P$ を引き戻した中心拡大は
+$\operatorname{GL}_3\to\operatorname{PGL}_3$ そのものである。
+$D$ に対応する $\operatorname{PGL}_3$-torsor
+\cite[Tag~03R6]{NFMStacksBrauerForms}をこの写像で押し出して
+$\overline P$-torsor $Q$ を得ると、その持上げ障害は $[D]$ である。
+Brauer class の符号規約を逆に取っても、以下の非零性には影響しない。
+
+$\mathfrak U$ の逆像を $J'\subset J^{\mathrm{good}}$ とする。
+これは非空な $\overline P$-不変開である。
+表示 potential の空間
+\[
+ W_F=\operatorname{Sym}^3V/\operatorname{Sym}^3U
+\]
+には $\det(V/U)^{-1}$ で捩じった作用を用いており、
+次数スカラーの重みは零である。
+従って $W_F$ は $\overline P$ の線型表現であり、
+$Q\times^{\overline P}W_F$ は $K$ 上の通常の有限次元ベクトル空間となる。
+$T^{\mathrm{good}}_Q$ はその非空開である。
+さらに $J^{\mathrm{good}}_Q\to T^{\mathrm{good}}_Q$ は
+ベクトル束の加法群による torsor であり、特に滑らかである。
+
+非空開 $J'_Q$ の $T^{\mathrm{good}}_Q$ における像は非空開である。
+$K$ は無限体なので、この像には $K$-有理点 $z$ がある。
+$z$ 上の fibre $J^{\mathrm{good}}_{Q,z}$ は有限次元ベクトル空間の加法群の torsor であり、
+体上では自明である。
+ここでは characteristic zero のため、有限 Galois 拡大上の一点の
+Galois 軌道の affine barycenter を取ることでも有理点を構成できる。
+従ってこの fibre は affine 空間であり、その非空開 $J'_{Q,z}$ も $K$-有理点を持つ。
+この一点は $Q\to J'$ の同変写像、すなわち
+$x\in[J'/\overline P](K)=\mathfrak U(K)$ を与える。
+$x$ の持上げ gerbe の障害は固定した $Q$ の障害 $[D]\ne0$ である。
+命題\ref{prop:nfm-presentation-gerbe}の $3\beta=0$ と合わせて、位数はちょうど三となる。
+\end{proof}
+
+\begin{remark}[一般点と幾何学的一般点]
+この非中立性は、非空な稠密開に制限するだけでは
+大域次数付き表示の障害を取り除けないことを意味する。
+代数閉体上の個々の幾何学的点では gerbe は中立であり、矛盾はない。
+定理は商 stack の幾何学的一般点に非零の体の Brauer class が残るという意味ではなく、
+\emph{全ての非空開部分 stack 上で普遍 gerbe が非中立である}という主張である。
+\end{remark}
+
+\begin{remark}[Poisson 標的の偏極に対する制約]
+後に構成する射がこの表示から得られる ambient 射影空間束を保つとする。
+その ambient は $\overline P\to\operatorname{PGL}(V)$ による
+Brauer--Severi 束であり、符号を除いて class は $\beta$ である。
+もし標的を、実際の相対可逆層 $L$ を持ち、$p_*L$ が階数 $N$ で
+基底変更と両立し、$L$ の全切断がその ambient 埋込みを回復する三次族に限定すれば、
+ambient は $\mathbf P((p_*L)^\vee)$ となり Brauer class は零でなければならない。
+従って $n\equiv1\pmod3$ では、その種の標的への ambient と両立する射を
+この stack の非空開全体に作るには、gerbe の中立化という追加データが必要である。
+これは Poisson 射そのものの不存在ではない。
+Brauer--Severi ambient 内の三次族、または実際の可逆層を選ばない偏極類を
+許す標的は、引き続き有効な候補である。
+\end{remark}
