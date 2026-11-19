@@ -120,15 +120,109 @@ Pl\"ucker環の標準単項式基底を用いる
 である。従って$q_N=5\binom N5+5\binom N6=5\binom{N+1}{6}$を得る。
 \end{proof}
 
-\begin{lemma}[Jacobi 二次式の普遍的な一次従属]
-\label{lem:nfold-universal-row-relations}
-$N\ge5$とし、$T\in\operatorname{Sym}^3W^*$を任意の対称三次テンソルとする。
+\subsection{Koszul flattening と Jacobi 二次式の同定}
+
+$V=W^*$と置き、$T\in\operatorname{Sym}^3V$を三階微分テンソルとする。
+三次式の規約は$F(z)=T(z,z,z)/6$である。
 式\eqref{eq:nfold-jacobi-quadrics}の係数写像を
 \[
  \Phi_T:W\otimes\Lambda^4W^*\longrightarrow (J_N)_2,
  \qquad e_r\otimes\alpha\longmapsto B_{H_r}(P)(\alpha)
 \]
-と書く。ただし$\alpha$に関する評価は線形に延長する。
+と書く。ここで$H_r=(T_{ijr})_{i,j}$であり、$\alpha$に関する評価を線形に延長する。
+Landsberg--Ottaviani の Young flattening
+\cite[\S1.2, (2); \S4.1, Remark~4.1.3]{LandsbergOttavianiYoung}
+および Gesmundo--Landsberg の Koszul flattening
+\cite[\S6]{GesmundoLandsbergPartials}の、三次式・外積次数四の場合は
+\[
+ \mathsf K_T:W\otimes\Lambda^4V\longrightarrow V\otimes\Lambda^5V,
+ \qquad
+ e_r\otimes\alpha\longmapsto
+ \sum_{i,j}T_{ijr}\,dz_j\otimes(dz_i\wedge\alpha)
+\]
+である。すなわち$e_r$に対応する一次微分$F_r$を取り、
+多項式微分形式$F_r\alpha$に外微分を施す写像である。
+この既知の flattening と、本稿の Jacobi 二次式の係数写像を正確に比較する。
+
+\begin{lemma}[Jacobi 係数写像と Koszul flattening]
+\label{lem:nfold-koszul-flattening}
+$N\ge5$とする。写像
+\[
+ \rho:V\otimes\Lambda^5V\longrightarrow
+       \operatorname{Sym}^2((\Lambda^3W)^*),
+ \qquad
+ \rho(\lambda\otimes\eta)(P)
+       =\eta\bigl((\iota_\lambda P)\wedge P\bigr)
+\]
+の像は$(J_N)_2$であり、外積写像
+$\wedge:V\otimes\Lambda^5V\to\Lambda^6V$の核への制限は同型
+\[
+ \rho:\ker(\wedge)\xrightarrow{\sim}(J_N)_2
+\]
+を与える。また$\mathsf K_T$の像は$\ker(\wedge)$に入り、
+\begin{equation}\label{eq:nfold-flattening-factor}
+ \Phi_T=\tfrac12\rho\mathsf K_T
+\end{equation}
+である。従って Jacobi 二次式の階数はこの Koszul flattening の階数に等しい。
+\end{lemma}
+\begin{proof}
+$P$が分解可能なら$(\iota_\lambda P)\wedge P=0$なので、
+$\rho$の像は$(J_N)_2$に含まれる。
+標準交代化
+\[
+ a:\Lambda^6V\longrightarrow V\otimes\Lambda^5V,
+ \qquad \eta\longmapsto\sum_i dz_i\otimes\iota_{e_i}\eta
+\]
+について$\wedge\circ a=6\operatorname{id}$である。
+また$\sum_i e_i\wedge\iota_{dz_i}P=3P$と$P\wedge P=0$により
+$\rho a=0$である。
+Pieri 分解
+\[
+ V\otimes\Lambda^5V
+   =\Lambda^6V\oplus\mathbb S_{(2,1,1,1,1)}V
+\]
+において、後者の次元は
+$N\binom N5-\binom N6=\dim(J_N)_2$である。
+$\rho$は零でない。例えば
+$P=e_1\wedge e_2\wedge e_3+e_1\wedge e_4\wedge e_5$、
+$\lambda=dz_1$、$\eta=dz_1\wedge\cdots\wedge dz_5$とすると
+$\rho(\lambda\otimes\eta)(P)=2$である。
+既約性と次元から、$\rho$の核は$a(\Lambda^6V)$であり、
+その補空間$\ker(\wedge)$への制限は主張の同型となる。
+
+$\wedge\mathsf K_T=0$は$T_{ijr}=T_{jir}$から直ちに従う。
+式\eqref{eq:nfold-flattening-factor}は$T$について線形なので、
+純粋な三乗$T=\ell^3$で確かめればよい。
+このとき$H_r=\ell(e_r)\ell^2$、
+$\mathsf K_T(e_r\otimes\alpha)
+ =\ell(e_r)\ell\otimes(\ell\wedge\alpha)$である。
+$Q=\iota_\ell P$と置くと$\iota_\ell Q=0$であり、
+\[
+ (\ell\wedge\alpha)(Q\wedge P)
+   =\alpha(Q\wedge Q)=2 B_{\ell^2}(P)(\alpha).
+\]
+これが所望の係数$2$と符号を与える。
+\end{proof}
+
+\begin{remark}[既知の階数上界との関係]
+Gesmundo--Landsberg の Proposition~6.1、式(6.2)を
+$k=1$、$q=4$に適用すると
+\[
+ \operatorname{rank}\mathsf K_T
+ \le N\binom N4-\binom N3
+\]
+を得る。本稿の普遍的な$\Lambda^3W^*$関係は、この既知の上界の
+座標による自己完結した再証明である。
+ここで新たに研究する対象は、その像が Jacobi 二次式を与えること、
+Pl\"ucker イデアルとの差、頂点の有限長加群、および高次数の乗法である。
+これらの文献の rank 条件は、一般に Waring border rank を評価するためのもので、
+本稿の有限長 Jacobi 成分の Hilbert 関数を決定する主張ではない。
+\end{remark}
+
+
+\begin{lemma}[Jacobi 二次式の普遍的な一次従属]
+\label{lem:nfold-universal-row-relations}
+$N\ge5$とし、$T\in\operatorname{Sym}^3W^*$を任意の対称三次テンソルとする。
 座標に依存しない分裂単射
 \[
  \iota:\Lambda^3W^*\longrightarrow W\otimes\Lambda^4W^*,
@@ -189,6 +283,130 @@ $\alpha_i=dz_i\wedge\beta$を得る。
 従って$u=\iota(\beta)$である。
 \end{proof}
 
+
+\subsection{Apolar Gorenstein 代数の Betti 数との比較}
+
+ここでは Jacobi 座標環とは別の多項式環
+$S=\operatorname{Sym}W$を取り、$W$を定数係数微分作用素の空間とみなす。
+三次式の apolar 代数を
+\[
+ G_F=S/\operatorname{Ann}(F),\qquad
+ \operatorname{Ann}(F)=\{D\in S:D(F)=0\}
+\]
+と書く。また全ての$N\ge5$について
+\[
+ \epsilon_N:=q_N-N\binom N4+\binom N3
+\]
+と置く。この数は小さい$N$では負でもよい。
+
+\begin{lemma}[Jacobi 係数写像の apolar 解釈]
+\label{lem:nfold-apolar-betti}
+$N\ge5$で、$F$の一次偏微分が一次独立であるとする。
+$G_F$の Hilbert 関数は$(1,N,N,1)$であり、
+$\beta_{i,j}=\dim\operatorname{Tor}^S_i(G_F,\mathbb C)_j$と置くと
+\[
+ \dim\bigl(\ker\Phi_T/\operatorname{im}\iota\bigr)=\beta_{4,6},
+ \qquad
+ \dim\bigl((J_N)_2/(I_F)_2\bigr)=\beta_{5,6}.
+\]
+より正確には、これら二つの空間はそれぞれ
+\[
+ \operatorname{Tor}^S_{N-4}(G_F,\mathbb C)_{N-3}
+       \otimes\det(W^*),\qquad
+ \operatorname{Tor}^S_{N-5}(G_F,\mathbb C)_{N-3}
+       \otimes\det(W^*)
+\]
+と自然に同型である。従って
+\[
+ \operatorname{rank}\Phi_T
+  =N\binom N4-\binom N3-\beta_{4,6},
+ \qquad
+ \dim\bigl((J_N)_2/(I_F)_2\bigr)=\epsilon_N+\beta_{4,6}.
+\]
+\end{lemma}
+\begin{proof}
+Apolar 双対性によって
+$(G_F)_0=\mathbb C$、$(G_F)_1=W$、
+$(G_F)_2=W^*$、$(G_F)_3=\mathbb C$と同定できる。
+この規約では次数一の二元の積は
+$u\cdot v=T(u,v,-)\in W^*$であり、
+次数一と次数二の積は自然な評価である。
+
+$S$の Koszul 複体を$G_F$とテンソルし、内部次数$N-3$を取ると
+\[
+ \Lambda^{N-3}W
+ \longrightarrow W\otimes\Lambda^{N-4}W
+ \longrightarrow W^*\otimes\Lambda^{N-5}W
+ \longrightarrow\Lambda^{N-6}W
+\]
+を得る。負の外積次数の項は零とする。$\det(W^*)$をテンソルして外積の双対性を適用すると、
+各項の全体の符号を選び直すことにより、これは
+\[
+ \Lambda^3W^*\xrightarrow{\ \iota\ }
+ W\otimes\Lambda^4W^*
+ \xrightarrow{\ \mathsf K_T\ }
+ W^*\otimes\Lambda^5W^*
+ \xrightarrow{\ \wedge\ }\Lambda^6W^*
+\]
+となる。
+前の Koszul flattening 同定を用いれば、二つの homology は
+主張の Jacobi 係数空間に一致する。
+$G_F$は socle 次数三の Gorenstein 代数なので、
+Koszul 複体の積と完全双対
+$(G_F)_a\otimes(G_F)_{3-a}\to\mathbb C$から
+$\beta_{i,j}=\beta_{N-i,N+3-j}$を得る。
+これが$\beta_{4,6}$と$\beta_{5,6}$による表式を与える。
+最後の式は階数・核次元の公式である。
+\end{proof}
+
+\begin{remark}[Boij の既存計算から従う二次階数]
+Boij \cite[Remark~6, pp.~163--164]{NFMBoijBetti}
+は、socle 次数三、埋込み次元九および十の Gorenstein 代数について、
+自然な下界を達成する次の\emph{total} Betti 数を計算している：
+\[
+\begin{array}{c|l}
+ N=9 &(1,36,160,315,288,288,315,160,36,1),\\
+ N=10&(1,45,231,550,693,660,693,550,231,45,1).
+\end{array}
+\]
+論文中の表が total Betti 数であっても、必要な
+$\beta_{4,6}=0$は厳密に導ける。
+実際、$1\le i\le N-1$では、最小性と Gorenstein 双対性から
+$\beta_{i,j}\ne0$となる内部次数は$j=i+1,i+2$に限られる。
+Hilbert 級数の分子
+$(1+Nt+Nt^2+t^3)(1-t)^N$の$t^5$係数を取ると
+\[
+ c_N:=-\binom N5+N\binom N4-N\binom N3+\binom N2
+       =\beta_{4,5}-\beta_{3,5}.
+\]
+従って$b_4=\sum_j\beta_{4,j}$について
+\[
+ b_4-c_N=\beta_{3,5}+\beta_{4,6}.
+\]
+Boij の例では$(N,c_N,b_4)=(9,288,288),(10,693,693)$であり、
+右辺の二項は非負なので両方とも零である。
+以上の補題により、$N=9,10$における Jacobi 二次階数の
+最大性は既存の Betti 数の計算からも従う。
+
+本稿の整数小行列証明書は、この既知の数値的最大性の
+自己完結した再現可能な証明を与えるものとして位置付ける。
+一方、Jacobi イデアルの次数三の生成、頂点での長さ330の平方零拡大、
+その非分裂性は、この apolar 代数の Betti 数の表だけからは従わない。
+\end{remark}
+
+\begin{remark}[全次元の階数問題を調べる際の区別]
+一般の$N\ge9$で普遍核以外の核がないという問題は、
+一般三次の apolar 代数について$\beta_{4,6}=0$を示す問題である。
+一般 apolar 代数が Koszul であることだけでは、この消滅は従わない。
+前者は剰余体の$G_F$上の分解についての性質であり、
+ここで必要なのは$G_F$の$S$上の分解だからである。
+Boij--De Negri--De Stefani--Rossi
+\cite[Introduction, pp.~2--3]{BoijDeNegriDeStefaniRossiRate}
+は、一般 Gorenstein 代数の生成次数に関する結果と
+分解全体に関する予想を区別し、中間位置の予想には反例があることも明記している。
+従って一般的な Koszul 性や未確定の最小分解予想を、
+全$N$の階数最大性の証明として代用しない。
+\end{remark}
 
 \subsection{一般三次における被約化と未被約構造}
 ここで既存稿\cite[系\texttt{cor:pg-generic}]{NCCubicA}を明示的な入力とする：
@@ -312,6 +530,182 @@ $N$ & Jacobi二次式の本数 & 小行列の次数 & 行列式$\bmod 32003$\\
 Jacobi二次式から$(J_N)_2$の固定基底を係数環上で解き出せる。
 従って相対イデアルも$J_N$の係数拡大に等しく、相対積表示を得る。
 \end{proof}
+
+\subsection{次数三の消滅を判定する有限線形写像}
+
+$E=(R_N)_1$、$D_F=(J_N)_2/(I_F)_2$と置く。
+Pl\"ucker イデアルの線形 syzygy 空間を
+\[
+ K_N=\ker\bigl(E\otimes(J_N)_2\longrightarrow(J_N)_3\bigr)
+\]
+と定める。これは$F$に依存しない。
+
+\begin{lemma}[次数三の縮約判定]
+\label{lem:nfold-cubic-syzygy-test}
+自然な完全列
+\[
+ K_N\longrightarrow E\otimes D_F\longrightarrow(J_N/I_F)_3
+ \longrightarrow0
+\]
+がある。特に$N=10$で$\dim(I_F)_2=1980$なら、
+$\dim D_F=330$、$\dim(E\otimes D_F)=39600$、$\dim K_N=90860$である。
+この写像$K_N\to E\otimes D_F$が全射であることと、次の条件は同値である：
+\[
+ (J_N/I_F)_3=0
+ \quad\Longleftrightarrow\quad
+ J_N/I_F\simeq \mathbb C(-2)^{330}
+ \quad\Longleftrightarrow\quad
+ \mathfrak m_0(J_N/I_F)=0.
+\]
+これらが成り立てば、$J_N/I_F$は長さ330の二乗零イデアルである。
+\end{lemma}
+\begin{proof}
+$J_N$と$I_F$は二次式で生成されるので、
+$E\otimes(J_N)_2\to(J_N)_3$は全射、
+$E\otimes(I_F)_2$の像は$(I_F)_3$である。
+前者を後者で割れば完全列を得る。
+$N=10$では$\dim E=120$、$\dim(J_N)_2=2310$、
+標準単項式による$\dim(R_N/J_N)_3=108900$から
+\[
+ \dim(J_N)_3=\binom{122}{3}-108900=186340,
+ \qquad \dim K_N=120\cdot2310-186340=90860.
+\]
+$J_N/I_F$は次数二で生成されるので、次数三が零ならそれより上も全て零となる。
+これが同値と長さを示す。イデアル自身の積は次数四以上に入るため零である。
+\end{proof}
+
+\begin{remark}[非自明な平方零拡大]
+前補題の条件が成り立っても、
+$R_N/I_F$を$(R_N/J_N)\ltimes\mathbb C(-2)^{330}$という
+自明な平方零拡大と同一視してはいけない。
+実際、この拡大は次数付き代数として分裂しない。
+もし切断があれば、その次数一部分は恒等であり、
+$R_N/I_F$は次数一で生成されるので切断は全射となって、
+非零核$J_N/I_F$の存在と矛盾する。
+局所完備化の係数体を保つ切断も存在しない。
+実際、各生成元$p_s$の切断による持上げは$p_s+u_s$で、
+$u_s$は核に属する。極大イデアルが核を消すため、
+任意の二次式$q$について$q(p_s+u_s)=q(p_s)$である。
+従って$J_2\setminus I_2$の二次式の非零像を消すことができない。
+\end{remark}
+
+\subsection{八次元三次超曲面に対する全 Hilbert 関数}
+
+\begin{theorem}[八次元の頂点における長さ330の平方零構造]
+\label{thm:nfold-eightfold-square-zero}
+$N=10$とする。$\operatorname{Sym}^3W^*$のある非空 Zariski 開集合上で
+\[
+ \dim(I_F)_2=1980,\qquad (I_F)_3=(J_{10})_3
+\]
+が成り立つ。従って、$R=R_{10}$、$A_F=R/I_F$、
+$B=R/J_{10}$、$\mathfrak m=R_{>0}$と置くと、自然な全射は
+\begin{equation}\label{eq:nfold-length330-extension}
+ 0\longrightarrow\mathbb C(-2)^{330}\longrightarrow A_F
+ \longrightarrow B\longrightarrow0
+\end{equation}
+という平方零拡大であり、
+\[
+ \sqrt{I_F}=I_F^{\mathrm{sat}}=J_{10},\qquad
+ H_{A_F}(t)=H_B(t)+330t^2.
+\]
+特に冪零根基は頂点に支持され、極大イデアルで消え、その長さは330である。
+これは頂点の局所環の socle 全体でもある。
+式\eqref{eq:nfold-length330-extension}は、次数付き代数としても
+頂点で完備化した局所 $\mathbb C$-代数としても分裂しない。
+
+この主張の非空性は下記の有限体上の階数証明書による。
+一般三次の被約 Poisson 分類や $F$ の滑らかさを仮定せずに成立し、
+必要なら上の開集合を滑らかな三次の開集合と交わらせられる。
+\end{theorem}
+\begin{proof}
+まず非空性を示す計算を説明する。
+対称な整数テンソル $T^{(0)}$ の独立成分を $0,1$ から取り、
+その全成分を証明書に保存する。
+証明書は\path{computations/jacobi_vertex_certificate.json}、
+再生成と検証は\path{computations/verify_jacobi_vertex.py}および
+\path{computations/verify_binary_minor.cpp}による。
+以下では、このテンソルの Jacobi 二次式の整数係数を
+$\mathbb F_2$ に還元して計算する。
+多項式 $T^{(0)}(z,z,z)/6$ を標数二で解釈することはしない。
+
+Pl\"ucker の四項関係を二次単項式について消去すると、
+非標準二次単項式を主項とする2310個の基底
+$g_1,\ldots,g_{2310}$を得る。
+全ての Jacobi 二次式を多項式のまま検証した上でこの基底に展開すると、
+その張る部分空間 $U$ は1980次元である。
+その商 $D=\langle g_1,\ldots,g_{2310}\rangle/U$ は330次元となる。
+次に277200個の三次式 $p_sg_a$ を座標の多重次数ごとに消去する。
+得られる像の階数は186340で、核は90860次元である。
+核の基底を $E\otimes D$ に射影した行列は
+$90860\times39600$ 行列であり、保存した39600行の正方小行列の
+行列式が $\mathbb F_2$ で1である。
+この小行列式は、探索で用いた消去とは逆方向の pivot を使う
+独立な通常 Gaussian 消去でも検証する。
+従って前補題の完全列から、
+$\mathbb F_2$ 上で三次の Pl\"ucker 関係全体が Jacobi 二次式の
+一次倍で生成される。
+
+ここで標数零への移行に用いるのは、二つの階数の下界だけである。
+元の整数係数の Jacobi 行列の階数は $\mathbb Q$ 上で1980以上、
+全 Jacobi 二次式の一次倍を並べた整数行列の階数は186340以上である。
+一方、標数零では普遍的な階数上界と $I_F\subset J_{10}$ より
+それぞれ1980以下と $\dim(J_{10})_3=186340$以下である。
+従って $T^{(0)}$ では所望の二つの等号が成り立つ。
+有限体上で生成した核の各ベクトルを標数零の核へ持ち上げる必要はない。
+これらの階数の下界は整数係数の小行列式の非消滅で定まり、
+複素数上でも非空開条件である。
+
+この開集合上では、前補題により
+$J_{10}/I_F\simeq\mathbb C(-2)^{330}$である。
+$R/J_{10}$が整域なので、この核が $A_F$ の冪零根基全体に等しい。
+また有限長核を取り除くことが頂点についての飽和化であり、
+$J_{10}$は飽和しているから $I_F^{\mathrm{sat}}=J_{10}$を得る。
+次数付き完全列から Hilbert 級数の等式も従う。
+socle の元は $B$ においても正次数イデアルで消されるが、
+$B$ は正次元整域なのでその像は零である。
+逆に核全体は極大イデアルで消えるから、socle はこの核に等しい。
+非分裂性は前の注意で証明した通りである。
+\end{proof}
+
+\begin{corollary}[埋込み点の一次分解]
+\label{cor:nfold-vertex-primary}
+定理\ref{thm:nfold-eightfold-square-zero}の開集合上で
+\[
+ I_F=J_{10}\cap Q_F,\qquad
+ Q_F=I_F+\mathfrak m^3=(I_F)_2+\mathfrak m^3
+\]
+は冗長でない一次分解であり、$Q_F$は$\mathfrak m$-primaryである。
+$R/Q_F$の Hilbert 関数は$(1,120,5280)$、長さは5401である。
+従って長さ330という主張は冪零根基$J_{10}/I_F$についてのもので、
+$\mathfrak m$-primary成分自体の長さとは区別される。
+\end{corollary}
+\begin{proof}
+$\mathfrak m^3\subset Q_F$から$Q_F$は$\mathfrak m$-primaryである。
+次数二では$J_{10}\cap Q_F=(I_F)_2$、
+次数三以上では$J_{10}\cap Q_F=(J_{10})_{\ge3}=(I_F)_{\ge3}$
+なので、主張の交わりを得る。
+$J_{10}$は素イデアルで、
+$(J_{10})_2\not\subset(I_F)_2$かつ$\mathfrak m^3\not\subset J_{10}$より
+この分解は冗長でない。
+最後に
+$\dim(R/Q_F)_2=\binom{121}{2}-1980=5280$を用いる。
+\end{proof}
+
+\begin{remark}[相対版]
+上の開集合は、次数二の階数1980と次数三の階数186340を
+保証する小行列式を可逆にして取れる。
+この開集合上の係数環を $S$ とすると、
+$(J_{10})_2/(I_F)_2$は階数330の局所自由 $S$-加群 $\mathcal D$となり、
+任意の底変更後にも
+\[
+ J_{10}/I_F=\mathcal D(-2),\qquad
+ \mathfrak m\mathcal D=0,\qquad \mathcal D^2=0
+\]
+が成り立つ。従って上述の有限長構造は、閉点ごとの一致にとどまらず、
+非被約基底への底変更とも両立する。
+ここでは $\mathcal D$ の次数を零として記した。
+\end{remark}
+
 
 \subsection{非零分解可能点の接空間と頂点に集中する冪零構造}
 
@@ -533,6 +927,212 @@ $\dim(R_N/J_N)=3(N-3)+1>0$だから、これは埋め込まれた素イデアル
 上の完全列から随伴素イデアルは$J_N$と$\mathfrak m_0$以外には存在しない。
 同じ次元の正値性からCohen--Macaulay性も成り立たない。
 \end{proof}
+
+\subsection{非零点の横断切片と直和三次の非被約構造}
+
+本項では$\mathcal Z_F=\operatorname{Spec}(R_N/I_F)$と略記する。
+$F$は滑らかな三次式、$P\ne0$は分解可能で、そのsupportを$A$、
+$K=K_{F,A}$を式\eqref{eq:nfold-transverse-kernel}の核とする。
+$K$はHessianの共通核である。
+apolar環$\mathcal A_F=\operatorname{Sym}W/\operatorname{Ann}(F)$を用い、
+滑らかさによる$(\mathcal A_F)_1=W$の同定をすると、
+$K$は次数一の消去空間$\operatorname{Ann}_{(\mathcal A_F)_1}(A)$でもある。
+このHessianとapolar積の対応は既知である
+\cite[Proposition~2.1]{NFMBFFHessian}。
+以下では、その共通核からJacobiスキームの横断切片を記述する。
+
+$K\subset W$について、閉部分スキーム
+\[
+ \mathcal Z_F(K):=\mathcal Z_F\cap\Lambda^3K
+\]
+をスキーム論的交叉で定める。
+すなわち、$\gamma\in\Lambda^3K$に対する全ての式
+$B_{T_F(-,-,v)|_{K\times K}}(\gamma)=0$、$v\in W$を課す。
+ここでは$v$を$K$に制限しないため、一般には三次式$F|_K$だけの
+Jacobiスキームとは異なる。
+
+\begin{theorem}[固定supportにおける横断切片]
+\label{thm:nfold-transverse-slice}
+$K\subset B$となる補空間$W=A\oplus B$を選び、$P=e_1\wedge e_2\wedge e_3$とする。
+Grassmann錐に横断的なアフィン線型空間
+\[
+ \mathcal S_P=P+(A\otimes\Lambda^2B)\oplus\Lambda^3B
+       \subset\Lambda^3W
+\]
+を考える。
+写像$\gamma\mapsto P+\gamma$は$\mathcal Z_F(K)$から
+$\mathcal Z_F\cap\mathcal S_P$への閉埋込みを与え、
+その像は$P$のあるZariski開近傍に等しい。
+特に、この横断切片の$P$での局所環および完備局所環は、
+$\mathcal Z_F(K)$の原点でのものと同型である。
+\end{theorem}
+\begin{proof}
+$A\cap K=0$は定理\ref{thm:nfold-normal-tangent}で証明した。
+切片の点を
+\[
+ P+Q,\qquad Q=\sum_{a=1}^3e_a\wedge\beta_a+\gamma,
+ \quad\beta_a\in\Lambda^2B,\quad\gamma\in\Lambda^3B
+\]
+と書く。線型写像
+\[
+ D:W\longrightarrow A^*\otimes W^*,\qquad
+ w\longmapsto T_F(-,w,-)|_{A\times W}
+\]
+の核は$K\subset B$である。
+従って$A$への射影$W\to A$は$D(W)$を通り、これを延長して
+線型写像$L:A^*\otimes W^*\to A$で$LD=\operatorname{pr}_A$を満たすものを選べる。
+
+$b<c$を$B$の添字とし、$q_{bc}$を
+\eqref{eq:nfold-normal-equations}と同じ式で定める。
+$(2A,2B)$型のJacobi方程式は、符号を調整してまとめると
+\[
+ D(q_{bc})+E_{bc}(\beta)=0
+\]
+となる。ここで$E_{bc}$は$\beta$のみの二次式である。
+実際、二つの$A$添字を含む$Q$の成分は零なので、
+$B_{H_r}(Q)$のこの成分に寄与するのは、二つの$(1A,1B)$縮約の積だけである。
+$L$を適用すると、全ての$\beta$の係数を並べた列ベクトル$\boldsymbol\beta$について
+\[
+ \boldsymbol\beta+\boldsymbol e(\boldsymbol\beta)=0
+\]
+を得る。$\boldsymbol e$は二次斉次式だから、一次係数行列
+$M(\boldsymbol\beta)$を用いて
+$\boldsymbol e=M(\boldsymbol\beta)\boldsymbol\beta$と書ける。
+$\det(1+M)$は$\beta=0$で一となるので、その非消滅開集合では
+$\beta=0$が従う。
+
+$\beta=0$を代入すると、$(2A,2B)$型の残る式は$D(q_{bc})=0$であり、
+これは全二重縮約が$K$に入る条件、すなわち$\gamma\in\Lambda^3K$を
+線型方程式として課す。
+$(3A,1B)$型と$(1A,3B)$型の式は零となる。
+残る$(4B)$型の式は、ちょうど$\mathcal Z_F(K)$の定義式である。
+従ってこの開集合で切片は$\gamma\mapsto P+\gamma$によって
+$\mathcal Z_F(K)$に同型となる。逆に、その閉埋込みの像では$\beta=0$なので
+$\det(1+M)=1$であり、像全体がこの開集合に含まれる。
+\end{proof}
+
+\begin{remark}[横断切片と積分解の区別]
+この定理は、Grassmann方向を固定した横断切片の記述であり、
+$\mathcal Z_F$の近傍全体がGrassmann方向との積になるとは主張しない。
+例えばFermat三次で座標三平面$A$を取ると$K$は残りの座標空間となるが、
+近くの一般の三平面では$K=0$となる。
+実際、対角な$T_F$について$K$は、全ての$a\in A$の座標が零となる
+座標方向の和である。
+従ってGrassmann方向に沿う法接空間の次元は一定ではなく、
+固定された横断切片との積表示は、この埋込みに沿っては成立しない。
+\end{remark}
+
+\begin{proposition}[最大の法接空間と三変数の直和因子]
+\label{prop:nfold-maximal-normal-ts}
+$N\ge6$とする。次は同値である。
+\begin{enumerate}
+\item $\dim K_{F,A}=N-3$。
+\item $W=A\oplus B$という分解に対して
+$F=G+H$、$G\in\operatorname{Sym}^3A^*$、$H\in\operatorname{Sym}^3B^*$と書ける。
+\item $P$での法接空間の次元が最大値$\binom{N-3}{3}$を取る。
+\end{enumerate}
+第二の条件が成り立つとき、$B=K_{F,A}$であり、
+横断切片は$H$のJacobi零スキームの原点近傍となる。
+\end{proposition}
+\begin{proof}
+第一の条件の下では$W=A\oplus K_{F,A}$である。
+$T_F(A,K_{F,A},W)=0$により、$F$は$A$と$K_{F,A}$の双方の変数を含む
+単項式を持たず、第二の条件が従う。
+逆に直和表示では$B\subset K_{F,A}$であり、
+$A\cap K_{F,A}=0$なので等号を得る。
+第三の条件との同値は定理\ref{thm:nfold-normal-tangent}と
+$k\mapsto\binom k3$の$k\ge3$での狭義単調性による。
+直和の場合、$v\in A$に対する$T_F(-,-,v)|_{B\times B}$は零であり、
+$v\in B$に対するものは$H$のpolarなので、最後の主張も従う。
+\end{proof}
+
+このような変数の直和分解はThom--Sebastiani型と呼ばれる。
+そのHessianの線型部分空間による特徴付けは既知である
+\cite[Theorem~3.4]{NFMBFFHessian}。
+命題\ref{prop:nfold-maximal-normal-ts}は、本稿の法接空間を用いて
+三変数因子を検出するものである。
+
+\begin{proposition}[直和三次のJacobiスキームのretract]
+\label{prop:nfold-ts-retract}
+$W=A\oplus B$、$F=G+H$とする。
+各空間上でHessian--Jacobi二次式の零スキームを定めると、和と射影は
+\[
+ \sigma:\mathcal Z_G\times\mathcal Z_H\longrightarrow\mathcal Z_F,
+ \qquad (P_A,P_B)\longmapsto P_A+P_B,
+\]
+\[
+ \rho:\mathcal Z_F\longrightarrow\mathcal Z_G\times\mathcal Z_H,
+ \qquad P\longmapsto
+  \bigl((\Lambda^3\operatorname{pr}_A)P,(\Lambda^3\operatorname{pr}_B)P\bigr)
+\]
+を誘導し、$\rho\sigma=\operatorname{id}$となる。
+従って$\sigma$は閉埋込みで、積は$\mathcal Z_F$のscheme retractである。
+これらは任意の係数環上の関手として成立する。
+\end{proposition}
+\begin{proof}
+$F$の三階微分は、全ての添字が$A$に属するものと、全ての添字が$B$に
+属するものに分かれる。
+従って、$r,a,b,c,d$が全て$A$に属するJacobi式は$\mathcal Z_G$の式に、
+全て$B$に属するものは$\mathcal Z_H$の式に等しい。
+これは$\rho$が零スキーム間の射を誘導することを示す。
+一方、$P=P_A+P_B$では全ての混合Jacobi項が消えるので、
+$\sigma$も零スキーム間の射を誘導する。
+合成の等式は外積空間での線型射影の等式である。
+全てが多項式の恒等式なので、非被約な係数環でも保たれる。
+\end{proof}
+
+\begin{corollary}[非零Poisson点に平方零構造を持つ滑らかな三次]
+\label{cor:nfold-special-nonzero-nilpotents}
+全ての$n\ge11$について、非零Poisson構造の点で
+$\operatorname{Pois}(X_F)$が非被約となる滑らかな三次$n$-foldが存在する。
+その点の局所環の冪零根基は、任意の二元の積が零となる330次元の部分空間を持ち、
+その$\mathfrak m_P^2/\mathfrak m_P^3$への像も330次元である。
+射影Jacobiスキームの対応する点でも同じ結論が成り立つ。
+この存在証明には、一般三次の被約Poisson分類を用いない。
+\end{corollary}
+\begin{proof}
+$W=A\oplus B\oplus C$、$\dim A=3$、$\dim B=10$、$\dim C=n-11$とする。
+$G$を滑らかな三変数三次、$H$を
+定理\ref{thm:nfold-eightfold-square-zero}の非空開集合と滑らかな三次の開集合の
+交わりに属する$B$上の三次とし、
+\[
+ F=G+H+\sum_{i=1}^{n-11}c_i^3
+\]
+と置く。$F$は滑らかである。実際、勾配が零なら各$c_i=0$かつ
+$G,H$の勾配がそれぞれ零となり、両ブロックの射影的な滑らかさから
+全座標が零となる。
+$U=A\oplus C$、$F_U=G+\sum c_i^3$と置き、
+$0\ne P_A\in\Lambda^3A\subset\Lambda^3U$を固定する。
+分解可能な三重ベクトルは任意の三次式のJacobi方程式を満たすので、
+$P_A\in\mathcal Z_{F_U}$である。
+
+命題\ref{prop:nfold-ts-retract}を$F=F_U+H$に適用する。
+$\mathcal Z_H$への射影と切断$Q\mapsto P_A+Q$により、
+$\mathcal Z_H$の原点の局所環は$\mathcal Z_F$の$P_A$での局所環のretractとなる。
+定理\ref{thm:nfold-eightfold-square-zero}により、前者の冪零根基は
+$\mathbb C(-2)^{330}$で、任意の二元の積は零である。
+従って局所環の分裂単射は、この330次元の部分空間とその積の零性を保つ。
+また局所環のretractionは極大イデアルの冪を保ち、その合成が恒等なので、
+随伴次数付き環上でも分裂単射を与える。
+従ってこの部分空間の$\mathfrak m_{P_A}^2/\mathfrak m_{P_A}^3$への像は330次元である。
+
+$t(P_A)=1$となる$\Lambda^3A$の座標$t$を外積空間全体へ延長する。
+射影Jacobiスキームの$t\ne0$のchartにも
+$P\mapsto(\Lambda^3\operatorname{pr}_B)(P)/t$というretractionがあり、
+$Q\mapsto[P_A+Q]$がその切断となる。
+従って射影化した局所環にも、同じ平方零部分空間が分裂単射で移る。
+この証明に用いた$H$の冪零構造は有限行列の証明書から得られ、
+一般の被約分類を仮定していない。
+\end{proof}
+
+\begin{remark}
+系\ref{cor:nfold-special-nonzero-nilpotents}の下限$n=11$はこの構成の適用範囲であり、
+非零点での非被約性が起こり得る最小次元を決定したものではない。
+また、横断切片の非被約性だけから周囲の非被約性を結論してはいない。
+ここでは局所環のretractionによる単射が、その結論を保証している。
+移された330次元部分の積が零であることから、
+周囲の局所環の冪零根基全体が二乗零であるとは結論しない。
+\end{remark}
 
 \subsection{高次数の下界と冪零部分の次数幅}
 

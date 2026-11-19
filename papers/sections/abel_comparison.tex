@@ -1,6 +1,13 @@
 % !TEX root = ../nc-cubic-n-fold.tex
-\section{構造対象だけを保つ Abel 同値への条件付き移行}
-\label{sec:nfm-abel-conditional}
+\section{固定表示模型間の全同値とその降下}
+\label{sec:nfm-fixed-model-descent}
+
+本節では表示された二つの次数付き代数を固定する。
+一般の Abel 圏族の効果化を入力にせず、その模型間の全同値の
+係数変更と fpqc 降下を構成する。
+最後に、同値そのものの降下と、次数一の代数同型を大域に選ぶ問題を区別する。
+
+\subsection{中心正則対と全切断}
 
 \begin{lemma}[中心正則対による全次数の切断飽和性]
 \label{lem:nfm-central-saturation}
@@ -138,74 +145,444 @@ $F(\mathcal O_A(-di))=\mathcal O_Q(-i)$ であるから、
 その完全忠実性が最後の主張を与える。
 \end{proof}
 
-\begin{theorem}[相対全 $\mathcal O$-保存同値の比較]
-\label{thm:nfm-full-hom-conditional}
-$R$ を可換 $\mathbf C$-代数、$n\geq3$, $d=n-1$ とする。
-$A,A'$ は定理\ref{thm:nfm-central-veronese}の普遍中心条件と平坦性を満たすとする。
-さらに任意の可換係数変更後に次の入力を仮定する。
-\begin{enumerate}
-\item 各 $A_j,A'_j$ は有限局所自由である。
-中心平坦性と補題\ref{lem:nfm-central-saturation}により、
-全整数 $j$ で標準切断写像は同型となり、負次数の Hom は零である。
-特に $\operatorname{End}(\mathcal O_A)=R$ であり、
-$C_d\subset A_d$ と $A'_d$ の対応する単射により $A_d,A'_d$ は忠実である。
-\item 全ての $\mathcal O_A(i)$ は $D(\operatorname{QGr}A)$ で compact であり、
-compact 部分は係数環上 proper な相対 Serre 双対を持ち、
-その Serre 関手は $(-d)[n]$ に同型である。$A'$ も同様である。
-\item 係数作用の延長、固定模型間の Hom の fpqc 降下、
-標準の Gabriel 局所化が与えられた族の係数変更と両立する。
-\end{enumerate}
-このとき自然な fpqc 層の同型
+\subsection{係数作用による Gabriel 商の係数変更}
+
+\begin{lemma}[係数作用付き対象としての tails]
+\label{lem:nfm-coefficient-objects}
+$R$ を可換環、$A$ を非負次数付きの次数一生成 $R$-代数とし、
+$A_1$ は有限生成とする。$\mathcal C_R=\operatorname{QGr}A$ と書く。
+任意の可換 $R$-代数 $T$ に対して、標準同値
 \[
- \underline{\operatorname{Isom}}_{\mathrm{gr},R}(A,A')/\mathbf G_m
- \simeq
- \underline{\operatorname{Eq}}_{\mathcal O,R}
- (\operatorname{QGr}A,\operatorname{QGr}A')
+ \operatorname{QGr}(A\otimes_RT)
+ \simeq \operatorname{Mod}_T(\mathcal C_R)
 \]
-がある。右辺は構造対象を保つ全ての完全線型同値を自然同型で割った層である。
-構造対象上で恒等である自然自己同型は自明である。
+がある。右辺は $\mathcal C_R$ の対象 $X$ と
+$R$-代数写像 $T\to\operatorname{End}(X)$ の対の圏である。
+この同値は反復係数変更と両立する。
+従って任意の $R$-線型完全同値
+$F:\mathcal C_R\to\mathcal C'_R$ は、追加の入力なしに
+全ての $T$ 上の完全同値 $F_T$ を誘導する。
+\end{lemma}
+
+\begin{proof}
+$T$-作用付き対象の核と余核は、作用を忘れた圏で計算できる。
+Gabriel 局所化を $\pi:\operatorname{Gr}A\to\mathcal C_R$、
+その完全忠実な右随伴を $\omega$ とする。
+両者は $R$-線型なので、係数作用を保持して随伴
+\[
+ \pi^T:\operatorname{Mod}_T(\operatorname{Gr}A)
+ \rightleftarrows\operatorname{Mod}_T(\mathcal C_R):\omega^T
+\]
+を誘導する。$\pi^T$ は完全で、counit は同型である。
+左辺は $\operatorname{Gr}(A\otimes_RT)$ であり、
+$T$-作用を持つ次数付き加群が $A$-torsion であることと
+$A\otimes_RT$-torsion であることは同値である。
+実際、ある斉次元に $A_{\ge q}$ が零として作用すれば、
+作用が可換するため $T\otimes_RA_{\ge q}$ も零として作用する。
+従って $\pi^T$ の核はちょうど tails-torsion であり、
+表示した Gabriel 商の同値を得る。
+この議論は $\omega$ と tensor の可換性を仮定していない。
+
+$R\to T\to T'$ の場合、$T$-作用付き対象への整合する
+$T'$-作用は単に $T'$-作用であるから、同値は反復係数変更と両立する。
+$F_T$ は $(X,\rho)$ を $(F(X),F(\rho))$ へ送ることで定義する。
+完全性と同値性は作用を忘れた圏で確認できる。
+同値は全ての colimit を保つので、自由係数作用付き対象についても
+$F(T\otimes_RX)\simeq T\otimes_RF(X)$ が標準的に成り立つ。
+従って $F_T$ は通常の係数延長と両立する。
+\end{proof}
+
+\begin{lemma}[固定 tails 模型の忠実平坦降下]
+\label{lem:nfm-tails-fpqc}
+前補題の設定で、$R\to T$ が忠実平坦なら、
+$\mathcal C_R$ から $\mathcal C_T$ の通常の descent datum の圏への関手は同値である。
+対象と全ての射が有効に降下する。
+\end{lemma}
+
+\begin{proof}
+係数延長 $T\otimes_R-:\mathcal C_R\to\mathcal C_T$ は完全かつ保守的である。
+完全性は次数付き加群の平坦係数延長から従う。
+保守性を確認するには、$T\otimes_RM$ が torsion なら
+$M$ も torsion であることを示せばよい。
+斉次元 $m\in M$ に対して $m\otimes1$ を消す $A_{\ge q}$ を取り、
+忠実平坦性による単射 $M\to T\otimes_RM$ を使えば
+$mA_{\ge q}=0$ となる。
+
+ここで通常の加群の降下証明
+\cite[Proposition~35.3.9, Tag~023N]{NFMStacksModuleDescent}
+を Abel 圏内の等化子として書く。
+$Y\in\operatorname{Mod}_T(\mathcal C_R)$ とその descent datum に対し、
+作用を忘れた対象を $UY$ とする。
+descent datum は coaction
+\[
+ \theta:Y\longrightarrow T\otimes_RUY
+\]
+と同値であり、$T$-線型性、counit 恒等式、および cocycle 恒等式を満たす。
+$\eta:UY\to T\otimes_RUY$ を単位とし、
+\[
+ X=\ker(\theta-\eta)
+\]
+を $\mathcal C_R$ で取る。
+$T\otimes_R-$ は完全なので、$T\otimes_RX$ は
+$T\otimes_R\theta$ と $T\otimes_R\eta$ の等化子である。
+cocycle 恒等式により $\theta$ の像はこの等化子に入り、
+$T$-作用による写像 $\varepsilon:T\otimes_RUY\to Y$ と互いに逆になる。
+具体的には $\varepsilon\theta=1$ であり、
+等化子上の $\theta\varepsilon=1$ は
+$\theta$ の $T$-線型性と
+$(1\otimes\theta)\theta=(1\otimes\eta)\theta$ を使って得る。
+従って $T\otimes_RX\simeq Y$ である。
+
+この構成は射にも適用できる。
+標準 descent datum から元の対象を回復する写像は、
+$T$ へ延長すると上の split 等化子の同型になるので、
+係数延長の保守性から元の基底上でも同型である。
+従って完全忠実性と本質的全射性の両方が従う。
+必要なのは Abel 圏での核、平坦係数延長の完全性・保守性、
+および作用の普遍恒等式だけであり、noetherian 性は用いない。
+\end{proof}
+
+\begin{proposition}[固定模型間の関手と自然同型の降下]
+\label{prop:nfm-equivalence-descent}
+二つの固定模型 $\mathcal C_R=\operatorname{QGr}A$、
+$\mathcal C'_R=\operatorname{QGr}A'$ について、
+$T$-線型完全同値およびその自然同型は fpqc 降下を満たす。
+さらに、同定 $\alpha:F(\mathcal O_A)\xrightarrow{\sim}\mathcal O_{A'}$
+を備え、射はこの同定を保つ同値の groupoid も fpqc stack となる。
+\end{proposition}
+
+\begin{proof}
+補題\ref{lem:nfm-coefficient-objects}により、
+局所的な関手と自然変換を全ての重なりへ係数延長できる。
+忠実平坦被覆上の同値 $F_T$ と cocycle を満たす自然同型が与えられたとする。
+$X\in\mathcal C_R$ に対して $F_T(X_T)$ は $\mathcal C'_T$ の
+descent datum を持つので、補題\ref{lem:nfm-tails-fpqc}で降下させ、
+その対象を $F(X)$ とする。射も同じ補題で一意に降下するため、
+$R$-線型関手 $F$ を得る。
+完全性は忠実平坦係数延長で確認できる。
+逆同値とその単位・counit も同じ方法で降下するので、$F$ は同値である。
+
+この関手の係数延長が元の $F_T$ になることは、
+自由 $T$-作用付き対象上では構成そのものである。
+自由対象間の任意の $T$-線型射
+$f:T\otimes_RX\to T\otimes_RZ$ は、その随伴
+$h:X\to T\otimes_RZ$ を用いて
+$f=(m_T\otimes1_Z)(1_T\otimes h)$ と書ける。
+比較の $R$-線型自然性と copower との整合性は $h$ と積 $m_T$ の双方に適用できるので、
+自由対象上の比較はこれら全ての射に自然である。
+一般の $Y\in\operatorname{Mod}_T(\mathcal C_R)$ には標準の reflexive coequalizer
+\[
+ T\otimes_RT\otimes_RUY
+ \rightrightarrows T\otimes_RUY\longrightarrow Y
+\]
+があり、二本の矢印は $T$ の積と $Y$ の作用から来る。
+両関手は colimit を保ち、自由対象上の比較はこれらの作用と両立するので、
+比較は全ての $Y$ に延びる。
+同じ議論で自然変換の降下とその一意性を得る。
+最後に $\alpha$ は二つの降下対象間の射なので有効に降下する。
+ここでも一般の Hom と平坦 tensor の可換性を仮定していない。
+\end{proof}
+
+\subsection{構造対象を保つ全同値の比較}
+
+以下、$d=n-1\ge2$ とする。
+$A,A'$ は中心 Veronese 復元の普遍中心条件と中心平坦性を満たし、
+次数別に有限局所自由とする。
+さらに全ての係数変更後に、線対象が compact であり、
+compact 部分が相対 proper で Serre 関手 $(-d)[n]$ を持つとする。
+これらは良い PBW 表示模型では前節の相対双対定理によって供給される。
+
+\begin{lemma}[自然自己同型のスカラー性]
+\label{lem:nfm-natural-scalars}
+$\operatorname{End}(\operatorname{id}_{\mathcal C_R})=R$ である。
+従って任意の完全同値 $F:\mathcal C_R\to\mathcal C'_R$ の
+自然自己同型群は $R^\times$ であり、
+$F(\mathcal O_A)$ 上で恒等となる自然自己同型は恒等である。
+\end{lemma}
+
+\begin{proof}
+切断飽和性により
+$\operatorname{End}(\mathcal O_A(di))=R$ である。
+恒等関手の自然自己準同型の各 $\mathcal O_A(di)$ 上の成分を
+$a_i\in R$ と書く。
+隣接対象間の Hom は $A_d$ であり、中心の有限局所自由部分
+$\operatorname{Sym}^dU$ を含むので忠実である。
+自然性から $(a_{i+1}-a_i)A_d=0$、従って全ての $a_i$ は一つの $a$ に等しい。
+任意の $X$ と射 $\mathcal O_A(-di)\to X$ に対する自然性から、
+その成分と $a\operatorname{id}_X$ の差は全切断上で零となる。
+Gabriel 切断関手の忠実性により、この差は零である。
+逆に基底の各元は自然なスカラー自己準同型を与える。
+同値 $F$ に対する結論は逆同値で恒等関手の場合へ戻せばよい。
+\end{proof}
+
+\begin{theorem}[固定表示模型間の全 $\mathcal O$-保存同値]
+\label{thm:nfm-fixed-model-comparison}
+上の入力の下で、任意の可換 $R$-代数上に自然な fpqc 層の同型
+\[
+ \underline{\operatorname{Isom}}_{\mathrm{gr}}(A,A')/\mathbf G_m
+ \xrightarrow{\sim}
+ \operatorname{Eq}_{\mathcal O}( \operatorname{QGr}A,\operatorname{QGr}A')
+\]
+がある。
+右辺は全ての線型完全同値 $F$ と
+$F(\mathcal O_A)\simeq\mathcal O_{A'}$ の同定の対を、
+同定を保つ自然同型で割ったものとする。
+この groupoid は離散 groupoid と同値であり、その同型類は既に fpqc 層である。
+構造対象の同定を忘れ、構造対象を大域に保つ同値の通常の自然同型類を取っても、
+同じ集合となる。
+固定模型間の係数作用・Hom 降下に関する追加の仮定は不要である。
 \end{theorem}
 
 \begin{proof}
-完全線型同値 $F$ は複体に項別に作用し、非有界導来圏と compact 部分を同定する。
-相対 Hom と係数双対を保つので、表現対象の一意性から Serre 関手と可換する。
-$H=\mathsf S^{-1}[n]=(d)$ とすると、$F(\mathcal O_A)=\mathcal O_{A'}$ と
-一つの可換同型 $FH\simeq H'F$ の正負の反復によって、
-全ての $\mathcal O_A(di)$ とその間の Hom・合成が対応する。
-補題\ref{lem:nfm-central-saturation}の切断飽和性により、次数付き同型
-$\phi:A^{(d)}\simeq(A')^{(d)}$ を得る。
-一つの可換同型を一貫して反復しているので、
-この同型は orbit 列全体の section $\mathbf Z$-代数の作用を記述する。
+補題\ref{lem:nfm-natural-scalars}と命題\ref{prop:nfm-equivalence-descent}により、
+右辺は自己同型を持たない fpqc stack、従って fpqc 層である。
+構造対象の二つの同定の比は $R^\times$ の元なので、
+関手のスカラー自然自己同型で一意に吸収できる。
+これが最後の集合の同一視も与える。
 
-補題\ref{lem:nfm-gabriel}により、その全 section 代数上の作用は
-元の関手 $F$ を自然同型まで決定する。
-定理\ref{thm:nfm-central-veronese}で $\phi$ を fpqc 局所的に
-$A\simeq A'$ へ持ち上げれば、その構造移送と $F$ は自然同型となる。
-これで層としての全射性を得る。
+全射性を示す。完全同値 $F$ は非有界導来圏と compact 部分を同定し、
+$R$-線型の RHom と係数双対を保つ。
+Serre 双対の表現対象の一意性から
+$F\mathsf S\simeq\mathsf S'F$ を得る。
+$H=\mathsf S^{-1}[n]=(d)$、$H'=(d)$ とし、
+一つの比較 $FH\simeq H'F$ を正負に反復する。
+$F(\mathcal O_A)\simeq\mathcal O_{A'}$ と合わせると、
+全ての $\mathcal O_A(di)$ とその間の Hom・合成を同定する。
+全整数の切断飽和性から、次数付き同型
+\[
+ \phi_F:A^{(d)}\xrightarrow{\sim}(A')^{(d)}
+\]
+を得る。
+比較を一貫して反復しているので、これは全 orbit の
+section $\mathbf Z$-代数の作用を同定する。
+Gabriel 切断の完全忠実性により、この作用は $F$ を自然同型まで決定する。
+中心 Veronese 復元により、$\phi_F$ は fpqc 局所で
+$\psi:A\simeq A'$ に持ち上がり、その構造移送は $F$ と自然同型である。
 
-構造移送が標識付き恒等関手となる次数付き自己同型を考える。
-各 $\mathcal O_A(di)$ 上の自然同型の成分は基底の単元であり、
-隣接 Hom $A_d$ の忠実性と合成の整合性から、その Veronese 上の作用は
-新次数 $j$ に $a^j$ を掛ける一つの次数スカラーとなる。
-fpqc 局所で $a$ の $d$ 乗根を取り、それを元の次数スカラーで除くと、
-残る作用は定理\ref{thm:nfm-central-veronese}の $\mu_d$ に属する。
-これも元の次数スカラーなので、核はちょうど $\mathbf G_m$ である。
-
-自然自己同型の各 orbit 線上の成分も、隣接 Hom の忠実性から全て等しい。
-$\mathcal O_A$ 上で恒等なら全て一であり、Gabriel 切断の完全忠実性から
-関手全体で恒等である。最後に仮定した Hom 降下と係数変更の整合性により、
-局所的に構成した比較は元の基底へ降下する。
+核を調べる。次数付き自己同型 $\psi$ の構造移送が恒等関手と
+自然同型なら、各 $\mathcal O_A(di)$ 上の同型は単元 $b_i$ である。
+隣接 Hom $A_d$ への作用とその忠実性から、
+$b_{i+1}/b_i$ は $i$ によらない一つの単元 $a$ となる。
+従って $\psi$ の $d$-Veronese への制限は、新次数 $j$ に $a^j$ を掛ける。
+fpqc 局所で $a$ の $d$ 乗根を取り、対応する元の次数スカラーを除くと、
+残りは中心 Veronese 復元の核 $\mu_d$ に属する。
+従って $\psi$ は fpqc 局所で次数スカラーであり、
+$A_1$ の忠実性によりそのスカラーは重なりで一意に一致して大域に降りる。
+逆に次数スカラーの構造移送は、各次数でスカラーを掛ける自然同型により
+恒等関手と同型であり、その $\mathcal O$ 上の成分も正規化できる。
+よって核はちょうど $\mathbf G_m$ である。
+全ての係数変更・自然同型の降下は既に構成したため、層の同型を得る。
 \end{proof}
 
-\begin{remark}[証明の状態と適用の境界]
-定理\ref{thm:nfm-relative-ambient-cy}、\ref{thm:nfm-relative-line-cohomology}、
-\ref{thm:nfm-relative-serre}により、良い相対 PBW 表示チャートでは、
-有限 Koszul 対角、真正な相対双加群双対、compact 性、相対 properness、
-Serre trace とその非平坦係数変更が供給される。
-残る入力は、一般の Abel 圏族の係数作用、全同値の fpqc 降下、
-およびそれらと表示模型の係数変更との整合性である。
-これらを備えたモジュライ問題に対して、$\mathfrak C_n$ は
-全 $\mathcal O$-保存 Abel 問題の全部分 stack へ移る。
-この条件付き結論から全 Abel モジュライの代数性・成分性や
-Kuznetsov 残余射の幾何化を推論しない。
+\subsection{次数一の大域持上げを妨げる線束}
+
+\begin{proposition}[持上げ線束と Kummer 障害]
+\label{prop:nfm-lifting-line}
+前定理の $F$ に対し、その構造移送が $F$ と同型となる次数付き同型の層
+\[
+ \mathcal P_F(T)=
+ \{\psi:A_T\xrightarrow{\sim}A'_T\mid [\psi_*]=[F_T]\}
+\]
+は $\mathbf G_m$-torsor である。
+対応する可逆加群を $L_F$ とすると、符号を以下の同型で規約化して
+\begin{equation}
+\label{eq:nfm-line-twist-algebra}
+ \bigoplus_{j\ge0} A_j\otimes_R L_F^{\otimes j}
+ \xrightarrow{\sim} A'
+\end{equation}
+を得る。
+$F$ が $R$ 上の次数付き同型から来るための必要十分条件は
+$L_F\simeq R$ であり、持上げが存在すればその全体は $R^\times$-torsor である。
+また
+\[
+ [L_F]\in\operatorname{Pic}(R)[d].
+\]
+Serre 比較を選んで $\phi_F$ を固定すると、その次数一持上げは
+$\mu_d$-torsor $\mathcal P_{\phi_F}$ となり、
+$\mathcal P_F$ はその構造群を $\mathbf G_m$ へ拡大した torsor である。
+\end{proposition}
+
+\begin{proof}
+局所非空性とスカラーによる単純推移性は前定理の証明による。
+局所持上げを $\psi_i$ とし、重なりで
+$\psi_j=\psi_i\circ\sigma_{\lambda_{ij}}$ と書く。
+$\sigma_\lambda$ は元の次数 $k$ に $\lambda^k$ を掛ける。
+局所基底 $\ell_i$ を $\ell_j=\lambda_{ij}\ell_i$ で貼った線束を $L_F$ とすれば、
+$a\otimes\ell_i^{\otimes j}\mapsto\psi_i(a)$ は重なりで一致し、
+\eqref{eq:nfm-line-twist-algebra}を与える。
+線束の自明化、torsor の切断、次数付き同型の大域持上げは同値である。
+
+一つの Serre 比較から得た $\phi_F$ を固定し、
+これに持ち上がる $\psi_i$ を選べば、$\lambda_{ij}^d=1$ である。
+従って $\ell_i^{\otimes d}$ は大域に貼り合わさり、
+$L_F^{\otimes d}\simeq R$ を与える。
+他の Veronese 同型の持上げも同じ $F$ を与えるなら、
+前定理の核の計算により局所的には次数スカラーだけ異なる。
+よって $\mathcal P_F=\mathcal P_{\phi_F}\times^{\mu_d}\mathbf G_m$ である。
+
+二つの Serre 比較の比は、各 orbit 線で一つの単元となる。
+隣接 Hom の忠実性からこの単元は orbit 上で一定であり、
+得られる Veronese 同型の差は一つの新次数スカラーである。
+従って $\mathcal P_{\phi_F}$ の Kummer 類は
+$R^\times/(R^\times)^d$ から来る類だけ変化し得るが、
+その $\operatorname{Pic}(R)$ への像 $[L_F]$ は変わらない。
+これは Kummer 列
+\[
+ R^\times\xrightarrow{(\cdot)^d}R^\times
+ \longrightarrow H^1_{\mathrm{fppf}}(R,\mu_d)
+ \longrightarrow\operatorname{Pic}(R)
+ \xrightarrow{d}\operatorname{Pic}(R)
+\]
+でも記述できる
+\cite[Section~59.28, Tags~03PK, 040Q]{NFMStacksKummer}。
+従って Serre trace の規格化を Abel 圏の追加の標識にする必要はない。
+\end{proof}
+
+\begin{corollary}[自由な表示模型における三捩れの障害]
+\label{cor:nfm-three-torsion-lift}
+さらに $A_1,A'_1$ がともに階数 $N=n+2$ の自由 $R$-加群であるとする。
+このとき
+\[
+ [L_F]\in\operatorname{Pic}(R)[\gcd(n-1,3)].
+\]
+特に $n\not\equiv1\pmod3$ なら、
+\[
+ \operatorname{Isom}_{\mathrm{gr},R}(A,A')/R^\times
+ \xrightarrow{\sim}
+ \operatorname{Eq}_{\mathcal O,R}
+       (\operatorname{QGr}A,\operatorname{QGr}A')
+\]
+は集合の同型であり、左辺で層化を取る必要はない。
+$n\equiv1\pmod3$ でも $\operatorname{Pic}(R)[3]=0$ なら同じ結論となる。
+一般には、三捩れ部分群全体が実現されるとは主張しない。
+\end{corollary}
+
+\begin{proof}
+\eqref{eq:nfm-line-twist-algebra}の次数一で determinant を取ると
+$L_F^{\otimes N}\simeq R$ となる。
+前命題の $L_F^{\otimes d}\simeq R$ と合わせて
+$L_F^{\otimes\gcd(N,d)}\simeq R$ を得る。
+$\gcd(N,d)=\gcd(n+2,n-1)=\gcd(n-1,3)$ である。
+障害が零なら前命題により大域持上げが存在し、
+二つの持上げの差は大域の次数スカラーである。
+\end{proof}
+
+\begin{proposition}[非自明な三捩れ障害を持つ良い PBW 模型]
+\label{prop:nfm-nontrivial-three-torsion}
+$n\ge4$、$n\equiv1\pmod3$ とする。
+自由な次数一表示を持つ二つの良い PBW 模型の間に、
+構造対象を保つ完全同値であって、基底全体ではいかなる
+次数付き同型の構造移送にも同型でないものが存在する。
+基底は滑らかな affine 曲線
+\[
+ R=\mathbf C[s,t]/(t^2-s^3-1)
+\]
+と取ることができる。
+\end{proposition}
+
+\begin{proof}
+まず可逆イデアル $L=(s,t-1)\subset R$ を考える。
+この曲線は滑らかであり、$R$ は Dedekind 整域である。
+その滑らかな射影閉包を $E$、無限遠点を $o$、
+点 $(0,1)$ を $p$ とする。
+$t-1$ の零点は $p$ だけで、その位数は三であるから
+\[
+ L^{\otimes3}\simeq L^3=(t-1)\simeq R.
+\]
+一方 $L$ は非主である。
+もし $L=fR$ なら、$f$ は affine 曲線上で $p$ にのみ一位の零点を持つ。
+主因子の次数は零なので、$o$ で一位の極を持つ
+\cite[Tag~02RU]{NFMStacksCurveDivisor}。
+しかし $R$ の元は一意に $a(s)+b(s)t$ と書け、
+$o$ における $s,t$ の極の位数はそれぞれ二と三である。
+二項の極の位数は $2\deg a$ と $2\deg b+3$ で偶奇が異なるため相殺しない。
+従って非定数元の極の位数は少なくとも二であり、矛盾する。
+これで $[L]$ は正確に位数三を持つ。
+
+ここで Dedekind 整域の可逆加群 $I,J$ に対する
+$I\oplus J\simeq R\oplus(I\otimes_RJ)$ を確認する。
+非零整イデアルで代表し、$I$ を固定する。
+$I$ を割る有限個の素イデアルについて、中国剰余定理により
+$a\in J^{-1}$ を各 $J^{-1}/\mathfrak pJ^{-1}$ で非零となるように取る。
+すると $J'=aJ$ は $I$ と互いに素な整イデアルで、$J'\simeq J$ である。
+完全列
+\[
+ 0\longrightarrow IJ'\longrightarrow I\oplus J'
+ \xrightarrow{(u,v)\mapsto u+v}R\longrightarrow0
+\]
+は $R$ が射影なので分裂する。
+これを反復すると
+$L^{\oplus m}\simeq R^{m-1}\oplus L^{\otimes m}$ を得る。
+従って $3\mid m$ なら $L^{\oplus m}$ は自由である。
+
+$\mathbf C$ 上の良い一ブロック模型 $A^0=B^0/(w^0)$ を一つ取り、
+$A=A^0\otimes_{\mathbf C}R$、$B=B^0\otimes_{\mathbf C}R$ とする。
+$\tau:L^{\otimes3}\xrightarrow{\sim}R$ を固定し、
+\[
+ B^L=\bigoplus_{j\ge0}B_j\otimes_RL^{\otimes j},\qquad
+ w^L=w^0\otimes\tau^{-1}(1),\qquad
+ A'=B^L/(w^L)=\bigoplus_{j\ge0}A_j\otimes_RL^{\otimes j}
+\]
+と定める。積は $L$ の tensor 積から定める。
+$L$ を自明化する開集合では、$B^L$ は $B$ と次数付き同型になり、
+$w^L$ は $w^0$ の単元倍になる。
+従って中心条件、中心平坦性、次数別射影性、および中心三次の正則性は
+局所的には元の模型の条件そのものであり、任意の非平坦・非被約底変更後にも成立する。
+
+自由な表示も存在する。
+中心一次部分は $L^{\oplus d}$、active 一次部分は $L^{\oplus3}$ であり、
+$d=n-1$ と $N=n+2$ は三の倍数なので、これらと全次数一部分 $L^{\oplus N}$ は自由である。
+active 部分の determinant を $\tau$ によって規格化した基底を選ぶ。
+元の potential を $L^{\otimes3}$ で捻り $\tau^{-1}(1)$ を使うと、
+この基底で反対称部分が $xyz-yxz$ となる大域の cyclic potential を得る。
+その cyclic 微分は元の二次関係を $L^{\otimes2}$ で捻ったものなので、代数は $B^L$ である。
+active 濾過の随伴代数は
+\[
+ (S^0)^L\otimes_R\operatorname{Sym}_R(U^0\otimes_{\mathbf C}L)
+\]
+となる。各 active 段階の商は中心多項式環上の射影加群なので、
+この濾過は次数を保って分裂する。
+従って $A'$ も本稿の良い相対 PBW 表示模型の入力を全て満たす。
+
+全整数次数に対する tensor
+\[
+ M\longmapsto M^L:=\bigoplus_{j\in\mathbf Z}M_j\otimes_RL^{\otimes j}
+\]
+は $\operatorname{Gr}A$ から $\operatorname{Gr}A'$ への $R$-線型完全同値であり、
+$L^{-1}$ による tensor が逆となる。
+torsion を保つことは $L$ の有限な自明化被覆上で確認できるため、
+tails の同値 $F$ を誘導し、$F(\mathcal O_A)=\mathcal O_{A'}$ となる。
+また
+\[
+ F(M(k))\simeq F(M)(k)\otimes_RL^{\otimes(-k)}
+\]
+であり、$L^{\otimes d}\simeq R$ により Serre 関手 $(-d)[n]$ と整合する。
+局所基底 $\ell_i$ を使った次数付き持上げは
+$a\mapsto a\otimes\ell_i^{\otimes j}$ なので、
+命題\ref{prop:nfm-lifting-line}の持上げ線束は正確に $L_F=L$ である。
+$L$ は非自明だから、この $F$ は大域の次数付き同型からは来ない。
+\end{proof}
+
+\begin{remark}[二つの障害の区別と残る問題]
+指定した Veronese 同型の $\mu_d$ 障害は、
+同値自体の次数一持上げの障害より強い。
+例えば $R=\mathbf C[t,t^{-1}]$ 上の一定模型で、
+$A^{(d)}$ の新次数 $j$ に $t^j$ を掛ける同型は、
+$t$ の $d$ 乗根が $R$ にないため次数一へ大域に持ち上がらない。
+しかし tails 上では恒等同値を与え、その $L_F$ は自明である。
+
+また、構造対象上の同定を保たない自然自己同型には
+$\mathbf G_m$ が残る。例えば局所恒等関手をスカラー cocycle で貼ると、
+その降下は基底の線束 $L$ による tensor となり、
+$\mathcal O$ の像は $\mathcal O\otimes_RL$ となる。
+従って未標識の同値 groupoid と、$\mathcal O$ 上の同定を保つ
+自己同型のない比較層を混同しない。
+
+本節が扱うのは、既に固定された PBW 表示模型の間の全 Hom である。
+任意の Abel 圏族がこの表示族に局所的に属すること、
+全 Abel モジュライの代数性・成分性、および大域残余射は証明していない。
+自由な次数一表示を仮定しない場合には、
+$L_F^{\otimes N}\simeq
+\det A'_1\otimes(\det A_1)^{-1}$ が正しい式であり、
+三捩れへの短縮を無条件に適用してはならない。
 \end{remark}
