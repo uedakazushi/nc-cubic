@@ -1,14 +1,16 @@
 # 非可換三次 n-fold：現行稿の検証範囲
 
-2026年11月20日 / v21。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
+2026年11月20日 / v22。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
 
-本版で追加した三つの証明は、五次元 Clifford 半 rotation の平面非依存性と実核降下、非分裂の点 Picard 障害の period 三・index 九とその一ブロック実現、および n=3,4 の規格化周期位相の二変数不変量体への一意な降下である。執筆担当以外による内部独立点検と統合担当の読解を行い、使用する一次資料と固定入力の該当模型を照合した。外部査読、Lean 等の形式証明器による検証、固定入力全体の独立再証明を実施したという意味ではない。新規性の網羅的確認も未完了である。
+本版の非分裂 rotation の算術について、執筆担当と別担当の独立読解を行った。偏極 gerbe 上の例外的 projector kernel が重み零であること、rotation kernel の重み一、convolution による Brauer 類の和、次数±三 Picard 類の index 上界、全 class の幾何学的 Z 分類、指数九族の三次体での非零剰余を点検した。従って強化点型九・全型三という異なる最小次数を区別して記載する。本文の証明は `lem:nfm-unsplit-rotation-gerbe`、`thm:nfm-unsplit-rotation-index-three`、`thm:nfm-unsplit-lowdim-full-degree`、`cor:nfm-unsplit-nine-versus-three`。形式証明器、外部査読、新規性の網羅的確認は未実施である。
+
+既存の三つの証明は、五次元 Clifford 半 rotation の平面非依存性と実核降下、非分裂の点 Picard 障害の period 三・index 九とその一ブロック実現、および n=3,4 の規格化周期位相の二変数不変量体への一意な降下である。執筆担当以外による内部独立点検と統合担当の読解を行い、使用する一次資料と固定入力の該当模型を照合した。外部査読、Lean 等の形式証明器による検証、固定入力全体の独立再証明を実施したという意味ではない。新規性の網羅的確認も未完了である。
 
 - 五次元では、F₂(Y) 上に実際の相対 perfect 核を作ること、Ψ⊣Φ の向き、相対例外性・mutation・底変更、幾何学的連結性と HH¹=0 による class の一定性を点検した。convolution の scalar band と次数2835の零 cycle により 2β_O=2835β_O=0 として実核へ降下する。E_p の二 mutation と評価空間の次元三・十五、ε の安定性軌道固定も点検した。ε の非自明性・E_p 固定、H_p=1、S_p の中立性、coherent C₂ 作用は未証明である。証明は [五次元の節](../papers/sections/residual_fivefold.tex) の `thm:nfm-fivefold-half-rotation-kernel-descent`、`prop:nfm-fivefold-origin-clifford-complex`、`prop:nfm-fivefold-finite-stability-fixed`。
 - 非分裂曲線では、独立な二つの Kummer 座標、二変数付値による division 証明、theta factor set と直接 divisor cocycle の符号、α=δ_C(p) と偏極障害 β の線型独立性を確認した。最終規約は逆巡回の lift B と AB=ζ⁻¹BA であり、Picard cocycle が点座標 matrix factor の逆となることを直接証明する。結論は α=(a,v)₃−(b,u)₃ の period 三・index 九、β=(a,b)₃ の index 三である。mixed theta 表示への降下、純超越拡大による index 保持、任意の非空開での実現、普遍の最小重み一階数九、非分裂の随伴復元条件と n=4 の未標識最小次数九まで内部点検した。全非分裂体・任意型の full 核への一律の九は主張しない。証明は [非分裂 Picard 障害の節](../papers/sections/residual_unsplit_picard.tex) の `prop:nfm-unsplit-genus-one-picard-nine`、`prop:nfm-unsplit-point-index-nine-family`、`cor:nfm-universal-unsplit-picard-rank-nine`、`cor:nfm-unsplit-point-minimum-nine`。
 - 周期では、逆 CF の混合重み上界によって κ(m) 上で比較を定義し、integral な有限対象の Hom を局所化してから hull・冪等完備化へ延ばすことを確認した。新しい Laurent 係数 MC 元に無限挿入公式を再評価しない。実際の μ₃-torsor の (f,η)~(λf,λ⁻¹η) という coherent な作用、H_g の可換化と全三捩れ monodromy による character 消滅を使い、各 γ_sc,n は C(c₄,−c₆) へ一意に降下する。値と n=3,4 の類の一致は未計算であり、候補1,[D],[D]²は ΔD 以外の分岐がないという追加仮定付きである。他の分岐の排除と D での非分岐性は未証明である。証明は [周期位相の降下の節](../papers/sections/residual_period_descent.tex) の `thm:nfm-period-phase-active-descent`、`prop:nfm-period-phase-invariant-descent`、`lem:nfm-period-two-boundary-criterion`。
 
-以下の随伴復元・有限 class・cube frame に関する点検は、既存の検証として保持する。本版の新しい三成果の点検と、過去に検証した全結果の再実行・再読を同一視しない。
+以下の随伴復元・有限 class・cube frame に関する点検は、既存の検証として保持する。現行稿の追加証明の点検と、過去に検証した全結果の再実行・再読を同一視しない。
 
 随伴復元では、q=Li_C^*j_Y の右随伴が q^R=j_Y^!i_* であること、Serre 半直交性と線型 Koszul 解消による q^R O_C≅j_Y^!O_Y、truncation の随伴射が閉ファイバーで同型になることを点検した。既存の形式比較で得る一般ファイバーの最高次線束と、閉ファイバーの構造層を使い、新しいDVR補題で全体の最高次線束性・平坦性・底変更を証明した。閉ファイバーだけから平坦性を推論せず、局所環での非零因子 h と一般ファイバーの階数一を併用する。その後の cone 消滅には導来 Nakayama と proper 性を使う。
 
@@ -382,7 +384,7 @@ Buring の元資料 `star5.txt` のSHA-256は `05e0689ddb32a3d3a3ee4475086606bbe
 
 ### 五次元 Fano 曲面の次数の厳密検算
 
-本版で `python3 computations/verify_fivefold_plane_degree.py` を実行し、
+保存済みの実行では `python3 computations/verify_fivefold_plane_degree.py` により、
 
 `PASS: degree(F_2(Y)) = 2835; gcd(degree, 2) = 1`
 
@@ -405,17 +407,13 @@ b7a9f66af04e2b4506aff22e87ebc53d3bc1eaa3466af0059d13025a424c019d
 
 ### ソースと参照
 
-本版の統合時点で `python3 scripts/check_sources.py` を実行し、21個のTeXソース、466個の一意なlabel、302個の参照先label、96個の引用文献キーを検査して終了コード0を確認した。入口・方針・ノート・検証範囲に記載された52件のローカル Markdown リンクと547件の本文ラベル参照を実ソースへ照合し、欠落がないことを確認した。数式とコード内の括弧は Markdown リンクとして数えない。`git diff --check` も成功した。
+追加証明の統合後に source-reference check とローカルリンク・ラベルの照合を行う。既存16計算資産は変更せず、今回の Brauer 障害の一般証明は計算検算と区別する。
 
-既存15計算資産全てが基準 main `9318972130c2f7cff760706af896b3906f86ab0a` の blob と一致することを byte 単位で確認した。これらは本版で再実行しておらず、新しい五次元次数の検証器一件と分ける。ソースと参照の整合性検査、紙上証明の読解、数学的計算の実行は異なる確認である。
+### PDF の組版状態
 
-### 最終PDF
+v22 の追加証明を含む PDF の再組版と画像点検は、この保存時点では未完了である。既存 v21 の PDF は280頁で、未定義参照・引用、欠落文字、overfull/underfull は零、全頁 contact sheet と追加17頁の拡大点検を済ませている。これを v22 の確認実績としては扱わない。
 
-最終ソースから LuaLaTeX・latexmk により組版し、終了コード0・全 target 更新済みを確認した。PDF は280頁、2,199,212 bytes、SHA-256 は `e4797d954aadcbbdbea77a8eb89459743670c45fe241d5877455ca0e3a84c954`。未定義参照・未定義引用、欠落文字、overfull/underfull box は零。小さい数式フォントのサイズ代替警告は7種類と最終要約の計8件残り、組版エラーとは区別する。
-
-全280頁を6枚の contact sheet へレンダーして配置を点検し、表紙・要旨と目次を拡大表示した。要旨は表紙1頁に収まり、ページ外へのはみ出しや大きな配置崩れは認めていない。さらに別担当が追加節の200–206頁、224–228頁、238–242頁の全17頁を144 dpiで個別に画像表示し、数式の欠け・衝突、孤立見出し、不適切な改頁がないことを確認した。これは全文の数学的再読を意味しない。PDF・表示点検用画像・組版中間生成物は再生成物として Git で追跡しない。
-
-実行環境には部分的な TeX ファイル索引と format 探索の制約があったため、既存の LuaLaTeX format と TeX tree を環境変数 `TEXMF`・`TEXFORMATS`・`LUAINPUTS` で指定して組版した。特定の作業環境の絶対パスをリポジトリ設定に固定していない。通常の LuaLaTeX 一式では `.latexmkrc` の標準コマンドを使う。
+実行環境では部分的な TeX ファイル索引と format 探索の制約があるため、既存 format と TeX tree を環境変数 TEXMF・TEXFORMATS・LUAINPUTS で指定する。特定の環境の絶対パスはリポジトリ設定に固定せず、通常の LuaLaTeX 一式では .latexmkrc の標準コマンドを使う。
 
 ## 7. 再現と保存の区別
 

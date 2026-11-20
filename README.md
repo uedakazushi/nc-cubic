@@ -1,6 +1,6 @@
 # 非可換三次 n-fold のモジュライ
 
-2026年11月20日 / v21。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
+2026年11月20日 / v22。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
 
 **再開時は [研究方針](00_research_plan.md) を最初に読む。**
 
@@ -24,7 +24,7 @@
 - [四次補正の本文](papers/sections/fourth_correction.tex)：上の有限計算を一般次元の証明と Poisson moduli の射へ統合する主原稿の分割ファイル。
 - [点の平行移動と核のPicard類](papers/sections/residual_kernel_point.tex)：右加群の rotation 共役、相対 THCR/window1、非空で内在的な点型、active 同値の全分類、点側・残余側の exact index 三、非分裂 period、三分点体の ASL₂(F₃) モノドロミー、n=3,4 の全 full class 降下・周期位相の class 不変性・相対尺度による最小次数三／九、三乗倍までの方程式規格化と γ_sc の形式像、高次元の T-軌道降下・奇数次元の数値中央化群、随伴復元点型の有限 class torsor・低次元の唯一 class・全奇数次元の有限な数値自明安定化群、七次元の球面 twist による障害。
 - [周期位相の混合定数降下](papers/sections/residual_period_descent.tex)：無限 arity の CF 移送の混合重み上界、κ(m) 上の周期付き full Morita 比較、γ_sc,n の C(c₄,−c₆) への一意な降下、追加の非分岐仮定の下の三候補。
-- [非分裂点 Picard 障害](papers/sections/residual_unsplit_picard.tex)：period 三・index 九の曲線、n≡1 mod3 の全非空開での実現、普遍重み一束の最小階数九、四次元の強化点型の最小実現次数九。
+- [非分裂点 Picard 障害](papers/sections/residual_unsplit_picard.tex)：period 三・index 九の曲線、n≡1 mod3 の全非空開での実現、普遍重み一束の最小階数九、非分裂 rotation の gerbe、低次元の全型の最小次数一／三と四次元の強化点型九・全型三。
 - [五次元 Clifford 半 rotation](papers/sections/residual_fivefold.tex)：平面上の相対核と平面非依存性、奇数次数零 cycle による実核降下、原点像の二 mutation への還元。
 - [Fano 曲面の次数の厳密検算](computations/verify_fivefold_plane_degree.py)：Grassmann 積分の整数係数計算による次数2835の再現。
 - [点障害の厳密検算](computations/verify_picard_obstruction.py)：Hesse 接線・巡回 norm、Sklyanin 点三次・係数の逆、rotation の六つの数値 centralizer、巡回平面 twist・norm 係数・symbol 補正、普遍 Jacobian の三捩れ点・八点軌道・安定化群 core、右点対応。
@@ -73,9 +73,11 @@
 
 **n≡1 mod3 の非分裂表示では、点 Picard 障害の period 三・index 九を実現できる。** 全 n≥4、n≡1 mod3 について、良い一ブロック stack の任意の非空開に、この障害を持つ体値点を構成する。一般 Hesse 曲線とその一般点を三捩れ theta torsor で twist し、active 表現と中心表現に同じ中心重みを与えた mixed 表示へ降下する。表示の Brauer 類 β は index 三だが、点線束の障害 α=δ_C(p_res) は period 三・index 九であり、両者を同一視しない。混合係数と中心 torsor の一般化は純超越拡大だけで行うので index 九を保つ。この構成は full class の事前選択を要しない。
 
-これらの体値点で実際の点型 full 核が有限拡大 L/K 上に存在すれば 9∣[L:K] である。随伴復元点型の有限 class torsor と実現 gerbe の記述も全 O-降下し、n=4 の幾何学的一般族では強化点型の class が一つなので、周期標識を加えない最小実現次数は正確に九となる。任意型の全 full 核や全非分裂体への一律の九という結論ではない。証明の入口は `prop:nfm-unsplit-point-index-nine-family`、`lem:nfm-adjoint-point-unsplit-descent`、`cor:nfm-unsplit-point-minimum-nine`。
+これらの体値点で実際の点型 full 核が有限拡大 L/K 上に存在すれば 9∣[L:K] である。随伴復元点型の有限 class torsor と実現 gerbe の記述も全 O-降下し、n=4 の幾何学的一般族では強化点型の class が一つなので、周期標識を加えない最小実現次数は正確に九となる。強化点型の九と、下記の全型での三を区別する。全非分裂体への一律の九という結論ではない。証明の入口は `prop:nfm-unsplit-point-index-nine-family`、`lem:nfm-adjoint-point-unsplit-descent`、`cor:nfm-unsplit-point-minimum-nine`。
 
 同じ n≡1 mod3 の共通な良い開上の普遍点 Picard gerbe には、Brauer–Severi 平面の相対反標準束を用いて重み一・階数九の束を構成できる。任意の非空開で正の重み一階数は九の倍数なので、開を縮めても階数三には改善できない（`cor:nfm-universal-unsplit-picard-rank-nine`）。個々の体値点の index を一律に九とする主張ではない。
+
+**非分裂 rotation の実現 gerbe は偏極障害 β であり、class 変更で核の障害は α+rβ となる。** 最高次線束型の class を選択した後、α±β は次数±三の Picard 類に由来するため index は三を割る。従って型を指定しない比較は、その rotation 軌道内で三次以下の拡大により実現できる。n=3,4 の幾何学的自己同値群が Z となる範囲では全 class を尽くし、未標識 full 比較の最小次数は α∈⟨β⟩ なら一、それ以外は三である。四次元の指数九族では、同じ対象に対して強化点型の最小次数九・全型の最小次数三を得る。実際、α+β=(au,bv)₃ を消す三次体 K(∛au) 上でも α は非零のままであり、点型は実現されない。高次元では有限 class torsor の成分 K_i を先に選ぶ必要があり、全型の上界は 3 min_i[K_i:K]≤3|H_p| となる。周期標識を加えた次数とは別の結果である。証明は `lem:nfm-unsplit-rotation-gerbe`、`thm:nfm-unsplit-rotation-index-three`、`thm:nfm-unsplit-lowdim-full-degree`、`cor:nfm-unsplit-nine-versus-three`。
 
 **点 shift の Picard 障害は、一般 split 表示で正確に index 三となる。** K=C(a,b,λ) 上の Hesse 型三次 X³−aY³−bZ³+λXYZ と三捩れ移動点 p₀ の障害は巡回代数 (a,b+λ³/(27a))₃ であり、period=index=3である。Jacobian の関数体上で p=p₀+3q とすると、一般の j・無限位数の p でも同じ障害を保つ。この曲線・偏極・平行移動から幾何的 Sklyanin 代数を元の体上に作り、一次元の cyclic potential を降下して、滑らかな commutator–gradient 形式へ規格化した。Hesse 係数の支配性を確認した後、一般の基底変更、混合係数・中心三次係数の付加は、非零障害を保つ純超越拡大だけで行える。Hesse 座標用の根の有限拡大は支配性の検査だけに使い、非零例の基礎体には加えない。従って全 n≥3 の標準 split 一ブロック係数表示の一般点で δ_Ept(p_pt) の period と index は三である。これは係数体上の族の障害であり、複素数体上の個々の曲線に非零 Brauer 類を主張するものではない。
 
@@ -121,7 +123,7 @@ H_p∩⟨T⟩=1 なので、n=3,4 では H_p=1、S_p=Spec(k_n) となり、随�
 
 **完備中心商について MF 比較を構成した。** 厳密相対 bar flow とその逆を中心係数の斉次商へ降ろせるので、U=0 の active MF にも比較が得られる。任意の quotient MF を扱い、元の MF からの持上げを仮定しない。ただし、一般点の有限代数的核への coherent な中心線型性の降下は未完成である。係数商と圏の導来 tensor の同一視、absolute perfect から relative perfect への推論には一般的な反例があり、研究ノートに整理した。
 
-残る中心課題は、n=5 の随伴復元点型の有限 class torsor S_p の中立性、n=3,4 の二変数不変量体へ降下した周期位相 γ̄_n の値、非分裂表示での index の判定と class 選択、および各 intrinsic 成分の一般対象の被覆である。最初の問題では、数値的に自明で E_p=q^R M を固定する有限群 H_p を消すか、この特定の torsor を中立化する。全 G_{ρ,0}/⟨[2]⟩ の分類は前提としない。代数的核の coherent な中心線型性も未完成である。点型の全 O-共変性と一般 split scalar 障害、n=3,4 の full class 降下と唯一の随伴復元 class、周期位相の三乗規格化・形式像・二変数不変量体への降下は確定した範囲として扱う。最高次線束による index 評価と点型核の不存在は active 核 assignment を前提としない。証明は [残余射・比較核の節](papers/sections/residual_algebraic.tex)、[点曲線・尺度の節](papers/sections/residual_point_scale.tex)、[点の平行移動と核のPicard類](papers/sections/residual_kernel_point.tex)、[周期位相の降下](papers/sections/residual_period_descent.tex) にまとめる。
+残る中心課題は、n=5 の随伴復元点型の有限 class torsor S_p の中立性、n=3,4 の二変数不変量体へ降下した周期位相 γ̄_n の値、高次元の非分裂 class 選択と点型を固定した index の判定、および各 intrinsic 成分の一般対象の被覆である。最初の問題では、数値的に自明で E_p=q^R M を固定する有限群 H_p を消すか、この特定の torsor を中立化する。全 G_{ρ,0}/⟨[2]⟩ の分類は前提としない。代数的核の coherent な中心線型性も未完成である。点型の全 O-共変性と一般 split scalar 障害、n=3,4 の full class 降下と唯一の随伴復元 class、周期位相の三乗規格化・形式像・二変数不変量体への降下は確定した範囲として扱う。最高次線束による index 評価と点型核の不存在は active 核 assignment を前提としない。証明は [残余射・比較核の節](papers/sections/residual_algebraic.tex)、[点曲線・尺度の節](papers/sections/residual_point_scale.tex)、[点の平行移動と核のPicard類](papers/sections/residual_kernel_point.tex)、[周期位相の降下](papers/sections/residual_period_descent.tex) にまとめる。
 
 個別次元の Jacobi 計算と boundary の精査は、この一般目標の具体的な障害を解消する場合に行う。八次元の頂点構造等の既存成果と証明書は保持する。次の具体的な着手方法と各目標の到達基準は [研究方針](00_research_plan.md) にまとめ、全体の要約は [research-hub](https://github.com/uedakazushi/research-hub) に反映する。
 
@@ -138,6 +140,7 @@ H_p∩⟨T⟩=1 なので、n=3,4 では H_p=1、S_p=Spec(k_n) となり、随�
 | 選択済み点型 full class の scalar 類 | α=δ_Cres(p_res) は正確に index 三、三次分裂体を持つ | 全 n≥3 の scalar 定理。n≥5 の full class 選択は別段階。n=3,4 の全 class 降下は下記の別定理 |
 | 点型の幾何的認識と非分裂障害 | Q_P=Li_C^*j_YΦ_Pj_nc^!O の最高次線束で点型を記述し、共通な良い稠密開上で全 O-同値・任意底変更に両立。非分裂の最高次線束型の選択済み class も period∣3、index は n≢1 mod3 で三、n≡1 mod3 で九を割る | `prop:nfm-active-restriction-geometric`、`cor:nfm-point-type-O-descent`、`cor:nfm-unsplit-point-scalar-period-three`。full class 選択は別段階。全非分裂体で一律の exact index は主張しない |
 | 非分裂点型の指数九 | 全 n≥4、n≡1 mod3 の任意の非空開に period 三・index 九の点 Picard 障害を実現。表示障害の index は三。実際の点型核の体次数は九の倍数で、n=4 の幾何学的一般族の強化点型は最小次数九を達成。普遍点 Picard gerbe の正の最小重み一階数も任意の非空開で九 | `prop:nfm-unsplit-point-index-nine-family`、`lem:nfm-adjoint-point-unsplit-descent`、`cor:nfm-unsplit-point-minimum-nine`。周期標識を加えず、任意型や全非分裂体へ一律の九を主張しない |
+| 非分裂 full 比較の rotation 軌道 | ρ の実現 gerbe は β、ρʳP の障害は α+rβ。α±β の index は三を割り、n=3,4 の全型の最小次数は α∈⟨β⟩ に応じて一／三。指数九の四次元族では強化点型九・全型三 | `thm:nfm-unsplit-rotation-index-three`、`thm:nfm-unsplit-lowdim-full-degree`、`cor:nfm-unsplit-nine-versus-three`。高次元は class 選択後。周期標識なし |
 | 点型 full 比較被覆 | 全 n≥3 で実際の点型核は k_n と三に素な有限拡大上に不存在。各一般成分の次数は三の倍数 | `cor:nfm-point-comparison-cover-three-divisibility`。φ の付加や active assignment は不要。n≥5 の任意型への拡張は未証明 |
 | n=3,4 の全 full 比較 | 全 full class が k_n 上へ降下し、scalar gerbe は全型共通で period=index=3。underlying 比較と rotation intertwining の性質を要求する比較の最小次数三 | `thm:nfm-low-dimensional-full-class-index-three`。幾何学的一般点の結果。全核が点型とは主張せず、n≥5 の first stage は未解決 |
 | n=3,4 の指定周期付き比較 | 三乗規格化で定まる全 class 共通の γ_sc,n は C(c₄,−c₆) の Kummer 類 γ̄_n へ一意に降下し、形式像は1。frame 変更は γ′=[v/u]γ、適合 frame の最小次数三、target の自由尺度族の最小次数九 | `thm:nfm-period-phase-active-descent`、`prop:nfm-period-phase-invariant-descent`。γ̄_n の値と元の規格化での最小次数三／九は未決。`lem:nfm-period-two-boundary-criterion` の三候補 1,[D],[D]² は追加の未証明非分岐仮定付き |

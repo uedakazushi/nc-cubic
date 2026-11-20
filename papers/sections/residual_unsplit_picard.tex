@@ -418,8 +418,9 @@ $9\mid[L:K]$ である。
 そのうち $n=4$ の幾何学的一般族では、随伴復元条件を満たす点型の
 実現 gerbe は指数九であり、最小実現次数は正確に九となる。
 これは周期標識を追加しない比較についての結果である。
-型を指定しない全 full 比較核の最小次数や、
-高次元での有限 class torsor の中立性を結論するものではない。
+型を指定しない全 full 比較核の最小次数は
+系\ref{cor:nfm-unsplit-nine-versus-three}で三と決定する。
+高次元での有限 class torsor の中立性は未解決である。
 \end{corollary}
 
 \begin{proof}
@@ -429,4 +430,196 @@ $n=4$ の幾何学的一般族では前補題から class は一つだけであ�
 その scalar gerbe が $\mathscr P_p$ に同値である。
 次数九 division 代数の極大部分体上でこの gerbe は中立になるため、
 次数九で実際の核が存在する。これで下界が達成される。
+\end{proof}
+
+\subsection{非分裂 rotation と full 比較の最小次数}
+
+点型の指数九と、型を指定しない full 比較の最小次数は区別する必要がある。
+非分裂表示では、幾何学的 rotation の class は定義されても、
+その実際の核が元の体上で存在するとは限らない。
+従って rotation による class の変更は scalar gerbe を変え得る。
+以下ではこの変化を計算する。周期同型そのものは標識しない。
+
+\begin{lemma}[次数三 Picard 類の指数と rotation の実現 gerbe]
+\label{lem:nfm-unsplit-rotation-gerbe}
+$K$ を標数零の体とし、良い一ブロック表示の残余三次 $Y/K$ と
+その active 曲線 $C/K$ を取る。Brauer--Severi ambient の幾何学的
+$\mathcal O(1)$ の類を $\lambda_Y$、その制限を
+$\lambda_C\in\operatorname{Pic}^3_{C/K}(K)$ と置き、
+\[
+ \beta=\delta_Y(\lambda_Y)=\delta_C(\lambda_C)
+\]
+と書く。このとき幾何学的 rotation $\rho_Y$ の class は Galois 不変であり、
+その実現 $\mathbf G_m$-gerbe の類は $\beta$ である。
+また任意の $m\in\operatorname{Pic}^0_{C/K}(K)$ に対し、
+\[
+ \operatorname{ind}\delta_C(m+\lambda_C)\mid3,
+ \qquad
+ \operatorname{ind}\delta_C(m-\lambda_C)\mid3.
+\]
+\end{lemma}
+
+\begin{proof}
+まず一般に $\ell\in\operatorname{Pic}^3_{C/K}(K)$ の実現 gerbe 上で、
+普遍重み一線束 $L$ を取る。種数一の曲線では次数三より
+$H^1(C_{\overline K},L)=0$、$h^0(C_{\overline K},L)=3$ なので、
+$\pi_*L$ は重み一・階数三のベクトル束である。
+その endomorphism は次数三の Azumaya 代数へ降下し、
+$\operatorname{ind}\delta_C(\ell)\mid3$ を得る。
+次数 $-3$ の場合は双対を取ればよい。これを $m+\lambda_C$ と
+$-(m-\lambda_C)$ に適用すると最後の二つの評価を得る。
+
+$\lambda_Y$ を表す線束の gerbe を $\mathscr L_Y$ とし、
+$Y\times_K\mathscr L_Y$ 上の普遍線束を $L_Y$ とする。
+制限 $L_Y|_C$ は $\lambda_C$ の実現 gerbe への重み一の関手を与えるので、
+二つの gerbe の類は一致する。
+例外的 block の射影に用いる核
+\[
+ (L_Y^{\otimes i})^\vee\boxtimes L_Y^{\otimes i}
+ \longrightarrow\mathcal O_\Delta
+\]
+とその evaluation は重み零である。
+従ってその cone と有限個の合成、特に $\operatorname{Ku}(Y)$ への射影核は
+$K$ 上へ降下する。この記述は非分裂 ambient の admissible block による
+定義と一致する。個々の $\mathcal O_Y(i)$ を $K$ 上で選ぶ必要はない。
+
+$\mathscr L_Y$ 上では
+$\mathbf L_{\mathcal O_Y}\circ(-\otimes L_Y)$ の核を作り、
+両側をこの射影核で挟むことができる。
+幾何学的 fibre 上では通常の rotation 核であり、tensor の部分だけが
+重み一なので、全体も重み一である。
+$L_Y$ を基底の線束だけ変えると核もその線束だけ変わるため、
+これは Galois 不変な rotation class の実現 gerbe への band を保つ射を与える。
+命題\ref{prop:nf-hh}により核の負の自己 Ext は零、自己準同型は scalar のみであるから、
+その実現 stack は $\mathbf G_m$-gerbe である。
+二つの $\mathbf G_m$-gerbe の間の band を保つ射は同値なので、
+rotation の実現障害は $\beta$ となる。
+\end{proof}
+
+\begin{theorem}[rotation 軌道内の三次実現]
+\label{thm:nfm-unsplit-rotation-index-three}
+前補題の設定で、最高次線束型の full 比較核の幾何学的 class $P$ が
+$K$ 上で整合的に選択されているとする。その最高次 Picard 類を $m_P$ とし、
+\[
+ \alpha=\delta_C(m_P)
+\]
+と置く。各 $r\in\mathbf Z$ に対して $\rho_Y^rP$ は Galois 不変な class であり、
+その実現 gerbe は
+\begin{equation}\label{eq:nfm-unsplit-rotation-brauer-orbit}
+ \alpha_r=\alpha+r\beta
+\end{equation}
+を持つ。特に $r=1,-1$ の class は次数三以下の有限拡大で実現される。
+$\rho_Y^rP[k]$ 全体の中での最小有限実現次数は
+\[
+ \min_{r\in\{0,1,-1\}}\operatorname{ind}(\alpha+r\beta)
+ =\begin{cases}
+  1,&\alpha\in\langle\beta\rangle,\\
+  3,&\alpha\notin\langle\beta\rangle.
+ \end{cases}
+\]
+この class 変更が最高次線束型や随伴復元点型を保つとは主張しない。
+\end{theorem}
+
+\begin{proof}
+二つの kernel gerbe 上の核を convolution すると、二つの scalar は積として作用する。
+従って contracted product の band 上では重み一であり、
+合成 class の gerbe は二つの Brauer 類の和である。
+前補題から \eqref{eq:nfm-unsplit-rotation-brauer-orbit} を得る。
+また $\alpha\pm\beta=\delta_C(m_P\pm\lambda_C)$ なので、前補題により
+両者の index は三を割る。中心 division 代数の極大部分体は
+その index と等しい次数の分離分裂体だから、実現次数の上界も得る。
+
+$3\beta=0$ であり、shift は実際の $K$-核で与えられるので、
+この軌道に現れる障害は $\alpha,\alpha+\beta,\alpha-\beta$ だけである。
+いずれかが零となる条件は $\alpha\in\langle\beta\rangle$ である。
+そうでなければ三つとも非零の三捩れ類であり、そのうち後二者の index は三である。
+各 class の最小実現次数がその gerbe の index であることから結論を得る。
+\end{proof}
+
+有限 class torsor $S_p=\coprod_i\operatorname{Spec}K_i$ については、
+各 $K_i$ 上で強化点型の class を一つ選び、上の rotation を施せる。
+従って非分裂の場合も、型を指定しない full 比較核の最小実現次数には
+\begin{equation}\label{eq:nfm-unsplit-full-finite-class-bound}
+ d_{\mathrm{full}}(K)\le3\min_i[K_i:K]\le3|H_p|
+\end{equation}
+という上界がある。これは $S_p(K)\ne\varnothing$ を示す結果ではなく、
+強化点型自身の index 九という下界を変えるものでもない。
+
+\begin{theorem}[低次元の全 full class の非分裂算術]
+\label{thm:nfm-unsplit-lowdim-full-degree}
+$n=3,4$ とし、前補題の $Y_{\overline K}$ が
+命題\ref{prop:nfm-generic-low-dimensional-kernel-aut}の幾何学的自己同値分類を
+満たすとする。固定入力と共通な良い一ブロック開の仮定を保つ。
+随伴復元点型の唯一の幾何的 class を $P_0$ とし、
+$\alpha=\delta_C(p_{\mathrm{res}})$ と置く。
+このとき全ての幾何的 full 比較 class は $K$ 上で Galois 不変であり、
+その実現 gerbe の類全体は $\alpha+\langle\beta\rangle$ である。
+型と周期標識を指定しない full 比較の最小有限実現次数は
+\begin{equation}\label{eq:nfm-unsplit-lowdim-full-minimum}
+ d_{\mathrm{full}}(K)
+ =\min_{r\in\{0,1,-1\}}\operatorname{ind}(\alpha+r\beta)
+ =\begin{cases}
+  1,&\alpha\in\langle\beta\rangle,\\
+  3,&\alpha\notin\langle\beta\rangle.
+ \end{cases}
+\end{equation}
+後者の場合、任意の full 比較核の有限実現体の次数は三の倍数である。
+\end{theorem}
+
+\begin{proof}
+補題\ref{lem:nfm-adjoint-point-unsplit-descent}より $P_0$ は一つであり、
+Galois 不変である。幾何学的自己同値 class 群は
+\[
+ \mathbf Z=\langle T\rangle,\qquad
+ T=\rho_Y^{-1}[1],\quad T^2=\rho_Y,\quad T^3=[1]
+\]
+である。ここでは $T$ が実際の $K$-核であるとは仮定しない。
+前補題により $\rho_Y$ の class は Galois 不変であり、shift もそうなので、
+$T$ の class は Galois 不変である。
+従って $T^mP_0$ という全 class が Galois 不変となる。
+さらに $2$ と $3$ は互いに素なので、各 class は
+$\rho_Y^rP_0[k]$、$r\in\{0,1,-1\}$ と書ける。
+前定理を適用すると障害と最小次数の公式を得る。
+三つの障害が全て非零の三捩れ類なら、いずれを分裂させる有限体の次数も
+restriction--corestriction によって三の倍数となる。
+\end{proof}
+
+\begin{corollary}[同じ非分裂四次元対象での強化点型九・全型三]
+\label{cor:nfm-unsplit-nine-versus-three}
+命題\ref{prop:nfm-unsplit-point-index-nine-family}の $n=4$ の
+幾何学的一般族では、随伴復元点型の最小実現次数は九である一方、
+型を指定しない full 比較の最小実現次数は三である。
+命題\ref{prop:nfm-unsplit-genus-one-picard-nine}の座標では
+\begin{equation}\label{eq:nfm-unsplit-rotated-symbols}
+ \alpha+\beta=(au,bv)_3,
+ \qquad
+ \alpha-\beta=-(a/u,b/v)_3.
+\end{equation}
+特に三次体 $K(\sqrt[3]{au})$ 上には full 比較核が存在するが、
+その体上でも点型核は存在しない。
+\end{corollary}
+
+\begin{proof}
+強化点型の最小次数九は系\ref{cor:nfm-unsplit-point-minimum-nine}による。
+$\operatorname{ind}(\alpha)=9$、$\operatorname{ind}(\beta)=3$ なので
+$\alpha\notin\langle\beta\rangle$ であり、前定理から全型の最小次数三を得る。
+
+同命題の Kummer 座標は $(u,v)_3=0$ を満たす。
+symbol の双線型性と交代性により
+\[
+ (au,bv)_3=(a,b)_3+(a,v)_3+(u,b)_3+(u,v)_3
+             =\beta+\alpha
+\]
+であり、もう一方の等式も同様に従う。
+$au$ は $a$ の付値が一なので三乗ではなく、
+$L=K(w)$、$w^3=au$ は三次体である。
+$\alpha+\beta$ は $L$ 上で零となるため、rotation した class の実核が存在する。
+一方 $L\simeq F(b)(w)$、$a=w^3/u$ なので
+\[
+ \alpha_L=(u,b)_3,\qquad \beta_L=-(u,b)_3.
+\]
+$u$ の非自明な Kummer 類は $b$-進剰余で検出され、
+$(u,b)_3$ は非零で index 三である。
+従ってこの体上で偏極はなお非分裂で、点型 gerbe も中立でない。
+混合係数を加える純超越拡大後にも同じ計算が成立する。
 \end{proof}

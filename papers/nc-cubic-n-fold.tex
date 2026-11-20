@@ -48,7 +48,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v21}
+\date{2026年11月20日・研究稿 v22}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -80,6 +80,8 @@ period と index が三となることを示す。
 具体値は未決定であり、適合規格化の最小次数三と独立標的尺度族の最小次数九を区別する。
 非分裂表示では $n\equiv1\pmod3$ の各非空開に Picard index 九を実現し、
 普遍的な重み一階数の最小値九と、四次元の強化型の最小実現次数九を得る。
+一方、rotation による障害の変化を計算すると、同じ四次元族で
+型を指定しない full 比較の最小次数は三である。
 五次元では Clifford 半 rotation が平面の選択に依存せず実核として降下するが、
 残る有限 class torsor の中立性は未決定である。
 標準三分点被覆は連結な九次体で、Galois 閉包群は位数216の
@@ -368,6 +370,11 @@ Saltman\cite[Sections~3--4, Theorem~5]{NFMSaltmanSeveri}でも扱われる。
 全 $n\equiv1\pmod3$ の良い一ブロック成分の任意の非空開へ実現し、
 点型 full 比較の九整除性と普遍 Picard gerbe の最小正階数九へ接続する。
 四次元の幾何学的一般族では、随伴復元点型の唯一の class により最小実現次数九を達成する。
+さらに非分裂 rotation 自身の実現 gerbe が偏極障害 $\beta$ であることを示し、
+$\rho^rP$ の障害を $\alpha+r\beta$ と計算する。
+次数三 Picard 類の標準的な押し下げと低次元自己同値分類を組み合わせると、
+全 full 比較の最小次数は $\alpha\in\langle\beta\rangle$ に応じて一または三となる。
+従って四次元の指数九族でも全型の最小次数は三であり、点型を保つ比較との相違が現れる。
 曲線の period--index の相違そのもの、既知の degree $2835$、
 Clifford 半 rotation の存在自体を本稿の新規成果として数えていない。
 
@@ -1172,8 +1179,9 @@ $n\ge4$、$n\equiv1\pmod3$ とし、固定入力の下で点型と半古典平�
 普遍 Picard gerbe $\mathscr P_{p_{\mathrm{res}}}$ 上には重み一・階数九の束があり、
 底をどの非空開へ縮めても重み一の正の階数は九の倍数である。
 表示 gerbe の index 三と、この点の Picard index 九は異なる。
-全ての体値点で index 九となること、型を指定しない全比較核の最小次数、
+全ての体値点で index 九となること、
 高次元の class torsor の中立性は主張しない。
+型を指定しない全比較核については次の定理が別の最小次数を与える。
 \end{maintheorem}
 
 証明は命題\ref{prop:nfm-unsplit-genus-one-picard-nine}、
@@ -1183,6 +1191,32 @@ $n\ge4$、$n\equiv1\pmod3$ とし、固定入力の下で点型と半古典平�
 独立な二つの三次 Kummer 座標から、
 次数九の division algebra を二重付値で明示する。
 この九は周期標識を追加しない点型の scalar 障害から来る。
+
+\begin{maintheorem}[非分裂 rotation と低次元の全型の最小次数]
+\label{main:nfm-unsplit-full-minimum}
+最高次線束型の full class $P$ を選択し、その障害を
+$\alpha=\delta_C(m_P)$、次数三偏極類の障害を $\beta$ とする。
+幾何的 rotation の class は Galois 不変で、その実現 gerbe は $\beta$ である。
+$\rho^rP$ の障害は $\alpha+r\beta$ であり、$r=\pm1$ なら index は三を割る。
+
+$n=3,4$ で幾何学的自己同値群が $\mathbf Z$ となる範囲では、
+$\alpha=\delta_C(p_{\mathrm{res}})$ として全型の最小有限実現次数は
+\[
+ d_{\mathrm{full}}(K)=\min_{r=0,1,-1}\operatorname{ind}(\alpha+r\beta)
+ =\begin{cases}1,&\alpha\in\langle\beta\rangle,\\
+ 3,&\alpha\notin\langle\beta\rangle.
+ \end{cases}
+\]
+特に前定理の四次元の指数九族では、強化点型の最小次数は九、全型では三である。
+周期同型そのものを標識する場合は含まない。
+\end{maintheorem}
+
+証明は補題\ref{lem:nfm-unsplit-rotation-gerbe}、
+定理\ref{thm:nfm-unsplit-rotation-index-three}、
+\ref{thm:nfm-unsplit-lowdim-full-degree}、
+系\ref{cor:nfm-unsplit-nine-versus-three}にある。
+高次元にも class 選択後の三次上界は有効だが、
+rotation で型が変わり得るので、点型自身の指数九は保持される。
 
 五次元では、Clifford 表示の $O_\Pi$ は平面に依存しない class を定め、
 その実際の $K$-核 $O$ を構成できる
@@ -1330,6 +1364,8 @@ $n=3,4$ では全 full 同型類が降下し、周期の追加標識を忘れた
 二変数不変量体 $\C(c_4,-c_6)$ へ一意に戻る。
 非分裂表示では $n\equiv1\pmod3$ の任意の非空開に Picard index 九を実現し、
 四次元の強化点型は未標識最小次数九を達成する。
+非分裂 rotation の障害 $\beta$ を用いて型を変更すれば、同じ四次元族の全型の最小次数は三である。
+低次元では一般に $\alpha\in\langle\beta\rangle$ が全型の元の体上での実現条件となる。
 五次元の Clifford 半 rotation は平面非依存の実核として降下する。
 次の課題は、その差から得る数値的に自明な involution の作用と
 随伴復元点型の有限 torsor の中立性、高次元・全型への拡張、

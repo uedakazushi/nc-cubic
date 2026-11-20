@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月20日 / v21。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは依存・適用範囲・障害・再現の入口をまとめる。
+2026年11月20日 / v22。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは依存・適用範囲・障害・再現の入口をまとめる。
 
 ## 1. 記法と成果の確実性
 
@@ -1165,7 +1165,15 @@ Fisher の §9.5 の中央拡大・既知の Heisenberg 表現と、本稿での
 
 共通な良い開上の普遍点 Picard gerbe では、Brauer–Severi 平面の相対反標準束を C に制限した次数九の実線束 A を使い、\(\pi_*(M\otimes A)\) が重み一・階数九の束を与える。どの非空開にも index 九の体値点があるので、正の重み一階数は必ず九の倍数であり、開を縮めて普遍階数を三にはできない（`cor:nfm-universal-unsplit-picard-rank-nine`）。全ての体値点の index が九となるという意味ではない。
 
-随伴復元条件の矢 \(E_P\to q^RH^0(qE_P)\) も全 O-同値・任意底変更に自然なので、有限 H_p と class torsor S_p、実現 gerbe \(S_p\times\mathscr P_p\) は非分裂形式へ降下する（`lem:nfm-adjoint-point-unsplit-descent`）。指数九例で実際の点型核が L/K 上にあれば 9∣[L:K]。n=4 の幾何学的一般族では唯一の強化点型 class があり、指数九 division 代数の極大部分体で実現できるため、**周期標識を加えない強化点型の最小実現次数は九**である（`cor:nfm-unsplit-point-minimum-nine`）。任意型の全 full 核、全非分裂体、または高次元の S_p の中立性へ拡張しない。
+随伴復元条件の矢 \(E_P\to q^RH^0(qE_P)\) も全 O-同値・任意底変更に自然なので、有限 H_p と class torsor S_p、実現 gerbe \(S_p\times\mathscr P_p\) は非分裂形式へ降下する（`lem:nfm-adjoint-point-unsplit-descent`）。指数九例で実際の点型核が L/K 上にあれば 9∣[L:K]。n=4 の幾何学的一般族では唯一の強化点型 class があり、指数九 division 代数の極大部分体で実現できるため、**周期標識を加えない強化点型の最小実現次数は九**である（`cor:nfm-unsplit-point-minimum-nine`）。全型の最小次数は下記の rotation 計算により三となる。全非分裂体への一律の九、または高次元の S_p の中立性へは拡張しない。
+
+### 非分裂 rotation による gerbe の変更と全型の最小次数
+
+偏極類 λ_C の障害を β=δ_C(λ_C)、選択済み最高次線束型 class の障害を α=δ_C(m_P) とする。非分裂表示では ρ の幾何的 class は降下するが、実際の核の gerbe は β である。局所的な O(i) の双対⊠自身と evaluation は重み零なので Ku 射影核は降下し、tensor O(1) を一度用いる rotation 核は重み一となる。従って ρʳP の障害は α+rβ。この点が、実際の T=ρ⁻¹[1] がある split 体で全 class の gerbe が同じになる証明との相違である。
+
+次数三 Picard 類の gerbe 上の普遍線束の H⁰ は重み一・階数三である。α±β は次数±三の Picard 類の障害なので index∣3。n=3,4 で幾何学的自己同値群が Z の場合、唯一の随伴復元 class P₀ と ρ、shift が全 class を与え、全型の最小次数は min_r ind(α+rβ)、すなわち α∈⟨β⟩ なら一、それ以外は三となる。高次元でも class 選択後の rotation 軌道にはこの評価が有効であり、finite class torsor の成分を用いる全型上界は 3 min_i[K_i:K]≤3|H_p| である。S_p の中立性は別問題である。
+
+指数九の四次元族では **強化点型の最小次数九・型を指定しない full 比較の最小次数三** を同時に得る。symbol の等式は α+β=(au,bv)₃、α−β=−(a/u,b/v)₃。三次体 L=K(w)、w³=au 上では α_L=(u,b)₃、β_L=−(u,b)₃ であり、非零性は b-進剰余と u の非三乗性で分かる。従って L 上の full 比較は存在するが、点型の実現も ambient の分裂も起きない。普遍点 Picard gerbe の最小階数九と矛盾しない。主証明は `lem:nfm-unsplit-rotation-gerbe`、`thm:nfm-unsplit-rotation-index-three`、`thm:nfm-unsplit-lowdim-full-degree`、`cor:nfm-unsplit-nine-versus-three` に置き、ここに重複しない。新規性は未確認である。
 
 ### projector 核の一意性と三・四次元の full class 選択
 
@@ -1404,7 +1412,7 @@ S_p(K)≠∅なら最小三となるが、n=5でその点の存在は未証明�
 
 第二に n=3,4 の各位相を一意に表す C(s,t) 上の類 γ̄_n を計算する。混合係数からの降下は解決したが、値と γ̄₃=γ̄₄ は未証明である。不変量平面で周期 torsor の分岐を調べ、ΔD 以外の分岐を排除できれば候補1,[D],[D]²に絞り、さらにDの一般点の付値を計算する。この非分岐性は追加課題であり、既存入力からはまだ得ていない。別経路として actual MF の微分・射と source trace を比較し、Murfet の residue 式または三次元の fractional Serre 自明化の差 d(P) を使う。類が決まった後も、その成分体上の α の index を判定して標識付き最小次数を決める。点型の表示独立性は良い共通稠密開で解決したので、同じ範囲で再び未解決課題とはしない。その開の外、全 intrinsic 成分、非分裂表示で index 九を持つ族を越えた各体の判定、別の window や formality との比較は別に残る。
 
-第三に、非分裂の n≡1 mod3 の任意の非空開で達成した点 Picard index 九と、普遍 gerbe の最小重み一階数九を基準に、高次元の有限 class torsor と実現体の最小次数を調べる。n=4 の幾何学的一般族の強化点型では未標識最小九まで決まった。全非分裂体で一律の九や任意 full 核への九整除性は主張しない。
+第三に、非分裂の高次元の finite class torsor と、rotation 軌道以外の full class を調べる。n=4 の指数九族では強化点型九・全型三まで決まった。一般の選択済み class でも rotation により index∣3 の class を得るので、残る first stage と点型を固定した index の問題を区別する。普遍点 gerbe の最小重み一階数九は有効なままである。
 
 第四に、完備中心商の比較を有限代数的kernelのcoherentな中心線型性へ降ろす条件を確定する。可換側のq_Y=Li_C^*はこのsource側の構造を代用しない。generic split体上のcup相殺・三可除性・三分点被覆の次数は決着したので、これらを同じ設定で未解決の中立化経路として扱わない。
 
