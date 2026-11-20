@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v11}
+\date{2026年11月20日・研究稿 v12}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -73,13 +73,12 @@ $\gcd(n-1,3)$ と決定する。
 固定 formality の残余 Poisson 対と全次数で同定する。
 一方、固定生成元と量子化パラメータを保つ実際の形式 tensor は、
 任意の $n\ge3$ の very general な滑らかな係数で代数的でない。
-この障害は log-canonical 量子化と有界次数の代数関係を表す小行列式から従う。
 残余 active 曲線は量子側の楕円点曲線と同じ $j$ 不変量を持つ。
 その Hodge 線束の双対を尺度線束と同定し、点曲線の標準微分から
-符号を除いた尺度を代数的に定める。この残余射は支配的・一般有限であり、
-標準二重被覆上で尺度を含む射となる。
-指定した CF Euler 数値型で比較核の同型類を整合させた後の scalar 障害には、
-split な一般点で $3^{\lfloor(n+1)/2\rfloor}$ を割る index の上界を与える。
+符号を除いた尺度を代数的に定める。この残余射は有限 \'etale な稠密開を持ち、
+反対代数の二重性と active 不変量の九次中間被覆により、その一般次数は十八の倍数である。
+標準二重被覆上で尺度を含む射となる。指定 CF 数値型で同型類を整合させた比較核の
+scalar index は split 一般点で $3^{\lfloor(n+1)/2\rfloor}$ を割り、三に素な被覆では変わらない。
 
 比較を明示的に調べるため、trace--Hessian 三次と残余三次の不一致を全次元で示し、
 全同値へ降下する一般次数九の Hessian 補正を構成する。
@@ -233,6 +232,11 @@ Fulton--Olsson\cite[Section~1; proof of Corollary~2.4]{NFMFultonOlsson}に記載
 本稿では点曲線の量子化から定まる微分をこの幾何と組み合わせ、
 同じ残余三次を標的とする符号商 Poisson 射の支配性・一般有限性を証明する。
 平面三次の十八個の自己同型や二つの Jacobian 同型そのものを新規とは数えない。
+また Fisher\cite[Theorem~1.1, Lemmas~2.2, 2.6]{NFMFisherTernary}の
+三変数三次の不変式環と微分付き軌道分類を用いる。
+本稿では active 不変量への幾何学的一般ファイバーが整であることを混合係数も含めて示し、
+九次の中間被覆を取り出す。これと反対代数による二重商を合わせることで、
+残余射の一般次数の十八による整除を得る。古典的不変式論自体とは区別する。
 比較核の scalar 障害には、Knudsen--Mumford\cite{NFMKnudsenMumfordDet}の determinant と
 Lieblich\cite[Sections~2.2.4--2.2.5]{NFMLieblichTwisted}の twisted sheaf の重みの議論を使い、
 固定入力Bの stabilization の Euler 数から全次元の明示的な index bound を取り出す。
@@ -617,6 +621,13 @@ $\mathscr T^{\otimes2}$ の至る所非零な標準切断を定め、
 \]
 を与える。$\mu_2$ は Poisson tensor の符号を変える。
 この射は支配的かつ一般有限で、適切な非空開へ制限すると有限 étale 全射となる。
+さらに反対代数の自由な作用 $\iota$ と整な中間被覆 $Z$ により
+\[
+ \mathfrak U\xrightarrow{\ 2\ }\mathfrak U/\langle\iota\rangle
+       \xrightarrow{\ e_n\ }Z\xrightarrow{\ 9\ }Y,
+ \qquad \deg\Psi_{\mathrm{res}}^\pm=18e_n,\quad e_n\ge1
+\]
+と因子化する。$Y$ は符号商標的の稠密開であり、矢印上は有限 étale 階数を表す。
 
 標準的な有限 étale 階数二の被覆
 \[
@@ -645,8 +656,12 @@ active 再帰と既存の同座標 Hesse 同定から証明する。
 固定 harmonic tensor と尺度が同じとは主張しない。
 また $\mathfrak D$ 上に両 genus-one torsor の同型があるとは限らず、
 平面同型にはさらに $\mathfrak I\to\mathfrak D$ を用いる。
-移した点 shift と Kuznetsov rotation の制限の同定、元の開上の符号選択、
-$\Psi_{\mathrm{res}}^\pm$ の一般次数は残る問題である。
+十八による整除の証明は、active 不変量の正規化と幾何学的一般ファイバーを用いる
+（定理\ref{thm:nfm-residual-degree-eighteen}）。$e_n=1$ は未証明である。
+移した点 shift と Kuznetsov rotation の制限の同定、元の開上の符号選択も残る問題である。
+一般の反対代数の対は O-marked 圏として異なるが、同じ残余三次と、
+共通の有限被覆上で同値な残余 dg 圏を持つ
+（系\ref{cor:nfm-opposite-same-residual-category}）。
 
 比較核については、split な表示 chart で stabilization の混合 Euler 数を
 固定入力Bの三次 Euler 数に合わせる開かつ閉な数値型を選べる。
@@ -662,6 +677,13 @@ $n\equiv1\pmod3$ のときに限り上界にさらに因子三を加えられる
 （系\ref{cor:nfm-generic-kernel-bound}）。
 この bound は比較核の同型類を選ぶ前段階を解決せず、
 標準二重被覆だけに核が降りることも意味しない。
+むしろ既に選んだ同型類の scalar index は、三に素な体拡大では不変である
+（系\ref{cor:nfm-kernel-prime-to-three-invariance}）。
+全 rotation 軌道の Euler pairing の整数イデアルも正確に $d_n\mathbf Z$ であり、
+その反復だけでは bound を改善できない。
+選んだ厳密相対 flow は完備中心環の斉次係数商に降り、active MF 比較を与える
+（命題\ref{prop:nfm-completed-central-restriction}）。
+有限の代数的比較核にこの coherent な中心線型性を降ろす段階は未完成である。
 
 \subsection{Jacobi スキームの次元境界}
 \begin{maintheorem}[Jacobi スキームの境界と平方零構造]
@@ -765,7 +787,8 @@ trace--Hessian 射と逆構成により、Poisson 対の開部分を同定した
 同じ三次への比較核を有限 étale 被覆上に得た。
 点曲線の微分から符号を除く尺度を選び、支配的・一般有限な残余射と
 標準二重被覆上の full lift を得た。
-次の課題はその一般次数と符号 torsor、比較核の同型類と二 cocycle の大域降下、
+残余射の一般次数は十八の倍数であり、次の課題は残る因子 $e_n$ と符号 torsor、
+比較核の同型類と二 cocycle の大域降下、
 移送した点 shift と残余圏の作用の関係、および各 intrinsic 成分を覆う表示である。
 固定 frame の tensor の very general な超越性を踏まえ、
 形式座標の代数性と内在的なモジュライの代数性は区別して進める。

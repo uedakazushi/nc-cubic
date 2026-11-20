@@ -593,7 +593,7 @@ $\mathfrak D=\{t:b_{\mathrm{res}}(t^2)=b_{\mathrm{pt}}\}$ は区別する。
 Jacobian の同型は、genus-one torsor である曲線自体の同型や、
 その平面偏極の同型を意味しない。
 また本構成は、固定 formality による $\pi_h$ との全次数の尺度の一致、
-元の $\mathfrak U$ 上の符号選択、一般次数の計算を主張しない。
+元の $\mathfrak U$ 上の符号選択、正確な一般次数の決定を主張しない。
 比較核の有限 \'etale 被覆を $\mathfrak D$ に引き戻せば
 同じ $X_{\mathrm{res}}$ の Kuznetsov 成分との比較を保つが、
 $\mathfrak D$ 自身への比較核の降下が新たに得られたわけではない。
@@ -666,8 +666,385 @@ $a_hb_h=c_h$ なので、$\pi_h=a_h\iota_{dW_h}P_0$ と比較すれば第二式�
 移送した $\sigma_{\mathrm{res}}$ は今回曲線上に定めた自己同型であり、
 Kuznetsov rotation の制限を同定したものではない。
 定常点成分の同定、比較核の一意性や大域降下も含まない。
-十八、二、および補正射 $\Phi$ の九はそれぞれ異なる被覆・射の次数であり、
-$\Psi_{\mathrm{res}}^\pm$ の一般次数は未決定である。
+平面同型被覆の十八、尺度被覆の二、および補正射 $\Phi$ の九は、
+それぞれ異なる被覆・射の次数である。
+次に、残余射そのものの一般次数に対する別の十八次因子を構成する。
+
+\subsection{反対代数と残余射の一般次数}
+
+ここでは反対代数を取る操作を、良い一ブロック型の表示から
+O-marked stack へ降ろす。Abel 圏そのものを反対圏にする操作とは区別する。
+後者は一般にこの節の Grothendieck 圏族を与えず、また導来双対が
+指定した rotation を保つ共変同値であることも仮定しない。
+
+\begin{proposition}[反対代数の involution]
+\label{prop:nfm-opposite-involution}
+良い一ブロック O-marked stack を非空稠密開へ制限すると、
+局所表示 $A\mapsto A^{\mathrm{op}}$ は involution $\iota$ を定める。
+trace--Hessian 同型
+$\mathfrak M_n^{\mathrm{sm}}\simeq\mathfrak P_n^{\mathrm{good}}$
+の下で、それは
+\[
+ (X_{\mathrm{TH}},\Pi)\longmapsto(X_{\mathrm{TH}},-\Pi)
+\]
+に対応する。さらに非空稠密開では $\iota$ は自由に作用する。
+楕円点曲線の自然な同定の下で
+\[
+ E_{\mathrm{pt}}(\iota a)=E_{\mathrm{pt}}(a),\qquad
+ \sigma_{\mathrm{pt}}(\iota a)=\sigma_{\mathrm{pt}}(a)^{-1},\qquad
+ \tau_{\mathrm{pt}}(\iota a)=-\tau_{\mathrm{pt}}(a)
+\]
+が成立する。
+\end{proposition}
+
+\begin{proof}
+テンソル代数の語順反転は、生成元を固定した反同型であり、
+\[
+ B(V,U,\Pi)^{\mathrm{op}}\simeq B(V,U,-\Pi)
+\]
+を与える。対称化された二次多項式は反転で変わらず、
+交換子だけが負になるからである。中心直線 $[w]$ は反転した中心直線へ移す。
+この操作は線型な表示変更と可換し、次数スカラーも保つ。
+従って表示の商 stack へ降下し、全 O-同値比較によって
+O-marked stack 上の操作を定める。必要な良い開とその反転像との交わりを取り、
+反転に不変な開で作業すればよい。
+
+最大可換代数商 $T$ と中心元の像 $\alpha(w)$ は反転によって変わらない。
+また尺度付き Hessian は $P$ を二回縮約するので
+$\nu_{-\Pi}=\nu_\Pi$ である。
+従って式\eqref{eq:point-trace-hessian-map}から
+\[
+ \mathfrak d_{-\Pi}(w^{\mathrm{op}})=\mathfrak d_\Pi(w)
+\]
+を得る。これが trace--Hessian 同型の下での表示した作用である。
+一般の滑らかな三次 $n$-fold は射影自己同型を持たない
+\cite[Theorem~1.5 and the preceding paragraph]{NFMPoonenAutomorphisms}。
+そのような三次上の非零 $\Pi$ に対して
+$(X,\Pi)$ と $(X,-\Pi)$ が同型ならば、恒等自己同型が
+$\Pi=-\Pi$ を与えることになり矛盾する。
+従ってこの非空開上で作用は自由である。
+
+二次関係の multilinearization は反対代数で二つの射影因子を交換する。
+従って楕円点対応のグラフはその転置となり、shift は逆になる。
+Hessian 補正は $(H,P)\mapsto(H^\sharp,P)$ で、$H^\sharp$ は $P$ に関して偶数である。
+よって active 曲線は同じであり、
+$\tau_{\mathrm{pt}}=(H^\sharp|_K)\otimes P$ の符号だけが変わる。
+これらは全て表示変更と両立する。
+\end{proof}
+
+\begin{lemma}[反転に両立する支配的中心族]
+\label{lem:nfm-even-dominant-central-family}
+補題\ref{lem:nfm-dominant-central-family}の中心持上げ $\Omega_h$ は、
+語順反転 $\operatorname{rev}:B_{-hF}\to B_{hF}^{\mathrm{op}}$ に関して
+\[
+ \operatorname{rev}(\Omega_{-h})=\Omega_h
+\]
+となるよう代数的に選べる。この選択でも $(F,G,h)$ の族は中心三次 torsor を支配する。
+形式 Weyl symbol は偶数級数であり、対応する残余 potential は
+\[
+ W_{-h}=W_h
+\]
+を満たす。
+\end{lemma}
+
+\begin{proof}
+$R=k[h]_{(h)}$ は $h\mapsto-h$ に不変である。
+同補題で得た任意の中心持上げを
+\[
+ \Omega_h^{\mathrm{ev}}
+ =\frac12\bigl(\Omega_h+\operatorname{rev}(\Omega_{-h})\bigr)
+\]
+に置き換える。これは $R$ 上で定義される中心元であり、剰余は依然として $F$ である。
+従って中心三次を純中心三次で割った一般点の一次元商で非零である。
+独立な純中心三次 $G$ を加えると、その周囲代数の中心三次 torsor 全体を動くので、
+元の支配性の証明がそのまま適用できる。
+
+形式 Weyl 対称化は語順反転と可換する。
+その逆像 $F_h=\sigma_h^{-1}(\Omega_h^{\mathrm{ev}}+G)$ は
+$F_{-h}=F_h$ を満たす。二次関係の係数は $h$ に依存しないため、
+命題\ref{prop:nfm-normalized-parity}が適用でき、$W_{-h}=W_h$ を得る。
+この証明は $\Omega_h$ に特定の Hessian jet を要求しない。
+\end{proof}
+
+\begin{theorem}[残余射の反対不変性と偶数次数]
+\label{thm:nfm-residual-opposite-even-degree}
+定理\ref{thm:nfm-canonical-signed-residual-map}と同じ固定入力の下で、
+全 $n\ge3$ について、$\iota$ に不変な非空稠密開を取ると
+\[
+ \Psi_{\mathrm{res}}\circ\iota=\Psi_{\mathrm{res}},\qquad
+ \Psi_{\mathrm{res}}^\pm\circ\iota=\Psi_{\mathrm{res}}^\pm
+\]
+が成立する。ここでは標的と source を自明な慣性を持つ開へ制限し、
+等式を代数空間の射として解釈する。
+従って適切な開上で
+\[
+ \mathfrak U\longrightarrow\mathfrak U/\langle\iota\rangle
+ \xrightarrow{\ \overline\Psi_{\mathrm{res}}^\pm\ }
+ [\mathfrak P_n^{\mathrm{dec}}/\mu_2]
+\]
+と因子化する。最初の射は有限 \'etale 階数二であり、
+第二の射もさらに開へ制限すれば有限 \'etale 全射となる。
+特に、$\delta_n$ を $\Psi_{\mathrm{res}}^\pm$ の一般次数とすると
+\[
+ 2\mid\delta_n,\qquad \delta_n\ge2.
+\]
+\end{theorem}
+
+\begin{proof}
+まず自明な慣性を持つ標的の scheme 開へ制限する。
+そのような開の存在は定理\ref{thm:nfm-canonical-signed-residual-map}の証明と同じである。
+前補題の支配的な中心族を取り、その一般点の体を
+$k(G)((h))$ へ埋め込む。ここで $h$ は係数体上超越的なので、
+この検査は支配的なパラメータ空間の関数体の忠実な拡大である。
+$\iota$ はこの族の $h\mapsto-h$ に対応する。
+系\ref{cor:nfm-projective-formal-compatibility}と $W_{-h}=W_h$ から、
+二つの射影残余値は同じ $(V(W_h),K)$ となる。
+よって関数体上で $\Psi_{\mathrm{res}}\iota=\Psi_{\mathrm{res}}$ である。
+
+定理\ref{thm:nfm-canonical-signed-residual-map}の証明と同様に、
+primitive active 式の因子 $c(h)$ と体積の因子 $h/c(h)$ は相殺する。
+従って中心持上げの選択によらず、点尺度はこの族で厳密に
+$hJ_g\otimes P_0$ であり、$J_g$ は $h$ に関して偶数である。
+従って $b_{\mathrm{pt}}$ は偶数、残余側の $b_{\mathrm{res}}$ も
+上の同じ曲線と Hodge 線束の下で偶数である。
+式\eqref{eq:nfm-point-residual-squared-scale}から
+$\eta_{\mathrm{res}}(-h)=\eta_{\mathrm{res}}(h)$ となり、
+符号商射も関数体上で一致する。
+標的を scheme としているので、ここでは単なる幾何学的同型類の一致から
+stack 上の cocycle を推論していない。
+有理写像の一致を有限表示により非空開へ広げ、
+その開と $\iota$ による像を交わらせれば、表示した二つの等式を得る。
+
+次に $\Psi_{\mathrm{res}}^\pm$ が有限 \'etale となる開を取る。
+source を $\iota$ に不変な開へ狭めたことで除いた閉集合は、
+有限射による像も真の閉集合である。
+その像を標的から除けば、有限 \'etale 性を保ったまま source を
+$\iota$ に不変かつ自由な開にできる。
+さらに標的を affine とすれば source も affine である。
+自由な有限群作用の商は scheme として存在し、商射は torsor となる
+\cite[Lemma~66.14.2, Tag~07S5]{NFMStacksFreeQuotient}。
+群は定数群 $\mathbf Z/2$ なので商射は有限 \'etale 階数二である。
+残る射も \'etale 局所的には有限集合の二元軌道による商であり、有限 \'etale である。
+一般次数の乗法性から $\delta_n=2\deg\overline\Psi_{\mathrm{res}}^\pm$ を得る。
+\end{proof}
+
+\begin{corollary}[尺度二重被覆上の二つの反対作用]
+\label{cor:nfm-opposite-scale-cover-actions}
+上の開上で $\mathfrak D=\{t^2=\eta_{\mathrm{res}}\}$ とする。
+残余曲線を $\Psi_{\mathrm{res}}\iota=\Psi_{\mathrm{res}}$ によって同定すると、
+\[
+ \iota_+(a,t)=(\iota a,t),\qquad
+ \iota_-(a,t)=(\iota a,-t)
+\]
+は可換な involution であり、その積は $\mathfrak D/\mathfrak U$ の deck 変換である。
+尺度付き残余射 $\widetilde\Psi_{\mathrm{res}}$ は $\iota_+$ に不変で、
+$\iota_-$ により Poisson tensor の符号を変える。
+Jacobian 同型 $\theta$ による表示では、$\iota_+$ は $\theta$ を $-\theta$ へ、
+$\iota_-$ は $\theta$ を同じ同型へ移す。
+移送した点 shift $\sigma_{\mathrm{res}}$ は $\iota_+$ に不変であり、
+$\iota_-$ により逆へ移る。
+\end{corollary}
+
+\begin{proof}
+平方尺度の不変性から二つの作用は定義される。
+命題\ref{prop:nfm-point-normalized-jacobian-cover}の
+$t=\tau_{\mathrm{pt}}\circ\theta^*$ に
+$\tau_{\mathrm{pt}}(\iota a)=-\tau_{\mathrm{pt}}(a)$ を代入すると、
+$t$ を保つ作用では $\theta$ が $-\theta$ へ変わり、
+$\theta$ を保つ作用では $t$ が負になる。
+また $p_{\mathrm{pt}}(\iota a)=-p_{\mathrm{pt}}(a)$ なので、
+$p_{\mathrm{res}}=\theta(p_{\mathrm{pt}})$ の二つの変換則も従う。
+\end{proof}
+
+反対不変性は、核の大域降下や元の $\mathfrak U$ 上の標準的な符号選択を与えない。
+この二重性と、次節の active 不変量の九次因子とは区別して構成する。
+上の証明は反対代数をパラメータ空間で比較し、支配的な形式族で射の一致を検査するもので、
+残余圏の導来双対を rotation 保存の共変同値として扱うものではない。
+
+
+\subsection{active 不変量による九次因子と十八の整除性}
+
+反対代数の二重性とは独立に、active な三次の不変量は残余射に
+九次の有限因子を強制する。ここでは Hessian 補正の次数を残余射へ
+移しているのではなく、両射が保つ二つの不変量と一般ファイバーを比較する。
+
+\begin{lemma}[active 不変量の九次写像]
+\label{lem:nfm-active-invariant-degree-nine}
+体積座標で $f\in\operatorname{Sym}^3\C^3{}^*$ とし、
+$s=c_4(f)$、$t=-c_6(f)$ を古典的不変量とする。
+$\phi_3(f)=f+\det\operatorname{Hess}(f)/24$ は多項式写像
+\[
+ a:\mathbb A^2_{s,t}\longrightarrow\mathbb A^2_{s,t},
+ \qquad (c_4,-c_6)\circ\phi_3=a\circ(c_4,-c_6)
+\]
+を誘導する。その一般次数は $9$ である。
+\end{lemma}
+
+\begin{proof}
+三変数三次の $\operatorname{SL}_3$ 不変式環は
+$\C[c_4,c_6]$ である\cite[Theorem~1.1]{NFMFisherTernary}。
+$\phi_3$ は $\operatorname{SL}_3$ 同変なので $a$ が存在する。
+Hesse 族 $g_{p,q}=p(x^3+y^3+z^3)/3+qxyz$ への制限では
+\begin{equation}\label{eq:nfm-active-invariant-hesse}
+ s=q(q^3-8p^3),\qquad t=q^6+20p^3q^3-8p^6.
+\end{equation}
+これは同文献\S4の $a=p/3,b=-q/3$ への置換である。
+$r(p,q)=(s,t)$ とおくと
+\[
+ \det Dr=-384p^2(p^3+q^3)^2\ne0
+\]
+なので $r$ は支配的かつ一般有限である。
+定理\ref{thm:nfm-correction-degree-nine}の証明における
+\[
+ \psi(p,q)=\bigl(p(1-q^2/4),\ q+p^3/3+q^3/12\bigr)
+\]
+は一般次数 $9$ であり、$r\psi=ar$ である。
+従って一般次数の乗法性から
+$(\deg r)9=(\deg a)(\deg r)$、すなわち $\deg a=9$ を得る。
+active 商 stack の慣性を数えたり、その次数を粗空間の次数と
+仮定したりする必要はない。
+\end{proof}
+
+\begin{lemma}[active 不変量への一般ファイバーの整性]
+\label{lem:nfm-active-invariant-regular-fiber}
+$\mathfrak P_n^{\mathrm{ell}}$ の慣性が自明な稠密 scheme 開、または
+その Poisson 符号商の同様な開を $Y$ とする。
+active 曲線の尺度 $\tau$ による
+\[
+ w:Y\dashrightarrow\mathbb A^2,\qquad
+ w=(c_4(\tau^{\otimes4}),-c_6(\tau^{\otimes6}))
+\]
+は支配的であり、幾何学的一般ファイバーは整である。
+特に関数体 $\C(Y)$ は $\C(s,t)$ 上正則な拡大である。
+同じ主張は任意の非空開への制限でも成立する。
+\end{lemma}
+
+\begin{proof}
+support $K\subset W$ を固定し、体積 $P_0\in\det K$ を選ぶ。
+$(H,zP_0)$ を $(F,P_0)$、$F=zH$ と表示すれば、
+係数空間は $\operatorname{Sym}^3W^*$ の開部分である。
+active 制限 $F\mapsto f=F|_K$ は全射線型写像であり、
+その各ファイバーは混合係数と純中心係数の affine 空間である。
+安定化群の active な $\operatorname{GL}(K)$ 作用は
+$f\mapsto\det(A)f(A^{-1}x)$ である。
+代数閉体上で $A$ の行列式の三乗根を吸収すると、これは
+$\operatorname{SL}_3$ の軌道と同じ軌道を与える。
+
+不変量の一般点の代数閉包上では、判別式は非零である。
+同じ $c_4,c_6$ を持つ滑らかな三変数三次は一つの proper-equivalence
+軌道をなす\cite[Lemma~2.2]{NFMFisherTernary}。
+従ってその軌道は連結群 $\operatorname{SL}_3$ の像として既約であり、
+混合係数を加えた逆像も既約である。
+active 係数空間の一般ファイバーは正則環の局所化であり正則である。
+標数零の体上の有限型正則スキームは幾何学的に正則なので、
+この幾何学的一般ファイバーは被約であり、混合係数を加えたものも整である。
+滑らかさ、良い表示、自己同型の消滅、選んだ scheme 開などの条件は、
+この逆像の非空開を取る操作である。一般点の上では非空性が保たれる。
+
+support を動かす操作と、安定化群による商を取る操作は、この既約な
+係数空間から $w$ の一般ファイバーへの全射的な表示を与える。
+幾何学的な点では Brauer--Severi ambient も split するので、
+twisted 表示が別の幾何学的成分を追加することはない。
+さらに符号を商にしても同じ全射の像であり、既約性は保たれる。
+固定 support の安定化群、またはそれと $\mu_2$ の積による商 atlas は
+滑らかかつ全射なので、被約性も忠実平坦降下する。
+従って一般ファイバーは幾何学的に整である。
+関数体についての正則性はこのことの言い換えである。
+\end{proof}
+
+以下では符号商標的の scheme 開を $Y$ とし、$w_Y:Y\to\mathbb A^2$
+を前補題の射とする。source の trace--Hessian 表示 $(H,P)$ からも、
+補正前の active tensor $(H|_K)\otimes P$ の不変量によって
+$w_0:\mathfrak U\to\mathbb A^2$ が定まる。
+方程式と体積の反対向きの尺度変更、表示 gerbe の重みは相殺するため、
+これは元の O-marked stack 上の射である。
+trace--Hessian 同型と前補題を source 側へ適用すれば、$w_0$ も支配的である。
+
+\begin{theorem}[九次中間被覆と残余射の十八次因子]
+\label{thm:nfm-residual-degree-eighteen}
+定理\ref{thm:nfm-canonical-signed-residual-map}と同じ固定入力の下で、
+全ての $n\ge3$ について
+\[
+ \delta_n:=\deg\Psi_{\mathrm{res}}^\pm
+ \quad\text{は}\quad18\text{ の正の倍数である。}
+\]
+より正確には、適切な稠密開で整な九次中間被覆
+\[
+ Z=Y\mathbin{\times}_{\mathbb A^2,\,a}\mathbb A^2
+\]
+を取り、有限 \'etale 全射の列
+\begin{equation}\label{eq:nfm-residual-eighteen-factorization}
+ \mathfrak U\longrightarrow
+ \mathfrak U/\langle\iota\rangle\longrightarrow Z\longrightarrow Y
+\end{equation}
+として因子化できる。各射の階数は順に $2,e_n,9$ であり、
+$e_n\ge1$、$\delta_n=18e_n$ である。
+ここで $Z$ は平面同型を選ぶ被覆 $\mathfrak I$ とは異なる。
+\end{theorem}
+
+\begin{proof}
+点微分による規格化は二つの modular 不変量を保つ
+（命題\ref{prop:nfm-point-normalized-jacobian-cover}）。
+一方、点曲線の active 方程式は $\phi_3(H|_K)$ を体積込みで解釈したものである。
+よって
+\begin{equation}\label{eq:nfm-active-invariant-commutative-square}
+ w_Y\circ\Psi_{\mathrm{res}}^\pm=a\circ w_0.
+\end{equation}
+ここで古典的不変量と Hodge 線束の modular forms の規約は一致させる。
+Weierstrass 式では随伴の留数が $dx/(2y)$ を与え、一般の平面三次へは
+その変換則で移るので、両規約は一致する
+\cite[Theorem~1.1(i), Lemma~2.6]{NFMFisherTernary}。
+
+$L=\C(\mathfrak U)$、$K=\C(Y)$ と書き、
+標的の active 不変量の体を $K_0$、補正前の source の不変量の体を $L_0$ と書く。
+上の可換式により $K_0\subset L_0\subset L$ であり、
+補題\ref{lem:nfm-active-invariant-degree-nine}から $[L_0:K_0]=9$ である。
+補題\ref{lem:nfm-active-invariant-regular-fiber}から $K/K_0$ は正則なので、
+\[
+ K\otimes_{K_0}L_0
+\]
+は整域である。これは $K$ 上次元 $9$ の有限代数だから体であり、
+$L$ 内の合成体 $KL_0$ と同型である。
+従って $Z$ は一般点で整、$[KL_0:K]=9$ であり、
+式\eqref{eq:nfm-active-invariant-commutative-square}は
+$\mathfrak U\to Z$ の支配的な持上げを与える。
+補題の $a$ と $\Psi_{\mathrm{res}}^\pm$ を有限 \'etale にするために
+標的の開を縮めれば、$Z\to Y$ は有限 \'etale 九重被覆となる。
+その affine 局所環は $Y$ 上平坦であり、一般ファイバーの体へ単射を持つので、
+$Z$ 自体も整である。
+
+反対操作は補正前の active tensor を負にするが、
+$c_4,c_6$ の次数はともに偶数なので $w_0\iota=w_0$ である。
+定理\ref{thm:nfm-residual-opposite-even-degree}と合わせると
+$\mathfrak U\to Z$ も $\iota$ に不変である。
+従って式\eqref{eq:nfm-residual-eighteen-factorization}の因子化を得る。
+この開では $\mathfrak U$、その自由な二重商、$Z$ はいずれも $Y$ 上有限 \'etale であり、
+それらの間の射も有限 \'etale である。
+支配性から中間射の階数 $e_n$ は正であり、次数の乗法性が結論を与える。
+\end{proof}
+
+この定理は $e_n=1$、すなわち正確な次数 $18$ を証明するものではない。
+元の source 上で点規格化に合う full lift が存在するならば、
+その射の一般次数は $\delta_n/2=9e_n$ となる。
+これは標的の符号二重被覆との次数の乗法性から従う。
+従って、そのような full lift も有理同型にはならない。
+存在のための標準二重被覆の分裂と、中間射の次数 $e_n$ の決定は別の問題である。
+
+\begin{corollary}[反対な O-marked 対と同じ残余圏]
+\label{cor:nfm-opposite-same-residual-category}
+上の一般開では、$A$ と $A^{\mathrm{op}}$ は O-marked 圏として同値でないが、
+同じ残余三次 $X_{\mathrm{res}}$ を持つ。
+さらに共通の有限 \'etale 被覆上で、両残余 dg 圏は
+$\operatorname{Ku}(X_{\mathrm{res}})$ を介して dg Morita 同値になる。
+\end{corollary}
+
+\begin{proof}
+O-marked 圏の非同値性は $\iota$ の自由性、残余三次の一致は反対不変性である。
+定理\ref{thm:nfm-residual-comparison-cover}の比較被覆とその
+$\iota$ による引戻しの fiber product を取れば、両方の比較核が同時に存在する。
+一方の核と他方の逆核を合成する。
+この構成は同値の存在を述べるもので、核の標準性や元の開への降下を与えない。
+\end{proof}
 
 \begin{remark}[元の開上の非標準的な full lift]
 \label{rem:nfm-existential-full-residual-map}

@@ -49,6 +49,7 @@ symmetrizer 条件は $N^2$ 個の行列成分に関する線形方程式であ�
 従って $A=a\,\mathrm{id}$、Euler 等式から $G=aF_R$ となる。
 \end{proof}
 
+\Needspace{7\baselineskip}
 \begin{proposition}[勾配データからの相対的な方程式直線]
 \label{prop:nfm-relative-gradient-line}
 $V$ を階数 $N$ のベクトル束とし、
@@ -480,6 +481,102 @@ arity 二以上の項となるため零である。
 最後に window 比較を用いれば、rotation に対する中心作用の主張を得る。
 \end{proof}
 
+上の相対性は、中心一次の自然変換の cohomology 類の保存より強い。
+選んだ graph flow の全 Taylor 成分は中心係数環に関して多重線型なので、
+完備底上では次の係数切断が得られる。
+
+\begin{proposition}[相対 bar 比較の中心係数切断]
+\label{prop:nfm-completed-central-restriction}
+補題\ref{lem:nfm-relative-center-transport}の仮定と選択を用いる。
+係数環 $R$ は noetherian とし、$\widehat R=R[[h]]$、
+$C=\widehat R[u_1,\ldots,u_r]$ と置く。
+$I\subset C$ を斉次イデアルとする。
+以下の $S_R[[h]]$ は本稿の規約どおり内部次数ごとの完備化を表し、
+法 $I$ の商も各内部次数で $h$ 進商を分離完備化したものとする。
+選んだ相対 flow とその逆は、互いに逆な実際の unital $A_\infty$ 関手
+\[
+ \Phi_I:
+ \operatorname{MF}^{\mathbf Z}(B_h/IB_h,\overline\Omega_h)
+ \xrightarrow{\sim}
+ \operatorname{MF}^{\mathbf Z}
+       (S_R[[h]]/IS_R[[h]],\overline W_h)
+\]
+を誘導する。有限自由 MF の二つの階数、内部 shift、
+指定された周期変数 $t$ と $(3)\simeq[2]$ を保つ。
+中心係数を法 $I$ で還元する関手を $q_I$ とすると、
+全 Taylor 成分について
+\[
+ q_I\Phi_{\mathrm{rel}}=\Phi_Iq_I
+\]
+が成立する。さらに斉次イデアル $I\subset J$ による反復切断とも両立する。
+\end{proposition}
+
+\begin{proof}
+最初の厳密な星積同型 $\phi$ は $C$-線型であり、中心係数を固定する。
+従って $\phi(IB_h)=IS_R[[h]]$ であり、完備化した商にも同型を誘導する。
+相対 graph の全ての出る辺は active 方向だけを微分するため、
+flow の Taylor 成分 $F_j$ と逆の成分 $H_j$ は
+$C[t,t^{-1}]$-多重線型である。
+特に一つの入力が $I$ の倍数なら出力も $I$ の倍数となる。
+従って各 $F_j,H_j$ は係数の商へ一意に降りる。
+
+bar 恒等式、互いに逆であるという恒等式、単位と二重次数の保存は、
+まず各有限 $h$-切断で有限和の等式である。
+それらをさらに法 $I$ で還元すれば、商上でも同じ等式を得る。
+商を取る操作の平坦性は要らない。
+固定入力の評価
+\[
+ F_{2a}=H_{2a}=0,\qquad
+ F_{2a+1},H_{2a+1}\in h^a,
+ \qquad F_0=H_0=0
+\]
+は還元後も成り立つ。有限個の内部 shift を持つ MF 行列を挿入すると、
+各固定 cohomological 次数の行列成分は、有限個の固定内部次数の係数加群に属する。
+これらの加群の分離完備性により、商上の挿入公式と逆公式は収束する。
+その合成は各有限 $h$-切断で恒等なので、完備底上でも恒等である。
+
+有限自由 MF の二ブロック行列における $t$ の冪の計算は、
+固定入力の \texttt{cft:eq:t-weight}、\texttt{cft:eq:two-block-matrix} と同じである。
+係数の還元は $t$ と基底ラベルを変えないので、rank・内部 shift・指定周期を保つ。
+元の MF を還元してから公式を適用しても、公式の結果を還元しても各項は同じであり、
+全 Taylor 成分の可換性を得る。二段階の係数商についても同様である。
+\end{proof}
+
+\begin{corollary}[完備底上の active MF 比較]
+\label{cor:nfm-completed-active-mf}
+命題\ref{prop:nfm-completed-central-restriction}で
+$I=(u_1,\ldots,u_r)$ とすると、
+\[
+ \operatorname{MF}^{\mathbf Z}
+       (B_h/(U),\Omega_h\bmod(U))
+ \simeq
+ \operatorname{MF}^{\mathbf Z}
+       (\widehat R[x,y,z],W_h|_{U=0})
+\]
+を得る。命題\ref{prop:nfm-residual-active-point-cubic}の
+滑らかな active 三次 $g$ を持つ模型では
+$W_h|_{U=0}=b_hJ_g$ であり、標的の underlying plane cubic は
+楕円点曲線と同じ $V(J_g)$ である。
+\end{corollary}
+
+\begin{proof}
+前命題の係数切断を適用する。
+三変数の圏が現れるのは既に構成した相対 bar 写像の還元によるものであり、
+入力Bの $n\ge3$ の一般点生成定理を $n=1$ に適用する議論ではない。
+potential の単元倍 $b_h$ を除くときには、指定周期の尺度も追跡しなければならない。
+ここでは実際の potential $b_hJ_g$ を保ったまま同値を述べている。
+\end{proof}
+
+\begin{remark}[係数切断と相対 Morita 降下の区別]
+\label{rem:nfm-central-restriction-scope}
+上の比較は、選んだ完備 graph flow の全成分を係数の商へ還元して構成した。
+元の圏を $\operatorname{Perf}^{\mathrm{gr}}(C)$ 上で導来 tensor した圏と、
+商代数の全 MF 圏との Morita 同値を、一般の基底で主張するものではない。
+また、代数的な一般点へ降ろした比較核が、この coherent な中心作用を保つとは限らない。
+有限個の中心自然変換の cohomology 類の一致だけでは、その相対構造を指定できないため、
+中心線型構造と active 比較の代数的降下は引き続き別の問題である。
+\end{remark}
+
 
 \begin{theorem}[代数的な残余射影 Poisson 射]
 \label{thm:nfm-projective-residual-morphism}
@@ -514,7 +611,9 @@ $X_{\mathrm{res}}=V(\mathcal L)\subset\PP(V_\rho^*)$ である。
 \end{theorem}
 
 \begin{proof}
-定理\ref{thm:nfm-relative-residual-cubic}と前補題で、
+定理\ref{thm:nfm-relative-residual-cubic}、
+補題\ref{lem:nfm-residual-central-injection}および
+補題\ref{lem:nfm-relative-center-transport}で、
 $\mathcal L$ と階数三の $K_{\mathrm{res}}$ を代数的に作る。
 必要な perfect 性、低次 cohomology の局所自由性、積と微分の階数、
 全三次と active 制限の滑らかさは開条件である。
@@ -1043,6 +1142,107 @@ $[L:K]=ef$ は $3^{\epsilon_n}d_n$ を割るので、
 ここでは $\beta_K$ は試験対象を置く体を作るためだけに使っており、
 $\alpha_K$ と同一視していない。
 \end{proof}
+
+\begin{proposition}[stabilization の rotation 軌道が与える Euler 格子]
+\label{prop:nfm-kernel-euler-orbit-lattice}
+命題\ref{prop:nfm-kernel-three-primary}の split な設定と数値型を仮定する。
+両圏の Grothendieck 群内で
+\[
+ \Lambda_{\mathrm{nc}}
+  =\sum_{i=0}^2\mathbf Z[\rho^i\kappa_{\mathrm{nc}}],\qquad
+ \Lambda_Y=\sum_{j=0}^2\mathbf Z[\rho^j\kappa_Y]
+\]
+と置く。局所比較核 $P$ が与える混合 Euler pairing の値の生成する整数イデアルは
+\[
+ \bigl(\chi(b,\Phi_P(a)):
+          a\in\Lambda_{\mathrm{nc}},\ b\in\Lambda_Y\bigr)
+       =d_n\mathbf Z,
+ \qquad d_n=3^{\lfloor(n+1)/2\rfloor}
+\]
+である。従って、これらの対象の全ての rotation、cohomological shift、
+有限直和および有限回の cone を試験対象に加えても、
+混合 Euler 数の最大公約数は小さくならない。
+\end{proposition}
+
+\begin{proof}
+$N=n+2$ と置く。$\rho^3\simeq[2]$ と $\Phi_P\rho\simeq\rho\Phi_P$ により
+\[
+ \chi(\rho^j\kappa_Y,\Phi_P(\rho^i\kappa_{\mathrm{nc}}))
+   =\chi(\kappa_Y,\Phi_P(\rho^{i-j}\kappa_{\mathrm{nc}}))
+   =\chi_{N,\overline{i-j}},
+\]
+ただし上線は $\mathbf Z/3$ への剰余を表す。
+従って、この $3\times3$ 行列の成分の最大公約数は
+補題\ref{lem:nfm-cubic-euler-gcd}の $d_n$ である。
+双加法性から全 pairing の値は $d_n$ の倍数であり、
+同補題の $r_N$ によって値 $\pm d_n$ 自体も現れる。
+各有限 cone の類は入力の類の整数線形結合となり、
+shift は符号を変え、rotation は三つの生成類を巡回させる。
+従って最後の主張も従う。
+\end{proof}
+
+\begin{remark}[thick 生成と整数格子を区別する]
+この命題の整数格子の結論は、これらの対象が圏を thick 生成する場合にも有効である。
+新たな直和因子の類まで $\Lambda_{\mathrm{nc}}$ または $\Lambda_Y$ に属するとは
+主張していないからである。例えば $\operatorname{Perf}(k\times k)$ で
+$G=k\times k$ は thick generator だが、$\mathbf Z[G]$ は
+$K_0\simeq\mathbf Z^2$ の対角部分群にすぎない。
+$\chi(G,G)=2$ に対し、一つの idempotent summand $G_1$ は
+$\chi(G_1,G_1)=1$ を満たす。
+従って試験対象の追加によって index の上界を改善するには、
+既存の rotation 軌道の反復に加えて、新たな直和因子や点・線型切片から来る対象を
+実際に構成し、その降下と混合 Euler 数を証明する必要がある。
+この命題は、実際の Brauer index が $d_n$ に等しいとは主張しない。
+\end{remark}
+
+\begin{corollary}[三に素な被覆に対する比較核の index の不変性]
+\label{cor:nfm-kernel-prime-to-three-invariance}
+系\ref{cor:nfm-generic-kernel-bound}の体 $K$、数値型、
+および $K$ 上で既に整合的に選ばれた比較核の同型類を考え、
+その実現の scalar gerbe の類を $\alpha_K$ とする。
+$L/K$ が三に素な次数の有限拡大なら
+\[
+ \operatorname{ind}(\alpha_L)=\operatorname{ind}(\alpha_K).
+\]
+特に、さらに $j\notin\{0,1728\}$ の比較開に属するとする。
+命題\ref{prop:nfm-point-normalized-jacobian-cover}の標準二重被覆
+$\mathfrak D_K$ の各連結成分に移っても index は変わらない。
+この選んだ同型類について、$\mathfrak D_K$ 上で実際の比較核が存在することと、
+$K$ 上で実際の比較核が存在することは同値である。
+
+また、命題\ref{prop:nfm-point-residual-isom-cover}の平面同型の十八重被覆
+$\mathfrak I_K$ 上でこの同型類を実際の核として実現できるなら
+\[
+ \operatorname{ind}(\alpha_K)\mid9.
+\]
+\end{corollary}
+
+\begin{proof}
+系\ref{cor:nfm-generic-kernel-bound}から
+$d=\operatorname{ind}(\alpha_K)$ は三の冪である。
+$e=[L:K]$、$d'=\operatorname{ind}(\alpha_L)$ と書く。
+$\alpha_K$ を表す次数 $d$ の division 代数を $L$ へ拡大すると
+次数 $d$ の central simple 代数となるので $d'\mid d$ である。
+一方、$\alpha_L$ の division 代数の極大部分体は
+$L$ 上次数 $d'$ の分裂体となる。
+従って $\alpha_K$ は $K$ 上次数 $ed'$ の体で分裂し、
+$d\mid ed'$ を得る
+\cite[Lemmas~11.7.4, 11.8.3--11.8.4]{NFMStacksSplitting}。
+$e$ が三に素であることから $d\mid d'$、従って $d=d'$ である。
+
+二重被覆の各体成分の次数は一または二なので、この議論を適用できる。
+同型類の実現 gerbe が中立であることは、選んだ同型類に属する
+実際の比較核の存在と同値である。
+最後に、$\mathfrak I_K$ の有限 étale 代数を体の積
+$\prod_i L_i$ と書く。全被覆上で核が存在するなら各 $L_i$ は
+$\alpha_K$ を分裂させるので、$d$ は各 $[L_i:K]$ を割り、
+その和 $18$ も割る。$d$ は三の冪だから $d\mid9$ となる。
+\end{proof}
+
+この系は $\alpha_K$ が実際に非零であるとは主張しない。
+また、核の同型類を二重被覆上で初めて選べる場合には、
+第一段階の同型類の降下が残るため、この系を無条件には適用できない。
+符号の選択と、既に選んだ核の scalar 障害とは異なる段階である。
 
 
 \subsection{一変数 trait に沿う良い還元}
