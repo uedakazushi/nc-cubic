@@ -1,26 +1,10 @@
-# 非可換三次 n-fold：研究方針
+# 非可換三次 n-fold：可換復元とモジュライの研究方針
 
-2026年11月21日 / v28。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+2026年11月21日 / v29。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
 
-## 三論文の分担と量子化の研究目標
+## 独立論文と外部入力
 
-本repoには主論文 `papers/nc-cubic.tex` と、独立した量子化論文 `papers/cubic-quantization.tex` を置く。古典的正規形・退化・固定および相対Poissonモジュライの正本は [poisson-cubic/papers/poisson-cubic.tex](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex)。三論文へ分ける理由は、古典分類、全Poisson対の量子化、良い一ブロック成分の非可換比較で、中心結果と適用範囲が異なるためである。量子化の既存の全証明・計算を保持し、モジュライの一ブロック仮定で多ブロック結果を狭めない。
-
-量子化論文の達成基準は、指定古典Casimirに戻る代数的な正則中心三次とPBW・AS性を全次元・全ブロックで構成し、族の規格化、同変性、降下の成立範囲を明示することである。周囲代数A・中心商Bという量子化論文の記法と、主論文の周囲B・商Aという記法を区別する。論理的入力は古典的正規形から量子化へ、そこから復元・比較へ進み、量子化の存在証明をKu比較に依存させない。
-
-| 現在の量子化成果 | 仮定・範囲と証明の所在（`papers/sections/quantization/`） |
-| --- | --- |
-| 全Poisson対の代数的量子化 | N=n+2≥5、滑らかな全三次F、任意の正規形ブロック。零を含むZariski h開でPBW・AS正則ambientと正則中心三次商を得る。`algebraic_quantization.tex`, `general_dimension_universal_quantization.tex`。全hや全qgr滑らかさの主張ではない。 |
-| 係数環上の中心持上げ | 全Fの滑らかさ、active gradientのgcd=1、割った交換子の定階数核とCramer構成。`universal_casimir_determinant.tex`。通常の中心はh=0で増大するので、その底変更とは区別する。 |
-| 明示中心公式と層別同変化 | Fermat・Hesseの混合項、節点・尖点・零制限。`fermat_mixed_universal_center.tex`, `hesse_mixed_universal_center.tex`, `equivariant_central_lifts.tex`。零制限はPBW対称化で全hのΩ=sym(F)。節点公式はCMRの既知結果として帰属する。 |
-| 階数二の全support | 指定jet sym(F−h²H/12+O(h⁴))を保つ代数的同変中心元、gcd(N,3)=1で元の次数付き族の降下、全Nで三次Veronese降下。`intrinsic_rank_two_center.tex`。 |
-| 満supportの多ブロック | N=3k、順序なしブロック、指定Hessian jet付き共変中心元と三次Veronese降下。`full_support_quantization.tex`。零切断近傍であり、全h・一意性・非可換同型類像の次元は主張しない。 |
-| 降下と選択の障害 | 全被約非零rank層で中心スカラーgerbeの位数gcd(N,3)。任意稠密開・一般点のperiodとは別。N≥6では全support中心直線を零制限の標準sym(F)に一致させる障害がある。同じ古典極限のΩ'=aΩ+cは異なる中心idealを与え得るが、抽象商の非同型は未証明。 |
-| 二次包絡・偏極復元 | `ambient_recovery_general.tex`。次数≥3の正規元による商から二次ambientを回復する。qgr・導来復元には左右noetherian性、所定の偏極、中心変数上の自由性等を明示する。 |
-
-詳細な研究上の知識・障害・文献比較は [量子化ノート](notes/cubic_quantization.md)、再現資産は `computations/quantization/`。点ごとの形式中心元存在、相対係数と還元群に適合する形式構成はEtingof–Ginzburg Theorem3.3.2(ii), Proposition8.1.1(i)の既知内容であり、後者に孤立特異点仮定を付けない。Rains公式とHesse平行移動、CMRの節点公式、Veronese同値・gerbeの重み零降下等の既知原理と、代数的で規格化された全係数・全supportの選択を区別する。包括的初出確認は未了。
-
-量子化側の優先課題は **m>0かつk≥2の同変中心元**。古典核の完全列0→Sym³(V/W_P)*→K₀→E_perm→0からFの対角切断とH¹、有限アフィン模型への延長を調べる。純中心配分の大域分裂や、三重ベクトル軌道の非アフィン性から中心元不存在を推論しない。全hへの延長、短い共変公式、固定h≠0の同型類像、抽象商・Morita/qgr比較は別の課題とする。主論文側の残余周期位相の優先順位は下記に保持する。
+本repoの唯一の主原稿は `papers/nc-cubic.tex`。一般中心三次変形に対するMF移送・可換復元・良い一ブロック型のO-markedモジュライ・残余Poisson射・Kuznetsov比較を研究する。**全次元・全ブロックの量子化の存在・中心元・同変降下の証明は別repo [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) の [公表原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) が正本**。古典Poisson正規形・退化とモジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) が正本。一般中心三次変形の比較定理は量子化の存在定理を仮定せずに条件付きで成立する一方、良い一ブロック・残余Poissonの応用では量子化稿の具体的定理を外部入力として使う。量子化稿はAをambient・Bを中心商とし、本稿はBをambient・Aを商とする。
 
 ## 可換復元・モジュライの基本目標と優先順位
 
@@ -134,7 +118,7 @@ Clifford 半 rotation はさらに、関手として O_Cl A≃Aρ⁻¹[1] と同
 
 ## 固定した入力と現在の到達点
 
-外部の古典入力は [poisson-cubicのPoisson幾何論文](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex) の `poisson_geometry.tex`（`prop:pg-represent`, `prop:pg-jacobi-extension`, `thm:pg-normal`, `cor:pg-generic`）。固定入力はcommit `9f91efa3465f18219c36c31750f1e66220faeaa7` のA-v62（2026-11-21）。代数的中心量子化の入力は本repoの `papers/cubic-quantization.tex` v1であり、具体的ラベルを主論文の参考文献に記す。従来の論文B B-v59の完備MF移送・一般点可換復元とその証明は、このリポジトリの `papers/sections/generic_recovery/` に移して主原稿へ統合したため、外部入力とは数えない。三様体の比較対象は [nc-cubic-threefold-moduli](https://github.com/uedakazushi/nc-cubic-threefold-moduli/tree/6c35d2c84671c2538e61836a6bf3a511392eacce) の固定 commit `6c35d2c84671c2538e61836a6bf3a511392eacce`（v22）。通常の非可換研究では外部repoを読取り専用とする。今回の三論文への分割ではユーザーの明示依頼に基づきpoisson-cubicも整合させる。
+外部の古典入力は [poisson-cubicのPoisson幾何論文](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex) の `poisson_geometry.tex`（`prop:pg-represent`, `prop:pg-jacobi-extension`, `thm:pg-normal`, `cor:pg-generic`）。固定入力はcommit `9f91efa3465f18219c36c31750f1e66220faeaa7` のA-v62（2026-11-21）。代数的中心量子化の入力は[cubic-quantization](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) v1であり、具体的ラベルを主論文の参考文献に記す。従来の論文B B-v59の完備MF移送・一般点可換復元とその証明は、このリポジトリの `papers/sections/generic_recovery/` に移して主原稿へ統合したため、外部入力とは数えない。三様体の比較対象は [nc-cubic-threefold-moduli](https://github.com/uedakazushi/nc-cubic-threefold-moduli/tree/6c35d2c84671c2538e61836a6bf3a511392eacce) の固定 commit `6c35d2c84671c2538e61836a6bf3a511392eacce`（v22）。通常の非可換研究では外部repoを読取り専用とする。今回の三論文への分割ではユーザーの明示依頼に基づきpoisson-cubicも整合させる。
 
 古典Poisson論文を入力とする全次元正規形、別論文 `cubic-quantization.tex` の代数的中心量子化と、公刊の PBW/CY・星積・wheel 消滅・Kontsevich の二次形式対応・Mori–Smith の点曲線 Hessian 公式、Banks–Panzer–Pym の harmonic graph weights と Buring の公開データ、Wang・Hwang の勾配復元、Toën–Vaquié の perfect 核の有限表示・boundedness・同値 locus の開性を外部からの既知入力として扱う。完備MF移送・一般点可換復元・Hesseの有理模型は本稿中の独立した基礎定理・証明として保持する。Matsuno の Sklyanin 分類、Hille–Van den Bergh の楕円 Fourier–Mukai の graph 認識、Ciperiani–Krashen の Tate–Weil pairing、Liu と Huybrechts の低次元自己同値分類、Peize Liu の五次元 Clifford 表示と半 rotation、Kuznetsov の相対二次曲面束、Collino の平面 Fano 曲面、Ciliberto–Zaidenberg の次数公式、Iliev–Manivel の一般三次七次元の球面束と twist、Murfet の MF residue trace も既知の入力として用いる。三分点の全モノドロミー、低次元 full class 降下、点型の全 O-共変性、周期位相の class 不変性と相対尺度の算術、高次元の中心的整数軌道と数値中央化群による簡約に加え、三乗倍までの方程式規格化と形式位相の計算、混合係数を有理的に保つ周期付き CF 比較と二変数不変量体への位相の降下、随伴復元点型の有限 class torsor を本文に証明し、内部で独立点検した。外部査読と新規性の網羅的確認は未完了であり、未公表入力の全証明を独立に再検証したとは主張しない。書誌・参照箇所は `notes/research_notes.md`、確認状態は `notes/validation.md` に置く。
 

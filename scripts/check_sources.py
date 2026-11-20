@@ -10,7 +10,7 @@ import argparse
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-PAPERS = ("nc-cubic", "cubic-quantization")
+PAPERS = ("nc-cubic",)
 
 
 def without_comments(text):
@@ -66,7 +66,7 @@ def main():
     if not args.only:
         present_tex = set((ROOT / "papers").rglob("*.tex"))
         assert present_tex == seen, f"Unused TeX sources: {sorted(present_tex-seen)}"
-        print(f"OK: both independent source graphs cover all {len(seen)} paper TeX files.")
+        print(f"OK: the reconstruction source graph cover all {len(seen)} paper TeX files.")
     print("LIMIT: source integrity only; not a proof audit or typesetting check.")
 
 

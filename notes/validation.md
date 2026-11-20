@@ -7,13 +7,13 @@
 | 論文 | 独立ソース検査 | LuaLaTeX組版 |
 | --- | --- | --- |
 | `papers/nc-cubic.tex` | 33入力、710一意ラベル、471参照ラベル、128引用キー | 成功、379頁、PDF・SyncTeX生成 |
-| `papers/cubic-quantization.tex` | 18入力、445一意ラベル、181参照ラベル、25引用キー | 成功、89頁、PDF・SyncTeX生成 |
+| [量子化論文](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) | 18入力、445一意ラベル、181参照ラベル、25引用キー | 成功、89頁、PDF・SyncTeX生成 |
 
 `python3 scripts/check_sources.py` は二論文を別々に検査し、全51個の論文TeXを覆うことも確認した。他論文のラベルによって欠落を隠さない。両稿の最終ログに未定義の参照・引用、重複ラベル、overfull、欠字はない。既存のフォントサイズ代替・microtype/LuaTeX-ja互換性の警告は残る。画像確認は主論文の1・4・370・379頁、量子化論文の1・9・74・84・87頁について行い、確認した頁に切れ・重なり・欠字は見られなかった。全379頁・全89頁の目視検査とはしていない。
 
 古典論文も独立に37頁へ組版した。元のPoisson/量子化主稿の569ラベルは分割後の二稿にすべて残り、定理・命題・補題・系等の合計も保持した。量子化稿で正規形を引用付き再掲した定理一つだけが増えている。全体移管した12節の3156数式断片は順序も含め逐語的に一致した。これは編集上の保存確認であり、全数学的証明の再検証ではない。
 
-今回再実行した量子化計算は、`verify_nonelliptic_point_curves.py`、`verify_nonelliptic_quantization.py`、`verify_general_dimension_multiblock.py`（6例）で、すべて `computations/quantization/` に置く。全21 Pythonの構文も検査した。具体的対象・hash・保存済みの検証との区別は [validation_quantization.json](../validation_quantization.json) を正本とする。本来の非可換復元・Picard・境界低積・Jacobiの既存検証器は今回再実行していない。
+今回再実行した量子化計算は、`verify_nonelliptic_point_curves.py`、`verify_nonelliptic_quantization.py`、`verify_general_dimension_multiblock.py`（6例）で、すべて `cubic-quantization/computations/quantization/` に置く。全21 Pythonの構文も検査した。具体的対象・hash・保存済みの検証との区別は [量子化検証記録](https://github.com/uedakazushi/cubic-quantization/blob/main/validation_quantization.json) を正本とする。本来の非可換復元・Picard・境界低積・Jacobiの既存検証器は今回再実行していない。
 
 移した補助ノート `notes/relative_construction_obstacles.tex`（24頁）、`notes/central_cubic_generic_smoothness.tex`（3頁）もLuaLaTeX組版した。前者の1頁と後者の2頁を画像で確認し、表示上の問題は見られなかった。独立した公表論文には数えず、本文へ無条件に取り込まない補助知識として保持する。
 
@@ -57,7 +57,7 @@
 
 ## 1. 固定した入力と文献
 
-- `uedakazushi/poisson-cubic`：現行の古典Poisson論文 `papers/poisson-cubic.tex` A-v62、固定commit `9f91efa3465f18219c36c31750f1e66220faeaa7`。保持している以前の点検では分割前の固定commit `eabe601c1341777742964584dde5314c0bcf64a9` を使用した。量子化の現在の正本は本repoの `papers/cubic-quantization.tex` Q-v1であり、その証明・一次資料監査は `notes/quantization_audit.md`、実行状態は `validation_quantization.json` に置く。旧論文B B-v59の完備MF移送・可換復元の全証明は本リポジトリの `papers/sections/generic_recovery/` に統合。旧原稿を外部入力とは扱わない。
+- `uedakazushi/poisson-cubic`：現行の古典Poisson論文 `papers/poisson-cubic.tex` A-v62、固定commit `9f91efa3465f18219c36c31750f1e66220faeaa7`。保持している以前の点検では分割前の固定commit `eabe601c1341777742964584dde5314c0bcf64a9` を使用した。量子化の現在の正本は別repoの `papers/cubic-quantization.tex` Q-v1であり、その証明・一次資料監査は `notes/quantization_audit.md`、実行状態は `validation_quantization.json` に置く。旧論文B B-v59の完備MF移送・可換復元の全証明は本リポジトリの `papers/sections/generic_recovery/` に統合。旧原稿を外部入力とは扱わない。
 - `uedakazushi/nc-cubic-threefold-moduli`：`6c35d2c84671c2538e61836a6bf3a511392eacce`。比較対象の三様体稿 v22。
 
 通常の非可換研究では外部入力リポジトリは読取り専用。ユーザーが指示した三論文構成への移管ではpoisson-cubicとの整合も行った。既存の一般次元正規形・中心量子化・一般点残余復元は新規成果に数えず、未公表入力の全証明を独立に再検証したとは主張しない。引用箇所は [研究ノート](research_notes.md) と [文献一覧](../papers/references.tex) に記す。

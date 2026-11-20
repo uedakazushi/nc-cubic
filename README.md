@@ -1,26 +1,12 @@
-# 非可換三次超曲面：代数的量子化・可換復元・モジュライ
+# 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月21日 / v28。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
+2026年11月21日 / v29。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
-**再開時は [研究方針](00_research_plan.md) を最初に読む。**
-
-**全 n≥3 の標準 split 一般係数体で、正準強化 class の規格化周期位相は非自明である。** Hesse 境界 q=2+z の完備局所体で γ_sc,n=[D_R] を得た。従って D=0 での付値は1 mod3、位相被覆は tame な完全分岐三次拡大となり、正準 frame の位相体の次数は三と確定した。大域的な γ̄_n=[D] は ΔD 外の非分岐性を追加仮定した場合の結論であり、その仮定と位相体上の scalar index は未解決である。
-
-## 二つの独立論文と古典入力
-
-| 論文 | ファイル | 担当範囲 |
-| --- | --- | --- |
-| 三次超曲面の代数的量子化 | [papers/cubic-quantization.tex](papers/cubic-quantization.tex) | 全Poisson対・全ブロックのPBW/AS量子化、代数的中心三次、同変化・降下、二次包絡。 |
-| 非可換三次n-foldの可換復元とモジュライ | [papers/nc-cubic.tex](papers/nc-cubic.tex) | 一般中心三次変形のMF移送・一般点復元、良い一ブロックのO-markedモジュライ、残余射・Ku比較と降下障害。 |
-| 古典Poisson幾何（別repo） | [poisson-cubic/papers/poisson-cubic.tex](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex) | 正規形、退化、Bondal下界、固定・相対Poissonモジュライ。 |
-
-三論文の証明範囲を区別し、量子化の一般性をモジュライの一ブロック仮定へ狭めない。量子化の支持節は `papers/sections/quantization/`、厳密計算・証明書は `computations/quantization/`、知識の入口は [量子化ノート](notes/cubic_quantization.md)。二論文の本文は相互にinputせず、具体的定理と仮定を引用する。量子化稿はAをambient・Bを商とし、復元稿はBをambient・Aを商とする。
-
-全Poisson量子化は零を含むZariskiパラメータ開で構成する。階数二全supportと満support多ブロックの同変中心元・三次Veronese降下を保持し、中心変数が残るm>0,k≥2の一般同変構成、全hへの延長、中心商の抽象比較は未解決。中心元の点ごとの既知の存在と、係数環上の規格化・大域選択を区別する。
+**本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 完備MF移送、一般中心三次変形の可換復元、良い一ブロックのO-markedモジュライ、残余Poisson射、Kuznetsov成分の比較と降下障害を扱う。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
 
 ## 可換復元・モジュライの内容
 
-完備MF移送と一般点の全coherent残余圏のKu比較（旧 `poisson-cubic` 論文B）の全証明をこの主原稿へ統合した。一般の中心三次変形の基礎定理は、一ブロック型のモジュライ構成とは独立した仮定の下で述べる。外部から使用する未公表原稿は `poisson-cubic` の古典Poisson論文と `nc-cubic-threefold-moduli` の指定版である。量子化の全証明は本repo内の独立論文へ置く。
+完備MF移送と一般点の全coherent残余圏のKu比較（旧 `poisson-cubic` 論文B）の全証明をこの主原稿へ統合した。一般の中心三次変形の基礎定理は、一ブロック型のモジュライ構成とは独立した仮定の下で述べる。外部から使用する未公表原稿は `poisson-cubic` の古典Poisson論文と `nc-cubic-threefold-moduli` の指定版である。量子化の全証明は別repo `cubic-quantization` に置く。
 
 - [可換復元の基礎節](papers/sections/generic_recovery/main_result.tex)：完備MF比較 `cft:thm:complete`、一般点の可換復元 `gdr:thm:generic`、局所模型・window・飽和・低積の積分・明示Hesse模型を含む全9節。主原稿から読み込む。
 - [可換復元の研究上の障害と再現入口](notes/recovery_foundations.md)：定義体、有限降下、symmetrizer、具体例の規約、残るkernel有効化。

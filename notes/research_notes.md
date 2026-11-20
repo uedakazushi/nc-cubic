@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月21日 / v28。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [cubic_quantization.md](cubic_quantization.md)、その独立論文は `../papers/cubic-quantization.tex` を参照する。
+2026年11月21日 / v29。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 1. 記法と成果の確実性
 
@@ -143,7 +143,7 @@ general の稠密 Zariski 開、幾何学的一般点、very general の可算�
 詳細の有効な技術的障害は [可換復元の補助ノート](recovery_foundations.md) に保持する。
 
 
-古典Poisson論文は `poisson-cubic/papers/poisson-cubic.tex`（A-v62、2026-11-21）を外部入力とする。現在の固定入力はcommit `9f91efa3465f18219c36c31750f1e66220faeaa7`。量子化の全証明は本repoの `papers/cubic-quantization.tex`（v1）を正本とする。旧論文B（B-v59）の必要証明は主原稿に統合され、本repoの `papers/sections/generic_recovery/` を正本とする。
+古典Poisson論文は `poisson-cubic/papers/poisson-cubic.tex`（A-v62、2026-11-21）を外部入力とする。現在の固定入力はcommit `9f91efa3465f18219c36c31750f1e66220faeaa7`。量子化の全証明は[cubic-quantizationの主論文](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex)（v1）を正本とする。旧論文B（B-v59）の必要証明は主原稿に統合され、本repoの `papers/sections/generic_recovery/` を正本とする。
 
 - 論文A `poisson_geometry.tex`：`prop:pg-represent` の bivector 表示、`prop:pg-jacobi-extension` の affine Jacobi 延長、`thm:pg-normal` の複数 Jacobian ブロック正規形、`cor:pg-generic` の一般三次における被約 Grassmann 錐。全次元の一般 Jacobi スキームの有限長冪零根基を論じる際には最後の被約分類を使う。二次方程式の不足、n=8 の長さ330の定理、およびその直和から作る特殊三次の非零冪零例は、この被約分類に依存しない。
 - 量子化論文 `papers/sections/quantization/general_dimension_universal_quantization.tex`：`thm:pg-all-dimensions`, `prop:pg-ad-relative-chart` が中心量子化の入力。一ブロック相対 PBW 開と中心三次束の存在は、この研究稿と Etingof–Ginzburg の既知の構成から取る。今回その全証明を独立に再検証したわけではない。
@@ -819,7 +819,7 @@ D={t²=η_res}上のι_+(a,t)=(ιa,t)、ι_−(a,t)=(ιa,−t)は可換で、積
              +x\sum_i u_i^2+\frac13\sum_i u_i^3
 \]
 
-を用いる。p=q=1 の場合は滑らかで scalar symmetrizer を持ち、従って一般の p,q でも同じ性質を持つ。σ=diag(1,ζ,ζ²;1,…,1) はこの族を保つ（`lem:nfm-cyclic-scalar-witness`）。[量子化論文](../papers/cubic-quantization.tex)の普遍 Hesse 中心式と固定入力Bをこの族自身へ適用すると、K=C(p,q)(h) 上に残余 active 曲線 C_σ と点曲線 E_σ が構成できる。残余側では σ が Hodge 微分を固定し、非零の K-有理三捩れ平行移動を与える。点側の全三捩れは K-有理であるため、j≠0,1728 上の Jacobian-Isom の二次 twist は自明となる（`prop:nfm-cyclic-test-sign-split`）。
+を用いる。p=q=1 の場合は滑らかで scalar symmetrizer を持ち、従って一般の p,q でも同じ性質を持つ。σ=diag(1,ζ,ζ²;1,…,1) はこの族を保つ（`lem:nfm-cyclic-scalar-witness`）。[量子化論文](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex)の普遍 Hesse 中心式と固定入力Bをこの族自身へ適用すると、K=C(p,q)(h) 上に残余 active 曲線 C_σ と点曲線 E_σ が構成できる。残余側では σ が Hodge 微分を固定し、非零の K-有理三捩れ平行移動を与える。点側の全三捩れは K-有理であるため、j≠0,1728 上の Jacobian-Isom の二次 twist は自明となる（`prop:nfm-cyclic-test-sign-split`）。
 
 Hesse 不変量 s=q(q³−8p³)、t=q⁶+20p³q³−8p⁶ に対し、C(s,t) から C(p,q) への二次類の制限は単射である（`lem:nfm-hesse-kummer-injective`）。本文は次数24の Hesse 体拡大と、その群 Q₈⋊C₃ が非自明な μ₂ 指標を持たないことを直接確認する。この体論と上の対称族自身の分裂だけではχ_actを閉じた族へ特殊化できないため、次の代数的延長を構成する。
 
