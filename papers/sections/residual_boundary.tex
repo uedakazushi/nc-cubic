@@ -1,0 +1,1046 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\subsubsection{Hesse 境界の線束・残余対象と低次積の積分模型}
+\label{subsubsec:nfm-hesse-boundary-models}
+
+\begin{lemma}[追加境界の八直線と一つの付値]
+\label{lem:nfm-period-hesse-eight-boundary-lines}
+$\zeta$ を原始三乗根、$\epsilon=\zeta^2-\zeta$ とし、
+\[
+ D=1-\frac{s}{24}-\frac{t}{216}-\frac{s^2}{6912}
+\]
+と置き、Hesse 不変量写像を $r(p,q)$ と書く。その引戻しは
+\[
+ D\bigl(r(p,q)\bigr)
+ =-\frac1{6912}(q^2-4)
+       \prod_{i=0}^{2}\bigl((2\zeta^ip-q)^2+12\bigr).
+\]
+従って $D=0$ の逆像は、相異なる八本の直線
+\[
+ q=\pm2,\qquad 2\zeta^ip-q=\pm2\epsilon\quad(i=0,1,2)
+\]
+からなる。
+$q=2$ の一般点で Hesse 写像は非分岐であり、$v_D$ の延長の一つは
+$v_{q-2}$ で分岐指数一である。
+$q=2+z$ と書くと
+\[
+ D\bigl(r(p,2+z)\bigr)
+ =-\frac{(p^3+8)^2}{27}z+O(z^2).
+\]
+したがって、既存の二境界仮定の下で
+$\overline\gamma_n=[D]^{b_n}$ と分かっているなら、
+$b_n$ は Hesse 周期 torsor の $q=2$ における mod-three 付値に等しい。
+\end{lemma}
+\begin{proof}
+積の式は $\zeta^2+\zeta+1=0$ を用いた多項式恒等式である。
+$\epsilon^2=-3$ により表示した一次因子へ分解する。
+既存の Jacobian の式を $q=2$ に制限すると
+\[
+ \det Dr=-384p^2(p^3+8)^2\ne0,
+ \qquad \Delta=-64p^3(p^3+8)^3\ne0
+\]
+である。これにより一般点での非分岐性が従う。
+また、その線上では
+\[
+ s=16-16p^3,\qquad t=64+160p^3-8p^6.
+\]
+剰余体は $\mathbb C(p)/\mathbb C(p^3)$ という三次拡大であり、
+この三次性は分岐指数ではない。
+$D$ の一次係数を計算すると主張の式となる。
+分岐指数が一なので、$K_0$ 上の $D$-付値と制限後の $q-2$-付値は一致する。
+\end{proof}
+
+周期位相の値とは独立に、この境界の点線束と三分点被覆は次のように記述できる。
+
+\begin{proposition}[Hesse 境界の成分群と三分点の局所分解]
+\label{prop:nfm-hesse-boundary-third-division}
+$k_0=\mathbb C(p,m)$ とし、$p$ と任意個数の混合・純中心係数 $m$ を
+独立変数とする。$R=k_0[[z]]$、$K=k_0((z))$、$q=2+z$ と置き、
+\[
+ A=p(1-q^2/4),\qquad B=q+p^3/3+q^3/12,
+ \qquad
+ \mathcal E:\ \frac A3(X^3+Y^3+Z^3)+BXYZ=0
+\]
+を考える。$E=\mathcal E_K$ の原点と点 shift を
+\[
+ O=(1:-1:0),\qquad P=(1-q/2:-1-q/2:-p)
+\]
+と取る。このとき次が成り立つ。
+\begin{enumerate}
+\item $\mathcal E/R$ は正則な split $I_3$ 模型であり、
+特殊 fibre は $C_X\cup C_Y\cup C_Z=V(XYZ)$ である。
+$O$ は $C_Z$ の滑らかな点、$P$ は $C_X$ の滑らかな点へ特殊化する。
+従って $P$ の N\'eron 成分群 $\mathbb Z/3$ における像は非零である。
+\item $\mathcal M=\mathcal O_{\mathcal E}(P-O)$ は実際の可逆層で、
+特殊 fibre の multidegree は $(1,0,-1)$ である。
+同じ一般 fibre の線束を延ばして multidegree $(0,0,0)$ にすることはできない。
+一方、$\mathcal M^3\otimes\mathcal O_{\mathcal E}(C_X-C_Z)$ の
+multidegree は $(0,0,0)$ である。
+\item $\zeta$ を原始三乗根とし、
+\[
+ T=(0:1:-1),\qquad U=(1:-\zeta:0)
+\]
+と置く。これらは定数群 $E[3]$ の基底であり、
+Weil pairing による Kummer 類の二座標は
+\begin{equation}
+ \label{eq:nfm-hesse-boundary-kummer-values}
+ \bigl(e_{3,*}(\kappa_3(P),T),e_{3,*}(\kappa_3(P),U)\bigr)
+   =\left(\left[\frac{p^3+8}{2z}\right],1\right)
+   \quad\text{in }(K^\times/K^{\times3})^2.
+\end{equation}
+従って
+\begin{equation}
+ \label{eq:nfm-hesse-boundary-division-fields}
+ [3]^{-1}(P)\simeq\coprod_{j=1}^{3}\operatorname{Spec}L,
+ \qquad
+ L=K\left(\sqrt[3]{\frac{2z}{p^3+8}}\right).
+\end{equation}
+$L/K$ は完全分岐の巡回三次拡大である。tame inertia は
+$\langle U\rangle$ の非零平行移動として作用し、九点上の cycle type は $3^3$ である。
+慣性軌道の集合は split な階数三の非分岐商となる。
+任意の一つの三分点を定義する有限拡大の分岐指数は三の倍数である。
+\end{enumerate}
+この幾何的慣性型は、一般の active 基底と混合係数を加えた
+標準 split 係数空間の $D=0$ の一般点でも同じである。
+これは周期 torsor $T_{\eta,n}$ の分岐を計算する主張ではない。
+\end{proposition}
+\begin{proof}
+補題\ref{lem:nfm-generic-hesse-third-division}の逆座標により、表示した $P$ は
+本稿の右点対応の平行移動点である。直接代入でも $P\in E(K)$ を確認できる。
+\[
+ A=-pz+O(z^2),\qquad B=(p^3+8)/3+O(z)
+\]
+であり、$p(p^3+8)$ は単元である。三角形の各頂点では、方程式の
+$z$ 微分が $-p/3$ となるので全空間は正則である。
+その他の特殊 fibre の点は相対的にも滑らかである。
+三成分はそれぞれ二つの他成分と横断的に交わり、その自己交点数は $-2$ だから、
+これは極小の split $I_3$ 模型である。
+その滑らかな部分が N\'eron 模型を与え、成分群は $\mathbb Z/3$ である
+\cite[Appendix~C, Theorems~15.1--15.2]{NFMSilvermanArithmetic}。
+$P_0=(0:-2:-p)$ と $O_0=(1:-1:0)$ は異なる成分の滑らかな点である。
+
+この二切断は相対 Cartier 因子なので $\mathcal M$ は可逆であり、
+multidegree は表示の通りである。
+同じ一般 fibre を持つ二つの可逆層の比は、正則模型上の垂直因子
+$a_XC_X+a_YC_Y+a_ZC_Z$ で与えられる。
+その multidegree の変化は
+\[
+ (-2a_X+a_Y+a_Z,\ a_X-2a_Y+a_Z,\ a_X+a_Y-2a_Z)
+\]
+である。$(1,0,-1)$ を零にするには、第一成分と第二成分の差から
+$3(a_X-a_Y)=1$ が必要となり不可能である。
+三乗後には $C_X-C_Z$ の multidegree $(-3,0,3)$ がこれを相殺する。
+
+局所分解を定数も含めて計算する。
+Hesse 曲線の九つの flex はすべて $K$-有理であり、$O$ を原点に取ると
+それらが $E[3]$ をなす。
+$T$ は非零成分、$U$ は単位成分の非零三捩れ点なので独立である。
+三つの接線を
+\[
+ \ell_O=A(X+Y)-BZ,\qquad
+ \ell_T=-BX+A(Y+Z),\qquad
+ \ell_U=AX+A\zeta^2Y-B\zeta Z
+\]
+と書く。$O$ の局所座標 $w=Z/X$ に対して
+\[
+ X=1,\qquad
+ Y=-1+\frac BA w-\frac{A^3+B^3}{3A^3}w^3+O(w^4)
+\]
+だから、$\ell_O=-(A^3+B^3)w^3/(3A^2)+O(w^4)$ である。
+従って $\ell_T/\ell_O$、$\ell_U/\ell_O$ の $w^{-3}$ 係数はそれぞれ
+\[
+ c_T=\frac{3A^2(A+B)}{A^3+B^3},\qquad
+ c_U=-\frac{3A^3(1-\zeta^2)}{A^3+B^3}
+\]
+であり、$F_T=(\ell_T/\ell_O)/c_T$、$F_U=(\ell_U/\ell_O)/c_U$ と置く。
+
+この先頭係数一の規格化が Kummer 計算に必要である。
+例えば $\operatorname{div}(F_T)=3(T)-3(O)$ であり、
+$[3]^*((T)-(O))$ は $K$-有理な主因子なので、それを因子に持つ
+$G_T\in K(E)^\times$ を取れる。
+$G_T=a w^{-1}+O(1)$ とすると、$w\circ[3]=3w+O(w^2)$ より
+\[
+ F_T\circ[3]=(3a)^{-3}G_T^3.
+\]
+従って $F_T\circ[3]$ は $K(E)$ における三乗であり、
+Tate--Lichtenbaum pairing の評価公式
+\cite[Chapter~XI, Proposition~9.2]{NFMSilvermanArithmetic}から
+$e_{3,*}(\kappa_3(P),T)=[F_T(P)]$ を得る。$U$ についても同様である。
+
+接線の表示へ $P$ を代入して整理すると
+\begin{align*}
+ F_T(P)&=
+ \left(\frac{p+2}{3p}\right)^3
+ \frac{p^3+8}{2z}\bigl(1+O(z)\bigr),\\
+ F_U(P)&=
+ \frac{\zeta}{3(1-\zeta^2)}
+ \left(\frac{p^3+8}{3p}\right)^3z^{-3}
+ \bigl(1+O(z)\bigr).
+\end{align*}
+$1+zR$ の元は一意に $1+zR$ 内で三乗根を持ち、
+第二式の残る定数は $\mathbb C^\times$ の元なので三乗である。
+これが式\eqref{eq:nfm-hesse-boundary-kummer-values}を与える。
+
+$E[3]$ は定数群であり、Weil pairing は非退化である。
+従ってこの torsor の Galois 像は
+$\ker e_3(-,U)=\langle U\rangle$ 全体で、その固定体は
+式\eqref{eq:nfm-hesse-boundary-division-fields}の $L$ である。
+$v_z(2z/(p^3+8))=1$ だから $L/K$ は完全分岐の巡回三次拡大となる。
+九点への作用は位数三の平行移動なので、その軌道は三つである。
+各点の定義体は $L$ であり、分解と分岐指数の主張が従う。
+慣性軌道集合は $E[3]/\langle U\rangle$ の定数 torsor である。
+
+最後に一般係数空間への移行を確認する。
+$q=2$ の一般点では $g=p\sum X^3/3+qXYZ$ 自身は滑らかであり、
+$\operatorname{SL}_3$ 軌道の接空間は八次元である。
+補題\ref{lem:nfm-period-hesse-eight-boundary-lines}の $\det Dr\ne0$ により、
+Hesse の二変数方向は不変量の二つの接方向を張る。
+従って $\operatorname{SL}_3\times\mathbb A^2_{p,q}$ から全十係数空間への
+写像はこの一般点で \'etale である。
+独立な混合・純中心係数を加えても同じであり、必要な frame の追加は滑らかな底変更である。
+この非分岐な chart で幾何的 inertia が検出されるから、
+一般係数空間でも同じ $3^3$ の慣性型を持つ。
+ここでは一般三分点被覆の代数的な点曲線公式だけを用い、
+full 残余比較の境界への延長を仮定していない。
+\end{proof}
+
+\begin{lemma}[境界の点線束の線型行列表示]
+\label{lem:nfm-hesse-boundary-determinantal-line}
+前命題の特殊 fibre を $C_0=V(XYZ)$、$\mathcal M_0=\mathcal M|_{C_0}$ と書く。
+その cohomology は
+\[
+ (h^0,h^1)(\mathcal M_0(j))=
+ \begin{cases}
+ (3j,0)&j\ge1,\\
+ (0,0)&j=0,\\
+ (0,-3j)&j\le-1.
+ \end{cases}
+\]
+$i_0:C_0\hookrightarrow\mathbb P^2_{k_0}$ に対し、完全列
+\begin{equation}
+ \label{eq:nfm-hesse-boundary-determinantal-line}
+ 0\longrightarrow\mathcal O(-1)^3
+ \xrightarrow{\ L_0\ }\mathcal O^3
+ \longrightarrow i_{0,*}\mathcal M_0(1)\longrightarrow0,
+ \qquad
+ L_0=\begin{pmatrix}Z&0&0\\pY&-2Z&X\\-X&Y&0\end{pmatrix}
+\end{equation}
+が存在し、$\det L_0=-XYZ$ である。
+さらに、この完全列は $\mathcal E\hookrightarrow\mathbb P^2_R$ 上の
+$\mathcal M(1)$ の相対的な三行三列の線型行列表示へ持ち上がる。
+\end{lemma}
+\begin{proof}
+各成分上の次数は $(j+1,j,j-1)$ である。
+$j=0$ では、次数 $-1$ の成分上の切断が零であり、節点での貼合せから
+次数零の成分上でも零となる。残る次数一の成分では二つの節点で零となるため、
+切断は零である。Euler 標数が零なので $H^1$ も零である。
+$j\ge1$ では双対線束の次数が $(-j-1,-j,-j+1)$ となり、
+同じ節点での議論によりその $H^0$ が零である。
+$\omega_{C_0}\simeq\mathcal O_{C_0}$ と Serre 双対性により
+$H^1(\mathcal M_0(j))=0$ となり、Riemann--Roch から $h^0=3j$ を得る。
+$j\le-1$ も同様である。
+
+$\mathcal M_0(1)$ の三つの切断を、各成分上の有理切断として
+\[
+ \begin{array}{c|ccc}
+ C_X&-pY^2/(2Z-pY)&YZ/(2Z-pY)&2Z^2/(2Z-pY)\\
+ C_Y&X&0&Z\\
+ C_Z&X+Y&0&0
+ \end{array}
+\]
+で与える。分母は $P_0$ で許された一位の極を表し、
+$X+Y$ は $O_0$ で必要な零点を持つ。
+三節点で値が一致するのでこれらは大域切断であり、各成分上で基点を持たない。
+従って $\mathcal O^3\to i_{0,*}\mathcal M_0(1)$ は全射である。
+$L_0$ の各列がこれらの切断の関係式であることは成分ごとの代入で分かる。
+行列式は $-XYZ$ であり、二次小行列式に $X^2$、$-2Z^2$、$pY^2-2XZ$ が含まれるので、
+$L_0$ は $C_0$ の全点で階数二である。
+従って cokernel は $C_0$ 上の可逆層であり、上の全射は
+$\operatorname{coker}L_0\simeq i_{0,*}\mathcal M_0(1)$ を与える。
+
+相対表示については、proper cohomology と底変更により
+$\pi:\mathcal E\to\operatorname{Spec}R$ に対する
+$\pi_*\mathcal M(1)$ が自由階数三で、その基底を上の三切断から持ち上げられる。
+その評価射の cokernel は特殊 fibre 上で零である。
+支持の proper 性と Nakayama の補題により評価射は全体でも全射である。
+$i_*\mathcal M(1)$ は Cartier 因子上の可逆層の直像なので局所射影次元一を持ち、
+この評価射の核 $\mathcal K$ は階数三のベクトル束である。
+底変更により $\mathcal K|_{\mathbb P^2_{k_0}}\simeq\mathcal O(-1)^3$ となる。
+再び cohomology と底変更を $\mathcal K(1)$ へ適用すると、
+その三つの基底切断を持ち上げられ、評価射
+$\mathcal O^3\to\mathcal K(1)$ は特殊 fibre 上の同型を持ち上げる。
+退化 locus の proper 性からこれは全体で同型である。
+従って相対的にも $\mathcal K\simeq\mathcal O(-1)^3$ となり、
+特殊 fibre が $L_0$ である線型行列表示を得る。
+\end{proof}
+
+\begin{lemma}[境界の点線束の有理式による相対表示]
+\label{lem:nfm-hesse-boundary-explicit-line}
+命題\ref{prop:nfm-hesse-boundary-third-division}の記法を用い、
+\[
+ F_E=\frac A3(X^3+Y^3+Z^3)+BXYZ,\qquad
+ b=\frac{p^3+8}{3},\qquad c=\frac{p(p^3+q^3)}3
+\]
+と置く。以下の式は完備化前の DVR
+$R_0=k_0[q]_{(q-2)}$ 上で定義される。
+\begin{align*}
+ x_f&=X+Y,&y_f&=X-Y,&w_f&=A(X+Y)-BZ,\\
+ u&=-q/c,&v&=2/c,\\
+ a_0&=-\frac{4A(A^3+B^3)}{3B^3},&
+ a_2&=1+\frac{4A^3}{B^3},&
+ a_4&=-\frac{4A^2}{B^3},\qquad
+ a_6=\frac{4A}{3B^3}.
+\end{align*}
+行列
+\[
+ N=\begin{pmatrix}
+ x_f-uw_f&y_f-vw_f&0\\
+ 0&a_0x_f+(a_0u+a_2)w_f&w_f\\
+ y_f+vw_f&(a_0u^2+a_2u+a_4)w_f&-x_f
+ \end{pmatrix},
+\]
+および定数行列
+\[
+ U=\begin{pmatrix}4&-2&-2p\\-4bp&0&0\\4&-2&2p\end{pmatrix},
+ \qquad
+ V=\begin{pmatrix}0&-p&-1\\2p&p&-1\\2p&-p&1\end{pmatrix}
+\]
+に対して $L=U^{-1}NV$ と置く。このとき
+\[
+ L\bmod(q-2)=L_0,\qquad
+ \det L=-F_E/b,
+\]
+であり、完全列
+\[
+ 0\longrightarrow\mathcal O_{\mathbb P^2_{R_0}}(-1)^3
+ \xrightarrow{\ L\ }\mathcal O_{\mathbb P^2_{R_0}}^3
+ \longrightarrow i_*\mathcal O_{\mathcal E}(P-O)(1)
+ \longrightarrow0
+\]
+を得る。従って、完備化や三分点の添加を必要としない有限な有理式で、
+前補題の特定の特殊 fibre 表示を持ち上げられる。
+また
+\[
+ Q=-b\operatorname{adj}(L),\qquad LQ=QL=F_E I_3
+\]
+は指定した方程式 $F_E$ に対する相対 graded matrix factorization である。
+これは曲線上の点線束の模型であり、full 比較核やその周期位相の計算を
+それだけで与えるものではない。
+\end{lemma}
+\begin{proof}
+$B,c,b$ は $q=2$ でそれぞれ $b,pb,b$ へ移り、すべて単元である。
+表示した座標変換の行列式は $2B$ なので $R_0$ 上で可逆である。
+直接展開により
+\[
+ 4F_E=y_f^2w_f-a_0x_f^3-a_2x_f^2w_f-a_4x_fw_f^2-a_6w_f^3,
+ \qquad v^2=a_0u^3+a_2u^2+a_4u+a_6
+\]
+を得る。$P$ の新座標は $(-q:2:c)=(u:v:1)$、
+$O=(0:1:0)$ である。後者を用いた三行三列の行列式の展開は
+$\det N=4F_E$ を与える。
+また
+\[
+ \det U=-32bp^2,\qquad\det V=8p^2,\qquad
+ N|_{q=2}V=UL_0
+\]
+であるから、行列の特殊化と determinant の式が従う。
+
+一般 fibre の線束を符号も含めて確認する。
+$\bar x=x_f/w_f$, $\bar y=y_f/w_f$ と書くと、
+$N^{\mathsf t}$ の左核は
+\[
+ \left(\frac{\bar y-v}{\bar x-u},\ -1,\
+              a_0(\bar x+u)+a_2\right)
+\]
+で与えられる。第一成分は $-P=(u:-v:1)$ で一位の極、
+$O$ で高々一位の極を持ち、第三成分は $O$ で二位の極を持つ。
+三成分は独立であり、次数三の可逆層
+$\mathcal O_E((-P)+2O)$ の全切断空間の基底となる。
+次数三の線束は genus-one 曲線上で大域生成されるので、
+これらの切断と行列の関係式から
+\[
+ \operatorname{coker}N^{\mathsf t}
+   \simeq i_*\mathcal O_E((-P)+2O)
+   \simeq i_*\mathcal M^{-1}(1)
+\]
+を得る。ここで $\mathcal O_E(1)=\mathcal O_E(3O)$ と
+$(-P)+P\sim2O$ を使った。
+線型表示を $\mathcal O(-1)$ で双対化すると、三次 Cartier 因子に対する
+\[
+ \mathcal E xt^1(i_*\mathcal N,\mathcal O(-1))
+       \simeq i_*(\mathcal N^\vee(2))
+\]
+により $\operatorname{coker}N\simeq i_*\mathcal M(1)$ となる。
+この転置が点 $P$ の符号を決める。
+
+相対的には、$L_0$ の階数が $C_0$ の全点で二である。
+階数が一以下となる閉集合は射影空間上で proper であり、
+特殊 fibre と交わらないので空である。従って $\operatorname{coker}L$ は
+$\mathcal E$ 上の可逆層 $\mathcal N$ の直像である。
+一般 fibre 上で $\mathcal N\simeq\mathcal M(1)$ だから、
+正則模型上で両者の比は垂直因子
+$a_XC_X+a_YC_Y+a_ZC_Z$ による。
+特殊 fibre でも $L=L_0$ により両者は同じ multidegree $(2,1,0)$ を持つ。
+$I_3$ の交点行列の核は $(1,1,1)$ のみなので、
+$a_X=a_Y=a_Z$ である。全 fibre は主因子であり、
+$\mathcal N\simeq\mathcal M(1)$ が相対的に従う。
+最後の積の式は adjugate 恒等式である。
+\end{proof}
+
+\begin{proposition}[周期を変えない残余三次の積分模型]
+\label{prop:nfm-hesse-boundary-integral-residual-model}
+命題\ref{prop:nfm-hesse-boundary-third-division}の
+$R=k_0[[z]]$, $K=k_0((z))$, $r=n-1$ を用いる。
+良い一般係数体からこの Hesse 体へ移した残余三次、
+指定同型 $\varphi_{\mathrm{sc}}$ および full 尺度を、
+既存の固定入力の下で取る。
+点三次の指定生成元を
+\[
+ J_R=\frac{A}{3}(X^3+Y^3+Z^3)+BXYZ
+\]
+と書く。このとき、基礎体を拡大せずに、次を満たす射影的平坦模型
+$\mathcal Y\subset\mathbf P_R^{n+1}$ を取れる。
+\begin{enumerate}
+\item 一般 fibre は指定された $Y_{\mathrm{res}}/K$ と同型であり、
+      active 平面切断は厳密に $\mathcal E=V(J_R)$ である。
+      選んだ模型に対し、$\varphi_{\mathrm{sc}}$ は点平面と残余平面の
+      $R$ 上の同型へ延びる。
+\item 方程式 $F_R$ の一般 fibre は cube-frame の生成元を
+      線型座標変更で移したものである。
+      その変更は active 平面で恒等であり、方程式に追加の scalar を掛けない。
+      従って指定 MF 周期と一般 fibre の位相類は変わらない。
+\item $\mathcal C:=\mathcal Y\cap V(u_1,\ldots,u_r)=\mathcal E$ は
+      $\mathcal Y$ 内の長さ $r$ の正則列で定義される。
+      $\mathcal Y$ の全空間は $\mathcal C$ に沿って正則である。
+      点線束 $\mathcal M=\mathcal O_{\mathcal E}(P-O)$ と
+      補題\ref{lem:nfm-hesse-boundary-determinantal-line}の線型表示が
+      この残余切断上へ移る。特に $i_*\mathcal M$ は
+      $\mathcal Y$ 上の perfect 複体である。
+\end{enumerate}
+ここで模型は選択に依存する。特殊 fibre の滑らかさ、既存の good 開への所属、
+元の残余 moduli 射の境界への延長、または full 比較核の延長は主張しない。
+\end{proposition}
+
+\begin{proof}
+まず周囲空間と方程式を固定する。
+$\varphi_{\mathrm{sc}}$ は active な射影平面の同型なので、残余の
+Brauer--Severi 周囲空間は split な平面の $K$-点を含む。
+従って周囲空間も split である。
+この事実は、Brauer--Severi 空間の $K$-点が対応する中心単純代数の
+最小右イデアルを与え、その作用表示が行列代数への同型を与えることによる。
+$\varphi_{\mathrm{sc}}$ の線型持上げを全周囲空間の線型 frame へ延長し、
+中心方向の補空間を選ぶ。
+
+この frame における cube-frame の生成元を $F\in K[X,Y,Z,u]_3$ とする。
+命題\ref{prop:nfm-point-normalized-jacobian-cover}の尺度同定と
+式\eqref{eq:nfm-period-cube-frame}を active 平面へ制限すると、
+$F|_{u=0}\otimes P_{\mathrm{src}}=J_R\otimes P_{\mathrm{src}}$ である。
+従って $F|_{u=0}=J_R$ が厳密に成り立つ。
+ここでは任意の生成元を後から $K$-scalar で規格化したのではなく、
+点尺度が定める指定生成元を用いている。
+
+$u$ 次数によって $F=J_R+F_1+F_2+F_3$ と分ける。
+各 $F_j$ の係数は有限個なので、非負整数 $N$ を十分大きく取り、
+全ての非零係数 $c$ に対して
+\[
+ v_z(c)+Nj\ge0
+\]
+とできる。そこで
+\[
+ a_N:(X,Y,Z,u)\longmapsto(X,Y,Z,z^N u),\qquad
+ F_R=a_N^*F=J_R+\sum_{j=1}^3z^{Nj}F_j
+\]
+と置くと、$F_R\in R[X,Y,Z,u]_3$ である。
+$a_N$ は一般 fibre 上の線型同型で、active 平面では恒等である。
+$B\bmod z=(p^3+8)/3\ne0$ なので $F_R\bmod z$ は非零である。
+従って $z$ は $R[X,Y,Z,u]/(F_R)$ 上非零因子であり、
+この商およびその射影化は $R$-flat である。
+一般 fibre の同型と active 切断の同定もこの式から従う。
+
+座標変更 $a_N$ は曲率を厳密に $F\mapsto a_N^*F$ と移す。
+graded MF の底変更は内部 shift と複体 shift をそのまま保つので、
+指定された三次周期も厳密に移す。
+特に $\det(a_N|_{K_{\mathrm{pt}}})=1$ であり、
+cube-frame の determinant 因子も変化しない。
+最初の active 線型持上げを $\lambda$ 倍した場合の差は
+命題\ref{prop:nfm-period-equation-cube-frame}の三乗倍だけであり、
+位相類とその mod-three 付値を変えない。
+この操作に $z$ の根の添加はない。
+
+任意の順序で $u_1,\ldots,u_r$ を零にしても、残る方程式は
+非零な項 $J_R$ を含む。従って各段階で次の $u_i$ は
+方程式を割らず、多項式環の一意分解性から商の非零因子である。
+これで正則列性を得る。同じ議論は閉 fibre と一般 fibre にも通る。
+その閉埋込み $i$ は有限 Tor 次元を持ち、$\mathcal M$ は
+$\mathcal C$ 上可逆だから $i_*\mathcal M$ は perfect である。
+全空間の正則性は、特殊 fibre の三頂点以外では active 偏微分が非零であり、
+三頂点では $\partial_zF_R|_{u=0}=\partial_zJ_R=-p/3$ が単元であることによる。
+一般 fibre は元の滑らかな残余三次である。
+平面と曲線の同定により、線束とその行列表示も移る。
+\end{proof}
+
+\begin{lemma}[点線束の直像の相対 Ext は平坦である]
+\label{lem:nfm-hesse-boundary-pushforward-ext-flat}
+命題\ref{prop:nfm-hesse-boundary-integral-residual-model}の模型において、
+$i:\mathcal C\hookrightarrow\mathcal Y$、$\pi_C:\mathcal C\to\operatorname{Spec}R$、
+$\pi_Y:\mathcal Y\to\operatorname{Spec}R$ と書く。
+法束を $N_{\mathcal C/\mathcal Y}\simeq\mathcal O_{\mathcal C}(1)\otimes W$、
+$W=R^r$ と自明化する。
+任意の整数 $a,b,j$ と $d=b-a$ に対し、自然な完全列
+\begin{align*}
+ 0&\longrightarrow
+ R^1\pi_{C,*}\mathcal O_{\mathcal C}(d+j-1)
+       \otimes\bigwedge^{j-1}W\\
+ &\longrightarrow
+ H^jR\pi_{Y,*}R\mathcal Hom_{\mathcal Y}
+       (i_*\mathcal M(a),i_*\mathcal M(b))\\
+ &\longrightarrow
+ \pi_{C,*}\mathcal O_{\mathcal C}(d+j)
+       \otimes\bigwedge^jW\longrightarrow0
+\end{align*}
+がある。ただし $q\notin\{0,\ldots,r\}$ なら $\bigwedge^qW=0$ とする。
+これらの相対 Ext は有限自由であり、任意の $R$-底変更に両立する。
+とくに $a=b$ の階数は
+\[
+ \operatorname{rank}\operatorname{Ext}^j_{\mathcal Y/R}(i_*\mathcal M,i_*\mathcal M)
+ =\begin{cases}
+ 1&j=0,\\
+ 1+3r&j=1,\\
+ 3j\binom rj&2\le j\le r,\\
+ 0&\text{その他}
+ \end{cases}
+\]
+である。完全列の正準分裂や dg 代数の形式性は主張しない。
+\end{lemma}
+
+\begin{proof}
+$i$ は正則閉埋込みで $\mathcal M$ は可逆だから、局所 Koszul 分解により
+\[
+ \mathcal Ext^q_{\mathcal Y}
+       (i_*\mathcal M(a),i_*\mathcal M(b))
+ \simeq i_*\!\left(
+       \mathcal O_{\mathcal C}(d+q)\otimes\bigwedge^qW\right).
+\]
+これは線束 $\mathcal M$ の局所自明化に依存しない。
+相対曲線の cohomological dimension は一なので、相対 local-to-global
+Ext spectral sequence の非零列は $p=0,1$ だけである
+\cite[Tag~0BQP]{NFMStacksRelativeExt}。
+従って $E_2$ 以降の微分は全て零となり、表示した完全列を得る。
+
+任意の $k$ に対し、$\mathcal O_{\mathcal C}(k)$ の閉 fibre と一般 fibre の
+cohomology の次元は共に
+\[
+ (h^0,h^1)=
+ \begin{cases}
+ (3k,0)&k>0,\\
+ (1,1)&k=0,\\
+ (0,-3k)&k<0
+ \end{cases}
+\]
+である。滑らかな三次では genus 一の Riemann--Roch による。
+三角形では負次数の切断が各成分上で零であり、
+$H^0(\mathcal O)=k_0$、$\omega_{C_0}\simeq\mathcal O_{C_0}$ なので、
+Serre 双対性と Riemann--Roch から同じ式を得る。
+proper cohomology と底変更により、表示した二つの外側の項は有限自由で、
+その形成は底変更に両立する。従って中央の相対 Ext も有限自由である。
+
+$\mathcal Y/R$ は proper な平坦 hypersurface で、二つの直像は perfect である。
+従ってその相対 derived Hom は perfect であり、derived 底変更に両立する
+\cite[Lemma~36.30.1]{NFMStacksRelativeExt}。
+これは有限 affine cover の \v{C}ech 複体で計算しても確認できる。
+得られた cohomology が全て $R$-free なので、任意の底変更について
+cohomology の Tor 項は消える。これで通常の相対 Ext の底変更も従う。
+最後の階数は $d=0$ を完全列へ代入したものである。
+\end{proof}
+
+\begin{remark}[残余射影を施した低 Ext との区別]
+上の平坦性は $i_*\mathcal M(a)$ 同士の相対 Ext についての主張である。
+$q_Y^R\mathcal M=j_Y^!i_*\mathcal M$ とその rotation 軌道へ移るには、
+例外対象による射影の cone と、その中の合成写像の階数を別に調べる必要がある。
+free な cohomology を持つ有限複体の間の写像でも、cone に torsion が生じうる。
+従ってこの補題だけから周期評価に必要な $S_p$ の低 Ext 平坦性や
+三次関係の原始性を結論しない。
+\end{remark}
+
+\begin{lemma}[三角形切断に沿う滑らかさの有限判定]
+\label{lem:nfm-hesse-boundary-transverse-smoothness}
+$k$ を標数零の体、$c\in k^\times$ とし、
+\[
+ F_0=cXYZ+\sum_{i=1}^r u_iQ_i(X,Y,Z)+O((u)^2),
+ \qquad r=n-1
+\]
+を三次式とする。$\mathcal Y_0=V(F_0)$ が
+$C_0=V(u_1,\ldots,u_r,XYZ)$ に沿って幾何学的に滑らかであるための
+必要十分条件は、三頂点 $e_X,e_Y,e_Z$ のそれぞれについて
+\[
+ (Q_1(e_\alpha),\ldots,Q_r(e_\alpha))\ne0
+ \qquad(\alpha=X,Y,Z)
+\]
+となることである。
+また、active 制限を $cXYZ$ に固定した全三次式の affine 空間には、
+全体が幾何学的に滑らかな三次超曲面を定める非空開がある。
+\end{lemma}
+
+\begin{proof}
+$C_0$ の三頂点以外では $XYZ$ の active 偏微分の少なくとも一つが非零である。
+頂点では active 偏微分が全て零で、残りの偏微分はちょうど
+$\partial_{u_i}F_0=Q_i(e_\alpha)$ である。Jacobian 判定から最初の主張を得る。
+
+非空性は代数閉包上で確認すればよい。
+固定平面を $\Lambda$ とし、$W=H^0(\mathbf P^{n+1},I_\Lambda(3))$ とする。
+$a\notin\Lambda$ では、ある $u_i(a)\ne0$ であり、
+$u_i H^0(\mathcal O(2))\subset W$ は $a$ の全一次 jet を生成する。
+従って $F=cXYZ+w$ が $a$ で特異となる条件は、$w\in W$ への
+$n+2$ 個の独立な affine 線型条件である。
+$a$ を $n+1$ 次元の周囲空間の $\Lambda$ 外で動かしても、
+対応する incidence の次元は $\dim W-1$ 以下である。
+従ってその像の閉包は $W$ の真の閉集合である。
+一方、三頂点での上の非零条件もそれぞれ非空な開条件であり、
+例えば $u_1(X^2+Y^2+Z^2)$ の係数を用いて全てを同時に満たせる。
+この有限個の非空開の共通部分を取れば所要の非空開を得る。
+\end{proof}
+
+\begin{remark}[積分模型と滑らかな残余模型の差]
+命題\ref{prop:nfm-hesse-boundary-integral-residual-model}で
+全ての不等式を $v_z(c)+Nj>0$ とすると、特殊方程式は
+$F_0=((p^3+8)/3)XYZ$ になる。
+これは三頂点で上の横断ベクトルが全て零となる特異な模型である。
+従って pole を消すだけでは、滑らかな残余三次の good reduction を得ない。
+他方、三角形切断自体は滑らかな全三次の模型を妨げないことも前補題が示す。
+残る具体的な問題は、実際の残余係数に適合する積分 lattice を選び、
+三頂点の横断ベクトルと切断外の Jacobian を検査することである。
+一般混合係数が存在するというだけで、この特定の模型の閉 fibre が
+上の非空開に入るとは結論できない。
+\end{remark}
+
+\begin{proposition}[点線束から残余対象への相対右射影]
+\label{prop:nfm-boundary-right-projection}
+命題\ref{prop:nfm-hesse-boundary-integral-residual-model}の記法で
+$r=n-1$、$\pi:\mathcal Y\to\operatorname{Spec}R$、
+$i:\mathcal C\hookrightarrow\mathcal Y$ とする。
+$\mathcal M$ は移送した点線束である。
+次の構成は、$\mathcal Y$ の特殊 fibre の滑らかさを仮定しない。
+相対 perfect 圏内で
+\[
+ \mathcal A_R=\langle\mathcal O_{\mathcal Y},\ldots,
+              \mathcal O_{\mathcal Y}(r-1)\rangle^\perp
+\]
+と置き、その包含を $j_R$ と書く。
+この包含は右随伴 $j_R^!$ を持ち、
+\begin{equation}\label{eq:nfm-boundary-right-projection}
+ j_Rj_R^!F=
+ R_{\mathcal O(-1)}R_{\mathcal O(-2)}\cdots
+ R_{\mathcal O(-r)}F
+ \qquad(F\in\operatorname{Perf}\mathcal Y)
+\end{equation}
+である。右辺は右端から適用し、相対 right mutation の規約は
+\[
+ R_EF\longrightarrow F\longrightarrow
+ \pi^*\bigl(R\pi_*R\mathcal Hom(F,E)\bigr)^\vee\otimes E
+ \longrightarrow R_EF[1]
+\]
+とする。
+従って
+\[
+ \mathcal Z_R=j_R^!i_*\mathcal M[1]
+\]
+は、一般 fibre で周期評価の対象 $Z_p=q_Y^RM[1]$ に一致する
+実際の相対 perfect 対象を与える。
+この構成と、その有限個の twist、mutation、Hom の導来複体は、
+閉 fibre と一般 fibre への導来底変更に両立する。
+
+最初の right mutation $R_{\mathcal O(-r)}i_*\mathcal M$ は自明である。
+特に $n=3$ の場合には次の一つの coevaluation だけでよい：
+\begin{equation}\label{eq:nfm-boundary-threefold-one-cone}
+ j_Rj_R^!i_*\mathcal M\longrightarrow i_*\mathcal M
+ \longrightarrow\mathcal O_{\mathcal Y}(-1)\otimes_R V^\vee[2],
+ \qquad
+ V=\pi_{\mathcal C,*}\mathcal M^{-1}(1)\simeq R^3.
+\end{equation}
+この相対対象の構成は、比較核、低 Ext の平坦性、
+または source と target の周期の一致を主張しない。
+\end{proposition}
+
+\begin{proof}
+$\mathcal Y$ は平坦な Cartier 三次超曲面なので、
+proper な完全射であり、相対双対化複体は
+$\omega_{\mathcal Y/R}[n]=\mathcal O_{\mathcal Y}(-r)[n]$ である。
+有限表示の射影埋込みと通常の超曲面完全列から
+\[
+ R\pi_*\mathcal O_{\mathcal Y}=R,\qquad
+ R\pi_*\mathcal O_{\mathcal Y}(-d)=0\quad(1\le d\le r-1)
+\]
+を得る。この計算は両 fibre に同じである。
+従って表示した正の line bundle block と
+$\langle\mathcal O(-r),\ldots,\mathcal O(-1)\rangle$ は
+相対 exceptional block である。
+各評価・余評価の cone は perfect 対象を perfect 対象へ移す。
+
+相対双対性により、perfect 対象 $G$ について
+\[
+ R\pi_*R\mathcal Hom(G,\mathcal O(-j))
+ \simeq
+ \bigl(R\pi_*R\mathcal Hom(\mathcal O(r-j),G)\bigr)^\vee[-n]
+ \qquad(1\le j\le r).
+\]
+よって $\mathcal A_R$ は負の block の左直交でもある。
+負の block を $\mathcal O(-r),\ldots,\mathcal O(-1)$ の順で
+右変異すると、この左直交への射影を得る。
+既に消した Hom は、line bundle block の半直交性により後続の変異でも零を保つ。
+射影の triangle に $\mathcal A_R$ の対象から Hom を施せば、
+この射影が包含の右随伴であることが分かる。
+これで式\eqref{eq:nfm-boundary-right-projection}を得る。
+
+$i$ は $r$ 本の中心一次式による regular immersion であり、
+$\mathcal M$ は可逆なので $i_*\mathcal M$ は $\mathcal Y$ 上 perfect である。
+従って上の有限変異を実際に適用できる。
+一般 fibre で $\mathcal A_K=\operatorname{Ku}(Y)$ であり、
+右随伴の一意性によって $j_R^!i_*\mathcal M$ の一般 fibre は
+$j_Y^!i_*M=q_Y^RM$ となる。
+ここで $\mathbf Li^*$ の右随伴は $i_*$ であり、
+$i^!$ や余法線の twist を $q_Y^R$ 自体へ挿入しない。
+
+具体的な余評価空間を求めるときには regular immersion の双対性を用い、
+\begin{equation}\label{eq:nfm-boundary-coevaluation-space}
+ R\pi_*R\mathcal Hom_{\mathcal Y}(i_*\mathcal M,\mathcal O(-j))
+ =R\pi_{\mathcal C,*}\bigl(\mathcal M^{-1}(r-j)\bigr)[-r]
+\end{equation}
+を得る。ここで normal determinant は $\mathcal O_{\mathcal C}(r)$ である。
+境界の multidegree 計算を $\mathcal M^{-1}$ にも適用すると、
+$R\pi_{\mathcal C,*}\mathcal M^{-1}=0$、
+$R\pi_{\mathcal C,*}\mathcal M^{-1}(1)$ は自由階数三である。
+特殊 fibre 上の消滅から、properness と Nakayama により同じ相対主張が従う。
+従って $j=r$ の余評価空間は零である。
+$r=2$ では残る $j=1$ の空間が $V[-2]$ なので、
+式\eqref{eq:nfm-boundary-threefold-one-cone}を得る。
+
+proper perfect 射による perfect 複体の押し下げは $R$-perfect であり、
+ここで使った pullback、tensor、双対、評価の finite cone は導来底変更に両立する。
+これにより各 Hom 複体も $R$ 上の有界有限自由複体で表せる。
+その cohomology が自由であることは、perfect 性からは従わない。
+\end{proof}
+
+\begin{proposition}[三次元境界の低 orbit Hom の平坦性]
+\label{prop:nfm-boundary-threefold-low-hom}
+命題\ref{prop:nfm-boundary-right-projection}で $n=3$ とし、
+$E=i_*\mathcal M$、$Q=j_Rj_R^!E$、$Z=Q[1]$ と置く。
+$\rho=L_{\mathcal O}\circ(1)$ と $\sigma=\rho^{-1}$ を
+相対残余 perfect 圏の rotation とする。
+次の四つの Hom 複体の cohomology は $R$-自由で、両 fibre への底変更と可換である：
+\[
+\begin{array}{c|c}
+ q& H^iR\operatorname{Hom}(Z,\rho^qZ)\text{ の非零階数}\\\hline
+ 0&(i,\operatorname{rk})=(0,1),(1,10)\\
+ -1&(i,\operatorname{rk})=(1,5),(2,5)\\
+ -2&(i,\operatorname{rk})=(2,10),(3,1)\\
+ -3&(i,\operatorname{rk})=(2,1),(3,10).
+\end{array}
+\]
+さらに、実際の integral 方程式 $F$ が定める周期 class は
+$H^2R\operatorname{Hom}(Z,\rho^{-3}Z)\simeq R$ の生成元である。
+この結果は $m_2,m_3$ の値や、それらから回復した三次 relation の原始性を
+まだ決定しない。
+\end{proposition}
+
+\begin{proof}
+まず射影前の Hom を計算する。
+$i$ は二本の中心一次式による regular immersion で、その normal bundle は
+$N_{\mathcal C/\mathcal Y}=\mathcal O_{\mathcal C}(1)^2$ である。
+可逆層の自己 Ext で $\mathcal M$ は相殺するので
+\[
+ \mathcal Ext^j_{\mathcal Y}(E,E(d))
+   =i_*\bigl(\mathcal O_{\mathcal C}(d+j)\otimes\Lambda^jR^2\bigr).
+\]
+曲線の cohomological dimension は一である。
+従って local-to-global spectral sequence は退化し、
+各 $a$ について
+\[
+ 0\to H^1(\mathcal C,\mathcal O(d+a-1))\otimes\Lambda^{a-1}R^2
+ \to\operatorname{Ext}^a(E,E(d))
+ \to H^0(\mathcal C,\mathcal O(d+a))\otimes\Lambda^aR^2\to0
+\]
+を得る。$\mathcal C$ は平面三次の平坦族であり、
+全ての $\mathcal O_{\mathcal C}(k)$ の cohomology は、
+平面の超曲面完全列から自由で両 fibre に同じである。
+従って上の列の全項は自由で底変更と可換となる。
+特に $d=0$ の Ext 階数は次数 $0,1,2$ で $(1,7,6)$、
+$d=-1$ の Ext 階数は次数 $1,2$ で $(5,5)$ である。
+
+$A=\mathcal O_{\mathcal Y}(-1)$、
+$V=H^0(\mathcal C,\mathcal M^{-1}(1))$、
+$W=H^0(\mathcal C,\mathcal M(1))$ と置く。
+$V,W$ は自由階数三である。
+式\eqref{eq:nfm-boundary-threefold-one-cone}と右随伴の性質により
+\[
+ R\operatorname{Hom}(Q,Q)
+ =R\operatorname{Hom}(Q,E)
+ =\operatorname{Cone}\bigl(
+     (V\otimes W)[-2]\xrightarrow{\mu}R\operatorname{Hom}(E,E)\bigr).
+\]
+regular immersion の双対性で最高 local Ext を同定すると、
+$H^2(\mu)$ は
+\[
+ V\otimes W\longrightarrow H^0(\mathcal C,\mathcal O(2))
+\]
+という線束の乗法写像である。
+
+この写像の特殊 fibre を、既存の点線束行列 $L_0$ で検査できる。
+$L_0^t$ の cokernel は $\mathcal M_0^{-1}(1)$ の表示を与え、
+二つの cokernel の pairing は $\operatorname{adj}L_0$ で与えられる。
+実際、$L_0\operatorname{adj}L_0=\operatorname{adj}L_0L_0=-XYZ I$ なので
+この pairing は cokernel へ降り、曲線上で $L_0$ の階数が二であることから
+線束の完全な pairing になる。
+直接計算で
+\[
+ \operatorname{adj}L_0=
+ \begin{pmatrix}
+ -XY&0&0\\-X^2&0&-XZ\\pY^2-2XZ&-YZ&-2Z^2
+ \end{pmatrix}.
+\]
+$p$ と $2$ は単元なので、その成分は六つの二次単項式を張る。
+従って $\mu$ は特殊 fibre で全射であり、Nakayama により $R$ 上でも全射となる。
+その核は自由階数三である。
+上の cone の長完全列から $\operatorname{Ext}^0(Q,Q)=R$、
+$\operatorname{Ext}^1(Q,Q)\simeq R^{10}$、他の Ext は零となり、
+底変更との両立も従う。
+
+次に逆 rotation を用いる。
+相対窓の内部 shift に対応する関手は
+\[
+ \sigma=R_{\mathcal O(-1)}\circ(-1).
+\]
+この式と $Q=R_{\mathcal O(-1)}E$ から
+\[
+ \sigma Q=R_{\mathcal O(-1)}R_{\mathcal O(-2)}E(-1)=j_Rj_R^!E(-1)
+\]
+を得る。
+しかも $R\operatorname{Hom}(A,E(-1))=R\Gamma(\mathcal C,\mathcal M)=0$ なので、
+右射影の triangle を使えば
+\[
+ R\operatorname{Hom}(Q,\sigma Q)
+ =R\operatorname{Hom}(Q,E(-1))
+ =R\operatorname{Hom}(E,E(-1)).
+\]
+先の $d=-1$ の計算により $q=-1$ の行が従う。
+
+相対 Serre 関手は $S_{\mathcal Y}=(-2)[3]$ である。
+左射影を $p_R$ と書くと
+\[
+ S_{\mathcal A_R}^{-1}=p_RS_{\mathcal Y}^{-1}j_R
+ =\rho^2[-3],\qquad S_{\mathcal A_R}=\sigma^2[3].
+\]
+これは二つの line bundle を除く有限 mutation と相対双対性の式であり、
+特殊 fibre の滑らかさを用いない。
+従って
+\[
+ R\operatorname{Hom}(Q,\sigma^2Q)
+ =R\operatorname{Hom}(Q,Q)^\vee[-3],
+\]
+から $q=-2$ の行が従う。
+
+最後に $q=-3$ と指定周期を確認する。
+$S/(F)$ は次数零部分が regular DVR $R$、Gorenstein parameter が二の
+noetherian graded Gorenstein 環である。
+Burke--Stevenson\cite[Theorem~6.4(1), $i=1$]{NFMBurkeStevenson}の窓は、
+滑らかさを仮定せず
+\[
+ D^b(\operatorname{coh}\mathcal Y)
+ =\langle\mathcal O(-2),\mathcal O(-1),\mathcal B_1\rangle
+\]
+と graded singularity category の同値を与える。
+窓の隣接する切断を、次数一つの自由 summand の除去 triangle で比較すると、
+内部 shift $(-1)$ は上の $R_{\mathcal O(-1)}\circ(-1)$ に移る。
+この比較は section の truncation と実際の evaluation/coevaluation で構成される。
+有限 mutation は perfect 対象を保つので、相対 perfect 残余圏にも制限できる。
+中央商 $S/(F)$ の実際の自己交叉二拡張、または $D^2=+F$ の MF 表示により
+$(-3)\simeq[-2]$ である。
+同じ $F$ を用いる窓比較により
+$\sigma^3\simeq[-2]$ とその指定周期が $R$ 上で得られる。
+従って $q=-3$ の Hom 複体は $R\operatorname{Hom}(Q,Q)[-2]$ であり、
+周期 class は $\operatorname{id}_Q$ に対応する。
+$\operatorname{End}(Q)=R$ なのでこの class は primitive な生成元である。
+これで全ての行を得る。共通の $[1]$ は二つの Hom の引数で相殺する。
+\end{proof}
+
+\begin{lemma}[点線束の線型表示からの明示的な三次 MF]
+\label{lem:nfm-boundary-line-mf}
+上の integral 方程式を $F\in S=R[X,Y,Z,u_1,\ldots,u_r]_3$、
+$H=F|_{u=0}$ とする。
+点線束の相対線型表示を $L$ とし、
+$\det L=cH$、$c\in R^\times$ と書く。
+$Q=c^{-1}\operatorname{adj}L$ と置けば $LQ=QL=H I_3$ である。
+$F-H=\sum_{a=1}^r u_aG_a$、$G_a\in S_2$ と分解する。
+このとき
+\[
+ (L,Q)\mathbin{\widehat\otimes}
+       \widehat{\bigotimes}_{a=1}^r(u_a,G_a)
+\]
+は、各 parity の階数が $3\cdot2^r$ の integral graded MF of $F$ を与える。
+これは $i_*\mathcal M(1)$ の graded module の stabilization であり、
+source 非可換代数との Morita 比較ではない。
+また、この raw MF を無指定の window で $q_Y^RM[1]$ と同一視しない。
+後者の対象は命題\ref{prop:nfm-boundary-right-projection}の右射影と最後の $[1]$ で固定する。
+\end{lemma}
+
+\begin{proof}
+$N_0=\operatorname{coker}(L:R[X,Y,Z](-1)^3\to R[X,Y,Z]^3)$ とする。
+$H$ が正則なので $L$ は単射である。
+$u_a$ を零として作用させた $S$-加群 $N$ は、
+\[
+ P_\bullet=[S(-1)^3\xrightarrow{L}S^3]
+                  \otimes_S K_\bullet(u_1,\ldots,u_r)
+\]
+を有限自由分解に持つ。従って
+$P_i=S(-i)^{3\binom{r+1}{i}}$ である。
+その微分を $d$ と書く。
+二項分解上で $Q$ を逆向きに作用させる写像を $h_H$ とし、
+Koszul 外積作用を $\varepsilon_a$ と書く。
+tensor の符号規約で
+\[
+ h=h_H+\sum_aG_a\varepsilon_a
+\]
+と置けば、各項は homological degree $+1$、internal degree $3$ を持ち、
+\[
+ d^2=h^2=0,\qquad dh+hd=F\operatorname{id}.
+\]
+$h^2=0$ は各項が互いに反交換し、それぞれの二乗が零であることによる。
+
+明示的に偶奇へ折り畳むには
+\[
+ E_0=\bigoplus_{i\text{ even}}P_i(3i/2),\qquad
+ E_1=\bigoplus_{i\text{ odd}}P_i(3(i-1)/2)
+\]
+とし、$d+h$ を
+$D_1:E_1\to E_0$、$D_0:E_0(-3)\to E_1$ と読む。
+上の内部 shift により両射は次数零であり、
+$D_1D_0=F\operatorname{id}$、$D_0(3)D_1=F\operatorname{id}$ である。
+偶数・奇数二項係数の和はそれぞれ $2^r$ なので階数の式を得る。
+
+この明示 homotopy は Eisenbud の既知の Shamash 構成
+\cite[Theorem~7.2, pp.~56--57]{NFMEisenbudCI}の仮定を満たす。
+その自由分解の項は
+\[
+ \bigoplus_{j\ge0}P_{i-2j}\otimes_S(S/(F))(-3j)
+\]
+であり、十分高い次数の周期部分は、上の折畳みの同じ内部 shift を持つ。
+従って graded singularity category でこの MF は $N$ の像を表す。
+式 $D^2=+F$ が指定方程式に対する周期を固定しており、
+方程式の unit を無言で掛け替えてはいない。
+この周期は target 側で構成したもので、source 周期との比較 scalar は未計算である。
+\end{proof}
+
+\begin{lemma}[低 Hom の integral transfer を有限行列で検査する条件]
+\label{lem:nfm-boundary-hom-flatness-test}
+$C^\bullet$ を DVR $R$ 上の有界有限自由複体、$k$ を剰余体とする。
+$b_i=\dim_KH^i(C_K)$ とし、$H^i(C)$ の非零巡回 torsion 直和因子の個数を $t_i$ とすると
+\[
+ \dim_kH^i(C\otimes_Rk)=b_i+t_i+t_{i+1}.
+\]
+従って全 $i$ で両 fibre の cohomology 次元が一致することは、
+全 $H^i(C)$ が自由で底変更と可換になることに同値である。
+このとき $C$ はその cohomology への $R$-線型 contraction を持つ。
+有限個の orbit Hom 複体にこの条件を確認すれば、
+それらの合成から必要な arity 二・三の homotopy transfer を $R$ 上で行える。
+この判定に加えて三次 relation の原始性と表示比較の延長を確認しなければ、
+周期位相の非分岐性は結論できない。
+\end{lemma}
+
+\begin{proof}
+普遍係数の短完全列
+\[
+ 0\to H^i(C)\otimes_Rk\to H^i(C\otimes_Rk)
+    \to\operatorname{Tor}_1^R(H^{i+1}(C),k)\to0
+\]
+と DVR 上の有限生成加群の構造定理から次元式を得る。
+全ての $t_i$ は非負なので次元の一致は torsion の消滅を意味する。
+cohomology が自由なら、cycles と boundaries の二つの短完全列は
+DVR 上の自由加群間の列として分裂する。
+これらの分裂は cohomology の代表の包含、射影と contraction を与える。
+積をこの contraction へ移す通常の有限 tree 式で $m_2,m_3$ を得る。
+分母を導入しないのは、初めに $R$ 上の分裂を得たためである。
+\end{proof}
+
+\begin{corollary}[三次元境界の二次・三次積を integral に取れる]
+\label{cor:nfm-boundary-threefold-integral-low-products}
+$n=3$ の上の模型では、単一の enhanced orbit 模型から、
+Adams 次数を保つ $R$ 上の strictly unital minimal $A_\infty$ 模型を選べる。
+周期評価に必要な自由加群の階数は
+\[
+ (S_R^{1,-1})^*\simeq R^5,\qquad
+ (S_R^{2,-2})^*\simeq R^{10},\qquad
+ S_R^{2,-3}=Rt_p
+\]
+であり、$m_2,m_3$ を $R$ 上で取れる。
+従って次に必要なデータは有限な二写像
+\[
+ m_2^*:R^{10}\longrightarrow (R^5)^{\otimes2},\qquad
+ m_3^*(t_p^*)\in (R^5)^{\otimes3},\qquad t_p^*(t_p)=1
+\]
+となる。minimal 模型の正準性は主張しない。
+$m_2^*$ の像が二次関係の部分束を定めるための一定階数条件、
+および二次関係で割った三次 class の原始性は別に検査する必要がある。
+\end{corollary}
+\begin{proof}
+命題\ref{prop:nfm-boundary-threefold-low-hom}と実際の MF 周期により、
+全ての orbit 次数の Hom cohomology が $R$-自由である。
+相対窓は graded section の切断、双対、評価の cone から構成されるので、
+ここでの有限対象と射には同じ dg 模型を用いられる。
+単に三角圏としての同値から積の適合を推測するのではない。
+$Z$ の有限 graded MF 模型を一つ取り、その実際の Adams graded Hom 複体を使う。
+各 homological/internal 次数の成分は有限自由 $R$-加群であり、合成は同じ模型上にある。
+DVR 上で自由加群の部分加群は自由であり、cohomology も自由なので、
+cycles と boundaries の短完全列を各 Adams 次数で分裂できる。
+単位を代表として固定し、その直和補空間側で分裂を選べば、
+strict unit を保つ contraction を得る。
+三つの周期剰余について選んだ contraction を、同じ MF の厳密な周期で反復する。
+この一つの模型への homotopy transfer の有限 tree 式が
+$R$ 上の積を与え、内部次数も保つ。
+$t_p$ は identity に対応する生成元として固定できる。
+低次数の階数は前命題の表から従う。
+これは積の integral な存在を示すもので、表示した二写像の値を評価した証明ではない。
+\end{proof}
+
+\begin{corollary}[三分点被覆では境界位相の三候補を区別できない]
+\label{cor:nfm-hesse-boundary-period-candidates-blind}
+この trait 上の $D$ の引戻しを $D_R=D(r(p,2+z))$ と書くと、
+\[
+ [D_R]=\left[\frac{p^3+8}{2z}\right]^{-1},
+ \qquad L=K(\sqrt[3]{D_R}).
+\]
+従って $K^\times/K^{\times3}\to L^\times/L^{\times3}$ の核は
+$\langle[D_R]\rangle$ であり、条件付き候補 $1,[D_R],[D_R]^2$ はすべて同じ自明類へ移る。
+\end{corollary}
+\begin{proof}
+補題\ref{lem:nfm-period-hesse-eight-boundary-lines}の一次係数から
+\[
+ D_R\frac{p^3+8}{2z}
+    =-\frac{(p^3+8)^3}{54}\bigl(1+O(z)\bigr)
+\]
+であり、右辺は $K$ の三乗である。これが二つの表示を与える。
+巡回三次拡大で三乗根を持つ $b\in K^\times$ に対し、
+その根の Galois character は三つの character の一つである。
+$\sqrt[3]{D_R}$ の適当な冪で割ると根は $K$ に属するから、
+$[b]\in\langle[D_R]\rangle$ である。
+\end{proof}
+
+\begin{remark}[得られた積分対象と残る周期比較]
+点線束の明示行列、選択した残余 trait 模型と実際の右射影対象は、
+元の $R$ 上で構成できた。三次元では低 orbit Hom の平坦性と
+target の指定周期の primitive 性も確保した。
+これらは三分点被覆を経由しないため、元の $D$-付値を保持する。
+一方、比較核の逆 Morita bimodule、unit/counit、source と target の
+三重周期図式が $R$ 上へ延びたとは主張しない。
+$m_2,m_3$ の具体値、回復した二次関係束の一定階数と三次関係の原始性、
+source 表示への射影同型の境界での挙動を引き続き調べる必要がある。
+特に target の周期 class $t_p$ が primitive であることと、
+$m_3^*(t_p^*)$ の二次関係による剰余が primitive であることは異なる。
+三分点被覆上で周期に適合する full 比較を構成できたとしても、
+前系により、その計算だけでは元の位相の三候補を区別できない。
+周期類 $\overline\gamma_n$ の $D$-付値、$\Delta D$ 外の非分岐性、
+具体値と次元間の一致は未決定である。
+\end{remark}
+
+この有限な模型は、三次元における二次・三次積の計算を次の着手点とする。
+点線束の模型とその直像の Ext 平坦性は全 $n\ge3$ に適用されるが、
+射影後の低 orbit Hom の表を証明したのは $n=3$ である。
+全 full class に共通な位相と標識付き最小次数への適用は、
+既存の $n=3,4$ の全 class 共通性の範囲に留める。

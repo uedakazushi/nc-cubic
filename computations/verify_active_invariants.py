@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact active-invariant and period-boundary identities, v23 (2026-11-20).
+"""Exact active-invariant and period-boundary identities, v24 (2026-11-21).
 
 Run from the repository root:
     python computations/verify_active_invariants.py
@@ -12,8 +12,9 @@ The rational polynomial identities below are checked coefficient by
 coefficient, without numerical specialization. They certify the formulas
 used in the manuscript's degree-nine invariant map. Geometric generic
 integrality, opposite invariance, and degree 18e_n use the written proofs.
-The boundary checks include the local third-division Kummer coordinates and
-a determinantal model for O(P-O)(1). They do not calculate the full period
+The boundary checks include the local third-division Kummer coordinates,
+the special-fibre line matrix, and its explicit rational relative lift.
+They do not calculate the full period
 phase, prove integral Ext flatness, or prove extension of a comparison kernel.
 """
 
@@ -166,6 +167,103 @@ def main():
     assert sy.subs(nodes[0]) == sz.subs(nodes[0])
     assert sx.subs(nodes[1]) == sz.subs(nodes[1])
     print("PASS: boundary line resolution, node ranks and gluing of the three sections")
+
+    # A direct relative lift avoids solving formal deformation equations.
+    # Verify its determinant first with independent Weierstrass coefficients,
+    # then check the short rational coordinate identities.  Expanding the
+    # determinant after substituting all Hesse coefficients is unnecessary.
+    fx, fy, fw, pu, pv, wa0, wa2, wa4, wa6 = sp.symbols(
+        "fx fy fw pu pv wa0 wa2 wa4 wa6")
+    normal_matrix = sp.Matrix([
+        [fx-pu*fw, fy-pv*fw, 0],
+        [0, wa0*fx+(wa0*pu+wa2)*fw, fw],
+        [fy+pv*fw, (wa0*pu**2+wa2*pu+wa4)*fw, -fx],
+    ])
+    normal_cubic = fy**2*fw-wa0*fx**3-wa2*fx**2*fw-wa4*fx*fw**2-wa6*fw**3
+    point_relation = wa0*pu**3+wa2*pu**2+wa4*pu+wa6-pv**2
+    zero_polynomial(normal_matrix.det()-normal_cubic-point_relation*fw**3,
+                    (fx, fy, fw, pu, pv, wa0, wa2, wa4, wa6))
+    # The transpose before dualizing is the matrix of the line at -P.
+    # Its left-kernel row consists of the slope at -P, -1, and a linear
+    # function of the affine x-coordinate; this fixes the sign of P.
+    affine_matrix = normal_matrix.T.subs(fw, 1)
+    line_sections = sp.Matrix([[(fy-pv)/(fx-pu), -1,
+                               wa0*(fx+pu)+wa2]])
+    section_relations = line_sections*affine_matrix
+    for entry in section_relations[:, :2]:
+        assert sp.cancel(entry) == 0
+    assert sp.cancel((fx-pu)*section_relations[0, 2]
+                     -(fy**2-wa0*fx**3-wa2*fx**2-wa4*fx-wa6)
+                     -point_relation) == 0
+
+    aa_lift, bb_lift = p_new, q_new
+    cc_lift = p*(p**3+q**3)/3
+    b0 = (p**3+8)/3
+    lift_parameters = {
+        wa0: -4*aa_lift*(aa_lift**3+bb_lift**3)/(3*bb_lift**3),
+        wa2: 1+4*aa_lift**3/bb_lift**3,
+        wa4: -4*aa_lift**2/bb_lift**3,
+        wa6: 4*aa_lift/(3*bb_lift**3),
+        pu: -q/cc_lift, pv: 2/cc_lift,
+    }
+    lift_coordinates = {fx: x+y, fy: x-y,
+                        fw: aa_lift*(x+y)-bb_lift*z}
+    assert sp.cancel(point_relation.subs(lift_parameters, simultaneous=True)) == 0
+    assert sp.cancel(normal_cubic.subs(lift_parameters, simultaneous=True)
+                     .subs(lift_coordinates, simultaneous=True)-4*point_cubic) == 0
+    # All denominators in these parameters and coordinate changes are units
+    # at q=2.  The following matrices are constant over the trait.
+    for denominator_unit in (p, bb_lift, cc_lift, b0):
+        assert sp.factor(denominator_unit.subs(q, 2)) != 0
+    uu_lift = sp.Matrix([[4, -2, -2*p], [-4*b0*p, 0, 0], [4, -2, 2*p]])
+    vv_lift = sp.Matrix([[0, -p, -1], [2*p, p, -1], [2*p, -p, 1]])
+    zero_polynomial(uu_lift.det()+32*b0*p**2, (p,))
+    zero_polynomial(vv_lift.det()-8*p**2, (p,))
+    special_parameters = {variable: sp.cancel(value.subs(q, 2))
+                          for variable, value in lift_parameters.items()}
+    special_coordinates = {variable: value.subs(q, 2)
+                           for variable, value in lift_coordinates.items()}
+    special_matrix = normal_matrix.subs(special_parameters, simultaneous=True)\
+        .subs(special_coordinates, simultaneous=True)
+    for entry in special_matrix*vv_lift-uu_lift*line_matrix:
+        assert sp.cancel(entry) == 0
+    assert sp.cancel(4*vv_lift.det()/uu_lift.det()+1/b0) == 0
+    print("PASS: explicit relative line matrix, point orientation and determinant normalization")
+
+    # The adjugate entries span every quadratic form at the boundary.
+    # Row-major order of its six nonzero entries fixes the determinant sign.
+    boundary_adjugate = line_matrix.adjugate()
+    quadratic_monomials = (x**2, x*y, x*z, y**2, y*z, z**2)
+    adjugate_entries = [entry for entry in boundary_adjugate if entry != 0]
+    assert len(adjugate_entries) == 6
+    quadratic_pairing = sp.Matrix([
+        [sp.Poly(entry, x, y, z).coeff_monomial(monomial)
+         for monomial in quadratic_monomials]
+        for entry in adjugate_entries
+    ])
+    zero_polynomial(quadratic_pairing.det()-2*p, (p,))
+
+    # Tensor the active MF with two elementary center factorizations.
+    # The symbols g1_mf,g2_mf are arbitrary commuting coefficients, so this
+    # checks the identity for any quadratic center complements by substitution.
+    u1_mf, u2_mf, g1_mf, g2_mf = sp.symbols("u1_mf u2_mf g1_mf g2_mf")
+    differential_mf = sp.zeros(6)
+    differential_mf[:3, 3:] = line_matrix
+    differential_mf[3:, :3] = -b0*boundary_adjugate
+    parity_mf = sp.diag(1, 1, 1, -1, -1, -1)
+    elementary_parity = sp.diag(1, -1)
+    for center_variable, center_complement in ((u1_mf, g1_mf), (u2_mf, g2_mf)):
+        elementary_mf = sp.Matrix([[0, center_variable], [center_complement, 0]])
+        differential_mf = (sp.kronecker_product(differential_mf, sp.eye(2))
+                           + sp.kronecker_product(parity_mf, elementary_mf))
+        parity_mf = sp.kronecker_product(parity_mf, elementary_parity)
+    assert sum(parity_mf[i, i] == 1 for i in range(24)) == 12
+    assert sum(parity_mf[i, i] == -1 for i in range(24)) == 12
+    full_curvature = b0*x*y*z+u1_mf*g1_mf+u2_mf*g2_mf
+    tensor_defect = differential_mf**2-full_curvature*sp.eye(24)
+    for entry in tensor_defect:
+        zero_polynomial(entry, (p, x, y, z, u1_mf, u2_mf, g1_mf, g2_mf))
+    print("PASS: rank-six adjugate pairing and rank-12 two-center tensor MF curvature")
 
     # The exact Fermat specialization fixes the sign convention c6=-T.
     assert (s.subs({p: 1, q: 0}), t.subs({p: 1, q: 0})) == (0, -8)

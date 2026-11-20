@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：研究方針
 
-2026年11月20日 / v23。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+2026年11月21日 / v24。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
 
 ## 基本目標と優先順位
 
@@ -76,6 +76,8 @@ O-marked の基本対象は Abel 圏と構造対象の対 (C,O) であり、射�
 
 **q=2 境界の三分点被覆は、完全分岐三次体の三つのコピーへ分かれる。** z=q−2、K=C(p,m)((z)) とすると点曲線は split I₃ 模型で、P−O の線束の multidegree は (1,0,−1)。接線比の規格化から三分点被覆は3 Spec L、L=K(∛(2z/(p³+8)))=K(∛D) と明示でき、慣性型は3³となる。一方、実線束 O(P−O) とその三行三列線型表示は R=C(p,m)[[z]] 上へ延びる。従って三分点の分岐を full 周期位相の分岐と同一視しない。この三次体では候補1,[D],[D]²が全て消えるため、三分点上の計算だけでは D の指数を判別できない。証明は `prop:nfm-hesse-boundary-third-division`、`lem:nfm-hesse-boundary-determinantal-line`。
 
+**q=2 の点線束・残余対象を有限模型にし、三次元の低 Hom を平坦にした。** 点線束の三行三列行列 L を完備化前の代数的 trait 上の有理式で構成した。φ_sc と中心座標の極消去を用い、指定方程式・target 周期を保つ integral 残余模型を選び、全 n≥3 で線束を移送して右射影 q_Y^RM[1] を構成する。特殊 fibre の滑らかさや模型の正準性は主張しない。n=3 では内部次数0,−1,−2,−3の全 Hom が自由で底変更と可換となり、S_p^{1,−1},S_p^{2,−2},S_p^{2,−3} の階数は5,10,1、target 周期 t_p は primitive な生成元である。残るのは実際の m₂・m₃、二次関係束の階数、Ω_p の原始性と source 側の格子・表示同型であり、位相の値は未計算。証明は [境界の節](papers/sections/residual_boundary.tex) の `lem:nfm-hesse-boundary-explicit-line`、`prop:nfm-hesse-boundary-integral-residual-model`、`prop:nfm-boundary-right-projection`、`prop:nfm-boundary-threefold-low-hom`。
+
 周期 torsor の成分体 M は次数一または三で、指定周期付き比較の最小次数は全 class に共通に [M:k_n]ind(α|_M)∈{3,9} となる。target の生成元を適切な k_n-単元倍に選び直した適合規格化では最小次数は三である。target だけに独立変数 t による尺度を付けた k_n(t) 上の一般族では、周期成分体が k_n 上の純超越体となり scalar index 三を保つため、任意の有限実現体の次数は九の倍数であり、最小次数は正確に九となる。この独立尺度を元の一ブロック係数や formality のパラメータと同一視しない。scalar G_m-gerbe、標準三分点 torsor、相対周期の μ₃-torsor は別の構成であり、裸の O-marked 対は任意の相対周期規格化を標識しない。
 
 **一般高次元の class と T-軌道には同じ Galois 安定化群がある。** rotation を保つ幾何的 full 自己同値類の群を G_ρ、対応する比較 class の torsor を C_ρ とする。元の体上の実核 T=ρ_Y⁻¹[1] は G_ρ の中心にあり、⟨T⟩≅Z である。各 class とその T-軌道の Galois 安定化群は一致するので、class 選択は C_ρ/⟨T⟩ の有理点、すなわち G_ρ/⟨T⟩ に値を持つ非可換 H¹ 障害の中立性へ正確に帰着する。点型を含む固定軌道が一つあれば、その点型 class 自体が降下する。T が点型を保つことはこの議論の前提ではない。
@@ -149,7 +151,7 @@ Clifford 半 rotation はさらに、関手として O_Cl A≃Aρ⁻¹[1] と同
 
 全次元の Tate–Koszul 忠実性、五次元半 rotation の関手同定、非分裂 rotation の算術と Hesse 位相判定は本文に証明を記し、内部独立点検を済ませた。新規性の網羅的確認は未完了である。
 
-有限検算 `computations/verify_picard_obstruction.py` の保存済み実行記録は、接線・norm・点三次・係数逆・数値 centralizer・twist の九項と、普遍 Jacobian 上の三捩れ点、八点軌道と C₃ 安定化群、その core の自明性、右点対応の四項の計13項全て PASS である。次数2835の `computations/verify_fivefold_plane_degree.py` の保存済み検算も保持する。本版では `computations/verify_active_invariants.py` を更新・実行し、境界の成分群・接線規格化・三分点 Kummer 座標・線型行列を含む十三群の PASS を確認した。他の十五件は基準版との同一性を照合し、再実行していない。これらの有限恒等式と、本文の連結性・降下・Brauer 類・圏同値の証明は区別する。現在の組版・表示点検の実施状態は `notes/validation.md` を参照する。
+有限検算 `computations/verify_picard_obstruction.py` の保存済み実行記録は、接線・norm・点三次・係数逆・数値 centralizer・twist の九項と、普遍 Jacobian 上の三捩れ点、八点軌道と C₃ 安定化群、その core の自明性、右点対応の四項の計13項全て PASS である。次数2835の `computations/verify_fivefold_plane_degree.py` の保存済み検算も保持する。本版では `computations/verify_active_invariants.py` を更新・実行し、境界の成分群・Kummer 座標・明示相対行列・余因子 pairing と tensor MF の曲率恒等式を含む十五群の PASS を確認した。他の十五計算資産は基準版 `586eb26` との同一性を照合し、再実行していない。これらの有限恒等式と、本文の連結性・降下・Brauer 類・圏同値の証明は区別する。現在の組版・表示点検の実施状態は `notes/validation.md` を参照する。
 
 補正の主証明は `thm:nfm-algebraic-hessian-correction`, `thm:nfm-correction-degree-nine`, `cor:nfm-mixed-even-jet`, `prop:nfm-active-fifth-covariant`, `cor:nfm-fifth-restriction-obstruction`, `prop:nfm-mixed-fifth-reduction`, `prop:nfm-correction-point-cubic`, `cor:nfm-corrected-residual-jet`, `thm:nfm-residual-formal-poisson`, `cor:nfm-formal-center-casimir`, `thm:nfm-split-corrected-residual`。四次補正の証明は `papers/sections/fourth_correction.tex` の `prop:nfm-mixed-fifth-explicit`、`lem:nfm-fourth-center-locality`、`thm:nfm-mixed-fourth-potential`、`cor:nfm-fourth-jacobi-class`、`prop:nfm-fourth-uniform-witness`、`cor:nfm-corrected-fourth-obstruction`、`thm:nfm-fourth-algebraic-correction`。既存の主証明は `thm:nfm-local-moduli`, `thm:point-trace-hessian`, `thm:poisson-strong-lift`, `thm:poisson-good-open-isomorphism`, `cor:poisson-generic-open-immersion`, `thm:nfm-th-residual-obstruction`, `cor:nfm-casimir-selection-obstruction`, `prop:nfm-relative-residual-second-jet`, `cor:nfm-generic-marked-comparison-obstruction`。相対点復元は `thm:relative-point-nfold`, `thm:point-omarked-descent`, `thm:point-central-recovery`、残余形式認識は `thm:nf-residual-formal`。
 
@@ -159,9 +161,9 @@ Clifford 半 rotation はさらに、関手として O_Cl A≃Aρ⁻¹[1] と同
 
 ### 1. 規格化周期位相を有限低積と Hesse 境界から計算する
 
-最優先。全 n の強化点型 class 選択は解決し、今回 γ_sc,n=[f(Ω_p)/Ω] を二次・三次積から評価する式を得た。γ̄_n∈C(s,t)*/cubes の具体値、次元間の一致、その位相体上の scalar index による標識付き最小次数三／九は未決定である。半古典条件下での Hesse 制限の忠実性を使い、まず一般混合係数を保持した最小次元 n=3 の有限計算を作り、その構造を全次元へ戻す。
+最優先。全 n の強化点型 class 選択と、γ_sc,n=[f(Ω_p)/Ω] の有限評価式を保持する。q=2 の integral 残余模型・右射影と n=3 の低 Hom の平坦性を得たので、次は実際の積と source 側の格子比較に進む。γ̄_n∈C(s,t)*/cubes の具体値、次元間の一致、その位相体上の scalar index による標識付き最小次数三／九は未決定である。半古典条件下での Hesse 制限の忠実性を使い、三次元の計算の構造を全次元へ戻す。
 
-具体的には q=2+z の trait 上に延びる点曲線 E_pt 上の M=O(P−O) の三行三列線型表示を出発点とする。残余三次 Y_res と C_res の trait 模型、φ_sc の延長と M の移送を確認した上で、q_Y^R M[1] と rotation の有限 perfect 模型を作る。内部次数 −1,−2,−3 の Hom、m₂、m₃、指定周期 t_p を求め、二次関係束の一定階数と Ω_p の原始性を検査する。境界の行列 L₀ とその相対持上げは `lem:nfm-hesse-boundary-determinantal-line`、評価式は `prop:nfm-period-phase-low-products` にある。曲線上の行列表示が延びることだけで full 低 Ext の平坦性を推論しない。
+具体的には [境界の節](papers/sections/residual_boundary.tex) の明示有理行列 L、指定方程式を保つ残余模型、n=3 の一つの right-mutation cone を用いる。内部次数−1,−2,−3の自由 Hom の合成と contraction から m₂・m₃ を計算し、二次関係束の一定階数と Ω_p の原始性を検査する。target 周期 t_p の原始性は証明済みだが、Ω_p の原始性とは別である。source 側の integral 格子、回復表示との射影同型の延長も確認する。中心座標の極消去を強く取って F₀∝XYZ とすれば MF は active 行列と (u_i,0) の tensor に分かれるが、この簡約で right window を通した積を計算できることは未証明である。
 
 D はこの trait で一次に消える。三分点被覆の各成分は K(∛D) となり、そこで D の mod-three 付値の情報が消えるため、その被覆を経由するだけでは元の位相を決められない。元の trait、または三に素な分岐指数の底変更上で指定周期を保持する必要がある。active の Zhang twist と中心元の比 −2 だけでも full 比較は得られない。
 

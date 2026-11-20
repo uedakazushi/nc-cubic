@@ -48,7 +48,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v23}
+\date{2026年11月21日・研究稿 v24}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -87,7 +87,9 @@ period と index が三となることを示す。
 標準三分点被覆は連結な九次体で、Galois 閉包群は位数216の
 $\operatorname{ASL}_2(\mathbf F_3)$ となる。
 Hesse 境界ではその慣性型 $3^3$ と局所三次体を明示し、
-点線束の相対的な三行三列線型表示も構成する。
+点線束の三行三列線型表示を有理式で構成し、元の trait 上の残余対象へ移す。
+三次元では低 orbit Hom の平坦性と指定 target 周期の原始性を証明し、
+二次・三次積を integral に取れることを示す。
 
 trace--Hessian 三次と残余三次の不一致、Hessian・混合四次補正も与える。
 Jacobi スキームは $3\le n\le7$ の一般三次で Grassmann 錐に一致し、
@@ -377,10 +379,20 @@ source の自己交叉周期の符号を同じ式で保持する点が、この�
 Silverman\cite[Chapter~XI, Proposition~9.2]{NFMSilvermanArithmetic}の
 既知の Kummer 評価公式へ規格化した接線比を代入し、
 三分点被覆が三つの同じ完全分岐三次体に分かれることを計算する。
-一方、点線束 $\mathcal O(P-O)$ とその三行三列線型表示は境界へ延びる。
-この計算は、三分点の選択に伴う分岐と、full 比較の指定周期の分岐を区別し、
-後者を低次積から調べるための有限な入力を与える。
-楕円曲線の Kummer 理論や $I_3$ 成分群そのものを新規成果とはしない。
+一方、点線束 $\mathcal O(P-O)$ の三行三列線型表示を、完備化前の trait 上の
+有理式として構成する。点尺度を保つ中心座標の変更で、実際の一般残余三次の
+平坦な模型を取り、その上の右射影対象を有限 mutation で構成する。
+選択した模型の特殊 fibre は特異でもよい。
+三次元では、特殊線型行列の adjugate の六成分が全二次式を張ることを用い、
+射影後の自己 Ext の階数 $(1,10)$ と、負の三回の rotation までの全低 Hom の
+平坦性を証明する。Burke--Stevenson\cite[Theorem~6.4(1)]{NFMBurkeStevenson}の
+既知の相対窓は特異な射影 fibre にも適用され、同じ方程式の MF 周期を保つ。
+従って指定 target 周期は primitive で、必要な $m_2,m_3$ を integral に取れる。
+ただし、回復した三次関係の原始性と source 周期との尺度比は未計算である。
+Eisenbud\cite[Theorem~7.2]{NFMEisenbudCI}の既知の構成による有限 MF も明示するが、
+その raw 表示を右射影対象へ無指定に同一視しない。
+楕円 Kummer 理論、$I_3$ 成分群、相対 Orlov 窓や Shamash 構成そのものを新規成果とせず、
+この特定の点線束の integral 行列と残余低 Hom への適用を区別する。
 
 五次元の安定性条件には Peize Liu\cite[Theorem~1.1, Remark~5.6]{NFMPeizeLiuFivefold}の
 Serre 不変な条件の構成があるが、同論文はその軌道の一意性を仮定していない。
@@ -1419,7 +1431,9 @@ $n=3,4$ では全 full 同型類が降下し、周期の追加標識を忘れた
 代数的核の coherent な中心線型性、一般高次元の任意 full class と非分裂の他軌道、
 および各 intrinsic 成分を覆う表示である。
 半古典条件を持つ位相には Hesse 制限が忠実であり、
-追加境界の一般点 $q=2$ を具体的な付値計算の入口にできる。
+追加境界の一般点 $q=2$ では、元の trait 上の残余対象を構成し、
+三次元の低 Hom の平坦性と target 周期を確保した。次は $m_2,m_3$ の実値、
+二次関係束と回復中心三次の原始性、および source 表示への比較を計算する。
 固定 frame の tensor の very general な超越性を踏まえ、
 形式座標の代数性と内在的なモジュライの代数性は区別して進める。
 boundary や全 Abel 形式近傍の記述は、この一般次元の構成に必要な障害を解消する

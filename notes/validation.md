@@ -1,12 +1,15 @@
 # 非可換三次 n-fold：現行稿の検証範囲
 
-2026年11月20日 / v23。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
+2026年11月21日 / v24。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
 
-本版では、周期位相の有限評価式、integral 表示による非分岐の十分条件、Hesse 境界の三分点・点線束の証明を執筆担当以外も独立して読解点検した。統合担当も主証明を読み、接線・Kummer・行列の係数恒等式を厳密計算した。外部査読、Lean 等による形式検証、固定入力全体の独立再証明、新規性の網羅的確認は行っていない。
+本版では、Hesse 境界の明示線型行列、指定周期を保つ残余の積分模型、相対右射影、三次元の低 orbit Hom と integral な低積の構成を、執筆担当以外も独立に読解点検した。統合担当も余因子の乗法写像、mutation の順序、相対 Serre 式、同じ MF 方程式による周期の規格化を確認した。外部査読、Lean 等による形式検証、固定入力全体の独立再証明、新規性の網羅的確認は行っていない。
 
-- **有限低積による指定周期の評価。** Picard gerbe 上の Z_p=q_Y^R M[1] の orbit 全構造の重み零降下、t_p の指定、通常 Ext の切出し、m₃ の gauge 差が二次関係 ideal に入ること、source の自己交叉規約の符号を点検した。orbit 比較 t_Ω↦c⁻¹t_p と反変 Koszul 双対により γ_sc,n=[f(Ω_p)/Ω] が既存の位相と一致する。実際の K-核・K-線束の選択は不要。値そのものは未計算。証明は `lem:nfm-tate-cubic-relation-normalization`、`prop:nfm-period-phase-low-products`。
-- **DVR 上の条件付き非分岐判定。** 閉 fibre を含む良い integral 表示、primitive な中心三次、K 上の射影 Isom を明示仮定する。有限 Isom の有理切断を正規性で延ばし、有限自由加群間の射影同型を GL/PGL 完全列と Pic(R)=0 で持ち上げる証明を確認した。幾何的 Isom だけで K-切断を得たとしない。低 Ext の自由性・m₃ の integral 模型・原始性などは未確認。現行 T の小位数除外が ΔD 外にもあることを実際の定義で点検した。証明は `lem:nfm-period-integral-presentation-unramified`。
-- **Hesse 境界の局所三分点と線型表示。** 正則 split I₃、交点行列、multidegree (1,0,−1)、接線の先頭係数一規格化と Silverman XI.9.2 の向きを独立に確認した。Kummer 座標から同じ完全分岐三次体の三コピーと慣性3³が従う。L₀ の行列式・階数・切断の貼合せ、点線束の相対三行三列表示への lift を確認した。[D] がこの三次体で消えるため三候補を区別できないことも点検した。これらは E_pt 上の結果であり、残余 trait 模型・φ_sc の延長・full Hom・指定周期の計算は未実施。証明は `prop:nfm-hesse-boundary-third-division`、`lem:nfm-hesse-boundary-determinantal-line`、`cor:nfm-hesse-boundary-period-candidates-blind`。
+- **明示線型行列。** 完備化前の DVR 上で L=U⁻¹NV、L mod(q−2)=L₀、det L=−F_E/b を構成した。generic cokernel の点の符号を slope section と転置双対で同定し、特殊 multidegree と垂直交点格子によって自然な延長 M(1) であることを点検した。係数・determinant・点の曲線方程式は Q(p,q) 上の厳密恒等式で検算した。`lem:nfm-hesse-boundary-explicit-line`。
+- **実際の残余対象と有限 MF。** 点尺度で active 制限を厳密に F_E とした後、中心座標だけの z の整数冪による変更で極を除く。追加の方程式 scalar や分岐拡大を入れず、選択した flat 模型へ φ_sc と M を移した。特殊 fibre は滑らかとは限らない。r 本の正則列と相対 Gorenstein 双対性から i_*M と有限 right mutation の対象を作り、generic fibre が既存の q_Y^R M[1] となることを確認した。生の rank 3·2^r MF は M(1) の stabilization であり、無指定の window で右射影対象と同一視しない。`prop:nfm-hesse-boundary-integral-residual-model`、`prop:nfm-boundary-right-projection`、`lem:nfm-boundary-line-mf`。
+- **三次元の低 orbit Hom。** 射影前の相対 Ext の平坦性は全 n に成立する。n=3 では adj(L₀) の六成分の係数小行列式が 2p であることから、H⁰M(1)⊗H⁰M⁻¹(1)→H⁰O_C(2) の全射性を得た。射影後の自己 Ext は階数 (1,10)、q=−1 は (5,5)、q=−2 は (10,1)、q=−3 は (1,10) で、本文に記した cohomological 次数にある。逆 rotation、一つの coevaluation、相対 Serre、Burke–Stevenson の特異 fibre を許す窓と同じ F の MF 周期をそれぞれ確認した。対象と Hom の底変更を、任意の singularity category の無条件な底変更とは区別した。`prop:nfm-boundary-threefold-low-hom`。
+- **積分低積と限界。** 一つの enhanced graded MF 模型上で周期と単位を保つ contraction を選び、m₂,m₃ を R 上で取れる。個々の Hom を無関係に有限自由複体へ置換して積を推測していない。target 周期 t_p は primitive だが、m₃ から回復する Ω_p の原始性は別である。二次関係写像の一定階数・回復代数の平坦性・source 表示への比較・位相の値は未計算。n≥4 の射影後の同様の表も未証明。`cor:nfm-boundary-threefold-integral-low-products`。
+
+既存の有限低積評価、条件付き非分岐判定、I₃ の Kummer 計算は保持し、今回の適用箇所を読解した。γ=[f(Ω_p)/Ω] の値を得たとはしない。良い integral 表示による判定は閉 fibre の good 条件を要し、q=2 はその既存開の外である。三分点被覆が D の三候補を全て消すことも保持する。
 
 以下の四点は、現行稿に保持している既存の内部独立点検である。本版で全証明を一括再検証したという意味ではない。
 
@@ -27,7 +30,7 @@
 
 既存の周期位相の class 不変性、生成元の source u 倍・target v 倍による γ′=[v/u]γ、適合規格化の最小次数三、target の独立尺度を加えた一般族の最小次数九は保持する。元の自然な規格化 γ_sc の具体値と、自由な相対尺度の定理は区別する。点型の全 O-降下、標準三分点体の次数九と ASL₂(F₃) の二百十六次 monodromy、三・四次元の全 full class 降下、全 class に共通な scalar index 三、七次元の既知球面対象からの全自己同値群の非巡回性も保持した。既存の全証明と未公表固定入力を本版で一括再検証したという意味ではない。
 
-本版で更新・実行した計算資産は `verify_active_invariants.py` であり、十三群の PASS と終了コード0を確認した。他の十五件は基準 main `d931a640ba421dd0dc7c6010990612ec92b5eda5` の blob と照合し、再実行していない。Picard 検証器の十三項目と五次元 Fano 曲面の次数2835を含む保存済み PASS・対象ハッシュは保持する。新定理の読解点検と有限計算の範囲は分ける。
+本版で更新・実行した計算資産は `verify_active_invariants.py` であり、十五群の PASS と終了コード0を確認した。他の十五件は基準 main `586eb261a2f4d9d4790755057b6b64cfee225094` の blob と照合し、再実行していない。Picard 検証器の十三項目と五次元 Fano 曲面の次数2835を含む保存済み PASS・対象ハッシュは保持する。新定理の読解点検と有限計算の範囲は分ける。
 
 ## 1. 固定した入力と文献
 
@@ -101,6 +104,8 @@ Canonaco–Stellari *Non-uniqueness of Fourier–Mukai kernels* の著者PDF The
 高次元の既知入力として Iliev–Manivel の arXiv:1102.3618v2、Proposition3.1、Theorem3.4、Proposition5.2、Corollary5.3 を原著PDFで確認した。公刊書誌は Proc.London Math.Soc.108(2014), no.2,517–540、DOI10.1112/plms/pdt042 を出版社情報で照合した。Serre 式は既存 Lin–Zhang の Proposition3.7 の証明と、Lin–Zeng–Zhang arXiv:2610.00130v1 Proposition2.1・Remark2.2 を比較した。Lin–Rennemo–Zhang, Adv.Math.503(2026), PartC,111271 の Theorem1.3 と、Lin–Zhang arXiv:2611.05915v1 Theorem1.3 の主張の範囲を確認した。新しい2026年原著の全証明を独立再検証したわけではなく、対象復元や partner 有限性を自己同値群の忠実性・class 降下の入力として使わない。
 
 Silverman, *The Arithmetic of Elliptic Curves*, 第2版 (2009), Chapter XI §9 の定義・Proposition 9.2（印刷pp.398–400）を一次 PDF で確認した。先頭係数の規格化が f∘[3] の三乗性を保証する点を本文で補い、Weil pairing の引数と cocycle の向きを照合した。Appendix C の正則模型・成分群の記述も確認した。URL と識別子は研究ノートと書誌に保持する。
+
+境界の追加について、Eisenbud *Homological algebra on a complete intersection, with an application to group representations*, Trans. AMS260(1980),35–64 の Theorem7.2、印刷pp.56–57 を原著PDFで確認し、有限自由分解に dh+hd=F,h²=0 を与える Shamash 構成へ適用した。Burke–Stevenson arXiv:1507.00830v1 Theorem6.4(1)、印刷pp.18–19 と Definition5.1 を確認し、A₀ が regular DVR、Gorenstein parameter が n−1 の場合を用いた。既存の楕円 active 比較が用いる同定理(3)とは分ける。Stacks Tags0BQP,0A1G の local-to-global Ext と proper flat な基底上の perfect 押下げ・底変更も直接本文と照合した。これら一般手法そのものの新規性は主張しない。
 
 ## 2. 証明の記載と読解点検
 
@@ -366,7 +371,7 @@ Buring の元資料 `star5.txt` のSHA-256は `05e0689ddb32a3d3a3ee4475086606bbe
 
 ### active 不変量の厳密恒等式
 
-本版で更新した `python3 computations/verify_active_invariants.py` を実行し、十三群の PASS と終了コード0を確認した。既存の Hesse 不変量、判別式、八直線、q=2 の一次係数と中心比の九群に、点 section・正則 I₃ の節点と交点格子、flex 接線の接触と規格化、三分点の二つの Kummer 先頭係数、L₀ の行列式・階数・三切断の貼合せを加えた。すべて Q または Q(ζ₃) 上の厳密恒等式で、浮動小数点・標本抽出・補間を使わない。群 cohomology・relative lift・full 周期位相の結論は本文の証明に依り、この検算だけでは得られない。SHA-256 は `d91d654595eea0f5db9e5e63258e7d344d13855606a57d7440deed05fb4390cc`。
+本版で更新した `python3 computations/verify_active_invariants.py` を実行し、十五群の PASS と終了コード0を確認した。従来の不変量・判別境界・I₃・Kummer・特殊線型行列の十三群を保持し、明示相対行列の有理式、slope による点の符号、厳密な L₀ への特殊化を第十四群に加えた。第十五群は余因子による六次元二次式空間の係数行列式 +2p と、任意の可換記号 G₁,G₂ による24×24 tensor MF の平方が (bXYZ+u₁G₁+u₂G₂)I となる恒等式を検証する。各 parity の階数は12である。すべて Q、Q(p,q) または Q(ζ₃) 上の厳密演算で、浮動小数点・標本抽出・補間はない。相対線束の同定、右射影、低 Ext、m₂/m₃ の integral な存在の一般証明は本文に依る。full 周期位相の値を計算した検証ではない。SHA-256 は `05cb75af610c90e9f4098a27fac3803cddcaba97958b6ab2549ec151d3623ffa`。
 
 ### Hesse の二次類と三捩れ対称族
 
@@ -418,17 +423,13 @@ b7a9f66af04e2b4506aff22e87ebc53d3bc1eaa3466af0059d13025a424c019d
 
 ### ソースと参照
 
-`python scripts/check_sources.py` は終了コード0で、22個の TeX ソース、521個の一意なラベル、338個の参照ラベル、101個の引用文献キーを確認した。主要五文書のローカルファイルリンク53件と本稿の証明ラベル参照634件に欠落はなく、固定入力のラベル20件は本稿のラベル検査から区別した。`git diff --check` と予期しない制御文字の検査も通過した。計算資産十六件のうち active 不変量の検証器を更新・実行し、他の十五件は基準 main と byte 単位で同一であることを確認した。
+`python3 scripts/check_sources.py` は終了コード0で、23 TeX sources、534 unique labels、345 referenced labels、103 cited bibliography keys を確認した。`git diff --check` も通過した。現在の追加証明は `papers/sections/residual_boundary.tex` に統合し、既存の境界証明を同ファイルへ移して重複を除いた。数学的入力の変更はなく、旧本文は有効な内容を保持している。
 
 ### PDF の組版状態
 
-v23 の全追加証明を統合した主原稿を LuaLaTeX・latexmk で再組版し、終了コード0を確認した。最終 PDF は306頁・2,369,872 bytes。未定義参照・引用、欠落文字、overfull/underfull は零である。既存の数式フォントサイズの代替に関する七件とその要約一件の警告は残るが、表示点検で欠落や衝突はない。
+現行 v24 を `latexmk papers/nc-cubic-n-fold.tex` により LuaLaTeX で組版し、終了コード0、317頁の PDF と同じ出力先の SyncTeX を確認した。最終ログに未定義参照・未定義引用・欠字・overfull/underfull box はない。既存の小さい数式フォントのサイズ置換7件と、その集約警告は残る。
 
-全306頁の contact sheet 十一枚を分担してすべて実際に開き、版面・余白・大きな欠落・異常な改頁を確認した。さらに要旨・序論1–10頁、境界模型236–241頁、有限低積とDVR判定255–261頁、書誌305–306頁の計25頁を144 dpiの個別画像で確認した。統合担当も238・239・258・259頁を重ねて確認した。数式・行列・表・見出し・頁端に修正を要する問題はない。一覧だけを見た頁の細かな字形まで拡大点検したという意味ではない。
-
-最終 PDF の SHA-256 は `acce37adc1b54bf8dcddcfbebffb2dcd085c553837a445a253cad96fe47e814f`。PDF と画像は再生成物であり追跡対象に含めない。
-
-実行環境では部分的な TeX ファイル索引と format 探索の制約があるため、既存 format と TeX tree を環境変数 TEXMF・TEXFORMATS・LUAINPUTS で指定する。特定の環境の絶対パスはリポジトリ設定に固定せず、通常の LuaLaTeX 一式では .latexmkrc の標準コマンドを使う。
+生成した PDF の1、7–8、23–24、240–251、315頁の計18頁を PNG として実際に目視した。表題・概要、先行研究との区別、現在の到達範囲、追加した行列・完全列・低 Hom 表・MF と転送の証明、追加書誌を含む。確認範囲では数式のはみ出し・重なり・欠字・切断はない。現在版の全317頁を再読・全頁拡大点検したという意味ではない。PDF は2,435,016 bytes、SHA-256 は `c7c3c7360c44ef0a9ee2b46a6b470c6a51661a0193bee4e4506d75f2a5517952`。
 
 ## 7. 再現と保存の区別
 
