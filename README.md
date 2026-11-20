@@ -1,6 +1,6 @@
 # 非可換三次 n-fold のモジュライ
 
-2026年11月20日 / v12。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
+2026年11月20日 / v13。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
 
 **再開時は [研究方針](00_research_plan.md) を最初に読む。**
 
@@ -18,8 +18,8 @@
 - [三次共変式の厳密検算](computations/verify_cubic_covariants.py)：Weyl 重複度、四次不変式の規格化、五次混合項の二定数への還元。
 - [混合五次 tensor の厳密検算](computations/verify_mixed_fifth.py) と [必要な73項の harmonic graph データ・出典・hash](computations/data/harmonic_linear_products.json)：二つの普遍定数の評価と原 weight の規約照合。
 - [残余四次項の厳密検算](computations/verify_fourth_potential.py)：古典的 Hessian・Aronhold 微分との恒等式、中心 symbol、純中心項、尺度、全次元の Jacobi 双対証明書。
-- [残余射・尺度・比較核の本文](papers/sections/residual_algebraic.tex)：一般次元の相対復元、全 O-降下、有限被覆上の Ku 比較、完備中心商、scalar index と Euler 格子、固定 tensor の超越性。
-- [点曲線と自然な残余尺度の本文](papers/sections/residual_point_scale.tex)：active 部分の全次数比較、Hodge 線束、点曲線の同型被覆、符号商射、反対代数と一般次数18e_nの因子分解。
+- [残余射・尺度・比較核の本文](papers/sections/residual_algebraic.tex)：一般次元の相対復元、全 O-降下、有限被覆上の Ku 比較、完備中心商、最高次 cohomology と階数三束によるscalar index、従来のEuler格子、固定tensorの超越性。
+- [点曲線と自然な残余尺度の本文](papers/sections/residual_point_scale.tex)：active 部分の全次数比較、Hodge 線束、点曲線の同型被覆、符号商射、反対代数、正確な一般次数18、混合係数の全次数三角性とactiveな符号twist。
 - [四次補正の本文](papers/sections/fourth_correction.tex)：上の有限計算を一般次元の証明と Poisson moduli の射へ統合する主原稿の分割ファイル。
 - [参考文献](papers/references.tex)。外部文献PDFは含めない。
 
@@ -43,15 +43,21 @@
 
 **点曲線の標準微分が自然な残余 Poisson 射を与える。** 相対随伴から T=L⊗det K_res≃λ_res* を同定する。点曲線の尺度 τ_pt=(H♯|K)⊗P と modular forms から T² の非零切断 η_res を得て、Ψ_res^±:M→[Pdec/μ₂] を構成した。これは全 O-同値・任意底変更に両立し、支配的・一般有限、縮小後には有限 étale 全射である。標準二重被覆 D 上に full tensor があり、点 shift も残余 active 曲線の平行移動へ移せる。同じ X_res への Ku 比較はさらに有限被覆上で保たれる。元の M 上の標準的な符号、移送 shift と Ku rotation の一致、D への比較核の降下は未決定である。
 
-**この残余射の一般次数は、全 n≥3 で18の倍数となる。** 反対代数の自由な involution ιと active 不変量の九次中間被覆 Z により、M→M/⟨ι⟩→Z→Y と有限 étale に因子化し、各階数は2,e_n,9、従って δ_n=18e_n（e_n≥1）となる。標的の active 不変量への幾何学的一般ファイバーが整であることを、Fisherの既知の軌道分類と混合係数の affine 束から証明する。平面同型被覆 I の階数18とは別の構成であり、正確な次数18すなわち e_n=1は未証明。一般の A と A^op は O-marked 圏として異なるが、同じ X_res と、共通の有限被覆上で同値な残余圏を持つ。
+**この残余射の一般次数は、全 n≥3 で正確に18である。** 反対代数の自由な involution ιと active 不変量の九次中間被覆 Z により、適切な開で M→M/⟨ι⟩≃Z→Y と有限 étale に因子化し、階数は2,1,9となる。全次数残余 potential は混合係数について三角形の多項式写像となり、その対角が可逆である。これと共通の Hesse 安定化群の指数二を用いて追加分枝を排除した。形式近傍の逆だけから次数を結論していない。一般の A と A^op は O-marked 圏として異なるが、同じ X_res と共通被覆上で同値な残余圏を持つ。
+
+**標準符号被覆 D の一般点の類は、混合係数によらず active な二つの不変量から来る。** 一意な χ_act∈C(c₄,−c₆)*/C(c₄,−c₆)*² があり、Z上の反対被覆とfull Poisson符号被覆の類は χ_op=χ_sgn+χ_act を満たす。χ_actの具体的計算と消滅判定は未解決であり、元のmoduliで標準符号を選んだことにはならない。
 
 点規格化した tensor は形式 frame で (h/c_h)π_h であり、固定 harmonic tensor と同じ尺度ではない。自然な射の代数性は上の very general な固定 tensor の超越性と両立する。二重被覆は Jacobian 同型を持つが、genus-one torsor 自体や次数三偏極の同型には I→D を用いる。
 
-**比較核の scalar 障害には一般次元の index bound を得た。** split 表示 chart の CF Euler 数値型内で核の同型類を整合的に選んだ後、その gerbe α は d_nα=0、一般点で ind(α)|d_n、d_n=3^floor((n+1)/2) を満たす。表示 gerbe を分裂させる必要がある体上では、n≡1 mod3 の場合に上界へさらに因子3を加えられる。核の同型類を選ぶ前段階や scalar gerbe の中立性は未解決であり、αと表示障害βは同一視しない。既に選んだ同型類の index は三に素な体拡大では不変なので、標準二重被覆 D だけでは改善しない。全 rotation 軌道の整数 Euler pairing も d_n Z となり、その反復だけでは上界を小さくできない。
+**比較核の scalar index には、次元によらない三捩れ評価を得た。** split表示でκ_ncとactive係数商・window1のq_Yを固定し、R_P=q_YΦ_P(κ_nc)がH^{>−1}=0、H^{−1}が次数零線束となる型を構成する。この型の核は一般点の有限分離拡大上に存在する。同型類を整合的に選んだ後のgerbe上では、最高次cohomologyから重み一階数三束を作れ、そのendomorphismは次数三Azumayaへ降下する。従って3α=0、ind(α)|3。表示分裂後にこの型となる仮定の下で、非分裂表示を含む体上ではn≢1 mod3でind(α)|3、n≡1 mod3でind(α)|9となる。
+
+上のsplit表示と固定したq_Yの下で、最高次線束の相対Picard類m_Pを使うと、scalar gerbeはPicard gerbeの引戻しと正確に同定できる。m_P=0なら障害は消える。またactive曲線C上に実際のfull比較核があり、一般直線の三点切断は具体的な有限étale scalar分裂被覆になる。これも核の同型類を選択した後の結果である。
+
+この型は従来のCF Euler数値型より強い。Euler条件だけの型に対する d_n=3^floor((n+1)/2) のboundと、rotation Euler格子 d_n Z は保持する。新しい評価は全ての既存数値型の核を対象とせず、核の同型類を選ぶ第一段階とscalar gerbeの中立性は未解決である。表示類βと核の類αは同一視しない。既に選んだ三-primaryな類のindexは三に素な体拡大では不変である。
 
 **完備中心商について MF 比較を構成した。** 厳密相対 bar flow とその逆を中心係数の斉次商へ降ろせるので、U=0 の active MF にも比較が得られる。任意の quotient MF を扱い、元の MF からの持上げを仮定しない。ただし、一般点の有限代数的核への coherent な中心線型性の降下は未完成である。係数商と圏の導来 tensor の同一視、absolute perfect から relative perfect への推論には一般的な反例があり、研究ノートに整理した。
 
-残る中心課題は、δ_n=18e_nの因子 e_n・符号 torsor、比較核の coherent な中心作用と全 O-降下、点 shift の圏論的認識、各 intrinsic 成分の一般対象の被覆である。証明は [残余射・比較核の節](papers/sections/residual_algebraic.tex) と [点曲線・尺度の節](papers/sections/residual_point_scale.tex) にまとめる。
+残る中心課題は、activeなχ_actの計算、比較核の同型類の整合と三捩れ障害の中立化、最高次cohomology型の内在性、点shiftの圏論的認識、各intrinsic成分の一般対象の被覆である。代数的核のcoherentな中心線型性は引き続き未完成だが、新しいindex評価はその降下を前提としない。証明は [残余射・比較核の節](papers/sections/residual_algebraic.tex) と [点曲線・尺度の節](papers/sections/residual_point_scale.tex) にまとめる。
 
 個別次元の Jacobi 計算と boundary の精査は、この一般目標の具体的な障害を解消する場合に行う。八次元の頂点構造等の既存成果と証明書は保持する。次の具体的な着手方法と各目標の到達基準は [研究方針](00_research_plan.md) にまとめ、全体の要約は [research-hub](https://github.com/uedakazushi/research-hub) に反映する。
 
@@ -126,7 +132,7 @@ python3 computations/verify_jacobi_vertex.py --verify computations/jacobi_vertex
 latexmk papers/nc-cubic-n-fold.tex
 ```
 
-active 不変量の検算は rψ=ar、判別式・Jacobian の公式を有理係数で確認する。幾何学的一般ファイバーと18の整除性は本文の証明に依る。中心・Hessian と幾何補正の検算は有理係数の記号恒等式、八次自由代数の trace、Jacobi 商の双対証明書、普遍 cofactor 恒等式と Hesse の j 差を再現する。新しい補正検算では十個の独立係数を持つ三変数三次、任意の対称行列、二パラメータ Hesse 中心の係数変換、混合項の復元行列、九重被覆の分岐、Weyl の整数重複度と四次不変式も確認する。混合五次の検算は保存した73項の graph データから β,γ を評価し、四次 potential の検算は中心 symbol の全係数恒等式・純中心項・尺度・全次元の非消滅証明書を確認する。入力論文の混合中心公式の非可換中心性、graph 積分そのもの、圏同値はこれらの記号計算で再検証しない。組版設定は既存の repo ルート基準のパスを維持し、PDF と SyncTeX を `build/` に揃えている。研究hubの現行テンプレートと設定も参照し、LaTeX Workshop の推奨拡張を指定した。
+active 不変量の検算は rψ=ar、判別式・Jacobian の公式を有理係数で確認する。幾何学的一般ファイバー、全次数混合三角性、正確な一般次数18は本文の証明に依る。中心・Hessian と幾何補正の検算は有理係数の記号恒等式、八次自由代数の trace、Jacobi 商の双対証明書、普遍 cofactor 恒等式と Hesse の j 差を再現する。新しい補正検算では十個の独立係数を持つ三変数三次、任意の対称行列、二パラメータ Hesse 中心の係数変換、混合項の復元行列、九重被覆の分岐、Weyl の整数重複度と四次不変式も確認する。混合五次の検算は保存した73項の graph データから β,γ を評価し、四次 potential の検算は中心 symbol の全係数恒等式・純中心項・尺度・全次元の非消滅証明書を確認する。入力論文の混合中心公式の非可換中心性、graph 積分そのもの、圏同値はこれらの記号計算で再検証しない。組版設定は既存の repo ルート基準のパスを維持し、PDF と SyncTeX を `build/` に揃えている。研究hubの現行テンプレートと設定も参照し、LaTeX Workshop の推奨拡張を指定した。
 
 原 graph データから抽出・規約も再検証する場合は、[出典と SHA-256 を記した JSON](computations/data/harmonic_linear_products.json) の `star5.txt` と `kontsevich_2_k.txt`・`weights_kontsevich_2_k.txt`（k=1,…,5）を同じディレクトリに置き、次を実行する。通常の検算は保存済みの必要項だけで完結し、外部データ取得は不要である。
 

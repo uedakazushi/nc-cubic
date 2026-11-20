@@ -1,12 +1,12 @@
 # 非可換三次 n-fold：現行稿の検証範囲
 
-2026年11月20日 / v12。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
+2026年11月20日 / v13。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
 
-本版では、反対代数による残余射の不変性と自由な二重商、active 不変量の九次中間被覆、全 n≥3 に対する一般次数 δ_n=18e_n（e_n≥1）を統合した。固定 support の係数 atlas、Fisher の軌道分類、幾何学的一般ファイバーの整性、関数体の線型無関連性、微分の正規化を点検した。証明は執筆・統合時の読解点検に加え、執筆担当以外による独立の読解点検を受けた。e_n=1や標準符号被覆の分裂は証明していない。
+現行稿では、全 n≥3 の良い一ブロック一般部分で、残余符号商射の一般次数が正確に18であることを証明した。Jacobi trace の混合多項式性、全次数の混合重みの有界性、TH規格化とh²除算、三角形の多項式逆、共通のHesse安定化群、小さい係数体で先に定義した射の等式の降下、幾何学的一般ファイバーの整性を点検した。符号被覆の一般点のKummer類がactive不変量の体から来ることと、χ_op=χ_sgn+χ_actも証明した。これらは執筆担当とは別の担当による内部の独立読解点検を受けた。χ_actの具体的計算・分裂、元のmoduli上の標準符号は未解決である。
 
-選んだ相対 bar flow と逆の中心係数商への降下を証明し、完備 active MF 比較を統合した。係数商と圏の導来 tensor を区別し、absolute perfect と relative perfect の差を示す反例も研究ノートへ整理した。比較核の rotation Euler 格子と、既に選んだ同型類の scalar index の三に素な体拡大に対する不変性を別途証明・点検した。有限代数的核への coherent な中心作用の降下は未完成であり、次元非依存の index≤3 は追加データを要する条件付き判定としてのみノートに記す。
+比較核について、active制限の最高次cohomologyが次数零線束となる強い型と、その有限分離拡大上での非空性を証明した。次数一中心列に対するPostnikov分裂、MF係数商のTor-independentな同定、Galinatの同一window規約、体上の負rotation、perfect族の線束性、有限生成環への降下と閉点特殊化、gerbe上の重み一階数三束を、執筆担当とは別の担当も点検した。型を指定しfull kernelの同型類を選んだ後のsplit scalar indexは3を割る。さらにPicard gerbeとのbandを保つ同値、αのactive曲線上の消滅、次数三切片による具体的分裂を点検した。表示分裂後にこの型が成立する場合の3/9評価も明記した。Euler数だけを指定した従来型の全ての核にはこの改善を主張せず、d_n boundとEuler格子の証明を保持した。
 
-新しい計算は `computations/verify_active_invariants.py` の有理係数多項式恒等式であり、Hesse の不変量、rψ=ar、判別式・Jacobian の公式と符号不変性を実行確認した。全次数・全次元の結論は本文の一般証明による。既存の12計算資産を保存済み v11 の Git blob SHA と照合し、変更していないことを確認した。既存の graph・四次 potential・大行列 Jacobi 計算は本版で再実行せず、内容不変の照合と再実行を区別する。未公表の完備 MF・一般点復元・coherent 飽和性の全証明の独立検証、外部査読、Lean 等による形式証明は行っていない。
+既存の `computations/verify_active_invariants.py` を再実行し、有理係数の五項目が全てPASS、終了コード0であることを確認した。全13計算資産のGit blob SHAは保存済みv12と一致する。graph・四次potential・大行列Jacobi計算は再実行せず、不変の照合と再実行を区別する。正確な次数18・Kummer類の降下・graded purity・rank3束の主張は本文の一般証明による。未公表入力の全証明の独立検証、外部査読、Lean等による形式証明は行っていない。新しい応用の文献上の新規性の網羅的確認も未完了である。
 
 ## 1. 固定した入力と文献
 
@@ -45,9 +45,11 @@ Etingof–Ginzburg の刊行版§8.1、印刷pp.1407–1408、Proposition8.1.1�
 
 scalar 障害について、Knudsen–Mumford の刊行情報を出版社で確認し、twisted perfect複体のdeterminantは Lieblich arXiv:math/0411337v2 §2.2.4、Definition2.2.4.1、period/index は§2.2.5の本文と照合した。Stacks Tags074S,074X の Lemma11.7.4、Lemmas11.8.3–11.8.4により、極大部分体の次数・分裂と index の整除を確認した。固定入力Bの `generic_descent.tex`, `rog:prop:euler` の二重次数とEuler式、`window.tex`, `tw:lem:proper-hom` の任意二有限rank MFのHom、`rog:lem:localization` の有限rankを保つCFを固定commitで確認した。window定理をMF全体の相対同値へ強めて引用してはいない。
 
-Fisher, *Testing equivalence of ternary cubics* の著者稿 Theorem1.1、Definition2.1、Lemmas2.2,2.6、§4を一次資料で確認し、出版社で LNCS4076(2006),333–345、DOI10.1007/11792086_24を照合した。古典的不変量 c₄,c₆ の Weierstrass 規約と微分の変換を、現行稿の Hodge 尺度と合わせた。Fisher が表示する Jacobian の6倍座標変更を、微分を追わずに本稿の規約へ流用していない。Stacks Tag07S5 Lemma66.14.2を自由な有限商に、Tags074S,074Xを index の整除に照合した。Bergh–Schnürer arXiv:1901.08945v2 Proposition5.7、§6式(6.1)、Remark6.1を Hom anchor の補助構成と比較した。これらの一般原理自体を新規とは数えない。
+Fisher, *Testing equivalence of ternary cubics* の著者稿 Theorem1.1、Definition2.1、Lemmas2.2,2.6、Lemma2.3の証明、Theorem2.5、§4を一次資料で確認し、出版社で LNCS4076(2006),333–345、DOI10.1007/11792086_24を照合した。古典的不変量 c₄,c₆ の Weierstrass 規約と微分の変換を、現行稿の Hodge 尺度と合わせた。Fisher が表示する Jacobian の6倍座標変更を、微分を追わずに本稿の規約へ流用していない。Stacks Tag07S5 Lemma66.14.2を自由な有限商に、Tags074S,074Xを index の整除に照合した。Bergh–Schnürer arXiv:1901.08945v2 Proposition5.7、§6式(6.1)、Remark6.1を Hom anchor の補助構成と比較した。これらの一般原理自体を新規とは数えない。
 
 完備中心商については固定入力 `curved_transport.tex` の相対 bar 構成、arity 評価、flow と逆、二ブロック行列と t の重みを確認した。既存の厳密相対中心保存を入力とし、任意の商上の有限自由 MF へ公式を適用する。入力の一般点生成・window の次元条件を n=1へ広げる主張はしていない。
+
+正則な体拡大と二次Kummer類の降下にはStacks Tags037P、0322、05DWを一次資料で確認した。active曲線のwindowにはGalinat arXiv:1302.1383v1 §1.1、Lemma1.2、§1.4、Lemma2.7の証明を読み、Φ=Φ₁、κ↔O[1]、ρ=T_O∘tensor O(1)の規約を一貫させた。異なるwindowの剰余体shiftを混用していない。Orlov arXiv:math/0503632v3 Theorem2.5(iii)、Burke–Stevenson arXiv:1507.00830v1 Theorem6.4(3)、Toën–Vaquié Lemmas2.8,2.10を確認し、固定入力Bの `gre:prop:elliptic-quotient` と `gre:lem:elliptic-mf` の正則DVR上のdg比較・底変更を読んだ。N≥5のfull windowの定理をそのまま三変数へ適用していない。Picard stackが相対Picard functor上のgerbeであることはStacks Tag0DME Lemma108.9.1を直接確認し、重み一線束からのband identityとgerbe同値は本文に証明を与えた。
 
 ## 2. 証明の記載と読解点検
 
@@ -56,13 +58,18 @@ Fisher, *Testing equivalence of ternary cubics* の著者稿 Theorem1.1、Defini
 | 対象 | 点検した論点 | 適用条件・残る限界 |
 |---|---|---|
 | 反対代数と残余不変性 | 語順反転・中心直線・trace–Hessian、反転不変な代数的中心族、偶 Weyl symbol に対する W の偶性、支配形式族による射の等式、自由有限商 | 固定残余入力の下。Abel圏の反対や導来双対をrotation保存の共変同値として扱わない |
-| 九次中間被覆と18整除 | c₄,c₆の規約、Hesse可換式と次数乗法、SL₃軌道・混合係数・商atlas、幾何学的一般整性、正則体拡大と合成体、有限étale因子2,e_n,9 | 良い一ブロック成分・全n≥3。e_n=1、符号被覆の分裂、他のintrinsic成分は未証明 |
+| 正確な一般次数18 | c₄,c₆、一般ファイバーの整性、traceの混合多項式性、全次数混合三角形、TH scalarの規格化、PGLの共通T₉と指数二、小さい体上の候補射と忠実拡大 | 固定残余入力・良い一ブロック・全n≥3。形式逆だけから次数を推測せず、Nat frameの代数化を未使用 |
+| activeな符号類 | 正則体拡大で消える二次類の定数降下、quotient上でのfull lift、χ_op=χ_sgn+χ_act | 一般点のKummer類。χ_actの具体式・消滅、元moduli上の標準符号は未決定 |
+| 核のPicard障害と曲線上の分裂 | top lineの相対Picard類m_P、band identityによるgerbe同値、重みの相殺、一般直線の次数三étale切片 | 選択済みfull classのscalar段階。m_P=0やC上の実際の線束による表示を一般に証明したわけではない |
+| 線型中心列とMF制限 | Torの内部次数purity、minimal resolutionとExt消滅、非正準Postnikov分裂、Ω₀正則によるTor-independent square | 次数一の正則中心列。次数二の反例を保持。圏全体のcategorical tensorと同一視しない |
+| 最高次cohomology型 | Galinat window1、体上の負rotation、唯一のH^{-1}、perfect族の線束性、generic flatnessと閉点特殊化 | 非空な強い型を構成。最初の形式核そのものの有限拡大への定義を主張しない |
+| 階数三束とscalar index | universal full kernelからcanonical weight1 line、O_C(1)とのtensor、H¹=0・h⁰=3、Endの重み零降下 | 型を満たす選択済みfull classのgerbe。splitでindexは3を割り、表示分裂後の型を仮定すると3/9。class選択・中立性は未解決 |
 | 完備中心商のMF | 全Taylor成分の中心多重線型性、商の分離完備性、arityによる収束、逆・単位・rank・shift・指定周期、任意のquotient MFへの挿入 | 係数商の明示公式。categorical derived tensorや有限代数的核のcoherent中心線型性の降下は別 |
 | scalar indexとEuler格子 | circulant Euler行列と整数格子、thick閉包との区別、d′|dとd|[L:K]d′、標準二重被覆・十八重被覆の各体成分 | 既に選んだ核同型類のscalar段階のみ。実際のindexの下界や非零例は得ていない |
 | active 部分の全次数比較 | active 出辺と U=0 制限、同座標 Hesse 分枝の識別、SL₃×A² の支配性、普遍係数恒等式、Koszul と Euler による W_act=b_hJ_g | 固定 split 比較を入力。単なる j の一致を同座標比例へ読み替えず、MF の中心基底変更や n=1 の field-model は未使用 |
 | 点曲線と同型被覆 | 支配族からの j の降下、短い Weierstrass 式、[3]q=a、偏極類と Brauer–Severi 平面の étale 降下 | Iの階数18、Dの階数2、I→Dの階数9。Dだけに genus-one 曲線・平面同型があるとは主張しない |
 | Hodge と自然な尺度 | 相対随伴のdeterminant因子、重み零、modular formsのweight、τ_pt、η_res、Jacobian-Isomとの同一視 | j≠0,1728 の共通稠密開。modular正規化被覆と点微分の被覆を区別 |
-| 符号商射の支配性 | 一般中心liftのc(h)相殺、η=h²・unit、一般特殊点の零切断、既約閉包、同次元性、自己同型なしの開の有限化 | 形式frameの代数化を未使用。一般次数は18e_n、e_nは未決定。比較核の二重被覆への降下は未主張 |
+| 符号商射の支配性 | 一般中心liftのc(h)相殺、η=h²・unit、一般特殊点の零切断、既約閉包、同次元性、自己同型なしの開の有限化 | 形式frameの代数化を未使用。一般次数18の証明は混合三角性と安定化群比較を併用。比較核の二重被覆への降下は未主張 |
 | 点shiftとharmonic尺度 | 固定点なしから平行移動、Jacobianのtorsor作用、deck反転、t=(h/b_h)W_h⊗P₀、tensor比h/c_h、c_hの五次係数 | Ku rotationの制限との同定は未証明。比の代数性や固定harmonic尺度との一致は未主張 |
 | kernelのEuler/index | 重み1 perfect Homとdeterminant、p_(N+2)=−3tp_N、数値型の開閉性・非空性、有限表示降下、indexによるrank整除 | 整合する核の同型類を選んだ後のscalar段階。体上indexと一般底上bandを区別。未証明のΦκ_nc=κ_Yを不使用 |
 | unsplit体上のindex | rank3重み1の束でβを次数≤3でsplitし、その上のαを次数がd_nを割る体でsplit | α=βを仮定しない。同型類選択前の比較被覆全体の次数は抑えていない |
@@ -268,23 +275,21 @@ Buring の元資料 `star5.txt` のSHA-256は `05e0689ddb32a3d3a3ee4475086606bbe
 
 ### active 不変量の厳密恒等式
 
-`python3 computations/verify_active_invariants.py` を実行し、終了コード0を確認した。S=c₄、T=−c₆の規約で、Hesse不変量のJacobian、rψ=arの両成分、D=1−S/24−T/216−S²/6912に対する判別式恒等式 `(a₄³−a₆²)=(S³−T²)D³`、`det Da=(1−S/16)D²`、反対符号に対する不変性を有理数上の多項式係数として照合した。浮動小数点、ランダムな代入、有限次元の外挿を使わない。degree9およびdegree18e_nの幾何学的部分は別途本文の証明に依る。
+`python3 computations/verify_active_invariants.py` を実行し、終了コード0を確認した。S=c₄、T=−c₆の規約で、Hesse不変量のJacobian、rψ=arの両成分、D=1−S/24−T/216−S²/6912に対する判別式恒等式 `(a₄³−a₆²)=(S³−T²)D³`、`det Da=(1−S/16)D²`、反対符号に対する不変性を有理数上の多項式係数として照合した。浮動小数点、ランダムな代入、有限次元の外挿を使わない。degree9および正確なdegree18の幾何学的部分は別途本文の証明に依る。
 
 ## 6. ソース・組版の確認
 
 ### 最終ソース検査
 
-`python3 scripts/check_sources.py` を実行し、17個のTeXソース、重複のない287ラベル、176個の参照先、62個の引用キーを確認した。input・本文参照・文献キーに欠落はない。README・方針・ノートの内部ラベルを照合し、Markdown の相対ファイルリンク29件の参照先が存在することを確認した。正本は41ファイルで、既存40ファイルを保持し、active 不変量の検算コード1本を加えた。既存12計算資産の Git blob SHA は保存済み v11 と全て一致する。
+`python3 scripts/check_sources.py` を実行し、17個のTeXソース、重複のない310ラベル、193個の参照先、67個の引用キーを確認した。input・本文参照・文献キーに欠落はない。README・方針・ノートの内部ラベル127件とMarkdownの相対ファイルリンク29件を照合した。固定入力の外部ラベル35件を区別し、現行41ファイルを保持した。全13計算資産のGit blob SHAは保存済みv12と一致する。
 
-主原稿、空の著者欄、分割 root、repo ルート基準の input、build/ の PDF/SyncTeX は維持している。入力稿の外部ラベルは固定commitの参照として、内部ラベルと区別して照合した。
+主原稿、空の著者欄、分割root、repoルート基準のinput、build/のPDF/SyncTeXは維持している。入力稿の外部ラベルは固定commitの参照として内部ラベルと区別する。
 
 ### 最終組版と表示
 
-LuaLaTeX・latexmk で最終ソースを組版し、終了コード0を確認した。最終 PDF は166頁・1,534,376 bytes、SHA-256 は `63bf273af60813bf938c7f20689cd36e8fcf790825943535917ebd2781b58c7b`。未定義参照・未定義引用・overfull/underfull box はない。数式の小さい添字について4.5ptを5ptへ置き換えるフォント警告は残る。著者欄は空欄で、表題・subject・和文フォントを含む全フォントの埋込み・文字抽出を確認した。
+LuaLaTeXとlatexmkによる最終組版は終了コード0で成功した。PDFは182頁、1,615,758 bytes、SHA-256は `8bec44cc1f18b26f1869c6355985f2247529c0bd01f7b8a2a3fee253f4d974c2`。未解決の本文参照・引用、Overfull/Underfull box、Missing characterはない。4.5ptの一部数式フォントを5ptへ置換する警告は残る。全フォントの埋込みとUnicode対応、空の著者欄を確認した。
 
-全頁を画像化し、14枚の一覧画像で全166頁を目視点検した。概要、中心係数商、Euler 格子と index、反対代数、九次中間被覆と18の整除、参考文献は拡大画像でも確認した。命題の一行だけの頁末への残留と参考文献末尾の疎な頁を調整し、変更頁を再点検した。最後の参考文献調整後、本文161頁の画像 hash は直前の点検済み画像と一致し、変化した参考文献5頁を再確認した。全頁の抽出テキストの外接矩形も紙面端から18pt以上の範囲に収まり、点検した範囲に欠け・重なり・意図しない空頁は見られない。
-
-これらは組版・表示の点検であり、数学的な証明の検証とは別である。PDFと画像はGitの追跡対象に含めない。
+最終PDFの全182頁を16枚の一覧画像で目視し、要旨・主結果・新しい指数評価とPicard障害・正確な次数18・符号類の箇所を拡大して確認した。要旨の末尾が次頁へ一行だけ溢れる箇所と、定理14.30の見出しが頁末へ孤立する箇所を修正し、最終画像で解消を確認した。文字の欠け、重なり、意図しない白頁を認めず、全頁の文字領域は紙端から18pt以上内側にある。組版・表示の点検は数学的証明の検証と区別し、PDF・画像・組版中間生成物をGitで追跡しない。
 
 ## 7. 再現と保存の区別
 

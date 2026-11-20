@@ -593,7 +593,8 @@ $\mathfrak D=\{t:b_{\mathrm{res}}(t^2)=b_{\mathrm{pt}}\}$ は区別する。
 Jacobian の同型は、genus-one torsor である曲線自体の同型や、
 その平面偏極の同型を意味しない。
 また本構成は、固定 formality による $\pi_h$ との全次数の尺度の一致、
-元の $\mathfrak U$ 上の符号選択、正確な一般次数の決定を主張しない。
+元の $\mathfrak U$ 上の符号選択はなお未解決である。
+一般次数は後の定理\ref{thm:nfm-residual-exact-degree-eighteen}で十八と決定する。
 比較核の有限 \'etale 被覆を $\mathfrak D$ に引き戻せば
 同じ $X_{\mathrm{res}}$ の Kuznetsov 成分との比較を保つが、
 $\mathfrak D$ 自身への比較核の降下が新たに得られたわけではない。
@@ -1023,12 +1024,466 @@ $\mathfrak U\to Z$ も $\iota$ に不変である。
 支配性から中間射の階数 $e_n$ は正であり、次数の乗法性が結論を与える。
 \end{proof}
 
-この定理は $e_n=1$、すなわち正確な次数 $18$ を証明するものではない。
-元の source 上で点規格化に合う full lift が存在するならば、
-その射の一般次数は $\delta_n/2=9e_n$ となる。
-これは標的の符号二重被覆との次数の乗法性から従う。
-従って、そのような full lift も有理同型にはならない。
-存在のための標準二重被覆の分裂と、中間射の次数 $e_n$ の決定は別の問題である。
+\subsection{混合次数の有限性と残余射の正確な次数}
+
+以下では既存の完備 MF・window・一般生成性・coherent 飽和性の入力を用いる。
+形式 tensor の $h$ に関する無限級数を、混合係数に関する有限次多項式として捉える。
+この区別により、形式近傍での逆写像だけから一般次数を結論することを避けられる。
+
+$x=(x_1,x_2,x_3)$ を active 座標、$u=(u_1,\ldots,u_r)$ を中心座標とし、
+$r=n-1$ と置く。三次式を
+\[
+ F=g+b+\ell+d,
+ \qquad b\in\operatorname{Sym}^2\langle x\rangle\otimes\langle u\rangle,
+ \quad\ell\in\langle x\rangle\otimes\operatorname{Sym}^2\langle u\rangle,
+ \quad d\in\operatorname{Sym}^3\langle u\rangle
+\]
+と分ける。$g$ の一般係数体を $k$、$b,\ell,d$ の係数全体を $m$ と書く。
+$k$ は必要な active 係数の非零多項式を既に反転した体とする。
+$P_0=\partial_{x_1}\wedge\partial_{x_2}\wedge\partial_{x_3}$、
+$\Pi_F=\iota_{dF}P_0$ と置く。
+
+\begin{lemma}[Jacobi trace の混合多項式性]
+\label{lem:nfm-trace-mixed-polynomial}
+$g_{x_1},g_{x_2},g_{x_3}$ が正則列をなすとする。
+中心係数環 $k[b,\ell,u]$ 上の臨界代数
+\[
+ T_F=k[b,\ell,u,x]/(F_{x_1},F_{x_2},F_{x_3})
+\]
+は階数八の自由加群であり、基底は
+$k[x]/(g_{x_1},g_{x_2},g_{x_3})$ の斉次 $k$-基底から選べる。
+従って正規化 trace $\tau_F=\operatorname{Tr}/8$ は混合係数について多項式であり、
+分母を必要とする場合、その分母は active 係数だけに依存する。
+\end{lemma}
+
+\begin{proof}
+$x$ 次数の filtration を用いる。
+三つの関係の最高 $x$ 次部分は $g_{x_i}$ である。
+これらの正則列性により、filtered Koszul 複体の associated graded は完全であり、
+\[
+ \operatorname{gr}T_F
+ \simeq k[b,\ell,u]\otimes_k k[x]/(g_{x_1},g_{x_2},g_{x_3}).
+\]
+斉次基底を持ち上げると、最高次数を順に減らす帰納法で生成性を得る。
+一次関係があれば、その最高次数部分の基底の独立性から係数が消えるため独立でもある。
+基底への還元では、最高次の $g_{x_i}$ による線型還元だけを用いる。
+その係数は $k$ に属し、低次項 $b,\ell$ による除算は生じない。
+従って乗法行列とその trace は $k[b,\ell,u]$ に属する。
+\end{proof}
+
+\begin{proposition}[全次数残余 potential の有限三角形]
+\label{prop:nfm-residual-mixed-triangular}
+生成元固定 harmonic-angle 模型を用いる。
+量子側の中心元は trace--Hessian 像が厳密に $F$ となるように
+\[
+ \Omega^{\mathrm{TH}}_h=\mathfrak d_{h\Pi_F}^{-1}(F)
+\]
+と規格化し、対応する残余 potential を $W^{\mathrm{TH}}_h$ とする。
+この中心元は一般係数体上で代数的に定義され、$h$ 進展開では
+$\Omega^{\mathrm{TH}}_h\bmod h=F$ である。
+ある $b_h(g)\in k[[h]]^\times$ に対して
+\[
+ W^{\mathrm{TH}}_h|_{u=0}=b_h(g)J_g,
+ \qquad J_g=g+\frac{h^2}{24}\det\operatorname{Hess}(g)
+\]
+となる。この $b_h$ は混合係数と純中心係数に依存しない。
+
+さらに $\kappa=k((h))$ と置くと、active 部を $J_g$ に規格化した
+\[
+ \widehat W_h:=b_h(g)^{-1}W^{\mathrm{TH}}_h
+\]
+は $\kappa[m][x,u]_3$ に属し、次の有限三角形を持つ。
+\begin{equation}\label{eq:nfm-residual-mixed-triangular}
+ \widehat W_h
+ =J_g+A_h(g)b+B_h(g)\ell+Q_h(g)(b,b)
+    +\gamma_h(g)d+R_h(g)(b,\ell)+S_h(g)(b,b,b).
+\end{equation}
+ここで $A_h$ は active 二次式の空間、$B_h$ は active 一次式の空間の可逆線型作用素、
+$\gamma_h(g)\in\kappa^\times$ である。
+$Q_h,R_h,S_h$ は表示した混合次数の多重線型作用素であり、
+中心因子には積と対称化を施す。
+これらの active 作用素は中心変数の個数に依存しない。
+特に、$g$ と $h$ を固定した混合係数写像
+\[
+ T_h:(b,\ell,d)\longmapsto
+ \bigl(A_hb,\ B_h\ell+Q_h(b,b),\
+ \gamma_h d+R_h(b,\ell)+S_h(b,b,b)\bigr)
+\]
+は $\kappa$ 上の多項式自己同型である。
+\end{proposition}
+
+\begin{proof}
+\textbf{tensor からの積分。}
+既存の再帰の各 $h$ 係数は $F$ の係数の多項式であり、全微分は active 方向である。
+特に tensor は $d$ に依存しない。
+中心座標の拡大 $u\mapsto tu$ と共変なので、
+$b,\ell$ の重みをそれぞれ $1,2$ とすると、
+tensor の $u$ 次数 $j$ の係数は混合係数について重み $j$ を持つ。
+tensor は座標次数二であるから $j\le2$ であり、
+可能な混合単項式は $1,b,\ell,b^2$ に限られる。
+この有限性は $h$ の次数に依存しない。
+
+$\pi_h/h$ に volume によって対応する相対一次形式を $\alpha_h$ とする。
+既存の相対 Casimir 定理から $d_K\alpha_h=0$ である。
+これは普遍係数の多項式恒等式なので、滑らかな全三次の開から全係数へ広がる。
+$u$ 次数 $j$ の部分を $\alpha_h^{[j]}$ と書き、
+$E_x=\sum x_i\partial_{x_i}$ として
+\[
+ V_h^0=\sum_{j=0}^2\frac1{3-j}\iota_{E_x}\alpha_h^{[j]}
+\]
+と置く。Cartan の公式から $d_KV_h^0=\alpha_h$ であり、純中心項は零である。
+active Casimir の厳密な公式から
+$V_h^0|_{u=0}=q_h(g)J_g$、$q_h(g)\in1+h k[[h]]$ である。
+従って $V_h=q_h(g)^{-1}V_h^0$ と置けば
+\[
+ V_h=J_g+A_hb+B_h\ell+Q_h(b,b),\qquad
+ A_h\equiv1,\quad B_h\equiv1\pmod h.
+\]
+全ての混合次数は一様に有界なので、これは
+$k[b,\ell][[h]]$ だけでなく $k[[h]][b,\ell]$ に属する。
+従って $A_h,B_h$ は $\kappa$ 上の可逆行列である。
+
+\textbf{trace--Hessian 規格化。}
+$\mathcal R_h=\phi\circ\operatorname{sym}$ を Weyl 記号から星積模型への写像とし、
+\[
+ \beta_h=\mathcal R_h^{-1}C_{\pi_h}(V_h),\qquad
+ \Omega_h^{\mathrm{raw}}=\operatorname{sym}(\beta_h)
+\]
+と置く。$V_h$ は $\pi_h$ の Casimir なので、$\Omega_h^{\mathrm{raw}}$ は中心元である。
+$\mathcal R_h,C_{\pi_h}$ は内部次数を保ち、各 $h$ 係数は普遍多項式である。
+$\mathcal R_h\equiv1\pmod h$ の逆も同じ性質を持つ。
+中心座標の拡大との共変性により、$\beta_h$ の混合重みはその $u$ 次数に等しい。
+ここでは内部次数が三なので、混合重みは高々三である。
+従って $\beta_h\in k[[h]][b,\ell][x,u]_3$ である。
+
+trace--Hessian 写像の定義により、ある scalar $\gamma_h$ と純中心三次 $D_h$ があって
+\[
+ \mathfrak d_{h\Pi_F}(\Omega_h^{\mathrm{raw}})
+   =\gamma_h(g)(g+b+\ell)+D_h
+\]
+と書ける。商直線の係数 $\gamma_h$ は境界 Jacobi 写像と尺度付き Hessian から決まり、
+$u=0$ への制限と両立するので $g,h$ だけに依存する。
+ここで $\mathfrak d$ の定義には $h^2$ による除算があるため、
+中心元の先頭項だけから $\gamma_h(g)$ の定数項を結論してはならない。
+既存の Hessian 規格化持上げ
+\[
+ \Omega_h^{\mathrm{std}}
+ =\operatorname{sym}\left(g+b+\ell
+            -\frac{h^2}{12}\det\operatorname{Hess}_K(F)+O(h^4)\right)
+\]
+では、式\eqref{eq:point-trace-hessian-map}の直後の二次 jet の計算により
+$\mathfrak d(\Omega_h^{\mathrm{std}})=g+b+\ell+O(h^2)$ である。
+補題\ref{lem:nfm-dominant-central-family}の中心核の自由性と
+系\ref{cor:nfm-formal-center-casimir}により、完備中心三次を純中心三次で割った商は
+階数一であり、
+\[
+ \Omega_h^{\mathrm{raw}}=\lambda_h\Omega_h^{\mathrm{std}}+G_h(u),
+ \qquad \lambda_h\equiv1\pmod h
+\]
+と書ける。最後の合同は両者の非純中心先頭項が同じことから従う。
+従って $\gamma_h(g)=\lambda_h \gamma_h^{\mathrm{std}}\equiv1\pmod h$ であり、
+$\gamma_h(g)\in1+h k[[h]]$ が正当に得られる。
+
+trace 分裂の明示式を使うと
+\[
+ D_h=\tau_F(\beta_h)-\gamma_h(g)\tau_F(g+b+\ell)
+\]
+である。前補題によりこれは混合係数の多項式であり、
+中心座標の拡大との共変性から重み三である。
+従って $D_h$ は $b\ell$ と $b^3$ の線型結合であり、係数は $k[[h]]$ に属する。
+特に $d$ は現れない。
+
+純中心三次上では量子--Casimir 同定と trace--Hessian 写像はともに恒等であるから、
+\[
+ \begin{split}
+ \Omega_h^{\mathrm{TH}}
+ &=\gamma_h(g)^{-1}\Omega_h^{\mathrm{raw}}+d-\gamma_h(g)^{-1}D_h,\\
+ W_h^{\mathrm{TH}}
+ &=\gamma_h(g)^{-1}V_h+d-\gamma_h(g)^{-1}D_h.
+ \end{split}
+\]
+これは trace--Hessian 像が $F$ である中心元の一意性により、
+一般係数体上の代数的な逆像の形式展開と一致する。
+特に $b_h(g)=\gamma_h(g)^{-1}$ であり、
+\[
+ \widehat W_h=V_h+\gamma_h(g)d-D_h.
+\]
+これが所要の有限三角形である。
+三つの対角 $A_h,B_h,\gamma_h$ が可逆なので、$b,\ell,d$ の順に解くことで多項式逆を得る。
+全ての微分添字は三つの active 方向だけを走り、中心因子は乗算されるだけなので、
+係数作用素は $r$ に依存しない。
+\end{proof}
+
+\begin{lemma}[Hesse 切片の二つの安定化群]
+\label{lem:nfm-hesse-stabilizer-index-two}
+$g=p(x_1^3+x_2^3+x_3^3)/3+qx_1x_2x_3$ とし、$p,q$ は独立変数とする。
+$\kappa=\mathbf C(p,q)((h))$ 上で $g$ と $J_g$ を考える。
+support $K$ の射影安定化群を $G_K$ とし、
+自然な射を $\rho:G_K\to\operatorname{PGL}(K)$ と書く。
+$G_K$ の active form への作用は $f\mapsto\det(A)f(A^{-1}x)$ である。
+$g$ と $J_g$ の proper stabilizer の $G_K$ 内の逆像は同じ部分群 $H$ である。
+符号も許して $J_g$ を固定する群
+\[
+ H^\pm=\{(a,\varepsilon)\in G_K\times\mu_2:
+                 \varepsilon(a\cdot J_g)=J_g\}
+\]
+について、完全列
+\[
+ 1\longrightarrow H\longrightarrow H^\pm
+   \xrightarrow{\varepsilon}\mu_2\longrightarrow1
+\]
+がある。従って $H$ は $H^\pm$ の指数二の部分群である。
+\end{lemma}
+
+\begin{proof}
+$\zeta$ を三乗根とする。射影変換
+\[
+ (x_1:x_2:x_3)\longmapsto(x_1:\zeta x_2:\zeta^2x_3),\qquad
+ (x_1:x_2:x_3)\longmapsto(x_2:x_3:x_1)
+\]
+は $\operatorname{PGL}_3$ の位数九の部分群 $T_9$ を生成する。
+行列式一の表示を持ち、全ての Hesse form を固定する。
+従って $g$ と、同じ Hesse pencil 内の $J_g$ の proper stabilizer に含まれる。
+
+proper 作用は、平面三次とその随伴微分を保つ射影自己同型の作用である
+\cite[Theorem~2.5 and Lemma~2.6]{NFMFisherTernary}。
+この群は楕円曲線の三捩れ平行移動群であり、位数は九である
+\cite[proof of Lemma~2.3]{NFMFisherTernary}。
+従って両 proper stabilizer は正確に $T_9$ である。
+よって $H=\rho^{-1}(T_9)$ は両側で同じである。
+ここでは $\operatorname{PGL}_3$ を使っている。
+$\operatorname{SL}_3$ 内の安定化群に含まれる中心 $\mu_3$ を別に数えてはいない。
+
+$H^\pm$ の符号射の核は $H$ である。
+$x_1,x_2$ を交換する変換は、方程式自体は保つが行列式が $-1$ なので、
+proper 作用では $J_g$ を $-J_g$ へ送る。
+この変換と符号 $-1$ の対が $H^\pm$ に属するため、符号射は全射である。
+\end{proof}
+
+\begin{theorem}[残余符号商射の正確な一般次数]
+\label{thm:nfm-residual-exact-degree-eighteen}
+既存の残余復元の固定入力の下で、任意の $n\ge3$ について
+良い一ブロック成分の残余符号商射の一般次数は
+\[
+ \deg\Psi_{\mathrm{res}}^\pm=18
+\]
+である。従って九次中間被覆 $Z$ と反対商は双有理であり、
+適切な非空開では
+\[
+ M/\langle\iota\rangle\simeq Z
+\]
+となる。
+\end{theorem}
+
+\begin{proof}
+既存の因子分解では $M\to Z$ の次数は $2e_n$ である。
+補正前の active 不変量の体を $L_0=\mathbf C(s,t)$ とし、
+\[
+ s\longmapsto h^4c_4(g),\qquad
+ t\longmapsto-h^6c_6(g),\qquad
+ g=g_{p,q}
+\]
+によって $L_0\hookrightarrow\kappa=\mathbf C(p,q)((h))$ と拡大する。
+この埋込みの単射性は Hesse 不変量写像の支配性から従う。
+source の active form は $hg$、target の active form は
+$\phi_3(hg)=hJ_g$ となる。
+
+補題\ref{lem:nfm-active-invariant-regular-fiber}を source と target に適用すると、
+$M$ と $Z$ の $L_0$ 上の一般ファイバーは幾何学的に整である。
+従ってこの active 基底だけの体拡大で一般次数 $2e_n$ は変わらない。
+固定 active form の係数切片を $\mathcal A_g=g+M_r$、
+$\mathcal A_J=J_g+M_r$ と書く。ここで $M_r$ は三種類の混合係数の affine 空間である。
+active 軌道の同次空間表示により、$\kappa$ 上の source 一般ファイバーと
+sign target 一般ファイバーは、それぞれ
+\[
+ [\mathcal A_g/H],\qquad[\mathcal A_J/H^\pm]
+\]
+の非空開で表される。
+係数全体への $h$ の乗算は $\kappa$ 上可逆なので、ここでは式から省略した。
+この商の表示は fppf 的な表示であり、非分裂 forms も含む。
+
+命題\ref{prop:nfm-residual-mixed-triangular}の $T_h$ は
+$\mathcal A_g\to\mathcal A_J$ の $\kappa$ 上の多項式同型である。
+trace--Hessian 同定、生成元固定模型、中心移送はいずれも線型共変であり、
+一意な trace--Hessian 規格化 $W_h^{\mathrm{TH}}$ 自身が共変であり、
+その active scalar $b_h(g)$ は $H$ に不変である。
+この議論は純中心項を零にした raw primitive のせん断共変性を仮定しない。
+従って $T_h$ は共通部分群 $H$ に同変であり、商上の同型
+\[
+ [\mathcal A_g/H]\xrightarrow{\sim}[\mathcal A_J/H]
+\]
+を与える。これに指数二の商
+$[\mathcal A_J/H]\to[\mathcal A_J/H^\pm]$ を合成した候補射の一般次数は正確に二である。
+
+この候補射が実際の残余射であることを確認する。
+両射は既に $\kappa(m)$ 上で代数的に定義されている。
+一方、忠実な体拡大
+\[
+ \mathbf C(p,q)((h))(m)
+   \hookrightarrow\mathbf C(p,q,m)((h))
+\]
+の右辺では、既存の形式比較によって残余三次は
+$V(W_h^{\mathrm{TH}})=V(\widehat W_h)$ と同定される。
+active 制限は $J_g$ であり、点微分の尺度は $hJ_g\otimes P_0$ なので、
+候補 full tensor $(\widehat W_h,hP_0)$ は点規格化の符号商と一致する。
+標的を慣性自明な scheme 開に制限しているため、
+二つの moduli 射の等式は忠実な体拡大から $\kappa(m)$ へ戻る。
+ここでは Nat frame 自体が小さい体へ降下することを主張していない。
+既に小さい体上に定義した二つの射の等式だけを降下している。
+
+従って基底変更後の $M\to Z$ の一般次数は二であり、
+$2e_n=2$、すなわち $e_n=1$ である。
+既存の $\delta_n=18e_n$ から結論を得る。
+最後に次数一の有限 \'etale 全射は同型なので、既存の有限 \'etale 開上で
+$M/\langle\iota\rangle\simeq Z$ が従う。
+\end{proof}
+
+\begin{remark}[形式逆だけを用いた議論との違い]
+一般に $k(m)((h))$ 上の形式逆の存在から、$k((h))(m)$ 上の次数一は従わない。
+上の証明で必要なのは、混合重みが三以下に一様に制限されるため、
+全次数の potential が実際に $k((h))[m]$ の多項式となる点である。
+無限級数が残るのは active 基底の係数だけであり、
+一般次数を計算する混合変数に関しては有限三角形の多項式逆がある。
+\end{remark}
+
+
+\subsection{符号障害の active 基底への降下}
+
+正確な一般次数は、混合係数に新しい有限分枝が現れないことを意味する。
+尺度の符号についても、残る障害は補正前の active 不変量の体へ降りる。
+まず必要な体論を明記する。
+
+\begin{lemma}[定数体の拡大で消える二次類]
+\label{lem:nfm-quadratic-class-constant-descent}
+$L/k$ を標数零の有限生成正則体拡大とし、$k'/k$ を任意の体拡大とする。
+$L'=\operatorname{Frac}(L\otimes_k k')$ と置く。
+$a\in L^\times/(L^\times)^2$ が $L'$ 上で零になるならば、
+一意な $a_0\in k^\times/(k^\times)^2$ の像である。
+\end{lemma}
+
+\begin{proof}
+$L/k$ は正則なので、$L\otimes_k k'$ は整域である。
+また $k$ は $L$ 内で相対的に代数閉であるから、
+$k^\times/(k^\times)^2\to L^\times/(L^\times)^2$ は単射である。
+従って一意性は明らかであり、$a=0$ の場合には $a_0=0$ を取ればよい。
+
+$a\ne0$ とし、$E=L(\sqrt a)$ と置く。
+$k$ の $E$ 内での相対代数閉包を $k_1$ とする。
+有限生成性から $k_1/k$ は有限である。
+もし $k_1=k$ ならば、標数零では $E/k$ も正則なので、
+$E\otimes_k k'$ は整域である。
+これを $L\otimes_k k'$ の非零元で局所化すると
+$E\otimes_L L'$ も整域になるはずだが、$a$ は $L'$ 上で平方なので
+この代数は $L'\times L'$ となり矛盾する。
+従って $k_1\ne k$ である。
+
+正則拡大 $L/k$ は有限拡大 $k_1/k$ と線型無関連なので、
+\[
+ 1<[k_1:k]=[Lk_1:L]\le[E:L]=2.
+\]
+従って $[k_1:k]=2$、$E=Lk_1$ である。
+$k_1=k(\sqrt{a_0})$ と書けば、$a$ は $a_0$ の像となる。
+ここで用いた正則拡大、幾何学的整性、相対代数閉包の基本性質については
+\cite[Tags~037P, 0322, 05DW]{NFMStacksRegularFields}を参照。
+\end{proof}
+
+\begin{theorem}[符号二重被覆の active 二次類]
+\label{thm:nfm-residual-sign-active-class}
+定理\ref{thm:nfm-residual-exact-degree-eighteen}と同じ一般開を考え、
+補正前の active 不変量の体を $L_0=\mathbf C(s,t)$、
+source の関数体を $L=\mathbf C(M)$ とする。
+尺度二重被覆 $\mathfrak D\to M$ の一般点の類は、
+一意な
+\[
+ \chi_{\mathrm{act}}\in
+ L_0^\times/(L_0^\times)^2
+\]
+の引戻しである。
+従って適切な非空開上で、この二重被覆は active 不変量の基底上の
+$\mu_2$-torsor を引き戻したものと同型になる。
+
+特に点規格化に合う full Poisson 射の有理的な持上げが存在することと、
+$\chi_{\mathrm{act}}=0$ は同値である。
+そのような持上げが存在する場合、その一般次数は $9$ である。
+\end{theorem}
+
+\begin{proof}
+前定理で用いた $\kappa=\mathbf C(p,q)((h))$ への active 基底変更を取る。
+三角同型 $T_h$ は proper stabilizer $H$ に同変なので、
+\[
+ [\mathcal A_g/H]\xrightarrow{\sim}[\mathcal A_J/H]
+\]
+という射を商の上で与える。
+右辺は full Poisson 標的の active ファイバーであり、
+符号商ファイバー $[\mathcal A_J/H^\pm]$ への写像を持つ。
+従って $\kappa$ への基底変更後には、実際の符号商射に対する
+full tensor の有理的な持上げがある。
+これは mixed affine atlas 上だけの持上げではなく、
+$H$ の商の一般点で定義されていることに注意する。
+
+$\mathfrak D$ は定義から、full Poisson 標的から符号商標的への
+$\mu_2$-torsor の引戻しである。
+よってその Kummer 類は
+$\operatorname{Frac}(L\otimes_{L_0}\kappa)$ 上で零になる。
+補題\ref{lem:nfm-active-invariant-regular-fiber}により $L/L_0$ は正則なので、
+前補題から一意な $\chi_{\mathrm{act}}$ を得る。
+その代表元の零点と極を active 基底から除いて二次 torsor を定義し、
+一般点での同型を有限表示により広げれば、適切な非空開上の主張を得る。
+
+同じ正則性によって $H^1(L_0,\mu_2)\to H^1(L,\mu_2)$ は単射なので、
+$\mathfrak D$ の有理的な切断があることと $\chi_{\mathrm{act}}=0$ は同値である。
+full Poisson 標的から符号商への射の一般次数は二であるから、
+持上げがある場合の次数は $18/2=9$ となる。
+\end{proof}
+
+\begin{corollary}[反対被覆の二次 twist]
+\label{cor:nfm-opposite-cover-active-twist}
+$F_Z=\mathbf C(Z)$ とする。
+反対被覆 $M\to Z$ の二次類を $\chi_{\mathrm{op}}$、
+full Poisson 符号被覆を $Z$ へ引き戻した二次類を $\chi_{\mathrm{sgn}}$ と書く。
+前定理の $\chi_{\mathrm{act}}$ も $L_0\hookrightarrow F_Z$ に沿って引き戻すと、
+\begin{equation}\label{eq:nfm-opposite-active-twist-class}
+ \chi_{\mathrm{op}}=\chi_{\mathrm{sgn}}+\chi_{\mathrm{act}}
+ \qquad\text{in }H^1(F_Z,\mu_2)
+\end{equation}
+が成立する。
+従って $M\to Z$ は、full Poisson 符号被覆の active 二次 twist である。
+この主張は一般点の被覆の同型を意味し、適切な非空開へ広げられる。
+\end{corollary}
+
+\begin{proof}
+前定理と $\mathfrak D$ の引戻しによる記述から、
+$F_Z\hookrightarrow L=\mathbf C(M)$ への制限で
+$\chi_{\mathrm{sgn}}$ と $\chi_{\mathrm{act}}$ は等しくなる。
+$L/F_Z$ は非自明な二次拡大であり、その類は $\chi_{\mathrm{op}}$ である。
+二次拡大に対する Kummer 類の制限の核は
+$\{0,\chi_{\mathrm{op}}\}$ なので、
+\[
+ \chi_{\mathrm{sgn}}+\chi_{\mathrm{act}}
+       \in\{0,\chi_{\mathrm{op}}\}.
+\]
+この核の記述は、$L=F_Z(\sqrt b)$ とし、
+$(x+y\sqrt b)^2\in F_Z$ なら $xy=0$ となることから直接従う。
+
+零の可能性を排除する。
+full Poisson 標的の active 不変量への一般ファイバーも幾何学的に整である
+（補題\ref{lem:nfm-active-invariant-regular-fiber}）。
+従って active 基底変更で得た、その $Z$ 上の二重被覆は整であり、
+関数体は $L_0$ 上正則である。
+もし $\chi_{\mathrm{sgn}}=\chi_{\mathrm{act}}$ ならば、
+$\chi_{\mathrm{act}}=0$ の場合にはこの被覆が分裂し、整性に反する。
+非零の場合には、その関数体が $L_0$ の非自明な二次拡大を含み、
+$L_0$ 上の正則性に反する。
+従って和は零でなく、式\eqref{eq:nfm-opposite-active-twist-class}を得る。
+\end{proof}
+
+ここでの三つの $\mu_2$-類は、表示 gerbe の Brauer 類や
+比較核の scalar gerbe の類とは別のものである。
+$\chi_{\mathrm{act}}$ の具体的な代表元と、その消滅の判定はなお未解決である。
+本節の結論は、混合係数による追加分枝を排除し、
+符号の問題を active 不変量体上の一つの二次類へ帰着する。
+元の moduli 上の標準的な符号選択や、比較核の大域降下を与えるものではない。
+
 
 \begin{corollary}[反対な O-marked 対と同じ残余圏]
 \label{cor:nfm-opposite-same-residual-category}

@@ -1245,6 +1245,496 @@ $\alpha_K$ を分裂させるので、$d$ は各 $[L_i:K]$ を割り、
 符号の選択と、既に選んだ核の scalar 障害とは異なる段階である。
 
 
+\subsection{active 曲線への制限と次元によらないスカラー評価}
+
+Euler 格子を反復する方法とは別に、可換側の active 曲線への制限から
+新たな試験対象を取り出せる。
+以下では比較核に追加の型を課し、その型の非空性を証明する。
+得られる上界は split 表示上で三であり、$n$ に依存しない。
+核の同型類を選ぶ第一段階と、既存の数値型全体に対する評価は引き続き区別する。
+
+\begin{lemma}[次数一の中心列に対する残余体の分裂]
+\label{lem:nfm-linear-center-purity}
+$A$ を体 $K$ 上の左右 noetherian な connected nonnegative graded 代数とし、
+$A_0=K$、各次数成分は有限次元とする。
+$u_1,\ldots,u_r\in Z(A)_1$ が正則列なら、$A'=A/(u_1,\ldots,u_r)$ に対し
+\begin{equation}
+\label{eq:nfm-linear-center-purity}
+ K\otimes_A^{\mathbf L}A'
+ \simeq
+ \bigoplus_{j=0}^{r}K(-j)[j]^{\oplus\binom rj}
+ \quad\text{in }D^b(\operatorname{gr}A')
+\end{equation}
+という非正準な同型がある。
+\end{lemma}
+
+\begin{proof}
+中心 Koszul 分解により
+$\operatorname{Tor}_j^A(K,A')$ は内部次数 $j$ だけに集中し、
+その次元は $\binom rj$ である。
+従って $A'_+$ の作用は零であり、導来像を $Q$ と書くと
+$\mathcal H^{-j}(Q)=K(-j)^{\oplus\binom rj}$ である。
+この Tor の計算に加えて、Postnikov extension の消滅を示す必要がある。
+
+$K$ の minimal graded free $A'$-resolution の第 $p$ 項は、
+内部次数 $p$ 以上の元で生成される。
+実際、最初の生成次数は零であり、minimal differential の行列成分は
+全て $A'_+$ に入るので、生成次数は各段階で少なくとも一増える。
+従って $q\ge1$ に対し
+\[
+ \operatorname{Ext}^{q+1}_{\operatorname{gr}A'}(K,K(-q))=0.
+\]
+$\tau_{\ge-j+1}Q$ が既に分裂したとする。
+次の truncation triangle の attaching map の各成分は、$0\le i<j$ に対し
+\[
+ \operatorname{Hom}\bigl(K(-i)[i],K(-j)[j+1]\bigr)
+ =
+ \operatorname{Ext}^{j-i+1}_{\operatorname{gr}A'}
+       (K,K(-(j-i)))
+ =0
+\]
+に属する。$j=0$ から有限回帰納すれば \eqref{eq:nfm-linear-center-purity} を得る。
+分裂の選択の差を表す $\operatorname{Ext}^{j-i}$ は零とは限らないため、
+正準分裂は主張しない。
+\end{proof}
+
+次数一という仮定はこの証明に本質的である。
+例えば $A=K[x]$、$A'=A/(x^2)$ では、
+$K\otimes_A^{\mathbf L}A'$ は
+$[A'(-1)\xrightarrow{x}A']$ という二項の $A'$-free 複体であり、
+$D_{\mathrm{sg}}(A')$ では零となる。
+その二つの Tor 加群の直和は同じ特異圏で零ではない。
+Koszul 複体を $K$ と tensor したとき微分が零になるというだけでは、
+商代数の作用を含めた分裂は得られない。
+
+\begin{proposition}[MF の係数商と残余体の導来制限]
+\label{prop:nfm-mf-linear-restriction}
+$B$ を体 $K$ 上の有限大域次元を持つ左右 noetherian な connected graded 代数、
+$U=(u_1,\ldots,u_r)\subset Z(B)_1$ とし、
+$B$ は $T=K[u_1,\ldots,u_r]$ 上 flat であると仮定する。
+$\Omega\in Z(B)_3$ は正則とし、
+$B_0=B/(U)$ も有限大域次元を持ち、
+$\Omega_0=\Omega\bmod(U)$ は $B_0$ 上正則とする。
+$A=B/(\Omega)$、$A_0=B_0/(\Omega_0)$ と置く。
+このとき $U$ は $A$ 上の正則列であり、MF の係数商
+\[
+ q:\operatorname{MF}^{\mathbf Z}(B,\Omega)
+      \longrightarrow\operatorname{MF}^{\mathbf Z}(B_0,\Omega_0)
+\]
+は、cokernel と stabilization の同値の下で
+$-\otimes_A^{\mathbf L}A_0$ が特異圏に誘導する関手に対応する。
+特に原点残余体の stabilization に対し
+\begin{equation}
+\label{eq:nfm-mf-linear-restriction}
+ q(\kappa_{\mathrm{full}})
+ \simeq
+ \bigoplus_{j=0}^{r}
+ \kappa_{\mathrm{act}}(-j)[j]^{\oplus\binom rj}
+\end{equation}
+となる。
+\end{proposition}
+
+\begin{proof}
+$T$-flat な二項分解
+$[B(-3)\xrightarrow{\Omega}B]$ を $T\to K$ に沿って導来 tensor すると、
+$[B_0(-3)\xrightarrow{\Omega_0}B_0]$ を得る。
+$\Omega_0$ の正則性により、これは導来圏で次数零の $A_0$ と同型である。
+従って $\operatorname{Koszul}(U;A)$ は正の homological 次数で完全である。
+中心元が正の内部次数を持つので、graded Nakayama と Koszul 複体への帰納法により
+$U$ は $A$ 上の正則列となる。
+
+同じ二項分解から
+\[
+ A\otimes_B^{\mathbf L}B_0\simeq A_0
+\]
+を得る。従って任意の右 $A$-加群 $M$ に対し
+\[
+ M\otimes_A^{\mathbf L}A_0
+ \simeq M\otimes_B^{\mathbf L}B_0.
+\]
+有限自由 MF の cokernel $M$ は $B$ 上で二項自由分解を持つ。
+その $B_0$ への tensor は係数商 MF の二項写像であり、
+その写像の合成は正則元 $\Omega_0$ の乗法なので単射である。
+よって商後の cokernel は上の導来像を表す。
+$A_0$ は $A$ 上有限 Tor 次元を持つので、この操作は有界導来圏から特異圏へ降り、
+有限 cone と直和因子にも両立する。
+最後に補題\ref{lem:nfm-linear-center-purity}を適用する。
+\end{proof}
+
+本稿の良い一ブロック表示では、
+定理\ref{thm:nfm-relative-ambient-cy}の相対 PBW 分裂が $T$-flatness を与える。
+active 三変数代数は三次元 AS 正則であり、指定された非零の中心三次は正則である。
+この性質を保つ非空開で上の命題を用いる。
+完備支配族でも、特殊ファイバーの多項式環上で
+$\Omega_0\bmod h=g\ne0$ が正則であり、各内部次数の分離完備性により
+$\Omega_0$ の乗法は単射である。
+ここで比較したのは対象の導来制限と MF の係数商であり、
+MF 圏の categorical tensor を商代数の全 MF 圏と同一視してはいない。
+
+\begin{lemma}[active 平面三次の窓と最高次 cohomology]
+\label{lem:nfm-active-line-rotation}
+$C=V(w)\subset\mathbf P^2_K$ を体 $K$ 上の滑らかな split 平面三次、
+$L=\mathcal O_C(1)$ とする。
+Galinat\cite[\S1.1, Lemma~1.2, \S1.4]{NFMGalinat}の
+$\Phi_1:D^b(C)\to\operatorname{MF}^{\mathbf Z}(K[x,y,z],w)$
+と同じ window を選ぶと
+\begin{equation}
+\label{eq:nfm-active-window-convention}
+ \kappa_{\mathrm{act}}\longleftrightarrow\mathcal O_C[1],
+ \qquad
+ \rho=T_{\mathcal O_C}\circ(-\otimes L),
+ \qquad
+ \rho^3\simeq[2].
+\end{equation}
+ここで $T_{\mathcal O_C}$ は spherical twist である。
+$M$ を $C$ 上の次数零の線束とし、$r\ge0$ に対し
+\[
+ \mathscr R_r(M)=
+ \bigoplus_{j=0}^{r}\rho^{-j}(M)[j+1]^{\oplus\binom rj}
+\]
+と置く。このとき
+\begin{equation}
+\label{eq:nfm-active-line-top}
+ \mathcal H^i(\mathscr R_r(M))=0\quad(i>-1),\qquad
+ \mathcal H^{-1}(\mathscr R_r(M))\simeq M.
+\end{equation}
+全 cohomology は区間
+$[-1-\lceil r/3\rceil,-1]$ にあり、それぞれベクトル束である。
+\end{lemma}
+
+\begin{proof}
+$A_C$ を $C$ の斉次座標環とする。
+引用した window は $\mathcal O_C$ を $(A_C)_{\ge1}$ に対応させる。
+完全列
+$0\to(A_C)_{\ge1}\to A_C\to K\to0$ において $A_C$ は特異圏で零なので、
+$\Phi_1(\mathcal O_C)=\kappa_{\mathrm{act}}[-1]$ である。
+同じ $\Phi_1$ に対する内部 shift の式は
+\cite[\S1.4; Lemma~2.7 の証明]{NFMGalinat}に与えられている。
+三次の MF 周期 $(3)\simeq[2]$ も合わせて
+\eqref{eq:nfm-active-window-convention}を得る。
+従って剰余体の shift と rotation に異なる window の規約を混用していない。
+
+体上の次数零線束について
+\[
+ \rho^{-1}M\simeq M\otimes L^{-1},\qquad
+ \rho^{-2}M\simeq B_M[-1]
+\]
+を示す。$M$ が幾何的に非自明なら
+$R\operatorname{Hom}(M,\mathcal O_C)=0$ であり、
+$T_{\mathcal O_C}^{-1}M=M$ である。
+幾何的に自明なら、評価
+$H^0(C,M)\otimes\mathcal O_C\to M$ は同型であり、
+一 spherical object $\mathcal O_C$ をその twist が固定することから同じ結論を得る。
+これが第一式である。
+$N=M\otimes L^{-1}$ に対して、$N^{-1}$ は次数三で大域生成されるから
+\[
+ 0\longrightarrow N
+ \longrightarrow H^0(C,N^{-1})^\vee\otimes\mathcal O_C
+ \longrightarrow V_M\longrightarrow0
+\]
+は階数二・次数三の束 $V_M$ を定める。
+inverse twist の三角形から
+$T_{\mathcal O_C}^{-1}N=V_M[-1]$ であり、
+$B_M=V_M\otimes L^{-1}$ は階数二・次数 $-3$ の束となる。
+
+$\rho^3=[2]$ により、$j=3a,3a+1,3a+2$ に対応する直和成分は順に
+\[
+ M[a+1],\qquad
+ (M\otimes L^{-1})[a+2],\qquad
+ B_M[a+2]
+\]
+である。$j=0$ の項だけが cohomological 次数 $-1$ を持ち、
+他の項は全て次数 $-2$ 以下にある。
+これで \eqref{eq:nfm-active-line-top} と区間の主張を得る。
+次数零線束に対するこの twist の計算は体上で用いており、
+任意の線束族に同じ分解が成立するとは主張しない。
+\end{proof}
+
+以下では、命題\ref{prop:nfm-kernel-three-primary}と同じ
+split な正則表示 chart $S$ を用い、active 切断
+$C_S\subset X_{\mathrm{res},S}$ も滑らかとなる非空開へ制限する。
+次数付き表示、方程式の生成元、source stabilization
+$\kappa_{\mathrm{nc}}$、full window を固定する。
+可換側の MF の係数商と
+\eqref{eq:nfm-active-window-convention}の window により、関手
+\[
+ q_Y:\operatorname{Ku}(X_{\mathrm{res},S})
+       \longrightarrow\operatorname{Perf}(C_S)
+\]
+を固定する。これは比較核 $P$ と独立な構成である。
+体上の $a=0$ 比較には
+\cite[Theorem~2.5(iii)]{NFMOrlovSingularities}を、
+正則底上では任意の窓を許す
+\cite[Theorem~6.4(3)]{NFMBurkeStevenson}と
+固定入力Bの \texttt{gre:lem:elliptic-mf} の dg 比較を用いる。
+同補題の次数切断を $\ge0$ から $\ge1$ に替え、
+\[
+ R\Gamma_{\ge1}(F)=
+ \bigoplus_{m\ge1}R\pi_*(F\otimes L^m)
+\]
+を用いる。$\pi:C_S\to S$ は smooth proper なので、perfect な $F$ に対し
+各 graded 成分は底上 perfect であり、その形成は導来底変更と可換する。
+次数切断と dg 商も含めたこの構成により、同じ window の底変更比較を得る。
+必要な perfect 模型を一般点から広げ、$S$ をさらに縮めれば、
+$q_Y$ とその底変更を perfect bimodule で実現できる
+\cite[Lemmas~2.8, 2.10]{NFMToenVaquieModuli}。
+
+局所比較核 $P$ に対して
+$R_P=q_Y\Phi_P(\kappa_{\mathrm{nc}})$ と置き、追加条件
+\begin{equation}
+\label{eq:nfm-kernel-active-line-type}
+ \mathcal H^i(R_P)=0\quad(i>-1),\qquad
+ \mathcal H^{-1}(R_P)
+ \text{ は各幾何ファイバーで次数零の可逆層}
+\end{equation}
+を考える。ここでは可逆層性を族全体で要求する。
+以下で必要な開への縮小後には、この条件と最高次 cohomology の形成は底変更に両立する。
+実際、導来 pullback は cohomological 次数を増加させないので、
+$R_P\in D^{\le-1}$ の truncation triangle から
+$\mathcal H^{-1}(R_{P_T})=\mathcal H^{-1}(R_P)|_{C_T}$ を得る。
+従ってこの条件は任意の底変更後にも成立する。
+
+\begin{proposition}[最高次が線束となる型の非空性]
+\label{prop:nfm-kernel-active-line-nonempty}
+固定入力Bと上の良い一ブロックの仮定の下で、
+\eqref{eq:nfm-kernel-active-line-type}を満たす
+rotation・指定周期に両立する比較核は一般点上で幾何学的に非空である。
+必要な非空開の有限 étale 被覆上に、そのような核を取れる。
+同時に \eqref{eq:nfm-kernel-numerical-type} の三つの Euler 条件も満たすように選べる。
+\end{proposition}
+
+\begin{proof}
+支配族の係数体を $k$ とし、$\widehat R=k[[h]]$、
+$\widehat L=k((h))$ と置く。
+系\ref{cor:nfm-completed-active-mf}の実際の active CF 比較は、
+剰余で可換な三変数 MF 上の恒等となる。
+可換側の滑らかな平面三次族を $C_{\widehat R}$ とすると、
+active augmentation の stabilization の像は
+$C_{\widehat R}$ 上の perfect 複体であり、その閉ファイバーは
+\eqref{eq:nfm-active-window-convention}によって
+$\mathcal O_{C_0}[1]$ である。
+正則底上の $a=0$ window とその底変更は上述の相対比較から得られる。
+
+perfect 複体が可逆層の shift となる locus は開である。
+この locus は閉ファイバー全体を含む。
+その閉補集合の $\operatorname{Spec}\widehat R$ への像は proper 性により閉であり、
+閉点を含まないので空である。従って像の複体は全体で
+$M_{\widehat R}[1]$ と書け、$M_{\widehat R}$ は次数零の線束である。
+この線束が $\mathcal O_{C_{\widehat R}}$ と同型であるとは仮定しない。
+
+ここから $\widehat L$ へ移る。
+命題\ref{prop:nfm-mf-linear-restriction}の分裂と
+命題\ref{prop:nfm-completed-central-restriction}の全 Taylor 成分の可換性により
+\[
+ q_Y\Phi_{\mathrm{full}}(\kappa_{\mathrm{nc}})
+ \simeq
+ \bigoplus_{j=0}^{n-1}
+ \rho^{-j}(M_{\widehat L})[j+1]^{\oplus\binom{n-1}j}.
+\]
+補題\ref{lem:nfm-active-line-rotation}は
+\eqref{eq:nfm-kernel-active-line-type}を与える。
+特に $q_Y$ は非零である。
+この議論は active 比較が source stabilization を target stabilization
+そのものへ送るという主張を用いていない。
+
+形式側と代数的な $X_{\mathrm{res}}$ の同定は、必要な有限拡大後に
+一次空間と方程式の同定へ持ち上げられる。
+補題\ref{lem:nfm-relative-center-transport}により active 平面も対応する。
+従って active 曲線上の pullback は上の cohomological 条件、次数、可逆層性を保つ。
+これにより比較先と $q_Y$ を元の関数体上で固定したまま、
+形式 Laurent 拡大上の所要の核を得る。
+
+定理\ref{thm:nfm-residual-comparison-cover}の有限表示の議論に従い、
+full 核、逆核、単位・余単位、rotation・周期図式を
+元の関数体 $K$ 上有限生成な整域 $D$ へ降ろす。
+$q_Y$ と $\kappa_{\mathrm{nc}}$ は既に $K$ 上にあるので、
+$R_P$ は自動的に $C_D$ 上の perfect 複体となる。
+形式体への忠実平坦拡大後に
+\eqref{eq:nfm-kernel-active-line-type}が成立することから、
+$\operatorname{Frac}(D)$ 上でも同じことが成立する。
+有限個の全 cohomology を generic flatness で $D$-flat にし、
+$\mathcal H^{>-1}$ の台、および $\mathcal H^{-1}$ の可逆層性が失われる
+Fitting locus の proper な像を底から除く。
+これにより $D$ の非空開上で同条件を得る。
+線束の次数は平坦な曲線族上で局所定数なので零のままであり、
+上記 truncation の議論から底変更にも両立する。
+
+この開の閉点へ特殊化すると有限分離拡大 $K'/K$ 上の所要の核を得る。
+正規化と分岐 locus・必要な閉集合の除去により、
+元の chart の非空開の有限 étale 被覆上へ広げられる。
+これは有限生成代数へ降ろしてから閉点へ特殊化する構成であり、
+最初の形式核そのものが有限代数拡大上で定義されるという主張ではない。
+三つの perfect mixed Hom も同じ有限データに含めれば、
+命題\ref{prop:nfm-kernel-three-primary}と同様にその Euler rank は $D$ 上一定であり、
+\eqref{eq:nfm-kernel-numerical-type}を同時に保てる。
+\end{proof}
+
+\Needspace{5\baselineskip}
+\begin{theorem}[最高次の線束から得られる階数三の束と scalar index]
+\label{thm:nfm-kernel-active-line-bound}
+上の split 設定で、
+\eqref{eq:nfm-kernel-active-line-type}に属する局所比較核の同型類が
+既に整合的に選ばれ、その実現が scalar $\mathbf G_m$-gerbe
+$p:\mathcal G\to S$ であるとする。
+その類を $\alpha$ とすると
+\[
+ 3\alpha=0.
+\]
+さらに $\mathcal G$ 上には重み一・階数三のベクトル束があり、
+その endomorphism 代数は次数三の Azumaya 代数として $S$ へ降りる。
+この Azumaya 代数の Brauer 類は符号を除いて $\alpha$ である。
+特に $S=\operatorname{Spec}K$ なら
+$\operatorname{ind}(\alpha)\mid3$ である。
+整な $S$ では、非空開の次数一または三の有限 étale 全射上に
+選んだ同型類を実際の比較核として実現できる。
+\end{theorem}
+
+\begin{proof}
+$\mathcal G$ 上の普遍 full 核 $P$ から
+$R_P=q_Y\Phi_P(\kappa_{\mathrm{nc}})$ を作る。
+その最高次 cohomology
+$\mathcal M=\mathcal H^{-1}(R_P)$ は $C_{\mathcal G}$ 上の可逆層である。
+核の scalar 自己同型 $\lambda\operatorname{id}_P$ は
+$R_P$ にも $\mathcal M$ にも $\lambda$ 倍で作用するため、
+$\mathcal M$ は重み一である。
+実際の次数三線束 $L=\mathcal O_{C_S}(1)$ と
+$\pi:C_{\mathcal G}\to\mathcal G$ を用いて
+\begin{equation}
+\label{eq:nfm-kernel-active-rank-three}
+ \mathcal V=\pi_*(\mathcal M\otimes L)
+\end{equation}
+と置く。幾何ファイバーで $\mathcal M\otimes L$ は次数三の線束なので、
+genus one の Riemann--Roch と Serre 双対から $H^1=0$、$h^0=3$ である。
+cohomology と底変更により $\mathcal V$ は重み一・階数三の束となる。
+
+$\det\mathcal V$ の重みは三なので、
+補題\ref{lem:nfm-kernel-determinant-annihilator}の cocycle の議論から
+$3\alpha=0$ を得る。
+$\operatorname{End}(\mathcal V)$ は重み零なので $S$ へ降下し、
+局所的には $3\times3$ 行列代数である。
+その遷移行列の scalar cocycle は $\mathcal G$ のものと一致するため、
+降下した Azumaya 代数は符号を除いて $\alpha$ を表す。
+体上では division 代数の次数はこの三を割る。
+一般点で分裂体を取り、既に選んだ核とその比較図式を広げれば、
+最後の有限 étale 被覆の主張も従う。
+\end{proof}
+
+\begin{corollary}[scalar 障害の Picard 障害としての同定]
+\label{cor:nfm-kernel-picard-obstruction}
+定理\ref{thm:nfm-kernel-active-line-bound}と同じ設定と同型類の選択を仮定する。
+$J_C=\operatorname{Pic}^0_{C_S/S}$ とし、次数零線束の Picard stack の類を
+$\beta_{\mathrm{Pic},C}\in H^2(J_C,\mathbf G_m)$ と書く。
+最高次線束 $\mathcal M$ の相対 Picard 類は切断 $m_P:S\to J_C$ を定め、
+band の規約を揃えると
+\[
+ \mathcal G\simeq m_P^*\mathscr{P}ic^0_{C_S/S},\qquad
+ \alpha=m_P^*\beta_{\mathrm{Pic},C}
+\]
+である。特に $m_P$ が $C_S$ 上の実際の線束で表されれば $\mathcal G$ は中立である。
+$m_P=0$ ならこの条件は満たされ、$C_S$ の切断の存在を仮定しない。
+\end{corollary}
+
+\begin{proof}
+滑らかな固有幾何的連結曲線では、構造層の押下げは普遍的に構造層である。
+従って Picard stack から相対 Picard functor への射は
+$\mathbf G_m$-gerbe である\cite{NFMStacksPicardGerbe}。
+$\mathcal M$ は $\mathcal G\to\mathscr{P}ic^0_{C_S/S}$ を定め、
+scalar $\lambda$ は $\mathcal M$ に $\lambda$ で作用する。
+相対 Picard functor は層なので、この射の相対同型類は $S$ 上の切断 $m_P$ へ降りる。
+得られる $\mathcal G\to m_P^*\mathscr{P}ic^0_{C_S/S}$ は band を恒等で写す。
+両 gerbe を fppf 局所的に自明化すると、この射は Isom torsor を同型に写し、
+局所的に本質的全射なので同値である。
+最後に $m_P$ を表す線束は右辺 gerbe の対象を与える。
+零切断では $\mathcal O_{C_S}$ を使えばよい。
+\end{proof}
+
+ここで同定したのは、既に選んだ full 核の同型類の scalar 障害である。
+$m_P$ の具体的計算や標準的な核の同型類の選択は含まない。
+$\beta_{\mathrm{Pic},C}$ は表示 gerbe の類 $\beta$ とも区別する。
+
+\begin{corollary}[active 曲線による scalar gerbe の分裂]
+\label{cor:nfm-kernel-active-curve-splitting}
+前定理の仮定、特に比較核の同型類が既に整合的に選ばれているという仮定の下で、
+\[
+ \alpha|_{C_S}=0
+\]
+であり、$C_S$ 上にその同型類を実現する実際の比較核が存在する。
+$S=\operatorname{Spec}K$ なら、$C$ の任意の閉点の剰余体は
+$\alpha_K$ を分裂させる。特に $C(K)\ne\varnothing$ なら $\alpha_K=0$ である。
+また、一般の $K$-直線 $\ell\subset\mathbf P^2_K$ に対し
+$C\cap\ell\to\operatorname{Spec}K$ は次数三の有限 étale 全射であり、
+その上で選んだ同型類を実際の比較核として実現できる。
+\end{corollary}
+
+\begin{proof}
+$\mathcal G\times_S C_S=C_{\mathcal G}$ 上の
+$\mathcal M=\mathcal H^{-1}(R_P)$ は重み一の可逆層である。
+従って $C_S$ へ底変更した普遍 full 核を $\mathcal M^{-1}$ で tensor すると
+重み零となり、$C_S$ へ降下する。
+同値性は fppf 局所的なので、これが所要の比較核を与える。
+閉点や $K$-点についてはこの核を引き戻せばよい。
+標数零の $K$ は無限体であり、接線を除いた双対平面の非空開には $K$-点がある。
+その直線と $C$ の交わりは次数三の有限 étale scheme であるから、
+同じ引戻しによって最後の主張を得る。
+\end{proof}
+
+同じ構成の $\mathbf P(\mathcal V)$ は $S$ 上の Brauer--Severi 平面へ降りる。
+その上では tautological line で核の重みを相殺し、
+実際の普遍比較核を得られる。
+この構成は full 核の gerbe から直接定まり、
+代数的な full 核に coherent な中心線型構造や
+functorial な active 同値核を付加することを要求しない。
+
+\begin{corollary}[非分裂表示での次元によらない上界]
+\label{cor:nfm-kernel-active-line-unsplit}
+系\ref{cor:nfm-generic-kernel-bound}と同様に、
+体 $K$ 上で比較核の同型類が既に整合的に選ばれ、
+その scalar gerbe の類を $\alpha_K$ とする。
+表示 gerbe を分裂させる次数
+$e\mid3^{\epsilon_n}$ の拡大 $K'/K$ を取り、
+その上で上記の表示・window・active 切断を選ぶと、
+この同型類が \eqref{eq:nfm-kernel-active-line-type} を満たすと仮定する。
+ただし
+\[
+ \epsilon_n=
+ \begin{cases}
+ 0,&n\not\equiv1\pmod3,\\
+ 1,&n\equiv1\pmod3.
+ \end{cases}
+\]
+このとき
+\[
+ \operatorname{ind}(\alpha_K)\mid3^{1+\epsilon_n}.
+\]
+従って上界は $n\not\equiv1\pmod3$ で三、
+$n\equiv1\pmod3$ で九である。
+\end{corollary}
+
+\begin{proof}
+系\ref{cor:nfm-generic-kernel-bound}で構成した表示の分裂体を用いる。
+追加条件を仮定した $K'$ 上では、前定理により
+次数 $f\mid3$ の分離拡大で $\alpha_{K'}$ が分裂する。
+従って $\alpha_K$ は次数 $ef\mid3^{1+\epsilon_n}$ の拡大で分裂し、
+index の整除を得る。
+表示の Brauer 類 $\beta_K$ は $K'$ を選ぶためだけに使っており、
+比較核の $\alpha_K$ と同一視していない。
+\end{proof}
+
+\begin{remark}[上界の適用範囲]
+\eqref{eq:nfm-kernel-active-line-type}は、
+三つの混合 Euler 数だけを指定する
+\eqref{eq:nfm-kernel-numerical-type}にさらに課す条件として用いられる。
+命題\ref{prop:nfm-kernel-active-line-nonempty}は両条件を同時に満たす核の存在を示すが、
+既存の Euler 数値型に属する全核が追加条件を満たすとは主張しない。
+従って従来の $d_n$ の上界を全ての同型類について三で置き換えたものではない。
+また、型の非空性は元の底上で核の同型類が整合的に選べることを意味しない。
+全 O-marked stack 上へ source stabilization と選んだ window を降ろす問題、
+scalar gerbe の中立性、および有限な核への coherent な中心線型性の降下も残る。
+本節の改善は、型を指定した後の full 核から、
+active 曲線上の最高次 cohomology を標準的に取り出せることにある。
+\end{remark}
+
+
 \subsection{一変数 trait に沿う良い還元}
 
 以下は稠密開の定理とは別である。
