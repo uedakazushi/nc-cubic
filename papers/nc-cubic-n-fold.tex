@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v18}
+\date{2026年11月20日・研究稿 v19}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -81,6 +81,8 @@ active 制限の最高次 cohomology が点 shift を表す線束となる核の
 一般 split 係数体では両側の Picard 障害は等しく、period と index は三である。
 三・四次元では自己同値核の分類と Galois 降下により全 full 同型類を選択でき、
 全ての類がこの同じ障害を持つ。周期の追加標識を忘れた full 比較の最小体次数は三となる。
+周期位相も全類に共通であり、相対規格化で消せるが、標的の独立尺度を付した一般族では
+周期標識付き比較の最小体次数は九となる。
 全次元で点型の標準三分点被覆は連結な九次体であり、
 Galois 閉包の群は $\operatorname{ASL}_2(\mathbf F_3)$、次数は二百十六である。
 選択済み類はこの被覆上で規格化されるが、三分点の取得と scalar 分裂は異なる。
@@ -328,6 +330,24 @@ Canonaco--Stellari\cite[Corollary~4.4]{NFMCanonacoStellariKernels}の cohomology
 その後、定数無限巡回群の連続 Galois cocycle が零であることを用いて全 full 類を降下し、
 既存の Picard 障害と接続して最小比較次数三を得る。
 自己同値群の既知分類自体を新規成果とはせず、very general な分類を Zariski 開の主張に置き換えない。
+指定周期を加えた比較では、同じ整数冪による移送が周期位相も保つことを示す。
+中心商の conormal 同定を用いて方程式生成元の相対尺度の変換則を追い、
+位相を消す規格化と、独立な標的尺度を付した一般族での正確な最小次数九を得る。
+これは、元の係数体であらかじめ固定した二つの生成元の位相を計算したという意味ではない。
+
+高次元では、rotation 中央化群 $G_\rho$ の定数中心部分
+$\langle T\rangle$ を除いても各 class の Galois 安定化群が変わらないことを示す。
+奇数次元の数値格子の計算から、残る群は
+$G_{\rho,0}/\langle[2]\rangle$ と同定される。
+これは点型 class の選択を具体化する簡約であり、その存在の証明とは区別する。
+また Iliev--Manivel\cite[Proposition~3.1, Corollary~5.3]{NFMIlievManivelSevenfold}の
+既知の球面対象を用いると、一般三次七様体の full 自己同値群は
+$\mathbb Z^2$ を含み、rotation 中央化群の指数は無限になる。
+球面対象の構成自体は既知入力である。この帰結は、低次元の全群の巡回性を
+全高次元へ広げる方法に対する障害を明示する。
+Torelli 型の対象復元や Fourier--Mukai partner 数の有限性
+\cite{NFPirozhkov,NFMLinRennemoZhangWeighted,NFMLinZengZhangSingularity,NFMLinZhangPartners}を、
+核の同型類の一意性または降下と同一視しない。
 
 全次元の三分点被覆については、普遍 Hesse 曲線の真の一般点から translation 群を得る。
 Fisher の三捩れ安定化群を $g$ と $J_g$ で同一視して線型 monodromy を調べ、
@@ -980,7 +1000,7 @@ full 核から active 核を作る代数的 assignment は未構成なので、
 この active 分類からの推論と、以下で与える full 核の独立した降下証明を区別する。
 
 \subsection{点型の内在性、低次元の full 降下と三分点被覆}
-\begin{maintheorem}[三・四次元の full 比較の最小次数]
+\begin{maintheorem}[三・四次元の full 比較と周期標識の最小次数]
 \label{main:nfm-low-dimensional-full-descent}
 固定入力の下で、良い標準 split 一ブロック表示の一般係数体 $k_n$ を考える。
 $n=3,4$ なら、幾何的な full 比較核の全ての同型類を $k_n$ 上で選択できる。
@@ -994,6 +1014,13 @@ $n=3,4$ なら、幾何的な full 比較核の全ての同型類を $k_n$ 上�
 一方、ある三次分離体上には実際の点型 full 核が存在する。
 これは rotation を intertwine する性質を持ち、
 指定周期の追加標識を忘れた full 比較の最小体次数は正確に三である。
+
+両側の三次方程式の生成元から定まる指定周期を加えると、
+全 full 同型類に共通な $\mu_3$-torsor が追加される。
+source の生成元を保ち、target の生成元を適切な $k_n$-単元倍に取り替えれば、
+この torsor を分裂させて標識付き最小次数を三にできる。
+一方、target の生成元だけを独立変数 $t$ 倍した $k_n(t)$ 上の一般族では、
+標識付き full 比較核の任意の有限定義体の次数は九の倍数となり、最小次数は九である。
 \end{maintheorem}
 
 詳細は補題\ref{lem:nfm-projector-kernel-uniqueness}、
@@ -1003,9 +1030,18 @@ $n=3,4$ なら、幾何的な full 比較核の全ての同型類を $k_n$ 上�
 $T^2=\rho$、$T^3=[1]$ となる。
 比較核の類の Galois cocycle は連続準同型 $\Gamma_{k_n}\to\mathbb Z$ なので零である。
 $T$ との合成が scalar gerbe の band を保つため、全類の障害が一致する。
-rotation 同型の三重合成まで指定周期に一致させる追加標識については、
-その最小比較次数は三または九であることまで決まるが、どちらかの判定は残る
-（注意\ref{rem:nfm-full-kernel-period-nine}）。
+指定周期に適合する rotation 同型の torsor の Kummer 類を
+$\gamma\in k_n^\times/k_n^{\times3}$ とする。
+命題\ref{prop:nfm-period-phase-class-invariance}により、$\gamma$ は全 full class に共通である。
+source と target の生成元をそれぞれ $u,v$ 倍すると
+$\gamma\mapsto[v/u]\gamma$ となる
+（命題\ref{prop:nfm-period-equation-frame-change}）。
+独立尺度 $t$ の場合、$\gamma=[d]$ と書けばその成分体は
+$k_n(t)[s]/(s^3-dt)=k_n(s)$ である。
+この純超越体上では $\alpha$ の index 三が保たれるため、
+全体の最小次数は九となる（定理\ref{thm:nfm-free-period-frame-degree-nine}）。
+両側の同時規格化では位相は変わらず、元の係数体で固定した規格化の
+$\gamma$ の具体値は別に調べる必要がある。
 
 全次元では、原点対象と active 制限に内在的な表示
 \[
@@ -1153,7 +1189,10 @@ Picard 類が点の平行移動に一致する核の型の非空性を、同じ�
 同型類選択後の scalar 段階には正確に三次の分裂体を取れる。
 点型は全 O-同値へ降下し、三分点被覆は連結な九次体と決定された。
 $n=3,4$ では全 full 同型類が降下し、周期の追加標識を忘れた最小比較次数は三である。
-次の課題は $n\ge5$ の full 同型類と全型への拡張、低次元の追加周期位相、
+周期位相も全類で共通で、相対規格化で消せる一方、独立な標的尺度を持つ一般族の
+標識付き最小次数は九となる。
+次の課題は $n\ge5$ の rotation を保つ class の降下と全型への拡張、
+あらかじめ固定した規格化に対する低次元の周期位相の具体値、
 非分裂表示の index、および各 intrinsic 成分を覆う表示である。
 固定 frame の tensor の very general な超越性を踏まえ、
 形式座標の代数性と内在的なモジュライの代数性は区別して進める。

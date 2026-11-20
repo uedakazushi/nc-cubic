@@ -2501,75 +2501,691 @@ $T=\rho_Y^{-1}[1]$ も $\rho_Y$ と可換する。
 その非零元は幾何的に同型となるので、その体上でも rotation 比較同型を選べる。
 \end{proof}
 
-\begin{remark}[周期標識の追加と最小次数の二択]
+\subsection{周期位相の class 不変性と方程式生成元の変換則}
+
+以下では $K$ を標数零の体とし、必要な箇所で $\mu_3\subset K$ を仮定する。
+二つの $K$-線型 dg 圏 $\mathcal A,\mathcal B$ に rotation と指定周期
+\[
+ \rho_{\mathcal A},\ \rho_{\mathcal B},\qquad
+ \tau_{\mathcal A}:\rho_{\mathcal A}^3\xrightarrow{\sim}[2],\quad
+ \tau_{\mathcal B}:\rho_{\mathcal B}^3\xrightarrow{\sim}[2]
+\]
+があるとする。shift と dg 関手の標準比較は以下の式で省略する。
+幾何的に rotation を intertwine する一つの underlying full 比較核 class が
+$K$ 上で選ばれているものとし、その実現 gerbe を $\mathcal G$、
+普遍核を $P$ とする。
+式\eqref{eq:nf-hh}と同じ simple 性の仮定により
+\[
+ V=\operatorname{Hom}^0(P\rho_{\mathcal A},\rho_{\mathcal B}P)
+\]
+は $\mathcal G$ 上の直線である。
+scalar inertia は始域と終域で相殺するため、これは $K$ 上の直線 $V_0$ へ降下する。
+
+$\eta\in V$ の三重合成を
+\[
+ \eta^{(3)}
+ =(\rho_{\mathcal B}^2\eta)
+  (\rho_{\mathcal B}\eta\rho_{\mathcal A})
+  (\eta\rho_{\mathcal A}^2)
+ :P\rho_{\mathcal A}^3\longrightarrow\rho_{\mathcal B}^3P
+\]
+とし、三次形式 $c:V_0^{\otimes3}\xrightarrow{\sim}K$ の規約を
+\begin{equation}\label{eq:nfm-period-phase-convention}
+ (\tau_{\mathcal B}P)\eta^{(3)}
+      =c(\eta)\,P\tau_{\mathcal A}
+\end{equation}
+で固定する。
+$0\ne e\in V_0(K)$ を取れば、周期に適合する同型の torsor は
+\[
+ T_\eta=\operatorname{Spec}K[z]/(z^3-c(e)^{-1})
+\]
+であり、その Kummer 類を
+\begin{equation}\label{eq:nfm-period-phase-kummer}
+ \gamma(P;\tau_{\mathcal A},\tau_{\mathcal B})
+      =[c(e)^{-1}]
+      \in K^\times/K^{\times3}
+\end{equation}
+と書く。$e$ の変更は三乗倍だけを変えるので、この類は $e$ に依存しない。
+
+\begin{remark}[周期標識の実現 gerbe と最小次数]
 \label{rem:nfm-full-kernel-period-nine}
-前定理は underlying full 核の同型類に関するものであり、
-指定された $\rho^3\simeq[2]$ に適合する rotation 同型を標識した核についての
-最小次数三を主張しない。
-追加の標識が
-\[
- \eta:\Phi_P\rho_{\mathrm{nc}}\xrightarrow{\sim}\rho_Y\Phi_P
-\]
-と、その三重合成が指定周期に一致するという条件である場合には、
-次の上界が得られる。
-前定理の三次体 $L$ 上で任意の非零 $\eta$ を取ると、
-三重合成と指定周期との差は $c(\eta)\in L^\times$ である。
-なぜなら比較される両写像の差は $P$ の scalar 自己同型だからである。
-$a\in L^\times$ に対して
-\[
- c(a\eta)=a^3c(\eta)
-\]
-となるため、$a^3=c(\eta)^{-1}$ の解を持つ次数一または三の拡大 $L'/L$ 上で
-周期条件を満たす $\eta$ を選べる。
-従ってこの周期標識付き比較には $[L':k_n]=3$ または $9$ の体が存在する。
-
-さらに、最小次数も三または九のいずれかであり、六などの中間の値は生じない。
-この点は scalar 分裂体上だけでなく、元の体上で周期選択の torsor を追って示す。
-一つの underlying full class の実現 gerbe を
-$\mathcal G\to\operatorname{Spec}K$、$K=k_n$ とする。
-その普遍核に対する直線
-\[
- V=\operatorname{Hom}^0(P\rho_{\mathrm{nc}},\rho_YP)
-\]
-では、核の scalar 自己同型は始域と終域に同じ scalar として作用する。
-従って $V$ の inertia 重みは零であり、$K$ 上の直線 $V_0$ へ降下する。
-指定周期と三重合成は、非零の三次形式
-\[
- c:V_0^{\otimes3}\xrightarrow{\sim}K
-\]
-を定める。これにより
-$T_\eta=\{v\in V_0:c(v^{\otimes3})=1\}$ は元の体上の
-$\mu_3$-torsor となる。
-周期標識付き核の stack は
-$\mathcal G\times_KT_\eta$ であり、scalar band は変わらない。
-
+$K=k_n$、$n=3,4$ とする。
+周期標識付き核の stack は $\mathcal G\times_KT_\eta$ であり、
+核の scalar $\mathbf G_m$ inertia はそのまま残る。
 $\mu_3\subset K$ なので、$T_\eta$ は三つの $K$-点に分裂するか、
 一つの三次体の spectrum である。
-その一成分を $\operatorname{Spec}M$ とすれば、$[M:K]=1$ または $3$ であり、
-この class の周期標識付き核を実現する体は $M$ を含み、そこで
-$\alpha|_M$ を分裂させなければならない。
+その一成分を $\operatorname{Spec}M$ とすると、
+この class の周期標識付き核を実現する体は $M$ の $K$-埋込みを持ち、
+そこで $\alpha|_M$ を分裂させなければならない。
 従って、この class の標識付き最小体次数は
-\[
+\begin{equation}\label{eq:nfm-marked-minimum-index}
  [M:K]\operatorname{ind}(\alpha|_M)
-\]
+\end{equation}
 である。下界は index による分裂体次数の整除性、達成は division 代数の
-極大部分体による。$\operatorname{ind}(\alpha|_M)\in\{1,3\}$ であり、
-元の $\alpha$ が非零であるから値一は生じず、最小値は三または九となる。
-各 underlying class で $T_\eta$ が異なる可能性を残しても、
-全ての class にわたる最小値も三または九である。
-どちらであるかは未決定である。
+極大部分体による。
+$[M:K]\in\{1,3\}$、$\operatorname{ind}(\alpha|_M)\in\{1,3\}$ であり、
+$\alpha\ne0$ なので、この最小値は三または九となる。
+特に六などの値が最小になることはない。
+
+次の命題\ref{prop:nfm-period-phase-class-invariance}により、
+この $T_\eta$ は全 underlying full class に共通である。
+従って式\eqref{eq:nfm-marked-minimum-index}は全 class を許す最小次数でもある。
+固定した両側の生成元に対する $\gamma$ の具体値は別の計算を要するが、
+生成元の相対尺度を変えたときの挙動と、独立尺度を持つ一般族の最小次数は
+定理\ref{thm:nfm-free-period-frame-degree-nine}で決定する。
+
 点型の標準三分点体 $L_9$ は真の中間体を持たないため、
 $T_\eta$ が非自明なら、この $L_9$ 上でも周期標識は選べない。
-その上で underlying 核を規格化できることと、周期標識付き核の存在とは異なる。
-周期に適合する $\eta$ の $\mu_3$ 選択と、
-核自身の scalar $\mathbf G_m$ inertia は引き続き別に保持する。
-
-ここで用いた低次元の自己同値群の分類は既知であり、
-本稿での適用は、実際の核の一意性、定数無限巡回群による class 降下、
-および既に得た Picard 障害の exact index 三との接続である。
-一般の $n\ge5$、任意の intrinsic 成分、coherent な代数的中心線型性には
-この結論を外挿しない。
+その上で underlying 核を規格化できることから、未選択の周期標識は得られない。
 \end{remark}
+
+\begin{lemma}[指定 MF 周期の中心的 coherence]
+\label{lem:nfm-mf-period-central-coherence}
+固定入力Bの \texttt{lp:prop:sing-period}、
+\texttt{tw:eq:period-extension} と
+\texttt{tw:eq:rotation-period-square} による周期は、
+rotation と cohomological shift に対して中心的である。
+すなわち標準的な shift 比較の下で
+\[
+ \tau_{\rho M}=\rho(\tau_M),\qquad
+ \tau_{M[1]}=\tau_M[1]
+\]
+を満たす。
+従って $\rho$、$[1]$、それらの逆および合成は、
+指定周期に適合する自己 intertwiner を持つ。
+特に
+\[
+ T=\rho^{-1}[1]
+\]
+とその全ての整数冪には、このような $K$ 上の自己 intertwiner がある。
+\end{lemma}
+
+\begin{proof}
+graded MF 模型では rotation は内部 shift $(1)$ に対応する。
+指定周期は二重次数 $(2,-3)$ の周期変数 $t$ による比較であり、
+内部 shift は $t$ を変えない。
+また $t$ の cohomological 次数は偶数なので、$[1]$ と交換しても符号は生じない。
+従って二つの coherence 等式が MF 模型で成立する。
+
+同じことは、中心商の導来自己交叉における双加群射
+\[
+ \eta:B\longrightarrow B(-3)[2]
+\]
+からも確認できる。任意の対象への tensor で得る周期射は内部 shift に自然であり、
+二重 cohomological shift は偶数である。
+固定入力Bの \texttt{tw:eq:period-extension} はこの射を同じ符号規約の
+二拡張の Yoneda 類として実現する。
+\texttt{tw:eq:rotation-period-square} は、実際の section 切断と evaluation による
+rotation 比較に沿ってこの周期を運ぶ。
+従って上の等式は残余 dg 圏上にも移り、任意の scalar を追加して調整してはいない。
+
+$\rho$ 自身の自己 intertwiner は $\rho\rho=\rho\rho$ の恒等射であり、
+その周期条件は第一の等式である。
+$[1]$ の標準 commutor の周期条件は第二の等式である。
+逆関手の単位・余単位によって逆の intertwiner を取り、
+二つの intertwiner を順に合成すれば合成関手のものを得る。
+周期条件も合成されるため、$T$ とその整数冪について結論する。
+\end{proof}
+
+\begin{proposition}[整数冪による full class 変更は周期位相を変えない]
+\label{prop:nfm-period-phase-class-invariance}
+上の設定で、$Q$ を $\mathcal B$ 上の実際の $K$-線型自己同値核とし、
+\[
+ \epsilon:Q\rho_{\mathcal B}\xrightarrow{\sim}\rho_{\mathcal B}Q
+\]
+が指定周期に適合しているとする。
+このとき $P\mapsto QP$ は、降下した直線 $V_0$ とその三次形式を保ち、
+\[
+ T_\eta(QP)\simeq T_\eta(P),\qquad
+ \gamma(QP)=\gamma(P)
+\]
+を与える。
+特に $n=3,4$ の標準 split 一般係数体上では、
+全ての underlying full 比較核 class が同じ周期位相を持つ。
+その類を $\gamma\in k_n^\times/k_n^{\times3}$ と書ける。
+したがって class を $T^m$ だけ変更して非自明な周期位相を消すことはできない。
+\end{proposition}
+
+\begin{proof}
+任意の $\eta:P\rho_{\mathcal A}\to\rho_{\mathcal B}P$ を
+\[
+ \eta'=(\epsilon P)(Q\eta):QP\rho_{\mathcal A}
+                         \longrightarrow\rho_{\mathcal B}QP
+\]
+へ送る。これは Hom 直線の $K$-線型同型である。
+三重合成を展開し、自然性によって $\epsilon$ と $Q\eta$ を並べ替えると、
+$\eta^{(3)}$ の像と $\epsilon^{(3)}$ の合成となる。
+$\epsilon$ の周期条件から
+\[
+ (\tau_{\mathcal B}QP)(\eta')^{(3)}
+   =Q\bigl((\tau_{\mathcal B}P)\eta^{(3)}\bigr)
+   =c(\eta)\,QP\tau_{\mathcal A}.
+\]
+よって $c(\eta')=c(\eta)$ である。
+この比較は scalar inertia にも両立するため、$V_0$ と三次形式の同型へ降りる。
+
+低次元の一般点では
+命題\ref{prop:nfm-generic-low-dimensional-kernel-aut}により、
+全ての幾何的 class は一つの class の $T^m$ による移送である。
+$T^m$ は前補題によって元の体上で周期に適合する。
+従って全 class について同じ $\mu_3$-torsor を得る。
+\end{proof}
+
+\begin{proposition}[方程式生成元による周期と Kummer 類の変換]
+\label{prop:nfm-period-equation-frame-change}
+次数三の中心正則元 $\Omega$ に対する指定周期を、固定入力Bと同じ
+conormal 同定と二拡張の規約で定める。
+$u\in K^\times$ に対し、同じ商代数上の自然同定の下で
+\begin{equation}\label{eq:nfm-period-equation-rescaling}
+ \tau_{u\Omega}=u^{-1}\tau_\Omega
+\end{equation}
+である。
+従って source の中心元を $u\Omega_{\mathcal A}$、target の三次方程式を
+$vF_{\mathcal B}$ に変更した場合、underlying 圏・rotation は変わらず、
+規約\eqref{eq:nfm-period-phase-convention}--\eqref{eq:nfm-period-phase-kummer}では
+\begin{equation}\label{eq:nfm-period-phase-frame-law}
+ c'=(u/v)c,
+ \qquad
+ \gamma'=[v/u]\gamma
+       \quad\text{in }K^\times/K^{\times3}.
+\end{equation}
+特に source と target の生成元を同じ単元で同時に変更する $u=v$ の場合、
+位相は変わらない。片側だけの独立した frame 変更と、比較全体の同時規格化は区別する。
+\end{proposition}
+
+\begin{proof}
+$A$ を周囲代数、$B=A/(\Omega)$ とする。
+中心商の導来自己交叉の intrinsic な conormal 加群は
+$I/I^2$、$I=(\Omega)$ であり、指定された自由加群との同定は
+\[
+ \iota_\Omega:B(-3)\xrightarrow{\sim}I/I^2,
+ \qquad b\longmapsto b\Omega
+\]
+である。
+双加群の標準 truncation が与える境界射
+$B\to(I/I^2)[2]$ はこの生成元の表示に依存しない。
+一方、$\iota_{u\Omega}=u\iota_\Omega$ なので、
+境界射を $B(-3)[2]$ 値に表示すると $u^{-1}$ 倍になる。
+内部 shift を三つ戻して得る周期にも同じ係数が現れる。
+
+これは余核の二拡張によっても見える。
+MF の一方の微分を $u$ 倍して曲率を $u\Omega$ とすると、
+固定入力Bの \texttt{tw:eq:period-extension} の左端の単射が $u$ 倍になる。
+左端を固定した二拡張の Yoneda 類は従って $u^{-1}$ 倍となる。
+section と evaluation で構成する window の rotation 比較は商環を使い、
+同じ ideal の生成元変更では変わらない。
+従って同じ変換則が rotation 周期にも成立する。
+
+一般に $\tau_{\mathcal A}$ を $\lambda\tau_{\mathcal A}$、
+$\tau_{\mathcal B}$ を $\mu\tau_{\mathcal B}$ に変更すると、
+式\eqref{eq:nfm-period-phase-convention}から $c'=\mu\lambda^{-1}c$ となる。
+ここに $\lambda=u^{-1}$、$\mu=v^{-1}$ を代入して
+$c'=(u/v)c$ を得る。
+$T_\eta$ の Kummer 類は $[c^{-1}]$ なので、最後の式も従う。
+\end{proof}
+
+\begin{theorem}[相対的な周期規格化と一般標識付き比較の次数九]
+\label{thm:nfm-free-period-frame-degree-nine}
+定理\ref{thm:nfm-low-dimensional-full-class-index-three}の標準 split 一般係数体
+$K=k_n$、$n=3,4$ と、その固定した二つの rotation を考える。
+各側の三次方程式の生成元を一つ選び、そこから誘導される指定周期を固定する。
+全 full 同型類に共通な scalar 類を $\alpha$、
+命題\ref{prop:nfm-period-phase-class-invariance}の共通な周期位相を
+$\gamma\in K^\times/K^{\times3}$ と書く。
+次が成り立つ。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item source の規格化を保ち、target の方程式の生成元を適切な
+      $K$-単元倍に取り替えると、$\gamma$ を零にできる。
+      この規格化に関する周期標識付き full 比較の最小体次数は三である。
+\item $t$ を $K$ 上の独立変数とする。source の生成元をそのまま保ち、
+      target の生成元だけを $t$ 倍した $K(t)$ 上の族では、
+      周期標識付き full 比較核の任意の有限定義体の次数は九の倍数であり、
+      最小次数は正確に九である。
+\end{enumerate}
+この操作は underlying な二圏、残余三次および rotation を変えず、
+それらの指定周期の相対的な規格化だけを変える。
+\end{theorem}
+
+\begin{proof}
+命題\ref{prop:nfm-generic-low-dimensional-kernel-aut}の有限データと可算部分体への帰着は、
+$K(t)$ の代数閉包上の任意の自己同値核にも適用できる。
+従って $K(t)$ 上でも全ての幾何的 full class は $T^m$ による一つの軌道である。
+
+$\gamma=[d]$ となる $d\in K^\times$ を選ぶ。
+命題\ref{prop:nfm-period-equation-frame-change}により、
+target の生成元を $v$ 倍すると位相は $[v]\gamma$ になる。
+従って $v=d^{-1}$ とすれば周期 torsor は分裂する。
+注意\ref{rem:nfm-full-kernel-period-nine}の最小次数公式と
+$\operatorname{ind}(\alpha)=3$ から \textup{(i)} を得る。
+選んだ $d$ と $d^{-1}$ による生成元の取り替えは正準的とは主張しない。
+
+\textup{(ii)} の位相は $[dt]$ であり、その成分体は
+\[
+ M=K(t)[s]/(s^3-dt).
+\]
+$t$ に関する付値が一なので $dt$ は $K(t)$ の三乗ではなく、
+$[M:K(t)]=3$ である。しかも $t=s^3/d$ であるため、
+$K$ 上の体として $M=K(s)$ は純超越拡大である。
+ここで $d$ の三乗根を定数体へ加えているのではない。
+
+$\alpha$ を表す次数三の division 代数を $D/K$ とする。
+$D[s]$ は中央変数 $s$ の次数の先頭係数を用いると零因子を持たない。
+従って中央集合 $K[s]\setminus\{0\}$ による局所化
+$D\otimes_K K(s)$ も零因子を持たず、$K(s)$ 上有限次元なので division 代数である。
+よって
+\[
+ \operatorname{ind}(\alpha_M)=3.
+\]
+標識付き比較の有限定義体 $L/K(t)$ は $M$ の $K(t)$-埋込みを持ち、
+その上で $\alpha_M$ を分裂させる。
+従って $3\mid[L:M]$、すなわち $9\mid[L:K(t)]$ である。
+一方、$D$ の三次極大部分体 $N/K$ を取れば、
+$N(s)$ は $M=K(s)$ 上三次、$K(t)$ 上九次の分離拡大で、
+周期 torsor と scalar gerbe の双方を分裂させる。
+従って次数九が達成される。
+命題\ref{prop:nfm-period-phase-class-invariance}により、
+この下界は underlying full 同型類を変更しても変わらない。
+\end{proof}
+
+\begin{remark}[固定規格化と相対的な自由尺度]
+\label{rem:nfm-period-frame-scope}
+上の定理は、元の係数体 $k_n$ 上であらかじめ固定した二つの生成元に関する
+$\gamma$ の値を計算するものではない。
+その固定規格化については、周期 torsor の成分体 $M$ に対する
+$[M:k_n]\operatorname{ind}(\alpha_M)$ の値を別に調べる必要がある。
+決定したのは、相対的な規格化を選べば最小次数三となることと、
+標的だけに独立な尺度を付した一般族では最小次数九となることである。
+両側の生成元を同じ単元で同時に変えたときは位相は変わらない。
+従ってこの独立尺度を、元の一ブロック係数や固定 formality のパラメータと
+無条件に同一視しない。
+
+裸の $\mathcal O$-marked 対はこの相対的な周期自明化を標識しない。
+ゆえに九という追加次数を、その対だけの不可避な比較障害として扱わない。
+scalar gerbe の次数三、標準三分点体の次数九、
+自由な相対周期尺度を付した比較の次数九は、それぞれ異なる構成である。
+\end{remark}
+
+\begin{lemma}[三次元の位相を fractional Serre 自明化の比較へ戻す]
+\label{lem:nfm-period-phase-fractional-serre}
+$n=3$ の上記の一般係数体上で、
+$S_{\mathcal A},S_{\mathcal B}$ を Serre 関手とする。
+$K$ 上の同型
+\[
+ \theta_{\mathcal A}:\rho_{\mathcal A}\xrightarrow{\sim}S_{\mathcal A}[-1],
+ \qquad
+ \theta_{\mathcal B}:\rho_{\mathcal B}\xrightarrow{\sim}S_{\mathcal B}[-1]
+\]
+を選ぶ。これらと指定周期から
+$\zeta_{\mathcal A}:S_{\mathcal A}^3\xrightarrow{\sim}[5]$、
+$\zeta_{\mathcal B}:S_{\mathcal B}^3\xrightarrow{\sim}[5]$
+を移送して定める。
+同値が持つ標準的な Serre 比較を
+$\sigma_P:PS_{\mathcal A}\xrightarrow{\sim}S_{\mathcal B}P$ とし、
+\[
+ (\zeta_{\mathcal B}P)\sigma_P^{(3)}
+       =d(P)\,P\zeta_{\mathcal A}
+\]
+によって $d(P)\in K^\times$ を定める。このとき
+\[
+ \gamma(P;\tau_{\mathcal A},\tau_{\mathcal B})=[d(P)^{-1}].
+\]
+従って、指定された fractional Serre 自明化を標準 Serre 比較が保つなら位相は零である。
+単に $S^3\simeq[5]$ が存在することは、この追加の整合条件を含まない。
+\end{lemma}
+
+\begin{proof}
+Serre 関手は Hom の線型双対を表現するので、同値 $P$ による Hom 同型と
+Serre 双対を合わせると、Yoneda によって $\sigma_P$ が一意に定まる。
+この比較は $P$ の scalar 自己同型に対して不変であり、class gerbe 上で自然である。
+三次元では $S\simeq\rho^{-2}[3]$ と指定周期から
+$S\simeq\rho[1]$ を得るので、上の $\theta$ を元の体上で選べる。
+相対 Serre 式の基底直線が現れる場合は、その体上の frame もここで固定する。
+
+$\theta$ と $\sigma_P[-1]$ により
+\[
+ \eta_S=(\theta_{\mathcal B}^{-1}P)
+          \sigma_P[-1](P\theta_{\mathcal A})
+ :P\rho_{\mathcal A}\xrightarrow{\sim}\rho_{\mathcal B}P
+\]
+を作る。これは降下した Hom 直線 $V_0$ の非零切断である。
+$\zeta$ の定義は、$\theta$ の三乗で rotation 周期を移したものであるから、
+三重合成の図式を $\theta$ によって共役すると
+$c(\eta_S)=d(P)$ を得る。
+従って位相の定義から結論する。
+$\theta$ の scalar 変更は $\eta_S$ と $d(P)$ をそれぞれ一次・三乗で変えるだけなので、
+得た Kummer 類はこの補助選択に依存しない。
+\end{proof}
+
+\begin{remark}[Serre 関手だけでは指定周期の位相を消せない]
+上の生成元変更は underlying category、rotation、Serre 関手、
+および同値が持つ標準的な Serre 可換同型を変えない。
+しかし指定周期の位相は任意の $[v/u]$ だけ動く。
+従って $S\simeq\rho^{1-n}[n]$ や、同値の Serre 関手との標準的可換性だけから
+指定周期の位相が零と結論することはできない。
+選んだ fractional Calabi--Yau 自明化との整合を使う場合は、
+その自明化が方程式の生成元変更にどう依存するかも追う必要がある。
+
+具体的に、$K=\mathbb C(s)$ 上で一つの滑らかな三次 $Y=V(F)$ を固定し、
+source を方程式 $F$、target を方程式 $sF$ から来る周期で標識する。
+underlying 圏と rotation は同じであり、恒等核とその恒等 intertwiner に対して
+$c=s^{-1}$、$\gamma=[s]\ne1$ である。
+一般の三次三次元または very general な三次四次元の $Y$ を取れば、
+前命題によって $T^m$ へ class を変更してもこの非自明位相は残る。
+これは実際の可換 Ku 圏での標識の反例であり、
+本稿の固定された非可換一般係数族の位相を計算したものではない。
+
+生成元固定の完備 CF 関手は周期変数 $t$ を保つため、
+その比較先の\emph{実際の}曲率 $W_h$ と source の指定中心元との間では周期を保つ。
+しかし低 Nat から復元した代数的三次はまず方程式\emph{直線}として得られる。
+その代数的生成元と $W_h$ の間の scalar を追わずに、
+元の一般係数体上の $\gamma$ が零と推論してはいけない。
+固定された両生成元についての $\gamma$ の具体的な算出は、
+上の class 不変性と frame 変換則とは別の課題である。
+\end{remark}
+\subsection{高次元の full class 降下と rotation 中央化群}
+
+$K$ を標数零の体、$\overline K$ をその分離閉包、
+$\Gamma_K=\operatorname{Gal}(\overline K/K)$ とする。
+$Y/K$ は滑らかな三次 $n$-fold、$\mathcal B=\operatorname{Ku}(Y)$ とし、
+その rotation を $\rho$ と書く。
+自己同値群は実際の可逆 perfect dg 核の\emph{同型類}の群である。
+rotation を保つという性質と、その比較同型および周期を標識することは区別する。
+本節では前者だけを用いる。
+可逆 dg 核と Fourier--Mukai 関手の同型類の区別には、
+既存の補題\ref{lem:nfm-projector-kernel-uniqueness}を適用できる。
+
+\begin{proposition}[Serre 関手から回復される rotation]
+\label{prop:nfm-highdim-rotation-serre}
+三次超曲面について
+\[
+ S_{\mathcal B}\simeq\rho^{1-n}[n],\qquad \rho^3\simeq[2]
+\]
+であり、従って
+\[
+\begin{array}{c|c|c}
+ n&S_{\mathcal B}&\rho\text{ の内在的表示}\\ \hline
+ 3m&\rho[m]&S_{\mathcal B}[-m]\\
+ 3m+1&[m+1]&\text{この式からは回復しない}\\
+ 3m+2&\rho^{-1}[m+2]&S_{\mathcal B}^{-1}[m+2]
+\end{array}
+\]
+となる。特に $n\not\equiv1\pmod3$ のとき、任意の enhanced
+Fourier--Mukai 同値は rotation を保つ。
+\end{proposition}
+
+\begin{proof}
+Serre 関手の式は graded MF の標準公式
+$S=\rho^{d-(n+2)}[n]$ の $d=3$ の場合である
+\cite[Proposition~3.7]{NFLZSerre}。
+各行は $\rho^3=[2]$ を代入した等式である。
+Serre bimodule は圏と双対性から特徴付けられるため、
+任意の enhanced 同値は Serre 関手と可換する。
+最後の主張は上の明示式から従う。
+これは coprime な次数と変数重みの和の場合の一般的な計算でもある。
+Lin--Zeng--Zhang\cite[Proposition~2.1, Remark~2.2]{NFMLinZengZhangSingularity}
+にも同じ enhanced 計算が明記されている。
+\end{proof}
+
+以下では
+\[
+ G_\rho=\{g\in\pi_0\operatorname{Aut}_{\mathrm{dg}}(\mathcal B_{\overline K}):
+                   g\rho\simeq\rho g\},\qquad
+ T=\rho^{-1}[1]
+\]
+と置く。$T$ は $K$ 上の実際の核であり、$G_\rho$ の中心に属する。
+また $T^3=[1]$ である。
+非零の proper dg 圏では非零 shift が恒等になることはない。
+実際、非零対象の全自己 Hom は非零かつ有限次元であり、
+非零周期を持てば無限個の次数に非零 Hom が生じる。
+従って $\langle T\rangle\simeq\mathbb Z$ は定数 Galois 部分群である。
+
+固定入力Bと良い一ブロックの仮定の下で、source 残余圏を $\mathcal A$ とする。
+$\mathscr C_\rho$ を $\mathcal A_{\overline K}$ から
+$\mathcal B_{\overline K}$ への、rotation を保つ full 比較核の同型類の集合とする。
+既存の比較被覆定理により $\mathscr C_\rho$ は非空であり、
+target 側の合成について $G_\rho$-torsor である。
+各 perfect 核と必要な有限個の同型は有限拡大上で定義されるので、
+$G_\rho$ と $\mathscr C_\rho$ は連続な離散 $\Gamma_K$-集合である。
+ここで class 切断とは Galois 不変な幾何的同型類を意味し、
+scalar gerbe を中立化する実際の核とは区別する。
+
+\begin{proposition}[標準無限巡回部分を除いた class 障害]
+\label{prop:nfm-highdim-central-shift-obstruction}
+\[
+ \overline G_\rho=G_\rho/\langle T\rangle,\qquad
+ \overline{\mathscr C}_\rho=\mathscr C_\rho/\langle T\rangle
+\]
+と置くと、$\overline{\mathscr C}_\rho$ は
+$\overline G_\rho$-torsor である。
+次の条件は同値である。
+\begin{enumerate}
+ \item $\mathscr C_\rho$ に $K$ 上の class 切断がある。
+ \item $\overline{\mathscr C}_\rho$ に $K$-有理点がある。
+ \item 非可換連続コホモロジー
+       $H^1(K,\overline G_\rho)$ における
+       $[\overline{\mathscr C}_\rho]$ が中立である。
+\end{enumerate}
+より強く、任意の $c\in\mathscr C_\rho$ に対し
+\[
+ \operatorname{Stab}_{\Gamma_K}(c)
+ =\operatorname{Stab}_{\Gamma_K}(\overline c)
+\]
+である。従って class とその $T$-軌道の有限 Galois 軌道の大きさ、
+および class の定義体は一致する。
+\end{proposition}
+
+\begin{proof}
+$T$ の作用が自由であることは比較核の可逆性と
+$\langle T\rangle\simeq\mathbb Z$ から従う。
+$H=\operatorname{Stab}_{\Gamma_K}(\overline c)$ と置く。
+これは $c$ の開安定化群を含むため開かつ閉な profinite 部分群である。
+各 $\gamma\in H$ に対し一意な整数 $a_\gamma$ が
+\[
+ \gamma c=T^{a_\gamma}c
+\]
+を満たす。$T$ は $K$ 上に定義されるため
+$a_{\gamma\delta}=a_\gamma+a_\delta$ である。
+この写像は $c$ の開安定化群を核に持つ連続写像である。
+コンパクト群から離散群 $\mathbb Z$ への連続準同型の像は有限であり、
+$\mathbb Z$ に有限部分群はないので $a_\gamma=0$ となる。
+安定化群の等式、従って最初の二条件の同値を得る。
+残る同値は torsor と非可換 $H^1$ の定義である。
+\end{proof}
+
+\begin{corollary}[点型 class を狙うための縮約]
+\label{cor:nfm-highdim-point-class-orbit}
+既存の幾何的記述による点型 class の部分集合を
+$\mathscr C_\rho^{\mathrm{pt}}\subset\mathscr C_\rho$ とする。
+これは Galois 不変である。
+その像
+$\overline{\mathscr C}_\rho^{\mathrm{pt}}
+\subset\overline{\mathscr C}_\rho$
+に $K$-有理点があることと、点型 full class を $K$ 上で選択できることは同値である。
+このため、全 full 自己同値群を先に分類する必要はない。
+点型 class を含む一つの $T$-軌道が Galois 不変かを判定すればよい。
+\end{corollary}
+
+\begin{proof}
+点型の全 $\mathcal O$-降下により、その条件は Galois 不変である。
+有理な $T$-軌道に含まれる点型 class を一つ取れば、前命題により
+その class 自体が固定される。$T$ が全ての点型 class を点型へ送ることは不要である。
+\end{proof}
+
+同じ $T$-軌道の class gerbe は、$K$ 上の実核 $T$ の合成により
+band を保って同値になる。
+一方、$\overline{\mathscr C}_\rho$ が一般に有限であるとはまだ分かっていない。
+各点の Galois 軌道は有限でも、そのような軌道の総数や最大の大きさは別問題である。
+また、群が torsion-free であるだけでは class 降下は従わない。
+例えば符号作用を持つ $\mathbb Z$ に対し
+$H^1(\mathbb Z/2,\mathbb Z_{-})\simeq\mathbb Z/2$ である。
+上の証明で実際の $K$-核から来る\emph{定数}部分群を使ったことが重要である。
+
+\subsection{奇数次元で残る数値的自明部分}
+
+\begin{proposition}[rotation 中央化群の数値像]
+\label{prop:nfm-odd-numerical-rotation-centralizer}
+$n\ge3$ を奇数とし、$Y/K$ は実際の $\mathcal O_Y(1)$ を持つ滑らかな三次超曲面とする。
+$N=N(\mathcal B_{\overline K})$ を Euler pairing の数値格子とする。
+このとき $N$ は階数二で、$\Gamma_K$ は $N$ に自明に作用する。
+$R=\rho_*$ の最小多項式は $t^2+t+1$ であり、
+\[
+ \operatorname{Cent}_{\operatorname{GL}(N)}(R)
+   =\{\pm I,\pm R,\pm R^2\}\simeq\mathbb Z/6.
+\]
+$G_\rho$ の数値像はこの六元群全体であり、
+\[
+ G_{\rho,0}:=\ker\bigl(G_\rho\longrightarrow\operatorname{GL}(N)\bigr)
+\]
+と置けば Galois 群作用と両立する群同型
+\[
+ \boxed{\quad
+ G_\rho/\langle T\rangle\simeq
+ G_{\rho,0}/\langle[2]\rangle
+ \quad}
+\]
+を得る。従って奇数次元の点型 class 選択は、この数値的自明部分を
+偶数 shift で割った群に関する torsor の問題へ帰着する。
+特に $n\equiv3,5\pmod6$ では $G_\rho$ は full 自己同値群そのものである。
+\end{proposition}
+
+\begin{proof}
+奇数次元の滑らかな超曲面では全ての偶数次数コホモロジーが ambient から来る。
+Lefschetz 定理と Riemann--Roch により
+\[
+ N(Y_{\overline K})_{\mathbb Q}
+   \simeq\mathbb Q[t,t^{-1}]/(t-1)^{n+1},\qquad t=[\mathcal O_Y(1)].
+\]
+Euler pairing は非退化で、例外列
+$\mathcal O_Y,\ldots,\mathcal O_Y(n-2)$ を除くと $\dim N_{\mathbb Q}=2$ となる。
+数値的零の類が包含で数値的零へ写ることは包含の両随伴から分かるため、
+$N_{\mathbb Q}$ は上の数値空間の部分空間として扱える。
+また、$K$ 上の実際の projector $p$ を $\mathcal O_Y(i)$ に適用した類が
+$N_{\mathbb Q}$ を張る。従って Galois 作用は有理化後に自明であり、
+$N$ は torsion-free なので格子上でも自明である。
+
+$v\in N_{\mathbb Q}$ に対する rotation の式は
+\[
+ Rv=tv-\chi(\mathcal O_Y,tv)\,[\mathcal O_Y]
+\]
+である。もし $R=I$ なら、上の多項式表示で
+$(t-1)v=\chi(\mathcal O_Y,tv)\cdot1$ となる。
+右辺の定数項と左辺の $t=1$ での値を比べると、その scalar は零である。
+従って二次元空間 $N_{\mathbb Q}$ が $(t-1)$ の一次元の核に含まれることになり、矛盾する。
+$R^3=I$ と標数零から $R$ は半単純であり、
+二次元上で非自明であることから最小多項式は $t^2+t+1$ となる。
+
+$N$ を $\mathbb Z[\zeta_3]$ 上の階数一格子と見れば、
+$R$ と可換する格子自己同型は Eisenstein 整数環の単元である。
+その単元は $\{\pm1,\pm\zeta_3,\pm\zeta_3^2\}$ だけである。
+これは $\mathbb Q(\zeta_3)$ の最大整環が $\mathbb Z[\zeta_3]$ であることと、
+単元のノルム方程式 $a^2-ab+b^2=1$ からも直接分かる。
+$T_*=-R^{-1}$ は位数六なので、$G_\rho$ の像はこの群全体である。
+任意の $g\in G_\rho$ は $T$ の冪を合成すると $G_{\rho,0}$ に入り、
+\[
+ G_{\rho,0}\cap\langle T\rangle
+     =\langle T^6\rangle=\langle[2]\rangle.
+\]
+$T$ の中心性から所要の群同型を得る。
+全ての準同型は $K$ 上の実核と数値作用から作られるため Galois 同変である。
+\end{proof}
+
+この命題は $G_{\rho,0}=\langle[2]\rangle$ を証明していない。
+低次元の $n=3$ では既知の分類がこの等式を与えるが、
+$n=5$ などで数値的自明な自己同値を分類することが次の具体的な課題である。
+Hochschild/Jacobian 復元の忠実性も、数値作用の忠実性も無条件には仮定しない。
+
+\subsection{七次元で全自己同値群が巡回にならない具体的理由}
+
+\begin{proposition}[一般三次七様体の非巡回自己同値]
+\label{prop:nfm-sevenfold-noncyclic-aut}
+幾何学的一般の滑らかな三次七様体 $Y$ に対し、
+$\pi_0\operatorname{Aut}_{\mathrm{dg}}(\operatorname{Ku}(Y))$
+は $\mathbb Z^2$ を部分群として含む。
+従って三・四次元の full 自己同値群の無限巡回性を、
+全ての高次元へ延長することはできない。
+\end{proposition}
+
+\begin{proof}
+Iliev--Manivel の公刊結果を用いる。
+一般三次七様体には Cartan 表示が存在する
+\cite[Proposition~3.1]{NFMIlievManivelSevenfold}。
+そこから階数九の束 $E$ が構成され、
+$S=E(-1)$ は $\operatorname{Ku}(Y)$ に属する三次元球面対象である
+\cite[Theorem~3.4, Proposition~5.2, Corollary~5.3]{NFMIlievManivelSevenfold}。
+この入力は Cartan 表示を持つ一般族についてのものであり、
+全ての特殊七様体についての存在はここでは要求しない。
+
+$v=[S]$ とし、閉点 $x\in Y$ に対して $w=[p(k_x)]$ と置く。
+$p$ と包含の随伴、および局所双対性から
+\[
+ \chi(w,v)=\chi_Y(k_x,S)=(-1)^7\operatorname{rk}S=-9.
+\]
+従って $v$ は数値的に非零である。
+$\operatorname{Ku}(Y)$ は三次元 Calabi--Yau なので
+$\chi(v,w)=9$、$\chi(v,v)=0$ である。
+球面 twist $\mathsf T_S$ は実際の可逆 dg 核を持ち、その数値作用は
+\[
+ (\mathsf T_S)_*(u)=u-\chi(v,u)v,
+ \qquad (\mathsf T_S^a)_*(w)=w-9av\quad(a\in\mathbb Z)
+\]
+となる。よって数値像は無限位数である。
+一方、$\rho^3=[2]$ と $[1]_*=-I$ より、
+$\langle\rho,[1]\rangle$ の数値像は有限である。
+
+さらに $[1]$ と $\mathsf T_S$ は可換する。
+もし $\mathsf T_S^a[b]\simeq\operatorname{id}$ なら、
+数値作用の固有値から $b$ は偶数であり、上の非自明 unipotent の式から $a=0$ である。
+proper 性による shift の非周期性から $b=0$ となる。
+従ってこれらは自由アーベル群 $\mathbb Z^2$ を生成する。
+\end{proof}
+
+\begin{remark}[full 群と rotation 中央化群を混同しない]
+前命題だけでは $G_\rho$ の巡回性を否定しない。
+実際、球面 twist の非零冪は $G_\rho$ に属さないことも数値的に分かる。
+奇数次元の前命題により、$R$ は有理不変直線を持たない。
+$N_v:u\mapsto\chi(v,u)v$ の像は $\mathbb Qv$ であるから、
+$I-aN_v$ が $R$ と可換すれば、$a\ne0$ のとき
+$\mathbb Qv$ が $R$ 不変となり矛盾する。
+従って $\mathsf T_S^a G_\rho$ は全て異なり、
+一般七様体の full 群における $G_\rho$ の指数は無限である。
+これは「full 群を有限個の rotation 型に分ければ十分」という帰着も与えないことを示す。
+ただし $\langle\rho,[1]\rangle$ や $G_\rho$ は full 群の正規部分群とは限らないので、
+ここでは群商ではなく剰余類集合と指数について述べている。
+\end{remark}
+
+\subsection{Torelli 型の復元と class 降下の範囲}
+
+Pirozhkov\cite[Theorem~1.2 (= Theorem~5.3)]{NFPirozhkov}は、
+$n>3$ の滑らかな三次について enhanced pair
+$(\operatorname{Ku}(Y),\rho)$ から $Y$ を復元する。
+Lin--Rennemo--Zhang\cite[Theorem~1.3]{NFMLinRennemoZhangWeighted}は
+非 Calabi--Yau 型の三次を含む超曲面の復元を扱い、
+Lin--Zeng--Zhang\cite[Proposition~2.1, Remark~2.2]{NFMLinZengZhangSingularity}は
+互いに素な次数と変数重みの和の場合に Serre 関手から内部 shift を回復する。
+これらは対象多様体の復元であり、自己同値の数値作用や
+Hochschild/Jacobian 代数への作用の忠実性を与える主張としては使わない。
+幾何学的一般 $Y$ の $\operatorname{Aut}(Y)$ が自明でも、この区別は残る。
+
+Lin--Zhang\cite[Theorem~1.3]{NFMLinZhangPartners}は、
+$d\ge3$, $M=md$, $m\ge2$, $(d,m)\ne(3,2)$ の条件の下で、
+$\mathbb P^{M-1}$ 内の滑らかな次数 $d$ 超曲面の
+Fourier--Mukai partner 数の一様有限性を示す。
+ここで数えているのは標的\emph{多様体}であり、固定した標的への核の同型類ではない。
+従って本節の $\overline{\mathscr C}_\rho$ の有限性や
+$H^1(K,\overline G_\rho)$ における中立性の代用にはならない。
+
+命題\ref{prop:nfm-highdim-central-shift-obstruction}と
+系\ref{cor:nfm-highdim-point-class-orbit}により、
+$n\ge5$ の class 選択では、点型を含む一つの $T$-軌道の Galois 不変性が
+具体的な未解決条件となる。
+奇数次元では命題\ref{prop:nfm-odd-numerical-rotation-centralizer}により
+$G_{\rho,0}/\langle[2]\rangle$ へ絞られ、
+特に $n=5$ では full 群自体が $G_\rho$ に等しい。
+$n\equiv1\pmod3$ では full 群と $G_\rho$ を区別する必要があり、
+七次元の球面 twist は前者を大きくするが、
+rotation を保つ比較 class の降下を直ちに妨げるわけではない。
+これらは障害の簡約であって、$n\ge5$ の点型 full class の
+$K$ 上での存在そのものを証明するものではない。
 
 \begin{remark}[一般点の結論と残る範囲]
 一般 split 係数体では平面同型 torsor が分裂するため、
@@ -2579,11 +3195,15 @@ $T_\eta$ が非自明なら、この $L_9$ 上でも周期標識は選べない�
 点型の定義は系\ref{cor:nfm-point-type-O-descent}により表示非依存となるが、
 全 refined 型が点型であるとは主張しない。
 
-$n=3,4$ の一般 split 係数体では、前定理により全 full 同型類が降下し、
+$n=3,4$ の一般 split 係数体では、
+定理\ref{thm:nfm-low-dimensional-full-class-index-three}により全 full 同型類が降下し、
 全ての類の scalar 障害が同じ exact index 三の類となる。
-一方、$n\ge5$ の full 同型類の選択と任意の full 核への障害の適用、
+高次元の rotation を保つ class の選択は $G_\rho/\langle T\rangle$、奇数次元では
+$G_{\rho,0}/\langle[2]\rangle$ の torsor に帰着するが、
+$n\ge5$ の full 同型類の選択と任意の full 核への障害の適用、
 代数的 active 同値核の assignment、coherent な中心線型性はなお未解決である。
-指定周期の追加標識については、最小次数が三または九であるという結果と、
-そのいずれかを判定する未解決問題を区別する。
+指定周期の追加標識には、全 class に共通な位相と生成元の相対尺度の変換則がある。
+規格化を選べば最小次数三、独立な標的尺度を持つ一般族では最小次数九となる。
+元の係数体上であらかじめ固定した規格化についての位相の具体値は、別に未決定である。
 全 intrinsic 成分や非分裂表示の全ての体へ exact index 三を広げる主張も行わない。
 \end{remark}
