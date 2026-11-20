@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v17}
+\date{2026年11月20日・研究稿 v18}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -74,19 +74,18 @@ pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 有限対角を用いて残余射を三捩れ対称族の近傍へ延長し、符号類の消滅を示す。
 半古典規格化された full 射は一般次数九で、反対代数に対し符号反転で同変となる。
 
-active 制限の最高次 cohomology が次数零線束となる比較核の非空な型を構成する。
-この型の full 同型類を選んだ後、核の scalar gerbe は Picard gerbe の引戻しであり、
-重み一階数三束を持つ。split 体上の index は三を割り、active 曲線上で分裂する。
-Picard 類の三分点を取る階数九の被覆上では、最高次線束を規格化した full 核を構成する。
-非可換 active 商の相対 THCR/window 比較と底変更を検証し、
-この Picard 類を点の平行移動で表す核の型も一般に非空であることを示す。
+active 制限の最高次 cohomology が点 shift を表す線束となる核の非空な型を構成し、
+その型と Picard gerbe の記述を全 O-同値へ降下する。
 全 ambient の Heisenberg 作用と混合定数降下から、
 点曲線と残余 active 曲線の自然な平面同型を良い稠密開上に構成する。
-点 shift と残余側の Picard 障害は等しく、period と index はともに三である。
-点型の実際の full 核を持つ有限拡大の次数は三の倍数となり、
-同型類選択後の scalar 段階の最小分裂次数は三である。
+一般 split 係数体では両側の Picard 障害は等しく、period と index は三である。
+三・四次元では自己同値核の分類と Galois 降下により全 full 同型類を選択でき、
+全ての類がこの同じ障害を持つ。周期の追加標識を忘れた full 比較の最小体次数は三となる。
+全次元で点型の標準三分点被覆は連結な九次体であり、
+Galois 閉包の群は $\operatorname{ASL}_2(\mathbf F_3)$、次数は二百十六である。
+選択済み類はこの被覆上で規格化されるが、三分点の取得と scalar 分裂は異なる。
 全 active Fourier--Mukai intertwiner を分類し、
-一般の二曲線間の Picard 障害の差を有限三捩れの Weil cup 積で表す。
+二曲線間の Picard 障害の差を有限三捩れの Weil cup 積で表す。
 
 trace--Hessian 三次と残余三次の不一致を全次元で示し、
 active 切断が点曲線に一致する一般次数九の Hessian 補正を構成する。
@@ -315,6 +314,25 @@ Hille--Van den Bergh\cite[Proposition~4.2, Corollary~4.3, Theorem~5.3]{NFMHilleV
 相対的には、非被約底を許す normalized kernel stack と Picard gerbe を同定する。
 underlying kernel の分類と、rotation 同型自体および指定周期を標識した際の
 追加の $\mu_3$-torsor を区別する。
+
+三・四次元の full 核の同型類については、
+Liu\cite[Theorem~4.13]{NFMLiuCubicThreefoldAut}と
+Huybrechts\cite[Theorem~1.2(i)]{NFMHuybrechtsK3Cubic}の既知の自己同値分類を用いる。
+前者は滑らかな複素三次三次元多様体、後者は very general な複素三次四次元多様体を扱う。
+一般三次の幾何自己同型の自明性\cite[Theorems~1.1, 1.5]{NFMPoonenAutomorphisms}と合わせ、
+両次元の幾何学的一般点では $\rho^{-1}[1]$ が全群を生成する。
+これらは関手の同型類の分類なので、核への適用には追加の一意性が要る。
+本稿では projected point の simple 性と
+Canonaco--Stellari\cite[Corollary~4.4]{NFMCanonacoStellariKernels}の cohomology 一意性から
+三次多様体の projector 核の一意性を証明する。
+その後、定数無限巡回群の連続 Galois cocycle が零であることを用いて全 full 類を降下し、
+既存の Picard 障害と接続して最小比較次数三を得る。
+自己同値群の既知分類自体を新規成果とはせず、very general な分類を Zariski 開の主張に置き換えない。
+
+全次元の三分点被覆については、普遍 Hesse 曲線の真の一般点から translation 群を得る。
+Fisher の三捩れ安定化群を $g$ と $J_g$ で同一視して線型 monodromy を調べ、
+標準 split 係数体上の affine monodromy が全 $\operatorname{ASL}_2(\mathbf F_3)$ であることを示す。
+三倍写像の次数や古典的 Hesse 群自体と、この係数体上の連結性・分裂次数の決定を区別する。
 
 既知の公式からの帰結と、本稿に証明を与える拡張は以下で区別する。
 これらの拡張について、独立な新規性の網羅的確認はなお完了していない。
@@ -923,7 +941,7 @@ active 係数体 $K=\C(g_\alpha,h)$ へ降ろす。
 命題\ref{prop:nfm-semiclassical-plane-isom-descent}による。
 純中心項も含めた TH potential の parabolic 共変性を用い、
 せん断による項を落とさずに形式恒等分枝を比較する。
-この平面同型の降下は、full 核の同型類選択や点型の内在性を含まない。
+点型の表示非依存性は系\ref{cor:nfm-point-type-O-descent}で別に証明する。
 
 点側の非零性は命題\ref{prop:nfm-active-point-sklyanin-realization}、
 \ref{prop:nfm-active-point-obstruction-dominant}と
@@ -939,8 +957,8 @@ Sklyanin potential を元の体上へ降下する。
 残余側への移送と full 核への帰結は
 系\ref{cor:nfm-generic-residual-picard-index-three}、
 \ref{cor:nfm-point-comparison-cover-three-divisibility}による。
-点型以外の任意の full 核へ不存在を拡張せず、
-full 同型類の選択まで含めた比較被覆の最小次数が三とも主張しない。
+この全次元の系は点型を扱う。$n=3,4$ では、以下の自己同値分類を介して
+全 full 核へ障害を拡張し、同型類選択を含めて最小次数三を決定する。
 一般の二曲線については式\eqref{eq:nfm-picard-plane-transfer}の cup 補正があり、
 それは二曲線の genus-one torsor の差だけに依存する
 （補題\ref{lem:nfm-picard-torsor-quotient}）。
@@ -959,7 +977,66 @@ $\delta_C(\theta(p))$ の引戻しである
 （命題\ref{prop:nfm-elliptic-intertwiner-gerbe}）。
 full 核から active 核を作る代数的 assignment は未構成なので、
 この非存在を full 核そのものの非存在と同一視しない。
-点型の full scalar 類は上で決定したが、full 同型類の選択と他の型の判定は残る。
+この active 分類からの推論と、以下で与える full 核の独立した降下証明を区別する。
+
+\subsection{点型の内在性、低次元の full 降下と三分点被覆}
+\begin{maintheorem}[三・四次元の full 比較の最小次数]
+\label{main:nfm-low-dimensional-full-descent}
+固定入力の下で、良い標準 split 一ブロック表示の一般係数体 $k_n$ を考える。
+$n=3,4$ なら、幾何的な full 比較核の全ての同型類を $k_n$ 上で選択できる。
+各類の実現 gerbe は band を保って互いに同値であり、その共通の Brauer 類は
+\[
+ \alpha=\delta_{C_{\mathrm{res}}}(p_{\mathrm{res}}),
+ \qquad\operatorname{per}(\alpha)=\operatorname{ind}(\alpha)=3
+\]
+である。従って、点型かどうかにかかわらず実際の full 核は $k_n$ 上にも
+三に素な次数の有限拡大上にも存在しない。
+一方、ある三次分離体上には実際の点型 full 核が存在する。
+これは rotation を intertwine する性質を持ち、
+指定周期の追加標識を忘れた full 比較の最小体次数は正確に三である。
+\end{maintheorem}
+
+詳細は補題\ref{lem:nfm-projector-kernel-uniqueness}、
+\ref{lem:nfm-cyclic-kernel-class-descent}と
+定理\ref{thm:nfm-low-dimensional-full-class-index-three}にある。
+幾何的自己同値群は実際の $k_n$-線型核 $T=\rho^{-1}[1]$ が生成する $\mathbb Z$ で、
+$T^2=\rho$、$T^3=[1]$ となる。
+比較核の類の Galois cocycle は連続準同型 $\Gamma_{k_n}\to\mathbb Z$ なので零である。
+$T$ との合成が scalar gerbe の band を保つため、全類の障害が一致する。
+rotation 同型の三重合成まで指定周期に一致させる追加標識については、
+その最小比較次数は三または九であることまで決まるが、どちらかの判定は残る
+（注意\ref{rem:nfm-full-kernel-period-nine}）。
+
+全次元では、原点対象と active 制限に内在的な表示
+\[
+ \kappa_{\mathrm{nc}}\simeq j_{\mathrm{nc}}^!(\mathcal O)[1],
+ \qquad q_Y\simeq\mathbf Li_C^*j_Y
+\]
+を与える。従って点型は
+$Q_P=\mathbf Li_C^*j_Y\Phi_Pj_{\mathrm{nc}}^!(\mathcal O)$ の
+最高次層 $H^0(Q_P)$ が $p_{\mathrm{res}}$ を表すという条件となり、
+系\ref{cor:nfm-point-type-O-descent}により全 O-同値に適合する。
+点型と $\alpha=\delta_C(p_{\mathrm{res}})$ は共通な良い稠密開上で表示非依存である。
+最高次線束型の選択済み類には、非分裂 ambient でも
+$\alpha=\delta_C(m_P)$ と $3[C]=0$ から $3\alpha=0$ が従うが、
+index は既存の三または九の上界と区別する
+（系\ref{cor:nfm-unsplit-point-scalar-period-three}）。
+
+\begin{maintheorem}[標準三分点被覆の正確な次数と Galois 群]
+\label{main:nfm-third-division-monodromy}
+全 $n\ge3$ の同じ一般係数体で
+$[3]^{-1}(p_{\mathrm{pt}})\simeq[3]^{-1}(p_{\mathrm{res}})$ は連結な次数九の体である。
+一つの三分点を定義する最小次数は九、
+Galois 閉包の群は $\mathbf F_3^2\rtimes\operatorname{SL}_2(\mathbf F_3)$、次数は二百十六となる。
+この九次体は非 Galois で、真の中間体を持たない。
+一つの三分点を持つ最小の Galois 拡大の次数も二百十六である。
+\end{maintheorem}
+
+証明は定理\ref{thm:nfm-generic-point-third-division-monodromy}による。
+最小三分点次数九は、上の最小 scalar 分裂次数三と異なる。
+従って三次分裂体上でも点は三で割れず、九次体自身に三次の中間体はない。
+任意の full 核が三分点を選ぶという主張は含まない。
+$n\ge5$ の full 同型類の選択と全型への障害の拡張は未解決である。
 
 \subsection{Jacobi スキームの次元境界}
 \begin{maintheorem}[Jacobi スキームの境界と平方零構造]
@@ -1074,8 +1151,10 @@ Picard 類が点の平行移動に一致する核の型の非空性を、同じ�
 一般 split 係数体では点側と残余側の Picard 障害が等しく、正確に index 三となる。
 点型の実際の full 核を持つ比較被覆の各一般成分の次数は三の倍数であり、
 同型類選択後の scalar 段階には正確に三次の分裂体を取れる。
-次の課題は full 同型類の整合的な選択、点型の表示変更への適合と他の型の判定、
-および各 intrinsic 成分を覆う表示である。
+点型は全 O-同値へ降下し、三分点被覆は連結な九次体と決定された。
+$n=3,4$ では全 full 同型類が降下し、周期の追加標識を忘れた最小比較次数は三である。
+次の課題は $n\ge5$ の full 同型類と全型への拡張、低次元の追加周期位相、
+非分裂表示の index、および各 intrinsic 成分を覆う表示である。
 固定 frame の tensor の very general な超越性を踏まえ、
 形式座標の代数性と内在的なモジュライの代数性は区別して進める。
 boundary や全 Abel 形式近傍の記述は、この一般次元の構成に必要な障害を解消する

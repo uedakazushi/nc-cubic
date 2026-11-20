@@ -1,11 +1,21 @@
 #!/usr/bin/env python3
-"""Exact finite identities used in the point-shift Picard obstruction.
+"""Exact identities for the point-shift Picard obstruction and third division.
 
-Run with Python 3 and SymPy. The valuation, descent, and derived-category
-arguments are proofs in the paper; these identities do not replace them.
+Run with Python 3 and SymPy. The valuation, descent, connectedness, and
+derived-category arguments are proofs in the paper; these identities do
+not replace them. Hesse arithmetic is shared with verify_active_sign.py.
 """
 
 import sympy as sp
+
+from verify_active_sign import (
+    invariants as hesse_invariants,
+    p as hesse_p,
+    q as hesse_q,
+    reduce_coefficient as hesse_reduce,
+    reduce_matrix as hesse_reduce_matrix,
+    zeta as hesse_zeta,
+)
 
 
 def check(name, expression):
@@ -100,3 +110,83 @@ symbol_difference = (
 )
 assert all(coefficient % 3 == 0 for coefficient in symbol_difference)
 print("PASS cyclic Picard correction is the symbol (d,aB) modulo 3")
+
+# The universal Jacobian's full three-torsion field. All arithmetic stays
+# in QQ(zeta)[p,q], with zeta^2 + zeta + 1 = 0.
+hesse_s, hesse_t = hesse_invariants(hesse_p, hesse_q)
+sqrt_minus_three = 1 + 2 * hesse_zeta
+torsion_x = -9 * hesse_q**2
+torsion_y = 12 * sqrt_minus_three * (hesse_p**3 + hesse_q**3)
+assert hesse_reduce(
+    torsion_y**2 - (torsion_x**3 - 27 * hesse_s * torsion_x + 54 * hesse_t)
+) == 0
+assert hesse_reduce(
+    3 * torsion_x**4 - 162 * hesse_s * torsion_x**2
+    + 648 * hesse_t * torsion_x - 729 * hesse_s**2
+) == 0
+print("PASS explicit Hesse point lies on the universal Jacobian and has order three")
+
+hesse_a = sp.diag(hesse_zeta, 1)
+hesse_a_inverse = sp.diag(hesse_zeta**2, 1)
+hesse_b = sqrt_minus_three / 3 * sp.Matrix([[1, 1], [2, -1]])
+hesse_c = hesse_reduce_matrix(hesse_a * hesse_b * hesse_a_inverse)
+hesse_d = hesse_reduce_matrix(hesse_a_inverse * hesse_b * hesse_a)
+hesse_identity = sp.eye(2)
+quaternion = [
+    hesse_identity, -hesse_identity, hesse_b, -hesse_b,
+    hesse_c, -hesse_c, hesse_d, -hesse_d,
+]
+hesse_group = [
+    hesse_reduce_matrix(element * hesse_a**j)
+    for element in quaternion for j in range(3)
+]
+assert len({tuple(element) for element in hesse_group}) == 24
+torsion_point = (hesse_reduce(torsion_x), hesse_reduce(torsion_y))
+torsion_orbit = set()
+torsion_stabilizer = set()
+for matrix in hesse_group:
+    transformed_p, transformed_q = matrix * sp.Matrix([hesse_p, hesse_q])
+    image = (
+        hesse_reduce(-9 * transformed_q**2),
+        hesse_reduce(12 * sqrt_minus_three * (transformed_p**3 + transformed_q**3)),
+    )
+    torsion_orbit.add(image)
+    if image == torsion_point:
+        torsion_stabilizer.add(tuple(matrix))
+assert len(torsion_orbit) == 8
+assert torsion_stabilizer == {
+    tuple(hesse_reduce_matrix(hesse_a**j)) for j in range(3)
+}
+print("PASS Hesse orbit has all eight nonzero three-torsion points and stabilizer C3")
+
+stabilizer_core = set(torsion_stabilizer)
+for matrix in hesse_group:
+    inverse_matrix = next(
+        candidate for candidate in hesse_group
+        if hesse_reduce_matrix(matrix * candidate) == hesse_identity
+    )
+    conjugate = {
+        tuple(hesse_reduce_matrix(matrix * sp.Matrix(2, 2, element) * inverse_matrix))
+        for element in torsion_stabilizer
+    }
+    stabilizer_core &= conjugate
+assert stabilizer_core == {tuple(hesse_identity)}
+print("PASS the order-three stabilizer has trivial normal core in the Hesse group")
+
+# Check the orientation of the actual right point correspondence: its
+# three multilinear relations vanish at (o,p), o=(1:-1:0), p=(A:B:C).
+left_point = (sp.Integer(1), sp.Integer(-1), sp.Integer(0))
+right_point = (A, B, C)
+point_relations = (
+    A * left_point[1] * right_point[2]
+    + B * left_point[2] * right_point[1]
+    + C * left_point[0] * right_point[0],
+    A * left_point[2] * right_point[0]
+    + B * left_point[0] * right_point[2]
+    + C * left_point[1] * right_point[1],
+    A * left_point[0] * right_point[1]
+    + B * left_point[1] * right_point[0]
+    + C * left_point[2] * right_point[2],
+)
+assert all(sp.expand(relation) == 0 for relation in point_relations)
+print("PASS the right point correspondence sends the Hesse origin to (A:B:C)")

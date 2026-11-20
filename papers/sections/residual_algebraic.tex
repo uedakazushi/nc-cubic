@@ -838,6 +838,8 @@ Morita 不変性から、固定した同値核は simple である。
 
 $\mathrm{HH}^1=0$ による infinitesimal rigidity は、
 核の同型類の選択やこの二 cocycle の消滅を含まない。
+$n=3,4$ の一般 split 係数体における同型類選択は、
+定理\ref{thm:nfm-low-dimensional-full-class-index-three}で全自己同値群の分類から別に解決する。
 表示 gerbe の Brauer 類 $\beta$ と比較核の gerbe は異なる降下問題から生じ、
 両者を同一視する構成はまだない。
 
@@ -1703,6 +1705,11 @@ $\det E$ と $\det E_0$ に共に $B^{\otimes3}$ が掛かり、再び相殺す�
 ここでの正準性は、実際の $L$ を使った
 式\eqref{eq:nfm-picard-tripling-line}の明示的な determinant 構成に関するものである。
 
+以下の構成では、固定した標識を含めた核の同型類と、標識を忘れた同型類を区別する。
+どちらの class gerbe にも同じ scalar 分裂の議論を適用できるが、
+rotation・指定周期の標識は、初めから選択済みの類に含まれる場合にだけ保持される。
+追加の周期選択は注意\ref{rem:nfm-full-kernel-period-nine}で別に扱う。
+
 \begin{theorem}[Picard 三分点被覆上の規格化された比較核]
 \label{thm:nfm-kernel-tripling-cover}
 定理\ref{thm:nfm-kernel-active-line-bound}と同じ split 設定と、
@@ -1749,8 +1756,10 @@ full 比較核 $P_T$ と同型
 この同値は scalar band 上で恒等であるから、
 線束の同型も固定した逆像の groupoid は終対象の groupoid と同値である。
 従って scalar の曖昧さは消え、述べた一意性が成り立つ。
-同値性、rotation・周期の比較図式は選んだ gerbe の対象の一部であり、
-この操作で保持される。最高次 cohomology の底変更、
+同値性と、選んだ gerbe の対象に既に含めた rotation・周期の比較図式は、
+この操作で保持される。underlying 核だけの class gerbe を使う場合、
+この構成はその核を与えるが、未選択の周期標識を新たに構成するものではない。
+最高次 cohomology の底変更、
 前補題の線束と gerbe の同値の底変更から関手性も従う。
 \end{proof}
 
