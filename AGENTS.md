@@ -1,14 +1,14 @@
 # Research instructions
 
-2026-11-21 / v26.
+2026-11-21 / v27.
 
 Read `00_research_plan.md` first, then `notes/research_notes.md` and the current paper. The common principles and standing authorization in the research plan apply to all work in this repository.
 
-- Canonical destination: `uedakazushi/nc-cubic-n-fold`, branch `main`. Save authorized research work without asking again. Use ordinary fast-forward commits; never force-push. Do not create PRs or GitHub Actions workflows.
+- Canonical destination: `uedakazushi/nc-cubic`, branch `main`. Save authorized research work without asking again. Use ordinary fast-forward commits; never force-push. Do not create PRs or GitHub Actions workflows.
 - External inputs `uedakazushi/poisson-cubic` (paper A only) and `uedakazushi/nc-cubic-threefold-moduli` are read-only. Pin inputs to the plan. The former paper B complete MF/window/generic recovery proofs now belong to this repository and are part of the main TeX input graph, not an external theorem citation.
-- Write the publication manuscript in Japanese LuaLaTeX. Keep the author field empty. Main file: `papers/nc-cubic-n-fold.tex`.
+- Write the publication manuscript in Japanese LuaLaTeX. Keep the author field empty. Main file: `papers/nc-cubic.tex`.
 - For new manuscripts or build setups, consult research-hub `papers/paper-template.tex`, `papers/README.md`, `.latexmkrc`, `.vscode/settings.json`, and `.vscode/extensions.json`. Preserve effective existing settings. Keep section root directives, source paths, PDF output and SyncTeX consistent when moving a manuscript; do not replace the main body by an index.
-- Keep the complete formerly-paper-B proof sections in `papers/sections/generic_recovery/`, as an integrated part of `papers/nc-cubic-n-fold.tex`; do not restrict their arbitrary center-cubic deformation hypotheses to the one-block moduli chart. Keep current proofs and useful results in the paper. Keep current ideas, counterexamples, limitations and primary-source locations in the notes. Replace stale text rather than accumulating history, old bundles or duplicate reports.
+- Keep the complete formerly-paper-B proof sections in `papers/sections/generic_recovery/`, as an integrated part of `papers/nc-cubic.tex`; do not restrict their arbitrary center-cubic deformation hypotheses to the one-block moduli chart. Keep current proofs and useful results in the paper. Keep current ideas, counterexamples, limitations and primary-source locations in the notes. Replace stale text rather than accumulating history, old bundles or duplicate reports.
 - Distinguish proof written, proof inspected, independently checked, exact computation, conditional application and unconfirmed novelty. Never infer the full Abel formal moduli or a global residual morphism from reduced Poisson classification or a dimension count.
 - Track sources, exact certificates, essential inputs and reproduction instructions. Do not track PDFs, ZIPs, TeX intermediates, caches, build logs or external literature PDFs. Use `build/` for regenerable output.
 - GitHub is the canonical save. Use Library only as a fallback if GitHub saving fails, and do not delete existing Library files without explicit instruction.
@@ -52,7 +52,7 @@ Read `00_research_plan.md` first, then `notes/research_notes.md` and the current
 
 ## Maintain research-hub
 
-- The overall entry point is https://github.com/uedakazushi/research-hub. Local details remain in `00_research_plan.md`, `notes/research_notes.md`, `papers/nc-cubic-n-fold.tex`, and `notes/validation.md`.
+- The overall entry point is https://github.com/uedakazushi/research-hub. Local details remain in `00_research_plan.md`, `notes/research_notes.md`, `papers/nc-cubic.tex`, and `notes/validation.md`.
 - At a research checkpoint, first update and save the current materials in this repository, then read the latest research-hub README and applicable instructions and update this project's entry: goals, established scope, remaining obstacle, next action, dependencies, and restart links.
 - Preserve other projects and concurrent edits. Use ordinary fast-forward commits to hub main, with no Actions or force push. Do not copy detailed proofs, task logs, or duplicate task lists into the hub.
 - Verify this repository's save and the hub update separately. If the hub cannot be updated, save this research and report the unreflected item and reason. Do not infer new mathematical verification from a policy edit or a hub summary.

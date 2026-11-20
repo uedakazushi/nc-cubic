@@ -8,7 +8,7 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-MAIN = ROOT / "papers/nc-cubic-n-fold.tex"
+MAIN = ROOT / "papers/nc-cubic.tex"
 
 
 def without_comments(text):

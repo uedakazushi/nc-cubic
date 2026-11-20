@@ -1,6 +1,6 @@
 # 一般点可換復元：有効な技術的注意と再現
 
-2026年11月21日 / v26。研究全体の入口は [研究方針](../00_research_plan.md)。証明の正本は [主原稿](../papers/nc-cubic-n-fold.tex) の `papers/sections/generic_recovery/`、主張の確実性は [研究ノート](research_notes.md) を参照する。
+2026年11月21日 / v27。研究全体の入口は [研究方針](../00_research_plan.md)。証明の正本は [主原稿](../papers/nc-cubic.tex) の `papers/sections/generic_recovery/`、主張の確実性は [研究ノート](research_notes.md) を参照する。
 
 ## 核心の定理と依存
 
