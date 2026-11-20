@@ -42,7 +42,7 @@
 
 ## 1. 固定した入力と文献
 
-- `uedakazushi/nc-cubic`：Poisson正規形・代数的量子化の論文A A-v61、固定commit `eabe601c1341777742964584dde5314c0bcf64a9`。旧論文B B-v59の完備MF移送・可換復元の全証明は本リポジトリの `papers/sections/generic_recovery/` に統合。旧原稿を外部入力とは扱わない。
+- `uedakazushi/poisson-cubic`：Poisson正規形・代数的量子化の論文A A-v61、固定commit `eabe601c1341777742964584dde5314c0bcf64a9`。旧論文B B-v59の完備MF移送・可換復元の全証明は本リポジトリの `papers/sections/generic_recovery/` に統合。旧原稿を外部入力とは扱わない。
 - `uedakazushi/nc-cubic-threefold-moduli`：`6c35d2c84671c2538e61836a6bf3a511392eacce`。比較対象の三様体稿 v22。
 
 入力リポジトリは読取り専用。既存の一般次元正規形・中心量子化・一般点残余復元は新規成果に数えず、未公表入力の全証明を独立に再検証したとは主張しない。引用箇所は [研究ノート](research_notes.md) と [文献一覧](../papers/references.tex) に記す。

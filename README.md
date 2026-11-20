@@ -8,7 +8,7 @@
 
 ## 内容
 
-完備MF移送と一般点の全coherent残余圏のKu比較（旧 `nc-cubic` 論文B）の全証明をこの主原稿へ統合した。一般の中心三次変形の基礎定理は、一ブロック型のモジュライ構成とは独立した仮定の下で述べる。外部から固定して使用する未公表原稿は `nc-cubic` の論文Aと `nc-cubic-threefold-moduli` の指定版である。
+完備MF移送と一般点の全coherent残余圏のKu比較（旧 `poisson-cubic` 論文B）の全証明をこの主原稿へ統合した。一般の中心三次変形の基礎定理は、一ブロック型のモジュライ構成とは独立した仮定の下で述べる。外部から固定して使用する未公表原稿は `poisson-cubic` の論文Aと `nc-cubic-threefold-moduli` の指定版である。
 
 - [可換復元の基礎節](papers/sections/generic_recovery/main_result.tex)：完備MF比較 `cft:thm:complete`、一般点の可換復元 `gdr:thm:generic`、局所模型・window・飽和・低積の積分・明示Hesse模型を含む全9節。主原稿から読み込む。
 - [可換復元の研究上の障害と再現入口](notes/recovery_foundations.md)：定義体、有限降下、symmetrizer、具体例の規約、残るkernel有効化。
@@ -43,7 +43,7 @@
 - [点障害の厳密検算](computations/verify_picard_obstruction.py)：Hesse 接線・巡回 norm、Sklyanin 点三次・係数の逆、rotation の六つの数値 centralizer、巡回平面 twist・norm 係数・symbol 補正、普遍 Jacobian の三捩れ点・八点軌道・安定化群 core、右点対応。
 - [参考文献](papers/references.tex)。外部文献PDFは含めない。
 
-外部の未公表入力は [nc-cubicの論文A](https://github.com/uedakazushi/nc-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) のPoisson正規形・量子化である。旧論文Bの一般点復元は現行主原稿内に証明を統合した。統合は結果を新たに今回証明したという意味ではない。
+外部の未公表入力は [poisson-cubicの論文A](https://github.com/uedakazushi/poisson-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) のPoisson正規形・量子化である。旧論文Bの一般点復元は現行主原稿内に証明を統合した。統合は結果を新たに今回証明したという意味ではない。
 
 ## 現在の研究目標
 
