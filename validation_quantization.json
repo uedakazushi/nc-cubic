@@ -59,7 +59,7 @@
     "exit_code": 0,
     "page_count": 89,
     "pdf": "build/cubic-quantization.pdf",
-    "pdf_sha256": "4a489726bce94e0b18e14e40627d947cce68b7a2593b726fab882a5bf56e8d0b",
+    "pdf_sha256": "31ffe15c5c192f2590c0fc4bef98a57da9346d6e8ddc541dd6358c9e9efcb044",
     "synctex_present": true,
     "undefined_references": false,
     "undefined_citations": false,
@@ -276,5 +276,18 @@
   "persistence": {
     "authoritative": "uedakazushi/nc-cubic main",
     "policy": "Ordinary expected-parent fast-forward updates; no Actions, force-push or tracked PDFs."
+  },
+  "external_classical_input": {
+    "repository": "uedakazushi/poisson-cubic",
+    "commit": "9f91efa3465f18219c36c31750f1e66220faeaa7",
+    "main": "papers/poisson-cubic.tex",
+    "version": "A-v62",
+    "required_labels": [
+      "thm:pg-normal",
+      "lem:pg-linearize",
+      "ne:blocks",
+      "thm:pg-fermat-relative-count",
+      "ne:main"
+    ]
   }
 }

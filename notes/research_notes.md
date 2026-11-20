@@ -143,7 +143,7 @@ general の稠密 Zariski 開、幾何学的一般点、very general の可算�
 詳細の有効な技術的障害は [可換復元の補助ノート](recovery_foundations.md) に保持する。
 
 
-古典Poisson論文は `poisson-cubic/papers/poisson-cubic.tex`（A-v62、2026-11-21）を外部入力とする。分割前の照合元はcommit `8e6ac42a951289bb0431edb6f7dcc36281a6822b`。量子化の全証明は本repoの `papers/cubic-quantization.tex`（v1）を正本とする。旧論文B（B-v59）の必要証明は主原稿に統合され、本repoの `papers/sections/generic_recovery/` を正本とする。
+古典Poisson論文は `poisson-cubic/papers/poisson-cubic.tex`（A-v62、2026-11-21）を外部入力とする。現在の固定入力はcommit `9f91efa3465f18219c36c31750f1e66220faeaa7`。量子化の全証明は本repoの `papers/cubic-quantization.tex`（v1）を正本とする。旧論文B（B-v59）の必要証明は主原稿に統合され、本repoの `papers/sections/generic_recovery/` を正本とする。
 
 - 論文A `poisson_geometry.tex`：`prop:pg-represent` の bivector 表示、`prop:pg-jacobi-extension` の affine Jacobi 延長、`thm:pg-normal` の複数 Jacobian ブロック正規形、`cor:pg-generic` の一般三次における被約 Grassmann 錐。全次元の一般 Jacobi スキームの有限長冪零根基を論じる際には最後の被約分類を使う。二次方程式の不足、n=8 の長さ330の定理、およびその直和から作る特殊三次の非零冪零例は、この被約分類に依存しない。
 - 量子化論文 `papers/sections/quantization/general_dimension_universal_quantization.tex`：`thm:pg-all-dimensions`, `prop:pg-ad-relative-chart` が中心量子化の入力。一ブロック相対 PBW 開と中心三次束の存在は、この研究稿と Etingof–Ginzburg の既知の構成から取る。今回その全証明を独立に再検証したわけではない。
