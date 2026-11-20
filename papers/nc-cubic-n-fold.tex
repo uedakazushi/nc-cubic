@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v19}
+\date{2026年11月20日・研究稿 v20}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -83,6 +83,11 @@ active 制限の最高次 cohomology が点 shift を表す線束となる核の
 全ての類がこの同じ障害を持つ。周期の追加標識を忘れた full 比較の最小体次数は三となる。
 周期位相も全類に共通であり、相対規格化で消せるが、標的の独立尺度を付した一般族では
 周期標識付き比較の最小体次数は九となる。
+原点像を最高次線束の右随伴像として復元する非空な点型を構成し、
+その full class の選択を有限群の torsor へ還元する。
+三・四次元ではこの型の class は一意で、奇数次元では残る有限群は数値的に自明である。
+半古典平面同型と full 尺度は方程式生成元を三乗倍まで規格化し、
+低次元の周期類 $\gamma_{\mathrm{sc}}$ を定めるが、その元の係数体上での値は未決定である。
 全次元で点型の標準三分点被覆は連結な九次体であり、
 Galois 閉包の群は $\operatorname{ASL}_2(\mathbf F_3)$、次数は二百十六である。
 選択済み類はこの被覆上で規格化されるが、三分点の取得と scalar 分裂は異なる。
@@ -333,13 +338,34 @@ Canonaco--Stellari\cite[Corollary~4.4]{NFMCanonacoStellariKernels}の cohomology
 指定周期を加えた比較では、同じ整数冪による移送が周期位相も保つことを示す。
 中心商の conormal 同定を用いて方程式生成元の相対尺度の変換則を追い、
 位相を消す規格化と、独立な標的尺度を付した一般族での正確な最小次数九を得る。
-これは、元の係数体であらかじめ固定した二つの生成元の位相を計算したという意味ではない。
+さらに full tensor と半古典平面同型から方程式生成元を三乗倍まで規格化し、
+周期類 $\gamma_{\mathrm{sc}}$ の具体的な計算問題を定める。
+この類は形式比較体へ移すと零になるが、元の係数体上で零であるとは結論していない。
+Murfet\cite[Theorem~6.2, equation~(6.6)]{NFMMurfetResidue}の residue trace は
+可換 MF 側での計算法を与える一方、source trace と CF 移送の scalar 比較を別に要する。
 
 高次元では、rotation 中央化群 $G_\rho$ の定数中心部分
 $\langle T\rangle$ を除いても各 class の Galois 安定化群が変わらないことを示す。
 奇数次元の数値格子の計算から、残る群は
 $G_{\rho,0}/\langle[2]\rangle$ と同定される。
 これは点型 class の選択を具体化する簡約であり、その存在の証明とは区別する。
+本稿ではさらに、最高次線束 $M_P$ の右随伴像から原点像を復元する条件を課す。
+形式恒等分枝における Koszul 計算と proper な導来 Nakayama によって、この強い型の非空性を示す。
+三連続の原点対象の生成性と $HH^1=0$、
+To\"en--Vaqui\'e\cite[Proposition~3.20, Corollary~3.24]{NFMToenVaquieModuli}の
+bounded な対象 moduli と自己同値 locus の開性から、その class を動かす群 $H_p$ は有限となる。
+従って無限な自己同値群の全分類を先に解かずに、有限 torsor と Picard gerbe を分離できる。
+三・四次元では $H_p=1$ で、この強い型の class は正準的に一つに定まる。
+奇数次元では $H_p$ は数値的に自明な有限部分群となるが、五次元以降での自明性は未決定である。
+
+五次元の安定性条件には Peize Liu\cite[Theorem~1.1, Remark~5.6]{NFMPeizeLiuFivefold}の
+Serre 不変な条件の構成があるが、同論文はその軌道の一意性を仮定していない。
+さらに Wu\cite[Theorems~1.1, 1.3, Proposition~7.2]{NFMWuStability}と
+Aravena--Liu--Tevelev\cite[Theorem~1.2]{NFMAravenaLiuTevelevGepner}は
+超曲面圏の Gepner 安定性条件に関する一般的な構成を述べている。
+これらの存在定理と、自己同値が特定の成分を保つこと、
+その作用の忠実性および係数体上の Galois 降下は異なる問題である。
+本稿の有限群への還元は、これらの安定性条件の存在・一意性を証明入力に使わない。
 また Iliev--Manivel\cite[Proposition~3.1, Corollary~5.3]{NFMIlievManivelSevenfold}の
 既知の球面対象を用いると、一般三次七様体の full 自己同値群は
 $\mathbb Z^2$ を含み、rotation 中央化群の指数は無限になる。
@@ -1040,8 +1066,15 @@ $\gamma\mapsto[v/u]\gamma$ となる
 $k_n(t)[s]/(s^3-dt)=k_n(s)$ である。
 この純超越体上では $\alpha$ の index 三が保たれるため、
 全体の最小次数は九となる（定理\ref{thm:nfm-free-period-frame-degree-nine}）。
-両側の同時規格化では位相は変わらず、元の係数体で固定した規格化の
-$\gamma$ の具体値は別に調べる必要がある。
+両側の同時規格化では位相は変わらない。
+元の復元が与える target のデータは方程式直線であるが、
+命題\ref{prop:nfm-period-equation-cube-frame}により full tensor と
+指定平面同型から生成元を三乗倍まで定められる。
+一般係数体ではこの平面同型自体も唯一である
+（系\ref{cor:nfm-generic-plane-isom-unique}）。
+従って $\gamma_{\mathrm{sc}}$ が一意に定義され、形式比較体への像は零である
+（命題\ref{prop:nfm-period-phase-formal-active-scalar}）。
+元の係数体上の $\gamma_{\mathrm{sc}}$ と、対応する最小次数三／九の判定は未決定である。
 
 全次元では、原点対象と active 制限に内在的な表示
 \[
@@ -1057,6 +1090,41 @@ $Q_P=\mathbf Li_C^*j_Y\Phi_Pj_{\mathrm{nc}}^!(\mathcal O)$ の
 $\alpha=\delta_C(m_P)$ と $3[C]=0$ から $3\alpha=0$ が従うが、
 index は既存の三または九の上界と区別する
 （系\ref{cor:nfm-unsplit-point-scalar-period-three}）。
+
+\begin{maintheorem}[随伴復元点型の有限 class 障害]
+\label{main:nfm-finite-adjoint-point-classes}
+全 $n\ge3$ の標準 split 一般係数体 $K=k_n$ で、固定入力の仮定を保つ。
+$Z=j_{\mathrm{nc}}^!\mathcal O$、$q=\mathbf Li_C^*j_Y$、
+$q^R=j_Y^!i_{C,*}$ と置く。
+点型核の最高次線束 $M_P=H^0(q\Phi_PZ)$ に対する自然な随伴射
+\[
+ \Phi_PZ\longrightarrow q^RM_P
+\]
+が同型となる型は非空である。この型の幾何的 full class は、
+有限 \'etale 群 scheme $H_p$ の torsor $S_p$ をなし、その実現 stack は
+\[
+ S_p\times_K\mathscr P_{p_{\mathrm{res}}}
+\]
+に同値である。ここで $\mathscr P_{p_{\mathrm{res}}}$ は残余曲線上の
+$p_{\mathrm{res}}$ を表す線束の Picard gerbe である。
+$n=3,4$ では $H_p=1$、$S_p=\operatorname{Spec}K$ である。
+$n$ が奇数なら $H_p\subset G_{\rho,0}$ である。
+全 $n\ge3$ で $S_p=\coprod_i\operatorname{Spec}K_i$ と書けば、この型の最小有限実現次数は
+\[
+ \min_i [K_i:K]\operatorname{ind}(\alpha_{K_i})\le3|H_p|,
+ \qquad \alpha=\delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})
+\]
+で、三の倍数である。
+\end{maintheorem}
+
+証明は定理\ref{thm:nfm-adjoint-point-finite-class-torsor}と
+系\ref{cor:nfm-low-dimensional-canonical-adjoint-class}、
+\ref{cor:nfm-odd-finite-stabilizer-numerical}、
+\ref{cor:nfm-adjoint-point-realization-degree}にある。
+有限性は、原点像とその二つの rotation が生成対象となることを使う。
+元の最高次線束条件だけの全点型や、全ての full 核の有限性を主張してはいない。
+五次元の $H_p$ または torsor $S_p$ の具体的な決定は残る。
+この定理は rotation 同型そのものと周期標識を忘れた class に関するものである。
 
 \begin{maintheorem}[標準三分点被覆の正確な次数と Galois 群]
 \label{main:nfm-third-division-monodromy}
@@ -1191,8 +1259,8 @@ Picard 類が点の平行移動に一致する核の型の非空性を、同じ�
 $n=3,4$ では全 full 同型類が降下し、周期の追加標識を忘れた最小比較次数は三である。
 周期位相も全類で共通で、相対規格化で消せる一方、独立な標的尺度を持つ一般族の
 標識付き最小次数は九となる。
-次の課題は $n\ge5$ の rotation を保つ class の降下と全型への拡張、
-あらかじめ固定した規格化に対する低次元の周期位相の具体値、
+次の課題は $n=5$ の随伴復元点型の有限 torsor の中立性と高次元・全型への拡張、
+三乗までの自然な方程式規格化に対する低次元の周期位相 $\gamma_{\mathrm{sc}}$ の具体値、
 非分裂表示の index、および各 intrinsic 成分を覆う表示である。
 固定 frame の tensor の very general な超越性を踏まえ、
 形式座標の代数性と内在的なモジュライの代数性は区別して進める。

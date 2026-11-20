@@ -2879,9 +2879,285 @@ $c=s^{-1}$、$\gamma=[s]\ne1$ である。
 しかし低 Nat から復元した代数的三次はまず方程式\emph{直線}として得られる。
 その代数的生成元と $W_h$ の間の scalar を追わずに、
 元の一般係数体上の $\gamma$ が零と推論してはいけない。
-固定された両生成元についての $\gamma$ の具体的な算出は、
+以下で定める三乗までの規格化に対する $\gamma_{\mathrm{sc}}$ の具体的な算出は、
 上の class 不変性と frame 変換則とは別の課題である。
 \end{remark}
+\subsection{周期位相の固定データと三乗までの自然な方程式規格化}
+
+本節では標準 split 一ブロック係数体 $K=k_n$ を用いる。
+source の三次中心元を $\Omega$、その trace--Hessian 像を $H$ とし、
+source の Poisson 表示を $(H,P)$ と書く。
+ここで $P\in\det K_{\mathrm{pt}}\setminus\{0\}$ は実際の三重ベクトルであり、
+$\Pi=\iota_{dH}P$ である。
+以下で用いる $\varphi_{\mathrm{sc}}$ は
+定理\ref{thm:nfm-generic-plane-isom-splitting}の
+\emph{指定された形式恒等分枝}を持つ平面同型である。
+同じ Jacobian 同型を誘導する任意の別の平面同型に置き換えてはいない。
+
+ここで source の $P$ は独立に追加した体積データではない。
+定理\ref{thm:poisson-good-open-isomorphism}により
+良い $\mathcal O$-marked 対から full Poisson 対 $([H],\Pi)$ が回復される。
+中心直線の生成元 $\Omega$ を選ぶと、
+定理\ref{thm:point-trace-hessian}の線型同型で
+$H=\mathfrak d_\Pi(\Omega)$ が決まり、
+定理\ref{thm:poisson-strong-lift}は
+$\Pi=\iota_{dH}P$ となる $P$ の一意性を与える。
+その support は系\ref{cor:poisson-support-recovery}の
+$K_{\mathrm{pt}}=\operatorname{ann}(U)$ である。
+従って $\Omega$ の $u$ 倍だけが $H$ の $u$ 倍と $P$ の $u^{-1}$ 倍を伴う。
+
+\paragraph{方程式直線と周期の規格化。}
+定理\ref{thm:nfm-relative-residual-cubic}が作るのは
+\[
+ \mathcal L_{\mathrm{res}}
+ =\ker\bigl(\operatorname{Sym}^3 V_\rho
+       \longrightarrow V_\rho\otimes(\operatorname{Sym}^2V_\rho/Q_\rho)\bigr)
+\]
+という方程式直線である。
+定理\ref{thm:nfm-projective-residual-morphism}は
+方程式生成元の存在を標識として要求せず、
+定理\ref{thm:nfm-residual-comparison-cover}も
+「局所 rotation と三次方程式の生成元を選んだ後」に周期を合わせている。
+また標準係数体 $k_n$ の定義は source の表示 chart の関数体を指定するが、
+target の $\mathcal L_{\mathrm{res}}$ に独立な基底を指定していない。
+従って周期位相の具体値を問うには、target の生成元の規格化を明記する必要がある。
+以下ではこの規格化自体を既存の幾何データから与える。
+
+一方、現在までに作った幾何データは、周期位相に必要な
+\emph{三乗倍までの方程式生成元}を選ぶのに十分である。
+
+\begin{proposition}[active 平面同型による三乗までの方程式生成元]
+\label{prop:nfm-period-equation-cube-frame}
+次を固定する。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item split な三次元空間 $K_{\mathrm{pt}},K_{\mathrm{res}}$ と
+      $P\in\det K_{\mathrm{pt}}\setminus\{0\}$。
+\item 残余三次の方程式直線 $\mathcal L_{\mathrm{res}}$ と、
+      full 尺度の非零元
+      $t_{\mathrm{sc}}\in\mathcal L_{\mathrm{res}}\otimes\det K_{\mathrm{res}}$。
+\item 平面同型
+      $\varphi:\mathbf P(K_{\mathrm{pt}})\xrightarrow{\sim}
+                      \mathbf P(K_{\mathrm{res}})$。
+\end{enumerate}
+任意の線型持上げ
+$f:K_{\mathrm{pt}}\xrightarrow{\sim}K_{\mathrm{res}}$ に対し、
+\begin{equation}\label{eq:nfm-period-cube-frame}
+ F_\varphi\otimes\det(f)(P)=t_{\mathrm{sc}}
+ \qquad(F_\varphi\in\mathcal L_{\mathrm{res}}\setminus\{0\})
+\end{equation}
+と定める。この生成元の
+$\mathcal L_{\mathrm{res}}^{\times}/K^{\times3}$ における類は
+線型持上げ $f$ に依存しない。
+
+source の表示を
+$(H,P,\Omega)\mapsto(uH,u^{-1}P,u\Omega)$ と同時に変更し、
+underlying Poisson 対を保つと、$F_\varphi\mapsto uF_\varphi$ となる。
+従って、選択済み full class に対する相対周期位相
+$\gamma(P_{\mathrm{ker}};\Omega,F_\varphi)$ はこの変更にも依存しない。
+ここで核を $P_{\mathrm{ker}}$ と書き、三重ベクトル $P$ と区別した。
+\end{proposition}
+
+\begin{proof}
+体上で split 射影空間間の同型は線型同型の射影化であり、
+二つの持上げの差は $\lambda\in K^\times$ による scalar 倍である。
+$f$ を $\lambda f$ に替えると
+$\det(f)(P)$ は $\lambda^3$ 倍となるため、
+$F_\varphi$ は $\lambda^{-3}$ 倍となる。
+これで最初の主張を得る。
+
+表示の同時変更は underlying 対を変えず、
+$t_{\mathrm{sc}}$ と指定平面同型も変えない。
+式\eqref{eq:nfm-period-cube-frame}の determinant 因子が $u^{-1}$ 倍となるので、
+$F_\varphi$ は $u$ 倍となる。
+trace--Hessian 同型の線型性から source 中心元も $u$ 倍である。
+命題\ref{prop:nfm-period-equation-frame-change}の
+$\gamma'=[v/u]\gamma$ において $v=u$ となるので位相は変わらない。
+\end{proof}
+
+\begin{corollary}[一般係数体での平面同型の一意性]
+\label{cor:nfm-generic-plane-isom-unique}
+標準 split 一般係数体 $K=k_n$ 上では
+\[
+ J_E[3](K)=\{0\},\qquad
+ \mathfrak I_{\mathrm{sc}}(K)=\{\varphi_{\mathrm{sc}}\}.
+\]
+従って上の三乗までの方程式規格化は、$K$ 上での平面同型の追加選択を残さない。
+有限 \'etale scheme $\mathfrak I_{\mathrm{sc}}$ の階数は依然として九である。
+\end{corollary}
+
+\begin{proof}
+補題\ref{lem:nfm-generic-active-three-torsion-monodromy}と
+定理\ref{thm:nfm-generic-point-third-division-monodromy}により、
+$J_E[3](K^{\mathrm{sep}})\simeq\mathbf F_3^2$ への線型 Galois 像は
+$\operatorname{SL}_2(\mathbf F_3)$ である。
+この標準表現の固定部分は零なので、最初の等式を得る。
+定理\ref{thm:nfm-generic-plane-isom-splitting}により
+$\mathfrak I_{\mathrm{sc}}(K)$ は非空であり、
+その二点の差は一意な $J_E[3](K)$ の元であるから、後半も従う。
+
+この Galois 像は元の係数体 $k_n$ での主張である。
+その証明では active 係数体 $K_g$ から mixed・純中心・可変 frame の
+独立変数だけを加えるため、線型像は縮まらない。
+今回の $\Omega$ と方程式直線の基底の選択、強い持上げによる $P$、
+split 平面同型の線型持上げ $f$ は全て $K$ 内で取れ、
+三乗根を定数体へ加える操作を含まない。
+$\widetilde F=hF$ に使う拡大も $k_n(h)/k_n$ という純超越拡大である。
+従ってこれらの規格化のために $\operatorname{SL}_2(\mathbf F_3)$ を
+真の部分群へ制限してはいない。
+\end{proof}
+
+$n=3,4$ に対しては、全 full class に位相が共通であるため、
+この命題を $t_{\mathrm{sc}}$ と $\varphi_{\mathrm{sc}}$ に適用して
+\[
+ \gamma_{\mathrm{sc}}
+ :=\gamma(\Omega,F_{\varphi_{\mathrm{sc}}})
+       \in K^\times/K^{\times3}
+\]
+を明確に定義できる。
+これは target の実際の基底を正準的に選んだという主張ではなく、
+その三乗倍までの曖昧さが Kummer 類を変えないことを用いた定義である。
+位相 torsor は同型類として定まり、その上の点や marked kernel を選んではいない。
+また、非 split ambient 上で実際の線型持上げがあると主張してはいない。
+
+一般係数体以外では、平面同型の変更と線型持上げの変更は区別する。
+$\varphi' =\varphi\circ a$、
+$a\in\operatorname{Aut}(\mathbf P(K_{\mathrm{pt}}))$ とし、
+$A$ を $a$ の線型持上げとすると
+\[
+ [F_{\varphi'}]=[\det(A)^{-1}F_\varphi],
+ \qquad \gamma_{\varphi'}=[\det(A)^{-1}]\gamma_\varphi.
+\]
+$A$ を scalar 倍しても determinant は三乗倍にしか変わらない。
+この determinant 類は一般には非自明であるため、
+線型持上げだけに関する選択非依存性を、任意の別の平面同型へ広げてはいけない。
+
+\begin{proposition}[形式比較における位相の scalar]
+\label{prop:nfm-period-phase-formal-active-scalar}
+支配的な $h$ 族で source を
+$\Omega_h^{\mathrm{TH}}=\mathfrak d_{h\Pi_F}^{-1}(F)$ とし、
+その実際の CF 曲率を $W_h$ と書く。
+\[
+ W_h|_{u=0}=b_h(g)J_g,
+ \qquad b_h(g)\in1+h\,k[[h]],
+ \qquad J_g=g+\frac{h^2}{24}\det\operatorname{Hess}(g).
+\]
+source 表示を $(F,hP_0)$ と取り、前命題で定める
+$F_{\varphi_{\mathrm{sc}}}$ を用いる。
+CF 比較の次数一線型同定の下では、ある
+$\lambda_h\in k((h))^\times$ に対して
+\begin{equation}\label{eq:nfm-period-phase-formal-ratio}
+ F_{\varphi_{\mathrm{sc}}}
+       =\lambda_h^{-3}b_h(g)^{-1}W_h.
+\end{equation}
+従って、周期位相の $k((h))$ への像は
+\begin{equation}\label{eq:nfm-period-phase-active-scalar}
+ \gamma_{\mathrm{sc}}|_{k((h))}=[b_h(g)^{-1}]=1.
+\end{equation}
+全係数を $\widetilde F=hF$ に替えて $K=k_n$ へ戻す場合にも、
+同じ式が成立する。このとき source 中心元と実際の曲率の双方を
+$h$ 倍する必要がある。
+\end{proposition}
+
+\begin{proof}
+CF 比較から得る次数一空間の線型同定を $a$ と書く。
+指定平面同型は形式的な active 恒等分枝に一致するから、
+$a|_{K_{\mathrm{res}}}\circ f$ の射影化は恒等である。
+従って $a|_{K_{\mathrm{res}}}\circ f=\lambda_h\operatorname{id}$ となる。
+命題\ref{prop:nfm-point-scale-formal-comparison}は
+\[
+ a(t_{\mathrm{sc}})=\frac{h}{b_h(g)}W_h\otimes P_0
+\]
+を与える。一方、$a\det(f)(hP_0)=\lambda_h^3hP_0$ である。
+これらを式\eqref{eq:nfm-period-cube-frame}へ代入して
+式\eqref{eq:nfm-period-phase-formal-ratio}を得る。
+
+固定入力Bの CF と window の比較は、source の $\Omega_h^{\mathrm{TH}}$ と
+target の\emph{実際の}曲率 $W_h$ が指定する周期を保つ。
+target の生成元を $\lambda_h^{-3}b_h^{-1}$ 倍するので、
+周期の変換則からその Kummer 類は $[b_h^{-1}]$ となる。
+標数零では $b_h\equiv1\pmod h$ は $1+h k[[h]]$ に一意な三乗根を持つ。
+
+最後に、$\widetilde F=hF$ では
+\[
+ \mathfrak d_{\Pi_{\widetilde F}}^{-1}(\widetilde F)
+       =h\Omega_h^{\mathrm{TH}}
+\]
+であるから、CF 曲率も $hW_h$ となる。
+source の三重ベクトルは今度は $P_0$ であり、
+式\eqref{eq:nfm-period-cube-frame}が与える target 生成元は
+$\lambda_h^{-3}h b_h^{-1}W_h$ である。
+従って source と target の共通な $h$ 倍が相殺し、同じ Kummer 類を得る。
+\end{proof}
+
+\begin{remark}[ここまでの式が計算していないもの]
+形式的に $[b_h^{-1}]=1$ であることは、元の $K$ 上の
+$\gamma_{\mathrm{sc}}=1$ を意味しない。
+例えば $1+h$ は $k((h))$ では三乗だが、$k(h)$ では
+$h=-1$ における付値が一なので三乗でない。
+また $b_h$ 自体の係数体上の代数性や、これが元の体の有理関数であることも
+上の議論は主張していない。
+除去できたのは、CF による active 線型同定の scalar $\lambda_h$ が
+三乗以外の追加位相を作るという曖昧さである。
+形式比較だけから Kummer 類を戻すことは依然としてできない。
+\end{remark}
+
+\paragraph{Serre 基底線と active Hodge 線。}
+中心一次作用の完全列は
+\[
+ 0\longrightarrow U\longrightarrow V_\rho
+       \longrightarrow K_{\mathrm{res}}^*\longrightarrow0
+\]
+を与える。可換三次
+$Y\subset\mathbf P(V_\rho^*)$ の随伴公式の基底線は
+\[
+ D_Y=\det V_\rho\otimes\mathcal L_{\mathrm{res}}^*
+     \simeq\det U\otimes
+           (\mathcal L_{\mathrm{res}}\otimes\det K_{\mathrm{res}})^*
+     \simeq\det U\otimes\lambda_{\mathrm{res}}.
+\]
+従って $\varphi_{\mathrm{sc}}$ は
+$D_Y\simeq\det U\otimes\lambda_{\mathrm{pt}}$ を与える。
+この式は基底線の比較を具体化するが、source の AS-Gorenstein trace と
+CF 比較が指定する fractional Serre 自明化の一致までは与えない。
+とくに $n=3$ の
+\[
+ (\zeta_YP)\sigma_P^{(3)}=d(P)P\zeta_{\mathrm{nc}},
+ \qquad \gamma_{\mathrm{sc}}=[d(P)^{-1}]
+\]
+に現れる $d(P)$ を、Serre 関手の抽象的一意性だけで一としてはならない。
+
+\paragraph{一次資料で確認できる residue 計算と残る入力。}
+Murfet\cite[Theorem~6.2, equation~(6.6)]{NFMMurfetResidue}は、
+孤立超曲面特異点の MF における Serre trace を、
+\[
+ \frac{(-1)^{\binom{N-1}{2}}}{N!}
+ \operatorname{Res}
+ \left[\frac{\operatorname{str}\bigl(\psi\,(d d_X)^{\wedge N}\bigr)}
+ {\partial_1W,\ldots,\partial_NW}\right]
+\]
+で明示する。Proposition~4.2 と式~(5.7) の変換則は determinant 因子を追跡する。
+この既知の式を用いるには、\emph{比較に沿って写された実際の MF 微分と射}
+および source の trace 規格化が必要である。
+potential の係数比だけを分母へ代入し、微分・射の変換を無視して
+$d(P)$ を決めることはできない。
+固定入力Bの \texttt{lp:prop:sing-period}、
+\texttt{tw:eq:period-extension}、\texttt{tw:eq:rotation-period-square}は
+period 自体の規格化を明示しているが、上の source--target trace scalar の計算を
+そのまま与える定理ではない。
+
+\paragraph{確定した範囲と次の具体的な問題。}
+低 Nat の復元が直線までであることによる規格化の自由度を、
+指定 $\varphi_{\mathrm{sc}}$ と full 尺度による三乗までの方程式規格化で補える。
+この規格化に対する $\gamma_{\mathrm{sc}}$ は、$n=3,4$ で
+full class と source の同時表示規格化に依存せず定まる。
+形式比較では位相は active scalar $b_h^{-1}$ の Kummer 類へ戻り、
+未知の active 線型持上げの scalar は三乗として消える。
+未解決なのは、この定義済みの $\gamma_{\mathrm{sc}}$ の $k_n$ 上の値である。
+source の trace と上記の $D_Y$ 比較に関する CF の scalar を有限代数的模型上で
+求めるか、$\gamma_{\mathrm{sc}}$ の分岐を制御して形式的自明性を代数的自明性へ
+戻す追加の証明が必要となる。
+この段階では、固定規格化での最小次数三／九の判定は得ていない。
+
 \subsection{高次元の full class 降下と rotation 中央化群}
 
 $K$ を標数零の体、$\overline K$ をその分離閉包、
@@ -3091,8 +3367,420 @@ $T$ の中心性から所要の群同型を得る。
 
 この命題は $G_{\rho,0}=\langle[2]\rangle$ を証明していない。
 低次元の $n=3$ では既知の分類がこの等式を与えるが、
-$n=5$ などで数値的自明な自己同値を分類することが次の具体的な課題である。
+$n=5$ などでこの部分群を全て分類することは一つの方法である。
+以下では原点像を指定することにより、必要な class 選択を有限部分群へさらに絞る。
 Hochschild/Jacobian 復元の忠実性も、数値作用の忠実性も無条件には仮定しない。
+
+\subsection{最高次線束からの原点対象の復元}
+
+以下では、固定入力Bと良い一ブロックの仮定を保つ。
+$K=k_n$ を標準 split 一般係数体、
+$\mathcal A=\mathcal K_{\mathrm{nc}}$、
+$\mathcal B=\operatorname{Ku}(Y)$ とし、$a=n-1$ と置く。
+包含とその右随伴を $j_{\mathrm{nc}},j_{\mathrm{nc}}^!$ および $j_Y,j_Y^!$、
+active 曲線の閉埋込みを $i:C\hookrightarrow Y$ と書く。
+既存の幾何的表示を用いて
+\[
+ Z=j_{\mathrm{nc}}^!(\mathcal O),\qquad
+ q=\mathbf Li^*j_Y,\qquad q^R=j_Y^!i_*
+\]
+とする。最後の関手は $q$ の右随伴である。
+実際、$\mathbf Li^*$ の右随伴は $i_*$ であり、
+ここに regular immersion の $i^!$ や determinant twist を挿入しない。
+全ての関手は perfect bimodule で与えられ、以下の有限図式を保つ底変更に両立する。
+
+\begin{lemma}[線型切断上の構造層の右随伴像]
+\label{lem:nfm-origin-active-right-adjoint}
+滑らかな三次 $Y$ と、その $a=n-1$ 個の線型式による
+滑らかな active 曲線 $C$ に対し、制限写像が誘導する射は同型
+\[
+ j_Y^!\mathcal O_Y\xrightarrow{\sim}q^R\mathcal O_C
+\]
+である。
+また $E_0=j_Y^!\mathcal O_Y$ と置くと、既存の最高次線束計算による
+$qE_0\in D^{\le0}(C)$、$H^0(qE_0)\simeq\mathcal O_C$ の下で、
+truncation $qE_0\to H^0(qE_0)$ の随伴射
+\[
+ E_0\longrightarrow q^R H^0(qE_0)
+\]
+も同型である。
+\end{lemma}
+
+\begin{proof}
+$F\in\mathcal B$ とする。$1\le j\le a$ なら Serre 双対によって
+\[
+ R\operatorname{Hom}_Y(j_YF,\mathcal O_Y(-j))
+ \simeq
+ R\operatorname{Hom}_Y(\mathcal O_Y(a-j),j_YF[n])^\vee=0.
+\]
+$0\le a-j\le a-1$ であり、最後は残余圏の半直交性による。
+従って $j_Y^!\mathcal O_Y(-j)=0$ である。
+
+$C$ の Koszul 解消により、$\mathcal O_Y\to i_*\mathcal O_C$ の cone は
+$\mathcal O_Y(-j)$ の shift と有限直和を用いた有限個の拡張からなる。
+$j_Y^!$ を施すと cone は零になり、最初の同型を得る。
+相対底線束を含む Serre 式でも、零性の判定を線束で捩じるだけなので同じ結論となる。
+
+右随伴の counit から得る射 $qE_0\to\mathcal O_C$ は、最初の同型の下で
+$\operatorname{id}_{E_0}$ に対応するので非零である。
+$qE_0\in D^{\le0}$ により
+\[
+ \operatorname{Hom}(qE_0,\mathcal O_C)
+  =\operatorname{Hom}(H^0(qE_0),\mathcal O_C)=K.
+\]
+従ってこの counit は truncation と非零 scalar を除いて等しい。
+その随伴射は最初の同型の非零 scalar 倍であり、同型となる。
+この議論は $H^0$ の同定を固定することには依存しない。
+\end{proof}
+
+点型の full 比較核 $P$ に対し
+\[
+ E_P=\Phi_P Z,\qquad M_P=H^0(qE_P)
+\]
+と置く。点型条件は $qE_P\in D^{\le0}$、$M_P$ が次数零線束で
+$[M_P]=p_{\mathrm{res}}$ という条件である。
+truncation の随伴として、さらに正準的な射
+\begin{equation}\label{eq:nfm-top-line-adjoint-reconstruction}
+ \upsilon_P:E_P\longrightarrow q^R M_P
+\end{equation}
+が定まる。
+この射が同型となる点型を、以下では\emph{随伴復元条件を満たす点型}と呼ぶ。
+単に最高次線束を指定する既存の点型より強い条件であり、全ての点型核が
+この条件を満たすと仮定してはいない。
+
+\begin{lemma}[閉・一般ファイバーの最高次線束の持上げ]
+\label{lem:nfm-dvr-top-line-lifting}
+$R$ を一様化元 $h$ を持つ DVR、$C_R$ を $R$ 上の滑らかな proper 曲線族とし、
+$Q\in\operatorname{Perf}(C_R)$ とする。
+閉・一般ファイバーの双方で $H^{>0}(Q_s)=0$、$H^0(Q_s)$ が線束なら、
+$Q\in D^{\le0}(C_R)$ であり、$H^0(Q)$ は実際の線束となる。
+その形成は閉・一般ファイバーへの導来底変更に両立する。
+\end{lemma}
+
+\begin{proof}
+閉ファイバーの点の局所環を $A$ とする。$R$-flat 性により $h$ は $A$ の非零因子である。
+perfect 複体 $Q_A$ の最高 cohomology に Nakayama を繰り返すと、
+$Q_A\otimes_A^{\mathbf L}A/h\in D^{\le0}$ から $Q_A\in D^{\le0}$ を得る。
+一般ファイバーにも同じ上方消滅があるので、全体で $Q\in D^{\le0}$ となる。
+$N=H^0(Q_A)$ と置くと、truncation と右完全性から
+\[
+ N/hN\simeq H^0(Q_A\otimes_A^{\mathbf L}A/h)\simeq A/h
+\]
+である。右辺の基底を持ち上げ、Nakayama により全射 $A\twoheadrightarrow N$ を得る。
+$h$ を反転すると、これは既知の階数一線束への全射なので同型となる。
+核 $I\subset A$ は $I[1/h]=0$ を満たすが、$h$ は $A$ の非零因子だから $I=0$ である。
+従って $N\simeq A$ となり、閉ファイバーの近傍で $H^0(Q)$ は線束である。
+線束 locus の補集合は proper な閉集合で閉ファイバーを避けるため空であり、
+全体で線束となる。上の等式と一般ファイバーへの flat な底変更により最後の主張を得る。
+\end{proof}
+
+\begin{proposition}[随伴復元条件を満たす点型の非空性]
+\label{prop:nfm-adjoint-point-type-nonempty}
+固定入力Bと良い一ブロックの仮定の下で、
+随伴復元条件を満たす点型 full 比較核は、少なくとも一つの
+支配的な有限分離拡大、従って適切な開上の有限 \'etale 被覆で存在する。
+元の点型の rotation 適合性と Picard 等式を同時に保持できる。
+この型は全 $\mathcal O$-保存同値および、対象・最高次線束の形成を保つ任意底変更に自然である。
+\end{proposition}
+
+\begin{proof}
+命題\ref{prop:nfm-kernel-point-line-nonempty}の支配的な完備 DVR 族
+$R=k[[h]]$ と、生成元固定の CF 比較を取る。
+閉ファイバーでは比較が恒等であり、補題\ref{lem:nfm-origin-active-right-adjoint}の計算から
+$q_0E_0\in D^{\le0}$、$H^0(q_0E_0)\simeq\mathcal O_{C_0}$ である。
+一般ファイバーでは同命題の形式 active 同値、graded purity と負 rotation の計算から、
+上方 cohomology の消滅と最高次線束を得る。
+補題\ref{lem:nfm-dvr-top-line-lifting}を $Q=q_RE_R$ に適用すると、
+\[
+ q_R E_R\in D^{\le0}(C_R),\qquad
+ M_R=H^0(q_R E_R)
+\]
+が実際の $R$-flat な次数零線束で、閉・一般ファイバーへの底変更と両立する。
+次数は滑らかな proper 曲線族上で一定である。
+この持上げには一般ファイバーの線束性も使っており、
+閉ファイバーだけから平坦性を推論していない。
+
+形式比較は $h=0$ で恒等であり、
+$E_R|_{h=0}=j_{Y_0}^!\mathcal O_{Y_0}$、$M_R|_{h=0}=\mathcal O_{C_0}$ となる。
+補題\ref{lem:nfm-origin-active-right-adjoint}から
+$\upsilon_R|_{h=0}$ は同型である。
+$Y_R$ は proper、$E_R$ と $q_R^RM_R$ は perfect なので、
+cone $D_R=\operatorname{Cone}(\upsilon_R)$ は proper な台を持つ perfect 複体である。
+各閉ファイバー上の点で導来 Nakayama を適用すると、$D_R$ の台は閉ファイバーと交わらない。
+台の $\operatorname{Spec}R$ への像は proper 性により閉である。
+非空なら局所底の閉点を含むため、台は空であり $D_R=0$ となる。
+従って随伴復元条件は形式族全体、特に形式一般ファイバーで成り立つ。
+
+既存の有限降下に、射\eqref{eq:nfm-top-line-adjoint-reconstruction}とその逆を加える。
+これらは perfect 対象間の有限個の射と二つの合成等式である。
+核・逆核・単位・余単位・rotation 比較・最高次線束と同様に有限生成係数環へ降ろせる。
+同値の cone と随伴射の cone の消滅、線束性および Picard 等式を保つ開へ縮め、
+閉点を取れば有限分離拡大上の所要の核を得る。
+元の特定の形式核 class 自体を、そのまま有限体拡大へ降ろしたという主張ではない。
+
+自然性は $Z=j_{\mathrm{nc}}^!\mathcal O$ と $q=\mathbf Li^*j_Y$ の
+全 $\mathcal O$-降下、右随伴・truncation・随伴射の自然性による。
+最高次線束の底変更は既存の点型条件と併せて用いる。
+\end{proof}
+
+\begin{remark}[平坦な最高次線束を省略しない]
+例えば $[R\xrightarrow{h}R]$ の閉ファイバーの最高次 cohomology は一次元でも、
+その全体の最高次 cohomology は $R/(h)$ であり $R$-flat ではない。
+前命題はこの種の逆推論を使わず、両ファイバーの線束性から
+補題\ref{lem:nfm-dvr-top-line-lifting}によって平坦性と底変更適合性を得る。
+また、係数商を圏全体の categorical derived tensor と同一視したり、
+代数的 full 核に coherent な中心線型性を新たに仮定したりしてはいない。
+\end{remark}
+
+\subsection{生成対象を保つ自己同値の有限性}
+
+\begin{lemma}[剛な自己同値群の生成対象安定化群]
+\label{lem:nfm-generator-stabilizer-finite}
+$k$ を標数零の代数閉体、$\mathcal D$ を非零の smooth proper な
+idempotent complete dg 圏、$G$ をその compact generator とする。
+\[
+ HH^i(\mathcal D)=0\ (i<0),\qquad
+ HH^0(\mathcal D)=k,\qquad HH^1(\mathcal D)=0
+\]
+を仮定する。このとき実際の可逆 perfect dg 核の同型類の群における
+\[
+ \{[Q]:\Phi_Q(G)\simeq G\}
+\]
+は有限群である。
+\end{lemma}
+
+\begin{proof}
+$A=R\operatorname{End}_{\mathcal D}(G)$ と置く。
+Morita 表示により核圏は $\operatorname{Perf}(A^{\mathrm{op}}\otimes A)$ であり、
+その自由加群を一つの compact generator として選べる。
+$Q$ に対応する双加群を $B_Q$ とすると、その underlying $k$-複体は
+\[
+ B_Q\simeq R\operatorname{Hom}_{\mathcal D}(G,\Phi_Q(G))
+\]
+である。従って $\Phi_Q(G)\simeq G$ なら、有限台を持つ関数
+$\nu(i)=\dim_k H^iR\operatorname{End}_{\mathcal D}(G)$ によって
+\[
+ \dim_k H^i(B_Q)\le\nu(i)\qquad\text{for all }i
+\]
+と評価できる。
+
+To\"en--Vaqui\'e\cite[Section~3.3, Proposition~3.20]{NFMToenVaquieModuli}は、
+\emph{一つの指定 compact generator からの Hom の cohomology 次元}を
+このように抑えた対象 stack $\mathcal M^\nu$ が strongly of finite presentation であることを示す。
+ここでは核圏の自由加群を指定 generator としているので、まさに上の条件が適用される。
+$A$ と $A^{\mathrm{op}}\otimes A$ は smooth proper であり、
+同文献 Corollary~2.13 による finite type 条件も満たす。
+
+同文献 Lemma~3.25 と Corollary~3.24 の証明により、
+可逆核の locus は核の対象 stack の Zariski 開である。
+したがって $\mathcal U=\mathcal M^\nu\cap\operatorname{Aut}(\mathcal D)$ は
+noetherian な有限型 stack の開であり、準コンパクトである。
+stack の proper 性は要求していない。
+
+可逆核 $Q$ の自己 Ext は $HH^*(\mathcal D)$ である。
+負の Ext の消滅と $HH^0=k$ により、その通常の class stack は
+$\mathbf G_m$-gerbe で、その class 層は局所有限表示の代数空間となる
+\cite[Corollaries~3.22, 3.24]{NFMToenVaquieModuli}。
+接空間は $\operatorname{Ext}^1(Q,Q)=HH^1(\mathcal D)=0$ である
+\cite[Corollary~3.17]{NFMToenVaquieModuli}。
+標数零の体上の局所有限型な自己同値群は従って \'etale かつ離散的である。
+準コンパクトな $\mathcal U$ のこの離散空間への像は有限集合となる。
+調べている全ての class はその像に含まれるので有限であり、
+合成と逆に閉じるため有限群である。
+\end{proof}
+
+\begin{remark}[一次資料の使用箇所]
+To\"en--Vaqui\'e の公刊版では Section~3.3、pp.~433--434 に
+$\mathcal M^\nu$ の定義と Proposition~3.20 があり、
+pp.~437--438 の Corollary~3.24、Lemma~3.25 の直後に自己同値 locus の開性がある。
+対象の boundedness と $HH^1=0$ の両方を使った結論であり、
+$HH^1=0$ だけから自己同値群全体の有限性を主張してはいない。
+\end{remark}
+
+\subsection{点型の第一段階を有限 torsor として取り出す}
+
+$\overline K$ 上で $p=p_{\mathrm{res}}$ を表す次数零線束 $M$ を一つ選び、
+\[
+ E_p=q^R M\in\mathcal B_{\overline K}
+\]
+と置く。以下での $E_p$ はその幾何的同型類を意味する。
+$p\in\operatorname{Pic}^0_C(K)$ と $q^R$ の $K$-定義性により、
+この同型類は Galois 不変である。
+$M$ を元の体上の実線束として選べるとは仮定しない。
+
+\begin{theorem}[随伴復元点型の有限な class torsor]
+\label{thm:nfm-adjoint-point-finite-class-torsor}
+標準 split 一般係数体 $K=k_n$ で固定入力の仮定を満たすものとする。
+$\mathscr S_p$ を、rotation を保ち随伴復元条件を満たす点型 full 比較核の
+幾何的同型類の集合とし、
+\[
+ H_p=\{g\in G_\rho:g(E_p)\simeq E_p\}
+\]
+と置く。次が成り立つ。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $\mathscr S_p$ は非空かつ Galois 不変であり、$H_p$ は有限群である。
+      $H_p$ と $\mathscr S_p$ はそれぞれ有限 \'etale $K$-群 scheme と
+      その torsor $S_p$ へ降下する。
+\item $H_p\cap\langle T\rangle=1$ であり、
+      $\mathscr S_p$ は各 $T$-軌道と高々一つの class で交わる。
+      この非空な型で class を $K$ 上で選べることは
+      $S_p(K)\ne\varnothing$、すなわち $[S_p]\in H^1(K,H_p)$ の中立性と同値である。
+\item $\mathscr P_p$ を $p$ を表す実線束の Picard gerbe とすると、
+      随伴復元条件を満たす点型 full 核の実現 stack は
+      \[
+       \mathscr G_p\simeq S_p\times_K\mathscr P_p
+      \]
+      となる。従って第一段階の有限 torsor と、
+      $\alpha=\delta_C(p)$ の scalar gerbe は別に残る。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+命題\ref{prop:nfm-adjoint-point-type-nonempty}から $\mathscr S_p$ は非空である。
+随伴復元条件、点型条件、rotation を保つ性質は全て元の体に定義されているので、
+この集合は Galois 不変である。
+一つの $P_0\in\mathscr S_p$ を取ると $\Phi_{P_0}Z\simeq E_p$ である。
+任意の $P\in\mathscr S_p$ に対し、
+$g=\Phi_P\Phi_{P_0}^{-1}$ は $G_\rho$ に属し $E_p$ を保つ。
+逆に $g\in H_p$ なら $gP_0$ の原点像は $E_p$ と同型であり、
+truncation と随伴射の自然性から同じ点型と随伴復元条件を満たす。
+従って $\mathscr S_p$ は $H_p$-torsor である。
+
+固定入力Bの \texttt{window.tex}, \texttt{tw:thm:window} と
+\texttt{tw:eq:main} は、原点の stabilization とその三連続の内部 shift
+$\kappa_{\mathrm{nc}},\rho\kappa_{\mathrm{nc}},\rho^2\kappa_{\mathrm{nc}}$
+が線束生成残余圏を生成することを与える。
+同入力の一般点の coherent 飽和性によって、これは全残余圏の生成である。
+$Z=\kappa_{\mathrm{nc}}[-1]$ と $P_0$ の rotation 適合性を用いれば、
+\[
+ G_p=E_p\oplus\rho E_p\oplus\rho^2E_p
+\]
+は $\mathcal B_{\overline K}$ の compact generator となる。
+$H_p$ の全元は $G_p$ を対象として保つ。
+命題\ref{prop:nf-hh}の Hochschild 消滅と
+補題\ref{lem:nfm-generator-stabilizer-finite}により $H_p$ は有限である。
+
+$E_p$ の同型類は Galois 不変なので $H_p$ も Galois 不変な部分群である。
+核は有限表示であり、その同型類への Galois 作用は連続である。
+有限群とその有限 torsor に関する通常の Galois 降下により、
+有限 \'etale $K$-群 scheme と $K$-torsor を得る。
+この段階で torsor の $K$-点の存在を主張してはいない。
+
+もし $T^m(E_p)\simeq E_p$ なら $T^3=[1]$ より $E_p[m]\simeq E_p$ である。
+$E_p\ne0$ と proper 性により非零 shift は周期になれないため、$m=0$ となる。
+これで \textup{(ii)} の最初の二主張を得る。
+残りは class 切断および有限 torsor の定義による。
+
+\textup{(iii)} のため、普遍核からその最高次線束 $M_P$ を取る。
+この操作は核の scalar $\lambda$ を線束の同じ scalar $\lambda$ に送る。
+従って class 層 $S_p$ 上に band を保つ gerbe の射
+$\mathscr G_p\to S_p\times_K\mathscr P_p$ を得る。
+いずれの幾何的 class 上でも両側は $\mathbf G_m$-gerbe であり、
+band に恒等を誘導する射は gerbe の同値である。
+この同値は fppf 局所で確認できるので、所要の式を得る。
+\end{proof}
+
+\begin{corollary}[三・四次元の正準な随伴復元点型 class]
+\label{cor:nfm-low-dimensional-canonical-adjoint-class}
+$n=3,4$ の標準 split 一般係数体では $H_p=1$、$S_p=\operatorname{Spec}K$ である。
+従って随伴復元条件を満たす点型 full 比較核の幾何的同型類は一つだけであり、
+この条件によって元の体上で正準的に選べる。
+その実現 gerbe は $\mathscr P_p$ に同値で、period と index は三である。
+正準的な同型類の選択と、実際の $K$-線型核の存在は異なり、後者は成立しない。
+\end{corollary}
+
+\begin{proof}
+定理\ref{thm:nfm-low-dimensional-full-class-index-three}の自己同値分類から
+$G_\rho=\langle T\rangle$ である。
+前定理の $H_p\cap\langle T\rangle=1$ により $H_p=1$ となる。
+非空な自明群の torsor は一元集合であり、有限 \'etale 降下は
+$\operatorname{Spec}K$ となる。gerbe の主張は前定理の積表示と
+系\ref{cor:nfm-generic-residual-picard-index-three}による。
+\end{proof}
+
+\begin{corollary}[奇数次元の有限安定化群は数値的に自明である]
+\label{cor:nfm-odd-finite-stabilizer-numerical}
+$n\ge3$ を奇数とする。標準 split 一般係数体では、上の有限群は
+\[
+ H_p\subset G_{\rho,0},\qquad H_p\cap\langle[2]\rangle=1
+\]
+を満たす。
+特にこの型の class 選択を解くために、
+$G_{\rho,0}/\langle[2]\rangle$ の全分類は必要でない。
+$E_p$ を固定する有限位数の自己同値を排除すれば十分である。
+\end{corollary}
+
+\begin{proof}
+$N=n+2$ と置く。支配的な半古典 DVR 族で、source 原点 stabilization と
+その三つの内部 shift の Hom は、固定入力Bの proper Hom/window 比較により perfect である。
+その Euler rank は一定なので、閉ファイバーの外積表示と
+補題\ref{lem:nfm-cubic-euler-gcd}から
+\[
+ \chi(Z,\rho^rZ)=\chi_{N,r},\qquad
+ \gcd_{r=0,1,2}\chi_{N,r}=3^{\lfloor(n+1)/2\rfloor}>0
+\]
+を得る。source の一般係数体からの忠実な拡大でこの等式を得るため、
+元の一般係数体でも成立する。同値 $P_0$ の rotation 適合性により
+$\chi(E_p,\rho^rE_p)=\chi_{N,r}$ であり、少なくとも一つは非零である。
+従って $[E_p]\ne0$ in $N(\mathcal B_{\overline K})$ となる。
+この非零性自体は奇数次元に限らない。
+五次元では $r=0$ だけでも
+$\chi(E_p,E_p)=1-\binom73+\binom76=-27$ を与える。
+
+命題\ref{prop:nfm-odd-numerical-rotation-centralizer}により、
+$G_\rho$ の数値像は $\{\pm I,\pm R,\pm R^2\}$ である。
+この二次元表現の非恒等元は固有値一を持たない。
+$H_p$ は非零ベクトル $[E_p]$ を固定するため、その数値像は恒等に限られる。
+最後の交叉の自明性は $[2]=T^6$ と前定理による。
+\end{proof}
+
+\begin{corollary}[有限 class torsor を分けた最小実現次数]
+\label{cor:nfm-adjoint-point-realization-degree}
+全 $n\ge3$ について、$S_p=\coprod_i\operatorname{Spec}K_i$ と書く。
+随伴復元条件を満たす点型 full 比較核の最小有限実現次数は
+\[
+ \min_i [K_i:K]\operatorname{ind}(\alpha_{K_i}),
+ \qquad \alpha=\delta_C(p),\quad\operatorname{per}(\alpha)=\operatorname{ind}(\alpha)=3
+\]
+である。これは高々 $3\lvert H_p\rvert$ であり、三の倍数である。
+$S_p(K)\ne\varnothing$、特に $H_p=1$ なら、最小次数は三となる。
+この系では rotation 比較同型と指定周期の標識を追加していない。
+\end{corollary}
+
+\begin{proof}
+前定理の積表示により、有限実現体はある $K_i$ の $K$-埋込みを持ち、
+その上で $\alpha_{K_i}$ を分裂させる。
+index の整除性が下界を与え、残る division 代数の極大部分体が下界を達成する。
+$\sum_i[K_i:K]=\lvert H_p\rvert$、
+$\operatorname{ind}(\alpha_{K_i})\in\{1,3\}$ から上界を得る。
+全実現体で元の index 三の類 $\alpha$ が消えるため、その次数は三の倍数である。
+torsor の一つの体成分の次数が $\lvert H_p\rvert$ を割ると仮定してはいない。
+\end{proof}
+
+\subsection{この有限化が解いた部分と残した部分}
+
+上の結果は、full 自己同値群全体を分類せず、
+非空で Galois 不変な強化点型の第一段階を\emph{有限} torsor として取り出す。
+最高次線束だけの条件から全核を一意にしたのではなく、
+形式恒等分枝で正準な随伴射が同型となることを有限降下へ追加した。
+原点像 $E_p=q^RM$ の幾何的同型類と、その実現 gerbe は $p$ から得られるが、
+この対象への source generator の作用はなお追加データである。
+
+実際、三連続の原点対象は generator なので、
+その像の対象に加えて全 dg endomorphism 代数の作用まで同定すれば、
+dg Morita 理論により full 比較 class が定まる。
+対象の同型だけではその作用の同型は与えられず、有限群 $H_p$ がこの不足を測る。
+rotation 付き Jacobian/Torelli 復元は標的三次を復元するが、
+この作用の忠実性や $H_p$ の自明性を与える結果としては用いない。
+
+次の具体的課題は $H_p=1$、または当該有限 torsor $S_p$ の中立性を示すことである。
+原点を保つ rotation 自己同値を全導来圏へ延長する gluing の経路では、
+例外的 block と原点の間の\emph{全作用を保つ} gluing module の同型が必要である。
+双次数付き Tate Ext から通常の Ext を取り出し Koszul 双対へ戻す経路でも、
+非可換中心超曲面での比較と全 $A_\infty$ 構造・coherence を別に検証しなければならない。
+これらの未確認の延長・忠実性を上の有限性の証明には使っていない。
+また、随伴復元条件を持たない全点型、任意の full 核、
+全 intrinsic 成分、指定周期の追加位相の消滅まで結論を広げていない。
 
 \subsection{七次元で全自己同値群が巡回にならない具体的理由}
 
@@ -3184,8 +3872,9 @@ $G_{\rho,0}/\langle[2]\rangle$ へ絞られ、
 $n\equiv1\pmod3$ では full 群と $G_\rho$ を区別する必要があり、
 七次元の球面 twist は前者を大きくするが、
 rotation を保つ比較 class の降下を直ちに妨げるわけではない。
-これらは障害の簡約であって、$n\ge5$ の点型 full class の
-$K$ 上での存在そのものを証明するものではない。
+さらに定理\ref{thm:nfm-adjoint-point-finite-class-torsor}は、随伴復元条件を満たす
+非空な点型を有限 $H_p$-torsor へ還元する。奇数次元では $H_p$ は数値的に自明である。
+その torsor の中立性、従って $n\ge5$ の当該 class の $K$ 上での選択は未決定である。
 
 \begin{remark}[一般点の結論と残る範囲]
 一般 split 係数体では平面同型 torsor が分裂するため、
@@ -3198,12 +3887,15 @@ $K$ 上での存在そのものを証明するものではない。
 $n=3,4$ の一般 split 係数体では、
 定理\ref{thm:nfm-low-dimensional-full-class-index-three}により全 full 同型類が降下し、
 全ての類の scalar 障害が同じ exact index 三の類となる。
+さらに系\ref{cor:nfm-low-dimensional-canonical-adjoint-class}により、
+随伴復元条件を満たす点型の class は正準的に一つに定まる。
 高次元の rotation を保つ class の選択は $G_\rho/\langle T\rangle$、奇数次元では
 $G_{\rho,0}/\langle[2]\rangle$ の torsor に帰着するが、
 $n\ge5$ の full 同型類の選択と任意の full 核への障害の適用、
 代数的 active 同値核の assignment、coherent な中心線型性はなお未解決である。
 指定周期の追加標識には、全 class に共通な位相と生成元の相対尺度の変換則がある。
 規格化を選べば最小次数三、独立な標的尺度を持つ一般族では最小次数九となる。
-元の係数体上であらかじめ固定した規格化についての位相の具体値は、別に未決定である。
+full tensor からの三乗までの方程式規格化が定める $\gamma_{\mathrm{sc}}$ は
+形式比較体で零になるが、元の係数体上の具体値は未決定である。
 全 intrinsic 成分や非分裂表示の全ての体へ exact index 三を広げる主張も行わない。
 \end{remark}
