@@ -1,0 +1,397 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+% Tate--Koszul reconstruction of origin/rotation-preserving enhanced kernels.
+
+\subsection{原点と内部 shift を保つ核の Tate--Koszul 復元}
+
+以下では $B$ を標数零の体 $k$ 上の連結局所有限な左右 noetherian
+quadratic Koszul AS-regular 代数とし、$\Omega\in Z(B)_3$ を
+非零の正則元とする。$A=B/(\Omega)$ と置く。
+$\kappa$ は $k=A/A_{\ge1}$ の graded singularity category における像、
+$\rho=(1)$ は内部 shift である。
+ここで取り扱うのは enhancement を保つ perfect 核であり、
+三角関手の自然同型だけを dg 自然同型と置き換えない。
+また、$\rho$ と可換であるという性質と、指定された
+$\rho^3\simeq[2]$ の標識を保つことは区別する。
+
+\begin{lemma}[中央三次商の通常 Ext と Tate Ext]
+\label{lem:nfm-cubic-tate-cut}
+双次数を
+\[
+ E^{p,q}=\operatorname{Ext}^p_{\operatorname{Gr}A}(k,k(q)),
+ \qquad
+ S^{p,q}=\operatorname{Hom}_{D_{\mathrm{sg}}^{\mathbb Z}(A)}
+                 (\kappa,\kappa(q)[p])
+\]
+とする。指定された $\Omega$ に由来する中央 class
+$t\in E^{2,-3}$ に関し、積を含む同型
+\[
+ E\simeq B^!\otimes_k k[t],\qquad
+ S\simeq B^!\otimes_k k[t,t^{-1}]
+\]
+がある。$B^!_i$ の双次数は $(i,-i)$ である。
+さらに実際の stabilization が誘導する Adams graded dg algebra の射
+\[
+ \mathcal E=R\underline{\operatorname{End}}_A(k)
+       \longrightarrow
+ \mathcal S=R\underline{\operatorname{End}}_{D_{\mathrm{sg}}(A)}(\kappa)
+\]
+は、$t$ に関する derived localization を表示する。
+\end{lemma}
+
+\begin{proof}
+中央正則元の長さ一の分解から、$A\otimes_B^{\mathbf L}A$ の cohomology は
+$H^0=A$、$H^{-1}=A(-3)$ だけである。$A$-双加群として標準 truncation を取ると、
+固定入力B\cite[\texttt{local\_model.tex}, \texttt{lp:prop:sing-period}]{NFNCCubicB}
+と同じ自己交叉三角
+\[
+ A(-3)[1]\longrightarrow A\otimes_B^{\mathbf L}A
+ \longrightarrow A\xrightarrow{\eta}A(-3)[2]
+\]
+を得る。これは実際の $A$-双加群の三角である。
+任意の有界有限生成 $A$-複体 $M$ に評価すると
+\begin{equation}\label{eq:nfm-tate-self-intersection}
+M(-3)[1]\longrightarrow M\otimes_B^{\mathbf L}A
+ \longrightarrow M\xrightarrow{\eta_M}M(-3)[2].
+\end{equation}
+$B$ の有限大域次元により中項は $A$-perfect である。
+$t=\eta_k$ は双加群射に由来するので、全 graded Ext 上で中央に作用する。
+内部 shift の規約からその双次数は $(2,-3)$ である。
+
+$M=k$ に対し $R\operatorname{Hom}_A(-,k(q))$ を適用する。
+導来随伴によって中項の Ext は $\operatorname{Ext}_B(k,k(q))$ であり、
+長完全列は
+\begin{equation}\label{eq:nfm-tate-change-rings}
+\cdots\longrightarrow E^{p-2,q+3}\xrightarrow{t}E^{p,q}
+ \longrightarrow\operatorname{Ext}_B^{p,q}(k,k)
+ \longrightarrow E^{p-1,q+3}\longrightarrow\cdots
+\end{equation}
+となる。連結次数一生成代数の minimal 分解より
+$E^{r,s}=0$ for $s>-r$ である。
+一方 $B$ は Koszul なので $\operatorname{Ext}_B^{p,q}=0$ unless $q=-p$。
+従って右の connecting map の非零を考える必要があるのは
+$q=-p$ の場合だけだが、その終域は
+$E^{p-1,3-p}=0$ である。左側の connecting も同じ理由で零である。
+よって各双次数で
+\begin{equation}\label{eq:nfm-tate-short-exact}
+0\longrightarrow E^{p-2,q+3}\xrightarrow{t}E^{p,q}
+ \longrightarrow\operatorname{Ext}_B^{p,q}(k,k)\longrightarrow0.
+\end{equation}
+特に $q=-p$ の対角では最初の項も零なので restriction は同型である。
+この restriction は導来 restriction functor が誘導する Yoneda algebra の射である。
+対角成分は積で閉じているので、その逆が $B^!$ を $E$ の部分代数として与える。
+$t$ の中央性と \eqref{eq:nfm-tate-short-exact} の反復から、通常 Ext の表示を得る。
+
+次に \eqref{eq:nfm-tate-self-intersection} の $\eta$ を反転する。
+任意の $A$-perfect 複体 $P$ に対し、十分大きい $r$ では
+$\operatorname{Hom}(P,P(-3r)[2r])=0$ だから $\eta_P^r=0$ である。
+逆に $\eta_M^r=0$ なら、その cone は \eqref{eq:nfm-tate-self-intersection} と octahedral triangle により perfect であり、
+零写像の cone の直和因子である $M$ も perfect となる。
+従って $\eta$-torsion 対象はちょうど perfect 対象である。
+中央自然変換の Verdier localization は
+\begin{equation}\label{eq:nfm-tate-hom-localization}
+\operatorname{Hom}_{D_{\mathrm{sg}}(A)}(M,N(q)[p])
+ \simeq\underset{r}{\operatorname{colim}}\,
+ \operatorname{Hom}_{D^b(\operatorname{gr}A)}
+       (M,N(q-3r)[p+2r])
+\end{equation}
+を与える。具体的には roof の左矢印の cone が perfect であるとき、
+その cone を消す $\eta$ の冪を用いて roof を右辺の射で表せる。
+同様に roof の零性も、さらに大きい冪の後で検出される。
+これで通常 Ext から Tate Ext への写像は $t$-局所化である。
+
+dg algebra の主張には、Braun--Chuang--Lazarev の derived localization
+\cite[Theorems~3.18 and~5.3]{NFMBCLLocalization} を適用する。
+$t$ の像は $H(\mathcal S)$ で可逆だから
+$L_t\mathcal E\to\mathcal S$ が存在し、同文献 Theorem~5.3 と \eqref{eq:nfm-tate-hom-localization} により
+cohomology 上で同型となる。ここでは Adams 次数ごとに斉次生成元を持つ
+semi-free/cofibrant resolution を取り、局所化の可逆元とその homotopy を
+$t$ の内部次数に合わせて付加する。従って同じ derived localization の構成と普遍性が
+Adams graded 複体でも成立し、同定は内部次数を保つ。
+これは cohomology algebra だけの同定ではない。
+\end{proof}
+
+\begin{lemma}[Tate 模型内の通常 Ext の回復]
+\label{lem:nfm-ordinary-ext-intrinsic-cut}
+$\mathcal S$ の strictly unital な双次数付き minimal $A_\infty$ 模型を $S$ とする。
+\[
+ j=-p-q,\qquad
+ S_{\ge0}=\bigoplus_{-p-q\ge0}S^{p,q}
+\]
+と置く。この部分空間は augmented $A_\infty$ 部分代数であり、
+$\mathcal E$ の minimal 模型と $A_\infty$ 同型である。
+任意の内部次数を保つ $A_\infty$ 自己同型は $S_{\ge0}$ を保ち、
+その homotopy もこの部分に制限できる。
+\end{lemma}
+
+\begin{proof}
+前補題の表示では、$B^!_i t^j$ の双次数は $(i+2j,-i-3j)$ なので、
+上の $j$ は実際の $t$ 指数に一致する。
+minimal 構造の $m_r$、射の $f_r$、reduced homotopy の $h_r$ は
+それぞれ cohomological degree $2-r,1-r,-r$、internal degree $0$ である。
+従って、入力の $t$ 指数を $j_1,\ldots,j_r$ とすると出力の指数は順に
+\begin{equation}\label{eq:nfm-tate-degree-cutoff}
+\sum j_i+r-2,\qquad \sum j_i+r-1,\qquad \sum j_i+r.
+\end{equation}
+$m_1=0$ と $m_0=0$ を考慮すれば、全て $j_i\ge0$ を保つ。
+非単位元の内部次数は負なので augmentation も保たれる。
+
+stabilization の dg 射を双次数付き minimal 模型へ移す。
+その $A_\infty$ Taylor 成分も \eqref{eq:nfm-tate-degree-cutoff} を満たすので $S_{\ge0}$ に因子化する。
+前補題より一次成分は同型である。
+minimal $A_\infty$ 代数間の一次成分が同型な射は、bar coalgebra の長さに関する
+再帰により $A_\infty$ 逆を持つ。これが所要の比較である。
+homotopy の制限についても \eqref{eq:nfm-tate-degree-cutoff} の第三式を使えばよい。
+\end{proof}
+
+\begin{proposition}[通常 Ext への制限の忠実性]
+\label{prop:nfm-tate-automorphism-faithful}
+内部次数を保つ strictly unital $A_\infty$ 自己同型の homotopy class から、
+次数付き代数 $A$ の自己同型への反変単射
+\begin{equation}\label{eq:nfm-tate-automorphism-restriction}
+\pi_0\operatorname{Aut}_{A_\infty,\mathrm{Adams}}(S)
+ \lhook\joinrel\longrightarrow\operatorname{Aut}_{\mathrm{gr}}(A)
+\end{equation}
+がある。反変という向きを逆元によって直せば群準同型となる。
+特に、右辺で恒等を誘導する自己同型は Tate 模型上でも homotopic to identity である。
+\end{proposition}
+
+\begin{proof}
+前補題によって通常 Ext へ制限する。
+Lu--Palmieri--Wu--Zhang\cite[Theorem~2.4 and Corollary~2.5(b)]{NFMLPWZKoszul}
+の Adams Koszul 双対は、augmented $A_\infty$ homotopy category の Hom を反変に全単射で移す。
+ここで必要な局所有限性は全て Adams connected 性から成り立つ。
+実際、固定した負の内部次数に現れる Ext は有限次元で、
+cohomological degree も有限区間に入る。bar 構成でもその内部次数での長さは有限である。
+元の $A$ は cohomological degree $0$ に集中しているので、
+$A\to A$ の $A_\infty$ 射は degree 理由で strict な代数射であり、
+その間の reduced homotopy も零である。
+従って通常 Ext の自己同型 class は $\operatorname{Aut}_{\mathrm{gr}}(A)$ へ反変に同型で移る。
+ここで完備化した代数に置き換えてはいない。
+
+制限後に二つの Tate 自己同型が homotopic になったとする。
+通常 Ext から $S$ への二つの合成は homotopic である。
+前々補題の derived localization と
+Braun--Chuang--Lazarev\cite[Proposition~3.17 and Theorem~3.18]{NFMBCLLocalization} により、
+局所化射による derived mapping space の restriction の fibre は空または可縮である。
+従ってこの二つの $S$ 上の射自体が homotopic である。
+これが \eqref{eq:nfm-tate-automorphism-restriction} の単射性である。
+一般の pro-unipotent 群の homotopy 商についての閉性や一意可除性を、
+この証明で別に仮定する必要はない。
+\end{proof}
+
+\begin{remark}[三次関係と高次 gauge]
+\label{rem:nfm-cubic-relations-modulo}
+$V=A_1=B_1$、$R\subset V^{\otimes2}$ を二次関係とする。
+任意の次数付き $A$ 自己同型は $V$ 上の線型作用によって決まり、
+$R$ を保つので $B=T(V)/(R)$ の自己同型を誘導する。
+三次関係空間は
+\[
+ \ker(V^{\otimes3}\to A_3)
+   =RV+VR+k\widetilde\Omega
+\]
+である。従ってこの自己同型は $B_3$ の直線 $k\Omega$ を保ち、逆も成り立つ。
+\begin{equation}\label{eq:nfm-tate-relation-automorphisms}
+\operatorname{Aut}_{\mathrm{gr}}(A)
+  =\operatorname{Aut}_{\mathrm{gr}}(B,k\Omega).
+\end{equation}
+Lu--Palmieri--Wu--Zhang\cite[Corollary~B]{NFMLPWZExt} の高次積の記述では、
+$m_2$ と $m_3$ がこの二次・三次関係を回復する。
+ただし $m_3$ の三次テンソルそのものを gauge 不変と主張してはいけない。
+$f_2(\xi,\xi)$ の出力 $(1,-2)$ は零だが、
+$f_2(m_2(\xi,\xi),\xi)$ の出力 $(2,-3)$ は零とは限らず、
+$m_3$ は $RV+VR$ を法としてのみ $\Omega$ を定める。
+\eqref{eq:nfm-tate-automorphism-restriction}--\eqref{eq:nfm-tate-relation-automorphisms} はこの gauge の曖昧さを quotient の代数 $A$ によって処理している。
+\end{remark}
+
+\begin{lemma}[内部 shift の比較同型と graded orbit algebra]
+\label{lem:nfm-kernel-orbit-algebra}
+$\mathcal D=\operatorname{thick}\{\kappa(i):i\in\mathbf Z\}$ とし、
+$HH^0(\mathcal D)=k$ を仮定する。
+実際の enhanced 自己同値 $Q$ が
+$Q\kappa\simeq\kappa$ および $Q\rho\simeq\rho Q$ を満たすとき、
+上の $S$ の Adams graded $A_\infty$ 自己同型を誘導する。
+$Q$ の同型類だけからは、その自己同型 class は内部次数の character
+\begin{equation}\label{eq:nfm-tate-character}
+a\in S^{p,q}\longmapsto c^q a\qquad(c\in k^\times)
+\end{equation}
+だけの曖昧さを持つ。この曖昧さを除いた作用が恒等なら、$Q$ 自体も恒等核の class である。
+\end{lemma}
+
+\begin{proof}
+まず $\theta:Q\kappa\xrightarrow{\sim}\kappa$ と
+実際の quasi-functor の同型 $\eta:Q\rho\xrightarrow{\sim}\rho Q$ を一つ選ぶ。
+\emph{この段階では指定三次周期の図式を課さない。}
+一つの $\eta$ の正負の反復が $\mathbf Z$-作用との比較を与える。
+$\mathbf Z$ は一つの可逆生成元からなるので、別の relation の coherence は課されない。
+cofibrant bimodule を使えば、この操作は Keller の dg orbit 構成と
+その functoriality\cite[Sections~9.3--9.4]{NFMKellerOrbit} により
+実際の enhanced 関手となる。
+この構成で orbit の次数 $q$ は保持する。
+cofibrant replacement と bar resolution も $q$ 次数付きで取る。
+
+原点でこの関手の endomorphism を取ると
+\[
+ \bigoplus_q R\operatorname{Hom}_{\mathcal D}(\kappa,\rho^q\kappa)
+\]
+の Adams graded $A_\infty$ 自己同型を得る。
+より具体的には、$\theta$ と $\eta$ を反復して
+$\theta_i:Q\rho^i\kappa\simeq\rho^i\kappa$ を作り、
+全対象 $\rho^i\kappa$ の Hom の作用を移す。
+その相対次数 $j-i$ が上の $q$ である。
+Keller の構成は pair $(Q,\eta)$ の合成と両立するので、
+この操作は自己同値の合成も保つ。
+
+前補題の cohomology 計算から
+$\operatorname{End}^0(\kappa)=S^{0,0}=k$ である。
+従って $\theta$ の変更は scalar の共役だけで、作用を変えない。
+また二つの $\eta$ の比は $Q\rho$ の scalar 自己同型である。
+これは $HH^0(\mathcal D)=k$ と可逆性による。
+$\eta$ を $c\eta$ にすると、$q$ 回の反復には $c^q$ が現れ、\eqref{eq:nfm-tate-character} だけが変わる。
+選んだ同型の chain lift や homotopy の変更は derived な同じ射を表すので、
+得られた $A_\infty$ map の homotopy class を変えない。
+
+最後に忠実性を確認する。この際、\emph{Adams 次数を忘れた orbit 圏だけ}は使わない。
+双次数付き $S$ から、対象集合 $\mathbf Z$、Hom$(i,j)=S_{j-i}$ の
+$A_\infty$ 圏を作る。この圏は、$\mathcal D$ の全対象
+$\{\rho^i\kappa\}$ からなる充満部分圏の minimal 模型である。
+Adams 次数を保つ homotopy はこの圏の各 Hom に持ち上がる。
+従って $S$ 上の作用が homotopic to identity なら、$Q$ のこの充満部分圏への制限も
+恒等関手に同型である。
+この部分圏は $\mathcal D$ を生成するので、pretriangulated hull と idempotent completion
+への Morita の普遍性によって $Q\simeq\mathrm{id}_{\mathcal D}$ である。
+ここで得るのは enhanced 関手、従って実際の可逆 bimodule/kernel の同型である。
+\end{proof}
+
+\begin{theorem}[原点・rotation 安定化群の表示自己同型への忠実性]
+\label{thm:nfm-origin-rotation-faithful}
+$\mathcal D=\operatorname{thick}\{\kappa(i):i\in\mathbf Z\}$ とし、
+$HH^0(\mathcal D)=k$ を仮定する。原点の class と内部 shift を保つ
+$\mathcal D$ の enhanced 自己同値の群には単射
+\begin{equation}\label{eq:nfm-origin-rotation-faithful}
+\{[Q]:Q\kappa\simeq\kappa, Q\rho\simeq\rho Q\}
+ \lhook\joinrel\longrightarrow
+ \operatorname{Aut}_{\mathrm{gr}}(B,k\Omega)/\mathbf G_m
+\end{equation}
+がある。右辺の $\mathbf G_m$ は次数スカラーである。
+特に、この表示自己同型群が自明なら左辺も自明である。
+\end{theorem}
+
+\begin{proof}
+前補題によって $S$ 上の作用を取り、命題
+\ref{prop:nfm-tate-automorphism-faithful} と \eqref{eq:nfm-tate-relation-automorphisms} を適用する。
+反変の向きは inverse を取って群準同型に直す。
+\eqref{eq:nfm-tate-character} は $A_1$ 上で scalar に移るので、右辺の次数スカラーで商を取れば
+$\eta$ の選択によらない写像になる。
+核に入る $Q$ では、$\eta$ を scalar 倍して $A$ 上の作用を恒等にできる。
+命題\ref{prop:nfm-tate-automorphism-faithful} により Tate 上の作用は homotopic to identity であり、
+前補題の最後の忠実性から $Q$ は恒等核の class である。
+有限群の coherent action の存在や平均化を使っていないので、
+有限 kernel の捩れを別に除く必要はない。
+\end{proof}
+
+\begin{lemma}[一般一ブロック対の表示安定化子]
+\label{lem:nfm-generic-presentation-stabilizer-trivial}
+良い一ブロック表示には非空不変開があり、その任意の幾何点で
+\[
+ \operatorname{Aut}_{\mathrm{gr}}(B,k\Omega)/\mathbf G_m=1
+\]
+である。ここで対象は周囲代数 $B$ 単独でなく中心直線を含む対であり、
+$\mathbf G_m$ は次数スカラーである。
+\end{lemma}
+
+\begin{proof}
+命題\ref{prop:nfm-graded-presentation}の全次数付き同型の表示と
+定理\ref{thm:poisson-good-open-isomorphism}により、この群は対応する
+Poisson 対 $(X,\pi)$ の自己同型群と一致する。後者は、
+$X=V(H_\Omega)$ の射影自己同型群の部分群である。
+ここで $H_\Omega$ は trace--Hessian の逆構成で得られる滑らかな三次であり、
+残余三次との同一視を仮定していない。
+
+系\ref{cor:poisson-generic-open-immersion}により、この良い対の族は
+滑らかな三次のモジュライを支配する。
+$n\ge3$ では一般の滑らかな三次 $n$-fold の射影自己同型群は自明であり、
+その条件は非空不変開を定める
+\cite[Theorem~1.5 and the preceding paragraph]{NFMPoonenAutomorphisms}。
+その開を引き戻せば所要の非空開となる。
+次数付き自己同型の射影化の核は、次数一生成性により次数スカラーだけである。
+\end{proof}
+
+\begin{corollary}[全次元の正準な随伴復元点型 class]
+\label{cor:nfm-generic-adjoint-class-unique}
+固定入力の良い標準 split 一ブロック族の一般係数体 $K=k_n$ を考える。
+全 $n\ge3$ で、定理\ref{thm:nfm-adjoint-point-finite-class-torsor}の群と torsor は
+\[
+ H_p=1,\qquad S_p=\operatorname{Spec}K
+\]
+を満たす。従って随伴復元条件を満たす点型 full 比較核の幾何学的 class は
+一つに定まり、$K$ 上で正準的に選択される。
+その実現 gerbe は
+\[
+ \mathscr G_p\simeq\mathscr P_p,
+ \qquad [\mathscr G_p]=\delta_C(p),
+ \qquad \operatorname{per}\delta_C(p)=\operatorname{ind}\delta_C(p)=3
+\]
+であり、この型の実際の核の最小有限実現次数は三である。
+ここでは rotation と可換であることを要求するが、比較同型と指定三次周期の標識は
+実現 stack の追加データに含めていない。
+\end{corollary}
+
+\begin{proof}
+適用する代数的仮定と圏の範囲を先に確認する。
+固定入力B\cite{NFNCCubicB}の
+\texttt{field\_model.tex}, \texttt{gcd:prop:automatic-as} は、
+次数別有限自由な半古典模型の一般 ambient が左右 noetherian な二次 Koszul
+AS-regular 代数であり、指定中心三次元が正則であることを与える。
+その証明の入力は \texttt{local\_model.tex} の
+\texttt{lp:lem:noetherian}, \texttt{lp:prop:koszul},
+\texttt{lp:prop:gorenstein} である。
+良い一ブロック表示の一般体はこの支配的な半古典族へ埋め込まれ、
+これらの次数付き有限自由分解と正則性は忠実な体拡大から降下する。
+従って本節の $B,A=B/(\Omega)$ に関する仮定を満たす。
+
+同入力 \texttt{window.tex}, \texttt{tw:lem:stabilization} は
+実際の dg stabilization と singularity category の Morita 比較を与える。
+\texttt{tw:thm:window}, \texttt{tw:eq:main} により、source の線束生成残余圏は
+\[
+ \operatorname{thick}\{\kappa,\kappa(1),\kappa(2)\}
+ =\operatorname{thick}\{\kappa(i):i\in\mathbf Z\}
+\]
+と同値であり、rotation は内部 shift へ移る。
+
+coherent 飽和には \texttt{coherent\_saturation.tex} の
+\texttt{crs:thm:coherent} を用いる。
+一般点の比較は \texttt{main\_result.tex} の
+\texttt{gdr:thm:generic} による。
+これらにより、上の圏は一般点で全 coherent 残余圏に一致する。
+従って生成対象の部分圏だけについての結論を全圏へ無条件に拡大しているのではない。
+
+随伴復元点型の幾何学的比較核 $P_0$ を一つ取る。
+定理\ref{thm:nfm-adjoint-point-finite-class-torsor}の非空性と
+$\Phi_{P_0}(\kappa[-1])\simeq E_p$、rotation 適合性から、
+$P_0$ による共役は $H_p$ を原点と内部 shift を保つ source 自己同値群に移す。
+命題\ref{prop:nf-hh}により $HH^0=k$ である。
+定理\ref{thm:nfm-origin-rotation-faithful}と前補題により、この群は自明である。
+よって $H_p=1$、非空なその torsor は $\operatorname{Spec}K$ となる。
+$P_0$ の選択は証明にのみ使い、得られる唯一の class はその選択によらない。
+
+実現 gerbe の式は定理\ref{thm:nfm-adjoint-point-finite-class-torsor}の積表示による。
+標準 split 一般係数体での $\delta_C(p)$ の exact index 三は、
+系\ref{cor:nfm-generic-residual-picard-index-three}により
+点側の非消滅と半古典平面同型から従う。
+従って系\ref{cor:nfm-adjoint-point-realization-degree}により最小次数は三である。
+\end{proof}
+
+\begin{remark}[復元の忠実性と残る範囲]
+上の証明は、原点の対象像を固定しただけで endomorphism の全作用が恒等になると
+仮定していない。Tate 模型から通常 Ext を双次数で切り出し、
+Koszul 双対と derived localization の二つの忠実性を通してその作用を検出した。
+特に $m_3$ の gauge を無視した三次テンソルの復元や、
+homotopy 恒等部分群の pro-unipotence は必要ない。
+
+また、内部 shift との比較同型の scalar は Adams character として追跡し、
+次数スカラーで割ってから核の class に戻った。
+指定された三次周期の coherence をここで新たに選択したのではなく、
+追加の $\mu_3$ 位相の消滅はこの一意性からは従わない。
+随伴復元条件を持たない任意の full 核の全群分類、
+他の intrinsic 成分の分類、coherent な中心線型性も別の問題である。
+\end{remark}

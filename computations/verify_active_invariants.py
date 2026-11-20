@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact active-invariant identities for nc-cubic-n-fold, v12 (2026-11-20).
+"""Exact active-invariant and period-boundary identities, v22 (2026-11-20).
 
 Run from the repository root:
     python computations/verify_active_invariants.py
@@ -12,6 +12,7 @@ The rational polynomial identities below are checked coefficient by
 coefficient, without numerical specialization. They certify the formulas
 used in the manuscript's degree-nine invariant map. Geometric generic
 integrality, opposite invariance, and degree 18e_n use the written proofs.
+The boundary checks do not prove extension or splitting of a period torsor.
 """
 
 import sympy as sp
@@ -64,6 +65,32 @@ def main():
     zero_polynomial(s.subs({p: -p, q: -q}, simultaneous=True)-s, (p, q))
     zero_polynomial(t.subs({p: -p, q: -q}, simultaneous=True)-t, (p, q))
     print("PASS: both primitive invariants are unchanged by the opposite sign")
+
+    zero_polynomial(s**3-t**2-(-4*p*(p**3+q**3))**3, (p, q))
+    print("PASS: the discriminant becomes the specified cube on the Hesse field")
+
+    zeta = sp.symbols("zeta")
+    boundary = discriminant_ratio.subs({S: s, T: t}, simultaneous=True)
+    eight_lines = -(q**2-4)*sp.prod(
+        (2*zeta**i*p-q)**2+12 for i in range(3)) / 6912
+    reduced = sp.rem(sp.expand(boundary-eight_lines), zeta**2+zeta+1, zeta)
+    zero_polynomial(reduced, (p, q, zeta))
+    print("PASS: the additional boundary is the product of eight Hesse lines")
+
+    zero_polynomial(boundary.subs(q, 2), (p,))
+    zero_polynomial(sp.diff(boundary, q).subs(q, 2)+(p**3+8)**2/27, (p,))
+    zero_polynomial(s.subs(q, 2)-(16-16*p**3), (p,))
+    zero_polynomial(t.subs(q, 2)-(64+160*p**3-8*p**6), (p,))
+    print("PASS: the q=2 boundary has multiplicity one and the stated residue map")
+
+    center_u = 1+q**2/2+p**3*q/6-q**4/48
+    center_v = (4-q**2)*(12*q+q**3-8*p**3)/48
+    zero_polynomial(center_u.subs(q, 2)-(p**3+8)/3, (p,))
+    zero_polynomial(center_v.subs(q, 2), (p,))
+    zero_polynomial(p_new.subs(q, 2), (p,))
+    zero_polynomial(q_new.subs(q, 2)-(p**3+8)/3, (p,))
+    zero_polynomial(-2*center_u.subs(q, 2)+2*q_new.subs(q, 2), (p,))
+    print("PASS: the specified active center becomes -2 times the boundary point cubic")
 
     # The exact Fermat specialization fixes the sign convention c6=-T.
     assert (s.subs({p: 1, q: 0}), t.subs({p: 1, q: 0})) == (0, -8)

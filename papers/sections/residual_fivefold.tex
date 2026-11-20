@@ -1,5 +1,5 @@
 % !TEX root = ../nc-cubic-n-fold.tex
-\subsection{五次元 Clifford 半 rotation の平面非依存性と降下}
+\subsection{五次元 Clifford 半 rotation の同定と降下}
 
 $K$ を標数零の体、$Y\subset\mathbf P^6_K$ を滑らかな三次五様体とし、
 $\mathcal B=\operatorname{Ku}(Y)$、$\rho=L_{\mathcal O_Y}\circ(-\otimes\mathcal O_Y(1))$
@@ -31,6 +31,10 @@ $O_{\mathrm{Cl}}$ とも書く。Liu の Lemma~3.4、Corollary~3.10、Propositio
  T:=\rho^{-1}[1]=S[-2]
 \end{equation}
 を得る。本節では核の同型類と実際の perfect 核を区別する。
+相対核と奇数次数零 cycle による降下をまず示し、続いて spinor 列と
+相対 coevaluation の比較から $O_\Pi\simeq T$ を関手として同定する。
+後者の同定自体は $F$ の滑らかさや $HH^1=0$ を必要とせず、
+任意の滑らかな三次五様体と定義された中心平面に対して成り立つ。
 
 \begin{lemma}[Clifford rotation の相対核]
 \label{lem:nfm-fivefold-clifford-relative-kernel}
@@ -171,7 +175,9 @@ $x,y,z$ を $\mathcal S^*$ の Chern roots とすれば Grassmannian の積分�
 \]
 も実際の $K$-核を持ち、$\epsilon^2\simeq\operatorname{id}$、
 $\epsilon_*|_{N(\mathcal B)}=\operatorname{id}$ を満たす。
-ここでは $\epsilon\ne\operatorname{id}$ を主張していない。
+この降下証明は二乗と奇数次数零 cycle だけを使う。
+後の定理\ref{thm:nfm-fivefold-half-rotation-identification}により、実際には
+$O\simeq T$、$\epsilon\simeq\operatorname{id}$ である。
 \end{theorem}
 
 \begin{proof}
@@ -195,8 +201,204 @@ $\gcd(2,2835)=1$ から $\beta=0$ であり、実際の $K$-核を得る。
 この証明は $F(K)\ne\varnothing$ を仮定せず、奇数次数の零 cycle だけを使う。
 \end{proof}
 
+\paragraph{Spinor 列と相対 coevaluation。}
+平面 $\Pi_0$ を固定し、$\pi:\widetilde Y\to B=\mathbf P^3$ を対応する quadric fibration、
+$H=\sigma^*\mathcal O_Y(1)$、$h=\pi^*\mathcal O_B(1)$ とする。
+$\mathcal E$ は Liu\cite[式~(2-4)]{NFMPeizeLiuFivefold}の局所自由な右 Clifford module であり、
+\[
+ \Psi(X)=R\pi_*(X\otimes\mathcal E(h))[2].
+\]
+$\mathcal E_i=\mathcal E(2H)\otimes_{\pi^*\mathcal C_0}\pi^*\mathcal C_i$ と書く。
+以下では Clifford sheaf の $\pi^*$ を省略する。
+Kuznetsov\cite[Lemmas~4.5, 4.7]{NFMKuznetsovQuadric}の Clifford matrix factorization は
+局所自由 module の短完全列
+\begin{equation}\label{eq:nfm-fivefold-spinor-two-sequence}
+ 0\longrightarrow\mathcal E_{i-1}(-H)
+ \longrightarrow\pi^*\mathcal C_i
+ \longrightarrow\mathcal E_i\longrightarrow0
+\end{equation}
+を与える。この列と、二つの coevaluation の射としての比較を使う。
+平面対象の固定から自己同値の忠実性を推論する方法は用いない。
+
+\begin{lemma}[spinor 列と相対 coevaluation]
+\label{lem:nfm-fivefold-spinor-relative-coevaluation}
+$\Theta(X)=\Psi(X(-H))$ と置く。任意の $X\in\operatorname{Perf}(\widetilde Y)$ に対し、
+$M_X=R\pi_*X^\vee$ と書くと、自然な distinguished triangle
+\begin{equation}\label{eq:nfm-fivefold-relative-coevaluation-triangle}
+ \Theta(X)\longrightarrow
+ \mathcal C_{-1}\otimes M_X^\vee\longrightarrow
+ (\Psi X)\otimes_{\mathcal C_0}\mathcal C_1\longrightarrow\Theta(X)[1]
+\end{equation}
+がある。最初の射は相対 coevaluation
+$X\to\pi^*(R\pi_*X^\vee)^\vee$ に $\Theta$ を適用した射である。
+ここで $\Theta(\mathcal O_{\widetilde Y})\simeq\mathcal C_{-1}$ の同型は
+以下の adjunction で定める。
+\end{lemma}
+
+\begin{proof}
+$\omega_\pi=\mathcal O_{\widetilde Y}(-2H+2h)$ である。
+\eqref{eq:nfm-fivefold-spinor-two-sequence} の $i=1$ を $-2H+h$ だけ twist し、
+さらに $[2]$ だけ shift すると
+\begin{equation}\label{eq:nfm-fivefold-spinor-adjunction-unit}
+ \mathcal K:=\mathcal E(-H+h)[2]\longrightarrow
+ \pi^!\mathcal C_{-1}=\pi^*\mathcal C_{-1}\otimes\omega_\pi[2]
+ \longrightarrow\mathcal E(h)\otimes_{\mathcal C_0}\mathcal C_1[2]
+\end{equation}
+を得る。$R\pi_*\mathcal O_{\widetilde Y}=\mathcal O_B$ であり、
+相対 Serre duality により $R\pi_*\omega_\pi[2]=\mathcal O_B$ である。
+右端の押下げは $\Psi(\mathcal O_{\widetilde Y})\otimes_{\mathcal C_0}\mathcal C_1=0$ なので、
+左の射を $R\pi_*$ で送ると同型を得る。
+
+この射を $R\pi_*\dashv\pi^!$ で移した射
+\[
+ b:R\pi_*\mathcal K\longrightarrow\mathcal C_{-1}
+\]
+は、$R\pi_*$ で送った射の後に trace を合成したものである。
+trace は $R\pi_*\omega_\pi[2]=\mathcal O_B$ により同型だから $b$ も同型である。
+$b$ を用いて $R\pi_*\mathcal K=\Theta(\mathcal O_{\widetilde Y})$ を
+$\mathcal C_{-1}$ と同一視すると、\eqref{eq:nfm-fivefold-spinor-adjunction-unit} の
+最初の射は adjunction unit
+$\mathcal K\to\pi^!R\pi_*\mathcal K$ そのものになる。
+従って単に Hom 空間が一次元という理由だけで unit と同定しているのではない。
+
+\eqref{eq:nfm-fivefold-spinor-adjunction-unit} に $X$ を tensor して押し下げる。
+相対 duality は
+\[
+ (R\pi_*X^\vee)^\vee\simeq R\pi_*(X\otimes\omega_\pi)[2]
+\]
+を与えるので、projection formula により
+\eqref{eq:nfm-fivefold-relative-coevaluation-triangle} を得る。
+その第一射が主張した coevaluation であることは、随伴と tensor の整合性から確認できる。
+具体的に $M_X=R\pi_*X^\vee$ を tensor して評価すると、両方の射は
+\[
+ R\pi_*(X\otimes\pi^*M_X\otimes\mathcal K)
+ \longrightarrow R\pi_*\mathcal K
+\]
+という同一の射に対応する。この射は counit
+$\pi^*R\pi_*X^\vee\to X^\vee$ と $X\otimes X^\vee\to\mathcal O$ から作られる。
+よって coevaluation の同定は全 $X$ について自然である。
+\end{proof}
+
+\begin{theorem}[五次元 Clifford 半 rotation は逆 rotation の shift である]
+\label{thm:nfm-fivefold-half-rotation-identification}
+$K$ 上の任意の滑らかな三次五様体 $Y\subset\mathbf P^6_K$ と
+$K$ 上で定義された平面 $\Pi_0\subset Y$ に対し、
+Liu の同値 $A=\Psi\sigma^*:\operatorname{Ku}(Y)\xrightarrow\sim\mathcal B_{\Pi_0}$ は
+\begin{equation}\label{eq:nfm-fivefold-half-rotation-identification}
+ O_{\mathrm{Cl}}A\simeq A\rho^{-1}[1]=AT
+\end{equation}
+という自然な同型を持つ。従って $O_{\Pi_0}\simeq T$、
+$O_{\Pi_0}^3\simeq[1]$、$\epsilon=O_{\Pi_0}T^{-1}\simeq\operatorname{id}$ である。
+これは perfect Morita 核の同型としても成り立つ。
+\end{theorem}
+
+\begin{proof}
+$E\in\operatorname{Ku}(Y)$、$X=\sigma^*E$、
+$M=R\pi_*X^\vee$、$V=R\Gamma(\widetilde Y,X^\vee)=R\Gamma(Y,E^\vee)$ と置く。
+blowup の exceptional divisor を $D_{\mathrm{exc}}$ とする。
+中心の codimension は三なので
+\[
+ R\sigma_*\mathcal O_{\widetilde Y}(D_{\mathrm{exc}})
+ =R\sigma_*\mathcal O_{\widetilde Y}(2D_{\mathrm{exc}})=\mathcal O_Y.
+\]
+これは exceptional $\mathbf P^2$-bundle 上の $\mathcal O(-1),\mathcal O(-2)$ の
+全 cohomology の消滅と divisor 列から従う。
+$h=H-D_{\mathrm{exc}}$ より、$i=1,2$ に対し
+\[
+ R\Gamma(B,M(-i))
+ \simeq R\Gamma(Y,E^\vee(-i))=0.
+\]
+最後の消滅は $Y$ の Serre duality と
+$R\Gamma(Y,E(-3))=R\Gamma(Y,E(-2))=0$ による。
+従って Beilinson の分解
+\[
+ D^b(B)=\langle\mathcal O_B(-1),\mathcal O_B,
+                    \mathcal O_B(1),\mathcal O_B(2)\rangle
+\]
+から $M\in\langle\mathcal O_B(-1),\mathcal O_B\rangle$ である。
+特に通常の評価 $V\otimes\mathcal O_B\to M$ の cone は
+$\langle\mathcal O_B(-1)\rangle$ に属し、双対化すると
+\begin{equation}\label{eq:nfm-fivefold-base-coevaluation-defect}
+ \operatorname{Cone}(M^\vee\longrightarrow V^\vee\otimes\mathcal O_B)
+ \in\langle\mathcal O_B(1)\rangle.
+\end{equation}
+
+相対 coevaluation の後に
+$\pi^*M^\vee\to V^\vee\otimes\mathcal O_{\widetilde Y}$ を合成すると、
+通常の coevaluation $X\to V^\vee\otimes\mathcal O_{\widetilde Y}$ になる。
+これは二つの counit の合成則を双対化した恒等式である。
+前補題と absolute right mutation の定義から、次の自然な triangle の射を得る。
+\[
+\begin{array}{ccccc}
+ \Theta X&\longrightarrow&\mathcal C_{-1}\otimes M^\vee
+ &\longrightarrow&(\Psi X)\otimes_{\mathcal C_0}\mathcal C_1\\
+ \big\Vert&&\big\downarrow&&\big\downarrow\\
+ \Theta X&\longrightarrow&\mathcal C_{-1}\otimes V^\vee
+ &\longrightarrow&A(TE).
+\end{array}
+\]
+下段を説明する。
+$\rho^{-1}(E)=R_{\mathcal O_Y}(E)(-1)$ であり、$\sigma^*$ は
+$\mathcal O_Y$ に関する right mutation と可換する。
+従って
+\[
+ A(TE)=\Psi\bigl((R_{\mathcal O_{\widetilde Y}}X)(-H)\bigr)[1]
+ =\operatorname{Cone}\bigl(\Theta X\to\mathcal C_{-1}\otimes V^\vee\bigr).
+\]
+
+\eqref{eq:nfm-fivefold-base-coevaluation-defect} と $\mathcal C_{-1}(1)=\mathcal C_1$ により、
+図の右縦射の cone は $\langle\mathcal C_1\rangle$ に属する。
+$L_{\mathcal C_1}$ を適用するとこの cone は零となる。
+また $TE\in\operatorname{Ku}(Y)$ なので
+$A(TE)\in\langle\mathcal C_1,\mathcal C_2\rangle^\perp$ であり、
+$L_{\mathcal C_1}A(TE)=A(TE)$ である。
+したがって
+\[
+ L_{\mathcal C_1}\bigl((\Psi\sigma^*E)\otimes_{\mathcal C_0}\mathcal C_1\bigr)
+ \simeq A(TE),
+\]
+すなわち \eqref{eq:nfm-fivefold-half-rotation-identification} を得る。
+
+全ての変換は tensor、projection formula、随伴の unit/counit、
+relative/absolute mutation の評価射から作られている。
+従って対象ごとの存在ではなく dg kernel functor の自然同型である。
+もし exact functor の記述から perfect 核へ移す場合も、現行の
+projector kernel 一意性補題\ref{lem:nfm-projector-kernel-uniqueness}を適用できる。
+$T^3=[1]$ は $\rho^3=[2]$ から従う。
+\end{proof}
+
+\begin{corollary}[半 rotation 候補の除去]
+\label{cor:nfm-fivefold-half-rotation-candidate-trivial}
+現行の一般五次元族で降下した実核 $O$ は、元の体上で $T$ と同型である。
+従って $\epsilon$ は恒等核であり、全ての $E_p$ を固定する。
+この候補は有限安定化群 $H_p$ の非自明元を与えない。
+この同定単独から $H_p=1$ や class torsor $S_p$ の中立性を推論することはできない。
+また、任意の幾何的中心平面について $[O_\Pi]=[T]$ であるから、
+平面非依存性とこの class の効果化には $F$ の滑らかさや $HH^1=0$ は不要である。
+\end{corollary}
+
+\begin{proof}
+幾何的拡大後には前定理から $O\simeq T$ である。
+両方とも元の体上の実核であり、perfect Hom の底変更と
+$HH^0(\operatorname{Ku}(Y))=K$ により $\operatorname{Hom}(O,T)$ は一次元 $K$-線である。
+その非零元は忠実平坦な幾何的拡大後に同型となるので、元の体上でも同型である。
+特に $\epsilon\simeq\operatorname{id}$ である。
+\end{proof}
 
 
+\begin{corollary}[平面対象に対する作用]
+\label{cor:nfm-fivefold-half-rotation-plane-objects}
+Liu の平面対象 $F_\Pi,P_\Pi,K_\Pi$ に対して
+\[
+ O(F_\Pi)\simeq P_\Pi\simeq T(F_\Pi)
+\]
+であり、$\epsilon$ はこれら全てを固定する。
+\end{corollary}
+
+\begin{proof}
+Liu\cite[Remark~3.5]{NFMPeizeLiuFivefold}の $SF_\Pi=P_\Pi[2]$ と
+$T=S[-2]$、前定理を組み合わせる。残りも $\epsilon\simeq\operatorname{id}$ から従う。
+\end{proof}
 
 \begin{proposition}[原点像の Clifford 表示への有限還元]
 \label{prop:nfm-fivefold-origin-clifford-complex}
@@ -244,11 +446,12 @@ $H^0(Y,\mathcal O(1))$ は七次元で、$C$ の三次元の一次式空間へ�
 核の次元は $3\cdot7-6=15$ となる。
 \end{proof}
 
-この式は $OE_p\simeq TE_p$ を判定するための具体的な入力を与えるが、
-その同型を証明したものではない。$\Psi$ は Liu の式~(2-4) の局所自由 module
-$\mathcal E$ により $R\pi_*(-\otimes\mathcal E(h))[2]$ と明示されるため、
-残る問いは指定された二つの evaluation map を含む有限 Clifford 複体の比較である。
-数値 class や cohomology の次元だけを一致させて核の同型を結論しない。
+$OE_p\simeq TE_p$ は定理\ref{thm:nfm-fivefold-half-rotation-identification}により
+全関手の同定として証明されている。この有限複体は、他の自己同値が $E_p$ を固定するかを
+検討する具体的な模型として有用である。$\Psi$ 自身も Liu の式~(2-4) の局所自由 module
+$\mathcal E$ により $R\pi_*(-\otimes\mathcal E(h))[2]$ と明示される。
+一般の $H_p$ を調べる際には二つの evaluation map を含めて比較する必要があり、
+数値 class や cohomology の次元の一致だけでは核の同型を結論しない。
 
 \begin{proposition}[安定性軌道上の有限数値的自己同値]
 \label{prop:nfm-fivefold-finite-stability-fixed}
@@ -256,7 +459,8 @@ $\mathcal D$ の数値格子が階数二で、安定性条件 $\sigma$ の中心
 $Z:N(\mathcal D)_{\mathbf R}\to\mathbf C$ が実線型同型であるとする。
 有限位数の自己同値 $g$ が数値的に恒等であり、
 $g\sigma\in\sigma\widetilde{\operatorname{GL}}_2^+(\mathbf R)$ なら $g\sigma=\sigma$ である。
-Liu の構成した五様体の安定性軌道では、上の $\epsilon$ は全ての点を固定する。
+Liu の構成した五様体の安定性軌道にこの判定を適用することもできるが、
+上の $\epsilon$ については、前定理の恒等核との同定により軌道固定より強い結論を得ている。
 \end{proposition}
 
 \begin{proof}
@@ -273,23 +477,23 @@ $T=S[-2]$ も Serre 不変性により同じ軌道を保つ。
 従って $\epsilon=O_\Pi T^{-1}$ はこの命題の仮定を満たす。
 \end{proof}
 
-\begin{remark}[有限安定化群について決定していない点]
+\begin{remark}[有限安定化群との関係]
 標準一般係数体の $E_p=q^RM$ と有限群
-$H_p=\{g\in G_\rho:gE_p\simeq E_p\}$ について、本節は
-\[
- \epsilon\in H_p\quad\Longleftrightarrow\quad OE_p\simeq TE_p
-\]
-の右辺をまだ判定していない。$\epsilon$ の非自明性も未決定である。
-安定性条件を固定することは対象を固定することと異なり、自己同値の作用の忠実性も別に必要である。
-Liu の Proposition~6.10 は最小数値 class の stable moduli の一つの連結成分を
-$F_2(Y)$ と同定するが、全 moduli の既約性は Remark~6.11 で予想として明記される。
-従って $\epsilon$ がその特定の成分を保つとも、この成分への作用だけで恒等核と判定できるとも
-仮定していない。一般の $H_p$ が Liu の安定性軌道を保つことも本節では未証明である。
+$H_p=\{g\in G_\rho:gE_p\simeq E_p\}$ に対し、
+本節は半 rotation に由来する候補 $\epsilon$ が恒等核であることを示した。
+従って $\epsilon\in H_p$ であるが、非自明な安定化群の元は与えない。
+この一候補の同定だけから、他の $H_p$ の元の不存在や $S_p$ の中立性は推論できない。
 
-$O$ と $\epsilon$ の実核の降下は $S_p$ の中立性を意味しない。
-また $\epsilon^2\simeq\operatorname{id}$ という核の同型類の関係から、
-指定された coherent な $C_2$-作用を構成したとは主張しない。
-既存の有限性補題は generator の固定による boundedness と $HH^1=0$ の離散性をともに使い、
+安定性条件の固定、対象の固定、自己同値作用の忠実性は別の条件である。
+Liu の Proposition~6.10 は最小数値 class の stable moduli の一つの連結成分を
+$F_2(Y)$ と同定するが、全 moduli の既約性は Remark~6.11 の予想である。
+本節の関手同定は、この成分への作用が忠実であることを仮定せず、
+相対 coevaluation の実際の自然変換から証明した。
+一般の $H_p$ が Liu の安定性軌道を保つことは、この議論の帰結ではない。
+
+同定したのは underlying perfect 核であり、既に指定された $O^2\simeq\rho$ と
+MF 周期同型の scalar 正規化を同時に固定する主張は含めない。
+既存の有限性補題は generator 固定による boundedness と $HH^1=0$ の離散性をともに使い、
 $S_p$ の torsor 定義は随伴復元条件を満たす非空集合に $H_p$ が単純推移することによる。
-これらの前提を本節の安定性の議論で弱めていない。
+これらの前提を安定性条件の議論だけで弱めていない。
 \end{remark}

@@ -2,10 +2,30 @@
 \subsection{周期位相の混合定数降下と active 不変量への帰着}
 \label{subsec:nfm-period-invariant-descent}
 
-ここでは $n=3,4$、$K_n=k_n$ を標準 split 一般係数体とし、
-既存の三乗規格化で定まる $\gamma_{\mathrm{sc},n}$ を考える。
-この類が二変数体 $\mathbb C(c_4,-c_6)$ から一意に来ることを証明する。
-その具体値は未決定である。
+ここでは全 $n\ge3$、$K_n=k_n$ を標準 split 一般係数体とし、
+系\ref{cor:nfm-generic-adjoint-class-unique}の唯一の随伴復元点型 class を考える。
+その実現 gerbe を $\mathscr G_{p,n}$、その上の普遍核を $P$ とすると、
+\[
+ V=\operatorname{Hom}^0(P\rho_{\mathrm{nc}},\rho_Y P)
+\]
+は重み零の直線であり、底上の直線 $V_0$ へ降下する。
+指定周期の三重図式は $c:V_0^{\otimes3}\simeq K_n$ を与える。
+系\ref{cor:nfm-generic-plane-isom-unique}と
+命題\ref{prop:nfm-period-equation-cube-frame}は全次元で適用されるので、
+target の生成元は三乗倍まで正準的に定まる。
+この規格化に対し、$0\ne e\in V_0(K_n)$ を用いて
+\[
+ \gamma_{\mathrm{sc},n}=[c(e)^{-1}]
+       \in K_n^\times/K_n^{\times3}
+\]
+と定め、その周期解の $\mu_3$-torsor を $T_{\eta,n}$ と書く。
+実際の $K_n$-核や周期に適合する同型を先に選ぶ必要はない。
+$n=3,4$ では、命題\ref{prop:nfm-period-phase-class-invariance}により、
+これは全 full class に共通な既存の位相と一致する。
+$n\ge5$ では、今回選んだ正準強化 class に限る。
+
+以下ではこの類が二変数体 $\mathbb C(c_4,-c_6)$ から一意に来ることを証明する。
+その具体値と次元間の一致は未決定である。
 形式体での三乗性を元の体へ無条件に戻す議論は使わない。
 
 $g$ の十個の独立係数の体を $k=\mathbb C(g_\alpha)$ とし、
@@ -133,9 +153,70 @@ source の任意の perfect 対象 $E$ に対し、$R\operatorname{Hom}(G,E)$ �
 この議論は全体上の相対 smoothness を特殊ファイバーから推論していない。
 \end{proof}
 
+\begin{lemma}[混合有理 CF 比較の随伴復元条件]
+\label{lem:nfm-period-mixed-comparison-adjoint-type}
+前命題の比較を形式三次模型から実際の代数的残余三次へ移した full 核は、
+全 $n\ge3$ で $\kappa(m)$ 上の随伴復元点型である。
+線型射影同型と方程式の三乗倍による周期調整を合わせても、この型を保つ。
+\end{lemma}
+
+\begin{proof}
+二つの比較を、単に存在する同値として同一視しない。
+前命題は $Q_W,Q_W(1),Q_W(2)$ へ固定された逆 CF flow を施し、
+その Hom の全 Taylor 成分を $\kappa(m)$ 上に構成している。
+忠実な体拡大 $\kappa(m)\hookrightarrow L=k(m)((h))$ の後では、
+対象、射、および全 Taylor 成分が、
+$R=k(m)[[h]]$ 上の同じ生成元固定 CF の制限と一致する。
+局所化は integral な有限対象の Hom について行い、
+その後に pretriangulated hull と冪等完備化へ延ばす。
+三対象の生成性から、得られる full Morita 比較は完備 CF の full 比較と
+同じ kernel class である。
+新しい Laurent 係数の Maurer--Cartan 行列へ無限公式を再評価してはいない。
+
+命題\ref{prop:nfm-adjoint-point-type-nonempty}の証明は、
+まさにこの生成元固定の完備 CF 核について、形式族全体で随伴復元条件を示している。
+その論理は、相対 active THCR/window1 比較による一般ファイバーの点型、
+閉ファイバーの恒等比較、両ファイバーからの最高次線束の持上げ、
+および随伴射の cone への proper perfect Nakayama である。
+従って、有限 spread 後の何らかの class の非空性だけでなく、
+この特定の完備 CF 核自身が $L$ 上で随伴復元点型となることを使える。
+
+代数的残余三次と $b_h^{-1}W_h^{\mathrm{TH}}$ の比較は、
+命題\ref{prop:nfm-plane-isom-constant-descent}の証明で得られる
+$\kappa(m)$ 上の射影同型である。
+その一般点は慣性自明開にあり、指定同型は $L$ 上の形式比較と一致する。
+この同型は $\mathcal O$、active 曲線、その埋込み、および rotation を保つ。
+従って $Z=j_{\mathrm{nc}}^!\mathcal O$、
+$q=\mathbf Li_C^*j_Y$、右随伴 $q^R$ と随伴復元射を運び、
+上の強化条件を保つ。
+
+この条件を $\kappa(m)$ へ降ろす。
+得られた核を $P$ とし、$E_P=\Phi_P Z$ と置く。
+体拡大は flat であるから $H^i(qE_P)$ と可換し、
+上方 cohomology の消滅、$M_P=H^0(qE_P)$ の線束性と次数零性は
+忠実な体拡大から降下する。
+Picard 等式 $[M_P]=p_{\mathrm{res}}$ も Picard sheaf の fpqc 降下で反映される。
+proper な perfect kernel による $q^R$ の形成は体拡大と可換し、
+truncation と随伴により定まる
+\[
+ \upsilon_P:E_P\longrightarrow q^R M_P
+\]
+も同じである。その cone は $L$ 上で零なので、
+忠実平坦性により $\kappa(m)$ 上でも零である。
+従って $P$ はこの体上で既に随伴復元点型である。
+線型射影同型と方程式の単元倍は underlying $\mathcal O$-対を保ち、
+三乗倍による周期比較の調整もこの核を強化型から出さない。
+
+この議論は、$\kappa(m)$ 上の核への新たな coherent 中心線型性や、
+その active 係数商への全圏的な降下を仮定していない。
+中心商との可換性を使う箇所は、既に構成済みの同じ完備 CF に限られる。
+元の体へ戻す際には、幾何的な $q$ とその随伴射だけを用いた。
+\end{proof}
+
 \begin{theorem}[周期位相は混合係数に依存しない]
 \label{thm:nfm-period-phase-active-descent}
-$n=3,4$ の標準 split 係数体で、$\gamma_{\mathrm{sc},n}$ は
+全 $n\ge3$ の標準 split 係数体で、正準な随伴復元 class の
+$\gamma_{\mathrm{sc},n}$ は
 active 三次の十係数体 $k=\mathbb C(g_\alpha)$ から来る一意な Kummer 類である。
 \end{theorem}
 
@@ -153,14 +234,18 @@ $\widehat W=b_h^{-1}W$ の有限多項式模型と残余 Poisson 対の比較は
  \qquad\lambda\in\kappa(m)^\times.
 \]
 $b_h$ は $1+h k[[h]]$ に属するので、その三乗根は $\kappa$ に存在する。
-前命題の周期付き比較に、上の線型同型および全座標の一様な scalar 変更を合わせれば、
+命題\ref{prop:nfm-period-comparison-mixed-rational}の周期付き比較に、
+上の線型同型および全座標の一様な scalar 変更を合わせれば、
 $\Omega_h^{\mathrm{TH}}$ と $F_{\varphi_{\mathrm{sc}}}$ の周期を保つ比較が
 $\kappa(m)$ 上に存在する。
-全 full class の位相が共通なので、
+補題\ref{lem:nfm-period-mixed-comparison-adjoint-type}により、
+この比較は唯一の随伴復元点型 class を実現する。従って
 \[
  \gamma_{\mathrm{sc},n}|_{\kappa(m)}=1.
 \]
 これは単に $k(m)((h))$ 上で消えるという主張より強い。
+$n=3,4$ では全 full class の位相の共通性からも同じ結論を得るが、
+高次元ではこの特定の比較の型を使い、他の class の分類を仮定しない。
 
 補題\ref{lem:nfm-finite-etale-constant-descent}を $G=\mu_3$ に適用すると、
 $K(m)$ 上の類は一意な $K=k(h)$ 上の類から来る。
@@ -225,7 +310,8 @@ gerbe 上で二通りの移送を比較する核の同型は scalar の分だけ
 合成の整合性へ降りる。
 特に source/target の同時 $\operatorname{SL}_3$ 表示変更に対し、
 この torsor は coherent な同変構造を持つ。
-その同型類は、全 class に共通な $\gamma_{\mathrm{sc},n}$ である。
+その同型類は、正準な随伴復元 class の $\gamma_{\mathrm{sc},n}$ である。
+全 class の位相の一致は、この同変構造の構成には必要ない。
 
 混合定数降下もこの同変性を保つ。
 実際、同変同型は $\mathbb C(g,A)(m)$ 上の有限 torsor の同型であり、
@@ -260,12 +346,184 @@ $\operatorname{SL}_3$ 軌道である。
 従って Kummer 類の引戻しは単射であり、降下は一意である。
 \end{proof}
 
+\begin{proposition}[全次元の正準強化 class の周期と半古典条件]
+\label{prop:nfm-adjoint-period-all-dimensions}
+全 $n\ge3$ の標準 split 一般係数体で、正準な随伴復元 class の
+cube-frame 位相は一意に
+\[
+ \overline\gamma_n\in
+ \mathbb C(s,t)^\times/\mathbb C(s,t)^{\times3}
+\]
+から来る。この類は
+\[
+ \overline\gamma_n(h^4s,h^6t)=1
+ \quad\text{in }\mathbb C(s,t)((h))^\times/
+                   \mathbb C(s,t)((h))^{\times3}
+\]
+を満たし、命題\ref{prop:nfm-period-hesse-faithful-test}の
+忠実な Hesse 判定が適用される。
+$n=3,4$ ではこれは全 full class に共通な位相である。
+$n\ge5$ で他の full class と位相が共通であるとは主張しない。
+\end{proposition}
+
+\begin{proof}
+位相の定義は節冒頭の重み零の Hom 直線と三次形式による。
+定理\ref{thm:nfm-period-phase-active-descent}と
+命題\ref{prop:nfm-period-phase-invariant-descent}が一意な降下を与える。
+半古典条件は、一般 active 十係数体 $E$ 上の実比較から
+$E((h))$ で得る。その後、正則な定数拡大
+$\mathbb C(s,t)\subset E$ に対する
+補題\ref{lem:nfm-period-laurent-constant-injective}を用いる。
+この手順と Hesse 制限の単射性は
+命題\ref{prop:nfm-period-hesse-faithful-test}で証明する。
+そこで用いる形式的自明性は上の混合比較に由来し、
+本命題の結論を前提としない。
+低次元での全 class 共通性は
+命題\ref{prop:nfm-period-phase-class-invariance}による。
+\end{proof}
+
+\begin{corollary}[正準強化 class に限定した標識付き最小次数]
+\label{cor:nfm-adjoint-period-marked-minimum}
+全 $n\ge3$ の標準 split 一般係数体で、正準な随伴復元 class に
+rotation 比較と指定周期を標識した実現の最小次数は
+\[
+ [M:K_n]\operatorname{ind}(\alpha_M)\in\{3,9\},
+ \qquad \alpha=\delta_C(p_{\mathrm{res}})
+\]
+である。ここで $M$ はこの周期 torsor の一成分体である。
+$n=3,4$ に限り、この値は全 full class を許す最小次数でもある。
+\end{corollary}
+
+\begin{proof}
+標識付き実現 stack は $\mathscr G_{p,n}\times T_{\eta,n}$ であり、
+$\operatorname{per}\alpha=\operatorname{ind}\alpha=3$ である。
+$[M:K_n]\in\{1,3\}$、$\operatorname{ind}\alpha_M\in\{1,3\}$ と、
+分裂体次数の index による整除性および極大部分体による達成から従う。
+これは式\eqref{eq:nfm-marked-minimum-index}の一 class に対する証明である。
+$\alpha\ne0$ なので最小値一は起こらない。
+$n=3,4$ では全 class の scalar gerbe と周期 torsor がそれぞれ共通なので、
+全 class を許しても最小値は変わらない。
+\end{proof}
+
 \begin{remark}[この帰着が決めない値]
 上の証明は $\overline\gamma_n=1$ をまだ示さない。
 形式的な代入 $(s,t)\mapsto(h^4s,h^6t)$ の後の自明性は、
 例えば $1+s$ や下の $D(s,t)$ の三乗性を元の体で保証しない。
-$n=3$ と $n=4$ の二つの降下類が一致することも、ここでは主張しない。
+異なる次元の降下類の一致も、特に $\overline\gamma_3=\overline\gamma_4$ も未証明である。
+また、この帰着は非 split 表示における cube-frame の一般化や、
+代数的核の coherent な中心線型性を与えない。
 \end{remark}
+
+\subsubsection{Hesse 係数体での忠実な判定}
+
+三次 Kummer 類の Hesse 制限は一般には単射でない。
+しかし、その核と、既に得た半古典条件を合わせれば、今回の位相を忠実に検査できる。
+
+\begin{lemma}[正則な定数拡大と Laurent 体の Kummer 類]
+\label{lem:nfm-period-laurent-constant-injective}
+標数零の体 $K_0\subset E$ において $K_0$ が $E$ 内で代数閉なら、
+\[
+ K_0((h))^\times/K_0((h))^{\times3}
+ \longrightarrow E((h))^\times/E((h))^{\times3}
+\]
+は単射である。
+\end{lemma}
+\begin{proof}
+$f\in K_0((h))^\times$ が $E((h))$ で三乗なら、$v_h(f)=3r$ である。
+$f=h^{3r}c(1+h a(h))$、$c\in K_0^\times$ と書くと、
+三乗根の先頭係数から $c$ は $E$ で三乗である。
+その三乗根は $K_0$ 上代数的なので、仮定により $K_0$ に属する。
+さらに $1+h a(h)$ の剰余一の三乗根は係数の逐次比較により
+$1+hK_0[[h]]$ に存在する。従って $f$ 自身が $K_0((h))$ で三乗である。
+\end{proof}
+
+\begin{lemma}[Hesse 制限の三次 Kummer 核]
+\label{lem:nfm-hesse-cubic-kummer-kernel}
+$K_0=\mathbb C(s,t)$、$L_H=\mathbb C(p,q)$ とし、$K_0\hookrightarrow L_H$ を
+\[
+ s=q(q^3-8p^3),\qquad t=q^6+20p^3q^3-8p^6
+\]
+で定める。$\Delta=s^3-t^2$ と置くと、
+\[
+ \ker\bigl(K_0^\times/K_0^{\times3}\longrightarrow
+                 L_H^\times/L_H^{\times3}\bigr)
+       =\langle[\Delta]\rangle\simeq\mathbb Z/3.
+\]
+特に、二次 Kummer 類についての単射性を三次類へ流用してはならない。
+\end{lemma}
+\begin{proof}
+補題\ref{lem:nfm-hesse-kummer-injective}の群・体次数の証明により、
+$L_H/K_0$ は $G=Q_8\rtimes C_3$ を Galois 群とする次数二十四の拡大である。
+$a\in K_0^\times$、$v^3=a$、$v\in L_H^\times$ なら、
+$g\mapsto g(v)/v$ は $G\to\mu_3$ の character である。
+$Q_8$ の位数は八なのでその上の character は自明であり、
+$\operatorname{Hom}(G,\mu_3)$ の位数は三である。
+character が自明なら $v\in K_0$ だから、表示した核の位数は高々三である。
+
+一方、直接展開により
+\[
+ \Delta\bigl(r(p,q)\bigr)
+       =-64p^3(p^3+q^3)^3
+       =\bigl(-4p(p^3+q^3)\bigr)^3.
+\]
+$\Delta$ は $\mathbb C[s,t]$ の既約式で、$v_\Delta(\Delta)=1$ なので
+$K_0$ では三乗でない。これにより核は表示した三元からなる。
+\end{proof}
+
+\begin{proposition}[半古典条件を持つ位相の忠実な Hesse 判定]
+\label{prop:nfm-period-hesse-faithful-test}
+$K_0$ から $K_0((h))$ への半古典埋込みを
+\[
+ \jmath(s)=h^4s,\qquad \jmath(t)=h^6t
+\]
+で定め、$\mathscr H=\ker\jmath^*\subset K_0^\times/K_0^{\times3}$ と置く。
+Hesse 制限 $\mathscr H\to L_H^\times/L_H^{\times3}$ は単射である。
+全 $n\ge3$ の正準強化 class の $\overline\gamma_n$ は $\mathscr H$ に属する。
+従って、Hesse 係数体上で周期位相を実際に分裂させれば
+元の $K_0$ 上でも位相は分裂する。
+二つの次元の位相が等しいかどうかも、Hesse 制限で忠実に検査できる。
+\end{proposition}
+\begin{proof}
+まず半古典条件の体を確認する。
+$g$ の十個の独立係数の体 $E=\mathbb C(g_\alpha)$ は $K_0$ 上正則である。
+これは滑らかな ternary cubic の proper-equivalence 軌道が幾何学的一般 fibre
+をなすことから従い、補題\ref{lem:nfm-active-invariant-regular-fiber}と同じ証明である。
+命題\ref{prop:nfm-period-comparison-mixed-rational}が与える比較の体は
+$E((h))(m)$ であり、Hesse 係数を完備化した体ではない。
+補題\ref{lem:nfm-period-mixed-comparison-adjoint-type}によりこの比較は強化型であり、
+定理\ref{thm:nfm-period-phase-active-descent}の証明から
+cube-frame 位相はその体上で自明である。
+全係数の吸収 $\widetilde F=hF$ によって、既存の周期位相の引戻しは
+\[
+ (s,t)\longmapsto(h^4c_4(g),-h^6c_6(g))
+\]
+となり、その $E((h))(m)$ 上の類は自明である。
+混合定数降下後の類には $m$ が現れず、純超越拡大の Kummer 単射性により
+既に $E((h))$ で自明である。
+補題\ref{lem:nfm-period-laurent-constant-injective}を $K_0\subset E$ に適用すると $K_0((h))$ でも自明となり、
+$\overline\gamma_n\in\mathscr H$ が従う。
+
+Hesse 制限で消える $a\in\mathscr H$ は、補題\ref{lem:nfm-hesse-cubic-kummer-kernel}により $[\Delta]^e$、$e=0,1,2$ である。
+ところが
+\[
+ \jmath(\Delta)=h^{12}\Delta.
+\]
+$h^{12}$ は三乗であり、$e=1,2$ では先頭係数 $\Delta^e$ が $K_0$ で三乗でない。
+従って $\jmath^*[\Delta]^e\ne1$ で、$e=0$ しか残らない。
+同じ議論を二つの類の商へ適用すれば、最後の主張も従う。
+\end{proof}
+
+\begin{remark}[Hesse 完備化を先に行わない]
+$L_H=\mathbb C(p,q)$ では $\Delta$ は既に三乗である。
+従って $L_H((h))$ 上の形式消滅だけでは上の $e$ を決定できない。
+必要なのは、一般 active 十係数の $E((h))$ 上で既に証明した比較と、
+正則な定数拡大の単射性である。
+また、ここでの Hesse 制限は一般混合係数を保つ良い表示族に対するものとする。
+純中心項だけを残した高対称族を使う場合、その族を含む実際の周期構成の定義域が必要であり、
+一般点の class 等式を閉部分族へ無条件に特殊化しない。
+\end{remark}
+
+\subsubsection{境界の付値による判定}
 
 \begin{lemma}[二つの判別境界へ非分岐を絞れた場合の候補]
 \label{lem:nfm-period-two-boundary-criterion}
@@ -291,6 +549,8 @@ Kummer 完全列と $\mathbb C^\times=\mathbb C^{\times3}$ により
  H^1(U,\mu_3)=\langle[\Delta],[D]\rangle\simeq(\mathbf Z/3)^2.
 \]
 従って類は $[\Delta]^a[D]^b$ と書ける。
+命題\ref{prop:nfm-period-hesse-faithful-test}の証明により、
+位相の半古典像は Hesse 完備体だけでなく $\mathbb C(s,t)((h))$ 上で自明である。
 半古典代入で
 \[
  \Delta(h^4s,h^6t)=h^{12}\Delta(s,t),\qquad
@@ -298,7 +558,7 @@ Kummer 完全列と $\mathbb C^\times=\mathbb C^{\times3}$ により
 \]
 第二項は形式体で三乗、$h^{12}$ も三乗である。
 第一項の定数係数 $\Delta^a$ が三乗になるには $a=0$ が必要である。
-これは $\Delta$ の付値、または active 係数体の正則性と形式単元の剰余を用いて分かる。
+これは元の不変量体での $\Delta$-付値から分かる。
 よって候補は三つに限られる。
 $D=0$ での非分岐性は $b=0$ を与える。
 \end{proof}
@@ -314,3 +574,59 @@ $D=0$ での非分岐性は $b=0$ を与える。
 次に必要な入力は、二変数不変量平面での周期 torsor の非分岐範囲、
 または $D=0$ の一般点での一つの mod-three valuation の計算である。
 原点の形式近傍で何項 jet を増やしても、この境界付値を代わりに決めることはできない。
+
+\begin{lemma}[追加境界の八直線と一つの付値]
+\label{lem:nfm-period-hesse-eight-boundary-lines}
+$\zeta$ を原始三乗根、$\epsilon=\zeta^2-\zeta$ とし、
+\[
+ D=1-\frac{s}{24}-\frac{t}{216}-\frac{s^2}{6912}
+\]
+と置き、Hesse 不変量写像を $r(p,q)$ と書く。その引戻しは
+\[
+ D\bigl(r(p,q)\bigr)
+ =-\frac1{6912}(q^2-4)
+       \prod_{i=0}^{2}\bigl((2\zeta^ip-q)^2+12\bigr).
+\]
+従って $D=0$ の逆像は、相異なる八本の直線
+\[
+ q=\pm2,\qquad 2\zeta^ip-q=\pm2\epsilon\quad(i=0,1,2)
+\]
+からなる。
+$q=2$ の一般点で Hesse 写像は非分岐であり、$v_D$ の延長の一つは
+$v_{q-2}$ で分岐指数一である。
+$q=2+z$ と書くと
+\[
+ D\bigl(r(p,2+z)\bigr)
+ =-\frac{(p^3+8)^2}{27}z+O(z^2).
+\]
+したがって、既存の二境界仮定の下で
+$\overline\gamma_n=[D]^{b_n}$ と分かっているなら、
+$b_n$ は Hesse 周期 torsor の $q=2$ における mod-three 付値に等しい。
+\end{lemma}
+\begin{proof}
+積の式は $\zeta^2+\zeta+1=0$ を用いた多項式恒等式である。
+$\epsilon^2=-3$ により表示した一次因子へ分解する。
+既存の Jacobian の式を $q=2$ に制限すると
+\[
+ \det Dr=-384p^2(p^3+8)^2\ne0,
+ \qquad \Delta=-64p^3(p^3+8)^3\ne0
+\]
+である。これにより一般点での非分岐性が従う。
+また、その線上では
+\[
+ s=16-16p^3,\qquad t=64+160p^3-8p^6.
+\]
+剰余体は $\mathbb C(p)/\mathbb C(p^3)$ という三次拡大であり、
+この三次性は分岐指数ではない。
+$D$ の一次係数を計算すると主張の式となる。
+分岐指数が一なので、$K_0$ 上の $D$-付値と制限後の $q-2$-付値は一致する。
+\end{proof}
+
+従って二境界への非分岐仮定を証明した後は、
+一般混合係数を伴う $q=2$ の trait 上の実際の周期図式を計算すればよい。
+ここでも、境界の代数的な source 模型の存在だけから
+full Morita 比較や周期 torsor の非分岐性を推論することはできない。
+この境界判定は全 $n\ge3$ の正準強化 class の位相に適用されるが、
+値と次元間の一致は未決定である。
+全 full class に対する同じ判定と標識付き最小次数への適用は
+$n=3,4$ の全 class 共通性の範囲に留める。

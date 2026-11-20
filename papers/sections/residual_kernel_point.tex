@@ -1889,7 +1889,10 @@ $p_{\mathrm{res}}=\theta_{\mathrm{sc}}(p_{\mathrm{pt}})$ とすると
 この選択済み類には三次分離体拡大上で実際の比較核が存在する。
 scalar 段階の最小分裂次数は三である。
 この系自体は full 同型類の選択を含まない。
-$n=3,4$ の一般点での選択と最小比較次数は、定理\ref{thm:nfm-low-dimensional-full-class-index-three}で別に証明する。
+$n=3,4$ の全 full class についての選択と最小比較次数は、
+定理\ref{thm:nfm-low-dimensional-full-class-index-three}で別に証明する。
+全 $n\ge3$ の随伴復元条件を満たす点型については、
+系\ref{cor:nfm-generic-adjoint-class-unique}が唯一の class と最小次数三を与える。
 \end{corollary}
 
 \begin{proof}
@@ -2200,6 +2203,8 @@ Galois 拡大が一つの三分点を含めば全ての共役も含むため、
 しかし、任意の実際の full kernel が三分点を選ぶわけではない。
 従って本定理から、全ての点型 full 比較体の次数が九で割り切れることや、
 first-stage の full class が九次被覆で選択できることは推論しない。
+随伴復元点型の class は、別の Tate--Koszul 復元の証明により元の体上で一意に選択される
+（系\ref{cor:nfm-generic-adjoint-class-unique}）。
 既存の全比較体の三整除性と、本定理の三分点被覆の正確な九次性は別の主張である。
 \end{remark}
 
@@ -3373,8 +3378,9 @@ $T$ の中心性から所要の群同型を得る。
 
 この命題は $G_{\rho,0}=\langle[2]\rangle$ を証明していない。
 低次元の $n=3$ では既知の分類がこの等式を与えるが、
-$n=5$ などでこの部分群を全て分類することは一つの方法である。
-以下では原点像を指定することにより、必要な class 選択を有限部分群へさらに絞る。
+$n=5$ などでこの部分群全体の分類は別の問題である。
+以下では原点像を指定して必要な class 選択を有限部分群へ絞り、
+さらに定理\ref{thm:nfm-origin-rotation-faithful}でその部分群の作用を忠実に検出する。
 Hochschild/Jacobian 復元の忠実性も、数値作用の忠実性も無条件には仮定しない。
 
 \subsection{最高次線束からの原点対象の復元}
@@ -3762,30 +3768,15 @@ $\operatorname{ind}(\alpha_{K_i})\in\{1,3\}$ から上界を得る。
 torsor の一つの体成分の次数が $\lvert H_p\rvert$ を割ると仮定してはいない。
 \end{proof}
 
-\subsection{この有限化が解いた部分と残した部分}
+\paragraph{有限化から作用の復元へ。}
+定理\ref{thm:nfm-adjoint-point-finite-class-torsor}は、full 自己同値群全体を分類せず、
+非空で Galois 不変な随伴復元点型の第一段階を有限 torsor として取り出した。
+原点の対象像だけでは generator の endomorphism 代数の作用は決まらない。
+次の Tate--Koszul 復元は、その全作用を双次数付き模型から検出し、
+一般一ブロック族で $H_p=1$ と $S_p=\operatorname{Spec}K$ を与える。
+この追加の忠実性を、前段の有限性の証明には用いていない。
 
-上の結果は、full 自己同値群全体を分類せず、
-非空で Galois 不変な強化点型の第一段階を\emph{有限} torsor として取り出す。
-最高次線束だけの条件から全核を一意にしたのではなく、
-形式恒等分枝で正準な随伴射が同型となることを有限降下へ追加した。
-原点像 $E_p=q^RM$ の幾何的同型類と、その実現 gerbe は $p$ から得られるが、
-この対象への source generator の作用はなお追加データである。
-
-実際、三連続の原点対象は generator なので、
-その像の対象に加えて全 dg endomorphism 代数の作用まで同定すれば、
-dg Morita 理論により full 比較 class が定まる。
-対象の同型だけではその作用の同型は与えられず、有限群 $H_p$ がこの不足を測る。
-rotation 付き Jacobian/Torelli 復元は標的三次を復元するが、
-この作用の忠実性や $H_p$ の自明性を与える結果としては用いない。
-
-次の具体的課題は $H_p=1$、または当該有限 torsor $S_p$ の中立性を示すことである。
-原点を保つ rotation 自己同値を全導来圏へ延長する gluing の経路では、
-例外的 block と原点の間の\emph{全作用を保つ} gluing module の同型が必要である。
-双次数付き Tate Ext から通常の Ext を取り出し Koszul 双対へ戻す経路でも、
-非可換中心超曲面での比較と全 $A_\infty$ 構造・coherence を別に検証しなければならない。
-これらの未確認の延長・忠実性を上の有限性の証明には使っていない。
-また、随伴復元条件を持たない全点型、任意の full 核、
-全 intrinsic 成分、指定周期の追加位相の消滅まで結論を広げていない。
+\input{papers/sections/residual_tate_reconstruction}
 
 \input{papers/sections/residual_fivefold}
 
@@ -3870,18 +3861,18 @@ Fourier--Mukai partner 数の一様有限性を示す。
 $H^1(K,\overline G_\rho)$ における中立性の代用にはならない。
 
 命題\ref{prop:nfm-highdim-central-shift-obstruction}と
-系\ref{cor:nfm-highdim-point-class-orbit}により、
-$n\ge5$ の class 選択では、点型を含む一つの $T$-軌道の Galois 不変性が
-具体的な未解決条件となる。
-奇数次元では命題\ref{prop:nfm-odd-numerical-rotation-centralizer}により
-$G_{\rho,0}/\langle[2]\rangle$ へ絞られ、
+系\ref{cor:nfm-highdim-point-class-orbit}は、rotation を保つ比較 class の選択を
+$T$-軌道の Galois 不変性として記述する。
+随伴復元点型については系\ref{cor:nfm-generic-adjoint-class-unique}により、
+全 $n\ge3$ の一般 split 係数体上で唯一の class が選択される。
+これは $H_p=1$ を示した結論であり、$G_\rho/\langle T\rangle$ 全体の分類ではない。
+奇数次元の全群を調べる場合には、
+命題\ref{prop:nfm-odd-numerical-rotation-centralizer}の
+$G_{\rho,0}/\langle[2]\rangle$ への帰着がなお有用である。
 特に $n=5$ では full 群自体が $G_\rho$ に等しい。
 $n\equiv1\pmod3$ では full 群と $G_\rho$ を区別する必要があり、
 七次元の球面 twist は前者を大きくするが、
-rotation を保つ比較 class の降下を直ちに妨げるわけではない。
-さらに定理\ref{thm:nfm-adjoint-point-finite-class-torsor}は、随伴復元条件を満たす
-非空な点型を有限 $H_p$-torsor へ還元する。奇数次元では $H_p$ は数値的に自明である。
-その torsor の中立性、従って $n\ge5$ の当該 class の $K$ 上での選択は未決定である。
+随伴復元点型の上の一意性を妨げない。
 
 \begin{remark}[一般点の結論と残る範囲]
 一般 split 係数体では平面同型 torsor が分裂するため、
@@ -3894,13 +3885,14 @@ rotation を保つ比較 class の降下を直ちに妨げるわけではない�
 $n=3,4$ の一般 split 係数体では、
 定理\ref{thm:nfm-low-dimensional-full-class-index-three}により全 full 同型類が降下し、
 全ての類の scalar 障害が同じ exact index 三の類となる。
-さらに系\ref{cor:nfm-low-dimensional-canonical-adjoint-class}により、
-随伴復元条件を満たす点型の class は正準的に一つに定まる。
-高次元の rotation を保つ class の選択は $G_\rho/\langle T\rangle$、奇数次元では
-$G_{\rho,0}/\langle[2]\rangle$ の torsor に帰着するが、
-$n\ge5$ の full 同型類の選択と任意の full 核への障害の適用、
-代数的 active 同値核の assignment、coherent な中心線型性はなお未解決である。
-指定周期の追加標識には、全 class に共通な位相と生成元の相対尺度の変換則がある。
+随伴復元条件を満たす点型については、
+系\ref{cor:nfm-generic-adjoint-class-unique}がこの一意性を全 $n\ge3$ へ拡張し、
+その class の実現 gerbe を exact index 三の Picard 障害と同定する。
+一方、高次元の任意の full 核の全群分類、随伴復元条件を持たない全 class の降下と
+その scalar 障害の同定、代数的 active 同値核の assignment、
+coherent な中心線型性はなお未解決である。
+指定周期の追加標識には、$n=3,4$ の全 class に共通な位相と
+一般の選択済み class に対する生成元の相対尺度の変換則がある。
 規格化を選べば最小次数三、独立な標的尺度を持つ一般族では最小次数九となる。
 full tensor からの三乗までの方程式規格化が定める $\gamma_{\mathrm{sc}}$ は
 形式比較体で零になるが、元の係数体上の具体値は未決定である。

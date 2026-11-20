@@ -387,8 +387,8 @@ $C\times_{\mathfrak U}\mathscr P_p$ 上の普遍重み一線束 $M$ に対し、
 \]
 が成立する。ここで $\operatorname{per}\delta_C(p)\mid3$ であり、
 index は既存の非分裂上界を満たすが、三と等しいとは仮定しない。
-さらに幾何学的標的が一般三次三様体または very general な三次四様体なら、
-この型の class は一つだけである。
+さらに幾何学的表示の射影自己同型群が自明となる共通稠密開内では、
+全 $n\ge3$ でこの型の class は一つだけである。
 \end{lemma}
 
 \begin{proof}
@@ -405,28 +405,30 @@ truncation から来る射 $E_P\to q^RH^0(qE_P)$ を同じ射へ移す。
 定理\ref{thm:nfm-adjoint-point-finite-class-torsor}の降下と gerbe の証明を繰り返せる。
 この段階で元の体上の degree-one rotation の実核を選ぶ必要はない。
 rotation を保つ性質は局所表示から幾何学的 class の条件として降下する。
-低次元の最後の主張には、幾何学的自己同値分類と
-$H_p\cap\langle T\rangle=1$ の幾何学的証明だけを使う。
+最後の主張には、幾何学的 split 表示上で
+定理\ref{thm:nfm-origin-rotation-faithful}を適用する。
+射影表示自己同型群が自明なので $H_p=1$ となる。
 一元集合の class は自動的に Galois 不変である。
 \end{proof}
 
-\begin{corollary}[非分裂点型での九整除性と四次元での達成]
+\begin{corollary}[非分裂点型での九整除性と全該当次元での達成]
 \label{cor:nfm-unsplit-point-minimum-nine}
 命題\ref{prop:nfm-unsplit-point-index-nine-family}の体値点では、
 有限拡大 $L/K$ 上の実際の点型 full 比較核が存在すれば
 $9\mid[L:K]$ である。
-そのうち $n=4$ の幾何学的一般族では、随伴復元条件を満たす点型の
-実現 gerbe は指数九であり、最小実現次数は正確に九となる。
+表示安定化子が自明な共通稠密開内では、全 $n\equiv1\pmod3$ で
+随伴復元条件を満たす点型の実現 gerbe は指数九であり、
+最小実現次数は正確に九となる。
 これは周期標識を追加しない比較についての結果である。
-型を指定しない全 full 比較核の最小次数は
-系\ref{cor:nfm-unsplit-nine-versus-three}で三と決定する。
-高次元での有限 class torsor の中立性は未解決である。
+型を指定しない full 比較には全次元で三次拡大による上界を得る。
+最小次数が正確に三であることは、全群分類が適用される四次元で
+系\ref{cor:nfm-unsplit-nine-versus-three}により示す。
 \end{corollary}
 
 \begin{proof}
 実際の点型核の最高次線束は $p_{\mathrm{res}}$ を表すため、
 $\alpha_L=0$ となる。指数九の分裂体の次数は九の倍数なので最初の主張を得る。
-$n=4$ の幾何学的一般族では前補題から class は一つだけであり、
+指定した共通稠密開内では前補題から class は全次元で一つだけであり、
 その scalar gerbe が $\mathscr P_p$ に同値である。
 次数九 division 代数の極大部分体上でこの gerbe は中立になるため、
 次数九で実際の核が存在する。これで下界が達成される。
@@ -542,8 +544,11 @@ $3\beta=0$ であり、shift は実際の $K$-核で与えられるので、
 \begin{equation}\label{eq:nfm-unsplit-full-finite-class-bound}
  d_{\mathrm{full}}(K)\le3\min_i[K_i:K]\le3|H_p|
 \end{equation}
-という上界がある。これは $S_p(K)\ne\varnothing$ を示す結果ではなく、
-強化点型自身の index 九という下界を変えるものでもない。
+という上界がある。この上界自体は $S_p(K)\ne\varnothing$ を証明しない。
+ただし表示安定化子が自明な一般一ブロック開内では
+定理\ref{thm:nfm-origin-rotation-faithful}より $H_p=1$ なので、
+全次元で $d_{\mathrm{full}}(K)\le3$ となる。
+強化点型自身の index 九という下界は保持される。
 
 \begin{theorem}[低次元の全 full class の非分裂算術]
 \label{thm:nfm-unsplit-lowdim-full-degree}
