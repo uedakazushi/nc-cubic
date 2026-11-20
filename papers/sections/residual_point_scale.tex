@@ -1479,10 +1479,286 @@ $L_0$ 上の正則性に反する。
 
 ここでの三つの $\mu_2$-類は、表示 gerbe の Brauer 類や
 比較核の scalar gerbe の類とは別のものである。
-$\chi_{\mathrm{act}}$ の具体的な代表元と、その消滅の判定はなお未解決である。
-本節の結論は、混合係数による追加分枝を排除し、
-符号の問題を active 不変量体上の一つの二次類へ帰着する。
-元の moduli 上の標準的な符号選択や、比較核の大域降下を与えるものではない。
+次に、$\chi_{\mathrm{act}}$ の消滅を三捩れ対称族によって検査する方法を与える。
+その族自体では Jacobian 同型の被覆が分裂する。
+一般点の二次類をその族へ特殊化するための相対延長条件を別に明記し、
+この条件を既存の一般点での有限降下と同一視しない。
+
+\subsection{三捩れ対称族による符号消滅の判定}
+
+\begin{lemma}[Hesse 不変量体からの二次類の単射性]
+\label{lem:nfm-hesse-kummer-injective}
+$s=q(q^3-8p^3)$、$t=q^6+20p^3q^3-8p^6$ とする。
+自然な制限
+\[
+ \C(s,t)^\times/\C(s,t)^{\times2}
+ \longrightarrow
+ \C(p,q)^\times/\C(p,q)^{\times2}
+\]
+は単射である。
+\end{lemma}
+
+\begin{proof}
+$\zeta$ を原始三乗根とし、$(p,q)^{\mathsf t}$ に作用する行列
+\[
+ A=\begin{pmatrix}\zeta&0\\0&1\end{pmatrix},\qquad
+ B=\frac1{\zeta^2-\zeta}
+       \begin{pmatrix}1&1\\2&-1\end{pmatrix}
+\]
+を取る。直接代入によって両者は $s,t$ を固定する。
+$C=ABA^{-1}$、$D=A^{-1}BA$ と置くと
+\[
+ B^2=C^2=D^2=-I,\quad BC=D=-CB,\quad
+ ACA^{-1}=D,\quad ADA^{-1}=B
+\]
+である。従って
+$Q_8=\{\pm I,\pm B,\pm C,\pm D\}$ は quaternion 群で、
+$G=Q_8\rtimes\langle A\rangle$ は位数 $24$ の群である。
+実際、$Q_8$ の行列式は一、$\det A=\zeta$ なので三つの coset は互いに異なる。
+
+一方、$u=q^2$ に対し
+\[
+ 27u^4-18su^2-8tu-s^2=0,\qquad
+ 8p^3q=q^4-s
+\]
+であり、$[\C(p,q):\C(s,t)]\le24$ となる。
+位数 $24$ の自己同型群 $G$ があるので等号であり、
+$\C(p,q)^G=\C(s,t)$ である。
+さらに $A^3=I$、$(AB)^3=B^2=-I$ から、
+$G\to\mu_2$ の任意の指標は $A$ と $B$ の両方で一となる。
+従って $G$ は非自明な二次商を持たない。
+
+$a\in\C(s,t)^\times$ が $\C(p,q)$ 上で平方 $v^2$ なら、
+$g(v)/v\in\{\pm1\}$ は $G$ の指標を定める。
+これは自明なので $v\in\C(p,q)^G=\C(s,t)$ であり、結論を得る。
+以上は古典的 Hesse 群について今回必要な体論だけを直接証明したものである。
+\end{proof}
+
+\begin{lemma}[全次元の三捩れ対称な混合例]
+\label{lem:nfm-cyclic-scalar-witness}
+$r=n-1\ge2$ とし、
+\[
+ F_*=\frac{x^3+y^3+z^3+\sum_{i=1}^r u_i^3}{3}
+             +xyz+x\sum_{i=1}^r u_i^2
+\]
+と置く。この三次は滑らかで scalar symmetrizer を持つ。
+また
+\[
+ \sigma:(x,y,z,u_1,\ldots,u_r)
+       \longmapsto(x,\zeta y,\zeta^2z,u_1,\ldots,u_r)
+\]
+に不変で、active 制限は滑らかな Hesse 三次である。
+従って $p,q$ を独立変数とした
+\begin{equation}\label{eq:nfm-cyclic-hesse-test-family}
+ F_{p,q}=\frac p3(x^3+y^3+z^3)+qxyz
+                +x\sum_i u_i^2+\frac13\sum_i u_i^3
+\end{equation}
+も一般点ではこれらの性質を持つ。
+\end{lemma}
+
+\begin{proof}
+不変性は各単項式から分かる。
+勾配の共通零点では $u_i(u_i+2x)=0$ である。
+$x=0$ なら $u_i=y=z=0$ となる。
+$x\ne0$ なら $x=1$ とし、$u_i\in\{0,-2\}$ とできる。
+$F_y=y^2+z=0$、$F_z=z^2+y=0$ から $yz=0$ または $yz=1$ である。
+$u_i=-2$ となる添字の個数を $k$ とすると、
+$F_x$ はそれぞれ $1+4k$、$2+4k$ となって零にならない。
+従って射影特異点はない。
+
+座標添字を $0,1,2,3,\ldots,r+2$ とし、最初の三つを $x,y,z$ に対応させる。
+$M\operatorname{Hess}(F_*)$ が対称となる定数行列 $M$ を考える。
+$u_i$ の係数行列を二で割ると
+$E_{ii}+E_{0i}+E_{i0}$ である。
+その非零列は $\{0,i\}$ だけなので、対称性から
+$j\notin\{0,i\}$ に対して $M_{ji}=M_{j0}=0$ となる。
+$r\ge2$ を用いて $i$ を動かすと $M_{j0}=0$ は全 $j\ne0$ で成り立つ。
+$y,z$ の Hessian 係数行列を用いると、中心行の残りの
+$M_{i1},M_{i2}$ も零であり、active な三行三列は $aI$ となる。
+ここで $a=M_{00}$ である。
+再び $u_i$ の係数の $(0,i)$ 成分を比べると
+$M_{0i}=M_{ii}-a$ を得る。
+最後に $x$ の Hessian 係数は中心対角成分に二を持つので、
+その $(0,i)$ 成分の対称性から $M_{0i}=0$、従って $M_{ii}=a$ である。
+よって $M=aI$ である。
+滑らかさと scalar symmetrizer 性は係数の開条件であり、
+$p=q=1$ のこの例から最後の主張も従う。
+\end{proof}
+
+\begin{proposition}[対称族自身における符号被覆の分裂]
+\label{prop:nfm-cyclic-test-sign-split}
+$k=\C(p,q)$、$K=k(h)$ とし、
+式\eqref{eq:nfm-cyclic-hesse-test-family}の一ブロック量子化を考える。
+入力Aの普遍 Hesse 中心式で選ぶ代数的中心元を $\Omega_h$ とする。
+固定入力Bの (L)、(CF)、一般点の生成性および残余復元をこの族へ適用すると、
+$K$ 上で残余 active 曲線 $C_\sigma$ と楕円点曲線 $E_\sigma$ が定まり、
+\[
+ \operatorname{Isom}_{\mathrm{gp}}
+    (\operatorname{Jac}E_\sigma,\operatorname{Jac}C_\sigma)
+\]
+は分裂する。これはこの対称族の一般点についての主張であり、
+元の source の関数体の二次類をこの閉族へ特殊化したという主張ではない。
+\end{proposition}
+
+\begin{proof}
+量子化と中心持上げの存在を具体的に確認する。
+入力A\cite{NCCubicA}の
+\texttt{quantization\_\allowbreak foundations.tex}, 命題 \texttt{prop:pg-PBW} は、
+この一ブロック族の PBW 性と AS 正則性を $h=0$ の近傍で与える。
+\texttt{hesse\_mixed\_universal\_center.tex} の
+\texttt{thm:pg-universal-hesse-mixed} に
+\[
+ \hbar=hp,\quad t=q/p,\quad
+ A=B=C=E=H=0,\quad
+ D=p^{-1}\sum_i u_i^2,\quad G=(3p)^{-1}\sum_i u_i^3
+\]
+を代入し、得た中心元を $p$ 倍する。
+これが $\Omega_h\bmod h=F_{p,q}$ を満たす有限な代数的中心元である。
+表示した公式の各項は $\sigma$ に不変である。
+中心元の正則性と商の平坦性も同入力の active filtration による証明を適用できる。
+これは一般係数の中心族の支配性を、この特殊族へ代入する議論ではない。
+
+前補題により可換特殊ファイバーは滑らかで scalar symmetrizer を持つ。
+入力B\cite{NFNCCubicB}の \texttt{rog:thm:geometric-generic} は
+(L)、(CF) を満たすこの一変数中心量子化に適用できる。
+その生成性は、滑らかな三次上の非零対象と三つの内部 shift の生成性によるもので、
+全三次係数が一般であるという追加仮定を用いない。
+従って定理\ref{thm:nfm-relative-residual-cubic}と
+補題\ref{lem:nfm-residual-central-injection}の体上の構成がこの $K$ 上で行える。
+完備比較で $W_h\bmod h=F_{p,q}$ となるので、
+symmetrizer minor、滑らかさ、および中心一次作用の全階数が成立する。
+
+生成元固定模型と選んだ相対 flow は線型共変であり、
+$\sigma$ と可換する。従って残余の active 平面上の $\sigma$ は
+固有値 $1,\zeta,\zeta^2$ を持ち、方程式直線に自明に作用する。
+これは完備化上の座標表示で確認でき、有限群の各固有空間の階数と
+一次元指標は忠実な体拡大から $K$ へ戻る。
+特に $\det K_{\mathrm{res}}$ にも自明に作用する。
+命題\ref{prop:nfm-scale-hodge-line}から Hodge 微分への作用は恒等である。
+滑らかな genus-one 曲線で微分を保つ自己同型は平行移動であり、
+この射影変換は曲線上で恒等ではない。
+実際、滑らかな平面三次を各点で固定する射影変換は恒等である。
+従って $\sigma$ は
+\[
+ 0\ne v_\sigma\in\operatorname{Jac}(C_\sigma)[3](K)
+\]
+による平行移動を与える。
+
+一方、$E_\sigma$ は $J_{g_{p,q}}$ の Hesse 曲線である。
+対角変換と巡回置換が与える九つの三捩れ平行移動は全て $K$ 上に定義されるので、
+$\operatorname{Jac}(E_\sigma)[3]$ は定数群である。
+完備比較と active 制限の恒等式から両曲線の $j$ は $K$ 上で等しい。
+一般の $p,q,h$ では $j\ne0,1728$ である。
+
+分離閉包上の Jacobian 同型を $\theta$ と取る。
+その Galois cocycle は $\{\pm1\}$ に値を持つ。
+$\theta^{-1}(v_\sigma)$ は非零の三捩れ点であり、
+点側の三捩れが全て $K$ 有理であるため Galois で固定される。
+反転はその点を固定しないので、cocycle は自明である。
+従って $\theta$ は $K$ 上へ降下する。
+\end{proof}
+
+この命題と一般点の $\chi_{\mathrm{act}}$ を比較するには、次の相対条件が必要である。
+\begin{description}
+\item[対称族への延長条件 $(\mathrm{E}_\sigma)$.]
+良い表示空間の正規な整 atlas 上で、
+式\eqref{eq:nfm-cyclic-hesse-test-family}の $K$ 点を含む開近傍があり、
+残余 active 曲線の一般点での構成がそこへ滑らかな genus-one 曲線として延長する。
+この延長は当該 $K$ 点で前命題の低 rotation 積による $C_\sigma$ に一致し、
+点曲線との比較と任意底変更に両立する。
+この近傍を $j\ne0,1728$ へ制限してよい。
+\end{description}
+
+ここでは自己同型群が自明である条件を課していない。
+対称族はその条件を満たさないからである。
+また、定理\ref{thm:nfm-relative-residual-cubic}で一般点の perfect 対角を
+開へ広げたことだけから $(\mathrm{E}_\sigma)$ は従わない。
+閉じた特殊族の点から周囲の近傍へ広げるには、
+相対的な perfect 対角または同等の有限模型・底変更の検証が別に必要である。
+現行の固定入力からこの追加条件を導く証明はまだ完成していない。
+
+\begin{theorem}[対称族への延長による active 符号類の消滅判定]
+\label{thm:nfm-active-sign-extension-criterion}
+既存の固定入力に加え、$(\mathrm{E}_\sigma)$ を仮定する。
+このとき $\chi_{\mathrm{act}}=0$ である。
+従って点規格化に整合する残余 full Poisson 射の有理的な持上げが存在し、
+その一般次数は $9$ である。
+\end{theorem}
+
+\begin{proof}
+$\chi_{\mathrm{act}}$ の代表元の零点と極を不変量基底から除く。
+対称族の補正前 active 不変量は
+\[
+ s=h^4c_4(g_{p,q}),\qquad t=-h^6c_6(g_{p,q})
+\]
+であり、この基底を支配するため対称族の一般点は除かれない。
+$(\mathrm{E}_\sigma)$ の正規な近傍では、点曲線と残余曲線は滑らかで、
+$j$ の等式は一般点から延長する。
+従ってその Jacobian-Isom は有限 \'etale な $\mu_2$-torsor である。
+これと $\chi_{\mathrm{act}}$ の引戻しとの一般点での同型は、
+正規な整 scheme 上の有限 \'etale 被覆の generic fibre への
+完全忠実性\cite[Lemma~58.10.7, Tag~0BQI]{NFMStacksEtaleNormal}により、
+この近傍へ一意に延長する。
+よって前命題の分裂は、$\chi_{\mathrm{act}}$ が $K$ 上で零となることを意味する。
+一般点での等式を閉族へ無条件に特殊化しているのではなく、
+二つの実際の有限 \'etale 被覆の延長をここで使っている。
+
+$P=hp$、$Q=hq$ と置くと
+$K=\C(P,Q,h)$ であり、$s=c_4(g_{P,Q})$、$t=-c_6(g_{P,Q})$ である。
+純超越拡大 $\C(P,Q)\subset\C(P,Q,h)$ は二次類を消さない。
+従って $\chi_{\mathrm{act}}$ は $\C(P,Q)$ 上ですでに零であり、
+補題\ref{lem:nfm-hesse-kummer-injective}から $\C(s,t)$ 上でも零となる。
+最後の主張は定理\ref{thm:nfm-residual-sign-active-class}による。
+\end{proof}
+
+\begin{corollary}[半古典先頭項で規格化した条件付き full 射]
+\label{cor:nfm-semiclassical-full-residual}
+前定理の追加仮定 $(\mathrm{E}_\sigma)$ の下で、適切な非空開上に
+\[
+ \Psi_{\mathrm{res}}^{\mathrm{sc}}:
+     \mathfrak U\longrightarrow\mathfrak P_n^{\mathrm{dec}}
+\]
+があり、これは $\Psi_{\mathrm{res}}^\pm$ を持ち上げる。
+その二つの持上げのうち、支配的な中心 $h$ 族において
+\[
+ \tau_{\mathrm{res}}
+   =h(F+G)\otimes P_0+O(h^2)
+\]
+を満たすものは一意である。
+この規格化の下で
+\[
+ \Psi_{\mathrm{res}}^{\mathrm{sc}}\circ\iota
+     =-\Psi_{\mathrm{res}}^{\mathrm{sc}}.
+\]
+射は全 O-同値に自然であり、適切な非空開への制限後には
+有限 \'etale 階数九となる。
+\end{corollary}
+
+\begin{proof}
+前定理により尺度被覆の一般ファイバーは二つの切断を持つ。
+正規な開上の有限 \'etale 被覆への切断の延長により、
+適切な開上で二つの algebraic な持上げを得る。
+命題\ref{prop:nfm-point-scale-formal-comparison}の形式恒等分枝は
+表示した先頭項を持つ。
+二つの代数的切断はその分枝と負の分枝へそれぞれ移るので、
+この条件は一方を一意に選ぶ。
+次数一座標と中心持上げを変更しても先頭の古典的 Poisson tensor は自然に移り、
+形式 frame の恒等に合同な変更は先頭項を変えない。
+従ってこれは補助 frame の選択を元の対象に加える操作ではなく、
+全 O-同値に両立する二つの持上げの規格化である。
+
+反対代数は $h\mapsto-h$ に対応する。
+選んだ持上げを $\iota$ と合成したものとその負は、
+同じ符号商射を持ち上げ、上の形式族で同じ先頭項を持つ。
+一意性から表示した反対同変性を得る。
+一般次数は九であり、標数零で既存の有限 \'etale 開をさらに制限すればよい。
+\end{proof}
+
+$(\mathrm{E}_\sigma)$ を除いた $\chi_{\mathrm{act}}$ の消滅、
+元の moduli 上の無条件の符号選択は引き続き未解決である。
+この判定は、次に確認すべき点を「三変数の形式平方根」から、
+具体的な三捩れ対称族を通る相対残余模型の延長へ絞る。
+比較核の同型類の選択と scalar gerbe の降下は、いずれの場合にも別の問題である。
 
 
 \begin{corollary}[反対な O-marked 対と同じ残余圏]

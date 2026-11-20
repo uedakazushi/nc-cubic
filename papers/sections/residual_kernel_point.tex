@@ -1,0 +1,349 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{点の平行移動と比較核の Picard 類}
+\label{sec:nfm-kernel-point-class}
+
+最高次線束型の比較核について、スカラー障害は次数零 Picard 類
+$m_P$ の表現障害である。
+本節では楕円曲線の rotation の共役式を求め、
+点の平行移動と $m_P$ を結ぶための条件を明示する。
+楕円曲線上の三つの補題は独立した結果である。
+full 比較への適用には、非可換 active 商の相対 THCR/window1 比較という
+追加仮定を置く。その下で追加型の非空性とスカラー障害の具体式を証明する。
+代数的な active 同値核の assignment や、full 核の同型類の選択を
+無条件に構成するものではない。
+
+\subsection{平行移動・線束と rotation の共役}
+
+楕円曲線の点 $b$ を次数零線束 $P_b=\mathcal O_E(b-0)$ と同一視する。
+以下の式はまず代数閉体上で証明し、必要な等式を忠実平坦降下して用いる。
+右加群の twisted homogeneous coordinate ring の規約は
+\cite[\S3, equation~(3.1)]{NFMStaffordVdB}に合わせる。
+すなわち $\sigma$ が点加群の shift を表すとき、
+coherent sheaf 上の次数 shift は
+\begin{equation}
+\label{eq:nfm-right-thcr-shift}
+ s=\sigma_*\circ(-\otimes L)
+\end{equation}
+である。特に $s(k(x))=k(\sigma(x))$ となる。
+$\sigma^*$ と取り違えると、以下の平行移動の符号が逆になる。
+
+\begin{lemma}[楕円曲線の rotation の共役式]
+\label{lem:nfm-elliptic-rotation-conjugacy}
+$E$ を標数零の代数閉体上の楕円曲線、$L$ を次数三の線束とする。
+\[
+ U_{a,b}=t_a^*\circ(-\otimes P_b),\qquad
+ \rho=T_{\mathcal O_E}\circ(-\otimes L)
+\]
+と置く。関手の同型類について
+\begin{equation}
+\label{eq:nfm-elliptic-rotation-conjugacy}
+ \rho U_{a,b}\rho^{-1}\simeq U_{-2a-b,\,3a+b}
+\end{equation}
+が成り立つ。
+$\sigma=t_p$ とし、右加群の規約に従って
+$\rho_p=T_{\mathcal O_E}\circ\sigma_*\circ(-\otimes L)$ と置くと、
+\begin{equation}
+\label{eq:nfm-elliptic-point-intertwiner}
+ U_{a,b}\rho_pU_{a,b}^{-1}\simeq\rho
+ \quad\Longleftrightarrow\quad
+ 3a=0,\qquad b=p.
+\end{equation}
+特に $\rho$ と可換する $U_{a,b}$ は $U_{a,0}$、$a\in E[3]$ に限られ、
+これらは次数零 Picard 類を変えない。
+\end{lemma}
+
+\begin{proof}
+平行移動は次数零 Picard 類に自明に作用するので、
+$U_{a,b}$ の同型類の積は $(a,b)$ の加法である。
+$t_a^*L\otimes L^{-1}\simeq P_{-3a}$ より
+\[
+ \operatorname{Ad}_{-\otimes L}(a,b)=(a,b+3a).
+\]
+また
+\[
+ \operatorname{Ad}_{T_{\mathcal O_E}}(a,b)=(a-b,b)
+\]
+である。後式の graph と線束を確認する。
+twist の Fourier--Mukai 核は
+$\operatorname{Cone}(\mathcal O_{E\times E}\to\mathcal O_\Delta)
+=\mathcal O_{E\times E}(-\Delta)[1]$ であり、
+$T_{\mathcal O_E}^{-1}k(x)=\mathcal O_E(x)$ となる。
+従って共役 $T_{\mathcal O_E}U_{a,b}T_{\mathcal O_E}^{-1}$ は
+$k(x)$ を $k(x-a+b)$ へ送り、$\mathcal O_E$ を $P_b$ へ送る。
+点層を shift なしの点層へ送る同値の核は、その台である graph 上の線束である。
+この場合の graph は $t_{a-b}$ の pullback、線束は $P_b$ なので、所要の式を得る。
+これは上記の twist 核を使った畳込み計算とも一致する。
+
+二つの共役作用の積は
+\[
+ A=\begin{pmatrix}-2&-1\\3&1\end{pmatrix}
+\]
+であり、\eqref{eq:nfm-elliptic-rotation-conjugacy}を与える。
+平行移動は $\mathcal O_E$ を保つので、その pullback は
+$T_{\mathcal O_E}$ と可換する。
+従って $\rho_p=U_{-p,0}\rho$ であり、intertwining の条件は
+\[
+ (I-A)\binom ab=\binom p0,
+ \qquad\text{すなわち}\qquad
+ 3a+b=p,\quad -3a=0
+\]
+に等しい。これで全ての主張が従う。
+\end{proof}
+
+この補題は、全自己同値群の分類ではない。
+平行移動と次数零線束の tensor からなる部分について、
+rotation を保ったまま Picard 類を調整できる範囲を決定している。
+特に、この部分の自己同値だけを用いて任意の $m_P$ を零にすることはできない。
+
+\begin{lemma}[右楕円座標環の window1 と内部 shift]
+\label{lem:nfm-twisted-elliptic-window}
+$A=B(E,L,\sigma)$ を右 twisted homogeneous coordinate ring とする。
+$\operatorname{qgr}A\simeq\operatorname{coh}E$ の下で
+$\pi A\leftrightarrow\mathcal O_E$、$(1)\leftrightarrow s$ は
+\eqref{eq:nfm-right-thcr-shift}に従うものとする。
+$A$ に Gorenstein parameter 零の Orlov 同値が適用でき、
+window1 を $\Phi_1=q_{\mathrm{sg}}R\Gamma_{\ge1}$ と取る。
+このとき
+\begin{equation}
+\label{eq:nfm-twisted-active-window}
+ \kappa_A\longleftrightarrow\mathcal O_E[1],\qquad
+ \Phi_1^{-1}(1)\Phi_1=T_{\mathcal O_E}\circ s.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+この window の存在については
+\cite[Theorem~2.5(iii)]{NFMOrlovSingularities}を用いる。
+$m>0$ に対して $s^m\mathcal O_E$ は次数 $3m$ の線束なので、
+その高次 cohomology は消える。
+従って $R\Gamma_{\ge1}\mathcal O_E=A_{\ge1}$ であり、
+$0\to A_{\ge1}\to A\to k\to0$ を特異圏へ写すと第一式を得る。
+任意の $F$ に対し
+\[
+ (R\Gamma_{\ge1}F)(1)=R\Gamma_{\ge0}(sF)
+\]
+であり、次数零の切断は三角形
+\[
+ R\Gamma_{\ge1}(sF)\longrightarrow R\Gamma_{\ge0}(sF)
+ \longrightarrow R\operatorname{Hom}(\mathcal O_E,sF)\otimes k
+ \longrightarrow
+\]
+を与える。
+特異圏へ写し、第一式を用いて三角形を回転すると、評価写像の三角形
+\[
+ R\operatorname{Hom}(\mathcal O_E,sF)\otimes\mathcal O_E
+ \longrightarrow sF\longrightarrow\Phi_1^{-1}(1)\Phi_1(F)
+ \longrightarrow
+\]
+を得る。この cone は $T_{\mathcal O_E}(sF)$ である。
+従って剰余体と内部 shift の双方について同じ window の規約を得た。
+この切断の議論は $A$ の可換性を用いない。
+\end{proof}
+
+\subsection{恒等から変形した相対比較}
+
+\begin{lemma}[形式的な楕円比較が定める Picard 類]
+\label{lem:nfm-formal-elliptic-point-line}
+$R$ を剰余標数零の完備 DVR とし、$E/R$ を滑らかな固有 genus-one 曲線、
+$L$ を相対次数三の実際の線束とする。
+$\sigma=t_p$ は閉ファイバーで恒等となる平行移動とする。
+同じ $E/R$ 上に perfect な相対 Fourier--Mukai 核で与えられる同値 $F$ があり、
+その核の閉ファイバーは $\mathcal O_\Delta$ とする。
+さらに
+\begin{equation}
+\label{eq:nfm-formal-elliptic-intertwining}
+ F\bigl(T_{\mathcal O_E}\circ\sigma_*\circ(-\otimes L)\bigr)F^{-1}
+ \simeq T_{\mathcal O_E}\circ(-\otimes L)
+\end{equation}
+を仮定する。
+このとき $F(\mathcal O_E)$ は次数零線束 $M$ であり、
+\begin{equation}
+\label{eq:nfm-formal-point-line-class}
+ [M]=p\quad\text{in }\operatorname{Pic}^0_{E/R}(R)
+\end{equation}
+となる。
+\end{lemma}
+
+\begin{proof}
+閉ファイバーの閉点を取り、有限非分岐拡大後にその点を $R$ 上の切断へ持ち上げる。
+従って忠実平坦降下のため、原点を持つ楕円曲線の場合を証明すればよい。
+核を $Q$ と書く。
+第一射影 $E\times_R E\to E$ に関して $Q$ は relative perfect であり、
+閉ファイバーの各点上の導来制限は長さ一の点層である。
+relative Tor amplitude が $[0,0]$ となる locus は開で、閉ファイバー全体を含む。
+その補集合の $\operatorname{Spec}R$ への像は proper 性により閉であり、
+閉点を含まないので空である。
+従って $Q$ は第一射影について平坦な層で、各ファイバーの長さは一である。
+同じことが第二射影についても成り立つ。
+
+長さ一の層の族の台は section であり、その上の層は線束である。
+両射影についてこの記述を用いると、$Q$ は相対自己同型 $f$ の graph 上の線束となる。
+閉ファイバーで $f$ は恒等、線束は自明であり、cohomological shift は零である。
+原点を保つ楕円曲線自己同型の非分岐性から、
+閉ファイバーで恒等となる $f$ は平行移動である。
+従って $F$ の同型類は $U_{a,b}$ と書け、$a,b$ は閉点で零となる。
+線束の次数は局所定数なので零である。
+
+一般ファイバーの代数閉包上で
+補題\ref{lem:nfm-elliptic-rotation-conjugacy}を適用すると、
+\eqref{eq:nfm-formal-elliptic-intertwining}は $3a=0$、$b=p$ を与える。
+これらは相対 Jacobian の切断の等式なので $R$ 上へ降りる。
+$E[3]$ は有限 \'etale であり、閉点で零となる $a$ は零である。
+従って $F(\mathcal O_E)$ の Picard 類は $p$ となる。
+この等式は原点の選択に依存しないため、最初の非分岐拡大からも降下する。
+\end{proof}
+
+この補題は、perfect な複体が閉ファイバーで線束となることだけから
+線束の Picard 類まで一定であると主張するものではない。
+その類を決定する追加条件は rotation の intertwining であり、
+一般には $M$ は自明線束ではなく $p$ を表す。
+
+\subsection{点の平行移動を指定した full 比較核の型}
+
+定理\ref{thm:nfm-kernel-active-line-bound}の split 表示、
+$\kappa_{\mathrm{nc}}$、$q_Y$、window1 を固定する。
+命題\ref{prop:nfm-point-residual-isom-cover}の平面同型被覆を用い、
+\[
+ \phi:E_{\mathrm{pt}}\xrightarrow{\sim}C_{\mathrm{res}},\qquad
+ \theta=\operatorname{Jac}(\phi),\qquad
+ p_{\mathrm{res}}=\theta(p_{\mathrm{pt}})
+\]
+と置く。
+$p_{\mathrm{pt}}$ は系\ref{cor:nfm-point-shift-residual-transfer}の切断である。
+最高次線束型の核 $P$ に、さらに
+\begin{equation}
+\label{eq:nfm-kernel-point-line-type}
+ m_P=p_{\mathrm{res}}
+\end{equation}
+を課す。
+この条件は $\phi$ の Jacobian 上の作用だけに依存する。
+従って平面同型の三捩れの選択を忘れても条件は定義できるが、
+そのことから元の底上の full 核の同型類が選べるとは結論しない。
+
+以下で用いる追加仮定を明記する。
+支配的な完備族の係数体を $k$、$R=k[[h]]$ とする。
+相対点曲線 $E_R=V(J_g)$ と $L=\mathcal O_{E_R}(1)$ に対し、
+非可換 active 商の相対 THCR および window1 比較が存在し、
+\begin{equation}
+\label{eq:nfm-relative-elliptic-window-hypothesis}
+ \operatorname{MF}^{\mathbf Z}(B_h/(U),\Omega_h\bmod U)
+ \simeq\operatorname{Perf}(E_R)
+\end{equation}
+が閉ファイバー・分数体への導来底変更に両立すると仮定する。
+この比較は augmentation stabilization を $\mathcal O_{E_R}[1]$ へ送り、
+内部 shift を $T_{\mathcal O_{E_R}}\circ\sigma_*\circ(-\otimes L)$ へ送るものとする。
+閉ファイバーでは可換側と同じ window1 を用いる。
+これは、本節では固定入力Bに追加して置く仮定である。
+体上の Orlov 同値だけからこの相対・底変更の主張を推論しない。
+
+\begin{proposition}[点の平行移動を指定した核の型の条件付き非空性]
+\label{prop:nfm-kernel-point-line-nonempty}
+固定入力B、良い一ブロックの仮定、および
+\eqref{eq:nfm-relative-elliptic-window-hypothesis}を仮定する。
+このとき、非空開の有限 \'etale 全射上に、平面同型 $\phi$ と
+rotation・指定周期を保つ full 比較核 $P$ を取り、
+最高次線束条件\eqref{eq:nfm-kernel-active-line-type}と
+\eqref{eq:nfm-kernel-point-line-type}を同時に満たすようにできる。
+従来の三つの Euler 条件\eqref{eq:nfm-kernel-numerical-type}も同時に課せる。
+これは少なくとも一つの支配的な被覆上での非空性であり、
+全ての平面同型の選択や全ての最高次線束型の核に対する主張ではない。
+\end{proposition}
+
+\begin{proof}
+命題\ref{prop:nfm-completed-central-restriction}の相対 CF 比較を
+active 商へ制限する。
+標的の方程式は $b_hJ_g$ であり、underlying curve は $E_R=V(J_g)$ である。
+potential の単元倍を扱うときは、既存の比較と同じ指定周期を保つ。
+仮定\eqref{eq:nfm-relative-elliptic-window-hypothesis}と可換側の window1 により、
+この比較は同じ $E_R$ 上の $R$-線型同値 $F$ となる。
+滑らかな固有曲線の perfect 圏の間のこの比較は perfect な相対核で実現される。
+選んだ CF 比較は閉ファイバーで恒等であり、二つの window もそこで一致するので、
+その核の閉ファイバーは $\mathcal O_\Delta$ である。
+内部 shift の適合性と
+補題\ref{lem:nfm-twisted-elliptic-window}から
+\eqref{eq:nfm-formal-elliptic-intertwining}が成立する。
+従って補題\ref{lem:nfm-formal-elliptic-point-line}により
+\[
+ F(\mathcal O_{E_R})=M_R,\qquad [M_R]=p_{\mathrm{pt}}.
+\]
+
+ここから分数体 $\widehat K=k((h))$ へ移る。
+命題\ref{prop:nfm-mf-linear-restriction}の graded purity と
+全 Taylor 成分における中心係数商との可換性から
+\[
+ q_Y\Phi_P(\kappa_{\mathrm{nc}})
+ \simeq
+ \bigoplus_{j=0}^{n-1}
+ \rho^{-j}(M_{\widehat K})[j+1]^{\oplus\binom{n-1}{j}}
+\]
+を得る。
+補題\ref{lem:nfm-active-line-rotation}により、その最高次 cohomology は
+$M_{\widehat K}$ である。
+形式模型と代数的残余三次との一次空間・方程式の同定を選ぶと、
+中心作用の保存により active 平面も同定され、平面同型 $\phi$ を得る。
+曲線上への pullback と pushforward は Picard 類と平行移動の対応を保つので、
+代数的残余曲線の frame では
+$m_P=\operatorname{Jac}(\phi)(p_{\mathrm{pt}})$ となる。
+
+あとは命題\ref{prop:nfm-kernel-active-line-nonempty}の有限表示の議論を用いる。
+元の関数体を $K$ とし、full 核・逆核・単位・余単位・rotation・周期と
+平面同型 $\phi$ を $K$ 上有限生成な整域 $D$ へ降ろす。
+必要な開への縮小により、最高次 cohomology の可逆層性・次数零・底変更適合性を得る。
+相対 Picard 類 $m_P$ と $p_{\mathrm{res}}$ は相対 Jacobian の切断である。
+形式体への忠実平坦拡大後に両者が等しいので、
+$\operatorname{Frac}(D)$ 上で既に等しい。
+相対 Jacobian の分離性により、この等式は両切断が定義された非空開上に成立する。
+従ってその開の閉点へ特殊化すれば、有限分離拡大 $K'/K$ 上で
+所要の追加型を満たす full 核と $\phi$ を得る。
+元の表示 chart の非空開へ広げ、正規化と分岐 locus の除去を行えば、
+有限 \'etale 被覆上の主張となる。
+三つの perfect mixed Hom を同じ有限データに含めれば、
+従来の Euler 条件も保存される。
+
+この特殊化で保持したのは full 核とその最高次線束の Picard 等式である。
+形式的な active 比較核そのものや、その coherent な中心線型性を
+代数的に降下させたという主張は用いていない。
+\end{proof}
+
+\begin{corollary}[選択済みの核の障害を測る点の平行移動]
+\label{cor:nfm-kernel-point-picard-obstruction}
+split 表示と $\theta$ を固定し、
+\eqref{eq:nfm-kernel-point-line-type}を満たす full 核の同型類が
+既に整合的に選ばれているとする。
+$C=C_{\mathrm{res}}$ とし、その実現 gerbe の類を $\alpha$、
+次数零 Picard 類の表現障害を
+$\delta_C(m)=m^*\beta_{\mathrm{Pic},C}$ と書くと、
+\begin{equation}
+\label{eq:nfm-kernel-point-brauer-class}
+ \alpha=\delta_C(p_{\mathrm{res}}).
+\end{equation}
+従って $p_{\mathrm{res}}$ が実際の次数零線束で表されれば、比較核は降下する。
+また定理\ref{thm:nfm-kernel-tripling-cover}の三分点被覆を
+$p_{\mathrm{res}}$ に適用すれば、その階数九の有限 \'etale 被覆上で
+最高次線束を規格化した full 比較核を得る。
+$p_{\mathrm{res}}\in3\operatorname{Jac}(C/S)(S)$ なら
+系\ref{cor:nfm-kernel-picard-mod-three}により $\alpha=0$ である。
+\end{corollary}
+
+\begin{proof}
+系\ref{cor:nfm-kernel-picard-obstruction}により
+$\alpha=\delta_C(m_P)$ であるから、
+\eqref{eq:nfm-kernel-point-line-type}を代入すればよい。
+三分点被覆と規格化については引用した定理と系を用いる。
+\end{proof}
+
+\begin{remark}[適用範囲と残る問題]
+最高次線束型の全ての核について $m_P=p_{\mathrm{res}}$ を示したわけではない。
+また、追加型の非空性と、元の底でその full 核の同型類を整合的に選ぶことは別である。
+本節の conditional な適用は、相対 THCR/window1 仮定を固定入力から導くこと、
+表示変更に対する型の内在性、符号を含む $\theta$ の選択をなお必要とする。
+一方、既に選ばれた追加型に対する\eqref{eq:nfm-kernel-point-brauer-class}は
+Picard 障害を具体的な点へ評価した式であり、代数的 active 核の存在を前提としない。
+
+固定点のない $\sigma$ については $p_{\mathrm{pt}}\ne0$ である。
+従ってこの追加型の最高次線束は幾何的に非自明であり、
+$m_P=0$ という十分条件だけでその核を降下させる方針は適切でない。
+実際の線束による $p_{\mathrm{res}}$ の表現、または三分可能性を調べる必要がある。
+ここで点の平行移動を full Ku の rotation 自体と同一視しているのではなく、
+追加仮定の下の active window における rotation 共役を利用している。
+\end{remark}

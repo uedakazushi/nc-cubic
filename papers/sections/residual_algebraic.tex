@@ -1652,6 +1652,137 @@ scalar $\lambda$ は $\mathcal M$ に $\lambda$ で作用する。
 $m_P$ の具体的計算や標準的な核の同型類の選択は含まない。
 $\beta_{\mathrm{Pic},C}$ は表示 gerbe の類 $\beta$ とも区別する。
 
+\begin{lemma}[三倍写像を表す determinant 線束]
+\label{lem:nfm-picard-tripling-line}
+$\pi:C\to S$ を滑らかな固有幾何的連結 genus-one 曲線族とし、
+$L$ を各ファイバーで次数三の実際の可逆層とする。
+$J=\operatorname{Pic}^0_{C/S}$、
+$p:\mathscr P=\mathscr{P}ic^0_{C/S}\to J$ と置く。
+$C_{\mathscr P}$ 上の普遍可逆層を $\mathscr M$ とし、
+底変更した射影も $\pi$ と書く。
+次の可逆層は $C\times_SJ$ 上の可逆層 $\mathscr N_L$ へ正準的に降下する：
+\begin{equation}
+\label{eq:nfm-picard-tripling-line}
+ \mathscr M^{\otimes3}\otimes
+ \pi^*\!\left(
+   \det\pi_*(\mathscr M\otimes L)^{-1}
+       \otimes\det\pi_*L\right).
+\end{equation}
+その相対 Picard 類は三倍写像 $[3]:J\to J$ であり、
+零切断 $e:S\to J$ に沿って標準的な同型
+$(1_C\times e)^*\mathscr N_L\simeq\mathcal O_C$ を持つ。
+この構成は任意の底変更と、対 $(C,L)$ の同型に両立する。
+また $S$ 上の可逆層 $B$ による $L\mapsto L\otimes\pi^*B$ では変わらない。
+\end{lemma}
+
+\begin{proof}
+各幾何ファイバーで $\mathscr M\otimes L$ は次数三であるから、
+$H^1=0$、$h^0=3$ である。従って
+$E=\pi_*(\mathscr M\otimes L)$ と $E_0=\pi_*L$ は階数三の束であり、
+任意の底変更に両立する。$\mathscr P$ の scalar 慣性は
+$\mathscr M$ と $E$ に重み一、$\det E$ に重み三で作用する。
+式\eqref{eq:nfm-picard-tripling-line}の全重みは $3-3=0$ である。
+重み零の束の降下\cite[Proposition~4.10]{NFMBerghSchnurer}により
+$\mathscr N_L$ を得る。
+これは fppf 局所で $\mathscr M$ を実際の線束として選び、
+その選択を $\mathscr M\otimes\pi^*A$ に変えたとき
+$A^{\otimes3}$ が determinant の因子と相殺することからも直接分かる。
+下降因子は曲線方向には自明なので、相対 Picard 類は $3[\mathscr M]$ である。
+
+零切断の上では局所的に $\mathscr M=\pi^*A$ と書ける。
+このとき $E=E_0\otimes A$ であり、
+式\eqref{eq:nfm-picard-tripling-line}の全ての因子が標準的に相殺する。
+この相殺は $A$ の変更と両立するので、主張した零切断上の同型を与える。
+最後に $L$ を $L\otimes\pi^*B$ に変えると、
+$\det E$ と $\det E_0$ に共に $B^{\otimes3}$ が掛かり、再び相殺する。
+これらの同型と降下は押下げ・determinant の底変更同型から構成されるので、
+任意の底変更および対の同型にも両立する。
+\end{proof}
+
+零切断での規格化と三倍の相対類だけで $\mathscr N_L$ を一意に特徴付けてはいない。
+ここでの正準性は、実際の $L$ を使った
+式\eqref{eq:nfm-picard-tripling-line}の明示的な determinant 構成に関するものである。
+
+\begin{theorem}[Picard 三分点被覆上の規格化された比較核]
+\label{thm:nfm-kernel-tripling-cover}
+定理\ref{thm:nfm-kernel-active-line-bound}と同じ split 設定と、
+full 核の同型類の整合的な選択を仮定する。
+$J_C=\operatorname{Pic}^0_{C_S/S}$、
+$m_P:S\to J_C$ を系\ref{cor:nfm-kernel-picard-obstruction}の切断とし、
+\begin{equation}
+\label{eq:nfm-kernel-tripling-cover}
+ T_P^{(3)}=S\mathbin{\times}_{m_P,J_C,[3]}J_C
+\end{equation}
+と置く。これは標数零の $S$ 上の標準的な
+$J_C[3]$-torsor、すなわち階数九の有限 \'etale 全射である。
+その上では選んだ同型類を実際の full 比較核として実現できる。
+
+より正確には、$q:T_P^{(3)}\to J_C$ を普遍三分点とすると
+$[3]q=m_P|_{T_P^{(3)}}$ であり、
+$N_q=(1_C\times q)^*\mathscr N_L$ はこの Picard 類を表す。
+full 比較核 $P_T$ と同型
+\[
+ \mathcal H^{-1}\!\left(q_Y\Phi_{P_T}(\kappa_{\mathrm{nc}})\right)
+       \xrightarrow{\sim}N_q
+\]
+の対は、選んだ scalar gerbe の中で一意な同型を除いて一意に存在する。
+この構成は固定した表示・window・同型類と両立する任意の底変更に関して関手的である。
+\end{theorem}
+
+\begin{proof}
+楕円スキームの三倍写像は有限 \'etale 階数九である。
+実際、各幾何ファイバーでは次数 $3^2$ の isogeny であり、
+微分は Lie 代数上の三倍である
+\cite[Tags~0BFG, 0BFH]{NFMStacksMultiplication}。
+相対的にも微分が可逆なので \'etale であり、proper かつ有限ファイバーなので有限である。
+この射を $m_P$ で引き戻すと、表示した $J_C[3]$-torsor を得る。
+
+前補題によって $N_q$ の相対類は $[3]q=m_P|_T$ である。
+従って $N_q$ は $m_P^*\mathscr P$ の $T=T_P^{(3)}$ 上の対象を与える。
+系\ref{cor:nfm-kernel-picard-obstruction}の同値
+\[
+ \mathcal G_T\longrightarrow(m_P^*\mathscr P)_T,
+ \qquad P\longmapsto
+ \mathcal H^{-1}\!\left(q_Y\Phi_P(\kappa_{\mathrm{nc}})\right)
+\]
+でこの対象の逆像を取る。これが所要の核と最高次線束の同型を与える。
+この同値は scalar band 上で恒等であるから、
+線束の同型も固定した逆像の groupoid は終対象の groupoid と同値である。
+従って scalar の曖昧さは消え、述べた一意性が成り立つ。
+同値性、rotation・周期の比較図式は選んだ gerbe の対象の一部であり、
+この操作で保持される。最高次 cohomology の底変更、
+前補題の線束と gerbe の同値の底変更から関手性も従う。
+\end{proof}
+
+\begin{corollary}[三で割った Picard 群による scalar 障害の判定]
+\label{cor:nfm-kernel-picard-mod-three}
+上の曲線族について、次数零 Picard 類の表現障害は群準同型
+\[
+ \delta_C:J_C(S)/3J_C(S)
+       \longrightarrow H^2(S,\mathbf G_m)[3]
+\]
+を誘導し、選択済み核の scalar 障害は $\alpha=\delta_C([m_P])$ である。
+特に $m_P=3q$ となる $q\in J_C(S)$ があれば、
+前定理の規格化された full 比較核は既に $S$ 上に存在する。
+$q$ が実際の次数零線束で表されることも、$C_S$ の切断の存在も要求しない。
+\end{corollary}
+
+\begin{proof}
+Picard gerbe の tensor 積は相対 Picard 類の加法を持ち上げる。
+fppf 局所に選んだ線束の scalar 二 cocycle は tensor 積で掛かるため、
+$m\mapsto m^*\beta_{\mathrm{Pic},C}$ は群準同型である。
+前補題の $\mathscr N_L$ を $q$ へ制限すれば $3q$ を実際の線束で表せるので、
+この準同型は $3J_C(S)$ 上で零である。
+従って値は三で消え、表示した商を通る。
+$m_P=3q$ の場合にはその実際の代表 $N_q$ を前定理の証明へ直接用いればよい。
+\end{proof}
+
+階数九の $T_P^{(3)}$ は、任意の直線切片や最小分裂体を選ばず、
+固定した Picard 類から相対的に定まる scalar 分裂被覆である。
+これは既存の体上の $\operatorname{ind}(\alpha)\mid3$ という上界を改善する主張ではない。
+また点曲線の平面同型の九重被覆とも、残余 Poisson 射の次数とも異なる。
+第一段階の full 同型類の選択を解決せず、$m_P\in3J_C(S)$ も一般には仮定できない。
+
 \begin{corollary}[active 曲線による scalar gerbe の分裂]
 \label{cor:nfm-kernel-active-curve-splitting}
 前定理の仮定、特に比較核の同型類が既に整合的に選ばれているという仮定の下で、
