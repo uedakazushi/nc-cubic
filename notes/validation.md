@@ -439,13 +439,18 @@ b7a9f66af04e2b4506aff22e87ebc53d3bc1eaa3466af0059d13025a424c019d
 
 ### ソースと参照
 
-`python3 scripts/check_sources.py` は終了コード0で、24 TeX sources、553 unique labels、363 referenced labels、103 cited bibliography keys を確認した。`git diff --check` も通過した。五つの主要 Markdown 文書のローカルファイル参照63件を確認し、欠落はなかった。現在の追加証明は `papers/sections/residual_boundary_products.tex` に統合し、既存の境界模型から読み込む。主原稿の要旨・序論・主定理・到達範囲、関連節の未解決課題、研究方針・ノート・README の記述を現在の局所結果へ合わせた。
+旧 v25 で `python3 scripts/check_sources.py` は終了コード0で、24 TeX sources、553 unique labels、363 referenced labels、103 cited bibliography keys を確認した。`git diff --check` も通過した。五つの主要 Markdown 文書のローカルファイル参照63件を確認し、欠落はなかった。現在の追加証明は `papers/sections/residual_boundary_products.tex` に統合し、既存の境界模型から読み込む。主原稿の要旨・序論・主定理・到達範囲、関連節の未解決課題、研究方針・ノート・README の記述を現在の局所結果へ合わせた。
 
 ### PDF の組版状態
 
-現行 v25 を `latexmk papers/nc-cubic.tex` により LuaLaTeX で組版し、終了コード0、333頁の PDF と同じ出力先の SyncTeX を確認した。最終ログに未定義参照・未定義引用・欠字・overfull/underfull box はない。既存の小さい数式フォントのサイズ置換7件と、その集約警告は残る。
+旧リポジトリ名 `nc-cubic-n-fold` 時代の v25 に対して、当時の主原稿 `papers/nc-cubic-n-fold.tex` を `latexmk` で LuaLaTeX 組版し、終了コード0、333頁の PDF と同じ出力先の SyncTeX を確認した。これは v25 の過去の実行記録である。2026年11月21日のリポジトリ・主原稿の改名後、`papers/nc-cubic.tex` の再組版・PDF表示は未実施。最終ログに未定義参照・未定義引用・欠字・overfull/underfull box はない。既存の小さい数式フォントのサイズ置換7件と、その集約警告は残る。
 
 生成した PDF の1、8–9、21–22、25–26、253–267、326、331頁、計24頁を PNG として実際に目視した。統合担当は表題・概要、先行研究、主定理、到達範囲、追加書誌の9頁、独立担当は境界低積から局所位相までの追加節15頁を確認した。二つの横長行列は折り返して再組版し、最終版では数式のはみ出し・重なり・欠字・切断を認めなかった。全333頁の再読・全頁拡大点検ではない。PDF は2,528,652 bytes、SHA-256 は `80a5f3f9beccfb2bb59670eb4972dd81052339443e2b4628e3c80701f0170470`。
+
+改名後の GitHub 上のソースを再取得して、主原稿 `papers/nc-cubic.tex`、旧原稿パスの不在、
+直接の `\\input` 25件の実ファイル存在、`.latexmkrc` と `scripts/check_sources.py` の
+主原稿名一致、分割原稿の VS Code root 指定を静的に確認した。
+これは組版成功、ローカルの `check_sources.py` 実行、全数式の参照解決、計算の再実行ではない。
 
 ## 7. 再現と保存の区別
 
