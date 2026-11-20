@@ -879,7 +879,7 @@ a=n−1、full section-window の整数 i=1−a、active window1を固定する�
 
 証明は `lem:nfm-origin-object-weight-zero`, `prop:nfm-active-restriction-geometric`, `cor:nfm-point-type-O-descent`。内在的複体は `eq:nfm-point-type-intrinsic-complex` のQ_P=Li_C^*j_YΦ_Pj_nc^!Oであり、R_P=Q_P[1]。非正則試験底では一般の特異圏の底変更定理を新たに仮定せず、正則atlas上で得たperfect対象・bimoduleを導来pullbackする。R_P∈D^(≤−1)とH⁻¹(R_P)の線束性から、この最高次cohomologyは任意底変更に両立する。表示の次数スカラーが重み零であることと、核自身のscalarが最高次線束に重み一で作用することは区別する。二つのwindowは既存の行列定義との同定に使い、右随伴と閉埋込みによる表示には追加標識として残さない。別windowの計算式への無調整の置換、全intrinsic成分、任意formality間の独立性、coherent中心線型性は結論しない。
 
-さらに非分裂Brauer–Severi平面内のC/Kでも、幾何的O_C(1)のGalois不変類がPic³(C)(K)の点を与え、3[C]=0∈H¹(K,J_C)となる。この偏極類を実際の線束とは仮定しない。選択済み点型classのα=δ_C(p_res)=⟨[C],p_res⟩にTate pairingの双線型性を適用すれば3α=0となる（`cor:nfm-unsplit-point-scalar-period-three`）。従って非分裂体でもperiodは三を割り、既存index上界はn≢1 mod3で三、n≡1 mod3で九のままである。exact index三やindex九の実現には追加の議論が要る。
+さらに非分裂Brauer–Severi平面内のC/Kでも、幾何的O_C(1)のGalois不変類がPic³(C)(K)の点を与え、3[C]=0∈H¹(K,J_C)となる。この偏極類を実際の線束とは仮定しない。最高次線束型の選択済みfull classのα=δ_C(m_P)=⟨[C],m_P⟩にTate pairingの双線型性を適用すれば3α=0となる（`cor:nfm-unsplit-point-scalar-period-three`）。点型はm_P=p_resという特例である。従って非分裂体でもperiodは三を割り、既存index上界はn≢1 mod3で三、n≡1 mod3で九のままである。exact index三やindex九の実現には追加の議論が要る。
 
 ### Picard 三分点被覆と scalar 障害の三を法とする記述
 
@@ -1148,7 +1148,7 @@ T^mとの合成は元の体上の実際の核で、scalar bandを恒等に写す
 
 最小次数六などを排除するには元の体上で位相を追う。選択済みclass gerbe上のV=Hom(Pρ_nc,ρ_YP)は、始域・終域のscalarが相殺するため重み零で、K上の直線V₀へ降下する。三重合成の形式V₀³≃Kがμ₃-torsor T_η/Kを定め、周期標識付きstackはG×T_ηとなる。K=k_nはμ₃を含むので成分Mの次数は一または三。このclassの標識付き最小体次数は[M:K]ind(α_M)であり、元のαがexact index三なので三か九となる。classごとに異なる位相torsorの可能性を残しても、全classにわたる最小値は三または九である。
 
-このμ₃-torsorはscalar G_m-gerbeとも標準三分点torsorとも別である。三分点の最小次数九・Galois閉包216から周期標識の最小次数を推論せず、scalar gerbeの最小次数三からμ₃位相の消滅も推論しない。全intrinsic moduli上の標準class、任意の非分裂体でのexact index、coherent中心線型性を得たとは主張しない。
+このμ₃-torsorはscalar G_m-gerbeとも標準三分点torsorとも別である。標準九次体L₉には三次中間体がないので、T_ηが非自明ならL₉でも周期標識を選べない。三分点正規化がperiod図式を保持するのは、既に標識を含めたclassを選択済みの場合だけであり、underlying classの規格化から未選択の周期標識は得ない。三分点の最小次数九・Galois閉包216から周期標識の最小次数を推論せず、scalar gerbeの最小次数三からμ₃位相の消滅も推論しない。全intrinsic moduli上の標準class、任意の非分裂体でのexact index、coherent中心線型性を得たとは主張しない。
 
 ### 次の着手方法：高次元の full class・周期位相・coherent 中心作用
 
