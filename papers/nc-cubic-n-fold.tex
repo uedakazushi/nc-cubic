@@ -2,7 +2,7 @@
 \documentclass[11pt,a4paper]{ltjsarticle}
 \usepackage{amsmath,amssymb,amsthm,mathtools,bm,mathrsfs}
 \usepackage{luatexja-fontspec}
-\usepackage{enumitem,booktabs,array,needspace}
+\usepackage{enumitem,booktabs,longtable,array,needspace}
 \usepackage{xcolor}
 \usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
 \DeclareMathSizes{9}{9}{6}{5}
@@ -28,6 +28,34 @@
 \newtheorem{definition}[theorem]{定義}
 \newtheorem{example}[theorem]{例}
 \renewcommand{\proofname}{証明}
+% 旧paper Bの分割証明で用いる記号（既存定義は保持する）
+\providecommand{\ZZ}{\mathbb Z}
+\providecommand{\cK}{\mathcal K}
+\providecommand{\cP}{\mathcal P}
+\providecommand{\cD}{\mathcal D}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cE}{\mathcal E}
+\providecommand{\cF}{\mathcal F}
+\providecommand{\cM}{\mathcal M}
+\providecommand{\fm}{\mathfrak m}
+\providecommand{\Perf}{\operatorname{Perf}}
+\providecommand{\Ku}{\operatorname{Ku}}
+\providecommand{\MF}{\operatorname{MF}}
+\providecommand{\HH}{\operatorname{HH}}
+\providecommand{\Dsg}{D_{\mathrm{sg}}}
+\providecommand{\RHom}{\operatorname{RHom}}
+\providecommand{\REnd}{\operatorname{REnd}}
+\providecommand{\Ind}{\operatorname{Ind}}
+\providecommand{\Def}{\operatorname{Def}}
+\providecommand{\thick}{\operatorname{thick}}
+\providecommand{\Spf}{\operatorname{Spf}}
+\providecommand{\Id}{\operatorname{Id}}
+\providecommand{\sym}{\operatorname{sym}}
+\providecommand{\Cone}{\operatorname{Cone}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\otL}{\mathbin{\otimes^{\mathbf L}}}
+\newtheorem{problem}[theorem]{問題}
+
 \newcommand{\C}{\mathbb C}
 \newcommand{\CC}{\mathbb C}
 \newcommand{\PP}{\mathbb P}
@@ -48,13 +76,20 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月21日・研究稿 v25}
+\date{2026年11月21日・研究稿 v26}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
 \maketitle
 \vspace{-1.8\baselineskip}
 \begin{abstract}
+次数別有限自由な中心三次非可換変形に対する完備曲率付き
+matrix factorizationの移送を構成し、任意の$n\ge3$について
+一般係数体の有限拡大上で全coherent残余圏を滑らかな可換三次超曲面の
+Kuznetsov成分として復元する。比較はrotationと指定三次周期を保存する。
+可換模型の方程式は元の関数体上に定義できる。
+この一般復元は以下の一ブロック型のモジュライ定理より広い仮定で成立する。
+
 三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ三次超曲面の量子化を扱う。
 良い一ブロック型の $\mathcal O$-marked 圏族の滑らかな既約 DM stack を構成し、
 表示の Brauer 障害の位数を $\gcd(n-1,3)$ と決定する。
@@ -132,19 +167,20 @@ Serre 関手が回復する twist の次数が変わり、
 残余圏の Hochschild 群には四次元と七次元で追加成分が現れ、
 Poisson 方程式のスキーム構造にも八次元から新しい現象が生じる。
 
-本稿の直接の出発点は、リポジトリ \texttt{nc-cubic} の
-論文A \cite{NCCubicA} と論文B \cite{NFNCCubicB} である。
-参照するソースは次の固定 commit に統一する：
-\begin{center}
-\texttt{eabe601c1341777742964584dde5314c0bcf64a9}.
-\end{center}
-論文Aは既に任意次元の Poisson 正規形と代数的中心量子化を扱い、
-論文Bは既に $n\ge3$ の一般点における rotation と指定三次周期を保つ
-可換残余模型を扱う。
-これらを今回新しく得た一般次元化として数えない。
-本稿は、これらの研究稿を明示した入力として、次数付きモジュライ、
-任意次数の中心復元、点関手、Jacobi スキーム、および残余圏の形式変形を整理する。
-引用した未公表稿の全証明を本稿内で再証明したという意味ではない。
+本稿の外部入力は、リポジトリ \texttt{nc-cubic} の論文A
+\cite{NCCubicA}（固定commit
+\texttt{eabe601c1341777742964584dde5314c0bcf64a9}）による
+全次元Poisson正規形と代数的中心量子化である。
+従来同リポジトリの論文B（B-v59）に収録していた完備曲率移送、
+相対window、一般点の可換復元とその全coherent飽和、
+低rotation積による方程式復元、明示Hesse模型の全証明を
+本稿に統合した。これらは以下の
+定理\ref{cft:thm:complete}および定理\ref{gdr:thm:generic}を中心に
+独立した基礎定理として述べる。
+これらの基礎定理の適用範囲は一般一ブロック型だけに限定しない。
+その後、良い一ブロックのO-markedモジュライ・相対点対応・Poisson射・
+同じ三次への相対Kuznetsov比較とその降下障害を構成する。
+論文Aの未公表入力の全証明を本稿内で再証明したという意味ではない。
 
 関連する公刊研究との関係は次の通りである。
 Etingof--Ginzburg \cite{NFMEG} は三変数 potential の PBW 変形と中心元を構成し、
@@ -1506,6 +1542,17 @@ $q=2$ の計算では、全 orbit Hom と target 周期を保つ integral 模型
 形式座標の代数性と内在的なモジュライの代数性は区別して進める。
 boundary や全 Abel 形式近傍の記述は、この一般次元の構成に必要な障害を解消する
 範囲で扱い、本稿に得た個別次元の証明と計算資産はその検査例として保持する。
+
+% 一般中心三次変形の完備移送・一般点復元（旧paper Bの証明を統合）
+\input{papers/sections/generic_recovery/main_result.tex}
+\input{papers/sections/generic_recovery/local_model.tex}
+\input{papers/sections/generic_recovery/window.tex}
+\input{papers/sections/generic_recovery/curved_transport.tex}
+\input{papers/sections/generic_recovery/generic_descent.tex}
+\input{papers/sections/generic_recovery/coherent_saturation.tex}
+\input{papers/sections/generic_recovery/gradient_recovery.tex}
+\input{papers/sections/generic_recovery/field_model.tex}
+\input{papers/sections/generic_recovery/explicit_example.tex}
 
 \input{papers/sections/graded_moduli.tex}
 \input{papers/sections/relative_duality.tex}
