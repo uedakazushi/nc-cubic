@@ -6,6 +6,7 @@
 \usepackage{xcolor}
 \usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
 \DeclareMathSizes{9}{9}{6}{5}
+\DeclareMathSizes{9.85501}{9}{6}{5}
 \IfFileExists{/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc}{%
   \setmainjfont[Path=/usr/share/fonts/opentype/noto/]{NotoSerifCJK-Regular.ttc}%
 }{\setmainjfont{HaranoAjiMincho-Regular}}
@@ -47,7 +48,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v20}
+\date{2026年11月20日・研究稿 v21}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -57,42 +58,40 @@ pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ三次超曲面の量子化を扱う。
 良い一ブロック型の $\mathcal O$-marked 圏族の滑らかな既約 DM stack を構成し、
 表示の Brauer 障害の位数を $\gcd(n-1,3)$ と決定する。
-相対点スキームの楕円成分と定常成分から中心三次商を復元し、
-trace--Hessian と強い affine 持上げにより、圏 stack を分解可能な Poisson 対の非空開と同定する。
+相対点スキームから中心三次商を復元し、trace--Hessian と強い affine 持上げによって
+圏 stack を分解可能な Poisson 対の非空開と同定する。
 
 固定した完備 MF 移送・window・生成性・飽和性の入力の下で、
-低 rotation 積と中心作用から残余三次と射影 Poisson 射を代数的に復元する。
-この射は全 O-同値へ降下する支配射で、一般相対次元は一である。
+低 rotation 積から残余三次と全 O-同値に自然な射影 Poisson 射を代数的に復元し、
 有限 \'etale 被覆上で同じ三次の Kuznetsov 成分との同値を得る。
-形式像を全次数で同定する一方、固定生成元・パラメータの tensor は
-全 $n\ge3$ の very general な係数で非代数的である。
-残余 active 曲線と楕円点曲線の $j$ は等しく、尺度線束は残余 Hodge 線束の双対となる。
-点微分による符号商残余射の一般次数は十八であり、
-三捩れ対称族への有限対角延長により尺度二重被覆を分裂させると、
-半古典規格化された full Poisson 射の一般次数は九となる。
+楕円点曲線と残余 active 曲線の $j$ は等しく、尺度線束は残余 Hodge 線束の双対となる。
+点微分による符号商射の一般次数は十八、半古典規格化された full 射の一般次数は九である。
+形式像を全次数で同定する一方、固定生成元・パラメータの tensor は very general に非代数的である。
 
-active 制限の最高次 cohomology が点 shift を表す線束となる非空な核の型を構成し、
-点型と Picard gerbe の記述を全 O-同値へ降下する。
-全 ambient の Heisenberg 作用から自然な点／残余平面同型を構成し、
-一般 split 係数体で両側の Picard 障害が等しく period と index が三となることを示す。
-さらに原点像を最高次線束の右随伴像として復元する非空な型を取り出し、
-その full class の選択を有限群の torsor へ還元する。
-奇数次元ではこの有限群は数値的に自明である。
-三・四次元ではこの型の class は正準的に一つとなり、
-全 full class が降下して同じ scalar 障害を持つため、周期標識を忘れた最小比較次数は三となる。
-周期位相も全 class に共通であり、適合規格化での最小次数は三、
-標的の独立尺度を持つ一般族での周期標識付き最小次数は九である。
-自然な三乗までの方程式規格化から $\gamma_{\mathrm{sc}}$ を定めるが、元の体上の値は未決定である。
-標準三分点被覆は連結な九次体で、Galois 閉包は次数二百十六の
-$\operatorname{ASL}_2(\mathbf F_3)$ となる。三分点の取得と scalar 分裂は区別する。
+点 shift を表す最高次線束によって非空な full 核の型を定め、全 O-同値へ降下する。
+自然な点／残余平面同型から、一般 split 係数体で両側の Picard 障害が等しく
+period と index が三となることを示す。
+原点像を右随伴によって復元する強化型の class 選択は有限群の torsor となり、
+奇数次元ではこの群は数値的に自明である。
+三・四次元の一般 split 体では強化型の class は唯一で、全 full class も降下し、
+周期標識を忘れた最小比較次数は三となる。
+全 class 共通の周期位相を方程式の三乗規格化で定め、
+混合有理 CF 比較と同変降下によって二変数体 $\C(c_4,-c_6)$ へ一意に帰着する。
+具体値は未決定であり、適合規格化の最小次数三と独立標的尺度族の最小次数九を区別する。
+非分裂表示では $n\equiv1\pmod3$ の各非空開に Picard index 九を実現し、
+普遍的な重み一階数の最小値九と、四次元の強化型の最小実現次数九を得る。
+五次元では Clifford 半 rotation が平面の選択に依存せず実核として降下するが、
+残る有限 class torsor の中立性は未決定である。
+標準三分点被覆は連結な九次体で、Galois 閉包群は位数216の
+$\operatorname{ASL}_2(\mathbf F_3)$ となる。
 
-trace--Hessian 三次と残余三次の不一致を示し、Hessian 補正と混合四次補正を構成する。
+trace--Hessian 三次と残余三次の不一致、Hessian・混合四次補正も与える。
 Jacobi スキームは $3\le n\le7$ の一般三次で Grassmann 錐に一致し、
 $n=8$ の頂点には長さ330の非分裂平方零構造がある。
-既存の被約分類の下で非零部分の一致は全次元に成り立つが、特殊三次には非零非被約点がある。
-頂点冪零部の最高次数・消滅指数は非有界であり、
+既存の被約分類の下で非零部分は全次元で一致するが、特殊三次には非零非被約点があり、
+頂点冪零部の最高次数・消滅指数は非有界である。
 $n\ne4$ の残余圏の通常 Artin 変形を一次切断で幾何的に認識する。
-高次元の有限 class torsor の中立性、全 intrinsic 成分の被覆と比較核の大域降下は未完成である。
+全 intrinsic 成分の被覆と比較核の大域降下は未完成である。
 \end{abstract}
 \clearpage
 \setcounter{tocdepth}{1}
@@ -348,6 +347,30 @@ bounded な対象 moduli と自己同値 locus の開性から、その class �
 
 五次元の安定性条件には Peize Liu\cite[Theorem~1.1, Remark~5.6]{NFMPeizeLiuFivefold}の
 Serre 不変な条件の構成があるが、同論文はその軌道の一意性を仮定していない。
+本稿では同論文の Clifford rotation を普遍平面上の相対核として構成し、
+$HH^1=0$ と Fano 曲面の連結性から、その核 class の平面非依存性を示す。
+Clifford 比較の入力は Kuznetsov\cite[Theorem~4.2]{NFMKuznetsovQuadric}と
+Liu\cite[Theorem~2.8, Corollary~3.10]{NFMPeizeLiuFivefold}、
+曲面の連結性は Collino\cite[Propositions~1.8, 1.10]{NFMCollinoFivefold}による。
+二捩れの実現 gerbe を、既知の奇数 Pl\"ucker degree
+$2835$\cite[Example~4.4]{NFMCilibertoZaidenbergFano}によって中立化し、
+元の体上の半 rotation の実核を得る。
+得られる数値的に自明な $\epsilon=OT^{-1}$ の非自明性や原点像の固定は未決定である。
+
+非分裂表示では、実際の次数三線束と偏極類の区別が指数に現れる。
+theta group による divisor-class pair の降下
+\cite[Proposition~2.2, Lemma~2.4]{NFMCremonaFisherDescentAlgebra}と
+Tate--Weil 公式\cite[Theorem~3.7]{NFMCiperianiKrashen}を用いて、
+次数零 Picard 障害が period 三・index 九となる genus-one 曲線を構成する。
+Brauer--Severi 平面と三捩れの Heisenberg 表現の関係は
+Saltman\cite[Sections~3--4, Theorem~5]{NFMSaltmanSeveri}でも扱われる。
+本稿ではこの既知の構成原理を、混合係数と中心三次 torsor の twist によって
+全 $n\equiv1\pmod3$ の良い一ブロック成分の任意の非空開へ実現し、
+点型 full 比較の九整除性と普遍 Picard gerbe の最小正階数九へ接続する。
+四次元の幾何学的一般族では、随伴復元点型の唯一の class により最小実現次数九を達成する。
+曲線の period--index の相違そのもの、既知の degree $2835$、
+Clifford 半 rotation の存在自体を本稿の新規成果として数えていない。
+
 さらに Wu\cite[Theorems~1.1, 1.3, Proposition~7.2]{NFMWuStability}と
 Aravena--Liu--Tevelev\cite[Theorem~1.2]{NFMAravenaLiuTevelevGepner}は
 超曲面圏の Gepner 安定性条件に関する一般的な構成を述べている。
@@ -1060,9 +1083,29 @@ $k_n(t)[s]/(s^3-dt)=k_n(s)$ である。
 指定平面同型から生成元を三乗倍まで定められる。
 一般係数体ではこの平面同型自体も唯一である
 （系\ref{cor:nfm-generic-plane-isom-unique}）。
-従って $\gamma_{\mathrm{sc}}$ が一意に定義され、形式比較体への像は零である
+従って $\gamma_{\mathrm{sc},n}$ が一意に定義され、形式比較体への像は自明である
 （命題\ref{prop:nfm-period-phase-formal-active-scalar}）。
-元の係数体上の $\gamma_{\mathrm{sc}}$ と、対応する最小次数三／九の判定は未決定である。
+さらに定理\ref{thm:nfm-period-phase-active-descent}と
+命題\ref{prop:nfm-period-phase-invariant-descent}により、これは一意な類
+\[
+ \overline\gamma_n\in\C(s,t)^\times/\C(s,t)^{\times3},
+ \qquad s=c_4(g),\quad t=-c_6(g),\qquad n=3,4
+\]
+から来る。
+有限 MF の内部次数と正の混合重みにより無限 arity の挿入後も混合単項式数を抑え、
+$\kappa(m)$ 上に実際の周期付き full Morita 比較を作ることが最初の段階である。
+次に線型持上げと周期解を $(f,\eta)\mapsto(\lambda f,\lambda^{-1}\eta)$ で商にし、
+周期 torsor 自身の $\operatorname{SL}_3$ 同変構造を得る。
+一般 Heisenberg 安定化群の character が消えるため、不変量体への降下が成立する。
+これは形式体への Kummer 引戻しが単射だと仮定した結果ではない。
+
+$\Delta=s^3-t^2$、$D=1-s/24-t/216-s^2/6912$ と置く。
+この torsor が $\Spec\C[s,t,1/(\Delta D)]$ 上で有限 \'etale に延びるという
+追加仮定の下では、候補は $1,[D],[D]^2$ に限られ、
+さらに $D=0$ の一般点でも非分岐なら自明となる
+（補題\ref{lem:nfm-period-two-boundary-criterion}）。
+他の分岐因子の排除、$\overline\gamma_3$ と $\overline\gamma_4$ の一致、
+および元の規格化での標識付き最小次数三／九の判定は未決定である。
 
 全次元では、原点対象と active 制限に内在的な表示
 \[
@@ -1113,6 +1156,42 @@ $n$ が奇数なら $H_p\subset G_{\rho,0}$ である。
 元の最高次線束条件だけの全点型や、全ての full 核の有限性を主張してはいない。
 五次元の $H_p$ または torsor $S_p$ の具体的な決定は残る。
 この定理は rotation 同型そのものと周期標識を忘れた class に関するものである。
+
+\begin{maintheorem}[非分裂点型の指数九と普遍階数の最小性]
+\label{main:nfm-unsplit-picard-index-nine}
+$n\ge4$、$n\equiv1\pmod3$ とし、固定入力の下で点型と半古典平面同型が
+全 $\mathcal O$-降下する共通な良い一ブロック開を取る。
+その任意の非空開に、体値点であって
+\[
+ \operatorname{per}\delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})=3,
+ \qquad\operatorname{ind}\delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})=9
+\]
+となるものが存在する。この点で実際の点型 full 比較核を持つ有限体拡大の次数は、
+九の倍数である。$n=4$ の幾何学的一般族では、随伴復元点型の最小実現次数は九である。
+
+普遍 Picard gerbe $\mathscr P_{p_{\mathrm{res}}}$ 上には重み一・階数九の束があり、
+底をどの非空開へ縮めても重み一の正の階数は九の倍数である。
+表示 gerbe の index 三と、この点の Picard index 九は異なる。
+全ての体値点で index 九となること、型を指定しない全比較核の最小次数、
+高次元の class torsor の中立性は主張しない。
+\end{maintheorem}
+
+証明は命題\ref{prop:nfm-unsplit-genus-one-picard-nine}、
+\ref{prop:nfm-unsplit-point-index-nine-family}、
+系\ref{cor:nfm-universal-unsplit-picard-rank-nine}、
+\ref{cor:nfm-unsplit-point-minimum-nine}にある。
+独立な二つの三次 Kummer 座標から、
+次数九の division algebra を二重付値で明示する。
+この九は周期標識を追加しない点型の scalar 障害から来る。
+
+五次元では、Clifford 表示の $O_\Pi$ は平面に依存しない class を定め、
+その実際の $K$-核 $O$ を構成できる
+（定理\ref{thm:nfm-fivefold-half-rotation-kernel-descent}）。
+$O^2\simeq\rho$、$\epsilon=OT^{-1}$ に対し
+$\epsilon^2\simeq\operatorname{id}$、$\epsilon_*=\operatorname{id}$ であり、
+Liu の安定性軌道を各点固定する。
+ただし $\epsilon\ne\operatorname{id}$ と $\epsilon(E_p)\simeq E_p$ は未判定であり、
+有限 $H_p$ や $S_p$ を決定したという結論ではない。
 
 \begin{maintheorem}[標準三分点被覆の正確な次数と Galois 群]
 \label{main:nfm-third-division-monodromy}
@@ -1247,9 +1326,15 @@ Picard 類が点の平行移動に一致する核の型の非空性を、同じ�
 $n=3,4$ では全 full 同型類が降下し、周期の追加標識を忘れた最小比較次数は三である。
 周期位相も全類で共通で、相対規格化で消せる一方、独立な標的尺度を持つ一般族の
 標識付き最小次数は九となる。
-次の課題は $n=5$ の随伴復元点型の有限 torsor の中立性と高次元・全型への拡張、
-三乗までの自然な方程式規格化に対する低次元の周期位相 $\gamma_{\mathrm{sc}}$ の具体値、
-非分裂表示の index、および各 intrinsic 成分を覆う表示である。
+三乗までの自然な方程式規格化で定まる位相は、混合有理 CF 比較と同変降下により
+二変数不変量体 $\C(c_4,-c_6)$ へ一意に戻る。
+非分裂表示では $n\equiv1\pmod3$ の任意の非空開に Picard index 九を実現し、
+四次元の強化点型は未標識最小次数九を達成する。
+五次元の Clifford 半 rotation は平面非依存の実核として降下する。
+次の課題は、その差から得る数値的に自明な involution の作用と
+随伴復元点型の有限 torsor の中立性、高次元・全型への拡張、
+二変数体上の周期位相 $\overline\gamma_3,\overline\gamma_4$ の具体値と境界の非分岐性、
+非分裂表示の class 選択・index の適用範囲、および各 intrinsic 成分を覆う表示である。
 固定 frame の tensor の very general な超越性を踏まえ、
 形式座標の代数性と内在的なモジュライの代数性は区別して進める。
 boundary や全 Abel 形式近傍の記述は、この一般次元の構成に必要な障害を解消する

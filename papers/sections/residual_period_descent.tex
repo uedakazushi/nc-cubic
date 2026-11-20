@@ -1,0 +1,316 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\subsection{周期位相の混合定数降下と active 不変量への帰着}
+\label{subsec:nfm-period-invariant-descent}
+
+ここでは $n=3,4$、$K_n=k_n$ を標準 split 一般係数体とし、
+既存の三乗規格化で定まる $\gamma_{\mathrm{sc},n}$ を考える。
+この類が二変数体 $\mathbb C(c_4,-c_6)$ から一意に来ることを証明する。
+その具体値は未決定である。
+形式体での三乗性を元の体へ無条件に戻す議論は使わない。
+
+$g$ の十個の独立係数の体を $k=\mathbb C(g_\alpha)$ とし、
+\[
+ K=k(h),\qquad \kappa=k((h)),\qquad
+ m=(b,\ell,d),\qquad F=g+b+\ell+d
+\]
+と置く。混合係数の重みは $b,\ell,d$ にそれぞれ $1,2,3$ を与える。
+active 座標 $x$ の重みを零、中心座標 $u$ の重みを $-1$ とすると、
+普遍三次 $F$ の重みは零である。$h$ と周期変数 $t$ のこの重みは零とする。
+
+\begin{lemma}[固定した MF 行列における混合重みの上界]
+\label{lem:nfm-period-flow-mixed-bound}
+生成元固定の相対 graph flow とその逆を用いる。
+$W=W_h^{\mathrm{TH}}\in k[[h]][m][x,u]_3$、
+$\pi_h=a_h(g)\iota_{dW}P_0$ とし、
+$Q$ を、有限個の内部 shift と整数重みを与えた自由基底上の
+重み零の有限 rank graded MF とする。
+その行列成分は $k[[h]][m][x,u]$ に属するものとする。
+このとき flow の挿入公式による像と逆像の行列成分も
+$k[[h]][m][x,u]$ に属する。
+固定した有限個の重み斉次な射に対する各 Taylor 成分についても同じである。
+従って、それらの有限対象と全 Hom 複体への flow は
+$\kappa(m)$ 上の実際の $A_\infty$ 関手として定義できる。
+\end{lemma}
+
+\begin{proof}
+命題\ref{prop:nfm-residual-mixed-triangular}の証明は、
+$W$、$\pi_h$ と生成元を固定する厳密な星積同型について、
+各 $h$ 係数が混合係数の多項式であることを与える。
+$a_h(g)=c_h(g)/b_h(g)$ は active 係数と $h$ だけに依存する。
+従って固定入力Bの \texttt{cft:lem:primitive} の三重ベクトルは
+$\Xi=a_h(g)P_0$ である。
+経路
+\[
+ \alpha_s=-tW+(1-s)\pi_h,\qquad
+ \eta=\Xi/t
+\]
+は重み零である。
+全てのグラフの出る辺は active 方向だけを微分するため、
+各 Taylor 成分、順序付き合成、および逆 flow はこの重みを保つ。
+$h$ の各有限切断では式は有限和なので、係数の多項式性も保つ。
+厳密な星積同型とその逆についても同様である。
+
+自由基底 $e_i$ に重み $w_i$ を与える。
+例えば重み零の微分の $(i,j)$ 成分に現れる単項式
+$m^\alpha x^\beta u^\nu$ は
+\[
+ \operatorname{wt}(m^\alpha)-|\nu|=w_j-w_i
+\]
+を満たす。
+二つの次数、固定した基底の内部 shift と $t$ の冪から、この成分の
+$x,u$ に関する全次数 $D$ は固定される。
+従って
+\[
+ 0\le\operatorname{wt}(m^\alpha)
+       =|\nu|+w_j-w_i\le D+w_j-w_i.
+\]
+全ての $m$ 変数の重みが正なので、出現できる $m$ 単項式は有限個に限られる。
+この上界は $h$ の次数にも、MF 微分を挿入した回数にも依存しない。
+一般の重み斉次な射については右辺にその射の固定重みを加えるだけである。
+
+固定入力Bの \texttt{cft:eq:bound} により、挿入回数が増える項の
+$h$ 進位数は無限大へ行く。
+従って有限個の $m$ 単項式の各係数が $k[[h]]$ で収束し、
+出力は $k[m][[h]]$ だけでなく $k[[h]][m]$ に属する。
+同じ議論を、固定 arity、固定 cohomological 次数の Hom 行列成分へ適用する。
+任意の $\kappa(m)$ 係数の射は、有限個の単項式行列の線型結合である。
+その係数を relative な Taylor 成分の外へ出すことで関手を定義する。
+係数の $h$ 進位数が負であっても、固定した射の個数に対する有限の下界しか加わらず、
+収束は変わらない。
+
+$A_\infty$ 恒等式、逆関手の恒等式、単位、内部 shift と $t$ の保存は、
+忠実な拡大 $\kappa(m)\hookrightarrow k(m)((h))$ の後で既存 flow の恒等式である。
+従って $\kappa(m)$ 自身で成立する。
+ここで局所化するのは、上の integral な有限対象について既に定義した Hom 比較である。
+その後の有限 cone と直和因子には、pretriangulated hull と冪等完備化の
+普遍性によって関手を延ばす。
+$h$ の負冪を係数に持つ新しい Maurer--Cartan 元を作り、
+無限挿入公式をそれへ改めて評価しているのではない。
+\end{proof}
+
+\begin{proposition}[混合係数を有理的に保つ周期付き CF 比較]
+\label{prop:nfm-period-comparison-mixed-rational}
+上の一般族には $\kappa(m)$ 上で、source 中心元
+$\Omega_h^{\mathrm{TH}}$ と target の実際の曲率 $W_h^{\mathrm{TH}}$ の
+指定周期を保つ full Morita 比較が存在する。
+ここで $h$ 方向の係数を代数化するとは主張していない。
+\end{proposition}
+
+\begin{proof}
+source の原点 stabilization を混合係数上で新たに構成する必要はない。
+可換側の原点の Koszul MF を出発点にする。
+$z=(x,u)$、$W_i=\frac13\partial_iW$ とし、外積基底を用いて
+\[
+ Q_W=\sum_i z_i\iota_i+t\sum_i W_i\varepsilon_i,
+ \qquad Q_W^2=tW\,\mathrm{id}
+\]
+と置く。$\varepsilon_i$ に対応する外積生成元の重みを $z_i$ の重みと同じに取ると、
+$Q_W$ は重み零であり、その二つの行列の内部 shift と rank は固定されている。
+行列係数は $k[[h]][m][x,u]$ に属する。
+前補題により逆 CF flow を $Q_W,Q_W(1),Q_W(2)$ とその Hom 複体へ適用でき、
+$\kappa(m)$ 上に source の三つの実際の有限 MF と、互いに逆な Hom 比較を得る。
+
+$L=k(m)((h))$ への拡大後では、これは完備底上の CF を
+固定有限対象へ制限してから局所化した比較と一致する。
+固定入力Bの \texttt{tw:lem:proper-hom} と \texttt{rog:lem:localization} による
+proper Hom/window の底変更により、この局所化は実際の Hom を計算する。
+同Bの \texttt{gcd:prop:bound} により、可換側の三つの原点 stabilization は
+full 残余圏を生成する。
+source の原点 stabilization を完備 CF で送った対象は可換側のこの generator の
+thick closure に入るので、逆関手を通して source の既存の三対象 generator も
+上で得た三対象の thick closure に入る。
+従って $L$ 上でその像は source の full 残余圏を生成する。
+
+この生成性は体 $\kappa(m)$ へ降下する。
+実際、像の直和を $G$、その endomorphism dg 代数を $A$ とすると、
+完全忠実性により $A$ は可換側の smooth proper な generator 代数と Morita 同値である。
+source の任意の perfect 対象 $E$ に対し、$R\operatorname{Hom}(G,E)$ は
+基礎体上 perfect であり、$A$ の smoothness によって $A$-perfect でもある。
+評価射の cone は $G$ の右直交に入る。
+その $L$ への底変更は零なので、忠実平坦性により元の cone も零である。
+これで full な Morita 比較を得る。
+全構成は $t$ に関して relative であり、指定周期を保つ。
+この議論は全体上の相対 smoothness を特殊ファイバーから推論していない。
+\end{proof}
+
+\begin{theorem}[周期位相は混合係数に依存しない]
+\label{thm:nfm-period-phase-active-descent}
+$n=3,4$ の標準 split 係数体で、$\gamma_{\mathrm{sc},n}$ は
+active 三次の十係数体 $k=\mathbb C(g_\alpha)$ から来る一意な Kummer 類である。
+\end{theorem}
+
+\begin{proof}
+まず $K(m)$ 上の $h$ 族を考える。
+$\widehat W=b_h^{-1}W$ の有限多項式模型と残余 Poisson 対の比較は、
+慣性自明な一般点の一意な同型により $\kappa(m)$ 上で定義される
+（命題\ref{prop:nfm-plane-isom-constant-descent}の証明）。
+その射影同型を split ambient 間の線型同型へ持ち上げる。
+指定 $\varphi_{\mathrm{sc}}$ の active 制限と一致することから、
+命題\ref{prop:nfm-period-phase-formal-active-scalar}と同じ determinant 比較が
+今回は $\kappa(m)$ 上で成立する：
+\[
+ F_{\varphi_{\mathrm{sc}}}=\lambda^{-3}b_h^{-1}W,
+ \qquad\lambda\in\kappa(m)^\times.
+\]
+$b_h$ は $1+h k[[h]]$ に属するので、その三乗根は $\kappa$ に存在する。
+前命題の周期付き比較に、上の線型同型および全座標の一様な scalar 変更を合わせれば、
+$\Omega_h^{\mathrm{TH}}$ と $F_{\varphi_{\mathrm{sc}}}$ の周期を保つ比較が
+$\kappa(m)$ 上に存在する。
+全 full class の位相が共通なので、
+\[
+ \gamma_{\mathrm{sc},n}|_{\kappa(m)}=1.
+\]
+これは単に $k(m)((h))$ 上で消えるという主張より強い。
+
+補題\ref{lem:nfm-finite-etale-constant-descent}を $G=\mu_3$ に適用すると、
+$K(m)$ 上の類は一意な $K=k(h)$ 上の類から来る。
+全係数を $\widetilde F=hF$ で吸収すると、source 中心元と target 曲率は同時に $h$ 倍される。
+従ってこれは元の $\gamma_{\mathrm{sc},n}$ の $k_n(h)$ への引戻しである。
+ここで active 係数を $\widetilde g$ と書けば、
+\[
+ k_n(h)=\mathbb C(\widetilde g_\alpha)(\widetilde m,h)
+\]
+であり、類は $\mathbb C(\widetilde g_\alpha)(h)$ からも来る。
+この後者の類を分裂させる体 $L'/\mathbb C(\widetilde g_\alpha)(h)$ を一つ取ると、
+元の $k_n$ 上の torsor は定数体拡大 $L'(\widetilde m)$ で分裂する。
+同じ定数降下補題をもう一度適用して、
+$\mathbb C(\widetilde g_\alpha)$ への一意な降下を得る。
+support や frame の独立変数を含む chart では、表示変更に対する cube-frame の自然性で
+固定 frame の chart へ戻し、純超越拡大に対する単射性を用いる。
+\end{proof}
+
+\begin{proposition}[三次元安定化群の character の消滅と不変量体への降下]
+\label{prop:nfm-period-phase-invariant-descent}
+上の類はさらに一意に
+\[
+ \overline\gamma_n\in
+ \mathbb C(s,t)^\times/\mathbb C(s,t)^{\times3},
+ \qquad s=c_4(g),\quad t=-c_6(g)
+\]
+から来る。
+\end{proposition}
+
+\begin{proof}
+まず、Kummer 類の不変性だけでなく、周期 torsor 自身の同変構造を構成する。
+随伴復元点型の唯一 class の実現 gerbe 上で普遍核を $P$ とし、
+$V=\operatorname{Hom}^0(P\rho_{\mathrm{nc}},\rho_YP)$ を取る。
+核の scalar 自己同型は始域と終域で相殺するため、$V$ の重みは零であり、
+底上の直線 $V_0$ へ降下する。
+指定された平面同型 $\varphi_{\mathrm{sc}}$ の線型持上げ $f$ の空間は
+$\mathbf G_m$-torsor である。
+その上では実際の方程式 $F_f$、三次形式 $c_f:V_0^{\otimes3}\simeq\mathcal O$、
+周期解 $c_f(\eta)=1$ が定義される。
+式\eqref{eq:nfm-period-phase-frame-law}によれば
+\[
+ F_{\lambda f}=\lambda^{-3}F_f,\qquad
+ c_{\lambda f}=\lambda^3c_f.
+\]
+従って
+\[
+ (f,\eta)\longmapsto(\lambda f,\lambda^{-1}\eta)
+\]
+は周期解の空間への実際の $\mathbf G_m$ 作用である。
+二回の変更は $(\lambda\mu)^{-1}\eta$ を与えるので、降下 cocycle は文字通り成立する。
+この作用で商を取れば、持上げに依存しない $\mu_3$-torsor が得られる。
+さらに source の中心元を $u\Omega$ に替えると
+$P_{\mathrm{src}}\mapsto u^{-1}P_{\mathrm{src}}$、$F_f\mapsto uF_f$ となる。
+source/target が同時に $u$ 倍されるため $c_f$ と $\eta$ は変わらず、
+この補助 frame の変更とも両立する。
+
+同時表示変更は、随伴復元点型の実現 gerbe、普遍核、二つの rotation、
+周期の三重図式、および $f$ の空間を自然に移す。
+gerbe 上で二通りの移送を比較する核の同型は scalar の分だけ不定だが、
+それは $V_0$ と三次形式には自明に作用する。
+従って marked kernel stack 上の合成の整合性は、上で得た実際の torsor の
+合成の整合性へ降りる。
+特に source/target の同時 $\operatorname{SL}_3$ 表示変更に対し、
+この torsor は coherent な同変構造を持つ。
+その同型類は、全 class に共通な $\gamma_{\mathrm{sc},n}$ である。
+
+混合定数降下もこの同変性を保つ。
+実際、同変同型は $\mathbb C(g,A)(m)$ 上の有限 torsor の同型であり、
+定数 torsor 間の同型空間が有限 étale であることから $m$ に依存しない。
+同じ議論を二つ、三つの群変数へ適用すると cocycle 条件も降下する。
+
+一般 active 三次 $g$ の安定化群 $H_g\subset\operatorname{SL}_3$ は Heisenberg 群で、
+その中心かつ交換子群は $\mu_3$、可換化は
+$J_g[3]$ である\cite[\S9.5]{NFMFisherTernary}。
+ここで $J_g$ は元の三次 $V(g)$ の Jacobian を表す。
+同変な $\mu_3$-torsor の一つの fibre への $H_g$ の作用は
+$\mathbb C(g_\alpha)$ 上の character $H_g\to\mu_3$ を与える。
+これは $J_g[3]\to\mu_3$ を通る。
+既存の full $\operatorname{SL}_2(\mathbf F_3)$ モノドロミーにより、
+この標準表現の双対の固定部分は零である。
+従って character は自明であり、一般安定化群の作用は torsor 上で自明である。
+
+Fisher の不変式と軌道定理\cite[Theorem~1.1, Lemma~2.2]{NFMFisherTernary}により、
+不変量体の幾何的一般 fibre は一つの
+$\operatorname{SL}_3$ 軌道である。
+したがって、その商 stack は $\operatorname{Spec}\mathbb C(s,t)$ 上の gerbe である。
+安定化群が自明に作用する有限 étale torsor はこの底へ降下する。
+これは、局所的な代表三次を選び、二つの代表を結ぶ群の元を変えた差が
+安定化群に入ることから、torsor 間の同型が選択に依存しないという通常の fpqc 降下である。
+三重積でも差は安定化群に入り cocycle が成立する。
+
+有理的な同変構造だけから始める場合も、幾何的一般軌道の正規化有限被覆へ延長できる。
+その branch locus は群作用に不変な真の閉部分であるため、推移性により空である。
+よって上の有限 étale 議論が適用できる。
+最後に active 係数体は不変量体上正則である
+（補題\ref{lem:nfm-active-invariant-regular-fiber}と同じ軌道の証明）。
+従って Kummer 類の引戻しは単射であり、降下は一意である。
+\end{proof}
+
+\begin{remark}[この帰着が決めない値]
+上の証明は $\overline\gamma_n=1$ をまだ示さない。
+形式的な代入 $(s,t)\mapsto(h^4s,h^6t)$ の後の自明性は、
+例えば $1+s$ や下の $D(s,t)$ の三乗性を元の体で保証しない。
+$n=3$ と $n=4$ の二つの降下類が一致することも、ここでは主張しない。
+\end{remark}
+
+\begin{lemma}[二つの判別境界へ非分岐を絞れた場合の候補]
+\label{lem:nfm-period-two-boundary-criterion}
+\[
+ \Delta=s^3-t^2,\qquad
+ D=1-\frac{s}{24}-\frac{t}{216}-\frac{s^2}{6912}
+\]
+と置く。上の $\overline\gamma_n$ の torsor が
+$U=\operatorname{Spec}\mathbb C[s,t,1/(\Delta D)]$ 上で有限 étale に延びるなら、
+\[
+ \overline\gamma_n\in\{1,[D],[D]^2\}.
+\]
+さらに $D=0$ の一般点でも非分岐なら、$\overline\gamma_n=1$ である。
+ここで表示した非分岐性は追加の未証明条件であり、固定入力から得た結論とは区別する。
+\end{lemma}
+
+\begin{proof}
+$\mathbb C[s,t]$ は UFD であり、$\Delta$ と $D$ は互いに素な既約式である。
+$D$ の既約性は $t$ に関して一次であることから分かる。
+局所化も UFD なので $\operatorname{Pic}(U)=0$ である。
+Kummer 完全列と $\mathbb C^\times=\mathbb C^{\times3}$ により
+\[
+ H^1(U,\mu_3)=\langle[\Delta],[D]\rangle\simeq(\mathbf Z/3)^2.
+\]
+従って類は $[\Delta]^a[D]^b$ と書ける。
+半古典代入で
+\[
+ \Delta(h^4s,h^6t)=h^{12}\Delta(s,t),\qquad
+ D(h^4s,h^6t)\equiv1\pmod h.
+\]
+第二項は形式体で三乗、$h^{12}$ も三乗である。
+第一項の定数係数 $\Delta^a$ が三乗になるには $a=0$ が必要である。
+これは $\Delta$ の付値、または active 係数体の正則性と形式単元の剰余を用いて分かる。
+よって候補は三つに限られる。
+$D=0$ での非分岐性は $b=0$ を与える。
+\end{proof}
+
+既存の有限不変量検算は
+\[
+ \Delta\bigl(c_4(J_g),-c_6(J_g)\bigr)
+     =\Delta(s,t)D(s,t)^3
+\]
+を与える。従って $D=0$ は点三次の判別境界の追加成分であり、上の候補は具体的である。
+ただし、現在の residual/point/period construction の定義開から
+他の branch divisor が存在しないことは自動的には従わない。
+次に必要な入力は、二変数不変量平面での周期 torsor の非分岐範囲、
+または $D=0$ の一般点での一つの mod-three valuation の計算である。
+原点の形式近傍で何項 jet を増やしても、この境界付値を代わりに決めることはできない。

@@ -1,31 +1,41 @@
 # 非可換三次 n-fold：現行稿の検証範囲
 
-2026年11月20日 / v20。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
+2026年11月20日 / v21。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
 
-本版の新しい証明は、最高次線束から原点像を右随伴で復元する非空な点型、その full class の有限 torsor、三・四次元での同型類の一意性、奇数次元での有限安定化群の数値的自明性、および三乗までの方程式規格化による周期類 γ_sc の定義である。執筆担当以外による独立した読解点検を行い、以下の依存箇所と論理を確認した。これは内部の数学的点検であり、外部査読・形式証明器による機械検証ではない。新規性の網羅的確認も未完了である。
+本版で追加した三つの証明は、五次元 Clifford 半 rotation の平面非依存性と実核降下、非分裂の点 Picard 障害の period 三・index 九とその一ブロック実現、および n=3,4 の規格化周期位相の二変数不変量体への一意な降下である。執筆担当以外による内部独立点検と統合担当の読解を行い、使用する一次資料と固定入力の該当模型を照合した。外部査読、Lean 等の形式証明器による検証、固定入力全体の独立再証明を実施したという意味ではない。新規性の網羅的確認も未完了である。
+
+- 五次元では、F₂(Y) 上に実際の相対 perfect 核を作ること、Ψ⊣Φ の向き、相対例外性・mutation・底変更、幾何学的連結性と HH¹=0 による class の一定性を点検した。convolution の scalar band と次数2835の零 cycle により 2β_O=2835β_O=0 として実核へ降下する。E_p の二 mutation と評価空間の次元三・十五、ε の安定性軌道固定も点検した。ε の非自明性・E_p 固定、H_p=1、S_p の中立性、coherent C₂ 作用は未証明である。証明は [五次元の節](../papers/sections/residual_fivefold.tex) の `thm:nfm-fivefold-half-rotation-kernel-descent`、`prop:nfm-fivefold-origin-clifford-complex`、`prop:nfm-fivefold-finite-stability-fixed`。
+- 非分裂曲線では、独立な二つの Kummer 座標、二変数付値による division 証明、theta factor set と直接 divisor cocycle の符号、α=δ_C(p) と偏極障害 β の線型独立性を確認した。最終規約は逆巡回の lift B と AB=ζ⁻¹BA であり、Picard cocycle が点座標 matrix factor の逆となることを直接証明する。結論は α=(a,v)₃−(b,u)₃ の period 三・index 九、β=(a,b)₃ の index 三である。mixed theta 表示への降下、純超越拡大による index 保持、任意の非空開での実現、普遍の最小重み一階数九、非分裂の随伴復元条件と n=4 の未標識最小次数九まで内部点検した。全非分裂体・任意型の full 核への一律の九は主張しない。証明は [非分裂 Picard 障害の節](../papers/sections/residual_unsplit_picard.tex) の `prop:nfm-unsplit-genus-one-picard-nine`、`prop:nfm-unsplit-point-index-nine-family`、`cor:nfm-universal-unsplit-picard-rank-nine`、`cor:nfm-unsplit-point-minimum-nine`。
+- 周期では、逆 CF の混合重み上界によって κ(m) 上で比較を定義し、integral な有限対象の Hom を局所化してから hull・冪等完備化へ延ばすことを確認した。新しい Laurent 係数 MC 元に無限挿入公式を再評価しない。実際の μ₃-torsor の (f,η)~(λf,λ⁻¹η) という coherent な作用、H_g の可換化と全三捩れ monodromy による character 消滅を使い、各 γ_sc,n は C(c₄,−c₆) へ一意に降下する。値と n=3,4 の類の一致は未計算であり、候補1,[D],[D]²は ΔD 以外の分岐がないという追加仮定付きである。他の分岐の排除と D での非分岐性は未証明である。証明は [周期位相の降下の節](../papers/sections/residual_period_descent.tex) の `thm:nfm-period-phase-active-descent`、`prop:nfm-period-phase-invariant-descent`、`lem:nfm-period-two-boundary-criterion`。
+
+以下の随伴復元・有限 class・cube frame に関する点検は、既存の検証として保持する。本版の新しい三成果の点検と、過去に検証した全結果の再実行・再読を同一視しない。
 
 随伴復元では、q=Li_C^*j_Y の右随伴が q^R=j_Y^!i_* であること、Serre 半直交性と線型 Koszul 解消による q^R O_C≅j_Y^!O_Y、truncation の随伴射が閉ファイバーで同型になることを点検した。既存の形式比較で得る一般ファイバーの最高次線束と、閉ファイバーの構造層を使い、新しいDVR補題で全体の最高次線束性・平坦性・底変更を証明した。閉ファイバーだけから平坦性を推論せず、局所環での非零因子 h と一般ファイバーの階数一を併用する。その後の cone 消滅には導来 Nakayama と proper 性を使う。
 
 有限群 H_p の証明では、固定入力Bの三対象 window と一般点の coherent 飽和性により E_p⊕ρE_p⊕ρ²E_p が compact generator となることを実文で確認した。核の underlying Hom cohomology に一様な有限 bound を与え、Toën–Vaquié Proposition3.20 の有限表示性、自己同値 locus の開性、HH¹=0 の離散性を適用する。HH¹=0だけから全自己同値群が有限とする推論はしていない。有限 H_p-torsor S_p と Picard gerbe の積表示は、最高次線束を取る関手が scalar band に恒等を誘導することで確認した。
 
-三・四次元では既知の G_ρ=〈T〉 と H_p∩〈T〉=1 から H_p=1 を得る。従って随伴復元点型の幾何的 class は一つに定まるが、元の体上で実際の核を取れるという結論ではない。固定入力の外積表示と proper な Hom の Euler rank の一定性から χ(E_p,ρ^rE_p)=χ_(N,r) を得る。三つの値の既存 gcd は d_n>0 なので、全 n≥3 で [E_p]≠0 である。奇数次元では rotation の数値中央化群 C₆ の非恒等元が非零不動ベクトルを持たないため H_p⊂G_(ρ,0) となる。五次元では r=0 の自己 Euler 数だけでも 1−35+7=−27 を与える。H_p の位数・自明性、S_p の中立性は未決定である。最小実現次数 min_i[K_i:K]ind(α_Ki)≤3|H_p| は、この強化点型についての結論である。
+三・四次元では既知の G_ρ=〈T〉 と H_p∩〈T〉=1 から H_p=1 を得る。従って随伴復元点型の幾何的 class は一つに定まるが、元の体上で実際の核を取れるという結論ではない。固定入力の外積表示と proper な Hom の Euler rank の一定性から χ(E_p,ρ^rE_p)=χ_(N,r) を得る。三つの値の既存 gcd は d_n>0 なので、全 n≥3 で [E_p]≠0 である。奇数次元では rotation の数値中央化群 C₆ の非恒等元が非零不動ベクトルを持たないため H_p⊂G_(ρ,0) となる。五次元では r=0 の自己 Euler 数だけでも 1−35+7=−27 を与える。n≥5 の H_p の位数・自明性、S_p の中立性は未決定である。最小実現次数 min_i[K_i:K]ind(α_Ki)≤3|H_p| は、この強化点型についての結論である。
 
 周期規格化では、元の残余復元が方程式直線を与えることを明確にした。source の中心元 Ω と full Poisson 対から三重ベクトル P が一意に定まり、φ_sc の線型持上げ f に対する F_φ⊗det(f)P=t_sc が方程式生成元を三乗倍まで定める。一般係数体の線型三捩れ monodromy が SL₂(F₃) であることから $J[3](K)$=0、I_sc(K) は一元集合となる。f の scalar 変更は三乗倍、Ω の変更は source/target の同時変更なので、低次元の γ_sc はこれらに依存しない。形式比較式 F_φ=λ_h⁻³b_h⁻¹W_h と b_h≡1 mod h を確認したが、形式体での消滅を元 K へ戻してはいない。F→hF の吸収では中心元と実際の曲率の双方を h 倍する。元 K の γ_sc の値は未計算である。
 
 既存の周期位相の class 不変性、生成元の source u 倍・target v 倍による γ′=[v/u]γ、適合規格化の最小次数三、target の独立尺度を加えた一般族の最小次数九は保持する。元の自然な規格化 γ_sc の具体値と、自由な相対尺度の定理は区別する。点型の全 O-降下、標準三分点体の次数九と ASL₂(F₃) の二百十六次 monodromy、三・四次元の全 full class 降下、全 class に共通な scalar index 三、七次元の既知球面対象からの全自己同値群の非巡回性も保持した。既存の全証明と未公表固定入力を本版で一括再検証したという意味ではない。
 
-計算資産十五件は作業開始時の main `599f1e994660716fe98f179ae1fcd0025bec0730` から変更しない。本版ではそれらの計算を再実行していない。Picard 検証器の十三項目を含む保存済み PASS と実行対象のハッシュを以下に保持する。新定理の検証は紙上の証明と読解点検であり、有限計算を証明の代用にしていない。
+既存の計算資産十五件は作業開始時の main `9318972130c2f7cff760706af896b3906f86ab0a` の各 blob と byte 単位で一致することを確認し、本版では再実行していない。Picard 検証器の十三項目を含む保存済み PASS と対象ハッシュを保持する。新しい `verify_fivefold_plane_degree.py` 一件は本版で実行し、整数係数の厳密計算で次数2835、終了コード0を確認した。新定理の数学的点検とこの有限計算の範囲は分ける。
 
 ## 1. 固定した入力と文献
 
 - `uedakazushi/nc-cubic`：`eabe601c1341777742964584dde5314c0bcf64a9`。論文A A-v61、論文B B-v59。
 - `uedakazushi/nc-cubic-threefold-moduli`：`6c35d2c84671c2538e61836a6bf3a511392eacce`。比較対象の三様体稿 v22。
 
-入力リポジトリは読取り専用。既存の一般次元正規形・中心量子化・一般点残余復元は新規成果に数えず、未公表入力の全証明を独立に再検証したとは主張しない。引用箇所は `research_notes.md` と `papers/references.tex` に記す。
+入力リポジトリは読取り専用。既存の一般次元正規形・中心量子化・一般点残余復元は新規成果に数えず、未公表入力の全証明を独立に再検証したとは主張しない。引用箇所は [研究ノート](research_notes.md) と [文献一覧](../papers/references.tex) に記す。
+
+本版の周期降下では、統合担当が固定 commit の `papers/generic_recovery/curved_transport.tex` を実際に開き、`cft:eq:bound`、`cft:lem:primitive`、`cft:lem:arity`、`cft:lem:flow`、`cft:eq:object`、`cft:eq:insertions`、`cft:eq:two-block-matrix` の bound・原始元・arity・有限対象・挿入・二ブロック模型を新証明と照合した。三対象生成、proper Hom、局所化は `gcd:prop:bound`、`tw:lem:proper-hom`、`rog:lem:localization` と比較した。これは必要な一次模型への適用確認であり、入力B全体の全証明の再検証ではない。Fisher の不変式・一般軌道・Heisenberg 群の既知記述と、保存済みの全三捩れ monodromy を用いる character の消滅も内部点検した。
+
+非分裂曲線には Cremona–Fisher–O'Neil–Simon–Stoll, J. reine angew. Math.615(2008),121–155、DOI10.1515/CRELLE.2008.012、arXiv:math/0606580v1 の §§1.1,1.3,1.6、Proposition2.2、Lemma2.4 と Ciperiani–Krashen Theorem3.7 を照合した。Saltman, *Genus 1 Curves in Severi--Brauer Surfaces*, arXiv:2105.09986v1 の §§3–4、Theorem5を既知の関連結果として確認し、曲線の period–index 現象そのものの新規性は主張しない。
 
 有限 class の入力として Toën–Vaquié の Proposition3.20、Corollaries3.17,3.22,3.24 と Lemma3.25 直後の可逆核 locus の開性を原著で確認した。固定入力Bの window.tex の tw:thm:window・tw:eq:main、main_result.tex の一般点 coherent 飽和、generic_descent.tex の rog:eq:exterior と proper Hom を、今回の生成性と Euler 数の比較に照合した。Murfet の arXiv:0912.1629v3 Theorem6.2・式(6.6)、Proposition4.2・式(5.7)を確認し、公刊書誌 Compos.Math.149(2013),2071–2100、DOI10.1112/S0010437X13007082 を出版社と照合した。
 
-五次元の最新の比較対象として Peize Liu arXiv:2509.21454v5（2026-08-03改訂）の Theorems1.1,1.3,2.8、Lemma3.4、Corollary3.10(ii)、Proposition3.11、Remark5.6、§5.2を一次資料で確認した。Clifford rotationから ε²=id、ε_*=id を得るが、その非自明性・E_pの固定・一般係数体への降下は未確認としてノートに区別した。Wu arXiv:2611.02388v1 Theorems1.1,1.3・Proposition7.2 と Aravena–Liu–Tevelev arXiv:2611.05350v1 Theorem1.2 の主張も確認したが、これら最近の安定性条件の全証明を独立再検証したとはしていない。有限 H_p の証明はこれらに依存しない。
+五次元では Peize Liu arXiv:2509.21454v5（2026-08-03改訂）の Theorem2.8、§2.2の式(2-4)・Remark2.11、Lemmas2.12–2.14・3.4、Corollary3.10(ii)、Proposition3.11、Theorem5.5の証明、Corollary5.10を一次資料で確認した。Proposition6.10は Fano 曲面を一つの stable moduli 成分と同定し、全 moduli の既約性は Remark6.11 の予想、安定性軌道の一意性は Remark5.6 の未解決問題として区別した。Kuznetsov の公刊版 Adv.Math.218(2008),1340–1369 の Theorem4.2、Lemmas3.8・4.6・4.7・4.10、Remark4.8で実際の Clifford kernel、局所自由性、有限振幅、随伴を確認し、Collino Propositions1.8・1.10、Ciliberto–Zaidenberg arXiv:1903.11294v2 Example4.4の幾何学的連結性と次数2835を照合した。平面非依存性と元の体上への実核降下は本稿の証明として内部点検し、ε の非自明性・E_p 固定とは分けた。Wu arXiv:2611.02388v1 Theorems1.1,1.3・Proposition7.2 と Aravena–Liu–Tevelev arXiv:2611.05350v1 Theorem1.2 の主張も確認したが、これら最近の安定性条件の全証明を独立再検証したとはしていない。有限 H_p の証明はこれらに依存しない。
 
 一次資料で、Gesmundo–Landsberg の Proposition 6.1・式 (6.2)、Landsberg–Ottaviani の §1.2・§4.1、Boij の Remark 6（pp.163–164）、Boij–De Negri–De Stefani–Rossi の Introduction、Bricalli–Favale–Pirola の Proposition 2.1・Theorem 3.4 を確認した。Jacobi 写像と Koszul flattening・apolar Betti 数の同定も証明し、普遍階数上界と N=9,10 の二次階数の達成を既知の帰結として位置付けた。現行の次数三の決定や平方零拡大の非分裂性を、既存の Betti 数の表だけから導いたとは主張しない。全次元の一般 apolar 代数について β₄,₆=0 を示す文献は確保していない。
 
@@ -91,13 +101,19 @@ Stafford--Van den Bergh, *Noncommutative curves and noncommutative surfaces*, ar
 
 | 対象 | 点検した論点 | 適用条件・残る限界 |
 |---|---|---|
+| 五次元半 rotation の相対核と class | 普遍平面の blowup・flat quadric、実在する Clifford kernel と正しい随伴、相対 C_i の例外性、HH¹=0と連結 F₂ の class 写像 | 滑らかな幾何学的連結 F₂ を持つ一般五様体。absolute perfect からの無条件な相対化や局所核の貼合せを仮定しない |
+| 五次元半 rotation の実現と対象像 | convolution の band、2β_O=0、次数2835零 cycleとcorestriction、二 mutation の評価次元3/15、安定性軌道のdeck shift | actual K-kernelを得るが ε≠id・εE_p=E_p・H_p=1・S_p中立・coherent C₂ は未証明 |
+| 非分裂曲線と index 九 | 独立 Kummer 二座標、二段付値、最小項の一意性、逆巡回 theta lift と divisor cocycle、αとβの区別 | αはperiod3/index9、βはindex3、両者は線型独立。曲線例だけで非可換族を実現したとはしない |
+| 非分裂一ブロック実現と最小階数 | 共通中心重み、mixed theta twist、加法torsor、純超越的支配性、反標準束の次数九、非分裂随伴条件 | n≡1 mod3の任意の非空開にindex9例、普遍最小重み一階数9。n4の強化点型で未標識最小9。全体・任意型への一律の九ではない |
+| 周期位相の混合定数降下 | MF行列の混合重み上界、inverse CF、integral Homの局所化、三対象生成、二回の有限étale定数降下 | n=3,4の各類をactive十係数体へ戻す。k(m)((h))だけの消滅や新しいLaurent MC元への無限flow評価を使わない |
+| 周期 torsor の不変量降下 | (f,η)へのcoherent G_m作用、scalar bandの相殺、SL₃同変性、H_g^ab=J_g[3]とfull monodromy、正則性 | 各類はC(s,t)へ一意降下。値とn3/n4の一致は未計算。1,D,D²は他のbranch排除という追加仮定付き |
 | 反対代数と残余不変性 | 語順反転・中心直線・trace–Hessian、反転不変な代数的中心族、偶 Weyl symbol に対する W の偶性、支配形式族による射の等式、自由有限商 | 固定残余入力の下。Abel圏の反対や導来双対をrotation保存の共変同値として扱わない |
 | 正確な一般次数18 | c₄,c₆、一般ファイバーの整性、traceの混合多項式性、全次数混合三角形、TH scalarの規格化、PGLの共通T₉と指数二、小さい体上の候補射と忠実拡大 | 固定残余入力・良い一ブロック・全n≥3。形式逆だけから次数を推測せず、Nat frameの代数化を未使用 |
 | activeな符号類 | 正則体拡大による定数降下、Hesse二次類単射、C₃同変な有限対角延長 | 固定入力の下でχ_act=0、χ_op=χ_sgn。半古典full射は一般次数9 |
 | Hesse 二次類と対称族 | Q8⋊C3 の位数24・固定体・二次指標の自明性、全次元の smooth scalar 例、対称族上の有理三捩れ点と二次 twist の排除 | 独立対称族のJacobian被覆は分裂。一般χ_actとの比較は有限対角による別の延長を用いる |
 | 符号消滅とfull射 | smooth有限係数模型・有限Isomの指定有理切断・二重三重積・C₃同変性・有理三捩れ・半古典分枝 | finite étale階数9とCartesian図式。特殊fiberの低Nat再構成や核の延長は別 |
 | 点型の全 O-降下 | 原点対象の重み相殺、固定section-windowとactive window1、graded Koszulの切断比較、最高次線束の実際の同型 | 良い一ブロックの共通稠密開、任意底変更、Brauer–Severi ambient可。型の降下とclass選択は別 |
-| 非分裂最高次線束型のperiod | Pic_C^3の有理点から3[C]=0、CK Tate pairingの双線型性、Picard gerbeのband identity | 選択済み最高次線束型類でper|3、index|3/9。全体でexact3やindex9の実現は未主張 |
+| 非分裂最高次線束型のperiod | Pic_C^3の有理点から3[C]=0、CK Tate pairingの双線型性、Picard gerbeのband identity | 選択済み最高次線束型類でper|3、index|3/9。index9は下記の別の非分裂族で実現し、全非分裂体の一律の値は主張しない |
 | 三分点被覆の連結性 | 普遍Hesse曲線の真の一般点、P,Qの有理逆、全係数への純超越支配族 | 全n≥3のk_nで最小三分点次数9。scalar分裂や全比較核の最小次数と区別 |
 | 完全三捩れ・affine monodromy | Hesse24群のorbit8/stabilizerC3/core1、正則不変量体拡大、H_g=H_Jg、全translation群 | ASL₂(F₃)全体、Galois閉包216、九次体に中間体なし。有限Hessian拡大で像不変を仮定しない |
 | projector核の一意性 | directed解像長、projected点のsimple/負Ext、相対Hom線束、CS cohomology一意性、detとPic(Y)のtorsion-free性 | 全n≥3のsmooth cubic、代数閉体。一般のFM核一意性は主張しない |
@@ -179,7 +195,7 @@ Stafford--Van den Bergh, *Noncommutative curves and noncommutative surfaces*, ar
 | 一般次元の頂点と高次数 | 悪い incidence の次元評価、有限長性・飽和・随伴素点・深さ、各固定次数の漸近非消滅 | 一般次元の有限長性には既存の被約分類を入力する。n=9,10 の全 Hilbert 関数と、一般次元の冪零根基自身の積は未決定 |
 | 残余圏 | HH sector の次数、幾何的 KS、滑らかな変形源と形式認識、tame hull、n=4 の例外、rotation | 通常 Artin 基底・特殊ファイバー固定・一次切断。全高次群oidや導来基底、全 Abel 形式変形との同定、全 intrinsic 成分を覆う大域残余射は未主張 |
 
-本版の新しい周期位相・規格化・最小次数の定理、高次元の class 障害の簡約、七次元の既知球面対象からの帰結について、本文の証明を執筆担当以外も独立して読解点検した。上表には保持した既存結果も含む。適用範囲と未解決条件は冒頭に記す。外部査読、Lean 等による形式検証、既存の全証明の一括再検証を行ったという意味ではない。
+五次元半 rotation の降下、非分裂 index 九の実現、周期位相の二変数帰着の証明を執筆担当以外も独立して読解点検した。従来の周期規格化・最小次数、高次元 class の簡約、七次元の既知球面対象からの帰結に関する有効な点検も保持した。上表には保持した既存結果も含む。適用範囲と未解決条件は冒頭に記す。外部査読、Lean 等による形式検証、既存の全証明の一括再検証を行ったという意味ではない。
 
 ## 3. 二次階数の整数証明書
 
@@ -362,29 +378,44 @@ Buring の元資料 `star5.txt` のSHA-256は `05e0689ddb32a3d3a3ee4475086606bbe
 - その安定化群の normal core が自明であること。
 - 右点対応が原点を (A:B:C) へ送る三関係式。
 
-有限標本の外挿、浮動小数点、係数補間は使わない。この検算は Brauer 類の非零性・potential の降下・支配性・導来同値の形式証明ではなく、それらの紙上証明に用いる係数恒等式の確認である。既存の同一再現コードへ三分点の四つの確認を統合し、計算資産15件の構成を保つ。重複実装・大量出力は保存しない。検証コードのSHA-256は `12237ed3f92874f18fbfb8dd7cecaf63d8fef01d52e737f00671bf05838929be`。
+有限標本の外挿、浮動小数点、係数補間は使わない。この検算は Brauer 類の非零性・potential の降下・支配性・導来同値の形式証明ではなく、それらの紙上証明に用いる係数恒等式の確認である。既存の同一再現コードには三分点の四つの確認が統合されており、基準版の15計算資産に含まれる。重複実装・大量出力は保存しない。検証コードのSHA-256は `12237ed3f92874f18fbfb8dd7cecaf63d8fef01d52e737f00671bf05838929be`。
+
+### 五次元 Fano 曲面の次数の厳密検算
+
+本版で `python3 computations/verify_fivefold_plane_degree.py` を実行し、
+
+`PASS: degree(F_2(Y)) = 2835; gcd(degree, 2) = 1`
+
+と終了コード0を確認した。tautological bundle の双対 S* の Chern 根を x,y,z とする規約で、
+
+\[
+ [x^6y^5z^4]\!
+ \left(\prod_{a+b+c=3}(ax+by+cz)\right)
+ (x+y+z)^2(x-y)(x-z)(y-z)=2835
+\]
+
+を Python 3 の整数多項式演算だけで求める。浮動小数点・補間・有限標本を用いない。Ciliberto–Zaidenberg の既知の係数公式と値を独立に再現したものであり、相対 Clifford 核・gerbe・Galois 降下の証明を計算で置き換えない。検証器の SHA-256 は次の通り。
+
+```text
+computations/verify_fivefold_plane_degree.py
+b7a9f66af04e2b4506aff22e87ebc53d3bc1eaa3466af0059d13025a424c019d
+```
 
 ## 6. ソース・組版の確認
 
 ### ソースと参照
 
-`python3 scripts/check_sources.py` は18個のTeXソース、445個の一意なlabel、289個の参照先label、91個の引用文献キーを検査して終了コード0となった。`git diff --check` も成功した。現行Markdown文書の内部参照206種類・535出現、固定入力参照45種類・69出現、相対Markdownリンク38個を実ファイルと照合し、欠落がないことを確認した。数式とinline codeをリンクとして誤検出しないよう区別し、三捩れ点の関数記法も数式として表示した。
+本版の統合時点で `python3 scripts/check_sources.py` を実行し、21個のTeXソース、466個の一意なlabel、302個の参照先label、96個の引用文献キーを検査して終了コード0を確認した。入口・方針・ノート・検証範囲に記載された52件のローカル Markdown リンクと547件の本文ラベル参照を実ソースへ照合し、欠落がないことを確認した。数式とコード内の括弧は Markdown リンクとして数えない。`git diff --check` も成功した。
 
-追跡対象は44ファイル、うち計算資産は15ファイル。十五資産全てが作業開始時の main `599f1e994660716fe98f179ae1fcd0025bec0730` のblobと一致する。これらの計算は本版で再実行していない。ソースと参照の整合性検査、紙上証明の読解、数学的な計算実行は別の状態である。
+既存15計算資産全てが基準 main `9318972130c2f7cff760706af896b3906f86ab0a` の blob と一致することを byte 単位で確認した。これらは本版で再実行しておらず、新しい五次元次数の検証器一件と分ける。ソースと参照の整合性検査、紙上証明の読解、数学的計算の実行は異なる確認である。
 
 ### 最終PDF
 
-LuaLaTeX・latexmkによる最終組版は終了コード0で完了した。研究稿v20、263頁、2,103,517 bytesであり、PDFのauthor欄は空である。SHA-256は次の通り。
+最終ソースから LuaLaTeX・latexmk により組版し、終了コード0・全 target 更新済みを確認した。PDF は280頁、2,199,212 bytes、SHA-256 は `e4797d954aadcbbdbea77a8eb89459743670c45fe241d5877455ca0e3a84c954`。未定義参照・未定義引用、欠落文字、overfull/underfull box は零。小さい数式フォントのサイズ代替警告は7種類と最終要約の計8件残り、組版エラーとは区別する。
 
-```text
-0a38583b352384d5714771ad523130bee4de5598d7a5498fe106fada13b016b1
-```
+全280頁を6枚の contact sheet へレンダーして配置を点検し、表紙・要旨と目次を拡大表示した。要旨は表紙1頁に収まり、ページ外へのはみ出しや大きな配置崩れは認めていない。さらに別担当が追加節の200–206頁、224–228頁、238–242頁の全17頁を144 dpiで個別に画像表示し、数式の欠け・衝突、孤立見出し、不適切な改頁がないことを確認した。これは全文の数学的再読を意味しない。PDF・表示点検用画像・組版中間生成物は再生成物として Git で追跡しない。
 
-未解決の参照・引用、Overfull、Underfull、文字欠けは各0件。数式の小さい添字に用いる4.5ptのフォントを5ptで代用する既存の警告7件と、その要約1件が残る。使用フォント46個は全て埋込み済みで、SyncTeXも生成された。全ての数式にUnicodeの文字対応があるとは主張しない。
-
-MuPDFによる全263頁の版面一覧八画像を全て表示して点検した。Poppler 144dpiから作ったcontact画像で1、2、6、7、18、19頁を確認し、1、18、263頁は個別の144dpi画像でも確認した。新しい証明の212–226頁は別担当が全十五頁をcontact画像で確認し、213、214、220、221、222、223、224、225頁を個別144dpiでも確認した。要約は一頁内に収まり、補題16.62の結論と式は221頁内で完結している。この確認範囲で文字欠け、重なり、数式の切れ、見出しだけの孤立など、修正を要する表示上の問題は見つからなかった。点検終了時のPDFハッシュも一致した。全頁を拡大して一字ずつ校正したという意味ではない。
-
-本文のbounding boxを全頁で調べ、頁端からの最小余白は左26.12mm、上36.59mm、右24.32mm、下31.52mmだった。これは本文座標の機械検査であり、画像の目視点検と区別する。PDF、点検用画像、組版中間生成物は再生成物としてGitで追跡しない。
+実行環境には部分的な TeX ファイル索引と format 探索の制約があったため、既存の LuaLaTeX format と TeX tree を環境変数 `TEXMF`・`TEXFORMATS`・`LUAINPUTS` で指定して組版した。特定の作業環境の絶対パスをリポジトリ設定に固定していない。通常の LuaLaTeX 一式では `.latexmkrc` の標準コマンドを使う。
 
 ## 7. 再現と保存の区別
 

@@ -1,0 +1,432 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\subsection{次数三の偏極類と指数九の Picard 障害}
+
+以下では原始三乗根 $\zeta$ を固定し、symbol の規約を
+\[
+ (c,d)_3=
+ \left[
+ K\langle X,Y\rangle/
+ (X^3-c,\ Y^3-d,\ YX-\zeta XY)
+ \right]
+ \in\operatorname{Br}(K)[3]
+\]
+とする。これは $K(\sqrt[3]{c})/K$ の生成元を
+$\sqrt[3]{c}\mapsto\zeta\sqrt[3]{c}$ とした巡回代数の規約である。
+ここでいう次数三の偏極\emph{類}は
+$\operatorname{Pic}^3_{C/K}(K)$ の元であり、
+$C$ 上の実際の可逆層を与えるとは仮定しない。
+
+\begin{lemma}[独立な二つの Kummer 座標から得る指数九]
+\label{lem:nfm-bisymbol-index-nine}
+$F$ は標数零で $\zeta\in F$ を満たす体とし、
+$u,v\in F^\times$ の類が $F^\times/F^{\times3}$ で独立とする。
+$a,b$ を独立変数、$K=F(a,b)$ と置く。このとき
+\[
+ \alpha=(a,v)_3-(b,u)_3
+\]
+は period 三、index 九である。この index は任意の純超越拡大で保たれる。
+\end{lemma}
+
+\begin{proof}
+$D=(a,v)_3\otimes_K(b,u)_3^{\mathrm{op}}$ は次数九の中心単純代数である。
+$\widehat K=F((a))((b))$ へ延長して division 性を示す。
+二つの因子を
+\[
+ X^3=a,\quad C^3=v,\quad CX=\zeta XC,
+ \qquad
+ S^3=b,\quad T^3=u,\quad TS=\zeta^{-1}ST
+\]
+で表し、異なる因子の元は可換とする。
+独立性から $F'=F(\sqrt[3]{v},\sqrt[3]{u})$ は次数九の体である。
+従って $C,T$ の生成する可換部分代数を
+$F'((a))((b))$ と同定でき、
+\[
+ D_{\widehat K}
+   =\bigoplus_{0\le i,j<3}F'((a))((b))X^iS^j.
+\]
+右辺の直和性は symbol 代数の通常の八十一個の単項式基底から従う。
+有限分離拡大と Laurent 級数体の形成は可換するので、
+ここに現れた係数部分代数は実際に体である。
+
+係数体に、まず $b$ の次数を、次にその先頭係数の $a$ の次数を取る
+辞書式の付値 $w_0:F'((a))((b))^\times\to\mathbf Z^2$ を入れる。
+非零元 $d=\sum f_{ij}X^iS^j$ に対し
+\[
+ w(d)=\min_{f_{ij}\ne0}
+ \left\{w_0(f_{ij})+(j/3,i/3)\right\}
+\]
+と定める。九項の付値は $\mathbf Z^2$ を法として異なるので、最小項は一意である。
+$X,S$ による係数体の共役は $C,T$ を $\zeta$ の冪倍するだけであり、
+$w_0$ を保つ。また $X^3=a,S^3=b$ は指定した付値と両立する。
+従って二つの非零元の積の最小項は、それぞれの一意な最小項の積であり、
+その係数は零にならない。特に
+\[
+ w(dd')=w(d)+w(d'),\qquad dd'\ne0.
+\]
+有限次元代数に零因子がなければ非零元の乗法は全単射であるから、
+$D_{\widehat K}$ は division algebra である。
+よって $\operatorname{ind}(\alpha_{\widehat K})=9$ であり、
+基礎体上でも $\operatorname{ind}(\alpha)=9$ となる。
+$3\alpha=0$ かつ $\alpha\ne0$ なので period は三である。
+
+最後に、division algebra $D_0/K$ に中心変数 $t$ を加えた多項式環
+$D_0[t]$ は先頭係数の積を見ることで整域である。
+その $K[t]\setminus\{0\}$ による局所化
+$D_0\otimes_KK(t)$ も整域かつ有限次元中心単純代数なので division algebra である。
+これを有限個の変数について繰り返せば純超越拡大に関する主張を得る。
+\end{proof}
+
+\begin{proposition}[Brauer--Severi 平面上の曲線で達成される Picard index 九]
+\label{prop:nfm-unsplit-genus-one-picard-nine}
+$\ell=\mathbf C(\lambda)$ とし、
+\[
+ E:\ x_0^3+x_1^3+x_2^3-3\lambda x_0x_1x_2=0
+ \subset\mathbf P^2_\ell
+\]
+に $\ell$-有理な flex $o$ を原点として選ぶ。
+定数行列
+\[
+ A=\operatorname{diag}(1,\zeta,\zeta^2),\qquad
+ B(x_0,x_1,x_2)=(x_1,x_2,x_0)
+\]
+の作用に対応する三捩れ点を $P,Q$ とする。
+ここでは点の列座標に作用させるので $AB=\zeta^{-1}BA$ である。
+$P,Q$ をこの順序の基底とし、以下の divisor cocycle によって
+Picard boundary と Kummer 座標の符号を固定する。
+$F=\ell(E)$、$p\in E(F)$ を一般点とし、Kummer 類を
+\[
+ \kappa_3(p)=([u],[v])
+ \in H^1(F,E[3])=(F^\times/F^{\times3})^2
+\]
+と表す。$a,b$ を $F$ 上の独立変数、$K=F(a,b)$ と置き、
+$\xi=([a],[b])$ による translation twist を $C/K$ とする。
+すなわち代数閉包上の $E$ に
+$\gamma*x=\gamma(x)+\xi_\gamma$ という降下作用を入れる。
+このとき次が成立する。
+\begin{enumerate}
+ \item $C$ は滑らかな種数一曲線で、$J_C=E_K$ である。
+ $\mathcal O_E(3o)$ の類は
+ $\lambda_C\in\operatorname{Pic}^3_{C/K}(K)$ へ降下し、
+ $C$ は Brauer--Severi 平面内の三次曲線として埋め込まれる。
+ \item 偏極類と点 $p$ の Picard 障害は、それぞれ
+ \[
+  \beta=\delta_C(\lambda_C)=(a,b)_3,
+  \qquad
+  \alpha=\delta_C(p)=(a,v)_3-(b,u)_3
+ \]
+ である。従って
+ \[
+  \operatorname{per}(\alpha)=3,\quad
+  \operatorname{ind}(\alpha)=9,\qquad
+  \operatorname{per}(\beta)=\operatorname{ind}(\beta)=3.
+ \]
+ $\alpha,\beta$ は $\operatorname{Br}(K)[3]$ で線型独立である。
+ \item $p$ は無限位数である。曲線 $C$ の period は三、index は九であり、
+ $C$ が点を持つ有限拡大の最小次数も九である。
+ $\lambda_C$ は $C$ 上の実際の次数三線束では表されない。
+\end{enumerate}
+これらの index は純超越拡大後も変わらない。
+同じ構成は、滑らかな Hesse 曲線を一つ $\mathbf C$ 上で固定しても成立する。
+\end{proposition}
+
+\begin{proof}
+行列 $A,B$ は determinant 一で Hesse 方程式とその不変微分を保つ。
+従ってその射影作用は三捩れ平行移動であり、
+$AB=\zeta^{-1}BA$ から $P,Q$ は独立である。
+これらの theta lift は $A^3=B^3=1$ を満たす。
+この theta 表現と次数三の divisor-class pair の降下は
+\cite[Sections~1.1, 1.3, 1.6, Proposition~2.2, Lemma~2.4]{NFMCremonaFisherDescentAlgebra}
+の構成による。左右の作用と双対表示を区別するため、
+障害の符号は指定した左降下作用から以下で直接計算する。
+
+有限 \'etale 被覆 $[3]:E\to E$ は幾何学的に連結で次数九である。
+その一般ファイバーが $[3]^{-1}(p)$ であるから、Kummer 理論により
+\[
+ [F(\sqrt[3]{u},\sqrt[3]{v}):F]=9.
+\]
+特に $[u],[v]$ は独立である。$p$ が有限位数なら、一般点の射
+$\operatorname{Spec}F\to E$ が有限群 scheme $E[N]$ を通ることになり不可能なので、
+$p$ は無限位数である。
+
+三捩れ平行移動は $\mathcal O_E(3o)$ の類を保ち、
+その完全線型系による埋込みにも射影的に作用する。
+従って translation cocycle で曲線と射影平面を同時に twist すれば、
+第一の主張を得る。曲線の Jacobian に対する平行移動の作用は恒等なので、
+$J_C=E_K$ である。
+
+符号を明示して偏極の障害を計算する。
+$\gamma(\sqrt[3]{a})/\sqrt[3]{a}=\zeta^{i_\gamma}$、
+$\gamma(\sqrt[3]{b})/\sqrt[3]{b}=\zeta^{j_\gamma}$ と書き、
+projective cocycle を $g_\gamma=A^{i_\gamma}B^{j_\gamma}$ で持ち上げる。
+行列の factor set は
+\[
+ c_{\gamma,\tau}
+ :=g_\gamma\,\gamma(g_\tau)\,g_{\gamma\tau}^{-1}
+       =\zeta^{j_\gamma i_\tau}.
+\]
+Picard cocycle はこの\emph{逆}である。
+実際、$l=x_0$、$D_0=\operatorname{div}_E(l)$ と置き、
+\[
+ f_\gamma(x)=\frac{l(g_\gamma^{-1}x)}{l(x)}
+\]
+とすると、指定した降下作用に対して
+$\operatorname{div}(f_\gamma)=\gamma D_0-D_0$ である。
+有理関数上の作用は
+$(\gamma f)(x)=\gamma_{\mathrm{coeff}}(f)(g_\gamma^{-1}x)$
+（右辺の $\gamma_{\mathrm{coeff}}$ は係数だけへの作用）だから、
+\[
+ \frac{f_\gamma\,\gamma(f_\tau)}{f_{\gamma\tau}}
+       =c_{\gamma,\tau}^{-1}
+       =\zeta^{-j_\gamma i_\tau}.
+\]
+これは $-([b]\cup[a])=[a]\cup[b]=(a,b)_3$ を表す。
+従って本稿の巡回代数と Picard gerbe の規約で
+$\delta_C(\lambda_C)=\beta=(a,b)_3$ となる。
+ここで Brauer--Severi 平面の class は、その幾何的 $\mathcal O(1)$ の
+Picard 障害という規約である。反対代数を用いる Brauer--Severi 規約では
+その呼称だけが $-\beta$ に変わる。
+
+点の障害も、この同じ Picard boundary を用いて計算する。
+$3q=p$ となる $q\in E(\overline K)$ を取り、
+$\kappa_3(p)_\gamma=\gamma q-q$ とすると、
+$t_q:C_{\xi+\kappa_3(p)}\to C_\xi$ は $K$ 上の同型である。
+この同型は、前者の次数三偏極類を後者の $\lambda_C+p$ へ移す。
+よって
+\[
+ \delta_C(p)
+   =\operatorname{Ob}(\xi+\kappa_3(p))-\operatorname{Ob}(\xi).
+\]
+また Kummer 類だけによる曲線 twist は有理点を持つので
+$\operatorname{Ob}(\kappa_3(p))=(u,v)_3=0$ である。
+symbol の双線型性と反対称性から
+\[
+ (au,bv)_3-(a,b)_3
+  =(a,v)_3+(u,b)_3+(u,v)_3
+  =(a,v)_3-(b,u)_3
+\]
+を得る。すなわちこの基底の Kummer 座標では Tate--Weil 公式の項は
+\[
+ e_{3,*}\bigl(\xi\smile\kappa_3(p)\bigr)
+       =[a]\smile[v]-[b]\smile[u]
+\]
+となる。これは Picard boundary から導いた符号であり、
+\cite[Theorem~3.7]{NFMCiperianiKrashen}を本稿の左降下作用に合わせたものである。
+点座標の theta 行列の commutator と、この Picard pairing を
+双対を取らずに同一視してはならない。
+従って補題\ref{lem:nfm-bisymbol-index-nine}が適用でき、
+$\alpha$ の period と index が確定する。
+$\beta$ の index 三も同様に確かめられる。
+基礎体を $F(a)((b))$ とし、その上の巡回代数 $(a,b)_3$ の\emph{内部}にある
+非分岐極大部分体 $F(a)(\sqrt[3]{a})((b))$ を係数部分体とする。
+代数の元を $z_0+z_1Y+z_2Y^2$、$Y^3=b$ と書き、
+$\min_i\{v_b(z_i)+i/3\}$ を取れば、三つの小数部分が異なるので
+非零元の積の先頭項は消えない。従ってこの次数三代数は division algebra である。
+これは $\sqrt[3]{a}$ を基礎体へ加えて Brauer 類を制限する操作ではない。
+$\beta$ の非零倍は index 三であり、$\alpha$ の非零倍は index 九なので、
+両者は $\mathbf F_3$ 上線型独立である。
+
+$[C]\in H^1(K,E)$ は $H^1(K,E[3])$ から来るので三で消える。
+もし $C$ が自明なら $\delta_C(p)=0$ となるため、period は正確に三である。
+有限拡大 $K'/K$ 上で $C(K')\ne\varnothing$ なら
+$\operatorname{Pic}_{C/K}(K')$ の任意の類が実際の線束で表され、
+特に $\alpha_{K'}=0$ となる。よって $9\mid[K':K]$ である。
+一方、$K(\sqrt[3]{a},\sqrt[3]{b})$ は次数九で $\xi$ を自明にし、
+$C$ に点を与える。これで曲線の index と最小点定義次数を得る。
+$\beta\ne0$ だから $\lambda_C$ は実際の線束ではない。
+純超越拡大に関する主張は前補題と同じ division-algebra の議論による。
+\end{proof}
+
+\begin{remark}[この曲線例の範囲]
+この命題は、次数三の\emph{偏極類}を持つ種数一曲線について、
+degree-zero Picard 障害の period が三でも index 九が起こることを示す。
+実際の次数三線束を仮定した index 三の上界とは両立する。
+偏極の Brauer 障害 $\beta$ と点の scalar 障害 $\alpha$ は同じではなく、
+この例では線型独立である。
+theta-group obstruction、Tate--Weil 公式および period--index 理論そのものは既知であり、
+ここでは独立な二つの Kummer 座標を使う division 証明を明示した。
+Brauer--Severi 平面内の genus-one 曲線と Heisenberg 表現の関係は
+\cite[Sections~3--4, Theorem~5]{NFMSaltmanSeveri}とも比較できる。
+この種の曲線の period と index の相違そのものの新規性は主張しない。
+この命題だけから非可換一ブロック族への実現や full 比較核 class の選択を結論しない。
+\end{remark}
+
+
+\begin{proposition}[指数九の点障害を持つ非分裂一ブロック族]
+\label{prop:nfm-unsplit-point-index-nine-family}
+$n\ge4$、$n\equiv1\pmod3$ とする。
+固定入力の下で得た良い一ブロック stack の任意の非空開に、
+体値点 $x$ であって、active 点曲線とその平行移動の類に対し
+\[
+ \operatorname{per}\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})=3,
+ \qquad\operatorname{ind}\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})=9
+\]
+となるものが存在する。その表示 gerbe は index 三である。
+半古典平面同型と点型が全 $\mathcal O$-降下する共通開に制限すれば、
+残余側の類 $\delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})$ も同じ index 九を持つ。
+この構成は、full 比較核の同型類の事前選択を含まない。
+\end{proposition}
+
+\begin{proof}
+$\ell=\mathbf C(\lambda)$ 上の一般 Hesse 楕円曲線 $E$ を、
+原点と symplectic な三捩れ基底を備えて取る。
+$F=\ell(E)$ とし、その一般点を $p\in E(F)$ とする。
+命題\ref{prop:nfm-unsplit-genus-one-picard-nine}の曲線構成を $K=F(a,b)$ 上で行う。
+得られる $G=E[3]$-torsor $\xi$ による translation twist を $C$ と書くと、
+$C$ は Brauer--Severi 平面内の滑らかな三次曲線であり、
+\[
+ \alpha=\delta_C(p)=(a,v)_3-(b,u)_3,
+ \qquad\operatorname{per}(\alpha)=3,\quad\operatorname{ind}(\alpha)=9.
+\]
+偏極の障害 $\beta=(a,b)_3$ は index 三であり、$\alpha$ と区別する。
+
+$L=\mathcal O_E(3o)$ と $V=H^0(E,L)$ を用い、
+命題\ref{prop:nfm-active-point-sklyanin-realization}の幾何学的 Sklyanin 代数
+$D(E,L,t_p)$ を取る。$p$ は一般点なので同命題の除外条件を満たす。
+三捩れ平行移動は $t_p$ と可換し、$L$ の類を保つ。
+従って theta group は関係式の kernel を保ち、次数付き代数に作用する。
+Hesse の三次 Heisenberg 群 $\widetilde G$ の標準表現を取れば、
+その中心 $\mu_3$ は $V$ 上で重み一に作用し、
+標準二生成元は determinant 一を持つ。
+正規化した cyclic potential の交代成分は非零かつ不変なので、
+全 potential と対応する active 勾配三次 $g$ も不変である。
+これらは Hesse 座標の循環置換と対角行列からも直接確認できる。
+
+$r=n-1=3m$、$U=V\otimes_F F^m$ とする。
+$\widetilde G$ は $V\oplus U$ 全体で同じ中心重み一を持つため、
+$G\to\overline P$ を誘導する。
+この写像は、点スキーム上で指定した $P,Q$ の平行移動を誘導する向きで取る。
+座標と切断の双対規約が逆なら双対表現と cocycle の向きを同時に変更する。
+この写像に沿う表示 gerbe の障害は、Brauer--Severi の符号規約を固定すれば
+$\beta$ であり、いずれの規約でも index 三である。
+mixed potential の空間
+\[
+ W_{\mathrm{mix}}=(\operatorname{Sym}^2V\otimes U)
+       \oplus(V\otimes\operatorname{Sym}^2U)
+\]
+は中心重み三なので $G$ の通常の線型表現となる。
+その $\xi$-twist は $K$ 上のベクトル空間である。
+この twisted 空間の一般点を取ると、必要な体拡大は純超越拡大だけである。
+active 係数は変わらず、点曲線と平行移動は $C,t_p$ のままである。
+
+次に中心三次の持上げを行う。
+定理\ref{thm:nfm-central-torsor}の加法 torsor とその
+$\overline P$-共変性を制限して twist する。
+体上のベクトル群の torsor は中立なので、追加の代数的拡大をせずに
+中心三次の持上げを一つ取り、その全純中心係数を一般に選べる。
+この操作も純超越拡大である。
+定理\ref{thm:nfm-brauer-dense-open}と同じ商 stack の効果化により、
+得た twisted 表示は元の体上の $\mathcal O$-marked 対を定める。
+表示を分裂させるために $\xi$ の分裂体を基礎体に加えることはしていない。
+
+必要な開条件を満たすことと支配性は、幾何学的に検査できる。
+Hesse 曲線とその一般点 $(A:B:C)$ は
+$\lambda=(A^3+B^3+C^3)/(3ABC)$ により射影平面の一般点を動く。
+勾配三次の係数
+\[
+ P=-2C/(A-B),\qquad Q=-2(A+B)/(A-B)
+\]
+は代数的独立であり、その逆は
+$(A:B:C)=(2-Q:-2-Q:-2P)$ である。
+従って命題\ref{prop:nfm-active-point-obstruction-dominant}と同じ
+Hesse 正規形の支配性が適用できる。
+全 mixed 係数と中心 torsor の係数を一般に取ったため、
+幾何学的には商 stack の一般の良い一ブロック対を与える。
+表示空間自体に対する支配性を検査する場合は、引用した命題と同様に
+$\mathrm{GL}_3$ の frame を加える。
+よって所定の任意の非空開と交わり、その一般点で作業できる。
+有限拡大による untwist はこの支配性の検査にのみ用いる。
+実際の構成の体拡大は純超越的なので、$\alpha$ の index 九と
+$\beta$ の index 三は保たれる。
+
+最後に命題\ref{prop:nfm-semiclassical-plane-isom-descent}の
+全 $\mathcal O$-降下は Brauer--Severi 平面も許す。
+従って共通開上では $E_{\mathrm{pt}}\simeq C_{\mathrm{res}}$ が元の体上で存在し、
+$p_{\mathrm{pt}}$ を $p_{\mathrm{res}}$ へ移すので、両 Picard 障害は等しい。
+\end{proof}
+
+\begin{corollary}[非分裂普遍 Picard gerbe 上の最小の重み一階数]
+\label{cor:nfm-universal-unsplit-picard-rank-nine}
+$n\equiv1\pmod3$ とし、上の共通な良い非空開 $\mathfrak U$ 上で
+普遍 active 曲線を $\pi:C\to\mathfrak U$、その Brauer--Severi 平面を
+$\mathbb P\to\mathfrak U$ とする。
+$p=p_{\mathrm{res}}$ の実線束を表す Picard gerbe を $\mathscr P_p$ とすると、
+$\mathscr P_p$ 上には重み一・階数九のベクトル束が存在する。
+一方、$\mathfrak U$ のどの非空開上でも、重み一のベクトル束の正の階数は九の倍数である。
+従って、開を縮めてもこの普遍的な階数九を三へ改善できない。
+これは個々の体値点で常に index 九になるという主張ではない。
+\end{corollary}
+
+\begin{proof}
+$\mathbb P$ の相対反標準束は実際の線束であり、幾何学的には
+$\mathcal O_{\mathbf P^2}(3)$ となる。
+その $C$ への制限を $A$ とすると、$A$ は各 fibre で次数九である。
+$C\times_{\mathfrak U}\mathscr P_p$ 上の普遍重み一線束 $M$ に対し、
+\[
+ V=\pi_*(M\otimes A)
+\]
+を取る。各幾何的 fibre で $H^1$ は零、$h^0=9$ なので、
+これは底変更に両立する重み一・階数九のベクトル束である。
+
+任意の非空開上の重み一・階数 $d$ の束を仮定する。
+前命題による index 九の体値点へ引き戻せば、指数九の gerbe 上の
+重み一 bundle が得られるので $9\mid d$ である。
+この整除性は、対応する division algebra 上の加群の次元、
+または束の endomorphism の次数から従う。
+\end{proof}
+
+\begin{lemma}[随伴復元点型の非分裂降下]
+\label{lem:nfm-adjoint-point-unsplit-descent}
+点型の全 $\mathcal O$-降下が成立する共通な良い開を取る。
+この開上で随伴復元条件も表示に依存せず、任意の底変更に両立する。
+体 $K$ 上の形式が幾何学的に
+定理\ref{thm:nfm-adjoint-point-finite-class-torsor}の仮定を満たすなら、
+同じ有限 class 層と実現 gerbe の記述
+\[
+ S_p\ \text{は有限 \'etale }H_p\text{-torsor},\qquad
+ \mathscr G_p\simeq S_p\times_K\mathscr P_p
+\]
+が成立する。ここで $\operatorname{per}\delta_C(p)\mid3$ であり、
+index は既存の非分裂上界を満たすが、三と等しいとは仮定しない。
+さらに幾何学的標的が一般三次三様体または very general な三次四様体なら、
+この型の class は一つだけである。
+\end{lemma}
+
+\begin{proof}
+系\ref{cor:nfm-point-type-O-descent}の幾何学的表示では
+$Z=j_{\mathrm{nc}}^!\mathcal O$、$q=\mathbf L i_C^*j_Y$ とその右随伴を用いる。
+表示変更による同値は右随伴をその随伴構造とともに移し、
+truncation から来る射 $E_P\to q^RH^0(qE_P)$ を同じ射へ移す。
+最高次線束性の下では $H^0$ が任意底変更に両立し、
+有限 perfect 模型の右随伴比較も底変更に両立する。
+従ってこの射が同型である条件は全 $\mathcal O$-同値と底変更に不変である。
+
+幾何学的には既存の非空性と compact generator の証明がそのまま適用できる。
+有限性、連続 Galois 作用、線束を取る関手の重み一から、
+定理\ref{thm:nfm-adjoint-point-finite-class-torsor}の降下と gerbe の証明を繰り返せる。
+この段階で元の体上の degree-one rotation の実核を選ぶ必要はない。
+rotation を保つ性質は局所表示から幾何学的 class の条件として降下する。
+低次元の最後の主張には、幾何学的自己同値分類と
+$H_p\cap\langle T\rangle=1$ の幾何学的証明だけを使う。
+一元集合の class は自動的に Galois 不変である。
+\end{proof}
+
+\begin{corollary}[非分裂点型での九整除性と四次元での達成]
+\label{cor:nfm-unsplit-point-minimum-nine}
+命題\ref{prop:nfm-unsplit-point-index-nine-family}の体値点では、
+有限拡大 $L/K$ 上の実際の点型 full 比較核が存在すれば
+$9\mid[L:K]$ である。
+そのうち $n=4$ の幾何学的一般族では、随伴復元条件を満たす点型の
+実現 gerbe は指数九であり、最小実現次数は正確に九となる。
+これは周期標識を追加しない比較についての結果である。
+型を指定しない全 full 比較核の最小次数や、
+高次元での有限 class torsor の中立性を結論するものではない。
+\end{corollary}
+
+\begin{proof}
+実際の点型核の最高次線束は $p_{\mathrm{res}}$ を表すため、
+$\alpha_L=0$ となる。指数九の分裂体の次数は九の倍数なので最初の主張を得る。
+$n=4$ の幾何学的一般族では前補題から class は一つだけであり、
+その scalar gerbe が $\mathscr P_p$ に同値である。
+次数九 division 代数の極大部分体上でこの gerbe は中立になるため、
+次数九で実際の核が存在する。これで下界が達成される。
+\end{proof}

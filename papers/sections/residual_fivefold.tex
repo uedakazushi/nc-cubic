@@ -1,0 +1,295 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\subsection{五次元 Clifford 半 rotation の平面非依存性と降下}
+
+$K$ を標数零の体、$Y\subset\mathbf P^6_K$ を滑らかな三次五様体とし、
+$\mathcal B=\operatorname{Ku}(Y)$、$\rho=L_{\mathcal O_Y}\circ(-\otimes\mathcal O_Y(1))$
+と置く。本節の幾何的仮定は、$F=F_2(Y)$ が滑らかかつ幾何学的連結であり、
+$HH^{<0}(\mathcal B_{\overline K})=0$、$HH^0=\overline K$、$HH^1=0$
+が成り立つことである。標準 split 一般係数体の残余五様体は、残余射の支配性、
+命題\ref{prop:nf-hh}、Collino\cite[Propositions~1.8, 1.10]{NFMCollinoFivefold}
+によりこれらを満たす。$F$ の滑らかさを全ての特殊五様体へ拡張しない。
+
+Liu\cite[Theorem~2.8]{NFMPeizeLiuFivefold}の平面 $\Pi\subset Y$ に付随する同値を
+\[
+ A_\Pi=\Psi_\Pi\sigma_\Pi^*:
+ \mathcal B\xrightarrow{\sim}
+ \mathcal B_\Pi=\langle\mathcal C_1,\mathcal C_2\rangle^\perp
+ \subset D^b(\mathbf P^3,\mathcal C_0)
+\]
+と書く。ここで $\sigma_\Pi:\widetilde Y_\Pi\to Y$ は平面の blowup である。
+$\mathcal B$ 上へ移した Clifford rotation を
+\[
+ O_\Pi=A_\Pi^{-1}
+       \bigl(L_{\mathcal C_1}\circ(-\otimes_{\mathcal C_0}\mathcal C_1)\bigr)A_\Pi
+\]
+とする。以下、Clifford 側の関手
+$L_{\mathcal C_1}\circ(-\otimes_{\mathcal C_0}\mathcal C_1)$ を
+$O_{\mathrm{Cl}}$ とも書く。Liu の Lemma~3.4、Corollary~3.10、Proposition~3.11 から
+\begin{equation}\label{eq:nfm-fivefold-clifford-half-rotation}
+ O_\Pi^2\simeq\rho,\qquad
+ (O_\Pi)_*=S_*,\qquad
+ T:=\rho^{-1}[1]=S[-2]
+\end{equation}
+を得る。本節では核の同型類と実際の perfect 核を区別する。
+
+\begin{lemma}[Clifford rotation の相対核]
+\label{lem:nfm-fivefold-clifford-relative-kernel}
+上の仮定の下で、$O_\Pi$ は $F$ 上の実際の相対 perfect 核の族として構成できる。
+その幾何的ファイバーは上記の $O_\Pi$ である。
+\end{lemma}
+
+\begin{proof}
+$F\subset\operatorname{Gr}(3,7)$ 上の tautological subbundle を $\mathcal S$、
+quotient bundle を $\mathcal Q$ とする。
+普遍平面 $\mathbf P_F(\mathcal S)\subset Y\times F$ は $F$ 上滑らかな正則閉部分であり、
+その blowup $\widetilde Y_F\to Y\times F$ も $F$ 上滑らかかつ projective である。
+射影は $\pi:\widetilde Y_F\to B:=\mathbf P_F(\mathcal Q)$ という相対二次元の
+flat quadric fibration を与える。flat 性は各 quadric の非零性による。
+実際、零 quadric があればその対応する $\mathbf P^3$ が $Y$ に含まれるが、
+その $\mathbf P^3$ 上の三つの法方向微分は二次式で共通零点を持ち、$Y$ の滑らかさに反する。
+
+この quadric は、$B$ 上で tautological な直線を $K^7\otimes\mathcal O_B$ へ
+引き戻した階数四 bundle と、方程式の値を取る直線 bundle から大域的に定義される。
+この vector bundle の直和分解や原点を選ぶ必要はない。
+従って even algebra $\mathcal C_0$ と odd bimodule $\mathcal C_1$、
+全ての $\mathcal C_i$ は $B$ 上に大域的に存在する。
+Kuznetsov\cite[Lemma~3.8]{NFMKuznetsovQuadric}の局所射影性と Clifford 乗法により、
+$-\otimes_{\mathcal C_0}\mathcal C_1$ は実際の可逆 bimodule functor である。
+
+同文献の Theorem~4.2、Lemmas~4.6--4.7、Remark~4.8、Lemma~4.10 は、
+$\pi$ に対する $F$-線型の kernel functor $\Phi,\Psi$ とその随伴を与える。
+ここでは、滑らかな底 $B$ を持つ相対 quadric にその定理を直接適用する。
+kernel sheaf は quadric 上で局所自由であり、Clifford module 側の有限振幅は
+Lemma~4.6 による。これらの表示と proper perfect な押下げは幾何的ファイバーへの
+導来底変更に両立する。単に絶対的 perfect 性から相対的 perfect 性を推論しているのではない。
+
+Liu の $\mathcal C_1,\mathcal C_2$ は相対 exceptional object となる。
+すなわち $b:B\to F$ に対して
+\[
+ Rb_*R\mathcal Hom_{\mathcal C_0}(\mathcal C_i,\mathcal C_i)
+ \simeq\mathcal O_F\quad(i=1,2)
+\]
+であり、必要な半直交性も成り立つ。これは Clifford sheaf の外積表示と
+$\mathbf P^3$-bundle の切断コホモロジーから直接従い、ファイバー上では Liu の
+式~(3-10) の計算である。より具体的には、Kuznetsov の Lemma~3.8 による
+$R\mathcal Hom_{\mathcal C_0}(\mathcal C_i,\mathcal C_i)\simeq\mathcal C_0$ と
+proper な $\mathbf P^3$-bundle の底変更を使うと、unit
+$\mathcal O_F\to Rb_*\mathcal C_0$ が全幾何的 fibre で同型となり、全体でも同型である。
+相対 mutation は evaluation の cone
+\[
+ \mathcal C_i\otimes b^*Rb_*R\mathcal Hom_{\mathcal C_0}(\mathcal C_i,-)
+ \longrightarrow\operatorname{id}
+\]
+として大域的に定まる。
+
+$\mathcal B_F\subset\operatorname{Perf}(Y\times F)$ を標準相対残余圏とすると、
+$A=\Psi\sigma^*|_{\mathcal B_F}$ の像は
+$\mathcal B_{\mathrm{Cl,F}}=\langle\mathcal C_1\otimes b^*\operatorname{Perf}(F),
+\mathcal C_2\otimes b^*\operatorname{Perf}(F)\rangle^\perp$ に入る。
+右随伴は $A^R=j_Y^!R\sigma_*\Phi$ である。
+Liu の Theorem~2.8 の単位・余単位は全幾何的ファイバーで同型である。
+上の実際の kernel 表示により単位・余単位の cone も相対 perfect 核であり、
+導来 Nakayama により零となる。従って $A$ は相対同値である。
+この確認に使う Liu の mutation 証明は、line bundle、relative exceptional block、
+有限個の evaluation と cone の計算であり、各式は tautological bundle を使って
+座標分解なしに構成される。体が代数閉でない場合も、これらの実際の射の cone の
+消滅を忠実な代数閉拡大後に確認すればよい。
+
+したがって
+\[
+ O_F=A^R L_{\mathcal C_1}
+       (-\otimes_{\mathcal C_0}\mathcal C_1)A
+\]
+は所要の族である。
+相対 Clifford 圏は $\operatorname{Perf}(\widetilde Y_F)$ の相対 admissible component
+なので $F$ 上 smooth proper であり、上の可逆 bimodule、相対 mutation、随伴の合成は
+perfect な相対 Morita 核を与える。より具体的には、Kuznetsov の有限振幅な kernel と
+有限個の relative evaluation の cone を合成し、proper な射で押し下げることで
+$Y\times Y\times F$ 上の bounded coherent kernel を得る。
+この ambient は $K$ 上滑らかなので kernel は perfect であり、さらに
+$Y\times Y\times F\to F$ が滑らかであるため、局所的な有限 vector bundle 表示は
+$F$-flat な複体でもある。これが本構成で必要な相対 perfect 性を直接保証する。
+これは各平面でのみ kernel の存在を選択して貼ったものではなく、普遍 quadric と
+その大域的な Clifford module から構成した族である。
+\end{proof}
+
+\begin{proposition}[平面選択によらない Clifford 半 rotation の同型類]
+\label{prop:nfm-fivefold-half-rotation-plane-independent}
+$O_\Pi$ の幾何的 perfect 核の同型類は $\Pi\in F(\overline K)$ によらない。
+その共通類 $[O]$ は Galois 不変である。
+\end{proposition}
+
+\begin{proof}
+前補題は $F$ から可逆核の moduli stack への実際の射を与える。
+可逆核の自己 Ext は $HH^*(\mathcal B_{\overline K})$ であるから、
+To\"en--Vaqui\'e\cite[Corollaries~3.17, 3.22, 3.24]{NFMToenVaquieModuli}
+により scalar を rigidify した class 層は局所有限表示の代数空間であり、
+その接空間は零である。従って $\overline K$ 上で離散な \'etale 空間となる。
+相対核によるこの class 空間への射は代数的、特に連続である。
+$F_{\overline K}$ は連結なので像は一点であり、全平面の核 class は一致する。
+普遍構成は $K$ 上にあるので Galois は $[O_\Pi]$ を $[O_{\gamma\Pi}]$ に送り、
+共通類 $[O]$ を固定する。
+exact functor の同型類から核の同型類への移行には
+補題\ref{lem:nfm-projector-kernel-uniqueness}を使う。
+\end{proof}
+
+\begin{lemma}[Fano 曲面の奇数次数零 cycle]
+\label{lem:nfm-fivefold-plane-odd-degree}
+$F=F_2(Y)$ の Pl\"ucker degree は $2835$ である。
+従って $K$ が無限体なら、$F$ 上に次数 $2835$ の finite \'etale 零 cycle がある。
+指定した真閉部分を避けることもできる。
+\end{lemma}
+
+\begin{proof}
+$\operatorname{Gr}(3,7)$ 上で $F$ は $\operatorname{Sym}^3\mathcal S^*$ の
+正則切断の零 locus であり、その rank は十である。
+$x,y,z$ を $\mathcal S^*$ の Chern roots とすれば Grassmannian の積分公式から
+\begin{align*}
+ \deg F
+ &=\int_{\operatorname{Gr}(3,7)}
+ c_{10}(\operatorname{Sym}^3\mathcal S^*)c_1(\mathcal S^*)^2\\
+ &=[x^6y^5z^4]
+ \left(\prod_{a+b+c=3}(ax+by+cz)\right)
+ (x+y+z)^2(x-y)(x-z)(y-z)\\
+ &=2835.
+\end{align*}
+これは Ciliberto--Zaidenberg\cite[Example~4.4]{NFMCilibertoZaidenbergFano}
+の既知の値でもある。積の係数計算は
+\texttt{computations/verify\_fivefold\_plane\_degree.py} の整数演算で独立に再現する。
+一般の二つの $K$-有理 Pl\"ucker hyperplane との交わりを取る。
+滑らかさと標数零の Bertini により交点は finite \'etale となり、
+次数は上の交点数である。真閉部分の次元は高々一なので、一般の二切片はそれを避ける。
+\end{proof}
+
+\begin{theorem}[Clifford 半 rotation の元の体上への効果化]
+\label{thm:nfm-fivefold-half-rotation-kernel-descent}
+上の仮定の下で、平面に依存しない class $[O]$ は実際の $K$-線型 perfect 可逆核を持つ。
+その核は同型を除いて一意であり、$O^2\simeq\rho$ となる。
+従って
+\[
+ \epsilon=OT^{-1}\simeq O^3[-1]
+\]
+も実際の $K$-核を持ち、$\epsilon^2\simeq\operatorname{id}$、
+$\epsilon_*|_{N(\mathcal B)}=\operatorname{id}$ を満たす。
+ここでは $\epsilon\ne\operatorname{id}$ を主張していない。
+\end{theorem}
+
+\begin{proof}
+前命題の $K$-有理 class の実現 gerbe の類を $\beta\in\operatorname{Br}(K)$ とする。
+convolution は二つの scalar $(\lambda,\mu)$ を $\lambda\mu$ に送る。
+従って $[O]^2=[\rho]$ の実現障害は $2\beta$ であり、$\rho$ が実際の $K$-核を
+持つことから $2\beta=0$ となる。周期同型を標識した gerbe への主張ではない。
+
+各閉点 $x\in F$ の剰余体 $K(x)$ 上では前補題の相対核のファイバーが
+$[O]$ を実現するため、$\beta_{K(x)}=0$ である。
+前補題の零 cycle を $\sum x_i$ と書けば、corestriction により
+\[
+ 2835\beta=\sum_i[K(x_i):K]\beta
+          =\sum_i\operatorname{cor}_{K(x_i)/K}(\beta_{K(x_i)})=0.
+\]
+$\gcd(2,2835)=1$ から $\beta=0$ であり、実際の $K$-核を得る。
+二つの実現の差は $H^1(K,\mathbf G_m)=0$ なので同型である。
+実現の convolution と $\rho$ は幾何的に同型で、その Hom は一次元 $K$-空間となるため、
+非零射を取れば $K$ 上の同型を得る。残りの式は
+式\eqref{eq:nfm-fivefold-clifford-half-rotation}と $T^2=\rho$ による。
+この証明は $F(K)\ne\varnothing$ を仮定せず、奇数次数の零 cycle だけを使う。
+\end{proof}
+
+
+
+
+\begin{proposition}[原点像の Clifford 表示への有限還元]
+\label{prop:nfm-fivefold-origin-clifford-complex}
+代数閉体上で $C\subset Y$ を active 平面三次とし、$M$ を $p_{\mathrm{res}}$ を表す
+次数零線束、$E_p=j_Y^!i_{C,*}M$ とする。
+$C$ と交わらない平面 $\Pi\subset Y$ を選び、$i':C\to\widetilde Y_\Pi$ をその持上げとする。
+このとき Liu の同値における像は、次の有限個の既知の操作で計算できる。
+\begin{equation}\label{eq:nfm-fivefold-origin-clifford-complex}
+ A_\Pi(E_p)
+ \simeq O_{\mathrm{Cl}}^{-8}\Psi_\Pi
+ L_{\mathcal O(2H)}L_{\mathcal O(3H)}
+ i'_*\bigl(M\otimes\mathcal O_C(4)\bigr).
+\end{equation}
+最初の mutation の評価空間は $H^0(C,M(1))$ で次元三、
+二番目の mutation の評価複体は
+\[
+ \ker\bigl(H^0(C,M(1))\otimes H^0(Y,\mathcal O_Y(1))
+          \longrightarrow H^0(C,M(2))\bigr)[1]
+\]
+であり、その核の次元は十五である。
+\end{proposition}
+
+\begin{proof}
+包含の左随伴を $p_Y$ とすると、Serre 関手の比較は
+$j_Y^!=S_{\mathcal B}p_YS_Y^{-1}$ を与える。
+$S_{\mathcal B}=\rho^{-4}[5]$、$S_Y^{-1}=(-\otimes\mathcal O_Y(4))[-5]$ から
+\[
+ E_p=\rho^{-4}p_Yi_{C,*}(M(4)),\qquad
+ p_Y=L_{\mathcal O_Y}L_{\mathcal O_Y(1)}L_{\mathcal O_Y(2)}L_{\mathcal O_Y(3)}.
+\]
+$A_\Pi\rho A_\Pi^{-1}=O_{\mathrm{Cl}}^2$ によって $\rho^{-4}$ は $O_{\mathrm{Cl}}^{-8}$ へ移る。
+$R\sigma_*\mathcal O_{\widetilde Y}=\mathcal O_Y$ により $\sigma^*$ は line bundle mutation と可換し、
+Liu\cite[Lemma~2.12]{NFMPeizeLiuFivefold}から
+$\Psi L_{\mathcal O}=\Psi$、$\Psi L_{\mathcal O(H)}=\Psi$ である。
+$\Pi\cap C=\varnothing$ により $L\sigma^*i_{C,*}M(4)=i'_*M(4)$ なので、所要の式を得る。
+
+次数三と六の線束の $H^1$ は零である。
+従って最初の評価空間は次元三、二番目の評価複体は
+$H^0(C,M(1))\otimes H^0(Y,\mathcal O(1))\to H^0(C,M(2))$ の cone となる。
+この乗法写像は全射である。$M\ne\mathcal O_C$ の場合、$\mathcal O_C(1)$ の
+base point free pencil の評価列を $M(1)$ で捩じり、
+$H^0(M)=H^1(M)=0$ を用いれば、既に pencil の二切断で全射となる。
+$M=\mathcal O_C$ の場合は平面三次の二次式に関する projective normality による。
+$H^0(Y,\mathcal O(1))$ は七次元で、$C$ の三次元の一次式空間へ全射するため、
+核の次元は $3\cdot7-6=15$ となる。
+\end{proof}
+
+この式は $OE_p\simeq TE_p$ を判定するための具体的な入力を与えるが、
+その同型を証明したものではない。$\Psi$ は Liu の式~(2-4) の局所自由 module
+$\mathcal E$ により $R\pi_*(-\otimes\mathcal E(h))[2]$ と明示されるため、
+残る問いは指定された二つの evaluation map を含む有限 Clifford 複体の比較である。
+数値 class や cohomology の次元だけを一致させて核の同型を結論しない。
+
+\begin{proposition}[安定性軌道上の有限数値的自己同値]
+\label{prop:nfm-fivefold-finite-stability-fixed}
+$\mathcal D$ の数値格子が階数二で、安定性条件 $\sigma$ の中心電荷
+$Z:N(\mathcal D)_{\mathbf R}\to\mathbf C$ が実線型同型であるとする。
+有限位数の自己同値 $g$ が数値的に恒等であり、
+$g\sigma\in\sigma\widetilde{\operatorname{GL}}_2^+(\mathbf R)$ なら $g\sigma=\sigma$ である。
+Liu の構成した五様体の安定性軌道では、上の $\epsilon$ は全ての点を固定する。
+\end{proposition}
+
+\begin{proof}
+$g\sigma=\sigma\widetilde A$ と書くと、数値恒等と $Z$ の全射性から
+$\widetilde A$ の $\operatorname{GL}_2^+$ への像は恒等である。
+その核は無限巡回群であり、位相の偶整数移動で作用する。
+$g^m\simeq\operatorname{id}$ なら $\sigma\widetilde A^m=\sigma$ であるが、
+非零な位相移動は slicing を固定しないため $\widetilde A=1$ となる。
+自己同値作用は右 $\widetilde{\operatorname{GL}}_2^+$ 作用と可換するので、軌道全体を固定する。
+
+Liu\cite[Theorem~5.5 の証明, Corollary~5.10]{NFMPeizeLiuFivefold}では
+$O_\Pi$ が構成された軌道を保つことを実際に示している。
+$T=S[-2]$ も Serre 不変性により同じ軌道を保つ。
+従って $\epsilon=O_\Pi T^{-1}$ はこの命題の仮定を満たす。
+\end{proof}
+
+\begin{remark}[有限安定化群について決定していない点]
+標準一般係数体の $E_p=q^RM$ と有限群
+$H_p=\{g\in G_\rho:gE_p\simeq E_p\}$ について、本節は
+\[
+ \epsilon\in H_p\quad\Longleftrightarrow\quad OE_p\simeq TE_p
+\]
+の右辺をまだ判定していない。$\epsilon$ の非自明性も未決定である。
+安定性条件を固定することは対象を固定することと異なり、自己同値の作用の忠実性も別に必要である。
+Liu の Proposition~6.10 は最小数値 class の stable moduli の一つの連結成分を
+$F_2(Y)$ と同定するが、全 moduli の既約性は Remark~6.11 で予想として明記される。
+従って $\epsilon$ がその特定の成分を保つとも、この成分への作用だけで恒等核と判定できるとも
+仮定していない。一般の $H_p$ が Liu の安定性軌道を保つことも本節では未証明である。
+
+$O$ と $\epsilon$ の実核の降下は $S_p$ の中立性を意味しない。
+また $\epsilon^2\simeq\operatorname{id}$ という核の同型類の関係から、
+指定された coherent な $C_2$-作用を構成したとは主張しない。
+既存の有限性補題は generator の固定による boundedness と $HH^1=0$ の離散性をともに使い、
+$S_p$ の torsor 定義は随伴復元条件を満たす非空集合に $H_p$ が単純推移することによる。
+これらの前提を本節の安定性の議論で弱めていない。
+\end{remark}

@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：研究方針
 
-2026年11月20日 / v20。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+2026年11月20日 / v21。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
 
 ## 基本目標と優先順位
 
@@ -36,7 +36,13 @@ O-marked の基本対象は Abel 圏と構造対象の対 (C,O) であり、射�
 
 **点型は、構造対象と active 曲線への幾何的制限だけで定義できる。** source と残余側の包含を j_nc、j_Y、active 曲線の閉埋込みを i_C とすると、κ_nc≃j_nc^!O[1]、q_Y≃Li_C^*∘j_Y である。従って Q_P=Li_C^*j_YΦ_Pj_nc^!O と置けば R_P≃Q_P[1] となり、点型は H^{>0}(Q_P)=0、H⁰(Q_P) が次数零の線束、[H⁰(Q_P)]=p_res という条件で表せる。右随伴での Serre 基底線の相殺と、係数商・window1 の比較写像を unit・随伴から構成する証明により、表示選択に由来する余分な基底線や shift は残らない。
 
-この幾何的記述は、良い一ブロックの共通稠密開上で全 O-保存同値と任意底変更に両立し、Brauer–Severi 表示も許す。full class を自動選択する結果でも、全ての refined 核を点型と同定する結果でもない。非分裂表示上でも、この内在的記述によって最高次線束型の類 m_P が降下し、選択済み full class の scalar 障害は α=δ_C(m_P) となる。次数三の偏極類が Pic_C³(K) に入るので3[C]=0であり、Tate pairing により period は三を割る。これは点型だけでなく最高次線束型の選択済み class 全体に成立する。index は n≢1 mod3 で三、n≡1 mod3 で九を割る。Euler 数だけを指定した全核へは広げず、非分裂体全般での exact index 三や index 九の実現は未決定である。
+この幾何的記述は、良い一ブロックの共通稠密開上で全 O-保存同値と任意底変更に両立し、Brauer–Severi 表示も許す。full class を自動選択する結果でも、全ての refined 核を点型と同定する結果でもない。非分裂表示上でも、この内在的記述によって最高次線束型の類 m_P が降下し、選択済み full class の scalar 障害は α=δ_C(m_P) となる。次数三の偏極類が Pic_C³(K) に入るので3[C]=0であり、Tate pairing により period は三を割る。これは点型だけでなく最高次線束型の選択済み class 全体に成立する。index は n≢1 mod3 で三、n≡1 mod3 で九を割る。Euler 数だけを指定した全核へは広げない。下記の非分裂族では period 三・index 九を実現するが、全ての非分裂体で index 九となるという主張ではない。
+
+**n≡1 mod3 の非分裂表示では、点 Picard 障害の period 三・index 九を実現できる。** 全 n≥4、n≡1 mod3 について、良い一ブロック stack の任意の非空開に、この障害を持つ体値点を構成する。一般 Hesse 曲線とその一般点を三捩れ theta torsor で twist し、active 表現と中心表現に同じ中心重みを与えた mixed 表示へ降下する。表示の Brauer 類 β は index 三だが、点線束の障害 α=δ_C(p_res) は period 三・index 九であり、両者を同一視しない。混合係数と中心 torsor の一般化は純超越拡大だけで行うので index 九を保つ。この構成は full class の事前選択を要しない。
+
+これらの体値点で実際の点型 full 核が有限拡大 L/K 上に存在すれば 9∣[L:K] である。随伴復元点型の有限 class torsor と実現 gerbe の記述も全 O-降下し、n=4 の幾何学的一般族では強化点型の class が一つなので、周期標識を加えない最小実現次数は正確に九となる。任意型の全 full 核や全非分裂体への一律の九という結論ではない。証明の入口は `prop:nfm-unsplit-point-index-nine-family`、`lem:nfm-adjoint-point-unsplit-descent`、`cor:nfm-unsplit-point-minimum-nine`。
+
+同じ n≡1 mod3 の共通な良い開上の普遍点 Picard gerbe には、Brauer–Severi 平面の相対反標準束を用いて重み一・階数九の束を構成できる。任意の非空開で正の重み一階数は九の倍数なので、開を縮めても階数三には改善できない（`cor:nfm-universal-unsplit-picard-rank-nine`）。個々の体値点の index を一律に九とする主張ではない。
 
 **点 shift の Picard 障害は、一般 split 表示で正確に index 三となる。** K=C(a,b,λ) 上の Hesse 型三次 X³−aY³−bZ³+λXYZ と三捩れ移動点 p₀ の障害は巡回代数 (a,b+λ³/(27a))₃ であり、period=index=3である。Jacobian の関数体上で p=p₀+3q とすると、一般の j・無限位数の p でも同じ障害を保つ。この曲線・偏極・平行移動から幾何的 Sklyanin 代数を元の体上に作り、一次元の cyclic potential を降下して、滑らかな commutator–gradient 形式へ規格化した。Hesse 係数の支配性を確認した後、一般の基底変更、混合係数・中心三次係数の付加は、非零障害を保つ純超越拡大だけで行える。Hesse 座標用の根の有限拡大は支配性の検査だけに使い、非零例の基礎体には加えない。従って全 n≥3 の標準 split 一ブロック係数表示の一般点で δ_Ept(p_pt) の period と index は三である。これは係数体上の族の障害であり、複素数体上の個々の曲線に非零 Brauer 類を主張するものではない。
 
@@ -58,7 +64,9 @@ O-marked の基本対象は Abel 圏と構造対象の対 (C,O) であり、射�
 
 **周期位相を問う規格化は、点尺度と唯一の平面同型から三乗倍まで定める。** 低 rotation 積から回復するのは残余方程式の直線であり、独立な target 生成元を最初から標識しているわけではない。source 中心元 Ω と trace–Hessian 像 H を選ぶと、Π=ι(dH)P_src による強い持上げが volume P_src を一意に定める。φ_sc の任意の k_n-線型持上げ f に対し、F_φ⊗det(f)(P_src)=t_sc と置く。f の scalar 倍は F_φ を三乗倍しか変えない。また Ω を u 倍すると P_src は u⁻¹ 倍、F_φ は u 倍となるので、両側の同時変更に対する周期位相は不変である。これにより n=3,4 で全 full class に共通な γ_sc∈k_n×/k_n×³ が定まる。target の実際の基底や marked kernel 自体を正準的に選んだという主張ではない。
 
-生成元固定の形式 CF 模型では、W_h|_K=b_hJ_g、b_h∈1+h k[[h]] と、ある線型持上げの scalar λ_h に対して F_φ=λ_h⁻³b_h⁻¹W_h を得る。従って γ_sc の完備半古典体への像は [b_h⁻¹]=1 である。F′=hF による係数の吸収では source 中心元と実際の曲率の双方を h 倍するため、余分な h の Kummer 類は残らない。ただし k_n 上の γ_sc の値は未計算であり、形式的な三乗根の存在から元の体での三乗性は従わない。
+生成元固定の形式 CF 模型では、W_h|_K=b_hJ_g、b_h∈1+h k[[h]] と、ある線型持上げの scalar λ_h に対して F_φ=λ_h⁻³b_h⁻¹W_h を得る。従って γ_sc の完備半古典体への像は [b_h⁻¹]=1 である。F′=hF による係数の吸収では source 中心元と実際の曲率の双方を h 倍するため、余分な h の Kummer 類は残らない。さらに、有限 MF の内部次数と混合重みによって無限 arity の CF 挿入後も混合単項式数を一様に抑え、h だけを完備化した κ(m) 上に実際の周期付き full Morita 比較を構成できる。局所化するのは integral な有限対象の Hom であり、負の h 冪を持つ新しい Maurer–Cartan 元へ無限 flow を再評価しない。
+
+**n=3,4 の γ_sc,n は、二変数不変量体 C(s,t)、s=c₄(g)、t=−c₆(g)、へ一意に降下する。** 混合係数の定数降下の後、線型持上げと周期解を (f,η)↦(λf,λ⁻¹η) で商にして実際の μ₃-torsor の SL₃ 同変構造を作る。一般安定化群の character は、Heisenberg 群の可換化 J_g[3] と full SL₂(F₃) モノドロミーによって消える。降下した類 γ̄_n の具体値、および n=3 と n=4 での一致は未決定である。Δ=s³−t²、D=1−s/24−t/216−s²/6912 と置くと、torsor が C[s,t,1/(ΔD)] 上で有限 étale に延びるという追加仮定の下では候補は 1,[D],[D]² の三つに限られ、さらに D=0 の一般点で非分岐なら1となる。他の分岐因子がないことは未証明であり、この条件付き判定を位相の計算済み値と扱わない。
 
 周期 torsor の成分体 M は次数一または三で、指定周期付き比較の最小次数は全 class に共通に [M:k_n]ind(α|_M)∈{3,9} となる。target の生成元を適切な k_n-単元倍に選び直した適合規格化では最小次数は三である。target だけに独立変数 t による尺度を付けた k_n(t) 上の一般族では、周期成分体が k_n 上の純超越体となり scalar index 三を保つため、任意の有限実現体の次数は九の倍数であり、最小次数は正確に九となる。この独立尺度を元の一ブロック係数や formality のパラメータと同一視しない。scalar G_m-gerbe、標準三分点 torsor、相対周期の μ₃-torsor は別の構成であり、裸の O-marked 対は任意の相対周期規格化を標識しない。
 
@@ -70,13 +78,17 @@ split な滑らかな三次の奇数次元では数値 Ku 格子は階数二、G
 
 H_p∩⟨T⟩=1 なので、n=3,4 では H_p=1、S_p=Spec(k_n) となり、随伴復元点型の class は正準的に一つだけとなる。actual kernel はなお非零の scalar gerbe に妨げられ、元の体には存在しない。全 n≥3 で rotation Euler 数の最大公約数 d_n が正なので [E_p] は数値的に非零であり、全奇数 n≥3 では数値中央化群 C₆ により H_p⊂G_{ρ,0} となる。n=5 の自己 Euler 数は χ(E_p,E_p)=−27 である。全 n≥3 で S_p=⊔Spec(K_i) とすると、周期標識を加えない強化点型の最小実現次数は min_i [K_i:k_n]ind(α|_{K_i})、高々3|H_p|であり、三の倍数である。S_p(k_n)≠∅、特に H_p=1 なら最小次数は三となる。n≥5 での S_p の中立性は未証明であり、この有限化を随伴復元条件のない全点型や任意の full class へ広げない。
 
+**一般三次五次元の Clifford 半 rotation は、平面の選択に依存せず実核として元の体へ降下する。** Peize Liu の O_Cl²≃ρ を、平面の Fano 曲面 F₂(Y) 全体の実際の相対 perfect 核として構成する。F₂(Y) の幾何学的連結性と HH¹=0 による離散性から、その幾何的核 class は一定となる。降下 gerbe の類 β_O は convolution により 2β_O=0 であり、F₂(Y) の Plücker 次数2835の零 cycle 上で分裂するので 2835β_O=0、従って β_O=0 となる。ここでは β_O を表示 gerbe や点 Picard 障害と区別する。
+
+従って元の体上の実核 O と ε=OT⁻¹=O³[−1] を得て、ε²≃id、ε_* =id を満たす。ε は Liu の構成した安定性の GL̃₂⁺ 軌道の全点を固定する。安定性への作用の忠実性は仮定しておらず、ε≠id、ε(E_p)≃E_p、H_p=1、S_p の中立性は未解決である。また ε²≃id は核 class の等式であり、coherent な C₂ 作用の選択までは主張しない。証明の入口は `lem:nfm-fivefold-clifford-relative-kernel`、`prop:nfm-fivefold-half-rotation-plane-independent`、`thm:nfm-fivefold-half-rotation-kernel-descent`、`prop:nfm-fivefold-finite-stability-fixed`。
+
 全自己同値群が常に Z になるという延長は、一般三次七次元では実際に偽である。Iliev–Manivel の既知の rank 九球面束に由来する twist と shift は Z² を生成し、この twist の異なる冪は G_ρ の異なる剰余類を与えるので G_ρ は全群内で無限指数となる。これは rotation 中央化群自身が巡回でないという結論ではない。Torelli による多様体の復元も、自己同値の作用の忠実性を自動的に与えない。このため全自己同値群の分類を先に解くことを必要条件にせず、点型を含む一つの固定軌道を狙う。n≥5 の class 選択そのものは未解決である。
 
 従来の **Euler 数だけを指定した型**には d_n=3^floor((n+1)/2) の bound を保持する。n≥5 では全ての核へ上の3を拡張しない。n=3,4 の全 class に共通な三という結論は Euler 評価ではなく、別の自己同値分類と class 降下による。既存の rotation 軌道・shift・有限 cone の整数 Euler pairing は d_n Z であり、その反復では bound を改善できない。新しい評価は full kernel から作る正準的な最高次 cohomology を用い、active 同値核の選択や代数的な coherent 中心線型性の降下を前提としない。いずれの三-primary な既選択類も、三に素な体拡大では index が変わらない。
 
 固定生成元・固定 h の **実際の harmonic tensor π_h は very general に超越的**であり、この結果も保持する。自然な点規格化はこれと矛盾しない。形式 Nat frame を許した比較と固定 frame の代数性を区別する。選んだ相対 graph flow は中心乗法を厳密に保ち、Ψ_res の形式値は (V(W_h),[π_h])。さらに bar flow と逆を中心係数環上で商へ降ろすことで、完備・次数別の中心商について MF 比較を構成した。U=0 の active MF 比較も得るが、一般点の有限な代数的核への coherent な中心線型性の降下は未完成である。圏の導来 tensor と係数商を同一視する方法、および absolute perfect から relative perfect を推論する方法には一般的な反例がある。CF を選んだ trait の滑らかな模型はあるが、正準延長や h=0 での核は未構成である。
 
-既存のモジュライ同型、相対点復元、Brauer 障害、Jacobi スキームと証明書は保持する。trace–Hessian と残余三次の全次元反例、一般次数9の有限補正 Φ、全混合五次 tensor と残余四次項、四次障害と追加補正 Φ^[4] も有効である。Φ、Φ^[4]、Ψ_res、Ψ_res^± は標的と厳密性の異なる構成である。元の目標では、一ブロック一般部分の moduli・点曲線・自然な Poisson 射・被覆上の同じ X への Ku 比較が接続した。**n=5 の随伴復元点型の有限 class torsor S_p の中立性、n=3,4 の規格化した周期位相 γ_sc の値、一般の非分裂表示、および全 intrinsic 成分の一般対象の被覆**を次の核心とする。
+既存のモジュライ同型、相対点復元、Brauer 障害、Jacobi スキームと証明書は保持する。trace–Hessian と残余三次の全次元反例、一般次数9の有限補正 Φ、全混合五次 tensor と残余四次項、四次障害と追加補正 Φ^[4] も有効である。Φ、Φ^[4]、Ψ_res、Ψ_res^± は標的と厳密性の異なる構成である。元の目標では、一ブロック一般部分の moduli・点曲線・自然な Poisson 射・被覆上の同じ X への Ku 比較が接続した。**n=5 の随伴復元点型の有限 class torsor S_p の中立性、n=3,4 の二変数不変量体へ降下した周期位相 γ̄_n の値、指数九を実現する非分裂表示の class 選択と適用範囲、および全 intrinsic 成分の一般対象の被覆**を次の核心とする。
 
 ## 一般性と成分の扱い
 
@@ -90,7 +102,7 @@ H_p∩⟨T⟩=1 なので、n=3,4 では H_p=1、S_p=Spec(k_n) となり、随�
 
 直接の入力は [nc-cubic](https://github.com/uedakazushi/nc-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) の固定 commit `eabe601c1341777742964584dde5314c0bcf64a9`（論文A A-v61、論文B B-v59）。三様体の比較対象は [nc-cubic-threefold-moduli](https://github.com/uedakazushi/nc-cubic-threefold-moduli/tree/6c35d2c84671c2538e61836a6bf3a511392eacce) の固定 commit `6c35d2c84671c2538e61836a6bf3a511392eacce`（v22）。両 repo は読取り専用とする。
 
-入力の全次元 Poisson 正規形・中心量子化・完備 MF 移送・一般点残余復元・Hesse の exact residual potential、および公刊の PBW/CY・星積・wheel 消滅・Kontsevich の二次形式対応・Mori–Smith の点曲線 Hessian 公式、Banks–Panzer–Pym の harmonic graph weights と Buring の公開データ、Wang・Hwang の勾配復元、Toën–Vaquié の perfect 核の有限表示・boundedness・同値 locus の開性を新規成果に数えない。Matsuno の Sklyanin 分類、Hille–Van den Bergh の楕円 Fourier–Mukai の graph 認識、Ciperiani–Krashen の Tate–Weil pairing、Liu と Huybrechts の低次元自己同値分類、Iliev–Manivel の一般三次七次元の球面束と twist、Murfet の MF residue trace も既知の入力として用いる。三分点の全モノドロミー、低次元 full class 降下、点型の全 O-共変性、周期位相の class 不変性と相対尺度の算術、高次元の中心的整数軌道と数値中央化群による簡約に加え、三乗倍までの方程式規格化と形式位相の計算、随伴復元点型の有限 class torsor を本文に証明し、内部で独立点検した。外部査読と新規性の網羅的確認は未完了であり、未公表入力の全証明を独立に再検証したとは主張しない。書誌・参照箇所は `notes/research_notes.md`、確認状態は `notes/validation.md` に置く。
+入力の全次元 Poisson 正規形・中心量子化・完備 MF 移送・一般点残余復元・Hesse の exact residual potential、および公刊の PBW/CY・星積・wheel 消滅・Kontsevich の二次形式対応・Mori–Smith の点曲線 Hessian 公式、Banks–Panzer–Pym の harmonic graph weights と Buring の公開データ、Wang・Hwang の勾配復元、Toën–Vaquié の perfect 核の有限表示・boundedness・同値 locus の開性を新規成果に数えない。Matsuno の Sklyanin 分類、Hille–Van den Bergh の楕円 Fourier–Mukai の graph 認識、Ciperiani–Krashen の Tate–Weil pairing、Liu と Huybrechts の低次元自己同値分類、Peize Liu の五次元 Clifford 表示と半 rotation、Kuznetsov の相対二次曲面束、Collino の平面 Fano 曲面、Ciliberto–Zaidenberg の次数公式、Iliev–Manivel の一般三次七次元の球面束と twist、Murfet の MF residue trace も既知の入力として用いる。三分点の全モノドロミー、低次元 full class 降下、点型の全 O-共変性、周期位相の class 不変性と相対尺度の算術、高次元の中心的整数軌道と数値中央化群による簡約に加え、三乗倍までの方程式規格化と形式位相の計算、混合係数を有理的に保つ周期付き CF 比較と二変数不変量体への位相の降下、随伴復元点型の有限 class torsor を本文に証明し、内部で独立点検した。外部査読と新規性の網羅的確認は未完了であり、未公表入力の全証明を独立に再検証したとは主張しない。書誌・参照箇所は `notes/research_notes.md`、確認状態は `notes/validation.md` に置く。
 
 | 基本目標 | 現行稿に証明のある到達点 | 未解決の核心 |
 |---|---|---|
@@ -99,10 +111,11 @@ H_p∩⟨T⟩=1 なので、n=3,4 では H_p=1、S_p=Spec(k_n) となり、随�
 | Poisson moduli | Msm≅Pgood。入力Bの下で射影残余射 Ψ_res と T≃λ_res*、点微分による Ψ_res^±。正確な一般次数18、M/⟨ι⟩≃Z、χ_op=χ_sgn+χ_act。Hesse体への二次類単射とC₃対称族自身のJacobian同型被覆の分裂。有限対角による近傍延長からχ_act=0、半古典規格化full射の次数9と反対同変性。固定 harmonic tensor は very general に超越的 | 特殊族での圏的再構成との整合、各 intrinsic 成分 |
 | active 比較と点障害 | 任意の実次数三偏極標的 C への全 Fourier–Mukai intertwiner の存在は、偏極曲線同型と δ_E(p)=0 に同値。Sklyanin による算術的実現と支配族から、一般 split 係数体で点障害の period=index=3。三に素な有限拡大後も active intertwiner はなく、p_pt と p_res は非三可除。行列余核は3pを表す実線束。完備半古典族では一意な形式三分点により点障害が分裂 | active の同型類・実現 gerbe を full 核へ持ち上げる条件、追加周期標識の μ₃-torsor、非分裂表示への適用範囲 |
 | 三分点の算術 | 全 n≥3 の k_n 上で標準三分点 torsor は連結な九次体。最小点定義次数九、Galois 閉包群 ASL₂(F₃)・位数216、真の中間体なし。残余側へ θ_sc で移送 | full 比較の最小次数とは別。標準 split 係数体以外へのモノドロミー拡張 |
-| Kuznetsov 比較 | 全 n≥3 で点型は非空・全 O-共変、一般 split scalar 障害は exact period=index 三。n=3,4 では全 full class が降下して scalar 障害が共通となり、任意型の underlying・rotation intertwining 比較の最小次数三。非分裂の最高次線束型では選択済み class の period∣3、index∣3 または9 | n≥5 の first-stage class 選択と任意型への拡張、一般非分裂体の exact index、coherent 中心線型性の代数的降下、全 intrinsic 成分 |
-| 周期標識の算術 | n=3,4 で位相は全 class 共通。φ_sc と t_sc が残余方程式を三乗倍まで規格化し γ_sc を定める。形式 CF 比較で F_φ=λ_h⁻³b_h⁻¹W_h、γ_sc の完備化像は1。一般の frame 変更は γ′=[v/u]γ、適合規格化の最小次数三、target の自由尺度族の最小次数九 | 原 k_n の γ_sc と [M:k_n]ind(α_M)∈{3,9} の具体値。完備化での消滅・自由尺度族を元の体の値と同一視しない |
+| Kuznetsov 比較 | 全 n≥3 で点型は非空・全 O-共変、一般 split scalar 障害は exact period=index 三。n=3,4 の一般 split 体では任意型の未標識比較の最小次数三。n≡1 mod3 の任意の非空開で非分裂点障害の period 三・index 九を実現し、n=4 の幾何学的一般族では強化点型の未標識最小次数九 | n≥5 の first-stage class 選択と任意型への拡張、一般非分裂体での index 判定、coherent 中心線型性の代数的降下、全 intrinsic 成分 |
+| 周期標識の算術 | n=3,4 で位相は全 class 共通。φ_sc と t_sc が方程式を三乗倍まで規格化し γ_sc,n を定める。混合有理 CF 比較と安定化群の character 消滅により γ̄_n∈C(c₄,−c₆)×/C(c₄,−c₆)×³ へ一意に降下。形式像は1。frame 変更は γ′=[v/u]γ、適合規格化の最小次数三、target の自由尺度族の最小次数九 | γ̄_n の値と標識付き最小次数三／九。Δ,D 以外に分岐しないという追加仮定なら候補は 1,[D],[D]²。非分岐仮定と n=3,4 の類の一致は未証明 |
 | 高次元の full class 障害 | class と T-軌道の Galois 安定化群が一致。奇数 n で G_ρ/⟨T⟩≅G_{ρ,0}/⟨[2]⟩、数値像 C₆。一般三次七次元では full Aut は非巡回、G_ρ は全群内で無限指数 | 随伴復元条件のない全点型・任意型の class 選択。G_ρ 自身の巡回性は七次元の反例では否定されない |
 | 随伴復元点型の有限化 | 非空な強化点型は有限 étale H_p-torsor S_p、実現 stack は S_p×Picard_{p_res}。n=3,4 は H_p=1 で唯一 class。全奇数 n≥3 で H_p⊂G_{ρ,0}。全 n≥3 の未標識最小次数 min_i[K_i:k_n]ind(α_{K_i})≤3·#H_p | n=5 で H_p を消すか S_p を中立化する。対象 E_p=q^R M の固定だけから全 dg 作用の同一性を推論しない |
+| 五次元の Clifford 半 rotation | 平面に依存しない核 class は実核 O として元の体へ降下。O²≃ρ、ε=OT⁻¹ は数値的自明で ε²≃id、Liu の安定性軌道を点ごとに固定 | ε の非自明性、ε(E_p)≃E_p、H_p の決定と S_p の中立性。coherent C₂ 作用は未主張 |
 
 一般残余射の主証明は `papers/sections/residual_algebraic.tex`。`lem:nfm-dominant-central-family`、`thm:nfm-relative-residual-cubic`、`lem:nfm-relative-center-transport`、`thm:nfm-projective-residual-morphism`、`prop:nfm-projective-residual-dominance`、`thm:nfm-residual-comparison-cover`、`prop:nfm-residual-kernel-descent`、`cor:nfm-residual-good-reduction`、`thm:nfm-normalized-tensor-transcendence` を参照する。
 
@@ -118,11 +131,15 @@ H_p∩⟨T⟩=1 なので、n=3,4 では H_p=1、S_p=Spec(k_n) となり、随�
 
 周期位相の class 不変性・規格化変換・独立尺度付き最小次数九は同節の `lem:nfm-mf-period-central-coherence`、`prop:nfm-period-phase-class-invariance`、`prop:nfm-period-equation-frame-change`、`thm:nfm-free-period-frame-degree-nine`、`rem:nfm-period-frame-scope`。三乗倍までの方程式規格化、一般係数体での平面同型の一意性、形式位相の計算は `prop:nfm-period-equation-cube-frame`、`cor:nfm-generic-plane-isom-unique`、`prop:nfm-period-phase-formal-active-scalar`。三次元の位相を fractional Serre 自明化の比較へ戻す補題は `lem:nfm-period-phase-fractional-serre`。
 
+周期位相の混合定数降下と二変数不変量体への帰着は `papers/sections/residual_period_descent.tex` の `lem:nfm-period-flow-mixed-bound`、`prop:nfm-period-comparison-mixed-rational`、`thm:nfm-period-phase-active-descent`、`prop:nfm-period-phase-invariant-descent`。追加の非分岐仮定の下の三候補は `lem:nfm-period-two-boundary-criterion` を参照する。
+
 高次元の Serre 合同類、中心的整数軌道、奇数次元の数値中央化群、七次元の障害は同節の `prop:nfm-highdim-rotation-serre`、`prop:nfm-highdim-central-shift-obstruction`、`cor:nfm-highdim-point-class-orbit`、`prop:nfm-odd-numerical-rotation-centralizer`、`prop:nfm-sevenfold-noncyclic-aut`。球面束と twist の存在・無限位数は Iliev–Manivel の既知結果であり、その数値作用と rotation 中央化群との比較を区別する。
 
 随伴復元点型の定義と非空性は `lem:nfm-origin-active-right-adjoint`、`lem:nfm-dvr-top-line-lifting`、`prop:nfm-adjoint-point-type-nonempty`、有限安定化群と class torsor は `lem:nfm-generator-stabilizer-finite`、`thm:nfm-adjoint-point-finite-class-torsor`。n=3,4 の唯一 class、全奇数次元の数値自明性、全 n≥3 の最小実現次数は `cor:nfm-low-dimensional-canonical-adjoint-class`、`cor:nfm-odd-finite-stabilizer-numerical`、`cor:nfm-adjoint-point-realization-degree`。
 
-有限検算 `computations/verify_picard_obstruction.py` の保存済み実行記録は、接線・norm・点三次・係数逆・数値 centralizer・twist の九項と、普遍 Jacobian 上の三捩れ点、八点軌道と C₃ 安定化群、その core の自明性、右点対応の四項の計13項全て PASS である。今回の更新では計算コードを変更せず、全15計算資産を再実行していない。これらの有限恒等式と、本文の連結性・降下・Brauer 類・圏同値の証明は区別する。現在の組版・表示点検の実施状態は `notes/validation.md` を参照する。
+五次元半 rotation の降下と非分裂指数九の実現は本文に証明を記し、内部独立点検を済ませた。新規性の網羅的確認は未完了である。
+
+有限検算 `computations/verify_picard_obstruction.py` の保存済み実行記録は、接線・norm・点三次・係数逆・数値 centralizer・twist の九項と、普遍 Jacobian 上の三捩れ点、八点軌道と C₃ 安定化群、その core の自明性、右点対応の四項の計13項全て PASS である。新しい `computations/verify_fivefold_plane_degree.py` は整数係数の Grassmann 積分を独立に再現し、次数2835を PASS と確認した。既存15計算資産は今回再実行していない。これらの有限恒等式と、本文の連結性・降下・Brauer 類・圏同値の証明は区別する。現在の組版・表示点検の実施状態は `notes/validation.md` を参照する。
 
 補正の主証明は `thm:nfm-algebraic-hessian-correction`, `thm:nfm-correction-degree-nine`, `cor:nfm-mixed-even-jet`, `prop:nfm-active-fifth-covariant`, `cor:nfm-fifth-restriction-obstruction`, `prop:nfm-mixed-fifth-reduction`, `prop:nfm-correction-point-cubic`, `cor:nfm-corrected-residual-jet`, `thm:nfm-residual-formal-poisson`, `cor:nfm-formal-center-casimir`, `thm:nfm-split-corrected-residual`。四次補正の証明は `papers/sections/fourth_correction.tex` の `prop:nfm-mixed-fifth-explicit`、`lem:nfm-fourth-center-locality`、`thm:nfm-mixed-fourth-potential`、`cor:nfm-fourth-jacobi-class`、`prop:nfm-fourth-uniform-witness`、`cor:nfm-corrected-fourth-obstruction`、`thm:nfm-fourth-algebraic-correction`。既存の主証明は `thm:nfm-local-moduli`, `thm:point-trace-hessian`, `thm:poisson-strong-lift`, `thm:poisson-good-open-isomorphism`, `cor:poisson-generic-open-immersion`, `thm:nfm-th-residual-obstruction`, `cor:nfm-casimir-selection-obstruction`, `prop:nfm-relative-residual-second-jet`, `cor:nfm-generic-marked-comparison-obstruction`。相対点復元は `thm:relative-point-nfold`, `thm:point-omarked-descent`, `thm:point-central-recovery`、残余形式認識は `thm:nf-residual-formal`。
 
@@ -134,21 +151,24 @@ H_p∩⟨T⟩=1 なので、n=3,4 では H_p=1、S_p=Spec(k_n) となり、随�
 
 最優先。I_sc の分裂と有理点の一意性、点型の全 O-共変性、残余 Picard 障害の exact period=index 三は確定した。さらに随伴復元点型は非空で、その first stage は有限 étale H_p-torsor S_p である。全奇数 n≥3 で H_p は数値的に自明で、幾何的対象 E_p=q^R M を固定する有限群である。最初の未解決例 n=5 に集中する。H_p=1、またはこの特定の S_p(k_n)≠∅ を示せば、未標識の強化点型比較の最小次数は三となる。全 G_{ρ,0}/⟨[2]⟩ の分類を先に解く必要はない。
 
+- 平面に依存せず元の体上へ実核として降下した Clifford 半 rotation O と ε=OT⁻¹ を用い、ε が自明か、E_p を固定するかを評価写像を含む具体的な対象で調べる。ε の安定性軌道固定から自己同値の自明性は従わない。半 rotation の降下に使う二捩れ gerbe と2835次零 cycleは既に処理したので、平面の選択障害を未解決の主課題に戻さない。
 - n=5 の三連続 generator E_p⊕ρE_p⊕ρ²E_p を用い、対象だけでなく全 dg endomorphism 代数の作用を保つ自己同値を調べる。E_p の幾何的同型類は Galois 不変だが、M や E_p の実現を元の体上で選べるとは仮定しない。数値的自明性や対象の固定から、核 class の自明性を結論しない。
 - 原点を保つ同値を全導来圏へ延ばす経路では、例外的 block と原点の間の全作用を保つ gluing module の比較が必要である。Tate Ext から Koszul 双対へ戻す経路でも、非可換中心超曲面上の比較と A∞ 作用・coherence を確認する。これらの未証明の忠実性を有限性の定理へ混入させない。
 - 一般 n≥5 の class と T-軌道の安定化群の一致、および奇数次元の G_ρ/⟨T⟩≅G_{ρ,0}/⟨[2]⟩ は別の有効な簡約として保持する。n≡1 mod3 では全群と rotation 中央化群を区別する。七次元の全群の非巡回性は、中央化群自身の巡回性を否定しない。
 - 随伴復元条件を課さない全点型や任意の full class への拡張は未解決である。点型 class を選べれば scalar 最小次数は三だが、一般 p_res の三分可能性や cup 相殺を同じ係数体での次課題に戻さない。九次三分点体は全 full 比較体の九整除性を意味しない。
 - 完備中心商の比較を有限代数的核の coherent な中心線型性へ降ろす条件も調べる。係数商と圏の導来 tensor、absolute perfect と relative perfect を区別する。
 
-### 2. n=3,4 の規格化した周期位相 γ_sc を計算する
+### 2. 二変数不変量体上の周期位相 γ̄₃,γ̄₄ を計算する
 
-唯一の φ_sc と点尺度 t_sc を用い、F_φ⊗det(f)(P_src)=t_sc によって残余方程式を三乗倍まで規格化する。P_src は source 中心元 Ω に対応する強い Poisson 持上げであり、独立な volume の追加標識ではない。この規格化は source と target の同時変更に不変で、全 full class 共通の γ_sc∈k_n×/k_n×³ を定める。残るのはこの具体的な Kummer 類と、その成分体 M 上の scalar index から [M:k_n]ind(α_M)∈{3,9} を判定することである。class 変更だけで位相を消す方策は取れない。
+唯一の φ_sc と点尺度 t_sc による三乗規格化は、n=3,4 の全 full class に共通な γ_sc,n を定める。その類は混合係数に依存せず、C(s,t)、s=c₄(g)、t=−c₆(g)、から一意に来ることを証明した。混合重みで有限 MF 行列の単項式数を一様に抑えて κ(m) 上に周期付き full Morita 比較を構成し、実際の μ₃-torsor の SL₃ 同変降下を用いる。形式体から元の体への Kummer 単射を仮定した結果ではない。残る目標は γ̄₃,γ̄₄ の具体値と、位相成分体 M 上の scalar index による [M:k_n]ind(α_M)∈{3,9} の判定である。二つの次元の類が一致するとはまだ主張しない。
 
-形式比較では F_φ=λ_h⁻³b_h⁻¹W_h であり、未知の線型 lift の scalar は三乗として除ける。b_h∈1+h k[[h]] なので γ_sc の完備化像は1だが、元の体への Kummer 降下は未証明である。n=3 では指定 fractional Serre 自明化と標準 Serre 比較の欠損 d(P) を用いて γ_sc=[d(P)⁻¹] と書ける。固定 source の AS-Gorenstein trace と CF による MF trace を実際の有限模型で比較し、Murfet の residue 式の volume・determinant 因子、または係数体上の分岐を追う。抽象的な Serre 自然性や完備化後の一致だけで消滅を結論しない。適合 frame で最小次数三、自由な相対尺度族で九という結果は保持するが、γ_sc の値を代わりに決めるものではない。
+まず Δ=s³−t² と D=1−s/24−t/216−s²/6912 の外側で周期 torsor が有限 étale に延びるかを調べる。この未証明の非分岐性が得られれば、形式像が1であることと UFD の Kummer 計算により候補は 1,[D],[D]² に限られる。D=0 の一般点での mod-three 付値を一つ計算すれば、この条件下の値を決定できる。Hessian 写像の判別式公式だけで他の分岐因子を排除せず、元の residual/period 構成がその境界近傍に存在することを証明する。形式 jet を増やすだけでは境界付値は決まらない。
 
-### 3. 一般の非分裂表示で period と index を決める
+別の具体的経路として、n=3 では指定 fractional Serre 自明化と標準 Serre 比較の欠損 d(P) を用いて γ_sc=[d(P)⁻¹] と書ける。固定 source の AS-Gorenstein trace と CF による MF trace を実際の有限模型で比較し、Murfet の residue 式の volume・determinant 因子を追う。抽象的な Serre 自然性や完備化後の一致だけで消滅を結論しない。class 変更だけでは位相を消せず、適合 frame の最小次数三と自由相対尺度族の九も γ̄_n の具体値を代わりに決めるものではない。
 
-良い一ブロックの共通稠密開上で最高次線束型と点型は全 O-同値と任意底変更に両立し、Brauer–Severi 表示を含め、最高次線束型の選択済み full class は α=δ_C(m_P)、period∣3 を満たす。index 上界は n≢1 mod3 で三、n≡1 mod3 で九である。表示 Brauer 類と核の類を区別して、非分裂係数体での非零性、index 九の実現または排除、full class 選択の障害を調べる。Euler 型だけの全核へは適用せず、標準 split 点型の exact index 三を全非分裂体へ外挿しない。
+### 3. 非分裂表示の指数九と class 選択の適用範囲を広げる
+
+良い一ブロックの共通稠密開上で、非分裂の最高次線束型の選択済み full class は α=δ_C(m_P)、period∣3 を満たす。index 上界は n≢1 mod3 で三、n≡1 mod3 で九である。後者の全次元で、任意の非空開に点型障害の period 三・index 九の例を得た。n=4 の幾何学的一般族では唯一の随伴復元 class により未標識最小次数九も達成する。普遍 Picard gerbe の正の重み一階数は任意の非空開で九の倍数であり、階数九は反標準束で達成する。次はこの非分裂 class 降下を高次元へ広げ、どの体・型で index 三または九となるかを判定する。表示 Brauer 類 β の index 三と点 Picard 障害 α の index 九を分け、Euler 型だけの全核や全非分裂体への一律の値を主張しない。
 
 ### 4. 各 intrinsic 成分の一般対象を覆う表示を調べる
 

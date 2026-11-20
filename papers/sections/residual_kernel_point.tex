@@ -1185,7 +1185,9 @@ active 曲線 $C/K$ の ambient が非分裂な Brauer--Severi 平面であっ�
  9,&n\equiv1\pmod3
  \end{cases}
 \]
-となる。非分裂体上での exact index 三、または index 九の実現は主張しない。
+となる。全ての非分裂体で exact index 三となるとは主張しない。
+指数九を実際に達成する非分裂一ブロック族は
+命題\ref{prop:nfm-unsplit-point-index-nine-family}で構成する。
 \end{corollary}
 
 \begin{proof}
@@ -1939,6 +1941,8 @@ $\phi^*M$ を取ると、点側の非零 Picard 障害が $L$ 上で消えると
 \end{proof}
 
 
+
+\input{papers/sections/residual_unsplit_picard}
 
 \subsection{一般点の三分点被覆と affine symplectic monodromy}
 
@@ -3152,11 +3156,13 @@ period 自体の規格化を明示しているが、上の source--target trace 
 full class と source の同時表示規格化に依存せず定まる。
 形式比較では位相は active scalar $b_h^{-1}$ の Kummer 類へ戻り、
 未知の active 線型持上げの scalar は三乗として消える。
-未解決なのは、この定義済みの $\gamma_{\mathrm{sc}}$ の $k_n$ 上の値である。
+次節ではこの類が混合係数に依存せず、active 三次の二つの不変量の体へ
+一意に降下することを証明する。残る問題はその二変数上の値である。
 source の trace と上記の $D_Y$ 比較に関する CF の scalar を有限代数的模型上で
-求めるか、$\gamma_{\mathrm{sc}}$ の分岐を制御して形式的自明性を代数的自明性へ
-戻す追加の証明が必要となる。
-この段階では、固定規格化での最小次数三／九の判定は得ていない。
+求めるか、不変量平面上の分岐を制御する追加の証明が必要となる。
+固定規格化での最小次数三／九の判定はなお得ていない。
+
+\input{papers/sections/residual_period_descent}
 
 \subsection{高次元の full class 降下と rotation 中央化群}
 
@@ -3780,6 +3786,8 @@ rotation 付き Jacobian/Torelli 復元は標的三次を復元するが、
 これらの未確認の延長・忠実性を上の有限性の証明には使っていない。
 また、随伴復元条件を持たない全点型、任意の full 核、
 全 intrinsic 成分、指定周期の追加位相の消滅まで結論を広げていない。
+
+\input{papers/sections/residual_fivefold}
 
 \subsection{七次元で全自己同値群が巡回にならない具体的理由}
 
