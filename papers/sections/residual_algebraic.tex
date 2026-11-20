@@ -1,0 +1,965 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{残余三次の代数的復元と射影 Poisson 射}
+\label{sec:nfm-residual-algebraic}
+
+本節では、残余圏からの三次の復元と、固定生成元での形式 tensor の代数性を分ける。
+方程式の直線は低 rotation 積から有限行列の核として復元できる。
+中心一次空間の作用と合わせると、Poisson tensor の直線も得られる。
+この構成を族へ広げる箇所では、固定入力論文Bの完備 MF 移送・window 比較・
+一般点の生成性と有限降下を用いる。これらの未公表入力は新しい定理の仮定として保持する。
+他方、固定 harmonic-angle 模型の tensor 自身には、
+任意の $n\ge3$ の very general な滑らかな係数で超越性の障害がある。
+後者は既知の log-canonical 量子化と多項式再帰から導き、MF 比較を用いない。
+
+\subsection{勾配空間を積分する方程式直線}
+
+滑らかな三次の勾配空間による復元は既知である。
+Wang\cite[Theorem~3.3]{NFMWangMilnor}は非 Sebastiani--Thom 部分の勾配射の
+単射性と immersion を示し、Hwang\cite[Theorems~1.5, 1.6; Proposition~2.6]{NFMHwangSymmetrizer}
+はその fibre を symmetrizer 群で記述する。
+以下では今回必要な、方程式直線の任意底変更と線束 twist への両立を明示する。
+$V$ は座標関数の空間、従って三次式は $\Sym^3V$ に属する。
+
+\begin{lemma}[scalar symmetrizer の局所底上の保存]
+\label{lem:nfm-scalar-symmetrizer-local}
+$R$ を $\mathbb Q$-代数である局所環とし、
+$F_R$ を $N$ 変数の三次式とする。
+その剰余 $F_0$ が滑らかで scalar symmetrizer を持つなら、
+$F_R$ の symmetrizer は $R\cdot\mathrm{id}$ であり、その形成は任意底変更と両立する。
+勾配部分加群 $Q_{F_R}$ は階数 $N$ の局所直和因子で、
+\[
+ \{G\in\operatorname{Sym}^3_RV:
+                  dG\in V\otimes_RQ_{F_R}\}=R F_R
+\]
+である。これらは $R=k[[h]]$、$F_R=W_h$ にも適用できる。
+\end{lemma}
+
+\begin{proof}
+symmetrizer 条件は $N^2$ 個の行列成分に関する線形方程式である。
+剰余で核の次元が一なので、$N^2-1$ 次の単元小行列式がある。
+恒等行列は全ての底上で解であり、自由直和因子を生成する。
+この直和因子を除いた $N^2-1$ 個の変数について、その小行列で消去すれば、
+他の解がないことと任意底変更との両立が従う。
+
+滑らかな $F_0$ の $N$ 個の偏微分は線形独立なので、
+勾配写像の $N$ 次の小行列式の一つは単元である。
+従ってその像 $Q_{F_R}$ は自由直和因子となる。
+上記の $G$ に対して $\nabla G=A\nabla F_R$ となる $A$ が一意に存在し、
+二階微分の対称性により $A$ は symmetrizer である。
+従って $A=a\,\mathrm{id}$、Euler 等式から $G=aF_R$ となる。
+\end{proof}
+
+\begin{proposition}[勾配データからの相対的な方程式直線]
+\label{prop:nfm-relative-gradient-line}
+$V$ を階数 $N$ のベクトル束とし、
+$Q\subset\operatorname{Sym}^2V$ を階数 $N$ の部分束とする。
+$M=\binom{N+2}{3}$ と置き、自然な微分写像から
+\[
+ D_Q:\operatorname{Sym}^3V
+ \longrightarrow V\otimes(\operatorname{Sym}^2V/Q)
+\]
+を定める。Grassmann 束上で $\operatorname{rank}D_Q=M-1$ となる
+局所閉な determinantal 部分スキームを取り、
+$\mathcal L=\ker D_Q$ とする。
+さらに
+\[
+ V^\vee\otimes\mathcal L\longrightarrow Q
+\]
+が同型で、$Q$ の共通射影零点が存在しない開へ制限する。
+この局所閉部分上で、$\mathcal L$ は三次方程式の直線束を定め、
+その零スキームは滑らかな相対三次超曲面である。
+構成は任意底変更と線型同型に自然である。
+
+この部分スキームと、滑らかで scalar symmetrizer を持つ三次直線の開とは、
+勾配空間を取る射と $\ker D_Q$ を取る射によって互いに逆に同型となる。
+\end{proposition}
+
+\begin{proof}
+rank 条件は $M$ 次小行列式を零とし、
+$M-1$ 次小行列式の少なくとも一つを可逆とする条件である。
+その上では単元小行列による行列消去により
+$\ker D_Q$ と $\operatorname{coker}D_Q$ は局所自由であり、
+核の階数は一である。そのため核の形成は非平坦なものを含む任意底変更と両立する。
+微分写像の同型条件は、復元した三次直線の偏微分がちょうど $Q$ を張ることを意味する。
+$Q$ の共通射影零点がないことから、Jacobian 判定で三次族は滑らかである。
+共通零点の存在条件が閉であることは、射影空間との incidence の固有射影から従う。
+
+逆に滑らかな三次直線からの勾配写像は階数 $N$ の部分束を与える。
+scalar symmetrizer 条件と前補題により、その $D_Q$ の核は元の直線そのものである。
+局所的な生成元を替えても同じ直線であり、両合成は恒等となる。
+この証明は非被約な試験スキームにもそのまま通る。
+\end{proof}
+
+この勾配射の単射性・immersion は既知であり、
+Wang\cite[Theorem~3.3]{NFMWangMilnor}とその引用する先行結果に帰属する。
+上の記述では、今回必要な核の任意底変更と局所底上の逆構成を有限行列で明示している。
+
+\begin{lemma}[全次元の scalar symmetrizer を持つ滑らかな例]
+\label{lem:nfm-uniform-scalar-symmetrizer}
+$N=n+2\ge5$ とし、添字を $\mathbb Z/N\mathbb Z$ で読む。
+三次式
+\[
+ F_{\mathrm{cyc}}=\sum_{i=1}^{N}x_i^2x_{i+1}
+\]
+は滑らかな射影超曲面を定め、その symmetrizer は scalar のみである。
+さらに三次元部分空間
+\[
+ x_4=\cdots=x_N=x_1
+\]
+への制限も滑らかである。
+従って、滑らかな全三次と滑らかな active 制限を持つ係数空間の中に、
+symmetrizer が scalar のみとなる非空 Zariski 開がある。
+\end{lemma}
+
+\begin{proof}
+全偏微分が零なら
+$x_{i-1}^2+2x_ix_{i+1}=0$ である。
+一つの座標が零なら直前の座標も零となり、全て零となる。
+全て非零なら各式を掛けることで $1=(-2)^N$ を得るが、
+これは標数零では成立しない。従って三次は滑らかである。
+
+$A\operatorname{Hess}(F_{\mathrm{cyc}})$ が対称となる行列 $A$ を求める。
+これは本文の symmetrizer の転置表示であり、scalar 性は同じである。
+$\operatorname{Hess}(F_{\mathrm{cyc}})=\sum_kx_kH_k$ と書けば
+\[
+ H_k/2=E_{k-1,k-1}+E_{k,k+1}+E_{k+1,k}.
+\]
+$AH_k$ の非零列は $\{k-1,k,k+1\}$ に限られる。
+対称性により同じ三つ以外の行も零なので、$A$ の第 $j$ 列の台は
+\[
+ \{j,j+1,j+2\}\cap\{j-2,j-1,j\}\cap\{j-1,j,j+1\}
+ =\{j\}
+\]
+に含まれる。ここで $N\ge5$ を用いた。
+従って $A$ は対角行列であり、$AH_k$ の $(k,k+1)$ 成分の対称性から
+$A_{kk}=A_{k+1,k+1}$ となる。よって $A$ は scalar である。
+
+表示した三次元切断への制限は
+\[
+ g_c=x^2y+y^2z+z^2x+cx^3,\qquad c=N-3.
+\]
+勾配の共通非零点では $x\ne0$ なので $x=1$ とできる。
+後二式から $z=-y^2/2$、$y^3=1$ を得て、
+第一式は $3c+9y/4=0$ となる。
+従って特異となる条件は $c^3=-27/64$ であり、$c=N-3$ はこれを満たさない。
+$i\ge4$ について $x_i=x_1+z_i$ と線型変数変換すれば、
+この切断は固定された active 座標平面 $z_4=\cdots=z_N=0$ になる。
+最後に、symmetrizer は係数に多項式的に依存する有限行列の核で、
+恒等行列を必ず含む。核の次元が一であることは開条件であり、
+上の例によってこの開が非空と分かる。
+\end{proof}
+
+\begin{remark}
+この例は巡回置換という非自明な射影自己同型を持つ。
+従って scalar symmetrizer と自明な射影自己同型群は異なる条件である。
+以下の方程式直線の復元に後者は必要ない。
+また、この係数開の非空性を全 intrinsic 圏成分の被覆とは読み替えない。
+\end{remark}
+
+
+\subsection{入力と相対有限模型}
+
+$N=n+2\ge5$、$r=N-3$ とする。
+入力Bは序論で指定した \texttt{nc-cubic} の固定 commit に統一する。
+\texttt{generic\_recovery/field\_model.tex},
+\texttt{generic\_descent.tex}, \texttt{window.tex},
+\texttt{coherent\_saturation.tex} の各結果を区別する。
+体上の三次の存在、幾何学的射影同型類の一意性、
+有限体拡大後の比較核は既存入力である。
+本節で行うのは、積分直線が一意な開における、
+有限個の線型代数データによる正準的な相対構成である。
+これらの相対構成・応用についての新規性の網羅的確認は未完了である。
+
+表示 chart 上の既存の相対双対性は、
+全ての $\mathcal O(i)$ の compact 性、proper Hom、基底変更を与える。
+$B$ の Koszul 複体を $A=B/(\Omega)$ と tensor した複体の二つの Tor は
+$R$ と $R(-3)$ であり、tails では消える。
+従って連続する $N$ 個の twist
+\[
+ G=\bigoplus_{i=0}^{N-1}\mathcal O(i)
+\]
+は全ての twist を生成する。
+同じ Hom 計算による相対 exceptional block
+$\mathcal O,\ldots,\mathcal O(n-2)$ を有限回の mutation で射影して
+残余圏の有限生成対象 $G_{\mathrm{res}}$ を得る。
+有限回の mutation は proper Hom による評価 cone なので、係数変更と両立する。
+以下の相対残余圏は compact 部分を指し、全 coherent 残余圏との一致は
+各幾何ファイバーで後述の飽和性入力を使う。
+その代数
+\[
+ \Gamma_{\mathrm{res}}=R\operatorname{End}(G_{\mathrm{res}})
+\]
+は proper で、係数変更と両立する。
+この議論では $\Gamma_{\mathrm{res}}$ の smoothness を仮定しない。
+
+rotation/window との同定には、正則な係数 chart 上で入力Bの (L) を使う。
+一般点の線束生成残余圏と全 coherent 残余圏の一致には、
+同入力の coherent saturation を使う。
+任意の係数環で相対 saturation が証明されたことに置き換えてはならない。
+以下の相対構成では、これらの代数的な有限模型と比較がある開を使う。
+単に各幾何学的点で模型が存在することだけを仮定してはいない。
+
+\subsection{支配的な中心三次の一変数族}
+
+$V=X\oplus U$、$\dim X=3$、$\dim U=r$、
+$T\subset\operatorname{Sym}^3V/\operatorname{Sym}^3U$ を
+一ブロック周囲代数の良い非空開とする。
+$F$ を $T$ の一般点での代表、$k=\mathbf C(T)$ とし、
+$R=k[h]_{(h)}$ 上で
+\[
+ B_{hF}=T(V)_R/
+ ([U,V],[y,z]-h\operatorname{sym}F_x,
+ [z,x]-h\operatorname{sym}F_y,[x,y]-h\operatorname{sym}F_z)
+\]
+を考える。既存の PBW 入力を用い、必要な係数を反転する。
+
+\begin{lemma}[中心行列による支配的な $h$ 族]
+\label{lem:nfm-dominant-central-family}
+一般 $F$ に対し、
+$\Omega_h\in Z(B_{hF})_3$ を $\Omega_h\bmod h=F$ として代数的に選べる。
+$G\in\operatorname{Sym}^3U$ の係数を独立に動かすと、
+\[
+ (F,G,h)\longmapsto(B_{hF},[\Omega_h+G])
+\]
+は $h\ne0$ 上で既存の中心三次 torsor $J$ を支配する。
+\end{lemma}
+\begin{proof}
+次数 $3,4$ の PBW 加群は有限自由であり、
+\[
+ \delta_h:B_{hF,3}\longrightarrow B_{hF,4}^{\oplus N},
+ \qquad b\longmapsto(h^{-1}[x_i,b])_i
+\]
+が定義される。剰余は Hamilton 微分である。
+active 勾配 $F_x,F_y,F_z$ の正則列性から
+\[
+ \ker\delta_0=kF\oplus\operatorname{Sym}^3U.
+\]
+実際、$d_XG\wedge d_XF=0$ と Koszul 完全性から
+$d_XG=a\,d_XF$、次数から $a\in k$ となる。
+
+$(F,h)\mapsto hF$ は $h\ne0$ 上で ambient 係数空間を支配する。
+従って既存の一般中心公式により、一般ファイバーの中心三次の次元も
+$1+\dim\operatorname{Sym}^3U$ である。
+$\delta_h$ の一般・特殊の階数は等しい。
+剰余で非零の最大 minor を用いた行消去では、残る Schur 部分は
+一般点で零、従って $R$ 上で零となる。
+よって中心核は有限自由で、剰余に関する基底変更が成り立つ。
+$F$ を持ち上げて $\Omega_h$ を得る。
+
+$h\ne0$ では $F\mapsto hF$ は可逆であり、
+固定した ambient 代数の中心三次直線は、
+非中心商で $\Omega_h$ と同じ像を持つように一意に規格化すると
+$\Omega_h+G$ と書ける。
+従って $G$ は中心三次 torsor の全ファイバーを動く。
+有理的にはこの係数族は $J\times\mathbf G_m$ と同型である。
+
+\end{proof}
+
+$G$ の係数を基礎体に加えると、
+$\Omega_h+G\bmod h=F+G$ は一般の全変数三次である。
+滑らかさ、scalar symmetrizer、および active 平面三次の滑らかさを同時に課せる。
+各 $N\ge5$ で非空であることは、
+補題\ref{lem:nfm-uniform-scalar-symmetrizer}の巡回三次の明示例から従う。
+
+ここで入力Bの (L),(CF) を一般係数体 $k/\mathbf C$ 上へ拡張することを明記する。
+Euler 恒等式は整数係数であり、有限核の降下は任意の標数零の体で成立する。
+有限 Koszul 行列、固定内部次数の Hom、普遍 formality 恒等式は
+係数変更と両立し、完備化は $h$ についてのみ行う。
+生成性の段階で必要なら代数閉包へ移す。
+複素閉点ごとの定理を単に並べて一般係数体上の結果を結論するのではない。
+
+\subsection{低 rotation 積による相対三次}
+
+\begin{theorem}[稠密開上の正準的な残余三次]
+\label{thm:nfm-relative-residual-cubic}
+$S$ を標数零の整 noetherian scheme とし、
+proper dg 模型 $\Gamma$ と、可逆かつ底上 perfect な rotation の双加群 $P$ が
+代数的に与えられるとする。
+一般点 $\eta$ のある体拡大上で
+$(\operatorname{Perf}\Gamma_\eta,\rho)$ が
+滑らかな $n$ 次元三次の $(\operatorname{Ku},\rho)$ に同値であり、
+その三次が幾何学的に ST 既約であるとする。
+このとき稠密開 $S^\circ$ 上で
+\[
+ V=H^0R\operatorname{Hom}_{\Gamma^e}(\Gamma,P),\quad
+ V_2=H^0R\operatorname{Hom}_{\Gamma^e}
+       (\Gamma,P\otimes_\Gamma^{\mathbf L}P),\quad
+ Q=\ker(\operatorname{Sym}^2V\longrightarrow V_2)
+\]
+は有限局所自由で、
+\[
+ \operatorname{rk}V=N,\quad \operatorname{rk}V_2=\binom N2,\quad
+ \operatorname{rk}Q=N .
+\]
+積は対称かつ全射である。
+さらに
+\[
+ D_Q:\operatorname{Sym}^3V
+ \xrightarrow{d}V\otimes\operatorname{Sym}^2V
+ \longrightarrow V\otimes(\operatorname{Sym}^2V/Q),\qquad
+ \mathcal L=\ker D_Q
+\]
+は可逆部分束で、その形成は任意の基底変更と可換する。
+$\mathcal L$ の局所生成元は滑らかな三次族
+$Y\subset\mathbf P(V^\vee)$ を定め、その勾配空間は $Q$ である。
+構成は rotation 付き Morita 同値と基底変更に関して自然である。
+体上の滑らかな三次模型の存在自体は仮定であり、低積の階数だけから同値を結論しない。
+\end{theorem}
+
+\begin{proof}
+一般点で $\Gamma_\eta$ は smooth である。
+一般点での perfect 対角を、有限 cell の retract として有限個の係数で開へ広げる
+\cite[Lemma~2.10]{NFMToenVaquieModuli}。
+得られた perfect $\Gamma^e$-加群 $E$ から対角への一般点の同型は、
+$E$ の compact 性によって局所化後の射 $E\to\Gamma$ へ広がる。
+その cone は、$\Gamma$ の proper 性と $E$ の有限 cell 性から $S$-perfect である。
+その有限個の cohomology は一般点で零なので、一つの非零元を反転して消せる。従って、
+縮小後の対角は perfect となる。
+rotation の逆と単位・余単位も同じ有限 cone の議論で広がる。
+
+従って二つの導来 Hom 複体は $S$-perfect である。
+開を縮めて全 cohomology を局所自由にすれば、
+$H^0$ は非平坦なものも含めた任意の基底変更と可換する。
+体上の低次数計算から、積の対称性、全射性、表示した階数を得る。
+$N\ge5$ では非恒等 sector が $H^0$ に現れ得る次数は、
+偶数 $N$ で $N/2$ であるため、次数 $1,2$ には寄与しない。
+ここは固定入力B\cite{NFNCCubicB}の \texttt{gcd:lem:basechange},
+\texttt{gcd:thm:field-model} と、その一次資料 Lin--Zhang の低次数計算を使う。
+
+一般点の $Q$ は比較先の勾配空間である。
+その積分空間は symmetrizer 代数と同型であり、ST 既約性から一次元である。
+従って $D_Q$ の階数は $\binom{N+2}{3}-1$。
+整性により全ての最大サイズの minor は零であり、階数 $\binom{N+2}{3}-1$ の minor を反転すると、核は可逆部分束、余核は局所自由となり、
+核の形成は任意の基底変更と可換する。
+$\mathcal L\otimes V^\vee\to Q$ の同型性と判別式の非消滅も
+一般点から開へ広がる。全ての操作は指定同値に関して自然である。
+\end{proof}
+
+一ブロック表示への適用では、支配的な $h$ 族で入力Bを使い、
+一般点の smoothness と幾何学的模型を得る。
+smoothness は体拡大から降下する。
+特殊三次 $F+G$ の scalar symmetrizer minor は完成上の単元なので、
+形式三次 $W_h$ と幾何学的一般点も ST 既約である。
+このことで元の表示空間の稠密開に定理を適用できる。
+全 coherent 残余圏との一致には、ambient の noetherian/Koszul/AS 正則性、
+中心元の正則性、線束生成部分の smoothness、および coherent saturation を用いる。
+
+
+\subsection{中心作用と全 O-同値への降下}
+
+\begin{lemma}[中心一次作用の一般点での単射性]
+\label{lem:nfm-residual-central-injection}
+良い一ブロック表示の中心一次部分 $U$ の乗法は、代数的な写像
+\[
+ c:U\longrightarrow V_\rho
+   =H^0\operatorname{RHom}_{\mathcal K^e}(\Delta,P_\rho)
+\]
+を定める。固定入力の MF・window 比較の下で、この写像は
+表示空間の稠密開上で階数 $r=n-1$ の部分束となる。
+その形成はこの開からの任意基底変更と両立する。
+\end{lemma}
+
+\begin{proof}
+中心元 $u$ の乗法は graded MF の各対象で厳密な自然変換
+$\mathrm{id}\to(1)$ となり、微分と可換する。
+window 比較により残余圏の rotation への自然変換を得る。
+構成は次数付き同型、内部 shift と係数変更に両立する。
+
+単に特殊ファイバーで単射であるだけでは、一般点での単射性は従わない。
+そこで補題\ref{lem:nfm-dominant-central-family}の支配的な族を用い、
+中心作用を実際の完備同値で可換側の $\operatorname{MF}^{\mathbb Z}(W_h)$ へ移す。
+正則 DVR 上の可換 MF・window 比較により、後者は滑らかな三次族の相対 Ku である。
+これは smooth proper な圏の有限 mutation による admissible 成分なので、
+低 Nat の導来複体 $E$ は $k[[h]]$-perfect となる。
+体上の低次数計算では、特殊体と Laurent 体で $H^0$ の次元はともに $N$ である。
+DVR の完全列
+\[
+ 0\longrightarrow H^0(E)\otimes k
+ \longrightarrow H^0(E\otimes^{\mathbf L}k)
+ \longrightarrow\operatorname{Tor}_1(H^1(E),k)
+ \longrightarrow0
+\]
+において、中央の次元は $H^0(E)$ の一般階数に
+$H^0(E),H^1(E)$ の torsion の生成元数を加えたものである。
+両体での次元が等しいため、この二つの torsion は零である。
+従って $H^0(E)$ は自由階数 $N$ で、特殊化と両立する。
+完備同値の剰余は恒等なので、移した $c$ の剰余は通常の $U\subset k[x]_1$ である。
+その階数 $r$ の minor の一つは単元となる。
+
+固定三対象への制限を先に行い、その後で Laurent 局所化する。
+ここでは入力Bの補題 \texttt{rog:lem:localization}を使う。
+その像が代数閉拡大後に可換 MF 全体を生成するという入力から、
+定義済みの関手は Laurent 体上ですでに同値である。
+実際、smoothness を体拡大から降ろし、
+随伴核の単位・余単位の cone が忠実平坦な体拡大後に零であることを使えばよい。
+従って上の独立性は代数的な一般点の $c$ の独立性を意味する。
+ここでは完備底上で固定三対象が生成するという強化は使わない。
+最後に全階数の minor を反転すれば、代数的な係数開上の部分束を得る。
+\end{proof}
+
+\begin{lemma}[相対 flow による中心一次作用の保存]
+\label{lem:nfm-relative-center-transport}
+定理\ref{thm:nfm-residual-formal-poisson}の仮定の下で、
+生成元を固定する星積模型
+\[
+ \phi:B_h\xrightarrow{\sim}(S_R[[h]],*_{\pi_h}),\qquad
+ \pi_h=a_h\,\iota_{dW_h}P_0,
+ \qquad P_0=\partial_x\wedge\partial_y\wedge\partial_z
+\]
+を取る。固定入力の完備 MF 移送が適用できるものとし、
+その明示的な順序付き flow をこの模型に適用して得る同値を
+\[
+ \Phi_{\mathrm{rel}}:
+ \operatorname{MF}^{\mathbf Z}(B_h,\Omega_h)
+ \xrightarrow{\sim}
+ \operatorname{MF}^{\mathbf Z}(S_R[[h]],W_h)
+\]
+と書く。この同値は、各内部次数で完備化した
+$\operatorname{Sym}_R U_R[[h]]$ に関して相対的に取れる。
+特に、任意の $u\in U_R$ に対する中心乗法の自然変換
+$m_u:\operatorname{Id}\to(1)$ を、標的の同じ中心乗法へ送る。
+
+従って、内部 shift に対応する rotation の比較と可換側の低次数同定の下で、
+中心作用の像は通常の線型式 $U_R[[h]]\subset S_{R,1}[[h]]$ に対応する。
+この主張は、上で選んだ相対 flow に関するものであり、
+任意の完備 MF 同値が中心作用を同じ座標で保つと主張するものではない。
+\end{lemma}
+
+\begin{proof}
+補題\ref{lem:nfm-formal-linear-center}により、
+$f\in\operatorname{Sym}_R U_R[[h]]$ の星積による乗法は通常の乗法である。
+$\phi$ は中心一次生成元を固定するので、
+\[
+ \phi(fb)=f*_{\pi_h}\phi(b)=f\phi(b)
+\]
+となる。従って星積模型への最初の厳密同型は、この中心係数環に関して相対的である。
+
+固定入力の補題\texttt{cft:lem:primitive}における定数三重ベクトルは、
+一意性と $\pi_h=a_h\iota_{dW_h}P_0$ により $\Xi=a_hP_0$ である。
+同入力の曲率付き経路とその generator は
+\[
+ \alpha_s=-tW_h+(1-s)\pi_h,\qquad
+ \eta=\Xi/t,\qquad
+ \gamma_s=\mathcal U^{\alpha_s}(\eta)
+\]
+であり、$t$ は微分しない係数として扱われる。
+各グラフの関数頂点 $W_h$ は出る辺を持たず、
+$\pi_h$ と $\Xi$ の出る辺の添字は全て active 方向 $x,y,z$ に属する。
+よって境界入力に作用する微分も全て active 方向であり、
+$\gamma_s$ の各 arity 成分は
+$\operatorname{Sym}_R U_R[[h]][t,t^{-1}]$ に関して多重線型である。
+係数や $W_h$ が中心変数に依存していても、この議論は変わらない。
+
+補題\texttt{cft:lem:arity}の graph による単位正規化から、
+$\gamma_s$ の正の arity 成分は単位入力で零になる。
+中心係数に関する多重線型性と合わせると、
+単位の代わりに任意の $f(U)$ を入れても零になる。
+ここで別の contracting homotopy や非相対な正規化を加える必要はない。
+補題\texttt{cft:lem:flow}の順序付き flow とその逆は、
+これらの coderivation の合成と積分から作られるので、
+同じ相対的多重線型性と単位正規化を保つ。
+従って、その Taylor 成分 $F_j$ は
+$F_1(1)=1$、$j\ge2$ に対して単位を含む $F_j$ は零、
+かつ中心係数に関して多重線型である。
+
+有限 rank の MF 行列 $Q$ に対し、中心乗法の像は挿入公式により
+\[
+ \bigl(\Phi_{\mathrm{rel}}\bigr)_1(u\operatorname{id})
+ =\sum_{p,q\ge0}
+ F_{p+q+1}\bigl(Q(1)^{\otimes p},
+                 u\operatorname{id},Q^{\otimes q}\bigr)
+\]
+と書ける。各項から $u$ を取り出すと、$p+q>0$ の項は単位入力の正規化で零であり、
+残る項は $F_1(u\operatorname{id})=u\operatorname{id}$ である。
+内部 shift は自由基底のラベルを変えるだけなので、この行列計算と両立する。
+高次の自然変換成分も、$u$ を取り出した後には単位入力を含む
+arity 二以上の項となるため零である。
+従って保存されるのは対象ごとの射だけでなく、中心作用の自然変換そのものである。
+全ての式は有限 Artin 商で有限和として成立し、
+固定内部次数内の完備性により完備底上でも成立する。
+最後に window 比較を用いれば、rotation に対する中心作用の主張を得る。
+\end{proof}
+
+
+\begin{theorem}[代数的な残余射影 Poisson 射]
+\label{thm:nfm-projective-residual-morphism}
+$n\ge3$ とし、固定入力Bの完備 MF 移送、正則底の window 比較、
+一般点生成性、coherent 飽和性を上記の支配的な係数族に適用する。
+既存の良い一ブロック O-marked stack
+$\mathfrak M_n^{\mathrm{sm}}$ には非空稠密開
+$\mathfrak M_n^{\mathrm{res}}$ があり、標準的な代数的射
+\begin{equation}
+\label{eq:nfm-projective-residual-map}
+ \Psi_{\mathrm{res}}:
+ \mathfrak M_n^{\mathrm{res}}\longrightarrow
+ \overline{\mathfrak P}_n^{\mathrm{dec}}
+ :=
+ \bigl[(\mathcal H_N^{\mathrm{sm}}\times
+              \Gr(3,V_0^*))/\PGL(V_0)\bigr]
+\end{equation}
+が定まる。ここで $V_0$ は固定した $N$ 次元空間、
+$\mathcal H_N^{\mathrm{sm}}\subset\PP(\Sym^3V_0)$ は滑らかな三次の開である。
+標的は Brauer--Severi ambient を許し、
+非零分解可能 Poisson tensor の尺度を忘れた対の stack である。
+
+局所表示でその値は、低 rotation 積から得る
+$\mathcal L=\ker D_{Q_\rho}$ と
+\[
+ K_{\mathrm{res}}=\operatorname{ann}(c(U))\subset V_\rho^*
+\]
+で与えられる。特に underlying cubic は
+$X_{\mathrm{res}}=V(\mathcal L)\subset\PP(V_\rho^*)$ である。
+構成は全 O-同値に降下し、任意基底変更と両立する。
+大域的な次数一 shift、方程式の生成元、split ambient は仮定しない。
+\end{theorem}
+
+\begin{proof}
+定理\ref{thm:nfm-relative-residual-cubic}と前補題で、
+$\mathcal L$ と階数三の $K_{\mathrm{res}}$ を代数的に作る。
+必要な perfect 性、低次 cohomology の局所自由性、積と微分の階数、
+全三次と active 制限の滑らかさは開条件である。
+これらは Morita 同値と基底線束による twist に不変であるため、
+その成立 locus は表示変更群に不変な開となる。
+支配的な $h$ 族と補題\ref{lem:nfm-uniform-scalar-symmetrizer}により非空である。
+既存の非空開 $\mathfrak M_n^{\mathrm{sm}}$ との交差も非空である。
+
+線束 $\mathcal L$ と $\det K_{\mathrm{res}}$ の局所生成元をそれぞれ $G,P$ と取ると
+$\iota_{dG}P$ は三変数の Jacobian bracket であり、Jacobi 恒等式を満たす。
+また $G$ は Casimir である。
+定理\ref{thm:poisson-strong-lift}の単射性から、この tensor は非零である。
+$G,P$ の変更は tensor の非零スカラー倍だけを変える。
+従って $(\mathcal L,K_{\mathrm{res}})$ は所要の射影 Poisson 対を与える。
+
+降下を確認する。全 O-同値は局所的に次数付き同型に持ち上がる。
+持上げの線束を $M$ とし、その向きを $V_\rho'=V_\rho\otimes M$ と取ると
+\begin{equation}
+\label{eq:nfm-residual-line-weights}
+ \begin{aligned}
+ V_\rho'&=V_\rho\otimes M,&
+ Q_\rho'&=Q_\rho\otimes M^{\otimes2},&
+ \mathcal L'&=\mathcal L\otimes M^{\otimes3},\\
+ c(U)'&=c(U)\otimes M,&
+ K_{\mathrm{res}}'&=K_{\mathrm{res}}\otimes M^{-1}.
+ \end{aligned}
+\end{equation}
+局所的な $\mathcal O(i)$ を基底線束で捩じっても、
+それらが生成する exceptional block は変わらない。
+従って残余圏は全 O-同値に保たれ、rotation だけが $M$ で捩じれる。
+式\eqref{eq:nfm-residual-line-weights}はこの変換と積の自然性から従う。
+
+二つの次数付き持上げの差は次数スカラーである。
+その $V_\rho$ 上の作用はスカラーなので、ambient、三次、
+$K_{\mathrm{res}}$ の射影同型は持上げに依存しない。
+三重重なり上の差も次数スカラーであり、射影同型は cocycle 条件を満たす。
+これで幾何点の同型類だけでなく、族と全射の fpqc 降下を得る。
+核と部分束の形成が任意基底変更と両立することから、射にも同じ性質がある。
+重み零の降下と Brauer--Severi ambient の一般的背景は
+\cite[Proposition~4.10; Remark~6.1]{NFMBerghSchnurer}に対応する。
+\end{proof}
+
+\begin{proposition}[尺度の線束]
+\label{prop:nfm-residual-scale-torsor}
+表示 gerbe 上で
+\[
+ \mathscr T=\mathcal L\otimes\det K_{\mathrm{res}}
+\]
+は重み零であり、$\mathfrak M_n^{\mathrm{res}}$ 上の通常の線束へ降下する。
+尺度を持つ Poisson stack
+$\mathfrak P_n^{\mathrm{dec}}\to\overline{\mathfrak P}_n^{\mathrm{dec}}$
+の $\Psi_{\mathrm{res}}$ に沿う引戻しは $\mathscr T^\times$ である。
+従ってその lift は $\mathscr T$ の至る所非零な切断の選択に等しい。
+\end{proposition}
+
+\begin{proof}
+式\eqref{eq:nfm-residual-line-weights}で重みは $3+(-3)=0$ となる。
+$G\otimes P\mapsto\iota_{dG}P$ は単射であり、
+その非零値が固定した Poisson 直線の全尺度をちょうど一度ずつ与える。
+従ってこの線束の零切断を除いたものが引戻し torsor である。
+\end{proof}
+
+ここで $\mathscr T$ が非自明とは主張しない。
+必要な区別は、Poisson 直線、尺度の非標準的な代数的選択、
+および固定 formality によって指定された形式的尺度の三者である。
+
+\begin{proposition}[支配性と一般相対次元]
+\label{prop:nfm-projective-residual-dominance}
+定理\ref{thm:nfm-projective-residual-morphism}の射は支配的である。
+source をさらに非空開へ制限すれば、相対次元一の滑らかな射となる。
+\end{proposition}
+
+\begin{proof}
+補題\ref{lem:nfm-dominant-central-family}で、$F+G$ を一般の全変数三次とする。
+active support を動かす frame も許せば、特殊点 $(F+G,\operatorname{ann}U)$ は
+標的の一般点となる。
+実際の完備 MF 比較による低積の同定と積分直線の一意性から、
+一般 $h$ での $\Psi_{\mathrm{res}}$ の三次は $V(W_h)$ と射影同型である。
+移送した中心作用は前補題の自由な低 Nat 加群の部分束を与え、
+その剰余は $U$ である。
+従ってこの標的値は $k[[h]]$ 上の族へ延長し、特殊点は所要の一般対である。
+像の閉包が真の閉部分なら、その一般形式点だけでなく特殊点も含まねばならず、
+標的の一般点を含むことに矛盾する。
+
+標的は滑らかな有限型 DM stack であり、
+\[
+ \dim\overline{\mathfrak P}_n^{\mathrm{dec}}
+ =\binom{N+2}{3}-N^2+3(N-3)
+ =\binom{n+2}{3}+3n-3
+ =\dim\mathfrak M_n^{\mathrm{sm}}-1.
+\]
+標数零の generic smoothness を étale chart 上で適用すれば結論を得る。
+表現可能性、幾何学的連結 fibre、有理商の記述までは主張していない。
+\end{proof}
+
+
+\begin{corollary}[形式 Poisson 対との全次数比較]
+\label{cor:nfm-projective-formal-compatibility}
+上の支配的な中心 $h$ 族に沿い、生成元固定模型と
+補題\ref{lem:nfm-relative-center-transport}の相対 flow を選ぶ。
+$k((h))$ 上の $\Psi_{\mathrm{res}}$ の値は、形式線型同定の下で
+\[
+ \bigl(V(W_h),[\pi_h]\bigr)
+\]
+である。この値は $k[[h]]$ 上の
+$\bigl(V(W_h),[\pi_h/h]\bigr)$ に延長し、特殊値は
+$\bigl(V(F+G),[\Pi_{F+G}]\bigr)$ となる。
+ここで $F+G$ は選んだ中心元 $\Omega_h+G$ の剰余であり、
+$G$ は純中心三次なので $\Pi_{F+G}=\Pi_F$ である。
+\end{corollary}
+
+\begin{proof}
+低 rotation 積の同定から、$Q_\rho$ は $\nabla W_h$ に移る。
+scalar symmetrizer 条件の下では積分直線が一意なので、
+$\mathcal L$ は $k((h))W_h$ に移る。
+相対 flow は中心作用を厳密に保つため、$K_{\mathrm{res}}$ は
+$\operatorname{ann}U$ に移る。
+定理\ref{thm:nfm-residual-formal-poisson}の
+$\pi_h=a_h\iota_{dW_h}P_0$ から、両 Poisson 直線は一致する。
+$a_h/h$ は定数項一の形式単元であるから、$[\pi_h/h]$ は特殊点でも定義される。
+ここで用いる次数一空間の同定は形式行列であり、その行列の代数性は主張しない。
+\end{proof}
+
+\subsection{同じ三次への比較核と残る降下障害}
+
+\begin{theorem}[有限 étale 被覆上の残余比較]
+\label{thm:nfm-residual-comparison-cover}
+定理\ref{thm:nfm-projective-residual-morphism}の固定入力の下で、
+$\mathfrak M_n^{\mathrm{res}}$ の非空開
+$\mathfrak M_n^{\mathrm{cmp}}$ と有限 étale 全射
+$S'\to\mathfrak M_n^{\mathrm{cmp}}$ を取れ、
+その上で次数付き表示を選ぶと
+\[
+ \mathcal K_{S'}\simeq
+ \operatorname{Ku}(X_{\mathrm{res},S'})
+\]
+という dg Morita 同値が perfect kernel で実現する。
+局所 rotation と三次方程式の生成元を選んだ後、
+rotation と指定三次周期も保存できる。
+比較先は $\Psi_{\mathrm{res}}$ が与えた同じ $X_{\mathrm{res}}$ である。
+\end{theorem}
+
+\begin{proof}
+まず整な有限型表示 chart $S$ とその関数体 $k(S)$ 上で考える。
+低積から得た三次は、既存の幾何的模型と代数閉包上で射影同型である。
+固定入力Bの \texttt{gcd:thm:field-model}と
+\texttt{rog:lem:descent}により、有限分離拡大 $k'/k(S)$ 上で
+この固定した三次への比較核を得る。
+方程式の単元倍と指定周期を合わせるために必要な三乗根も有限拡大に含める。
+
+$S$ を正規にし、$k'$ での正規化を取る。
+分岐 locus を除けば有限 étale 全射となる。
+perfect kernel、逆 kernel、単位・余単位、rotation 比較、
+周期に関する有限個の図式を局所化後へ広げる
+\cite[Lemma~2.10]{NFMToenVaquieModuli}。
+同値性を判定する単位・余単位の cone と rotation 比較の cone は底上 perfect であり、
+一般点で零なので、その cohomology の台を除けば零になる
+\cite[Lemma~3.25 and its proof]{NFMToenVaquieModuli}。
+有限個の図式の差も局所化後に零にできる。
+被覆上で除いた閉集合の像は有限性により閉なので、
+底も縮めれば被覆の全射性を保てる。
+
+stack については、一般点に達する affine étale chart の支配成分を取る。
+source は有限型 DM stack で affine diagonal を持つので、
+この chart は表現可能・準有限・分離的である。
+Zariski の主定理で有限化し、その中で支配成分の scheme 理論的閉包を取る。
+この閉包の境界の有限閉像は一般点を含まない。
+その像を除けば
+非空開上の有限 étale 全射を得る。
+その関数体上で表示 gerbe の中立化と必要な核を有限体拡大で選び、
+同じ有限表示の議論を適用する。
+これである $S'$ と所要の比較を得る。
+\end{proof}
+
+この定理は、最初に選んだ形式同値の全 Taylor 係数を代数化する主張ではない。
+また裸の O-marked 対は、大域的な rotation や周期の自明化を標識していない。
+Brauer--Severi ambient では個々の $\mathcal O_X(i)$ を大域線束と仮定せず、
+局所的にそれらが生成する admissible block を用いる。
+基底線束による twist ではその評価 projector は変わらないので、
+block とその直交は降下する。
+一般に block は Brauer 類の冪で捩じれた基底圏となる
+\cite[Theorem~6.2; Remark~6.3]{NFMBerghSchnurer}。
+上の比較被覆では通常の split な Ku を使える。
+
+\begin{proposition}[同値核の降下の二段階]
+\label{prop:nfm-residual-kernel-descent}
+同じ残余三次と局所 rotation を固定しても、
+比較核全体は rotation に両立する全自己同値 stack の torsor であり、
+一般に一つの $\mathbf G_m$-gerbe ではない。
+局所核の同型類が重なり上で整合するように選べた後で、
+その核の実際の降下はスカラー二 cocycle の消滅に帰着する。
+\end{proposition}
+
+\begin{proof}
+同値 $P,Q:\mathcal K\to\operatorname{Ku}(X_{\mathrm{res}})$ の差は
+$QP^{-1}$ という自己同値であり、自己同値の合成は全ての比較核に単純推移的に作用する。
+一つの核 $P$ が存在すれば $P[2m]$、$m\in\mathbb Z$ は
+同じ rotation・周期に両立し、次数零の低 Nat 積にも同じ作用を与える。
+これらは互いに非同型である。
+実際、非零 proper 圏で非零の偶 shift が恒等なら、
+非零対象の恒等射から無限個の cohomological 次数の自己 Hom が生じ、
+proper 性に矛盾する。
+従って低積と方程式直線の一意性は、核の同型類の一意性を意味しない。
+
+一方、幾何的な Ku の $\mathrm{HH}^{<0}=0$、$\mathrm{HH}^0=k$ と
+Morita 不変性から、固定した同値核は simple である。
+相対的にも必要な開でこの性質と基底変更を保てる。
+整合した同型類を選んだ後に重なりの同型 $\alpha_{ij}$ を選ぶと、
+三重重なりで
+\[
+ \alpha_{ij}\alpha_{jk}\alpha_{ki}
+    =c_{ijk}\,\mathrm{id},\qquad c_{ijk}\in\mathcal O^\times
+\]
+となる。$c_{ijk}$ が coboundary であることが、これらを cocycle 条件へ修正して
+実際の kernel を降ろすための必要十分条件である。
+これは simple-object stack の $\mathbf G_m$-gerbe
+\cite[Corollary~3.22]{NFMToenVaquieModuli}であり、
+全自己同値 sheaf \cite[Corollary~3.24]{NFMToenVaquieModuli}とは区別される。
+\end{proof}
+
+$\mathrm{HH}^1=0$ による infinitesimal rigidity は、
+核の同型類の選択やこの二 cocycle の消滅を含まない。
+表示 gerbe の Brauer 類 $\beta$ と比較核の gerbe は異なる降下問題から生じ、
+両者を同一視する構成はまだない。
+
+\subsection{一変数 trait に沿う良い還元}
+
+以下は稠密開の定理とは別である。
+相対 Hochschild 複体を $h=0$ まで perfect と証明しなくても、
+形式比較を選んだ後の三次の良い還元の存在は得られる。
+
+\begin{lemma}[完成上の格子の代数的降下]
+\label{lem:nfm-completed-lattice-descent}
+$R=k[h]_{(h)}$、$K=k(h)$、$\widehat R=k[[h]]$、
+$\widehat K=k((h))$ とする。
+有限次元 $K$-空間 $V_K$ の
+$V_K\otimes_K\widehat K$ 内の任意の $\widehat R$-格子 $\widehat\Lambda$ は
+\[
+ \Lambda=V_K\cap\widehat\Lambda
+\]
+という有限自由 $R$-格子の完成である。
+\end{lemma}
+\begin{proof}
+$V_K\simeq K^N$ を選び、
+$h^a\widehat R^N\subset\widehat\Lambda\subset h^{-b}\widehat R^N$
+とする。両端の商は有限 jet 加群であり、
+$R/(h^{a+b})=\widehat R/(h^{a+b})$ により両基底で同じである。
+その中の $\widehat\Lambda/h^a\widehat R^N$ の逆像を
+$h^{-b}R^N$ 内で取れば $\Lambda$ となる。
+これは有限生成 torsion-free、従って自由であり、完成は所要の格子である。
+\end{proof}
+
+\begin{corollary}[形式比較を選んだ滑らかな trait 模型]
+\label{cor:nfm-residual-good-reduction}
+一変数量子化に入力Bの (L),(CF) を仮定し、
+$W_0$ が滑らかで scalar symmetrizer を持つとする。
+一般点の正準的な積分直線から得る三次 $Y_K$ は、
+滑らかな射影三次族 $Y_R/R$ に延長できる。
+その完成は $V(W_h)$ と射影同型である。
+\end{corollary}
+\begin{proof}
+固定三対象から得た完全忠実な関手
+\[
+ \operatorname{Perf}(\Gamma_{\widehat K})
+ \longrightarrow\operatorname{Ku}(W_{\widehat K})
+\]
+は、$\widehat K$ の代数閉包上で生成的である。
+この関手は既に $\widehat K$ 上で定義されている。
+smoothness を体拡大から降下し、随伴核の単位・余単位の cone を調べれば、
+代数閉包上の同値は元の $\widehat K$ 上のこの関手の同値を意味する。
+従って有限体拡大への閉点特殊化をする前に
+\[
+ V_K\otimes\widehat K\simeq
+ \widehat K[x_1,\ldots,x_N]_1,\qquad
+ Q_K\otimes\widehat K\simeq\nabla W_h
+\]
+という実際の同定を持つ。
+scalar symmetrizer 条件により正準的な積分直線も
+$\widehat K W_h$ と同定される。
+
+右辺の標準 $\widehat R$-格子を引き戻し、
+補題 \ref{lem:nfm-completed-lattice-descent} により $\Lambda\subset V_K$ へ降ろす。
+$Q_R=Q_K\cap\operatorname{Sym}^2\Lambda$ は saturated であり、
+DVR 上で商も有限自由である。
+その完成は $\nabla W_h$ に一致する。
+実際、滑らかな特殊三次の勾配は独立なので
+$\nabla W_h$ は $\operatorname{Sym}^2\widehat\Lambda$ の direct summand であり、
+同じ一般部分空間を持つ saturated 格子は一意である。
+$D_{Q_R}$ の特殊階数は $\binom{N+2}{3}-1$ であり、
+この大きさの単元 minor がある。行消去後の残る成分は、
+完成上では $\widehat R W_h$ という剰余非零の解があるため全て零となる。
+忠実平坦性により $R$ 上でも零なので、
+$\mathcal L_R=\ker D_{Q_R}\subset\operatorname{Sym}^3\Lambda$ は直線部分束である。
+その完成は $\widehat R W_h$ であり、判別式は特殊ファイバーで非零である。
+\end{proof}
+
+この系の格子は選んだ形式比較に依存し得る。
+自然な次数一の束への正準的な延長、全 O-同値に沿う正準的な trait 模型、
+$h=0$ を含む大域モジュライ射、比較 kernel の延長・cocycle 降下は別問題である。
+また形式線型座標変更を許した射影族の代数化であり、
+固定座標での $W_h$ の各係数の代数性を主張しない。
+
+
+\subsection{固定生成元の形式 tensor の very general な非代数性}
+
+\begin{proposition}[多項式係数形式級数の very general な超越性]
+\label{prop:nfm-very-general-transcendence}
+$A=\mathbb A^s_{\mathbb C}$ を係数空間とし、
+\[
+ f(\mathbf c,h)=\sum_{m\ge0}f_m(\mathbf c)h^m
+       \in\mathbb C[\mathbf c][[h]]
+\]
+とする。ある $\mathbf c_0\in A(\mathbb C)$ について
+$f(\mathbf c_0,h)$ が $\mathbb C(h)$ 上超越的なら、次が成立する。
+\begin{enumerate}
+\item $f$ は $\mathbb C(\mathbf c,h)$ 上超越的である。
+\item $f(\mathbf c,h)$ が $\mathbb C(h)$ 上代数的となる点全体は、
+可算個の真の Zariski 閉集合の和である。
+従って任意の非空 Zariski 開 $U\subset A$ の very general な点で超越的である。
+\item 上記の超越性は、それぞれの有理関数体の有限代数拡大によっては解消されない。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$d\ge0,e\ge1$ を固定し、$M=(d+1)(e+1)$ 個の形式級数
+\[
+ h^if(\mathbf c,h)^j\qquad(0\le i\le d,\ 0\le j\le e)
+\]
+の係数を列とする、無限行・$M$ 列の行列 $B_{d,e}$ を取る。
+各成分は $\mathbb C[\mathbf c]$ に属する。
+全ての $M$ 次小行列式の零点集合を $Z_{d,e}$ とすると、これは Zariski 閉である。
+Noether 性から、その定義には有限個の多項式で十分である。
+
+$\mathbf c_0$ ではこれらの列は $\mathbb C$ 上一次独立である。
+有限個の列が独立なら、有限個の行を選んですでに階数 $M$ となるので、
+$\mathbf c_0$ で非零の $M$ 次小行列式が存在する。
+従って $Z_{d,e}$ は真の閉集合であり、同じ小行列式は一般点でも非零である。
+一般点での列の独立性を全ての $d,e$ に適用すれば第一の主張を得る。
+
+一方、$f(\mathbf c,h)$ の $\mathbb C(h)$ 上の代数性は、
+分母を払うことにより、ある $d,e$ について上記の列が一次従属となることと同値である。
+従って代数的となる点全体は
+$\bigcup_{d\ge0,e\ge1}Z_{d,e}$ に等しい。
+既に各 $Z_{d,e}$ が真と分かっているので、第二の主張が従う。
+最後の主張は代数拡大の推移性による。
+\end{proof}
+
+\begin{lemma}[logarithmic な境界値]
+\label{lem:nfm-logarithmic-specialization-transcendental}
+\[
+ \ell(h)=\log\frac{2+h}{2-h}=2\operatorname{arctanh}(h/2)
+       \in\mathbb C[[h]]
+\]
+は $\mathbb C(h)$ 上超越的である。
+\end{lemma}
+
+\begin{proof}
+代数的なら、有限関数体拡大 $\mathbb C(h,\ell)$ の滑らかな射影曲線上で
+\[
+ d\ell=\frac{4}{4-h^2}\,dh
+\]
+が成立する。$h=2$ 上の点の分岐指数を $r\ge1$ とすると、
+右辺の留数は $-r$ である。
+しかし有理関数の完全微分の留数は全て零なので矛盾する。
+\end{proof}
+
+\begin{remark}[固定された規格化への適用範囲]
+固定生成元と規格化を選んだ形式 Poisson tensor の一つの座標係数が
+$\mathbb C[\mathbf c][[h]]$ に属し、ある境界点で上の $\ell(h)$ に等しいなら、
+命題~\ref{prop:nfm-very-general-transcendence} をその係数へ適用できる。
+境界点自身の三次が滑らかである必要はない。
+ただし、係数の多項式性を境界まで保証すること、および境界値の等式を
+全ての次数で証明することが適用の前提であり、有限 jet の一致では不十分である。
+
+結論は一般点および very general な点での超越性であり、
+全ての点で超越性を持つ単一の Zariski 開の存在を主張しない。
+また、同じ係数空間内の非空開に関する主張であり、
+全ての intrinsic な既約成分を被覆する主張ではない。
+有限代数的な底変更や代数的に可逆な座標変更は、
+固定されたテンソルの超越性を解消しない。
+任意の形式座標変更、形式的な尺度変更、gauge 変更、
+あるいは三次超曲面の射影同型類の代数化には、この障害をそのまま適用できない。
+\end{remark}
+
+
+\begin{theorem}[一般次元の正規化 tensor の超越性]
+\label{thm:nfm-normalized-tensor-transcendence}
+$N=n+2\ge5$、$V=\langle x,y,z,u_1,\ldots,u_{n-1}\rangle$、
+$P_0=\partial_x\wedge\partial_y\wedge\partial_z$ とし、
+$\mathcal A=\Sym^3V$ を全三次係数の affine 空間とする。
+$F\in\mathcal A$ に対して
+\[
+ [z_i,z_j]=h\operatorname{sym}\bigl(\Pi_F(dz_i,dz_j)\bigr),
+ \qquad \Pi_F=\iota_{dF}P_0
+\]
+の固定 harmonic-angle・生成元固定の逆 tensor を $\pi_h(F)$ と書く。
+滑らかな全三次、滑らかな active 制限、および上の模型の存在条件を満たす
+任意の非空係数開を $\mathcal A^{\mathrm{good}}$ とする。
+このとき、$\pi_h(F)$ の係数の全てが $\mathbb C(h)$ 上代数的となる
+$F\in\mathcal A^{\mathrm{good}}(\mathbb C)$ は、
+可算個の真の閉集合の和に含まれる。
+従って very general な $F$ の tensor は $\mathbb C(h)$ 上代数的でない。
+普遍係数の関数体上でも非代数的であり、有限代数拡大によって解消しない。
+\end{theorem}
+
+\begin{proof}
+式\eqref{eq:nfm-normalized-tensor-recursion}を全 affine 係数空間上で使う。
+この再帰の各段階は、既に得た係数の和・積・座標微分と、
+固定した複素グラフ重みだけからなる。
+$h$ の各次数でグラフは有限個であり、$q_{ij}=\Pi_F(dz_i,dz_j)$ は
+$F$ の係数に線型なので、帰納的に
+\[
+ \pi_m(F)\in\mathbb C[\mathcal A]\otimes
+      \bigl(\Sym^2V\otimes\textstyle\bigwedge^2V^*\bigr)
+\]
+である。係数空間の判別式などで割る操作はない。
+従って、境界で PBW 性や MC 恒等式を主張しなくても、
+再帰で得る係数列自体は全 $\mathcal A$ 上に定義される。
+模型が存在する良い開では、補題\ref{lem:nfm-normalized-star-model}の一意性により
+これは実際の逆 tensor である。
+
+$\pi_h(F)(dx,dy)$ における単項式 $xy$ の係数を $f(F,h)$ と置く。
+これは $\mathbb C[\mathcal A][[h]]$ の元である。
+$F_0=xyz$ では、補題\ref{lem:nfm-log-canonical-inverse}により
+\[
+ f(F_0,h)=\log\frac{2+h}{2-h}.
+\]
+この恒等式は Lindberg--Pym\cite[Section~1.6; Theorem~6.9, Remark~6.10]{NFMLindbergPym}
+の原生成元での交換比から得る全次数の恒等式であり、有限 jet の一致ではない。
+前補題と命題\ref{prop:nfm-very-general-transcendence}を適用すれば結論を得る。
+$F_0$ は良い開に属さないが、各有界次数の代数関係条件が
+全係数空間の真の閉集合であることを検出するためだけに使っている。
+その閉集合の任意の非空開への制限も真なので、滑らかな一般部分への主張が従う。
+\end{proof}
+
+\begin{remark}[代数的な Poisson 射との両立]
+この障害は指定した $h$ と次数一生成元を保つ実際の $\pi_h$ の係数に対するものである。
+代数的係数の可逆線型変更の後に全 tensor 係数が代数的なら、
+逆変換によって元の係数も代数的となるため、そのような変更でも障害は消えない。
+一方、形式行列による座標変更、尺度を忘れた Poisson 直線、
+あるいはその underlying cubic の射影同型類には、同じ結論は及ばない。
+本節の代数的な残余射は後者のデータを復元する。
+また、この定理は $W_h$ の特定の係数の超越性を主張せず、
+実際の tensor の尺度を選ぶ代数的な局所切断一般を排除するものでもない。
+その切断を元の固定生成元、または代数的に可逆な変更で得た frame で
+代数的に表示でき、そこで $\pi_h$ と一致する場合は排除される。
+形式的な Nat の同定を経た一致だけは、この定理からは排除しない。
+\end{remark}

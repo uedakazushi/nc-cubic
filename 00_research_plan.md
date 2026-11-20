@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：研究方針
 
-2026年11月20日 / v9。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+2026年11月20日 / v10。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
 
 ## 基本目標と優先順位
 
@@ -10,15 +10,15 @@ O-marked の基本対象は Abel 圏と構造対象の対 (C,O) であり、射�
 
 主公表原稿は `papers/nc-cubic-n-fold.tex`。日本語 LuaLaTeX、著者欄は空欄。達成基準は、各対象成分について、一般の族を扱うモジュライと point scheme、Poisson 射の定義域・降下、対応する Kuznetsov 成分の同値を、正確な仮定と十分な証明で結び付けることである。
 
-良い一ブロック型の O-marked 圏 stack は、強い affine lift の一意性と逆構成により、分解可能な Poisson 対の非空開と同型になった。しかし **trace–Hessian 射が選ぶ三次に対する rotation を保つ Ku 比較は一般には成立しない**（n≢1 mod3 では rotation を指定しない dg Morita 同値もない）。固定入力の残余復元の下で、全次元の明示 Hesse 族に幾何学的一般点の反例があり、周囲 tensor を固定したまま純中心三次だけを補正しても修復できない。さらに混合 Hesse 係数の一般点では、指定 formality 模型の下で marked な形式比較が二次 jet で妨げられる。
+**一般混合係数について、残余三次と射影 Poisson 対の代数的な射を稠密開上に構成した。** 固定入力Bの完備 MF・正則底の window・一般点生成性・coherent 飽和性の下で、低 rotation 積の核 Q とその積分核 L から三次方程式の直線を復元する。中心一次作用 U→V_ρ の annihilator K と合わせた Ψ_res は全 O-同値へ降下し、Brauer–Severi ambient を許す、尺度を忘れた Poisson moduli への支配射となる。適切な開で滑らか、相対次元は全 n≥3 で1である。さらに有限 étale 被覆上で、この射が選んだ **同じ X_res の Ku** と非可換残余圏の同値を得る。方程式の直線の復元、族への拡張、被覆上の核、元の stack への核の降下を分ける。
 
-この障害に対して、**座標不変な代数的補正 Φ と、固定 formality の全次数の形式 Poisson 対**を構成した。Φ は全 O-同値に降下し、適切な稠密開上で次数9の表現可能な有限 étale 射となり、補正後の active 平面三次は量子側の楕円点曲線に厳密に一致する。分離型 g_λ+G(U) では任意の滑らかな固定 λ に対し、入力Bの下で、この補正後三次と残余圏の比較を有限拡大上で全次数にわたり得る。形式構成では元の support を全次数で保存し、残余三次 W が tensor を形式スカラー倍まで決める。c₂は零、π と a は奇級数、W は偶級数である。
+生成元固定模型からの **相対 graph flow は中心一次作用を厳密に保つ**。従って上の射の一般形式像は (V(W_h),[π_h]) に全次数で一致する。次数一空間の比較には形式行列を許す。一変数 trait では、この形式比較から格子を降ろすことで h=0 まで滑らかな三次模型も得るが、その選択の正準性、核の h=0 への延長、大域 boundary 射は主張しない。
 
-**一般混合係数の五次 tensor と残余四次 potential は決定した。** S(xyz)=1 の規格化で、β=1/60、γ=1/240、π₅=Π_(4I+J−2SF)/240、W₄=Ψ_λ(F)+I/24−J/80 となる。指定中心元の尺度は a₄=S/240、純中心項 G₄=C₄も Hesse 係数の明示式で与えた。従来の Φ は W≡H♯ mod h⁴ を満たすが、各 n≥3 の一般混合係数の非空開に、同じ h と特殊ファイバーの同定を保つ四次の比較障害がある。固定入力の MF・window 比較を適用した marked な Ku 比較にも同じ障害が移る。一般ファイバー上で標識を忘れた非同値を、この有限 jet だけから結論しない。
+**固定生成元・固定 h の実際の tensor π_h は、各 n≥3 の very general な滑らかな係数で代数的でない。** 普遍再帰の各係数の多項式性と、xyz での厳密な log((2+h)/(2−h)) を用い、有界次数の代数関係 locus がそれぞれ真の閉集合であることを証明した。有限 jet の不一致を全次数へ外挿した結果ではない。この障害は固定 frame、または代数的に関係する frame に対するものであり、任意の形式 Nat frame を介した intrinsic な尺度切断との一致や、あらゆる尺度付きモジュライ射の不存在は結論しない。
 
-この四次差を消す **代数的射 Φ^[4]** も構成した。全 O-同値と任意基底変更に両立し、指定中心元に沿って残余三次に mod h⁶、tensor に mod h⁷ で一致する。従来の Φ の次数9・楕円点曲線との厳密な一致・split 族の全次数 MF 比較は、それぞれの適用範囲を保つ。新しい Φ^[4] に同じ一般次数や全次数同値を移してはいない。
+次の最優先は **比較核の同型類と scalar 二 cocycle の大域降下、および尺度線束 T=L⊗det K の標準的な切断**である。同値全体は全自己同値 stack の torsor であり、同型類を選んだ後で初めて scalar gerbe の問題になる。表示 gerbe の Brauer 類 β とこの kernel gerbe を同一視しない。元の目標のうち、良い一ブロック成分の一般部分における方程式・射影 Poisson 射・同じ三次への被覆上の Ku 比較は得たが、尺度、核の大域降下、全 intrinsic 成分の被覆は残っている。
 
-次の中心課題は、**一般混合係数の残余射の代数化と、同じ X の Ku 比較同値の核・cocycle の降下**である。有限補正だけでは全次数の同じ三次を得たとはいえないため、内在的な残余復元と代数的な族の構成を結び付ける。必要な高次計算はこの判定を進めるために行い、決定済みの β,γ,W₄,a₄,G₄を再計算課題にしない。開部分のモジュライ同型、相対点復元、Brauer 障害、八次元 Jacobi 頂点の証明・証明書は引き続き保持する。
+既存のモジュライ同型、相対点復元、Brauer 障害、Jacobi スキームの証明と計算資産は保持する。trace–Hessian 三次への比較には全次元の Hesse 反例があり、その障害も保持する。有限 Hessian 補正 Φ は全 O-降下・一般次数9・楕円点曲線との厳密な一致を持つ。混合五次定数 β=1/60, γ=1/240、残余四次項 W₄=Ψ+I/24−J/80 と marked な四次障害は決定済みであり、追加補正 Φ^[4] は三次に mod h⁶、tensor に mod h⁷ で一致する。これらの有限処方と、新しい内在的な Ψ_res は別の射である。Φ の次数9・点曲線公式を他の射へ移さない。
 
 ## 一般性と成分の扱い
 
@@ -32,14 +32,16 @@ O-marked の基本対象は Abel 圏と構造対象の対 (C,O) であり、射�
 
 直接の入力は [nc-cubic](https://github.com/uedakazushi/nc-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) の固定 commit `eabe601c1341777742964584dde5314c0bcf64a9`（論文A A-v61、論文B B-v59）。三様体の比較対象は [nc-cubic-threefold-moduli](https://github.com/uedakazushi/nc-cubic-threefold-moduli/tree/6c35d2c84671c2538e61836a6bf3a511392eacce) の固定 commit `6c35d2c84671c2538e61836a6bf3a511392eacce`（v22）。両 repo は読取り専用とする。
 
-入力の全次元 Poisson 正規形・中心量子化・完備 MF 移送・一般点残余復元・Hesse の exact residual potential、および公刊の PBW/CY・星積・wheel 消滅・Kontsevich の二次形式対応・Mori–Smith の点曲線 Hessian 公式、および Banks–Panzer–Pym の harmonic graph weights と Buring の公開データを新規成果に数えない。未公表入力の全証明を独立に再検証したとは主張しない。書誌・参照箇所は `notes/research_notes.md`、確認状態は `notes/validation.md` に置く。
+入力の全次元 Poisson 正規形・中心量子化・完備 MF 移送・一般点残余復元・Hesse の exact residual potential、および公刊の PBW/CY・星積・wheel 消滅・Kontsevich の二次形式対応・Mori–Smith の点曲線 Hessian 公式、Banks–Panzer–Pym の harmonic graph weights と Buring の公開データ、Wang・Hwang の勾配復元、Toën–Vaquié の perfect 核の有限表示・同値 locus の開性を新規成果に数えない。未公表入力の全証明を独立に再検証したとは主張しない。書誌・参照箇所は `notes/research_notes.md`、確認状態は `notes/validation.md` に置く。
 
 | 基本目標 | 現行稿に証明のある到達点 | 未解決の核心 |
 |---|---|---|
 | O-marked moduli | 全 O-同値比較と重み付き tails による効果化。滑らかな出力を持つ良い pair では周囲単独の有限安定化子を外せ、滑らかな既約 DM stack Msm を構成。表示 gerbe は n≢1 mod3 で中立、n≡1 mod3 では全非空開上で位数3 | 各 intrinsic 成分の一般対象の局所表示、複数ブロック型、成分性 |
 | point scheme | 相対 Pt(A)=E⊔D、中心への八重有限平坦被覆、型 (2,2,2,3) の定常成分。点関手・shift・中心射影を降下し、非空開で埋込み点対応から A 全体を復元。補正 Φ の active 平面切断は元の楕円点曲線に一致 | 各成分の一般点の幾何、点データだけによる像の認識、分岐と自己同型 |
-| Poisson moduli | 任意基底で一意な強い lift Π=ι(dH)P。Msm≅Pgood⊂Pdec、次元 binom(n+2,3)+3n−2。既存被約分類の下で一般三次上の全非零 Poisson moduli への開埋込みと唯一の支配成分。Φ は全同値へ降下し、適切な開上で有限 étale 階数9。新しい Φ^[4] も全同値へ降下し、残余三次に mod h⁶、tensor に mod h⁷ で適合 | 一般混合係数の全次数の代数的残余射、各 intrinsic 圏成分との関係、特殊三次上の別成分。Φ^[4] の一般次数は未決定 |
-| Kuznetsov 比較 | 固定入力を使う全次元 Hesse 族で X_TH と X_res の一般ファイバー非同型。rotation 保存 dg Morita 同値なし、n≢1 mod3 では rotation なしでも同値なし。同じ Π の全 smooth cubic Casimir に障害。一般混合 π₅,W₄,a₄,G₄を決定し、Φ に対する全次元の四次 marked 障害を証明。Φ^[4] はその障害を除去する有限 jet を与える。split 族の Φ に対する全次数同値は有限拡大上・固定 MF・有限降下・coherent 飽和性の入力付き | 一般混合係数の同じ X への全次数同値、比較核と cocycle の降下、formality 依存性と代数化。n≡1 mod3 の rotation、n=4 の幾何 locus |
+| Poisson moduli | Msm≅Pgood⊂Pdec と唯一の支配成分の一般開。固定入力Bの下で低 rotation 積・中心作用による代数的 Ψ_res を構成し、全 O-降下・支配性・一般相対次元1・選んだ形式 Poisson 直線との全次数一致を証明。尺度の lift は T=L⊗det K の非零切断。固定 frame の tensor は very general に超越的 | 標準的な尺度切断とその形式比較、各 intrinsic 成分、特殊三次上の別成分。有限補正 Φ^[4] の一般次数 |
+| Kuznetsov 比較 | 固定 MF・window・一般点生成性・coherent 飽和性の下で、一般混合係数の稠密開の有限 étale 被覆上に、同じ X_res への比較核を構成。局所 rotation・指定周期を保存。形式比較を選んだ trait の滑らかな三次模型も存在。旧 trace–Hessian と有限補正の比較障害・split 族の正の比較は保持 | 比較核の同型類の整合と scalar 二 cocycle、表示 gerbe との関係、正準的な trait 延長、全 intrinsic 成分 |
+
+一般残余射の主証明は `papers/sections/residual_algebraic.tex`。`lem:nfm-dominant-central-family`、`thm:nfm-relative-residual-cubic`、`lem:nfm-relative-center-transport`、`thm:nfm-projective-residual-morphism`、`prop:nfm-projective-residual-dominance`、`thm:nfm-residual-comparison-cover`、`prop:nfm-residual-kernel-descent`、`cor:nfm-residual-good-reduction`、`thm:nfm-normalized-tensor-transcendence` を参照する。
 
 補正の主証明は `thm:nfm-algebraic-hessian-correction`, `thm:nfm-correction-degree-nine`, `cor:nfm-mixed-even-jet`, `prop:nfm-active-fifth-covariant`, `cor:nfm-fifth-restriction-obstruction`, `prop:nfm-mixed-fifth-reduction`, `prop:nfm-correction-point-cubic`, `cor:nfm-corrected-residual-jet`, `thm:nfm-residual-formal-poisson`, `cor:nfm-formal-center-casimir`, `thm:nfm-split-corrected-residual`。四次補正の証明は `papers/sections/fourth_correction.tex` の `prop:nfm-mixed-fifth-explicit`、`lem:nfm-fourth-center-locality`、`thm:nfm-mixed-fourth-potential`、`cor:nfm-fourth-jacobi-class`、`prop:nfm-fourth-uniform-witness`、`cor:nfm-corrected-fourth-obstruction`、`thm:nfm-fourth-algebraic-correction`。既存の主証明は `thm:nfm-local-moduli`, `thm:point-trace-hessian`, `thm:poisson-strong-lift`, `thm:poisson-good-open-isomorphism`, `cor:poisson-generic-open-immersion`, `thm:nfm-th-residual-obstruction`, `cor:nfm-casimir-selection-obstruction`, `prop:nfm-relative-residual-second-jet`, `cor:nfm-generic-marked-comparison-obstruction`。相対点復元は `thm:relative-point-nfold`, `thm:point-omarked-descent`, `thm:point-central-recovery`、残余形式認識は `thm:nf-residual-formal`。
 
@@ -47,27 +49,16 @@ O-marked の基本対象は Abel 圏と構造対象の対 (C,O) であり、射�
 
 ## 優先する次の課題と具体的な着手
 
-### 1. 一般混合係数の残余射を代数化し、同じ X への比較核を降下する
+### 1. 同じ X の比較核と Poisson 尺度を大域化する
 
-最優先。従来の補正は D_P(H)=〈det(D_K²H),P⊗P〉、H♯=H+D_P(H)/24+τ(D_P(H))/12、Φ=(H,P)↦(H♯,P) である。この射の全 O-降下・一般次数9・楕円点曲線との厳密な一致は確立しているが、一般混合係数の残余三次とは四次で marked な差が生じる。従って Φ と残余復元の全次数一致をそのまま証明する方針は採らず、有限補正と全次数の内在的残余射を区別して構成する。
+最優先。Ψ_res は既存一ブロック成分の非空稠密開に構成済みである。再開時は `residual_algebraic.tex` の低積、中心作用、重み、有限被覆の定理から読む。一般点の存在だけを再び目標にしたり、既に決定した有限 jet の計算を反復したりしない。
 
-現在の有限係数は、固定 harmonic 模型で
+- **比較核の同型類。** rotation・指定周期・中心作用を保つ自己同値 stack の作用を調べ、被覆上の核の同型類を全 O-同値に沿って整合させる条件を得る。P[2m] は同じ低積を保つため、低積だけで核の一意性を主張できない。Toën–Vaquié の Corollaries 3.22, 3.24 と実際の核の Morita endomorphism を出発点とする。追加の標識を採用するなら、その必要性と元の O-marked 目標への影響を明記する。
+- **scalar 二 cocycle。** 同型類が整合した後に、重なり同型の三重積 c_ijk を構成し、kernel gerbe の類を調べる。既存の表示 gerbe β と同じとは仮定せず、determinant、周期、trace の具体的な比較写像から関係を検討する。HH¹=0 はこの消滅を意味しない。
+- **Poisson の尺度。** T=L⊗det K の quotient chart 上の遷移を求め、量子中心直線・Serre pairing・周期に由来する標準切断があるかを判定する。T^× が full tensor の lift を分類することは証明済み。固定 frame の π_h の超越性から intrinsic な切断の不存在を推論せず、CF の形式 frame も含めて比較する。
+- **trait 模型。** 選んだ CF から格子を降ろすと滑らかな模型はある。次にその選択依存性、全 O-同値への整合、比較核の良い還元を調べる。相対 Hochschild 模型の h=0 での perfect 性を暗黙に仮定しない。
 
-```text
-π_h = hΠ_F + h³Π_Hess(F)/24 + h⁵Π_(4I+J−2SF)/240 + O(h⁷),
-W_h = F + h²Hess(F)/24 + h⁴(Ψ_λ(F)+I/24−J/80) + O(h⁶),
-a_h = h(1+S h⁴/240) + O(h⁷).
-```
-
-純中心項も G₄=C₄ と明示され、F=g_λ+Axy+Byz+Czx+Dx+Ey+Hz+G に対して C₄=λ(A³+B³+C³)/60+λ²ABC/40+(2−λ³)(AH+BD+CE)/180+SG/80 である。全 Jacobi 環での四次差は [I]/60+[τ_F(I)]/40+S[τ_F(F)]/80。Fermat active 切断の滑らかな全次元例で値 −1/9 の双対証明書を持つ。証明は `fourth_correction.tex`、有限 graph 計算は `computations/verify_mixed_fifth.py`、中心・Jacobi 恒等式は `computations/verify_fourth_potential.py`。必要な73項・出典・原ファイルの SHA-256 は `computations/data/harmonic_linear_products.json` に保持する。通常の再現は外部データを不要とし、原 weight の照合は `--source-directory` で別に実行できる。手順は README の「再生成」を参照する。
-
-新しい補正は E_P(H)=I_P(H)/60+J_P(H)/240−S_P(H)(H−τ(H))/80+τ(I_P(H))/40、H^[4]=H♯+E_P(H)、P^[4]=(1+S_P(H)/240)P である。出力の滑らかさと係数の可逆性を課した非空開上で、Φ^[4] は代数的かつ全 O-同値に両立し、指定中心元に沿って H^[4]≡W_h mod h⁶、ι(dH^[4])P^[4]≡π_h mod h⁷ を満たす。Φ^[4] の一般次数や全次数の同値はまだ決めていない。
-
-具体的な次の着手は、固定入力Bの `papers/generic_recovery/field_model.tex` の `gcd:thm:field-model` と `generic_descent.tex` の `rog:lem:descent` を読み、三次の定義体、有限拡大上の核、h=0での正則性、全 O-同値に沿うcocycleを分けて点検することである。一般係数の関数体上で、低 rotation 積・量子中心・点対応から残余三次を有限個の代数的データとして回復する方法を比較し、固定 formality の W_h をその完成と同定できるか調べることである。必要なら六次 potential と七次 tensor を共変式空間へ還元し、代数的候補の成立または本質的な高次障害を判定する。高次係数の列挙自体や次元別実験を主目的にせず、有限型の残余射の存在・定義域・内在性を達成基準とする。
-
-形式 tensor は二次 ambient B_h から一意に決まり、中心三次の選択に依存しない。中心逆像は純中心三次を固定し、W_h が tensor を scalar 倍まで全次数で決める。この形式表示 groupoid 上の結果と、有限 h の代数化・全 intrinsic O-moduli の射を区別する。普遍 PBW 模型からの任意の非被約基底への移行は構成済みだが、完備 MF 同値自体の任意基底版は新たに証明していない。
-
-比較核については、同じ X の Ku への同値をまず一般係数の関数体上で構成し、有限表示・有限降下・coherent 飽和性の仮定を個別に確認する。その後に非空開へ広げ、全 O-同値に沿う核の比較と cocycle の整合を示す。split 族の ν(λ,s)=[λ+s²(4+λ³)/12]/[1−s²λ²/4] と Hcorr=g_λ+s²Hess(g_λ)/24+G は、従来の Φ に関する正の全次数比較例として用いる。同値核の有限降下と形式座標変換の代数化は別々に扱い、rotation・指定三次周期・特殊ファイバーの標識の有無を明記する。
+有限補正の公式・純中心項・証明書は `fourth_correction.tex`、研究ノートと README にまとめてある。Φ、Φ^[4]、Ψ_res は標的・厳密性・次数の異なる構成である。必要な高次計算は尺度または核の降下の具体的な判定のために行う。
 
 ### 2. 各 intrinsic 成分の一般対象を覆う表示を調べる
 
@@ -79,11 +70,11 @@ a_h = h(1+S h⁴/240) + O(h⁷).
 
 相対点関手、shift、中心射影、中心三次の復元は構成した。次はその像の有限条件、定常完全交叉の一般の滑らかさ・連結性、八重被覆の分岐、自己同型を調べる。
 
-具体的には埋込み点対応から復元した二次関係・中心直線について、good PBW 条件を判定する条件を整理する。抽象的な D だけで同じ復元ができるとは仮定しない。D の滑らかさは全定理の仮定ではなく、相対完全交叉と正則切断から区別する。相対随伴の determinant 因子と Brauer 障害も保持する。
+まず、相対 graph flow の中心線型性を U=0 への基底変更へ適用し、量子側の楕円点曲線 E と残余三次の active 切断 X_res∩P(K_res) の関係を調べる。三次曲線の同型、次数三偏極、shift の対応は別々に確認し、Φ の既知の点曲線公式を Ψ_res へ無条件に移さない。並行して、埋込み点対応から復元した二次関係・中心直線について、good PBW 条件を判定する条件を整理する。抽象的な D だけで同じ復元ができるとは仮定しない。D の滑らかさは全定理の仮定ではなく、相対完全交叉と正則切断から区別する。相対随伴の determinant 因子と Brauer 障害も保持する。
 
 ### 4. 公表価値と新規性の確認
 
-中心を一般次元のモジュライ同型・点復元・残余比較の障害と修正へ置く。Kontsevich 2001 §2.3 Proposition 6、Mori–Smith Theorems 1.2, 7.2、Lindberg–Pym 2024 Theorem 6.9、Dito・Shoikhet、Banks–Panzer–Pym と Buring の一次資料・公開 graph データとの比較を含め、形式対応・点曲線公式そのものと、本稿の混合 trace 補正・全 O-降下・残余比較を区別する。未公表入力の主要な依存は、必要な範囲から独立検証を進める。公表に向けて全引用・被引用文献の確認を継続し、既存の個別次元結果は削除せず論理的な配置を維持する。
+中心を一般次元のモジュライ同型・点復元・代数的な残余射・同じ三次への比較とその降下へ置く。Wang の Theorem 3.3、Hwang の symmetrizer 群、Toën–Vaquié の Lemmas 2.10, 3.25・Corollaries 3.22, 3.24、Bergh–Schnürer の gerbe と Brauer–Severi の分解を一次資料に即して比較する。Kontsevich 2001 §2.3 Proposition 6、Mori–Smith Theorems 1.2, 7.2、Lindberg–Pym 2024 Theorem 6.9、Dito・Shoikhet、Banks–Panzer–Pym と Buring の一次資料・公開 graph データとの比較を含め、形式対応・点曲線公式そのものと、本稿の混合 trace 補正・全 O-降下・残余比較を区別する。未公表入力の主要な依存は、必要な範囲から独立検証を進める。公表に向けて全引用・被引用文献の確認を継続し、既存の個別次元結果は削除せず論理的な配置を維持する。
 
 ## 研究全体に共通する一般原則と保存許可
 

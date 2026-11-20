@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v9}
+\date{2026年11月20日・研究稿 v10}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -55,43 +55,42 @@ pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \vspace{-0.6\baselineskip}
 \begin{abstract}
 三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ三次超曲面の量子化を扱う。
-中心平坦性と普遍低次数中心条件の下で任意の Veronese から元の代数を復元し、
-良い一ブロック表示を局所的に持つ $\mathcal O$-marked 圏族の滑らかな DM stack を構成する。
-相対双対と全同値の降下により、次数一 shift を標識から外す。
-大域表示の Brauer 障害は $n\not\equiv1\pmod3$ では消え、
-$n\equiv1\pmod3$ ではどの非空開上でも位数三である。
-点スキームは相対的に楕円成分と型 $(2,2,2,3)$ の定常成分へ分かれ、
+中心復元と全同値の降下により、良い一ブロック表示を局所的に持つ
+$\mathcal O$-marked 圏族の滑らかな既約 DM stack を構成する。
+次数一 shift は標識から外し、大域表示の Brauer 障害の位数を
+$\gcd(n-1,3)$ と決定する。
+相対点スキームは楕円成分と型 $(2,2,2,3)$ の定常成分へ分かれ、
 非空開上で埋込み点対応から中心三次商を復元できる。
-八重被覆の正規化 trace と Hessian、および任意基底上の強い affine 持上げの一意性により、
-良い一ブロック型の圏 stack を分解可能な Poisson 対の非空開と同定する。
-既存の被約分類の下で、この像は三次のモジュライを支配する唯一の Poisson 成分の
-一般部分の開を与える。
-他方、固定入力の残余復元定理の下で、trace--Hessian 三次と残余復元三次は
-任意の次元の明示 Hesse 族で幾何学的一般点において異なる。
-同じ周囲 Poisson tensor の Casimir を選び直しても、この相違は解消できない。
-混合係数の一般点での二次障害を打ち消す代数的 Hessian--trace 補正を構成し、
-その全同値への降下と、適切な稠密開上での次数九の有限 \'etale 性を示す。
-補正後の active 平面切断は量子側の楕円点曲線に一致する。
-固定 formality の全次数では、元の support が保存され、
-残余三次が tensor を形式スカラー倍まで決定する。
-さらに既知の harmonic graph weights と共変式の還元により、
-全混合係数の五次 tensor、残余三次の四次項、およびスカラー補正を決定する。
-有限 Hessian 補正との四次の Jacobi 類は全次元の非空開で非零であり、
-特殊ファイバーの同定を保つ形式的な残余比較を妨げる。
-この差を打ち消す追加の代数的 Poisson 射を構成し、全 O-同値への降下と、
-三次式の六次未満・tensor の七次未満での一致を証明する。
-分離型 Hesse 族では、固定入力の下で補正後三次への残余同値を有限拡大上で得る。
+八重被覆の trace、Hessian と強い affine 持上げを用い、
+この圏 stack を分解可能な Poisson 対の非空開と同定する。
 
-別に、三次超曲面の Jacobi スキームを Koszul flattening と Pl\"ucker 関係によって調べる。
-$3\le n\le7$ の一般三次では Grassmann 錐に一致する。
-$n=8$ の一般三次では、その頂点に長さ330、次数二に集中する平方零の冪零根基を持つことを、
-次数三の厳密計算証明書で示す。この拡大は完備局所環としても分裂しない。
-既存の被約分類の下で一般の全次元でも非零部分は Grassmann 錐に一致するが、
-特殊な滑らかな三次には非零点で非被約となる例を構成する。
-高次元の冪零部分の最高次数と極大イデアルによる消滅指数は一様に有界ではない。
-最後に既知の Hochschild 計算と圏変形理論から、$n\ne4$ の通常 Artin 基底上で
-残余圏の一次切断変形を幾何的変形として認識する。
-全ての内在的成分の被覆、一般混合係数での全次数比較と残余同値の降下は未解決である。
+残余比較については、固定入力の完備 MF 移送・window 比較・一般点生成性・coherent 飽和性の下で、
+低 rotation 積の核から残余三次の方程式直線を代数的に復元する。
+中心一次作用と合わせて、稠密開から尺度を忘れた Poisson moduli への
+全 O-同値に両立する支配射を構成し、一般相対次元が一であることを示す。
+さらに有限 étale 被覆上で、復元した同じ三次の Kuznetsov 成分との同値を得る。
+選んだ相対 graph flow は中心作用を厳密に保ち、この代数的射の一般形式像を
+固定 formality の残余 Poisson 対と全次数で同定する。
+一方、固定生成元と量子化パラメータを保つ実際の形式 tensor は、
+任意の $n\ge3$ の very general な滑らかな係数で代数的でない。
+この障害は log-canonical 量子化と有界次数の代数関係を表す小行列式から従う。
+尺度の選択は一本の線束の非零切断、比較核の大域降下は
+自己同値の同型類とスカラー二 cocycle に関する別の問題として残る。
+
+比較を明示的に調べるため、trace--Hessian 三次と残余三次の不一致を全次元で示し、
+全同値へ降下する一般次数九の Hessian 補正を構成する。
+その active 切断は量子側の楕円点曲線に一致する。
+さらに全混合係数の五次 tensor と残余三次の四次項を決定し、
+四次の marked 比較障害と、それを除く追加の代数的補正を与える。
+後者は三次式の六次未満・tensor の七次未満で実際の形式復元と一致する。
+
+別に Jacobi スキームを調べ、$3\le n\le7$ の一般三次では Grassmann 錐に一致し、
+$n=8$ では頂点に長さ330の非分裂平方零構造を持つことを厳密計算証明書で示す。
+既存の被約分類の下で一般の全次元でも非零部分は Grassmann 錐に一致する一方、
+特殊な滑らかな三次には非零点で非被約となる例がある。
+高次元の頂点の冪零部分の最高次数と極大イデアルによる消滅指数は一様に有界でない。
+また $n\ne4$ では通常 Artin 基底上の残余圏の一次切断変形を幾何的変形として認識する。
+全 intrinsic 成分の一般対象の被覆と、残余比較核の大域降下は未完成である。
 \end{abstract}
 \clearpage
 \setcounter{tocdepth}{1}
@@ -211,6 +210,17 @@ Bricalli--Favale--Pirola \cite[Proposition~2.1, Theorem~3.4]{NFMBFFHessian}を�
 Lin--Zhang \cite{NFLZSerre}、Pirozhkov \cite{NFPirozhkov}、
 Huybrechts--Rennemo \cite{NFHuybrechtsRennemo} の既知の圏論的不変量と Torelli 理論は、
 本稿の残余変形の入力である。
+
+残余三次の勾配空間による一意性は、Wang\cite[Theorem~3.3]{NFMWangMilnor}と
+Hwang\cite[Theorems~1.5, 1.6]{NFMHwangSymmetrizer}の既知結果に基づく。
+本稿では階数一の積分核を相対的に作り、O-同値の線束 twist による重みを追跡して、
+Brauer--Severi ambient と Poisson 直線への射を降下する。
+perfect な対角・核を有限係数へ広げる一般原理と同値 locus の開性には
+To\"en--Vaqui\'e\cite[Lemmas~2.10, 3.25]{NFMToenVaquieModuli}を用いる。
+これらの一般原理、体上の三次の存在、既知の量子トーラス交換比を新規とは数えず、
+相対的な残余射・中心作用の保存・有界次数の関係 locus による
+very general な固定 tensor の超越性への適用を区別する。
+
 既知の公式からの帰結と、本稿に証明を与える拡張は以下で区別する。
 これらの拡張について、独立な新規性の網羅的確認はなお完了していない。
 
@@ -511,11 +521,60 @@ jet と五次の相違は系\ref{cor:nfm-mixed-even-jet}、
 追加の代数的射は定理\ref{thm:nfm-fourth-algebraic-correction}、
 split 比較は
 定理\ref{thm:nfm-split-corrected-residual}に置く。
-単元倍を許した一般混合係数の全次数比較、
-および残余同値の全 O-降下は未解決である。
+これらの有限補正式そのものの一般混合係数での全次数比較は主張しない。
+内在的な残余三次への全次数比較は、次の定理で別に構成する。
 有限 jet の標識付き障害から、一般ファイバーで標識を外した Ku の非同値は結論しない。
 従来の $\Phi$ の一般次数九と点曲線の厳密な一致を、
 追加補正の射にも自動的に移すことはしない。
+
+\subsection{一般点の代数的残余射と very general な超越性}
+
+\begin{maintheorem}[残余三次と射影 Poisson 対の一般次元での復元]
+$n\ge3$ とし、固定入力論文Bの完備 MF 移送、正則底の window、
+一般点生成性と coherent 飽和性を用いる。
+良い一ブロック O-marked stack の非空稠密開上で、低 rotation 積
+\[
+ V_\rho=\operatorname{Nat}^0(\mathrm{id},\rho),\qquad
+ Q_\rho=\ker\bigl(\Sym^2V_\rho\to
+              \operatorname{Nat}^0(\mathrm{id},\rho^2)\bigr)
+\]
+から、任意底変更に両立する方程式直線
+\[
+ \mathcal L=\ker\bigl(\Sym^3V_\rho\to
+       V_\rho\otimes(\Sym^2V_\rho/Q_\rho)\bigr)
+\]
+を復元できる。中心一次作用 $c:U\hookrightarrow V_\rho$ と合わせた
+$(\mathcal L,\operatorname{ann}(cU))$ は、尺度を忘れた分解可能 Poisson 対への
+全 O-同値に両立する代数的射 $\Psi_{\mathrm{res}}$ を与える。
+この射は支配的で、さらに開を縮めれば相対次元一で滑らかである。
+有限 \'etale 被覆上で、対応する同じ $X_{\mathrm{res}}=V(\mathcal L)$ に対し
+\[
+ \mathcal K\simeq\operatorname{Ku}(X_{\mathrm{res}})
+\]
+が成立し、被覆上で選んだ rotation と指定三次周期も保存できる。
+
+生成元固定の harmonic-angle 模型からの相対 flow を選べば、
+一般形式像は $(V(W_h),[\pi_h])$ と同定される。
+他方、その実際の $\pi_h$ の固定座標での係数は、
+各 $n\ge3$ の very general な滑らかな係数で $\C(h)$ 上代数的でない。
+この非代数性は有限代数拡大では解消せず、普遍係数の関数体上でも成立する。
+\end{maintheorem}
+
+代数的な族と全同値への降下は定理\ref{thm:nfm-projective-residual-morphism}、
+支配性は命題\ref{prop:nfm-projective-residual-dominance}、
+比較被覆は定理\ref{thm:nfm-residual-comparison-cover}、
+形式像の同定は系\ref{cor:nfm-projective-formal-compatibility}で証明する。
+非代数性は定理\ref{thm:nfm-normalized-tensor-transcendence}による。
+後者は指定された固定 frame の主張であり、形式座標変更を許した
+射影三次の代数化や、任意の intrinsic な尺度の選択を否定しない。
+尺度を持つ lift は $\mathcal L\otimes\det K_{\mathrm{res}}$ の非零切断に対応する。
+
+方程式の一意性は比較核の一意性を含まない。
+核全体は自己同値 stack の torsor であり、同型類を整合させた後に
+スカラー二 cocycle の障害が残る（命題\ref{prop:nfm-residual-kernel-descent}）。
+一変数 trait では、形式比較を選んだ滑らかな三次模型の存在も示すが、
+その正準性や核の $h=0$ への延長は主張しない
+（系\ref{cor:nfm-residual-good-reduction}）。
 
 \subsection{Jacobi スキームの次元境界}
 \begin{maintheorem}[Jacobi スキームの境界と平方零構造]
@@ -615,10 +674,12 @@ trace--Hessian 射と逆構成により、Poisson 対の開部分を同定した
 この障害に対して、支配的な代数的補正 $\Phi$ と、固定 formality による
 全次数の形式 Poisson 対を構成した。split 族では、補正後三次と残余復元の
 全次数の比較が固定入力の下で成立する。
-一般混合係数における残余三次の四次項と高次補正、形式構成の代数化、
-および残余同値の全 O-同値への降下を次に調べる。
-各成分の一般点と必要な係数拡大上で、有限表示と同値核の降下を確認し、
-稠密開への拡張を目指す。
+一般混合係数では、低 rotation 積による残余三次と射影 Poisson 射を稠密開へ広げ、
+同じ三次への比較核を有限 étale 被覆上に得た。
+次の課題は尺度線束の標準切断、比較核の同型類と二 cocycle の大域降下、
+および各 intrinsic 成分の一般対象を覆う表示の構成である。
+固定 frame の tensor の very general な超越性を踏まえ、
+形式座標の代数性と内在的なモジュライの代数性は区別して進める。
 boundary や全 Abel 形式近傍の記述は、この一般次元の構成に必要な障害を解消する
 範囲で扱い、本稿に得た個別次元の証明と計算資産はその検査例として保持する。
 
@@ -633,6 +694,7 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/poisson_schemes.tex}
 \input{papers/sections/residual_categories.tex}
 \input{papers/sections/residual_comparison.tex}
+\input{papers/sections/residual_algebraic.tex}
 \input{papers/sections/poisson_correction.tex}
 \par\begingroup\small
 \input{papers/references.tex}

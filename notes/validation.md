@@ -1,10 +1,10 @@
 # 非可換三次 n-fold：現行稿の検証範囲
 
-2026年11月20日 / v9。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
+2026年11月20日 / v10。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
 
-本版では、指定 harmonic-angle 模型の全混合五次 tensor の定数を β=1/60、γ=1/240 と決定し、指定中心元の四次逆像 W₄=Ψ+I/24−J/80、スカラー a₄=S/240、全 n≥3 に一様な四次 Jacobi 類の非消滅、四次まで残余 jet と適合する全 O-降下の有限補正を統合した。公刊 graph weights を入力とする73項の厳密有理数計算、独立実装による照合、中心 symbol の多項式恒等式、scalar jet の重複度を検算した。新しい証明は執筆担当以外による読解点検と統合時の点検を行った。既存のモジュライ・点復元・一般次数9・形式 support 保存・split 残余比較の証明と証明書は保持した。
+本版では、一般次元の代数的残余三次、全 O-同値に降下する射影 Poisson 射、一般相対次元1、有限 étale 被覆上での同じ三次への Ku 比較、相対 flow の厳密な中心作用保存、選んだ形式比較による trait の良い還元、固定生成元の tensor の very general な超越性を統合した。新しい証明は執筆・統合時の読解点検に加え、別担当による独立の読解点検を行った。特殊ファイバーの F+G と、固定 frame と任意の形式 frame の区別を最終原稿へ反映した。
 
-既存の大行列 Jacobi 計算、中心評価、二次の幾何補正、代数的 Hessian 補正の計算は本版では再実行していない。以下では保存済みの検算結果と、本版で実行した五次・四次の検算を区別する。既存の検証器・証明書8資産について、保存済み main の Git blob SHA と現行ファイルの一致を確認した。各項の SHA-256 も現行ファイルから再計算し、保存済み検算の対象との同一性を確認した。再実行と内容不変の照合は区別する。未公表の完備 MF・一般点復元・coherent 飽和性の全証明の独立検証、外部査読、形式証明は行っていない。
+新しい全次数の結果は有限個の次元や有限 jet の実験に依存せず、本文の一般証明による。計算資産12ファイルは保存済み v9 の Git blob SHA と全て一致することを再確認した。既存の graph・四次 potential・大行列 Jacobi 計算は本版で再実行せず、以下に保持する検算結果の対象が変わっていないことを確認した。内容不変の照合と再実行は区別する。未公表の完備 MF・一般点復元・coherent 飽和性の全証明の独立検証、外部査読、Lean 等による形式証明は行っていない。
 
 ## 1. 固定した入力と文献
 
@@ -29,11 +29,15 @@ Antieau–Krashen–Ward arXiv:1409.2580 の Theorem2.2 と証明を確認し、
 
 既存の点検では、Kontsevich の harmonic-angle 配置空間と向き（著者最終稿§§2.2,6.2）を反射による偶奇性と照合した。Lindberg–Pym arXiv:2408.16685v1 §1.6と§6.7 Theorem6.9、Remark6.10を一次資料で確認し、qが原生成元の星積係数比であること、元のKontsevich formalityが適用範囲に含まれること、任意stable formalityへの拡張に残る条件を点検した。Ciliberto–Ottaviani arXiv:2006.07213v1 Theorem5.7とp.17の二回合成、Ottavianiの2024年刊行版§3のAronhold不変式の25項・古典的縮約も確認し、本稿の射や応用と既知の構成要素を区別した。
 
-本版の graph 計算では、Banks–Panzer–Pym, *Multiple zeta values in deformation quantization*, Invent. Math.222(2020),79–159、DOI [10.1007/s00222-020-00970-x](https://doi.org/10.1007/s00222-020-00970-x) の Corollary1.3と続く段落（著者稿印刷p.6）、二変数 log-canonical 星積の展開（同p.3）、§6を確認した。harmonic weights の五次までの有理性は既知入力である。Buring の2022年学位論文 *The action of Kontsevich’s graph complex on Poisson structures and star products: an implementation* の§§3.4.1–3.4.2、印刷pp.74–76で重複度と係数規約を、§3.5、p.89で `star5.txt` の使用を確認した。[著者公開資料](https://www.rburing.nl/gcaops/)から組立済みの星積と独立した graph–weight 対を取得し、双方を照合した。一次資料の積分の証明を独立に再証明したわけではない。
+保存済みの graph 検算に用いた一次資料として、Banks–Panzer–Pym, *Multiple zeta values in deformation quantization*, Invent. Math.222(2020),79–159、DOI [10.1007/s00222-020-00970-x](https://doi.org/10.1007/s00222-020-00970-x) の Corollary1.3と続く段落（著者稿印刷p.6）、二変数 log-canonical 星積の展開（同p.3）、§6を確認した。harmonic weights の五次までの有理性は既知入力である。Buring の2022年学位論文 *The action of Kontsevich’s graph complex on Poisson structures and star products: an implementation* の§§3.4.1–3.4.2、印刷pp.74–76で重複度と係数規約を、§3.5、p.89で `star5.txt` の使用を確認した。[著者公開資料](https://www.rburing.nl/gcaops/)から組立済みの星積と独立した graph–weight 対を取得し、双方を照合した。一次資料の積分の証明を独立に再証明したわけではない。
 
-Banks–Panzer–Pym の2022年訂正、Invent. Math.229(2022),449、DOI [10.1007/s00222-022-01122-z](https://doi.org/10.1007/s00222-022-01122-z) は[出版社PDF](https://link.springer.com/content/pdf/10.1007/s00222-022-01122-z.pdf)を確認した。原論文p.150、§6.2の係数は b=−1/2⁸ に訂正される。原論文の同節が対象を型(7,2)の graph と明記していることも照合したため、本版で使う五次以下のデータには影響しない。
+Banks–Panzer–Pym の2022年訂正、Invent. Math.229(2022),449、DOI [10.1007/s00222-022-01122-z](https://doi.org/10.1007/s00222-022-01122-z) は[出版社PDF](https://link.springer.com/content/pdf/10.1007/s00222-022-01122-z.pdf)を確認した。原論文p.150、§6.2の係数は b=−1/2⁸ に訂正される。原論文の同節が対象を型(7,2)の graph と明記していることも照合したため、現行稿で使う五次以下のデータには影響しない。
 
-Etingof–Ginzburg の刊行版§8.1、印刷pp.1407–1408、Proposition8.1.1・式(8.1.3)を本版の形式 potential と比較した。unimodular な形式 Poisson tensor の相対 Jacobian potential による認識は既知の先行結果であり、存在そのものを新規成果に数えない。限定的な追加文献検索では本稿の混合五次公式と四次 potential の既出箇所を確保できていないが、新規性の確認が完了したという意味ではない。全ての数値係数は指定 harmonic-angle・生成元固定・中心規格化に関するもので、任意 stable formality や任意 gauge から独立とは主張しない。
+Etingof–Ginzburg の刊行版§8.1、印刷pp.1407–1408、Proposition8.1.1・式(8.1.3)を現行稿の形式 potential と比較した。unimodular な形式 Poisson tensor の相対 Jacobian potential による認識は既知の先行結果であり、存在そのものを新規成果に数えない。限定的な追加文献検索では本稿の混合五次公式と四次 potential の既出箇所を確保できていないが、新規性の確認が完了したという意味ではない。全ての数値係数は指定 harmonic-angle・生成元固定・中心規格化に関するもので、任意 stable formality や任意 gauge から独立とは主張しない。
+
+本版の残余射では、Wang arXiv:1906.04891v3 §3、Corollary3.2・Theorem3.3、Hwang arXiv:2501.08633v1 Theorems1.5,1.6・Propositions2.2,2.6・Corollary2.7を一次資料で確認した。Toën–Vaquié arXiv:math/0503269v5 の Lemmas2.8,2.10,3.25、Corollaries3.22,3.24、および Bergh–Schnürer の公刊PDF Proposition4.10、Remark6.1、Theorem6.2・Remark6.3を照合した。勾配復元、perfect 核の有限表示と同値性の開性、重み零降下そのものは既知の原理として記載した。
+
+固定入力Bの `field_model.tex`, `generic_descent.tex`, `curved_transport.tex` の定理文と使用する構成を読み、(L),(CF)、三対象への制限後の Laurent 局所化、coherent 飽和性、一般係数体への係数変更の役割を分けた。相対 flow の新しい中心保存補題については、固定入力の `cft:lem:primitive`, `cft:lem:arity`, `cft:lem:flow` と MF 挿入公式を直接照合した。Lindberg–Pym の §1.6、Theorem6.9・Remark6.10を再確認し、対数境界値が原生成元の交換比から全次数で従うことを点検した。
 
 ## 2. 証明の記載と読解点検
 
@@ -41,6 +45,16 @@ Etingof–Ginzburg の刊行版§8.1、印刷pp.1407–1408、Proposition8.1.1�
 
 | 対象 | 点検した論点 | 適用条件・残る限界 |
 |---|---|---|
+| 相対積分直線 | D_Q の scheme 的 rank 条件、単元 minor による核・余核の分裂、非被約を含む底変更 | 体上の勾配一意性は Wang・Hwang の既知結果。scalar symmetrizer と射影自己同型群の自明性を区別 |
+| 全次元の非空性 | 巡回三次の滑らかさ、Hessian 係数行列の台の交差、N=5 の最小例、active 切断の特異条件 c³=−27/64 | 全 N≥5 の手計算による証明。有限個の次元の計算からの外挿ではない |
+| 支配的中心 h-family | δ_h=h⁻¹[x_i,−] の有限自由行列、特殊 Casimir 核、一般中心との同次元性、Ω_h の代数的持上げ、純中心 G による全 torsor fibre の被覆 | 固定 PBW・中心入力。Ω_h+G の特殊三次は F+G、tensor は Π_F のまま |
+| 相対残余模型と低 Nat | 有限個の線束・mutation による proper 模型、perfect な源 E→Δ を先に広げる非循環な smoothness 証明、全 cohomology の局所自由化 | rotation の可逆性・底上 perfect 性を明示。compact 相対圏と各 fibre の coherent 飽和性を区別 |
+| 中心作用の一般階数 | 可換側の perfect Nat、一般・特殊 H⁰ の等次元性、DVR 完全列による torsion の排除、Laurent 体上への生成性の降下 | 特殊化の単射性だけで結論しない。完備底で三対象が生成するという強化は未使用 |
+| 相対 graph flow | Xi=a_hP_0、active な全出辺、中心係数に関する多重線型性、単位正規化、flow・逆・MF 挿入での uId の厳密保存 | 選んだ正規化 flow についての証明。任意の CF 同値への一般化や形式 frame の代数性は未主張 |
+| 射影 Poisson 射と尺度 | 全 O-持上げの線束重み、projective cocycle、L⊗det K の重み零、full scale の引戻し torsor、像の支配性 | 固定入力Bの下で既存一ブロック稠密開。Brauer–Severi を許し、全 intrinsic 成分を主張しない。一般相対次元1、連結 fibre・表現可能性は未決定 |
+| 有限比較被覆と kernel | 同じ X の generic 核、正規化・分岐除去・perfect cone の台除去、DM chart の有限化、P[2m] による非一意性 | 有限 étale 被覆上で比較。元の stack への kernel 降下は自己同値 torsor と選んだ同型類の scalar gerbe の二段階 |
+| trait の良い還元 | 完成格子の有限 jet 降下、saturated Q、積分直線の忠実平坦降下 | CF 依存の滑らかな模型の存在。正準性・相対 Hochschild 格子・kernel の h=0 延長は未証明 |
+| very general な超越性 | 再帰の普遍多項式性、厳密 log 境界値、留数の矛盾、有界次数の関係 locus を全 maximal minor で定義 | 任意非空良い開の very general と普遍関数体の主張。単一 Zariski 開の全点や arbitrary formal frame を許す intrinsic な尺度の不存在は未主張 |
 | 中心復元・次数付きモジュライ | fpqc 持上げ、μ_d、中心正則対、全次数の切断飽和性、全次数付き同型、有限安定化子、スカラー重みの相殺 | 中心平坦性・普遍低次数中心・良い PBW 表示の仮定を要する |
 | 普遍相対双対 | 有限 Koszul 対角、真正な双加群自己双対、中心差分、torsion 比較、compact generator、dg orbit、相対 properness、Serre pairing・trace | 被約有限型の初期基底、有限射影・分裂 PBW・各ファイバーの Koszul/CY・中心三次の分裂正則性。その後の任意底変更には非平坦・非被約を含む。全商上の orientation の自明化は未主張 |
 | 固定模型間の全同値 | 係数対象の Gabriel 局所化、faithfully flat な tails の降下、全関手と自然変換の降下、自然自己準同型のスカラー性、Isom_gr/G_m と全 O-保存同値の一致 | 比較定理に列挙した中心・次数別有限射影性・相対 Serre の仮定。一般の Abel 圏族が局所的にこの模型へ入ることや全モジュライの代数性は未証明 |
@@ -49,7 +63,7 @@ Etingof–Ginzburg の刊行版§8.1、印刷pp.1407–1408、Proposition8.1.1�
 | 表示 gerbe の H² 障害 | determinantの重み、e=1での中心拡大の分裂、cyclic division algebraのvaluation、全非空開のtwistと有理点 | n≡1 mod3で全非空開上の位数3を証明。幾何学的一般点の体に非零Brauer類が残るという主張ではない |
 | 相対点関手 | 任意底変更でのKoszul完全性、八次有限局所自由性、相対Cartier、低次数イデアル、点商とshiftの降下、determinant付き相対随伴 | good点スキーム条件。ambient上のO(1)と点空間への引戻しを区別 |
 | 中心三次の復元 | Rains式の境界Jacobi評価、中心評価の普遍単射、I(D)₃/I(C)₃と中心直線の逆像 | 非空開上。n=3で全切断への全射を使わない |
-| Trace–Hessian 射 | 任意基底の三次Casimir、正規化trace、Hessian縮約の共変性、torsor同型と滑らかな非空開への降下 | 良い局所一ブロック型。Kuとの一致は別であり、本版では具体的な不一致を証明 |
+| Trace–Hessian 射 | 任意基底の三次Casimir、正規化trace、Hessian縮約の共変性、torsor同型と滑らかな非空開への降下 | 良い局所一ブロック型。Kuとの一致は別であり、別の比較節で具体的な不一致を証明 |
 | 強い affine lift と逆構成 | Euler列のコホモロジー、gradient Koszul、強いliftの一意性、divergenceによるJacobi同値、supportと全同型の回復 | 任意のC代数・滑らかな相対三次・n≥3。標的は偏極類とBrauer–Severi ambientを許す |
 | Poisson 開の同型と支配成分 | Msm≅Pgood⊂Pdec、周囲B単独の有限性の除去、pairのDM性、Brauer位数、一般三次上の開埋込み | PBW・中心・相対Serre・全同値の入力を保持。唯一の支配成分には既存被約分類を使用。全 intrinsic 圏成分の分類ではない |
 | 幾何補正 | F_tの滑らかさ因子、全nに一様なJacobi双対証明書、trace補正u³の非消滅、係数空間の非空開 | 入力の中心性を使用。入力定数族との差と残余復元との差を区別 |
@@ -73,7 +87,7 @@ Etingof–Ginzburg の刊行版§8.1、印刷pp.1407–1408、Proposition8.1.1�
 | 八次元の頂点 | I₃=J₃ から全次数の一致、J/I=C(−2)^330、socle・飽和・根基、非分裂性、任意底変更の相対版、一次分解 | この結果は一般点被約分類に依存しない。長さ330は J/I の長さであり、明示した m-primary 成分の商 R/Q の長さ5401とは異なる |
 | 非零点の局所構造 | 法接空間 Λ³K、横断方程式から混合項の消去、全 W 方向の polar 条件、Thom–Sebastiani 特徴付けと scheme retract、n≥11 の特殊非零点への330次元部分空間の注入 | 横断切片を Grassmann 方向との局所積とは主張しない。特殊例の周囲の冪零根基全体が二乗零とは主張しない。n=11 は構成が与える下限であり最小性は未証明 |
 | 一般次元の頂点と高次数 | 悪い incidence の次元評価、有限長性・飽和・随伴素点・深さ、各固定次数の漸近非消滅 | 一般次元の有限長性には既存の被約分類を入力する。n=9,10 の全 Hilbert 関数と、一般次元の冪零根基自身の積は未決定 |
-| 残余圏 | HH sector の次数、幾何的 KS、滑らかな変形源と形式認識、tame hull、n=4 の例外、rotation | 通常 Artin 基底・特殊ファイバー固定・一次切断。全高次群oidや導来基底、全 Abel 形式変形との同定、大域残余射は未主張 |
+| 残余圏 | HH sector の次数、幾何的 KS、滑らかな変形源と形式認識、tame hull、n=4 の例外、rotation | 通常 Artin 基底・特殊ファイバー固定・一次切断。全高次群oidや導来基底、全 Abel 形式変形との同定、全 intrinsic 成分を覆う大域残余射は未主張 |
 
 本版の新しい主張では、列挙した入力と仮定の下で内部読解点検による未解決の論理的欠落は報告されていない。これは証明の記載と内部点検の状態であり、外部査読や Lean 等による形式検証ではない。既存の主張の全証明を本版で一括再検証したという意味でもない。
 
@@ -177,7 +191,7 @@ Hesse 係数と cyclic 中心式の変換は、別担当の短い独立実装で
 
 `python3 computations/verify_cubic_covariants.py` を実行した。Python標準ライブラリの整数とFractionのみを使い、次数1〜8の三次共変式の重複度 `1,0,1,0,1,0,2,0`、不変式の次数2,4,6の重複度 `0,1,1` を有限の重み計数で確認した。四つのε縮約の6⁴項を有理数として展開し、Sが25個の整数係数単項式を持つこと、S(xyz)=1、S(g_λ)=λ(λ³−8) を確認した。五次tensorの係数1/80はこの計算だけから得たものではなく、Lindberg–Pymの既知定理と本文のPBW・一意性の証明を用いる。Kontsevichグラフ重みを直接積分した検証や形式証明器による確認ではない。
 
-同じ検証器で混合jet型の重複度1,2、三つの勾配共変式の独立性の行列式−35/3、I(g)=J(g)=S(g)gの比例係数を確認した。重み計数は別担当が別の多重集合列挙でも照合した。本版では qMT³ と M³T² の scalar jet を加えて現行検証器を実行し、最高重み(4,4,4)のWeyl公式の六項がそれぞれ `(156,−136,−136,100,109,−92)` と `(122,−105,−105,78,84,−73)`、和がいずれも1であることを確認した。保存コードは共通の有限重み計数を共有し、重複実装を残していない。この重み計数だけで graph の数値係数や中心逆像を決めたわけではなく、以下の別計算と本文の局所共変性の証明を併用する。
+同じ検証器で混合jet型の重複度1,2、三つの勾配共変式の独立性の行列式−35/3、I(g)=J(g)=S(g)gの比例係数を確認した。重み計数は別担当が別の多重集合列挙でも照合した。保存済み検証では qMT³ と M³T² の scalar jet も加えて現行検証器を実行し、最高重み(4,4,4)のWeyl公式の六項がそれぞれ `(156,−136,−136,100,109,−92)` と `(122,−105,−105,78,84,−73)`、和がいずれも1であることを確認した。保存コードは共通の有限重み計数を共有し、重複実装を残していない。この重み計数だけで graph の数値係数や中心逆像を決めたわけではなく、以下の別計算と本文の局所共変性の証明を併用する。
 
 ### 混合五次 tensor と73項 graph certificate
 
@@ -235,13 +249,15 @@ Buring の元資料 `star5.txt` のSHA-256は `05e0689ddb32a3d3a3ee4475086606bbe
 
 ### 最終ソース検査
 
-`python3 scripts/check_sources.py` を実行し、15個のTeXソース、重複のない226ラベル、132個の参照先、51個の引用キーを確認した。inputグラフ、本文参照、文献キーに欠落はなく、全ての分割TeXが主原稿から読み込まれる。README・方針・研究ノートの新しい本文参照とファイル参照も確認した。主原稿は `papers/nc-cubic-n-fold.tex`、著者欄は空、分割root指定とrepoルート基準のinput、PDF/SyncTeXの `build/` 出力は整合している。
+`python3 scripts/check_sources.py` を実行し、16個のTeXソース、重複のない247ラベル、146個の参照先、55個の引用キーを確認した。input・本文参照・文献キーに欠落はない。README・方針・ノートの内部ラベルを照合し、Markdown の相対ファイルリンク26件の参照先が存在することを確認した。主原稿、空の著者欄、分割 root、repo ルート基準の input、build/ の PDF/SyncTeX は維持している。
 
 ### 最終組版と表示
 
-LuaLaTeXとlatexmkで最終ソースを組版し、終了コード0と全target更新済みを確認した。PDFは全TeXソースより新しく、127ページ、1,267,338 bytes、SHA-256 `027c5bf20fc9d1542380571b7e9adad074f602374e1fbd2da74a7182daf1489f`。PDF metadataの著者は空欄で、タイトル・主原稿名・出力先は一致する。最終ログには未定義参照・未定義引用・欠落文字・overfull/underfull boxはなく、既存の数式小字体の4.5ptから5ptへのサイズ代替警告だけが残る。
+LuaLaTeX・latexmk で最終ソースを組版し、終了コード0を確認した。最終 PDF は143頁・1,361,146 bytes、SHA-256 は `802996a73a476e46bc989ab587bfafe850127b0956607427b48f9c28f6c9e490`。TeX の未定義参照・未定義引用・overfull/underfull box はない。数式の小さい添字について4.5ptを5ptへ置き換えるフォント警告は残る。著者欄は空欄、表題・subject・和文フォントの埋込み・文字抽出を確認した。
 
-全ページを画像へ変換してoverviewを分担点検し、追加した証明・数式・文献を拡大確認した。概要末尾の孤立した改頁を解消し、最終版の概要・目次・追加証明・末尾文献を再確認した。全127ページの本文bounding boxはページ端18pt以内へはみ出していない。新しい式の欠け・重なりは見当たらない。表示点検と数学的証明の検証は別である。PDFと画像は再生成物としてGitに追跡しない。
+全143頁を画像化し、12枚の一覧画像で全頁を目視点検した。追加した第14節、主定理F、概要・目次、表・長い数式・参考文献を個別画像でも確認した。参考文献の不適切な頁またぎを修正し、最終修正で変わった1・32・142・143頁を再点検した。全頁の抽出テキストの外接矩形も紙面端から18pt以上の範囲に収まり、点検した範囲に欠け・重なり・意図しない空頁は見られない。
+
+これらは組版・表示の点検であり、数学的な証明の検証とは別である。PDFと画像はGitの追跡対象に含めない。
 
 ## 7. 再現と保存の区別
 
