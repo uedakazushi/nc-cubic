@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v16}
+\date{2026年11月20日・研究稿 v17}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -55,13 +55,11 @@ pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \vspace{-1.8\baselineskip}
 \begin{abstract}
 三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ三次超曲面の量子化を扱う。
-中心復元と全同値の降下により、良い一ブロック表示を局所的に持つ
-$\mathcal O$-marked 圏族の滑らかな既約 DM stack を構成する。
-次数一 shift は標識から外し、大域表示の Brauer 障害の位数を
-$\gcd(n-1,3)$ と決定する。
+良い一ブロック型の $\mathcal O$-marked 圏族の滑らかな既約 DM stack を構成し、
+大域表示の Brauer 障害の位数を $\gcd(n-1,3)$ と決定する。
 相対点スキームは楕円成分と型 $(2,2,2,3)$ の定常成分へ分かれ、
 非空開上で埋込み点対応から中心三次商を復元できる。
-八重被覆の trace、Hessian と強い affine 持上げを用い、
+八重被覆の trace、Hessian と強い affine 持上げにより、
 この圏 stack を分解可能な Poisson 対の非空開と同定する。
 
 固定した完備 MF 移送・window・生成性・飽和性の入力の下で、
@@ -82,23 +80,24 @@ active 制限の最高次 cohomology が次数零線束となる比較核の非�
 Picard 類の三分点を取る階数九の被覆上では、最高次線束を規格化した full 核を構成する。
 非可換 active 商の相対 THCR/window 比較と底変更を検証し、
 この Picard 類を点の平行移動で表す核の型も一般に非空であることを示す。
-一般 split 係数体では点 shift の Picard 障害の period と index はともに三であり、
-点型 full 核と指定平面同型を同時に持つ有限拡大の次数は三の倍数である。
+全 ambient の Heisenberg 作用と混合定数降下から、
+点曲線と残余 active 曲線の自然な平面同型を良い稠密開上に構成する。
+点 shift と残余側の Picard 障害は等しく、period と index はともに三である。
+点型の実際の full 核を持つ有限拡大の次数は三の倍数となり、
+同型類選択後の scalar 段階の最小分裂次数は三である。
 全 active Fourier--Mukai intertwiner を分類し、
-full 核の残る scalar 類を、点側の障害と平面同型 torsor の Weil cup 積の和で表す。
+一般の二曲線間の Picard 障害の差を有限三捩れの Weil cup 積で表す。
 
 trace--Hessian 三次と残余三次の不一致を全次元で示し、
-全同値へ降下し、active 切断が点曲線に一致する一般次数九の Hessian 補正を構成する。
-全混合係数の五次 tensor と残余三次の四次項を決定し、
-四次の marked 比較障害を除く追加の代数的補正を与える。
-これは三次式の六次未満・tensor の七次未満で形式復元と一致する。
+active 切断が点曲線に一致する一般次数九の Hessian 補正を構成する。
+全混合五次 tensor と残余四次項を決定し、
+四次の marked 比較障害を除く代数的補正を全同値に両立して与える。
 
 Jacobi スキームは $3\le n\le7$ の一般三次で Grassmann 錐に一致し、
 $n=8$ の頂点には長さ330の非分裂平方零構造がある。
-既存の被約分類の下で、非零部分は全次元の一般三次で Grassmann 錐に一致する。
-滑らかな特殊三次の非零点にも非被約例があり、
-頂点の冪零部分の最高次数・消滅指数は次元について非有界である。
-$n\ne4$ では残余圏の通常 Artin 変形の一次切断を幾何的に認識する。
+既存の被約分類の下で非零部分の一致は全次元に成り立つが、特殊三次には非零非被約点がある。
+頂点冪零部の最高次数・消滅指数は次元について非有界である。
+$n\ne4$ では残余圏の通常 Artin 変形を一次切断で幾何的に認識する。
 全 intrinsic 成分の被覆と比較核の大域降下は未完成である。
 \end{abstract}
 \clearpage
@@ -296,8 +295,17 @@ Mori--Smith\cite[Proposition~2.11, Theorem~4.2(1)]{MoriSmith}の
 基底変更と正則性判定を用い、この例を元の体上で勾配代数に実現する。
 ここで本稿が確認するのは、原点や Picard 類の線束代表を仮定しない potential の降下と、
 非零 Brauer 類を保持する支配的な全係数表示族である。
-これにより一般 split 表示の点障害の正確な index 三を得るが、
-full 比較核の scalar 類の非零性は平面同型 torsor の寄与を計算するまで結論しない。
+これにより一般 split 表示の点障害の正確な index 三を得る。
+さらに Fisher\cite[proof of Lemma~2.3, \S9.5]{NFMFisherTernary}の
+平面三次の三捩れ作用と Heisenberg 群を使い、
+その全 ambient 上の中央化群を計算する。
+非零の自明中心部分を伴う表現では中央化群は split な $\operatorname{GL}_{n-1}$ であり、
+active 平面上では恒等に作用する。
+有限対角延長と有限 torsor の混合定数降下を組み合わせると、
+一般係数体で半古典平面同型 torsor が分裂し、残余側の Picard 障害も正確に index 三となる。
+Heisenberg 群自体や Hilbert 90 を新規結果とは数えず、
+本稿で証明するのはこの full ambient と残余射への適用である。
+形式平面比較だけでは同じ結論が出ないことは、明示的な巡回 twist の相殺例で区別する。
 
 楕円曲線上の Fourier--Mukai 同値の数値作用とその核は
 Hille--Van den Bergh\cite[Proposition~4.2, Corollary~4.3, Theorem~5.3]{NFMHilleVdBFM}
@@ -860,34 +868,66 @@ rotation の共役式であり、右 point shift を織り込むと $3a=0$、$b=
 
 この障害は実際の active 点対応において一般に非零となる。
 
-\begin{maintheorem}[一般点の Picard 障害と比較被覆の次数]
+\begin{maintheorem}[一般点の平面同型と比較核の Picard 障害]
 良い split 一ブロック表示の標準一般係数体を $k_n$ とする。
-任意の $n\ge3$ に対し、actual active 点曲線とその shift 点は
+残余復元と完備 MF・window 等の固定入力の下で、任意の $n\ge3$ に対して
 \[
- \operatorname{per}\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})
- =\operatorname{ind}\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})=3
+ \mathfrak I_{\mathrm{sc}}(k_n)\ne\varnothing.
 \]
-を満たす。従って $p_{\mathrm{pt}}$ と $p_{\mathrm{res}}$ はそれぞれの Jacobian の
-$k_n$-有理点群で三倍ではない。
-前述の点型 full 比較核 $P$ と実際の平面同型
-$\phi\in\mathfrak I_{\mathrm{sc}}$ を同時に持つ有限拡大 $L/k_n$ には
-$3\mid[L:k_n]$ が必要である。
+従って半古典同型 $\theta_{\mathrm{sc}}$ を誘導する偏極曲線同型
+$E_{\mathrm{pt}}\simeq C_{\mathrm{res}}$ が元の係数体上に存在する。
+生成元固定形式模型の恒等分枝に一致する同型を選ぶと、これは表示変更に共変であり、
+良い一ブロック O-marked stack の共通な滑らかな稠密開上の切断
+$\varphi_{\mathrm{sc}}\in\mathfrak I_{\mathrm{sc}}(\mathfrak U)$ へ降下する。
+この切断は全 O-保存同値と任意の底変更に両立する。
 
-点型 full 核の同型類が $k_n$ 上で選択済みなら、その scalar 類は
+一般 split 係数体の actual active 点曲線とその shift 点について
 \[
- \alpha=\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})
-       +e_{3,*}\bigl([\mathfrak I_{\mathrm{sc}}]
-                         \smile\kappa_3(p_{\mathrm{pt}})\bigr)
+ \begin{gathered}
+ \delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})
+   =\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}}),\\
+ \operatorname{per}\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})
+   =\operatorname{ind}\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})=3
+ \end{gathered}
 \]
-となる。ここで $\kappa_3(p_{\mathrm{pt}})$ は三分点 torsor の Kummer 類である。
-特に $\mathfrak I_{\mathrm{sc}}$ が自明なら $\operatorname{ind}\alpha=3$ であり、
-$\alpha=0$ なら $\mathfrak I_{\mathrm{sc}}$ は非自明である。
+となる。$p_{\mathrm{pt}}$ と $p_{\mathrm{res}}$ はそれぞれの Jacobian の
+$k_n$-有理点群で三倍ではない。
+
+前述の点型の実際の full 比較核 $P$ が有限拡大 $L/k_n$ 上に存在すれば、
+$3\mid[L:k_n]$ である。
+従ってこの型の核は元の体および次数が三に素な有限拡大上には存在しない。
+この不存在には、元の体での full 同型類の事前選択は不要である。
+
+点型 full 核の同型類を $k_n$ 上で選択済みの場合、その scalar 類は
+\[
+ \alpha=\delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})
+       =\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})
+\]
+であり、$\operatorname{per}\alpha=\operatorname{ind}\alpha=3$ である。
+この scalar 段階には三次分離分裂体があり、最小次数は三である。
 \end{maintheorem}
 
-証明は命題\ref{prop:nfm-active-point-sklyanin-realization}、
+平面同型の分裂は定理\ref{thm:nfm-generic-plane-isom-splitting}で証明する。
+まず全次数模型の混合次数が有限であることから、平面同型 torsor の類を
+active 係数体 $K=\C(g_\alpha,h)$ へ降ろす。
+次に $H_g=\operatorname{Stab}_{\operatorname{SL}_3}(g)$ の全 ambient 上の作用を、
+混合項が零の滑らかな対称点まで延長する。
+\[
+ Z_{\operatorname{PGL}(X\oplus U)}(H_g)\simeq\operatorname{GL}(U)
+\]
+によりその点の active 平面同型が元の体上に存在し、残った定数 torsor が消える。
+最後に全係数を $\widetilde F=hF$ と変数変換すると体は $k_n(h)$ であり、
+有限 \'etale scheme の有理点が純超越拡大で増えないことから $k_n$ へ戻せる。
+特殊点で比較核を延長することや、形式完備化が三捩れ類を検出することを仮定しない。
+表示変更への共変性と stack 上への降下は
+命題\ref{prop:nfm-semiclassical-plane-isom-descent}による。
+純中心項も含めた TH potential の parabolic 共変性を用い、
+せん断による項を落とさずに形式恒等分枝を比較する。
+この平面同型の降下は、full 核の同型類選択や点型の内在性を含まない。
+
+点側の非零性は命題\ref{prop:nfm-active-point-sklyanin-realization}、
 \ref{prop:nfm-active-point-obstruction-dominant}と
-系\ref{cor:nfm-generic-point-picard-index-three}、
-\ref{cor:nfm-point-comparison-cover-three-divisibility}に置く。
+系\ref{cor:nfm-generic-point-picard-index-three}で示す。
 出発点は $\C(a,b,\lambda)$ 上の
 $X^3-aY^3-bZ^3+\lambda XYZ=0$ と三捩れ平行移動の障害
 $\bigl(a,b+\lambda^3/(27a)\bigr)_3$ の直接計算である。
@@ -895,7 +935,18 @@ Jacobian の関数体上で無限位数の点に替えた後、
 Sklyanin potential を元の体上へ降下する。
 支配性を検査する有限 Hesse 拡大と、非零類を保持する実際の純超越拡大とを区別する。
 表示係数体におけるこの障害は、複素数体上の各点で非零という意味ではない。
-また、上の被覆の条件は $P$ と $\phi$ の双方を要求し、任意の full 核に拡張しない。
+
+残余側への移送と full 核への帰結は
+系\ref{cor:nfm-generic-residual-picard-index-three}、
+\ref{cor:nfm-point-comparison-cover-three-divisibility}による。
+点型以外の任意の full 核へ不存在を拡張せず、
+full 同型類の選択まで含めた比較被覆の最小次数が三とも主張しない。
+一般の二曲線については式\eqref{eq:nfm-picard-plane-transfer}の cup 補正があり、
+それは二曲線の genus-one torsor の差だけに依存する
+（補題\ref{lem:nfm-picard-torsor-quotient}）。
+形式的には恒等に合同な平面同型を持ちながら、この補正が非零となる例もある
+（命題\ref{prop:nfm-cyclic-plane-twist}）。
+今回の一般点では $[\mathfrak I_{\mathrm{sc}}]=0$ なので、その相殺は起こらない。
 
 active 曲線間の比較については、さらに完全な存在判定がある。
 実次数三偏極 $(E,L_E),(C,L_C)$ 上で
@@ -908,7 +959,7 @@ $\delta_C(\theta(p))$ の引戻しである
 （命題\ref{prop:nfm-elliptic-intertwiner-gerbe}）。
 full 核から active 核を作る代数的 assignment は未構成なので、
 この非存在を full 核そのものの非存在と同一視しない。
-full scalar 類については、上の cup 項による相殺が未解決である。
+点型の full scalar 類は上で決定したが、full 同型類の選択と他の型の判定は残る。
 
 \subsection{Jacobi スキームの次元境界}
 \begin{maintheorem}[Jacobi スキームの境界と平方零構造]
@@ -1019,11 +1070,11 @@ trace--Hessian 射と逆構成により、Poisson 対の開部分を同定した
 非可換 active 商の相対 THCR/window 比較と底変更を構成し、
 Picard 類が点の平行移動に一致する核の型の非空性を、同じ固定入力の下で得た。
 符号の近傍延長は有限対角と混合三角多項式から構成し、追加仮定を要しない。
-一般 split 係数体で点 shift の Picard 障害は正確に index 三であり、
-点型核と指定平面同型を伴う比較被覆の次数は三の倍数である。
-一般の三可除性による中立化はこの結果で排除される。
-次の課題は、点側の非零障害と平面同型 torsor の cup 項の相殺、
-full 同型類の整合的な選択と型の表示変更への適合、
+半古典平面同型は良い O-marked 稠密開上へ全同値に自然に降下する。
+一般 split 係数体では点側と残余側の Picard 障害が等しく、正確に index 三となる。
+点型の実際の full 核を持つ比較被覆の各一般成分の次数は三の倍数であり、
+同型類選択後の scalar 段階には正確に三次の分裂体を取れる。
+次の課題は full 同型類の整合的な選択、点型の表示変更への適合と他の型の判定、
 および各 intrinsic 成分を覆う表示である。
 固定 frame の tensor の very general な超越性を踏まえ、
 形式座標の代数性と内在的なモジュライの代数性は区別して進める。

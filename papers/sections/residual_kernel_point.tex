@@ -1177,6 +1177,167 @@ flex torsor、平面同型 torsor、三分点 torsor はいずれも階数九で
 それぞれの類は $\xi_L$、$\iota_\theta$、$\kappa_3(p)$ であり、
 階数の一致から同じ被覆とみなすことはできない。
 
+\begin{lemma}[Picard 補正が見る genus-one torsor の差]
+\label{lem:nfm-picard-torsor-quotient}
+標数零の体 $K$ と楕円曲線 $J/K$ を取る。
+任意の $b,p\in J(K)$ に対して
+\[
+ e_{3,*}\bigl(\kappa_3(b)\smile\kappa_3(p)\bigr)=0.
+\]
+従って、$p$ を固定した準同型
+\[
+ H^1(K,J[3])\longrightarrow\operatorname{Br}(K)[3],
+ \qquad \iota\longmapsto e_{3,*}\bigl(\iota\smile\kappa_3(p)\bigr)
+\]
+は $H^1(K,J)[3]$ を通る。
+
+特に命題\ref{prop:nfm-picard-plane-transfer}の
+$(E,L_E),(C,L_C),\theta,\mathfrak I_\theta$ に対し、
+$\delta_C(\theta p)-\delta_E(p)$ は
+\[
+ \eta_\theta=\theta^{-1}_*[C]-[E]\in H^1(K,J_E)[3]
+\]
+のみに依存する。
+$\theta$ を誘導する偏極を指定しない曲線同型があれば、
+$\mathfrak I_\theta$ 自体の分裂を仮定せずに
+$\delta_C(\theta p)=\delta_E(p)$ となる。
+\end{lemma}
+
+\begin{proof}
+$J$ の原点を $O$ とし、
+$L_0=\mathcal O_J(3O)$、
+$L_b=L_0\otimes\mathcal O_J(b-O)$ と置く。
+Jacobian に恒等を誘導する曲線同型は平行移動 $t_a$ であり、
+$t_a^*L_b\simeq L_0$ の条件は $3a=b$ である。
+従って $(J,L_0)$ から $(J,L_b)$ への平面同型 torsor の類は
+$\kappa_3(b)$ である。
+命題\ref{prop:nfm-picard-plane-transfer}をこの二つの偏極に適用すると、
+曲線そのものは同じ $J$ なので左辺の Picard 障害の差は零となり、
+最初の等式を得る。
+
+Kummer 完全列によって
+\[
+ H^1(K,J[3])/\kappa_3(J(K))\simeq H^1(K,J)[3].
+\]
+cup の加法性と最初の等式から、表示した準同型はこの商を通る。
+式\eqref{eq:nfm-flex-plane-torsor-relation}を $H^1(K,J_E)$ へ写すと、
+$[\mathfrak I_\theta]$ の像は $\eta_\theta$ である。
+最後の主張は、$\theta$ を誘導する曲線同型があれば
+$\eta_\theta=0$ となることから従う。
+\end{proof}
+
+従って、点側の障害が非零の場合に scalar 補正がこれを相殺するには、
+二曲線の genus-one torsor が $\theta$ に沿って実際に異なる必要がある。
+平面同型 torsor の非自明性が単なる偏極のずれに由来する場合には相殺できない。
+この因子化は既知の Tate pairing の性質であり、
+ここでは現行の移送式から必要な形を直接導いた。
+
+\begin{proposition}[形式比較だけでは決まらない巡回補正]
+\label{prop:nfm-cyclic-plane-twist}
+$K_0=\C(a,b,\lambda)$ とし、
+\[
+ E:\ X^3-aY^3-bZ^3+\lambda XYZ=0,\qquad
+ B=b+\frac{\lambda^3}{27a},\qquad A=aB
+\]
+を取る。$\sigma=\operatorname{diag}(1,\zeta,\zeta^2)$ の移動点を
+$p_0\in J_E[3](K_0)$ とする。
+任意の $d\ne0$ に対して
+\[
+ C_d:\ X^3-adY^3-bd^2Z^3+\lambda dXYZ=0
+\]
+と置くと、自然な Jacobian 同型
+$\theta_d:J_E\simeq J_{C_d}$ があり、
+\[
+ \delta_{C_d}(\theta_d p_0)-\delta_E(p_0)
+       =(d,A)_3.
+\]
+$d$ を独立変数とすればこの補正は非零であるが、
+$d=1+h$ として形式体へ移すと、
+剰余が恒等の平面同型により二曲線は同型となる。
+
+一方 $d=a^{-1}$ とすると $C_d$ は $K_0$-有理点を持ち、
+$\delta_{C_d}=0$ である。
+この場合、補正は
+$-\delta_E(p_0)\ne0$ に等しく、点側の障害を完全に相殺する。
+\end{proposition}
+
+\begin{proof}
+$s^3=d$ 上で
+\[
+ \phi_s:E\longrightarrow C_d,\qquad
+ [X:Y:Z]\longmapsto[X:s^{-1}Y:s^{-2}Z]
+\]
+は平面同型である。
+$\tau(s)=\zeta s$ に対して $\tau\phi_s=\phi_s\circ\sigma^{-1}$ だから、
+$\operatorname{Jac}(\phi_s)$ は $\theta_d$ へ降下する。
+同じ $\sigma$ が $C_d$ 上で与える移動点は $\theta_d(p_0)$ である。
+
+命題\ref{prop:nfm-picard-cubic-index-sharp}の巡回 cocycle 計算は
+この係数変更にも適用でき、
+\[
+ \delta_E(p_0)=(a,B)_3,\qquad
+ \delta_{C_d}(\theta_dp_0)=(ad,d^2B)_3
+\]
+となる。
+三次 symbol の双線型性・反対称性と $(d,d)_3=0$ により
+\[
+ (ad,d^2B)_3-(a,B)_3
+   =(d,B)_3+2(a,d)_3=(d,aB)_3.
+\]
+ここでは $-1$ が立方であるため $(d,d)_3=0$ である。
+$d$ が独立変数なら、右辺の $d=0$ での residue は
+$A$ の非立方類またはその逆であり、非零である。
+$A$ が非立方であることは $A$-進付値から分かる。
+$d=1+h$ の場合は、剰余が $1$ となる
+$s=(1+h)^{1/3}\in K_0[[h]]$ を取れば、$\phi_s$ の剰余は恒等となる。
+
+$d=a^{-1}$ の場合、
+\[
+ C_d:\ X^3-Y^3-\frac b{a^2}Z^3+\frac\lambda aXYZ=0
+\]
+は有理 flex $[1:1:0]$ を持つ。
+従って任意の有理次数零 Picard 類を実際の線束で表せる。
+補正は
+$(a^{-1},A)_3=-(a,B)_3=-\delta_E(p_0)\ne0$ となる。
+\end{proof}
+
+\begin{remark}[無限位数と半古典零点を持つ補強]
+上の $d=a^{-1}$ の例で
+$K=K_0(J_E)$ とし、$q\in J_E(K)$ を一般点とする。
+$q$ は無限位数であり、
+\[
+ \operatorname{per}\delta_{E_K}(q)
+  =\operatorname{ind}\delta_{E_K}(q)=3,\qquad
+ \delta_{C_{a^{-1},K}}(\theta q)=0.
+\]
+実際、$J_E$ 上の Picard gerbe は、普遍線束に $\mathcal O_E(1)$ を
+tensor して押し下げた階数三束の endomorphism により
+次数三 Azumaya を持つ。
+一般点でこの類が零なら、その Brauer--Severi 空間の一般切断は、
+properness により滑らかな曲線 $J_E$ の点 $p_0$ で延長する。
+これは $\delta_E(p_0)\ne0$ に反する。
+
+この例は $q\equiv0$ と形式平面同型 $\phi\equiv\mathrm{id}$ も同時に満たせる。
+$k=\C(b,\lambda)$ とし、$a=1$ 上の相対 Jacobian の単位点近傍を取ると、
+完備局所環は $k[[a-1,u]]$ となる。
+独立変数 $z$ に対し
+\[
+ a-1\longmapsto zh,\qquad u\longmapsto h
+\]
+はこの完備局所環を $k(z)[[h]]$ へ単射に写す。
+非零級数の最低全次数部分 $f_m$ の像が
+$h^mf_m(z,1)\ne0$ となるためである。
+従って $K\hookrightarrow k(z)((h))$ を得て、
+$q\equiv0$、$d=a^{-1}\equiv1$、$\phi_s\equiv\mathrm{id}$ となる。
+
+命題\ref{prop:nfm-active-point-sklyanin-realization}により
+この $(E_K,q)$ 自体は実際の active 勾配代数に実現できる。
+ただし、ここで選んだ $C_{a^{-1}}$ がその代数の
+\emph{actual residual 曲線}であるとは主張しない。
+反例は、形式平面比較、実際の平面偏極、半古典零点だけから
+残余曲線の降下を決めることができないことを示す。
+\end{remark}
+
 \subsection{一般係数体に残る点 shift の index 三障害}
 
 \begin{proposition}[平行移動から active 勾配代数への算術的実現]
@@ -1453,62 +1614,95 @@ $[L:k_n]\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})=0$ である。
 period が三なので、その次数は三の倍数でなければならない。
 \end{proof}
 
+\begin{corollary}[一般点の残余 Picard 障害と scalar index]
+\label{cor:nfm-generic-residual-picard-index-three}
+同じ一般 split 係数体 $k_n$ で、固定した表示・$q_Y$・window1 を用いる。
+$p_{\mathrm{res}}=\theta_{\mathrm{sc}}(p_{\mathrm{pt}})$ とすると
+\[
+ \delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})
+   =\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}}),\qquad
+ \operatorname{per}\delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})
+   =\operatorname{ind}\delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})=3.
+\]
+この等式は full 核の同型類を選ぶ前から成り立つ。
+
+点型 full 核の同型類を $k_n$ 上で選択済みの場合、その scalar 類は
+\begin{equation}\label{eq:nfm-point-full-obstruction-dichotomy}
+ \begin{split}
+ \alpha
+ &=\delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})\\
+ &=\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})
+   +e_{3,*}\bigl([\mathfrak I_{\mathrm{sc}}]
+                     \smile\kappa_3(p_{\mathrm{pt}})\bigr)\\
+ &=\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}}).
+ \end{split}
+\end{equation}
+従って $\operatorname{per}\alpha=\operatorname{ind}\alpha=3$ であり、
+この選択済み類には三次分離体拡大上で実際の比較核が存在する。
+scalar 段階の最小分裂次数は三である。
+これは、まだ選んでいない full 同型類の選択を含めた比較被覆の最小次数を述べるものではない。
+\end{corollary}
+
+\begin{proof}
+定理\ref{thm:nfm-generic-plane-isom-splitting}から
+$\phi\in\mathfrak I_{\mathrm{sc}}(k_n)$ を取れる。
+この曲線同型は Picard gerbe を同定し、その Jacobian 同型は
+$p_{\mathrm{pt}}$ を $p_{\mathrm{res}}$ へ移す。
+従って Picard 障害の等式が成立する。
+同じことは命題\ref{prop:nfm-picard-plane-transfer}において
+$[\mathfrak I_{\mathrm{sc}}]=0$ と置いても得られる。
+周期と指数は系\ref{cor:nfm-generic-point-picard-index-three}による。
+
+選択済み核の scalar 類との一致は
+系\ref{cor:nfm-kernel-point-picard-obstruction}による。
+系\ref{cor:nfm-kernel-active-curve-splitting}の横断直線切片は
+階数三の有限 \'etale な scalar 分裂代数を与える。
+その各体成分で $\alpha$ が消えるため、restriction--corestriction により
+各体次数は三の倍数である。総次数が三なので、この代数は一つの三次分離体である。
+逆に index 三の類の任意の有限分裂体の次数は三の倍数なので、
+この scalar 段階の最小次数は正確に三となる。
+\end{proof}
+
 \begin{corollary}[点型比較被覆の次数の三整除性]
 \label{cor:nfm-point-comparison-cover-three-divisibility}
 上と同じ一般係数体 $k_n$ 上で、固定した split 表示・$q_Y$・window1 を用いる。
-有限拡大 $L/k_n$ 上に、次の二つが同時に存在するとする：
-\begin{enumerate}[label=(\roman*)]
-\item 実際の full 比較核 $P$ で、最高次線束条件
+有限拡大 $L/k_n$ 上に、最高次線束条件
 \eqref{eq:nfm-kernel-active-line-type}と点型条件
-\eqref{eq:nfm-kernel-point-line-type}を満たすもの。
-\item 実際の平面同型
-$\phi\in\mathfrak I_{\mathrm{sc}}(L)$。
-\end{enumerate}
-このとき $3\mid[L:k_n]$ である。
-特に命題\ref{prop:nfm-kernel-point-line-nonempty}のように
-この二つを備える有限 \'etale 比較被覆では、
-全ての一般ファイバーの体成分の次数が三の倍数である。
-
-また $k_n$ 上で点型 full 核の同型類が選択済みで、その scalar 類を $\alpha$ とすると、
-\begin{equation}\label{eq:nfm-point-full-obstruction-dichotomy}
- \alpha=\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})
-   +e_{3,*}\bigl([\mathfrak I_{\mathrm{sc}}]
-                     \smile\kappa_3(p_{\mathrm{pt}})\bigr).
-\end{equation}
-従って $\mathfrak I_{\mathrm{sc}}(k_n)\ne\varnothing$ なら
-$\operatorname{per}\alpha=\operatorname{ind}\alpha=3$ である。
-一方 $\alpha=0$ なら、右辺の cup 項は
-$-\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})\ne0$ であり、
-$\mathfrak I_{\mathrm{sc}}$ は非自明である。
+\eqref{eq:nfm-kernel-point-line-type}を満たす実際の full 比較核 $P$ が存在すれば、
+\[
+ 3\mid[L:k_n]
+\]
+である。平面同型を追加のデータとして仮定する必要はない。
+従ってこの点型の実際の full 比較核は $k_n$ 上にも、
+次数が三に素な有限拡大上にも存在しない。
+点型の有限 \'etale 比較被覆の各一般体成分の次数は三の倍数である。
+この不存在と次数制約には、元の体での full 同型類の事前選択は不要である。
 \end{corollary}
 
 \begin{proof}
 実際の $P$ があれば
 $M=H^{-1}(q_Y\Phi_P(\kappa_{\mathrm{nc}}))$ は実際の線束であり、
-$[M]=\theta_{\mathrm{sc}}(p_{\mathrm{pt}})$ である。
-実際の $\phi$ による $\phi^*M$ は $p_{\mathrm{pt}}$ の線束代表なので、
-$\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})|_L=0$ となる。
-前の系と同じ restriction--corestriction の議論から三整除性を得る。
-各体成分にもこれを適用すれば、被覆についての主張が従う。
-この推論は full 核から active 同値核を作る assignment を用いない。
-
-式\eqref{eq:nfm-point-full-obstruction-dichotomy}は、
-系\ref{cor:nfm-kernel-point-picard-obstruction}と
-命題\ref{prop:nfm-picard-plane-transfer}を合わせたものである。
-torsor が自明なら cup 項が零となり、一般点の正確な index 三の主張を使える。
-$\alpha=0$ の場合は同じ式を移項すればよい。
+$[M]=p_{\mathrm{res}}|_L$ である。
+従って $\delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})|_L=0$ となる。
+前の系の period 三と restriction--corestriction から
+$3\mid[L:k_n]$ を得る。各一般体成分にも同じ議論を適用する。
+同値に、元の体上に存在する $\phi\in\mathfrak I_{\mathrm{sc}}(k_n)$ に沿って
+$\phi^*M$ を取ると、点側の非零 Picard 障害が $L$ 上で消えると分かる。
+この推論は full 核から active 同値核を作る代数的 assignment を用いない。
 \end{proof}
 
-\begin{remark}[full 核の障害との区別]
-ここで求めた類は $\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})$ である。
-選択済みの点型 full 比較核の scalar 類は
-$\delta_{C_{\mathrm{res}}}(\theta_{\mathrm{sc}}(p_{\mathrm{pt}}))$ であり、
-Jacobian の同型だけで二つの Picard gerbe を同一視することはできない。
-特に、この系から full 比較核の scalar index が三であるとは結論しない。
-平面同型 torsor $I_{\mathrm{sc}}$ に沿う降下の寄与を別に調べる必要がある。
-一般の三可除性による中立化は上の系で排除されたが、
-$I_{\mathrm{sc}}$ の寄与が点側の非零類と相殺して full scalar 類が零になる可能性は
-この議論だけでは排除されない。
+\begin{remark}[点型の障害と任意の full 核の区別]
+一般 split 表示では平面同型 torsor の分裂を証明したため、
+点側と残余側の Picard 障害は等しく、cup 項による相殺は起こらない。
+これに対し一般の二曲線については、Jacobian 同型や形式的平面比較だけでは
+二つの Picard gerbe を同定できず、
+命題\ref{prop:nfm-cyclic-plane-twist}の相殺例がある。
+本稿の一般点の結論は、全 ambient の Heisenberg 作用と混合定数降下を用いる。
+
+上の不存在は最高次線束の類を $p_{\mathrm{res}}$ と指定した型の主張である。
+他の refined 型、あるいは任意の full 比較核の不存在は結論しない。
+また、点型 full 同型類の整合的選択はなお未解決であり、
+その選択まで含めて三次被覆だけで十分であるとは主張しない。
 \end{remark}
 
 \begin{remark}[適用範囲と残る問題]
@@ -1526,8 +1720,8 @@ Picard 障害を具体的な点へ評価した式であり、代数的 active �
 従ってこの追加型の最高次線束は幾何的に非自明であり、
 $m_P=0$ という十分条件だけでその核を降下させる方針は適切でない。
 系\ref{cor:nfm-generic-point-picard-index-three}により、一般の $p_{\mathrm{res}}$ は三分不可能である。
-残る scalar 問題は、式\eqref{eq:nfm-picard-plane-transfer}における
-平面同型 torsor の cup 項が非零の点障害を相殺するかどうかである。
+点型の scalar 障害自体は前の系で正確に index 三と決定された。
+次に必要なのは full 同型類を選ぶ第一段階と、点型の表示変更に対する内在性の判定である。
 ここで点の平行移動を full Ku の rotation 自体と同一視しているのではなく、
 構成した active window における rotation 共役を利用している。
 \end{remark}

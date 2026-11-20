@@ -1670,6 +1670,7 @@ $\theta^{-1}(v_\sigma)$ は非零の三捩れ点であり、
 
 \begin{lemma}[有限対角を持つ標的への有理射の延長]
 \label{lem:nfm-finite-diagonal-rational-extension}
+\label{lem:nfm-finite-etale-equivariant-extension}
 $K$ を標数零の体、$S$ を滑らかな幾何学的に整な有限型 $K$-scheme、
 $a\in S(K)$ とする。
 $\mathcal Y$ を有限表示で有限対角を持つ $K$ 上の代数 stack とし、
@@ -1678,7 +1679,7 @@ $f:S^\circ\to\mathcal Y$ を稠密開上の射とする。
 射 $g_\kappa$ があり、$f_\kappa$ との同型が共通の稠密開上で指定されているとする。
 このとき $f$ は $a$ を含む $S$ の開へ延長する。
 
-さらに有限群 $G$ が $S$ に作用し、$a$ を固定し、
+さらに有限 \'etale な $K$-群 scheme $G$ が $S$ に作用し、$a$ を固定し、
 $f$ に $G$-同変構造が指定されているならば、
 延長の開を $G$-不変にして、その同変構造も延長できる。
 体拡大後の別の同変延長との指定同型が一般点で同変ならば、
@@ -1720,10 +1721,16 @@ $R_3$ は被約で、同型空間は分離的なので、この条件は全体�
 特殊点の自己同型群を自明と仮定したのではなく、
 指定された一般点の同型を有限同型空間へ延長している。
 
-最後に $W$ をその $G$-平行移動の共通部分へ制限する。
-各群要素について、一般点の同変同型は有限同型空間と正規性により延長し、
-群の cocycle 条件は稠密開上の等式から延長する。
-別の延長との同型に対する同変性も、同じ分離性の議論による。
+最後に $Z=S\setminus W$ と置く。
+作用による射 $G\times S\to S$ は、
+$(g,s)\mapsto(g,g\cdot s)$ と射影との合成なので有限 \'etale である。
+従って $G\times Z$ の像は閉集合であり、これを除くと
+$a$ を含む $G$-不変開 $W'\subset W$ を得る。
+$G\times W'$ と $G\times G\times W'$ は $K$ 上滑らかで正規である。
+一般点の同変同型を前者の有限同型空間へ延長し、
+後者の各既約成分の稠密開上で成立する cocycle 条件を分離性によって延長する。
+体拡大後の指定された比較同型との同変性も同じ理由で保たれる。
+この議論は定数群だけでなく、基礎体上で分裂しない有限 \'etale 群にも適用される。
 \end{proof}
 
 \begin{lemma}[Poisson 符号商標的の有限対角]
@@ -1966,4 +1973,550 @@ underlying cubic は同じ $X_{\mathrm{res}}$ なので被覆上の Ku 比較も
 ただし $f$ を $f^m$ に替えると一般次数は $m$ 倍となり、
 この存在論的構成は標準次数、点曲線の微分との整合、
 固定 formality の尺度との一致を与えない。
+\end{remark}
+
+\subsection{全 ambient の Heisenberg 作用と平面同型の降下}
+
+まず標準 split 係数体上で平面同型を構成し、その後に表示変更への自然性を示す。
+系\ref{cor:nfm-semiclassical-full-residual}の規格化が選ぶ Jacobian 同型を
+$\theta_{\mathrm{sc}}$ と書き、命題\ref{prop:nfm-point-residual-isom-cover}の被覆から
+\[
+ \mathfrak I_{\mathrm{sc}}
+   =\mathfrak I\mathbin{\times}_{\mathfrak D_J,\theta_{\mathrm{sc}}}\mathfrak U
+\]
+を定める。これは $\operatorname{Jac}(E_{\mathrm{pt}})[3]$ の階数九 torsor である。
+半古典 Jacobian 同型だけでなく、この平面同型 torsor も分裂することを示す。
+固定入力の下で構成した full Poisson 射とその有限多項式模型を使う。
+
+\begin{lemma}[定数体拡大で分裂する有限 torsor]
+\label{lem:nfm-finite-etale-constant-descent}
+$K$ を標数零の体、$\kappa/K$ を体拡大、
+$m=(m_1,\ldots,m_s)$ を独立変数、$G$ を $K$ 上の有限 \'etale 群 scheme とする。
+$G_{K(m)}$-torsor $T$ が $\kappa(m)$ 上で分裂するならば、
+ある $G$-torsor $T_0/K$ が同型類を除いて一意に存在し、
+\[
+ T\simeq T_0\times_K K(m)
+\]
+となる。さらに $T_0$ は $\kappa$ 上で分裂する。
+ここでは $G$ が $K$ 上の定数群であることを仮定しない。
+\end{lemma}
+
+\begin{proof}
+$\kappa$ を含む代数閉体 $\Omega$ を取り、その中に $K$ の代数閉包 $\overline K$ を取る。
+$T_{\overline K(m)}$ の連結成分を $\operatorname{Spec}L_i$ と書く。
+各 $L_i$ は $\overline K(m)$ の有限拡大であり、
+代数閉体 $\overline K$ 上の整代数なので幾何学的に整である
+\cite[Lemma~10.49.3, Tag~0FWF]{NFMStacksGeometricIntegral}。
+従って
+\[
+ L_i\otimes_{\overline K(m)}\Omega(m)
+\]
+は整域である。これは幾何学的に整な $L_i\otimes_{\overline K}\Omega$ の
+非零元による局所化だからである。
+その $\Omega(m)$ 上の次元は $[L_i:\overline K(m)]$ である。
+一方 $T_{\Omega(m)}$ は分裂し、$G_\Omega$ も定数群であるから、
+その座標環は $\Omega(m)$ の直積である。
+この直積の整な因子は $\Omega(m)$ 自身に限るため、全ての $[L_i:\overline K(m)]$ は一である。
+よって $T_{\overline K(m)}$ は分裂する。
+
+その有理点 $P$ は、ある有限 Galois 拡大 $K'/K$ に対して $K'(m)$ 上で定義される。
+必要なら $K'$ を拡大して $G$ も分裂させる。
+各 $\gamma\in\operatorname{Gal}(K'/K)$ について
+\[
+ \gamma(P)=P\cdot c_\gamma
+\]
+によって定まる元は
+$c_\gamma\in G(K'(m))=G(K')$ である。
+最後の等式は、$K'$ が $K'(m)$ の中で相対的に代数閉であり、
+$G$ が有限 \'etale であることから従う。
+これらは $c_{\gamma\delta}=c_\gamma\gamma(c_\delta)$ を満たす。
+従って定数 cocycle による Galois 降下から $G$-torsor $T_0/K$ が得られ、
+元の $T$ はその $K(m)$ への引戻しとなる。
+
+任意の有限 \'etale $K$-scheme $Z$ について
+$Z(K)=Z(K(m))$ である。
+二つの $G$-torsor の $G$-同変同型空間も有限 \'etale なので、この等式は
+\[
+ H^1(K,G)\longrightarrow H^1(K(m),G)
+\]
+の単射性と $T_0$ の一意性を与える。
+同じ議論を $\kappa$ に適用すれば、
+$T_{0,\kappa(m)}$ の分裂から $T_{0,\kappa}$ の分裂も従う。
+\end{proof}
+
+\begin{proposition}[平面同型 torsor の混合係数に関する定数降下]
+\label{prop:nfm-plane-isom-constant-descent}
+$g$ の独立な十個の係数の体を $k=\mathbf C(g_\alpha)$ とし、
+$K=k(h)$、$\kappa=k((h))$ と置く。
+混合係数および純中心係数を $m=(b,\ell,d)$ とし、
+trace--Hessian 正規化された一般の族
+\[
+ F=g+b+\ell+d,\qquad
+ \bigl(B_{hF},[\Omega_h^{\mathrm{TH}}]\bigr),\qquad
+ \Omega_h^{\mathrm{TH}}=\mathfrak d_{h\Pi_F}^{-1}(F)
+\]
+を $K(m)$ 上で考える。
+点曲線を $E=V(J_g)$、$J_g=g+h^2\det\operatorname{Hess}(g)/24$ とし、
+$G=\operatorname{Jac}(E)[3]$ と置く。
+半古典 Jacobian 同型上の平面同型 torsor $\mathfrak I_{\mathrm{sc}}$ の類は、
+一意な
+\[
+ \beta_0\in H^1(K,G)
+\]
+の $K(m)$ への引戻しである。
+\end{proposition}
+
+\begin{proof}
+命題\ref{prop:nfm-residual-mixed-triangular}によって、生成元固定模型は
+\[
+ \widehat W_h\in\kappa[m][x,u]_3,
+ \qquad \widehat W_h|_{u=0}=J_g
+\]
+という実際の有限多項式である。
+点尺度で規格化した full Poisson 対は
+\[
+ \bigl(V(\widehat W_h),\widehat W_h\otimes hP_0\bigr)
+\]
+である（命題\ref{prop:nfm-point-scale-formal-comparison}）。
+その active 平面曲線は、同じ座標で厳密に $E$ に一致する。
+
+実際の半古典残余射とこの模型の比較は、まず $k(m)((h))$ 上で得られる。
+双方を定義する $\kappa(m)$ 上の幾何学的一般点は、
+慣性が自明な標的の開に入る。
+従って比較同型は一意であり、その同型空間は $\kappa(m)$ 上でも一つの点となる。
+これにより比較同型は $\kappa(m)$ 上に降りる。
+模型の active 恒等同型が誘導する Jacobian 同型は、
+同じ命題の厳密な尺度公式によって $\theta_{\mathrm{sc}}$ である。
+よって
+\[
+ \mathfrak I_{\mathrm{sc}}\bigl(\kappa(m)\bigr)\ne\varnothing.
+\]
+前補題を $G=\operatorname{Jac}(E)[3]$ に適用すればよい。
+単に $k(m)((h))$ 上で点を持つことを使っているのではなく、
+混合次数の有限性により $\kappa(m)$ 上へ比較を戻したことが要点である。
+\end{proof}
+
+\begin{lemma}[自明な中心部分を伴う Heisenberg 作用の中央化群]
+\label{lem:nfm-heisenberg-ambient-centralizer}
+$k\supset\mathbf C$ を体、$X$ を三次元 $k$-ベクトル空間、
+$g\in\operatorname{Sym}^3X^*$ を滑らかな平面三次式とする。
+\[
+ H_g=\operatorname{Stab}_{\operatorname{SL}(X)}(g)
+\]
+は階数二十七の有限 étale 群 scheme であり、幾何学的には
+位数二十七の Heisenberg 群である。
+その中心かつ交換子部分群は scalar の $\mu_3$ であり、
+$X$ 上の自然表現は絶対既約である。
+
+$U$ を次元 $r\ge1$ の自明な $H_g$-表現、$V=X\oplus U$ とする。
+このとき、指定された射影 $H_g$-作用の中央化群は
+\begin{equation}\label{eq:nfm-heisenberg-ambient-centralizer}
+ Z_{\operatorname{PGL}(V)}(H_g)
+ =\bigl(\mathbf G_m\times\operatorname{GL}(U)\bigr)/\mathbf G_m
+ \simeq\operatorname{GL}(U),
+\end{equation}
+ここで $(a,B)$ は $a\operatorname{id}_X\oplus B$ として作用し、
+右の同型は $(a,B)\mapsto a^{-1}B$ である。
+特にこの中央化群は $\mathbf P(X)$ に恒等に作用する。
+\end{lemma}
+
+\begin{proof}
+微分を保つ平面三次の射影自己同型群は Jacobian の三捩れ平行移動群であり、
+その $\operatorname{SL}_3$ への逆像が $H_g$ である
+\cite[Lemma~2.3 の証明、Section~9.5]{NFMFisherTernary}。
+従って $H_g$ は $\mu_3$ による階数九の有限 étale 群の拡大で、
+階数二十七の有限 étale 群 scheme となる。
+代数閉包上で Hesse 座標を取ると、
+\[
+ Q=\operatorname{diag}(1,\zeta,\zeta^2),\qquad
+ P(x_1,x_2,x_3)=(x_2,x_3,x_1)
+\]
+がこれを生成する。両者の交換子は非自明な scalar 三乗根であり、
+中心と交換子部分群はいずれも $\mu_3$ となる。
+$Q$ の三つの固有直線を $P$ が巡回するので、標準三次元表現は既約である。
+この幾何学的な記述は最初の三つの主張を与える。
+
+中央化群を代数閉包上で計算する。
+射影中央化元を線型変換 $A$ へ持ち上げると、ある指標
+$\chi:H_g\to\mathbf G_m$ に対し
+\[
+ A\rho(t)A^{-1}=\chi(t)\rho(t)
+ \qquad(t\in H_g)
+\]
+となる。指標は交換子部分群 $\mu_3$ を殺す。
+従って $A$ は、中心が非自明に作用する $X$ と自明に作用する $U$ の分解を保つ。
+$U\ne0$ 上の可逆なブロックを比較すれば $\chi(t)=1$ である。
+従って $A$ は実際に線型表現と可換し、Schur の補題から
+$A=a\operatorname{id}_X\oplus B$ となる。
+逆にこれらの行列は全て中央化する。
+標数零で有限群の中央化群は滑らかであり、
+同じ計算は scalar 持上げを fpqc 局所的に取って群 scheme としても行える。
+
+最後に、$k$ 上で定義される明示的な射
+\[
+ \operatorname{GL}(U)\longrightarrow Z_{\operatorname{PGL}(V)}(H_g),
+ \qquad B\longmapsto[\operatorname{id}_X\oplus B]
+\]
+は代数閉包上で同型なので、忠実平坦降下により $k$ 上でも同型である。
+従って右辺は $\operatorname{GL}_r$ の未知の form ではなく、
+表示した split な群そのものである。
+\end{proof}
+
+\begin{proposition}[Heisenberg 対称点における標準 active 平面同型]
+\label{prop:nfm-heisenberg-special-plane-isom}
+$g$ の独立な十個の係数の体を $k=\mathbf C(g_\alpha)$ とし、
+$K=k(h)$、$\kappa=k((h))$ と置く。
+$X=K^3$、$U=K^r$、$r=n-1\ge2$ とし、
+混合係数と純中心係数の全 affine 空間を $S=\mathbb A_K^m$ とする。
+\[
+ F=g+b+\ell+d,\qquad
+ a:\ b=\ell=0,\quad d=d_0:=\sum_{i=1}^r u_i^3
+\]
+と置く。残余復元と全次数混合三角性の固定入力の下で、
+一般点の半古典規格化残余 Poisson 対は、$a$ の開近傍へ
+$H_g$-同変に延長できる。
+この延長の $a$-ファイバーの active 曲線を $C_a$、
+延長した半古典 Jacobian 同型を $\theta_{\mathrm{sc},a}$ とすると、
+指定された $H_g$-作用から選択に依存しない平面同型
+\[
+ \varphi_a:E_K=V(J_g)\xrightarrow{\sim}C_a,\qquad
+ \operatorname{Jac}(\varphi_a)=\theta_{\mathrm{sc},a}
+\]
+が得られる。従って $\mathfrak I_{\mathrm{sc},a}(K)\ne\varnothing$ である。
+ここで延長とは Poisson 対の代数的延長であり、
+この閉族での低 rotation 積の再構成や比較核の延長は主張しない。
+\end{proposition}
+
+\begin{proof}
+$H_g$ は $X$ に自然に、$U$ には自明に作用させる。
+これは $S$ に作用し、$a$ を固定する。
+$\operatorname{SL}(X)$ 共変性により $H_g$ は $J_g$ も固定し、
+$P_0$ も固定する。
+全次数混合三角性から、生成元固定模型は
+\[
+ \widehat W_h\in\kappa[m][x,u]_3,\qquad
+ \widehat W_h(a)=J_g+\gamma_h(g)d_0,\qquad
+ \gamma_h(g)\in1+h k[[h]]
+\]
+を満たす。
+$g+d_0$ の勾配は射影空間に共通零点を持たないので、これは滑らかである。
+従って $\widehat W_h(a)\equiv g+d_0\pmod h$ の判別式は非零であり、
+$\kappa$ 上の実際の Poisson 対
+\[
+ \bigl(V(\widehat W_h),\widehat W_h\otimes hP_0\bigr)
+\]
+は $a_\kappa$ の近傍に定義される。
+ここでは $g+d_0$ の scalar symmetrizer 性を必要としない。
+
+半古典規格化の full 射を $S$ の稠密開へ引き戻す。
+生成元固定模型との一般点の同型は、慣性自明な標的の開で一意である。
+元の射の表示変更に対する自然性と、生成元固定模型の線型共変性により、
+この指定された同型は $H_g$-同変である。
+full Poisson 標的にも補題\ref{lem:nfm-poisson-target-finite-diagonal}と
+同じ有限対角の証明が適用される。
+従って補題\ref{lem:nfm-finite-etale-equivariant-extension}により、
+$a$ を含む $H_g$-不変開 $W$ 上に同変な延長を得る。
+$W_\kappa$ と生成元固定模型の共通の定義域では、
+指定された比較同型も有限同型空間と正規性によって延長する。
+特に $a$-ファイバーで $H_g$-同変な比較同型が得られる。
+
+延長された $a$-ファイバーの全 ambient を $\mathcal B_a$ と書く。
+これは初めには非分裂な Brauer--Severi 空間であってもよい。
+指定された $H_g$-作用を保つ ambient 同型の層
+\[
+ T_a=\underline{\operatorname{Isom}}_{H_g}
+       \bigl(\mathbf P(X\oplus U),\mathcal B_a\bigr)
+\]
+は $\kappa$ 上で点を持ち、
+前補題の中央化群 $\operatorname{GL}(U)$ の torsor である。
+$\operatorname{GL}(U)$-torsor は次元 $r$ のベクトル空間の frame torsor なので、
+体 $K$ 上では自明である。従って $T_a(K)\ne\varnothing$ となる。
+
+$T_a(K)$ の元を一つ選んで $\mathbf P(X)$ へ制限する。
+前補題により二つの選択の差は $\mathbf P(X)$ 上で恒等だから、
+得られる active 平面同型は選択に依存しない。
+同じことを $\kappa$ 上で使うと、この制限は上で延長した
+指定された形式比較同型の active 制限と厳密に一致する。
+従って active support は $\mathbf P(X)$ に対応し、
+$C_a$ の引戻しは $\kappa$ 上で $V(J_g)$ と一致する。
+閉部分 scheme の等式を忠実な体拡大から戻すと $K$ 上でも一致し、
+所要の平面同型 $\varphi_a$ を得る。
+
+最後に Jacobian の符号を確認する。
+$W$ を縮めれば active 曲線は滑らかで、$j\ne0,1728$ を満たす。
+一般点の $\theta_{\mathrm{sc}}$ は、有限 étale な Jacobian 同型空間の
+有理切断として正規な $W$ 上へ一意に延長する。
+$\kappa$ 上の指定された比較同型の active 制限は、
+半古典規格化の定義からこの同型を誘導する。
+従って $\operatorname{Jac}(\varphi_a)=\theta_{\mathrm{sc},a}$ は
+$\kappa$ 上で成立し、忠実平坦性によって $K$ 上でも成立する。
+\end{proof}
+
+\begin{remark}[全 ambient の作用を使う理由]
+active 平面だけの Heisenberg 射影作用の中央化群には三捩れ平行移動が残る。
+有理な三捩れ作用、あるいは Jacobian 同型だけからは、
+genus-one torsor の同型は導けない。
+上の証明では $X$ 上の表現に非零な自明表現 $U$ を加えた
+\emph{全 ambient} を使う。
+これによって projective character twist が排除され、
+中央化群が $\operatorname{GL}(U)$ となるとともに、その active 制限が恒等になる。
+一般の $g$ に付随する群 scheme $H_g$ 自体を基礎体上で用いるので、
+Hesse 座標を取る有限拡大から三-primary な類を戻す議論は必要ない。
+\end{remark}
+
+\begin{theorem}[一般 split 係数体上の平面同型 torsor の分裂]
+\label{thm:nfm-generic-plane-isom-splitting}
+本節の残余復元、全次数混合三角性、および半古典規格化の固定入力の下で、
+任意の $n\ge3$ の良い split 一ブロック表示の一般係数体 $k_n$ に対して
+\[
+ \mathfrak I_{\mathrm{sc}}(k_n)\ne\varnothing.
+\]
+すなわち、半古典同型 $\theta_{\mathrm{sc}}$ を誘導する偏極曲線の同型
+\[
+ \varphi:E_{\mathrm{pt}}\xrightarrow{\sim}C_{\mathrm{res}},\qquad
+ \operatorname{Jac}(\varphi)=\theta_{\mathrm{sc}}
+\]
+が $k_n$ 上で存在する。
+この同型は、生成元固定模型の active 恒等同型と形式比較の下で一致するように選べ、
+この条件を満たすものは一意である。
+階数九の torsor の自明化を主張しており、その階数が一になるという主張ではない。
+\end{theorem}
+
+\begin{proof}
+まず前命題の $K(m)$ 上で分裂を示す。
+$S=\mathbb A_K^m$ とし、
+\[
+ a:\quad b=\ell=0,\qquad d=\sum_{i=1}^{n-1}u_i^3
+\]
+を取る。
+命題\ref{prop:nfm-heisenberg-special-plane-isom}は、
+$a$ を含む開近傍 $W\subset S$ 上へ残余 Poisson 対を延長し、
+その active 曲線の特殊ファイバーについて
+\[
+ \varphi_a\in\mathfrak I_{\mathrm{sc},a}(K)
+\]
+を与える。これは指定された全 ambient の Heisenberg 作用から定まり、
+形式比較の active 制限と一致する。
+この段階では、$a$ が元の低 rotation 復元の定義開に入ることや、
+そこで full kernel が存在することを仮定していない。
+
+$W$ を縮めて、延長した active 曲線 $C_W$ を滑らかにする。
+その $j$ は一般点で $E$ の $j$ と一致するから $W$ 全体で一致し、
+$j\ne0,1728$ である。
+一般点の $\theta_{\mathrm{sc}}$ は、有限 \'etale な Jacobian 同型空間の有理切断として、
+正規な $W$ 全体へ一意に延長する。
+命題\ref{prop:nfm-point-residual-isom-cover}により、その上の平面同型の層
+\[
+ \mathfrak I_W
+ =\underline{\operatorname{Isom}}^{\theta_{\mathrm{sc}}}
+    \bigl((E,\mathcal O_E(1)),(C_W,[\mathcal O_{C_W}(1)])\bigr)
+\]
+は有限 \'etale な $G_W$-torsor である。
+ここで偏極について要求するのは線束の同型類の保存であり、
+線束のスカラー同型を付加した gerbe ではない。
+
+前命題の $\beta_0$ を表す $G$-torsor を $T_0/K$ とする。
+$\mathfrak I_W$ と $T_0\times_K W$ は一般点で同型である。
+その $G_W$-同変同型空間は $W$ 上有限 \'etale だから、
+指定した一般点の同型は $W$ の正規性によって全体へ一意に延長する。
+この同型を $a$ に制限すると
+\[
+ T_0\simeq\mathfrak I_{\mathrm{sc},a}
+\]
+となる。
+右辺は $K$-有理点 $\varphi_a$ を持つので $\beta_0=0$ であり、
+$\mathfrak I_{\mathrm{sc}}$ は $K(m)$ 上で分裂する。
+
+分裂の形式分枝も固定できる。
+上の同型によって $\varphi_a$ に対応する $T_0(K)$ の元を取り、
+これを $W$ 上の切断 $\varphi_W$ とする。
+$W_\kappa$ と有限多項式模型の共通の定義域は、$a_\kappa$ を含む幾何学的に整な開である。
+この上で $\varphi_W$ と模型の active 恒等同型の一致 locus は、
+有限 \'etale 同型空間の対角の引戻しなので開かつ閉である。
+両者は $a_\kappa$ で一致するため、共通定義域の全体で一致する。
+一般点の $K(m)$-有理点から $\kappa(m)$-有理点への写像は単射なので、
+この形式分枝と一致する有理点は一意である。
+
+最後に $K(m)$ から標準 split 係数体へ戻す。
+ここでは族の支配性だけを用いてはならない。
+全三次係数について
+\[
+ \widetilde F=hF
+\]
+と変数変換する。純中心係数も $h$ 倍することに注意する。
+このとき $\Pi_{\widetilde F}=h\Pi_F$ であり、
+trace--Hessian 同型の線型性から厳密に
+\[
+ B_{hF}=B_{\widetilde F},\qquad
+ \mathfrak d_{\Pi_{\widetilde F}}^{-1}(\widetilde F)
+ =h\,\mathfrak d_{h\Pi_F}^{-1}(F)
+\]
+となる。従って両者の中心三次直線は同一である。
+trace--Hessian 同型による標準 split 表示 chart は、
+体積を固定すれば全三次 $\widetilde F$ の非空開を有理座標に持つ。
+これは補題\ref{lem:nfm-dominant-central-family}の
+中心 torsor と $\mathbf G_m$ の有理積を、正規化された座標で書いたものである。
+従って
+\[
+ K(m)=\mathbf C(g_\alpha,b,\ell,d,h)
+     =\mathbf C(\widetilde F_\alpha,h)
+     =k_n(h).
+\]
+可変 support や frame を含む split chart では、対応する有理 chart の独立変数を
+双方に加えるだけで、同じ純超越性を保つ。
+
+この変数変換は表示そのものを同定するため、
+そこでの $\mathfrak I_{\mathrm{sc}}$ も元の一般 split 表示の torsor の引戻しである。
+有限 \'etale scheme は純超越拡大によって新しい有理点を得ないから、
+$\mathfrak I_{\mathrm{sc}}(k_n(h))\ne\varnothing$ は
+$\mathfrak I_{\mathrm{sc}}(k_n)\ne\varnothing$ を与える。
+同じ単射性によって、上で指定した形式分枝の一意性も戻る。
+\end{proof}
+
+\begin{remark}[形式的分裂からの降下と三つの役割]
+完備体への制限写像 $H^1(K,G)\to H^1(\kappa,G)$ は一般には単射ではない。
+上の証明はこの単射性を主張していない。
+混合次数の有限性は $\kappa(m)$ 上の点を与え、
+定数降下補題は残る類を $K$ 上へ移し、
+全 ambient の Heisenberg 作用を持つ一点での計算がその定数類を消す。
+最後に使った単射性は $k_n\to k_n(h)$ という純超越拡大に対するものだけである。
+また一般の active 三次に付随する群 scheme $H_g$ を用いたため、
+Hesse 座標を取る三の因子を含む有限拡大から類を戻す必要はない。
+\end{remark}
+
+\begin{proposition}[半古典平面同型の表示変更と全 O-降下]
+\label{prop:nfm-semiclassical-plane-isom-descent}
+定理\ref{thm:nfm-generic-plane-isom-splitting}の同型を、
+生成元固定模型の active 恒等分枝と一致するものとして選ぶ。
+この同型は、中心空間を保つ全ての線型な表示変更に共変である。
+従って、既存の共通な滑らかな稠密開
+$\mathfrak U\subset\mathfrak M_n^{\mathrm{sm}}$ 上で、
+\[
+ \varphi_{\mathrm{sc}}:
+  (\mathbf P_{\mathrm{pt}},E_{\mathrm{pt}})
+    \xrightarrow{\sim}
+  (\mathbf P_{\mathrm{res}},C_{\mathrm{res}}),
+ \qquad\operatorname{Jac}(\varphi_{\mathrm{sc}})=\theta_{\mathrm{sc}}
+\]
+という平面同型を得る。
+これは $\mathfrak I_{\mathrm{sc}}\to\mathfrak U$ の切断であり、
+任意の底変更および全ての $\mathcal O$-保存同値と両立する。
+周囲平面を Brauer--Severi 平面として許し、
+偏極線束の scalar 同型を追加データとして選ぶ主張ではない。
+\end{proposition}
+
+\begin{proof}
+まず表示空間上の一般点で同変性を示す。
+次数一空間を $V=X\oplus U$ とし、
+$P\subset\operatorname{GL}(V)$ を $U$ を保つ parabolic とする。
+その一般元 $a$ は、生成元の列に関して
+\[
+ x\longmapsto Mx+Cu,\qquad u\longmapsto Du,
+ \qquad M\in\operatorname{GL}_3,\quad D\in\operatorname{GL}_{n-1}
+\]
+と書ける。$\Delta=\det M$ と置く。
+命題\ref{prop:nfm-graded-presentation}の作用規約は
+\begin{equation}\label{eq:nfm-plane-isom-parabolic-action}
+ a\cdot F=\Delta^{-1}a(F)
+\end{equation}
+であり、trace--Hessian 正規化では純中心項も含めてこの式を用いる。
+support $K=\operatorname{ann}U$ の三重ベクトル $P_0$ は $\Delta^{-1}$ の重みを持つ。
+この重みが、三次式と Poisson tensor の変換規約を一致させる。
+
+TH 規格化の中心元を
+$\Omega_h(F)=\mathfrak d_{h\Pi_F}^{-1}(F)$ と書く。
+定理\ref{thm:point-trace-hessian}の線型性と表示変更への共変性により
+\begin{equation}\label{eq:nfm-plane-isom-th-covariance}
+ \Omega_h(a\cdot F)=\Delta^{-1}a\bigl(\Omega_h(F)\bigr)
+\end{equation}
+となる。従って中心直線も指定通りに移る。
+補題\ref{lem:nfm-normalized-star-model}は係数に依存する全可逆線型変換への共変性を与え、
+形式中心と Casimir の線型同定
+（系\ref{cor:nfm-formal-center-casimir}）も同じ graph 写像から定まる。
+よって full な TH potential は
+\begin{equation}\label{eq:nfm-plane-isom-formal-covariance}
+ W_h^{\mathrm{TH}}(a\cdot F)
+   =\Delta^{-1}a\bigl(W_h^{\mathrm{TH}}(F)\bigr)
+\end{equation}
+を満たす。これは純中心項を含めた式であり、
+$C$ のせん断によって生じる純中心項も TH 正規化で同時に移している。
+純中心項を零にした primitive のせん断共変性を使ってはいない。
+
+$u=0$ への制限では $C,D$ は消え、$M$ による active 座標変換となる。
+Hessian の縮約の共変性から、$g_a=(a\cdot F)|_{u=0}$ と置けば
+\[
+ g_a=\Delta^{-1}M(g),\qquad
+ J_{g_a}=\Delta^{-1}M(J_g)
+\]
+である。式\eqref{eq:nfm-plane-isom-formal-covariance}を active 平面へ制限すると、
+模型での恒等同型 $V(J_g)\to V(W_h^{\mathrm{TH}}|_{u=0})$ は
+この座標変換と可換する。
+$W_h^{\mathrm{TH}}|_{u=0}=b_h(g)J_g$ の両辺を変換して比較すれば
+$b_h(g_a)=b_h(g)$ も得られ、$\widehat W_h$ 自身も同じ重みで共変である。
+点尺度の重みも上の $\Delta^{-1}$ と両立するので、
+命題\ref{prop:nfm-point-scale-formal-comparison}の半古典 Jacobian 分枝を保つ。
+
+一般の $a$ と全三次 $F$ の係数の体を $L=\mathbf C(a,F)$ とする。
+この体の上で $h$ を独立変数とし、$hF$ の族を考える。
+実際の残余射は全 O-同値に自然である
+（系\ref{cor:nfm-semiclassical-full-residual}）。
+一方、生成元固定模型との比較同型は、慣性自明な一般点の標的で一意である。
+従って上の形式共変性の下で、二つの平面同型
+\[
+ \varphi_{\mathrm{sc}}(h(a\cdot F))\circ a_E,
+ \qquad
+ a_C\circ\varphi_{\mathrm{sc}}(hF)
+\]
+は $L((h))$ 上で一致する。
+ここで $a_E,a_C$ は、それぞれ点側と残余側に誘導される同型である。
+両方は既に $L(h)$ 上で定義されているから、
+忠実な体拡大 $L(h)\hookrightarrow L((h))$ によって等式を戻せる。
+次に $\widetilde F=hF$ と変数変換する。
+作用\eqref{eq:nfm-plane-isom-parabolic-action}は $h$ 倍と可換するので、
+この等式は $\mathbf C(a,\widetilde F)(h)$ 上の同変性に等しい。
+さらに体拡大の単射性から $\mathbf C(a,\widetilde F)$ 上へ戻り、
+標準 split 表示の一般点で $P$-同変性を得る。
+この比較では $a$ の $C,D$ 成分も独立な変数として動かしているため、
+定数 active $\operatorname{GL}_3$ のみを検査したのではない。
+
+次に一般点の同変性を族上へ延長する。
+定理\ref{thm:poisson-good-open-isomorphism}および
+定理\ref{thm:nfm-local-moduli}による表示を用い、
+共通の良い稠密開を $\mathfrak U=[J^\circ/\overline P]$、
+$\overline P=P/\mathbf G_m$ と書く。
+$J^\circ$ は滑らかな整 scheme である。
+命題\ref{prop:nfm-point-residual-isom-cover}と
+系\ref{cor:nfm-semiclassical-full-residual}により、
+$\mathfrak I_{\mathrm{sc},J^\circ}\to J^\circ$ は有限 \'etale である。
+その指定された有理切断は、$J^\circ$ の正規性により全体へ一意に延長する。
+
+$P\times J^\circ$ は滑らかかつ整である。
+作用と射影で引き戻した切断の等式はその一般点で成立し、
+有限同型空間の分離性により全体で成立する。
+次数スカラー $a=\lambda\operatorname{id}_V$ は
+$a(F)=\lambda^3F$ と $\Delta=\lambda^3$ を持つため係数点に自明に作用し、
+双方の平面上でも恒等である。
+従って切断の同変性は $\overline P$ に降り、
+fpqc 降下により $\mathfrak U$ 上の切断 $\varphi_{\mathrm{sc}}$ を得る。
+
+全 O-同値については、定理\ref{thm:nfm-fixed-model-comparison}により、
+任意の O-保存同値は fpqc 局所的に次数付き表示同型へ持ち上がり、
+二つの持上げは次数スカラーだけ異なる。
+その表示同型は中心一次空間を保つので $P$ に属する
+（命題\ref{prop:nfm-graded-presentation}）。
+従って上の同変性は全 O-同値に対する自然性を与える。
+中心部分や support が大域で自明でない族も、
+局所的に次数一空間と中心部分の flag を trivialize すれば同じ $P$-遷移で貼り合わさる。
+このため特定の中心基底や active 補空間を追加標識として残してはいない。
+stack 上の実際の切断を得たので、任意の底変更との両立も従う。
+\end{proof}
+
+\begin{remark}[この降下の範囲]
+ここで内在的に得たのは点曲線と残余 active 曲線の平面同型である。
+full kernel の同型類の選択、指定 window による点型の表示非依存性、
+または scalar gerbe の中立性を意味しない。
+特に exact index 三の評価は先の標準 split 一般係数体に対する主張であり、
+非分裂表示の全ての体上へ同じ index を移すことを主張していない。
+また、ここで固定した formality 規約に関する自然性を示しており、
+任意の異なる formality 間での独立性を新たに主張してはいない。
 \end{remark}

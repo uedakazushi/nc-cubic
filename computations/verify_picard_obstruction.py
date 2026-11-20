@@ -68,3 +68,35 @@ solutions = {
 expected = {tuple(sign * rotation**power) for sign in (-1, 1) for power in range(3)}
 assert solutions == expected and len(solutions) == 6
 print("PASS all six integral numerical rotation centralizers")
+
+# The cyclic plane twist and its Picard-symbol coefficients. These exact
+# polynomial checks do not prove the residue or the torsor-descent arguments.
+aa, dd, ss = sp.symbols("aa dd ss", nonzero=True)
+original = x**3 - aa * y**3 - b * z**3 + lam * x * y * z
+twisted = x**3 - aa * dd * y**3 - b * dd**2 * z**3 + lam * dd * x * y * z
+check(
+    "cyclic plane twist becomes the original cubic after a cube root",
+    twisted.subs({dd: ss**3, y: y / ss, z: z / ss**2}, simultaneous=True)
+    - original,
+)
+check(
+    "cyclic twist changes the tangent norm by d squared",
+    b * dd**2 + (lam * dd)**3 / (27 * aa * dd)
+    - dd**2 * (b + lam**3 / (27 * aa)),
+)
+
+# Alternating symbols in the ordered classes (a, d, B), modulo 3.
+def exterior(left, right):
+    return sp.Matrix([
+        left[i] * right[j] - left[j] * right[i]
+        for i, j in ((0, 1), (0, 2), (1, 2))
+    ])
+
+
+symbol_difference = (
+    exterior((1, 1, 0), (0, 2, 1))  # (ad, d^2 B)
+    - exterior((1, 0, 0), (0, 0, 1))  # (a, B)
+    - exterior((0, 1, 0), (1, 0, 1))  # (d, aB)
+)
+assert all(coefficient % 3 == 0 for coefficient in symbol_difference)
+print("PASS cyclic Picard correction is the symbol (d,aB) modulo 3")
