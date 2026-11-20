@@ -16,7 +16,7 @@
 - [公表用研究稿](papers/nc-cubic.tex)：中心復元、局所一ブロック型の O-marked DM stack と Brauer 障害、相対点関手と中心商の復元、trace–Hessian による Poisson 対の開部分との同型、残余復元との比較障害、次数9の代数的 Poisson 補正、形式 support 保存、全混合五次 tensor と残余四次 potential、四次の比較障害と新しい代数的補正、split 族の残余比較、一般混合係数の代数的残余三次・点曲線の j の一致・点微分による一般有限な符号商 Poisson 射、有限被覆上の Ku 比較、点型の全 O-降下と scalar 障害、n=3,4 の全 full class 降下と最小比較次数三、三分点体の次数九と ASL₂(F₃) モノドロミー、固定 tensor の very general な超越性、Jacobi スキーム、残余圏の通常 Artin 形式認識。
 - [研究ノート](notes/research_notes.md)：主張の依存・適用範囲、反例・障害、文献の確認箇所、次の計算の入口。
 - [検証範囲](notes/validation.md)：原稿点検・組版・厳密計算を区別した確認状態。
-- [量子化の検証状態](validation_quantization.json) と [再現入口](computations/quantization/README.md)：中心元・多ブロック計算と独立量子化稿の確認範囲。
+- [量子化の検証状態](https://github.com/uedakazushi/cubic-quantization/blob/main/validation_quantization.json) と [再現入口](https://github.com/uedakazushi/cubic-quantization/blob/main/computations/quantization/README.md)：中心元・多ブロック計算と独立量子化稿の確認範囲。
 - [相対構成の補助ノート](notes/relative_construction_obstacles.tex)、[中心二チャートの補助ノート](notes/central_cubic_generic_smoothness.tex)、[未照合の外部資料](notes/unresolved_external_sources.md)：本文へ無条件に取り込まない技術的障害・残る照合範囲。
 - [Jacobi 行列検証コード](computations/verify_jacobi_rank.py) と [整数小行列証明書](computations/jacobi_rank_certificate.json)。
 - [八次元の頂点構造の検証コード](computations/verify_jacobi_vertex.py)、[C++ 検証器](computations/verify_binary_minor.cpp)、[次数三の全射性の証明書](computations/jacobi_vertex_certificate.json)。
@@ -43,7 +43,7 @@
 - [点障害の厳密検算](computations/verify_picard_obstruction.py)：Hesse 接線・巡回 norm、Sklyanin 点三次・係数の逆、rotation の六つの数値 centralizer、巡回平面 twist・norm 係数・symbol 補正、普遍 Jacobian の三捩れ点・八点軌道・安定化群 core、右点対応。
 - [参考文献](papers/references.tex)。外部文献PDFは含めない。
 
-外部の古典入力は [poisson-cubicの論文](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex) のPoisson正規形であり、代数的量子化の入力は本repoの [cubic-quantization.tex](papers/cubic-quantization.tex) である。旧論文Bの一般点復元は現行主原稿内に証明を統合した。統合は結果を新たに今回証明したという意味ではない。
+外部の古典入力は [poisson-cubicの論文](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex) のPoisson正規形であり、代数的量子化の入力は別repoの [cubic-quantization.tex](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) である。旧論文Bの一般点復元は現行主原稿内に証明を統合した。統合は結果を新たに今回証明したという意味ではない。
 
 ## 現在の研究目標
 
@@ -249,7 +249,6 @@ python3 computations/verify_fourth_potential.py
 python3 computations/verify_jacobi_rank.py --verify computations/jacobi_rank_certificate.json
 python3 computations/verify_jacobi_vertex.py --verify computations/jacobi_vertex_certificate.json
 latexmk papers/nc-cubic.tex
-latexmk papers/cubic-quantization.tex
 ```
 
 引数なしの `latexmk` は上の二論文を組版する。`python3 scripts/check_sources.py` は各論文の入力・引用・ラベルを独立に検査する。量子化の再現コマンドは `notes/cubic_quantization.md` と量子化の検証資料を参照する。
