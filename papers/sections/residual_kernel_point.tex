@@ -5,10 +5,9 @@
 最高次線束型の比較核について、スカラー障害は次数零 Picard 類
 $m_P$ の表現障害である。
 本節では楕円曲線の rotation の共役式を求め、
-点の平行移動と $m_P$ を結ぶための条件を明示する。
-楕円曲線上の三つの補題は独立した結果である。
-full 比較への適用には、非可換 active 商の相対 THCR/window1 比較という
-追加仮定を置く。その下で追加型の非空性とスカラー障害の具体式を証明する。
+可換特殊ファイバーを含む非可換 active 商の相対 THCR/window1 比較を構成する。
+これにより、固定入力と良い一ブロックの仮定の下で、
+点の平行移動と $m_P$ を結ぶ追加型の非空性とスカラー障害の具体式を証明する。
 代数的な active 同値核の assignment や、full 核の同型類の選択を
 無条件に構成するものではない。
 
@@ -140,6 +139,280 @@ $0\to A_{\ge1}\to A\to k\to0$ を特異圏へ写すと第一式を得る。
 この切断の議論は $A$ の可換性を用いない。
 \end{proof}
 
+\subsection{可換特殊ファイバーを含む相対楕円座標環と window1}
+
+以下では $k$ を標数零の体、$R=k[[h]]$、$K=k((h))$ とする。
+$g\in k[x,y,z]_3$ は滑らかな平面三次を定め、
+\begin{equation}\label{eq:nfm-active-dvr-algebra}
+ D_R=R\langle x,y,z\rangle/
+ \bigl([y,z]-h\operatorname{sym}g_x,
+       [z,x]-h\operatorname{sym}g_y,
+       [x,y]-h\operatorname{sym}g_z\bigr)
+\end{equation}
+の各次数が有限自由で、剰余が $k[x,y,z]$ であると仮定する。
+ここで $\operatorname{sym}$ は二次単項式の対称化である。
+$\omega\in Z(D_R)_3$ は $\omega\bmod h=g$ を満たすものとし、
+$A_R=D_R/(\omega)$ と置く。
+この次数別自由性と指定中心元は、支配的な一ブロック族の active 制限で用いる PBW 入力である。
+
+\begin{proposition}[指定中心商の相対 THCR 表示]
+\label{prop:nfm-relative-active-thcr}
+上の仮定の下で
+\[
+ J_g=g+\frac{h^2}{24}\det\operatorname{Hess}(g),\qquad
+ E_R=V(J_g)\subset\mathbf P^2_R,\qquad L=\mathcal O_{E_R}(1)
+\]
+と置く。$E_R$ は滑らかな固有 genus-one 曲線族である。
+右点加群の関係は、閉ファイバーで恒等となる自己同型
+$\sigma:E_R\xrightarrow{\sim}E_R$ の graph を含み、
+その一般ファイバーには固定点がない。
+さらに
+\begin{equation}\label{eq:nfm-relative-active-thcr}
+ A_R\xrightarrow{\sim}
+ B(E_R,L,\sigma)
+ =\bigoplus_{m\ge0}H^0(E_R,L_m),\qquad
+ L_m=\bigotimes_{j=0}^{m-1}\sigma^{j*}L
+\end{equation}
+が次数一の座標切断から定まり、
+\[
+ \operatorname{qgr}A_R\simeq\operatorname{coh}E_R,
+ \qquad (1)\longleftrightarrow s=\sigma_*\circ(-\otimes L)
+\]
+となる。
+代数同型の各次数は $R$-有限自由加群の同型であり、
+剰余体・分数体への底変更後にも同じ点対応と THCR 表示を与える。
+\end{proposition}
+
+\begin{proof}
+$u=(x,y,z)^{\mathsf t}$、$H(u)=\operatorname{Hess}(g)(u)$ とし、
+$[u]_\times v=u\times v$ と置く。
+右点関係の行列は
+\[
+ M_h(u)=[u]_\times-\frac h2H(u)
+\]
+である。対称行列 $H$ と三次の Euler 恒等式から
+\begin{equation}\label{eq:nfm-active-point-matrix-determinant}
+ \det M_h(u)=-\frac h2u^{\mathsf t}H(u)u
+               -\frac{h^3}{8}\det H(u)=-3hJ_g(u).
+\end{equation}
+$J_g\bmod h=g$ なので、各次数の乗法 $J_g$ は剰余で単射である。
+単元小行列式によってその余核は $R$-自由となり、$E_R$ は $R$-flat である。
+滑らかでない locus の $\operatorname{Spec}R$ への像は proper 性により閉であり、
+閉点を含まないので空である。これで滑らかな genus-one 族を得る。
+
+$E_R$ 上で $\det M_h=0$ であり、閉ファイバーの $M_0(u)=[u]_\times$ は
+各点で階数二である。同じ proper 性により階数一以下の locus は空であり、
+$\ker M_h$ は直線部分束となる。その直線が定める射を
+$\sigma:E_R\to\mathbf P^2_R$ と書く。
+三次の偏微分の対称性より
+\[
+ M_{-h}(v)u=-M_h(u)v.
+\]
+従って $v=\sigma(u)$ に対し $hJ_g(v)=0$ であり、
+$E_R$ の $R$-flatness から $J_g(v)=0$ である。
+同じ構成を $-h$ で行うと逆射を得るため、$\sigma$ は $E_R$ の自己同型である。
+$\ker M_0(u)=ku$ なので閉ファイバーで恒等となる。
+一般ファイバーで $\sigma(u)=u$ なら
+$M_h(u)u=-h\nabla g(u)=0$ となり、$V(g)$ の滑らかさに反する。
+
+忠実平坦な有限非分岐拡大後、閉ファイバーの閉点を持ち上げて $E_R$ に原点を選べる。
+原点を保つ楕円曲線自己同型の非分岐性から、
+$\sigma\bmod h=\mathrm{id}$ は $\sigma=t_p$、$p\bmod h=0$ を意味する。
+$E_R[3]$ は有限 \'etale なので、$3p=0$ なら $p=0$ となる。
+一般ファイバーに固定点がないことから $p\ne0$ であり、
+従って $\sigma_K^3\ne\mathrm{id}$ である。この不等式は原点の選択に依存しない。
+
+$m>0$ について $\deg L_m=3m$ なので、$H^1(E_R,L_m)=0$、
+$H^0(E_R,L_m)$ は階数 $3m$ の自由 $R$-加群で、形成は底変更に両立する。
+積を $a\cdot b=a\otimes\sigma^{m*}b$（$\deg a=m$）と定める。
+次数一の座標切断は上の graph 上の三つの関係を満たすので、
+$D_R\to B(E_R,L,\sigma)$ を与える。
+
+指定した $\omega$ が零に写ることを確認する。
+一般ファイバーの関数体上で $L$ を有理的に自明化すると、
+THCR は $K(E_K)[z;\sigma^*]$ に埋め込まれる。
+$\omega$ の像が非零な $fz^3$ なら、次数一の切断 $az,bz$ との可換性から
+\[
+ f\sigma^{3*}(a)=a\sigma^*(f),\qquad
+ f\sigma^{3*}(b)=b\sigma^*(f),\qquad
+ \sigma^{3*}(a/b)=a/b
+\]
+を得る。$L$ は平面埋込みを与えるので、このような比は $K(E_K)$ を生成する。
+従って $\sigma_K^3=\mathrm{id}$ となって矛盾する。
+THCR の次数三は $R$-torsionfree なので、$\omega$ の像は $R$ 上でも零である。
+この議論では中心三次元の一般公式やその scalar 規格化を用いない。
+
+$\omega\bmod h=g$ の乗法は単射である。
+再び各次数の単元小行列式により、$\omega$ は正則で、
+$(A_R)_m$ は $m=0$ で階数一、$m>0$ で階数 $3m$ の自由 $R$-加群となる。
+得られた $A_R\to B(E_R,L,\sigma)$ の剰余は
+\[
+ k[x,y,z]/(g)\xrightarrow{\sim}
+ \bigoplus_{m\ge0}H^0(E_0,\mathcal O_{E_0}(m))
+\]
+という通常の平面三次の座標環の同型である。
+次数ごとの Nakayama と等しい自由階数から
+式\eqref{eq:nfm-relative-active-thcr}を得る。
+
+相対的な ample pair の条件も確認する。
+任意の coherent 層 $\mathcal F$ に対し $\mathcal G_m=\mathcal F\otimes L_m$ と置く。
+曲線族の cohomological dimension は一なので、
+\[
+ 0\to\mathcal G_m[h]\to\mathcal G_m\xrightarrow h h\mathcal G_m\to0,
+ \qquad
+ 0\to h\mathcal G_m\to\mathcal G_m\to\mathcal G_m/h\mathcal G_m\to0
+\]
+から
+\[
+ H^1(E_R,\mathcal G_m)/hH^1(E_R,\mathcal G_m)
+ \simeq H^1(E_0,(\mathcal F/h\mathcal F)\otimes\mathcal O_{E_0}(m))
+\]
+となる。右辺は $m\gg0$ で零であり、左辺の $H^1$ は有限 $R$-加群なので零となる。
+同じ完全列から $H^0(\mathcal G_m)\to H^0(\mathcal G_m/h\mathcal G_m)$ は全射となる。
+閉ファイバーの大きな twist の生成切断を持ち上げ、
+評価写像の余核の proper support を用いれば $\mathcal G_m$ 自身も大域生成される。
+$s^{-m}\mathcal O=L_m^{-1}$ なので、これらは $(\mathcal O,s)$ の ample-pair 条件である。
+$\sigma^{-m*}L_m$ も剰余が $\mathcal O_{E_0}(m)$ であり、同じ議論は反対側にも適用できる。
+一般 noetherian 底上の ample-pair 定理
+\cite[Proposition~7.2 and Lemma~7.6]{NFMKeelerAmple}により qgr 同値を得る。
+右加群での shift は\cite[Section~3, equation~(3.1)]{NFMStaffordVdB}の規約で
+$s=\sigma_*\circ(-\otimes L)$ である。
+\end{proof}
+
+\begin{lemma}[三変数の相対 Gorenstein 条件]
+\label{lem:nfm-active-dvr-gorenstein}
+前命題の $D_R,A_R$ は左右 noetherian であり、
+\[
+ \operatorname{gldim}D_R\le4,\qquad
+ R\underline{\operatorname{Hom}}_{D_R}(R,D_R)\simeq R(3)[-3],
+ \qquad
+ R\underline{\operatorname{Hom}}_{A_R}(R,A_R)\simeq R[-2]
+\]
+が左右で成立する。$A_R$ の左右 injective dimension は高々三であり、
+Burke--Stevenson の意味で parameter 零の Gorenstein 環で、条件 $\chi$ を満たす。
+これらの有限相対分解は剰余体と分数体への底変更に両立する。
+\end{lemma}
+
+\begin{proof}
+入力B\cite{NFNCCubicB}の \texttt{local\_model.tex}、
+補題 \texttt{lp:lem:noetherian}, \texttt{lp:lem:resolution} と
+命題 \texttt{lp:prop:koszul}, \texttt{lp:prop:gorenstein} の次数別の証明を用いる。
+三変数への適用は同入力 \texttt{explicit\_example.tex} の
+補題 \texttt{gre:lem:elliptic-mf} にも明記されている。
+必要な点を本設定で確認する。
+
+$h$-随伴次数環は中央多項式拡大 $k[x,y,z,t]$ の商なので noetherian である。
+斉次イデアルの記号の有限生成元を持ち上げ、
+各内部次数の有限 $R$-加群に Krull 交叉定理を用いると $D_R$ の noetherian 性を得る。
+任意のイデアルは内部次数の最高次項による有限降下で扱える。
+多項式環の augmentation と対角の Koszul 分解を、各次数の分裂全射を用いて持ち上げる。
+各段階の核は次数ごとに自由であり、最後の核は Nakayama によって零となる。
+得られる二つの長さ三の分解の項は、それぞれ
+$D_R(-j)^{\binom3j}$ と $D_R^e(-j)^{\binom3j}$ である。
+対角分解と $\operatorname{gldim}R=1$ から $\operatorname{gldim}D_R\le4$ を得る。
+
+augmentation 分解の双対を各内部次数で調べる。
+剰余の Koszul 双対複体は内部次数 $-3$、cohomological degree 三以外で完全であり、
+有界有限自由複体の単元成分の消去により、この完全性は $R$ 上へ持ち上がる。
+内部次数 $-3$ の最後の項には $R$ だけが残るので、最初の導来 Hom 公式を得る。
+中心正則列
+$0\to D_R(-3)\xrightarrow\omega D_R\to A_R\to0$ による change of rings は
+\[
+ R\underline{\operatorname{Hom}}_{D_R}(M,D_R)
+ \simeq R\underline{\operatorname{Hom}}_{A_R}(M,A_R)(3)[-1]
+\]
+を与える。$M=R$ から第二式、一般の $M$ から injective dimension の評価を得る。
+全て左右で同じであり、$A_R$ は noetherian な $D_R$ の商である。
+$R$-flatness と\cite[Definition~5.1 and Lemma~6.2]{NFMBurkeStevenson}から条件 $\chi$ が従う。
+分解の各内部次数は $R$ 上で分裂しているので、述べた底変更にも両立する。
+\end{proof}
+
+\begin{proposition}[source の相対 window1 と二つの体への底変更]
+\label{prop:nfm-relative-active-window-basechange}
+命題\ref{prop:nfm-relative-active-thcr}の仮定の下で、
+window1 と余核は $R$-線型 dg Morita 同値
+\begin{equation}\label{eq:nfm-relative-active-window-proved}
+ \operatorname{MF}^{\mathbf Z}(D_R,\omega)
+ \simeq D^b_{\mathrm{sg,dg}}(\operatorname{gr}A_R)^{\mathrm{idem}}
+ \simeq\operatorname{Perf}(E_R)
+\end{equation}
+を与える。これらは $R\to k$ および $R\to K$ の導来底変更に両立し、
+augmentation stabilization と内部 shift はそれぞれ
+\[
+ \kappa_{A_R}\longleftrightarrow\mathcal O_{E_R}[1],\qquad
+ (1)\longleftrightarrow
+ T_{\mathcal O_{E_R}}\circ\sigma_*\circ(-\otimes L)
+\]
+となる。指定周期は選んだ $\omega$ の余核二拡張から移し、任意の scalar 倍で取り替えない。
+\end{proposition}
+
+\begin{proof}
+前補題は\cite[Theorem~6.4(3)]{NFMBurkeStevenson}の全ての環論的仮定を満たす。
+従って
+\[
+ \Phi_{1,R}=q_{\mathrm{sg}}R\Gamma_{\ge1}:
+ D^b(\operatorname{coh}E_R)\longrightarrow D^b_{\mathrm{sg}}(\operatorname{gr}A_R)
+\]
+は同値である。
+$R\Gamma_{\ge1}$ が有界有限生成の対象に値を持つことは、
+同論文 Proposition~4.18 とその直前の有限生成性の議論による。
+有限 cohomological dimension と $\chi$ は同論文 Lemmas~6.1--6.2 による。
+derived section、内部次数切断、dg 商を合成した標準 enhancement の quasi-functor を用い、
+全ての shift に対する完全忠実性から dg Morita 同値を得る。
+$E_R$ は正則な二次元 scheme なので $D^b(\operatorname{coh}E_R)=\operatorname{Perf}(E_R)$ である。
+余核による最初の dg 比較は入力Bの
+\texttt{gre:lem:elliptic-mf} と \texttt{tw:lem:stabilization} の
+exact 圏・有限 totalization による構成を使う。
+その仮定である ambient の有限大域次元、中心元の正則性、商の有限 injective dimension は全て前補題で確認済みである。
+
+底変更を関手そのものについて確認する。
+$F\in\operatorname{Perf}(E_R)$ に対し、derived section の内部次数 $m$ 成分は
+\[
+ (R\Gamma_*F)_m=R\Gamma(E_R,s^mF)
+   \simeq R\Gamma(E_R,F\otimes L_m)\quad(m\ge0)
+\]
+である。後者は $R$-perfect であり、その自然な比較写像は任意の底変更で擬同型となる
+\cite[Lemma~36.30.4, Tag~0B91]{NFMStacksPerfectBasechange}。
+この比較は切断の積に自然なので、$\ell=k,K$ について
+\begin{equation}\label{eq:nfm-active-window-section-basechange}
+ (R\Gamma_{\ge1}F)\otimes_R^{\mathbf L}\ell
+ \xrightarrow{\sim}
+ R\Gamma_{\ge1}(F\otimes_R^{\mathbf L}\ell)
+ \quad\text{in }D(\operatorname{Gr}A_\ell)
+\end{equation}
+を得る。これは内部次数ごとの擬同型を組み合わせたものであり、
+無限個の内部次数を有限個に切り捨てる議論ではない。
+$F$ の固定された有限振幅と曲線族の cohomological dimension 一により、
+cohomological な振幅は内部次数に一様である。
+有限生成性は先に確認した Proposition~4.18 による。
+
+$-\otimes_R^{\mathbf L}\ell$ は Tor 振幅高々一であり、
+有界有限生成 graded 複体を同種の複体へ、perfect $A_R$-複体を perfect $A_\ell$-複体へ送る。
+従って特異 dg 商への実際の底変更関手があり、
+式\eqref{eq:nfm-active-window-section-basechange}は $\Phi_1$ の底変更図式を与える。
+有限自由 MF の行列は、閉ファイバーで積が非零多項式 $g$ の乗法となるため単射である。
+各内部次数で単元小行列式を使えば、その余核は $R$-自由である。
+よって余核、周期分解、有限 totalization も $k,K$ への底変更と可換する。
+
+これで二つの体上の比較との可換図式を、係数変更関手から直接構成した。
+曲線側では $\operatorname{Perf}(E_R)\otimes_R^{\mathbf L}\ell
+\simeq\operatorname{Perf}(E_\ell)$ が成り立つ。
+実際、ample な $L$ の全ての整数冪は $R$ 上に定義され、
+それらとその引戻しはそれぞれの perfect 圏を厚生成する。
+これらの間の導来 Hom の底変更は、双対との tensor 積へ
+Tag~0B91 を適用すれば分かる。
+従って自然な係数変更は生成対象間で完全忠実で、ファイバー側も生成する。
+各辺の同値と上の図式から、MF 側の自然な係数変更も Morita 同値を与える。
+任意の特異圏の dg 商が任意の非平坦底変更に可換する、という一般則は用いていない。
+
+最後に $R\Gamma_{\ge1}\mathcal O_{E_R}=(A_R)_{\ge1}$ と
+$0\to(A_R)_{\ge1}\to A_R\to R\to0$ から augmentation の式を得る。
+補題\ref{lem:nfm-twisted-elliptic-window}の切断三角形を $R$ 上で用いれば、
+内部 shift は相対評価写像の cone
+$T_{\mathcal O_{E_R}}\circ s$ へ移る。
+指定周期の比較は、入力B \texttt{tw:eq:period-extension} の余核二拡張をそのまま使う。
+\end{proof}
+
 \subsection{恒等から変形した相対比較}
 
 \begin{lemma}[形式的な楕円比較が定める Picard 類]
@@ -202,13 +475,24 @@ $E[3]$ は有限 \'etale であり、閉点で零となる $a$ は零である�
 
 定理\ref{thm:nfm-kernel-active-line-bound}の split 表示、
 $\kappa_{\mathrm{nc}}$、$q_Y$、window1 を固定する。
-命題\ref{prop:nfm-point-residual-isom-cover}の平面同型被覆を用い、
+その底を $S$ と書く。
+系\ref{cor:nfm-semiclassical-full-residual}の半古典規格化により、
+命題\ref{prop:nfm-point-normalized-jacobian-cover}の Jacobian 同型の切断
+$\theta_{\mathrm{sc}}:J_E\xrightarrow{\sim}J_C$ が選ばれる。
+命題\ref{prop:nfm-point-residual-isom-cover}の平面同型被覆をこの切断で引き戻し、
+\[
+ \mathfrak I_{\mathrm{sc}}
+   =\mathfrak I\times_{\mathfrak D_J,\theta_{\mathrm{sc}}}S
+   \longrightarrow S
+\]
+と置く。これは階数九の有限 \'etale な $J_E[3]$-torsor である。
+この被覆上では
 \[
  \phi:E_{\mathrm{pt}}\xrightarrow{\sim}C_{\mathrm{res}},\qquad
- \theta=\operatorname{Jac}(\phi),\qquad
- p_{\mathrm{res}}=\theta(p_{\mathrm{pt}})
+ \operatorname{Jac}(\phi)=\theta_{\mathrm{sc}},\qquad
+ p_{\mathrm{res}}=\theta_{\mathrm{sc}}(p_{\mathrm{pt}})
 \]
-と置く。
+となる。以下では $\theta=\theta_{\mathrm{sc}}$ と固定する。
 $p_{\mathrm{pt}}$ は系\ref{cor:nfm-point-shift-residual-transfer}の切断である。
 最高次線束型の核 $P$ に、さらに
 \begin{equation}
@@ -216,32 +500,42 @@ $p_{\mathrm{pt}}$ は系\ref{cor:nfm-point-shift-residual-transfer}の切断で�
  m_P=p_{\mathrm{res}}
 \end{equation}
 を課す。
-この条件は $\phi$ の Jacobian 上の作用だけに依存する。
+この条件は $\phi$ の Jacobian 上の作用だけに依存し、
+$p_{\mathrm{res}}$ 自体は $S$ 上で定義される。
 従って平面同型の三捩れの選択を忘れても条件は定義できるが、
 そのことから元の底上の full 核の同型類が選べるとは結論しない。
 
-以下で用いる追加仮定を明記する。
-支配的な完備族の係数体を $k$、$R=k[[h]]$ とする。
-相対点曲線 $E_R=V(J_g)$ と $L=\mathcal O_{E_R}(1)$ に対し、
-非可換 active 商の相対 THCR および window1 比較が存在し、
+支配的な完備族に、前小節の相対構成を適用する。
+その係数体を $k$、$R=k[[h]]$ とする。
+中心一次変数を $U=0$ とした二次関係は、$g=F|_{U=0}$ だけに依存し、
+式\eqref{eq:nfm-active-dvr-algebra}に一致する。
+中心変数を含まない PBW 単項式が商の基底となるので、
+$D_R=B_h/(U)$ は各次数有限自由で剰余は $k[x,y,z]$ である。
+選んだ中心三次の像 $\omega=\Omega_h\bmod(U)$ は中心であり、$\omega\bmod h=g$ である。
+従って相対点曲線 $E_R=V(J_g)$ と $L=\mathcal O_{E_R}(1)$ に対し、
+命題\ref{prop:nfm-relative-active-thcr}と
+命題\ref{prop:nfm-relative-active-window-basechange}が適用でき、
 \begin{equation}
-\label{eq:nfm-relative-elliptic-window-hypothesis}
+\label{eq:nfm-relative-elliptic-window-comparison}
  \operatorname{MF}^{\mathbf Z}(B_h/(U),\Omega_h\bmod U)
  \simeq\operatorname{Perf}(E_R)
 \end{equation}
-が閉ファイバー・分数体への導来底変更に両立すると仮定する。
+を閉ファイバー・分数体への導来底変更と両立して得る。
 この比較は augmentation stabilization を $\mathcal O_{E_R}[1]$ へ送り、
-内部 shift を $T_{\mathcal O_{E_R}}\circ\sigma_*\circ(-\otimes L)$ へ送るものとする。
+内部 shift を $T_{\mathcal O_{E_R}}\circ\sigma_*\circ(-\otimes L)$ へ送る。
 閉ファイバーでは可換側と同じ window1 を用いる。
-これは、本節では固定入力Bに追加して置く仮定である。
-体上の Orlov 同値だけからこの相対・底変更の主張を推論しない。
+ここで相対 THCR/window1 は追加仮定ではなく、
+PBW 自由性・中心元・滑らかな $g$ から証明した帰結である。
 
-\begin{proposition}[点の平行移動を指定した核の型の条件付き非空性]
+\begin{proposition}[点の平行移動を指定した核の型の非空性]
 \label{prop:nfm-kernel-point-line-nonempty}
-固定入力B、良い一ブロックの仮定、および
-\eqref{eq:nfm-relative-elliptic-window-hypothesis}を仮定する。
+固定入力Bと良い一ブロックの仮定を置く。
 このとき、非空開の有限 \'etale 全射上に、平面同型 $\phi$ と
 rotation・指定周期を保つ full 比較核 $P$ を取り、
+\[
+ \operatorname{Jac}(\phi)=\theta_{\mathrm{sc}}
+\]
+および
 最高次線束条件\eqref{eq:nfm-kernel-active-line-type}と
 \eqref{eq:nfm-kernel-point-line-type}を同時に満たすようにできる。
 従来の三つの Euler 条件\eqref{eq:nfm-kernel-numerical-type}も同時に課せる。
@@ -254,7 +548,7 @@ rotation・指定周期を保つ full 比較核 $P$ を取り、
 active 商へ制限する。
 標的の方程式は $b_hJ_g$ であり、underlying curve は $E_R=V(J_g)$ である。
 potential の単元倍を扱うときは、既存の比較と同じ指定周期を保つ。
-仮定\eqref{eq:nfm-relative-elliptic-window-hypothesis}と可換側の window1 により、
+構成\eqref{eq:nfm-relative-elliptic-window-comparison}と可換側の window1 により、
 この比較は同じ $E_R$ 上の $R$-線型同値 $F$ となる。
 滑らかな固有曲線の perfect 圏の間のこの比較は perfect な相対核で実現される。
 選んだ CF 比較は閉ファイバーで恒等であり、二つの window もそこで一致するので、
@@ -285,9 +579,32 @@ $M_{\widehat K}$ である。
 代数的残余曲線の frame では
 $m_P=\operatorname{Jac}(\phi)(p_{\mathrm{pt}})$ となる。
 
+この $\phi$ は $\mathfrak I_{\mathrm{sc}}$ に属することも確認する。
+active frame では $\phi$ は二つの $J_g$ の恒等同型である。
+命題\ref{prop:nfm-point-scale-formal-comparison}の正確な尺度公式により、
+その Jacobian 同型から定まる尺度は
+\[
+ \tau_{\mathrm{pt}}\circ\operatorname{Jac}(\phi)^*
+       =\frac{h}{b_h}\,W_h\otimes P_0,
+       \qquad W_h|_{U=0}=b_hJ_g
+\]
+である。支配的な中心族の記法では、その先頭項は
+$h(F+G)\otimes P_0$ となる。
+命題\ref{prop:nfm-point-normalized-jacobian-cover}は
+Jacobian 同型と尺度被覆の切断を一対一に対応させる。
+系\ref{cor:nfm-semiclassical-full-residual}の二つの切断のうち、
+この先頭項を持つものは $\theta_{\mathrm{sc}}$ に対応するものだけである。
+従って形式体上で
+$\operatorname{Jac}(\phi)=\theta_{\mathrm{sc}}$ であり、
+$\phi$ は $\mathfrak I_{\mathrm{sc}}$ の点を与える。
+
 あとは命題\ref{prop:nfm-kernel-active-line-nonempty}の有限表示の議論を用いる。
 元の関数体を $K$ とし、full 核・逆核・単位・余単位・rotation・周期と
-平面同型 $\phi$ を $K$ 上有限生成な整域 $D$ へ降ろす。
+平面同型 $\phi\in\mathfrak I_{\mathrm{sc}}$ を
+$K$ 上有限生成な整域 $D$ へ降ろす。
+ここでは単に $\mathfrak I$ への点としてではなく、
+有限表示の $\mathfrak I_{\mathrm{sc}}$ への点として降ろすので、
+Jacobian 同型と半古典符号の一致も保存される。
 必要な開への縮小により、最高次 cohomology の可逆層性・次数零・底変更適合性を得る。
 相対 Picard 類 $m_P$ と $p_{\mathrm{res}}$ は相対 Jacobian の切断である。
 形式体への忠実平坦拡大後に両者が等しいので、
@@ -307,7 +624,7 @@ $\operatorname{Frac}(D)$ 上で既に等しい。
 
 \begin{corollary}[選択済みの核の障害を測る点の平行移動]
 \label{cor:nfm-kernel-point-picard-obstruction}
-split 表示と $\theta$ を固定し、
+split 表示と上記の $\theta=\theta_{\mathrm{sc}}$ を固定し、
 \eqref{eq:nfm-kernel-point-line-type}を満たす full 核の同型類が
 既に整合的に選ばれているとする。
 $C=C_{\mathrm{res}}$ とし、その実現 gerbe の類を $\alpha$、
@@ -335,9 +652,12 @@ $\alpha=\delta_C(m_P)$ であるから、
 \begin{remark}[適用範囲と残る問題]
 最高次線束型の全ての核について $m_P=p_{\mathrm{res}}$ を示したわけではない。
 また、追加型の非空性と、元の底でその full 核の同型類を整合的に選ぶことは別である。
-本節の conditional な適用は、相対 THCR/window1 仮定を固定入力から導くこと、
-表示変更に対する型の内在性、符号を含む $\theta$ の選択をなお必要とする。
-一方、既に選ばれた追加型に対する\eqref{eq:nfm-kernel-point-brauer-class}は
+本節では source の相対 THCR/window1 と必要な二つの体への底変更を構成したが、
+表示変更に対する型の内在性、full 核の同型類の整合、
+および代数的 active 核の構成はなお別の問題である。
+一方、$\theta$ の符号は半古典規格化により既に選ばれており、
+本節の非空な型はその $\theta_{\mathrm{sc}}$ に一致する。
+既に選ばれた追加型に対する\eqref{eq:nfm-kernel-point-brauer-class}は
 Picard 障害を具体的な点へ評価した式であり、代数的 active 核の存在を前提としない。
 
 固定点のない $\sigma$ については $p_{\mathrm{pt}}\ne0$ である。
@@ -345,5 +665,5 @@ Picard 障害を具体的な点へ評価した式であり、代数的 active �
 $m_P=0$ という十分条件だけでその核を降下させる方針は適切でない。
 実際の線束による $p_{\mathrm{res}}$ の表現、または三分可能性を調べる必要がある。
 ここで点の平行移動を full Ku の rotation 自体と同一視しているのではなく、
-追加仮定の下の active window における rotation 共役を利用している。
+構成した active window における rotation 共役を利用している。
 \end{remark}

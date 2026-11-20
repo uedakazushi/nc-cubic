@@ -1777,6 +1777,125 @@ $m\mapsto m^*\beta_{\mathrm{Pic},C}$ は群準同型である。
 $m_P=3q$ の場合にはその実際の代表 $N_q$ を前定理の証明へ直接用いればよい。
 \end{proof}
 
+\begin{proposition}[次数三偏極を持つ曲線の非零 Picard 障害]
+\label{prop:nfm-picard-cubic-index-sharp}
+$a,b$ を独立変数、$K=\C(a,b)$、$\zeta$ を原始三乗根とし、
+\[
+ C:\ X^3-aY^3-bZ^3=0\subset\mathbf P^2_K,\qquad
+ L=\mathcal O_C(1)
+\]
+と置く。射影変換
+\[
+ \sigma[X:Y:Z]=[X:\zeta Y:\zeta^2Z]
+\]
+は $L$ を保つ非零三捩れ点 $p\in J_C[3](K)$ による平行移動である。
+$K'=K(t)$、$t^3=a$、$\tau(t)=\zeta t$ とし、巡回代数の規約を
+\[
+ \mathcal A=(K'/K,\tau,b)
+   =K'\oplus K'v\oplus K'v^2,\qquad
+ v\ell=\tau(\ell)v,\quad v^3=b
+\]
+と固定する。このとき
+\begin{equation}\label{eq:nfm-picard-diagonal-symbol}
+ \delta_C(p)=[\mathcal A]\ne0,\qquad
+ \operatorname{per}\delta_C(p)
+   =\operatorname{ind}\delta_C(p)=3.
+\end{equation}
+特に $p$ は実際の次数零線束では表せず、$p\notin3J_C(K)$ である。
+\end{proposition}
+
+\begin{proof}
+勾配の三成分は射影空間内で同時に零にならないので、$C$ は滑らかである。
+$\sigma$ は方程式と座標変換の行列式をともに保つため、
+随伴で得られる非零正則一形式にも恒等に作用する。
+従って genus-one 曲線上の平行移動である。
+その射影固定点は三つの座標点だけで、いずれも $C$ 上にない。
+$\sigma^3=1$ だから、その移動点 $p$ は非零三捩れ点である。
+また $\sigma$ は射影線型変換なので $\sigma^*L\simeq L$ である。
+
+$C_{K'}$ の三つの変曲点
+\[
+ P_i=[\zeta^i t:1:0]\quad(i\in\mathbf Z/3\mathbf Z)
+\]
+を取ると、$\tau P_i=P_{i+1}$、$\sigma P_0=P_2$ である。
+従って $D=P_2-P_0$ の Picard 類は $p$ である。
+$P_0$ における接線 $X-tY=0$ は三重に $P_0$ と交わる一方、
+$Z=0$ は $P_0+P_1+P_2$ を切り出す。よって
+\[
+ f=\frac{X-tY}{Z},\qquad
+ \operatorname{div}(f)=2P_0-P_1-P_2=\tau D-D.
+\]
+乗法 $f$ は
+$\tau\mathcal O_{C_{K'}}(D)\xrightarrow{\sim}\mathcal O_{C_{K'}}(D)$
+を与える。その三回の合成は
+\[
+ f\,\tau(f)\,\tau^2(f)
+   =\frac{X^3-aY^3}{Z^3}=b
+\]
+である。
+$1,\tau,\tau^2$ に対する同型をそれぞれ $1,f,f\tau(f)$ と選ぶと、
+その scalar 二 cocycle は、指数の和が三未満なら $1$、
+三以上なら $b$ という巡回 cocycle となる。
+これは上に固定した巡回代数 $\mathcal A$ の factor set なので、
+Picard gerbe の障害は $\delta_C(p)=[\mathcal A]$ である。
+ここで用いた crossed product と Brauer 類の対応は
+\cite[IV, \S3, Theorem~3.14]{NFMMilneCFT}の規約による。
+
+この類が非零であることも直接確認できる。
+$K'=\C(t,b)$ の $b$ 進付値は $\tau$ で不変なので、任意の $u\in K'^\times$ に対し
+\[
+ \operatorname{ord}_b N_{K'/K}(u)
+      =3\operatorname{ord}_b(u)
+\]
+である。$\operatorname{ord}_b(b)=1$ だから $b$ は norm ではない。
+巡回代数の norm 判定
+\cite[III, \S4, Steps~1--2]{NFMMilneCFT}により $\mathcal A$ は非分裂である。
+その次数は三であるため index は三であり、
+$3p=0$ と $\delta_C$ の加法性から period も三となる。
+最後の三分不能性は系\ref{cor:nfm-kernel-picard-mod-three}による。
+\end{proof}
+
+\begin{corollary}[無限位数の平行移動にも残る障害]
+\label{cor:nfm-picard-infinite-translation}
+前命題の $J=J_C$ の関数体を $F=K(J)$ とし、
+$q\in J(F)$ を恒等写像 $J\to J$ の一般点とする。
+このとき
+\[
+ p_\infty=p_F+3q\in J(F)
+\]
+は無限位数であり、実際の次数三線束 $L_F$ を持つ $C_F$ 上で
+\[
+ \delta_{C_F}(p_\infty)=[\mathcal A_F]\ne0,\qquad
+ \operatorname{ind}\delta_{C_F}(p_\infty)=3
+\]
+が成り立つ。この平行移動は $L_F$ を保たない。
+\end{corollary}
+
+\begin{proof}
+$n>0$ に対して $np_\infty=0$ なら、
+$[3n]:J\to J$ は一般点で定数 $-np$ に等しくなる。
+これは正の次数の有限射であることに反するので、$p_\infty$ は無限位数である。
+系\ref{cor:nfm-kernel-picard-mod-three}と底変更から
+$\delta_{C_F}(p_\infty)=\delta_C(p)_F$ を得る。
+
+もし $\mathcal A_F$ が分裂すれば、その Brauer--Severi 曲面は $F$-点を持ち、
+$J$ から $\operatorname{SB}(\mathcal A)$ への有理写像を与える。
+$J$ の $K$-有理原点における局所環は DVR であり、
+$\operatorname{SB}(\mathcal A)$ は proper なので、その写像はこの局所環上へ延長する。
+原点での値が $K$-点となり、$\mathcal A$ の非分裂性に反する。
+従って $\mathcal A_F$ も非分裂であり、次数三から index は三である。
+最後に次数三の偏極について
+$[t_{p_\infty}^*L_F\otimes L_F^{-1}]=-3p_\infty$ なので、
+無限位数性からこの Picard 類は零ではない。
+\end{proof}
+
+以上は、実際の次数三偏極を持つ genus-one 曲線の
+Picard 障害に対して index の上界三が鋭いことを示す。
+三捩れかつ偏極を保つ場合にも、無限位数の場合にも障害は残り得る。
+これらの曲線と移動点を、本稿の良い一ブロック族の点 shift や
+full 比較核の最高次線束として実現したとは主張しない。
+従って、本稿の full 比較核の scalar index が実際に三となる例を与えたわけではない。
+
 階数九の $T_P^{(3)}$ は、任意の直線切片や最小分裂体を選ばず、
 固定した Picard 類から相対的に定まる scalar 分裂被覆である。
 これは既存の体上の $\operatorname{ind}(\alpha)\mid3$ という上界を改善する主張ではない。

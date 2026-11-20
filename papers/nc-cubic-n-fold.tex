@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v14}
+\date{2026年11月20日・研究稿 v15}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -73,8 +73,8 @@ $\gcd(n-1,3)$ と決定する。
 残余 active 曲線と楕円点曲線の $j$ は等しく、尺度線束は残余 Hodge 線束の双対である。
 点微分による符号商残余射は、混合三角性と安定化群比較により一般次数十八となる。
 その尺度二重被覆の類は active 不変量体から来る。
-三捩れ対称族自身の Jacobian 同型被覆は分裂し、残余曲線の近傍延長を追加仮定すると、
-符号類の消滅と半古典規格化された一般次数九の full lift を得る。
+有限対角を用いて残余射を三捩れ対称族の近傍へ延長し、符号類の消滅を示す。
+半古典規格化された full 射は一般次数九で、反対代数に対し符号反転で同変となる。
 
 active 制限の最高次 cohomology が次数零線束となる比較核の非空な型を構成する。
 この型の full 同型類を選んだ後、核の scalar gerbe は Picard gerbe の引戻しであり、
@@ -82,8 +82,8 @@ active 制限の最高次 cohomology が次数零線束となる比較核の非�
 さらに Picard 類の三分点を取る標準的な階数九の有限 étale 被覆上で、
 最高次線束を determinant により規格化した full 核を構成する。
 障害は $J_C(S)/3J_C(S)$ を通り、Picard 類が三倍なら元の底で消える。
-非可換 active 商の相対 THCR/window 比較を別に仮定すると、
-この Picard 類を点の平行移動で表す核の型も一般に非空となる。
+非可換 active 商の相対 THCR/window 比較と底変更を検証し、
+この Picard 類を点の平行移動で表す核の型も一般に非空であることを示す。
 
 trace--Hessian 三次と残余三次の不一致を全次元で示し、
 全同値へ降下し、active 切断が点曲線に一致する一般次数九の Hessian 補正を構成する。
@@ -97,7 +97,7 @@ $n=8$ の頂点には長さ330の非分裂平方零構造がある。
 滑らかな特殊三次の非零点にも非被約例があり、
 頂点の冪零部分の最高次数・消滅指数は次元について非有界である。
 $n\ne4$ では残余圏の通常 Artin 変形の一次切断を幾何的に認識する。
-全 intrinsic 成分の被覆、元の stack 上の符号選択、核の大域降下は未完成である。
+全 intrinsic 成分の被覆と比較核の大域降下は未完成である。
 \end{abstract}
 \clearpage
 \setcounter{tocdepth}{1}
@@ -246,9 +246,13 @@ trace の多項式性から混合係数の多項式逆を作り、共通の三�
 \cite{NFMStacksRegularFields}を用い、符号二重被覆の類を active 不変量の体へ降ろす。
 古典的不変式論や正則な体拡大の一般論自体とは区別する。
 さらに Hesse 係数体への二次類の単射性と、三捩れ対称な混合族を用いて、
-符号類の消滅を特定の近傍延長条件へ帰着する。
+符号類の消滅を証明する。Benoist\cite[Theorems~1.6--1.7]{NFMBenoistSeparation}による
+滑らかな偏極三次の分離性・DM 性から、Poisson 符号商標的の有限対角を得る。
+有限表示の係数降下\cite{NFMStacksStackLimits}と正規環への整性によって
+指定した一般点での同型を延ばし、混合三角多項式から得る近傍延長を降下する。
 正規な底上の有限 étale 被覆の一般ファイバーへの完全忠実性
-\cite{NFMStacksEtaleNormal}を使うが、必要な残余曲線の近傍への延長は別の仮定である。
+\cite{NFMStacksEtaleNormal}と有理三捩れ点による twist の排除を組み合わせる。
+これらの一般的な降下原理自体は既知であり、残余射への適用と区別する。
 比較核の scalar 障害には、Knudsen--Mumford\cite{NFMKnudsenMumfordDet}の determinant と
 Lieblich\cite[Sections~2.2.4--2.2.5]{NFMLieblichTwisted}の twisted sheaf の重みの議論を使い、
 固定入力Bの stabilization の Euler 数から全次元の明示的な index bound を取り出す。
@@ -268,8 +272,20 @@ determinant で明示的に作り、選択済み核を相対的な三分点被�
 右 twisted homogeneous coordinate ring の shift は
 Stafford--Van den Bergh\cite[\S3, equation~(3.1)]{NFMStaffordVdB}の規約を用いる。
 この shift と spherical twist の共役を計算し、
-相対 THCR/window 比較の追加仮定の下で、最高次線束の Picard 類を
-点の平行移動へ同定する。相対同値の仮定を体上の Orlov 同値だけで代用しない。
+指定した中心三次を持つ active 商に対し、相対 THCR と window1 の比較を構成する。
+相対 ample pair は Keeler\cite[Proposition~7.2, Lemma~7.6]{NFMKeelerAmple}の枠組みを用い、
+底変更は各次数の perfect cohomology\cite{NFMStacksPerfectBasechange}と
+MF の余核図式から検証する。これによって固定入力の下で、
+最高次線束の Picard 類を点の平行移動へ同定する型の非空性を得る。
+体上の同値の存在だけから相対同値や底変更を推論してはいない。
+
+genus-one 曲線に付随する Jacobian 上の Azumaya 代数と、その点における
+Brauer 評価は既知である
+\cite[Theorems~1.1--1.2, Corollary~1.4]{NFMFisherGenusOneAlgebras}。
+本稿では対角三次上の Picard 障害を巡回 cocycle として直接計算し、
+一般の次数三偏極からは scalar 障害の消滅を結論できないことを示す。
+巡回代数や norm 判定\cite{NFMMilneCFT}を新規成果とはせず、
+本稿の full 比較核で index 三を実現する例を構成したとも主張しない。
 
 既知の公式からの帰結と、本稿に証明を与える拡張は以下で区別する。
 これらの拡張について、独立な新規性の網羅的確認はなお完了していない。
@@ -673,6 +689,17 @@ deck 反転はその逆と Poisson tensor の負を同時に与える。
 また $L_0=\C(c_4,-c_6)$ を補正前の active 不変量の体とすると、
 $\mathfrak D$ の一般点の Kummer 類は、一意な
 $\chi_{\mathrm{act}}\in L_0^\times/(L_0^\times)^2$ の引戻しである。
+この類は零であり、適切な非空開上で $\mathfrak D$ は分裂する。
+二つの切断のうち半古典先頭項で規格化したものは、
+全 O-同値に自然な full Poisson 射
+\[
+ \Psi_{\mathrm{res}}^{\mathrm{sc}}:
+ \mathfrak U\longrightarrow\mathfrak P_n^{\mathrm{dec}},
+ \qquad\deg\Psi_{\mathrm{res}}^{\mathrm{sc}}=9
+\]
+を定める。適切な非空開への制限後に有限 \'etale 階数九となり、
+$\Psi_{\mathrm{res}}^{\mathrm{sc}}\circ\iota
+ =-\Psi_{\mathrm{res}}^{\mathrm{sc}}$ を満たす。
 \end{maintheorem}
 
 証明は\S\ref{sec:nfm-residual-point-scale}に置く。
@@ -692,16 +719,19 @@ active 再帰と既存の同座標 Hesse 同定から証明する。
 反対被覆は full Poisson 符号被覆の active な二次 twist であり、その一般点の類は
 $\chi_{\mathrm{op}}=\chi_{\mathrm{sgn}}+\chi_{\mathrm{act}}$ を満たす
 （系\ref{cor:nfm-opposite-cover-active-twist}）。
-Hesse 係数体への二次類の写像は単射であり、全 $n\ge3$ の三捩れ対称な混合族上では
-Jacobian 同型の被覆が分裂する
-（補題\ref{lem:nfm-hesse-kummer-injective}、命題\ref{prop:nfm-cyclic-test-sign-split}）。
-この族の一般点を含む正規な表示近傍へ残余 active 曲線が滑らかに延長し、
-試験族の構成と両立するという条件 $(\mathrm E_\sigma)$ の下で、
-$\chi_{\mathrm{act}}=0$ と半古典先頭項で規格化した一般次数九の full lift を得る
-（定理\ref{thm:nfm-active-sign-extension-criterion}、
-系\ref{cor:nfm-semiclassical-full-residual}）。
-この近傍延長は未証明であり、一般点の perfect 対角の spread だけからは従わない。
-従って元の開上の符号選択は、無条件にはまだ解決していない。
+Hesse 係数体への二次類の写像は単射である
+（補題\ref{lem:nfm-hesse-kummer-injective}）。
+混合係数に関する三角多項式は、三捩れ対称点でも滑らかな三次を与える。
+標的の有限対角と、指定された一般点同型の正規基底への延長により、
+その近傍の Poisson 対を代数的に降下する
+（補題\ref{lem:nfm-poisson-target-finite-diagonal}、
+\ref{lem:nfm-finite-diagonal-rational-extension}）。
+延長上の三捩れ自己同型から有理三捩れ点を得て Jacobian の二次 twist を排除し、
+$\chi_{\mathrm{act}}=0$ と半古典規格化された一般次数九の full 射を得る
+（定理\ref{thm:nfm-active-sign-vanishing}、系\ref{cor:nfm-semiclassical-full-residual}）。
+従って $\chi_{\mathrm{op}}=\chi_{\mathrm{sgn}}$ である。
+この延長の特殊ファイバーを低 rotation 積の特殊化から再構成できることや、
+比較核がそこへ延びることまでは主張しない。
 一般の反対代数の対は O-marked 圏として異なるが、同じ残余三次と、
 共通の有限被覆上で同値な残余 dg 圏を持つ
 （系\ref{cor:nfm-opposite-same-residual-category}）。
@@ -785,21 +815,36 @@ $n\not\equiv1\pmod3$ なら三、$n\equiv1\pmod3$ なら九が index の上界�
 active 同値核そのものの選択や coherent な中心線型性の代数的降下は仮定せず、
 full kernel から得る一つの対象を用いている。
 
-さらに相対 THCR/window1 比較\eqref{eq:nfm-relative-elliptic-window-hypothesis}を
-追加仮定すると、少なくとも一つの支配的な有限 étale 被覆上に、
+さらに支配的な完備族上で相対 THCR/window1 比較と底変更を構成する
+（命題\ref{prop:nfm-relative-active-thcr}、\ref{prop:nfm-relative-active-window-basechange}）。
+従って同じ固定入力の下で、少なくとも一つの支配的な有限 étale 被覆上に、
 平面同型 $\varphi:E_{\mathrm{pt}}\simeq C_{\mathrm{res}}$ と比較核 $P$ で
 \[
- m_P=\operatorname{Jac}(\varphi)(p_{\mathrm{pt}})=p_{\mathrm{res}},\qquad
+ \begin{gathered}
+ \operatorname{Jac}(\varphi)=\theta_{\mathrm{sc}},\qquad
+ m_P=\theta_{\mathrm{sc}}(p_{\mathrm{pt}})=p_{\mathrm{res}},\\
  \alpha=\delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})
+ \end{gathered}
 \]
-となる型が存在する。第二式はこの型の full 同型類を選んだ後の主張である
+となる型が存在する。最後の式はこの型の full 同型類を選んだ後の主張である
 （命題\ref{prop:nfm-kernel-point-line-nonempty}、
 系\ref{cor:nfm-kernel-point-picard-obstruction}）。
+$\theta_{\mathrm{sc}}$ は半古典規格化による Jacobian 同型であり、
+$\varphi$ はその上の階数九の $J_E[3]$-torsor $\mathfrak I_{\mathrm{sc}}$ から選ぶ。
 証明の核は、楕円曲線上の $U_{a,b}=t_a^*\circ(-\otimes P_b)$ に対する
 rotation の共役式であり、右 point shift を織り込むと $3a=0$、$b=p_{\mathrm{pt}}$ となる。
 同じ部分群の rotation 保存自己同値は Picard 類を変えないため、
 これだけで $m_P$ を任意に零へ調整することはできない。
-上の相対 window 仮定、全ての比較核への適用、および full 同型類の選択は区別する。
+この非空性は、全ての比較核への適用や full 同型類の選択を含まない。
+
+実際の次数三線束が存在しても、Picard 障害が非零となることはある。
+命題\ref{prop:nfm-picard-cubic-index-sharp}では
+$\C(a,b)$ 上の $X^3-aY^3-bZ^3=0$ と三捩れの平行移動に対して
+障害を非分裂の次数三巡回代数として求める。
+系\ref{cor:nfm-picard-infinite-translation}では関数体拡大により
+同じ非零障害を無限位数の平行移動にも実現する。
+これは一般の Picard 障害に関する上界三の鋭さであり、
+本稿の full 比較核における障害の非零例はなお未構成である。
 
 \subsection{Jacobi スキームの次元境界}
 \begin{maintheorem}[Jacobi スキームの境界と平方零構造]
@@ -903,12 +948,15 @@ trace--Hessian 射と逆構成により、Poisson 対の開部分を同定した
 同じ三次への比較核を有限 étale 被覆上に得た。
 点曲線の微分から符号を除く尺度を選び、支配的・一般有限な残余射と
 標準二重被覆上の full lift を得た。
-残余射の一般次数は十八であり、符号 torsor は active 不変量の体から来る。
+符号商残余射の一般次数は十八であり、その符号 torsor は分裂する。
+半古典先頭項で規格化した full 射は一般次数九で、反対操作に対して符号を変える。
 最高次 cohomology の線束型で同型類を選んだ比較核には、次元非依存の三捩れ評価がある。
 その Picard 類の三分点被覆上では、最高次線束を規格化した full 核が存在する。
-符号消滅には三捩れ対称族の近傍延長条件、Picard 類の点平行移動による表示には
-非可換 active 商の相対 THCR/window 比較を、それぞれ明示した追加仮定として残した。
-次の課題はこれら二条件の検証、比較核の full 同型類の整合的な選択、
+非可換 active 商の相対 THCR/window 比較と底変更を構成し、
+Picard 類が点の平行移動に一致する核の型の非空性を、同じ固定入力の下で得た。
+符号の近傍延長は有限対角と混合三角多項式から構成し、追加仮定を要しない。
+一般の次数三偏極では Picard 障害が非零になり得る明示例も与えた。
+次の課題は比較核の full 同型類の整合的な選択、
 点平行移動の実際の線束による表示と三可除性、および各 intrinsic 成分を覆う表示である。
 固定 frame の tensor の very general な超越性を踏まえ、
 形式座標の代数性と内在的なモジュライの代数性は区別して進める。

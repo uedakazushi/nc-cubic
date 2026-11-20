@@ -592,8 +592,11 @@ $\mathfrak D=\{t:b_{\mathrm{res}}(t^2)=b_{\mathrm{pt}}\}$ は区別する。
 
 Jacobian の同型は、genus-one torsor である曲線自体の同型や、
 その平面偏極の同型を意味しない。
-また本構成は、固定 formality による $\pi_h$ との全次数の尺度の一致、
-元の $\mathfrak U$ 上の符号選択はなお未解決である。
+固定 formality による $\pi_h$ との全次数の尺度は一般には一致しない
+（命題\ref{prop:nfm-point-scale-formal-comparison}）。
+元の $\mathfrak U$ 上の符号選択は、
+後の定理\ref{thm:nfm-active-sign-vanishing}と
+系\ref{cor:nfm-semiclassical-full-residual}で構成する。
 一般次数は後の定理\ref{thm:nfm-residual-exact-degree-eighteen}で十八と決定する。
 比較核の有限 \'etale 被覆を $\mathfrak D$ に引き戻せば
 同じ $X_{\mathrm{res}}$ の Kuznetsov 成分との比較を保つが、
@@ -1479,12 +1482,14 @@ $L_0$ 上の正則性に反する。
 
 ここでの三つの $\mu_2$-類は、表示 gerbe の Brauer 類や
 比較核の scalar gerbe の類とは別のものである。
-次に、$\chi_{\mathrm{act}}$ の消滅を三捩れ対称族によって検査する方法を与える。
-その族自体では Jacobian 同型の被覆が分裂する。
-一般点の二次類をその族へ特殊化するための相対延長条件を別に明記し、
-この条件を既存の一般点での有限降下と同一視しない。
+次に、三捩れ対称族と有限対角を持つ標的への射の延長を用いて、
+$\chi_{\mathrm{act}}$ の消滅を証明する。
+対称族自体の残余復元による分裂を先に記し、
+一般点の残余射を対称点へ延長する議論を別に与える。
+後者は混合次数の有限性を使い、
+特殊ファイバーの dg smoothness から相対 perfect 性を推論しない。
 
-\subsection{三捩れ対称族による符号消滅の判定}
+\subsection{三捩れ対称族による active 符号類の消滅}
 
 \begin{lemma}[Hesse 不変量体からの二次類の単射性]
 \label{lem:nfm-hesse-kummer-injective}
@@ -1658,62 +1663,215 @@ $\theta^{-1}(v_\sigma)$ は非零の三捩れ点であり、
 従って $\theta$ は $K$ 上へ降下する。
 \end{proof}
 
-この命題と一般点の $\chi_{\mathrm{act}}$ を比較するには、次の相対条件が必要である。
-\begin{description}
-\item[対称族への延長条件 $(\mathrm{E}_\sigma)$.]
-良い表示空間の正規な整 atlas 上で、
-式\eqref{eq:nfm-cyclic-hesse-test-family}の $K$ 点を含む開近傍があり、
-残余 active 曲線の一般点での構成がそこへ滑らかな genus-one 曲線として延長する。
-この延長は当該 $K$ 点で前命題の低 rotation 積による $C_\sigma$ に一致し、
-点曲線との比較と任意底変更に両立する。
-この近傍を $j\ne0,1728$ へ制限してよい。
-\end{description}
+前命題の $C_\sigma$ が、一般係数上の低 rotation 積の特殊化に一致するとは、
+体上の構成だけからは言えない。
+符号類を決めるためには、一般点の残余 Poisson 対を別の方法で延長すれば十分である。
+必要な延長を、有限対角を持つ stack の性質から構成する。
 
-ここでは自己同型群が自明である条件を課していない。
-対称族はその条件を満たさないからである。
-また、定理\ref{thm:nfm-relative-residual-cubic}で一般点の perfect 対角を
-開へ広げたことだけから $(\mathrm{E}_\sigma)$ は従わない。
-閉じた特殊族の点から周囲の近傍へ広げるには、
-相対的な perfect 対角または同等の有限模型・底変更の検証が別に必要である。
-現行の固定入力からこの追加条件を導く証明はまだ完成していない。
+\begin{lemma}[有限対角を持つ標的への有理射の延長]
+\label{lem:nfm-finite-diagonal-rational-extension}
+$K$ を標数零の体、$S$ を滑らかな幾何学的に整な有限型 $K$-scheme、
+$a\in S(K)$ とする。
+$\mathcal Y$ を有限表示で有限対角を持つ $K$ 上の代数 stack とし、
+$f:S^\circ\to\mathcal Y$ を稠密開上の射とする。
+ある体拡大 $\kappa/K$ に対し、$a_\kappa$ を含む $S_\kappa$ の開上に
+射 $g_\kappa$ があり、$f_\kappa$ との同型が共通の稠密開上で指定されているとする。
+このとき $f$ は $a$ を含む $S$ の開へ延長する。
 
-\begin{theorem}[対称族への延長による active 符号類の消滅判定]
-\label{thm:nfm-active-sign-extension-criterion}
-既存の固定入力に加え、$(\mathrm{E}_\sigma)$ を仮定する。
-このとき $\chi_{\mathrm{act}}=0$ である。
+さらに有限群 $G$ が $S$ に作用し、$a$ を固定し、
+$f$ に $G$-同変構造が指定されているならば、
+延長の開を $G$-不変にして、その同変構造も延長できる。
+体拡大後の別の同変延長との指定同型が一般点で同変ならば、
+その同型の延長も同変である。
+\end{lemma}
+
+\begin{proof}
+まず、正規な整 scheme $T$ 上の有限射 $I\to T$ の指定された有理的切断は、
+$T$ 全体へ一意に延長する。
+実際、正規整域 $R$ 上で有限 $R$-代数から $\operatorname{Frac}(R)$ への写像を取ると、
+その像は $R$ 上整なので $R$ に含まれる。
+この局所的な延長は一意性によって貼り合わさる。
+正規 scheme の各既約成分に同じ議論を適用してよい。
+
+開、射、および指定同型の有限表示性により、
+これらは $\kappa$ の有限生成 $K$-部分体へ降り、
+さらにその有限生成整 $K$-部分代数 $B$ 上へ広がる
+\cite[Lemma~102.3.7, Tag~0CMX]{NFMStacksStackLimits}。
+標数零なので $\operatorname{Spec}B$ を非空開へ制限して $K$ 上滑らかにできる。
+得られた $S_B$ の開を $V$ とし、その上の射を $g$ と書く。
+元の開は $a_\kappa$ を含むので、$B$ をさらに局所化すれば
+$a\times\operatorname{Spec}B\subset V$ とできる。
+
+$V\to S$ は滑らかであり、その像 $W$ は $a$ を含む開である。
+$V\to W$ は滑らかな全射となる。
+$V$、$R=V\times_WV$、および $R_3=V\times_WV\times_WV$ は、
+それぞれ $S\times_K\operatorname{Spec}B^{\otimes_K j}$（$j=1,2,3$）の開である。
+従って全て $K$ 上滑らかで正規である。
+各既約成分から $S$ への射は開であり、その像は非空なので、
+$S^\circ$ の逆像は各成分で稠密となる。
+
+$V$ 上の $g$ と $f$ の共通の定義域では、その同型空間は有限である。
+従って最初の議論により、指定された一般点の同型はこの共通定義域全体へ延長する。
+これから $R$ 上の二つの引戻しの間に、$S^\circ$ の逆像で降下同型を得る。
+この同型空間も $R$ 上有限なので、同じ議論で降下同型を $R$ 全体へ一意に延長する。
+三重積上の cocycle 条件は稠密開上で成立する。
+$R_3$ は被約で、同型空間は分離的なので、この条件は全体で成立する。
+滑らかな被覆に関する stack の降下により $W\to\mathcal Y$ を得る。
+特殊点の自己同型群を自明と仮定したのではなく、
+指定された一般点の同型を有限同型空間へ延長している。
+
+最後に $W$ をその $G$-平行移動の共通部分へ制限する。
+各群要素について、一般点の同変同型は有限同型空間と正規性により延長し、
+群の cocycle 条件は稠密開上の等式から延長する。
+別の延長との同型に対する同変性も、同じ分離性の議論による。
+\end{proof}
+
+\begin{lemma}[Poisson 符号商標的の有限対角]
+\label{lem:nfm-poisson-target-finite-diagonal}
+$n\ge3$ に対し、
+$\mathcal Y=[\mathfrak P_n^{\mathrm{dec}}/\mu_2]$ は
+有限型で有限対角を持つ分離的な Deligne--Mumford stack である。
+active 平面切断が滑らかで $j\ne0,1728$ となる開にも同じことが成り立つ。
+\end{lemma}
+\begin{proof}
+滑らかな三次超曲面と超平面偏極類の stack
+$[\mathcal H_N^{\mathrm{sm}}/\operatorname{PGL}(V)]$ は分離的で
+Deligne--Mumford である
+\cite[Theorems~1.6 and~1.7]{NFMBenoistSeparation}。
+その対角は proper かつ quasi-finite なので有限である。
+非零分解可能な Poisson tensor を付け加えた二つの対象の同型空間は、
+元の有限同型空間の中で tensor を保つという閉条件によって定まる。
+符号を許す場合も、$\varepsilon=\pm1$ ごとの閉条件の有限な和になる。
+従って $\mathcal Y$ の対角は有限である。
+有限型性は既存の係数表示から、Deligne--Mumford 性は
+有限 \'etale 群 $\mu_2$ による商から従う。
+ここで使うのは偏極類を持つ $\operatorname{PGL}$ 商であり、
+偏極線束の選択を持つ $\mathbf G_m$-gerbe ではない。
+\end{proof}
+
+\begin{theorem}[active 符号類の消滅]
+\label{thm:nfm-active-sign-vanishing}
+本節の残余復元と全次数混合三角性の固定入力の下で、
+\[
+ \chi_{\mathrm{act}}=0
+ \qquad\text{in }\C(s,t)^\times/\C(s,t)^{\times2}.
+\]
 従って点規格化に整合する残余 full Poisson 射の有理的な持上げが存在し、
 その一般次数は $9$ である。
+また反対被覆と full Poisson 符号被覆の引戻しは
+$\chi_{\mathrm{op}}=\chi_{\mathrm{sgn}}$ を満たす。
 \end{theorem}
 
 \begin{proof}
-$\chi_{\mathrm{act}}$ の代表元の零点と極を不変量基底から除く。
-対称族の補正前 active 不変量は
+\textbf{有限多項式模型による延長。}
+$K=\C(p,q,h)$、$\kappa=\C(p,q)((h))$、
+$g=p(x^3+y^3+z^3)/3+qxyz$ と置く。
+混合係数 $b,\ell,d$ の全 affine 空間を $S=\mathbb A_K^m$ とする。
+中心元を $\Omega_h^{\mathrm{TH}}=\mathfrak d_{h\Pi_F}^{-1}(F)$ と規格化した族に沿って、
+既存の残余符号商射を引き戻すと、稠密開上の射
 \[
- s=h^4c_4(g_{p,q}),\qquad t=-h^6c_6(g_{p,q})
+ f:S^\circ\longrightarrow
+     \mathcal Y=[\mathfrak P_n^{\mathrm{dec}}/\mu_2]
 \]
-であり、この基底を支配するため対称族の一般点は除かれない。
-$(\mathrm{E}_\sigma)$ の正規な近傍では、点曲線と残余曲線は滑らかで、
-$j$ の等式は一般点から延長する。
-従ってその Jacobian-Isom は有限 \'etale な $\mu_2$-torsor である。
-これと $\chi_{\mathrm{act}}$ の引戻しとの一般点での同型は、
-正規な整 scheme 上の有限 \'etale 被覆の generic fibre への
-完全忠実性\cite[Lemma~58.10.7, Tag~0BQI]{NFMStacksEtaleNormal}により、
-この近傍へ一意に延長する。
-よって前命題の分裂は、$\chi_{\mathrm{act}}$ が $K$ 上で零となることを意味する。
-一般点での等式を閉族へ無条件に特殊化しているのではなく、
-二つの実際の有限 \'etale 被覆の延長をここで使っている。
+を得る。
+この開が対称点を含むとは仮定しない。
 
-$P=hp$、$Q=hq$ と置くと
-$K=\C(P,Q,h)$ であり、$s=c_4(g_{P,Q})$、$t=-c_6(g_{P,Q})$ である。
-純超越拡大 $\C(P,Q)\subset\C(P,Q,h)$ は二次類を消さない。
-従って $\chi_{\mathrm{act}}$ は $\C(P,Q)$ 上ですでに零であり、
-補題\ref{lem:nfm-hesse-kummer-injective}から $\C(s,t)$ 上でも零となる。
-最後の主張は定理\ref{thm:nfm-residual-sign-active-class}による。
+命題\ref{prop:nfm-residual-mixed-triangular}により
+$\widehat W_h\in\kappa[m][x,u]_3$ であり、
+\[
+ \bigl(V(\widehat W_h),\,\widehat W_h\otimes hP_0\bigr)
+\]
+は全三次が滑らかな開上で実際の $\kappa$ 上の Poisson 対の族を定める。
+その符号商への射を $g_\kappa$ とする。
+混合単項式の個数が有限なので、用いる $\kappa$ の係数も有限個である。
+これらを有限生成 $K$-代数 $B\subset\kappa$ へ含められるのであって、
+各形式係数が $K$ 上代数的であることは要求していない。
+
+定理\ref{thm:nfm-residual-exact-degree-eighteen}の証明で、
+$f_\kappa$ と $g_\kappa$ は慣性自明な scheme 開において同定されている。
+従って両者の一般点の同型は存在し、一意である。
+同じ証明における共通安定化群への同変性から、
+\[
+ \sigma=\operatorname{diag}(1,\zeta,\zeta^2;1,\ldots,1)
+\]
+について $g_\kappa$ は同変である。
+$f$ の同変構造は表示変更への自然性による。
+一般点での比較同型は、一意性によりこれらの同変構造と両立する。
+
+$a_\sigma\in S(K)$ を
+\[
+ b=0,\qquad \ell=x\sum_i u_i^2,\qquad d=\frac13\sum_i u_i^3
+\]
+で定める。この点は $\sigma$ に固定される。
+補題\ref{lem:nfm-cyclic-scalar-witness}から
+$F(a_\sigma)$ は $\C(p,q)$ 上滑らかであり、
+$\widehat W_h(a_\sigma)=F(a_\sigma)+O(h)$ なので
+$\widehat W_h(a_\sigma)$ の判別式は $\kappa$ 上非零である。
+従って $a_{\sigma,\kappa}$ は $g_\kappa$ の定義域に入る。
+前二補題を適用すると、$a_\sigma$ を含む $\sigma$-不変な開
+$W\subset S$ と、同変な延長 $\widetilde f:W\to\mathcal Y$ を得る。
+
+\textbf{延長曲線上の三捩れ平行移動。}
+符号は underlying な偏極三次、support、および active 平面切断を変えない。
+従って $\widetilde f$ は $W$ 上にこれらの族を定める。
+active 切断は $a_\sigma$ で $\kappa$ 上の $V(J_g)$ に同型なので滑らかであり、
+$W$ をさらに縮めて滑らかな genus-one 曲線族 $C_W$ としてよい。
+その $a_\sigma$ ファイバーを $C'_\sigma$ と書く。
+有限同型空間による比較同型の延長と同変性により、
+$C'_\sigma$ 上の $\sigma$ の作用は $\kappa$ 上で
+$V(J_g)$ 上の $\operatorname{diag}(1,\zeta,\zeta^2)$ に一致する。
+この射影変換は滑らかな平面三次上で恒等ではなく、位数三である。
+$j\ne0,1728$ では楕円曲線の原点を保つ自己同型群は $\mu_2$ なので、
+これは非零の
+\[
+ v_\sigma\in\operatorname{Jac}(C'_\sigma)[3](K)
+\]
+による平行移動となる。
+
+点曲線 $E=V(J_g)$ は $K$ 上の Hesse 曲線であり、
+$\operatorname{Jac}(E)[3]$ は定数群である。
+また $C'_\sigma$ と $E$ は同じ $j\ne0,1728$ を持つ。
+命題\ref{prop:nfm-cyclic-test-sign-split}の最後の Galois cocycle の議論を
+$v_\sigma$ に適用すると、
+$\operatorname{Isom}_{\mathrm{gp}}(\operatorname{Jac}E,\operatorname{Jac}C'_\sigma)$
+は $K$ 上で分裂する。
+
+\textbf{一般点の二次類との比較。}
+$W$ 上でも $C_W$ と定数族 $E_W$ の $j$ は一般点からの延長により等しい。
+従って
+\[
+ D_W=\operatorname{Isom}_{\mathrm{gp}}
+       (\operatorname{Jac}E_W,\operatorname{Jac}C_W)
+\]
+は有限 \'etale な $\mu_2$-torsor である。
+一般点では命題\ref{prop:nfm-point-normalized-jacobian-cover}の被覆に等しく、
+その類は
+\[
+ s=h^4c_4(g),\qquad t=-h^6c_6(g)
+\]
+に沿う $\chi_{\mathrm{act}}$ の引戻しである。
+$\chi_{\mathrm{act}}|_K$ を $W$ へ引いた定数被覆との一般点での同型は、
+$W$ の正規性と有限 \'etale 被覆の完全忠実性
+\cite[Lemma~58.10.7, Tag~0BQI]{NFMStacksEtaleNormal}によって $W$ 全体へ延長する。
+$a_\sigma$ での $D_W$ の分裂から $\chi_{\mathrm{act}}|_K=0$ を得る。
+
+$P=hp$、$Q=hq$ と置けば $K=\C(P,Q,h)$ であり、
+$s=c_4(g_{P,Q})$、$t=-c_6(g_{P,Q})$ である。
+純超越拡大 $\C(P,Q)\subset K$ は二次類を消さないので、
+補題\ref{lem:nfm-hesse-kummer-injective}から $\chi_{\mathrm{act}}=0$ となる。
+持上げと次数は定理\ref{thm:nfm-residual-sign-active-class}に、
+被覆の等式は系\ref{cor:nfm-opposite-cover-active-twist}による。
 \end{proof}
 
-\begin{corollary}[半古典先頭項で規格化した条件付き full 射]
+この証明で用いた $C'_\sigma$ は、一般点の Poisson 対の代数的な延長から得た曲線である。
+その三捩れ作用を直接使うため、独立に低 rotation 積から得た
+$C_\sigma$ との同型を証明する必要がない。
+対称族の周囲で相対 perfect 対角や低 Nat の任意底変更を構成したとは主張していない。
+これらのより強い圏論的延長は、ここでの符号類の消滅とは区別される。
+
+\begin{corollary}[半古典先頭項で規格化した full 射]
 \label{cor:nfm-semiclassical-full-residual}
-前定理の追加仮定 $(\mathrm{E}_\sigma)$ の下で、適切な非空開上に
+同じ固定入力の下で、適切な非空開上に
 \[
  \Psi_{\mathrm{res}}^{\mathrm{sc}}:
      \mathfrak U\longrightarrow\mathfrak P_n^{\mathrm{dec}}
@@ -1732,6 +1890,19 @@ $K=\C(P,Q,h)$ であり、$s=c_4(g_{P,Q})$、$t=-c_6(g_{P,Q})$ である。
 \]
 射は全 O-同値に自然であり、適切な非空開への制限後には
 有限 \'etale 階数九となる。
+さらに慣性自明な共通の稠密開を取り、
+$Y$ を符号商標的、$\mathcal P_Y$ をその上の full Poisson 標的と書けば、
+選んだ持上げは Cartesian な図式
+\[
+ \begin{array}{ccc}
+ M&\xrightarrow{\ \Psi_{\mathrm{res}}^{\mathrm{sc}}\ }&\mathcal P_Y\\
+ \big\downarrow&&\big\downarrow\\
+ Z&\longrightarrow&Y
+ \end{array}
+ \qquad
+ M\simeq Z\times_Y\mathcal P_Y
+\]
+を与える。縦の射は階数二、横の射は階数九の有限 \'etale 射である。
 \end{corollary}
 
 \begin{proof}
@@ -1752,13 +1923,16 @@ $K=\C(P,Q,h)$ であり、$s=c_4(g_{P,Q})$、$t=-c_6(g_{P,Q})$ である。
 同じ符号商射を持ち上げ、上の形式族で同じ先頭項を持つ。
 一意性から表示した反対同変性を得る。
 一般次数は九であり、標数零で既存の有限 \'etale 開をさらに制限すればよい。
+最後に、$\chi_{\mathrm{op}}=\chi_{\mathrm{sgn}}$ により
+$M\to Z$ と $Z\times_Y\mathcal P_Y\to Z$ は同じ二重被覆である。
+選んだ full 持上げが与える両者の間の射は、
+反対同変性によって deck 変換に両立するので同型である。
+これが表示した Cartesian 図式を与える。
 \end{proof}
 
-$(\mathrm{E}_\sigma)$ を除いた $\chi_{\mathrm{act}}$ の消滅、
-元の moduli 上の無条件の符号選択は引き続き未解決である。
-この判定は、次に確認すべき点を「三変数の形式平方根」から、
-具体的な三捩れ対称族を通る相対残余模型の延長へ絞る。
-比較核の同型類の選択と scalar gerbe の降下は、いずれの場合にも別の問題である。
+従って符号商射の次数十八と、規格化した full 射の次数九は両立する。
+比較核の同型類の選択と scalar gerbe の降下は、
+この符号の選択からは従わず、引き続き別の問題である。
 
 
 \begin{corollary}[反対な O-marked 対と同じ残余圏]
