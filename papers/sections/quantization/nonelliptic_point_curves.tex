@@ -1,0 +1,67 @@
+% !TeX root = ../../cubic-quantization.tex
+\section{非楕円ブロックの古典入力と行列式曲線}\label{cq:nonelliptic-data}
+節点・尖点の制限を持つ次の二例を用いる。
+座標$(x,y,z,a,b,c,u)$に対応するベクトル基底を$(e_0,\ldots,e_6)$とする。
+\begin{equation}\label{cq:nonelliptic-F}
+\begin{aligned}
+ f_{\mathrm N}&=xyz+y^3+z^3,& f_{\mathrm C}&=xz^2+y^3,\\
+ F_\epsilon&=f_\epsilon+a^3+b^3+c^3+u(x^2+a^2+b^2+c^2)+u^3,
+ &X_\epsilon&=V(F_\epsilon)\subset\PP^6
+ \quad(\epsilon\in\{\mathrm N,\mathrm C\}).
+\end{aligned}
+\end{equation}
+$P_1=e_0\wedge e_1\wedge e_2$、$P_2=e_3\wedge e_4\wedge e_5$、
+$L=\CC P_1\oplus\CC P_2$とおく。
+
+
+$X_{\mathrm N},X_{\mathrm C}$の滑らかさ、および$L$が固定した
+Poissonスキームの被約既約成分となることは、
+\cite[非楕円型を一般点に持つ既約成分の定理]{PoissonCubic}による。
+その証明は古典論文に置き、本稿ではこの明示入力の量子化とその検証を扱う。
+
+\subsection{同次量子ブロックの行列式曲線}
+$u=0$の三変数ブロックを、$[y,z]=h\operatorname{sym}(f_x)$とその巡回置換で量子化する。
+多重線形化した二次関係式の行列は
+\begin{equation}
+ M_{\mathrm N}(h)=\begin{pmatrix}
+ 0&-(1+h/2)z&(1-h/2)y\\
+ (1-h/2)z&-3hy&-(1+h/2)x\\
+ -(1+h/2)y&(1-h/2)x&-3hz
+ \end{pmatrix},
+\end{equation}
+\begin{equation}
+ M_{\mathrm C}(h)=\begin{pmatrix}0&-z&y-hz\\z&-3hy&-x\\-y-hz&x&-hx\end{pmatrix}.
+\end{equation}
+\begin{proposition}\label{ne:quantum}
+\begin{equation}\begin{aligned}
+ \det M_{\mathrm N}(h)&=-\frac h4\bigl((h^2+12)xyz+(12-3h^2)(y^3+z^3)\bigr),\\
+ \det M_{\mathrm C}(h)&=-3h\bigl(xz^2+y^3-h^2yz^2\bigr).
+\end{aligned}\end{equation}
+前者は$h\ne0$、$h^2\notin\{4,-12\}$で節点三次曲線、
+後者は全ての$h\ne0$で尖点三次曲線である。
+\end{proposition}
+\begin{proof}
+行列式を展開すると二公式を得る。
+節点型は二係数が非零のとき$x$の定数倍で$f_{\mathrm N}$に移り、
+尖点型は$x'=x-h^2y$により$x'z^2+y^3$となる。
+\end{proof}
+ここでの主張は多重線形化した関係式の\emph{行列式曲線}についてである。
+全point moduleのmoduliとの一致、AS-regular性、全量子化の相対smoothnessは
+この計算だけからは主張しない。
+$h=0$で行列式は恒等的に零となり、$h$を除いた極限曲線と
+可換三変数多項式環のpoint scheme $\PP^2$を区別する。
+
+\subsection{全成分復元における役割}
+これらの成分の存在は、\cite{NCCubicMain}の一般点可換復元に反しない。
+特異ブロックの点$[1:0:0]$では全体の$u$方向微分$F_u=x^2$が非零であり、
+中心変数との混合が全体の滑らかさを保つ。
+従って、各ブロックの楕円性を必要条件とする方法ではこれらの成分を扱えない。
+全ポテンシャルの対角、中心方向の微分、その量子化との両立が課題となる。
+
+特異曲線の一般化Jacobianにも注意が必要である。
+節点三次曲線では$\Pic^0\simeq\mathbb G_m$、尖点型では$\Pic^0\simeq\mathbb G_a$。
+前者は正規化$\PP^1$上の二点のfiberを非零スカラーで接着することで、
+後者は$\CC[[t^2,t^3]]\subset\CC[[t]]$の単元商の一次係数$t$により得られる。
+従って、滑らかな楕円Picardに対して得た有理写像の障害を、これらにそのまま適用してはならない。
+一般化Jacobianの導入だけで圏比較が成立するとも主張しない。
+

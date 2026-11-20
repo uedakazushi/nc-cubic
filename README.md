@@ -1,14 +1,26 @@
-# 非可換三次 n-fold：可換復元・モジュライ・Poisson幾何
+# 非可換三次超曲面：代数的量子化・可換復元・モジュライ
 
-2026年11月21日 / v27。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
+2026年11月21日 / v28。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
 
 **再開時は [研究方針](00_research_plan.md) を最初に読む。**
 
 **全 n≥3 の標準 split 一般係数体で、正準強化 class の規格化周期位相は非自明である。** Hesse 境界 q=2+z の完備局所体で γ_sc,n=[D_R] を得た。従って D=0 での付値は1 mod3、位相被覆は tame な完全分岐三次拡大となり、正準 frame の位相体の次数は三と確定した。大域的な γ̄_n=[D] は ΔD 外の非分岐性を追加仮定した場合の結論であり、その仮定と位相体上の scalar index は未解決である。
 
-## 内容
+## 二つの独立論文と古典入力
 
-完備MF移送と一般点の全coherent残余圏のKu比較（旧 `poisson-cubic` 論文B）の全証明をこの主原稿へ統合した。一般の中心三次変形の基礎定理は、一ブロック型のモジュライ構成とは独立した仮定の下で述べる。外部から固定して使用する未公表原稿は `poisson-cubic` の論文Aと `nc-cubic-threefold-moduli` の指定版である。
+| 論文 | ファイル | 担当範囲 |
+| --- | --- | --- |
+| 三次超曲面の代数的量子化 | [papers/cubic-quantization.tex](papers/cubic-quantization.tex) | 全Poisson対・全ブロックのPBW/AS量子化、代数的中心三次、同変化・降下、二次包絡。 |
+| 非可換三次n-foldの可換復元とモジュライ | [papers/nc-cubic.tex](papers/nc-cubic.tex) | 一般中心三次変形のMF移送・一般点復元、良い一ブロックのO-markedモジュライ、残余射・Ku比較と降下障害。 |
+| 古典Poisson幾何（別repo） | [poisson-cubic/papers/poisson-cubic.tex](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex) | 正規形、退化、Bondal下界、固定・相対Poissonモジュライ。 |
+
+三論文の証明範囲を区別し、量子化の一般性をモジュライの一ブロック仮定へ狭めない。量子化の支持節は `papers/sections/quantization/`、厳密計算・証明書は `computations/quantization/`、知識の入口は [量子化ノート](notes/cubic_quantization.md)。二論文の本文は相互にinputせず、具体的定理と仮定を引用する。量子化稿はAをambient・Bを商とし、復元稿はBをambient・Aを商とする。
+
+全Poisson量子化は零を含むZariskiパラメータ開で構成する。階数二全supportと満support多ブロックの同変中心元・三次Veronese降下を保持し、中心変数が残るm>0,k≥2の一般同変構成、全hへの延長、中心商の抽象比較は未解決。中心元の点ごとの既知の存在と、係数環上の規格化・大域選択を区別する。
+
+## 可換復元・モジュライの内容
+
+完備MF移送と一般点の全coherent残余圏のKu比較（旧 `poisson-cubic` 論文B）の全証明をこの主原稿へ統合した。一般の中心三次変形の基礎定理は、一ブロック型のモジュライ構成とは独立した仮定の下で述べる。外部から使用する未公表原稿は `poisson-cubic` の古典Poisson論文と `nc-cubic-threefold-moduli` の指定版である。量子化の全証明は本repo内の独立論文へ置く。
 
 - [可換復元の基礎節](papers/sections/generic_recovery/main_result.tex)：完備MF比較 `cft:thm:complete`、一般点の可換復元 `gdr:thm:generic`、局所模型・window・飽和・低積の積分・明示Hesse模型を含む全9節。主原稿から読み込む。
 - [可換復元の研究上の障害と再現入口](notes/recovery_foundations.md)：定義体、有限降下、symmetrizer、具体例の規約、残るkernel有効化。
@@ -18,6 +30,8 @@
 - [公表用研究稿](papers/nc-cubic.tex)：中心復元、局所一ブロック型の O-marked DM stack と Brauer 障害、相対点関手と中心商の復元、trace–Hessian による Poisson 対の開部分との同型、残余復元との比較障害、次数9の代数的 Poisson 補正、形式 support 保存、全混合五次 tensor と残余四次 potential、四次の比較障害と新しい代数的補正、split 族の残余比較、一般混合係数の代数的残余三次・点曲線の j の一致・点微分による一般有限な符号商 Poisson 射、有限被覆上の Ku 比較、点型の全 O-降下と scalar 障害、n=3,4 の全 full class 降下と最小比較次数三、三分点体の次数九と ASL₂(F₃) モノドロミー、固定 tensor の very general な超越性、Jacobi スキーム、残余圏の通常 Artin 形式認識。
 - [研究ノート](notes/research_notes.md)：主張の依存・適用範囲、反例・障害、文献の確認箇所、次の計算の入口。
 - [検証範囲](notes/validation.md)：原稿点検・組版・厳密計算を区別した確認状態。
+- [量子化の検証状態](validation_quantization.json) と [再現入口](computations/quantization/README.md)：中心元・多ブロック計算と独立量子化稿の確認範囲。
+- [相対構成の補助ノート](notes/relative_construction_obstacles.tex)、[中心二チャートの補助ノート](notes/central_cubic_generic_smoothness.tex)、[未照合の外部資料](notes/unresolved_external_sources.md)：本文へ無条件に取り込まない技術的障害・残る照合範囲。
 - [Jacobi 行列検証コード](computations/verify_jacobi_rank.py) と [整数小行列証明書](computations/jacobi_rank_certificate.json)。
 - [八次元の頂点構造の検証コード](computations/verify_jacobi_vertex.py)、[C++ 検証器](computations/verify_binary_minor.cpp)、[次数三の全射性の証明書](computations/jacobi_vertex_certificate.json)。
 - [中心評価・Hessian・trace の厳密検算](computations/verify_center_hessian.py)。
@@ -43,7 +57,7 @@
 - [点障害の厳密検算](computations/verify_picard_obstruction.py)：Hesse 接線・巡回 norm、Sklyanin 点三次・係数の逆、rotation の六つの数値 centralizer、巡回平面 twist・norm 係数・symbol 補正、普遍 Jacobian の三捩れ点・八点軌道・安定化群 core、右点対応。
 - [参考文献](papers/references.tex)。外部文献PDFは含めない。
 
-外部の未公表入力は [poisson-cubicの論文A](https://github.com/uedakazushi/poisson-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) のPoisson正規形・量子化である。旧論文Bの一般点復元は現行主原稿内に証明を統合した。統合は結果を新たに今回証明したという意味ではない。
+外部の古典入力は [poisson-cubicの論文](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex) のPoisson正規形であり、代数的量子化の入力は本repoの [cubic-quantization.tex](papers/cubic-quantization.tex) である。旧論文Bの一般点復元は現行主原稿内に証明を統合した。統合は結果を新たに今回証明したという意味ではない。
 
 ## 現在の研究目標
 
@@ -249,7 +263,10 @@ python3 computations/verify_fourth_potential.py
 python3 computations/verify_jacobi_rank.py --verify computations/jacobi_rank_certificate.json
 python3 computations/verify_jacobi_vertex.py --verify computations/jacobi_vertex_certificate.json
 latexmk papers/nc-cubic.tex
+latexmk papers/cubic-quantization.tex
 ```
+
+引数なしの `latexmk` は上の二論文を組版する。`python3 scripts/check_sources.py` は各論文の入力・引用・ラベルを独立に検査する。量子化の再現コマンドは `notes/cubic_quantization.md` と量子化の検証資料を参照する。
 
 点障害、Jacobi・Hessian 補正、境界 MF と低積の計算資産を保持する。各検証器の実行・厳密証明書・原稿点検・組版・表示確認の状態は [検証範囲](notes/validation.md) を参照する。有限計算による恒等式確認と、全次数の平坦性、同型延長、Brauer 類、圏同値、Kummer 降下の証明は区別する。
 

@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月21日 / v27。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは依存・適用範囲・障害・再現の入口をまとめる。
+2026年11月21日 / v28。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [cubic_quantization.md](cubic_quantization.md)、その独立論文は `../papers/cubic-quantization.tex` を参照する。
 
 ## 1. 記法と成果の確実性
 
@@ -143,11 +143,11 @@ general の稠密 Zariski 開、幾何学的一般点、very general の可算�
 詳細の有効な技術的障害は [可換復元の補助ノート](recovery_foundations.md) に保持する。
 
 
-`poisson-cubic` のPoisson/量子化論文Aは固定commit `eabe601c1341777742964584dde5314c0bcf64a9`（A-v61）を外部入力とする。旧論文B（B-v59）の必要証明は主原稿に統合され、本repoの `papers/sections/generic_recovery/` を正本とする。
+古典Poisson論文は `poisson-cubic/papers/poisson-cubic.tex`（A-v62、2026-11-21）を外部入力とする。分割前の照合元はcommit `8e6ac42a951289bb0431edb6f7dcc36281a6822b`。量子化の全証明は本repoの `papers/cubic-quantization.tex`（v1）を正本とする。旧論文B（B-v59）の必要証明は主原稿に統合され、本repoの `papers/sections/generic_recovery/` を正本とする。
 
 - 論文A `poisson_geometry.tex`：`prop:pg-represent` の bivector 表示、`prop:pg-jacobi-extension` の affine Jacobi 延長、`thm:pg-normal` の複数 Jacobian ブロック正規形、`cor:pg-generic` の一般三次における被約 Grassmann 錐。全次元の一般 Jacobi スキームの有限長冪零根基を論じる際には最後の被約分類を使う。二次方程式の不足、n=8 の長さ330の定理、およびその直和から作る特殊三次の非零冪零例は、この被約分類に依存しない。
-- 論文A `general_dimension_universal_quantization.tex`：`thm:pg-all-dimensions`, `prop:pg-ad-relative-chart` が中心量子化の入力。一ブロック相対 PBW 開と中心三次束の存在は、この研究稿と Etingof–Ginzburg の既知の構成から取る。今回その全証明を独立に再検証したわけではない。
-- 論文A `papers/support/papers/sections/hesse_mixed_universal_center.tex`：`thm:pg-universal-hesse-mixed`、`eq:pg-hm-coefficients`、`cor:pg-hesse-hessian-form`、`eq:pg-hesse-hessian-closed` が全混合中心元と Ψ_λ(F) の有限公式。固定 commit の本文を直接確認し、四次係数を I,J と純中心項へ書き直した恒等式を厳密検算した。中心公式そのものは入力であり、今回の可換記号計算を非可換中心性の再証明と呼ばない。
+- 量子化論文 `papers/sections/quantization/general_dimension_universal_quantization.tex`：`thm:pg-all-dimensions`, `prop:pg-ad-relative-chart` が中心量子化の入力。一ブロック相対 PBW 開と中心三次束の存在は、この研究稿と Etingof–Ginzburg の既知の構成から取る。今回その全証明を独立に再検証したわけではない。
+- 量子化論文 `papers/sections/quantization/hesse_mixed_universal_center.tex`：`thm:pg-universal-hesse-mixed`、`eq:pg-hm-coefficients`、`cor:pg-hesse-hessian-form`、`eq:pg-hesse-hessian-closed` が全混合中心元と Ψ_λ(F) の有限公式。固定 commit の本文を直接確認し、四次係数を I,J と純中心項へ書き直した恒等式を厳密検算した。中心公式そのものは入力であり、今回の可換記号計算を非可換中心性の再証明と呼ばない。
 - 本稿の一般復元節 `papers/sections/generic_recovery/main_result.tex` 等：全 n≥3 が対象。C[h]_(h) 上の次数別有限自由な中心三次対が、多項式環と滑らかな三次式へ特殊化する場合を扱う。一般点の coherent 残余模型は rotation と指定三次周期を保つ。方程式は C(h)、同値核は有限拡大上という区別を守る。全パラメータ・任意の nc cubic・核の基底体への降下を自動的に含まない。
 - 本稿の一般復元節の `cft:thm:complete`, `cft:lem:model`, `cft:lem:center`：選んだ formality と厳密同型 φ に対し、残余 potential は W=C_π^(-1)φ(w) である。W mod h=F は W=F を意味しない。`gcd:thm:field-model` は幾何的な可換模型の存在を得た後の方程式の関数体への降下であり、h=0 での正則性や同値核の同じ体への降下を自動的に与えない。`gre:prop:input`, `gre:prop:hesse-normalform`, `gre:thm:exact-potential`, `gre:prop:jet` の split Hesse 公式を全 n の比較例に用いる。固定標的への一般点比較には `rog:lem:localization`, `rog:lem:descent` を使い、線束生成部分から全 coherent 残余圏へ移るには `crs:prop:residual-smooth`, `crs:thm:coherent` をさらに使う。旧Bの証明を現行主原稿に全文統合したが、今回それらの全証明を独立に再検証したとは主張しない。
 - 本稿の一般復元節 `papers/sections/generic_recovery/curved_transport.tex` の完備比較は N≥3 を対象とし、`cft:lem:arity`, `cft:lem:flow`, `cft:eq:bound`, `cft:eq:t-weight`, `cft:eq:insertions`, `cft:eq:two-block-matrix` を直接確認した。これに対し `window.tex` の節全体は N≥5 を仮定する。三変数の active 比較は相対 bar 写像の中心係数還元で構成し、一般点生成・window 定理を n=1 へ流用しない。三変数の相対 a=0 比較・proper Hom・Laurent 底変更には `papers/sections/generic_recovery/explicit_example.tex` の `gre:prop:elliptic-quotient`, `gre:lem:elliptic-mf` を用い、正則 DVR と滑らかな active 曲線という仮定を確認した。剰余体と rotation の具体式は Galinat の同じ window1 に統一する。
@@ -279,7 +279,7 @@ Pdec は、滑らかな三次式の空間と Gr(3,V*) の積上の L_H⊗det K �
 
 ### 有限パラメータでの比較に使える厳密例
 
-F=(x³+y³+z³)/3+Axy+Byz+Czx+Dx+Ey+Hz+G とし、A,B,Cは任意個の中心変数の一次式、D,E,Hは二次式、Gは三次式とする。入力論文Aの `hesse_mixed_universal_center.tex`, `cor:pg-hesse-hessian-form` の短い中心元をΩ、純中心補正h²ABC/6を引いたものをΩtildeとすると、同入力の中心性を仮定した上で、現行のtrace計算は
+F=(x³+y³+z³)/3+Axy+Byz+Czx+Dx+Ey+Hz+G とし、A,B,Cは任意個の中心変数の一次式、D,E,Hは二次式、Gは三次式とする。量子化論文の `papers/sections/quantization/hesse_mixed_universal_center.tex`, `cor:pg-hesse-hessian-form` の短い中心元をΩ、純中心補正h²ABC/6を引いたものをΩtildeとすると、同入力の中心性を仮定した上で、現行のtrace計算は
 
 \[
  d_{h\Pi_F}(\Omega)=F+\frac76h^2ABC-\frac{h^4}{18}(AH+BD+CE),
@@ -819,7 +819,7 @@ D={t²=η_res}上のι_+(a,t)=(ιa,t)、ι_−(a,t)=(ιa,−t)は可換で、積
              +x\sum_i u_i^2+\frac13\sum_i u_i^3
 \]
 
-を用いる。p=q=1 の場合は滑らかで scalar symmetrizer を持ち、従って一般の p,q でも同じ性質を持つ。σ=diag(1,ζ,ζ²;1,…,1) はこの族を保つ（`lem:nfm-cyclic-scalar-witness`）。入力Aの普遍 Hesse 中心式と固定入力Bをこの族自身へ適用すると、K=C(p,q)(h) 上に残余 active 曲線 C_σ と点曲線 E_σ が構成できる。残余側では σ が Hodge 微分を固定し、非零の K-有理三捩れ平行移動を与える。点側の全三捩れは K-有理であるため、j≠0,1728 上の Jacobian-Isom の二次 twist は自明となる（`prop:nfm-cyclic-test-sign-split`）。
+を用いる。p=q=1 の場合は滑らかで scalar symmetrizer を持ち、従って一般の p,q でも同じ性質を持つ。σ=diag(1,ζ,ζ²;1,…,1) はこの族を保つ（`lem:nfm-cyclic-scalar-witness`）。[量子化論文](../papers/cubic-quantization.tex)の普遍 Hesse 中心式と固定入力Bをこの族自身へ適用すると、K=C(p,q)(h) 上に残余 active 曲線 C_σ と点曲線 E_σ が構成できる。残余側では σ が Hodge 微分を固定し、非零の K-有理三捩れ平行移動を与える。点側の全三捩れは K-有理であるため、j≠0,1728 上の Jacobian-Isom の二次 twist は自明となる（`prop:nfm-cyclic-test-sign-split`）。
 
 Hesse 不変量 s=q(q³−8p³)、t=q⁶+20p³q³−8p⁶ に対し、C(s,t) から C(p,q) への二次類の制限は単射である（`lem:nfm-hesse-kummer-injective`）。本文は次数24の Hesse 体拡大と、その群 Q₈⋊C₃ が非自明な μ₂ 指標を持たないことを直接確認する。この体論と上の対称族自身の分裂だけではχ_actを閉じた族へ特殊化できないため、次の代数的延長を構成する。
 

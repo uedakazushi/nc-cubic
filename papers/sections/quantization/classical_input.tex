@@ -1,0 +1,60 @@
+% !TeX root = ../../cubic-quantization.tex
+\section{古典的入力と記法}\label{sec:cq-classical-input}
+本稿では$V$を$N=n+2\ge5$次元の複素ベクトル空間、
+$F\in\operatorname{Sym}^3(V^*)$を滑らかな射影超曲面
+$X=V(F)\subset\PP(V)$を定める三次式とする。
+\cite[大域双ベクトル場の表示およびPoisson正規形定理]{PoissonCubic}により、
+$X$上の正則Poisson構造は定数三重ベクトル$P\in\Lambda^3V$から
+$\pi_X=(\iota_{dF}P)|_X$と表され、対応する錐上の双ベクトル$\pi=\iota_{dF}P$もPoissonとなる。
+以下ではその構造定理を入力として用いる。
+
+\begin{theorem}[古典的入力：Poisson正規形 \cite{PoissonCubic}]\label{thm:pg-normal}
+任意の非零 Poisson 構造に対して、$N=3k+m$ となる $k\geq1$ と線形座標
+$x_s=(x_{s1},x_{s2},x_{s3})$、$u=(u_1,\ldots,u_m)$ が存在し、
+\begin{equation}
+P=\sum_{s=1}^k\partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}},
+\qquad F=\sum_{s=1}^k f_s(x_s,u)\label{eq:pg-normal}
+\end{equation}
+となる。括弧は
+\begin{equation}
+\{x_{s1},x_{s2}\}=(f_s)_{x_{s3}},\quad
+\{x_{s2},x_{s3}\}=(f_s)_{x_{s1}},\quad
+\{x_{s3},x_{s1}\}=(f_s)_{x_{s2}}\label{eq:pg-bracket}
+\end{equation}
+と、異なるブロック間および $\{u_\alpha,-\}$ が零であることで定まる。
+逆に\eqref{eq:pg-normal}を満たす滑らかな $F$ はこの括弧によって Poisson 構造を定める。
+$\pi$ と $\pi_X$ の一般階数はともに $2k$ である。
+\end{theorem}
+
+この定理のEuler--Koszul表示・Hessian線形化・Lie代数の根基排除を用いた
+証明は\cite{PoissonCubic}にある。本稿で証明する量子化の存在をその証明に用いない。
+三変数制限$f_s(x_s,0)$は滑らかとは限らず、特異または恒等的に零でもよい。
+また$f_s$への純中心三次項の配分は一意でない。
+量子化に必要な各$f_s$全体の滑らかさを実現する配分は
+補題\ref{lem:pg-central-splitting-smooth}で証明する。
+
+\subsection{相対階数層を扱う際の入力}
+$P$のsupportは$\bigoplus_sW_s$であり、順序を忘れた各$W_s$は
+縮約二形式の平方零スキームから復元される
+\cite[縮約二形式による復元補題]{PoissonCubic}。
+固定した$P$と適合する三次式は、異なるブロック方向の混合二階偏微分が
+零となるものに一致する。このHessian条件と、滑らかな三次式の開条件を
+用いた相対Poisson階数層の記述は
+\cite[Jacobi条件の線形化および相対Poisson成分定理]{PoissonCubic}による。
+本稿の第\ref{sec:pg-full-support-quantization}節では、この入力を有限\'etaleな
+ブロック被覆として相対化し、量子化の同変構成と降下に用いる。
+固定した超曲面上のPoissonスキーム、その自己同型群による商、
+三次式自体を動かす相対モジュライは区別する。
+階数層への降下では、明記しない限りその被約構造を取る。
+
+\subsection{代数と中心商の規約}
+周囲の二次代数を$A$、中心三次元を$\Omega$、中心商を$B=A/(\Omega)$と書く。
+族には$\mathcal A,\mathcal B$を使い、$u_1,\ldots,u_m$は中心変数である。
+量子化パラメータ$\hbar$、または各ブロックの独立パラメータは次数零、
+$x_{si},u_\alpha$は次数一とする。
+純中心三次項を加えた$\Omega'=a\Omega+c$は、同じ古典極限を持っても
+一般には同じ中心イデアルを定めない。この比較は、商の抽象同型や
+$\operatorname{qgr}$同値の判定とは別である。
+\cite{NCCubicMain}のモジュライ部分ではambientと中心商の文字の使い方が
+逆になる箇所があるため、引用時には代数の役割によって対応させる。
+\par

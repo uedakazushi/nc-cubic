@@ -1,16 +1,36 @@
 # 非可換三次 n-fold：研究方針
 
-2026年11月21日 / v27。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+2026年11月21日 / v28。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
 
-## 基本目標と優先順位
+## 三論文の分担と量子化の研究目標
 
-旧論文Bの全coherent残余圏比較を一般次元の基礎部分として主論文に統合した。完備noetherian局所底での実際の有限rank MF関手と逆、三対象window、一般点の全coherent飽和、低rotation積からの関数体上の方程式復元、Hesse–Sklyanin有理例を省略せず保持する。モジュライの一ブロック仮定より広い基礎定理の一般性を縮小しない。旧paper Bは本稿内の基礎定理群に統合し、現行外部入力はpoisson-cubicの論文Aである。
+本repoには主論文 `papers/nc-cubic.tex` と、独立した量子化論文 `papers/cubic-quantization.tex` を置く。古典的正規形・退化・固定および相対Poissonモジュライの正本は [poisson-cubic/papers/poisson-cubic.tex](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex)。三論文へ分ける理由は、古典分類、全Poisson対の量子化、良い一ブロック成分の非可換比較で、中心結果と適用範囲が異なるためである。量子化の既存の全証明・計算を保持し、モジュライの一ブロック仮定で多ブロック結果を狭めない。
+
+量子化論文の達成基準は、指定古典Casimirに戻る代数的な正則中心三次とPBW・AS性を全次元・全ブロックで構成し、族の規格化、同変性、降下の成立範囲を明示することである。周囲代数A・中心商Bという量子化論文の記法と、主論文の周囲B・商Aという記法を区別する。論理的入力は古典的正規形から量子化へ、そこから復元・比較へ進み、量子化の存在証明をKu比較に依存させない。
+
+| 現在の量子化成果 | 仮定・範囲と証明の所在（`papers/sections/quantization/`） |
+| --- | --- |
+| 全Poisson対の代数的量子化 | N=n+2≥5、滑らかな全三次F、任意の正規形ブロック。零を含むZariski h開でPBW・AS正則ambientと正則中心三次商を得る。`algebraic_quantization.tex`, `general_dimension_universal_quantization.tex`。全hや全qgr滑らかさの主張ではない。 |
+| 係数環上の中心持上げ | 全Fの滑らかさ、active gradientのgcd=1、割った交換子の定階数核とCramer構成。`universal_casimir_determinant.tex`。通常の中心はh=0で増大するので、その底変更とは区別する。 |
+| 明示中心公式と層別同変化 | Fermat・Hesseの混合項、節点・尖点・零制限。`fermat_mixed_universal_center.tex`, `hesse_mixed_universal_center.tex`, `equivariant_central_lifts.tex`。零制限はPBW対称化で全hのΩ=sym(F)。節点公式はCMRの既知結果として帰属する。 |
+| 階数二の全support | 指定jet sym(F−h²H/12+O(h⁴))を保つ代数的同変中心元、gcd(N,3)=1で元の次数付き族の降下、全Nで三次Veronese降下。`intrinsic_rank_two_center.tex`。 |
+| 満supportの多ブロック | N=3k、順序なしブロック、指定Hessian jet付き共変中心元と三次Veronese降下。`full_support_quantization.tex`。零切断近傍であり、全h・一意性・非可換同型類像の次元は主張しない。 |
+| 降下と選択の障害 | 全被約非零rank層で中心スカラーgerbeの位数gcd(N,3)。任意稠密開・一般点のperiodとは別。N≥6では全support中心直線を零制限の標準sym(F)に一致させる障害がある。同じ古典極限のΩ'=aΩ+cは異なる中心idealを与え得るが、抽象商の非同型は未証明。 |
+| 二次包絡・偏極復元 | `ambient_recovery_general.tex`。次数≥3の正規元による商から二次ambientを回復する。qgr・導来復元には左右noetherian性、所定の偏極、中心変数上の自由性等を明示する。 |
+
+詳細な研究上の知識・障害・文献比較は [量子化ノート](notes/cubic_quantization.md)、再現資産は `computations/quantization/`。点ごとの形式中心元存在、相対係数と還元群に適合する形式構成はEtingof–Ginzburg Theorem3.3.2(ii), Proposition8.1.1(i)の既知内容であり、後者に孤立特異点仮定を付けない。Rains公式とHesse平行移動、CMRの節点公式、Veronese同値・gerbeの重み零降下等の既知原理と、代数的で規格化された全係数・全supportの選択を区別する。包括的初出確認は未了。
+
+量子化側の優先課題は **m>0かつk≥2の同変中心元**。古典核の完全列0→Sym³(V/W_P)*→K₀→E_perm→0からFの対角切断とH¹、有限アフィン模型への延長を調べる。純中心配分の大域分裂や、三重ベクトル軌道の非アフィン性から中心元不存在を推論しない。全hへの延長、短い共変公式、固定h≠0の同型類像、抽象商・Morita/qgr比較は別の課題とする。主論文側の残余周期位相の優先順位は下記に保持する。
+
+## 可換復元・モジュライの基本目標と優先順位
+
+旧論文Bの全coherent残余圏比較を一般次元の基礎部分として主論文に統合した。完備noetherian局所底での実際の有限rank MF関手と逆、三対象window、一般点の全coherent飽和、低rotation積からの関数体上の方程式復元、Hesse–Sklyanin有理例を省略せず保持する。モジュライの一ブロック仮定より広い基礎定理の一般性を縮小しない。一般復元は主稿内の基礎定理群、代数的中心量子化は独立した `papers/cubic-quantization.tex`、古典的正規形は外部のPoisson論文を正本とする。
 
 任意の n≥3 に対して、非可換三次 n-fold の **O-marked moduli の構成、point scheme の研究、Poisson 多様体のモジュライへの射、同じ X の Kuznetsov 成分との比較**を一つの研究として進める。各既約成分の一般点・very general な対象で成り立つ、次元に一様な構造定理を優先する。
 
 O-marked の基本対象は Abel 圏と構造対象の対 (C,O) であり、射は O を保つ同値とする。次数一 shift、次数付き表示、量子化パラメータ、rotation 等は補助データと、本質的に保持する標識とを区別する。表示依存の写像を、その降下を示さず O-marked moduli の射とは呼ばない。
 
-主公表原稿は `papers/nc-cubic.tex`。日本語 LuaLaTeX、著者欄は空欄。達成基準は、各対象成分について、一般の族を扱うモジュライと point scheme、Poisson 射の定義域・降下、対応する Kuznetsov 成分の同値を、正確な仮定と十分な証明で結び付けることである。
+可換復元・モジュライの主公表原稿は `papers/nc-cubic.tex`。日本語 LuaLaTeX、著者欄は空欄。達成基準は、各対象成分について、一般の族を扱うモジュライと point scheme、Poisson 射の定義域・降下、対応する Kuznetsov 成分の同値を、正確な仮定と十分な証明で結び付けることである。
 
 **良い一ブロック成分の一般部分で、点曲線が規格化する残余 Poisson 射を構成し、その符号商の一般次数が全 n≥3 で正確に18、半古典規格化したfull射の一般次数が9であることを示した。** 固定入力Bの完備 MF・正則底の window・一般点生成性・coherent 飽和性の下で、低 rotation 積の積分直線 L と中心一次作用の annihilator K_res から残余三次 X_res と射影 Poisson 射 Ψ_res を復元する。全 O-同値・任意底変更へ降下し、Brauer–Severi ambient を許す。Ψ_res は支配的・一般相対次元1であり、さらに有限 étale 被覆上で **同じ X_res の Ku** への比較核を得る。
 
@@ -114,9 +134,9 @@ Clifford 半 rotation はさらに、関手として O_Cl A≃Aρ⁻¹[1] と同
 
 ## 固定した入力と現在の到達点
 
-外部入力は [poisson-cubicの論文A](https://github.com/uedakazushi/poisson-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) の固定commit `eabe601c1341777742964584dde5314c0bcf64a9`（A-v61）。従来の論文B B-v59の完備MF移送・一般点可換復元とその証明は、このリポジトリの `papers/sections/generic_recovery/` に移して主原稿へ統合したため、外部入力とは数えない。三様体の比較対象は [nc-cubic-threefold-moduli](https://github.com/uedakazushi/nc-cubic-threefold-moduli/tree/6c35d2c84671c2538e61836a6bf3a511392eacce) の固定 commit `6c35d2c84671c2538e61836a6bf3a511392eacce`（v22）。両 repo は読取り専用とする。
+外部の古典入力は [poisson-cubicのPoisson幾何論文](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex) の `poisson_geometry.tex`（`prop:pg-represent`, `prop:pg-jacobi-extension`, `thm:pg-normal`, `cor:pg-generic`）。分割前の照合元はcommit `8e6ac42a951289bb0431edb6f7dcc36281a6822b`、分割後はA-v62（2026-11-21）で同じ定理を用いる。代数的中心量子化の入力は本repoの `papers/cubic-quantization.tex` v1であり、具体的ラベルを主論文の参考文献に記す。従来の論文B B-v59の完備MF移送・一般点可換復元とその証明は、このリポジトリの `papers/sections/generic_recovery/` に移して主原稿へ統合したため、外部入力とは数えない。三様体の比較対象は [nc-cubic-threefold-moduli](https://github.com/uedakazushi/nc-cubic-threefold-moduli/tree/6c35d2c84671c2538e61836a6bf3a511392eacce) の固定 commit `6c35d2c84671c2538e61836a6bf3a511392eacce`（v22）。通常の非可換研究では外部repoを読取り専用とする。今回の三論文への分割ではユーザーの明示依頼に基づきpoisson-cubicも整合させる。
 
-論文Aを入力とする全次元Poisson正規形・中心量子化と、公刊の PBW/CY・星積・wheel 消滅・Kontsevich の二次形式対応・Mori–Smith の点曲線 Hessian 公式、Banks–Panzer–Pym の harmonic graph weights と Buring の公開データ、Wang・Hwang の勾配復元、Toën–Vaquié の perfect 核の有限表示・boundedness・同値 locus の開性を外部からの既知入力として扱う。完備MF移送・一般点可換復元・Hesseの有理模型は本稿中の独立した基礎定理・証明として保持する。Matsuno の Sklyanin 分類、Hille–Van den Bergh の楕円 Fourier–Mukai の graph 認識、Ciperiani–Krashen の Tate–Weil pairing、Liu と Huybrechts の低次元自己同値分類、Peize Liu の五次元 Clifford 表示と半 rotation、Kuznetsov の相対二次曲面束、Collino の平面 Fano 曲面、Ciliberto–Zaidenberg の次数公式、Iliev–Manivel の一般三次七次元の球面束と twist、Murfet の MF residue trace も既知の入力として用いる。三分点の全モノドロミー、低次元 full class 降下、点型の全 O-共変性、周期位相の class 不変性と相対尺度の算術、高次元の中心的整数軌道と数値中央化群による簡約に加え、三乗倍までの方程式規格化と形式位相の計算、混合係数を有理的に保つ周期付き CF 比較と二変数不変量体への位相の降下、随伴復元点型の有限 class torsor を本文に証明し、内部で独立点検した。外部査読と新規性の網羅的確認は未完了であり、未公表入力の全証明を独立に再検証したとは主張しない。書誌・参照箇所は `notes/research_notes.md`、確認状態は `notes/validation.md` に置く。
+古典Poisson論文を入力とする全次元正規形、別論文 `cubic-quantization.tex` の代数的中心量子化と、公刊の PBW/CY・星積・wheel 消滅・Kontsevich の二次形式対応・Mori–Smith の点曲線 Hessian 公式、Banks–Panzer–Pym の harmonic graph weights と Buring の公開データ、Wang・Hwang の勾配復元、Toën–Vaquié の perfect 核の有限表示・boundedness・同値 locus の開性を外部からの既知入力として扱う。完備MF移送・一般点可換復元・Hesseの有理模型は本稿中の独立した基礎定理・証明として保持する。Matsuno の Sklyanin 分類、Hille–Van den Bergh の楕円 Fourier–Mukai の graph 認識、Ciperiani–Krashen の Tate–Weil pairing、Liu と Huybrechts の低次元自己同値分類、Peize Liu の五次元 Clifford 表示と半 rotation、Kuznetsov の相対二次曲面束、Collino の平面 Fano 曲面、Ciliberto–Zaidenberg の次数公式、Iliev–Manivel の一般三次七次元の球面束と twist、Murfet の MF residue trace も既知の入力として用いる。三分点の全モノドロミー、低次元 full class 降下、点型の全 O-共変性、周期位相の class 不変性と相対尺度の算術、高次元の中心的整数軌道と数値中央化群による簡約に加え、三乗倍までの方程式規格化と形式位相の計算、混合係数を有理的に保つ周期付き CF 比較と二変数不変量体への位相の降下、随伴復元点型の有限 class torsor を本文に証明し、内部で独立点検した。外部査読と新規性の網羅的確認は未完了であり、未公表入力の全証明を独立に再検証したとは主張しない。書誌・参照箇所は `notes/research_notes.md`、確認状態は `notes/validation.md` に置く。
 
 | 基本目標 | 現行稿に証明のある到達点 | 未解決の核心 |
 |---|---|---|
@@ -187,7 +207,7 @@ n=3 の fractional Serre trace は他の divisor や大域式を検査する別�
 
 現在の Msm は良い一ブロック局所模型を持つ圏族である。Poisson 側の唯一の支配成分を同定したことは、全 intrinsic 圏モジュライの成分分類を意味しない。
 
-具体的には入力論文Aの各ブロック型で、中心一次階数、普遍低次数中心、PBW 平坦性、Serre 軌道と Veronese 復元の仮定を点検する。rank U≥2 が失われる型には中心正則対の議論をそのまま使わない。中心三次の商束が階数一でない場合は P(E)\P(W)→P(E/W) の torsor を用い、一ブロック直線の同型を無条件に流用しない。
+具体的には古典Poisson論文の各ブロック型と量子化論文の族について、中心一次階数、普遍低次数中心、PBW 平坦性、Serre 軌道と Veronese 復元の仮定を点検する。rank U≥2 が失われる型には中心正則対の議論をそのまま使わない。中心三次の商束が階数一でない場合は P(E)\P(W)→P(E/W) の torsor を用い、一ブロック直線の同型を無条件に流用しない。
 
 ### 5. 点対応の幾何を残余射の認識へ使う
 

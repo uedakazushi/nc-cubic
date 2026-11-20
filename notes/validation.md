@@ -1,8 +1,29 @@
-# 非可換三次 n-fold：現行稿の検証範囲
+# 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月21日 / v27。対象は旧paper Bの全証明を読み込む `papers/nc-cubic.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
+2026年11月21日 / v28。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
-本版では、全 n≥3 の境界低積、飽和した二次表示、中心商、smooth potential 三次による指定一般点同型の延長、完備局所周期位相の証明を、執筆担当以外も独立に読解点検した。主な新結論は γ_sc,n|_{k₀((z))}=[D_R]、v_D(γ̄_n)=1 mod3、正準位相体の次数三である。固定 MF・window・一般点生成性・coherent 飽和性の入力の下での結果である。外部査読、Lean 等の形式証明、固定入力全体の独立再証明、新規性の網羅的確認は行っていない。
+## 現在の構成と今回の確認
+
+| 論文 | 独立ソース検査 | LuaLaTeX組版 |
+| --- | --- | --- |
+| `papers/nc-cubic.tex` | 33入力、710一意ラベル、471参照ラベル、128引用キー | 成功、379頁、PDF・SyncTeX生成 |
+| `papers/cubic-quantization.tex` | 18入力、445一意ラベル、181参照ラベル、25引用キー | 成功、89頁、PDF・SyncTeX生成 |
+
+`python3 scripts/check_sources.py` は二論文を別々に検査し、全51個の論文TeXを覆うことも確認した。他論文のラベルによって欠落を隠さない。両稿の最終ログに未定義の参照・引用、重複ラベル、overfull、欠字はない。既存のフォントサイズ代替・microtype/LuaTeX-ja互換性の警告は残る。画像確認は主論文の1・4・370・379頁、量子化論文の1・9・74・84・87頁について行い、確認した頁に切れ・重なり・欠字は見られなかった。全379頁・全89頁の目視検査とはしていない。
+
+古典論文も独立に37頁へ組版した。元のPoisson/量子化主稿の569ラベルは分割後の二稿にすべて残り、定理・命題・補題・系等の合計も保持した。量子化稿で正規形を引用付き再掲した定理一つだけが増えている。全体移管した12節の3156数式断片は順序も含め逐語的に一致した。これは編集上の保存確認であり、全数学的証明の再検証ではない。
+
+今回再実行した量子化計算は、`verify_nonelliptic_point_curves.py`、`verify_nonelliptic_quantization.py`、`verify_general_dimension_multiblock.py`（6例）で、すべて `computations/quantization/` に置く。全21 Pythonの構文も検査した。具体的対象・hash・保存済みの検証との区別は [validation_quantization.json](../validation_quantization.json) を正本とする。本来の非可換復元・Picard・境界低積・Jacobiの既存検証器は今回再実行していない。
+
+移した補助ノート `notes/relative_construction_obstacles.tex`（24頁）、`notes/central_cubic_generic_smoothness.tex`（3頁）もLuaLaTeX組版した。前者の1頁と後者の2頁を画像で確認し、表示上の問題は見られなかった。独立した公表論文には数えず、本文へ無条件に取り込まない補助知識として保持する。
+
+今回の作業は三論文への分割、引用先・再現資産・現在の研究方針の整合と、その範囲の検証である。新しい数学定理の証明、全証明の再読、Lean等の形式検証、外部査読、先行研究の網羅的な再調査は行っていない。
+
+## 保持する数学的点検の範囲
+
+以下は分割前から保存されている有効な証明点検・文献比較・厳密検算であり、上の今回実行した内容とは区別する。仮定と結論は現行本文に保持する。
+
+既存の点検では、全 n≥3 の境界低積、飽和した二次表示、中心商、smooth potential 三次による指定一般点同型の延長、完備局所周期位相の証明を、執筆担当以外も独立に読解点検した。主な新結論は γ_sc,n|_{k₀((z))}=[D_R]、v_D(γ̄_n)=1 mod3、正準位相体の次数三である。固定 MF・window・一般点生成性・coherent 飽和性の入力の下での結果である。外部査読、Lean 等の形式証明、固定入力全体の独立再証明、新規性の網羅的確認は行っていない。
 
 - **実際の窓と周期。** Burke–Stevenson i=1 の窓で Ψ₁Z=N₀(−1)[1] を全 n に同定した。例外対象の section truncation が自由加群になること、M(t) の高次消滅、同じ曲率 F_R の MF 周期、共通 shift の周期符号を点検した。任意の特異圏の包括的な底変更を仮定していない。
 - **全 orbit Hom。** F₀=bXYZ となる選択済み pole 消去模型に対し、active MF と零曲率 Koszul 因子の unital bigraded dg 分離を確認した。特殊 fibre の Λ(k^{n+2})⊗k[t,t⁻¹] はベクトル空間の記述であり、積の同定ではない。一般 fibre との二次数次元の一致と DVR の普遍係数列から全 Hom の自由性・底変更を得る。階数は binom(n+2,3i+2q)。既存の n=3 の表はこの公式の例として保持した。
@@ -13,12 +34,12 @@
 
 証明の所在は [境界低積と周期位相](../papers/sections/residual_boundary_products.tex) の `prop:nfm-boundary-all-orbit-flat-rank-drop`、`prop:nfm-boundary-first-jet-products`、`prop:nfm-boundary-saturated-active-potential`、`prop:nfm-boundary-period-local-kummer`。既存の相対線型行列、三次元の幾何学的低 Hom 計算、I₃ の成分群・三分点計算は [境界模型](../papers/sections/residual_boundary.tex) に保持した。三分点被覆は局所三次位相体の三コピーであり、位相 torsor 自体と同一視しない。
 
-以下の四点は、現行稿に保持している既存の内部独立点検である。本版で全証明を一括再検証したという意味ではない。
+以下の四点は、現行稿に保持している既存の内部独立点検である。既存の点検で全証明を一括再検証したという意味ではない。
 
 - **全次元の強化 class の一意性。** 固定した三次双加群自己交叉、内部次数による change-of-rings 列の短完全性、通常 Ext の積、中心周期による dg 局所化を確認した。Tate Ext の j=−p−q≥0 の切出しが全 A∞ 積・写像・homotopy に保たれること、Adams Koszul 双対の Hom の全単射、局所化の homotopy epimorphism、Adams covering と hull を通した実際の kernel class の回復を点検した。表示安定化子の一般自明性と合わせ、全 n≥3 の一般一ブロック族で H_p=1、S_p=Spec(k_n)、split 体での未標識強化型最小次数三を得る。全 full class の分類ではない。証明は [Tate–Koszul 復元](../papers/sections/residual_tate_reconstruction.tex) の `thm:nfm-origin-rotation-faithful`、`cor:nfm-generic-adjoint-class-unique`。
 - **五次元の半 rotation の関手同定。** spinor 完全列の射を相対随伴の unit と同定し、相対 coevaluation と通常の right mutation の coevaluation を自然変換として比較した。Ku の消滅と Beilinson 分解により差が ⟨C₁⟩ へ入り、mutation で消えることを点検した。O≃ρ⁻¹[1]、O³≃[1]、ε≃id は対象の固定からの推測ではなく perfect 核の自然同型である。既存の相対核・Fano 曲面の連結性・次数2835の零 cycle による実核降下と、E_p の二 mutation の計算も保持する。指定 square 同型と MF 周期の同時正規化は別問題。証明は [五次元の節](../papers/sections/residual_fivefold.tex) の `lem:nfm-fivefold-spinor-relative-coevaluation`、`thm:nfm-fivefold-half-rotation-identification`。
 - **非分裂 rotation の算術。** 偏極 gerbe 上の例外的 projector kernel の重み零、rotation kernel の重み一、convolution による Brauer 類の和 α+rβ、次数±三 Picard 類の index 上界を点検した。指数九族の符号規約は α=(a,v)₃−(b,u)₃、β=(a,b)₃ であり、α±β の symbol 表示と K(∛au) 上の α の非零剰余も確認した。一般一ブロック開の全 n≡1 mod3 に強化型最小九を実現し、同族の rotation 軌道内では三となる。全 full 型の最小三を確定するのは幾何的 Z 分類が適用される n=4 であり、高次元の他の軌道までは分類しない。証明は [非分裂 Picard 障害の節](../papers/sections/residual_unsplit_picard.tex) の `thm:nfm-unsplit-rotation-index-three`、`thm:nfm-unsplit-lowdim-full-degree`、`cor:nfm-unsplit-nine-versus-three`。
-- **全次元の正準強化 class の周期位相。** κ(m) 上の混合有理比較が、形式拡大後に同じ全 Taylor 成分と hull を持つ完備 CF 核になることを確認した。最高次線束、Picard 等式、随伴射 cone の消滅を忠実な体拡大から反映させ、特定の比較核が強化型であることを示した。従って全 n≥3 の正準 class の γ_sc,n が C(c₄,−c₆) へ一意に降下する。Hesse 拡大の Kummer 核は ⟨[Δ]⟩ だが、一般 active 係数から得る半古典条件がその曖昧さを除く。D の八直線への分解、q=2 での非分岐性と一次係数も点検した。全 full class に共通な位相という主張は n=3,4 に限る。完備局所値は本版で [D_R] と決定した。大域的な次元間の一致・ΔD 以外の非分岐性は未証明。証明は [周期位相の節](../papers/sections/residual_period_descent.tex) の `prop:nfm-adjoint-period-all-dimensions`、`prop:nfm-period-hesse-faithful-test`、`lem:nfm-period-hesse-eight-boundary-lines`。
+- **全次元の正準強化 class の周期位相。** κ(m) 上の混合有理比較が、形式拡大後に同じ全 Taylor 成分と hull を持つ完備 CF 核になることを確認した。最高次線束、Picard 等式、随伴射 cone の消滅を忠実な体拡大から反映させ、特定の比較核が強化型であることを示した。従って全 n≥3 の正準 class の γ_sc,n が C(c₄,−c₆) へ一意に降下する。Hesse 拡大の Kummer 核は ⟨[Δ]⟩ だが、一般 active 係数から得る半古典条件がその曖昧さを除く。D の八直線への分解、q=2 での非分岐性と一次係数も点検した。全 full class に共通な位相という主張は n=3,4 に限る。完備局所値は既存の点検で [D_R] と決定した。大域的な次元間の一致・ΔD 以外の非分岐性は未証明。証明は [周期位相の節](../papers/sections/residual_period_descent.tex) の `prop:nfm-adjoint-period-all-dimensions`、`prop:nfm-period-hesse-faithful-test`、`lem:nfm-period-hesse-eight-boundary-lines`。
 
 以下の随伴復元・有限 class・cube frame に関する点検は、既存の検証として保持する。現行稿の追加証明の点検と、過去に検証した全結果の再実行・再読を同一視しない。
 
@@ -28,26 +49,20 @@
 
 三・四次元では既知の G_ρ=〈T〉 と H_p∩〈T〉=1 からも H_p=1 を得る。全次元の一般一ブロック族については上記の Tate–Koszul 復元が自明性を与える。class の一意性は元の体上で実際の核を取れることを意味せず、scalar gerbe はなお非自明である。固定入力の外積表示と proper Hom の Euler rank の一定性から χ(E_p,ρ^rE_p)=χ_(N,r) を得て、既存 gcd d_n>0 により [E_p]≠0 となる。奇数次元の H_p⊂G_(ρ,0)、五次元の χ(E_p,E_p)=−27、一般形式の最小次数 min_i[K_i:K]ind(α_Ki)≤3|H_p| も保持する。
 
-周期規格化では、元の残余復元が方程式直線を与えることを明確にした。source の中心元 Ω と full Poisson 対から三重ベクトル P が一意に定まり、φ_sc の線型持上げ f に対する F_φ⊗det(f)P=t_sc が方程式生成元を三乗倍まで定める。一般係数体の線型三捩れ monodromy が SL₂(F₃) であることから $J[3](K)$=0、I_sc(K) は一元集合となる。f の scalar 変更は三乗倍、Ω の変更は source/target の同時変更なので、全次元の正準強化 class の γ_sc,n はこれらに依存しない。形式比較式 F_φ=λ_h⁻³b_h⁻¹W_h と b_h≡1 mod h を確認したが、形式体での消滅を元 K へ戻してはいない。F→hF の吸収では中心元と実際の曲率の双方を h 倍する。元 K の γ_sc は本版の境界計算により非自明である。大域式はなお未決定である。
+周期規格化では、元の残余復元が方程式直線を与えることを明確にした。source の中心元 Ω と full Poisson 対から三重ベクトル P が一意に定まり、φ_sc の線型持上げ f に対する F_φ⊗det(f)P=t_sc が方程式生成元を三乗倍まで定める。一般係数体の線型三捩れ monodromy が SL₂(F₃) であることから $J[3](K)$=0、I_sc(K) は一元集合となる。f の scalar 変更は三乗倍、Ω の変更は source/target の同時変更なので、全次元の正準強化 class の γ_sc,n はこれらに依存しない。形式比較式 F_φ=λ_h⁻³b_h⁻¹W_h と b_h≡1 mod h を確認したが、形式体での消滅を元 K へ戻してはいない。F→hF の吸収では中心元と実際の曲率の双方を h 倍する。元 K の γ_sc は既存の点検の境界計算により非自明である。大域式はなお未決定である。
 
-既存の周期位相の class 不変性、生成元の source u 倍・target v 倍による γ′=[v/u]γ、適合規格化の最小次数三、target の独立尺度を加えた一般族の最小次数九は保持する。元の自然な規格化 γ_sc の具体値と、自由な相対尺度の定理は区別する。点型の全 O-降下、標準三分点体の次数九と ASL₂(F₃) の二百十六次 monodromy、三・四次元の全 full class 降下、全 class に共通な scalar index 三、七次元の既知球面対象からの全自己同値群の非巡回性も保持した。既存の全証明と未公表固定入力を本版で一括再検証したという意味ではない。
+既存の周期位相の class 不変性、生成元の source u 倍・target v 倍による γ′=[v/u]γ、適合規格化の最小次数三、target の独立尺度を加えた一般族の最小次数九は保持する。元の自然な規格化 γ_sc の具体値と、自由な相対尺度の定理は区別する。点型の全 O-降下、標準三分点体の次数九と ASL₂(F₃) の二百十六次 monodromy、三・四次元の全 full class 降下、全 class に共通な scalar index 三、七次元の既知球面対象からの全自己同値群の非巡回性も保持した。既存の全証明と未公表固定入力を既存の点検で一括再検証したという意味ではない。
 
-本版で新たに作成・実行した検証器は `computations/verify_boundary_low_products.py` であり、十群の PASS と終了コード0を確認した。執筆担当と統合担当がそれぞれ実行した。Python 3.12.14、SymPy 1.14.0 を用い、有理関数体 Q(p) 上の厳密演算である。他の十六件の計算資産は基準 main `abdc32ee39cedc0b78f73b607521794157f6f219` と全内容を照合して不変と確認し、本版では再実行していない。以下に保持する既存の PASS・対象ハッシュは、その検証範囲の記録であり、今回の新たな実行を意味しない。
-
-## 統合後のソース参照点検（GitHub上の静的検査）
-
-2026-11-21の統合ソースについて、GitHub mainのTeX内容・treeを再取得して機械的に確認した。旧論文Bから移した9節は157個のラベルを持ち、9節内で未解決の参照は零。主原稿・全9節・書誌・変更した7節の計18ファイルで、470個のラベルに重複がなく、132件の文献キーは重複せず、その18ファイルの引用は全て解決した。別の11節についてもラベル重複と引用キー欠落は零。主原稿は移行9節全てを読み込む。リポジトリの33個のTeXファイルの存在をGit treeで確認し、調べた入力辺には欠落がない。旧論文Bへの未解決の外部引用は、検査した主原稿・節には残っていない。
-
-これは今回GitHubで取得したソースの静的整合性点検であり、`python3 scripts/check_sources.py` のローカル実行成功、全ソースのTeX構文解析、LuaLaTeX/latexmkによる組版、PDFの表示点検、数学的証明の検証やPython厳密計算の再実行を意味しない。統合版v26の組版・計算再実行は未実施であり、旧v25のPDF・計算検証を新稿の検証とは扱わない。
+既存の点検で新たに作成・実行した検証器は `computations/verify_boundary_low_products.py` であり、十群の PASS と終了コード0を確認した。執筆担当と統合担当がそれぞれ実行した。Python 3.12.14、SymPy 1.14.0 を用い、有理関数体 Q(p) 上の厳密演算である。他の十六件の計算資産は基準 main `abdc32ee39cedc0b78f73b607521794157f6f219` と全内容を照合して不変と確認し、既存の点検では再実行していない。以下に保持する既存の PASS・対象ハッシュは、その検証範囲の記録であり、当該点検の新たな実行を意味しない。
 
 ## 1. 固定した入力と文献
 
-- `uedakazushi/poisson-cubic`：Poisson正規形・代数的量子化の論文A A-v61、固定commit `eabe601c1341777742964584dde5314c0bcf64a9`。旧論文B B-v59の完備MF移送・可換復元の全証明は本リポジトリの `papers/sections/generic_recovery/` に統合。旧原稿を外部入力とは扱わない。
+- `uedakazushi/poisson-cubic`：現行の古典Poisson論文 `papers/poisson-cubic.tex` A-v62。保持している以前の点検では分割前の固定commit `eabe601c1341777742964584dde5314c0bcf64a9` を使用した。量子化の現在の正本は本repoの `papers/cubic-quantization.tex` Q-v1であり、その証明・一次資料監査は `notes/quantization_audit.md`、実行状態は `validation_quantization.json` に置く。旧論文B B-v59の完備MF移送・可換復元の全証明は本リポジトリの `papers/sections/generic_recovery/` に統合。旧原稿を外部入力とは扱わない。
 - `uedakazushi/nc-cubic-threefold-moduli`：`6c35d2c84671c2538e61836a6bf3a511392eacce`。比較対象の三様体稿 v22。
 
-入力リポジトリは読取り専用。既存の一般次元正規形・中心量子化・一般点残余復元は新規成果に数えず、未公表入力の全証明を独立に再検証したとは主張しない。引用箇所は [研究ノート](research_notes.md) と [文献一覧](../papers/references.tex) に記す。
+通常の非可換研究では外部入力リポジトリは読取り専用。ユーザーが指示した三論文構成への移管ではpoisson-cubicとの整合も行った。既存の一般次元正規形・中心量子化・一般点残余復元は新規成果に数えず、未公表入力の全証明を独立に再検証したとは主張しない。引用箇所は [研究ノート](research_notes.md) と [文献一覧](../papers/references.tex) に記す。
 
-本版の境界計算では、Burke–Stevenson の公刊版 Theorem 6.4(1)、window i=1 と相対 Gorenstein 条件を再確認した。Benoist の公刊版著者 PDF の Theorems 1.6(ii),1.7 と Lemma 2.2(iii)、pp.140–141 を担当者が一次資料で確認し、剰余標数零の滑らかな potential 平面三次への適用を独立点検した。統合担当は固定入力Aの `papers/support/papers/sections/hesse_mixed_universal_center.tex` を固定 commit から読み、`thm:pg-universal-hesse-mixed`、`eq:pg-hm-coefficients`、`eq:pg-hm-center` の式を h′=p, t=q/p で変換し q=2 に特殊化した。中心性全体の独立再証明ではない。
+既存の点検の境界計算では、Burke–Stevenson の公刊版 Theorem 6.4(1)、window i=1 と相対 Gorenstein 条件を再確認した。Benoist の公刊版著者 PDF の Theorems 1.6(ii),1.7 と Lemma 2.2(iii)、pp.140–141 を担当者が一次資料で確認し、剰余標数零の滑らかな potential 平面三次への適用を独立点検した。統合担当は固定入力Aの `papers/support/papers/sections/hesse_mixed_universal_center.tex` を固定 commit から読み、`thm:pg-universal-hesse-mixed`、`eq:pg-hm-coefficients`、`eq:pg-hm-center` の式を h′=p, t=q/p で変換し q=2 に特殊化した。中心性全体の独立再証明ではない。
 
 既存の周期降下の点検では、統合担当が固定 commit の `papers/sections/generic_recovery/curved_transport.tex` を実際に開き、`cft:eq:bound`、`cft:lem:primitive`、`cft:lem:arity`、`cft:lem:flow`、`cft:eq:object`、`cft:eq:insertions`、`cft:eq:two-block-matrix` の bound・原始元・arity・有限対象・挿入・二ブロック模型を新証明と照合した。三対象生成、proper Hom、局所化は `gcd:prop:bound`、`tw:lem:proper-hom`、`rog:lem:localization` と比較した。これは必要な一次模型への適用確認であり、入力B全体の全証明の再検証ではない。Fisher の不変式・一般軌道・Heisenberg 群の既知記述と、保存済みの全三捩れ monodromy を用いる character の消滅も内部点検した。
 
@@ -55,7 +70,7 @@
 
 Tate–Koszul 復元には Lu–Palmieri–Wu–Zhang, New York J.Math.14(2008),325–378 の Definition2.1・Theorem2.4・Corollary2.5(b) と、同著者 JPAA213(2009),2017–2037 の Theorem A・Corollary B を一次PDFで確認した。Braun–Chuang–Lazarev, Adv.Math.328(2018),555–622、arXiv:1505.01146v3 の Proposition3.17・Theorems3.18,5.3 を照合した。Keller の orbit 圏論文 §§9.3–9.4 と2009年訂正も確認し、訂正対象の旧§7の hull 表示は使わない。統合した基礎節の `field_model.tex` の `gcd:prop:automatic-as`、`local_model.tex` の `lp:lem:noetherian`・`lp:prop:koszul`・`lp:prop:gorenstein`・`lp:prop:sing-period`、window・coherent 飽和の該当命題を本稿の仮定に照合した。詳しい識別子とリンクは研究ノートの「Tate–Koszul と Clifford 同定の一次資料」に置く。
 
-有限 class の入力として Toën–Vaquié の Proposition3.20、Corollaries3.17,3.22,3.24 と Lemma3.25 直後の可逆核 locus の開性を原著で確認した。統合した基礎節の window.tex の tw:thm:window・tw:eq:main、main_result.tex の一般点 coherent 飽和、generic_descent.tex の rog:eq:exterior と proper Hom を、今回の生成性と Euler 数の比較に照合した。Murfet の arXiv:0912.1629v3 Theorem6.2・式(6.6)、Proposition4.2・式(5.7)を確認し、公刊書誌 Compos.Math.149(2013),2071–2100、DOI10.1112/S0010437X13007082 を出版社と照合した。
+有限 class の入力として Toën–Vaquié の Proposition3.20、Corollaries3.17,3.22,3.24 と Lemma3.25 直後の可逆核 locus の開性を原著で確認した。統合した基礎節の window.tex の tw:thm:window・tw:eq:main、main_result.tex の一般点 coherent 飽和、generic_descent.tex の rog:eq:exterior と proper Hom を、当該点検の生成性と Euler 数の比較に照合した。Murfet の arXiv:0912.1629v3 Theorem6.2・式(6.6)、Proposition4.2・式(5.7)を確認し、公刊書誌 Compos.Math.149(2013),2071–2100、DOI10.1112/S0010437X13007082 を出版社と照合した。
 
 五次元では Peize Liu arXiv:2509.21454v5（2026-08-03改訂）の Theorem2.8、§2.2の式(2-4)・Remark2.11、Lemmas2.12–2.14・3.4、Corollary3.10(ii)、Proposition3.11、Theorem5.5の証明、Corollary5.10を一次資料で確認した。Proposition6.10は Fano 曲面を一つの stable moduli 成分と同定し、全 moduli の既約性は Remark6.11 の予想、安定性軌道の一意性は Remark5.6 の未解決問題として区別した。Kuznetsov の公刊版 Adv.Math.218(2008),1340–1369 の Theorem4.2、Lemmas3.8・4.5・4.6・4.7・4.10、Remark4.8で実際の Clifford kernel、局所自由性、有限振幅、随伴を確認し、Collino Propositions1.8・1.10、Ciliberto–Zaidenberg arXiv:1903.11294v2 Example4.4の幾何学的連結性と次数2835を照合した。平面非依存性と元の体上への実核降下を内部点検した。さらに Proposition3.3 の相対表示と spinor 列の Lemma4.5 を用い、O≃ρ⁻¹[1] の自然な関手同定を独立点検した。Wu arXiv:2611.02388v1 Theorems1.1,1.3・Proposition7.2 と Aravena–Liu–Tevelev arXiv:2611.05350v1 Theorem1.2 の主張も確認したが、これら最近の安定性条件の全証明を独立再検証したとはしていない。有限 H_p の証明はこれらに依存しない。
 
@@ -63,7 +78,7 @@ Tate–Koszul 復元には Lu–Palmieri–Wu–Zhang, New York J.Math.14(2008),
 
 相対双対の入力は Berger–Taillefer の Theorems 3.1, 3.6、dg Morita 表示は Keller の Theorems 3.4, 3.8。係数降下・Kummer・曲線上の主因子は Stacks Project の Tags 023N, 03PK, 040Q, 02RU を確認し、現行の圏内の係数作用・全同値の降下には本文で証明を与えた。新規性の網羅的調査は未完了である。
 
-既存の点検では、Behrend–Noohi の刊行版§2.3・§3.1.2を確認し、grading rigidification、twisted algebra、determinant character を既知手法として明示した。EGの刊行版§9・p.1414のRains中心公式は本文とPDF画像で確認し、Proposition 8.1.1・式(8.1.3)の形式的中心比較と今回の有限係数での処方を区別した。LBSVの刊行版Proposition 4.2.5・pp.193–194の二次関係復元も照合した。Stacks Tags058G,0781,03R6,063P,063U,062Y,056Qは新しい降下・相対幾何の使用箇所と照合した。固定入力の `prop:pg-ad-intrinsic-hessian` と `cor:pg-hesse-hessian-form` は、純中心補正の前後を区別して式を確認した。その未公表入力の非可換中心性の証明全体を今回再検証したとは主張しない。
+既存の点検では、Behrend–Noohi の刊行版§2.3・§3.1.2を確認し、grading rigidification、twisted algebra、determinant character を既知手法として明示した。EGの刊行版§9・p.1414のRains中心公式は本文とPDF画像で確認し、Proposition 8.1.1・式(8.1.3)の形式的中心比較と当該点検の有限係数での処方を区別した。LBSVの刊行版Proposition 4.2.5・pp.193–194の二次関係復元も照合した。Stacks Tags058G,0781,03R6,063P,063U,062Y,056Qは新しい降下・相対幾何の使用箇所と照合した。固定入力の `prop:pg-ad-intrinsic-hessian` と `cor:pg-hesse-hessian-form` は、純中心補正の前後を区別して式を確認した。その未公表入力の非可換中心性の証明全体を当該点検再検証したとは主張しない。
 
 二次 jet 比較に用いた Dito の arXiv:math/9905080v1、§2 式(3)と§3 Theorem2 を確認した。対象は一般 Poisson の二次積と Weyl gauge であり、Lie 代数に限定された後続公式と区別する。Shoikhet の arXiv:math/0007080v1、§1.3 の内向き wheel 消滅と§2.3.1 の逆向き wheel の区別を確認した。出版社で両文献の巻・年・頁・DOIも照合した。非線形 Poisson について中心写像の全高次消滅を主張せず、二次に寄与するグラフの数え上げを本文に与えた。
 
@@ -107,7 +122,7 @@ Hille–Van den Bergh *Fourier–Mukai transforms* の Proposition 4.2、Corolla
 
 低次元の class 降下について、Liu *On Fourier–Mukai type autoequivalences of Kuznetsov components of cubic threefolds* の arXiv:2304.12669v2 Theorem4.13（同Theorem1.1）、§§2.2–2.3、Proposition3.5・Example3.7を確認した。出版社で Math.Nachr.297(2024),1866–1878、DOI10.1002/mana.202300237を照合した。Huybrechts *The K3 category of a cubic fourfold* は公刊PDFのTheorem1.2(i)、Proposition3.12、Corollary3.13、§§3.4–3.5・6.1を確認し、全FM群とsymplectic部分群、[1]と[2]の指数を区別した。書誌はCompos.Math.153(2017),586–620、DOI10.1112/S0010437X16008137である。
 
-Canonaco–Stellari *Non-uniqueness of Fourier–Mukai kernels* の著者PDF Theorem1.2・Corollary4.4で、同じFM関手の核のcohomology層が同型になることを確認した。Math.Z.272(2012),577–588、DOI10.1007/s00209-011-0950-3を出版社で照合した。一般の核そのものの一意性を引用せず、本稿のprojectorに必要な追加証明を与える。Poonen のTheorems1.1,1.5と直前の開性の記述、Ciperiani–Krashen のTheorem3.1も今回の適用箇所に合わせて再確認した。三分点monodromyの古典入力はFisherのTheorem1.1(iv)、Lemmas2.2–2.3、§4と、Matsunoの§2.4・§4である。
+Canonaco–Stellari *Non-uniqueness of Fourier–Mukai kernels* の著者PDF Theorem1.2・Corollary4.4で、同じFM関手の核のcohomology層が同型になることを確認した。Math.Z.272(2012),577–588、DOI10.1007/s00209-011-0950-3を出版社で照合した。一般の核そのものの一意性を引用せず、本稿のprojectorに必要な追加証明を与える。Poonen のTheorems1.1,1.5と直前の開性の記述、Ciperiani–Krashen のTheorem3.1も当該点検の適用箇所に合わせて再確認した。三分点monodromyの古典入力はFisherのTheorem1.1(iv)、Lemmas2.2–2.3、§4と、Matsunoの§2.4・§4である。
 
 指定周期の変換について、固定入力Bの `papers/sections/generic_recovery/local_model.tex` の `lp:prop:sing-period`・`lp:eq:period`、`papers/sections/generic_recovery/window.tex` の `tw:eq:period-extension`・`tw:eq:rotation-period-square` を実ソースで確認した。conormal の生成元変更と二拡大の境界、window で移送される周期を照合した。入力B全体の再検証とは扱わない。
 
@@ -227,7 +242,7 @@ Stafford--Van den Bergh, *Noncommutative curves and noncommutative surfaces*, ar
 
 ## 3. 二次階数の整数証明書
 
-保存済みの全6例について、指定した平方小行列の行列式を探索とは別経路で直接計算する検証が完了している。以下はその保持した結果と対象資産のハッシュである。全6例の再実行は本版の追加検証には含めない。
+保存済みの全6例について、指定した平方小行列の行列式を探索とは別経路で直接計算する検証が完了している。以下はその保持した結果と対象資産のハッシュである。全6例の再実行は既存の点検の追加検証には含めない。
 
 | N=n+2 | 小行列の次数 | 行列式 mod 32003 |
 |---|---:|---:|
@@ -265,7 +280,7 @@ computations/jacobi_rank_certificate.json
 
 全 Jacobi 多項式が構成した Plücker 基底の線形結合と一致することを、非標準項だけでなく全係数について検証した。多重次数の同次性、核ベクトル数、行列の SHA-256、証明書の行番号の相異性も確認した。各ブロックで従属した入力は、source の新しい座標を持つ核ベクトルを与え、合計90860本が核の基底となる。
 
-探索には低位 pivot のブロック消去を用いた。保存した39600行の平方小行列は、別の高位 pivot の通常 Gaussian 消去で直接検証し、全階数39600・行列式1を確認した。現在の保存対象コードによる再生成からこの検証までの実行は完了している。本版ではこの大行列計算を再実行していない。検証器と数学的な縮約の論理は、実装担当以外も読解点検した。
+探索には低位 pivot のブロック消去を用いた。保存した39600行の平方小行列は、別の高位 pivot の通常 Gaussian 消去で直接検証し、全階数39600・行列式1を確認した。現在の保存対象コードによる再生成からこの検証までの実行は完了している。既存の点検ではこの大行列計算を再実行していない。検証器と数学的な縮約の論理は、実装担当以外も読解点検した。
 
 完全列 K→E⊗D→(J/I)₃→0 により、法2で元の Jacobi 二次式の一次倍が J₃ 全体を生成する。標数零へ移すのは、**元の整数 Jacobi 三次係数行列**の階数下界186340である。有限体で構成した個々の syzygy の持上げを仮定しない。標数零での I⊂J と次元上界を合わせて I₃=J₃ を得る。
 
@@ -285,7 +300,7 @@ N≥11 の二次最大階数と、n=9,10 の全 Hilbert 関数を確定する計
 
 ## 5. 中心評価・Hessian・trace の厳密記号検算
 
-`computations/verify_center_hessian.py` は保存済み検算で SymPy 1.14.0 により全assertionと二つのPASSを確認したコードである。本版ではこの既存計算を再実行していない。検算対象のSHA-256は `20bb71ce1b8c56f0e81a3776dce38c1f1f786ec54a44c409a0ecf2c71d4721bc`。浮動小数点、係数の補間、ランダムな有限標本は使わない。
+`computations/verify_center_hessian.py` は保存済み検算で SymPy 1.14.0 により全assertionと二つのPASSを確認したコードである。既存の点検ではこの既存計算を再実行していない。検算対象のSHA-256は `20bb71ce1b8c56f0e81a3776dce38c1f1f786ec54a44c409a0ecf2c71d4721bc`。浮動小数点、係数の補間、ランダムな有限標本は使わない。
 
 - 公刊Rains式の可換化と、κ=−4h⁴(1+λ³)/(1−hλ/2)⁶ の差が三偏微分のイデアルに入ることを、明示的な係数恒等式で確認した。統合担当は別の短い式の簡約でも係数を確認した。
 - HessianのJacobi類が8(1+λ³)xyzとなる恒等式と、固定入力のHesse中心のW−λUを確認した。
@@ -294,7 +309,7 @@ N≥11 の二次最大階数と、n=9,10 の全 Hilbert 関数を確定する計
 
 ### 幾何補正と残余比較の保持した厳密検算
 
-`python computations/verify_geometric_corrections.py` は保存済み検証で全assertionと13個のPASSを確認したコードである。本版では再実行していない。検算対象のSHA-256 は `78f592342b91531a6382576cc6025c8684e7f56d5efa84019b02d91b9923b85c`。その確認対象は次の通り。
+`python computations/verify_geometric_corrections.py` は保存済み検証で全assertionと13個のPASSを確認したコードである。既存の点検では再実行していない。検算対象のSHA-256 は `78f592342b91531a6382576cc6025c8684e7f56d5efa84019b02d91b9923b85c`。その確認対象は次の通り。
 
 - 四変数の二十個の三次単項式上で全十六個の gradient 一次倍を消す多項式汎関数、u³での値3t、t=1での階数16→17。
 - 滑らかさの二因子 `(1+12t³)(1+2t³+5t⁶)` と、八次自由臨界代数のtraceによる `F_t+h²t³u³`。
@@ -397,7 +412,7 @@ Buring の元資料 `star5.txt` のSHA-256は `05e0689ddb32a3d3a3ee4475086606bbe
 
 ### Picard 障害と Sklyanin 表示の厳密検算
 
-保存済みの検証で `python3 computations/verify_picard_obstruction.py` を実行し、SymPy による有理関数・多項式の厳密演算で全 assertion と13個の PASS、終了コード0を確認した。本版ではこの検算を再実行していない。
+保存済みの検証で `python3 computations/verify_picard_obstruction.py` を実行し、SymPy による有理関数・多項式の厳密演算で全 assertion と13個の PASS、終了コード0を確認した。既存の点検ではこの検算を再実行していない。
 
 - Hesse 型曲線の接線を代入した三重点の恒等式。
 - ζ²+ζ+1=0 での三つの接線比の積と b+λ³/(27a) の一致。
@@ -435,22 +450,9 @@ computations/verify_fivefold_plane_degree.py
 b7a9f66af04e2b4506aff22e87ebc53d3bc1eaa3466af0059d13025a424c019d
 ```
 
-## 6. ソース・組版の確認
+## 6. 現行ソースと組版
 
-### ソースと参照
-
-旧 v25 で `python3 scripts/check_sources.py` は終了コード0で、24 TeX sources、553 unique labels、363 referenced labels、103 cited bibliography keys を確認した。`git diff --check` も通過した。五つの主要 Markdown 文書のローカルファイル参照63件を確認し、欠落はなかった。現在の追加証明は `papers/sections/residual_boundary_products.tex` に統合し、既存の境界模型から読み込む。主原稿の要旨・序論・主定理・到達範囲、関連節の未解決課題、研究方針・ノート・README の記述を現在の局所結果へ合わせた。
-
-### PDF の組版状態
-
-旧リポジトリ名 `nc-cubic-n-fold` 時代の v25 に対して、当時の主原稿 `papers/nc-cubic-n-fold.tex` を `latexmk` で LuaLaTeX 組版し、終了コード0、333頁の PDF と同じ出力先の SyncTeX を確認した。これは v25 の過去の実行記録である。2026年11月21日のリポジトリ・主原稿の改名後、`papers/nc-cubic.tex` の再組版・PDF表示は未実施。最終ログに未定義参照・未定義引用・欠字・overfull/underfull box はない。既存の小さい数式フォントのサイズ置換7件と、その集約警告は残る。
-
-生成した PDF の1、8–9、21–22、25–26、253–267、326、331頁、計24頁を PNG として実際に目視した。統合担当は表題・概要、先行研究、主定理、到達範囲、追加書誌の9頁、独立担当は境界低積から局所位相までの追加節15頁を確認した。二つの横長行列は折り返して再組版し、最終版では数式のはみ出し・重なり・欠字・切断を認めなかった。全333頁の再読・全頁拡大点検ではない。PDF は2,528,652 bytes、SHA-256 は `80a5f3f9beccfb2bb59670eb4972dd81052339443e2b4628e3c80701f0170470`。
-
-改名後の GitHub 上のソースを再取得して、主原稿 `papers/nc-cubic.tex`、旧原稿パスの不在、
-直接の `\\input` 25件の実ファイル存在、`.latexmkrc` と `scripts/check_sources.py` の
-主原稿名一致、分割原稿の VS Code root 指定を静的に確認した。
-これは組版成功、ローカルの `check_sources.py` 実行、全数式の参照解決、計算の再実行ではない。
+現行の二論文は先頭の表のとおり、各々独立した入力グラフで参照・引用が解決し、LuaLaTeXで組版した。旧名の原稿や過去のPDFを現行稿の組版証拠に使わない。PDFとSyncTeXは `build/` に置きGitで追跡しない。VS Code設定とレシピ相当のルート基準コマンドは整合しているが、VS Code UIの操作は当該点検行っていない。
 
 ## 7. 再現と保存の区別
 
