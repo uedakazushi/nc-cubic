@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v15}
+\date{2026年11月20日・研究稿 v16}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -79,11 +79,13 @@ $\gcd(n-1,3)$ と決定する。
 active 制限の最高次 cohomology が次数零線束となる比較核の非空な型を構成する。
 この型の full 同型類を選んだ後、核の scalar gerbe は Picard gerbe の引戻しであり、
 重み一階数三束を持つ。split 体上の index は三を割り、active 曲線上で分裂する。
-さらに Picard 類の三分点を取る標準的な階数九の有限 étale 被覆上で、
-最高次線束を determinant により規格化した full 核を構成する。
-障害は $J_C(S)/3J_C(S)$ を通り、Picard 類が三倍なら元の底で消える。
+Picard 類の三分点を取る階数九の被覆上では、最高次線束を規格化した full 核を構成する。
 非可換 active 商の相対 THCR/window 比較と底変更を検証し、
 この Picard 類を点の平行移動で表す核の型も一般に非空であることを示す。
+一般 split 係数体では点 shift の Picard 障害の period と index はともに三であり、
+点型 full 核と指定平面同型を同時に持つ有限拡大の次数は三の倍数である。
+全 active Fourier--Mukai intertwiner を分類し、
+full 核の残る scalar 類を、点側の障害と平面同型 torsor の Weil cup 積の和で表す。
 
 trace--Hessian 三次と残余三次の不一致を全次元で示し、
 全同値へ降下し、active 切断が点曲線に一致する一般次数九の Hessian 補正を構成する。
@@ -282,10 +284,29 @@ MF の余核図式から検証する。これによって固定入力の下で�
 genus-one 曲線に付随する Jacobian 上の Azumaya 代数と、その点における
 Brauer 評価は既知である
 \cite[Theorems~1.1--1.2, Corollary~1.4]{NFMFisherGenusOneAlgebras}。
-本稿では対角三次上の Picard 障害を巡回 cocycle として直接計算し、
-一般の次数三偏極からは scalar 障害の消滅を結論できないことを示す。
-巡回代数や norm 判定\cite{NFMMilneCFT}を新規成果とはせず、
-本稿の full 比較核で index 三を実現する例を構成したとも主張しない。
+Ciperiani--Krashen\cite[Theorems~3.1, 3.7]{NFMCiperianiKrashen}は
+Picard 表現障害を Tate pairing と同定し、有限 torsion の Weil cup 積で表示する。
+本稿ではこの既知公式を flex torsor、平面同型 torsor、三分点 torsor へ適用し、
+二つの active 曲線間の障害の差を具体化する。
+さらに一般の $j$ を持つ Hesse 型曲線上で接線の norm を直接計算し、
+非零の index 三 Picard 障害を求める。巡回代数や norm 判定\cite{NFMMilneCFT}自体は既知である。
+Matsuno\cite[\S2.4, Lemma~2.16, Theorem~3.3, \S4]{NFMMatsunoElliptic}の
+幾何的 Sklyanin 表示と cyclic potential、および
+Mori--Smith\cite[Proposition~2.11, Theorem~4.2(1)]{MoriSmith}の
+基底変更と正則性判定を用い、この例を元の体上で勾配代数に実現する。
+ここで本稿が確認するのは、原点や Picard 類の線束代表を仮定しない potential の降下と、
+非零 Brauer 類を保持する支配的な全係数表示族である。
+これにより一般 split 表示の点障害の正確な index 三を得るが、
+full 比較核の scalar 類の非零性は平面同型 torsor の寄与を計算するまで結論しない。
+
+楕円曲線上の Fourier--Mukai 同値の数値作用とその核は
+Hille--Van den Bergh\cite[Proposition~4.2, Corollary~4.3, Theorem~5.3]{NFMHilleVdBFM}
+に記述されている。本稿ではこの graph 認識の議論を実際の核に適用し、
+三次 rotation の数値 centralizer の六元計算と合わせて、
+原点を仮定しない体上の全 intertwiner の存在判定を与える。
+相対的には、非被約底を許す normalized kernel stack と Picard gerbe を同定する。
+underlying kernel の分類と、rotation 同型自体および指定周期を標識した際の
+追加の $\mu_3$-torsor を区別する。
 
 既知の公式からの帰結と、本稿に証明を与える拡張は以下で区別する。
 これらの拡張について、独立な新規性の網羅的確認はなお完了していない。
@@ -837,14 +858,57 @@ rotation の共役式であり、右 point shift を織り込むと $3a=0$、$b=
 これだけで $m_P$ を任意に零へ調整することはできない。
 この非空性は、全ての比較核への適用や full 同型類の選択を含まない。
 
-実際の次数三線束が存在しても、Picard 障害が非零となることはある。
-命題\ref{prop:nfm-picard-cubic-index-sharp}では
-$\C(a,b)$ 上の $X^3-aY^3-bZ^3=0$ と三捩れの平行移動に対して
-障害を非分裂の次数三巡回代数として求める。
-系\ref{cor:nfm-picard-infinite-translation}では関数体拡大により
-同じ非零障害を無限位数の平行移動にも実現する。
-これは一般の Picard 障害に関する上界三の鋭さであり、
-本稿の full 比較核における障害の非零例はなお未構成である。
+この障害は実際の active 点対応において一般に非零となる。
+
+\begin{maintheorem}[一般点の Picard 障害と比較被覆の次数]
+良い split 一ブロック表示の標準一般係数体を $k_n$ とする。
+任意の $n\ge3$ に対し、actual active 点曲線とその shift 点は
+\[
+ \operatorname{per}\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})
+ =\operatorname{ind}\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})=3
+\]
+を満たす。従って $p_{\mathrm{pt}}$ と $p_{\mathrm{res}}$ はそれぞれの Jacobian の
+$k_n$-有理点群で三倍ではない。
+前述の点型 full 比較核 $P$ と実際の平面同型
+$\phi\in\mathfrak I_{\mathrm{sc}}$ を同時に持つ有限拡大 $L/k_n$ には
+$3\mid[L:k_n]$ が必要である。
+
+点型 full 核の同型類が $k_n$ 上で選択済みなら、その scalar 類は
+\[
+ \alpha=\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})
+       +e_{3,*}\bigl([\mathfrak I_{\mathrm{sc}}]
+                         \smile\kappa_3(p_{\mathrm{pt}})\bigr)
+\]
+となる。ここで $\kappa_3(p_{\mathrm{pt}})$ は三分点 torsor の Kummer 類である。
+特に $\mathfrak I_{\mathrm{sc}}$ が自明なら $\operatorname{ind}\alpha=3$ であり、
+$\alpha=0$ なら $\mathfrak I_{\mathrm{sc}}$ は非自明である。
+\end{maintheorem}
+
+証明は命題\ref{prop:nfm-active-point-sklyanin-realization}、
+\ref{prop:nfm-active-point-obstruction-dominant}と
+系\ref{cor:nfm-generic-point-picard-index-three}、
+\ref{cor:nfm-point-comparison-cover-three-divisibility}に置く。
+出発点は $\C(a,b,\lambda)$ 上の
+$X^3-aY^3-bZ^3+\lambda XYZ=0$ と三捩れ平行移動の障害
+$\bigl(a,b+\lambda^3/(27a)\bigr)_3$ の直接計算である。
+Jacobian の関数体上で無限位数の点に替えた後、
+Sklyanin potential を元の体上へ降下する。
+支配性を検査する有限 Hesse 拡大と、非零類を保持する実際の純超越拡大とを区別する。
+表示係数体におけるこの障害は、複素数体上の各点で非零という意味ではない。
+また、上の被覆の条件は $P$ と $\phi$ の双方を要求し、任意の full 核に拡張しない。
+
+active 曲線間の比較については、さらに完全な存在判定がある。
+実次数三偏極 $(E,L_E),(C,L_C)$ 上で
+$F\rho_{E,p}\simeq\rho_CF$ となる Fourier--Mukai 同値が存在することは、
+偏極曲線同型の存在と $\delta_E(p)=0$ に同値である
+（系\ref{cor:nfm-elliptic-any-intertwiner-criterion}）。
+数値作用を制限しないこの判定から、一般点でそのような active 同値は存在しない。
+同型類の相対 sheaf は $\mathfrak I_\theta$、実現 gerbe は
+$\delta_C(\theta(p))$ の引戻しである
+（命題\ref{prop:nfm-elliptic-intertwiner-gerbe}）。
+full 核から active 核を作る代数的 assignment は未構成なので、
+この非存在を full 核そのものの非存在と同一視しない。
+full scalar 類については、上の cup 項による相殺が未解決である。
 
 \subsection{Jacobi スキームの次元境界}
 \begin{maintheorem}[Jacobi スキームの境界と平方零構造]
@@ -955,9 +1019,12 @@ trace--Hessian 射と逆構成により、Poisson 対の開部分を同定した
 非可換 active 商の相対 THCR/window 比較と底変更を構成し、
 Picard 類が点の平行移動に一致する核の型の非空性を、同じ固定入力の下で得た。
 符号の近傍延長は有限対角と混合三角多項式から構成し、追加仮定を要しない。
-一般の次数三偏極では Picard 障害が非零になり得る明示例も与えた。
-次の課題は比較核の full 同型類の整合的な選択、
-点平行移動の実際の線束による表示と三可除性、および各 intrinsic 成分を覆う表示である。
+一般 split 係数体で点 shift の Picard 障害は正確に index 三であり、
+点型核と指定平面同型を伴う比較被覆の次数は三の倍数である。
+一般の三可除性による中立化はこの結果で排除される。
+次の課題は、点側の非零障害と平面同型 torsor の cup 項の相殺、
+full 同型類の整合的な選択と型の表示変更への適合、
+および各 intrinsic 成分を覆う表示である。
 固定 frame の tensor の very general な超越性を踏まえ、
 形式座標の代数性と内在的なモジュライの代数性は区別して進める。
 boundary や全 Abel 形式近傍の記述は、この一般次元の構成に必要な障害を解消する

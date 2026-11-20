@@ -1777,27 +1777,31 @@ $m\mapsto m^*\beta_{\mathrm{Pic},C}$ は群準同型である。
 $m_P=3q$ の場合にはその実際の代表 $N_q$ を前定理の証明へ直接用いればよい。
 \end{proof}
 
-\begin{proposition}[次数三偏極を持つ曲線の非零 Picard 障害]
+\Needspace{5\baselineskip}
+\begin{proposition}[一般の $j$ を持つ次数三偏極曲線の非零 Picard 障害]
 \label{prop:nfm-picard-cubic-index-sharp}
-$a,b$ を独立変数、$K=\C(a,b)$、$\zeta$ を原始三乗根とし、
+$a,b,\lambda$ を独立変数、$K=\C(a,b,\lambda)$、
+$\zeta$ を原始三乗根とし、
 \[
- C:\ X^3-aY^3-bZ^3=0\subset\mathbf P^2_K,\qquad
- L=\mathcal O_C(1)
+ C:\ X^3-aY^3-bZ^3+\lambda XYZ=0\subset\mathbf P^2_K,
+ \qquad L=\mathcal O_C(1),\qquad
+ b_\lambda=b+\frac{\lambda^3}{27a}
 \]
-と置く。射影変換
+と置く。$C$ は滑らかで、$j(C)\notin\{0,1728\}$ である。
+射影変換
 \[
  \sigma[X:Y:Z]=[X:\zeta Y:\zeta^2Z]
 \]
 は $L$ を保つ非零三捩れ点 $p\in J_C[3](K)$ による平行移動である。
 $K'=K(t)$、$t^3=a$、$\tau(t)=\zeta t$ とし、巡回代数の規約を
 \[
- \mathcal A=(K'/K,\tau,b)
+ \mathcal A_\lambda=(K'/K,\tau,b_\lambda)
    =K'\oplus K'v\oplus K'v^2,\qquad
- v\ell=\tau(\ell)v,\quad v^3=b
+ v\ell=\tau(\ell)v,\quad v^3=b_\lambda
 \]
 と固定する。このとき
 \begin{equation}\label{eq:nfm-picard-diagonal-symbol}
- \delta_C(p)=[\mathcal A]\ne0,\qquad
+ \delta_C(p)=[\mathcal A_\lambda]\ne0,\qquad
  \operatorname{per}\delta_C(p)
    =\operatorname{ind}\delta_C(p)=3.
 \end{equation}
@@ -1805,7 +1809,21 @@ $K'=K(t)$、$t^3=a$、$\tau(t)=\zeta t$ とし、巡回代数の規約を
 \end{proposition}
 
 \begin{proof}
-勾配の三成分は射影空間内で同時に零にならないので、$C$ は滑らかである。
+勾配の三成分が射影空間内で同時に零になるなら、全ての座標は非零であり、
+三つの勾配方程式を掛けると $\lambda^3=-27ab$ となる。
+これは変数の独立性に反するので、$C$ は滑らかである。
+$t^3=a$、$s^3=b$ を取って
+$(U,V,W)=(X,-tY,-sZ)$ とすれば、
+$C$ は $U^3+V^3+W^3-3\mu UVW=0$、
+$\mu=-\lambda/(3ts)$ という Hesse 形となる。
+Hesse 形の $j$ の公式
+\cite[\S2.4]{NFMMatsunoElliptic}により、
+\[
+ r=-\frac{\lambda^3}{27ab},\qquad
+ j(C)=27\,\frac{r(r+8)^3}{(r-1)^3}.
+\]
+$r$ は超越的なので、$j(C)\notin\{0,1728\}$ である。
+
 $\sigma$ は方程式と座標変換の行列式をともに保つため、
 随伴で得られる非零正則一形式にも恒等に作用する。
 従って genus-one 曲線上の平行移動である。
@@ -1813,16 +1831,22 @@ $\sigma$ は方程式と座標変換の行列式をともに保つため、
 $\sigma^3=1$ だから、その移動点 $p$ は非零三捩れ点である。
 また $\sigma$ は射影線型変換なので $\sigma^*L\simeq L$ である。
 
-$C_{K'}$ の三つの変曲点
+$C_{K'}$ の三つの点
 \[
  P_i=[\zeta^i t:1:0]\quad(i\in\mathbf Z/3\mathbf Z)
 \]
 を取ると、$\tau P_i=P_{i+1}$、$\sigma P_0=P_2$ である。
 従って $D=P_2-P_0$ の Picard 類は $p$ である。
-$P_0$ における接線 $X-tY=0$ は三重に $P_0$ と交わる一方、
-$Z=0$ は $P_0+P_1+P_2$ を切り出す。よって
+$P_0$ における接線は
 \[
- f=\frac{X-tY}{Z},\qquad
+ T_0:\ X-tY+\frac{\lambda}{3t}Z=0
+\]
+である。$X=tY-\lambda Z/(3t)$ を三次の方程式へ代入すると
+$-b_\lambda Z^3$ となるので、この接線は三重に $P_0$ と交わる。
+一方、$Z=0$ は $P_0+P_1+P_2$ を切り出す。
+よって
+\[
+ f=\frac{X-tY+\lambda Z/(3t)}{Z},\qquad
  \operatorname{div}(f)=2P_0-P_1-P_2=\tau D-D.
 \]
 乗法 $f$ は
@@ -1830,30 +1854,39 @@ $\tau\mathcal O_{C_{K'}}(D)\xrightarrow{\sim}\mathcal O_{C_{K'}}(D)$
 を与える。その三回の合成は
 \[
  f\,\tau(f)\,\tau^2(f)
-   =\frac{X^3-aY^3}{Z^3}=b
+ =\frac{X^3-aY^3+\lambda XYZ+\lambda^3Z^3/(27a)}{Z^3}
+ =b_\lambda
 \]
 である。
 $1,\tau,\tau^2$ に対する同型をそれぞれ $1,f,f\tau(f)$ と選ぶと、
 その scalar 二 cocycle は、指数の和が三未満なら $1$、
-三以上なら $b$ という巡回 cocycle となる。
-これは上に固定した巡回代数 $\mathcal A$ の factor set なので、
-Picard gerbe の障害は $\delta_C(p)=[\mathcal A]$ である。
+三以上なら $b_\lambda$ という巡回 cocycle となる。
+これは上に固定した巡回代数 $\mathcal A_\lambda$ の factor set なので、
+Picard gerbe の障害は $\delta_C(p)=[\mathcal A_\lambda]$ である。
 ここで用いた crossed product と Brauer 類の対応は
 \cite[IV, \S3, Theorem~3.14]{NFMMilneCFT}の規約による。
 
 この類が非零であることも直接確認できる。
-$K'=\C(t,b)$ の $b$ 進付値は $\tau$ で不変なので、任意の $u\in K'^\times$ に対し
+$K'=\C(t,\lambda,b_\lambda)$ であり、
+$b_\lambda$ 進付値は $\tau$ で不変なので、任意の $u\in K'^\times$ に対し
 \[
- \operatorname{ord}_b N_{K'/K}(u)
-      =3\operatorname{ord}_b(u)
+ \operatorname{ord}_{b_\lambda}N_{K'/K}(u)
+      =3\operatorname{ord}_{b_\lambda}(u)
 \]
-である。$\operatorname{ord}_b(b)=1$ だから $b$ は norm ではない。
+である。$\operatorname{ord}_{b_\lambda}(b_\lambda)=1$ だから
+$b_\lambda$ は norm ではない。
 巡回代数の norm 判定
-\cite[III, \S4, Steps~1--2]{NFMMilneCFT}により $\mathcal A$ は非分裂である。
+\cite[III, \S4, Steps~1--2]{NFMMilneCFT}により
+$\mathcal A_\lambda$ は非分裂である。
 その次数は三であるため index は三であり、
 $3p=0$ と $\delta_C$ の加法性から period も三となる。
 最後の三分不能性は系\ref{cor:nfm-kernel-picard-mod-three}による。
 \end{proof}
+
+$\lambda=0$ に特殊化すると、$\C(a,b)$ 上の対角三次
+$X^3-aY^3-bZ^3=0$、接線比 $f=(X-tY)/Z$、
+巡回代数 $(\C(t,b)/\C(a,b),\tau,b)$ を得る。
+上と同じ $b$ 進付値の議論により、この特殊化でも period と index は三である。
 
 \begin{corollary}[無限位数の平行移動にも残る障害]
 \label{cor:nfm-picard-infinite-translation}
@@ -1863,38 +1896,41 @@ $q\in J(F)$ を恒等写像 $J\to J$ の一般点とする。
 \[
  p_\infty=p_F+3q\in J(F)
 \]
-は無限位数であり、実際の次数三線束 $L_F$ を持つ $C_F$ 上で
+は無限位数で、その $J$ への像は一般点である。
+実際の次数三線束 $L_F$ を持つ $C_F$ 上で
 \[
- \delta_{C_F}(p_\infty)=[\mathcal A_F]\ne0,\qquad
+ \delta_{C_F}(p_\infty)=[(\mathcal A_\lambda)_F]\ne0,\qquad
  \operatorname{ind}\delta_{C_F}(p_\infty)=3
 \]
 が成り立つ。この平行移動は $L_F$ を保たない。
 \end{corollary}
 
 \begin{proof}
+$q\mapsto p+3q$ は有限全射 $J\to J$ なので、
+$p_\infty$ の像は一般点である。
 $n>0$ に対して $np_\infty=0$ なら、
 $[3n]:J\to J$ は一般点で定数 $-np$ に等しくなる。
 これは正の次数の有限射であることに反するので、$p_\infty$ は無限位数である。
 系\ref{cor:nfm-kernel-picard-mod-three}と底変更から
 $\delta_{C_F}(p_\infty)=\delta_C(p)_F$ を得る。
 
-もし $\mathcal A_F$ が分裂すれば、その Brauer--Severi 曲面は $F$-点を持ち、
-$J$ から $\operatorname{SB}(\mathcal A)$ への有理写像を与える。
+もし $(\mathcal A_\lambda)_F$ が分裂すれば、
+その Brauer--Severi 曲面は $F$-点を持ち、
+$J$ から $\operatorname{SB}(\mathcal A_\lambda)$ への有理写像を与える。
 $J$ の $K$-有理原点における局所環は DVR であり、
-$\operatorname{SB}(\mathcal A)$ は proper なので、その写像はこの局所環上へ延長する。
-原点での値が $K$-点となり、$\mathcal A$ の非分裂性に反する。
-従って $\mathcal A_F$ も非分裂であり、次数三から index は三である。
+$\operatorname{SB}(\mathcal A_\lambda)$ は proper なので、
+その写像はこの局所環上へ延長する。
+原点での値が $K$-点となり、$\mathcal A_\lambda$ の非分裂性に反する。
+従って $(\mathcal A_\lambda)_F$ も非分裂であり、次数三から index は三である。
 最後に次数三の偏極について
 $[t_{p_\infty}^*L_F\otimes L_F^{-1}]=-3p_\infty$ なので、
 無限位数性からこの Picard 類は零ではない。
 \end{proof}
 
-以上は、実際の次数三偏極を持つ genus-one 曲線の
-Picard 障害に対して index の上界三が鋭いことを示す。
-三捩れかつ偏極を保つ場合にも、無限位数の場合にも障害は残り得る。
-これらの曲線と移動点を、本稿の良い一ブロック族の点 shift や
-full 比較核の最高次線束として実現したとは主張しない。
-従って、本稿の full 比較核の scalar index が実際に三となる例を与えたわけではない。
+以上は、実際の次数三偏極を持つ genus-one 曲線の Picard 障害に対して、
+一般の $j$ と無限位数の平行移動を許しても index の上界三が鋭いことを示す。
+この曲線上の Picard 障害を、本稿の full 比較核の scalar 障害へ移すには、
+残余曲線との偏極付き同型の障害と、full 同型類の選択を別に扱う必要がある。
 
 階数九の $T_P^{(3)}$ は、任意の直線切片や最小分裂体を選ばず、
 固定した Picard 類から相対的に定まる scalar 分裂被覆である。

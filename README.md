@@ -1,6 +1,6 @@
 # 非可換三次 n-fold のモジュライ
 
-2026年11月20日 / v15。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
+2026年11月20日 / v16。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
 
 **再開時は [研究方針](00_research_plan.md) を最初に読む。**
 
@@ -22,7 +22,8 @@
 - [残余射・尺度・比較核の本文](papers/sections/residual_algebraic.tex)：一般次元の相対復元、全 O-降下、有限被覆上の Ku 比較、完備中心商、最高次 cohomology と階数三束によるscalar index、従来のEuler格子、固定tensorの超越性。
 - [点曲線と自然な残余尺度の本文](papers/sections/residual_point_scale.tex)：active 部分の全次数比較、Hodge 線束、点曲線の同型被覆、符号商射、反対代数、正確な一般次数18、混合三角性・符号消滅・半古典full射の次数9。
 - [四次補正の本文](papers/sections/fourth_correction.tex)：上の有限計算を一般次元の証明と Poisson moduli の射へ統合する主原稿の分割ファイル。
-- [点の平行移動と核のPicard類](papers/sections/residual_kernel_point.tex)：右加群のrotation共役、形式楕円比較、相対THCRと閉／一般底変更を含むwindow1、非空な点型とα=δ_C(p_res)。
+- [点の平行移動と核のPicard類](papers/sections/residual_kernel_point.tex)：右加群のrotation共役、形式楕円比較、相対THCRと閉／一般底変更を含むwindow1、非空な点型、active同値の全分類、一般点の点障害index三、flexと平面同型torsorのcup productによるfull scalar障害。
+- [点障害の厳密検算](computations/verify_picard_obstruction.py)：Hesse 接線・巡回 norm、Sklyanin 点三次・係数の逆、rotation の六つの数値 centralizer。
 - [参考文献](papers/references.tex)。外部文献PDFは含めない。
 
 直接の入力は [nc-cubic](https://github.com/uedakazushi/nc-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) の論文A・B。これらが既に扱う一般次元の正規形・量子化・一般点復元を、新しい成果として数えていない。
@@ -62,17 +63,35 @@
 
 **点の平行移動との関係を、固定入力の下で具体化した。** 右加群ではs=σ_*∘tensor Lである。ρ=T_O∘tensor Lに対し、U_(a,b)=t_a^*∘tensor P_bへの共役は(a,b)↦(−2a−b,3a+b)であり、σ=t_pのrotationを可換側へ移す条件は3a=0,b=pとなる。支配的なR=k[[h]]族で、点関係行列から相対THCRを構成し、指定中心三次がその核に入ることを証明した。次数別Nakayama・相対ample pair・AS-Gorenstein条件を確認し、window1と閉／一般ファイバーへの導来底変更も構成した。従って相対THCR/window1を別に仮定せず、固定入力Bの下で、半古典Jacobian同型θ_scに対してJac(φ)=θ_sc、m_P=θ_sc(p_pt)となるfull核の追加型は非空である。φはθ_sc上の階数九J[3]-torsor I_scから選べる。この型の同型類選択後にはα=δ_C(p_res)を得る。全ての既存最高次線束型の核にこの等式を主張せず、元の底でのfull同型類選択はなお必要である。
 
-**次数三偏極だけではPicard障害は消えない。** K=C(a,b)上の対角三次C:X³−aY³−bZ³=0と、射影変換[X:Y:Z]↦[X:ζY:ζ²Z]による三捩れ点pについて、δ_C(p)は巡回代数(K(∛a)/K,τ,b)の類であり、period=index=3となる。さらにF=K(J_C)の一般点qを使うp_∞=p+3qは無限位数で、同じ非零障害を保つ。これは一般のPicard障害の上界三の鋭さを示す明示例であり、本研究のfull比較核でindex三を実現した例ではない。
+**点 shift の Picard 障害は、一般 split 表示で正確に index 三となる。** K=C(a,b,λ) 上の Hesse 型三次 X³−aY³−bZ³+λXYZ と三捩れ移動点 p₀ の障害は巡回代数 (a,b+λ³/(27a))₃ であり、period=index=3である。Jacobian の関数体上で p=p₀+3q とすると、一般の j・無限位数の p でも同じ障害を保つ。この曲線・偏極・平行移動から幾何的 Sklyanin 代数を元の体上に作り、一次元の cyclic potential を降下して、滑らかな commutator–gradient 形式へ規格化した。Hesse 係数の支配性を確認した後、一般の基底変更、混合係数・中心三次係数の付加は、非零障害を保つ純超越拡大だけで行える。Hesse 座標用の根の有限拡大は支配性の検査だけに使い、非零例の基礎体には加えない。従って全 n≥3 の標準 split 一ブロック係数表示の一般点で δ_Ept(p_pt) の period と index は三である。これは係数体上の族の障害であり、複素数体上の個々の曲線に非零 Brauer 類を主張するものではない。
+
+**楕円 active 比較は全 Fourier–Mukai 同値まで分類できる。** 標数零の体 K 上で実際の次数三線束を持つ任意の二曲線 (E,L_E),(C,L_C) に対し、ρ_E,p と ρ_C を intertwine する実際の K-線型 Fourier–Mukai 同値の存在は、偏極曲線同型 φ:E→C の存在と δ_E(p)=0 の二条件に同値である。三次 rotation の数値 centralizer {±I,±R,±R²} により全数値型を規格化し、同値を φ と Jac(φ)(p) を表す実線束へ還元する。従って一般 split 係数体 k_n 上では、三に素な有限拡大後も、任意のそのような標的曲線への active intertwiner は存在しない。θ_sc を指定した規格化 active 核の同型類の fppf 層は I_sc、その実現 gerbe は Picard gerbe の引戻しである。rotation 同型そのものと指定周期を標識する場合の μ₃-torsor は別に追う。これは full Ku 核の不存在や full 同型類の選択を結論するものではない。
+
+**full 核の残る scalar 問題は、有限三捩れの cup product に具体化した。** 点型の full 同型類を選んだ後、残余曲線の flex torsor の類 ξ_C と三分点の Kummer 類 κ₃(p_res) により α=e₃,*(ξ_C∪κ₃(p_res)) となる。平面同型 torsor の類を ι_sc と書くと、α=δ_Ept(p_pt)+e₃,*(ι_sc∪κ₃(p_pt))。一般係数体 k_n 上で I_sc が自明なら α の period=index は三であり、逆に α=0 なら I_sc は非自明でなければならない。full α の非零性は、cup 項との相殺を調べるまで結論できない。これは既知の Tate–Weil pairing を本稿の二曲線へ適用した式であり、flex・平面同型・三分点の三つの階数九 torsor は区別する。点関係行列の余核が表すのは3pであり、pの障害を消さない。一般の p_pt と p_res は三で割れず、標準三分点 torsor は k_n-有理点を持たないが、その連結性や最小分裂次数が九とは主張しない。完備半古典族 R=k[[h]] では p≡0 から 3q=p、q≡0 を満たす切断が一意に存在して δ_E(p)=0 となる。この形式的分裂を完備化前の係数体上の分裂と混同しない。
+
+**点型 full 核と半古典平面同型を同時に持つ比較被覆には、三の因子が必要である。** k_n の有限拡大 L 上に、最高次線束の類が θ_sc(p_pt) となる実際の full 比較核 P と φ∈I_sc(L) の両方が存在すれば、[L:k_n] は三の倍数となる。従ってこの二つのデータを備える有限 étale 比較被覆の各一般成分の次数も三の倍数である。P の最高次線束を φ で点曲線へ戻すと δ_Ept(p_pt) を分裂させるためであり、full 核からの active 核 assignment は必要ない。この条件から、φ を伴わない full 核の無条件不存在は導かない。
 
 この型は従来のCF Euler数値型より強い。Euler条件だけの型に対する d_n=3^floor((n+1)/2) のboundと、rotation Euler格子 d_n Z は保持する。新しい評価は全ての既存数値型の核を対象とせず、核の同型類を選ぶ第一段階とscalar gerbeの中立性は未解決である。表示類βと核の類αは同一視しない。既に選んだ三-primaryな類のindexは三に素な体拡大では不変である。
 
 **完備中心商について MF 比較を構成した。** 厳密相対 bar flow とその逆を中心係数の斉次商へ降ろせるので、U=0 の active MF にも比較が得られる。任意の quotient MF を扱い、元の MF からの持上げを仮定しない。ただし、一般点の有限代数的核への coherent な中心線型性の降下は未完成である。係数商と圏の導来 tensor の同一視、absolute perfect から relative perfect への推論には一般的な反例があり、研究ノートに整理した。
 
-残る中心課題は、full比較核の同型類の整合と元の底上の三捩れ障害の中立化、最高次cohomology型の内在性、各intrinsic成分の一般対象の被覆である。代数的核のcoherentな中心線型性は引き続き未完成だが、最高次線束によるindex評価と選択済み類の三分点被覆はその降下を前提としない。証明は [残余射・比較核の節](papers/sections/residual_algebraic.tex)、[点曲線・尺度の節](papers/sections/residual_point_scale.tex)、[点の平行移動と核のPicard類](papers/sections/residual_kernel_point.tex) にまとめる。
+残る中心課題は、I_sc の cup 項による相殺と選択済み full scalar 類の計算、full 比較核の同型類の整合・持上げ、最高次 cohomology 型の内在性、各 intrinsic 成分の一般対象の被覆である。代数的核の coherent な中心線型性は引き続き未完成だが、最高次線束による index 評価・選択済み類の三分点被覆・点型比較被覆の次数制約は active 核 assignment を前提としない。証明は [残余射・比較核の節](papers/sections/residual_algebraic.tex)、[点曲線・尺度の節](papers/sections/residual_point_scale.tex)、[点の平行移動と核のPicard類](papers/sections/residual_kernel_point.tex) にまとめる。
 
 個別次元の Jacobi 計算と boundary の精査は、この一般目標の具体的な障害を解消する場合に行う。八次元の頂点構造等の既存成果と証明書は保持する。次の具体的な着手方法と各目標の到達基準は [研究方針](00_research_plan.md) にまとめ、全体の要約は [research-hub](https://github.com/uedakazushi/research-hub) に反映する。
 
 ## 主要結果と未完成部分
+
+点型の比較と算術的障害については、次の適用範囲を区別する。表の証明ラベルは [点の平行移動と核の Picard 類の本文](papers/sections/residual_kernel_point.tex) にある。
+
+| 対象 | 現行稿に証明のある結果 | 証明の入口と限界 |
+|---|---|---|
+| 全 active Fourier–Mukai 同値 | 実次数三偏極を持つ任意の標的曲線 C への intertwiner の存在は、偏極同型 E→C と δ_E(p)=0 に同値 | `cor:nfm-elliptic-any-intertwiner-criterion`、`prop:nfm-elliptic-intertwiner-gerbe`。追加の周期標識は別の μ₃-torsor。full 核の分類ではない |
+| 一般 split 係数体の点障害 | 全 n≥3 で δ_Ept(p_pt) の period=index=3。三に素な有限拡大後も active intertwiner はなく、p_pt と p_res は三で割れない | `prop:nfm-active-point-obstruction-dominant`、`cor:nfm-generic-point-picard-index-three`、`cor:nfm-generic-active-intertwiner-obstruction`。係数体上の族の結果であり、複素閉点の Brauer 類ではない |
+| 選択済み点型 full class の scalar 類 | α=δ_Ept(p_pt)+e₃,*(ι_sc∪κ₃(p_pt))。一般係数体で I_sc が自明なら index 三、α=0 なら I_sc は非自明 | `prop:nfm-kernel-flex-cup`、`prop:nfm-picard-plane-transfer`。full class 選択は別段階で、cup 項の相殺は未判定 |
+| 点型 full 比較被覆 | 実際の点型核 P と φ∈I_sc をともに備える各一般成分の次数は三の倍数 | `cor:nfm-point-comparison-cover-three-divisibility`。active assignment は不要。φ を伴わない full 核の不存在は主張しない |
+| 行列余核・形式分裂 | 点行列の余核から得る次数零線束は3pを表す。R=k[[h]] 上の p≡0 には一意な q≡0、3q=p があり、点障害は分裂 | `prop:nfm-point-matrix-tripling-line`、`lem:nfm-formal-point-third-division`。完備化前の係数体での分裂は従わない |
+
+Sklyanin の幾何学的分類、楕円 Fourier–Mukai 核の graph 認識、Picard 障害の Tate–Weil pairing は既知の入力である。本稿の算術的実現・支配族・一般点の index 三と rotation 保存比較への適用は証明を記述し独立点検したが、新規性の網羅的確認は未完了である。具体的な文献と確認範囲は [研究ノート](notes/research_notes.md) と [検証範囲](notes/validation.md) を参照する。
 
 一ブロックの周囲代数の次数付きモジュライの次元は `(n²+7n−4)/2`、中心三次 torsor の相対次元は `binom(n+1,3)`。良い相対 PBW 表示チャートでは、有限 Koszul 対角、真正な双加群双対、compact 性、相対 properness、Serre 関手 `S=(1−n)[n]` と trace を任意底変更に両立して構成した。
 
@@ -135,6 +154,7 @@ python3 computations/verify_center_hessian.py
 python3 computations/verify_geometric_corrections.py
 python3 computations/verify_active_invariants.py
 python3 computations/verify_active_sign.py
+python3 computations/verify_picard_obstruction.py
 python3 computations/verify_poisson_correction.py
 python3 computations/verify_cubic_covariants.py
 python3 computations/verify_mixed_fifth.py
@@ -144,7 +164,9 @@ python3 computations/verify_jacobi_vertex.py --verify computations/jacobi_vertex
 latexmk papers/nc-cubic-n-fold.tex
 ```
 
-active 不変量の検算は rψ=ar、判別式・Jacobian の公式を有理係数で確認する。active符号の新検算はQQ(ζ)上のHesse群の24要素・閉性・不変量・二次指標と、体次数の消去式を確認する。有限対角によるPoisson対の近傍延長・同変降下とχ_actの消滅は、この計算ではなく本文の証明による。幾何学的一般ファイバー、全次数混合三角性、正確な一般次数18は本文の証明に依る。中心・Hessian と幾何補正の検算は有理係数の記号恒等式、八次自由代数の trace、Jacobi 商の双対証明書、普遍 cofactor 恒等式と Hesse の j 差を再現する。新しい補正検算では十個の独立係数を持つ三変数三次、任意の対称行列、二パラメータ Hesse 中心の係数変換、混合項の復元行列、九重被覆の分岐、Weyl の整数重複度と四次不変式も確認する。混合五次の検算は保存した73項の graph データから β,γ を評価し、四次 potential の検算は中心 symbol の全係数恒等式・純中心項・尺度・全次元の非消滅証明書を確認する。入力論文の混合中心公式の非可換中心性、graph 積分そのもの、圏同値はこれらの記号計算で再検証しない。組版設定は既存の repo ルート基準のパスを維持し、PDF と SyncTeX を `build/` に揃えている。研究hubの現行テンプレートと設定も参照し、LaTeX Workshop の推奨拡張を指定した。
+点障害の検算は、Hesse 接線の三重接触と巡回 norm、Sklyanin potential の点三次、Hesse 係数の有理逆、滑らかさの恒等式、六つの整数数値 centralizer を正確な記号計算で確認する。Brauer 類の非零性・index、支配族の降下、全 Fourier–Mukai 分類、比較被覆の次数制約は本文の証明に依り、この有限計算だけから結論しない。
+
+active 不変量の検算は rψ=ar、判別式・Jacobian の公式を有理係数で確認する。active符号の検算はQQ(ζ)上のHesse群の24要素・閉性・不変量・二次指標と、体次数の消去式を確認する。有限対角によるPoisson対の近傍延長・同変降下とχ_actの消滅は、この計算ではなく本文の証明による。幾何学的一般ファイバー、全次数混合三角性、正確な一般次数18は本文の証明に依る。中心・Hessian と幾何補正の検算は有理係数の記号恒等式、八次自由代数の trace、Jacobi 商の双対証明書、普遍 cofactor 恒等式と Hesse の j 差を再現する。補正検算では十個の独立係数を持つ三変数三次、任意の対称行列、二パラメータ Hesse 中心の係数変換、混合項の復元行列、九重被覆の分岐、Weyl の整数重複度と四次不変式も確認する。混合五次の検算は保存した73項の graph データから β,γ を評価し、四次 potential の検算は中心 symbol の全係数恒等式・純中心項・尺度・全次元の非消滅証明書を確認する。入力論文の混合中心公式の非可換中心性、graph 積分そのもの、圏同値はこれらの記号計算で再検証しない。組版設定は既存の repo ルート基準のパスを維持し、PDF と SyncTeX を `build/` に揃えている。研究hubの現行テンプレートと設定も参照し、LaTeX Workshop の推奨拡張を指定した。
 
 原 graph データから抽出・規約も再検証する場合は、[出典と SHA-256 を記した JSON](computations/data/harmonic_linear_products.json) の `star5.txt` と `kontsevich_2_k.txt`・`weights_kontsevich_2_k.txt`（k=1,…,5）を同じディレクトリに置き、次を実行する。通常の検算は保存済みの必要項だけで完結し、外部データ取得は不要である。
 

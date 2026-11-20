@@ -4,10 +4,12 @@
 
 最高次線束型の比較核について、スカラー障害は次数零 Picard 類
 $m_P$ の表現障害である。
-本節では楕円曲線の rotation の共役式を求め、
+本節では楕円曲線の rotation を保つ全 Fourier--Mukai 同値を分類し、
 可換特殊ファイバーを含む非可換 active 商の相対 THCR/window1 比較を構成する。
 これにより、固定入力と良い一ブロックの仮定の下で、
 点の平行移動と $m_P$ を結ぶ追加型の非空性とスカラー障害の具体式を証明する。
+さらに一般 split 係数体で点側の Picard 障害が正確に index 三であることを示し、
+平面同型を伴う点型 full 比較被覆の次数に三の整除条件を得る。
 代数的な active 同値核の assignment や、full 核の同型類の選択を
 無条件に構成するものではない。
 
@@ -89,10 +91,319 @@ $T_{\mathcal O_E}$ と可換する。
 に等しい。これで全ての主張が従う。
 \end{proof}
 
-この補題は、全自己同値群の分類ではない。
-平行移動と次数零線束の tensor からなる部分について、
-rotation を保ったまま Picard 類を調整できる範囲を決定している。
-特に、この部分の自己同値だけを用いて任意の $m_P$ を零にすることはできない。
+\subsection{全楕円同値の分類と二段階の障害}
+
+次に、平行移動と線束の tensor 以外も含む全ての Fourier--Mukai 同値を扱う。
+$K$ を標数零の体、$E,C$ を $K$ 上の滑らかな射影 genus-one 曲線とし、
+実際の次数三線束 $L_E,L_C$ を固定する。原点や $K$-有理点は仮定しない。
+$p\in J_E(K)=\operatorname{Pic}^0(E)(K)$ に対し
+\[
+ \rho_{E,p}=T_{\mathcal O_E}\circ(t_p)_*\circ(-\otimes L_E),
+ \qquad
+ \rho_C=T_{\mathcal O_C}\circ(-\otimes L_C)
+\]
+と置く。
+以下で intertwiner というときは、実際の perfect Fourier--Mukai 核による
+$K$-線型同値 $F$ に、$F\rho_{E,p}\simeq\rho_CF$ という
+\emph{同型の存在条件}を課す。その同型自体の標識と指定周期との整合は、
+最後に別に扱う。
+
+\begin{lemma}[数値 centralizer と graph の認識]
+\label{lem:nfm-elliptic-numerical-graph}
+幾何的数値格子を $(\operatorname{rank},\deg)$ によって $\mathbf Z^2$ と同定する。
+$\rho_{E,p}$ と $\rho_C$ の行列はともに
+\[
+ R=\begin{pmatrix}-2&-1\\3&1\end{pmatrix},\qquad R^3=I
+\]
+であり、
+\begin{equation}\label{eq:nfm-elliptic-numerical-centralizer}
+ \operatorname{Cent}_{\operatorname{SL}_2(\mathbf Z)}(R)
+   =\{\pm I,\pm R,\pm R^2\}.
+\end{equation}
+また、実際の $K$-線型 Fourier--Mukai 同値
+$F:D^b(E)\to D^b(C)$ の幾何的数値作用が恒等なら、
+$K$-同型 $\phi:E\xrightarrow{\sim}C$、$C$ 上の次数零線束 $M$、
+整数 $a$ があって
+\begin{equation}\label{eq:nfm-elliptic-numerical-graph}
+ F\simeq(-\otimes M)\circ\phi_*[2a]
+\end{equation}
+となる。これらは同型を除いて一意であり、
+$F(\mathcal O_E)$ が shift のない次数零線束なら $a=0$ である。
+\end{lemma}
+
+\begin{proof}
+次数三線束の tensor と $T_{\mathcal O}$ の数値行列は、それぞれ
+\[
+ \begin{pmatrix}1&0\\3&1\end{pmatrix},\qquad
+ \begin{pmatrix}1&-1\\0&1\end{pmatrix}
+\]
+であり、平行移動の数値作用は恒等である。従ってその積は $R$ となる。
+$B=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$ とすると、
+$BR=RB$ は $c=-3b$、$d=a-3b$ に等しい。
+さらに
+\[
+ 1=\det B=a^2-3ab+3b^2
+   =\left(a-\frac32b\right)^2+\frac34b^2
+\]
+なので $|b|\le1$ である。
+$b=0$ なら $a=\pm1$、$b=1$ なら $a=1,2$、
+$b=-1$ なら $a=-1,-2$ であり、これが表示した六行列を与える。
+
+graph の主張をまず代数閉包上で証明する。
+滑らかな曲線では $\operatorname{Ext}^{\ge2}=0$ なので、
+有界複体は cohomology 層の shift の直和である。
+$F(k(x))$ は indecomposable で数値類 $(0,1)$ を持つため、
+ある点 $\phi(x)$ と整数 $a(x)$ に対し
+$F(k(x))\simeq k(\phi(x))[2a(x)]$ となる。
+kernel の第一射影に関する relative perfect 性と Tor amplitude の開性から
+$a(x)$ は局所定数であり、$E$ の連結性によって一定である。
+shift を除いた kernel は第一射影について平坦な長さ一の層の族なので、
+一つの graph 上の線束となる。
+逆 kernel にも同じ議論を適用すると、graph の射は同型である。
+これで\eqref{eq:nfm-elliptic-numerical-graph}を得る。
+数値作用が恒等なので $\deg M=0$ であり、
+$F(\mathcal O_E)=M[2a]$ から最後の主張も従う。
+この graph 認識は
+\cite[Proposition~4.2, Corollary~4.3 and Theorem~5.3]{NFMHilleVdBFM}
+の証明と同じ議論である。
+
+$K$ 上への降下では、kernel が実際の $K$ 上の対象であることを用いる。
+忠実平坦な体拡大後に cohomology が一つの次数に集中するので、
+$K$ 上でも同じ次数の層となる。
+その平坦性、graph 上の可逆性は fpqc 局所的性質である。
+scheme 理論的 support の $E$ への射は代数閉包上で同型なので、
+$K$ 上でも同型となり、$\phi$ と線束が降下する。
+graph とその上の線束の一意性から、表示の一意性も従う。
+ここで $K$ 上の数値格子が次数一の対象を含むとは仮定していない。
+\end{proof}
+
+\begin{theorem}[構造層の像で規格化した全楕円 intertwiner]
+\label{thm:nfm-elliptic-normalized-intertwiners}
+$F:D^b(E)\to D^b(C)$ を実際の $K$-線型 Fourier--Mukai 同値とし、
+$F(\mathcal O_E)$ は shift のない次数零線束とする。
+このとき $F\rho_{E,p}\simeq\rho_CF$ であることは、
+\begin{equation}\label{eq:nfm-elliptic-normalized-intertwiners}
+ F\simeq(-\otimes M)\circ\phi_*,\qquad
+ \phi^*L_C\simeq L_E,\qquad
+ [M]=\operatorname{Jac}(\phi)(p)
+\end{equation}
+を満たす $K$-同型 $\phi:E\to C$ と実線束 $M$ があることと同値である。
+ここで $\operatorname{Jac}(\phi)$ は $\phi$ による共変な Picard 同型である。
+\end{theorem}
+
+\begin{proof}
+$F$ の幾何的数値行列 $B$ は $e_1=(1,0)^{\mathsf t}$ を固定し、
+$BR=RB$ を満たす。$e_1$ と $Re_1=(-2,3)^{\mathsf t}$ は
+$\mathbf Q$ 上独立なので $B=I$ である。
+前補題によって $F=(-\otimes M)\phi_*$ と書ける。
+\[
+ q=\operatorname{Jac}(\phi)(p),\qquad
+ L'=\phi_*L_E,\qquad d=[L'\otimes L_C^{-1}],\qquad m=[M]
+\]
+と置く。
+代数閉包上で原点を取り、補題\ref{lem:nfm-elliptic-rotation-conjugacy}の
+$U_{a,b}$ を用いると
+\[
+ \phi_*\rho_{E,p}\phi_*^{-1}=U_{-q,0}\rho_CU_{0,d}
+\]
+である。従って同補題の共役式から
+\begin{equation}\label{eq:nfm-elliptic-graph-conjugation}
+ \begin{split}
+ F\rho_{E,p}F^{-1}
+ &=U_{0,m}U_{-q,0}\rho_CU_{0,d}U_{0,-m}\\
+ &=U_{m-q-d,d}\rho_C
+ \end{split}
+\end{equation}
+となる。
+$U_{a,b}\simeq\mathrm{id}$ なら、$\mathcal O$ の像から $b=0$、
+点層の像から $a=0$ である。
+従って intertwining は $d=0$、$m=q$ に等しい。
+特に非偏極的な $\phi$ のずれを線束 $M$ で補償することはできない。
+
+これらは相対 Picard 類の等式なので $K$ 上へ降りる。
+$d=0$ は、実線束 $L'\otimes L_C^{-1}$ が
+$\operatorname{Spec}K$ からの線束であることを意味し、従って自明である。
+逆向きの functor の同型も $K$ 上で存在する。
+実際、比較する二つの同値 kernel は代数閉包上で同型であり、
+その $\operatorname{Hom}^0$ は $\mathrm{HH}^0(E_{\overline K})=\overline K$
+によって一次元である。
+proper perfect Hom の体拡大により $K$ 上でも一次元であり、
+その非零元は代数閉包上で同型となるため、既に $K$ 上で同型である。
+\end{proof}
+
+\begin{corollary}[全数値型を含む active 同値の存在判定]
+\label{cor:nfm-elliptic-any-intertwiner-criterion}
+$F(\mathcal O_E)$ に条件を課さない場合にも、
+実際の $K$-線型 Fourier--Mukai intertwiner
+$(D^b(E),\rho_{E,p})\to(D^b(C),\rho_C)$ が存在することは、
+次の二条件と同値である：
+\begin{enumerate}
+ \item $(E,L_E)$ と $(C,L_C)$ の $K$ 上の偏極曲線同型が存在する。
+ \item $\delta_E(p)=0$、すなわち $p$ は $E$ 上の実際の次数零線束で表される。
+\end{enumerate}
+特に同じ $(E,L)$ 上では
+\begin{equation}\label{eq:nfm-elliptic-any-intertwiner-obstruction}
+ \{F:F\rho_{E,p}\simeq\rho_EF\}\ne\varnothing
+ \quad\Longleftrightarrow\quad \delta_E(p)=0.
+\end{equation}
+この主張は intertwining 同型自体の周期付き rigidification を含まない。
+\end{corollary}
+
+\begin{proof}
+任意の intertwiner の数値行列は
+\eqref{eq:nfm-elliptic-numerical-centralizer}に属する。
+$K$ 上で定義された $\rho_C$ の冪と shift を postcompose して、
+数値作用を恒等にする。
+補題\ref{lem:nfm-elliptic-numerical-graph}によって graph と
+次数零線束の偶 shift を得るので、その shift も除けば前定理を適用できる。
+従って偏極曲線同型 $\phi$ と
+$\operatorname{Jac}(\phi)(p)$ を表す実線束を得る。
+実際の $K$-同型 $\phi$ による線束の移送は Picard gerbe の band を保つから
+\[
+ \delta_C(\operatorname{Jac}(\phi)(p))=\delta_E(p)
+\]
+であり、必要性を得る。
+逆に $p$ の実線束を $\phi$ で移送すれば、前定理から所要の同値を得る。
+\end{proof}
+
+\begin{corollary}[楕円 rotation の全 Fourier--Mukai centralizer]
+\label{cor:nfm-elliptic-full-centralizer}
+原点を仮定しない $K$ 上の genus-one 曲線 $E$ と実次数三線束 $L$ に対し、
+$\rho=T_{\mathcal O_E}\circ(-\otimes L)$ の
+underlying Fourier--Mukai 自己同値の同型類における centralizer は
+\[
+ \operatorname{Cent}(\rho)
+ \simeq\operatorname{Aut}_K(E,L)\times\mathbf Z
+\]
+である。$\mathbf Z$ の生成元は $\varepsilon=\rho^{-1}[1]$ であり、
+$\varepsilon^2\simeq\rho$、$\varepsilon^3\simeq[1]$ となる。
+\end{corollary}
+
+\begin{proof}
+数値作用を $\rho$ の冪と shift で恒等にし、
+補題\ref{lem:nfm-elliptic-numerical-graph}を適用した後、偶 shift を除く。
+定理\ref{thm:nfm-elliptic-normalized-intertwiners}を $p=0$ に適用すると、
+残る関手は偏極曲線自己同型の pushforward である。
+これは $\rho$ と shift の両方と可換する。
+plane cubic の window による三次周期 $\rho^3\simeq[2]$ から
+$\varepsilon^2=\rho$、$\varepsilon^3=[1]$ を得る。
+従って全ての元は $\phi_*\varepsilon^a$ と表せる。
+これが恒等なら、$\varepsilon$ の数値作用の位数が六であることから
+$a=6b$ である。そのとき $\varepsilon^a=[2b]$ であり、
+点層の像を比較すると $b=0$、$\phi=\mathrm{id}$ となる。
+これで表示の一意性と直積の主張が従う。
+\end{proof}
+
+代数閉体上で flex を原点に選ぶと
+$\operatorname{Aut}(E,L)=E[3]\rtimes\operatorname{Aut}(E,0)$ である。
+従って $F(\mathcal O_E)=\mathcal O_E$ かつ graph の Jacobian 作用が恒等という
+規格化を加えた centralizer は、正確に $E[3]$ となる。
+これは全自己同値の数値作用と shift を先に除いた結論であり、
+最初から平行移動と tensor の部分群だけに制限したものではない。
+
+\begin{proposition}[active 核の同型類と Picard gerbe]
+\label{prop:nfm-elliptic-intertwiner-gerbe}
+$S$ を noetherian $\mathbf Q$-scheme とし、その上の滑らかな固有
+genus-one 曲線 $E,C$、実次数三線束 $L_E,L_C$、
+$p\in J_E(S)$、同型 $\theta:J_E\xrightarrow{\sim}J_C$ を固定する。
+$\mathfrak I_\theta$ を $\theta$ を誘導する偏極曲線同型の sheaf とし、
+$m=\theta(p)$ と置く。
+
+$\mathfrak A_\theta$ を、相対 perfect Fourier--Mukai 同値核であって、
+$F(\mathcal O_E)$ が shift のない相対次数零の可逆層となり、
+$F\rho_{E,p}\simeq\rho_CF$ が fppf 局所的に成立し、
+その graph の Jacobian 同型が $\theta$ となるものの stack とする。
+intertwining 同型自体は標識しない。
+このとき
+\begin{equation}\label{eq:nfm-elliptic-intertwiner-gerbe}
+ \mathfrak A_\theta
+ \simeq\mathfrak I_\theta\times_S\mathcal{Pic}^{m}_{C/S},
+ \qquad
+ (\phi,M)\longmapsto(\Gamma_\phi)_*(\phi^*M).
+\end{equation}
+従って同型類の fppf sheaf は、階数九の有限 \'etale な
+$J_E[3]$-torsor $\mathfrak I_\theta$ である。
+その上の実現 gerbe の類は $\delta_C(m)$ の引戻しであり、
+$\mathfrak I_\theta$ 上では $\delta_E(p)$ の引戻しにも等しい。
+\end{proposition}
+
+\begin{proof}
+各幾何的ファイバーで定理\ref{thm:nfm-elliptic-normalized-intertwiners}を用いる。
+二つの射影は滑らかなので、相対 perfect kernel はそれぞれについて
+有限 Tor amplitude を持つ。
+第一因子の各幾何点上で kernel は shift のない長さ一の点層であるから、
+relative Tor amplitude の判定により第一射影について平坦な層となる。
+より具体的には、核を $P$、第一射影を $p_1$ とすると
+$N=p_{1*}P$ は階数一で、評価 $p_1^*N\to P$ は各ファイバーで全射だから全射である。
+従って $P\otimes p_1^*N^{-1}$ は構造層の商で、その支持は第一因子上有限平坦次数一、
+従って第一因子そのものである。
+これは $\operatorname{Hilb}^1(C/S)=C$ による相対 graph の認識であり、
+$P$ はその graph 上の線束となる。
+逆核にも同じ議論を適用すれば、その graph の射 $\phi$ は同型である。
+$M=F(\mathcal O_E)$ とすると、kernel は
+$(\Gamma_\phi)_*(\phi^*M)$ と書ける。
+前定理の共役式は fppf 局所的に原点を選んで使えるため、
+偏極類の一致と $[M]=\theta(p)$ を与える。
+ここで幾何点ごとの Picard 類の一致から、非被約な底上の一致を推論しているのではない。
+共役式は graph kernel、Poincar\'e 線束、相対評価三角形の計算であり、
+切断 $a,b$ に対して底からの線束による差を除いて相対的にも成立する。
+その式の $U_{m-q-d,d}$ が恒等なら、$\mathcal O$ の像から相対類 $d=0$、
+graph の一致から切断 $m-q=0$ を得る。
+
+逆に右辺の $(\phi,M)$ から graph kernel を作る。
+必要な底からの線束を fppf 局所的に自明化し、
+\eqref{eq:nfm-elliptic-graph-conjugation}を用いれば intertwining を得る。
+異なる graph 上の kernel は同型ではなく、同じ graph 上の kernel の同型は
+$M$ の同型そのものなので、表示した射は stack の同値である。
+
+$\mathfrak I_\theta$ が $J_E[3]$-torsor であることは、
+命題\ref{prop:nfm-point-residual-isom-cover}の偏極類を一致させる
+三分点の議論による。ここでは $\theta$ を固定済みなので、
+Jacobian の追加自己同型がある場合にも同じ議論が成り立つ。
+$\mathcal{Pic}^{m}_{C/S}$ は $m$ の線束表現の gerbe であり、
+その inertia は kernel の scalar inertia と一致する。
+従って同型類の sheaf と gerbe の類についての主張を得る。
+最後に $\mathfrak I_\theta$ 上の普遍曲線同型による線束の移送は
+Picard gerbe を band を保って同定するので、二つの障害類はそこで等しい。
+\end{proof}
+
+この命題の同型類の sheaf は、各 $T$ 上の kernel の同型類を
+fppf sheafification したものである。
+例えば $\mathfrak I_\theta(K)$ に点があっても、
+$\delta_C(\theta(p))\ne0$ なら $\mathfrak A_\theta(K)$ は空である。
+また、この分類は\emph{実際に存在する active 同値核}についてのものであり、
+full 比較核からの代数的 active 核の assignment を構成してはいない。
+
+\begin{remark}[指定周期と intertwining 同型の三乗条件]
+\label{rem:nfm-elliptic-period-phase}
+前命題で、さらに指定した
+$\rho_{E,p}^3\simeq[2]$、$\rho_C^3\simeq[2]$ と、
+$\eta:F\rho_{E,p}\xrightarrow{\sim}\rho_CF$ を標識し、
+その三重合成が指定周期に一致することを課す場合には、別の有限選択が残る。
+
+固定した underlying kernel に対し $\eta$ の Hom は一次元であり、
+$\eta$ を $\lambda\eta$ に替えると三重合成は $\lambda^3$ 倍になる。
+従って周期に適合する $\eta$ は $\mu_3$-torsor をなす。
+これは体上で非空とは限らず、代数閉体上では三つの選択を持つ。
+kernel の scalar 自己同型による共役は $\eta$ を変えないので、
+これらはこの追加標識を保つ同型では同一視されない。
+例えば $F=\mathrm{id}$、$p=0$ でも
+$\eta=\zeta\,\mathrm{id}_\rho$、$\zeta^3=1$ が三つの選択を与える。
+
+相対的には、この Hom 線束 $V$ と三重図式は
+$V^{\otimes3}\simeq\mathcal O$ を与える。
+scalar inertia の $V$ への作用は重み零なので、
+$V$ とその三乗の自明化は $\mathfrak I_\theta$ へ降下する。
+従ってこの三重図式まで標識した同型類の sheaf は、一般に
+$\mathfrak I_\theta$ 上の階数三の $\mu_3$-torsor
+$\widetilde{\mathfrak I}_\theta$ であり、その実現 gerbe は
+\eqref{eq:nfm-elliptic-intertwiner-gerbe}の引戻しである。
+特定の厳密 graded 構成がこの torsor の切断を選ぶ可能性はあるが、
+その選択を証明せずに、階数九の平面同型被覆を全ての周期標識付き核の
+同型類の sheaf と同一視してはならない。
+\end{remark}
+
+\subsection{右座標環の window と内部 shift}
 
 \begin{lemma}[右楕円座標環の window1 と内部 shift]
 \label{lem:nfm-twisted-elliptic-window}
@@ -649,6 +960,557 @@ $\alpha=\delta_C(m_P)$ であるから、
 三分点被覆と規格化については引用した定理と系を用いる。
 \end{proof}
 
+\subsection{点関係行列が与える線束と形式三分可能性}
+
+\begin{proposition}[点関係行列の余核は平行移動の三倍を表す]
+\label{prop:nfm-point-matrix-tripling-line}
+$E/S$ を滑らかな genus-one 曲線族、$L$ を次数三の線束とする。
+固定した三つの座標に関する線型点関係行列が
+\[
+ M:(L^{-1})^{\oplus3}\longrightarrow\mathcal O_E^{\oplus3}
+\]
+を定め、$\det M=0$ がスキーム論的に成立し、
+二次小行列式が単位イデアルを生成すると仮定する。
+さらに右 kernel の射が
+$\sigma=t_p:E\to E\subset\mathbf P^2_S$ であると仮定する。
+$Q=\operatorname{coker}M$ とすると $Q$ は次数三の線束であり、
+\begin{equation}
+\label{eq:nfm-point-matrix-tripling-line}
+ Q\otimes L^{-1}\simeq L\otimes(\sigma^*L)^{-1},
+ \qquad [Q\otimes L^{-1}]=3p
+       \quad\text{in }\operatorname{Pic}^0(E/S).
+\end{equation}
+従ってこの余核は $p$ 自身の線束代表を与えるものではない。
+命題\ref{prop:nfm-relative-active-thcr}の行列 $M_h$ にも、
+閉ファイバーを含む $R=k[[h]]$ 上で適用できる。
+\end{proposition}
+
+\begin{proof}
+定 rank の仮定により kernel $K_M$、image、および $Q$ は局所自由である。
+点 $x$ で $M(x)$ の右 kernel を与える座標直線は
+$\sigma(x)$ の tautological line なので、
+定義域の $L^{-1}$ を含めて
+\[
+ K_M\simeq L^{-1}\otimes\sigma^*L^{-1}
+\]
+となる。四項完全列の determinant から
+\[
+ Q\simeq L^3\otimes K_M
+       \simeq L^2\otimes(\sigma^*L)^{-1}
+\]
+を得る。従って $\deg Q=3$ である。
+次数三の線束に対して
+$[t_p^*L\otimes L^{-1}]=-3p$ なので、所要の Picard 類は $+3p$ となる。
+座標束を局所に自明化して議論する場合の determinant 因子は
+底からの線束だけであり、相対 Picard 類は同じである。
+$M_h$ の rank と kernel の記述は引用した命題で証明している。
+\end{proof}
+
+\begin{lemma}[恒等平行移動からの形式変形の三分可能性]
+\label{lem:nfm-formal-point-third-division}
+$R=k[[h]]$、$\operatorname{char}k=0$ とし、
+$J/R$ を楕円スキーム、$p\in J(R)$ を $p\bmod h=0$ を満たす切断とする。
+このとき
+\[
+ 3q=p,\qquad q\bmod h=0
+\]
+を満たす $q\in J(R)$ は一意に存在する。
+従って、$J=\operatorname{Pic}^0(E/R)$ となる genus-one 曲線族
+$E/R$ に実際の次数三線束 $L$ があれば
+$\delta_E(p)=0$ であり、完備体 $k((h))$ 上でも零となる。
+\end{lemma}
+
+\begin{proof}
+$[3]^{-1}(p)\to\operatorname{Spec}R$ は有限 \'etale であり、
+閉ファイバーの零点は $k$-有理である。
+完備局所環の Hensel 性により、この点は一意な $R$-切断へ持ち上がる。
+補題\ref{lem:nfm-picard-tripling-line}の線束を $q$ に制限すれば、
+$3q=p$ の実際の線束代表を得る。
+\end{proof}
+
+従って半古典完備族における点型の線束の存在は、
+形式群の三分可能性とも整合する。
+この Hensel 的な持上げを、完備化前の代数的関数体における
+三分点や線束の存在へ読み替えてはならない。
+
+\subsection{flex と三分点によるスカラー障害の有限表示}
+
+以下では標数零の体 $K$ 上で、実際の次数三線束を持つ曲線を扱う。
+曲線の原点や flex の $K$-有理性は要求しない。
+Picard 障害の Tate pairing による記述自体は既知である
+\cite[Theorems~3.1, 3.7]{NFMCiperianiKrashen}。
+ここでは、本稿の点型に対する三つの九重 torsor を区別し、
+それらの関係と、選択済みの full 核の障害を具体化する。
+
+\begin{proposition}[flex torsor と点型の Weil pairing]
+\label{prop:nfm-kernel-flex-cup}
+$C/K$ を滑らかな genus-one 曲線、$L$ を次数三の線束、
+$J=\operatorname{Pic}^0(C)$ とする。
+\[
+ \mathfrak F_L
+ =\{x\in C:\ [\mathcal O_C(3x)]=[L]\}
+\]
+は、有限 \'etale 階数九の $J[3]$-torsor である。
+その類 $\xi_L\in H^1(K,J[3])$ の $H^1(K,J)$ への像は
+曲線の torsor 類 $[C]$ である。
+$p\in J(K)$ に対し、$\kappa_3(p)\in H^1(K,J[3])$ を
+$[3]^{-1}(p)$ の Kummer 類とする。
+Weil pairing $e_3:J[3]\times J[3]\to\mu_3$ の規約を
+\cite[Theorem~3.7]{NFMCiperianiKrashen}に合わせると
+\begin{equation}
+\label{eq:nfm-kernel-flex-cup}
+ \delta_C(p)
+   =e_{3,*}\bigl(\xi_L\smile\kappa_3(p)\bigr)
+       \quad\text{in }\operatorname{Br}(K)[3].
+\end{equation}
+右辺では $H^2(K,\mu_3)\to H^2(K,\mathbf G_m)$ を合成している。
+従って、系\ref{cor:nfm-kernel-point-picard-obstruction}の
+\emph{選択済み}点型 full 核については
+\begin{equation}
+\label{eq:nfm-point-kernel-finite-cocycle}
+ \alpha=e_{3,*}\bigl(\xi_{L_C}\smile
+                 \kappa_3(p_{\mathrm{res}})\bigr).
+\end{equation}
+これは体拡大に関して自然である。
+\end{proposition}
+
+\begin{proof}
+幾何学的な原点 $o$ を選べば、
+$x\mapsto[\mathcal O_C(3x)]$ は
+$C\to\operatorname{Pic}^3(C)$ 上の三倍写像の平行移動である。
+従って $[L]$ の逆像は階数九の有限 \'etale torsor となる。
+これは平面三次の flex の層であり、線束の同型そのものは標識しない。
+$x_0\in\mathfrak F_L(K^{\mathrm{sep}})$ とすると
+\[
+ c_\gamma=\gamma x_0-x_0\in J[3](K^{\mathrm{sep}})
+\]
+がその cocycle である。
+同じ $x_0$ を $C$ の幾何学的な原点として使えば、
+$J$-torsor $C$ の cocycle も $c_\gamma$ なので、像は $[C]$ となる。
+
+Picard gerbe の境界 $\delta_C(p)$ は Tate pairing
+$\langle[C],p\rangle$ に等しい。
+三倍 Kummer 列と Weil pairing の適合性
+\cite[Theorem~3.7]{NFMCiperianiKrashen}を
+$[C]$ の持上げ $\xi_L$ に適用すると
+\eqref{eq:nfm-kernel-flex-cup}を得る。
+ここでは曲線の torsor 類を第一引数、点の Kummer 類を第二引数に置く。
+例えば $3q=p$ となる幾何学的な点 $q$ を選び、
+$d_\gamma=\gamma q-q$ とすれば、右辺を表す二 cocycle は
+\begin{equation}
+\label{eq:nfm-flex-cup-cocycle}
+ (\gamma,\eta)\longmapsto
+ e_3(c_\gamma,\gamma d_\eta)
+\end{equation}
+である。二つの一点の選び直しは coboundary を変えるだけである。
+最後に $\alpha=\delta_C(p_{\mathrm{res}})$ を代入する。
+全ての torsor、Kummer 列、pairing は体拡大と両立する。
+\end{proof}
+
+式\eqref{eq:nfm-flex-cup-cocycle}は有限 Galois 計算へ還元できる。
+$J[3]$、一つの flex、および一つの三分点を定義する
+有限 Galois 拡大 $K'/K$ を取ればよい。
+$G=\operatorname{Gal}(K'/K)$ とすると、上の二 cocycle $a_{\gamma,\eta}$ による
+crossed product
+\[
+ \bigoplus_{\gamma\in G}K' u_\gamma,\qquad
+ u_\gamma b=\gamma(b)u_\gamma,\qquad
+ u_\gamma u_\eta=a_{\gamma,\eta}u_{\gamma\eta}
+\]
+が $\alpha$ を表す。
+この表示の次数 $|G|$ は最小 index ではない。
+本稿の実際の次数三線束を用いる場合の $\operatorname{ind}(\alpha)\mid3$ は、
+既存の階数三束による評価である。
+
+\begin{proposition}[平面同型の torsor による障害の移送]
+\label{prop:nfm-picard-plane-transfer}
+$E,C$ を $K$ 上の滑らかな genus-one 曲線、
+$L_E,L_C$ を次数三線束とし、
+$\theta:J_E\xrightarrow{\sim}J_C$ を group 同型とする。
+$\mathfrak I_\theta$ を $\theta$ を誘導する偏極類保存同型の層とし、
+右作用を $\phi\cdot a=\phi\circ t_a$ と定める。
+$\iota_\theta=[\mathfrak I_\theta]\in H^1(K,J_E[3])$ とすると
+\begin{equation}
+\label{eq:nfm-flex-plane-torsor-relation}
+ \xi_{L_C}=\theta_*\bigl(\xi_{L_E}+\iota_\theta\bigr).
+\end{equation}
+従って任意の $p\in J_E(K)$ に対して
+\begin{equation}
+\label{eq:nfm-picard-plane-transfer}
+ \delta_C(\theta p)
+ =\delta_E(p)+
+   e_{3,*}\bigl(\iota_\theta\smile\kappa_3(p)\bigr).
+\end{equation}
+特に本稿の半古典同型 $\theta_{\mathrm{sc}}$ と
+$\mathfrak I_{\mathrm{sc}}$ に適用できる。
+\end{proposition}
+
+\begin{proof}
+$\phi\in\mathfrak I_\theta(K^{\mathrm{sep}})$ と
+$x_0\in\mathfrak F_{L_E}(K^{\mathrm{sep}})$ を選ぶ。
+$\phi$ は偏極類を保つので、$y_0=\phi(x_0)$ は $C$ の flex である。
+\[
+ \gamma\phi=\phi\circ t_{a_\gamma},\qquad
+ \gamma x_0=x_0+c_\gamma
+\]
+と書けば、$a_\gamma,c_\gamma\in J_E[3]$ であり、
+\[
+ \gamma y_0
+   =\phi(x_0+c_\gamma+a_\gamma)
+   =y_0+\theta(c_\gamma+a_\gamma).
+\]
+これが\eqref{eq:nfm-flex-plane-torsor-relation}を与える。
+同値に、二つの torsor の contracted product を
+$[\phi,x]\mapsto\phi(x)$ で $\mathfrak F_{L_C}$ へ写している。
+$\theta$ は楕円曲線の標準主偏極を保つので Weil pairing を保ち、
+Kummer 類も $\kappa_3(\theta p)=\theta_*\kappa_3(p)$ を満たす。
+前命題と cup product の加法性から
+\eqref{eq:nfm-picard-plane-transfer}が従う。
+\end{proof}
+
+この式から、点曲線 $E$ 上で $p$ の実際の線束代表が得られても、
+Jacobian 同型 $\theta$ だけでは $C$ 上の代表は従わないと分かる。
+さらに $\mathfrak I_\theta$ の cup 項の消滅が必要である。
+$\mathfrak I_\theta(K)\ne\varnothing$ ならこの項は零となるが、
+その条件だけで $\delta_E(p)$ が零になるわけではない。
+flex torsor、平面同型 torsor、三分点 torsor はいずれも階数九であるが、
+それぞれの類は $\xi_L$、$\iota_\theta$、$\kappa_3(p)$ であり、
+階数の一致から同じ被覆とみなすことはできない。
+
+\subsection{一般係数体に残る点 shift の index 三障害}
+
+\begin{proposition}[平行移動から active 勾配代数への算術的実現]
+\label{prop:nfm-active-point-sklyanin-realization}
+$F$ を標数零の体、$E/F$ を滑らかな幾何学的整な種数一曲線、
+$L$ を $E$ 上の実際の次数三線束とする。
+$J_E=\operatorname{Pic}^0(E/F)$ と置き、
+$p\in J_E(F)$ が $2p\ne0$、$3p\ne0$ を満たすとする。
+このとき $V=H^0(E,L)$ の $F$-基底 $x,y,z$ に対し、
+滑らかな三次式 $g\in\operatorname{Sym}^3_F V$ が存在し、
+\begin{equation}\label{eq:nfm-sklyanin-arithmetic-gradient}
+ D_g=F\langle x,y,z\rangle/
+ \bigl([y,z]-\operatorname{sym}(g_x),
+       [z,x]-\operatorname{sym}(g_y),
+       [x,y]-\operatorname{sym}(g_z)\bigr)
+\end{equation}
+の点スキームは $L$ による $E\subset\mathbf P(V^*)$、
+点 shift は正確に $t_p$ となる。
+$D_g$ は三次元 quadratic Koszul AS-regular domain かつ
+$3$-Calabi--Yau である。
+この構成では $p$ の実際の線束による表示も、
+$E(F)$ の非空性も仮定しない。
+\end{proposition}
+
+\begin{proof}
+$\sigma=t_p$ は種数一 torsor $E$ 上の $F$-自己同型である。
+$V=H^0(E,L)$ と置き、
+\[
+ R=\ker\bigl(V\otimes_F V\longrightarrow
+ H^0(E,L\otimes\sigma^*L)\bigr),\qquad
+ a\otimes b\longmapsto a\,\sigma^*b,
+ \qquad D=T_F(V)/(R)
+\]
+と定める。この定義は $F$ 上で行い、体拡大と両立する。
+代数閉包上で $L\simeq\mathcal O_E(3o)$ となる変曲点 $o$ を選び、
+Hesse 座標を取ると
+\[
+ E=V(X^3+Y^3+Z^3-3\mu XYZ),\quad \mu^3\ne1,
+ \quad o=(1:-1:0),\quad p=(a:b:c)
+\]
+となる。
+三次元 Sklyanin 代数の既知の幾何学的表示
+\cite[Theorem~3.3 and \S4]{NFMMatsunoElliptic} により、
+$R$ は三次元で、$D_{\overline F}$ は点対応 $(E,t_p)$ を持ち、
+\[
+ aYZ+bZY+cX^2,\qquad
+ aZX+bXZ+cY^2,\qquad
+ aXY+bYX+cZ^2
+\]
+を関係式とする quadratic AS-regular 代数である。
+従って点対応の同定も忠実平坦降下する。
+
+次に potential 自体を $F$ 上へ降ろす。
+\[
+ W=(V\otimes_F R)\cap(R\otimes_F V)\subset V^{\otimes3}
+\]
+と置く。Sklyanin の三次 Koszul syzygy は一次元である。
+具体的には、その最小分解の階数は $1,3,3,1$、Hilbert 級数は
+$(1-t)^{-3}$ なので、次数三で
+$\dim W=9+9-(27-10)=1$ となる。
+代数閉包上で $W$ は
+\[
+ w_p=a(XYZ+YZX+ZXY)+b(XZY+YXZ+ZYX)
+      +c(X^3+Y^3+Z^3)
+\]
+が張る \cite[\S4, Corollary~4.3]{NFMMatsunoElliptic}。
+巡回置換は $W$ 上恒等であり、左 contraction $V^*\otimes W\to R$ は同型である。
+これらは $F$ 上の線形写像の等式として降下する。
+従って任意の非零 $w\in W(F)$ は $D$ の実際の cyclic potential を与える。
+
+標数零では
+\[
+ (V^{\otimes3})^{\langle(123)\rangle}
+   =\operatorname{Sym}^3(V)\oplus\bigwedge^3V.
+\]
+Hesse 座標での交代成分は
+$\frac{a-b}{2}(XYZ+YZX+ZXY-XZY-YXZ-ZYX)$ である。
+$3p\ne0$ から $abc\ne0$、さらに $2p\ne0$ から $a\ne b$
+\cite[Lemma~2.16]{NFMMatsunoElliptic} なので、この交代成分は非零である。
+よって $F$ 上で $w$ の scalar を規格化し、
+\[
+ w=xyz+yzx+zxy-xzy-yxz-zyx-3\operatorname{sym}(g)
+\]
+と一意に書ける。
+次数三の完全対称化の左 contraction は通常の微分の $1/3$ なので、
+この $w$ の左 contraction は
+\eqref{eq:nfm-sklyanin-arithmetic-gradient} の三関係式である。
+
+$g$ の滑らかさも幾何学的に確認できる。
+上の Hesse 座標では、規格化後の式は
+\begin{equation}\label{eq:nfm-sklyanin-smooth-gradient}
+ g=-\frac{2c}{3(a-b)}(X^3+Y^3+Z^3)
+      -\frac{2(a+b)}{a-b}XYZ.
+\end{equation}
+$c\ne0$ なので、これが特異となる条件は
+$c^3+(a+b)^3=0$ である。
+しかし $a^3+b^3+c^3=3\mu abc$ と合わせると
+$-(a+b)=\mu c$、従って $\mu^3=1$ となって矛盾する。
+従って $g$ は $F$ 上滑らかである。
+
+最後に、正則性を代数閉包上の点ごとの主張にとどめない。
+$R,W$ から作る三次の Koszul 複体と両側 Koszul 複体は $F$ 上で定義され、
+$\overline F$ 上で Sklyanin の完全分解になるので、忠実平坦性から元の体上でも完全である。
+cyclic な $w$ の contraction $V^*\otimes W\simeq R$ が両側分解の自己双対性を与える。
+従って AS-Gorenstein 条件と $3$-Calabi--Yau 条件も $F$ 上で成立する。
+また domain 性と Hilbert 級数は忠実な体拡大から降下する。
+同じ正則性は \cite[Corollary~2.9, Theorem~4.2(1)]{MoriSmith} の
+滑らかな勾配 potential に対する判定からも確認できる。
+\end{proof}
+
+\begin{remark}[実現の範囲]
+上の命題は、単なる抽象的な genus-one の例を作るものではない。
+点関係行列は本稿の
+$M_1(u)=[u]_\times-\frac12\operatorname{Hess}(g)(u)$ そのものであり、
+\[
+ \det M_1=-3\left(g+\frac1{24}\det\operatorname{Hess}(g)\right)
+\]
+から、実際の active 点三次は元の $E$ に一致する。
+Hesse 座標での一致はさらに
+\[
+ g+\frac1{24}\det\operatorname{Hess}(g)
+ =\frac{8}{3(a-b)^3}
+ \bigl(abc(X^3+Y^3+Z^3)-(a^3+b^3+c^3)XYZ\bigr)
+\]
+という恒等式で直接確認できる。
+$p$ が無限位数なら点 shift は固定点を持たず、$\sigma^3\ne1$ も満たす。
+$g$ が滑らかなので、パラメータ $h$ を戻した $D_{hg}$ も各 $h$ で
+三次元 AS-regular であり、次数ごとに平坦な通常の勾配量子化族である。
+ただし、この段階では full 比較核を選択していない。
+\end{remark}
+
+\begin{proposition}[非零点障害を保つ支配的な表示族]
+\label{prop:nfm-active-point-obstruction-dominant}
+$K=\mathbf C(a_0,b_0,\lambda)$、
+\[
+ E:\ X^3-a_0Y^3-b_0Z^3+\lambda XYZ=0,
+ \qquad L=\mathcal O_E(1),\quad J_E=\operatorname{Pic}^0(E/K)
+\]
+とする。対角自己同型から得る三捩れ点を $p_0$ とし、
+$F=K(J_E)$、その一般点を $q\in J_E(F)$、$p=p_0+3q$ と置く。
+前の Hesse Picard 障害の計算によれば
+\[
+ \delta_{E_F}(p)
+   =\left(a_0,b_0+\frac{\lambda^3}{27a_0}\right)_3
+   \in\operatorname{Br}(F)
+\]
+は period と index がともに三であり、$p$ は無限位数である。
+この例から、純超越拡大だけを加えることにより、
+全 active 三次係数空間を支配する勾配代数の族を構成できる。
+さらに任意の $n\ge3$ について、全 mixed 係数および中心三次 torsor の係数を
+独立に加えると、既存の良い split 一ブロック表示空間を支配する族を得る。
+この族上でも actual active point shift の Picard 障害は index 三である。
+\end{proposition}
+
+\begin{proof}
+命題\ref{prop:nfm-active-point-sklyanin-realization}を $(E_F,L,p)$ に適用する。
+その構成は $F$ 上で完結している。
+まず支配性だけを検査するため、
+$K'=K(\alpha,\beta)$、$\alpha^3=a_0$、$\beta^3=b_0$ を取る。
+この有限拡大を、非零 Brauer 類を保持する例の基礎体としては用いない。
+座標 $(X,-\alpha Y,-\beta Z)$ では曲線は Hesse 形となり、
+そのパラメータは $\mu=-\lambda/(3\alpha\beta)$ である。
+$\mu$ は $\mathbf C$ 上超越的である。
+$q$ は $J_E$ の一般点で、$[3]$ は有限全射だから、
+$p_0+3q$ もこの Hesse 曲線上の一般点を与える。
+その座標を $(A:B:C)$ と書く。
+
+普遍 Hesse 曲線の $ABC\ne0$ 部分は
+\[
+ \mu=\frac{A^3+B^3+C^3}{3ABC}
+\]
+によって $\mathbf P^2_{A:B:C}$ の開部分と同型である。
+従って $(A:B:C)$ は $\mathbf C$ 上の射影平面の一般点である。
+式\eqref{eq:nfm-sklyanin-smooth-gradient}で
+\[
+ P=-\frac{2C}{A-B},\qquad Q=-\frac{2(A+B)}{A-B}
+\]
+と置くと、$P,Q$ は代数的独立である。
+実際、この写像は $A-B\ne0$ chart と $\mathbf A^2_{P,Q}$ の同型であり、
+逆は $(A:B:C)=(2-Q:-2-Q:-2P)$ である。
+
+元の体 $F$ 上で一般の $3\times3$ 行列 $G$ の係数を純超越的に加え、
+生成元を変更する。交換子係数を一に保つ作用は
+\[
+ g\longmapsto (\det G)^{-1}G(g)
+\]
+である \cite[Proposition~2.11]{MoriSmith}。
+$\mathrm{GL}_3$ と二変数 Hesse 形式
+$\frac P3(X^3+Y^3+Z^3)+QXYZ$ による三次形式空間への写像は支配的である。
+これは通常の Hesse 正規形から従い、上の determinant 因子は $P,Q$ に吸収できる。
+従って元の体上で作った active 係数族も支配的である。
+有限 Hesse 拡大はこの支配性の確認にしか使っておらず、
+実際に用いる基礎体拡大は $F(G_{ij})/F$ だけである。
+純超越拡大は Brauer 類の index を変えないので、非零類は index 三のままである。
+ここで必要な事実は、division 代数 $A/F$ に対し
+中心的な不定元 $t$ の多項式環 $A[t]$ が domain であり、
+その中心的局所化 $A\otimes_F F(t)$ も domain、従って division であることから従う。
+不定元の個数について帰納すればよい。
+
+$r=n-1$ 個の中心生成元を固定する。
+全 mixed 三次係数を独立な不定元として加えれば、
+\[
+ T_n\subset\operatorname{Sym}^3(X\oplus U)/\operatorname{Sym}^3U
+\]
+の一般点を覆う。
+固定入力Aによる PBW 性と一般中心核の記述はこの一般点で成立する。
+中心三次の非純中心商は一次元の実際のベクトル空間なので、
+その生成元を選び、線形方程式を解いて $\Omega$ へ持ち上げることに
+追加の代数的体拡大は要らない。
+全ての純中心三次の係数を独立に加えた
+$[\Omega+H]$ は中心三次 torsor の一般点を覆う。
+これは補題\ref{lem:nfm-dominant-central-family}で用いた
+中心 torsor の同じ affine 座標である。
+従って得られる族は、既存の全ての良い条件を課した表示空間の稠密開を覆う。
+support 自体を可変とする表示 chart では、さらに一般の
+$\mathrm{GL}(X\oplus U)$ の行列係数を純超越的に加えてその frame を動かす。
+これも Brauer 類の index を変えない。
+
+中心変数を零にした代数は元の $D_g$ のままであり、
+$\Omega\bmod(U)$ は非零の中心三次である。
+点曲線とその shift は $(E_F,t_p)$ の座標変更および純超越的底変更だから、
+その Picard 障害は依然 index 三である。
+\end{proof}
+
+\begin{corollary}[一般 split 表示の点障害の正確な index]
+\label{cor:nfm-generic-point-picard-index-three}
+任意の $n\ge3$ について、良い split 一ブロック表示の一般係数体を $k_n$ とする。
+actual active 点曲線と shift 点を $(E_{\mathrm{pt}},p_{\mathrm{pt}})$ とすると
+\[
+ \operatorname{per}\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})
+ =\operatorname{ind}\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})=3.
+\]
+特に $p_{\mathrm{pt}}\notin3\operatorname{Jac}(E_{\mathrm{pt}})(k_n)$ であり、
+半古典同型を用いた $p_{\mathrm{res}}=\theta_{\mathrm{sc}}(p_{\mathrm{pt}})$ も
+$3\operatorname{Jac}(C_{\mathrm{res}})(k_n)$ に属さない。
+従ってこの点型に対する階数九の標準三分点 torsor は $k_n$-有理点を持たない。
+この主張はその torsor の連結性を意味せず、
+個々の体分裂拡大の最小次数が九であるとも主張しない。
+\end{corollary}
+
+\begin{proof}
+前命題の支配的な族は $k_n$ の体拡大上で定義され、
+一般点の Picard 障害を非零な index 三の類へ引き戻す。
+従って一般点の類自体も非零である。
+他方、実際の次数三線束 $\mathcal O_{E_{\mathrm{pt}}}(1)$ があるので、
+次数零 Picard gerbe 上の普遍重み一線束にこれを tensor して押し下げると、
+階数三の重み一ベクトル束を得る。
+その endomorphism は次数三 Azumaya 代数を与えるから index は三を割る。
+非零性と合わせて period と index がともに三となる。
+実際の次数三線束による三倍線束の構成から $\delta_E(3q)=0$ であるため、
+$p_{\mathrm{pt}}$ は三倍ではない。
+$\theta_{\mathrm{sc}}$ は $k_n$ 上の群同型なので三倍性を保ち、
+三分点 torsor の有理点はまさにその点の $k_n$ 上の三分点だから、残りも従う。
+\end{proof}
+
+\begin{corollary}[一般点での全 active intertwiner の障害]
+\label{cor:nfm-generic-active-intertwiner-obstruction}
+前の系の $k_n$ と $(E_{\mathrm{pt}},L_E,p_{\mathrm{pt}})$ を取る。
+実際の次数三線束 $L_C$ を持つ任意の滑らかな genus-one 曲線 $C/k_n$ に対し、
+\[
+ F\rho_{E_{\mathrm{pt}},p_{\mathrm{pt}}}\simeq\rho_CF
+\]
+を満たす $k_n$-線型 Fourier--Mukai 同値は存在しない。
+同じ非存在は、次数が三に素な任意の有限拡大上でも成り立つ。
+ここでは数値作用や $F(\mathcal O_E)$ の型をあらかじめ制限しない。
+\end{corollary}
+
+\begin{proof}
+系\ref{cor:nfm-elliptic-any-intertwiner-criterion}により、
+同値の存在は特に $\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})=0$ を要求する。
+これは系\ref{cor:nfm-generic-point-picard-index-three}に反する。
+有限拡大 $L/k_n$ 上でこの類が消えるなら、restriction と corestriction の合成により
+$[L:k_n]\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})=0$ である。
+period が三なので、その次数は三の倍数でなければならない。
+\end{proof}
+
+\begin{corollary}[点型比較被覆の次数の三整除性]
+\label{cor:nfm-point-comparison-cover-three-divisibility}
+上と同じ一般係数体 $k_n$ 上で、固定した split 表示・$q_Y$・window1 を用いる。
+有限拡大 $L/k_n$ 上に、次の二つが同時に存在するとする：
+\begin{enumerate}[label=(\roman*)]
+\item 実際の full 比較核 $P$ で、最高次線束条件
+\eqref{eq:nfm-kernel-active-line-type}と点型条件
+\eqref{eq:nfm-kernel-point-line-type}を満たすもの。
+\item 実際の平面同型
+$\phi\in\mathfrak I_{\mathrm{sc}}(L)$。
+\end{enumerate}
+このとき $3\mid[L:k_n]$ である。
+特に命題\ref{prop:nfm-kernel-point-line-nonempty}のように
+この二つを備える有限 \'etale 比較被覆では、
+全ての一般ファイバーの体成分の次数が三の倍数である。
+
+また $k_n$ 上で点型 full 核の同型類が選択済みで、その scalar 類を $\alpha$ とすると、
+\begin{equation}\label{eq:nfm-point-full-obstruction-dichotomy}
+ \alpha=\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})
+   +e_{3,*}\bigl([\mathfrak I_{\mathrm{sc}}]
+                     \smile\kappa_3(p_{\mathrm{pt}})\bigr).
+\end{equation}
+従って $\mathfrak I_{\mathrm{sc}}(k_n)\ne\varnothing$ なら
+$\operatorname{per}\alpha=\operatorname{ind}\alpha=3$ である。
+一方 $\alpha=0$ なら、右辺の cup 項は
+$-\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})\ne0$ であり、
+$\mathfrak I_{\mathrm{sc}}$ は非自明である。
+\end{corollary}
+
+\begin{proof}
+実際の $P$ があれば
+$M=H^{-1}(q_Y\Phi_P(\kappa_{\mathrm{nc}}))$ は実際の線束であり、
+$[M]=\theta_{\mathrm{sc}}(p_{\mathrm{pt}})$ である。
+実際の $\phi$ による $\phi^*M$ は $p_{\mathrm{pt}}$ の線束代表なので、
+$\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})|_L=0$ となる。
+前の系と同じ restriction--corestriction の議論から三整除性を得る。
+各体成分にもこれを適用すれば、被覆についての主張が従う。
+この推論は full 核から active 同値核を作る assignment を用いない。
+
+式\eqref{eq:nfm-point-full-obstruction-dichotomy}は、
+系\ref{cor:nfm-kernel-point-picard-obstruction}と
+命題\ref{prop:nfm-picard-plane-transfer}を合わせたものである。
+torsor が自明なら cup 項が零となり、一般点の正確な index 三の主張を使える。
+$\alpha=0$ の場合は同じ式を移項すればよい。
+\end{proof}
+
+\begin{remark}[full 核の障害との区別]
+ここで求めた類は $\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})$ である。
+選択済みの点型 full 比較核の scalar 類は
+$\delta_{C_{\mathrm{res}}}(\theta_{\mathrm{sc}}(p_{\mathrm{pt}}))$ であり、
+Jacobian の同型だけで二つの Picard gerbe を同一視することはできない。
+特に、この系から full 比較核の scalar index が三であるとは結論しない。
+平面同型 torsor $I_{\mathrm{sc}}$ に沿う降下の寄与を別に調べる必要がある。
+一般の三可除性による中立化は上の系で排除されたが、
+$I_{\mathrm{sc}}$ の寄与が点側の非零類と相殺して full scalar 類が零になる可能性は
+この議論だけでは排除されない。
+\end{remark}
+
 \begin{remark}[適用範囲と残る問題]
 最高次線束型の全ての核について $m_P=p_{\mathrm{res}}$ を示したわけではない。
 また、追加型の非空性と、元の底でその full 核の同型類を整合的に選ぶことは別である。
@@ -663,7 +1525,9 @@ Picard 障害を具体的な点へ評価した式であり、代数的 active �
 固定点のない $\sigma$ については $p_{\mathrm{pt}}\ne0$ である。
 従ってこの追加型の最高次線束は幾何的に非自明であり、
 $m_P=0$ という十分条件だけでその核を降下させる方針は適切でない。
-実際の線束による $p_{\mathrm{res}}$ の表現、または三分可能性を調べる必要がある。
+系\ref{cor:nfm-generic-point-picard-index-three}により、一般の $p_{\mathrm{res}}$ は三分不可能である。
+残る scalar 問題は、式\eqref{eq:nfm-picard-plane-transfer}における
+平面同型 torsor の cup 項が非零の点障害を相殺するかどうかである。
 ここで点の平行移動を full Ku の rotation 自体と同一視しているのではなく、
 構成した active window における rotation 共役を利用している。
 \end{remark}
