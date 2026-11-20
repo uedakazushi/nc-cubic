@@ -47,7 +47,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v10}
+\date{2026年11月20日・研究稿 v11}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -74,8 +74,12 @@ $\gcd(n-1,3)$ と決定する。
 一方、固定生成元と量子化パラメータを保つ実際の形式 tensor は、
 任意の $n\ge3$ の very general な滑らかな係数で代数的でない。
 この障害は log-canonical 量子化と有界次数の代数関係を表す小行列式から従う。
-尺度の選択は一本の線束の非零切断、比較核の大域降下は
-自己同値の同型類とスカラー二 cocycle に関する別の問題として残る。
+残余 active 曲線は量子側の楕円点曲線と同じ $j$ 不変量を持つ。
+その Hodge 線束の双対を尺度線束と同定し、点曲線の標準微分から
+符号を除いた尺度を代数的に定める。この残余射は支配的・一般有限であり、
+標準二重被覆上で尺度を含む射となる。
+指定した CF Euler 数値型で比較核の同型類を整合させた後の scalar 障害には、
+split な一般点で $3^{\lfloor(n+1)/2\rfloor}$ を割る index の上界を与える。
 
 比較を明示的に調べるため、trace--Hessian 三次と残余三次の不一致を全次元で示し、
 全同値へ降下する一般次数九の Hessian 補正を構成する。
@@ -90,7 +94,7 @@ $n=8$ では頂点に長さ330の非分裂平方零構造を持つことを厳�
 特殊な滑らかな三次には非零点で非被約となる例がある。
 高次元の頂点の冪零部分の最高次数と極大イデアルによる消滅指数は一様に有界でない。
 また $n\ne4$ では通常 Artin 基底上の残余圏の一次切断変形を幾何的変形として認識する。
-全 intrinsic 成分の一般対象の被覆と、残余比較核の大域降下は未完成である。
+全 intrinsic 成分の一般対象の被覆、元の stack 上の符号選択、比較核の大域降下は未完成である。
 \end{abstract}
 \clearpage
 \setcounter{tocdepth}{1}
@@ -220,6 +224,20 @@ To\"en--Vaqui\'e\cite[Lemmas~2.10, 3.25]{NFMToenVaquieModuli}を用いる。
 これらの一般原理、体上の三次の存在、既知の量子トーラス交換比を新規とは数えず、
 相対的な残余射・中心作用の保存・有界次数の関係 locus による
 very general な固定 tensor の超越性への適用を区別する。
+
+点曲線と残余 active 曲線の比較には、既存の split Hesse 同定を
+active 再帰の制限と係数空間の支配性によって一般混合係数へ広げる。
+相対随伴による尺度線束と Hodge 線束の双対性、および
+Fulton--Olsson\cite[Section~1; proof of Corollary~2.4]{NFMFultonOlsson}に記載された
+判別式と楕円 moduli の $\mu_2$-gerbe は既知の幾何である。
+本稿では点曲線の量子化から定まる微分をこの幾何と組み合わせ、
+同じ残余三次を標的とする符号商 Poisson 射の支配性・一般有限性を証明する。
+平面三次の十八個の自己同型や二つの Jacobian 同型そのものを新規とは数えない。
+比較核の scalar 障害には、Knudsen--Mumford\cite{NFMKnudsenMumfordDet}の determinant と
+Lieblich\cite[Sections~2.2.4--2.2.5]{NFMLieblichTwisted}の twisted sheaf の重みの議論を使い、
+固定入力Bの stabilization の Euler 数から全次元の明示的な index bound を取り出す。
+determinant による Brauer 障害の消去原理自体、および極大部分体による分裂
+\cite{NFMStacksSplitting}は既知結果である。
 
 既知の公式からの帰結と、本稿に証明を与える拡張は以下で区別する。
 これらの拡張について、独立な新規性の網羅的確認はなお完了していない。
@@ -568,6 +586,7 @@ $(\mathcal L,\operatorname{ann}(cU))$ は、尺度を忘れた分解可能 Poiss
 後者は指定された固定 frame の主張であり、形式座標変更を許した
 射影三次の代数化や、任意の intrinsic な尺度の選択を否定しない。
 尺度を持つ lift は $\mathcal L\otimes\det K_{\mathrm{res}}$ の非零切断に対応する。
+次の定理は、この線束の平方に点曲線から標準切断を与える。
 
 方程式の一意性は比較核の一意性を含まない。
 核全体は自己同値 stack の torsor であり、同型類を整合させた後に
@@ -575,6 +594,74 @@ $(\mathcal L,\operatorname{ann}(cU))$ は、尺度を忘れた分解可能 Poiss
 一変数 trait では、形式比較を選んだ滑らかな三次模型の存在も示すが、
 その正準性や核の $h=0$ への延長は主張しない
 （系\ref{cor:nfm-residual-good-reduction}）。
+
+\subsection{点曲線が定める尺度と一般有限な残余射}
+
+\begin{maintheorem}[楕円点曲線による残余 Poisson 射の規格化]
+上と同じ固定入力の下で、良い一ブロック O-marked stack の
+非空稠密開 $\mathfrak U$ を取る。
+楕円点曲線を $E_{\mathrm{pt}}$、残余 active 曲線を
+$C_{\mathrm{res}}=X_{\mathrm{res}}\cap\mathbf P(K_{\mathrm{res}})$ とすると、
+全 $n\ge3$ について
+\[
+ j(E_{\mathrm{pt}})=j(C_{\mathrm{res}}),\qquad
+ \mathscr T=\mathcal L\otimes\det K_{\mathrm{res}}
+     \simeq\lambda_{\mathrm{res}}^*.
+\]
+$j=0,1728$ を除けば、点曲線の標準微分は
+$\mathscr T^{\otimes2}$ の至る所非零な標準切断を定め、
+全 O-同値と任意基底変更に両立する代数的射
+\[
+ \Psi_{\mathrm{res}}^\pm:\mathfrak U
+    \longrightarrow[\mathfrak P_n^{\mathrm{dec}}/\mu_2]
+\]
+を与える。$\mu_2$ は Poisson tensor の符号を変える。
+この射は支配的かつ一般有限で、適切な非空開へ制限すると有限 étale 全射となる。
+
+標準的な有限 étale 階数二の被覆
+\[
+ \mathfrak D=
+ \underline{\operatorname{Isom}}_{\mathrm{gp}}
+ (\operatorname{Jac}(E_{\mathrm{pt}}),\operatorname{Jac}(C_{\mathrm{res}}))
+ \longrightarrow\mathfrak U
+\]
+上では尺度を含む射
+$\widetilde\Psi_{\mathrm{res}}:\mathfrak D\to\mathfrak P_n^{\mathrm{dec}}$ を得る。
+両曲線の平面同型の sheaf $\mathfrak I$ は有限 étale 階数十八であり、
+$\mathfrak I\to\mathfrak D$ は $\operatorname{Jac}(E_{\mathrm{pt}})[3]$-torsor である。
+点 shift は $\mathfrak D$ 上で残余 active 曲線の平行移動へ自然に移り、
+deck 反転はその逆と Poisson tensor の負を同時に与える。
+\end{maintheorem}
+
+証明は\S\ref{sec:nfm-residual-point-scale}に置く。
+核心となる全次数の恒等式は、生成元固定模型における
+\[
+ W_h|_{U=0}=b_h\left(g+\frac{h^2}{24}\det\operatorname{Hess}(g)\right),
+ \qquad g=F|_{U=0},\quad b_h\in1+hR[[h]]
+\]
+である。この式は MF 圏の $U=0$ への基底変更を仮定せず、
+active 再帰と既存の同座標 Hesse 同定から証明する。
+点曲線による tensor は形式 frame で $(h/c_h)\pi_h$ となり、
+固定 harmonic tensor と尺度が同じとは主張しない。
+また $\mathfrak D$ 上に両 genus-one torsor の同型があるとは限らず、
+平面同型にはさらに $\mathfrak I\to\mathfrak D$ を用いる。
+移した点 shift と Kuznetsov rotation の制限の同定、元の開上の符号選択、
+$\Psi_{\mathrm{res}}^\pm$ の一般次数は残る問題である。
+
+比較核については、split な表示 chart で stabilization の混合 Euler 数を
+固定入力Bの三次 Euler 数に合わせる開かつ閉な数値型を選べる。
+その中で核の同型類が整合的に選ばれた後の scalar gerbe の類 $\alpha$ は
+\[
+ d_n\alpha=0,\qquad
+ \operatorname{ind}(\alpha_{\mathrm{gen}})\mid d_n,
+ \qquad d_n=3^{\lfloor(n+1)/2\rfloor}
+\]
+を満たす（命題\ref{prop:nfm-kernel-three-primary}）。
+試験対象を置くための表示 gerbe を分裂させる必要がある体上では、
+$n\equiv1\pmod3$ のときに限り上界にさらに因子三を加えられる
+（系\ref{cor:nfm-generic-kernel-bound}）。
+この bound は比較核の同型類を選ぶ前段階を解決せず、
+標準二重被覆だけに核が降りることも意味しない。
 
 \subsection{Jacobi スキームの次元境界}
 \begin{maintheorem}[Jacobi スキームの境界と平方零構造]
@@ -676,8 +763,10 @@ trace--Hessian 射と逆構成により、Poisson 対の開部分を同定した
 全次数の比較が固定入力の下で成立する。
 一般混合係数では、低 rotation 積による残余三次と射影 Poisson 射を稠密開へ広げ、
 同じ三次への比較核を有限 étale 被覆上に得た。
-次の課題は尺度線束の標準切断、比較核の同型類と二 cocycle の大域降下、
-および各 intrinsic 成分の一般対象を覆う表示の構成である。
+点曲線の微分から符号を除く尺度を選び、支配的・一般有限な残余射と
+標準二重被覆上の full lift を得た。
+次の課題はその一般次数と符号 torsor、比較核の同型類と二 cocycle の大域降下、
+移送した点 shift と残余圏の作用の関係、および各 intrinsic 成分を覆う表示である。
 固定 frame の tensor の very general な超越性を踏まえ、
 形式座標の代数性と内在的なモジュライの代数性は区別して進める。
 boundary や全 Abel 形式近傍の記述は、この一般次元の構成に必要な障害を解消する
@@ -695,6 +784,7 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/residual_categories.tex}
 \input{papers/sections/residual_comparison.tex}
 \input{papers/sections/residual_algebraic.tex}
+\input{papers/sections/residual_point_scale.tex}
 \input{papers/sections/poisson_correction.tex}
 \par\begingroup\small
 \input{papers/references.tex}

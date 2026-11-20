@@ -578,8 +578,10 @@ $G\otimes P\mapsto\iota_{dG}P$ は単射であり、
 \end{proof}
 
 ここで $\mathscr T$ が非自明とは主張しない。
-必要な区別は、Poisson 直線、尺度の非標準的な代数的選択、
-および固定 formality によって指定された形式的尺度の三者である。
+\S\ref{sec:nfm-residual-point-scale}では、active 曲線の相対随伴から
+$\mathscr T\simeq\lambda_{\mathrm{res}}^*$ を得て、
+量子側の点曲線の微分により符号を除いた標準尺度を構成する。
+固定 formality によって指定された形式的尺度との一致は別の条件である。
 
 \begin{proposition}[支配性と一般相対次元]
 \label{prop:nfm-projective-residual-dominance}
@@ -739,6 +741,309 @@ $\mathrm{HH}^1=0$ による infinitesimal rigidity は、
 核の同型類の選択やこの二 cocycle の消滅を含まない。
 表示 gerbe の Brauer 類 $\beta$ と比較核の gerbe は異なる降下問題から生じ、
 両者を同一視する構成はまだない。
+
+\subsection{比較核のスカラー障害と Euler 行列}
+
+比較核の同型類を選ぶ問題と、その同型類を実際の核へ持ち上げる問題を
+区別したまま、後者の障害には全次元にわたる有限の annihilator を与えられる。
+まず用いる一般的な determinant の議論を明記する。
+
+\begin{lemma}[試験対象の Euler 数による annihilator]
+\label{lem:nfm-kernel-determinant-annihilator}
+$S$ 上の二つの smooth proper dg 圏を $\mathcal A,\mathcal B$ とし、
+大域対象 $A_1,\ldots,A_a\in\mathcal A$、
+$B_1,\ldots,B_b\in\mathcal B$ を固定する。
+局所的に存在する perfect 同値核の同型類が整合するように選ばれ、
+その実現の stack
+$q:\mathcal G\to S$ が、核のスカラー自己同型を band とする
+$\mathbf G_m$-gerbe であるとする。その類を
+$\alpha\in H^2_{\mathrm{fppf}}(S,\mathbf G_m)$ と書く。
+各連結成分上で
+\[
+ w_{ij}=\chi\bigl(B_j,\Phi_P(A_i)\bigr),\qquad
+ d=\gcd_{i,j}w_{ij}
+\]
+と置く。ここで $P$ は局所核、$d$ は非負の最大公約数である。
+全ての $w_{ij}$ に対して $w_{ij}\alpha=0$ が成立する。
+$d>0$ なら $d\alpha=0$ であり、$\mathcal G$ は
+ある $\mu_d$-gerbe の band を
+$\mu_d\hookrightarrow\mathbf G_m$ に沿って拡大したものとなる。
+$d=1$ なら実際の同値核を $S$ 上に取れる。
+さらに $S=\operatorname{Spec}K$ が体で $d>0$ なら、
+$\operatorname{ind}(\alpha)\mid d$ である。
+従って標数零では、次数が $d$ を割る有限分離拡大上に実際の同値核が存在する。
+\end{lemma}
+
+\begin{proof}
+$\mathcal G$ 上には普遍核 $P$ がある。
+proper 性により
+\[
+ E_{ij}=R\operatorname{Hom}_{\mathcal B}
+       \bigl(B_j,\Phi_P(A_i)\bigr)
+\]
+は底上 perfect である。核の自己同型
+$\lambda\operatorname{id}_P$ は $E_{ij}$ に重み一で作用する。
+perfect 複体の determinant
+\cite[\S1]{NFMKnudsenMumfordDet}
+\[
+ D_{ij}=\det(E_{ij})
+\]
+に対する作用は従って $\lambda^{w_{ij}}$ である。
+この重みは、局所的な有界有限自由模型について
+$\det(E)=\bigotimes_p(\det E^p)^{(-1)^p}$ と書けば直ちに分かる。
+
+gerbe の局所対象とその比較を選び、三重重なりの差を
+$c_{uvw}\in\mathbf G_m$ と書く。
+重み $w$ の可逆層の遷移写像は、三重重なりで $c_{uvw}^w$ を与えるので、
+その存在は $w\alpha=0$ を意味する。
+これは twisted perfect 複体の determinant による標準的な議論である
+\cite[\S\S2.2.4--2.2.5]{NFMLieblichTwisted}。
+従って $w_{ij}\alpha=0$ が成立する。
+
+$d>0$ の場合は $\sum_{i,j}a_{ij}w_{ij}=d$ となる整数を選び、
+\[
+ D=\bigotimes_{i,j}D_{ij}^{\otimes a_{ij}}
+\]
+と置く。これは重み $d$ の可逆層である。
+対象を $(P,v)$、$v:\mathcal O\xrightarrow{\sim}D_P$ とする stack は
+fppf 局所的に非空かつ連結で、自己同型群は
+$\{\lambda:\lambda^d=1\}=\mu_d$ である。
+従って所要の $\mu_d$-gerbe であり、$v$ を忘れる射は band の包含を誘導する。
+$d=1$ なら $P\otimes D^{-1}$ のスカラー重みは零なので $S$ へ降下する。
+同値性は fppf 局所的であり、これが求める同値核を与える。
+
+体上では、$E_{ij}$ の各 cohomology は重み一の有限階数束である。
+その階数を $h_{ij}^p$ と書く。非零の場合、その endomorphism 代数は底へ降下して
+次数 $h_{ij}^p$ の central simple 代数となり、Brauer 類は符号を除いて
+$\alpha$ である。central simple 代数の division 代数上の行列表示から、
+$\operatorname{ind}(\alpha)$ は各 $h_{ij}^p$ を割る。
+従って交代和 $w_{ij}$ とその最大公約数 $d$ も割る。
+対応する division 代数の極大部分体は、その index に等しい次数の分裂体である。
+標数零では分離拡大なので、最後の主張を得る
+\cite[Lemmas~11.7.4, 11.8.3--11.8.4]{NFMStacksSplitting}.
+\end{proof}
+
+この補題の $\mu_d$ は障害の\emph{band}である。
+一般の $S$ 上の有限 étale scheme 被覆を直ちに与えるものではなく、
+障害の正確な位数や index も求めていない。
+体上の index の整除には、determinant 可逆層だけでなく、
+重み一の perfect 複体そのものを用いた。
+
+\begin{lemma}[三次 stabilization の Euler 数の最大公約数]
+\label{lem:nfm-cubic-euler-gcd}
+$N=n+2\ge5$ とし、滑らかな三次式 $F$ の原点残余体の stabilization を
+$\kappa_F$ とする。$r=0,1,2$ に対し
+\[
+ \chi_{N,r}=\chi(\kappa_F,\kappa_F(r))
+   =\sum_{\substack{0\le s\le N\\s\equiv-r\pmod3}}
+                  (-1)^s\binom Ns
+\]
+と置く。このとき
+\[
+ \gcd(\chi_{N,0},\chi_{N,1},\chi_{N,2})
+     =3^{\lfloor(N-1)/2\rfloor}
+     =3^{\lfloor(n+1)/2\rfloor}.
+\]
+より具体的には $m=\lfloor(N-1)/2\rfloor$ と置き、
+$r_N\in\{0,1,2\}$ を $r_N\equiv-m\pmod3$ で定めると、
+$\chi_{N,r_N}=(-3)^m$ である。
+\end{lemma}
+
+\begin{proof}
+Euler 数の表示は固定入力B\cite{NFNCCubicB}の
+\texttt{generic\_descent.tex}, \texttt{rog:prop:euler}による。
+以下の最大公約数の計算は整数環上で行える。
+$\mathbf Z[t]/(t^3-1)$ で $p_N=(1-t)^N$ と置く。
+その三つの係数は、順序を除いて $\chi_{N,r}$ である。
+\[
+ (1-t)^3=-3t(1-t),\qquad
+ p_{N+2}=-3t\,p_N\quad(N\ge1)
+\]
+が成立する。$t$ 倍は三係数を巡回置換するから、最大公約数は
+$N$ を二増やすごとにちょうど三倍になる。
+$p_1=1-t$ と $p_2=1-2t+t^2$ の係数の最大公約数はともに一なので、
+表示した公式を得る。
+$p_N=(-3)^m t^m p_1$ または $(-3)^m t^m p_2$ であることから、
+指定した一成分の値も従う。
+\end{proof}
+
+\begin{proposition}[数値型を指定した比較核の三 primary 障害]
+\label{prop:nfm-kernel-three-primary}
+定理\ref{thm:nfm-residual-comparison-cover}の固定入力を仮定する。
+次数付き表示、三次方程式の生成元、および対応する window を選んだ
+split な正則 chart $S$ 上で考える。
+必要な非空開へ制限し、非可換側と残余三次側に原点残余体の stabilization
+\[
+ \kappa_{\mathrm{nc}}\in\mathcal K_S,
+ \qquad \kappa_Y\in\operatorname{Ku}(X_{\mathrm{res},S})
+\]
+を固定する。内部 shift は、選んだ window の rotation と同一視する。
+ここで非可換側は augmentation 加群の有限 rank stabilization を
+選んだ代数的 window で移した対象、可換側は Koszul stabilization である。
+split affine chart の関数体上の有限 perfect 模型と window の比較写像を
+有限個の係数の局所化で広げ、必要ならさらに縮小してこの二対象を大域に取る。
+支配族への引戻しは、同じ stabilization/window 構成の底変更と同定する。
+rotation と周期に両立する同値核のうち
+\begin{equation}
+\label{eq:nfm-kernel-numerical-type}
+ \chi\bigl(\kappa_Y,\Phi_P(\kappa_{\mathrm{nc}}(r))\bigr)
+       =\chi_{N,r},\qquad r=0,1,2
+\end{equation}
+を満たすものは、同値核の stack の開かつ閉な部分をなす。
+この部分は一般点上で幾何学的に非空であり、
+定理\ref{thm:nfm-residual-comparison-cover}の有限 étale 比較被覆を
+その中に取れるように $S$ を縮められる。
+
+この数値型に属する局所核の同型類が整合するように選ばれたとする。
+その実現の $\mathbf G_m$-gerbe の類 $\alpha$ に対して
+\[
+ d_n\alpha=0,\qquad d_n=3^{\lfloor(n+1)/2\rfloor}
+\]
+が成立し、同 gerbe は $\mu_{d_n}$-gerbe による band の縮小を持つ。
+同値核の同型類の sheaf 上で、各同型類を実現する普遍 gerbe に対しても
+同じ主張が成り立つ。
+特に整な $S$ 上で同型類が既に整合的に選ばれていれば、その一般点で
+$\operatorname{ind}(\alpha)\mid d_n$ であり、$S$ を縮めると
+次数が $d_n$ を割る有限 étale 全射上に実際の比較核を取れる。
+\end{proposition}
+
+\begin{proof}
+まず数値条件の非空性を確認する。
+固定入力Bの (L),(CF) を、本文の支配的な一変数族に適用する。
+$\widehat R=k[[h]]$ 上の比較を $\Phi$、可換側の三次を $W_h$ と書く。
+特殊三次は $F_0=F+G$ であり、これを滑らかに選ぶ。
+$\Phi\bmod h$ は $\operatorname{MF}^{\mathbf Z}(F_0)$ 上の恒等である。
+可換側の有限 rank MF 間には、固定入力Bの
+\texttt{window.tex}, \texttt{tw:lem:proper-hom}を適用する。
+正則局所底上の有限自由な graded MF について、Hom は底上 perfect であり、
+剰余体・完備化・分数体への導来底変更と両立する。
+ここでは $W_h\bmod h=F_0$ の射影超曲面の滑らかさを用いる。
+支配族の係数体 $k$ への拡張にも同じ証明が適用できる。
+実際、有限自由行列の剰余複体を体上で分裂する議論と、
+滑らかな三次の graded MF Hom の有限次元性だけを使う。
+CF の像が perfect summand の場合にも、この性質は有限 cone と直和因子で保たれる。
+特に
+\[
+ C_r=R\operatorname{Hom}
+       \bigl(\kappa_{W_h},\Phi(\kappa_{\mathrm{nc}}(r))\bigr)
+\]
+は perfect であり、剰余は
+$R\operatorname{Hom}(\kappa_{F_0},\kappa_{F_0}(r))$ である。
+従って Euler 数の特殊化不変性から
+$\chi(C_r)=\chi_{N,r}$ を得る。
+ここでは $\Phi(\kappa_{\mathrm{nc}})\simeq\kappa_{W_h}$ を仮定していない。
+
+形式側の三次と $X_{\mathrm{res}}$ を同一視する射影座標変換を、
+まず形式 Laurent 体上で用いる。この体の必要な有限拡大後には、
+線形変換と方程式の単元倍へ持ち上がる。
+この形式変換が元の関数体の有限拡大上に代数化するとは仮定しない。
+これらは augmentation 加群とその stabilization を保つので、
+同じ数値条件を、比較先が固定された $X_{\mathrm{res}}$ 上で得る。
+指定周期に必要な単元の根も、従来の比較被覆の構成と同じく有限拡大に含める。
+
+固定入力Bの \texttt{rog:lem:descent} の有限表示による降下に、
+この三つの試験対象と三つの perfect Hom 複体を加える。
+核、逆核、単位・余単位、rotation・周期図式とともに、
+これらはある有限生成整域 $D$ 上へ降りる。
+perfect 複体の Euler rank は局所定数であり、$D$ は連結なので、
+$D$ 上の各 $C_r$ の Euler rank は上で計算した整数に等しい。
+同値性と図式を保つ開の閉点へ特殊化しても、この等式は保たれる。
+これにより有限分離拡大上の所要の比較核を得る。
+さらに正規化と台の除去によって広げれば、
+非空開の有限 étale 比較被覆もこの数値型の中に取れる。
+
+一般に perfect な混合 Hom の Euler rank は底上局所定数なので、
+\eqref{eq:nfm-kernel-numerical-type} は開かつ閉な条件である。
+同型類を整合的に選んだ後の gerbe には、
+補題\ref{lem:nfm-kernel-determinant-annihilator}を
+$A_r=\kappa_{\mathrm{nc}}(r)$ と $B=\kappa_Y$ に適用できる。
+その三つの determinant の重みの最大公約数は
+補題\ref{lem:nfm-cubic-euler-gcd}により $d_n$ である。
+従って結論を得る。
+実際には、同補題の $m,r_N$ に対して
+\[
+ \left[\det R\operatorname{Hom}
+   \bigl(\kappa_Y,\Phi_P(\kappa_{\mathrm{nc}}(r_N))\bigr)\right]^{\otimes(-1)^m}
+\]
+という一つの可逆層が既に重み $d_n$ を持つ。
+同型類の sheaf 上での主張は、同じ構成を普遍核の gerbe 上で行えばよい。
+この最後の書き方は $S$ 上の同型類の切断の存在を要求せず、
+その存在を主張するものでもない。
+整な $S$ の最後の主張には、一般点で補題の index bound を適用し、
+得られた有限分離分裂体で正規化する。
+定理\ref{thm:nfm-residual-comparison-cover}と同じ有限表示の議論により、
+核と同値を判定する図式を広げ、分岐 locus と必要な閉集合を除けばよい。
+\end{proof}
+
+\begin{remark}[残る降下問題]
+命題\ref{prop:nfm-kernel-three-primary}は、
+整合する核の\emph{同型類}の選択を構成していない。
+また、任意の rotation-compatible な同値が
+\eqref{eq:nfm-kernel-numerical-type}を満たすとも主張していない。
+全 O-marked stack 上へ試験対象と rotation を降ろす問題も、この split chart の主張とは別である。
+従って、この命題から全 O-marked stack 上の比較核やその一意性は従わない。
+さらに、$d_n$ は全ての $n\ge3$ で三の正の冪なので、
+この determinant だけでは scalar gerbe の中立化は得られない。
+
+特殊ファイバーで
+$\operatorname{Hom}^0(\kappa_F,\kappa_F)=k$ であることを使って、
+上の mixed Hom に重み一の可逆層があると結論することもできない。
+実際、固定入力Bの外積代数表示から
+\[
+ \operatorname{Ext}^1(\kappa_F,\kappa_F)
+       \simeq\bigwedge^3 k^N
+\]
+を得る。従って $\kappa_F$ は rigid ではない。
+特殊ファイバーで一致する二対象間の次数零 Hom が、
+変形の一般ファイバーでも階数一であるという根拠はない。
+ここで保存されることを証明したのは、全 perfect Hom 複体の Euler rank である。
+\end{remark}
+
+\begin{corollary}[表示 gerbe を介した体上の bound]
+\label{cor:nfm-generic-kernel-bound}
+$K$ を標数零の体とし、$K$ 上の O-marked 対が上の比較開に属するとする。
+比較核の同型類が既に $K$ 上で整合的に選ばれ、その実現の gerbe の類を
+$\alpha_K\in\operatorname{Br}(K)$ とする。
+代数閉包上で次数付き表示と対応する window を選ぶと、その同型類が
+命題\ref{prop:nfm-kernel-three-primary}の数値型に属すると仮定する。
+このとき
+\[
+ \operatorname{ind}(\alpha_K)\mid
+ 3^{\lfloor(n+1)/2\rfloor+\epsilon_n},
+ \qquad
+ \epsilon_n=
+ \begin{cases}
+ 0,&n\not\equiv1\pmod3,\\
+ 1,&n\equiv1\pmod3.
+ \end{cases}
+\]
+特に同じ整数が $\alpha_K$ を零にし、その整数を割る次数の
+有限分離拡大上で選んだ同型類を実際の比較核として実現できる。
+\end{corollary}
+
+\begin{proof}
+表示 gerbe 上の階数三・重み一の束 $\mathcal V/\mathcal U$ の
+endomorphism 代数は $K$ へ降下し、次数三の central simple 代数となる。
+その Brauer 類は符号を除いて表示の障害 $\beta_K$ である。
+従って $\beta_K$ の index は一または三であり、
+次数 $e\in\{1,3\}$ の分離拡大 $K'/K$ により分裂する。
+非分裂の場合はその次数三の division 代数の極大部分体を取ればよい。
+$n\not\equiv1\pmod3$ なら
+命題\ref{prop:nfm-presentation-gerbe}により初めから $e=1$ と取れる。
+体上では次数一の有限局所自由加群と方程式直線を自明化できるので、
+$K'$ 上で前命題の split な議論を使える。
+数値条件は体拡大により変わらず、二つの次数付き持上げの差は体上の
+一次元空間による twist なので、仮定の数値型も $K'$ 上で成立する。
+従って $\operatorname{ind}(\alpha_{K'})\mid d_n$ であり、
+次数 $f\mid d_n$ の有限分離拡大 $L/K'$ 上で $\alpha_L=0$ となる。
+$[L:K]=ef$ は $3^{\epsilon_n}d_n$ を割るので、
+任意の有限分裂体の次数は index の倍数であること
+\cite[Lemma~11.8.4]{NFMStacksSplitting}から所要の整除を得る。
+同じことから $\alpha_K$ の位数の整除も従う。
+ここでは $\beta_K$ は試験対象を置く体を作るためだけに使っており、
+$\alpha_K$ と同一視していない。
+\end{proof}
+
 
 \subsection{一変数 trait に沿う良い還元}
 

@@ -1,10 +1,10 @@
 # 非可換三次 n-fold：現行稿の検証範囲
 
-2026年11月20日 / v10。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
+2026年11月20日 / v11。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
 
-本版では、一般次元の代数的残余三次、全 O-同値に降下する射影 Poisson 射、一般相対次元1、有限 étale 被覆上での同じ三次への Ku 比較、相対 flow の厳密な中心作用保存、選んだ形式比較による trait の良い還元、固定生成元の tensor の very general な超越性を統合した。新しい証明は執筆・統合時の読解点検に加え、別担当による独立の読解点検を行った。特殊ファイバーの F+G と、固定 frame と任意の形式 frame の区別を最終原稿へ反映した。
+本版では、一般混合係数での残余 active 曲線と楕円点曲線の全次数比較、j の一致、Hodge 線束と尺度の双対性、点微分による標準的な符号商残余射、その支配性・一般有限性、標準二重被覆上の full lift と点 shift、比較核の条件付き scalar index bound を統合した。新しい証明は執筆・統合時の読解点検に加え、執筆担当以外による独立の読解点検を行った。一般の中心 lift に対する尺度因子の相殺、mixed Hom の perfect 性の入力、形式 frame と有限表示降下の順序を明記した。
 
-新しい全次数の結果は有限個の次元や有限 jet の実験に依存せず、本文の一般証明による。計算資産12ファイルは保存済み v9 の Git blob SHA と全て一致することを再確認した。既存の graph・四次 potential・大行列 Jacobi 計算は本版で再実行せず、以下に保持する検算結果の対象が変わっていないことを確認した。内容不変の照合と再実行は区別する。未公表の完備 MF・一般点復元・coherent 飽和性の全証明の独立検証、外部査読、Lean 等による形式証明は行っていない。
+新しい全次数・全次元の結果は有限 jet や有限個の次元の実験に依存せず、本文の一般証明による。新しい数値実験は実施していない。計算資産12ファイルは保存済み v10 の Git blob SHA と全て一致することを再確認した。既存の graph・四次 potential・大行列 Jacobi 計算は本版で再実行せず、以下に保持する検算結果の対象が変わっていないことを確認した。内容不変の照合と再実行は区別する。未公表の完備 MF・一般点復元・coherent 飽和性の全証明の独立検証、外部査読、Lean 等による形式証明は行っていない。
 
 ## 1. 固定した入力と文献
 
@@ -35,9 +35,13 @@ Banks–Panzer–Pym の2022年訂正、Invent. Math.229(2022),449、DOI [10.100
 
 Etingof–Ginzburg の刊行版§8.1、印刷pp.1407–1408、Proposition8.1.1・式(8.1.3)を現行稿の形式 potential と比較した。unimodular な形式 Poisson tensor の相対 Jacobian potential による認識は既知の先行結果であり、存在そのものを新規成果に数えない。限定的な追加文献検索では本稿の混合五次公式と四次 potential の既出箇所を確保できていないが、新規性の確認が完了したという意味ではない。全ての数値係数は指定 harmonic-angle・生成元固定・中心規格化に関するもので、任意 stable formality や任意 gauge から独立とは主張しない。
 
-本版の残余射では、Wang arXiv:1906.04891v3 §3、Corollary3.2・Theorem3.3、Hwang arXiv:2501.08633v1 Theorems1.5,1.6・Propositions2.2,2.6・Corollary2.7を一次資料で確認した。Toën–Vaquié arXiv:math/0503269v5 の Lemmas2.8,2.10,3.25、Corollaries3.22,3.24、および Bergh–Schnürer の公刊PDF Proposition4.10、Remark6.1、Theorem6.2・Remark6.3を照合した。勾配復元、perfect 核の有限表示と同値性の開性、重み零降下そのものは既知の原理として記載した。
+残余射の既存点検では、Wang arXiv:1906.04891v3 §3、Corollary3.2・Theorem3.3、Hwang arXiv:2501.08633v1 Theorems1.5,1.6・Propositions2.2,2.6・Corollary2.7を一次資料で確認した。Toën–Vaquié arXiv:math/0503269v5 の Lemmas2.8,2.10,3.25、Corollaries3.22,3.24、および Bergh–Schnürer の公刊PDF Proposition4.10、Remark6.1、Theorem6.2・Remark6.3を照合した。勾配復元、perfect 核の有限表示と同値性の開性、重み零降下そのものは既知の原理として記載した。
 
 固定入力Bの `field_model.tex`, `generic_descent.tex`, `curved_transport.tex` の定理文と使用する構成を読み、(L),(CF)、三対象への制限後の Laurent 局所化、coherent 飽和性、一般係数体への係数変更の役割を分けた。相対 flow の新しい中心保存補題については、固定入力の `cft:lem:primitive`, `cft:lem:arity`, `cft:lem:flow` と MF 挿入公式を直接照合した。Lindberg–Pym の §1.6、Theorem6.9・Remark6.10を再確認し、対数境界値が原生成元の交換比から全次数で従うことを点検した。
+
+点曲線・尺度の追加では、Fulton–Olsson の公刊版§1、式(1-1)–(1-5)、pp.87–88および Corollary2.4の証明p.91を読み、微分と判別式の変換、j≠0,1728 上のμ₂-gerbeを照合した。Poonen の Theorem1.5と直前の開性の記述を確認し、n≥3の三次に例外がないことを確認した。
+
+scalar 障害について、Knudsen–Mumford の刊行情報を出版社で確認し、twisted perfect複体のdeterminantは Lieblich arXiv:math/0411337v2 §2.2.4、Definition2.2.4.1、period/index は§2.2.5の本文と照合した。Stacks Tags074S,074X の Lemma11.7.4、Lemmas11.8.3–11.8.4により、極大部分体の次数・分裂と index の整除を確認した。固定入力Bの `generic_descent.tex`, `rog:prop:euler` の二重次数とEuler式、`window.tex`, `tw:lem:proper-hom` の任意二有限rank MFのHom、`rog:lem:localization` の有限rankを保つCFを固定commitで確認した。window定理をMF全体の相対同値へ強めて引用してはいない。
 
 ## 2. 証明の記載と読解点検
 
@@ -45,6 +49,13 @@ Etingof–Ginzburg の刊行版§8.1、印刷pp.1407–1408、Proposition8.1.1�
 
 | 対象 | 点検した論点 | 適用条件・残る限界 |
 |---|---|---|
+| active 部分の全次数比較 | active 出辺と U=0 制限、同座標 Hesse 分枝の識別、SL₃×A² の支配性、普遍係数恒等式、Koszul と Euler による W_act=b_hJ_g | 固定 split 比較を入力。単なる j の一致を同座標比例へ読み替えず、MF の中心基底変更や n=1 の field-model は未使用 |
+| 点曲線と同型被覆 | 支配族からの j の降下、短い Weierstrass 式、[3]q=a、偏極類と Brauer–Severi 平面の étale 降下 | Iの階数18、Dの階数2、I→Dの階数9。Dだけに genus-one 曲線・平面同型があるとは主張しない |
+| Hodge と自然な尺度 | 相対随伴のdeterminant因子、重み零、modular formsのweight、τ_pt、η_res、Jacobian-Isomとの同一視 | j≠0,1728 の共通稠密開。modular正規化被覆と点微分の被覆を区別 |
+| 符号商射の支配性 | 一般中心liftのc(h)相殺、η=h²・unit、一般特殊点の零切断、既約閉包、同次元性、自己同型なしの開の有限化 | 形式frameの代数化を未使用。一般次数未決定。比較核の二重被覆への降下は未主張 |
+| 点shiftとharmonic尺度 | 固定点なしから平行移動、Jacobianのtorsor作用、deck反転、t=(h/b_h)W_h⊗P₀、tensor比h/c_h、c_hの五次係数 | Ku rotationの制限との同定は未証明。比の代数性や固定harmonic尺度との一致は未主張 |
+| kernelのEuler/index | 重み1 perfect Homとdeterminant、p_(N+2)=−3tp_N、数値型の開閉性・非空性、有限表示降下、indexによるrank整除 | 整合する核の同型類を選んだ後のscalar段階。体上indexと一般底上bandを区別。未証明のΦκ_nc=κ_Yを不使用 |
+| unsplit体上のindex | rank3重み1の束でβを次数≤3でsplitし、その上のαを次数がd_nを割る体でsplit | α=βを仮定しない。同型類選択前の比較被覆全体の次数は抑えていない |
 | 相対積分直線 | D_Q の scheme 的 rank 条件、単元 minor による核・余核の分裂、非被約を含む底変更 | 体上の勾配一意性は Wang・Hwang の既知結果。scalar symmetrizer と射影自己同型群の自明性を区別 |
 | 全次元の非空性 | 巡回三次の滑らかさ、Hessian 係数行列の台の交差、N=5 の最小例、active 切断の特異条件 c³=−27/64 | 全 N≥5 の手計算による証明。有限個の次元の計算からの外挿ではない |
 | 支配的中心 h-family | δ_h=h⁻¹[x_i,−] の有限自由行列、特殊 Casimir 核、一般中心との同次元性、Ω_h の代数的持上げ、純中心 G による全 torsor fibre の被覆 | 固定 PBW・中心入力。Ω_h+G の特殊三次は F+G、tensor は Π_F のまま |
@@ -249,13 +260,13 @@ Buring の元資料 `star5.txt` のSHA-256は `05e0689ddb32a3d3a3ee4475086606bbe
 
 ### 最終ソース検査
 
-`python3 scripts/check_sources.py` を実行し、16個のTeXソース、重複のない247ラベル、146個の参照先、55個の引用キーを確認した。input・本文参照・文献キーに欠落はない。README・方針・ノートの内部ラベルを照合し、Markdown の相対ファイルリンク26件の参照先が存在することを確認した。主原稿、空の著者欄、分割 root、repo ルート基準の input、build/ の PDF/SyncTeX は維持している。
+`python3 scripts/check_sources.py` を実行し、17個のTeXソース、重複のない271ラベル、164個の参照先、60個の引用キーを確認した。input・本文参照・文献キーに欠落はない。README・方針・ノートの内部ラベルを照合し、Markdown の相対ファイルリンク28件の参照先が存在することを確認した。主原稿、空の著者欄、分割 root、repo ルート基準の input、build/ の PDF/SyncTeX は維持している。
 
 ### 最終組版と表示
 
-LuaLaTeX・latexmk で最終ソースを組版し、終了コード0を確認した。最終 PDF は143頁・1,361,146 bytes、SHA-256 は `802996a73a476e46bc989ab587bfafe850127b0956607427b48f9c28f6c9e490`。TeX の未定義参照・未定義引用・overfull/underfull box はない。数式の小さい添字について4.5ptを5ptへ置き換えるフォント警告は残る。著者欄は空欄、表題・subject・和文フォントの埋込み・文字抽出を確認した。
+LuaLaTeX・latexmk で最終ソースを組版し、終了コード0を確認した。最終 PDF は158頁・1,482,982 bytes、SHA-256 は `671a1749b9eb99a48d9d87dc0a9551c0dc578093d712c62ac398b205bd788a7e`。TeX の未定義参照・未定義引用・overfull/underfull box はない。数式の小さい添字について4.5ptを5ptへ置き換えるフォント警告は残る。著者欄は空欄、表題・subject・和文フォントの埋込み・文字抽出を確認した。
 
-全143頁を画像化し、12枚の一覧画像で全頁を目視点検した。追加した第14節、主定理F、概要・目次、表・長い数式・参考文献を個別画像でも確認した。参考文献の不適切な頁またぎを修正し、最終修正で変わった1・32・142・143頁を再点検した。全頁の抽出テキストの外接矩形も紙面端から18pt以上の範囲に収まり、点検した範囲に欠け・重なり・意図しない空頁は見られない。
+全158頁を画像化し、14枚の一覧画像で全頁を目視点検した。第14節の比較核の証明、第15節の点曲線・尺度の証明、主定理G、概要・目次、参考文献を個別画像でも確認した。要旨の一行だけの頁送り、補題見出しと文献の不適切な頁またぎを修正し、最終PDFの概要・目次・尺度の節・文献を再点検した。全頁の抽出テキストの外接矩形も紙面端から18pt以上の範囲に収まり、点検した範囲に欠け・重なり・意図しない空頁は見られない。
 
 これらは組版・表示の点検であり、数学的な証明の検証とは別である。PDFと画像はGitの追跡対象に含めない。
 

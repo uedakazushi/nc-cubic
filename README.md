@@ -1,12 +1,12 @@
 # 非可換三次 n-fold のモジュライ
 
-2026年11月20日 / v10。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
+2026年11月20日 / v11。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
 
 **再開時は [研究方針](00_research_plan.md) を最初に読む。**
 
 ## 内容
 
-- [公表用研究稿](papers/nc-cubic-n-fold.tex)：中心復元、局所一ブロック型の O-marked DM stack と Brauer 障害、相対点関手と中心商の復元、trace–Hessian による Poisson 対の開部分との同型、残余復元との比較障害、次数9の代数的 Poisson 補正、形式 support 保存、全混合五次 tensor と残余四次 potential、四次の比較障害と新しい代数的補正、split 族の残余比較、一般混合係数の代数的残余三次・射影 Poisson 射と有限被覆上の Ku 比較、固定 tensor の very general な超越性、Jacobi スキーム、残余圏の通常 Artin 形式認識。
+- [公表用研究稿](papers/nc-cubic-n-fold.tex)：中心復元、局所一ブロック型の O-marked DM stack と Brauer 障害、相対点関手と中心商の復元、trace–Hessian による Poisson 対の開部分との同型、残余復元との比較障害、次数9の代数的 Poisson 補正、形式 support 保存、全混合五次 tensor と残余四次 potential、四次の比較障害と新しい代数的補正、split 族の残余比較、一般混合係数の代数的残余三次・点曲線の j の一致・点微分による一般有限な符号商 Poisson 射、有限被覆上の Ku 比較と条件付き scalar index bound、固定 tensor の very general な超越性、Jacobi スキーム、残余圏の通常 Artin 形式認識。
 - [研究ノート](notes/research_notes.md)：主張の依存・適用範囲、反例・障害、文献の確認箇所、次の計算の入口。
 - [検証範囲](notes/validation.md)：原稿点検・組版・厳密計算を区別した確認状態。
 - [Jacobi 行列検証コード](computations/verify_jacobi_rank.py) と [整数小行列証明書](computations/jacobi_rank_certificate.json)。
@@ -18,6 +18,7 @@
 - [混合五次 tensor の厳密検算](computations/verify_mixed_fifth.py) と [必要な73項の harmonic graph データ・出典・hash](computations/data/harmonic_linear_products.json)：二つの普遍定数の評価と原 weight の規約照合。
 - [残余四次項の厳密検算](computations/verify_fourth_potential.py)：古典的 Hessian・Aronhold 微分との恒等式、中心 symbol、純中心項、尺度、全次元の Jacobi 双対証明書。
 - [残余射・尺度・比較核の本文](papers/sections/residual_algebraic.tex)：一般次元の相対復元、全 O-降下、有限被覆上の Ku 比較、固定 tensor の very general な超越性。
+- [点曲線と自然な残余尺度の本文](papers/sections/residual_point_scale.tex)：active 部分の全次数比較、Hodge 線束、十八重／二重被覆、支配的・一般有限な符号商射と点 shift。
 - [四次補正の本文](papers/sections/fourth_correction.tex)：上の有限計算を一般次元の証明と Poisson moduli の射へ統合する主原稿の分割ファイル。
 - [参考文献](papers/references.tex)。外部文献PDFは含めない。
 
@@ -37,7 +38,15 @@
 
 **固定 h・固定生成元の実際の tensor π_h は、全 n≥3 の very general な滑らかな係数で代数的でない。** xyz での厳密な対数級数と普遍再帰の多項式性から、各有界次数の代数関係 locus が真の閉集合となることを証明した。単一の Zariski 開の全点での主張ではなく、有限 jet の外挿でもない。任意の形式 frame を許した intrinsic な尺度付き射の不存在は結論しない。
 
-残る中心課題は、**尺度線束 T=L⊗det K_res の標準的な非零切断と、比較核の全 O-降下**である。核全体は自己同値 stack の torsor であり、同型類を整合させてから scalar 二 cocycle を検討する。表示 gerbe の β と kernel gerbe を同一視しない。新しい射の正式な主張と証明は [残余射の節](papers/sections/residual_algebraic.tex) にまとめている。
+**全 n≥3 で、残余 active 曲線と楕円点曲線の j が一致することを証明した。** 正規化再帰の active 制限と Hesse 族からの普遍化により、形式 frame では W_h|_K=b_h(g+h²Hess(g)/24) が全次数で成り立つ。j≠0,1728 の開で、平面同型の層 I は有限 étale 階数18、Jacobian の群同型の層 D は階数2であり、I→D は3捩れの階数9の torsor となる。
+
+**点曲線の標準微分が自然な残余 Poisson 射を与える。** 相対随伴から T=L⊗det K_res≃λ_res* を同定する。点曲線の尺度 τ_pt=(H♯|K)⊗P と modular forms から T² の非零切断 η_res を得て、Ψ_res^±:M→[Pdec/μ₂] を構成した。これは全 O-同値・任意底変更に両立し、支配的・一般有限、縮小後には有限 étale 全射である。標準二重被覆 D 上に full tensor があり、点 shift も残余 active 曲線の平行移動へ移せる。同じ X_res への Ku 比較はさらに有限被覆上で保たれる。一般次数、元の M 上の標準的な符号、移送 shift と Ku rotation の一致、D への比較核の降下は未決定である。
+
+点規格化した tensor は形式 frame で (h/c_h)π_h であり、固定 harmonic tensor と同じ尺度ではない。自然な射の代数性は上の very general な固定 tensor の超越性と両立する。二重被覆は Jacobian 同型を持つが、genus-one torsor 自体や次数三偏極の同型には I→D を用いる。
+
+**比較核の scalar 障害には一般次元の index bound を得た。** split 表示 chart の CF Euler 数値型内で核の同型類を整合的に選んだ後、その gerbe α は d_nα=0、一般点で ind(α)|d_n、d_n=3^floor((n+1)/2) を満たす。表示 gerbe を分裂させる必要がある体上では、n≡1 mod3 の場合に上界へさらに因子3を加えられる。核の同型類を選ぶ前段階や scalar gerbe の中立性は未解決であり、αと表示障害βは同一視しない。
+
+残る中心課題は、自然な符号商射の一般次数・符号 torsor、比較核の全 O-降下、点 shift の圏論的認識、各 intrinsic 成分の一般対象の被覆である。証明は [残余射・比較核の節](papers/sections/residual_algebraic.tex) と [点曲線・尺度の節](papers/sections/residual_point_scale.tex) にまとめる。
 
 個別次元の Jacobi 計算と boundary の精査は、この一般目標の具体的な障害を解消する場合に行う。八次元の頂点構造等の既存成果と証明書は保持する。次の具体的な着手方法と各目標の到達基準は [研究方針](00_research_plan.md) にまとめ、全体の要約は [research-hub](https://github.com/uedakazushi/research-hub) に反映する。
 
@@ -89,7 +98,7 @@ C₄ = λ(A³+B³+C³)/60 + λ²ABC/40
 
 Jacobi 行列の普遍的な階数上界は Gesmundo–Landsberg の Koszul flattening の既知の結果に対応する。`N=9,10` の二次行列の最大階数の達成も Boij（1999, Remark 6）の apolar Betti 計算に対応し、独立した新規成果として数えない。現行稿はこの対応を明示し、計算証明書を再現可能な独立検証として保持する。正確な参照箇所は [参考文献](papers/references.tex) と [研究ノート](notes/research_notes.md) に記す。
 
-通常 Artin 基底上の残余圏の一次切断変形は `n ≠ 4` で幾何的変形として認識できる。四次元の categorical hull は22次元、幾何的変形は20次元。全 intrinsic 成分の一般対象の局所表示、尺度の標準切断、比較核の元の stack への降下、全 Abel 形式近傍の完成は主張していない。新規性の網羅的確認・外部査読は未完了。
+通常 Artin 基底上の残余圏の一次切断変形は `n ≠ 4` で幾何的変形として認識できる。四次元の categorical hull は22次元、幾何的変形は20次元。全 intrinsic 成分の一般対象の局所表示、元の開上の標準的な符号選択、比較核の元の stack への降下、全 Abel 形式近傍の完成は主張していない。新規性の網羅的確認・外部査読は未完了。
 
 ## 再生成
 

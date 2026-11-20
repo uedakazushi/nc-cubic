@@ -1,0 +1,687 @@
+% !TEX root = ../nc-cubic-n-fold.tex
+\section{点曲線による残余 Poisson 構造の規格化}
+\label{sec:nfm-residual-point-scale}
+
+残余方程式の直線と中心作用から得た射に、量子側の楕円点曲線が持つ微分を組み合わせる。
+全 $n\ge3$ で active 曲線の同型類を比較し、符号を除いた標準尺度と、
+標準二重被覆上の尺度付き残余射を構成する。
+比較先の三次は前節の $X_{\mathrm{res}}$ のままである。
+本節の残余圏への適用は、前節で明記した固定 MF・window・生成性・飽和性の入力の下にある。
+
+\subsection{残余三次の active 切断と楕円点曲線}
+
+以下の主張は任意の $n\geq3$ に一様であり、
+定理\ref{thm:nfm-projective-residual-morphism}および
+定理\ref{thm:nfm-split-corrected-residual}の固定入力を用いる。
+中心変数を零にする操作について、新たな MF 圏の基底変更定理は仮定しない。
+必要な比較を正規化 tensor の普遍再帰の段階で行う。
+
+\begin{lemma}[active 制限と Hessian 三次の全次数 Casimir 性]
+\label{lem:nfm-active-restriction-all-orders}
+$R$ を可換複素代数、$U=\langle u_1,\ldots,u_r\rangle$ とし、
+$F\in R[x,y,z,U]_3$、$g=F|_{U=0}$ と置く。
+$P_0=\partial_x\wedge\partial_y\wedge\partial_z$ に関する関係式
+$[a,b]=h\operatorname{sym}(\iota_{dF}P_0)(a,b)$ から、
+式\eqref{eq:nfm-normalized-tensor-recursion}で得る形式 tensor を $\pi_h(F)$ とする。
+三変数だけで同じ再帰を行ったものを $\pi_h^{\mathrm{act}}(g)$ と書くと
+\[
+ \pi_h(F)|_{U=0}=\pi_h^{\mathrm{act}}(g).
+\]
+さらに普遍的な形式多項式恒等式
+\begin{equation}\label{eq:nfm-active-hessian-casimir}
+ \iota_{dJ_g}\pi_h^{\mathrm{act}}(g)=0,
+ \qquad J_g=g+\frac{h^2}{24}\det\operatorname{Hess}(g)
+\end{equation}
+が成立する。従って、これらの恒等式は任意の係数変更と両立する。
+\end{lemma}
+
+\begin{proof}
+補題\ref{lem:nfm-formal-linear-center}の帰納法により、
+全ての tensor 頂点から出る辺は active 方向を微分する。
+実際、元の二次関係では $q_{u_i a}=0$ であり、低次の tensor が active なら、
+$u_i$ を入力とする正次数グラフは全て零になる。
+再帰式から次の係数についても $\pi_m(du_i,-)=0$ となるので、
+この消滅と以下の制限との可換性を任意係数環上で同時に帰納できる。
+固定次数の再帰は加減乗算、active 微分、および Weyl 対称化の有限和であり、
+これらはいずれも $U=0$ への制限と可換する。
+$h$ の次数に関する帰納法で第一の等式を得る。
+この議論では純中心変数の個数に依存する項は生じない。
+
+第二の等式も各 $h$ 係数について $g$ の係数の多項式恒等式である。
+まず $g_\lambda=S/3+\lambda xyz$、$S=x^3+y^3+z^3$ を考える。
+定理\ref{thm:nfm-split-corrected-residual}の証明では、
+生成元固定模型の active potential が
+$a(s)S/3+b(s)xyz$ であり、同じ active 座標において
+\[
+ \frac{b(s)}{a(s)}
+ =\frac{\lambda+s^2(4+\lambda^3)/12}
+        {1-s^2\lambda^2/4}
+\]
+であることを示した。
+従ってこの potential は
+$g_\lambda+s^2\det\operatorname{Hess}(g_\lambda)/24$ の形式単元倍である。
+ここで使うのは単なる $j$ の一致ではない。
+同証明の共通の非零な二次先頭係数が、$j$ の分岐点を含めて
+Hesse 係数の分枝を一意に定めることまで用いている。
+Casimir 条件から\eqref{eq:nfm-active-hessian-casimir}を得る。
+
+$g=p g_\lambda$ については $s=ph$ とすれば
+$J_g=p\bigl(g_\lambda+s^2\det\operatorname{Hess}(g_\lambda)/24\bigr)$ である。
+生成元固定再帰の線型共変性により、この恒等式は
+$\operatorname{SL}_3$ による座標変更後にも成立する。
+定理\ref{thm:nfm-correction-degree-nine}の証明で用いた支配射
+\[
+ \operatorname{SL}_3\times\mathbb A^2\longrightarrow
+ \operatorname{Sym}^3\mathbf C^3{}^*,\qquad
+ (A,p,q)\longmapsto A\cdot(pS/3+qxyz)
+\]
+から、各 $h$ 係数の多項式は三次係数空間の稠密開で零となる。
+従って普遍係数環上で零である。
+この多項式恒等式を任意の $R$ へ引き戻せばよい。
+三変数再帰への制限と一般次元の MF/window 比較の適用は別の操作であり、
+$n\geq3$ の圏比較を $n=1$ に代入してはいない。
+\end{proof}
+
+\begin{proposition}[形式残余三次の active 部分の厳密な決定]
+\label{prop:nfm-residual-active-point-cubic}
+定理\ref{thm:nfm-residual-formal-poisson}の模型で
+$g=F|_{U=0}$ は滑らかな平面三次を定めるとする。
+純中心三次 $G$ を中心元に加えてよい。
+このときある形式単元 $b_h\in1+hR[[h]]$ によって
+\begin{equation}\label{eq:nfm-residual-active-point-cubic}
+ W_h|_{U=0}=b_h\left(g+\frac{h^2}{24}\det\operatorname{Hess}(g)\right)
+ =b_hJ_g
+\end{equation}
+となる。従って、生成元固定形式座標における active 平面切断は、
+量子側の楕円点曲線と全次数で同じ平面三次である。
+\end{proposition}
+
+\begin{proof}
+$J_g$ の active 勾配は $g$ の正則勾配の形式変形なので、
+補題\ref{lem:nfm-relative-casimir-tensor}を三変数で適用できる。
+前補題の Casimir 恒等式から
+\[
+ \pi_h^{\mathrm{act}}(g)=c_h\,\iota_{dJ_g}P_0,
+ \qquad c_h=h+O(h^2)
+\]
+を得る。$c_h$ は active 座標に依存しない。
+一方、全変数の形式模型では
+$\pi_h(F)=a_h\iota_{dW_h}P_0$、$a_h=h+O(h^2)$ であり、
+$a_h$ は中心変数を含む全座標に依存しない。
+$U=0$ に制限して $h$ を除くと
+\[
+ d(W_h|_{U=0})
+ =\frac{c_h/h}{a_h/h}\,dJ_g.
+\]
+両辺は斉次三次式の微分であるから Euler 恒等式によって
+\eqref{eq:nfm-residual-active-point-cubic}を得る。
+純中心三次は制限で消え、形式 tensor 自体も選んだ中心三次に依存しない。
+点曲線の方程式は命題\ref{prop:nfm-correction-point-cubic}である。
+なお $h=0$ では、ここで延長するのは一般ファイバーの楕円成分の滑らかな閉包である。
+可換多項式環の点スキーム全体を三次曲線と同定する主張ではない。
+\end{proof}
+
+\begin{theorem}[点曲線の $j$ を保つ残余射]
+\label{thm:nfm-residual-point-j}
+$\mathfrak M_n^{\mathrm{res}}$ を適切な非空稠密開に縮め、
+量子側の楕円点曲線 $E_{\mathrm{pt}}$ と
+\[
+ C_{\mathrm{res}}=X_{\mathrm{res}}\cap\mathbf P(K_{\mathrm{res}})
+\]
+がともに滑らかであるとする。
+全 O-同値に自然な正則関数として
+\begin{equation}\label{eq:nfm-residual-point-j}
+ j(E_{\mathrm{pt}})=j(C_{\mathrm{res}}),\qquad
+ j_{\mathrm{pt}}=j_{\mathrm{act}}\circ\Psi_{\mathrm{res}}
+\end{equation}
+が成立する。
+特に、$\Psi_{\mathrm{res}}$ の各幾何学的ファイバー上で
+楕円点曲線の幾何学的同型類は一定である。
+\end{theorem}
+
+\begin{proof}
+相対点関手の降下により $E_{\mathrm{pt}}$ は元の stack 上の曲線族である。
+$C_{\mathrm{res}}$ も方程式直線と support の降下から定まる。
+両者の周囲平面には Brauer--Severi 平面を許す。
+genus-one 曲線の $j$ は Jacobian の $j$ として定義でき、原点を要しない。
+
+補題\ref{lem:nfm-dominant-central-family}の支配的な中心 $h$ 族に引き戻す。
+系\ref{cor:nfm-projective-formal-compatibility}の相対比較により、
+$C_{\mathrm{res}}$ は形式的な次数一同定の下で
+$V(W_h|_{U=0})$ に移る。
+前命題によってこれは $V(J_g)$ であり、点曲線に一致する。
+従って両方の $j$ はこの支配族の $k((h))$ 上で等しい。
+支配性による関数体の単射から元の stack の一般点で等しく、
+整な開上の正則関数なので全域で等しい。
+全 O-降下はそれぞれの曲線族の降下から従う。
+代数閉体上で滑らかな genus-one 曲線の同型類は $j$ で決まるため、
+ファイバーに関する結論を得る。
+\end{proof}
+
+\begin{proposition}[平面同型の十八重被覆と Jacobian 同型の二重被覆]
+\label{prop:nfm-point-residual-isom-cover}
+前定理の開でさらに $j\notin\{0,1728\}$ とする。
+$J_E=\operatorname{Pic}^0(E_{\mathrm{pt}})$、
+$J_C=\operatorname{Pic}^0(C_{\mathrm{res}})$ と置くと
+\[
+ \mathfrak D_J=\underline{\operatorname{Isom}}_{\mathrm{gp}}(J_E,J_C)
+       \longrightarrow\mathfrak M_n^{\mathrm{res}}
+\]
+は標準的な有限 étale 階数二の $\mu_2$-torsor である。
+また、周囲平面も含めた同型の層
+\[
+ \mathfrak I=\underline{\operatorname{Isom}}_{\mathrm{plane}}
+  \bigl((\mathbf P_{\mathrm{pt}},E_{\mathrm{pt}}),
+        (\mathbf P_{\mathrm{res}},C_{\mathrm{res}})\bigr)
+\]
+は有限 étale 階数十八である。
+曲線同型が誘導する共変な Jacobian 同型による射
+$\mathfrak I\to\mathfrak D_J$ は $J_E[3]$-torsor であり、
+従って
+\[
+ \mathfrak I/J_E[3]\simeq\mathfrak D_J.
+\]
+ここで ``plane'' は次数三偏極の\emph{類}を保つ同型を意味し、
+$\mathcal O(1)$ の同型やその scalar を追加データとして選んではいない。
+これらは元の stack に対して表現可能な有限 étale 射である。
+\end{proposition}
+
+\begin{proof}
+全て étale 局所的に検証できる。
+Jacobian を短い Weierstrass 式
+$y^2=x^3+Ax+B$ と $y^2=x^3+A'x+B'$ で表す。
+$j\ne0,1728$ なので $A,B,A',B'$ は単元である。
+$j$ の等式は
+$(A'/A)^3=(B'/B)^2$ を与える。
+\[
+ u^2=\frac{B'/B}{A'/A}
+\]
+と置く有限 étale 階数二の被覆上で
+$u^4=A'/A$、$u^6=B'/B$ となり、
+$(x,y)\mapsto(u^2x,u^3y)$ は group 同型である。
+この二つが全ての group 同型であり、その差は反転である。
+従って $\mathfrak D_J$ は表示に依存せず貼り合わさる $\mu_2$-torsor となる。
+
+次に $\mathfrak D_J$ 上で Jacobian 同型 $\theta$ を固定する。
+étale 局所的に両 genus-one 曲線に原点を選べば、
+$\theta$ を誘導する曲線同型 $f_0:E_{\mathrm{pt}}\to C_{\mathrm{res}}$ がある。
+さらに周囲の Brauer--Severi 平面を split し、次数三線束を取る。
+$\theta$ を誘導する別の曲線同型は $f_0\circ t_q$ と一意に書ける。
+次数三線束 $L$ に対する
+$q\mapsto t_q^*L\otimes L^{-1}$ は符号を除いて $[3]$ である。
+従って二つの偏極類を一致させる条件は $[3]q=a$ という形であり、
+その解は有限 étale 階数九の $J_E[3]$-torsor をなす。
+偏極類が一致すれば完全線型系によって周囲平面の同型へ一意に延長する。
+基底から引いた線束による差は射影束を変えず、余分な $\mathbf G_m$ は生じない。
+これらの同定は étale 重なり上で自然なので、
+Brauer--Severi 平面と元の moduli stack に降下する。
+有限 étale 性、階数、および表示した商の記述が従う。
+\end{proof}
+
+\subsection{尺度線束と active 三次の Hodge 線束}
+
+以下では $X_{\mathrm{res}}$ の active 平面切断が滑らかな開を取る。
+これは定理\ref{thm:nfm-projective-residual-morphism}の構成で既に取った非空開に含まれる。
+表示 gerbe 上で
+\[
+ C_{\mathrm{res}}
+   =X_{\mathrm{res}}\cap\mathbf P(K_{\mathrm{res}})
+\]
+と置く。方程式直線 $\mathcal L$ の
+$\operatorname{Sym}^3K_{\mathrm{res}}^*$ への制限は直線部分束である。
+射影 ambient と方程式直線の降下から、$C_{\mathrm{res}}$ は元の stack 上の
+滑らかな genus-one 曲線族へ降下する。
+ここで原点、flex、相対次数三線束の大域的な選択は仮定しない。
+
+\begin{proposition}[尺度と Hodge 線束の標準的な双対性]
+\label{prop:nfm-scale-hodge-line}
+$f:C_{\mathrm{res}}\to\mathfrak M_n^{\mathrm{res}}$ を上の曲線族とし、
+$\lambda_{\mathrm{res}}=f_*\omega_{C_{\mathrm{res}}/\mathfrak M_n^{\mathrm{res}}}$ と置く。
+任意基底変更および全 O-同値に自然な同型
+\[
+ \lambda_{\mathrm{res}}\simeq
+ (\mathcal L\otimes\det K_{\mathrm{res}})^*
+ =\mathscr T^*
+\]
+がある。従って、残余 Poisson 直線の尺度を選ぶことは、active 三次の
+Hodge 線束の双対を自明化することに等しい。
+\end{proposition}
+
+\begin{proof}
+fpqc 局所的に表示を選び、$K=K_{\mathrm{res}}$ と略記する。
+$\mathbf P(K)$ は $K$ の直線を parametrise する規約なので、
+Euler 完全列から
+\[
+ \omega_{\mathbf P(K)/S}
+   \simeq\mathcal O_{\mathbf P(K)}(-3)\otimes(\det K)^*
+\]
+である。曲線は $\mathcal O(3)\otimes\mathcal L^*$ の正則切断で定義され、
+相対随伴により
+\[
+ \omega_{C/S}\simeq f^*(\mathcal L\otimes\det K)^*.
+\]
+滑らかな平面三次は幾何学的に連結な genus-one 曲線であり、
+$f_*\mathcal O_C=\mathcal O_S$ は任意底変更と両立する。
+射影公式によって所要の同型を得る。
+
+この計算は方程式の生成元と $K$ の基底を使わない。
+また、表示の変更 $\mathcal L\mapsto\mathcal L\otimes M^3$、
+$K\mapsto K\otimes M^{-1}$ に対して右辺の重みは零である。
+従って同型は表示 gerbe から元の stack へ降下する。
+基底変更との両立は相対随伴、$f_*\mathcal O_C=\mathcal O_S$ とその底変更から従う。
+\end{proof}
+
+局所的には、$G\in\mathcal L$ と $P\in\det K$ の非零生成元を選び、
+$P$ に双対な体積形式を $\nu_P$、Euler ベクトル場を $E$ とすれば、
+対応する Hodge 基底は
+\[
+ \operatorname{Res}_{C}
+       \frac{\iota_E\nu_P}{G|_K}
+\]
+である。$G\mapsto aG$、$P\mapsto bP$ の下でこの基底は $(ab)^{-1}$ 倍となる。
+Poisson tensor $\iota_{dG}P$ が $ab$ 倍となることと双対である。
+
+\begin{theorem}[尺度を正規化する一様な有限 étale 被覆]
+\label{thm:nfm-modular-scale-covers}
+上の開には標準的な可逆切断
+\[
+ \Delta\in\Gamma(\mathfrak M_n^{\mathrm{res}},\mathscr T^{-12})
+\]
+があり、$\mathscr T^{12}$ を自明化する。
+したがって
+\[
+ \mathfrak M_n^{(12)}
+   =\{t\in\mathscr T^\times:\Delta(t^{\otimes12})=1\}
+   \longrightarrow\mathfrak M_n^{\mathrm{res}}
+\]
+は有限 étale な $\mu_{12}$-torsor であり、その上では標準的な尺度付きの lift
+\[
+ \widetilde\Psi_{\Delta}:
+ \mathfrak M_n^{(12)}\longrightarrow\mathfrak P_n^{\mathrm{dec}}
+\]
+を持つ。
+
+さらに非空稠密開 $c_4c_6\ne0$、すなわち $j\notin\{0,1728\}$ では、
+\[
+ b=c_6/c_4\in\Gamma(\mathfrak M_n^{\mathrm{res}},\mathscr T^{-2})^\times
+\]
+を使い、同じ結論を有限 étale 階数二の標準的な被覆
+\[
+ \mathfrak M_n^{(2)}
+   =\{t\in\mathscr T^\times:b(t^{\otimes2})=1\}
+\]
+上で得る。全ての構成は全 O-同値と任意基底変更に両立する。
+この被覆の二つの局所切断は互いに反対符号の tensor を与える。
+\end{theorem}
+
+\begin{proof}
+genus-one 族の Hodge 線束上の標準 modular forms を使う。
+原点を持たない場合にも、fpqc 局所的に曲線の切断を取り、これを原点に選べる。
+二つの原点の変更は平行移動であり、平行移動は正則一形式に恒等に作用する。
+従って以下の切断は原点に依存せず降下する。
+
+標数零で局所的な短い Weierstrass 式
+$y^2=x^3+Ax+B$ と $\eta=dx/(2y)$ を取ると
+\[
+ c_4=(-48A)\eta^4,\qquad
+ c_6=(-864B)\eta^6,\qquad
+ \Delta=-16(4A^3+27B^2)\eta^{12}
+\]
+はそれぞれ $\lambda^4,\lambda^6,\lambda^{12}$ の切断である。
+座標変更 $x'=u^2x$、$y'=u^3y$ の下で
+$A'=u^4A$、$B'=u^6B$、$\eta'=u^{-1}\eta$ となるので、
+これらは独立な局所表示から同じ切断を与える。
+また $c_4^3-c_6^2=1728\Delta$、$j=c_4^3/\Delta$ であり、
+滑らかな locus では $\Delta$ が至る所非零である。
+判別式による $\lambda^{12}$ の標準的な自明化は既知であり、
+\cite[Section~1, equations~(1-1)--(1-5), pp.~87--88]{NFMFultonOlsson}
+にこの変換則が明記されている。
+
+前命題で $\lambda=\mathscr T^*$ と同定する。
+$\mathscr T$ の局所基底 $e$ に関して $\Delta=d e^{-12}$ と書けば、
+被覆は $dz^{12}=1$ で与えられる。
+$d,z,12$ は可逆なので有限 étale 階数十二であり、$t=ze$ が標準切断となる。
+$c_4c_6\ne0$ の開では同様に $b=d_2e^{-2}$ と書き、
+$d_2z^2=1$ が有限 étale 階数二の被覆を与える。
+尺度 torsor の記述により、それぞれの $t$ が所要の lift を与える。
+
+最後に、この一般開が非空であることを確認する。
+固定した active 平面への全三次式の制限は全射であり、
+任意の滑らかな ternary cubic $g$ は
+$g(x,y,z)+\sum u_i^3$ という滑らかな全三次へ延長できる。
+従って射影 Poisson 標的上の active 曲線の $j$ は一定でない。
+$\Psi_{\mathrm{res}}$ の支配性から $c_4c_6\ne0$ の逆像も非空稠密開である。
+\end{proof}
+
+\begin{remark}[正規化と標準尺度の区別]
+この定理は、元の stack 上で $\mathscr T$ の標準切断を構成したという意味ではない。
+被覆上の切断は modular な正規化を満たすが、固定 formality が指定する
+$\pi_h$ の実際の尺度との一致も含まない。
+また被覆の次数二や十二は、この尺度正規化のための次数であり、
+残余射の一般次数や比較核を定義する被覆の次数ではない。
+
+曲線の同型類だけから微分の非零基底を functorial に選ぶ方法はない。
+実際、楕円曲線の反転 $[-1]$ は Hodge 線に $-1$ で作用する。
+三次偏極を加えても、幾何学的には flex を原点に取れば、この反転は偏極を保つ。
+しかし全三次や非可換圏の追加データはこの反転を自己同型として持つとは限らない。
+従ってこの観察を、元の $\mathfrak M_n^{\mathrm{res}}$ 上での
+標準尺度の不存在へ読み替えてはならない。
+\end{remark}
+
+\subsection{点曲線の尺度から定まる符号付き残余射}
+
+良い一ブロック O-marked stack の非空開をさらに縮め、
+Hessian 補正 $\Phi$ と $\Psi_{\mathrm{res}}$ がともに定義され、
+楕円点曲線 $E_{\mathrm{pt}}$ と残余 active 曲線 $C_{\mathrm{res}}$ が滑らかで、
+両者の $j$ 不変量が $0,1728$ を避けるようにする。
+さらに点 shift が固定点を持たない相対点関手の良い開に含める。
+この開を $\mathfrak U$ と書く。
+ここでの $\Phi$ は定理\ref{thm:nfm-algebraic-hessian-correction}の
+尺度を含む代数的な射であり、形式復元と同一視してはいない。
+
+\Needspace{6\baselineskip}
+\begin{lemma}[楕円点曲線の標準微分]
+\label{lem:nfm-point-hodge-scale}
+$E_{\mathrm{pt}}$ の Hodge 線束を $\lambda_{\mathrm{pt}}$ と書くと、
+全 O-同値と任意基底変更に両立する標準切断
+\[
+ \tau_{\mathrm{pt}}\in
+ \Gamma(\mathfrak U,\lambda_{\mathrm{pt}}^*)^\times
+\]
+がある。局所的な Hessian 補正の表示 $\Phi(H,P)=(H^\sharp,P)$ の下では
+\[
+ \tau_{\mathrm{pt}}=(H^\sharp|_K)\otimes P
+\]
+である。従って $\lambda_{\mathrm{pt}}$ は標準的な非零一形式
+$\omega_{\mathrm{pt}}=\tau_{\mathrm{pt}}^{-1}$ を持つ。
+\end{lemma}
+
+\begin{proof}
+命題\ref{prop:nfm-correction-point-cubic}により、
+$H^\sharp|_K$ は $E_{\mathrm{pt}}$ の方程式そのものである。
+命題\ref{prop:nfm-scale-hodge-line}の相対随伴計算をこの active 曲線へ適用する。
+$H^\sharp\mapsto aH^\sharp$ と $P\mapsto a^{-1}P$ の下で表示した tensor は不変であり、
+座標変更と表示 gerbe の重みも相殺する。
+従って $\Phi$ の全 O-同値への降下から所要の切断の降下を得る。
+局所随伴および $\Phi$ の構成は任意基底変更と両立する。
+\end{proof}
+
+残余側の尺度線束を $\mathscr T=\lambda_{\mathrm{res}}^*$ と書く。
+前節の modular forms を用い、
+\begin{equation}\label{eq:nfm-point-residual-squared-scale}
+ \begin{split}
+ b_{\mathrm{res}}&=c_{6,\mathrm{res}}/c_{4,\mathrm{res}}
+       \in\Gamma(\mathfrak U,\mathscr T^{-2})^\times,\\
+ b_{\mathrm{pt}}&=
+ (c_{6,\mathrm{pt}}/c_{4,\mathrm{pt}})
+          (\tau_{\mathrm{pt}}^{\otimes2})
+       \in\Gamma(\mathfrak U,\mathcal O)^\times,\\
+ \eta_{\mathrm{res}}&=b_{\mathrm{pt}}b_{\mathrm{res}}^{-1}
+       \in\Gamma(\mathfrak U,\mathscr T^{\otimes2})^\times
+ \end{split}
+\end{equation}
+と定める。$(c_6/c_4)$ の同じ規約を両側で用いるため、
+この比は両側の modular forms に共通の数値規約にも依存しない。
+
+\begin{theorem}[符号を除いた標準尺度と支配的な残余射]
+\label{thm:nfm-canonical-signed-residual-map}
+定理\ref{thm:nfm-projective-residual-morphism}の固定入力の下で、
+任意の $n\ge3$ について、式\eqref{eq:nfm-point-residual-squared-scale}は
+標準的な代数的射
+\[
+ \Psi_{\mathrm{res}}^{\pm}:\mathfrak U\longrightarrow
+       [\mathfrak P_n^{\mathrm{dec}}/\mu_2]
+\]
+を与える。ここで $-1\in\mu_2$ は Poisson tensor の符号を変える。
+この射は全 O-同値に降下し、任意基底変更と両立し、
+尺度を忘れると $\Psi_{\mathrm{res}}|_{\mathfrak U}$ となる。
+さらに支配的かつ一般有限であり、source と target を非空開へ制限すれば
+有限 \'etale 全射にできる。
+
+標準的な有限 \'etale 階数二の被覆
+\begin{equation}\label{eq:nfm-point-normalized-scale-cover}
+ \mathfrak D=
+ \{t\in\mathscr T^\times:t^{\otimes2}=\eta_{\mathrm{res}}\}
+ \longrightarrow\mathfrak U
+\end{equation}
+上では、tautological な切断 $t$ により尺度を含む標準射
+\[
+ \widetilde\Psi_{\mathrm{res}}:\mathfrak D
+       \longrightarrow\mathfrak P_n^{\mathrm{dec}}
+\]
+を得る。これは $\Psi_{\mathrm{res}}^{\pm}$ の
+$\mathfrak P_n^{\mathrm{dec}}\to[\mathfrak P_n^{\mathrm{dec}}/\mu_2]$
+に沿う基底変更である。
+従ってこれも支配的・一般有限であり、適切な非空開上で有限 \'etale 全射となる。
+\end{theorem}
+
+\begin{proof}
+射影標的上の普遍尺度線束を $\mathscr T_0$ と書く。
+符号商は $(\mathscr T_0^{\otimes2})^\times$ であるから、
+切断 $\eta_{\mathrm{res}}$ が所要の射を定める。
+全 O-同値と基底変更への両立は、Hodge 線束、modular forms、
+$\tau_{\mathrm{pt}}$ および $\Psi_{\mathrm{res}}$ の自然性から従う。
+平方根の被覆は局所的に $t^2=a$、$a$ は単元で与えられるので、
+標数零では有限 \'etale 階数二である。
+
+支配性を示す。命題\ref{prop:nfm-projective-residual-dominance}と同じ
+支配的な中心 $h$ 族を取り、$F+G$ と support を一般に動かす。
+まず射影標的を自明な慣性を持つ稠密 scheme 開 $B_0$ へ制限する。
+そのような開は、一般の滑らかな三次の射影自己同型が自明であること
+\cite[Theorem~1.5 and the preceding paragraph]{NFMPoonenAutomorphisms}から存在する。
+既存の射影残余射の支配性により source の逆像も非空であり、
+一般の特殊対 $(F+G,K)$ は $B_0$ に属する。
+$g=F|_K$ とする。補題\ref{lem:point-relative-casimirs}により、
+局所表示の primitive 三次の active 部分を $c(h)g$ と書ける。
+ここで $c(h)\in k((h))^\times$ であり、方程式の生成元を替えれば $c(h)=1$ としてよい。
+元の二次関係が $h\iota_{dg}P_0$ なので、
+対応する determinant 生成元は $(h/c(h))P_0$ となる。
+命題\ref{prop:nfm-correction-point-cubic}の Hessian 公式を使うと、
+補正後の active 方程式は $c(h)J_g$ であり、二つの因子 $c(h)$ は相殺する。
+この議論は支配族の中心持上げ $\Omega_h+G$ の選択によらず、
+点曲線の方程式と尺度は厳密に
+\[
+ J_g=g+\frac{h^2}{24}\det\operatorname{Hess}(g),\qquad
+ \tau_{\mathrm{pt}}=h\,(J_g\otimes P_0)
+\]
+と書ける。従って $b_{\mathrm{pt}}=h^2v_h$ であり、$v_h$ は
+$h=0$ でも非零な形式単元である。
+一方、相対 MF flow による形式同定の下で残余値は
+$(V(W_h),K)$ となり、$W_h\equiv F+G\pmod h$ である。
+Hodge 線束の随伴同定をこの形式族に適用すると、
+$b_{\mathrm{res}}$ も特殊点で非零な基底を与える。
+そのため $\eta_{\mathrm{res}}$ は $\mathscr T_0^{\otimes2}$ の全空間へ延長し、
+そこで $h^2$ と形式単元の積となる。
+特殊点は、射影標的の一般点における零切断である。
+
+$B_0$ 上の $\mathscr T_0^{\otimes2}$ の全空間における
+$\Psi_{\mathrm{res}}^{\pm}$ の像の閉包を $Z$ とする。
+source は既約なので $Z$ は既約である。
+上の形式族から $Z$ は零切断の一般点を含み、従って零切断全体を含む。
+また像は零切断の外にあるので、$Z$ は零切断と等しくない。
+零切断は整な全空間の既約 Cartier 因子なので、$Z$ は全空間に等しい。
+これで支配性を得る。
+ここでは次数一空間の形式同定を代数的と仮定していない。
+像の閉包と零切断は射影 frame 変更に不変な intrinsic な対象であり、
+形式同定はその閉集合条件と特殊化を変えない。
+実際、$W_h$ の有限個の三次係数と上の尺度の平方は $k[[h]]$ に属し、
+全空間への実際の $\operatorname{Spec}k[[h]]$ の射を与える。
+その一般点だけを intrinsic な像と形式 frame で同定すれば十分である。
+
+両 moduli の次元は
+$\binom{n+2}{3}+3n-2$ なので、支配性から一般有限性を得る。
+一般の滑らかな三次 $n$-fold の射影自己同型が自明である非空開が存在する
+\cite[Theorem~1.5 and the preceding paragraph]{NFMPoonenAutomorphisms}。
+source は $\mathfrak P_n^{\mathrm{good}}$ と同型なので、source と target の
+自明な慣性を持つ非空開へ同時に制限できる。
+さらに非空開を取れば schemes の間の一般有限射として扱える。
+射を準有限かつ分離的とし、Zariski の主定理による有限化の中で
+source の scheme 理論的閉包を取る。
+境界は一般点の上では空であり、その有限な閉像を除けば元の射が有限になる。
+標数零なので分岐 locus を除けば有限 \'etale 全射となる。
+この結論を基底変更すれば、$\widetilde\Psi_{\mathrm{res}}$ にも同じ結論を得る。
+\end{proof}
+
+この支配性の証明は、点曲線と残余 active 曲線の $j$ の一致を必要としない。
+一致を用いると、上の二重被覆には次のより直接的な意味がある。
+
+\begin{proposition}[二重被覆の Jacobian による解釈]
+\label{prop:nfm-point-normalized-jacobian-cover}
+定理\ref{thm:nfm-residual-point-j}の $j$ の一致の下で、
+式\eqref{eq:nfm-point-normalized-scale-cover}の被覆は、
+命題\ref{prop:nfm-point-residual-isom-cover}の $\mathfrak D_J|_{\mathfrak U}$ と標準的に同型である。
+すなわち
+\[
+ \mathfrak D\simeq
+ \operatorname{Isom}_{\mathrm{gp}}
+ \bigl(\operatorname{Jac}(E_{\mathrm{pt}}),
+       \operatorname{Jac}(C_{\mathrm{res}})\bigr)
+\]
+がある。右辺は、両楕円曲線の原点を保つ群スキーム同型の sheaf である。
+tautological な同型 $\theta$ の下で、残余の尺度は
+\[
+ t=\tau_{\mathrm{pt}}\circ\theta^*,\qquad
+ \omega_{\mathrm{res}}=(\theta^*)^{-1}\omega_{\mathrm{pt}}
+\]
+で与えられる。従って二つの局所同型 $\theta$ と $[-1]\circ\theta$ は
+互いに反対符号の残余 Poisson tensor を与える。
+元の開上でも、尺度の平方に関する恒等式
+\[
+ c_{4,\mathrm{res}}(\eta_{\mathrm{res}}^{\otimes2})
+   =c_{4,\mathrm{pt}}(\tau_{\mathrm{pt}}^{\otimes4}),\qquad
+ c_{6,\mathrm{res}}(\eta_{\mathrm{res}}^{\otimes3})
+   =c_{6,\mathrm{pt}}(\tau_{\mathrm{pt}}^{\otimes6})
+\]
+が成り立つ。すなわち、点曲線の微分から得る両 Weierstrass 不変量を保つ。
+\end{proposition}
+
+\begin{proof}
+genus-one 曲線とその Jacobian の Hodge 線束は標準的に同型である。
+実際、fpqc 局所的に曲線の切断を取り、原点として Jacobian と同定すればよい。
+原点の変更は平行移動であり、不変微分への作用は恒等なので、同定は降下する。
+
+$j\notin\{0,1728\}$ の楕円曲線の原点を保つ自己同型群は
+$\mu_2$ であり、同じ $j$ を持つ楕円族は \'etale 局所的に同型である。
+従って表示した Isom sheaf は有限 \'etale な $\mu_2$-torsor となる。
+これは短い Weierstrass 式から直接確認でき、moduli の記述としては
+\cite[proof of Corollary~2.4, p.~91]{NFMFultonOlsson}
+の $\mathcal M_{1,1}\to\mathbb A^1_j$ がこの開上で
+$\mu_2$-gerbe となる事実である。
+
+この torsor 上で $t=\tau_{\mathrm{pt}}\circ\theta^*$ と定める。
+modular forms の同型への自然性により
+\[
+ (c_{6,\mathrm{res}}/c_{4,\mathrm{res}})(t^{\otimes2})
+ =b_{\mathrm{pt}}
+\]
+となり、従って $t^{\otimes2}=\eta_{\mathrm{res}}$ である。
+$[-1]$ は不変微分に $-1$ で作用するので、これは二つの
+$\mu_2$-torsor の同変射であり、よって同型である。
+最後の二つの恒等式も modular forms の同型への自然性から従い、
+符号に不変なので元の開へ降下する。
+この証明は対象曲線の原点や相対次数三線束の選択を使わない。
+\end{proof}
+
+\begin{remark}[他の尺度正規化と比較の範囲]
+modular な二重被覆
+$\{t:b_{\mathrm{res}}(t^2)=1\}$ と、この点曲線により正規化された被覆
+$\mathfrak D=\{t:b_{\mathrm{res}}(t^2)=b_{\mathrm{pt}}\}$ は区別する。
+両者の差は $b_{\mathrm{pt}}$ の平方根の Kummer torsor である。
+前者は射影標的だけから得られる有限個の尺度を選ぶのに対し、後者は
+量子側の点曲線が持つ尺度を用い、相対次元一の方向を支配的に写す。
+
+Jacobian の同型は、genus-one torsor である曲線自体の同型や、
+その平面偏極の同型を意味しない。
+また本構成は、固定 formality による $\pi_h$ との全次数の尺度の一致、
+元の $\mathfrak U$ 上の符号選択、一般次数の計算を主張しない。
+比較核の有限 \'etale 被覆を $\mathfrak D$ に引き戻せば
+同じ $X_{\mathrm{res}}$ の Kuznetsov 成分との比較を保つが、
+$\mathfrak D$ 自身への比較核の降下が新たに得られたわけではない。
+\end{remark}
+
+\begin{corollary}[点 shift の二重被覆上での移送]
+\label{cor:nfm-point-shift-residual-transfer}
+上の固定点なしの開で、点曲線上の shift $\sigma_{\mathrm{pt}}$ は、
+一意な切断 $p_{\mathrm{pt}}\in J_E$ による平行移動である。
+二重被覆 $\mathfrak D$ 上で
+\[
+ p_{\mathrm{res}}=\theta(p_{\mathrm{pt}}),\qquad
+ \sigma_{\mathrm{res}}=t_{p_{\mathrm{res}}}
+\]
+と置くと、十八重被覆上の全ての tautological な平面同型 $f$ は
+$f\sigma_{\mathrm{pt}}f^{-1}=\sigma_{\mathrm{res}}$ を満たす。
+deck 変換は $\sigma_{\mathrm{res}}$ をその逆へ移す。
+\end{corollary}
+
+\begin{proof}
+良い点関手開では $\sigma_{\mathrm{pt}}$ は固定点を持たない。
+幾何学的ファイバー上で、genus-one 曲線の自己同型を原点の選択により
+$t_p\circ\alpha$ と書く。$\alpha\ne1$ なら $1-\alpha$ は非零 isogeny であり、
+固定点方程式は解を持つ。従って $\alpha=1$ である。
+相対 Jacobian の group 自己同型の層はこの開で étale なので、
+この恒等性は族上でも成立する。
+曲線はその Jacobian の torsor であり、Jacobian に恒等を誘導する自己同型は
+一意な切断による平行移動である。
+残る主張は $f$ の誘導する Jacobian 同型が $\theta$ であることと、
+平行移動同士が可換することから従う。
+\end{proof}
+
+
+\begin{proposition}[点曲線で規格化した形式 tensor]
+\label{prop:nfm-point-scale-formal-comparison}
+生成元固定模型で、$W_h|_{U=0}=b_hJ_g$ と書く。
+点曲線と残余 active 曲線の恒等同型を与える形式分枝上では
+\begin{equation}\label{eq:nfm-point-scale-formal-leading}
+ \tau_{\mathrm{res}}^{\mathrm{pt}}
+    =\frac{h}{b_h}\,W_h\otimes P_0,
+ \qquad
+ \Pi_{\mathrm{res}}^{\mathrm{pt}}
+    =\frac{h}{c_h}\,\pi_h(F),
+ \qquad
+ \pi_h^{\mathrm{act}}(g)=c_h\iota_{dJ_g}P_0.
+\end{equation}
+特に $\tau_{\mathrm{res}}^{\mathrm{pt}}=h(F+G)\otimes P_0+O(h^2)$ である。
+\end{proposition}
+
+\begin{proof}
+点曲線の尺度は $hJ_g\otimes P_0$ であり、
+相対随伴で $W_h|_K=b_hJ_g$ に対する微分を同じ微分へ合わせると、
+残余三次全体の尺度は $(h/b_h)W_h\otimes P_0$ となる。
+命題\ref{prop:nfm-residual-active-point-cubic}の証明で
+$a_hb_h=c_h$ なので、$\pi_h=a_h\iota_{dW_h}P_0$ と比較すれば第二式を得る。
+最初の非零項は $b_0=1$、$W_0=F+G$ から従う。
+\end{proof}
+
+この規格化は固定 harmonic tensor の尺度と一般には異なる。
+例えば命題\ref{prop:nfm-active-fifth-covariant}の純 active 五次公式、
+命題\ref{prop:nfm-normalized-parity}の偶奇性と $J_g$ の Casimir 性から
+\[
+ c_h=h+\frac{S(g)}{80}h^5+O(h^7)
+\]
+であり、$S(g)\ne0$ の一般係数で $h/c_h\ne1$ となる。
+ここで $S$ は $S(xyz)=1$ で規格化した Aronhold 四次不変式である。
+この比を代数的な単元とも仮定しない。
+従って、点曲線による代数的射は
+定理\ref{thm:nfm-normalized-tensor-transcendence}の固定 tensor の超越性と両立する。
+移送した $\sigma_{\mathrm{res}}$ は今回曲線上に定めた自己同型であり、
+Kuznetsov rotation の制限を同定したものではない。
+定常点成分の同定、比較核の一意性や大域降下も含まない。
+十八、二、および補正射 $\Phi$ の九はそれぞれ異なる被覆・射の次数であり、
+$\Psi_{\mathrm{res}}^\pm$ の一般次数は未決定である。
+
+\begin{remark}[元の開上の非標準的な full lift]
+\label{rem:nfm-existential-full-residual-map}
+符号を標準的に選ぶ問題とは別に、元の O-marked stack のさらに小さい非空開上で、
+尺度を含む支配的・一般有限な lift を\emph{選ぶ}ことはできる。
+source と射影標的を自明な慣性を持つ整な scheme 開へ制限し、関数体を $L/K$ とする。
+命題\ref{prop:nfm-projective-residual-dominance}より
+$\operatorname{trdeg}_K L=1$ である。
+標的の尺度線束を一般点で自明化し、$K$ 上超越的な $f\in L$ を選べば、
+$K(z)\hookrightarrow L$、$z\mapsto f$ は有限体拡大となる。
+この有理的な尺度切断を非空開へ広げればよい。
+前定理と同じ有限化により、さらに有限 étale 全射にもできる。
+underlying cubic は同じ $X_{\mathrm{res}}$ なので被覆上の Ku 比較も保つ。
+ただし $f$ を $f^m$ に替えると一般次数は $m$ 倍となり、
+この存在論的構成は標準次数、点曲線の微分との整合、
+固定 formality の尺度との一致を与えない。
+\end{remark}
