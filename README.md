@@ -6,7 +6,7 @@
 
 ## 可換復元・モジュライの内容
 
-完備MF移送と一般点の全coherent残余圏のKu比較（旧 `poisson-cubic` 論文B）の全証明をこの主原稿へ統合した。一般の中心三次変形の基礎定理は、一ブロック型のモジュライ構成とは独立した仮定の下で述べる。外部から使用する未公表原稿は `poisson-cubic` の古典Poisson論文と `nc-cubic-threefold-moduli` の指定版である。量子化の全証明は別repo `cubic-quantization` に置く。
+完備MF移送と一般点の全coherent残余圏のKu比較（旧 `poisson-cubic` 論文B）の全証明をこの主原稿へ統合した。一般の中心三次変形の基礎定理は、一ブロック型のモジュライ構成とは独立した仮定の下で述べる。外部の未公表入力は `poisson-cubic` の古典Poisson論文と、`nc-cubic-threefold` の三様体固有の指定版である。三様体固有の全Abel圏形式近傍と相対射はそのrepoに保持し、全次元の復元・Poisson射・点型算術は本repoを正本とする。量子化の全証明は別repo `cubic-quantization` に置く。
 
 - [可換復元の基礎節](papers/sections/generic_recovery/main_result.tex)：完備MF比較 `cft:thm:complete`、一般点の可換復元 `gdr:thm:generic`、局所模型・window・飽和・低積の積分・明示Hesse模型を含む全9節。主原稿から読み込む。
 - [可換復元の研究上の障害と再現入口](notes/recovery_foundations.md)：定義体、有限降下、symmetrizer、具体例の規約、残るkernel有効化。
