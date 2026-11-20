@@ -48,7 +48,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月20日・研究稿 v22}
+\date{2026年11月20日・研究稿 v23}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -76,6 +76,8 @@ period と index が三となることを示す。
 一般 split 体でこの型の最小実現次数は三であり、三・四次元では全型でも三となる。
 正準強化 class の周期位相を方程式の三乗規格化で定め、三・四次元では全 class 共通性も示す。
 混合有理 CF 比較と同変降下によって二変数体 $\C(c_4,-c_6)$ へ一意に帰着する。
+随伴復元対象の二次・三次 $A_\infty$ 積から指定中心三次を回復し、
+その尺度比による周期位相の有限評価式を与える。
 具体値は未決定であり、適合規格化の最小次数三と独立標的尺度族の最小次数九を区別する。
 非分裂表示では $n\equiv1\pmod3$ の各非空開に Picard index 九を実現し、
 普遍的な重み一階数の最小値九と、全該当次元の強化型の最小実現次数九を得る。
@@ -84,6 +86,8 @@ period と index が三となることを示す。
 五次元では Clifford 半 rotation を $\rho^{-1}[1]$ と関手として同定する。
 標準三分点被覆は連結な九次体で、Galois 閉包群は位数216の
 $\operatorname{ASL}_2(\mathbf F_3)$ となる。
+Hesse 境界ではその慣性型 $3^3$ と局所三次体を明示し、
+点線束の相対的な三行三列線型表示も構成する。
 
 trace--Hessian 三次と残余三次の不一致、Hessian・混合四次補正も与える。
 Jacobi スキームは $3\le n\le7$ の一般三次で Grassmann 錐に一致し、
@@ -355,6 +359,28 @@ Keller\cite[Sections~9.3--9.4]{NFMKellerOrbit}の enhanced orbit の関手性を
 一般表示の射影安定化子は自明なので、強化型の class は全次元で一意となる。
 Koszul 双対や局所化そのものの新規性は主張せず、ここでの cutoff と
 比較核の算術的 class 選択への適用を区別する。
+
+同じ復元から、指定周期の位相を有限な低次積へ帰着する。
+Picard gerbe 上の $Z_p=q_Y^R\mathcal M[1]$ の Adams graded orbit は
+重み零なので元の体へ降り、その二次積が周囲代数 $B_p$、
+指定周期と三次積が $\Omega_p\in(B_p)_3$ を与える。
+Lu--Palmieri--Wu--Zhang\cite[Corollary~B]{NFMLPWZExt}の関係復元を用い、
+三次 tensor の gauge 差を二次関係 ideal で除いた上で、
+$f:(B_p,K\Omega_p)\simeq(B,K\Omega)$ に対する
+$\gamma_{\mathrm{sc},n}=[f(\Omega_p)/\Omega]$ を証明する。
+元の体上の実際の比較核を仮定せず、標的の方程式の尺度と
+source の自己交叉周期の符号を同じ式で保持する点が、この適用に必要である。
+良い integral 表示と原始的な三次関係が閉 fibre にもある場合には
+非分岐性も従うが、その閉 fibre 条件は未確認の追加条件として残す。
+
+具体的な $q=2$ の Hesse 境界では点曲線は split $I_3$ に退化する。
+Silverman\cite[Chapter~XI, Proposition~9.2]{NFMSilvermanArithmetic}の
+既知の Kummer 評価公式へ規格化した接線比を代入し、
+三分点被覆が三つの同じ完全分岐三次体に分かれることを計算する。
+一方、点線束 $\mathcal O(P-O)$ とその三行三列線型表示は境界へ延びる。
+この計算は、三分点の選択に伴う分岐と、full 比較の指定周期の分岐を区別し、
+後者を低次積から調べるための有限な入力を与える。
+楕円曲線の Kummer 理論や $I_3$ 成分群そのものを新規成果とはしない。
 
 五次元の安定性条件には Peize Liu\cite[Theorem~1.1, Remark~5.6]{NFMPeizeLiuFivefold}の
 Serre 不変な条件の構成があるが、同論文はその軌道の一意性を仮定していない。

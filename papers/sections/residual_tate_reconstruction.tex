@@ -395,3 +395,385 @@ homotopy 恒等部分群の pro-unipotence は必要ない。
 随伴復元条件を持たない任意の full 核の全群分類、
 他の intrinsic 成分の分類、coherent な中心線型性も別の問題である。
 \end{remark}
+
+\subsection{随伴復元対象の低次積による周期位相の有限評価}
+
+本節では標準 split 一ブロックの一般係数体 $K=k_n$、$n\ge3$ に限る。
+source を $A=B/(\Omega)$ と書き、指定された右加群の自己交叉周期を用いる。
+target は実際の次数三線束を持つ $Y=X_{\mathrm{res}}$、
+その実際の $K$-線型 rotation を $\rho_Y$ とする。
+命題\ref{prop:nfm-period-equation-cube-frame}の三乗 frame の代表を一つ選び、
+それを $F_{\mathrm{sc}}$ と書く。
+$\tau_Y:\rho_Y^3\simeq[2]$ はこの生成元に対する指定周期である。
+以下の結果は、周期位相の値を計算する有限な入力を特定するが、
+その値が一であると結論するものではない。
+
+\begin{lemma}[自己交叉 class と三次関係の正規化]
+\label{lem:nfm-tate-cubic-relation-normalization}
+補題\ref{lem:nfm-cubic-tate-cut}の設定で
+$E=\operatorname{Ext}_{\operatorname{Gr}A}^{*,*}(K,K)$ とし、
+$t_\Omega\in E^{2,-3}$ を指定自己交叉の class とする。
+$X=(E^{1,-1})^*$ と置く。
+右加群の bar 規約を固定し、
+Lu--Palmieri--Wu--Zhang\cite[Corollary~B]{NFMLPWZExt}の
+関係と高次積の双対同定を用いる。
+その符号は、中央元 $\Omega$ に対して二つの持上げ微分の合成が
+$+\Omega$ となる自己交叉規約に合わせる。
+このとき
+\[
+ R_2=\operatorname{im}\left(
+       (m_2)^*:(E^{2,-2})^*\longrightarrow X^{\otimes2}\right),
+ \qquad B=T_K(X)/(R_2),
+\]
+であり、$t_\Omega^*(t_\Omega)=1$ とすると
+\[
+ \Omega=\left[(m_3)^*(t_\Omega^*)\right]\quad\text{in }B_3.
+\]
+最後の式は、$t_\Omega$ と cohomology を固定する minimal 模型の変更に依存しない。
+ここで $m_3$ を三次 tensor として gauge 不変とは主張しない。
+\end{lemma}
+
+\begin{proof}
+$A$ は次数一生成であり、最小関係は二次関係 $R_2$ と、
+$R_2X+XR_2$ を法とする一本の三次関係 $\Omega$ である。
+同文献 Corollary~B は、最小関係の包含の双対が
+$(E^{1,-1})^{\otimes d}$ に制限した $m_d$ となる模型を与える。
+三次 relation line と $E^{2,-3}$ の pairing の正規化を確認すればよい。
+
+最小 graded free resolution の最初の二つの微分を $B$ に持ち上げる。
+二次関係の列では合成は零であり、三次関係 $\Omega$ の列では合成は
+指定した $+\Omega$ である。
+従って、この合成を $\Omega$ で割って augmentation を取る obstruction cocycle は、
+三次関係の列を一、二次関係の列を零へ送る。
+これは中央商の標準 truncation の connecting class の分解上の表示である。
+具体的には、固定入力Bの
+\texttt{lp:prop:sing-period} と \texttt{tw:eq:period-extension} が、
+持上げ微分の合成を $+\Omega$ とする二拡張の Yoneda class を
+まさに $t_\Omega$ と同定している。
+よって $t_\Omega(\Omega)=1$ であり、上の双対公式は同じ符号で成立する。
+この符号は $K[x]/(x^3)$ の
+\[
+ 0\longrightarrow K(-3)\xrightarrow{x^2}
+ A(-1)\xrightarrow{x}A\longrightarrow K\longrightarrow0
+\]
+でも直接確認できる。この二拡張は、最小分解の $A(-3)$ の基底を
+$+1$ へ送る cocycle を表し、固定入力の MF $(x,x^2)$ の指定周期と一致する。
+左右加群や bar suspension の別規約を採る場合は、
+source と target の両方に同じ符号変更を施す。
+片側だけに符号を入れ替えた比較は用いない。
+
+模型の変更を、まず一次成分が恒等な $A_\infty$ 同型 $f$ で表す。
+次数により $f_2(E^{1,-1},E^{1,-1})\subset E^{1,-2}=0$ である。
+arity 三の同型条件において $m_3$ を変える残りの項は
+\[
+ f_2(m_2(-,-),-),\qquad f_2(-,m_2(-,-))
+\]
+だけであり、それらの双対は $R_2X+XR_2$ に入る。
+従って $B_3$ における class は変わらない。
+一般の一次成分は $X$ の基底変換と relation line の双対変換を与えるため、
+この構成はその同型に自然である。
+\end{proof}
+
+\begin{proposition}[正準強化 class の周期位相は二次・三次積で評価できる]
+\label{prop:nfm-period-phase-low-products}
+$C=C_{\mathrm{res}}$、$p=p_{\mathrm{res}}$ とし、
+$p$ を表す線束の Picard gerbe を
+$\pi:\mathscr P_p\to\operatorname{Spec}K$、その普遍線束を $\mathcal M$ とする。
+幾何的制限 $q_Y=\mathbf Li_C^*j_Y$ の右随伴を用いて
+\[
+ Z_p=q_Y^R\mathcal M[1]
+       \in\operatorname{Ku}(Y_{\mathscr P_p})
+\]
+と置く。次が成り立つ。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item ordinary な graded orbit の全射複体
+\[
+ \mathcal S_p=
+ \bigoplus_{q\in\mathbf Z}
+   R\operatorname{Hom}(Z_p,\rho_Y^qZ_p)
+\]
+は、積と全 $A_\infty$ 構造を含めて $K$ 上へ降下する。
+ここでは orbit の次数 $q$ を忘れない。
+指定周期は、降下した自然な非零 class
+\[
+ t_p\in H^2(\mathcal S_p)_{-3}
+\]
+を与える。
+
+\item 双次数を保つ strictly unital minimal 模型 $S_p$ を取り、
+\[
+ E_p^{\mathrm{ord}}=
+ \bigoplus_{-i-q\ge0}S_p^{i,q},\qquad
+ X_p=(S_p^{1,-1})^*,
+\]
+\[
+ R_{p,2}=\operatorname{im}
+    \bigl((m_2)^*:(S_p^{2,-2})^*\to X_p^{\otimes2}\bigr),
+ \quad B_p=T_K(X_p)/(R_{p,2}),
+\]
+\[
+ \Omega_p=\left[(m_3)^*(t_p^*)\right]\in(B_p)_3,
+ \qquad t_p^*(t_p)=1,
+\]
+と置く。これらは minimal 模型に依存しない同型類を定める。
+$(B_p,K\Omega_p)$ は $(B,K\Omega)$ の $K$-形式であり、
+$\Omega_p$ は非零の中央正則三次元である。
+
+\item $K$ 上に次数付き対の同型
+\[
+ f:(B_p,K\Omega_p)\xrightarrow{\sim}(B,K\Omega)
+\]
+が存在する。任意のそのような $f$ に対し
+\begin{equation}\label{eq:nfm-period-low-product-evaluation}
+ f(\Omega_p)=a_f\Omega\quad(a_f\in K^\times)
+ \quad\Longrightarrow\quad
+ \gamma_{\mathrm{sc},n}=[a_f]
+       \in K^\times/K^{\times3}.
+\end{equation}
+従って位相の算出には、この対象から得る
+$m_2,m_3$、指定周期 $t_p$、および次数三以下の表示の線型比較が十分である。
+実際の $K$-線束 $M$ や実際の $K$-比較核の存在は仮定しない。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{orbit と周期の降下。}
+$q_Y^R$ と $\rho_Y$ はいずれも $K$ 上の実際の perfect kernel 関手である。
+$Z_p$ の scalar inertia は重み一なので、
+$R\operatorname{Hom}(Z_p,\rho_Y^qZ_p)$ の inertia は始域と終域で相殺する。
+従って各 $q$ の perfect 複体は重み零である。
+$\mathbf G_m$-gerbe 上の重み零の準連接複体の fpqc 降下により、
+これらは $K$ 上の複体へ降下する。
+積は $\rho_Y$ の反復と射の合成で定義され、両方ともこの降下に自然である。
+cofibrant な dg orbit 模型を使うか、各次数で同じ bar 模型を取れば、
+全構造が降下した Adams dg algebra を得る。
+これは各 Hom の cohomology の次元だけを降ろす議論ではない。
+
+$\tau_Y$ を $\rho_Y^{-3}Z_p$ に評価した
+\[
+ t_p:Z_p\longrightarrow\rho_Y^{-3}Z_p[2]
+\]
+も同じ理由で降下する。
+これは $Z_p\ne0$ 上の周期同型なので非零である。
+target の生成元 $F_{\mathrm{sc}}$ とその指定周期をここで実際に用いている。
+単なる $\rho_Y^3\simeq[2]$ の存在から正規化してはいない。
+
+\emph{通常 Ext と三次関係。}
+系\ref{cor:nfm-generic-adjoint-class-unique}と
+定理\ref{thm:nfm-adjoint-point-finite-class-torsor}により、
+この gerbe は正準強化比較 class の実現 gerbe と band を保って同値である。
+その上の普遍比較核を $P$ とし、
+随伴復元の同型を使えば
+\[
+ \Phi_P\kappa_{\mathrm{nc}}\simeq Z_p
+\]
+である。ここで $Z_p$ は通常の可換側の原点 stabilization ではなく、
+指定した $q_Y^R\mathcal M[1]$ であることに注意する。
+幾何的体拡大上で rotation の intertwiner を一つ選べば、
+$\mathcal S_p$ は source の ordinary graded orbit algebra と同型となる。
+補題\ref{lem:nfm-ordinary-ext-intrinsic-cut}の次数計算は、
+$E_p^{\mathrm{ord}}$ が augmented $A_\infty$ 部分代数となることを与える。
+同じ補題と Adams Koszul 双対により、その Koszul dual は
+$(B/(\Omega))_{\overline K}$ と同型な $K$-代数となる。
+
+補題\ref{lem:nfm-tate-cubic-relation-normalization}を適用すると、
+二次関係から $B_p$、指定 $t_p$ から $B_p$ 内の三次関係 $\Omega_p$ を回復する。
+模型の gauge 差が $R_{p,2}X_p+X_pR_{p,2}$ に入ることも同補題による。
+幾何的体拡大後で $\Omega_p$ は $\Omega$ の非零 scalar 倍だから、
+中央性、正則性、および $B_p$ の quadratic Koszul AS-regular 性は
+忠実な体拡大から反映される。
+特にここで使う $
+ S_p^{1,-1},S_p^{2,-2},S_p^{2,-3}$ は全て有限次元で、
+最後の空間は $Kt_p$ である。
+
+\emph{元の体上の線型比較。}
+次数付き対の Isom scheme は、$X_p\to B_1$ の可逆線型写像に
+二次関係と三次関係直線の保存を課して得られる。
+従ってこれは有限表示であり、幾何的に非空である。
+補題\ref{lem:nfm-generic-presentation-stabilizer-trivial}により
+\[
+ \operatorname{Aut}_{\mathrm{gr}}(B,K\Omega)=\mathbf G_m,
+\]
+ここで右辺は次数の scalar 作用である。
+従ってこの Isom scheme は $\mathbf G_m$-torsor である。
+$H^1(K,\mathbf G_m)=0$ から $K$-点 $f$ を持つ。
+任意の別の $f'$ は $f$ の後に次数 scalar $\lambda\in K^\times$ を合成したものであり、
+\[
+ a_{f'}=\lambda^3a_f.
+\]
+よって $[a_f]$ はこの選択にも依存しない。
+
+\emph{位相との一致と向き。}
+比較 gerbe 上の直線
+$V=\operatorname{Hom}^0(P\rho_{\mathrm{nc}},\rho_YP)$ は重み零であり、
+$K$ 上の直線 $V_0$ に降下する。
+$0\ne e\in V_0(K)$ を取り、その引戻しを $\eta$ と書く。
+これは実際の $K$-核の選択を必要としない。
+普遍核と随伴復元同型を介する orbit の比較を $\Psi_\eta$ とする。
+$\eta$ を正負の整数回反復することにより、
+これは Adams 次数を保つ $A_\infty$ 同型となる。
+全ての scalar inertia が相殺するので、この同型自身も $K$ 上に降りる。
+
+周期位相の既存の規約は
+\[
+ (\tau_Y P)\eta^{(3)}=c(e)P\tau_{\mathrm{nc}}.
+\]
+ここで内部次数 $-3$ への orbit 比較では $\eta$ の逆反復を用いる。
+従って
+\begin{equation}\label{eq:nfm-period-tate-generator-comparison}
+ \Psi_\eta(t_\Omega)=c(e)^{-1}t_p.
+\end{equation}
+例えば恒等比較に対して $\eta$ を $z$ 倍すれば、
+右辺の係数は $z^{-3}$ 倍となる。
+これは $c(ze)=z^3c(e)$ と一致する。
+
+通常 Ext への制限の Koszul dual は反変であるから、
+対応する同型の向きは $f_\eta:B_p\to B$ となる。
+三次関係 line で \eqref{eq:nfm-period-tate-generator-comparison} を双対化すると
+\[
+ f_\eta(\Omega_p)=c(e)^{-1}\Omega.
+\]
+arity 三の同型式の補正は既述の二次関係 ideal に入るため、
+この等式は $B_3$ で正確に成立する。
+したがって $[a_{f_\eta}]=[c(e)^{-1}]=\gamma_{\mathrm{sc},n}$ である。
+任意の $K$-同型 $f$ との差は次数 scalar だから、
+\eqref{eq:nfm-period-low-product-evaluation}を得る。
+
+最後に target だけを $vF_{\mathrm{sc}}$ へ変更すると、
+$t_p$ は $v^{-1}t_p$、その双対と $\Omega_p$ は $v$ 倍となる。
+従って右辺は $[v]$ 倍となり、
+命題\ref{prop:nfm-period-equation-frame-change}の変換則と一致する。
+source と target を同時に同じ $u$ 倍すると、分子と分母がともに $u$ 倍となる。
+線型持上げを変更する target の cube 倍も Kummer 類を変えない。
+\end{proof}
+
+\begin{remark}[この評価式で残る計算と相対的な条件]
+\label{rem:nfm-period-low-product-scope}
+この式は、source の指定自己交叉周期、target の cube frame、
+および幾何的に定義された $q_Y^R\mathcal M[1]$ を同じ有限計算に置く。
+抽象的な Serre 自然性だけで trace の scalar が一になるとは主張しない。
+さらに、source の stabilization を可換側の通常の原点へ送ると仮定してはいない。
+その置換をすると、回復する二次包絡を誤る。
+
+実際の計算では、$\mathscr P_p$ の有限分裂体上で $\mathcal M$ と
+$q_Y^R\mathcal M[1]$ の有限 perfect 模型を作り、
+内部次数 $-1,-2,-3$ の Hom、合成、および一つの contraction から
+$m_2,m_3$ を求めればよい。
+その結果の重み零性により、最終の二次関係束と三次 relation は元の体へ降下する。
+有限行列の cohomology を求めることと、未計算の $m_3$ を零と置くことは異なる。
+後者は許されない。
+
+この一般体上の結果だけから、境界 trait 上での非分岐性は従わない。
+trait 上へ用いるには、該当する Ext 空間の平坦性と底変更、
+二次関係束の一定階数、$t_p$ が規格化する三次 relation の原始性、
+および表示の射影 Isom の延長を別に確認する必要がある。
+また、orbit の低次積の回復は coherent な中心線型構造の降下そのものではない。
+\end{remark}
+
+\begin{lemma}[良い integral 表示による周期位相の非分岐判定]
+\label{lem:nfm-period-integral-presentation-unramified}
+$R$ を $\mathbb C$-代数である離散付値環、$K=\operatorname{Frac}(R)$ とする。
+source の次数付き対 $(B,R\Omega)$ と、
+命題\ref{prop:nfm-period-phase-low-products}の有限低積から回復した対
+$(B_p,R\Omega_p)$ が、次の条件を満たすとする。
+\begin{enumerate}
+\item 両者の次数一生成元加群 $V,V_p$ は同じ階数の有限自由 $R$-加群であり、
+両対は第\ref{sec:poisson-inverse}節の良い表示開 $J^{\mathrm{sm}}$ の $R$-対象である。
+すなわち、$T^{\mathrm{alg}}$ に含めた相対 PBW・普遍中心・相対 Serre 双対・
+全 $\mathcal O$-同値比較の入力、境界評価 $\epsilon$ の同型条件、
+相対点スキームの良い条件、および trace--Hessian 三次の滑らかさを、
+\emph{閉ファイバーを含めて}満たす。
+ここで $\Omega,\Omega_p$ は、それぞれ次数三部分の直線部分束の生成元である。
+\item 有限周期評価に現れる射影化された次数付き同型
+\[
+ \bar f_K:(B_p,K\Omega_p)\xrightarrow{\sim}(B,K\Omega)
+       \quad\bmod\mathbf G_m
+\]
+は、幾何点だけでなく $K$ 上の点として与えられている。
+その任意の線型持上げ $f_K$ について、式\eqref{eq:nfm-period-low-product-evaluation}により、考える位相の評価式が
+\[
+ \gamma=[u_K],\qquad
+ f_K(\Omega_p)=u_K\Omega
+       \quad\text{in }B_3\otimes_RK
+\]
+である。式の三次関係は二次関係による剰余で読む。
+\end{enumerate}
+このとき $\gamma$ は $R$ 上の有限 \'etale な $\mu_3$-torsor へ延びる。
+すなわち
+\[
+ v_R(\gamma)=0\quad\text{in }\mathbb Z/3.
+\]
+この判定は、比較核そのものの $R$ 上への延長を仮定しない。
+\end{lemma}
+
+\begin{proof}
+まず、ここで使用する有限性の対象を特定する。
+定理\ref{thm:poisson-good-open-isomorphism}は、上の二つの良い対を
+$\mathfrak P_n^{\mathrm{good}}\subset\mathfrak P_n^{\mathrm{dec}}$ の二つの対象へ移し、
+次数スカラーで割った次数付き同型を、その full Poisson 対の同型と同定する。
+滑らかな三次と超平面偏極類の射影同型空間は有限であり、
+Poisson tensor を保つ条件はその中の閉条件である。
+従って補題\ref{lem:nfm-poisson-target-finite-diagonal}の証明は、
+符号商を取らないこの同型空間にも適用される。
+特に
+\[
+ I=\underline{\operatorname{Isom}}_R
+       \bigl((B_p,R\Omega_p),(B,R\Omega)\bigr)/\mathbf G_m
+\]
+は $R$ 上有限である。これは線型同型の空間が有限という主張ではない。
+
+指定された $K$-点 $\bar f_K$ は有限射 $I\to\operatorname{Spec}R$ の
+有理的切断である。$R$ は正規なので、この切断は $R$ 上へ一意に延長する。
+例えば $I=\operatorname{Spec}A$ と書けば、$A\to K$ の像は $R$ 上整であり、
+$R$ に含まれる。得られた切断を $\bar f_R$ とする。
+
+両次数一加群を自明化し、$\bar f_R$ の ambient 射影同型を
+$\operatorname{PGL}_N(R)$ の点と見る。
+fppf 完全列
+\[
+ 1\longrightarrow\mathbf G_m\longrightarrow\operatorname{GL}_N
+       \longrightarrow\operatorname{PGL}_N\longrightarrow1
+\]
+から、その線型持上げの空間は $R$ 上の $\mathbf G_m$-torsor であり、
+障害は $H^1(R,\mathbf G_m)=\operatorname{Pic}(R)=0$ に入る。
+従って $f_R\in\operatorname{Isom}_R(V_p,V)$ を選べる。
+これは一般の Brauer--Severi 空間の分裂を $\operatorname{Pic}(R)=0$ から
+推論しているのではない。最初から二つの有限自由加群と、その射影空間間の
+\emph{実際の}射影同型が与えられている場合の持上げである。
+次数スカラーは二次関係と中心直線を保つから、$f_R$ は両対の次数付き同型になる。
+
+特に $f_R(R\Omega_p)=R\Omega$ であり、両者の指定生成元について
+\[
+ f_R(\Omega_p)=u_R\Omega,\qquad u_R\in R^\times
+\]
+を得る。仮定で指定した $f_K$ と $f_R|_K$ は同じ射影同型の持上げなので、
+ある $\lambda\in K^\times$ を用いて $f_K=\lambda f_R|_K$ と書ける。
+次数三上では $u_K=\lambda^3u_R$ であり、$[u_K]=[u_R]$ である。
+従って $\operatorname{Spec}R[z]/(z^3-u_R)$ が所要の有限 \'etale な延長を与える。
+\end{proof}
+
+\begin{remark}[この判定で残る閉ファイバー条件]
+\label{rem:nfm-period-integral-presentation-scope}
+この補題は、$\Delta D\ne0$ だけからその仮定を導くものではない。
+有限 perfect な orbit Hom 模型が延びることと、その低 cohomology が
+$R$-自由で底変更と可換になることは異なる。
+さらに、通常 Ext の切出しに必要な積と homotopy transfer を integral に行えること、
+二次関係束が期待階数を持つこと、指定周期から回復した三次関係
+$\Omega_p$ が primitive であること、および回復表示が上の
+$J^{\mathrm{sm}}$ に残ることを別に確認する必要がある。
+有限 perfect spread は、これらが成立する非空開を与えても、
+指定した余次元一ファイバーをその開が横切るとは限らない。
+また、$\bar f_K$ の幾何的存在だけでは上の有理切断を得ない。
+有限拡大 $K'/K$ の後でのみ適用する場合には、その DVR 上の非分岐性から戻す際に
+$v_{R'}(a)=e(R'/R)v_R(a)$ を用い、分岐指数が三で割れる場合は元の付値を判定できない。
+
+
+現行の保証開 $T$ の構成では、active 点移動に
+$\sigma^j\ne1$、$1\le j\le\max(3,n-1)$ を課している。
+従って $n\ge5$ では、$\Delta D=0$ とは別に現れる
+$\sigma$ が位数四となる divisor なども、現在の入力の保証範囲から外れる。
+この active 条件は混合係数を一般にしても変わらない。
+そこでの PBW・普遍中心・生成性が実際に破れると断定するものではないが、
+現在の入力をそのまま用いて、全ての $\Delta D$ 外の divisor で
+本補題の閉ファイバー条件が成立すると結論することはできない。
+\end{remark}

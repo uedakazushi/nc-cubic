@@ -1,8 +1,14 @@
 # 非可換三次 n-fold：現行稿の検証範囲
 
-2026年11月20日 / v22。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
+2026年11月20日 / v23。対象は `papers/nc-cubic-n-fold.tex` と現行の証明書・再現コード。証明の記載、読解点検、計算の実行、組版、外部への保存を別々の確認として扱う。
 
-本版では次の四つの証明を、執筆担当以外による内部独立点検と統合担当の読解によって確認した。一次資料と固定入力の必要箇所も照合した。これは外部査読、Lean 等による形式検証、固定入力全体の独立再証明、または新規性の網羅的確認を意味しない。
+本版では、周期位相の有限評価式、integral 表示による非分岐の十分条件、Hesse 境界の三分点・点線束の証明を執筆担当以外も独立して読解点検した。統合担当も主証明を読み、接線・Kummer・行列の係数恒等式を厳密計算した。外部査読、Lean 等による形式検証、固定入力全体の独立再証明、新規性の網羅的確認は行っていない。
+
+- **有限低積による指定周期の評価。** Picard gerbe 上の Z_p=q_Y^R M[1] の orbit 全構造の重み零降下、t_p の指定、通常 Ext の切出し、m₃ の gauge 差が二次関係 ideal に入ること、source の自己交叉規約の符号を点検した。orbit 比較 t_Ω↦c⁻¹t_p と反変 Koszul 双対により γ_sc,n=[f(Ω_p)/Ω] が既存の位相と一致する。実際の K-核・K-線束の選択は不要。値そのものは未計算。証明は `lem:nfm-tate-cubic-relation-normalization`、`prop:nfm-period-phase-low-products`。
+- **DVR 上の条件付き非分岐判定。** 閉 fibre を含む良い integral 表示、primitive な中心三次、K 上の射影 Isom を明示仮定する。有限 Isom の有理切断を正規性で延ばし、有限自由加群間の射影同型を GL/PGL 完全列と Pic(R)=0 で持ち上げる証明を確認した。幾何的 Isom だけで K-切断を得たとしない。低 Ext の自由性・m₃ の integral 模型・原始性などは未確認。現行 T の小位数除外が ΔD 外にもあることを実際の定義で点検した。証明は `lem:nfm-period-integral-presentation-unramified`。
+- **Hesse 境界の局所三分点と線型表示。** 正則 split I₃、交点行列、multidegree (1,0,−1)、接線の先頭係数一規格化と Silverman XI.9.2 の向きを独立に確認した。Kummer 座標から同じ完全分岐三次体の三コピーと慣性3³が従う。L₀ の行列式・階数・切断の貼合せ、点線束の相対三行三列表示への lift を確認した。[D] がこの三次体で消えるため三候補を区別できないことも点検した。これらは E_pt 上の結果であり、残余 trait 模型・φ_sc の延長・full Hom・指定周期の計算は未実施。証明は `prop:nfm-hesse-boundary-third-division`、`lem:nfm-hesse-boundary-determinantal-line`、`cor:nfm-hesse-boundary-period-candidates-blind`。
+
+以下の四点は、現行稿に保持している既存の内部独立点検である。本版で全証明を一括再検証したという意味ではない。
 
 - **全次元の強化 class の一意性。** 固定した三次双加群自己交叉、内部次数による change-of-rings 列の短完全性、通常 Ext の積、中心周期による dg 局所化を確認した。Tate Ext の j=−p−q≥0 の切出しが全 A∞ 積・写像・homotopy に保たれること、Adams Koszul 双対の Hom の全単射、局所化の homotopy epimorphism、Adams covering と hull を通した実際の kernel class の回復を点検した。表示安定化子の一般自明性と合わせ、全 n≥3 の一般一ブロック族で H_p=1、S_p=Spec(k_n)、split 体での未標識強化型最小次数三を得る。全 full class の分類ではない。証明は [Tate–Koszul 復元](../papers/sections/residual_tate_reconstruction.tex) の `thm:nfm-origin-rotation-faithful`、`cor:nfm-generic-adjoint-class-unique`。
 - **五次元の半 rotation の関手同定。** spinor 完全列の射を相対随伴の unit と同定し、相対 coevaluation と通常の right mutation の coevaluation を自然変換として比較した。Ku の消滅と Beilinson 分解により差が ⟨C₁⟩ へ入り、mutation で消えることを点検した。O≃ρ⁻¹[1]、O³≃[1]、ε≃id は対象の固定からの推測ではなく perfect 核の自然同型である。既存の相対核・Fano 曲面の連結性・次数2835の零 cycle による実核降下と、E_p の二 mutation の計算も保持する。指定 square 同型と MF 周期の同時正規化は別問題。証明は [五次元の節](../papers/sections/residual_fivefold.tex) の `lem:nfm-fivefold-spinor-relative-coevaluation`、`thm:nfm-fivefold-half-rotation-identification`。
@@ -21,7 +27,7 @@
 
 既存の周期位相の class 不変性、生成元の source u 倍・target v 倍による γ′=[v/u]γ、適合規格化の最小次数三、target の独立尺度を加えた一般族の最小次数九は保持する。元の自然な規格化 γ_sc の具体値と、自由な相対尺度の定理は区別する。点型の全 O-降下、標準三分点体の次数九と ASL₂(F₃) の二百十六次 monodromy、三・四次元の全 full class 降下、全 class に共通な scalar index 三、七次元の既知球面対象からの全自己同値群の非巡回性も保持した。既存の全証明と未公表固定入力を本版で一括再検証したという意味ではない。
 
-本版で更新・実行した計算資産は `verify_active_invariants.py` であり、Hesse 境界の四項目を加えた九群の PASS と終了コード0を確認した。他の十五件は基準 main `8ef4db86e999af67af6272a54358bfc398a0f1cc` の各 blob と照合し、再実行していない。Picard 検証器の十三項目と五次元 Fano 曲面の次数2835を含む保存済み PASS・対象ハッシュを保持する。新定理の読解点検とこれらの有限計算の範囲は分ける。
+本版で更新・実行した計算資産は `verify_active_invariants.py` であり、十三群の PASS と終了コード0を確認した。他の十五件は基準 main `d931a640ba421dd0dc7c6010990612ec92b5eda5` の blob と照合し、再実行していない。Picard 検証器の十三項目と五次元 Fano 曲面の次数2835を含む保存済み PASS・対象ハッシュは保持する。新定理の読解点検と有限計算の範囲は分ける。
 
 ## 1. 固定した入力と文献
 
@@ -93,6 +99,8 @@ Canonaco–Stellari *Non-uniqueness of Fourier–Mukai kernels* の著者PDF The
 指定周期の変換について、固定入力Bの `generic_recovery/local_model.tex` の `lp:prop:sing-period`・`lp:eq:period`、`generic_recovery/window.tex` の `tw:eq:period-extension`・`tw:eq:rotation-period-square` を実ソースで確認した。conormal の生成元変更と二拡大の境界、window で移送される周期を照合した。入力B全体の再検証とは扱わない。
 
 高次元の既知入力として Iliev–Manivel の arXiv:1102.3618v2、Proposition3.1、Theorem3.4、Proposition5.2、Corollary5.3 を原著PDFで確認した。公刊書誌は Proc.London Math.Soc.108(2014), no.2,517–540、DOI10.1112/plms/pdt042 を出版社情報で照合した。Serre 式は既存 Lin–Zhang の Proposition3.7 の証明と、Lin–Zeng–Zhang arXiv:2610.00130v1 Proposition2.1・Remark2.2 を比較した。Lin–Rennemo–Zhang, Adv.Math.503(2026), PartC,111271 の Theorem1.3 と、Lin–Zhang arXiv:2611.05915v1 Theorem1.3 の主張の範囲を確認した。新しい2026年原著の全証明を独立再検証したわけではなく、対象復元や partner 有限性を自己同値群の忠実性・class 降下の入力として使わない。
+
+Silverman, *The Arithmetic of Elliptic Curves*, 第2版 (2009), Chapter XI §9 の定義・Proposition 9.2（印刷pp.398–400）を一次 PDF で確認した。先頭係数の規格化が f∘[3] の三乗性を保証する点を本文で補い、Weil pairing の引数と cocycle の向きを照合した。Appendix C の正則模型・成分群の記述も確認した。URL と識別子は研究ノートと書誌に保持する。
 
 ## 2. 証明の記載と読解点検
 
@@ -358,7 +366,7 @@ Buring の元資料 `star5.txt` のSHA-256は `05e0689ddb32a3d3a3ee4475086606bbe
 
 ### active 不変量の厳密恒等式
 
-本版で更新した `python3 computations/verify_active_invariants.py` を実行し、九群すべての PASS と終了コード0を確認した。S=c₄、T=−c₆の規約で、Hesse Jacobian、rψ=ar、判別式恒等式、Jacobian 恒等式、反対符号を検査する。加えて Δ の三乗表示、D の八直線分解、q=2 での一次消滅と剰余体写像、指定中心元の境界 Zhang twist の下での −2J への対応を検査した。すべて有理数または Q(ζ)、ζ²+ζ+1=0 上の厳密係数恒等式で、浮動小数点・標本抽出・補間を使わない。この検算は full 周期比較の存在や非分岐性を証明するものではない。SHA-256 は `1ee135779e273b92bc4c88e924a077259524a399a6f990ffc9c8478c2804bcf1`。
+本版で更新した `python3 computations/verify_active_invariants.py` を実行し、十三群の PASS と終了コード0を確認した。既存の Hesse 不変量、判別式、八直線、q=2 の一次係数と中心比の九群に、点 section・正則 I₃ の節点と交点格子、flex 接線の接触と規格化、三分点の二つの Kummer 先頭係数、L₀ の行列式・階数・三切断の貼合せを加えた。すべて Q または Q(ζ₃) 上の厳密恒等式で、浮動小数点・標本抽出・補間を使わない。群 cohomology・relative lift・full 周期位相の結論は本文の証明に依り、この検算だけでは得られない。SHA-256 は `d91d654595eea0f5db9e5e63258e7d344d13855606a57d7440deed05fb4390cc`。
 
 ### Hesse の二次類と三捩れ対称族
 
@@ -410,15 +418,15 @@ b7a9f66af04e2b4506aff22e87ebc53d3bc1eaa3466af0059d13025a424c019d
 
 ### ソースと参照
 
-`python scripts/check_sources.py` は終了コード0で、22個の TeX ソース、508個の一意なラベル、328個の参照ラベル、100個の引用文献キーを確認した。主要五文書のローカルファイルリンク55件と証明ラベル参照554件に欠落はなく、`git diff --check` も通過した。計算資産十六件のうち active 不変量の検証器を更新・実行し、他の十五件は基準 main と byte 単位で同一であることを確認した。
+`python scripts/check_sources.py` は終了コード0で、22個の TeX ソース、521個の一意なラベル、338個の参照ラベル、101個の引用文献キーを確認した。主要五文書のローカルファイルリンク53件と本稿の証明ラベル参照634件に欠落はなく、固定入力のラベル20件は本稿のラベル検査から区別した。`git diff --check` と予期しない制御文字の検査も通過した。計算資産十六件のうち active 不変量の検証器を更新・実行し、他の十五件は基準 main と byte 単位で同一であることを確認した。
 
 ### PDF の組版状態
 
-v22 の全追加証明を統合した主原稿を LuaLaTeX・latexmk で再組版し、終了コード0を確認した。最終 PDF は297頁・2,308,339 bytes。未定義参照・引用、欠落文字、overfull/underfull は零である。既存の数式フォントサイズの代替に関する七件とその要約一件の警告は残るが、表示点検で欠落や衝突はない。
+v23 の全追加証明を統合した主原稿を LuaLaTeX・latexmk で再組版し、終了コード0を確認した。最終 PDF は306頁・2,369,872 bytes。未定義参照・引用、欠落文字、overfull/underfull は零である。既存の数式フォントサイズの代替に関する七件とその要約一件の警告は残るが、表示点検で欠落や衝突はない。
 
-全297頁の contact sheet 十枚を目視確認した。さらに要旨・序論1–8頁、主結果17–23頁、非分裂比較207–211頁、周期227–238頁、Tate–Koszul と五次元比較246–259頁の計46頁を144 dpiの個別画像で確認した。数式・可換図式・見出し・頁端に修正を要する問題はない。一覧だけを見た頁の細部まで拡大点検したという意味ではない。最終の行折返し修正で変わった個別画像は251頁のみであり、その頁も再確認した。
+全306頁の contact sheet 十一枚を分担してすべて実際に開き、版面・余白・大きな欠落・異常な改頁を確認した。さらに要旨・序論1–10頁、境界模型236–241頁、有限低積とDVR判定255–261頁、書誌305–306頁の計25頁を144 dpiの個別画像で確認した。統合担当も238・239・258・259頁を重ねて確認した。数式・行列・表・見出し・頁端に修正を要する問題はない。一覧だけを見た頁の細かな字形まで拡大点検したという意味ではない。
 
-最終 PDF の SHA-256 は `128ad957d1787443ef22ca036fc09ef095244cdaf6c61ca5cae3ddf7862b7fea`。PDF と画像は再生成物であり追跡対象に含めない。
+最終 PDF の SHA-256 は `acce37adc1b54bf8dcddcfbebffb2dcd085c553837a445a253cad96fe47e814f`。PDF と画像は再生成物であり追跡対象に含めない。
 
 実行環境では部分的な TeX ファイル索引と format 探索の制約があるため、既存 format と TeX tree を環境変数 TEXMF・TEXFORMATS・LUAINPUTS で指定する。特定の環境の絶対パスはリポジトリ設定に固定せず、通常の LuaLaTeX 一式では .latexmkrc の標準コマンドを使う。
 

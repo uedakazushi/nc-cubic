@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact active-invariant and period-boundary identities, v22 (2026-11-20).
+"""Exact active-invariant and period-boundary identities, v23 (2026-11-20).
 
 Run from the repository root:
     python computations/verify_active_invariants.py
@@ -12,7 +12,9 @@ The rational polynomial identities below are checked coefficient by
 coefficient, without numerical specialization. They certify the formulas
 used in the manuscript's degree-nine invariant map. Geometric generic
 integrality, opposite invariance, and degree 18e_n use the written proofs.
-The boundary checks do not prove extension or splitting of a period torsor.
+The boundary checks include the local third-division Kummer coordinates and
+a determinantal model for O(P-O)(1). They do not calculate the full period
+phase, prove integral Ext flatness, or prove extension of a comparison kernel.
 """
 
 import sympy as sp
@@ -92,10 +94,83 @@ def main():
     zero_polynomial(-2*center_u.subs(q, 2)+2*q_new.subs(q, 2), (p,))
     print("PASS: the specified active center becomes -2 times the boundary point cubic")
 
+    x, y, z = sp.symbols("x y z")
+    point_cubic = p_new*(x**3+y**3+z**3)/3 + q_new*x*y*z
+    point = {x: 1-q/2, y: -1-q/2, z: -p}
+    zero_polynomial(point_cubic.subs(point, simultaneous=True), (p, q))
+    # At each node of xyz=0, the transverse derivative is -p/3, a unit.
+    nodes = ({x: 1, y: 0, z: 0}, {x: 0, y: 1, z: 0},
+             {x: 0, y: 0, z: 1})
+    for node in nodes:
+        zero_polynomial(sp.diff(point_cubic, q).subs(q, 2).subs(node)+p/3, (p,))
+    intersection = sp.ones(3)-3*sp.eye(3)
+    multidegree = sp.Matrix([1, 0, -1])
+    assert intersection*multidegree == -3*multidegree
+    component_character = sp.Matrix([[0, 1, 2]])
+    assert all(int(entry) % 3 == 0 for entry in component_character*intersection)
+    assert int((component_character*multidegree)[0]) % 3 != 0
+    print("PASS: point section, regular I3 nodes and nonzero order-three component class")
+
+    aa, bb, w = sp.symbols("aa bb w")
+    y_local = -1+bb*w/aa-(aa**3+bb**3)*w**3/(3*aa**3)
+    local_curve = aa*(1+y_local**3+w**3)/3+bb*y_local*w
+    for power in range(4):
+        assert sp.cancel(sp.expand(local_curve).coeff(w, power)) == 0
+    ell_o_local = aa*(1+y_local)-bb*w
+    ell_o_lead = -(aa**3+bb**3)/(3*aa**2)
+    assert sp.cancel(sp.expand(ell_o_local).coeff(w, 3)-ell_o_lead) == 0
+    tangent_curve = aa*(x**3+y**3+z**3)/3+bb*x*y*z
+    assert sp.cancel(tangent_curve.subs(y, -x+bb*z/aa)
+                     -(aa**3+bb**3)*z**3/(3*aa**2)) == 0
+    ct = 3*aa**2*(aa+bb)/(aa**3+bb**3)
+    cu = -3*aa**3*(1-zeta**2)/(aa**3+bb**3)
+    assert sp.cancel((-aa-bb)/ell_o_lead-ct) == 0
+    assert sp.cancel(aa*(1-zeta**2)/ell_o_lead-cu) == 0
+    print("PASS: flex tangent contact and normalized leading coefficients at the origin")
+
+    ell_o = p_new*(x+y)-q_new*z
+    ell_t = -q_new*x+p_new*(y+z)
+    ell_u = p_new*x+p_new*zeta**2*y-q_new*zeta*z
+    ct_pq = ct.subs({aa: p_new, bb: q_new}, simultaneous=True)
+    cu_pq = cu.subs({aa: p_new, bb: q_new}, simultaneous=True)
+    ft_point = sp.cancel(ell_t.subs(point, simultaneous=True)
+                         /ell_o.subs(point, simultaneous=True)/ct_pq)
+    fu_point = sp.cancel(ell_u.subs(point, simultaneous=True)
+                         /ell_o.subs(point, simultaneous=True)/cu_pq)
+    ft_lead = sp.cancel((q-2)*ft_point).subs(q, 2)
+    fu_lead = sp.cancel((q-2)**3*fu_point).subs(q, 2)
+    assert sp.cancel(ft_lead-((p+2)/(3*p))**3*(p**3+8)/2) == 0
+    fu_expected = zeta/(3*(1-zeta**2))*((p**3+8)/(3*p))**3
+    numerator, denominator = sp.fraction(sp.cancel(fu_lead-fu_expected))
+    zero_polynomial(sp.rem(sp.expand(numerator), zeta**2+zeta+1, zeta),
+                    (p, zeta))
+    assert denominator != 0
+    # The nontrivial Kummer coordinate has valuation -1, hence exact order 3.
+    # The other leading coefficient is a constant cube times a rational cube.
+    print("PASS: third-division Kummer coordinates [(p^3+8)/(2(q-2))] and 1")
+
+    line_matrix = sp.Matrix([[z, 0, 0], [p*y, -2*z, x], [-x, y, 0]])
+    zero_polynomial(line_matrix.det()+x*y*z, (p, x, y, z))
+    rows = ((x, sp.Matrix([[-p*y**2, y*z, 2*z**2]])),
+            (y, sp.Matrix([[x, 0, z]])),
+            (z, sp.Matrix([[x+y, 0, 0]])))
+    for component, row in rows:
+        for entry in (row*line_matrix).subs(component, 0):
+            zero_polynomial(entry, (p, x, y, z))
+    for node in nodes:
+        assert line_matrix.subs(node).rank() == 2
+    # The rational sections agree at the three nodes. On C_x divide by 2z-py.
+    sx = rows[0][1]/(2*z-p*y)
+    sy, sz = rows[1][1], rows[2][1]
+    assert sx.subs(nodes[2]) == sy.subs(nodes[2])
+    assert sy.subs(nodes[0]) == sz.subs(nodes[0])
+    assert sx.subs(nodes[1]) == sz.subs(nodes[1])
+    print("PASS: boundary line resolution, node ranks and gluing of the three sections")
+
     # The exact Fermat specialization fixes the sign convention c6=-T.
     assert (s.subs({p: 1, q: 0}), t.subs({p: 1, q: 0})) == (0, -8)
     assert a4.subs({S: 0, T: -8}) == -ration(215, 81)
-    print("All identities verified over QQ; no sampling or formal proof assistant used.")
+    print("All identities verified over QQ or QQ(zeta_3); no sampling or formal proof assistant used.")
 
 
 if __name__ == "__main__":

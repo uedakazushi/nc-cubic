@@ -1,6 +1,6 @@
 # 非可換三次 n-fold のモジュライ
 
-2026年11月20日 / v22。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
+2026年11月20日 / v23。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
 
 **再開時は [研究方針](00_research_plan.md) を最初に読む。**
 
@@ -23,7 +23,7 @@
 - [点曲線と自然な残余尺度の本文](papers/sections/residual_point_scale.tex)：active 部分の全次数比較、Hodge 線束、点曲線の同型被覆、符号商射、反対代数、正確な一般次数18、混合三角性・符号消滅・半古典full射の次数9、一般係数体上の平面同型torsorの分裂、指定半古典平面同型の全O降下。
 - [四次補正の本文](papers/sections/fourth_correction.tex)：上の有限計算を一般次元の証明と Poisson moduli の射へ統合する主原稿の分割ファイル。
 - [点の平行移動と核のPicard類](papers/sections/residual_kernel_point.tex)：右加群の rotation 共役、相対 THCR/window1、非空で内在的な点型、active 同値の全分類、点側・残余側の exact index 三、非分裂 period、三分点体の ASL₂(F₃) モノドロミー、n=3,4 の全 full class 降下・周期位相の class 不変性・相対尺度による最小次数三／九、三乗倍までの方程式規格化と γ_sc の形式像、高次元の T-軌道降下・奇数次元の数値中央化群、随伴復元点型の有限 class torsor・全次元の正準強化 class・全奇数次元の有限な数値自明安定化群、七次元の球面 twist による障害。
-- [周期位相の混合定数降下](papers/sections/residual_period_descent.tex)：無限 arity の CF 移送の混合重み上界、κ(m) 上の周期付き full Morita 比較、γ_sc,n の C(c₄,−c₆) への一意な降下、追加の非分岐仮定の下の三候補。
+- [周期位相の混合定数降下](papers/sections/residual_period_descent.tex)：無限 arity の CF 移送の混合重み上界、κ(m) 上の周期付き full Morita 比較、γ_sc,n の C(c₄,−c₆) への一意な降下、追加の非分岐仮定の下の三候補、Hesse 境界の三分点被覆の局所三次体と点線束の相対線型表示。
 - [非分裂点 Picard 障害](papers/sections/residual_unsplit_picard.tex)：period 三・index 九の曲線、n≡1 mod3 の全非空開での実現、普遍重み一束の最小階数九、非分裂 rotation の gerbe、低次元の全型の最小次数一／三と四次元の強化点型九・全型三。
 - [Tate–Koszul 復元](papers/sections/residual_tate_reconstruction.tex)：原点・内部 shift を保つ核の忠実性、全 n の一般族の強化点型 class 唯一性と最小実現次数三。
 - [五次元 Clifford 半 rotation](papers/sections/residual_fivefold.tex)：平面上の相対核と平面非依存性、奇数次数零 cycle による実核降下、原点像の二 mutation への還元。
@@ -106,6 +106,10 @@
 
 **半古典条件を保つ周期位相は Hesse 係数体で忠実に検査できる。** K=C(s,t) から L=C(p,q) への Hesse 拡大の三次 Kummer 核は正確に ⟨[Δ]⟩ だが、一般 active 十係数の正則な定数拡大を使った半古典像1の条件がこの三元の曖昧さを除く。したがって Hesse 上で γ̄_n を実際に消せれば元の K でも消え、異なる次元の γ̄_n の一致も同じ制限で判定できる。D の逆像は八本の直線で、q=2 の一般点では被覆は非分岐、D=−(p³+8)²(q−2)/27+O((q−2)²) となる。追加の二境界仮定の下では、この一つの trait の mod-three 付値が残る指数を決める。Hesse 完備体では Δ が既に三乗なので、そこへの形式像だけでこの忠実性を主張しない。具体的な full 周期比較の延長と位相の値は未証明である。証明は `prop:nfm-period-hesse-faithful-test`、`lem:nfm-period-hesse-eight-boundary-lines`。
 
+**指定周期の位相を、随伴復元対象の有限な二次・三次積で評価する式を得た。** Picard gerbe 上の普遍線束 M から Z_p=q_Y^R M[1] を作ると、その Adams graded orbit は重み零なので元の体へ降りる。通常 Ext の切出しの m₂ が B_p、標的の指定周期 t_p と m₃ が Ω_p∈(B_p)₃ を定める。一般表示の射影安定化子が自明なため K 上の同型 f:(B_p,KΩ_p)≃(B,KΩ) が存在し、γ_sc,n=[f(Ω_p)/Ω] となる。f の変更は三乗倍だけであり、三次積の gauge 差は二次関係 ideal で消える。値は未計算だが、full 核全体の延長に先立って有限な Hom・合成・contraction を計算する入口が定まった。良い integral 表示と原始的な三次関係が閉 fibre にもあれば非分岐性が従う。証明は `prop:nfm-period-phase-low-products`、`lem:nfm-period-integral-presentation-unramified`。
+
+**q=2 境界の三分点被覆は、完全分岐三次体の三つのコピーへ分かれる。** z=q−2、K=C(p,m)((z)) とすると点曲線は split I₃ 模型で、P−O の線束の multidegree は (1,0,−1)。接線比の規格化から三分点被覆は3 Spec L、L=K(∛(2z/(p³+8)))=K(∛D) と明示でき、慣性型は3³となる。一方、実線束 O(P−O) とその三行三列線型表示は R=C(p,m)[[z]] 上へ延びる。従って三分点の分岐を full 周期位相の分岐と同一視しない。この三次体では候補1,[D],[D]²が全て消えるため、三分点上の計算だけでは D の指数を判別できない。証明は `prop:nfm-hesse-boundary-third-division`、`lem:nfm-hesse-boundary-determinantal-line`。
+
 周期 torsor の成分体 M は次数一または三で、指定周期付き比較の最小次数は全 class に共通に [M:k_n]ind(α|_M)∈{3,9} となる。target の生成元を適切な k_n-単元倍に選び直した適合規格化では最小次数は三である。target だけに独立変数 t による尺度を付けた k_n(t) 上の一般族では、周期成分体が k_n 上の純超越体となり scalar index 三を保つため、任意の有限実現体の次数は九の倍数であり、最小次数は正確に九となる。この独立尺度を元の一ブロック係数や formality のパラメータと同一視しない。scalar G_m-gerbe、標準三分点 torsor、相対周期の μ₃-torsor は別の構成であり、裸の O-marked 対は任意の相対周期規格化を標識しない。
 
 **一般高次元の class と T-軌道には同じ Galois 安定化群がある。** rotation を保つ幾何的 full 自己同値類の群を G_ρ、対応する比較 class の torsor を C_ρ とする。元の体上の実核 T=ρ_Y⁻¹[1] は G_ρ の中心にあり、⟨T⟩≅Z である。各 class とその T-軌道の Galois 安定化群は一致するので、class 選択は C_ρ/⟨T⟩ の有理点、すなわち G_ρ/⟨T⟩ に値を持つ非可換 H¹ 障害の中立性へ正確に帰着する。点型を含む固定軌道が一つあれば、その点型 class 自体が降下する。T が点型を保つことはこの議論の前提ではない。
@@ -128,7 +132,7 @@ Clifford 半 rotation はさらに、関手として O_Cl A≃Aρ⁻¹[1] と同
 
 **完備中心商について MF 比較を構成した。** 厳密相対 bar flow とその逆を中心係数の斉次商へ降ろせるので、U=0 の active MF にも比較が得られる。任意の quotient MF を扱い、元の MF からの持上げを仮定しない。ただし、一般点の有限代数的核への coherent な中心線型性の降下は未完成である。係数商と圏の導来 tensor の同一視、absolute perfect から relative perfect への推論には一般的な反例があり、研究ノートに整理した。
 
-残る中心課題は、全 n≥3 の正準強化 class の二変数体上の規格化周期位相 γ̄_n の具体値と次元間の関係、一般混合係数を伴う Hesse 境界 q=2 での full 周期比較、代数的核の coherent な中心線型性、および各 intrinsic 成分を覆う表示である。全 n の一般一ブロック族で強化点型 class の唯一性と最小実現次数三は確定した。高次元の任意型の full 核、非分裂の rotation 軌道以外の核の最小次数、共通な良い開の外への延長は別に残る。主証明は [Tate–Koszul 復元](papers/sections/residual_tate_reconstruction.tex)、[五次元の Clifford 比較](papers/sections/residual_fivefold.tex)、[非分裂 Picard 障害](papers/sections/residual_unsplit_picard.tex)、[周期位相](papers/sections/residual_period_descent.tex) に置く。
+残る中心課題は、全 n≥3 の正準強化 class の二変数体上の規格化周期位相 γ̄_n の具体値と次元間の関係である。次は点曲線上の相対三行三列表示を、別途構成すべき残余 trait 模型と φ_sc で移送して full 随伴復元対象を作り、低 Ext の平坦性、m₂・m₃、指定周期を有限計算する。三分点被覆 K(∛D) 上では D の位相情報が消えるため、元の trait で検査する必要がある。現在の保証開が除外する有限位数 divisor を含め、ΔD 外の非分岐性も未証明である。coherent な中心線型性、高次元の任意型の full 核、非分裂の rotation 軌道以外の最小次数、各 intrinsic 成分の表示も別に残る。主証明は [Tate–Koszul 復元と低積評価](papers/sections/residual_tate_reconstruction.tex)、[周期位相と境界模型](papers/sections/residual_period_descent.tex) に置く。
 
 個別次元の Jacobi 計算と boundary の精査は、この一般目標の具体的な障害を解消する場合に行う。八次元の頂点構造等の既存成果と証明書は保持する。次の具体的な着手方法と各目標の到達基準は [研究方針](00_research_plan.md) にまとめ、全体の要約は [research-hub](https://github.com/uedakazushi/research-hub) に反映する。
 
@@ -149,6 +153,8 @@ Clifford 半 rotation はさらに、関手として O_Cl A≃Aρ⁻¹[1] と同
 | 点型 full 比較被覆 | 全 n≥3 で実際の点型核は k_n と三に素な有限拡大上に不存在。各一般成分の次数は三の倍数 | `cor:nfm-point-comparison-cover-three-divisibility`。φ の付加や active assignment は不要。n≥5 の任意型への拡張は未証明 |
 | n=3,4 の全 full 比較 | 全 full class が k_n 上へ降下し、scalar gerbe は全型共通で period=index=3。underlying 比較と rotation intertwining の性質を要求する比較の最小次数三 | `thm:nfm-low-dimensional-full-class-index-three`。幾何学的一般点の結果。全核が点型とは主張せず、高次元の全 class 分類は未完成 |
 | 正準強化 class の指定周期付き比較 | 全 n≥3 で三乗規格化から定まる γ_sc,n は C(c₄,−c₆) の Kummer 類 γ̄_n へ一意に降下し、形式像は1。frame 変更は γ′=[v/u]γ、適合 frame の最小次数三、target の自由尺度族の最小次数九 | `prop:nfm-adjoint-period-all-dimensions`、`cor:nfm-adjoint-period-marked-minimum`。全 class 共通性と全型最小は n=3,4 に限る。γ̄_n の値と元の規格化での最小次数三／九は未決。`lem:nfm-period-two-boundary-criterion` の三候補 1,[D],[D]² は追加の未証明非分岐仮定付き |
+| 周期位相の有限評価 | Z_p=q_Y^R M[1] の重み零 orbit から m₂,m₃ と指定周期により B_p,Ω_p を回復し、γ_sc,n=[f(Ω_p)/Ω] | `prop:nfm-period-phase-low-products`。値は未計算。閉 fibre でも良い表示・原始 relation がある場合の非分岐判定は `lem:nfm-period-integral-presentation-unramified` |
+| Hesse 境界の三分点と線束 | q=2+z で split I₃、点線束の multidegree (1,0,−1)、三分点被覆は3 Spec K(∛D)、慣性型3³。線束は相対三行三列表示を持つ | `prop:nfm-hesse-boundary-third-division`、`lem:nfm-hesse-boundary-determinantal-line`。full 周期の分岐・低 Ext の平坦性は未計算 |
 | 高次元の full class 選択 | class と T-軌道の Galois 安定化群が一致。奇数 n で G_ρ/⟨T⟩≅G_{ρ,0}/⟨[2]⟩、数値中央化群 C₆ | `prop:nfm-highdim-central-shift-obstruction`、`cor:nfm-highdim-point-class-orbit`、`prop:nfm-odd-numerical-rotation-centralizer`。全点型・任意型の class 選択は未解決 |
 | 随伴復元点型の class 選択 | 全 n≥3 の一般一ブロック族で H_p=1、S_p=Spec(k_n)。一意な class の scalar gerbe は Picard_{p_res}、一般 split 体で未標識最小次数三 | `thm:nfm-origin-rotation-faithful`、`cor:nfm-generic-adjoint-class-unique`。全群や全型の分類は含まない |
 | 五次元の Clifford 半 rotation | 相対核として降下し、さらに O≃ρ⁻¹[1]、O³≃[1]、ε≃id を perfect 核として同定 | `thm:nfm-fivefold-half-rotation-identification`。相対・絶対 coevaluation の自然な比較による。指定 square/period の正規化は別 |
@@ -230,7 +236,7 @@ python3 computations/verify_jacobi_vertex.py --verify computations/jacobi_vertex
 latexmk papers/nc-cubic-n-fold.tex
 ```
 
-点障害の検算の保存済み実行記録は、Hesse 接線の三重接触と巡回 norm、Sklyanin potential の点三次、Hesse 係数の有理逆、滑らかさの恒等式、六つの整数数値 centralizer、巡回 twist の九項と、普遍 Jacobian 上の三捩れ点、八点軌道と C₃ 安定化群、その core の自明性、右点対応の四項を合わせた13項全て PASS である。`computations/verify_fivefold_plane_degree.py` による次数2835の保存済み検算も保持する。本版では `computations/verify_active_invariants.py` を更新・実行し、Hesse 境界の四項目を加えた九群すべての PASS を確認した。他の十五件は基準版との同一性を照合し、再実行していない。Brauer 類の非零性・index、支配族と class の降下、全 Fourier–Mukai 分類、三分点の連結性・モノドロミー、周期位相と高次元簡約は本文の証明に依り、この有限計算だけから結論しない。現在の組版・表示点検の実施状態は [検証範囲](notes/validation.md) を参照する。
+点障害の検算の保存済み実行記録は、Hesse 接線の三重接触と巡回 norm、Sklyanin potential の点三次、Hesse 係数の有理逆、滑らかさの恒等式、六つの整数数値 centralizer、巡回 twist の九項と、普遍 Jacobian 上の三捩れ点、八点軌道と C₃ 安定化群、その core の自明性、右点対応の四項を合わせた13項全て PASS である。`computations/verify_fivefold_plane_degree.py` による次数2835の保存済み検算も保持する。本版では `computations/verify_active_invariants.py` を更新・実行し、境界の成分群・接線規格化・三分点 Kummer 座標・線型行列を含む十三群すべての PASS を確認した。他の十五件は基準版との同一性を照合し、再実行していない。Brauer 類の非零性・index、支配族と class の降下、全 Fourier–Mukai 分類、三分点の連結性・モノドロミー、周期位相と高次元簡約は本文の証明に依り、この有限計算だけから結論しない。現在の組版・表示点検の実施状態は [検証範囲](notes/validation.md) を参照する。
 
 active 不変量の検算は rψ=ar、判別式・Jacobian の公式を有理係数で確認する。active符号の検算はQQ(ζ)上のHesse群の24要素・閉性・不変量・二次指標と、体次数の消去式を確認する。有限対角によるPoisson対の近傍延長・同変降下とχ_actの消滅は、この計算ではなく本文の証明による。幾何学的一般ファイバー、全次数混合三角性、正確な一般次数18は本文の証明に依る。中心・Hessian と幾何補正の検算は有理係数の記号恒等式、八次自由代数の trace、Jacobi 商の双対証明書、普遍 cofactor 恒等式と Hesse の j 差を再現する。補正検算では十個の独立係数を持つ三変数三次、任意の対称行列、二パラメータ Hesse 中心の係数変換、混合項の復元行列、九重被覆の分岐、Weyl の整数重複度と四次不変式も確認する。混合五次の検算は保存した73項の graph データから β,γ を評価し、四次 potential の検算は中心 symbol の全係数恒等式・純中心項・尺度・全次元の非消滅証明書を確認する。入力論文の混合中心公式の非可換中心性、graph 積分そのもの、圏同値はこれらの記号計算で再検証しない。組版設定は既存の repo ルート基準のパスを維持し、PDF と SyncTeX を `build/` に揃えている。研究hubの現行テンプレートと設定も参照し、LaTeX Workshop の推奨拡張を指定した。
 

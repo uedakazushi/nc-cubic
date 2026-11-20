@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月20日 / v22。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは依存・適用範囲・障害・再現の入口をまとめる。
+2026年11月20日 / v23。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは依存・適用範囲・障害・再現の入口をまとめる。
 
 ## 1. 記法と成果の確実性
 
@@ -1304,6 +1304,18 @@ D の Hesse 引戻しは八直線の積である。q=2 の一般点で det Dr=�
 
 **反対代数の障害。** 反変双対は intertwiner の矢印と rotation の両方を反転するため、正の rotation へ戻す際に scalar weight が元へ戻り得る。したがって反対操作と c₄,c₆ の偶数次数だけから γ=γ⁻¹ は導けない。同じ可換 cubic を source 方程式 F、target 方程式 aF で標識すると、underlying opposite は同じでも周期位相は任意の [a] を持つ。conormal 周期を含む図式を比較する必要がある。
 
+### q=2 境界の三分点と点線束の有限模型
+
+z=q−2、k₀=C(p,m)、R=k₀[[z]] とする。点三次は AΣX³/3+BXYZ、A=p(1−q²/4)、B=q+p³/3+q³/12。P=(1−q/2:−1−q/2:−p) と O=(1:−1:0) はそれぞれ C_X、C_Z の滑らかな点へ落ちる。全空間は三節点で横断微分 −p/3 を持つ正則 split I₃ 模型である。M=O(P−O) の multidegree は (1,0,−1) で、交点行列から垂直 twist で零にできない。一方 M³(C_X−C_Z) は全成分次数零となる。紙上証明は `prop:nfm-hesse-boundary-third-division`。
+
+T=(0:1:−1)、U=(1:−ζ:0) による Kummer 二座標は ([(p³+8)/(2z)],1)。接線比を原点の局所座標で先頭係数一に規格化し、F∘[3] が三乗になることを確認して Silverman XI.9.2 を適用する。従って [3]⁻¹(P) は同じ完全分岐巡回三次体 L=K(∛(2z/(p³+8))) の三つのコピーであり、幾何的慣性型は3³。一般 active 係数へは非分岐な Hesse chart でこの慣性型を移す。一般係数の剰余体上でも三つのコピーに分かれる、とまでは主張しない。
+
+M₀(j) の cohomology は j≥1 で (h⁰,h¹)=(3j,0)、j=0 で零、j≤−1 で (0,−3j)。M₀(1) は `eq:nfm-hesse-boundary-determinantal-line` の行列 L₀による 0→O(−1)³→O³→i_*M₀(1)→0 を持つ。行列式 −XYZ、三節点での階数二、三切断の貼合せを厳密検算した。この完全列は R 上の相対三行三列線型表示へ持ち上がる。三分点の選択は不要であり、この行列は点関係行列から得た三倍線束とは別で、実際の M(1) を表示する。
+
+D_R=D(r(p,2+z)) に対し [D_R]=[(p³+8)/(2z)]⁻¹、従って L=K(∛D_R)。Kummer 制限の核は正確に ⟨[D_R]⟩ であり、条件付き候補1,[D_R],[D_R]²はこの被覆上では区別できない（`cor:nfm-hesse-boundary-period-candidates-blind`）。三分点上で周期分裂を仮に示しても、元の D-付値を決定しない。
+
+**次の計算に必要な区別。** 上の線束と行列は E_pt の trait 模型上にある。残余 Y_res と C_res の模型、φ_sc の延長と線束の移送は別途必要である。既存の φ_sc の延長は共通 smooth good open に関するもので、この節点境界へは自動適用できない。さらに、移送後の q_Y^R M[1] の低 Ext の平坦性・合成・指定周期も独立に確認する。三分点の分岐は線束や full 核の非存在を意味せず、線束の相対表示も full Morita 比較や周期図式の延長を意味しない。
+
 ### 高次元の class 障害を rotation 中央化群へ絞る
 
 幾何的な可逆dg核の同型類の群で、rotationを保つ部分をG_ρ、その比較class torsorをC_ρと書く。ここではrotationを保つ**性質**だけを使い、比較同型ηや周期の標識は加えない。S=ρ^(1−n)[n]、ρ³=[2]から、n=3mではρ=S[−m]、n=3m+2ではρ=S⁻¹[m+2]なので、n≢1 mod3ではG_ρは全自己同値群である。n≡1 mod3ではこの同一視を行わない（`prop:nfm-highdim-rotation-serre`）。
@@ -1429,9 +1441,31 @@ Tate 模型では ξ=(1,−1)、t=(2,−3) とし、j=−p−q が t 指数で�
 
 **別の gluing 経路の障害。** 原点を保つ自己同値を全導来圏へ延長するには、例外的 block と原点の間の全作用を保つ gluing module が必要である。対象の固定だけではその同型を与えない。現行の忠実性証明はこの延長を使わない。安定性条件・Torelli による多様体復元も、自己同値作用の忠実性を代用しない。
 
+### 指定周期の位相を二次・三次積で評価する
+
+標準 split 一般係数体 K=k_n 上で、Picard gerbe の普遍線束 M から Z_p=q_Y^R M[1] を作る。S_p=⊕_q RHom(Z_p,ρ_Y^qZ_p) は scalar inertia の重み零なので、Adams 次数、合成、全 A∞ 構造を含めて K 上へ降下する。Z_p 自体は K 上の対象でなくてもよい。標的の cube frame を一つ代表して指定周期 t_p∈S_p^{2,−3} を固定する。
+
+X_p=(S_p^{1,−1})* と m₂* の像から B_p=T(X_p)/(R₂) を回復する。t_p*(t_p)=1 とし、Ω_p=[m₃*(t_p*)]∈(B_p)₃ と置く。三次 tensor は gauge 不変ではないが、変化は R₂X_p+X_pR₂ に入り、B_p 内の元は同じとなる。source の中央自己交叉の二拡張と同じ右加群 bar 規約で、t_Ω の双対が +Ω となることを確認する（`lem:nfm-tate-cubic-relation-normalization`）。
+
+一般表示の射影安定化子の自明性と Hilbert 90 により K 上の f:(B_p,KΩ_p)≃(B,KΩ) が存在し、
+
+\[
+ \gamma_{\mathrm{sc},n}=\left[\frac{f(\Omega_p)}{\Omega}\right].
+\]
+
+証明は `prop:nfm-period-phase-low-products`。orbit 比較は t_Ω↦c(η)⁻¹t_p、反変 Koszul 双対は Ω_p↦c(η)⁻¹Ω となり、既存の γ=[c(η)⁻¹] と一致する。f の変更は次数 scalar なので比は三乗倍だけ変わる。標的方程式の v 倍は t_p を v⁻¹ 倍、Ω_p を v 倍し、γ′=[v]γ と整合する。値が一であることは未証明。
+
+計算では有限分裂体上で実際の M と q_Y^R M[1] を表示し、内部次数 −1,−2,−3 の有限 Hom 模型、合成と contraction を求めればよい。重み零性により関係と最終比は元の体へ戻せる。単に可換側の通常の原点 stabilization に置き換えると二次包絡を誤り、m₃ を零と置くこともできない。coherent な中心線型性の全降下はこの評価式の前提でも結論でもない。
+
+**非分岐性の有限データ判定。** source と回復した対が閉 fibre を含む良い integral 表示を持ち、Ω と Ω_p が直線部分束の生成元なら、指定された K-射影 Isom は有限対角により R 上へ延びる。有限自由生成元加群の射影同型を GL/G_m 完全列と Pic(R)=0 で持ち上げれば fΩ_p=uΩ、u∈R× となる（`lem:nfm-period-integral-presentation-unramified`）。幾何的 Isom の存在だけで K 上の切断を得たとしない。
+
+この十分条件は低 Ext の自由性と底変更、m₃ の integral transfer、関係束の階数、三次 relation の原始性を未確認の閉 fibre 条件として残す。一般点の finite perfect spread は、指定した divisor を良い開が横切ることを保証しない。有限行列の minor・Fitting ideal を mixed 変数の多項式として扱い、係数の共通因子という垂直因子を別に調べる必要がある。
+
+現行の T は σ^j≠1 (1≤j≤max(3,n−1)) を課す。n≥5 では ΔD≠0 にも位数四点の divisor があり、現在の入力保証はそこを除く。これは真の分岐や実中心の跳躍を示した結果ではなく、既存証明の適用範囲の不足である。将来の弱化では、全 O-復元の高次中心条件を要求する代わりに、相対低次数中心・境界評価 ε・滑らかな trace–Hessian 三次から graded Isom を有限な polarized cubic Isom の閉部分へ入れる方法を検討できる。q=2 自体は滑らかな点曲線を要求する既存 good open の外なので、そこへこの補題を直接適用してはいない。
+
 ### 次の着手方法：周期境界・coherent 中心作用・全型への拡張
 
-第一に、半古典条件下で忠実となった Hesse 制限を用い、q=2 の一般点の trait 上で full MF 比較と指定周期を計算する。ΔD 外の非分岐性を別途示した上で D の mod-three 付値を求めれば、三候補1,[D],[D]²を決定できる。一般混合係数と中心変数を保ち、active だけの Zhang twist を full 比較とみなさない。n=3 の fractional Serre trace の差と residue 計算は別の具体的経路として残す。
+第一に、有限評価式 γ_sc,n=[f(Ω_p)/Ω] を実装する。q=2 の点曲線上の三行三列線型表示を入口に、残余 trait 模型と φ_sc による移送、full 随伴復元対象の低 Hom、m₂・m₃、指定周期を順に確認する。三分点の完全分岐体上では D の三候補が全て消えるため、元の trait または三に素な分岐指数の模型で計算する。ΔD 外の非分岐性は有限行列の垂直因子と現在の小位数除外を個別に点検する。n=3 の fractional Serre trace は別経路として保持する。
 
 第二に、一意な強化点型 class を有限代数的核の coherent な中心線型性へ接続する。可換側の q_Y=Li_C^* は source の中心作用を代用しない。全群分類を前提とせず、他の full class については既存の T-軌道と数値中央化群を使う。全次元の H_p=1 と五次元の ε=id は既に確定した範囲である。
 
@@ -1686,6 +1720,10 @@ projector核・低次元full自己同値分類の一次資料：
 Murfet, *Residues and duality for singularity categories of isolated Gorenstein singularities*, Compos.Math.149(2013),no.12,2071–2100、[arXiv:0912.1629v3](https://arxiv.org/abs/0912.1629v3)、[DOI](https://doi.org/10.1112/S0010437X13007082) のTheorem6.2・式(6.6)、Proposition4.2・式(5.7)を確認した。MFの微分と射を含むresidue trace、およびdeterminantの変換則を、γ_scの計算候補として保持する。sourceから移した実際の微分・射とAS-Gorenstein traceの規格化をまだ同定していないため、位相消滅の証明としては用いない。引用keyは `NFMMurfetResidue`。
 
 自然な残余射・active曲線比較・正確な一般次数18・符号消滅とfull射の次数9・最高次線束型・点型の全O-降下・三分点被覆の九次性と216次monodromy・低次元のfull class降下・随伴復元条件による有限class torsor・周期位相とcube frameの算術への適用について、初出と新規性の網羅的確認は未完了である。既知の曲線同型理論、Hessian点曲線、Hesse群・古典的不変式環、determinantによるBrauer消去、Picard gerbe、楕円導来圏の自己同値一般論、Tate–Weil pairing、Sklyanin理論、LiuとHuybrechtsの自己同値群分類、Toën–Vaquiéのmoduli、Murfetのresidue公式自体を新規成果としない。非被約相対分類、実active族への算術的降下、H_gのfull ambient作用による平面同型torsorの分裂、残余側のexact index、projector核の一意性と定数ZによるGalois降下、有限 H_p への縮約、五次元半 rotation の平面非依存性・奇数零 cycle による降下、非分裂点 Picard index 九の一ブロック実現と普遍最小階数、指定周期の cube frame と scalar gerbe の算術との接続を、これらの既知入力から区別して記載する。
+
+### 境界の Kummer 計算の一次資料
+
+Joseph H. Silverman, *The Arithmetic of Elliptic Curves*, 2nd ed., Graduate Texts in Mathematics 106, Springer (2009), DOI 10.1007/978-0-387-09494-6。[一次資料PDF](https://www.math.ens.psl.eu/~obenoist/refs/Silverman.pdf) の Chapter XI, Proposition 9.2 と直前の定義（印刷pp.398–400、PDF pp.409–411）を確認した。pairing は e₃(σQ−Q,T) であり、div(f)=3(T)−3(O) に加えて f∘[3] が K(E) 内の三乗である規格化を要求する。原点で先頭係数一の接線比はこの仮定を満たすことを本文で証明した。Appendix C, Theorems 15.1–15.2、Corollary 15.2.1 の正則模型・成分群も確認。Kummer 理論や I₃ 成分群は既知結果であり、本稿の点 shift の局所体と有限行列表示の計算と区別する。
 
 ### Tate–Koszul と Clifford 同定の一次資料
 
