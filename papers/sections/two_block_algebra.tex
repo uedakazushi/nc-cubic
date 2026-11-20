@@ -1,0 +1,354 @@
+% !TEX root = ../nc-cubic.tex
+\section{満支持二ブロック商の中心と次数付き自己同型}
+\label{tba:sec:algebra}
+
+本節は $n=4$, $N=6=3+3$ の二ブロック表示を扱う。
+点対応によるブロックの認識と、次数付き代数からの中心商の認識を組み合わせる。
+得られる自己同型群は\emph{次数付き表示}の群であり、
+次数一 shift を忘れた全 $\OO$-保存 Abel 同値の分類とは区別する。
+
+\subsection{設定と低次数中心}
+
+$k$ を標数零の代数閉体とし、$i=1,2$ に対し
+\[
+ S_i=T(W_i)/(R_i),\qquad \dim W_i=3,
+ \qquad T_i=S_i/(\Omega_i)
+       =B(E_i,\mathcal L_i,\sigma_i)
+\]
+とする。ここで $S_i$ は二次の楕円 Sklyanin 代数、
+$\Omega_i\in Z(S_i)_3$ は非零な正則中心元、
+$E_i\subset\PP(W_i^*)$ は滑らかな平面三次曲線、
+$\mathcal L_i=\OO_{E_i}(1)$、$\sigma_i=t_{p_i}$ は平行移動である。
+二次関係スキームは $\sigma_i$ のグラフとする。
+これらの Sklyanin 入力と
+$H_{S_i}(t)=(1-t)^{-3}$ は既知の結果である
+\cite[Theorems~6.6, 6.8]{GRSklyaninATV}。
+以下の有限個の位数条件を課す：
+\begin{equation}\label{tba:eq:finite-order-open}
+ \sigma_i^j\ne\operatorname{id}\qquad (i=1,2,\ 1\leq j\leq3).
+\end{equation}
+これは無限位数を要求する条件ではない。
+パラメータ族では有限個の捩れ条件を除く開条件として扱える。
+
+生成元に全次数一を与え、
+\begin{equation}\label{tba:eq:two-block-pair}
+ B=S_1\otimes_kS_2,
+ \qquad w_{a,b}=a\Omega_1+b\Omega_2,
+ \qquad A_{a,b}=B/(w_{a,b}),\qquad ab\ne0
+\end{equation}
+と置く。$B$ の異なるブロックの生成元は可換である。
+$\Omega_1$ は $\Omega_1\otimes1$、$\Omega_2$ は
+$1\otimes\Omega_2$ の略記である。
+
+\begin{lemma}[テンソル積と楕円商の中心]
+\label{tba:lem:tensor-center}
+体上の二つの代数 $D_1,D_2$ に対し
+$Z(D_1\otimes_kD_2)=Z(D_1)\otimes_kZ(D_2)$ である。
+また \eqref{tba:eq:finite-order-open} の下で
+\[
+ Z(T_i)_j=0\quad(1\leq j\leq3),\qquad
+ Z(S_i)_1=Z(S_i)_2=0,\qquad Z(S_i)_3=k\Omega_i.
+\]
+\end{lemma}
+\begin{proof}
+テンソル積の元を、第二因子が線型独立となる有限和として書く。
+$D_1\otimes1$ の全元との可換性から、第一因子の各係数は
+$Z(D_1)$ に属する。その係数を線型独立に取り直して
+$1\otimes D_2$ との可換性を使えば第二因子も中心に属する。
+
+$T_i$ を捻った Laurent 関数環
+$k(E_i)[t,t^{-1};\sigma_i]$ へ埋め込む。
+次数 $j>0$ の非零中心元 $ct^j$ があれば、次数一の二つの切断との
+可換性を割り算することにより、$\sigma_i^j$ はそれらの比を固定する。
+$\mathcal L_i$ は非常に豊富なので、これらの比は $k(E_i)$ を生成する。
+従って $\sigma_i^j=\operatorname{id}$ となり、
+\eqref{tba:eq:finite-order-open} に反する。
+$S_i\to T_i$ の核は $(\Omega_i)$ だから、次数一・二では中心元が消え、
+次数三の中心元は $k\Omega_i$ に属する。逆の包含は中心性による。
+\end{proof}
+
+\begin{proposition}[二ブロックの低次数中心と正則性]
+\label{tba:prop:low-centers}
+\eqref{tba:eq:finite-order-open}--\eqref{tba:eq:two-block-pair} の下で
+\begin{align}
+ Z(B)_1=Z(B)_2&=0,& Z(B)_3&=k\Omega_1\oplus k\Omega_2,
+ \label{tba:eq:ambient-center}\\
+ Z(A_{a,b})_1=Z(A_{a,b})_2&=0,&
+ Z(A_{a,b})_3&=k\overline\Omega_2
+              =k\overline\Omega_1.
+ \label{tba:eq:quotient-center}
+\end{align}
+$w_{a,b}$ は左右正則であり、
+\begin{equation}\label{tba:eq:hilbert}
+ H_{A_{a,b}}(t)=\frac{1-t^3}{(1-t)^6}.
+\end{equation}
+特に二次までの積は $B$ と $A_{a,b}$ で同じであるが、
+三次中心の次元は二から一へ下がる。
+\end{proposition}
+\begin{proof}
+$B$ の中心の等式は補題\ref{tba:lem:tensor-center}から従う。
+$B$ を第一ブロックの次数で増大濾過する。
+$w_{a,b}$ の最高記号は $a\Omega_1$ であり、$B$ 上の左右非零因子である。
+従って最高記号を比較すれば $w_{a,b}$ も左右非零因子となる。
+中心性によりイデアル $(w_{a,b})$ の全元は $w_{a,b}b$ の形に書け、
+その最高記号は $a\Omega_1\operatorname{in}(b)$ である。
+よって新たな初期関係を生じず、
+\begin{equation}\label{tba:eq:active-associated-graded}
+ \operatorname{gr}_{W_1}A_{a,b}\simeq T_1\otimes_kS_2.
+\end{equation}
+全次数ごとの濾過は有限であり、この議論に完備化は要らない。
+正則中心元による完全列から \eqref{tba:eq:hilbert} を得る。
+
+全次数 $1\leq d\leq3$ の中心元 $z\in A_{a,b}$ を取る。
+第一ブロック次数 $j$ に関する最高記号も
+\eqref{tba:eq:active-associated-graded} の中心に属する。
+$j>0$ ならば、その成分は
+$Z(T_1)_j\otimes Z(S_2)_{d-j}=0$ に属し矛盾する。
+従って $z$ は濾過零部分、すなわち自然に埋め込まれた $S_2$ に属する。
+$S_2$ との可換性から $z\in Z(S_2)_d$ であり、補題を適用できる。
+$\overline\Omega_2$ は非零で中心的、
+$a\overline\Omega_1+b\overline\Omega_2=0$ なので
+\eqref{tba:eq:quotient-center} を得る。
+\end{proof}
+
+\begin{remark}[中心計算の適用範囲]
+\label{tba:rem:center-scope}
+この命題は三次までの中心を計算する。
+$Z(A^{(3)})_1$ を $Z(A)_3$ と自動的に同一視してはいけない。
+Veronese の中心は増えることがあり、ここではその別の計算を行っていない。
+また一ブロック型の中心 Veronese 復元定理は、階数二以上の中心一次空間を
+用いるため、この満支持型にはそのまま適用できない。
+相対的な中心核の任意底変更を主張する場合にも、
+関係する有限行列の核と余核の局所自由性を別途確認する必要がある。
+\end{remark}
+
+\subsection{二次包絡と中心三次直線}
+
+\begin{proposition}[次数付き商からの二次包絡の復元]
+\label{tba:prop:quadratic-envelope}
+$B=T(V)/(R)$ が次数一生成の二次代数、
+$0\ne w\in B_3$ が左右正則な中心元、$A=B/(w)$ であるとする。
+次数付き代数 $A$ から
+\begin{equation}\label{tba:eq:envelope-recovery}
+ B\simeq T(A_1)/\bigl(\ker(A_1\otimes A_1\to A_2)\bigr),
+ \qquad kw=\ker(B_3\to A_3)
+\end{equation}
+を自然に復元できる。
+従ってこの形の二つの表示間の全次数付き同型は、
+その周囲二次代数間の、中心三次直線を保つ同型へ一意に持ち上がる。
+とくに
+\[
+ \Aut_{\mathrm{gr}}(A)
+ \simeq \Aut_{\mathrm{gr}}(B,kw).
+\]
+\end{proposition}
+\begin{proof}
+次数三の元 $w$ が生成するイデアルには二次以下の成分がない。
+従って $A_1=B_1=V$, $A_2=B_2$ であり、二次乗法核はちょうど $R$ である。
+三次の核は、連結次数付き性 $B_0=k$ により $kw$ に等しい。
+次数付き同型は次数一部分で決まり、二次乗法核と三次核を保つから、
+\eqref{tba:eq:envelope-recovery} によって一意に持ち上がる。
+逆に、そのような周囲同型は商へ降りる。
+\end{proof}
+
+点対応だけから三次直線を読めるという主張は、この命題に含まれない。
+二ブロックでは定理\ref{tbp:thm:point-graph}の点対応が
+$[a:b]$ に依存しない一方、\eqref{tba:eq:envelope-recovery} は
+次数三までの\emph{乗法}を使って、その表示内の直線を回復する。
+
+\begin{proposition}[中心直線の尺度商]
+\label{tba:prop:central-pencil-gerbe}
+二因子 $S_i$ と中心元 $\Omega_i$ を固定する。
+両係数が非零な三次中心直線の空間は
+\[
+ J=\{[a:b]\in\PP(k\Omega_1\oplus k\Omega_2):ab\ne0\}
+   \simeq\mathbf G_m,
+ \qquad r=b/a
+\]
+である。二つのブロックの grading scalar による作用は
+\begin{equation}\label{tba:eq:central-pencil-action}
+ (t_1,t_2)\cdot r=(t_2/t_1)^3r.
+\end{equation}
+従って共通の grading scalar を除いた相対尺度群
+$T=(\mathbf G_m^2)/\mathbf G_m^{\mathrm{diag}}$ に対し、
+\begin{equation}\label{tba:eq:pencil-gerbe}
+ [J/T]\simeq B\mu_3.
+\end{equation}
+この同値は表示した尺度群による商についてのものであり、
+全 $\OO$-marked moduli の同定ではない。
+\end{proposition}
+\begin{proof}
+各ブロックの三次中心元は $\Omega_i\mapsto t_i^3\Omega_i$ と変換される。
+従って作用は \eqref{tba:eq:central-pencil-action} となる。
+$q=t_2/t_1$ により $T=\mathbf G_m$ と同定すると、
+$r=1$ の軌道写像は $q\mapsto q^3$ である。
+これは有限 \'etale 全射で核は $\mu_3$ なので、fpqc 商は $B\mu_3$ である。
+\end{proof}
+
+\begin{remark}
+固定周囲を\emph{同定付き}で扱うと $J$ は一次元である。
+しかし代数閉体上で因子の尺度変更を許せば、全ての $ab\ne0$ は同じ軌道になる。
+従ってこの射影方向を、そのまま粗モジュライの新しい一次元と数えてはいけない。
+一般の体では三乗根の選択が必要であり、尺度作用だけについては
+$k^\times/(k^\times)^3$ がその障害を記述する。
+これは、他の因子自己同型や非分裂表示まで含む全ての形の分類ではない。
+\end{remark}
+
+\subsection{一般二ブロック表示に残る有限慣性}
+
+\begin{theorem}[一般の次数付き慣性の位数 $243$]
+\label{tba:thm:generic-inertia}
+\eqref{tba:eq:finite-order-open} に加えて
+\begin{equation}\label{tba:eq:generic-j}
+ j(E_i)\notin\{0,1728\},\qquad j(E_1)\ne j(E_2)
+\end{equation}
+と仮定する。$G_i=\Aut_{\mathrm{gr}}(S_i)$、
+$\chi_i:G_i\to\mathbf G_m$ を $\Omega_i$ への作用の指標とする。
+このとき $\mathcal H_i=\ker\chi_i$ は位数 $27$ の有限 Heisenberg 群であり、
+任意の $ab\ne0$ について
+\begin{align}
+ \Aut_{\mathrm{gr}}(A_{a,b})
+  &\simeq\{(g_1,g_2)\in G_1\times G_2:
+                         \chi_1(g_1)=\chi_2(g_2)\},
+ \label{tba:eq:aut-fiber-product}\\
+ \Aut_{\mathrm{gr}}(A_{a,b})/\mathbf G_m^{\mathrm{diag}}
+  &\simeq(\mathcal H_1\times\mathcal H_2)/\mu_3^{\mathrm{diag}}.
+ \label{tba:eq:generic-aut-group}
+\end{align}
+右辺の位数は $3^5=243$ であり、中心拡大
+\begin{equation}\label{tba:eq:generic-aut-extension}
+ 1\longrightarrow\mu_3\longrightarrow
+ \Aut_{\mathrm{gr}}(A_{a,b})/\mathbf G_m^{\mathrm{diag}}
+ \longrightarrow E_1[3]\times E_2[3]\longrightarrow1
+\end{equation}
+を持つ。左の $\mu_3$ は相対ブロック尺度であり、点曲線の各成分上には自明に作用する。
+\end{theorem}
+\begin{proof}
+まず一因子について考える。
+幾何的な二次表示 $R_i=I(\Gamma_{\sigma_i})_{1,1}$ により、
+次数付き自己同型を全体の grading scalar で割った群は
+\[
+ G_i/\mathbf G_m
+   =\Aut(E_i,\mathcal L_i,\sigma_i)
+\]
+である。実際、自己同型は関係グラフを保ち、逆に埋込み曲線の同型で
+$\sigma_i$ と可換なものは関係空間を保つ。
+曲線はその平面を張るので、埋込み曲線への制限の核はない。
+
+flex を原点として $\mathcal L_i=\OO_{E_i}(3\cdot0)$ と書く。
+\eqref{tba:eq:generic-j} より、曲線の自己同型は $t_u\varepsilon$、
+$\varepsilon\in\{1,-1\}$ の形である。
+$t_{p_i}$ と可換である条件は $\varepsilon(p_i)=p_i$ であり、
+$2p_i\ne0$ により $\varepsilon=1$ となる。
+$t_u^*\mathcal L_i\simeq\mathcal L_i$ は $3u=0$ と同値なので
+$G_i/\mathbf G_m=E_i[3]$ を得る。
+
+grading scalar $t$ は $\Omega_i$ に $t^3$ で作用する。
+従って $\ker\chi_i$ は $E_i[3]$ の $\mu_3$ による拡大で、位数は $27$ である。
+この群が標準 Heisenberg 群となることも具体的に確認できる。
+Hesse 座標では、原始三乗根 $\zeta$ に対する
+\[
+ (x,y,z)\longmapsto(y,z,x),\qquad
+ (x,y,z)\longmapsto(x,\zeta y,\zeta^2z)
+\]
+は二次 Sklyanin 関係を保つ。両者は位数三で、交換子は
+非自明な三乗根による grading scalar であるため、位数 $27$ の Heisenberg 群を生成する。
+この群が $\Omega_i$ を固定することは既知であり、
+有限位数を仮定しない Smith--Tate の証明
+\cite[p.~36, Remark~(2) after Lemma~3.4]{GRSklyaninST}
+を適用できる。
+従って生成した群は $\ker\chi_i$ 全体である。
+
+次に二ブロックを扱う。
+系\ref{tbp:cor:block-spans}により、次数付き自己同型は
+二つの生成元部分空間 $W_i$ を置換する。
+$j(E_1)\ne j(E_2)$ なので置換は恒等であり、各 $W_i$ を保つ。
+命題\ref{tba:prop:quadratic-envelope}により周囲代数へ一意に持ち上がるから、
+これは $(g_1,g_2)\in G_1\times G_2$ の作用である。
+その中心直線の像は
+$k(a\chi_1(g_1)\Omega_1+b\chi_2(g_2)\Omega_2)$ である。
+$ab\ne0$ より、元の直線を保つことと
+$\chi_1(g_1)=\chi_2(g_2)$ は同値である。
+これで \eqref{tba:eq:aut-fiber-product} を得た。
+
+共通の指標値を $c$ とし、$t^3=c$ となる $t$ を選ぶと、
+$(t^{-1}g_1,t^{-1}g_2)\in\mathcal H_1\times\mathcal H_2$ となる。
+従って \eqref{tba:eq:generic-aut-group} の右辺から左辺への射は全射である。
+核は $\mathcal H_1\times\mathcal H_2$ に属する共通の grading scalar、
+すなわち $\mu_3^{\mathrm{diag}}$ である。
+これで位数と拡大 \eqref{tba:eq:generic-aut-extension} が従う。
+相対尺度は各 $\PP(W_i^*)$ に自明に作用するので、最後の主張も従う。
+\end{proof}
+
+\begin{corollary}[満支持 $\ell$ ブロックに一様な中心と慣性]
+\label{tba:cor:k-block-center-inertia}
+$k$ を標数零の代数閉体、$\ell\geq2$ とし、
+$S_i$ $(1\leq i\leq\ell)$ は上と同じ楕円 Sklyanin 入力を満たすとする。
+$\sigma_i^j\ne\operatorname{id}$ $(1\leq j\leq3)$、
+$j(E_i)\notin\{0,1728\}$、$j(E_i)$ は互いに異なる、と仮定する。
+\[
+ B=\bigotimes_{i=1}^{\ell} S_i,\qquad
+ w=\sum_{i=1}^{\ell} a_i\Omega_i\quad(a_i\ne0),\qquad A=B/(w)
+\]
+と置くと、$w$ は左右正則であり、
+\begin{gather}
+ Z(B)_1=Z(B)_2=Z(A)_1=Z(A)_2=0,\qquad
+ Z(B)_3=\bigoplus_{i=1}^{\ell} k\Omega_i,
+ \label{tba:eq:k-block-centers}\\
+ Z(A)_3=\bigoplus_{i=2}^{\ell} k\overline\Omega_i,
+ \qquad H_A(t)=\frac{1-t^3}{(1-t)^{3\ell}}.
+ \label{tba:eq:k-block-quotient}
+\end{gather}
+非零係数だけを持つ中心直線のトーラス $J_\ell$ と相対尺度トーラス
+$T_\ell=\mathbf G_m^\ell/\mathbf G_m^{\mathrm{diag}}$ に対し
+\begin{equation}\label{tba:eq:k-block-gerbe}
+ [J_\ell/T_\ell]\simeq\mathrm B(\mu_3^{\ell-1}).
+\end{equation}
+さらに $\mathcal H_i=\ker(\Aut_{\mathrm{gr}}(S_i)\to\mathbf G_m)$ を
+次数三中心元への作用の核とすると
+\begin{equation}\label{tba:eq:k-block-inertia}
+ \Aut_{\mathrm{gr}}(A)/\mathbf G_m^{\mathrm{diag}}
+ \simeq \left(\prod_{i=1}^{\ell}\mathcal H_i\right)/\mu_3^{\mathrm{diag}},
+ \qquad
+ \left|\Aut_{\mathrm{gr}}(A)/\mathbf G_m^{\mathrm{diag}}\right|
+ =3^{3\ell-1}.
+\end{equation}
+これは $n=3\ell-2$ の満支持表示についての結果である。
+\end{corollary}
+\begin{proof}
+第一ブロック次数による濾過で
+$\operatorname{gr}A=T_1\otimes S_2\otimes\cdots\otimes S_\ell$ となる。
+命題\ref{tba:prop:low-centers}の証明をそのまま適用し、
+補題\ref{tba:lem:tensor-center}を反復すれば
+\eqref{tba:eq:k-block-centers}--\eqref{tba:eq:k-block-quotient}を得る。
+係数比 $a_i/a_1$ $(i\geq2)$ には尺度比 $(t_i/t_1)^3$ が作用するので、
+トーラスの三倍写像の核から \eqref{tba:eq:k-block-gerbe} が従う。
+
+ブロックの認識にも、二ブロックの点グラフの証明を反復できる。
+第一座標に異なる二ブロックの非零成分があれば、交叉可換関係により
+第二座標は第一座標に比例する。各非零ブロックで
+$\sigma_i$ の固定点を生じるため、これは不可能である。
+第一座標が一ブロック $i$ だけにあれば、交叉関係により第二座標も同じブロックにある。
+さらに $\sigma_i$ に固定点がないので、二座標の非零な小行列式を用いる
+定理\ref{tbp:thm:point-graph}の局所計算が他の全ブロック成分を零にする。
+従って非被約な横断成分もなく、点対応は $\ell$ 個のグラフの直和である。
+中心元 $\Omega_i$ はそれぞれの点加群を消すから、商 $A$ の点対応も同じである。
+各曲線がその平面を張り、$j$ が互いに異なることから、
+全次数付き自己同型は各 $W_i$ を保つ。
+二次包絡の復元と $a_i\ne0$ により、中心三次直線を保つ条件は
+全 $\chi_i(g_i)$ が等しいことである。
+定理\ref{tba:thm:generic-inertia}と同じ共通三乗根の議論で
+\eqref{tba:eq:k-block-inertia}を得る。
+\end{proof}
+
+\begin{remark}[認識問題への帰結]
+\label{tba:rem:inertia-scope}
+Heisenberg 作用そのものと一因子の中心元は既知の入力である。
+ここで組み合わせて得たのは、二次包絡・中心商・ブロックの認識に基づく
+二ブロック表示の全次数付き自己同型群である。
+この有限慣性は一般開をさらに縮めても消えない。
+従って一ブロック一般点の慣性自明性を用いた議論を、そのまま適用することはできない。
+一方、次数付き商 stack が構成できることだけでは、その stack が
+全 $\OO$-保存 Abel 同値を記述することは証明されない。
+その認識と次数一 shift の選択の問題は、別の課題として残る。
+\end{remark}

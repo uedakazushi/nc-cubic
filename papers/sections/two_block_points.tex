@@ -1,0 +1,296 @@
+% !TEX root = ../nc-cubic.tex
+\section{満支持ブロック型の点対応と次数一復元の障害}
+\label{tbp:sec:points}
+
+本節では $k$ を標数零の代数閉体とし、
+$S_i=T(W_i)/(R_i)$ $(i=1,2)$ を三次元楕円型の二次 AS 正則代数とする。
+$\dim W_i=\dim R_i=3$ とし、二次関係の双線型化の零スキームが
+\[
+ \Gamma_i=\Gamma_{\sigma_i}\subset
+ \PP(W_i^*)\times\PP(W_i^*)
+\]
+であると仮定する。ここで $E_i\subset\PP(W_i^*)$ は滑らかな平面三次曲線、
+$\sigma_i:E_i\to E_i$ は固定点を持たない自己同型であり、
+$\Gamma_{\sigma_i}$ はそのグラフである。
+さらに $\Omega_i\in Z(S_i)_3$ は正則元で、
+$S_i/(\Omega_i)=B(E_i,\mathcal L_i,\sigma_i)$ とする。
+この幾何学的表示と中心三次商は Sklyanin 代数の既知の入力である
+\cite[\S1, pp.~20--21]{GRSklyaninST}。
+本節の主張はこれらを満たす表示について述べ、
+固定点を持つ退化や一般の非楕円型へは拡張しない。
+
+全次数で次数付けした tensor 積とその中心三次商を
+\begin{equation}\label{tbp:eq:algebra}
+ V=W_1\oplus W_2,\qquad
+ B=S_1\otimes_k S_2,\qquad
+ A_{a,b}=B/(a\Omega_1+b\Omega_2)
+ \quad ((a,b)\ne(0,0))
+\end{equation}
+と書く。点加群は定理\ref{thm:point-nfold}と同じく、
+次数零から生成され、各次数成分が可逆層で、次数零の自明化を備えるものとする。
+
+\begin{theorem}[二ブロックの点対応]\label{tbp:thm:point-graph}
+$B$ の双線型関係の零スキーム、および $B,A_{a,b}$ の点加群関手は
+\begin{equation}\label{tbp:eq:point-graph}
+ \Gamma_B=\Gamma_1\amalg\Gamma_2,\qquad
+ \operatorname{Pt}(B)=\operatorname{Pt}(A_{a,b})=E_1\amalg E_2
+\end{equation}
+である。shift は各 $E_i$ 上で $\sigma_i$ に等しい。
+これらはスキームとしての等式であり、非被約な試験基底も含めた
+任意の基底変更に両立する。特にブロックをまたぐ横断的な冪零構造はない。
+\end{theorem}
+
+\begin{proof}
+$p=(x,y)$, $q=(x',y')$ を二つの射影座標とする。
+$x,x'$ は第一ブロック、$y,y'$ は第二ブロックの三座標である。
+ブロック間の交換関係は
+\begin{equation}\label{tbp:eq:cross-bilinear}
+ x_\alpha y'_\beta-y_\beta x'_\alpha=0
+ \qquad(1\leq\alpha,\beta\leq3)
+\end{equation}
+を与える。
+
+まず幾何点を調べる。$x,y$ がともに非零ならば、
+\eqref{tbp:eq:cross-bilinear}と $q\ne0$ により $x',y'$ もともに非零で、
+$x'=c x$, $y'=c y$ となる。
+純ブロックの関係は $[x]=\sigma_1([x])$ および
+$[y]=\sigma_2([y])$ を要求するので、固定点なしの仮定に矛盾する。
+$y=0$ ならば $x\ne0$ であり、同じ交換関係から $y'=0$ となる。
+従ってこの点は $\Gamma_1$ に属する。$x=0$ の場合は $\Gamma_2$ に属する。
+
+この集合論的な議論だけでは冪零構造を排除できないので、局所環を調べる。
+$\Gamma_1$ 上では固定点がないため、各点の近傍である小行列式
+\[
+ \Delta_{\alpha\gamma}
+   =x_\alpha x'_\gamma-x_\gamma x'_\alpha
+\]
+が可逆となる。各 $\beta$ について
+\eqref{tbp:eq:cross-bilinear}の $\alpha,\gamma$ の二式を連立すれば、
+この可逆行列式により $y_\beta=y'_\beta=0$ が環の中で従う。
+残る関係はちょうど $\Gamma_1$ の関係である。
+$\Gamma_2$ 上でも同じ議論で $x=x'=0$ を得る。
+幾何点についての前段の議論により、これらの小行列式の開集合は
+$\Gamma_B$ 全体を覆う。従ってスキームとして最初の等式を得る。
+
+二次対応が自己同型のグラフなので、それを満たす点列は初期点から
+一意に決まり、$B$ の点関手は $E_1\amalg E_2$ で表される。
+第一成分上の普遍点加群では、第二ブロックの生成元は全て零に作用し、
+第一ブロックの $\Omega_1$ も twisted homogeneous coordinate ring への
+商表示により零に作用する。第二成分についても同様である。
+従って $a\Omega_1+b\Omega_2$ の三重線型化は全ての普遍点列上で零であり、
+中心三次関係を課しても点関手は変わらない。
+以上は可逆小行列式による環上の消去と普遍点加群の恒等式なので、
+任意の基底変更にも両立する。
+\end{proof}
+
+\begin{corollary}[埋込み点対応による二つのブロックの認識]
+\label{tbp:cor:block-spans}
+埋込み点スキームから、順序を除いて二つの平面
+$\PP(W_1^*),\PP(W_2^*)$、従って分解 $V=W_1\oplus W_2$ を復元できる。
+同じ仮定を満たす二つの中心三次商の次数付き同型は、
+その二つの生成元ブロックを順序の交換を除いて保つ。
+\end{corollary}
+
+\begin{proof}
+$E_1,E_2$ は点スキームの二つの連結成分であり、
+各々がその埋込み平面を張る。
+二つの平面を張るベクトル部分空間は $V^*$ の直和分解を与えるので、
+その双対として $V$ の分解を得る。
+次数付き同型は点関手と次数一の埋込みを同定するので、連結成分とその線型包を保つ。
+\end{proof}
+
+\begin{proposition}[点対応の双線型イデアルは二次関係より大きい]
+\label{tbp:prop:quadratic-saturation}
+$\Gamma=\Gamma_1\amalg\Gamma_2$ とすると、$V^{\otimes2}$ の部分空間として
+\begin{equation}\label{tbp:eq:saturation}
+ H^0(\mathcal I_\Gamma(1,1))
+ =R_1\oplus R_2\oplus(W_1\otimes W_2)\oplus(W_2\otimes W_1).
+\end{equation}
+従って左辺の次元は $24$ である。一方、実際の二次関係空間は
+\begin{equation}\label{tbp:eq:actual-relations}
+ R_B=R_1\oplus R_2\oplus
+ \langle x\otimes y-y\otimes x:
+         x\in W_1,\ y\in W_2\rangle
+\end{equation}
+であり、次元は $15$ である。
+特に一ブロック型の定理\ref{thm:point-envelope}の復元式は、
+この二ブロック型では成立しない。
+\end{proposition}
+
+\begin{proof}
+$V^{\otimes2}$ を四つのブロックに分解すると、
+$\Gamma_i$ への制限で寄与するのは $W_i^{\otimes2}$ だけである。
+そこでの核が $R_i$ であることを確認する。
+$L=\mathcal L_i$, $M=\sigma_i^*\mathcal L_i$ と置けば、
+その核は乗法
+$H^0(L)\otimes H^0(M)\to H^0(LM)$ の核である。
+$L\not\simeq M$ なら、$L$ の基点のない二次元線型系の評価完全列と
+$H^1(ML^{-1})=0$ によりこの乗法は全射である。
+$L\simeq M$ なら、平面三次曲線には二次の方程式がないことにより全射である。
+$h^0(LM)=6$ だから核は三次元で、含まれている $R_i$ に等しい。
+混合した二つのブロックは全て $\Gamma$ 上で零なので
+\eqref{tbp:eq:saturation}を得る。
+tensor 積表示から \eqref{tbp:eq:actual-relations}が従い、
+二つの次元はそれぞれ $3+3+9+9$ および $3+3+9$ である。
+\end{proof}
+
+\begin{remark}[中心直線の不可視性の意味]\label{tbp:rem:pencil}
+点スキーム・埋込み・shift は、固定した $B$ の座標の下で
+中心直線 $k(a\Omega_1+b\Omega_2)$ に依存しない。
+さらに前命題により、点対応だけではブロック間の九本の交換関係も選べない。
+これは点対応から中心直線を直接回復する方法の障害である。
+ただし $ab\ne0$ の全ての中心直線は、代数閉体上では
+ブロック別のスカラー変換による一つの軌道をなす。
+実際、$W_1,W_2$ 上のスカラー $c_1,c_2$ は係数を
+$(a,b)\mapsto(c_1^3a,c_2^3b)$ と変える。
+従ってこの不可視性だけから、同じ点対応を持つ非同型な
+中心三次商の一次元族があるとは結論しない。
+\end{remark}
+
+\begin{proposition}[同じ三次 Veronese を持つ異なる中心三次表示]
+\label{tbp:prop:zhang-ambiguity}
+$\zeta\in k$ を原始三乗根とし、$B$ の自己同型 $\tau$ を
+\[
+ \tau|_{W_1}=\operatorname{id},\qquad
+ \tau|_{W_2}=\zeta\operatorname{id}
+\]
+で定める。斉次元の積を
+$u*v=u\tau^{\deg u}(v)$ とする Zhang twist を $B^\tau$ と書く。
+$w=a\Omega_1+b\Omega_2$ とすると、次が成り立つ。
+\begin{enumerate}
+ \item $w$ は $B^\tau$ でも中心であり、
+ $A_{a,b}^\tau=B^\tau/(w)$ である。
+ $w$ が $B$ 上で正則なら $B^\tau$ 上でも正則である。
+ \item 同じ次数付きベクトル空間を用いた文字通りの等式
+ \[
+   (A_{a,b}^\tau)^{(3)}=A_{a,b}^{(3)}
+ \]
+ が成り立ち、構造対象を保つ同値
+ $\operatorname{QGr}A_{a,b}\simeq\operatorname{QGr}A_{a,b}^\tau$ がある。
+ \item $A_{a,b}$ と $A_{a,b}^\tau$ の埋込み点スキームと shift は等しいが、
+ この二つの代数の間に次数付き同型は存在しない。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$\tau^3=1$ かつ $\tau(w)=w$ である。
+任意の斉次元 $u$ について
+$w*u=wu$ および $u*w=uw$ だから、中心性・正則性および商との可換性を得る。
+$\deg u$ が三の倍数なら $u*v=uv$ なので、三次 Veronese の等式も従う。
+
+Zhang の twist による同値は既知である
+\cite[Theorem~1.1]{TBPZhangTwist}。
+ここでは右加群 $M$ に新しい作用
+$m*u=m\tau^{\deg m}(u)$ を入れれば直接構成できる。
+この関手は次数付きベクトル空間を変えず、逆 twist が逆関手となり、
+正則右加群 $A_{a,b}$ を正則右加群 $A_{a,b}^\tau$ に送る。
+また torsion を保つため $\operatorname{QGr}$ の同値を誘導し、構造対象を保つ。
+noetherian な場合は有限生成対象に制限して $\operatorname{qgr}$ の同値も得る。
+
+twist の純ブロックの二次関係は元と同じであり、混合関係は
+\begin{equation}\label{tbp:eq:twisted-cross}
+ x*y=\zeta\,y*x\qquad(x\in W_1,\ y\in W_2)
+\end{equation}
+となる。第二ブロックの三次語には係数 $\zeta^{1+2}=1$ が掛かるため、
+各 $\Omega_i$ の三次 tensor 代表も同じに取れる。
+双線型混合関係は
+$x_\alpha y'_\beta-\zeta y_\beta x'_\alpha=0$ である。
+両ブロックが非零の幾何点では、各ブロックの二つの射影座標がそれぞれ比例し、
+再び固定点を生じる。純ブロック上では、先の二行二列の消去の
+行列式が可逆スカラー $\zeta$ 倍されるだけである。
+従って定理\ref{tbp:thm:point-graph}と同じスキーム論的証明が通り、
+点対応は全く変わらない。
+
+次数付き同型 $A_{a,b}\to A_{a,b}^\tau$ があると仮定する。
+その点対応への作用と系\ref{tbp:cor:block-spans}の線型包の議論により、
+次数一の同型は $W_1,W_2$ を保つか交換する。
+元の代数ではこの二つの空間の元は互いに可換なので、
+像の二つの空間の元も全て可換でなければならない。
+しかし \eqref{tbp:eq:twisted-cross}により、非零の
+$x\in W_1$, $y\in W_2$ に対して
+$x*y-y*x=(\zeta-1)yx\ne0$ である。
+最後の非零性は、三次商が次数二を変えず、混合次数二部分が
+$W_1\otimes W_2$ に同型であることから従う。
+ブロックを交換しても同じ矛盾を得る。
+\end{proof}
+
+\begin{corollary}[任意個の満支持ブロック]
+\label{tbp:cor:all-blocks}
+上と同じ仮定を満たす $\ell\ge2$ 個の因子を取り、
+\[
+ B=\bigotimes_{i=1}^{\ell}S_i,\qquad
+ V=\bigoplus_{i=1}^{\ell}W_i,\qquad
+ A=B/\left(\sum_{i=1}^{\ell}a_i\Omega_i\right),\qquad a_i\ne0
+\]
+とする。このとき
+\begin{equation}\label{tbp:eq:all-block-points}
+ \Gamma_B=\coprod_{i=1}^{\ell}\Gamma_{\sigma_i},\qquad
+ \operatorname{Pt}(A)=\coprod_{i=1}^{\ell}E_i
+\end{equation}
+であり、任意の基底変更に両立する。
+実際の二次関係空間 $R_B$ と点対応の双線型イデアルの次元は
+\begin{equation}\label{tbp:eq:all-block-defect}
+ \dim R_B=3\ell+9\binom\ell2,\qquad
+ \dim H^0(\mathcal I_{\Gamma_B}(1,1))
+       =3\ell+18\binom\ell2.
+\end{equation}
+従って復元式の次元差は $9\binom\ell2$ である。
+
+さらに $\varepsilon_i\in\mu_3(k)$ を選び、
+$\tau|_{W_i}=\varepsilon_i\operatorname{id}$ とする。
+$n=3\ell-2$, $d=n-1=3\ell-3$ と置くと、
+$w=\sum_i a_i\Omega_i$ は $B^\tau$ でも中心であり、
+\[
+ (A^\tau)^{(d)}=A^{(d)},\qquad
+ (\operatorname{QGr}A^\tau,\OO)\simeq(\operatorname{QGr}A,\OO).
+\]
+$\varepsilon_i$ が全て等しくなければ、$A^\tau$ と $A$ は次数付き同型でない。
+これは異なる twist 同士の同型類の個数を決定する主張ではない。
+\end{corollary}
+
+\begin{proof}
+幾何点の第一座標で複数のブロックが非零なら、二つずつの混合関係から
+各非零ブロックで第一・第二の射影座標が比例し、固定点を生じる。
+従って幾何点は一つの $\Gamma_{\sigma_i}$ に属する。
+そのブロックの固定点なしの条件による可逆な二行二列小行列式を使うと、
+各 $j\ne i$ との混合関係から第 $j$ ブロックの全座標が零となる。
+この環上の消去は横断的冪零構造も除く。
+全ての $\Omega_i$ が各普遍点列上で零に作用するので、中心商を課しても変わらない。
+
+各対角ブロックは三次元の関係空間を持つ。
+異なるブロックの各非順序対について、実際の関係は九次元の交換関係であるが、
+点対応上では二つの向きの全十八次元が零になる。
+これで \eqref{tbp:eq:all-block-defect} を得る。
+
+$\tau^3=1$ かつ $\tau(w)=w$ なので、
+命題\ref{tbp:prop:zhang-ambiguity}と同じ式が中心性と同値を与える。
+$3\mid d$ より $\tau^d=1$ であり、$d$-Veronese の積も元の積と一致する。
+twist 後の混合関係は
+\[
+ x_i*x_j=(\varepsilon_j/\varepsilon_i)x_j*x_i
+ \qquad(x_i\in W_i,\ x_j\in W_j)
+\]
+である。可逆小行列式による証明には非零スカラー倍しか生じないので、
+twist 後も点対応は同じである。
+次数付き同型はその連結成分と線型包を置換する。
+元の代数では異なるブロックが全て可換だから、同型が存在すれば
+twist 後の全てのブロック対も可換でなければならない。
+$\varepsilon_i\ne\varepsilon_j$ となる対では混合次数二の積が非零であり、
+この必要条件に反する。
+\end{proof}
+
+\begin{remark}[O-marked 復元への正確な帰結]\label{tbp:rem:scope}
+命題\ref{tbp:prop:zhang-ambiguity}と系\ref{tbp:cor:all-blocks}は、
+一般の中心三次表示を許した範囲では、
+O-marked 圏も Serre 指数 $d$ の Veronese も次数一表示を一意に決めないことを示す。
+従って中心一次変数を用いる
+定理\ref{thm:nfm-central-veronese}を $U=0$ の場合へ無条件には延長できない。
+ここで $A_{a,b}^\tau$ はブロック間が $\zeta$ 可換な表示であり、
+もとの可換 tensor 積表示のチャートには属さない。
+この例だけで、二つの可換 tensor 積表示の間の全 O-同値が
+次数付き同型から来ないとは結論しない。
+また同じ O-marked 対象に異なる表示を与えているのであり、
+新たな intrinsic 成分を構成したという主張でもない。
+二ブロック型の内在的モジュライには、可換 tensor 積表示の認識と、
+このような次数一の根の曖昧さを区別した議論が必要である。
+\end{remark}

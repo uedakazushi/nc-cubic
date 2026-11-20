@@ -1,16 +1,32 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月21日 / v30。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月21日 / v31。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
-## 0. 複数ブロック型への拡張：現行の入力と障害
+## 0. 満支持複数ブロック型：表示定理と内在化の障害
 
-**研究の新しいP0（未解決）：** `N=n+2=3k+m`、`V=(⊕_{s=1}^kW_s)⊕U`、`dim W_s=3`、`dim U=m` とし、`k≥2` のO-marked非可換三次n-foldの非空開のモジュライと残余幾何を構成する。最初は `k=2,m=0,n=4`、次に `k=2,m=1,n=5`。従来の `r=n−1` と `dim U=r`、低次数中心の公式は *k=1に限る*。多ブロックで `dim U=m` と区別する。
+**設定。** `N=n+2=3k+m`。満支持`m=0,k≥2`について、滑らかな楕円Sklyanin因子`S_i`、中心三次`Ω_i`、平行移動`p_i`を取り、`B=⊗S_i`, `A=B/(Σa_iΩ_i)`、全`a_i≠0`とする。`p_i,2p_i,3p_i≠0`、`j_i≠0,1728`、相異なる`j_i`という非空開では、以下の証明を主論文に与えた。従来の1ブロック記法`dim U=n−1`はここに適用しない。
 
-**古典・量子化の既知入力：** `poisson-cubic` の滑らかな三次Poisson構造のブロック正規形、`cubic-quantization/papers/sections/quantization/general_dimension_universal_quantization.tex` の `thm:pg-all-dimensions`（滑らかな各三変数制限という追加仮定を持つ明示多パラメータ量子化）、同 `full_support_quantization.tex` の `thm:pg-intrinsic-full-support-center`（m=0での満supportの同変的中心三次）。同量子化稿はm>0,k≥2での大域同変中心選択・降下をなお課題としている。量子化稿はambientをA、中心商をBと書くが本稿はB=ambient、A=商なので混同しない。一般MF復元 `gdr:thm:generic` は1ブロック型を仮定しないが、パラメータ族への一様な応用・O-marked射の代数化と同義ではない。
+| 内容 | 状態・仮定・証明所在 |
+| --- | --- |
+| 低次数中心と正則商 | `Z(B)_1=Z(A)_1=0`、三次中心の次元`k,k−1`。第一ブロック濾過とTHCR中心の計算。`tba:prop:low-centers`, `tba:cor:k-block-center-inertia` |
+| 周囲と中心直線の次数付き復元 | 二次乗法核からB、`ker(B_3→A_3)`から商直線。全graded同型も持ち上がる。`tba:prop:quadratic-envelope` |
+| 点対応と復元式の障害 | スキームとして`Pt(A)=⊔E_i`。横断冪零を小行列式で排除。点対応の双線型イデアルは実際の関係より`9 binom(k,2)`次元大きい。`tbp:thm:point-graph`, `tbp:cor:all-blocks` |
+| 中心係数の尺度商 | 全非零中心直線のトーラスを相対block scalarで割ると`B(μ_3^(k−1))`。座標を固定した不可視性を、非同型商の連続族と解釈しない。`tba:prop:central-pencil-gerbe` |
+| 射影的次数付き表示のDM stack | 普遍平面三次の相対Jacobianから構成。非空・滑らか・既約、次元`2k`、全graded同型を任意底変更で認識。`mbs:thm:presentation-stack` |
+| 幾何的慣性 | `(H_27^k)/Δμ_3`、位数`3^(3k−1)`。二ブロックで243。全O保存自己同値群とは未同定。`tba:thm:generic-inertia` |
+| 次数一の根の曖昧さ | 非定数block scalar`ε_i∈μ_3`によるZhang twistは同じ`(3k−3)`-Veronese、O-marked同値だが元の可換tensor表示とgraded非同型。`tbp:prop:zhang-ambiguity`, `tbp:cor:all-blocks` |
+| 二ブロックの同変完備復元 | 既存`cft:thm:complete`を入力に`μ_3`同変比較を選び、`W=W_1(x)+W_2(y)`を得る。`tbr:prop:complete-split` |
+| 一変数一般点のKu比較 | 次数別自由・滑らかな特殊ファイバーを確認し、既存`gdr:thm:generic`を適用。有限拡大後の比較。代数的同変性・K上の分裂・全O降下は未証明。`tbr:cor:generic` |
 
-**最初に検査する障害：** (1) `Z(B)_1` と `Z(B)_3` のファイバーごとの階数・相対有限局所自由性・底変更。満support二ブロックの中心一次は一般に0であり、独立な二つの中心三次方向と指定商直線を扱う。(2) ブロック順序の有限étale被覆・交換対称群・自明でない安定化子の下降。(3) PBW、正則中心三次、相対Koszul/Serreと全O保存完全同値の比較。(4) 点加群、rotation、中心商の内在的認識。(5) 一般MF/windowとcoherent飽和を適用できる明示開、および有限拡大後の同じ可換三次へのKu比較。(6) 残余Poisson射の定義・相対降下・一般次数：1ブロック型の9/18を転用しない。
+**族についての注意。** 普遍底`T`は被約かつ滑らかであり、関係行列の一定階数から上位minorの恒等的消滅を得て、各次数の局所自由性を証明する。その後の任意底変更を扱うので、非被約底上のfiber rankだけからflatnessを推測していない。中心核も同じ有限行列の分裂で扱う。scalarをrigidifyした商stackの対象には、大域的な実際の次数一束・代数が存在するとは限らず、表示gerbeの持上げが別途必要である。
 
-**進捗の区分：** 多ブロックの量子化の存在は別研究に証明のある入力であり、複数ブロックのO-markedモジュライ・残余射は本研究で未証明。今回変更したのは研究優先順位のみであり、新定理、計算、形式証明を得たとは記載しない。1ブロック型の周期位相とscalar index、点型の相対的障害などは有効な研究課題として保持する。
+**内在的O-marked問題に残ること。** 上の`P_k`はgraded表示のstackであり、全O-moduliとは未同定。Zhang反例は可換tensor表示の外にある同じO対象の別表示であって、二つの可換tensor表示間の全O同値を否定する例でも新成分でもない。次は相対AS-Gorenstein双対から飽和・Serreを確保し、Serre指数のVeroneseと次数一の根／twist groupoidを認識する。`Z(A)_3`を`Z(A^(3))_1`と無検証に同一視しない。
+
+**同変比較の次の手。** 完備化での有限群同変性は、不変部分上のformalityと各平方零段階の線形補正により得る。非線形解そのものは平均しない。同変perfect核のcrossed-product dg表示でcoherenceを保った有限降下を行うことが次の課題。残余平面三次が点曲線と一致すること、代数的方程式がK上で分裂することはここでは未証明。
+
+**外部入力と先行研究。** 古典正規形は`poisson-cubic`、全ブロックPBW/AS・中心量子化は`cubic-quantization`の`thm:pg-all-dimensions`, `thm:pg-intrinsic-full-support-center`を正本とする。量子化稿はA=ambient、B=商であり本稿と逆。`m>0,k≥2`の大域同変中心選択は依然未完成。Sklyaninのgraph/THCR中心商・Heisenberg作用はSmith–Tate §1 pp.19–21およびp.36 Lemma3.4後Remark(2)を直接確認し、有限位数仮定が不要な箇所を確認した。ATV6.6/6.8は既存書誌の引用で、今回ATV原本文の直接再照合はしていない。Zhang (1996) Theorems3.1,3.7と明示twist関手を確認した。Hu arXiv:2312.17392v1 Theorems0.1,5.8の`Ku(Y)^μ_3≃D^b(E_1×E_2)`は可換側の既知の同変圏の結果であり、通常のKuへの置換はしない。二つのSklyanin因子の分類やこの既知同値自体を新成果として数えない。
+
+**再現。** `python3 computations/verify_two_block_structure.py`は二つの具体的な有理Sklyanin因子の関係から次数4までの商を構成し、中心三次を自動計算する。中心次元`(0,0,2)`と中心商の`(0,0,1)`、Hilbert値、Heisenberg中央積の位数243・中心位数3、`μ_3`不変三次の次元20を有理数上で確認する。一般証明、スキーム論的点対応、圏同値、stackの降下の代用ではない。実行と組版の範囲は`notes/validation.md`を正本とする。
 
 ## 1. 記法と成果の確実性
 

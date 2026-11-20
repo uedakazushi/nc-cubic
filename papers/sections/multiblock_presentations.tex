@@ -1,0 +1,185 @@
+% !TEX root = ../nc-cubic.tex
+\section{満支持ブロック型の次数付き表示スタック}
+\label{mbs:sec:presentations}
+
+本節では、前二節の認識を族としてまとめる。
+構成するのは、全体の grading scalar を除いた\emph{次数付き表示}のスタックである。
+次数一 shift を忘れた全 $\OO$-保存 Abel 同値との比較は、
+命題\ref{tbp:prop:zhang-ambiguity}の障害を踏まえて別問題とする。
+二ブロックの場合だけでなく、中心一次変数のない任意のブロック数を扱う。
+以下、基礎体は $\C$、ブロック数は $k\geq2$、$N=3k$, $n=3k-2$ とする。
+
+\subsection{一因子の族と中心直線束}
+
+$W=\C^3$ とし、$\mathcal H\subset\PP(\Sym^3W)$ を
+滑らかな平面三次曲線で $j\ne0,1728$ となる開部分とする。
+普遍曲線を $\pi:\mathcal E\to\mathcal H$、
+その実際の次数三線束を $\mathcal L=\OO_{\mathcal E}(1)$ と書く。
+相対 Jacobian $\mathcal J=\Pic^0(\mathcal E/\mathcal H)$ の中で
+\begin{equation}\label{mbs:eq:factor-chart}
+ \mathcal T=\{(E,p):p\ne0,\ 2p\ne0,\ 3p\ne0\}
+       \subset\mathcal J
+\end{equation}
+を取る。曲線 $E$ 自体に原点を選ぶ必要はない。
+genus-one 曲線はその Jacobian の torsor なので、$t_p:E\to E$ は自然に定まる。
+$\mathcal H$ は滑らかな既約九次元スキーム、$\mathcal T$ は
+滑らかな既約十次元スキームであり、$\mathcal T\to\mathcal H$ は全射である。
+
+\begin{lemma}[普遍二次代数と普遍三次中心]
+\label{mbs:lem:factor-family}
+$\mathcal T$ 上に、各幾何点で Sklyanin 代数
+$S(E,\mathcal L,t_p)$ を与える二次代数 $\mathcal S$ が存在する。
+各 $\mathcal S_d$ は階数 $\binom{d+2}{2}$ の有限局所自由加群であり、
+任意の底変更と両立する。三次中心
+\[
+ \mathcal C=\ker\bigl(\mathcal S_3
+      \longrightarrow\Hom(W\otimes\OO_{\mathcal T},\mathcal S_4)\bigr),
+ \qquad c\longmapsto(v\longmapsto cv-vc)
+\]
+は直和因子となる直線束で、その形成も任意の底変更と両立する。
+$\GL(W)$ はこの構成全体に作用し、grading scalar $t$ は
+$\mathcal T$ 上では自明、$\mathcal C$ 上では重み三で作用する。
+\end{lemma}
+\begin{proof}
+普遍曲線を $\mathcal T$ に引き戻し、添字を省略する。
+二次関係束を
+\begin{equation}\label{mbs:eq:relative-relations}
+ \mathcal R=\ker\left(
+ W\otimes W\otimes\OO_{\mathcal T}
+ \longrightarrow\pi_*(\mathcal L\otimes t_p^*\mathcal L)\right)
+\end{equation}
+で定める。第二因子の切断は $t_p^*$ で引き戻してから乗じる。
+$3p\ne0$ により、各幾何ファイバーで
+$t_p^*\mathcal L\not\simeq\mathcal L$ である。
+命題\ref{tbp:prop:quadratic-saturation}の基点のない pencil の議論で
+この乗法は全射となる。次数六の線束の $H^1$ は消えるので、
+右辺は底変更に両立する階数六束であり、$\mathcal R$ は階数三の直和因子である。
+$\mathcal S=T(W\otimes\OO_{\mathcal T})/(\mathcal R)$ と置く。
+
+各ファイバーの AS 正則性・Hilbert 級数・点グラフ・正則中心三次は
+Sklyanin 代数の既知の幾何的構成から従う
+\cite[Theorems~6.6, 6.8]{GRSklyaninATV}
+\cite[\S1, pp.~20--21]{GRSklyaninST}。
+相対的な局所自由性は、ファイバーの次元だけを理由に仮定しない。
+固定した次数 $d$ では、関係の全ての挿入を用いて
+$\mathcal S_d$ を有限自由加群間の行列の余核として局所的に表示できる。
+その行列の階数は全幾何点で一定である。
+基底 $\mathcal T$ は被約なので、一つ上の大きさの全小行列式は恒等的に零となる。
+最大非零小行列式を可逆にした開集合では行列は一定階数の標準形となり、
+余核は所定の階数で局所自由、底変更にも両立する。
+この議論を各次数に適用する。次数ごとに別の局所自明化でよく、
+無限個の開集合の交叉を非空と仮定していない。
+
+中心の交換子行列も同様に扱える。
+補題\ref{tba:lem:tensor-center}により、各幾何点の三次中心は一次元である。
+従ってその行列は階数九であり、同じ小行列式の議論で
+核 $\mathcal C$ は直和因子、像と余核も局所自由となる。
+そのため非平坦・非被約な試験基底への変更でも中心核の等式が保たれる。
+座標変換への共変性は \eqref{mbs:eq:relative-relations} と交換子の定義から従い、
+三次元への scalar 作用は $t^3$ である。
+\end{proof}
+
+\subsection{中心商のパラメータと全次数付き同型}
+
+$\mathcal U_k\subset\mathcal T^k$ を $j(E_i)\ne j(E_j)$ $(i\ne j)$ の開部分とし、
+そこへ引き戻した中心直線束を $\mathcal C_i$ と書く。
+本節の $\PP(\bigoplus_i\mathcal C_i)$ は直線部分束のパラメータ空間とする。
+各成分への射が可逆となる開部分
+\begin{equation}\label{mbs:eq:center-chart}
+ \mathcal X_k=\left\{\ell\subset\bigoplus_{i=1}^k\mathcal C_i:
+       \ell\longrightarrow\mathcal C_i\text{ が全て同型}\right\}
+       \subset\PP\left(\bigoplus_{i=1}^k\mathcal C_i\right)
+\end{equation}
+を取る。各ファイバーは $(\mathbf G_m)^{k-1}$ である。
+周囲代数 $\mathcal B=\bigotimes_i\mathcal S_i$ と
+三次イデアル $\ell$ による商 $\mathcal A=\mathcal B/(\ell)$ が存在する。
+局所的な中心生成元で書けば $w=\sum_i a_i\Omega_i$, $a_i\in R^\times$ となる。
+
+\begin{theorem}[満支持型の滑らかな表示 DM stack]
+\label{mbs:thm:presentation-stack}
+共通の grading scalar を除いた群を
+\[
+ \overline G_k=\GL_3^k/\mathbf G_m^{\mathrm{diag}},
+ \qquad G_k=\overline G_k\rtimes\mathfrak S_k
+\]
+と置く。このとき
+\begin{equation}\label{mbs:eq:stack}
+ \mathfrak P_k=[\mathcal X_k/G_k]
+\end{equation}
+は有限型の滑らかな既約 Deligne--Mumford stack であり、
+\begin{equation}\label{mbs:eq:dimension}
+ \dim\mathfrak P_k=2k.
+\end{equation}
+これは、fpqc 局所的に上の満支持 tensor 商表示を持つ対象と、
+全次数付き同型を共通の grading scalar で割った射のスタックである。
+ブロックの順序は標識に含めない。
+
+各幾何点の慣性群は
+\begin{equation}\label{mbs:eq:inertia}
+ \left(\prod_{i=1}^k\mathcal H_i\right)/\mu_3^{\mathrm{diag}},
+ \qquad |\mathcal H_i|=27,
+ \qquad |\operatorname{Inertia}|=3^{3k-1}
+\end{equation}
+であり、$\mathcal H_i$ は各因子の中心三次を固定する Heisenberg 群である。
+とくに $k=2$ は次元四で、慣性群の位数は $243$ である。
+$\mathcal A$ は次数別有限局所自由で、任意底変更に両立し、
+Hilbert 級数は $(1-t^3)/(1-t)^{3k}$ となる。
+\end{theorem}
+\begin{proof}
+$\mathcal X_k$ は滑らかな既約 $(11k-1)$ 次元スキームである。
+共通 scalar は各 $\mathcal C_i$ に同じ三乗で作用するため、
+その射影直線 $\ell$ を固定する。従って作用は $G_k$ を経由する。
+$G_k$ は滑らかで次元 $9k-1$ なので、商は滑らかで表示した次元を持ち、既約である。
+
+各ファイバーで $w$ の第一ブロックの最高記号は
+$a_1\Omega_1$ であり、左右非零因子である。
+命題\ref{tba:prop:low-centers}と同じ濾過の議論により $w$ は正則である。
+固定次数の乗法
+$\ell\otimes\mathcal B_{d-3}\to\mathcal B_d$ は全幾何ファイバーで単射なので、
+単元となる最大小行列式の開集合で分裂単射となる。
+従って余核は局所自由で、底変更と Hilbert 級数の主張を得る。
+
+次に全ての次数付き同型を認識する。
+定理\ref{tbp:thm:point-graph}の証明を各二ブロックに適用すると、
+相対点対応は $\coprod_i\Gamma_{\sigma_i}$、点スキームは $\coprod_iE_i$ である。
+一つの純ブロック上の可逆小行列式は、他の全ブロックの二組の座標を消す。
+従ってこの等式は任意の試験基底でも成立する。
+曲線の族は proper smooth で幾何学的に連結なファイバーを持つので、
+その成分の相対スキームは
+$\operatorname{Spec}(\pi_*\OO_{\coprod E_i})$、すなわち階数 $k$ の有限 \'etale スキームである。
+全同型はこの成分スキームを保ち、\'etale 局所的にはブロックを置換する。
+各曲線が張る平面は、次数一切断の制限核から底変更と両立して回復される。
+このため、非被約な試験基底を含め、余分なブロック混合の同型は現れない。
+
+ブロックの順序を合わせると、同型は各 $W_i$ の可逆線形写像からなり、
+二次関係により各幾何的因子を同定する。
+命題\ref{tba:prop:quadratic-envelope}の積の核による議論は局所自由な族でも同じであり、
+さらに三次核 $\ell$ を保つことが商の同型の必要十分条件となる。
+従って全次数付き同型の層は上の $\GL_3^k\rtimes\mathfrak S_k$ 作用で与えられ、
+共通 scalar を除くと \eqref{mbs:eq:stack} の射となる。
+非分裂表示はこの局所的記述の fpqc stack 化で扱う。
+scalar を除いた商では、対象が大域的な次数一ベクトル束や実際の次数付き代数を
+持つとは限らない。それらを選ぶには
+$\GL_3^k\rtimes\mathfrak S_k$ への持上げが別に必要である。
+ここでの分類はこの意味での射影的な次数付き表示である。
+
+幾何点では $j$ が相異なるため安定化子に非自明なブロック置換はない。
+定理\ref{tba:thm:generic-inertia}の証明を $k$ 因子で繰り返すと、
+全ての中心指標 $\chi_i(g_i)$ が共通の値となることが必要十分である。
+その共通三乗根による scalar を除けば
+$\prod_i\mathcal H_i$ となり、残る共通核は $\mu_3^{\mathrm{diag}}$ である。
+これで \eqref{mbs:eq:inertia} を得る。
+標数零で各安定化子は有限 \'etale、従って商の対角は不分岐であり、
+有限型のこの商 stack は Deligne--Mumford である。
+\end{proof}
+
+\begin{remark}[この表示スタックと内在的モジュライの間]
+\label{mbs:rem:intrinsic-boundary}
+上の結果は非空開上の次数付き表示の同型問題を解くが、
+$\mathfrak P_k$ を全 $\OO$-marked moduli と同定するものではない。
+相対 Serre 関手、次数一の根、全 Abel 同値およびその効果化を経る必要がある。
+また、全 intrinsic 成分の被覆、Poisson 射、Ku 比較の全 $\OO$-降下は結論しない。
+Heisenberg 作用、Sklyanin 因子の幾何的分類、quotient stack の一般論は既知の入力であり、
+ここではそれらと中心商・ブロック認識を組み合わせた表示を与えた。
+この組合せの新規性について網羅的な文献確認は未完了である。
+\end{remark}

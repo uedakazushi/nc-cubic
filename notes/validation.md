@@ -1,23 +1,17 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月21日 / v28。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月21日 / v31。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
-## 現在の構成と今回の確認
+## 現行v31の確認
 
-| 論文 | 独立ソース検査 | LuaLaTeX組版 |
-| --- | --- | --- |
-| `papers/nc-cubic.tex` | 33入力、710一意ラベル、471参照ラベル、128引用キー | 成功、379頁、PDF・SyncTeX生成 |
-| [量子化論文](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) | 18入力、445一意ラベル、181参照ラベル、25引用キー | 成功、89頁、PDF・SyncTeX生成 |
+- **原稿に証明を記載し内部点検した範囲：** 満支持二ブロックの点グラフのスキーム論的同定、点イデアル24対関係15、Zhang twistによる同じVeronese／O圏のgraded非同型例、低次数中心、中心係数尺度商、慣性243。さらに満支持任意ブロック数の系と、次元2kの射影的graded表示DM stackを証明した。執筆担当以外による中心・慣性・同変完備比較・表示stackの独立した内部読解も行った。
+- **条件付きの適用：** 二ブロックの同変完備比較は既存の`cft:thm:complete`を、一変数一般点のKu比較は`gdr:thm:generic`を入力として、今回の入力の次数別自由性・滑らかさと有限群同変化を確認した。基礎MF/window/coherent飽和定理の全証明を今回再証明したものではない。同変代数化・全O降下は未実施。
+- **一次資料：** Smith–Tate §1 pp.19–21、p.36 Lemma3.4後Remark(2)のHeisenberg不変性、Zhang (1996) Theorems3.1・3.7、Hu arXiv:2312.17392v1 Theorems0.1・5.8を確認。ATV6.6/6.8は既存引用・Smith–Tateによる明示参照を使い、今回ATV原本文の直接再照合とはしない。先行研究の網羅的調査と新規性確定は未完了。
+- **今回実行した厳密計算：** `python3 computations/verify_two_block_structure.py`。係数`(1,2,3)`, `(1,3,4)`の二因子を、定義関係から独立に次数4まで構成した。中心三次を保存公式なしで求め、Bの中心次元`(0,0,2)`、Aの中心次元`(0,0,1)`、AのHilbert値`1,6,21,55,120`をQQ上で確認した。Heisenberg中央積の位数243・中心位数3・指数3と、相対μ3不変三次空間の次元20も確認した。一般のスキーム等式、圏同値、stackの降下を計算で検証したという意味ではない。
+- **ソース整合：** `python3 scripts/check_sources.py` は37 TeX入力、769一意ラベル、511参照ラベル、130引用キーで成功。`git diff --check`も成功。主稿以外への外部aux/PDF依存はない。
+- **LuaLaTeX組版と表示：** `latexmk -lualatex papers/nc-cubic.tex` が終了コード0で成功し、395頁のPDFとSyncTeXを`build/`へ生成した。未定義参照・重複ラベル・文字欠落・Overfull/Underfull警告はない。既存の小サイズ数式フォントの代替と旧`\rm`命令の警告は残る。生成PDFの1・73・82・84頁を画像で確認し、表題・要約、Zhang twist命題、表示stack定理、同変完備復元命題の表示に欠落・重なりがないことを確認した。全395頁の目視確認、VS Code上のUI動作確認は行っていない。PDF・組版中間物・確認画像はGit追跡しない。
 
-`python3 scripts/check_sources.py` は二論文を別々に検査し、全51個の論文TeXを覆うことも確認した。他論文のラベルによって欠落を隠さない。両稿の最終ログに未定義の参照・引用、重複ラベル、overfull、欠字はない。既存のフォントサイズ代替・microtype/LuaTeX-ja互換性の警告は残る。画像確認は主論文の1・4・370・379頁、量子化論文の1・9・74・84・87頁について行い、確認した頁に切れ・重なり・欠字は見られなかった。全379頁・全89頁の目視検査とはしていない。
-
-古典論文も独立に37頁へ組版した。元のPoisson/量子化主稿の569ラベルは分割後の二稿にすべて残り、定理・命題・補題・系等の合計も保持した。量子化稿で正規形を引用付き再掲した定理一つだけが増えている。全体移管した12節の3156数式断片は順序も含め逐語的に一致した。これは編集上の保存確認であり、全数学的証明の再検証ではない。
-
-今回再実行した量子化計算は、`verify_nonelliptic_point_curves.py`、`verify_nonelliptic_quantization.py`、`verify_general_dimension_multiblock.py`（6例）で、すべて `cubic-quantization/computations/quantization/` に置く。全21 Pythonの構文も検査した。具体的対象・hash・保存済みの検証との区別は [量子化検証記録](https://github.com/uedakazushi/cubic-quantization/blob/main/validation_quantization.json) を正本とする。本来の非可換復元・Picard・境界低積・Jacobiの既存検証器は今回再実行していない。
-
-移した補助ノート `notes/relative_construction_obstacles.tex`（24頁）、`notes/central_cubic_generic_smoothness.tex`（3頁）もLuaLaTeX組版した。前者の1頁と後者の2頁を画像で確認し、表示上の問題は見られなかった。独立した公表論文には数えず、本文へ無条件に取り込まない補助知識として保持する。
-
-今回の作業は三論文への分割、引用先・再現資産・現在の研究方針の整合と、その範囲の検証である。新しい数学定理の証明、全証明の再読、Lean等の形式検証、外部査読、先行研究の網羅的な再調査は行っていない。
+旧来の一ブロック、Jacobi、Picard、Hessian、境界低積等の検証器は今回再実行していない。外部量子化稿・三様体稿の組版や計算の現行状態はそれぞれのrepoを正本とする。Lean等の形式検証、外部査読は行っていない。下記に保持する点検結果を今回の再実行と読み替えない。
 
 ## 保持する数学的点検の範囲
 

@@ -1,8 +1,8 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月21日 / v30。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月21日 / v31。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
-**本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 完備MF移送、一般中心三次変形の可換復元、良い一ブロックのO-markedモジュライ、残余Poisson射、Kuznetsov成分の比較と降下障害を扱う。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
+**本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 完備MF移送、一般中心三次変形の可換復元、良い一ブロックのO-markedモジュライ、満支持複数ブロック型の次数付き表示、残余Poisson射、Kuznetsov成分の比較と降下障害を扱う。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
 
 ## 可換復元・モジュライの内容
 
@@ -45,14 +45,19 @@
 
 外部の古典入力は [poisson-cubicの論文](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex) のPoisson正規形であり、代数的量子化の入力は別repoの [cubic-quantization.tex](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) である。旧論文Bの一般点復元は現行主原稿内に証明を統合した。統合は結果を新たに今回証明したという意味ではない。
 
-## 現在の研究目標
+## 満支持複数ブロック型の到達点と次の目標
 
-**最優先（P0）は、既に得た1ブロック型のO-markedモジュライ・点復元・残余Poisson射・Kuznetsov比較を複数ブロック型へ拡張すること。** 最初に `n=4,k=2,m=0`（満supportの2ブロック三次四様体）で、中心三次線の内在的識別、fpqcモジュライの非空開、全O保存同値、一般MF復元の仮定を確かめたKu比較を目指す。その後 `n=5,k=2,m=1` を調べ、一般 `k≥2` を目指す。**この拡張は未証明の研究目標であり、下に列挙する1ブロック既証成果を複数ブロックへ拡張済みとは扱わない。**
+**満支持`k≥2,m=0`の次数付き表示について、次元`2k`の滑らかな既約DM stackを構成した。** `B=⊗S_i`, `A=B/(Σa_iΩ_i)`、全係数非零、滑らかな楕円因子で`p_i,2p_i,3p_i≠0`、相異なる一般`j_i`という非空開の結果。共通grading scalarを除いた幾何的慣性は`(H_27^k)/Δμ_3`、位数`3^(3k−1)`であり、**二ブロック三次四様体では次元4・慣性243**となる。これは射影的なgraded表示のstackで、全O-marked圏のstackとの同定は未証明。
 
-入力の正本は、古典Poisson正規形の [poisson-cubic](https://github.com/uedakazushi/poisson-cubic)、多ブロック中心三次PBW量子化の [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) である。一般中心三次の完備MF・可換復元 `gdr:thm:generic` は本repoですでに1ブロック仮定なしで証明されているが、任意の多ブロック族への適用にはその具体的仮定・coherent飽和・降下を個別に確認する必要がある。多ブロックでは中心次数3の階数・ブロック交換が異なり、1ブロック型のPoisson射の次数9/18もそのまま適用できない。
+- [点対応とZhang twist](papers/sections/two_block_points.tex)：点スキームは`⊔E_i`。点対応から二次関係を復元すると`9 binom(k,2)`次元の余分な関係が入り、二ブロックでは24対15となる。非自明なblock `μ_3` twistは同じSerre指数のVeroneseとO-marked圏を持ちながらgraded非同型。
+- [中心・中心直線・自己同型](papers/sections/two_block_algebra.tex)：三次中心の次元`k,k−1`、二次包絡と商直線の復元、中心係数の尺度商`B(μ_3^(k−1))`、全graded慣性を証明。中心係数比を新たな粗modulusとして数えない。
+- [表示スタック](papers/sections/multiblock_presentations.tex)：普遍平面三次の相対Jacobianから非空開を構成し、局所自由性・任意底変更・全graded同型を検証。scalarを除く商では実際の大域代数の存在に持上げ障害が残る。
+- [二ブロック完備復元](papers/sections/two_block_recovery.tex)：既存MF定理の下で`μ_3`同変比較を選び、復元potentialが`W_1(x)+W_2(y)`に分裂する。一変数一般点の有限拡大上のKu比較も仮定確認後に得る。同変代数化・全O降下・点曲線との同定は未証明。
+- [厳密有限検算](computations/verify_two_block_structure.py)：有理Sklyanin因子の次数4までの関係と中心、Heisenberg中央積の位数243を再現。一般証明と圏同値は計算の結論に含めない。
 
-**継続課題（P2）：** 既存1ブロック型の大域周期位相 `β_n=γ̄_n/[D]` と三次位相体上のscalar indexは未解決だが、公表価値ある結果と証明を保持し、複数ブロック型の構造的拡張を優先する。具体的な手順・達成基準・仮定の一覧は [研究方針](00_research_plan.md) に置く。
+**P0の次の一手**は、二ブロックで全O保存同値と次数一の根のgroupoidを認識し、相対Serre・飽和を確保して表示stackから内在的モジュライへ進むこと。同時に`μ_3`同変比較核を代数化し、可換側の既知の同変Ku／楕円積比較に接続する。その後`k=2,m=1,n=5`を扱う。量子化の`m>0,k≥2`同変中心選択は外部repoでも未完成であり、既知入力としない。
 
+既存1ブロック型の大域周期位相`β_n=γ̄_n/[D]`と位相体上scalar indexはP2として保持する。具体的な仮定・証明箇所・残る課題は[研究方針](00_research_plan.md)、実際の検証範囲は[検証記録](notes/validation.md)を参照する。新規性の網羅的確認・外部査読・形式証明は未実施。
 
 **一般次元の O-marked moduli、point scheme、Poisson 多様体のモジュライへの射、Kuznetsov 成分の比較**を中心に進める。各既約成分の general / very general な対象を優先し、次元に一様な定理と族の構成を目指す。general な稠密開と very general な点集合、一ブロックの表示成分と全モジュライの成分は区別する。
 
@@ -243,6 +248,7 @@ Jacobi 行列の普遍的な階数上界は Gesmundo–Landsberg の Koszul flat
 ```bash
 python3 -m pip install -r requirements.txt
 python3 scripts/check_sources.py
+python3 computations/verify_two_block_structure.py
 python3 computations/verify_center_hessian.py
 python3 computations/verify_geometric_corrections.py
 python3 computations/verify_active_invariants.py

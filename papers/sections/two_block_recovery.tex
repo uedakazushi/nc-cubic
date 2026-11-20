@@ -1,0 +1,172 @@
+% !TEX root = ../nc-cubic.tex
+\section{二ブロック型の完備復元と一般点比較}
+\label{tbr:sec:recovery}
+
+本節では周囲代数を$B$、中心三次商を$A$と書く。
+第\ref{gdr:sec:main}節の局所的な記号$A_R,B_R$とは順序が逆である。
+二ブロックの量子化の存在は外部入力であり、ここでは与えられた族に対して
+既存の完備移送定理と一般点復元定理の仮定を確認する。
+新たに確認するのは、ブロックの相対三乗根作用を保つ完備移送を選べることと、
+その復元potentialに混合三次項が現れないことである。
+この形式的な主張と、代数的な$\mathcal O$-markedモジュライへの降下は区別する。
+
+\subsection{中心三次和の滑らかな特殊ファイバー}
+
+$(R,\mathfrak m)$を剰余体$\mathbb C$のnoetherian局所$\mathbb C$-代数とする。
+$D_1,D_2$は非負次数付き中央$R$-代数で、
+$(D_i)_0=R$、各次数成分は有限自由、
+\[
+ D_1/\mathfrak mD_1=\mathbb C[x_1,x_2,x_3],\qquad
+ D_2/\mathfrak mD_2=\mathbb C[y_1,y_2,y_3]
+\]
+と仮定する。中心元$\Omega_i\in Z(D_i)_3$の剰余$f_i$は
+それぞれ滑らかな平面三次曲線を定めるものとし、$c_1,c_2\in R^\times$を取る。
+通常のテンソル積に全次数を入れ、
+\begin{equation}\label{tbr:eq:input}
+ B=D_1\otimes_RD_2,\qquad
+ w=c_1(\Omega_1\otimes1)+c_2(1\otimes\Omega_2),\qquad A=B/(w)
+\end{equation}
+と置く。テンソル積の交換式にsuper符号は付けない。
+
+\begin{lemma}[二ブロック入力の次数別自由性と正則中心商]
+\label{tbr:lem:input}
+上の入力では$B_d$は階数$\binom{d+5}{5}$の有限自由$R$-加群である。
+$w$は左右正則で、$A_d$は有限自由、形成は任意の通常の底変更と両立する。
+そのHilbert級数は$(1-t^3)/(1-t)^6$である。
+特殊ファイバーの方程式
+\[
+ F(x,y)=\overline c_1f_1(x)+\overline c_2f_2(y)
+\]
+は滑らかな三次四様体を定める。
+\end{lemma}
+\begin{proof}
+次数$d$のテンソル積は
+$\bigoplus_{p+q=d}(D_1)_p\otimes_R(D_2)_q$である。
+各因子の階数は剰余の多項式環のHilbert関数なので、畳込みにより表示した階数を得る。
+$F$の全偏微分が消える点では、$f_1$の三偏微分と$f_2$の三偏微分が
+それぞれ消える。滑らかな平面三次の偏微分の共通アフィン零点は原点だけであるから、
+六変数すべてが零となる。従って射影的特異点は存在しない。
+
+固定次数の乗法$w:B_{d-3}\to B_d$を有限自由加群間の行列で表す。
+その剰余は非零多項式$F$の乗法であり、単射である。
+従って列数と同じ大きさの小行列式の一つは$R$の単元となる。
+基底変換でこの行列を$\binom{I}{0}$にできるので、分裂単射で余核は自由である。
+中心性により左右の乗法は一致する。各次数の分裂完全列を底変更しても完全であり、
+Hilbert級数の公式もこの完全列から従う。
+\end{proof}
+
+\subsection{相対三乗根作用を保つ完備移送}
+
+以下では$R$をさらに完備とする。原始三乗根$\zeta\in\mathbb C$を固定し、
+$G=\mu_3$の生成元を$D_1$の次数$d$成分で$\zeta^d$倍、
+$D_2$上で恒等として作用させる。この作用は$w$を保つ。
+可換座標側では$(x,y)\mapsto(\zeta x,y)$である。
+
+\begin{proposition}[完備復元potentialの二ブロック分解]
+\label{tbr:prop:complete-split}
+定理\ref{cft:thm:complete}の構成を式\eqref{tbr:eq:input}へ適用するとき、
+復元potentialと有限rank graded MFの同値を$G$同変に選べる。
+そのpotentialは
+\begin{equation}\label{tbr:eq:split-potential}
+ W=W_1(x_1,x_2,x_3)+W_2(y_1,y_2,y_3),\qquad
+ W_i\bmod\mathfrak m=\overline c_i f_i
+\end{equation}
+となる。各$V(W_i)\subset\mathbb P^2_R$および$V(W)\subset\mathbb P^5_R$は滑らかである。
+同値は内部shift、剰余の恒等同値、指定された三次周期を保ち、
+$R/\mathfrak m^{q+1}$への切断と両立する。
+\end{proposition}
+\begin{proof}
+まず次数別の加群同定を$G$同変に選ぶ。
+剰余の単項式基底の任意の持上げが定める線形写像を
+$|G|^{-1}\sum_{g\in G}g(-)g^{-1}$で平均する。
+その剰余は元の$G$同変な同定であり、有限自由加群間のNakayamaにより同型である。
+次数零では単位を固定する。この同定で戻した結合積は$G$不変となる。
+
+補題\ref{cft:lem:model}のnormalizedかつ内部weight零のHochschild複体と
+polyvector複体を考える。有限群の不変部分を取る操作は標数零で完全であり、
+HKRおよび線形共変なKontsevich写像は$G$同変である。
+従って同補題で使う準同型は不変部分へ制限しても準同型となる。
+各Artin切断の冪零Maurer--Cartan比較をこの不変部分で行えば、
+formal Poisson tensor $\pi$と厳密代数同型$\phi$を$G$同変に選べる。
+具体的には、既存の低次jetを固定した各平方零の持上げ段階の線形な補正方程式に
+Reynolds平均を適用する。
+完成した非線形のPoisson解や代数同型を平均する操作ではない。
+これは命題\ref{gre:prop:hesse-normalform}で用いた有限対称群の議論と同じである。
+
+補題\ref{cft:lem:center}の中心写像$C_\pi$は$G$同変であり、三次成分上で可逆である。
+$w$は不変なので、$W=C_\pi^{-1}(\phi(w))$も不変となる。
+三次単項式の$x$次数は$0,1,2,3$のいずれかである。
+$G$不変性はこの次数が三の倍数であることを要求するため、
+不変三次空間は
+\[
+ R[x_1,x_2,x_3]_3\oplus R[y_1,y_2,y_3]_3
+\]
+であり、式\eqref{tbr:eq:split-potential}を得る。
+剰余は$F$なので各$W_i$の剰余も表示通りである。
+各平面三次の判別式は剰余で非零、従って$R$の単元である。
+六変数の$W$も同じ理由、または補題\ref{tbr:lem:input}の勾配計算で滑らかとなる。
+
+最後に実際の同値の同変性を確認する。
+補題\ref{cft:lem:primitive}の$\Xi$は$\pi=[\Xi,W]$を満たす唯一の定数trivectorであり、
+$\pi,W$の不変性から$\Xi$も不変である。
+周期変数$t$を$G$で固定すると、$\eta=\Xi/t$、曲率付き経路と
+補題\ref{cft:lem:arity}のcoderivationはすべて$G$同変である。
+従って補題\ref{cft:lem:flow}の順序付き積分と逆flowも$G$同変となる。
+各Taylor成分が同変なので、MF行列を代入する構成は係数への$G$作用と可換する。
+次数別収束、有限rank、内部shift、周期とArtin切断の両立は
+定理\ref{cft:thm:complete}の同じ評価から従う。
+\end{proof}
+
+この命題は既存の完備MF比較を入力とする帰結であり、その基礎定理の独立な再証明ではない。
+また、$W_i$の係数はここでは計算していない。
+とくに$V(W_i)$を各Sklyanin因子の点曲線と同一視する結果を含まない。
+
+\subsection{一変数の一般点と代数的降下の境界}
+
+\begin{corollary}[二ブロック一変数族への一般点復元の適用]
+\label{tbr:cor:generic}
+式\eqref{tbr:eq:input}の入力を$R_0=\mathbb C[h]_{(h)}$上で与え、
+各$(D_i)_d$が有限自由であるとする。$K=\mathbb C(h)$と置く。
+このとき$K$上に滑らかな三次四様体$Y\subset\mathbb P^5_K$が存在し、
+ある有限拡大$K'/K$上で
+\[
+ \bigl(\mathcal K^{\rm coh}_{A_{K'}},\rho_A\bigr)
+ \simeq\bigl(\operatorname{Ku}(Y_{K'}),\rho_Y\bigr)
+\]
+となる。ここで
+$\mathcal K^{\rm coh}_{A_K}=D^b(\operatorname{qgr}A_K)
+\cap\langle\mathcal O,\mathcal O(1),\mathcal O(2)\rangle^\perp$
+であり、同値は指定した三次周期も保つ。
+\end{corollary}
+\begin{proof}
+補題\ref{tbr:lem:input}は$B$の各次数の有限自由性、
+六変数多項式環への特殊化、正則な中心三次元と滑らかな特殊ファイバーを与える。
+これらは$N=6,n=4$の定理\ref{gdr:thm:generic}の仮定そのものである。
+同定理の周囲代数・商の記号をそれぞれ$B,A$へ読み替えて適用する。
+\end{proof}
+
+系\ref{tbr:cor:generic}の代数的同値は、命題\ref{tbr:prop:complete-split}の
+$G$同変な完備同値をそのまま代数化したものではない。
+有限拡大上の核について$G$作用との比較およびそのcoherenceを保つ降下は、
+本節では証明していない。また、系の$K$上の$Y$が指定した二ブロック座標で
+分裂することも結論に含めない。
+任意の固定非零パラメータ、全二変数底上の相対同値、全$\mathcal O$-保存同値への降下、
+元の古典三次そのもののKuznetsov成分との一致は別の課題である。
+
+\subsection{既知の可換二ブロック模型との比較}
+
+複素数体上の滑らかな三次四様体
+$Y=V(g_1(x)+g_2(y))$と、$G$の作用$(x,y)\mapsto(\zeta x,y)$を考える。
+$C_i=V(g_i)\subset\mathbb P^2$とすると、既知の定理により
+\begin{equation}\label{tbr:eq:known-equivariant-product}
+ \operatorname{Ku}(Y)^G\simeq D^b(C_1\times C_2)
+\end{equation}
+である。Hu\cite[Theorems~0.1, 5.8]{TBHu}はこの形を明示的に扱い、
+同論文のIntroductionはBallard--Favero--Katzarkov、Lim、
+Beckmann--Oberdieck、Hirano--Ouchiによる先行する一般形を挙げている。
+この既知の同値自体を本研究の成果とは数えない。
+
+式\eqref{tbr:eq:known-equivariant-product}の左辺は$G$同変対象の圏である。
+通常の$\operatorname{Ku}(Y)$を楕円曲線の積の導来圏と同定する式ではない。
+命題\ref{tbr:prop:complete-split}は、この既知模型を二ブロック非可換族と比較するための
+形式的な出発点を与えるが、代数的な同変比較核や点曲線との同定は別途構成する必要がある。
