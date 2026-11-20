@@ -48,7 +48,7 @@
 \title{非可換三次 $n$-fold のモジュライ\\
 \large 構造対象付きモジュライ・点対応・Poisson 幾何}
 \author{}
-\date{2026年11月21日・研究稿 v24}
+\date{2026年11月21日・研究稿 v25}
 \hypersetup{pdftitle={非可換三次 n-fold のモジュライ},
 pdfsubject={構造対象付きモジュライ・点対応・Poisson幾何}}
 \begin{document}
@@ -78,7 +78,11 @@ period と index が三となることを示す。
 混合有理 CF 比較と同変降下によって二変数体 $\C(c_4,-c_6)$ へ一意に帰着する。
 随伴復元対象の二次・三次 $A_\infty$ 積から指定中心三次を回復し、
 その尺度比による周期位相の有限評価式を与える。
-具体値は未決定であり、適合規格化の最小次数三と独立標的尺度族の最小次数九を区別する。
+Hesse 境界の完備 trait では全 $n\ge3$ に対し位相が
+$D=1-c_4/24+c_6/216-c_4^2/6912$ の Kummer 類となり、
+付値は三を法として一、正準位相体の次数は三である。
+正準規格化の標識付き最小次数三／九の判定には、位相体上の scalar index が残る。
+任意の相対規格化について、適合規格化の最小次数三と独立標的尺度族の最小次数九を区別する。
 非分裂表示では $n\equiv1\pmod3$ の各非空開に Picard index 九を実現し、
 普遍的な重み一階数の最小値九と、全該当次元の強化型の最小実現次数九を得る。
 一方、rotation による障害の変化を計算すると、同じ四次元族で
@@ -88,8 +92,10 @@ period と index が三となることを示す。
 $\operatorname{ASL}_2(\mathbf F_3)$ となる。
 Hesse 境界ではその慣性型 $3^3$ と局所三次体を明示し、
 点線束の三行三列線型表示を有理式で構成し、元の trait 上の残余対象へ移す。
-三次元では低 orbit Hom の平坦性と指定 target 周期の原始性を証明し、
-二次・三次積を integral に取れることを示す。
+全 $n\ge3$ の全 orbit Hom の平坦性と指定 target 周期の原始性を証明する。
+二次積の三方向の階数落ちを一次で計算し、二次関係の飽和と
+滑らかな potential 三次による表示同型の延長から、回復中心三次の消失次数一を得る。
+位相の大域式には、二つの判別境界以外での非分岐性がなお必要である。
 
 trace--Hessian 三次と残余三次の不一致、Hessian・混合四次補正も与える。
 Jacobi スキームは $3\le n\le7$ の一般三次で Grassmann 錐に一致し、
@@ -332,8 +338,9 @@ Canonaco--Stellari\cite[Corollary~4.4]{NFMCanonacoStellariKernels}の cohomology
 中心商の conormal 同定を用いて方程式生成元の相対尺度の変換則を追い、
 位相を消す規格化と、独立な標的尺度を付した一般族での正確な最小次数九を得る。
 さらに full tensor と半古典平面同型から方程式生成元を三乗倍まで規格化し、
-周期類 $\gamma_{\mathrm{sc}}$ の具体的な計算問題を定める。
-この類は形式比較体へ移すと零になるが、元の係数体上で零であるとは結論していない。
+周期類 $\gamma_{\mathrm{sc}}$ を定める。
+この類は形式比較体へ移すと零になるが、後述の Hesse 境界計算により
+元の係数体上では非自明であることが分かる。
 Murfet\cite[Theorem~6.2, equation~(6.6)]{NFMMurfetResidue}の residue trace は
 可換 MF 側での計算法を与える一方、source trace と CF 移送の scalar 比較を別に要する。
 
@@ -373,7 +380,8 @@ $\gamma_{\mathrm{sc},n}=[f(\Omega_p)/\Omega]$ を証明する。
 元の体上の実際の比較核を仮定せず、標的の方程式の尺度と
 source の自己交叉周期の符号を同じ式で保持する点が、この適用に必要である。
 良い integral 表示と原始的な三次関係が閉 fibre にもある場合には
-非分岐性も従うが、その閉 fibre 条件は未確認の追加条件として残す。
+非分岐性も従う。一方、以下の境界では二次関係を飽和した格子内で
+三次関係が境界パラメータの一倍を含み、この十分条件を満たさない。
 
 具体的な $q=2$ の Hesse 境界では点曲線は split $I_3$ に退化する。
 Silverman\cite[Chapter~XI, Proposition~9.2]{NFMSilvermanArithmetic}の
@@ -383,16 +391,37 @@ Silverman\cite[Chapter~XI, Proposition~9.2]{NFMSilvermanArithmetic}の
 有理式として構成する。点尺度を保つ中心座標の変更で、実際の一般残余三次の
 平坦な模型を取り、その上の右射影対象を有限 mutation で構成する。
 選択した模型の特殊 fibre は特異でもよい。
-三次元では、特殊線型行列の adjugate の六成分が全二次式を張ることを用い、
-射影後の自己 Ext の階数 $(1,10)$ と、負の三回の rotation までの全低 Hom の
-平坦性を証明する。Burke--Stevenson\cite[Theorem~6.4(1)]{NFMBurkeStevenson}の
-既知の相対窓は特異な射影 fibre にも適用され、同じ方程式の MF 周期を保つ。
-従って指定 target 周期は primitive で、必要な $m_2,m_3$ を integral に取れる。
-ただし、回復した三次関係の原始性と source 周期との尺度比は未計算である。
-Eisenbud\cite[Theorem~7.2]{NFMEisenbudCI}の既知の構成による有限 MF も明示するが、
-その raw 表示を右射影対象へ無指定に同一視しない。
-楕円 Kummer 理論、$I_3$ 成分群、相対 Orlov 窓や Shamash 構成そのものを新規成果とせず、
-この特定の点線束の integral 行列と残余低 Hom への適用を区別する。
+Eisenbud\cite[Theorem~7.2]{NFMEisenbudCI}の既知の構成による有限 MF を明示し、
+Burke--Stevenson\cite[Theorem~6.4(1)]{NFMBurkeStevenson}の相対窓を指定して
+右射影対象と同定する。この窓は特異な射影 fibre にも適用され、
+内部次数と同じ方程式の MF 周期を保つ。
+特殊 fibre の active MF と中心 Koszul 因子の分離により、
+全 $n\ge3$、全ての整数 $i,j$ について
+\[
+ \operatorname{rank}_R H^i\operatorname{RHom}(Z_R,\rho^jZ_R)
+ =\binom{n+2}{3i+2j}
+\]
+となり、これらの Hom は自由で閉・一般 fibre への底変更と可換である。
+範囲外の二項係数は零とする。従って指定 target 周期は primitive であり、
+必要な $m_2,m_3$ を integral に取れる。
+
+しかし特殊 fibre の二次積の階数は $\binom{n+2}{2}-3$ に落ち、
+三次 class も零となる。実際の行列の一次変形を計算すると、
+失われる三つの二次関係の Smith 指数は全て一である。
+二次関係を飽和して得る代数は全次数で平坦となり、
+その active 特殊 fibre は三角形型 Sklyanin 代数 $S(0,-2,-p)$ となる。
+指定周期から回復される三次 class の初項は、境界パラメータ $z=q-2$ と
+非零中央三次の積である。これだけで一般 fibre の表示同型の integral 性は従わないが、
+cyclic potential の alternating 成分から滑らかな potential 三次を回復できる。
+Benoist\cite[Theorems~1.6(ii), 1.7, Lemma~2.2(iii)]{NFMBenoistSeparation}の
+既知の分離性をこの三次へ適用すると、指定した一般 active 射影同型が延びる。
+残る自己同型の中央三次への作用が三乗倍であることを用いて、
+全 $n\ge3$ の完備局所位相を $[D_R]$ と決定する
+（命題\ref{prop:nfm-boundary-period-local-kummer}）。
+この結果は滑らかな特殊残余三次や full 比較核の境界延長を必要としない。
+楕円 Kummer 理論、$I_3$ 成分群、相対 Orlov 窓、Shamash 構成や
+滑らかな三次の分離性そのものを新規成果とせず、
+ここでの integral 行列・低次積・規格化周期への適用を区別する。
 
 五次元の安定性条件には Peize Liu\cite[Theorem~1.1, Remark~5.6]{NFMPeizeLiuFivefold}の
 Serre 不変な条件の構成があるが、同論文はその軌道の一意性を仮定していない。
@@ -1162,12 +1191,46 @@ $\kappa(m)$ 上に実際の周期付き full Morita 比較を作ることが最�
 これは形式体への Kummer 引戻しが単射だと仮定した結果ではない。
 
 $\Delta=s^3-t^2$、$D=1-s/24-t/216-s^2/6912$ と置く。
+Hesse 係数 $q=2+z$ の境界における計算は、次の値を与える。
+
+\begin{maintheorem}[正準周期位相の Hesse 境界値]
+\label{main:nfm-period-hesse-boundary}
+全 $n\ge3$ の標準 split 一般係数体 $k_n$ 上で、上の固定入力と
+三乗まで規格化した方程式を用いる。
+$m$ を混合係数の組とし、$R_H=\C(p,m)[[z]]$、
+$K_H=\C(p,m)((z))$ を $q=2+z$ に対応する完備 Hesse trait とする。
+このとき
+\[
+ \left.\gamma_{\mathrm{sc},n}\right|_{K_H}=[D_R],\qquad
+ D_R=-\frac{(p^3+8)^2}{27}z+O(z^2).
+\]
+従って $v_D(\overline\gamma_n)=1\pmod3$ であり、
+位相被覆はこの境界で分岐指数三を持つ。
+全ての正準位相 $\gamma_{\mathrm{sc},n}$ は非自明である。
+$\gamma_{\mathrm{sc},n}=[a_n]$ に対し
+$M_n=k_n(\sqrt[3]{a_n})$ と置けば $[M_n:k_n]=3$ で、
+正準強化 class の指定周期を標識した最小実現次数は
+\[
+ 3\operatorname{ind}(\alpha_{M_n})\in\{3,9\},
+ \qquad \alpha=\delta_{C_{\mathrm{res}}}(p_{\mathrm{res}})
+\]
+となる。$n=3,4$ では、この値は全 full class に共通する。
+\end{maintheorem}
+
+局所 Kummer 類の証明は命題\ref{prop:nfm-boundary-period-local-kummer}、
+最小次数の公式は系\ref{cor:nfm-adjoint-period-marked-minimum}による。
+Hom の平坦性だけでなく、二次関係の飽和、三次積の最初の非零項、
+指定した一般 active 表示同型の延長まで確認することで、
+付値と剰余単元の双方を比較している。
+
 この torsor が $\Spec\C[s,t,1/(\Delta D)]$ 上で有限 \'etale に延びるという
-追加仮定の下では、候補は $1,[D],[D]^2$ に限られ、
-さらに $D=0$ の一般点でも非分岐なら自明となる
-（補題\ref{lem:nfm-period-two-boundary-criterion}）。
-他の分岐因子の排除、異なる次元の $\overline\gamma_n$ の一致、
-および元の規格化での標識付き最小次数三／九の判定は未決定である。
+追加仮定の下では、補題\ref{lem:nfm-period-two-boundary-criterion}の
+三候補 $1,[D],[D]^2$ から上の付値が $[D]$ を選ぶ。
+従って大域式 $\overline\gamma_n=[D]$ はこの非分岐仮定の下で成立する。
+その仮定と異なる次元の大域的な $\overline\gamma_n$ の一致は未証明である。
+残る位相の計算は、$\overline\gamma_n[D]^{-1}$ の他の因子での分岐と、
+位相体 $M_n$ 上の $\alpha$ の index を対象とする。
+後者が正準規格化での標識付き最小次数三／九を決める。
 
 全次元では、原点対象と active 制限に内在的な表示
 \[
@@ -1422,18 +1485,23 @@ $n=3,4$ では全 full 同型類が降下し、周期の追加標識を忘れた
 標識付き最小次数は九となる。
 三乗までの自然な方程式規格化で定まる位相は、混合有理 CF 比較と同変降下により
 二変数不変量体 $\C(c_4,-c_6)$ へ一意に戻る。
+全 $n\ge3$ でその Hesse 境界の完備局所値は $[D_R]$ であり、
+境界付値は三を法として一、正準位相体の次数は三と決まる。
+指定周期を標識した最小次数は、その位相体上の scalar index により三または九となる。
 非分裂表示では $n\equiv1\pmod3$ の任意の非空開に Picard index 九を実現し、
 表示安定化子が自明な開内では全該当次元の強化点型が未標識最小次数九を達成する。
 非分裂 rotation の障害 $\beta$ を用いて型を変更すれば、同じ四次元族の全型の最小次数は三である。
 低次元では一般に $\alpha\in\langle\beta\rangle$ が全型の元の体上での実現条件となる。
 五次元の Clifford 半 rotation は実核として $\rho^{-1}[1]$ と同定する。
-次の課題は、二変数体上の周期位相の具体値と Hesse 境界での非分岐性、
-代数的核の coherent な中心線型性、一般高次元の任意 full class と非分裂の他軌道、
-および各 intrinsic 成分を覆う表示である。
-半古典条件を持つ位相には Hesse 制限が忠実であり、
-追加境界の一般点 $q=2$ では、元の trait 上の残余対象を構成し、
-三次元の低 Hom の平坦性と target 周期を確保した。次は $m_2,m_3$ の実値、
-二次関係束と回復中心三次の原始性、および source 表示への比較を計算する。
+次の課題は、$\overline\gamma_n[D]^{-1}$ の他の因子での分岐と
+正準位相体上の scalar index、代数的核の coherent な中心線型性、
+一般高次元の任意 full class と非分裂の他軌道、および各 intrinsic 成分を覆う表示である。
+半古典条件を持つ位相には Hesse 制限が忠実であるが、
+一つの完備 trait 上の値だけでは大域式や次元間の大域的な一致を結論できない。
+$q=2$ の計算では、全 orbit Hom と target 周期を保つ integral 模型を使い、
+二次積の階数落ち、飽和した二次関係、三次積の消失次数一を確認した。
+滑らかな potential 三次による一般 active 表示同型の延長が局所尺度の比較を可能にする。
+これらを、滑らかな残余模型や full 比較核自体の境界延長とは区別する。
 固定 frame の tensor の very general な超越性を踏まえ、
 形式座標の代数性と内在的なモジュライの代数性は区別して進める。
 boundary や全 Abel 形式近傍の記述は、この一般次元の構成に必要な障害を解消する
