@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月21日 / v29。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月21日 / v30。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 完備MF移送、一般中心三次変形の可換復元、良い一ブロックのO-markedモジュライ、残余Poisson射、Kuznetsov成分の比較と降下障害を扱う。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
 
@@ -46,6 +46,13 @@
 外部の古典入力は [poisson-cubicの論文](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex) のPoisson正規形であり、代数的量子化の入力は別repoの [cubic-quantization.tex](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) である。旧論文Bの一般点復元は現行主原稿内に証明を統合した。統合は結果を新たに今回証明したという意味ではない。
 
 ## 現在の研究目標
+
+**最優先（P0）は、既に得た1ブロック型のO-markedモジュライ・点復元・残余Poisson射・Kuznetsov比較を複数ブロック型へ拡張すること。** 最初に `n=4,k=2,m=0`（満supportの2ブロック三次四様体）で、中心三次線の内在的識別、fpqcモジュライの非空開、全O保存同値、一般MF復元の仮定を確かめたKu比較を目指す。その後 `n=5,k=2,m=1` を調べ、一般 `k≥2` を目指す。**この拡張は未証明の研究目標であり、下に列挙する1ブロック既証成果を複数ブロックへ拡張済みとは扱わない。**
+
+入力の正本は、古典Poisson正規形の [poisson-cubic](https://github.com/uedakazushi/poisson-cubic)、多ブロック中心三次PBW量子化の [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) である。一般中心三次の完備MF・可換復元 `gdr:thm:generic` は本repoですでに1ブロック仮定なしで証明されているが、任意の多ブロック族への適用にはその具体的仮定・coherent飽和・降下を個別に確認する必要がある。多ブロックでは中心次数3の階数・ブロック交換が異なり、1ブロック型のPoisson射の次数9/18もそのまま適用できない。
+
+**継続課題（P2）：** 既存1ブロック型の大域周期位相 `β_n=γ̄_n/[D]` と三次位相体上のscalar indexは未解決だが、公表価値ある結果と証明を保持し、複数ブロック型の構造的拡張を優先する。具体的な手順・達成基準・仮定の一覧は [研究方針](00_research_plan.md) に置く。
+
 
 **一般次元の O-marked moduli、point scheme、Poisson 多様体のモジュライへの射、Kuznetsov 成分の比較**を中心に進める。各既約成分の general / very general な対象を優先し、次元に一様な定理と族の構成を目指す。general な稠密開と very general な点集合、一ブロックの表示成分と全モジュライの成分は区別する。
 
@@ -146,7 +153,7 @@ Clifford 半 rotation はさらに、関手として O_Cl A≃Aρ⁻¹[1] と同
 
 **完備中心商について MF 比較を構成した。** 厳密相対 bar flow とその逆を中心係数の斉次商へ降ろせるので、U=0 の active MF にも比較が得られる。任意の quotient MF を扱い、元の MF からの持上げを仮定しない。ただし、一般点の有限代数的核への coherent な中心線型性の降下は未完成である。係数商と圏の導来 tensor の同一視、absolute perfect から relative perfect への推論には一般的な反例があり、研究ノートに整理した。
 
-残る中心課題は、二変数体上の残余 Kummer 類 β_n=γ̄_n/[D] と、三次位相体 M 上の scalar index ind(α_M) である。全 n の q=2 完備局所値 [D_R] と D での三次分岐は決定済み。次は ΔD 外の divisor、特に現行の保証開が除外する小位数の active 移動点の divisor で β_n の非分岐性を検査する。それが示せれば半古典条件と既存の UFD 判定により大域式 γ̄_n=[D] が従う。位相体の次数三だけでは標識付き最小次数三／九は決まらず、α_M の計算が必要である。coherent な中心線型性、高次元の任意 full class、非分裂の別 rotation 軌道、各 intrinsic 成分も別に残る。主証明は [低積評価](papers/sections/residual_tate_reconstruction.tex)、[周期位相](papers/sections/residual_period_descent.tex)、[境界計算](papers/sections/residual_boundary_products.tex)。
+既存の1ブロック型に残る重要な精密課題は、二変数体上の残余 Kummer 類 β_n=γ̄_n/[D] と、三次位相体 M 上の scalar index ind(α_M) である。全 n の q=2 完備局所値 [D_R] と D での三次分岐は決定済み。次は ΔD 外の divisor、特に現行の保証開が除外する小位数の active 移動点の divisor で β_n の非分岐性を検査する。それが示せれば半古典条件と既存の UFD 判定により大域式 γ̄_n=[D] が従う。位相体の次数三だけでは標識付き最小次数三／九は決まらず、α_M の計算が必要である。coherent な中心線型性、高次元の任意 full class、非分裂の別 rotation 軌道、各 intrinsic 成分も別に残る。主証明は [低積評価](papers/sections/residual_tate_reconstruction.tex)、[周期位相](papers/sections/residual_period_descent.tex)、[境界計算](papers/sections/residual_boundary_products.tex)。
 
 個別次元の Jacobi 計算と boundary の精査は、この一般目標の具体的な障害を解消する場合に行う。八次元の頂点構造等の既存成果と証明書は保持する。次の具体的な着手方法と各目標の到達基準は [研究方針](00_research_plan.md) にまとめ、全体の要約は [research-hub](https://github.com/uedakazushi/research-hub) に反映する。
 

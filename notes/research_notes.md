@@ -1,10 +1,20 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月21日 / v29。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月21日 / v30。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+
+## 0. 複数ブロック型への拡張：現行の入力と障害
+
+**研究の新しいP0（未解決）：** `N=n+2=3k+m`、`V=(⊕_{s=1}^kW_s)⊕U`、`dim W_s=3`、`dim U=m` とし、`k≥2` のO-marked非可換三次n-foldの非空開のモジュライと残余幾何を構成する。最初は `k=2,m=0,n=4`、次に `k=2,m=1,n=5`。従来の `r=n−1` と `dim U=r`、低次数中心の公式は *k=1に限る*。多ブロックで `dim U=m` と区別する。
+
+**古典・量子化の既知入力：** `poisson-cubic` の滑らかな三次Poisson構造のブロック正規形、`cubic-quantization/papers/sections/quantization/general_dimension_universal_quantization.tex` の `thm:pg-all-dimensions`（滑らかな各三変数制限という追加仮定を持つ明示多パラメータ量子化）、同 `full_support_quantization.tex` の `thm:pg-intrinsic-full-support-center`（m=0での満supportの同変的中心三次）。同量子化稿はm>0,k≥2での大域同変中心選択・降下をなお課題としている。量子化稿はambientをA、中心商をBと書くが本稿はB=ambient、A=商なので混同しない。一般MF復元 `gdr:thm:generic` は1ブロック型を仮定しないが、パラメータ族への一様な応用・O-marked射の代数化と同義ではない。
+
+**最初に検査する障害：** (1) `Z(B)_1` と `Z(B)_3` のファイバーごとの階数・相対有限局所自由性・底変更。満support二ブロックの中心一次は一般に0であり、独立な二つの中心三次方向と指定商直線を扱う。(2) ブロック順序の有限étale被覆・交換対称群・自明でない安定化子の下降。(3) PBW、正則中心三次、相対Koszul/Serreと全O保存完全同値の比較。(4) 点加群、rotation、中心商の内在的認識。(5) 一般MF/windowとcoherent飽和を適用できる明示開、および有限拡大後の同じ可換三次へのKu比較。(6) 残余Poisson射の定義・相対降下・一般次数：1ブロック型の9/18を転用しない。
+
+**進捗の区分：** 多ブロックの量子化の存在は別研究に証明のある入力であり、複数ブロックのO-markedモジュライ・残余射は本研究で未証明。今回変更したのは研究優先順位のみであり、新定理、計算、形式証明を得たとは記載しない。1ブロック型の周期位相とscalar index、点型の相対的障害などは有効な研究課題として保持する。
 
 ## 1. 記法と成果の確実性
 
-n ≥ 3、N = n+2、r = n−1。次数一生成元空間は V、中心部分は U、dim U = r、active 部分は3次元。点の空間 W = V* を用いるので F ∈ Sym³V = Sym³W*。B は周囲二次代数、A = B/(w) は中心三次商。QGr は全次数付き加群の torsion による Gabriel 商であり、qgr や compact dg 残余圏と混同しない。
+以下の従来の1ブロック型の節では n ≥ 3、N = n+2、r = n−1、中心部分 U の次元はr、active 部分は3次元とする。多ブロックについては上記の k,m を使用する。点の空間 W = V* を用いるので F ∈ Sym³V = Sym³W*。B は周囲二次代数、A = B/(w) は中心三次商。QGr は全次数付き加群の torsion による Gabriel 商であり、qgr や compact dg 残余圏と混同しない。
 
 現行論文には主要結果の証明を記載した。次の区分を守る。
 
