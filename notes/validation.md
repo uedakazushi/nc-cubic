@@ -36,20 +36,20 @@
 
 ## 1. 固定した入力と文献
 
-- `uedakazushi/nc-cubic`：`eabe601c1341777742964584dde5314c0bcf64a9`。論文A A-v61、論文B B-v59。
+- `uedakazushi/nc-cubic`：Poisson正規形・代数的量子化の論文A A-v61、固定commit `eabe601c1341777742964584dde5314c0bcf64a9`。旧論文B B-v59の完備MF移送・可換復元の全証明は本リポジトリの `papers/sections/generic_recovery/` に統合。旧原稿を外部入力とは扱わない。
 - `uedakazushi/nc-cubic-threefold-moduli`：`6c35d2c84671c2538e61836a6bf3a511392eacce`。比較対象の三様体稿 v22。
 
 入力リポジトリは読取り専用。既存の一般次元正規形・中心量子化・一般点残余復元は新規成果に数えず、未公表入力の全証明を独立に再検証したとは主張しない。引用箇所は [研究ノート](research_notes.md) と [文献一覧](../papers/references.tex) に記す。
 
 本版の境界計算では、Burke–Stevenson の公刊版 Theorem 6.4(1)、window i=1 と相対 Gorenstein 条件を再確認した。Benoist の公刊版著者 PDF の Theorems 1.6(ii),1.7 と Lemma 2.2(iii)、pp.140–141 を担当者が一次資料で確認し、剰余標数零の滑らかな potential 平面三次への適用を独立点検した。統合担当は固定入力Aの `papers/support/papers/sections/hesse_mixed_universal_center.tex` を固定 commit から読み、`thm:pg-universal-hesse-mixed`、`eq:pg-hm-coefficients`、`eq:pg-hm-center` の式を h′=p, t=q/p で変換し q=2 に特殊化した。中心性全体の独立再証明ではない。
 
-既存の周期降下の点検では、統合担当が固定 commit の `papers/generic_recovery/curved_transport.tex` を実際に開き、`cft:eq:bound`、`cft:lem:primitive`、`cft:lem:arity`、`cft:lem:flow`、`cft:eq:object`、`cft:eq:insertions`、`cft:eq:two-block-matrix` の bound・原始元・arity・有限対象・挿入・二ブロック模型を新証明と照合した。三対象生成、proper Hom、局所化は `gcd:prop:bound`、`tw:lem:proper-hom`、`rog:lem:localization` と比較した。これは必要な一次模型への適用確認であり、入力B全体の全証明の再検証ではない。Fisher の不変式・一般軌道・Heisenberg 群の既知記述と、保存済みの全三捩れ monodromy を用いる character の消滅も内部点検した。
+既存の周期降下の点検では、統合担当が固定 commit の `papers/sections/generic_recovery/curved_transport.tex` を実際に開き、`cft:eq:bound`、`cft:lem:primitive`、`cft:lem:arity`、`cft:lem:flow`、`cft:eq:object`、`cft:eq:insertions`、`cft:eq:two-block-matrix` の bound・原始元・arity・有限対象・挿入・二ブロック模型を新証明と照合した。三対象生成、proper Hom、局所化は `gcd:prop:bound`、`tw:lem:proper-hom`、`rog:lem:localization` と比較した。これは必要な一次模型への適用確認であり、入力B全体の全証明の再検証ではない。Fisher の不変式・一般軌道・Heisenberg 群の既知記述と、保存済みの全三捩れ monodromy を用いる character の消滅も内部点検した。
 
 非分裂曲線には Cremona–Fisher–O'Neil–Simon–Stoll, J. reine angew. Math.615(2008),121–155、DOI10.1515/CRELLE.2008.012、arXiv:math/0606580v1 の §§1.1,1.3,1.6、Proposition2.2、Lemma2.4 と Ciperiani–Krashen Theorem3.7 を照合した。Saltman, *Genus 1 Curves in Severi--Brauer Surfaces*, arXiv:2105.09986v1 の §§3–4、Theorem5を既知の関連結果として確認し、曲線の period–index 現象そのものの新規性は主張しない。
 
-Tate–Koszul 復元には Lu–Palmieri–Wu–Zhang, New York J.Math.14(2008),325–378 の Definition2.1・Theorem2.4・Corollary2.5(b) と、同著者 JPAA213(2009),2017–2037 の Theorem A・Corollary B を一次PDFで確認した。Braun–Chuang–Lazarev, Adv.Math.328(2018),555–622、arXiv:1505.01146v3 の Proposition3.17・Theorems3.18,5.3 を照合した。Keller の orbit 圏論文 §§9.3–9.4 と2009年訂正も確認し、訂正対象の旧§7の hull 表示は使わない。固定入力Bの `field_model.tex` の `gcd:prop:automatic-as`、`local_model.tex` の `lp:lem:noetherian`・`lp:prop:koszul`・`lp:prop:gorenstein`・`lp:prop:sing-period`、window・coherent 飽和の該当命題を本稿の仮定に照合した。詳しい識別子とリンクは研究ノートの「Tate–Koszul と Clifford 同定の一次資料」に置く。
+Tate–Koszul 復元には Lu–Palmieri–Wu–Zhang, New York J.Math.14(2008),325–378 の Definition2.1・Theorem2.4・Corollary2.5(b) と、同著者 JPAA213(2009),2017–2037 の Theorem A・Corollary B を一次PDFで確認した。Braun–Chuang–Lazarev, Adv.Math.328(2018),555–622、arXiv:1505.01146v3 の Proposition3.17・Theorems3.18,5.3 を照合した。Keller の orbit 圏論文 §§9.3–9.4 と2009年訂正も確認し、訂正対象の旧§7の hull 表示は使わない。統合した基礎節の `field_model.tex` の `gcd:prop:automatic-as`、`local_model.tex` の `lp:lem:noetherian`・`lp:prop:koszul`・`lp:prop:gorenstein`・`lp:prop:sing-period`、window・coherent 飽和の該当命題を本稿の仮定に照合した。詳しい識別子とリンクは研究ノートの「Tate–Koszul と Clifford 同定の一次資料」に置く。
 
-有限 class の入力として Toën–Vaquié の Proposition3.20、Corollaries3.17,3.22,3.24 と Lemma3.25 直後の可逆核 locus の開性を原著で確認した。固定入力Bの window.tex の tw:thm:window・tw:eq:main、main_result.tex の一般点 coherent 飽和、generic_descent.tex の rog:eq:exterior と proper Hom を、今回の生成性と Euler 数の比較に照合した。Murfet の arXiv:0912.1629v3 Theorem6.2・式(6.6)、Proposition4.2・式(5.7)を確認し、公刊書誌 Compos.Math.149(2013),2071–2100、DOI10.1112/S0010437X13007082 を出版社と照合した。
+有限 class の入力として Toën–Vaquié の Proposition3.20、Corollaries3.17,3.22,3.24 と Lemma3.25 直後の可逆核 locus の開性を原著で確認した。統合した基礎節の window.tex の tw:thm:window・tw:eq:main、main_result.tex の一般点 coherent 飽和、generic_descent.tex の rog:eq:exterior と proper Hom を、今回の生成性と Euler 数の比較に照合した。Murfet の arXiv:0912.1629v3 Theorem6.2・式(6.6)、Proposition4.2・式(5.7)を確認し、公刊書誌 Compos.Math.149(2013),2071–2100、DOI10.1112/S0010437X13007082 を出版社と照合した。
 
 五次元では Peize Liu arXiv:2509.21454v5（2026-08-03改訂）の Theorem2.8、§2.2の式(2-4)・Remark2.11、Lemmas2.12–2.14・3.4、Corollary3.10(ii)、Proposition3.11、Theorem5.5の証明、Corollary5.10を一次資料で確認した。Proposition6.10は Fano 曲面を一つの stable moduli 成分と同定し、全 moduli の既約性は Remark6.11 の予想、安定性軌道の一意性は Remark5.6 の未解決問題として区別した。Kuznetsov の公刊版 Adv.Math.218(2008),1340–1369 の Theorem4.2、Lemmas3.8・4.5・4.6・4.7・4.10、Remark4.8で実際の Clifford kernel、局所自由性、有限振幅、随伴を確認し、Collino Propositions1.8・1.10、Ciliberto–Zaidenberg arXiv:1903.11294v2 Example4.4の幾何学的連結性と次数2835を照合した。平面非依存性と元の体上への実核降下を内部点検した。さらに Proposition3.3 の相対表示と spinor 列の Lemma4.5 を用い、O≃ρ⁻¹[1] の自然な関手同定を独立点検した。Wu arXiv:2611.02388v1 Theorems1.1,1.3・Proposition7.2 と Aravena–Liu–Tevelev arXiv:2611.05350v1 Theorem1.2 の主張も確認したが、これら最近の安定性条件の全証明を独立再検証したとはしていない。有限 H_p の証明はこれらに依存しない。
 
@@ -103,7 +103,7 @@ Hille–Van den Bergh *Fourier–Mukai transforms* の Proposition 4.2、Corolla
 
 Canonaco–Stellari *Non-uniqueness of Fourier–Mukai kernels* の著者PDF Theorem1.2・Corollary4.4で、同じFM関手の核のcohomology層が同型になることを確認した。Math.Z.272(2012),577–588、DOI10.1007/s00209-011-0950-3を出版社で照合した。一般の核そのものの一意性を引用せず、本稿のprojectorに必要な追加証明を与える。Poonen のTheorems1.1,1.5と直前の開性の記述、Ciperiani–Krashen のTheorem3.1も今回の適用箇所に合わせて再確認した。三分点monodromyの古典入力はFisherのTheorem1.1(iv)、Lemmas2.2–2.3、§4と、Matsunoの§2.4・§4である。
 
-指定周期の変換について、固定入力Bの `generic_recovery/local_model.tex` の `lp:prop:sing-period`・`lp:eq:period`、`generic_recovery/window.tex` の `tw:eq:period-extension`・`tw:eq:rotation-period-square` を実ソースで確認した。conormal の生成元変更と二拡大の境界、window で移送される周期を照合した。入力B全体の再検証とは扱わない。
+指定周期の変換について、固定入力Bの `papers/sections/generic_recovery/local_model.tex` の `lp:prop:sing-period`・`lp:eq:period`、`papers/sections/generic_recovery/window.tex` の `tw:eq:period-extension`・`tw:eq:rotation-period-square` を実ソースで確認した。conormal の生成元変更と二拡大の境界、window で移送される周期を照合した。入力B全体の再検証とは扱わない。
 
 高次元の既知入力として Iliev–Manivel の arXiv:1102.3618v2、Proposition3.1、Theorem3.4、Proposition5.2、Corollary5.3 を原著PDFで確認した。公刊書誌は Proc.London Math.Soc.108(2014), no.2,517–540、DOI10.1112/plms/pdt042 を出版社情報で照合した。Serre 式は既存 Lin–Zhang の Proposition3.7 の証明と、Lin–Zeng–Zhang arXiv:2610.00130v1 Proposition2.1・Remark2.2 を比較した。Lin–Rennemo–Zhang, Adv.Math.503(2026), PartC,111271 の Theorem1.3 と、Lin–Zhang arXiv:2611.05915v1 Theorem1.3 の主張の範囲を確認した。新しい2026年原著の全証明を独立再検証したわけではなく、対象復元や partner 有限性を自己同値群の忠実性・class 降下の入力として使わない。
 

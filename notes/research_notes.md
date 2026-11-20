@@ -143,14 +143,14 @@ general の稠密 Zariski 開、幾何学的一般点、very general の可算�
 詳細の有効な技術的障害は [可換復元の補助ノート](recovery_foundations.md) に保持する。
 
 
-`nc-cubic` の固定 commit は `eabe601c1341777742964584dde5314c0bcf64a9`。論文A A-v61、論文B B-v59（いずれも2026年11月14日）。
+`nc-cubic` のPoisson/量子化論文Aは固定commit `eabe601c1341777742964584dde5314c0bcf64a9`（A-v61）を外部入力とする。旧論文B（B-v59）の必要証明は主原稿に統合され、本repoの `papers/sections/generic_recovery/` を正本とする。
 
 - 論文A `poisson_geometry.tex`：`prop:pg-represent` の bivector 表示、`prop:pg-jacobi-extension` の affine Jacobi 延長、`thm:pg-normal` の複数 Jacobian ブロック正規形、`cor:pg-generic` の一般三次における被約 Grassmann 錐。全次元の一般 Jacobi スキームの有限長冪零根基を論じる際には最後の被約分類を使う。二次方程式の不足、n=8 の長さ330の定理、およびその直和から作る特殊三次の非零冪零例は、この被約分類に依存しない。
 - 論文A `general_dimension_universal_quantization.tex`：`thm:pg-all-dimensions`, `prop:pg-ad-relative-chart` が中心量子化の入力。一ブロック相対 PBW 開と中心三次束の存在は、この研究稿と Etingof–Ginzburg の既知の構成から取る。今回その全証明を独立に再検証したわけではない。
 - 論文A `papers/support/papers/sections/hesse_mixed_universal_center.tex`：`thm:pg-universal-hesse-mixed`、`eq:pg-hm-coefficients`、`cor:pg-hesse-hessian-form`、`eq:pg-hesse-hessian-closed` が全混合中心元と Ψ_λ(F) の有限公式。固定 commit の本文を直接確認し、四次係数を I,J と純中心項へ書き直した恒等式を厳密検算した。中心公式そのものは入力であり、今回の可換記号計算を非可換中心性の再証明と呼ばない。
-- 論文B `generic_recovery/main_result.tex` 等：既に全 n≥3 が対象。C[h]_(h) 上の次数別有限自由な中心三次対が、多項式環と滑らかな三次式へ特殊化する場合を扱う。一般点の coherent 残余模型は rotation と指定三次周期を保つ。方程式は C(h)、同値核は有限拡大上という区別を守る。全パラメータ・任意の nc cubic・核の基底体への降下を自動的に含まない。
-- 同論文Bの `cft:thm:complete`, `cft:lem:model`, `cft:lem:center`：選んだ formality と厳密同型 φ に対し、残余 potential は W=C_π^(-1)φ(w) である。W mod h=F は W=F を意味しない。`gcd:thm:field-model` は幾何的な可換模型の存在を得た後の方程式の関数体への降下であり、h=0 での正則性や同値核の同じ体への降下を自動的に与えない。`gre:prop:input`, `gre:prop:hesse-normalform`, `gre:thm:exact-potential`, `gre:prop:jet` の split Hesse 公式を全 n の比較例に用いる。固定標的への一般点比較には `rog:lem:localization`, `rog:lem:descent` を使い、線束生成部分から全 coherent 残余圏へ移るには `crs:prop:residual-smooth`, `crs:thm:coherent` をさらに使う。これらの未公表入力の全証明を今回独立に再検証したとは主張しない。
-- 同論文B `papers/generic_recovery/curved_transport.tex` の完備比較は N≥3 を対象とし、`cft:lem:arity`, `cft:lem:flow`, `cft:eq:bound`, `cft:eq:t-weight`, `cft:eq:insertions`, `cft:eq:two-block-matrix` を直接確認した。これに対し `window.tex` の節全体は N≥5 を仮定する。三変数の active 比較は相対 bar 写像の中心係数還元で構成し、一般点生成・window 定理を n=1 へ流用しない。三変数の相対 a=0 比較・proper Hom・Laurent 底変更には `papers/generic_recovery/explicit_example.tex` の `gre:prop:elliptic-quotient`, `gre:lem:elliptic-mf` を用い、正則 DVR と滑らかな active 曲線という仮定を確認した。剰余体と rotation の具体式は Galinat の同じ window1 に統一する。
+- 本稿の一般復元節 `papers/sections/generic_recovery/main_result.tex` 等：全 n≥3 が対象。C[h]_(h) 上の次数別有限自由な中心三次対が、多項式環と滑らかな三次式へ特殊化する場合を扱う。一般点の coherent 残余模型は rotation と指定三次周期を保つ。方程式は C(h)、同値核は有限拡大上という区別を守る。全パラメータ・任意の nc cubic・核の基底体への降下を自動的に含まない。
+- 本稿の一般復元節の `cft:thm:complete`, `cft:lem:model`, `cft:lem:center`：選んだ formality と厳密同型 φ に対し、残余 potential は W=C_π^(-1)φ(w) である。W mod h=F は W=F を意味しない。`gcd:thm:field-model` は幾何的な可換模型の存在を得た後の方程式の関数体への降下であり、h=0 での正則性や同値核の同じ体への降下を自動的に与えない。`gre:prop:input`, `gre:prop:hesse-normalform`, `gre:thm:exact-potential`, `gre:prop:jet` の split Hesse 公式を全 n の比較例に用いる。固定標的への一般点比較には `rog:lem:localization`, `rog:lem:descent` を使い、線束生成部分から全 coherent 残余圏へ移るには `crs:prop:residual-smooth`, `crs:thm:coherent` をさらに使う。旧Bの証明を現行主原稿に全文統合したが、今回それらの全証明を独立に再検証したとは主張しない。
+- 本稿の一般復元節 `papers/sections/generic_recovery/curved_transport.tex` の完備比較は N≥3 を対象とし、`cft:lem:arity`, `cft:lem:flow`, `cft:eq:bound`, `cft:eq:t-weight`, `cft:eq:insertions`, `cft:eq:two-block-matrix` を直接確認した。これに対し `window.tex` の節全体は N≥5 を仮定する。三変数の active 比較は相対 bar 写像の中心係数還元で構成し、一般点生成・window 定理を n=1 へ流用しない。三変数の相対 a=0 比較・proper Hom・Laurent 底変更には `papers/sections/generic_recovery/explicit_example.tex` の `gre:prop:elliptic-quotient`, `gre:lem:elliptic-mf` を用い、正則 DVR と滑らかな active 曲線という仮定を確認した。剰余体と rotation の具体式は Galinat の同じ window1 に統一する。
 - 三様体稿 v22 の固定 commit は `6c35d2c84671c2538e61836a6bf3a511392eacce`。任意係数の全 Hom 比較と点スキームの出発点を参照するが、n=3 の形式環を高次元にそのまま転用しない。
 
 古い一般次元ノート中の別リポジトリ名を現行の依存先として使わない。上記の固定 commit と現行稿の参考文献が参照の正本である。
@@ -427,7 +427,7 @@ BFK の任意非零 M による M⊕RM⊕R²M の生成を使えば、rotation±
 
 ### 一般係数の残余三次を代数的な族へ広げる
 
-証明は `residual_algebraic.tex`。入力Bの体上の可換模型存在・方程式の定義体降下は既知入力であり、ここでは相対的な方程式直線と全 O-同値への降下を構成する。
+証明は `residual_algebraic.tex`。本稿の一般点可換復元・方程式の定義体降下を基礎として用い、ここでは相対的な方程式直線と全 O-同値への降下を構成する。
 
 相対 proper 模型は、B の Koszul 複体を A に tensor した tails での完全性から、連続する N 個の O(i) を有限生成子とし、例外 block への有限 mutation で残余生成子を作って得る。generic smoothness を使う前に対角の compact 性を仮定しない。一般点の perfect 模型 E と射 E→Δ を広げ、底上 perfect な cone の台を除くことで smoothness を得る。低 Nat 複体の cohomology を局所自由にした後に、任意底変更を使う。
 
@@ -1541,7 +1541,7 @@ X_p=(S_p^{1,−1})* と m₂* の像から B_p=T(X_p)/(R₂) を回復する。t
 
 核の同型類が選ばれた後の G_m-gerbe 上では、試験対象 A_i,B_j に対する混合 Hom は重み1の perfect 複体となり、determinant の重みは Euler 数 χ_ij である。その gcd=d>0 によって dα=0、μ_d による band の縮小を得る。体上では各 cohomology の rank 自体が ind(α) の倍数なので ind(α)|d まで分かる。period と index を同一視していない。
 
-固定入力B `generic_recovery/generic_descent.tex`, `rog:prop:euler` の三次 stabilization の Euler 数は
+固定入力B `papers/sections/generic_recovery/generic_descent.tex`, `rog:prop:euler` の三次 stabilization の Euler 数は
 
 \[
  \chi_{N,r}=\sum_{s\equiv-r\ (3)}(-1)^s\binom Ns,\qquad
@@ -1779,7 +1779,7 @@ projector核・低次元full自己同値分類の一次資料：
 - D. Wu, *Construction of stability conditions on some Kuznetsov components*, [arXiv:2611.02388v1](https://arxiv.org/abs/2611.02388v1)（2026）。Theorem1.3、Proposition7.2の各numerical stability連結成分が自由なGL̃₂⁺軌道となるstatementを原著で確認した。自己同値群の作用の忠実性やH_p=1を与える定理としては使わず、全証明の独立検証もしていない。引用keyは `NFMWuStability`。
 - A. Aravena, P. Liu, J. Tevelev, *Gepner stability conditions on hypersurface categories*, [arXiv:2611.05350v1](https://arxiv.org/abs/2611.05350v1)（2026）。Theorem1.2、Corollary1.3のGepner安定性条件の存在のstatementと適用範囲を確認した。H_pやS_pの自明性の証明入力には用いず、全証明の独立検証とも区別する。引用keyは `NFMAravenaLiuTevelevGepner`。
 
-指定MF周期の規約は、固定入力B `papers/generic_recovery/local_model.tex` の `lp:prop:sing-period`、`window.tex` の `tw:eq:period-extension` と `tw:eq:rotation-period-square` に置かれている。前者の双加群truncation境界とconormal基底、後二者のYoneda二拡張と実際のrotation比較を照合した。周期の中心的coherenceと生成元変更のu⁻¹則はこの指定規約に関する主張であり、任意に選び直したfractional Calabi–Yau自明化の自然性を仮定しない。
+指定MF周期の規約は、固定入力B `papers/sections/generic_recovery/local_model.tex` の `lp:prop:sing-period`、`window.tex` の `tw:eq:period-extension` と `tw:eq:rotation-period-square` に置かれている。前者の双加群truncation境界とconormal基底、後二者のYoneda二拡張と実際のrotation比較を照合した。周期の中心的coherenceと生成元変更のu⁻¹則はこの指定規約に関する主張であり、任意に選び直したfractional Calabi–Yau自明化の自然性を仮定しない。
 
 周期位相の混合定数降下では、同じ固定 B の `cft:lem:arity`、`cft:lem:flow`、`cft:eq:bound`、`cft:eq:object`、`cft:eq:insertions`、`cft:eq:two-block-matrix` を使用する。三対象生成と actual Hom の局所化には `gcd:prop:bound`、`tw:lem:proper-hom`、`rog:lem:localization` を用いる。局所化前の integral な有限 MF の Hom を先に比較する範囲を保持し、任意の Laurent 係数 MC 元への収束を新たに主張しない。Fisher の Theorem1.1・Lemma2.2・§9.5 の不変式・一般軌道・Heisenberg 群と、既存の全三捩れモノドロミーを合わせた μ₃-character の消滅が、二変数不変量体への降下に必要である。
 
