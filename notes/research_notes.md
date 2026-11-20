@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月21日 / v25。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは依存・適用範囲・障害・再現の入口をまとめる。
+2026年11月21日 / v26。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは依存・適用範囲・障害・再現の入口をまとめる。
 
 ## 1. 記法と成果の確実性
 
@@ -10,6 +10,7 @@ n ≥ 3、N = n+2、r = n−1。次数一生成元空間は V、中心部分は 
 
 | 主張 | 状態・依存 | 証明所在 |
 |---|---|---|
+| 一般中心三次変形の完備MF移送と可換復元 | 統合済みの基礎定理。\(n\ge3\)、中心三次対の次数別自由性・滑らかな剰余の仮定。関数体上の方程式と有限拡大上のfull coherent Ku比較を区別 | `cft:thm:complete`, `gdr:thm:generic`, `rog:lem:descent` |
 | 任意 d の中心 Veronese 復元 | C-flat、rank U≥2、普遍低次数中心条件の下で証明 | `thm:nfm-central-veronese` |
 | 全整数の切断飽和性 | 中心正則対と C-flat から証明。noetherian 性不要 | `lem:nfm-central-saturation` |
 | b_n 次元の次数付き DM stack、s_n 次元 torsor | 明示した相対 PBW・中心量子化入力と周囲代数の有限安定化子開を使用。全次数付き同型と有限性は本文で証明 | `prop:nfm-graded-presentation`, `lem:nfm-finite-stabilizer`, `thm:nfm-central-torsor` |
@@ -127,6 +128,20 @@ Poisson 射は、正規化 trace と尺度付き Hessian から量子中心三�
 general の稠密 Zariski 開、幾何学的一般点、very general の可算例外除去を区別する。very general な同値の存在だけでは、代数的な族の射や同値核の降下を得ない。まず関数体上の構成とその定義体を調べ、有限表示等の必要条件を確認して稠密開へ広げる。n=4 の幾何 locus と n≡1 mod3 の rotation 問題は、general を仮定するだけでは解決しない。
 
 ## 2. 入力研究の正確な範囲
+
+## 一般点可換復元の基礎と証明の依存
+
+- **一般性:** \(n\ge3\)、\(R=\mathbb C[h]_{(h)}\)、各次数有限自由な中心三次対を入力とする。剰余は多項式環と滑らかな三次式。任意の良い一ブロック表示に限らない。主定理 `gdr:thm:generic` は \(K=\mathbb C(h)\) 上に可換方程式を構成し、ある有限 \(K'/K\) 上で全coherent残余圏とKuのrotation・指定三次周期付き同値を得る。特殊ファイバーを含む代数的相対同値や \(K'=K\) は主張しない。
+- **完備移送:** `cft:thm:complete` は任意の完備noetherian局所 \(\mathbb C\)-底上で有限rank graded MF関手と逆を構成し、内部shift・二つのrank・周期を保つ。これと正則底のwindow（`tw:thm:window`）および一般点でのcoherent飽和（`crs:thm:coherent`）は別の定理。
+- **降下:** `rog:lem:descent` では実際のperfect核、逆核、単位・余単位・rotation・周期図式を有限表示で降下する。\(K\) 上に方程式があることはその \(K\)-線型同値核の存在を意味しない。非分裂symmetrizerと可積分行列空間の区別は `gcd:thm:field-model` 及び `gcd:ex:forms`。
+- **明示Hesse例:** `gre:thm:exact-potential` の \(\lambda(h)=(h+h^2/3+h^5/12)/(1-h^4/4)\) と固定 \(K\)-三次 \((4-h^4)(x^3+y^3+z^3+u^3+v^3)+(12h+4h^2+h^5)xyz=0\) は全次数の幾何・圏比較を用いる。有限jetの外挿ではない。
+- **境界:** 比較核の具体行列と一般的な最小拡大次数、元の固定非可換入力からの低rotation積 \(V,U,\mu\) の全行列、特殊点を含む代数的相対同値は別課題である。追加の高次元の同型類選択・period・Brauer障害は主稿の残余節を参照。
+- **計算:** `computations/verify_complete_curved_transport.py`、`verify_three_object_window.py`、`verify_generic_cubic_descent.py`、`verify_recovery_example.py`。記録済み結果と今回の再実行を区別する。
+
+一次資料の適用差分：Etingof–Ginzburgの有限rank MF、Carqueville–Kayの第二種変形複体、BFKの生成上界、Lin–Zhangの低積、Hwangのsymmetrizer、Pirozhkovの三次 \(n>3\) Torelliは既知。新たな基礎結果の核心は全有限rankの実際の相対MF functor・逆・指定周期、正則windowとの接続、全coherent比較と有限降下であり、初出の網羅確認は未了。
+
+詳細の有効な技術的障害は [可換復元の補助ノート](recovery_foundations.md) に保持する。
+
 
 `nc-cubic` の固定 commit は `eabe601c1341777742964584dde5314c0bcf64a9`。論文A A-v61、論文B B-v59（いずれも2026年11月14日）。
 

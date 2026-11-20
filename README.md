@@ -1,12 +1,19 @@
-# 非可換三次 n-fold のモジュライ
+# 非可換三次 n-fold：可換復元・モジュライ・Poisson幾何
 
-2026年11月21日 / v25。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
+2026年11月21日 / v26。日本語 LuaLaTeX による現行研究稿と、研究継続に必要な最小限の資料・厳密計算証明書。
 
 **再開時は [研究方針](00_research_plan.md) を最初に読む。**
 
 **全 n≥3 の標準 split 一般係数体で、正準強化 class の規格化周期位相は非自明である。** Hesse 境界 q=2+z の完備局所体で γ_sc,n=[D_R] を得た。従って D=0 での付値は1 mod3、位相被覆は tame な完全分岐三次拡大となり、正準 frame の位相体の次数は三と確定した。大域的な γ̄_n=[D] は ΔD 外の非分岐性を追加仮定した場合の結論であり、その仮定と位相体上の scalar index は未解決である。
 
 ## 内容
+
+完備MF移送と一般点の全coherent残余圏のKu比較（旧 `nc-cubic` 論文B）の全証明をこの主原稿へ統合した。一般の中心三次変形の基礎定理は、一ブロック型のモジュライ構成とは独立した仮定の下で述べる。外部から固定して使用する未公表原稿は `nc-cubic` の論文Aと `nc-cubic-threefold-moduli` の指定版である。
+
+- [可換復元の基礎節](papers/sections/generic_recovery/main_result.tex)：完備MF比較 `cft:thm:complete`、一般点の可換復元 `gdr:thm:generic`、局所模型・window・飽和・低積の積分・明示Hesse模型を含む全9節。主原稿から読み込む。
+- [可換復元の研究上の障害と再現入口](notes/recovery_foundations.md)：定義体、有限降下、symmetrizer、具体例の規約、残るkernel有効化。
+- [可換復元の検証スクリプト](computations/verify_generic_cubic_descent.py)：既知の勾配空間の積分と非分裂symmetrizer。`verify_complete_curved_transport.py`、`verify_three_object_window.py`、`verify_recovery_example.py` も同じ `computations/` に置く。
+
 
 - [公表用研究稿](papers/nc-cubic-n-fold.tex)：中心復元、局所一ブロック型の O-marked DM stack と Brauer 障害、相対点関手と中心商の復元、trace–Hessian による Poisson 対の開部分との同型、残余復元との比較障害、次数9の代数的 Poisson 補正、形式 support 保存、全混合五次 tensor と残余四次 potential、四次の比較障害と新しい代数的補正、split 族の残余比較、一般混合係数の代数的残余三次・点曲線の j の一致・点微分による一般有限な符号商 Poisson 射、有限被覆上の Ku 比較、点型の全 O-降下と scalar 障害、n=3,4 の全 full class 降下と最小比較次数三、三分点体の次数九と ASL₂(F₃) モノドロミー、固定 tensor の very general な超越性、Jacobi スキーム、残余圏の通常 Artin 形式認識。
 - [研究ノート](notes/research_notes.md)：主張の依存・適用範囲、反例・障害、文献の確認箇所、次の計算の入口。
@@ -36,7 +43,7 @@
 - [点障害の厳密検算](computations/verify_picard_obstruction.py)：Hesse 接線・巡回 norm、Sklyanin 点三次・係数の逆、rotation の六つの数値 centralizer、巡回平面 twist・norm 係数・symbol 補正、普遍 Jacobian の三捩れ点・八点軌道・安定化群 core、右点対応。
 - [参考文献](papers/references.tex)。外部文献PDFは含めない。
 
-直接の入力は [nc-cubic](https://github.com/uedakazushi/nc-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) の論文A・B。これらが既に扱う一般次元の正規形・量子化・一般点復元を、新しい成果として数えていない。
+外部の未公表入力は [nc-cubicの論文A](https://github.com/uedakazushi/nc-cubic/tree/eabe601c1341777742964584dde5314c0bcf64a9) のPoisson正規形・量子化である。旧論文Bの一般点復元は現行主原稿内に証明を統合した。統合は結果を新たに今回証明したという意味ではない。
 
 ## 現在の研究目標
 
