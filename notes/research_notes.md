@@ -1,12 +1,14 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v48。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v49。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
-## 二つの予想を中心とする研究の入口
+## 可換 Ku 実現を中心とする研究の入口
 
-主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現すること、当初の第二予想は同じ可換標的上でPtをPoisson零スキームとして実現することである。**第二予想は全スキーム版だけでなく、被約スキームの同型へ弱めても成立しない。** 指定混合五様体の定常ノルムの全64根では、smooth properなsourceの点スキームに一つの被約孤立点がある。一方、滑らかな可換三次五様体上の全Poisson零集合には孤立点がないため、Ku比較を仮定せず全可換標的を排除できる。三様体の非被約局所環を用いる別の反例は、実際の可換Ku同値を持つsourceについての独立した結果として保持する。主予想と指定混合族の全smooth係数での可換Ku比較は未解決である。
+主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現することである。主予想と指定混合族の全smooth係数での可換Ku比較は未解決であり、明示可換候補への同値は一般点でも未構成である。次の核心は、c=0の根スタック模型を入口として、内部次数と三次周期を保つ実際の比較核を構成することである。
 
 C上n≥3を基本とし、generic・全固定点・全族・一般体上の降下を区別する。全intrinsic対象の認識やpoint functorの表現可能性は未完成であり、既知の局所表示だけを全対象と定義して済ませない。可換候補の方程式・判別集合・局所特異点の一致と、その候補への実際の比較核の存在も区別する。
+
+point schemeとPoisson零スキームまで同一視できるという素朴な期待は、本文の注意 `ppz:rem:naive-expectation` と不一致の例で扱う。指定混合五様体の定常ノルムの全64根では、smooth properなsourceの点スキームに一つの被約孤立点がある。一方、滑らかな可換三次五様体上の全Poisson零集合には孤立点がないため、Ku比較を仮定せず全可換標的を排除できる。三様体の非被約局所環を用いる別の例は、実際の可換Ku同値を持つsourceについての結果である。これらは可換Ku実現から点スキームについて結論できる範囲を示す補助的な例として保持し、独立の予想や修正版を最優先課題として掲げない。
 
 ### 満支持型における同時存在
 
@@ -14,7 +16,7 @@ C上n≥3を基本とし、generic・全固定点・全族・一般体上の降�
 
 零イデアルはEuler場ξとの外積ξ∧πで計算する。E_i近傍である∂f_iが単元になり、mixed係数x_j∂f_iから全他block座標が消え、純block係数は3f_iとなる。従って台だけでなく任意非被約底でのスキーム等式となる。原Aの点関手自体も既存 `tbp:cor:all-blocks` で証明済みであり、第三Veronese中心商Dの幾何点の結果だけを用いているわけではない。
 
-Ku比較は非可換・可換両側の中心同変積表示をPicard線束で共役し、actual Ωとfの三乗周期をスカラーの三乗根で同期して二重同変化する。jの相異性・特殊j除外・2p≠0はこの存在証明には不要。自然なθが二捩れで零でも、explicit因子仮定を満たせば別のfを選べる。基本開の自然X_ptは `pps:cor:both-conjectures` と分ける。p=0や三捩れ等で点グラフ仮定が失われる場合は含めない。全O stackの単一の自然tensorや大域核sectionは別課題。
+Ku比較は非可換・可換両側の中心同変積表示をPicard線束で共役し、actual Ωとfの三乗周期をスカラーの三乗根で同期して二重同変化する。jの相異性・特殊j除外・2p≠0はこの存在証明には不要。自然なθが二捩れで零でも、explicit因子仮定を満たせば別のfを選べる。基本開の自然X_ptは `pps:cor:simultaneous-comparison` と分ける。p=0や三捩れ等で点グラフ仮定が失われる場合は含めない。全O stackの単一の自然tensorや大域核sectionは別課題。
 
 代数閉体ではblock scalingがΩ_iへ三乗で作用するので、全非零の中心係数直線は一つの軌道をなす。係数がpoint schemeに見えないことだけから非同型な満支持商を得たとは結論できない。
 
@@ -275,7 +277,7 @@ n=3k,\qquad\operatorname{rank}_{\mathrm{gen}}\pi=2k
 
 が被約であり、全coherent導来圏・全coherent Kuがsmooth properであることを組み合わせる。孤立連結成分の有無は抽象被約スキームの同型で保たれるため、任意の滑らかな可換三次五様体Yと任意のπについてPt(A_c)_red≄Z_Y(π)_redとなる。Ku(Y)≃Ku(A_c)を仮定する前に全Yを排除しており、主予想の真偽には結論しない。
 
-一つの完全に明示した係数は **c=−44828**（`ppz:ex:reduced-counterexample-rational`）。u=1で二つのcharacterを(−1,−2,−3)、(−4,−5,−7)と取ると、中心値は28、448であり、28+100·448−44828=0となる。normの根の相異性により定常点は一つで、gcd(P64,N)=1によりsourceはsmooth properである。定常成分自体も一つの滑らかな被約点なので、全対象について単に「定常成分が滑らか」と仮定しても第二の対応は修復できない。個別の成立族・別の点関手・付加構造を課す修正は、それぞれ別に検証する。
+一つの完全に明示した係数は **c=−44828**（`ppz:ex:reduced-counterexample-rational`）。u=1で二つのcharacterを(−1,−2,−3)、(−4,−5,−7)と取ると、中心値は28、448であり、28+100·448−44828=0となる。normの根の相異性により定常点は一つで、gcd(P64,N)=1によりsourceはsmooth properである。定常成分自体も一つの滑らかな被約点なので、全対象について単に「定常成分が滑らか」と仮定してもpoint/Poisson一致は得られない。個別の成立族・別の点関手・付加構造を課す修正は、それぞれ別に検証する。
 
 Bondal予想の退化軌跡に関する結果とは量化が異なる。Druel–Pereira–Pym–Touzet, *Bondal's conjecture in dimension five*, [arXiv:2606.03424v1](https://arxiv.org/html/2606.03424v1), Theorem1.2、Corollary1.3、§4.4 Theorem4.3は、五次元Fano上のZ_X(π)に正次元成分が存在することを与える。これは別の孤立成分の併存を排除しない。本稿の全孤立成分排除は三次超曲面の正規形から得る別の結論である。一般次元の3整除制約と被約反例について、文献上の新規性の網羅的確認は未完了。一次資料の確認範囲は第7節を参照する。
 
@@ -291,7 +293,7 @@ Bondal予想の退化軌跡に関する結果とは量化が異なる。Druel–
 
 ### 三様体の非被約局所環による全スキーム版の反例
 
-**全スキーム版の第二予想は偽である。** 正本は `point_poisson_obstruction.tex` の `ppz:cor:complex-counterexample`。具体的な複素代数は
+**可換Ku実現を持ちながら、point/Poisson一致への期待が全スキームとして成り立たない例。** 正本は `point_poisson_obstruction.tex` の注意 `ppz:rem:naive-expectation` と系 `ppz:cor:complex-counterexample`。具体的な複素代数は
 
 \[
 S_\star=\mathbb C\langle x,y,z\rangle/(yz-3zy-2x^2,\ zx-3xz-2y^2,\ xy-3yx-2z^2),
@@ -432,7 +434,7 @@ q_i(v)=vᵗA_i v、A_iは対称、A_1可逆とし、T_QをA_jv_i=A_iv_j（i<j）
 
 **保持する表現と障害。** 二ブロックC_1のK_2作用は射影的に忠実。55次元表現は自明表現3コピー、商の16個の非自明一次指標、二つの9次元既約表現各2コピーで、中心固有空間は19・18・18。ambient PGLのcentralizer次元32、normalizer/centralizer位数186624は関係を保つ群とは限らない。実際の全G=Kは上の別の証明で決定した。一般的な二次中心拡張では`xy−yx=g²`の`g↦−g`が還元上恒等となり、還元核を無条件にunipotentとする議論は失敗する。この例は保持するが、本対象の核自明性を妨げない。
 
-**保持する補助課題。** 全O上のPicard比較stack、自然な周期式、因子分離下の全中心同変核判定、二ブロックの中心非正規性を入力に、以下の算術課題を保持する。二予想の存在・全point構造の検証に必要な場合に着手する。
+**保持する補助課題。** 全O上のPicard比較stack、自然な周期式、因子分離下の全中心同変核判定、二ブロックの中心非正規性を入力に、以下の算術課題を保持する。主予想の比較核・表示範囲、または本文で述べる全point構造の検証に必要な場合に着手する。
 
 1. **中心作用の共役軌道の降下。** 全通常同値による指定μ3保存は偽である。有限比較体上のG同変核を基準に、中心normalizerから全Aut(Ku)へ移すときの降下cocycleとgerbeを調べる。共役類自体の認識は残る。
 2. 同種二因子では、証明済みの幾何的Orlov中央化群とPell・反転核から、Galois不変な混合型の実現gerbe・period multiplierを計算する。k≥3の全H作用では混合は排除済み。

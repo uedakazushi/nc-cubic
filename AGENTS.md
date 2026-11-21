@@ -1,17 +1,17 @@
 # Research instructions — nc-cubic
 
-2026-11-22 / v48。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-22 / v49。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
 - **Main conjecture:** 任意の滑らかなnc cubic 𝒳について、同じ次元の滑らかな可換cubic XとKu(𝒳)≃Ku(X)が存在する。
-- **Second conjecture（全スキーム版・被約版とも反例あり）:** その同じXを、Poisson構造πとスキーム同型Pt(𝒳)≃Z_X(π)が存在するように選べる。非被約構造を含み、point shiftの固定点とは区別する。
 - まずC上、n≥3の存在を最優先とする。「任意」をgenericや既知の良い表示へ弱めない。全intrinsic対象の定義・認識と表示被覆は未完成として明記する。point functorの表現可能性・表示独立性も必要な範囲で検証する。
-- 主原稿の `conj:nc-main`, `conj:nc-second` が元の定式化の正本。`ppz:cor:reduced-point-poisson-counterexample` は、指定混合五様体のnormの全64根で、被約第二予想も否定する。c=−44828に有理係数の一例を固定でき、全滑らかな可換三次五様体の全Poisson零集合に孤立点がないことを使う。可換Ku比較はこの反例の入力ではなく、主予想の真偽は結論しない。三様体A★（h=1、点曲線のHesse係数λ=17/9）の `ppz:cor:complex-counterexample` も保持する。こちらは `esi:prop:factor` と `csc:cor:fermat` により実Ku比較を直接構成する全スキーム版反例であり、形式復元・一般点のspreadを入力にしない。修正候補は成立範囲を検証し、自動採用しない。同じ射影埋込み、point correspondence、全族の自然降下、一般体上の核降下、中心作用・rotation・周期の標識は別の強化問題である。
 - 次のP0は、指定混合族と明示可換候補を結ぶ実際のcurved/MF比較・次数付き核の構成、一般点同定、その後のDVR延長である。候補のsmooth locusは共通のP64で判定できるが、候補へのKu同値は一般点でも未証明とする。c=0のEckardt・四次二重被覆・crepant解消模型を比較の入口とし、normの64係数を含む全smooth locusを目標にする。一般αの中心切断の退化、より一般の混合表示、未被覆intrinsic成分、point/Poisson対応の制限された成立範囲も残る。比較次数・周期・全自己同値の精密化は補助課題へ移し、既存の有効な証明・例・計算は保持する。
+- 主予想の正本は主原稿の `conj:nc-main`。同じ可換Ku標的上でPt(𝒳)≃Z_X(π)も選べるという素朴な期待は一般には成り立たず、独立した予想や主予想と同格の最優先目標にしない。本文の注意 `ppz:rem:naive-expectation` と不一致の例として説明し、Introductionから参照する。既存の定理・証明・計算は保持し、修正版の予想探しを自動的にP0へ戻さない。零スキームの非被約構造を含め、point shiftの固定点とは区別する。
 
 ## 現行結果の範囲と研究上の注意
 
+- `ppz:cor:reduced-point-poisson-counterexample` は、指定混合五様体のnormの全64根で、被約point/Poisson一致への期待も成り立たないことを示す。c=−44828に有理係数の一例を固定でき、全滑らかな可換三次五様体の全Poisson零集合に孤立点がないことを使う。可換Ku比較はこの例の入力ではなく、主予想の真偽は結論しない。三様体A★（h=1、点曲線のHesse係数λ=17/9）の `ppz:cor:complex-counterexample` も保持する。こちらは `esi:prop:factor` と `csc:cor:fermat` により実Ku比較を直接構成する全スキーム不一致の例であり、形式復元・一般点のspreadを入力にしない。同じ射影埋込み、point correspondence、全族の自然降下、一般体上の核降下、中心作用・rotation・周期の標識は別の強化問題である。
 - `cmo:prop:full-relative-hh` は指定c族をU=A¹∖V(P64)全体で相対smooth properにする。固定ambient・次数別自由商・有限中心上の平坦なcoherent対角・properな中央台を構成し、proper-perfect-spreadを各閉点へ適用する。一般のfiberwise smooth⇒relative smoothを使わない。Mathew Theorem1.3から全UでHH₀=C², HH±₁=C²¹。他次数零。`cmo:cor:rational-euler-comparison` はpr(O(4)),pr(O(5))を有理Knumの基底とし、Gram=[[-27,−189],[−162,−1161]]、det729を両側で得る。積分格子の同型は未証明。c=0の非可換対合はHH₀では恒等だが、HH±₁指標は未決定。
 - `cmo:thm:eckardt-root-residual` はc=0の可換候補の対合商Bl_p(X₀)/μ₂≃Bl_Y(P⁵)、分離分岐H′⊔Z′の根スタックℛ、16明示例外対象の右直交K≃Ku(X₀)^μ₂とperfect射影核を与える。指標線束N²≃Oの指定coherenceで再同変化すると通常Kuを回復する。同変canonicalにはNが入り、ω_ℛ=π*O(−4h)⊗N。同変HHは次数−2,…,2で(1,5,24,5,1)、通常HH±₁の固有次元は(5,16)。Ku(Y),Ku(Z)のHHとの加法的一致からSODの相殺をしない。非可換A₀からの核は未構成で、対合保存は主予想の追加条件。
 - `cmo:prop:pointwise-affine-mf-comparison` は全固定s,cで、内部次数を忘れた有限射影Z/2-MFの冪等完備後の実Morita比較を与える。唯一のAzumaya Morse点への完備化は、有限長Homと大域simpleのsyzygyのstabilizationで直接証明する。Morse模型はCl₃またはCl₆、smooth値では零。全smooth cで射影Kuは非零なので、この圏を介する主予想の証明は得られない。各固定値の同値、相対族、次数付き核、通常Z次数のpropernessを混同しない。検算器 `verify_mixed_comparison_invariants.py` の9 PASSは有限行列・指標・Euler算術の確認であり、圏同値の形式証明ではない。

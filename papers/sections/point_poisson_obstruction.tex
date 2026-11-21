@@ -1,8 +1,33 @@
 % !TEX root = ../nc-cubic.tex
-\section{点スキームと Poisson 零スキームを比較する際の障害}
+\section{点スキームと Poisson 零スキームの一致が成り立たない例}
 \label{ppz:sec:comparison}
 
-点スキームと Poisson tensor の零スキームとの一致を検証する際には、
+\begin{remark}[点スキームと零スキームの一致という素朴な期待]
+\label{ppz:rem:naive-expectation}
+分離型での同時比較（定理\ref{pps:thm:elliptic-existence}、
+系\ref{csp:cor:simultaneous-one-center}）から、任意の滑らかな非可換三次
+$\mathcal X$ について
+\[
+ \Ku(\mathcal X)\simeq\Ku(X),\qquad
+ \operatorname{Pt}(\mathcal X)\simeq Z_X(\pi)
+\]
+を同時に満たす同じ次元の滑らかな可換三次 $X$ と Poisson 構造 $\pi$ が
+存在するという素朴な期待が生じる。しかし、この期待は一般には成立しない。
+ここで $Z_X(\pi)$ は Poisson tensor 自体の零スキームであり、
+点シフトの固定点スキームではない。比較には非被約構造を含める。
+要求するのは抽象スキーム同型であり、既存の射影埋込み、
+点対応、族全体への自然な降下の保存は別の強化条件である。
+本節の二つの例は、この一致が可換 Ku 実現に付随する一般的な性質ではないことを示す。
+三様体の例（系\ref{ppz:cor:complex-counterexample}）では
+可換 Ku 実現を直接構成できる一方、非被約な定常点の局所環が障害となり、
+同じ Ku を持つどの可換標的と Poisson 構造を選んでも一致しない。
+混合五様体の例（系\ref{ppz:cor:reduced-point-poisson-counterexample}）では
+被約化後にも一致せず、可換 Ku 実現の存在を仮定せずに全 Poisson 標的を排除できる。
+これらは点スキームを用いた比較の限界を示す例であり、
+主予想\ref{conj:nc-main}の可換 Ku 実現を否定するものではない。
+\end{remark}
+
+以下では、
 抽象スキームとしての同型と、既存の次数一偏極に関する埋込み同型を区別する。
 まず一ブロック型の零スキームを計算する。
 さらに全 Poisson 正規形から、孤立零点の存在には次元が三の倍数であることが
@@ -197,8 +222,8 @@ smooth proper である非可換三次五様体であり、
  \operatorname{Pt}(A_c)_{\mathrm{red}}
    \not\cong Z_Y(\pi)_{\mathrm{red}}.
 \]
-従って第二予想の対応を被約スキームの同型へ弱めても、
-全ての滑らかな非可換三次を対象とする主張は成立しない。
+従って点スキームと Poisson 零スキームの一致という素朴な期待は、
+被約スキームの同型へ弱めても一般には成立しない。
 \end{corollary}
 \begin{proof}
 source の smooth proper 性は系\ref{cmo:cor:fixed-zero-norm-smooth}、
@@ -306,7 +331,7 @@ $H=cF+G(u)$ である。
 よって前系の切断障害に反する。
 \end{proof}
 
-\begin{remark}[第二予想との論理的な関係]
+\begin{remark}[埋込み一致と抽象スキーム同型の区別]
 この命題が排除するのは、良い一ブロック標的について、
 既存の次数一埋込みを射影同型まで保つ強い一致である。
 点スキームと零スキームの抽象同型、
@@ -321,8 +346,8 @@ $H=cF+G(u)$ である。
 
 \subsection{自然な残余 Poisson 対では抽象スキームも異なり得る}
 
-次の結果は、既に構成した特定の残余 Poisson 対が
-第二予想\ref{conj:nc-second}を自動的に実現するという推論を排除する。
+次の結果は、既に構成した特定の残余 Poisson 対の零スキームが
+元の点スキームと自動的に一致するという推論を排除する。
 別の Poisson tensor の存在を排除する結果ではない。
 被約な台では消える差を、定常点の局所 Artin 環で検出する。
 
@@ -440,8 +465,8 @@ $S_\star/(\Omega_\star)=B(E_\lambda,\OO_{E_\lambda}(1),t_p)$ を与える。
 この例は、自然な残余 support と tensor をそのまま使う処方に対する反例である。
 $X_\star$ 上で別の support を持つ Poisson tensor を選ぶ可能性や、
 同じ Kuznetsov 成分を持つ別の可換三次を選ぶ可能性は扱っていない。
-従ってこの命題だけでは「ある可換三次とある Poisson tensor が同時に存在する」という
-第二予想\ref{conj:nc-second}を否定したことにはならない。
+従ってこの命題だけでは、点スキームとの一致を実現する別の
+可換 Ku 標的と Poisson tensor の存在まで排除したことにはならない。
 次小節で任意の support を調べ、この例についてその可能性も排除する。
 一方、被約な台や楕円成分だけの比較では失われる情報が、
 この例では長さ八の局所環に残っている。
@@ -648,7 +673,7 @@ $j(t)=j(\lambda)$ または $j(t)=0$ が必要になり、仮定に反する。
 
 \subsection{具体的な複素非可換三次三様体による反例}
 
-\begin{corollary}[全零スキーム版の第二予想に対する複素数体上の反例]
+\begin{corollary}[可換 Ku 実現と全点スキームの不一致を併せ持つ三様体]
 \label{ppz:cor:complex-counterexample}
 式\eqref{ppz:eq:explicit-pair}の $A_\star$ は、複素数体上の
 点スキームの良い一ブロック条件を満たす滑らかな楕円一ブロック型の
@@ -667,8 +692,8 @@ $j(t)=j(\lambda)$ または $j(t)=0$ が必要になり、仮定に反する。
  その上のどの Poisson tensor $\pi$ に対しても、
  $\operatorname{Pt}(A_\star)\not\simeq Z_Y(\pi)$ が抽象スキームとして成立する。
 \end{enumerate}
-従って、非被約構造を含む全 point scheme と全 Poisson 零スキームの同型を要求する
-第二予想\ref{conj:nc-second}は成立しない。
+従って、可換 Ku 実現に加えて非被約構造を含む全 point scheme と
+全 Poisson 零スキームの同型も選べるという素朴な期待は成立しない。
 主予想の可換 Kuznetsov 実現はこの例では成立している。
 \end{corollary}
 
