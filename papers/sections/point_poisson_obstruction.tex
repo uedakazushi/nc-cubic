@@ -1,0 +1,572 @@
+% !TEX root = ../nc-cubic.tex
+\section{点スキームと Poisson 零スキームを比較する際の障害}
+\label{ppz:sec:comparison}
+
+点スキームと Poisson tensor の零スキームとの一致を検証する際には、
+抽象スキームとしての同型と、既存の次数一偏極に関する埋込み同型を区別する。
+以下は一ブロック型における零スキームの直接計算と、後者に対する障害である。
+Kuznetsov 成分の同値を仮定した結果ではなく、
+その同値に適合する Poisson 対を探す際の独立した必要条件を与える。
+
+\subsection{射影 Poisson tensor の零イデアル}
+
+$k$ を標数零の代数閉体、$n\geq3$、$r=n-1$ とし、
+$V=\langle x,y,z,u_1,\ldots,u_r\rangle$、
+$K=\operatorname{ann}\langle u_1,\ldots,u_r\rangle\subset V^*$ と置く。
+$H\in\Sym^3V$ に対し、$X=V(H)\subset\PP(V^*)$ と
+$g_H=H|_{u=0}$ の定める平面三次がともに滑らかとする。
+$0\ne P\in\det K$ を選び、
+\[
+ \Pi_H=\iota_{dH}P,\qquad \pi_H=\Pi_H|_X
+\]
+とする。$Z_X(\pi_H)$ は、切断 $\pi_H\in H^0(X,\bigwedge^2T_X)$
+の零スキーム、すなわち
+$\bigwedge^2\Omega_X\xrightarrow{\pi_H}\OO_X$ の像イデアルで定義する。
+
+\begin{proposition}[一ブロック Poisson 零スキームの分解]
+\label{ppz:prop:zero-scheme}
+上の仮定の下で、スキームとして
+\begin{equation}\label{ppz:eq:zero-decomposition}
+ Z_X(\pi_H)=E_H\amalg D_H,\qquad
+ E_H=V(u_1,\ldots,u_r,H),\quad
+ D_H=V(H_x,H_y,H_z,H)
+\end{equation}
+となる。
+$C_H=V(H_x,H_y,H_z)$ 上で $H$ が非零因子ならば、
+$D_H$ は型 $(2,2,2,3)$、次元 $n-3$、次数 $24$ の完全交叉である。
+相対的な滑らかさと、この相対 Cartier 条件を仮定した族では、
+表示した零イデアルの同定は任意の基底変更と両立する。
+\end{proposition}
+
+\begin{proof}
+$P$ の非零定数倍は零イデアルを変えないので、
+$P=\partial_x\wedge\partial_y\wedge\partial_z$ としてよい。
+射影空間の Euler 列は局所的に分裂し、その外積により、
+斉次 bivector の射影像が零となるイデアルは
+Euler vector field $\operatorname{Eu}$ との積
+$\operatorname{Eu}\wedge\Pi_H$ の係数で計算できる。
+また $X$ が滑らかなので $T_X\subset T_{\PP(V^*)}|_X$ は部分束であり、
+$\bigwedge^2T_X$ の切断を周囲の外積束で計算しても零イデアルは変わらない。
+従って $X$ 上の零イデアルは
+\begin{equation}\label{ppz:eq:zero-ideal}
+ \bigl(u_aH_x,u_aH_y,u_aH_z\ (1\leq a\leq r),
+       xH_x+yH_y+zH_z\bigr)
+\end{equation}
+で与えられる。
+
+ある $u_a$ が可逆な chart では、このイデアルは
+$(H_x,H_y,H_z)$ となり、$D_H$ を得る。
+$u=0$ の点では $g_H$ が滑らかなので、
+$H_x,H_y,H_z$ の少なくとも一つが可逆な近傍を取れる。
+その近傍では最初の $r$ 組の方程式が全ての $u_a$ を消す。
+最後の方程式は
+\[
+ xH_x+yH_y+zH_z=3H-\sum_a u_aH_{u_a}
+\]
+により $X$ 上で冗長であり、零スキームは $E_H$ となる。
+$C_H\cap\PP(K)=\varnothing$ は $g_H$ の滑らかさから従うため、
+この二つの閉スキームは交わらない。
+二種類の chart は零スキーム全体を覆い、式
+\eqref{ppz:eq:zero-decomposition}を得る。
+
+三つの active 偏微分は、定理\ref{thm:relative-point-nfold}の
+濾過 Koszul 計算と同様に正則列である。
+その商は中心多項式環上階数八で有限自由となる。
+非零因子 $H$ を加えると完全交叉型・次元・次数が従う。
+相対版の局所計算では、幾何ファイバー上で非零な偏微分を可逆にしている。
+各 chart のイデアル等式は係数環上の等式なので、
+非平坦・非被約のものを含む基底変更後にも成立する。
+\end{proof}
+
+\subsection{同じ埋込みを保つ一致の不存在}
+
+量子側には第\ref{sec:points}節と第\ref{sec:poisson-morphism}節の
+良い一ブロック中心商 $A=B/(w)$ を取り、
+\[
+ \operatorname{Pt}(A)=E\amalg D,\qquad
+ Q=I(D)_2=\langle F_x,F_y,F_z\rangle,
+ \qquad C=V(Q)
+\]
+とする。
+特に $w\notin\Sym^3U$ とし、境界 Jacobi 線への中心評価
+\[
+ \epsilon:Z(B)_3/\Sym^3U\longrightarrow
+       \bigl(k[x,y,z]/(g_x,g_y,g_z)\bigr)_3
+\]
+が同型であると仮定する。
+この写像は中心三次空間全体の同型ではなく、商線束間の同型である。
+
+\begin{corollary}[元の Poisson tensor を保つ切断の障害]
+\label{ppz:cor:fixed-tensor}
+元の $\Pi=h\Pi_F$ とその support を固定する。
+滑らかな古典 Casimir 三次 $H\in kF\oplus\Sym^3U$ に対し、
+$D_H=D$ をスキームとして実現することはできない。
+従って trace--Hessian の中心同定だけでは、
+定常点成分を Poisson 零点の定常成分と同定できない。
+\end{corollary}
+\begin{proof}
+滑らかな $H$ では $H=cF+G(u)$ の係数 $c$ は非零である。
+従って $C_H=C$ であり、$D_H=C\cap V(H)$ となる。
+命題\ref{prop:point-casimir-restriction-obstruction}により、
+この Cartier 切断は $D=C\cap V(w_{\mathrm{ab}})$ と一致しない。
+\end{proof}
+
+\begin{proposition}[良い一ブロック型の埋込み一致に対する障害]
+\label{ppz:prop:embedded-obstruction}
+上の仮定に加え、$g=F|_{u=0}$ が
+式\eqref{eq:point-hessian-scalar}の Hessian スカラー条件を満たすとする。
+滑らかな一ブロック Poisson 対 $(X_H,\pi_H)$ について、
+active 平面三次が滑らかであり、$D_H$ が上の型 $(2,2,2,3)$ の
+完全交叉であると仮定する。
+このとき、射影線型同型によって
+\[
+ \operatorname{Pt}(A)\simeq Z_{X_H}(\pi_H)
+\]
+を埋込みスキームとして実現することはできない。
+ここでは標的の Poisson tensor を元の $\Pi$ に固定していない。
+\end{proposition}
+
+\begin{proof}
+仮にこの射影同型があれば、標的のデータを引き戻して
+同じ $\PP(V^*)$ の中で比較する。
+$n=3$ では楕円成分は唯一の正次元成分、$n>4$ では唯一の一次元成分である。
+$n=4$ では $D,D_H$ は連結な次数 $24$ の完全交叉曲線であり、
+次数 $3$ の連結成分 $E,E_H$ と区別できる。
+従って射影同型は $E$ を $E_H$ に、$D$ を $D_H$ に移す。
+$E$ と $E_H$ の線型包はそれぞれの support 平面なので、
+引戻し後の support は元の $K$ と一致する。
+
+完全交叉イデアルの二次部分から
+\[
+ \langle H_x,H_y,H_z\rangle=I(D_H)_2=I(D)_2=Q
+\]
+を得る。
+命題\ref{prop:point-casimir}の Hessian スカラー条件による積分の一意性から
+$H=cF+G(u)$ である。
+よって前系の切断障害に反する。
+\end{proof}
+
+\begin{remark}[第二予想との論理的な関係]
+この命題が排除するのは、良い一ブロック標的について、
+既存の次数一埋込みを射影同型まで保つ強い一致である。
+点スキームと零スキームの抽象同型、
+別の次数一表示や偏極を用いた比較、
+複数ブロックまたは退化した Poisson 標的を含む存在問題を
+この命題だけで否定したことにはならない。
+特に楕円成分の一致と、定常成分を含む全零スキームの一致は別である。
+命題\ref{prop:nfm-correction-point-cubic}が与える Hessian 補正の整合は前者であり、
+定理\ref{thm:nfm-residual-formal-poisson}の残余比較も
+全定常点スキームとの一致を結論していない。
+\end{remark}
+
+\subsection{自然な残余 Poisson 対では抽象スキームも異なり得る}
+
+次の結果は、既に構成した特定の残余 Poisson 対が
+第二予想\ref{conj:nc-second}を自動的に実現するという推論を排除する。
+別の Poisson tensor の存在を排除する結果ではない。
+被約な台では消える差を、定常点の局所 Artin 環で検出する。
+
+\begin{proposition}[分離型 Hesse 残余対の定常局所環の不一致]
+\label{ppz:prop:split-artin-obstruction}
+第\ref{sec:nfm-residual-th-obstruction}節の split Hesse 族を
+$n=3$、$r=2$ に取り、$\kappa=\overline{\C(h)}$ へ移す。
+同節の非可換中心商を $A_h$ とし、
+\[
+ g_t=(x^3+y^3+z^3)/3+txyz,\qquad G=(u^3+v^3)/3,
+ \qquad
+ \lambda=\frac{h+h^2/3+h^5/12}{1-h^4/4}
+\]
+と置く。
+既存の残余比較が与える三次は
+$X_{\mathrm{res}}=V(g_\lambda+G)$ であり、
+その自然な一ブロック tensor を
+\[
+ \pi_{\mathrm{res}}
+ =\left.\iota_{d(g_\lambda+G)}
+       (\partial_x\wedge\partial_y\wedge\partial_z)
+   \right|_{X_{\mathrm{res}}}
+\]
+とする。その非零スカラー倍でも以下の結論は同じである。
+このとき
+\begin{equation}\label{ppz:eq:split-artin-nonisom}
+ \operatorname{Pt}(A_h)\not\simeq
+ Z_{X_{\mathrm{res}}}(\pi_{\mathrm{res}})
+\end{equation}
+が抽象スキームとして成立する。
+一方、両者の被約部分は、元の $\PP^4_\kappa$ の中でも一致する。
+固定した MF/window 入力の下では
+$\Ku(A_h)\simeq\Ku(X_{\mathrm{res}})$ であるから、
+この例の不一致は Kuznetsov 比較の不存在を意味しない。
+\end{proposition}
+
+\begin{proof}
+$J_t=\kappa[x,y,z]/(x^2+tyz,y^2+tzx,z^2+txy)$ と置く。
+$1+t^3\ne0$ ならば $J_t$ は Hilbert 級数 $(1+s)^3$ の
+長さ八の局所 Artin 環であり、極大イデアルの四乗は零である。
+同節の中心元の式から、その可換化の $J_h[u,v]$ への像は
+\[
+ G+\eta,\qquad
+ \eta=-\frac23h^2(1+h^3)xyz\in(J_h)_3
+\]
+となる。特に $\eta\ne0$ であり、境界中心評価の非消滅条件を満たす。
+定常スキーム $D_h$ の被約部分は
+$x=y=z=0$ と $u^3+v^3=0$ で与えられる三点である。
+全ての点は $u\ne0$ に属するので、$u=1$ とする。
+各 $a\in\kappa$、$a^3=-1$ に対して
+\[
+ v=a-\eta/a^2
+\]
+は $J_h$ の中で $(1+v^3)/3+\eta=0$ を厳密に満たす。
+これは $\eta^2=0$ による。
+三つの根の差は単元なので、可換環上の中国剰余定理から
+\begin{equation}\label{ppz:eq:source-local-artin}
+ D_h\simeq\coprod_{a^3=-1}\operatorname{Spec}J_h
+\end{equation}
+を得る。従って中心三次の非零 socle 項を捨てたわけではなく、
+その項を中心座標の冪零補正に吸収して局所環を計算した。
+
+命題\ref{ppz:prop:zero-scheme}を残余対へ適用すると、
+その定常成分は
+\[
+ D_{\mathrm{res}}=V((g_\lambda)_x,(g_\lambda)_y,(g_\lambda)_z,
+                         g_\lambda+G)
+ \simeq\coprod_{a^3=-1}\operatorname{Spec}J_\lambda
+\]
+である。最後の式には Euler 恒等式による $[g_\lambda]=0$ in $J_\lambda$
+を用いた。
+
+仮に $J_h\simeq J_\lambda$ が局所 $\kappa$-代数として成立すれば、
+極大イデアルの冪に関する associated graded 環も同型になる。
+両環は標準次数付きで斉次二次イデアルによる商なので、
+この associated graded 環はそれぞれ $J_h,J_\lambda$ 自身である。
+次数一と二の乗法から二つの勾配空間の線型同型を得て、
+命題\ref{prop:ej-projective-uniqueness}により
+$V(g_h)\simeq V(g_\lambda)$ を得るはずである。
+しかし定理\ref{thm:nfm-th-residual-obstruction}の厳密 Hesse 計算は
+\[
+ j(t)=\frac{27t^3(8-t^3)^3}{(1+t^3)^3},\qquad
+ j(\lambda)-j(h)=13824h^4+O(h^5)\ne0
+\]
+を与える。従ってこの局所代数同型は存在しない。
+点スキームの一次元成分は楕円曲線一つだけなので、
+全スキームの抽象同型があれば零次元成分同士が対応する。
+三つ全ての局所環が上の非同型な二種類であるため、
+式\eqref{ppz:eq:split-artin-nonisom}が従う。
+
+量子側の楕円点曲線の式は、命題\ref{prop:nfm-correction-point-cubic}から
+\[
+ g_h+\frac{h^2}{24}\det\operatorname{Hess}(g_h)
+ =\left(1-\frac{h^4}{4}\right)g_\lambda
+\]
+である。従って両側の楕円成分は同じ埋込み平面三次であり、
+定常成分の被約部分も上の同じ三点である。
+これで被約部分の一致も得る。
+Kuznetsov 比較は命題\ref{prop:nfm-residual-hesse-input}の結論を
+代数閉体 $\kappa$ 上へ移したものである。
+\end{proof}
+
+\begin{remark}[自然な処方への反例と存在問題の区別]
+この例は、自然な残余 support と tensor をそのまま使う処方に対する反例である。
+$X_{\mathrm{res}}$ 上で別の support を持つ Poisson tensor を選ぶ可能性や、
+同じ Kuznetsov 成分を持つ別の可換三次を選ぶ可能性は扱っていない。
+従ってこの命題だけでは「ある可換三次とある Poisson tensor が同時に存在する」という
+第二予想\ref{conj:nc-second}を否定したことにはならない。
+次小節で任意の support を調べ、この例についてその可能性も排除する。
+一方、被約な台や楕円成分だけの比較では失われる情報が、
+この例では長さ八の局所環に残っている。
+Hesse の有理恒等式の厳密検算は既存の
+\texttt{computations/verify\_geometric\_corrections.py}に含まれる。
+局所環の分解と非同型の証明は上の議論であり、
+その有限多項式検算と同一視しない。
+\end{remark}
+
+\subsection{三次三様体における任意の Poisson tensor の排除}
+
+三次三様体では、全ての非零 Poisson tensor が分解可能な定数三ベクトルから来る。
+これは Mayanskiy\cite[Theorem~1, \S2.2]{Mayanskiy}の既知結果である。
+同論文の Schouten 括弧の式では、Pl\"ucker 関係式が五つの偏微分の係数となる。
+滑らかな三次の偏微分は一次独立なので、Poisson 条件は全 Pl\"ucker 関係に等しい。
+従ってこの結論は係数の特殊な三次にも適用でき、
+同じ多項式計算によって標数零の代数閉体上でも成立する。
+以下ではこの分類と、孤立零点の局所環を組み合わせる。
+
+\begin{lemma}[埋込み次元三の孤立 Poisson 零点]
+\label{ppz:lem:isolated-artin-eckardt}
+$k$ を標数零の代数閉体、$H\in k[W]_3$、$\dim W=5$ とし、
+$X=V(H)\subset\PP(W)$ を滑らかな三次三様体とする。
+$0\ne\pi\in H^0(X,\bigwedge^2T_X)$ を Poisson tensor とし、
+$p\in Z_X(\pi)$ を、局所環が長さ八・埋込み次元三を持つ孤立点とする。
+$p$ の非零ベクトル代表を同じ文字で表す。
+このとき $B_p=D^2H(p)$ の階数は二である。
+さらに
+\[
+ R_p=\ker B_p,\qquad G_p=H|_{R_p}
+\]
+と置くと、$\dim R_p=3$、$V(G_p)\subset\PP(R_p)$ は滑らかな平面三次であり、
+局所環の極大イデアル $\mathfrak m$ に対して
+\begin{equation}\label{ppz:eq:eckardt-graded-local}
+ \operatorname{gr}_{\mathfrak m}\OO_{Z_X(\pi),p}
+ \simeq\operatorname{Jac}(G_p)
+\end{equation}
+となる。右辺は定数倍および線型座標変換を除いて $X,p$ だけから定まる。
+\end{lemma}
+
+\begin{proof}
+上の分類により、$\pi=(\iota_{dH}P)|_X$、
+$0\ne P\in\det K$、$\dim K=3$ と書ける。
+$X\cap\PP(K)$ は Poisson 零集合に含まれる。
+実際、この平面上では Euler vector と bivector の外積は
+$3H P$ であり、$X$ 上で零になる。
+この交叉は平面曲線、または平面全体なので、
+孤立点 $p$ は $\PP(K)$ に属さない。
+
+$p$ で非零な中心一次式を一にした affine chart を取る。
+零点条件は $H_x=H_y=H_z=0$ であるから、
+三つの $K$ 方向は $p$ で $X$ の接方向である。
+滑らかさにより残りの affine 座標 $s$ を $H_s(p)\ne0$ となるよう選べ、
+$x,y,z$ は $X$ の局所座標となる。
+零イデアルはその正則局所環の中で $(H_x,H_y,H_z)$ である。
+商の埋込み次元が三であることは、これらの元に一次項がないことを意味する。
+従って $B_p|_{K\times K}=0$ である。
+
+affine cone の接超平面を $T=\ker dH(p)\subset W$ とすると、
+$T=K\oplus kp$ である。
+Euler の式から $B_p(p,v)=2dH(p)(v)$、$B_p(p,p)=6H(p)=0$ なので、
+$B_p|_{T\times T}=0$ となる。
+余次元一の部分空間上で零となる対称形式の階数は高々二であり、
+実際には二である。階数一なら $B_p=c\ell^2$ と書け、
+$B_p(p,p)=0$ から $\ell(p)=0$、従って
+$B_p(p,-)=0$ となって $dH(p)\ne0$ に反する。
+従って $R_p$ は三次元で、$R_p\subset T$、$p\notin R_p$、
+\[
+ T=R_p\oplus kp
+\]
+を得る。
+
+$B_p|_{T\times T}=0$ と $H(p)=0$ により、$H|_T$ は $p$ 方向に依らず
+$H(v+tp)=H(v)$ for $v\in R_p$ である。
+$G_p$ が特異と仮定し、$0\ne a\in R_p$ をその特異点の代表とする。
+全ての $t$ について $a+tp\in V(H)$ であり、
+その点での $T$ 方向の微分は全て零である。
+$n\notin T$ を取ると、残る微分
+$dH(a+tp)(n)$ は $t$ の二次式で、その最高次係数は
+$dH(p)(n)\ne0$ である。
+代数閉体上でその零点を選ぶと $X$ の特異点となり、矛盾する。
+よって $G_p$ は滑らかである。
+
+$K$ は $T=R_p\oplus kp$ の $kp$ に対する補空間だから、
+$R_p$ の $p$ 方向への graph であり、$H|_K$ は $G_p$ と線型同型である。
+$p$ を原点とする上の affine chart では、方程式を
+\[
+ H(x,y,z,s)=G_p(x,y,z)+sA(x,y,z,s),\qquad A(0)\ne0
+\]
+と書ける。形式的に $s$ を解くと $s\in(x,y,z)^3$ であり、
+三つの零イデアルの生成元の二次先頭項は
+$(G_p)_x,(G_p)_y,(G_p)_z$ である。
+従って $\operatorname{Jac}(G_p)$ から
+$\operatorname{gr}_{\mathfrak m}\OO_{Z_X(\pi),p}$ への次数付き全射がある。
+前者は滑らかな平面三次の勾配正則列による長さ八の環であり、
+後者も仮定によって長さ八である。
+従ってこの全射は同型で、式\eqref{ppz:eq:eckardt-graded-local}を得る。
+\end{proof}
+
+\begin{lemma}[分離型 Hesse 三様体の階数二 Hessian 点]
+\label{ppz:lem:hesse-eckardt}
+$\lambda\ne0$、$\lambda^3\ne8,-1$ とし、
+\[
+ H_\lambda=g_\lambda+(u^3+v^3)/3
+\]
+と置く。
+$V(H_\lambda)$ 上で Hessian 行列の階数が高々二となる点は、
+中心直線上の三点と active 平面上の九つの flex、合計十二点だけである。
+前補題の平面三次 $G_p$ の $j$ 不変量は、
+中心三点では $j(g_\lambda)$、九つの flex では $0$ である。
+\end{lemma}
+
+\begin{proof}
+Hessian 行列は
+\[
+ \operatorname{diag}\bigl(M_\lambda(x,y,z),2u,2v\bigr),\qquad
+ M_\lambda=\begin{pmatrix}
+ 2x&\lambda z&\lambda y\\
+ \lambda z&2y&\lambda x\\
+ \lambda y&\lambda x&2z
+ \end{pmatrix}
+\]
+である。$(x,y,z)\ne0$ では $M_\lambda$ の階数は二以上である。
+実際、階数が一以下で一座標が零なら、主小行列式と $\lambda\ne0$ により
+残りの二座標も零となる。
+全て非零なら、非主小行列式から $2x^2=\lambda yz$、
+主小行列式から $4yz=\lambda^2x^2$ となり、$\lambda^3=8$ に反する。
+
+従って active 座標が非零な階数二点では $u=v=0$ である。
+$g_\lambda=0$ 上では
+\[
+ \det M_\lambda=8(1+\lambda^3)xyz
+\]
+なので、該当点は一座標が零となる九点、すなわち九つの flex である。
+active 座標が零なら $u^3+v^3=0$ であり、
+$u,v$ はともに非零で、中心直線上の三点を得る。
+
+中心三点では Hessian の核は active 三平面であり、$G_p=g_\lambda$ である。
+flex は座標の置換により
+$p=(1,-\epsilon,0,0,0)$、$\epsilon^3=1$ としてよい。
+このとき Hessian の核は $e_u,e_v$ と
+\[
+ r=(\lambda\epsilon/2,\lambda\epsilon^2/2,1,0,0)
+\]
+で張られ、その制限は
+\[
+ H_\lambda(sr+u e_u+v e_v)
+ =\bigl((1+\lambda^3)s^3+u^3+v^3\bigr)/3
+\]
+となる。これは滑らかな Fermat 平面三次と同型で、$j=0$ である。
+\end{proof}
+
+\begin{theorem}[分離型三次三様体における全 Poisson 零スキームの障害]
+\label{ppz:thm:all-poisson-obstruction}
+命題\ref{ppz:prop:split-artin-obstruction}の幾何学的一般点の状況で、
+$X_{\mathrm{res}}$ 上のどの Poisson tensor $\pi$ に対しても
+\[
+ \operatorname{Pt}(A_h)\not\simeq Z_{X_{\mathrm{res}}}(\pi)
+\]
+である。ここでは support の指定、active 制限の滑らかさ、
+零スキームの完全交叉性を標的への追加仮定として課さない。
+さらに既存の MF/window 比較を入力とすれば、
+$\Ku(A_h)$ と同値な Kuznetsov 成分を持つ任意の滑らかな可換三次三様体にも
+この点スキームを零スキームとして実現する Poisson tensor は存在しない。
+\end{theorem}
+
+\begin{proof}
+$\pi=0$ の零スキームは三次元の $X_{\mathrm{res}}$ 全体であり、
+一次元成分と孤立点を持つ $\operatorname{Pt}(A_h)$ と同型でない。
+$\pi\ne0$ の場合、仮に同型があれば、三つの孤立点の各局所環は $J_h$ である。
+補題\ref{ppz:lem:isolated-artin-eckardt}と
+補題\ref{ppz:lem:hesse-eckardt}により、その associated graded 環は
+$J_\lambda$ または Fermat 三次の Jacobian 環になる。
+$J_h$ は標準次数付きなので、自身の極大イデアル filtration の
+associated graded 環に等しい。
+よって命題\ref{prop:ej-projective-uniqueness}から
+$j(h)=j(\lambda)$ または $j(h)=0$ が必要になる。
+既存の Hesse 恒等式は、いずれも幾何学的一般点では成立しないことを示す。
+これで任意の Poisson tensor を排除した。
+
+残る可換標的を $Y$ とすると、既存比較との合成により
+$\Ku(Y)\simeq\Ku(X_{\mathrm{res}})$ となる。
+三次元では命題\ref{prop:nf-rotation}によって $\rho=S[-1]$ なので、
+同値は rotation を保つ。
+命題\ref{prop:ej-geometric-low-degree}による低 rotation 積の比較と
+命題\ref{prop:ej-projective-uniqueness}によって
+$Y\simeq X_{\mathrm{res}}$ を得る。
+従って $Y$ 上の Poisson tensor もその同型で移送すれば既に排除したものとなる。
+複素数体上ではこの標的一意性は、三次三様体の categorical Torelli
+\cite[Theorem~1.1]{NFMThreefoldCategoricalTorelli}の既知結果からも直接従う。
+\end{proof}
+
+\subsection{複素数体上の実際の反例}
+
+\begin{lemma}[分離型比較の複素閉点への実現]
+\label{ppz:lem:complex-specialization}
+上の split Hesse 族について、既存の PBW、相対双対、MF/window 比較の入力の下で、
+有限型の整な複素曲線の非空開 $T$ と非定数射 $T\to\mathbb A^1_h$ を取れて、
+全ての複素閉点 $t\in T$ に対して、実際の比較核による同値
+\[
+ \Ku^{\mathrm{coh}}(A_{h(t)})
+ \simeq\Ku(X_{\mathrm{res},h(t)})
+\]
+が存在する。
+さらに $T$ を縮め、上の点スキーム計算、十二点の Hessian 分類、
+$j(h)\ne0$、$j(h)\ne j(\lambda)$ の全てを各閉点で満たすようにできる。
+この主張は可換特殊点 $h=0$ を含む相対同値や、全パラメータでの同値を意味しない。
+\end{lemma}
+
+\begin{proof}
+まず Sklyanin 代数が正則で楕円点対応が滑らかな
+非空開 $U\subset\mathbb A^1_h$ を取る。
+active 代数の次数別有限射影性と有限 Koszul/CY 解消を、
+二つの中心多項式変数 $u,v$ へ延長する。
+中心元 $w_h$ は $v$ に関して先頭係数 $1/3$ の三次式なので、
+その正則性と商の次数別平坦性は任意の係数変更後にも成立する。
+定理\ref{thm:nfm-relative-ambient-cy}と
+定理\ref{thm:nfm-relative-line-cohomology}の相対双対・線束間のコホモロジーにより、
+\[
+ E=\bigoplus_{i=0}^4\OO(i)
+\]
+を $\langle\OO,\OO(1)\rangle$ から有限 mutation した像 $pE$ の
+endomorphism dg 代数 $\Gamma_U$ は $U$-perfect である。
+その形成は基底変更と両立し、各ファイバーで線束生成残余圏
+$\Ku^{\mathrm{lin}}(A_s)$ の模型となる。
+可換側の滑らかな三次族にも、有限個の線束と mutation による
+smooth proper な dg 模型 $\mathsf C_U$ を取る。
+ここで任意の非正則底上の全 coherent 圏の底変更を仮定していない。
+
+命題\ref{prop:nfm-residual-hesse-input}、定理\ref{gdr:thm:generic}と
+補題\ref{rog:lem:descent}により、ある有限拡大
+$K'/\C(h)$ 上で実際の Morita 核、逆核、および単位・余単位が存在する。
+$K'$ における $U$ の正規化を取ると、必要なら $U$ を縮めて
+有限射 $T\to U$ を持つ有限型の整な曲線となる。
+perfect 双加群の有限 cell と retract の表示、および比較射を
+$T$ の非空開へ降ろす。
+補題\ref{rog:lem:descent}の証明と同様に、
+$\mathsf C_T$ の smooth proper 性と $\Gamma_T$ の proper 性から、
+随伴の単位・余単位の cone は $\OO_T$-perfect である。
+これらは一般点で零だから、さらに開を縮めると零となり、
+全てのファイバーで
+$\Perf(\Gamma_t)\simeq\Ku(X_{\mathrm{res},h(t)})$ を得る。
+
+この段階で $\Ku^{\mathrm{lin}}(A_{h(t)})$ は smooth となった。
+命題\ref{crs:prop:residual-smooth}と定理\ref{crs:thm:coherent}を
+各体値ファイバーへ適用して、全 coherent 残余圏との一致を得る。
+従って核を降ろしたことだけから全 coherent 圏の同定を推論しているのではない。
+
+最後に、記載した有限個の非消滅条件の逆像へ縮める。
+これらは一般点で成立するので開は非空であり、
+有限型複素曲線の非空開は複素閉点を持つ。
+必要なのはこの開上の実核であり、元の形式分枝の全 jet を代数化することではない。
+\end{proof}
+
+\begin{corollary}[全零スキーム版の第二予想に対する複素数体上の反例]
+\label{ppz:cor:complex-counterexample}
+既存の PBW、相対双対、MF/window 比較の入力の下で、
+複素数体上に良い一ブロック型の非可換三次三様体 $A$ が存在し、
+次の二つを同時に満たす。
+\begin{enumerate}
+ \item 滑らかな可換三次三様体 $X$ と実際の同値
+ $\Ku(A)\simeq\Ku(X)$ が存在する。
+ \item $\Ku(A)\simeq\Ku(Y)$ を満たすどの滑らかな可換三次三様体 $Y$ と、
+ その上のどの Poisson tensor $\pi$ に対しても、
+ $\operatorname{Pt}(A)\not\simeq Z_Y(\pi)$ が抽象スキームとして成立する。
+\end{enumerate}
+従って、非被約構造を含む全 point scheme と全 Poisson 零スキームの同型を要求する
+第二予想\ref{conj:nc-second}は、この入力の下で成立しない。
+主予想の可換 Kuznetsov 実現はこの例では成立している。
+\end{corollary}
+
+\begin{proof}
+前補題の非空開の複素閉点を選び、$A=A_{h(t)}$、
+$X=X_{\mathrm{res},h(t)}$ とする。
+第一項はそこで実現した同値である。
+任意の非零 Poisson tensor の零スキームについては、
+定理\ref{ppz:thm:all-poisson-obstruction}の局所環と Hessian の証明が
+同じ非消滅条件の下でそのまま成り立つ。
+$\pi=0$ は次元によって排除される。
+別の標的 $Y$ に対しては、同値を合成した後、
+三次三様体の categorical Torelli
+\cite[Theorem~1.1]{NFMThreefoldCategoricalTorelli}から $Y\simeq X$ を得る。
+従って第二項も従う。
+\end{proof}
+
+\begin{remark}[反例が排除する範囲と残る問題]
+この反例は $n=3$ の非被約な定常点を持つ分離型であり、
+被約 point scheme を持つ一般混合族の一致や、被約化後の一致を否定しない。
+実際、命題\ref{ppz:prop:split-artin-obstruction}では
+自然な残余 Poisson 対と被約部分が一致する。
+従って被約化を取った命題、滑らかな定常成分を仮定した命題、
+または別の点関手による命題は、別の検証問題として残る。
+これらのいずれかを元の第二予想の代わりに自動採用するものではない。
+Hessian の階数と十二点の制限三次の有限恒等式は
+\texttt{computations/verify\_point\_poisson\_obstruction.py}で厳密検算する。
+任意 support の排除、局所環の議論、核の実点化および categorical Torelli の適用は
+本文の証明であり、その計算だけで確認したものではない。
+\end{remark}
+

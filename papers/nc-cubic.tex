@@ -27,6 +27,7 @@
 \newtheorem{remark}[theorem]{注意}
 \newtheorem{definition}[theorem]{定義}
 \newtheorem{example}[theorem]{例}
+\newtheorem{conjecture}[theorem]{予想}
 \renewcommand{\proofname}{証明}
 % 旧paper Bの分割証明で用いる記号（既存定義は保持する）
 \providecommand{\ZZ}{\mathbb Z}
@@ -76,13 +77,26 @@
 \title{非可換三次 $n$-fold の可換復元とモジュライ\\
 \large Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 \author{}
-\date{2026年11月21日・研究稿 v40}
+\date{2026年11月21日・研究稿 v41}
 \hypersetup{pdftitle={非可換三次 n-fold の可換復元とモジュライ},
 pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}}
 \begin{document}
 \maketitle
 \vspace{-1.8\baselineskip}
 \begin{abstract}
+本研究の主予想は、任意の滑らかな非可換三次多様体の Kuznetsov 成分が
+同じ次元の滑らかな可換三次多様体の Kuznetsov 成分として実現することである。
+第二の検証対象は、その同じ可換標的上の Poisson 構造を選び、
+非可換側の point scheme をその零スキームと同定できるという命題である。
+主予想を全対象について証明したわけではない。
+基本満支持多ブロック型では、既存の可換比較と点関手の計算に
+Poisson 零イデアルの局所計算を加え、二つの存在を同じ標的で実現する。
+一方、三次三様体の分離型 Hesse 族では、定常点の長さ八の局所環と
+全 Poisson 構造の分類を使って、どの Poisson 構造でも全点スキームを実現できないと示す。
+既存の MF/window 比較と categorical Torelli を組み合わせ、
+複素数体上で、主予想を満たすが第二予想の全スキーム版を満たさない対象を得る。
+この例の自然な残余対では被約部分は一致しており、被約化後の命題は別の問題である。
+
 次数別有限自由な中心三次非可換変形に対する完備曲率付き
 matrix factorizationの移送を構成し、任意の$n\ge3$について
 一般係数体の有限拡大上で全coherent残余圏を滑らかな可換三次超曲面の
@@ -217,13 +231,71 @@ $n\ne4$ の残余圏の通常 Artin 変形を一次切断で幾何的に認識�
 \label{sec:introduction}
 
 \subsection{目的と既存研究からの出発点}
-本研究の基本目標は、一般次元の非可換三次超曲面について、構造対象を保つ
-$\mathcal O$-marked moduli を構成し、point scheme を調べ、
-Poisson 多様体のモジュライへの射と Kuznetsov 成分の比較を結び付けることである。
+本研究の最優先目標を、次の二つの存在予想とする。
+まず基礎体を $\C$、次元を $n\ge3$ とし、
+非可換三次 $n$-fold を $\mathcal X$ と書く。
+標準的な三次型の例外部分を除いた dg 残余圏を $\Ku(\mathcal X)$ とする。
+本稿の中心三次表示 $A=B/(w)$ では、既存の window と飽和の範囲で
+これを $\Ku_{\mathrm{coh}}(A)$ と同定する。
+
+\begin{conjecture}[主予想：任意の非可換三次の可換 Ku 実現]
+\label{conj:nc-main}
+任意の滑らかな非可換三次 $n$-fold $\mathcal X$ に対して、
+滑らかな可換三次超曲面 $X\subset\PP^{n+1}_{\C}$ と
+$\C$-線型 dg Morita 同値
+\[
+ \Ku(\mathcal X)\simeq\Ku(X)
+\]
+が存在する。
+\end{conjecture}
+
+\begin{conjecture}[第二予想の全スキーム版：以下で反例を構成する検証対象]
+\label{conj:nc-second}
+主予想の $X$ と比較同値を、さらに Poisson 構造
+$\pi\in H^0(X,\bigwedge^2T_X)$ およびスキームの同型
+\[
+ \operatorname{Pt}(\mathcal X)\simeq Z_X(\pi)
+\]
+が存在するように選べる。
+ここで $Z_X(\pi)$ は $\pi$ の切断としての零スキームであり、
+非被約構造も含める。
+\end{conjecture}
+
+\emph{この全スキーム版は、既存の PBW・相対双対・MF/window 比較の入力の下で
+一般には成立しない。}
+系\ref{ppz:cor:complex-counterexample}で、複素数体上の良い一ブロック三次三様体を構成する。
+その Ku は滑らかな可換三次で実現されるが、同じ Ku を持つどの滑らかな可換標的でも、
+どの Poisson tensor の零スキームもその point scheme と同型ではない。
+元の存在命題をこの形で明示して検証し、被約化や偏極変更による別の命題へ
+黙って置き換えない。
+
+二つの存在は同じ $X$ について要求する。
+任意の Ku 同値標的や任意の Poisson 構造で一致するという主張ではない。
+点関手の shift の固定点と $Z_X(\pi)$ も同一視しない。
+可換対象では $\pi=0$ を許す。
+相異なる射影表示を持つ場合の「一致」は上記のスキーム同型を基本形とし、
+埋込みを保つ同型、点対応の保持、族での自然な降下は強化問題として区別する。
+特に一ブロック型では、良い rank-two 標的に対する埋込み一致に
+命題\ref{ppz:prop:embedded-obstruction}の障害がある。
+この埋込み障害だけでは、抽象スキームとしての存在命題を否定しない。
+上記の全反例では、別の局所環不変量と全 Poisson 構造の分類を用いる。
+
+「任意」は、既知の表示空間の稠密開や幾何学的一般点へ弱めない。
+全対象の内在的な定義・認識、全 $\mathcal O$-marked moduli の構成、
+表示による被覆範囲そのものに未完成部分があり、
+ここに記した予想を既に構成された一ブロック局所型 stack の定理と読み替えない。
+少なくとも本稿で扱う AS 正則周囲代数の中心三次商については、
+良い開の外や中心一次変数を持つ多ブロック型も存在問題の対象である。
+point scheme が代数的スキームとして表現されることと、
+補助的な次数一表示に依存しないことも、必要な対象範囲で証明すべき事項である。
+一般体上での同値核の降下、最小比較次数、指定中心作用・rotation・周期の保持は
+有効な強化問題だが、複素数体上の二つの存在予想の代用にはしない。
+
+構造対象を保つ $\mathcal O$-marked moduli、点対応からの復元、
+Poisson moduli への射は、この二つの存在問題を解くための構成として位置付ける。
 対象は Abel 圏と構造対象の対 $(\mathcal C,\mathcal O)$ とし、
-各既約成分の一般点で成立する、次元に一様な構成を優先する。
 次数付き表示や次数一 shift は、その内在的な回復を示すまでは補助データとして扱う。
-一ブロックの表示空間の一般点での結果を、全モジュライの各成分へ自動的に広げない。
+各成分の一般点での結果と、そこから全対象へ進むための境界延長・表示認識を分ける。
 また、稠密 Zariski 開上の general な主張と、可算個の真の閉集合を除く
 very general な主張を区別する。後者の点集合だけから代数的な族の射を結論しない。
 三様体では、中心一次空間、二次包絡、中心三次の直線、
@@ -245,6 +317,23 @@ PBW・AS正則性、指定Casimirの代数的中心持上げ、全ブロック�
 まず満支持ブロック型の表示認識と同型問題を扱い、
 その後、良い一ブロックのO-markedモジュライ・相対点対応・Poisson射・
 同じ三次への相対Kuznetsov比較とその降下障害を構成する。
+系\ref{pps:cor:both-conjectures}は基本満支持型で二つの予想を同時に実現する。
+より広く、定理\ref{pps:thm:elliptic-existence}は自然な中心線比較を使わず、
+明記した楕円因子の仮定の下で、同じ $j$、特殊 $j$、非零二捩れ点も許す。
+一ブロック型の定常成分については、零スキームの分解と
+固定 Poisson tensor による切断障害を第\ref{ppz:sec:comparison}節で明記する。
+同節の命題\ref{ppz:prop:split-artin-obstruction}では、既存の自然な残余 Poisson 対に
+対して、被約部分は一致しても全スキームは抽象的に同型でない例を示す。
+補題\ref{ppz:lem:isolated-artin-eckardt}と補題\ref{ppz:lem:hesse-eckardt}により
+この例の全 Poisson support を排除し、核の有限表示と categorical Torelli を使って
+系\ref{ppz:cor:complex-counterexample}の全標的に対する反例へ進む。
+三次三様体の全 Poisson 構造の分類\cite[Theorem~1, Section~2.2]{Mayanskiy}と
+categorical Torelli\cite[Theorem~1.1]{NFMThreefoldCategoricalTorelli}は既知の入力であり、
+本稿で新たに用いるのは孤立零点の局所環による比較障害と、その非可換族への適用である。
+この適用の新規性の網羅的確認は未了である。
+主予想の局所的な前進として、定理\ref{grl:thm:open-locus}は
+$n\ne4$ の実際の smooth proper 圏族における可換実現 locus の開性と
+\'etale 局所の比較核を与える。
 
 \subsection{満支持複数ブロック型で成立すること}
 $n=3k-2$, $k\geq2$ とし、$S_i$ は滑らかな点曲線 $E_i$ と
@@ -1999,9 +2088,12 @@ $n=3,4$ では全 full 同型類が降下し、周期の追加標識を忘れた
 非分裂 rotation の障害 $\beta$ を用いて型を変更すれば、同じ四次元族の全型の最小次数は三である。
 低次元では一般に $\alpha\in\langle\beta\rangle$ が全型の元の体上での実現条件となる。
 五次元の Clifford 半 rotation は実核として $\rho^{-1}[1]$ と同定する。
-次の課題は、$\overline\gamma_n[D]^{-1}$ の他の因子での分岐と
+中心課題は主予想\ref{conj:nc-main}と第二予想\ref{conj:nc-second}であり、
+既知の可換実現 locus の境界延長、各 intrinsic 成分を覆う表示、
+同じ可換標的での定常成分の比較を優先する。
+$\overline\gamma_n[D]^{-1}$ の他の因子での分岐と
 正準位相体上の scalar index、代数的核の coherent な中心線型性、
-一般高次元の任意 full class と非分裂の他軌道、および各 intrinsic 成分を覆う表示である。
+一般高次元の任意 full class と非分裂の他軌道は、必要な補助課題として保持する。
 半古典条件を持つ位相には Hesse 制限が忠実であるが、
 一つの完備 trait 上の値だけでは大域式や次元間の大域的な一致を結論できない。
 $q=2$ の計算では、全 orbit Hom と target 周期を保つ integral 模型を使い、
@@ -2049,6 +2141,7 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/multiblock_relative_noncommutative.tex}
 \input{papers/sections/multiblock_kernel_synchronization.tex}
 \input{papers/sections/multiblock_rotation_comparison.tex}
+\input{papers/sections/point_poisson_split.tex}
 \input{papers/sections/multiblock_picard_descent.tex}
 \input{papers/sections/multiblock_hesse_phase.tex}
 \input{papers/sections/multiblock_intrinsic_comparison.tex}
@@ -2063,8 +2156,10 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/relative_points.tex}
 \input{papers/sections/poisson_morphism.tex}
 \input{papers/sections/poisson_inverse.tex}
+\input{papers/sections/point_poisson_obstruction.tex}
 \input{papers/sections/poisson_schemes.tex}
 \input{papers/sections/residual_categories.tex}
+\input{papers/sections/geometric_realization_locus.tex}
 \input{papers/sections/residual_comparison.tex}
 \input{papers/sections/residual_algebraic.tex}
 \input{papers/sections/residual_point_scale.tex}

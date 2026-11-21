@@ -1,0 +1,166 @@
+% !TEX root = ../nc-cubic.tex
+\section{可換 Kuznetsov 実現を持つ幾何点の開性}
+\label{grl:sec:geometric-locus}
+
+主予想\ref{conj:nc-main}の「任意の対象」へ進むには、既知の一般点を増やすだけでなく、
+可換模型の存在が族の中でどこまで保たれるかを調べる必要がある。
+本節では、定理\ref{thm:nf-residual-formal}の通常の Artin 形式認識を、
+有限表示の比較核のモジュライを通して代数的な開性へ移す。
+四次元を除くという仮定と、実際の smooth proper な圏族という仮定を保つ。
+この議論から境界での閉性や全内在的成分の被覆を結論しない。
+
+\subsection{圏族と比較核の有限表示}
+
+以下 $S$ は有限型 $\C$-スキームとする。
+$S$ 上の圏族 $\mathcal C_S$ は、小さい冪等完備な $S$-線型 dg 圏の族で、
+\'etale 局所的に
+\[
+ \mathcal C_S\simeq\operatorname{Perf}(\Gamma_S),\qquad
+ \Gamma_S\in\operatorname{Perf}(S),\qquad
+ \Gamma_S\in\operatorname{Perf}(\Gamma_S^{\mathrm{op}}
+                      \otimes_S^{\mathbf L}\Gamma_S)
+\]
+と表示されるものとする。従って族は相対的に smooth proper である。
+係数変更はこの表示の導来 tensor で定め、compact 対象とその Ind 完備化を
+相対 Morita 理論で扱う。以下で核というときは perfect 双加群を意味する。
+一般の Abel 圏族に、このような相対 dg 模型が自動的に存在するとは仮定しない。
+
+$M_n\subset\PP(\operatorname{Sym}^3(\C^{n+2})^*)$ を
+滑らかな埋込み三次超曲面の係数スキームとし、$\mathcal X\to M_n$ を普遍族とする。
+相対例外列の射影核から $\operatorname{Ku}(\mathcal X/M_n)$ を構成する。
+この圏族は smooth proper であり、\'etale 局所的な有限 dg 生成対象を持つ。
+
+\begin{lemma}[可換比較を表示する核スタック]
+\label{grl:lem:comparison-stack}
+$S\times M_n$ 上に、対 $(X_T,P_T)$、すなわち
+$M_n$ が与える三次族 $X_T$ と実際の Morita 同値
+\[
+ P_T:\mathcal C_T\xrightarrow{\sim}\operatorname{Ku}(X_T/T)
+\]
+をパラメータ付ける局所有限表示の Artin スタック $\mathcal E$ が存在する。
+射は同じ埋込み三次族上の核の同型であり、核の scalar 自己同型は保持する。
+幾何点の核の自己同型群は $\mathbf G_m$ である。
+\end{lemma}
+
+\begin{proof}
+アファインな係数 chart 上で両側の smooth proper な有限 dg 模型を選ぶ。
+二つの模型の導来 tensor 積も smooth proper であり、
+To\"en--Vaqui\'e の対象モジュライ
+\cite[Corollaries~3.15, 3.21, 3.22]{NFMToenVaquieModuli}
+により、その perfect 双加群のうち負の自己 Ext がない部分は
+局所有限表示の Artin スタックをなす。
+
+perfect 双加群の左右随伴は相対双対で与えられる。
+同値性は単位・余単位の二つの cone が零となる条件である。
+これらの cone は底上 perfect なので、その零化 locus は開である
+\cite[Lemma~3.25 and its proof]{NFMToenVaquieModuli}。
+同補題は自己関手について記されているが、二つの dg 代数を用いる場合も、
+各側の自由生成対象で単位・余単位を検査する同じ証明が適用される。
+従って同値核の部分は開部分スタックである。
+
+幾何点で同値核 $P$ を固定すれば、その自己 Hom は標的圏の
+Hochschild cohomology である。命題\ref{prop:nf-hh}より
+\[
+ \operatorname{Ext}^{q}(P,P)=0\quad(q<0),\qquad
+ \operatorname{End}(P)=\kappa .
+\]
+従って同値核は上の Artin 部分に属し、自己同型は $\kappa^\times$ となる。
+核・随伴・単位・余単位と有限表示は相対 Morita 変更に自然であるため、
+係数 chart 間で降下して $\mathcal E$ を与える。
+ここでは核の同型類を先に選んで gerbe を中立化する操作は行わない。
+\end{proof}
+
+\subsection{形式認識から代数的な近傍への移行}
+
+\begin{theorem}[四次元を除く可換実現 locus の開性]
+\label{grl:thm:open-locus}
+$n\ge3$、$n\ne4$ とし、上の smooth proper な族 $\mathcal C_S$ を取る。
+幾何的なファイバーが滑らかな $n$ 次元三次超曲面の Kuznetsov 成分に
+dg Morita 同値となる点の集合は、Zariski 開部分 $S_{\mathrm{cub}}\subset S$ である。
+この開上では \emph{\'etale 局所的に}滑らかな三次族と実際の perfect 比較核が存在する。
+
+より具体的に、$s\in S(\C)$ における
+\[
+ P_s:\mathcal C_s\xrightarrow{\sim}\operatorname{Ku}(X_s)
+\]
+を固定すると、$s$ の \'etale 近傍 $S'\to S$ 上で
+$X_s$ と $P_s$ を、滑らかな三次族と Morita 同値へ延長できる。
+この同値は全ての導来底変更に保たれる。
+rotation、指定三次周期、構造対象および point scheme の標識は結論に含めない。
+\end{theorem}
+
+\begin{proof}
+補題\ref{grl:lem:comparison-stack}の射 $q:\mathcal E\to S$ を考える。
+まず $e=(X_s,P_s)$ が $\C$-点である場合に $q$ の形式的滑らかさを示す。
+剰余体 $\C$ を持つ通常の局所 Artin 環の小拡大 $A'\twoheadrightarrow A$ と、
+$\operatorname{Spec}A'\to S$、および $e$ を特殊ファイバーとする
+$(X_A,P_A)\in\mathcal E(A)$ が与えられたとする。
+
+特殊ファイバーの $P_s$ によって
+$\operatorname{Ind}\mathcal C_{A'}$ を
+$\operatorname{Ind}\operatorname{Ku}(X_s)$ の標識付き変形とみなす。
+定理\ref{thm:nf-residual-formal}の本質的全射性から、
+滑らかな三次の変形 $X_{A'}$ と、実際の圏同値の同型類
+\[
+ Q_{A'}:\mathcal C_{A'}\xrightarrow{\sim}\operatorname{Ku}(X_{A'})
+\]
+が得られる。compactly generated な圏の同値は compact 対象を保ち、
+相対 Morita 理論によって perfect 双加群で表される。
+
+ここでは存在だけでなく、既に指定された $P_A$ との整合が必要である。
+$A$ 上では $P_AQ_{A'}^{-1}|_A$ が二つの幾何的変形の残余圏間の射を与える。
+定理\ref{thm:nf-residual-formal}の\emph{群oidとしての完全忠実性}により、
+この射は、特殊ファイバー上恒等な幾何的同型
+$X_{A'}\times_{A'}A\simeq X_A$ によって実現される。
+同定後には $Q_{A'}|_A\simeq P_A$ という核の実際の同型を選べる。
+$\tau_{\le1}$ における射の等しさは、まさにこの自然同型の存在を意味する。
+核の scalar 自己同型を自明と主張する必要はなく、
+持上げに選んだ同型の非一意性も許す。
+
+補題\ref{lem:nf-geometric-smooth}の最後の議論により、
+$\OO_{X_A}(1)$ とその切断の基底を $A'$ へ持ち上げられる。
+従って $X_{A'}$ を、指定された $M_n$ の $A$-点を持ち上げる
+埋込み三次として選べる。これで $(X_A,P_A)$ の持上げを得た。
+
+有限型の smooth atlas $U\to\mathcal E$ と $e$ の上の $\C$-点 $u$ を取る。
+上の持上げと atlas の形式的滑らかさを合成すると、$U\to S$ は
+$u$ において Artin 小拡大の持上げ条件を満たす。
+局所有限表示と局所的な滑らかさの判定
+\cite[Tag~02HX]{NFMStacksSmoothLocal}
+より、$U\to S$ は $u$ で滑らかである。
+この議論は $\mathcal E$ の全ての $\C$-点に適用できる。
+有限型 $\C$-スキームは Jacobson であり、有限型 atlas の非滑らか locus が
+非空なら $\C$-点を含むので、$q$ は全体で滑らかとなる。
+
+従って $q$ の像は開であり、定義からその像が $S_{\mathrm{cub}}$ である。
+smooth atlas を通し、滑らかな射の \'etale 局所切断
+\cite[Tag~055U]{NFMStacksSmoothLocal}
+を取れば、この開の \'etale 被覆上に実際の三次族と核が得られる。
+固定した $\C$-点 $u$ を通る切断も取れる。
+実際、$u$ の近傍の標準的な滑らか表示を
+$U\to\mathbb A^d_S$ という \'etale 射にし、
+$u$ の相対座標を持つ $S$ の切断に沿って引き戻せばよい。
+これにより $X_s,P_s$ を保つ延長を得る。
+最後に、核と逆核の単位・余単位の同型は導来 tensor に保たれるので、
+構成した同値は全ての導来底変更後も同値である。
+\end{proof}
+
+\begin{remark}[主予想への寄与と残る障害]
+\label{grl:rem:scope}
+この定理は、既知の幾何的実現点を含む smooth proper な圏族の近傍についての結果である。
+連結な $S$ の非空開で可換実現があることから、$S$ の全点での存在は従わない。
+主予想へ進むには、境界の DVR に沿って三次模型と比較核を延長する条件、
+および全内在的対象をこのような族で扱えることを別に示す必要がある。
+系\ref{cor:nfm-residual-good-reduction}の選択した形式比較に依存する
+良い還元も、比較核の境界延長を自動的には与えない。
+
+四次元では命題\ref{prop:nf-fourfold-obstruction}の二つの余分な
+Hochschild 変形方向があるため、この証明を適用できない。
+指定された中心三次・rotation の追加構造が幾何的変形方向を保つことを示す経路と、
+満支持二ブロックの直接比較は、別々の有効な方法として保持する。
+また本節では相対 smooth proper 性を入力とし、
+任意の Abel 圏変形の飽和性や全 $D^b(\mathrm{coh})$ との一致を証明したとはしない。
+
+形式認識と核モジュライの既知の代数性を組み合わせた帰結であり、
+この開性の先行研究上の新規性の網羅的確認は未了である。
+\end{remark}

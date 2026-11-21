@@ -1,23 +1,31 @@
 # Research instructions — nc-cubic
 
-2026-11-21 / v40。再開時は `00_research_plan.md` を最初に読み、`notes/research_notes.md` と `papers/nc-cubic.tex`、必要な `AGENTS.md` を確認する。研究全体の入口は https://github.com/uedakazushi/research-hub 。
+2026-11-21 / v41。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
-- 正本は `uedakazushi/nc-cubic` の `main`、主論文は `papers/nc-cubic.tex`（日本語LuaLaTeX、本文あり、著者欄空欄）。別論文 `cubic-quantization` は https://github.com/uedakazushi/cubic-quantization へ移行済み。量子化節・原稿・中心元計算・ノートは外部repoで管理し、本文を重複させない。
-- このrepoの目標は非可換三次n-foldの可換復元・O-markedモジュライ・残余Poisson射・Ku比較。一般中心三次変形のMF/window/coherent飽和と一般点復元は広い仮定の下で成立する独立な基礎定理。良い一ブロックのモジュライへの適用は条件を明示し、全Poissonの量子化族へ不当に一般化しない。
-- `poisson-cubic` は古典正規形・モジュライ、`cubic-quantization` は全Poisson構造の中心三次PBW/AS量子化・同変降下、`nc-cubic-threefold` は三次三様体の独立した相対比較の外部入力。引用する定理と仮定・版を正確に記載する。本稿はB=ambient、A=商、量子化稿は逆という記法差に注意。
-- **P0：中心の共役軌道・同種二因子・比較次数。** 全 `k≥2,m=0` の全慣性・全O認識・自然なΦ_ptと同期・相対積・Picard型の全O降下を保持する。自然周期は `q(ω³)=−1/v_ω(p)` と決定済み。全中心同変核判定はk≥3で同種因子を許し、k2では幾何学的非同種を仮定する。二ブロックの指定中心μ3は通常Kuの幾何的全自己同値群で非正規・共役軌道無限。全通常同値に中心保存を仮定せず、その共役軌道のGalois降下と同種二因子の混合型算術を次に扱う。全第三根・境界・m1を保持。
-- **現在の証明を保持する。** `multiblock_serre.tex`の基底直線を含む相対双対・飽和・Serre、`multiblock_veronese.tex`の全O同値の第三Veronese認識は基礎。`multiblock_intrinsic_quotients.tex`は中心商の純成分・余法加群から`(E,L,σ)`を回復し、可換tensor表示の幾何点のgraded同型類を認識する。個々の全O関手の認識は新しい中心持上げ剛性と全自己同型分類へ接続する。相対Isomはさらに縮めた非空開上で一致するが、全境界や非被約点関手全体の分類とは区別する。
-- **全慣性の現在の結論。** `multiblock_center_automorphisms.tex`では飽和冪・剰余加群からAut(D)を分類し、`multiblock_central_rigidity.tex`の負次数Ext消滅・多中心変数の一意持上げを介して全`Aut_gr(A^(3))/G_m=K_k`を証明する。全O認識の有限位数条件の下で全O群もK_k、二ブロックの全慣性は243、中心還元核は全kで自明。二ブロックでは一次中心変形類κ_Cの非消滅も系として証明した。`rO≃O(1)`の根は全分類したが、Oの像を指定しない全第三根や三乗coherenceの標識は含めない。
-- **相対認識と残余降下。** `multiblock_relative_recognition.tex`は表示射を一般有限étale・階数一として非空開のstack同型を証明する。`multiblock_scalar_descent.tex`と`multiblock_central_action.tex`はcompact残余・projector・中心作用と同変化を全O開へ降ろす。全境界・全抽象圏変形の認識とは区別する。実表示上のsmooth proper性と元の正則底のcoherent一致は、下記の直接積による独立な証明を用いる。
-- **相対直接積の到達範囲。** `multiblock_relative_noncommutative.tex`は滑らかな準射影C基底の順序付き実表示で `Ku_compact(A/S)^Z0≃Perf(∏_S E_i)` の実perfect Morita核と逆を構成する。相対tensor-noetherian性、有限Koszul–Shamash模型、window、perfect Hom、生成性を証明し、共通関係直線と指定周期・因子rotation・coherent中心作用を保つ。準コンパクト・分離的noetherian底への任意導来底変更（非平坦・非被約を含む）は構成済みcompact/Perf模型について成立し、非正則底の全Db(coh)へ読み替えない。元の滑らかなaffine底では全coherent飽和も証明済み。一因子の正則底windowは実際の最高次Koszul syzygy直線を保持して非零二捩れ点にも適用する。
-- **同変復元の適用範囲。** `multiblock_equivariant_descent.tex`と`multiblock_point_comparison.tex`の一変数一般点・指定形式模型の結果を保持する。これと独立に `multiblock_noncommutative_product.tex` は全基本実表示の体上直接積、上記の相対節は族の実関手と底変更を与える。`multiblock_rotation_comparison.tex`と下記のPicard節は有限拡大後の通常Ku比較を与え、代数閉体上では全基本点で拡大不要。指定形式核の全jetの代数化や全O上の大域核sectionは別問題。二ブロックのHuによる独立幾何比較も保持。
-- **Picard型の内在的降下と周期。** `multiblock_picard_descent.tex` のα=Σδ、T=∏Ti、D=T/Δμ3を、`multiblock_intrinsic_comparison.tex`でB=P//Z0と全O認識開へ降ろす。中心同変残余はB上で非捩れPerf(∏Ei)。核stackはG_Pic×D／G_Pic×T、核AutはG_mである。`multiblock_hesse_phase.tex`で `Ti=Cube(v_i(p_i))` と `q_i(ω_i³)=−1/v_i(p_i)` を証明する。個々のrotationの非捩れB降下、stackの大域切断、表示gerbeの中立化を混同しない。
-- **因子分離下の全核型と二因子の混合。** `multiblock_full_comparison.tex` はOrlov像block対角の外積分解を使う。k≥3では第三因子により `(r−I)g_ij=0⇒3g_ij=0`、従って同種・CMを許して全H中央化核が外積となる。k2非同種も同じ判定で、実現gerbeはα=Σδ_i、通常位相はγ_i+ν_iの一致、rotation・周期付きは全て零。g(f)=c_g fならν=[c_g]。固定Hesse独立族の全型最小3^(k−1)／3^kを保持。k≥3 のH-normalizerが誘導するAut(H)の像は偏極因子置換のみ、k2同種ではPell混合核が実在し、次数二同種ではH反転も起こる。幾何的liftと一般K上の実現を混同しない。
-- **次の具体的着手と障害。** `multiblock_unmarked.tex` の三平面球面格子から、二ブロックの指定中心μ3の幾何的全自己同値群内での非正規性と無限共役軌道が証明されている。元のG同変比較核を有限比較体上で選び、全Aut(Ku)と中心normalizerの間の降下cocycle、共役作用のGalois安定性を調べる。二つの同種因子ではOrlov中央化群の整数Hom表示と実coherent liftを入力に、混合型の定義体・gerbe・period multiplierを調べる。非共役作用の無限性や無標識次数の低下は結論済みとしない。scalarと位相の同時最小次数、一ブロック残余γ̄_n/[D]、有限splitの3|k障害、表示gerbeも保持。
+## 最優先目標
 
-- **P1：全intrinsic成分との接続。** 1ブロックの `Z(B)_1` や中心三次torsor、点曲線、次数9/18は多ブロックで自動成立しない。中心核、同変降下、安定化子、相対双対を段階ごとに検証する。古典正規形は `poisson-cubic`、多ブロックPBW量子化は `cubic-quantization`、一般中心三次MF可換復元は本repoの `gdr:thm:generic` が入力。
-- **P2：既存の1ブロック比較算術。** 残余位相 `β_n=γ̄_n/[D]` の ΔD 外での分岐、位相体上のscalar index、相対的な強化点型と非分裂比較核は有効な継続課題として保持し、成果・証明・計算を削らない。原稿に証明があること、今回の独立監査・計算・組版、形式証明を区別する。
-- 研究方針・研究ノート・公表原稿は現在の成果を再開できる自己完結した現行一式とする。既知結果と新規成果、証明済み・追加仮定付き・未完成・予想・計算的観察を区別し、主要仮定・証明箇所・依存文献・障害を記す。古い経緯や重複、旧ZIP・ログ・中間生成物を保存せず、再現に必要な証明・コード・証明書を保つ。
-- `python3 scripts/check_sources.py`、`latexmk -lualatex papers/nc-cubic.tex`、必要な計算証明書を確認し、VS Code/LaTeX Workshop・SyncTeXの設定を保つ。PDFはGit追跡しない。失敗・未実行を成功と報告しない。
-- ユーザーが許可した通常commitとmainへのfast-forward pushを再承諾なく行い、15–30分のまとまりで保存する。force push・GitHub Actions追加/実行は禁止し、並行変更を保持する。Libraryへの定常二重保存を行わず、push失敗時の緊急保存のみ例外。既存Libraryファイルを指示なく削除しない。
-- **研究の区切りごとにresearch-hubを更新**。先に本repoの方針・ノート・原稿・READMEを保存し、そこからhubの達成点・確実性・依存・核心的障害・次の一手・正本と確認日を更新する。他研究の変更を保持し、hubも通常コミットでmainに保存する。本repoの保存とhub更新の成否を別々に報告する。
+- **Main conjecture:** 任意の滑らかなnc cubic 𝒳について、同じ次元の滑らかな可換cubic XとKu(𝒳)≃Ku(X)が存在する。
+- **Second conjecture:** その同じXを、Poisson構造πとスキーム同型Pt(𝒳)≃Z_X(π)が存在するように選べる。非被約構造を含み、point shiftの固定点とは区別する。
+- まずC上、n≥3の存在を最優先とする。「任意」をgenericや既知の良い表示へ弱めない。全intrinsic対象の定義・認識と表示被覆は未完成として明記する。point functorの表現可能性・表示独立性も必要な範囲で検証する。
+- 主原稿の `conj:nc-main`, `conj:nc-second` が元の定式化の正本。第二の全スキーム版は `ppz:cor:complex-counterexample` で、明記した既存入力の下に反例を得たため、未解決予想として扱わない。被約版などの修正候補は別に検証し、自動採用しない。同じ射影埋込みを保つ版、point correspondence、全族の自然な降下、一般体上の核降下、中心作用・rotation・周期の標識は別の強化問題である。予想に反する可能性のある例も検証し、都合のよい定式化へ黙って変更しない。
+- 次のP0は、可換Ku実現locusの境界と未被覆成分、一ブロック定常成分の全スキーム比較、m>0混合多ブロック型。比較次数・周期・全自己同値の精密化は補助課題へ移す。既存の有効な証明・例・計算は保持する。
+
+## 現行結果の範囲と研究上の注意
+
+- 一般中心三次変形のMF/window/coherent飽和・一般点復元は、一ブロックより広い明記した仮定で成立する基礎定理。全固定点・全抽象圏の表示定理ではない。
+- `point_poisson_split.tex` はm=0の楕円tensor表示について、同じ可換分離和へのKu比較とPt=Poisson零スキームを結合する。存在版は実因子・固定点なしの点グラフを仮定し、j相異性・特殊j除外・2p≠0を必要としない。自然なθによる標的は基本開に限定する。θの二捩れ境界退化を、何らかの可換標的の不存在と混同しない。
+- `point_poisson_obstruction.tex` は一ブロック零スキームのE_H⊔D_H分解、良いrank2標的への埋込み一致障害、splitHesseの自然残余pairでの抽象pointスキーム不一致を証明する。最後の例では被約部分は一致する。さらに任意supportの局所補題・12点のHessian分類・Mayanskiyの全Poisson分類・BMMSのcategorical Torelli・実核のC閉点へのspreadにより、別π/別Xを含む全スキーム版の反例まで証明した。既存PBW・相対双対・MF/window入力を明示する。境界中心評価εはZ(B)_3/Sym³UからJacobi次数三線への写像である。
+- `geometric_realization_locus.tex` の局所開性はn≠4の実smooth proper dg族と既存Artin形式認識を用いる。全Abel族の飽和性、境界での閉性、全intrinsic成分を自動的に与えない。
+- 全O認識・全慣性・第三Veronese・全根、相対積、Picard比較、自然周期q(ω³)=−1/v_ω(p)の既存証明を保持する。全中心同変核の判定はk≥3では同種・CMを許し、k=2では幾何学的非同種を仮定する。二因子の混合核や指定中心の非正規性を無視しない。中心の無限共役軌道は同じ共役類内の無限性であり、非共役作用の無限性とは異なる。
+- compact/Perfの任意導来底変更と非正則底の全Db(coh)を区別する。smooth regular元底のcoherent飽和の証明、raw最高次syzygy線、共通関係直線と指定periodを保持する。点集合だけから全非被約point functorや族の射を結論しない。
+- 一ブロックの中心三次商線、点曲線、残余射次数9/18、点型Picard指数三・非分裂指数九、γ̄_n/[D]の問題を多ブロックへ無条件に流用しない。full class選択、gerbe中立化、period位相は別段階。
+
+## 正本・外部入力・保存
+
+- 正本は `uedakazushi/nc-cubic` の `main`。本文のある主原稿は必ず `papers/nc-cubic.tex`、日本語LuaLaTeX、著者欄空欄。現在の成果を理解できる順に統合し、版ごとの補遺・履歴・旧ZIPを蓄積しない。
+- `poisson-cubic` は古典正規形とPoisson moduli、`cubic-quantization` は全Poissonの代数的中心三次量子化と同変降下、`nc-cubic-threefold` は三様体固有の全Abel変形・相対比較と独立点スキーム論文の正本。通常は読取り専用で、具体的定理・仮定・版を引用する。本稿はB=ambient、A=商、量子化稿は逆。
+- 方針・研究ノート・公表稿を中心とする自己完結した現行一式を維持する。証明済み・追加仮定付き・未完成・予想・計算的観察、原稿の証明と今回の独立読解、形式証明・新規性を区別する。誤りは依存する本文・要約・方針・hubへ反映し、有用な障害はノートに保持する。
+- 公表稿では一次文献を確認し、既存結果の適用範囲と本研究の寄与をIntroductionで比較する。外部PDFや大量の検索結果は保存しない。論文に十分な証明がある内容をノートへ全文重複しない。
+- `python3 scripts/check_sources.py`、`latexmk -lualatex papers/nc-cubic.tex`、変更内容に必要な厳密計算を確認する。PDF/SyncTeXはbuild/。research-hubのLuaLaTeX/latexmk/VS Code設定を参考に既存の有効設定を保つ。主原稿の移動時はinput・文献・root指定・README・設定も更新する。
+- 通常commitとmainへのfast-forward pushを再承諾なく行い、15–30分の切りのよい区切りで保存する。他の作業者の変更を保持する。force push・PR・GitHub Actionsの追加/実行、PDF/ZIP/中間生成物のGit追跡は行わない。Library定常二重保存は不要で、push失敗時の緊急保存または別の明示指示時に使う。既存Libraryファイルを指示なく削除しない。
+- **各区切りにresearch-hubを更新する。** 先に本repoの方針・ノート・原稿・READMEを保存し、その結果に基づきhubの到達点・確実性・未解決核心・次の一手・依存・正本・実確認日を更新する。保存前にhub最新を読み、他研究と並行変更を保持して通常commitでmainへ反映する。対象repo保存とhub更新の成否を別々に確認し、hub未反映なら理由と未反映項目を報告する。

@@ -1,20 +1,30 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月21日 / v40。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月21日 / v41。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
-## 現行v40の確認
+## 現行v41の確認
+
+- **研究目標：** 主予想を任意のnc cubicの可換Ku実現、第二の検証対象を同じX上でのPtとPoisson零スキームの同型として明記した。全スキーム版の第二予想に反例を得たことを原稿・方針・ノート・README・AGENTSへ反映し、被約版などを自動的に新予想として採用しない。
+- **満支持型の同時存在：** `point_poisson_split.tex` の零イデアル計算を統合担当と執筆担当以外が読解した。Euler外積の係数イデアル、mixed supportの階数、gradient単元による他block座標消去から、非被約底を含むスキーム等式を確認した。実因子を仮定する存在版は、既存の積比較・actual Ωの周期・Picard補正・三乗根同期を使い、j相異性・特殊j・2p≠0の除外を必要としないことを依存箇所まで再読した。自然θの境界延長や全O stackの自然tensorの存在とは区別する。
+- **一ブロックの埋込みと自然pair：** `point_poisson_obstruction.tex` のE_H⊔D_H分解、Hessian scalar条件による積分一意性と既存Casimir切断障害の接続を点検した。splitHesseのsource中心socleを捨てず、η²=0による根の冪零修正とCRTから三つのJ_hを得ること、targetの三つのJ_λ、local同型からassociated graded・勾配空間・jへ進む論理を執筆担当以外も独立読解した。
+- **全Poisson・全可換標的を排除する反例：** 新しい孤立零点補題、Hessian階数2の12点分類、全support排除、比較核の複素閉点へのspread、categorical Torelliの適用を、統合担当と執筆担当以外の二担当が独立読解した。support制限の滑らかさや完全交叉を全πに仮定せず、local長さ8/埋込み次元3からHessian核の滑らかな平面三次とassociated graded Jacobi環を得る点を確認した。source相対線束模型→finite-cell核・逆→perfect cone消滅→各ファイバーのsmoothness→coherent飽和、という実点化の依存も確認。既存PBW・相対双対・MF/window入力の全証明を今回全面再検証したという意味ではない。
+- **可換実現locusの開性：** `geometric_realization_locus.tex` を執筆担当と統合担当が読解した。finite-type C-baseと実相対smooth proper dg模型、比較核stackのlfp/Artin性、通常Artin形式認識の完全忠実性による指定核の持上げ、scalar Gmを保持したsmooth atlasとétale局所sectionを点検した。n4、DVR境界での閉性、全Abel族の飽和性、pointデータの保持は結論に含めない。
+- **一次資料：** Mayanskiy arXiv:1303.5916v1 Theorem1・§2.2の全cubicthreefoldに対するSchouten/Plücker計算、BMMS arXiv:0903.4414v2 Theorem1.1のC線型categorical Torelliを本文で確認した。前者の分類は文献自身がLoray–Pereira–Touzetへ帰属する。Toën–Vaquié v5 Corollaries3.15,3.21,3.22・Lemma3.25、Stacks Tags02HX,055Uの局所smoothness・étale局所sectionも今回確認。書誌・識別子・正確な使用箇所を主原稿に記載した。
+- **厳密計算：** `computations/verify_point_poisson_obstruction.py` の八組がPASS・終了コード0。可積分方向の24変数行列、8次交代行列rank6、Hesse Hessianの小行列式・determinant、中心3点・flex9点の核と制限三次、j差の先頭係数13824h⁴と非零性を有理係数で確認した。既存 `verify_geometric_corrections.py` も十四組PASS・終了コード0。中心socle・Hesse残余係数・j差等を再実行した。局所環同型、全幾何点の分類、圏比較・spread・Torelliは紙上証明であり、計算で代用していない。旧suite全体は再実行していない。
+- **ソース整合・組版・表示：** `python3 scripts/check_sources.py` は成功し、66 TeX入力・1284個の一意なlabel・875個の参照label・149個の引用bibkeyを確認した。`git diff --check` も成功。`latexmk -lualatex papers/nc-cubic.tex` は終了コード0、586頁・4,109,712 bytesのPDFを生成した。最終ログの未定義参照・重複label・overfull/underfull・欠落文字・TeX errorはいずれも零。既存の数式フォントsize置換七件とその総括、ltjsarticleの旧`\rm`警告は残る。追加箇所の1・6・7・218–222・315–323・348–350頁（計20頁）を画像にして実際に表示し、文字・数式の欠け、重なり、余白外へのはみ出し、顕著なページ割りの崩れがないことを確認した。全586頁の目視確認やVS Code UIの操作確認をしたという意味ではない。
+
+今回の新証明の内部読解と、原稿に保存済みの基礎結果を区別する。Lean等の形式証明、外部査読、新規性の網羅的調査は未実施。二つの存在を全intrinsic対象で肯定的に証明したとはしない。
+
+## 保持する数学的点検の範囲
+
+### 全中心同変核・無標識作用の既存点検
 
 - **三因子以上の全中心同変核と正規化群：** 拡張したmbfc節を執筆担当以外も全文読解した。Orlov像がblock対角の場合の外積分解、実際のE×Ê上でのrotation行列r、第三因子による `(r−I)g_ij=0⇒3g_ij=0⇒g_ij=0`、同種・CMを許すk≥3への拡張を点検した。normalizerでは指標配置の自己同型が±S_kに限られること、Tate加群から整数Homのblock分解への移行、指定isometryの実関手への持上げ、三次周期の `3n=4` による共通反転の排除を確認した。正規化群自体と、それがAut(H)へ誘導する像は区別する。
 - **全型の算術判定との接続：** k≥3、またはk=2で幾何学的非同種という仮定の下で、既存の全型判定が適用されることを再点検した。個々のδ_iの消滅を仮定せずα=Σδ_iを保持し、全coherent H構造の差をHom(H,Gm)=Gで分類する。通常の中心同変比較はγ_i+ν_i(φ_i)の一致、rotation・指定周期付きは全ての消滅を要する。固定Hesse levelの最小3^(k−1)／3^kはこの範囲で保持する。任意非被約底の全型stackや完全無標識比較へは一般化していない。
 - **同種二因子の実際の混合核：** Pell元の整数Hom表示、Rosati条件、非対角成分と無限位数を点検した。Orlov liftの可換子shiftは三次周期で零となり、1−qのisogeny補正と三乗根規格化でcoherent中央化核を得る。核Z×E₁[3]×E₂[3]を持つ正確列と、次数二isogenyによるH反転核も内部で独立点検した。これらは代数閉体上の主張であり、一般K上の実現gerbe・周期位相は未分類である。
 - **指定中心の非正規性と無限共役軌道：** mbun節を統合担当と執筆担当以外の担当が読解した。平面イデアル層のKuへの所属、χ(I_P,I_P)=2とSerre[2]からの球面性、実perfect kernel、flex接線による三平面、共通直線の過剰交差束O_L(−1)、Mukai行列2J₃−4I₃を確認した。球面反射による非正規性、二つの捻りの積の全整数冪による無限共役軌道、既存のG同変比較を介する非可換幾何点への移送を点検した。中心の共役類の内在的認識や元のK上での比較次数の低下までは示していない。
 - **一次資料：** Orlov著者版のDefinition2.17・Proposition2.18とTheorems4.13・4.14を、実アーベル多様体上のisometryと代数閉体上の持上げに照合した。Seidel–Thomas著者版§2b Definition2.9・Proposition2.10の球面捻りとdg評価写像、Kuznetsov刊行版p220の(2)–(3)とSerre関手の記述を直接確認した。書誌・識別子・参照箇所は `papers/references.tex` に記載する。既知の球面捻り・Orlov理論を新規結果とは扱わない。
-- **厳密計算：** `python3 computations/verify_multiblock_isogenous.py` を実行し、rotation行列、Rosati/Pell式、複数次数のPell元、同一因子の混合unipotent、次数二反転、三平面のGram行列と球面反射、無限共役軌道の全整数冪の式の全七組が成功した。SymPy 1.14.0の厳密な行列・多項式計算であり、幾何的対象の存在、Orlov liftやcoherenceの形式証明ではない。既存の他の計算器は今回再実行していない。
-- **ソース整合・組版・表示確認：** `scripts/check_sources.py` は63個のTeXソース、1250個の一意ラベル、846個の参照先、147個の引用キーの整合を確認した。`git diff --check` は成功。確定原稿を `latexmk -lualatex papers/nc-cubic.tex` で組版し、終了コード0、569ページ・4,013,078 bytesのPDFとSyncTeXを生成した。最終ログに未定義参照・重複ラベル・欠落文字・overfull/underfull box・LaTeXエラーはない。既存の数式フォント寸法代替7件とその集約、旧font命令rmの警告は残る。概要と主要主張の20ページ（1, 2, 11, 12, 240–246, 248, 252–259）を画像化して目視し、数式・参照・改頁に具体的な崩れは見られなかった。全569ページを目視検査したわけではない。
-
-既存の有効な証明・検算を保持するが、今回その全証明を再監査したわけではない。外部量子化稿・三様体稿も一括再監査していない。Lean等の形式証明と外部査読は未実施で、新規性の網羅的調査も未完了。
-
-## 保持する数学的点検の範囲
+- **厳密計算：** `python3 computations/verify_multiblock_isogenous.py` を実行し、rotation行列、Rosati/Pell式、複数次数のPell元、同一因子の混合unipotent、次数二反転、三平面のGram行列と球面反射、無限共役軌道の全整数冪の式の全七組が成功した。SymPy 1.14.0の厳密な行列・多項式計算であり、幾何的対象の存在、Orlov liftやcoherenceの形式証明ではない。この計算器の既存確認を保持し、今回の追加計算とは区別する。
 
 ### 自然周期・内在的積核の既存点検
 
@@ -463,7 +473,7 @@ b7a9f66af04e2b4506aff22e87ebc53d3bc1eaa3466af0059d13025a424c019d
 
 ## 6. 現行ソースと組版
 
-現行の二論文は先頭の表のとおり、各々独立した入力グラフで参照・引用が解決し、LuaLaTeXで組版した。旧名の原稿や過去のPDFを現行稿の組版証拠に使わない。PDFとSyncTeXは `build/` に置きGitで追跡しない。VS Code設定とレシピ相当のルート基準コマンドは整合しているが、VS Code UIの操作は当該点検行っていない。
+本repoの唯一の主原稿は `papers/nc-cubic.tex` である。現行入力グラフの参照・引用とLuaLaTeX組版の実行範囲は先頭の現行確認に記す。量子化稿は外部repoへ移行済みであり、ここでの主稿組版を外部稿の組版確認としない。旧名の原稿や過去のPDFを現行稿の組版証拠に使わない。PDFとSyncTeXは `build/` に置きGitで追跡しない。VS Code設定とレシピ相当のルート基準コマンドは整合しているが、VS Code UIの操作は当該点検行っていない。
 
 ## 7. 再現と保存の区別
 

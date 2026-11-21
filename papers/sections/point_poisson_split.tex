@@ -1,0 +1,293 @@
+% !TEX root = ../nc-cubic.tex
+\section{満支持型での可換比較と Poisson 零スキーム}
+\label{pps:sec:split}
+
+本節では、主予想\ref{conj:nc-main}と第二予想\ref{conj:nc-second}を
+同じ可換三次超曲面について結び付ける。
+中心一次変数を持たない満支持型では、原代数の点スキームは
+既に系\ref{tbp:cor:all-blocks}でスキームとして求められ、
+自然な可換標的への残余圏比較も
+定理\ref{mbrc:thm:finite-point-comparison}で構成されている。
+追加するのは、その同じ標的上の Poisson tensor の零スキームの計算である。
+第三 Veronese の中心還元を介した点加群の分類を、
+原代数の点スキームの代用には用いない。
+
+\subsection{分離三次和の零スキーム}
+
+$S$ を $\C$ 上のスキームとし、各 $i=1,\ldots,k$ に三変数
+$x_i=(x_{i1},x_{i2},x_{i3})$ を取る。$k\ge2$ とする。
+三次斉次式 $f_i\in\Gamma(S,\OO_S)[x_i]_3$ が
+滑らかな平面三次族 $E_i=V(f_i)\subset\PP^2_S$ を定めると仮定する。
+各 $E_i$ をその純ブロック平面へ埋め込み、
+\begin{equation}\label{pps:eq:split-data}
+ F=\sum_{i=1}^k f_i,\qquad
+ X=V(F)\subset\PP^{3k-1}_S,\qquad
+ P_i=\partial_{x_{i1}}\wedge\partial_{x_{i2}}\wedge\partial_{x_{i3}}
+\end{equation}
+と置く。以下の微分と tangent 束は全て $S$ に相対的に取る。
+$X/S$ は滑らかである。
+実際、射影点では少なくとも一つのブロックが非零であり、
+その $f_i$ の偏微分のいずれかが非零となる。
+この Jacobian 判定は相対的にも適用できる。
+
+任意の単元 $c_i\in\Gamma(S,\OO_S)^\times$ に対して
+\begin{equation}\label{pps:eq:poisson-tensor}
+ \beta=\sum_{i=1}^k c_i\,\iota_{df_i}P_i
+\end{equation}
+を affine 空間上の二次 Poisson tensor とする。
+各項は三変数の Jacobian 括弧であり、異なる項の係数は互いに別の
+変数にしか依存しないため、その和も Poisson である。
+$F$ は Casimir なので、この tensor の射影化は
+$\pi\in H^0(X,\bigwedge^2T_{X/S})$ を定める。
+零スキーム $Z_X(\pi)$ は切断 $\pi$ の係数イデアルで定義する。
+
+\begin{proposition}[満支持分離和の Poisson 零スキーム]
+\label{pps:prop:zero-scheme}
+上の仮定の下で、同じ射影空間内の閉部分スキームとして
+\begin{equation}\label{pps:eq:zero-scheme}
+ Z_X(\pi)=\coprod_{i=1}^k E_i
+\end{equation}
+が成立する。この等式は任意の基底変更に両立し、
+非被約な基底上でも横断的な冪零構造を加えない。
+\end{proposition}
+
+\begin{proof}
+Euler ベクトル場を
+$\xi=\sum_{i,a}x_{ia}\partial_{x_{ia}}$ とする。
+affine 錐の原点を除いた部分では、射影 tangent 束は
+自明 tangent 束を直線 $\OO\xi$ で割って得られる。
+従って射影化した $\beta$ の零イデアルは
+$\xi\wedge\beta$ の係数イデアルで与えられる。
+これは点ごとの判定だけではない。
+ある $x_{ia}$ が可逆な chart で $\xi$ を自由加群の基底の一つに取れば、
+$\bigwedge^2(T/\OO\xi)$ から $\bigwedge^3T$ への
+$\xi\wedge(-)$ は直和因子への同型となり、係数イデアルが一致する。
+また $X/S$ の滑らかさにより
+$\bigwedge^2T_{X/S}\hookrightarrow
+ \bigwedge^2T_{\PP^{3k-1}_S/S}|_X$
+は局所的な直和因子の包含なので、$X$ 上の零イデアルも同じ式を制限して得られる。
+
+まず幾何ファイバー上で台を調べる。
+ある点で非零となるブロックの数を $s$ とする。
+滑らかさと斉次 Euler 恒等式により、非零の $x_i$ では
+$df_i(x_i)\ne0$ である。
+従ってそのブロックの $c_i\iota_{df_i}P_i$ は階数二を持ち、
+ブロック直和である $\beta$ の階数は $2s$ となる。
+射影化が零ならば $\beta=\xi\wedge v$ と書けるので階数は高々二であり、
+$s\ge2$ は不可能である。
+純ブロック $i$ では
+\[
+ \xi\wedge\beta
+   =c_i\left(\sum_{a=1}^3x_{ia}\frac{\partial f_i}{\partial x_{ia}}\right)P_i
+   =3c_if_iP_i.
+\]
+従って零スキームの幾何学的な台は $\coprod_iE_i$ である。
+
+次に $E_i$ の近傍で構造層を調べる。
+滑らかさから、各点である
+$g_{ia}=\partial f_i/\partial x_{ia}$ が、射影 chart 上の自明化の下で
+可逆となる近傍を取れる。
+$\xi\wedge\beta$ において、第 $i$ ブロックから二つ、
+第 $j$ ブロックから一つの tangent 基底を取った係数は、
+符号を除いて
+\begin{equation}\label{pps:eq:transverse-coefficient}
+ c_i x_{jb}g_{ia}\qquad(j\ne i,\ 1\le b\le3)
+\end{equation}
+である。他の $\beta$ の項は、このブロック次数の係数に寄与しない。
+従って零イデアルは、可逆な $c_ig_{ia}$ を用いて
+全ての $x_{jb}$ $(j\ne i)$ を含む。
+純ブロックの係数 $3c_if_i$ から $f_i$ も含む。
+逆に他ブロックの座標を零とし $f_i=0$ を課すと、
+$\xi\wedge\beta$ の全係数は零になる。
+よってこの近傍で零イデアルはちょうど
+\[
+ (f_i,\ x_{jb}\mid j\ne i,\ 1\le b\le3)
+\]
+である。幾何学的な台の議論により、これらの開集合は零スキーム全体を覆う。
+純ブロック平面同士は射影空間で互いに交わらないので、
+式\eqref{pps:eq:zero-scheme}を得る。
+
+この証明は Euler 恒等式、係数イデアルおよび単元を用いる局所消去による。
+基底の被約性を使わず、全ての等式は任意の基底変更に保たれる。
+\end{proof}
+
+\subsection{同じ可換標的での二つの予想}
+
+\begin{theorem}[楕円 tensor 表示に対する存在版]
+\label{pps:thm:elliptic-existence}
+$\kappa\supset\C$ を代数閉体とする。
+各 $i=1,\ldots,k$ について次のデータを仮定する。
+\begin{enumerate}
+ \item $S_i=T(W_i)/(R_i)$ は三次元の連結二次 Koszul AS 正則な
+ 楕円 Sklyanin 代数で、$\dim W_i=\dim R_i=3$、
+ Gorenstein parameter も三である。
+ 正則中心三次 $\Omega_i$ があり、
+ $S_i/(\Omega_i)\simeq B(E_i,L_i,t_{p_i})$ である。
+ ここで $E_i$ は滑らかな平面三次、$L_i=\OO_{E_i}(1)$ である。
+ \item $S_i$ の双線型関係の零スキームは
+ $\Gamma_{t_{p_i}}\subset\PP(W_i^\vee)\times\PP(W_i^\vee)$ であり、
+ $t_{p_i}$ は固定点を持たない。
+\end{enumerate}
+$k\ge2$、$a_i\in\kappa^\times$ とし、
+\[
+ A=\left(\bigotimes_iS_i\right)\Big/\left(\sum_i a_i\Omega_i\right)
+\]
+と置く。各 $E_i$ の非零三次方程式 $f_i$ を任意に選ぶと、
+$X=V(\sum_i f_i)$ は滑らかであり、
+\begin{equation}\label{pps:eq:elliptic-existence}
+ \Ku_{\mathrm{coh}}(A)\simeq\Ku(X),\qquad
+ \operatorname{Pt}(A)=Z_X(\pi)=\coprod_iE_i
+\end{equation}
+を満たす実際の dg Morita 同値と Poisson tensor $\pi$ が存在する。
+従って、この範囲では同じ $X$ が両予想を満たす。
+$j$ 不変量の相異性、$j\ne0,1728$、$2p_i\ne0$ は仮定しない。
+\end{theorem}
+
+\begin{proof}
+最初の仮定は式\eqref{mbnp:eq:factor-data}--\eqref{mbnp:eq:sum-data}の
+直接積比較の仮定を満たす。
+ここで用いる $Z_0$ はブロック別の三乗根スカラーによる指定作用であり、
+全自己同値群の中心を分類する結果は使わない。
+実際、$\Gamma_k=\{(\lambda_i):\lambda_i^3\text{ が共通}\}$ の
+次数付き作用と共通 grading scalar の自明化から、
+命題\ref{mbza:prop:gamma-action}と同じ coherent 作用を直接得られる。
+定理\ref{mbnp:thm:product}と系\ref{mbnp:cor:coherent}により、
+中心群 $Z_0=(\mu_3^k)/\Delta\mu_3$ について
+\[
+ \Ku_{\mathrm{coh}}(A)^{Z_0}\simeq\Perf\left(\prod_iE_i\right)
+\]
+を得る。これらの結果の仮定に $j$ の相異性や $2p_i\ne0$ は含まれない。
+可換側にも系\ref{mbrp:cor:comparison-field}と
+系\ref{mbrp:cor:base-change}を適用し、同じ積への比較を得る。
+係数体が $\C$ 上有限生成でない場合は、各 $f_i$ の有限個の係数を含む
+有限生成部分体上で核を作って $\kappa$ へ引き戻す。
+
+基準因子 $b$ を一つ選ぶ。
+命題\ref{mbnp:prop:rotations}および命題\ref{mbrd:prop:factor-rotations}により、
+二つの積表示の双対群作用は、それぞれ因子 rotation
+\[
+ R_{i,p_i}=T_{\OO_{E_i}}(t_{p_i})_*(-\otimes L_i),\qquad
+ R_{i,0}=T_{\OO_{E_i}}(-\otimes L_i)
+\]
+の比 $R_{i,p_i}^{-1}R_{b,p_b}$ と $R_{i,0}^{-1}R_{b,0}$ で与えられる。
+ここでは非可換側の $a_i\Omega_i$ と可換側の $f_i$ を実方程式として用い、
+両側の三乗周期をそれぞれの MF/window から取る。
+因子の Koszul 分解と実際の正則中心元による余核二拡張を使うので、
+中心元の可換化や自然な線比較の値で周期を割る操作はない。
+二つの方程式直線の自然な同型は、この存在証明では仮定しない。
+
+$\kappa$ は代数閉体なので、各 $p_i$ は実際の次数零線束 $M_i$ で表せる。
+補題\ref{mbrc:lem:factor-correction}を、今固定した二つの周期に適用すると、
+$F_i=-\otimes M_i$ と同型
+$F_iR_{i,p_i}\simeq R_{i,0}F_i$ を得る。
+三回の合成の差は $\kappa^\times$ の元であり、その三乗根で補正すれば
+指定した両周期と両立させられる。
+この補題は任意の滑らかな genus-one 曲線と $p_i$ に対する結果で、
+基本表示開の有限位数条件を使わない。
+
+外積 $F=\boxtimes_iF_i$ は二つの双対群作用を coherent に intertwine する。
+実際、異なる因子の比較射は外積の交換同型と可換し、
+各生成元の三乗を消す図式は、今合わせた周期によって可換する。
+群元を $0\le d_i<3$ の rotation 比の積として書けば、
+これらの交換と三乗の二種類の図式が全ての群法則の coherence を与える。
+従って定理\ref{mbrc:thm:finite-point-comparison}の証明と同じ
+実同変 perfect 双加群と二重同変化の構成が適用でき、
+式\eqref{pps:eq:elliptic-existence}の残余圏同値を得る。
+
+第二の仮定と系\ref{tbp:cor:all-blocks}から、原代数の点スキームは
+$\coprod_iE_i$ である。
+命題\ref{pps:prop:zero-scheme}を選んだ $f_i$ に適用すると、
+この同じ $X$ 上で残るスキームの等式を得る。
+\end{proof}
+
+\begin{corollary}[基本満支持型に対する同時比較]
+\label{pps:cor:both-conjectures}
+$\kappa\supset\C$ を代数閉体とする。
+定理\ref{mbs:thm:presentation-stack}の基本楕円領域に属する実表示
+\[
+ A=\left(\bigotimes_{i=1}^kS_i\right)
+       \Big/\left(\sum_{i=1}^ka_i\Omega_i\right),
+ \qquad k\ge2,\quad a_i\in\kappa^\times
+\]
+を取る。すなわち、各因子の点データ $(E_i,L_i,t_{p_i})$ は
+$p_i,2p_i,3p_i\ne0$、$j(E_i)\ne0,1728$ を満たし、
+$j(E_i)$ は相異なるものとする。
+自然な線比較を用いて
+\begin{equation}\label{pps:eq:point-target}
+ f_i=a_i\vartheta_i(\Omega_i),\qquad
+ X_{\mathrm{pt}}=V\left(\sum_i f_i\right)
+\end{equation}
+と置く。この同じ滑らかな可換三次 $X_{\mathrm{pt}}$ に対し、
+実際の dg Morita 同値と Poisson tensor が存在し、
+\begin{equation}\label{pps:eq:simultaneous}
+ \Ku_{\mathrm{coh}}(A)\simeq\Ku(X_{\mathrm{pt}}),\qquad
+ \operatorname{Pt}(A)=Z_{X_{\mathrm{pt}}}(\pi)
+          =\coprod_iE_i
+\end{equation}
+となる。第二の等式は、元の次数一表示と同じ射影空間での
+閉部分スキームの等式である。
+\end{corollary}
+
+\begin{proof}
+定理\ref{mbpl:thm:global-line-comparison}により
+$\vartheta_i$ は中心三次直線を $E_i$ の方程式直線へ同型に移す。
+従って $f_i$ は $E_i$ の非零方程式である。
+残余圏の同値は定理\ref{mbrc:thm:finite-point-comparison}の
+代数閉体の場合である。原代数の点関手は
+系\ref{tbp:cor:all-blocks}により $\coprod_iE_i$ で表される。
+各ブロックの座標を取り、式\eqref{pps:eq:poisson-tensor}を
+任意の $c_i\ne0$ で定めれば、
+命題\ref{pps:prop:zero-scheme}が残る等式を与える。
+\end{proof}
+
+\begin{remark}[表示・体・族に関する範囲]
+\label{pps:rem:scope}
+点スキームの等式自体に必要なのは、
+二次関係が滑らかな平面三次上の固定点のない自己同型のグラフを定め、
+各 $\Omega_i$ がその twisted homogeneous coordinate ring を切り出すことだけである。
+系\ref{pps:cor:both-conjectures}の追加の有限位数・$j$ の条件は、
+自然な $\vartheta_i$ と $X_{\mathrm{pt}}$ を持つ基本表示領域を示す。
+存在版の定理\ref{pps:thm:elliptic-existence}には必要ない。
+「無限位数」や very general という条件へ置き換える必要はない。
+
+任意の体 $K\supset\C$ 上の基本領域の順序付き実表示でも、
+$X_{\mathrm{pt}}$ と上の $\pi$ は $K$ 上で選べ、
+点スキームと零スキームの等式は同じ体上で成立する。
+ただし引用した残余圏比較は一般には有限拡大後の結果であり、
+元の体での比較核の存在とは区別する。
+
+固定した順序付き実表示の族で、ブロック座標と可逆な係数 $c_i$ を
+選んだ場合には、点・零スキームの等式は非被約基底を含む任意底変更に両立する。
+この等式から、比較核の族全体への延長や、全 $\OO$-marked stack 上の
+単一の自然な Poisson tensor の選択・降下は結論しない。
+$X_{\mathrm{pt}}$ 自体の自然な降下は
+定理\ref{mbpl:thm:commutative-family}による別の結果である。
+
+注意\ref{mbpl:rem:two-torsion-boundary}の二捩れ境界では、
+自然な線比較 $\vartheta_i$ が零となる。
+しかし、定理\ref{pps:thm:elliptic-existence}の代数的仮定と
+固定点なしの点グラフを満たす非零二捩れ因子については、
+$f_i$ を別に選ぶ存在証明がそのまま適用できる。
+自然な方程式直線の同型を境界へ延ばせないことと、
+Ku 比較と零スキーム比較を同時に満たす可換三次の不存在は異なる。
+一方、$p_i=0$ や三捩れへの退化では点グラフの仮定を改めて確認する必要があり、
+そのような境界全体を上の定理で扱ったとはしない。
+\end{remark}
+
+\begin{remark}[中心係数と未解決部分]
+\label{pps:rem:coefficients}
+固定した $S_i$ に対する点スキームは、全ての $a_i\ne0$ の中心係数に依存しない。
+しかし、代数閉体上ではブロック別スカラー $x_i\mapsto s_ix_i$ が
+$\Omega_i\mapsto s_i^3\Omega_i$ と作用するので、
+これらの満支持中心直線は一つの軌道をなす。
+従って係数の不可視性だけから、同じ点スキームを持つ非同型な
+中心商の族が得られるとは言えない
+（注意\ref{tbp:rem:pencil}）。
+
+本節は $m=0$ の満支持表示を扱う。
+中心一次変数を持つ $m>0$ の混合族では定常成分も比較する必要があり、
+式\eqref{pps:eq:simultaneous}をそのまま流用しない。
+また、任意の内在的な非可換三次がここで扱った表示を持つとは証明していない。
+本節の局所計算と既存比較定理の結合について、
+先行研究上の新規性の網羅的確認は未了である。
+\end{remark}

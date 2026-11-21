@@ -1,6 +1,58 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月21日 / v40。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月21日 / v41。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+
+## 二つの予想を中心とする研究の入口
+
+主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現すること、当初の第二予想は同じ可換標的上でPtをPoisson零スキームとして実現することである。第二の全スキーム版には下記の反例を得たため、成立範囲と修正候補を別途検証する。C上n≥3を基本とし、generic・全固定点・全族・一般体上の降下を区別する。全intrinsic対象の認識やpoint functorの表現可能性は未完成であり、既知の局所表示だけを全対象と定義して済ませない。
+
+### 満支持型における同時存在
+
+`point_poisson_split.tex` の `pps:thm:elliptic-existence` は、A=(⊗S_i)/(Σa_iΩ_i)、m=0,k≥2、全a_i≠0、実際のquadratic Koszul AS3楕円Sklyanin因子、正則中心Ω_i、滑らかな平面三次のTHCR商、固定点なしの点グラフを仮定する。各E_iの任意の非零方程式f_iに対し、X=V(Σf_i)とπ=Σc_iι_df_i P_i（全c_i≠0）を取り、Ku(A)≃Ku(X)とPt(A)=Z_X(π)=⊔E_iを同じXで実現する。
+
+零イデアルはEuler場ξとの外積ξ∧πで計算する。E_i近傍である∂f_iが単元になり、mixed係数x_j∂f_iから全他block座標が消え、純block係数は3f_iとなる。従って台だけでなく任意非被約底でのスキーム等式となる。原Aの点関手自体も既存 `tbp:cor:all-blocks` で証明済みであり、第三Veronese中心商Dの幾何点の結果だけを用いているわけではない。
+
+Ku比較は非可換・可換両側の中心同変積表示をPicard線束で共役し、actual Ωとfの三乗周期をスカラーの三乗根で同期して二重同変化する。jの相異性・特殊j除外・2p≠0はこの存在証明には不要。自然なθが二捩れで零でも、explicit因子仮定を満たせば別のfを選べる。基本開の自然X_ptは `pps:cor:both-conjectures` と分ける。p=0や三捩れ等で点グラフ仮定が失われる場合は含めない。全O stackの単一の自然tensorや大域核sectionは別課題。
+
+代数閉体ではblock scalingがΩ_iへ三乗で作用するので、全非零の中心係数直線は一つの軌道をなす。係数がpoint schemeに見えないことだけから非同型な満支持商を得たとは結論できない。
+
+### 可換Ku実現locusの開性
+
+`geometric_realization_locus.tex` の `grl:thm:open-locus` は、有限型C基底Sの実smooth proper dg族（étale局所Perf(Γ)、Γは底上perfect、対角perfect）について、n≠4なら可換cubicのKuとして実現する幾何点の集合がZariski開であり、étale局所に実際のcubic族・核を持つことを示す。
+
+比較核stackはTVのperfect対象moduliと同値性の開性で局所有限表示Artin。既存 `thm:nf-residual-formal` の群oidとしての完全忠実性が、Artin持上げで既に指定された核とのactual自然同型を回復する。scalar Gmを消したとはしない。smooth atlasで局所smoothness criterionを使い、étale局所sectionを取る。n4、境界での閉性、全Abel族の相対smooth proper性、全intrinsic成分、point構造の同時延長は別問題。
+
+### 一ブロックの定常成分が持つ情報
+
+`point_poisson_obstruction.tex` の `ppz:prop:zero-scheme` は、HとH|Kが滑らかなrank2 Jacobian対について Z_X(π_H)=E_H⊔D_H、D_H=V(H_x,H_y,H_z,H) を証明する。量子側は D=V(F_x,F_y,F_z,w_ab) であり、楕円曲線の一致だけでは定常成分の一致は従わない。
+
+境界中心評価は ε:Z(B)_3/Sym³U→Jac(g)_3 という**商直線間**の写像。全Z(B)_3と一次元空間の同型ではない。ε同型の開では元のDを同じΠの古典Casimir切断として実現できない（`prop:point-casimir-restriction-obstruction`）。Hessian scalar条件を加えると、全Ptの射影埋込み一致は良いrank2標的全体で不可能（`ppz:prop:embedded-obstruction`）。抽象同型や別supportを、これだけで排除しない。
+
+三次三様体のsplitHesse族では、g_t=(x³+y³+z³)/3+txyz、λ(h)=(h+h²/3+h⁵/12)/(1−h⁴/4) と置くと、量子点楕円曲線と残余active曲線はE_λで一致する。自然残余pairの被約point schemeも同じである。一方、三つの定常点の局所環は量子側でJ_h、残余側でJ_λ、J_t=k[x,y,z]/(x²+tyz,y²+tzx,z²+txy)。全長さは各8である。中心socle項η=−(2/3)h²(1+h³)xyzは零とせず、u=1でv=a−η/a²（a³=−1,η²=0）へ吸収して厳密に局所環を計算する。
+
+局所環同型ならm-adic associated gradedも同型であり、次数一・二の乗法から勾配空間を回復する。既存gradient復元により平面三次が同型になるはずだが、j(λ(h))−j(h)=13824h⁴+O(h⁵)≠0に反する。これは `ppz:prop:split-artin-obstruction` の証明であり、有限j計算だけをscheme非同型の証明としているわけではない。
+
+### 全Poisson構造・全可換Ku標的を排除する反例
+
+**全スキーム版の第二予想は、現行のPBW・相対双対・MF/window入力の下で偽である。** 正本は `point_poisson_obstruction.tex` の `ppz:cor:complex-counterexample`。前の自然pairでの非同型から、この結論へ進むためには次の追加証明が必要であり、本文に全て記載した。
+
+- Mayanskiy Theorem1と§2.2の既知のSchouten/Plücker計算により、任意の滑らかなcubic threefoldの全非零Poisson構造は分解可能なP∈Λ³C⁵から来る。active切断の滑らかさやgood条件を全πへ仮定しない。
+- 任意の孤立Poisson零点pで局所長さ8・埋込み次元3なら、pはsupport平面外にあり、零イデアルの一次項が全て消える。Euler式と合わせるとHessian B_pは階数2。R_p=ker B_pは三次元で、G_p=H|R_pは滑らかな平面三次である。gr_m O_Z,p≃Jac(G_p)となる（`ppz:lem:isolated-artin-eckardt`）。G_pの滑らかさは、特異方向aがあればa+tp上で唯一の残りの法微分の二次式に根を持ちXが特異になることから示す。
+- H_λ=g_λ+(u³+v³)/3でλ≠0、λ³≠8,−1なら、Hessian階数≤2の点は中心三点とactive九flexの計12点だけ。中心ではG_p=g_λ、flexではG_pがFermat型でj=0（`ppz:lem:hesse-eckardt`）。したがってj(h)≠j(λ),0により、どのπの零スキームもJ_h型の孤立点を持てない。
+- 複素数体上のBMMS categorical Torelli Theorem1.1により、Kuが同値な二つの滑らかな三次三様体は同型。別の可換Ku標的も排除できる。幾何学的一般点上では、本文のSerreからrotation復元・低積から勾配復元による代数的証明も記す。
+- C上の実例はhを形式記号やC上超越元として扱わず、実際の有限拡大K'/C(h)上の核を有限型複素曲線へspreadして得る。相対線束・mutationから作るproper dg模型Γ_Uと可換模型C_U、finite-cell核・逆・unit/counitを降ろし、perfect coneを開上で消す。ファイバーのsmoothnessを得た後に既存coherent飽和結果を適用する。有限個の非消滅条件を保つ非空開のC閉点で、実際のKu同値と反例を同時に得る（`ppz:lem:complex-specialization`）。h=1等特定の数値やh=0の延長をこの証明で保証したとはしない。
+
+この反例は主予想の失敗ではない。自然残余対ではPt(A)_redとZ_X(π)_redが一致している。被約版、滑らかな定常成分に限定した版、別の点関手を用いる版は、別の検証課題として保持し、元の第二予想と同一視しない。
+
+新しい有限計算は `computations/verify_point_poisson_obstruction.py` にある。T_Qの行列に加え、Hesseの2×2minor恒等式、Hessian determinant、九flexと中心三点の核・制限三次、j差の先頭係数を厳密に確認する。全locusを尽くすcase分け・任意supportの局所補題・核のspread・Torelliは紙上証明であり、有限計算だけで証明したものではない。
+
+### 二次方程式空間だけからsupportを復元する方法の限界
+
+n=6の滑らかなDはK_D=O_D(1)なのでcanonical embeddingから二次イデアルQを回復できる。ただしQからactive supportを唯一化する単純な可積分方向の議論には障害がある。
+
+q_i(v)=vᵗA_i v、A_iは対称、A_1可逆とし、T_QをA_jv_i=A_iv_j（i<j）を満たす三組の方向の空間とする。v_2=A_1⁻¹A_2v_1、v_3=A_1⁻¹A_3v_1を消去すると、T_Q≃ker K_Q、K_Q=A_3A_1⁻¹A_2−A_2A_1⁻¹A_3となる。K_Qは交代行列なのでdim T_Q≡N mod2。N=8では元のactive方向が非零解を与える以上dim T_Q≥2であり、dim1による唯一復元は不可能である。
+
+明示的なrank6証人はg=(x³+y³+z³)/3+xyz、F=g+xQ_1+yQ_2+zQ_3+G(u)、Q_1=Σu_a²、Q_2=Σa u_a²、Q_3=2u_1u_2+2u_3u_4（a=1,…,5）。K_Qのactive blockは[[0,0,0],[0,0,−7/4],[0,7/4,0]]、中心blockは二つの標準2×2交代blockと零であり、rank6、全24変数の可積分行列rank22を厳密計算した。再現は `computations/verify_point_poisson_obstruction.py`。二つの解が実際に異なる許容supportや滑らかなPoisson標的を与えるかは別問題であり、そこまでは結論しない。
 
 ## 0. 満支持複数ブロック型：全慣性・相対積比較・核の降下障害
 
@@ -107,7 +159,7 @@
 
 **保持する表現と障害。** 二ブロックC_1のK_2作用は射影的に忠実。55次元表現は自明表現3コピー、商の16個の非自明一次指標、二つの9次元既約表現各2コピーで、中心固有空間は19・18・18。ambient PGLのcentralizer次元32、normalizer/centralizer位数186624は関係を保つ群とは限らない。実際の全G=Kは上の別の証明で決定した。一般的な二次中心拡張では`xy−yx=g²`の`g↦−g`が還元上恒等となり、還元核を無条件にunipotentとする議論は失敗する。この例は保持するが、本対象の核自明性を妨げない。
 
-**次の核心。** 全O上のPicard比較stack、自然な周期式、因子分離下の全中心同変核判定、二ブロックの中心非正規性を入力に、次を優先する。
+**保持する補助課題。** 全O上のPicard比較stack、自然な周期式、因子分離下の全中心同変核判定、二ブロックの中心非正規性を入力に、以下の算術課題を保持する。二予想の存在・全point構造の検証に必要な場合に着手する。
 
 1. **中心作用の共役軌道の降下。** 全通常同値による指定μ3保存は偽である。有限比較体上のG同変核を基準に、中心normalizerから全Aut(Ku)へ移すときの降下cocycleとgerbeを調べる。共役類自体の認識は残る。
 2. 同種二因子では、証明済みの幾何的Orlov中央化群とPell・反転核から、Galois不変な混合型の実現gerbe・period multiplierを計算する。k≥3の全H作用では混合は排除済み。
@@ -246,7 +298,7 @@ Veroneseの関連研究としてAitzhanova–Makar-Limanov–Umirbaev、J.Algebr
 
 ### 一般次元の四つの目標を接続する際の注意
 
-研究方針の主目標は、各既約成分の一般 O-marked moduli、point scheme、Poisson moduli への射、同じ X の Kuznetsov 成分との比較である。固定良好模型間の全 Hom 比較は対象の局所表示を与える定理ではなく、一ブロックの商 stack を構成することと全成分の一般対象を覆うことは分ける。各型の一般点で入力を確認し、複数ブロック型を一ブロックへ無条件に還元しない。
+研究方針の主目標は任意のnc cubicの可換Ku実現と、同じ可換標的でのpoint/Poisson零点対応の検証である。一般O-marked moduli、点復元、Poisson射、核降下はそのための構成として扱う。固定良好模型間の全 Hom 比較は対象の局所表示を与える定理ではなく、一ブロックの商 stack を構成することと全成分の一般対象を覆うことは分ける。各型の一般点で入力を確認し、複数ブロック型を一ブロックへ無条件に還元しない。
 
 点商関手、shift のグラフ、中心射影は、全 O-同値の局所次数付き持上げを用いて局所一ブロック型の O-marked stack 上へ降下する。圏全体の次数一 shift を大域に選んだという主張ではない。定常成分 D と楕円成分 E は一般族の研究対象であり、E をモジュライの boundary と取り違えない。
 

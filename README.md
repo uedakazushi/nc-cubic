@@ -1,8 +1,22 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月21日 / v40。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月21日 / v41。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 完備MF移送、一般中心三次変形の可換復元、良い一ブロックのO-markedモジュライ、満支持複数ブロック型の全O局所型モジュライ・余法加群による幾何点認識・点曲線積への相対同変比較、残余Poisson射、Kuznetsov成分の比較核と算術的降下障害を扱う。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
+
+## 最優先の二つの予想
+
+**主予想**は、任意の滑らかな非可換三次 n-fold 𝒳に対し、同じ次元の滑らかな可換cubic XとKu(𝒳)≃Ku(X)が存在すること。**第二予想**は、その同じX上でPoisson構造πを選び、Pt(𝒳)≃Z_X(π)を非被約構造も含むスキームとして実現できること。
+
+**第二予想の全スキーム版は、現行稿のPBW・相対双対・MF/window入力の下で反例を得た。** C上の良い一ブロック三次三様体で、主予想は成立するが、同じKuを持つどの滑らかな可換三次上のどのPoisson構造でも全point schemeを実現できない（`ppz:cor:complex-counterexample`）。自然な対応で被約部分は一致する。被約版を元の命題の代わりに自動採用せず、その成立範囲を検証する。
+
+まずC上、n≥3の存在を最優先にする。genericな表示のみへ「任意」を弱めず、境界・中心変数を持つ型・未被覆intrinsic成分を課題として明記する。射影埋込みも保つ一致は強化であり、一ブロック型にはその障害がある。自然な残余πでの不一致だけでは別π・別Xを排除できないため、今回の反例では全Poisson分類とcategorical Torelliも用いる。
+
+- **満支持型の同時実現。** [点と零スキームの比較](papers/sections/point_poisson_split.tex)の `pps:thm:elliptic-existence` は、m=0、k≥2、実際の楕円Sklyanin因子・正則中心三次・固定点なしの点グラフという仮定の下で、同じX=V(Σf_i)についてKu同値とPt(A)=Z_X(π)=⊔E_iを証明する。jの相異性・j≠0,1728・2p_i≠0を課さない。自然θが二捩れで零になることは、別の方程式選択による存在を妨げない。基本開では従来の自然なX_ptを選べる。
+- **一ブロックの具体的障害。** [点スキームと零点比較の障害](papers/sections/point_poisson_obstruction.tex)は、Z_X(π_H)=E_H⊔V(H_x,H_y,H_z,H)をスキームとして計算する。良いrank2標的への射影埋込み一致を排除し、さらに三様体のsplitHesse族では自然残余pairの全point schemeが抽象的にも異なることを証明する。被約部分は同じだが、三つの定常点の長さ八の局所Artin環が異なる。さらに孤立零点の局所環とHessian階数2の12点の分類により全Poisson構造を排除し、categorical Torelliと有限表示spreadによりC上の全可換Ku標的に対する反例を得た。
+- **主予想の局所開性。** [可換実現locus](papers/sections/geometric_realization_locus.tex)の `grl:thm:open-locus` はn≠4の実smooth proper dg族で可換Ku実現領域がZariski開であり、étale局所に実際のcubic族と比較核があると示す。既存のArtin形式認識と核モジュライの代数性を用いる。全点での存在には境界延長と未被覆成分が残る。
+
+三結果の証明は本文へ統合した。独立読解・有限計算・組版・保存の確認範囲は [検証範囲](notes/validation.md)を参照する。既存のモジュライ・全O認識・比較算術は有効な補助成果として保持する。
 
 ## 可換復元・モジュライの内容
 
@@ -77,9 +91,9 @@
 
 基礎となる[点対応](papers/sections/two_block_points.tex)、[中心と自己同型](papers/sections/two_block_algebra.tex)、[表示stack](papers/sections/multiblock_presentations.tex)、[完備比較](papers/sections/two_block_recovery.tex)も保持する。任意の抽象圏変形や全境界を覆う主張ではない。表示gerbeとSerreの基底直線も保持する。
 
-**次のP0**は、中心μ3の無限共役軌道におけるGalois降下、同種二因子の混合核のscalar・周期障害、中心標識を完全に忘れた最小比較次数である。全通常Ku自己同値が指定中心を保つという性質は偽であるため、中心の共役類の認識と、各共役作用の定義体を調べる。三因子以上の全H作用による分離、自然な周期式、全O認識開へのPicard比較stack降下を入力として使う。全第三根、認識開の境界、`m=1`への拡張も残る。具体的な着手は[研究方針](00_research_plan.md)、実際の確認範囲は[検証範囲](notes/validation.md)を参照する。
+**現在のP0**は上記二予想の存在範囲を広げることである。中心μ3の無限共役軌道のGalois降下、同種二因子の混合核のscalar・周期障害、全根、比較最小次数は補助課題として保持する。全通常Ku自己同値が指定中心を保つという性質は偽であり、存在証明にその仮定を加えない。具体的な次の一手は[研究方針](00_research_plan.md)を参照する。
 
-**一般次元の O-marked moduli、point scheme、Poisson 多様体のモジュライへの射、Kuznetsov 成分の比較**を中心に進める。各既約成分の general / very general な対象を優先し、次元に一様な定理と族の構成を目指す。general な稠密開と very general な点集合、一ブロックの表示成分と全モジュライの成分は区別する。
+一般次元のO-marked moduli、point scheme、Poisson対への射、比較核は、二つの存在予想を解くために研究する。各成分の一般点での結果、全固定点での結果、全族の構成を区別し、一般点の結果だけで最終目標を達成したとはしない。
 
 良い一ブロック型で、O-marked 圏 stack と分解可能な Poisson 対の非空開の同型を構成した。一方、固定入力の残余復元の下で **trace–Hessian 射の X_TH と X_res が異なる全次元の Hesse 族**があり、固定した周囲 tensor の純中心補正では修復できない。二次 jet の障害を除く代数的 Hessian–trace 補正 Φ は、全 O-降下・適切な開上での有限 étale 階数9・楕円点曲線との厳密な一致を持つ。split 族では、この補正後三次と残余圏の全次数比較を固定入力の下で得ている。
 
