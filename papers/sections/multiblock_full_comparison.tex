@@ -1,9 +1,11 @@
 % !TEX root = ../nc-cubic.tex
-\section{非同種な点曲線の積における全比較核と位相補正}
+\section{点曲線の積における全中心同変核と混合型}
 \label{mbfc:sec:full-comparison}
 
-本節では、点曲線の Jacobian が幾何学的に互いに非同種である場合に、
-第\ref{mbpd:sec:picard-descent}節の Picard 補正型を全ての比較核へ拡張する。
+本節では、三ブロック以上、または二つの Jacobian が幾何学的に非同種である場合に、
+第\ref{mbpd:sec:picard-descent}節の Picard 補正型を全ての中心同変比較核へ拡張する。
+三ブロック以上では、指定した双対中心作用が因子を分離するため、同種性を除外しない。
+二つの因子が同種の場合には、実際に外積でない混合核が生じる。
 一般の体では、偏極曲線自己同型による追加の Kummer 補正を許す必要がある。
 一方、固定 Hesse level を持つ族ではこの追加補正が消えるため、
 系\ref{mbpd:cor:phase-independence}の最小次数は全ての中心同変比較核について成り立つ。
@@ -40,20 +42,23 @@ $G$-同変 dg Morita 比較核の問題に等しい
 
 \subsection{外積分解と shift の曖昧さ}
 
-\begin{lemma}[非同種な楕円因子の全 Fourier--Mukai 外積分解]
+\begin{lemma}[Orlov 像が block 対角である核の外積分解]
 \label{mbfc:lem:factorization}
-$\kappa$ を標数零の代数閉体とし、$E_1,\ldots,E_k$ を
-互いに非同種な楕円曲線とする。
+$\kappa$ を標数零の代数閉体とし、$E_1,\ldots,E_k$ を楕円曲線とする。
 $\operatorname{FM}(E_i)$ と $\operatorname{FM}(Y)$ を
-Fourier--Mukai 自己同値の同型類の群とすると、外積は全射であり、
+Fourier--Mukai 自己同値の同型類の群とし、
+$\operatorname{FM}_{\mathrm{block}}(Y)$ を Orlov 像が
+$Y\times\widehat Y=\prod_i(E_i\times\widehat E_i)$ に関して
+block 対角である部分群とする。このとき外積は同型
 \begin{equation}\label{mbfc:eq:factorization}
- \operatorname{FM}(Y)
+ \operatorname{FM}_{\mathrm{block}}(Y)
  \simeq
  \left(\prod_i\operatorname{FM}(E_i)\right)
  \big/
  \left\{([n_1],\ldots,[n_k]):\sum_i n_i=0\right\}.
 \end{equation}
-特に、外積が恒等関手となる因子関手は、それぞれ shift である。
+を与える。外積が恒等関手となる因子関手は、それぞれ shift である。
+因子が互いに非同種なら $\operatorname{FM}_{\mathrm{block}}(Y)=\operatorname{FM}(Y)$ である。
 \end{lemma}
 \begin{proof}
 Orlov の写像と完全列
@@ -65,15 +70,15 @@ Orlov の写像と完全列
  \longrightarrow U(Y\times\widehat Y)\longrightarrow1
 \]
 がある。
-非同種性から、$i\ne j$ に対し $E_i$ と $E_j$ またはその双対の間の
-群準同型は零である。従って
+isometric 自己同型の block 対角部分群は
 \[
- U(Y\times\widehat Y)=\prod_i U(E_i\times\widehat E_i).
+ U(Y\times\widehat Y)_{\mathrm{block}}=\prod_i U(E_i\times\widehat E_i)
 \]
-各成分を因子の Fourier--Mukai 同値へ持ち上げ、その外積を取る。
+である。各成分を因子の Fourier--Mukai 同値へ持ち上げ、その外積を取る。
 与えられた同値との差は上の完全列の核に入り、
 平行移動・次数零線束の tensor・shift である。
 平行移動と $\Pic^0(Y)=\prod_i\Pic^0(E_i)$ の線束も外積であるから全射性を得る。
+非同種なら異なる因子とその双対の間の群準同型は零なので、全 Orlov 像が block 対角である。
 
 核を確認する。因子同値の核 $P_i$ の外積が $\OO_{\Delta_Y}$ と同型なら、
 Orlov の層性\cite[Proposition~3.2]{MBFCOrlovAbelian}により
@@ -88,12 +93,121 @@ $\Delta_{E_i}$ である。対角のイデアルによる積も外積後に零�
 $\sum_i n_i=0$ を得る。逆の包含は外積の shift 則による。
 \end{proof}
 
+\subsection{指定された中心作用による三因子以上の分離}
+
+ここでは代数閉体 $\kappa$、$\operatorname{char}\kappa=0$ 上で、
+楕円曲線 $E_i$ と次数三線束 $L_i$ を考える。
+因子間の同種性、CM の有無、または $j$ の相異なることは仮定しない。
+原点 $o_i$ を選び、主偏極
+\[
+ \varpi_i:E_i\xrightarrow{\sim}\widehat E_i,\qquad
+ x\longmapsto t_x^*\OO_{E_i}(o_i)\otimes\OO_{E_i}(o_i)^{-1}
+\]
+によって $V_i=E_i\times\widehat E_i$ を $E_i^2$ と表示する。
+Orlov の写像を $\mathfrak u$ と書く。
+その規約は
+\[
+ \Phi_{(x,\xi)}=t_{x*}(-)\otimes P_\xi,\qquad
+ F\Phi_vF^{-1}\simeq\Phi_{\mathfrak u(F)v}
+\]
+である \cite[equation~(2.1), Corollary~2.13,
+Propositions~2.15, 3.3]{MBFCOrlovAbelian}。
+
+\begin{lemma}[因子 rotation の Orlov 行列]
+\label{mbfc:lem:orlov-rotation}
+上の $V_i=E_i^2$ の座標において、
+$R_i=T_{\OO_{E_i}}\circ(-\otimes L_i)$ の Orlov 像は
+\[
+ r_i=r=
+ \begin{pmatrix}-2&-1\\3&1\end{pmatrix},\qquad
+ r^2+r+I=0.
+\]
+従って $r-I$ は isogeny であり、
+$(r-I)(r+2I)=-3I$ である。
+これは rank--degree 格子上の作用を代用したものではなく、
+$E_i\times\widehat E_i$ 上の実際の群準同型の行列である。
+\end{lemma}
+\begin{proof}
+まず $-\otimes L_i$ と $\Phi_{(x,\xi)}$ の共役を取る。
+$\varpi_{L_i}=3\varpi_i$ なので、その作用は
+$(x,\xi)\mapsto(x,\xi+3\varpi_i(x))$、従って行列は
+\[
+ t_3=\begin{pmatrix}1&0\\3&1\end{pmatrix}
+\]
+である。$\Pic^0$ 成分はこの共役行列に影響しない。
+主偏極で元の曲線へ戻した normalized Poincare Fourier--Mukai 変換を
+$\mathsf S$ とすると、skyscraper と次数零線束の像から
+\[
+ \mathfrak u(\mathsf S)=
+   s=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
+\]
+実際、$\mathsf S(k_x)=P_{\varpi_i(x)}$、
+$\mathsf S(P_{\varpi_i(y)})=k_{-y}[-1]$ である。
+点の spherical twist は $T_{k_{o_i}}=-\otimes\OO(o_i)$、
+$\mathsf S(k_{o_i})=\OO_{E_i}$ なので、
+\[
+ \mathfrak u(T_{\OO_{E_i}})
+   =s\begin{pmatrix}1&0\\1&1\end{pmatrix}s^{-1}
+   =\begin{pmatrix}1&-1\\0&1\end{pmatrix}.
+\]
+Orlov 写像の関手性から、この行列と $t_3$ の積が $r$ となる。
+残りは整数行列の積で確認できる。
+特に shift は Orlov 写像の核に入るので、
+rank--degree 格子での shift の作用との同一視はしていない。
+\end{proof}
+
+$Y=\prod_{i=1}^kE_i$、$V=Y\times\widehat Y=\prod_iV_i$ とする。
+基準 $b$ を選び、$Q_i=R_i^{-1}R_b$ とする。
+$H=(\mathbf Z/3)^{k-1}$ の Orlov 像は
+\[
+ q_{\mathbf a}=\operatorname{diag}(r_1^{a_1},\ldots,r_k^{a_k}),
+ \qquad
+ \mathbf a\in(\mathbf Z/3)^k,\qquad \sum_i a_i=0
+\]
+である。
+
+\begin{lemma}[三因子以上の整数 block rigidity]
+\label{mbfc:lem:marked-block-rigidity}
+$k\ge3$ とする。
+$g\in U(Y\times\widehat Y)$ が全ての $q_{\mathbf a}$ と可換するなら、
+$g$ は因子 $V_i$ に関して block 対角である。
+従って
+\[
+ \operatorname{Cent}_{U(V)}(\mathfrak u(H))
+   =\prod_i\operatorname{Cent}_{U(V_i)}(r_i).
+\]
+この主張は同種な因子や CM 係数を含む整数 Hom 群上で成立する。
+\end{lemma}
+\begin{proof}
+$g_{ij}:V_j\to V_i$ を block 成分とする。
+$i\ne j$ を固定し、これらと異なる $\ell$ を選ぶ。
+$a_i=1$、$a_\ell=-1$、他の成分を零とした元について可換性を取れば
+\[
+ (r_i-I)g_{ij}=0.
+\]
+前補題の恒等式を左から掛けると $3g_{ij}=0$ となる。
+アーベル多様体間の Hom 群は torsion-free なので $g_{ij}=0$ である。
+具体的には、$3g_{ij}=0$ なら連結な $V_j$ の像は有限群 $V_i[3]$ に入り、
+群準同型の像は零となる。
+全ての非対角成分が零になった後、
+isometry 条件と可逆性は因子ごとの条件となる。
+逆包含は明らかである。
+\end{proof}
+
+補題\ref{mbfc:lem:factorization}により、ここで得た block 対角性は
+実際の Fourier--Mukai 核の外積分解を与える。
+同種因子間の混合線束は Neron--Severi 部分に属し、
+Orlov 写像の核である $\Pic^0(Y)$ へ紛れ込むことはない。
+
 ここで用いた Orlov の完全列と楕円曲線上の数値分類は既知の結果である。
 本節で必要なのは、それらを指定された双対 rotation 作用へ適用する次の議論である。
 
 \begin{proposition}[双対 rotation 作用の全 underlying centralizer]
 \label{mbfc:prop:centralizer}
-代数閉体上で $E_i$ が互いに非同種であるとする。
+代数閉体上で、次のいずれかを仮定する：
+\begin{equation}\label{mbfc:eq:block-hypothesis}
+ k\ge3,\qquad\text{または}\qquad k=2\text{ かつ }E_1,E_2\text{ が非同種}.
+\end{equation}
 各 $L_i$ を次数三とし、$R_i=R_{i,0}$、
 $\varepsilon_i=R_i^{-1}[1]$ と置く。
 $\varepsilon_i^3=[1]$、$\varepsilon_i^2=R_i$ である。
@@ -111,7 +225,9 @@ $\varepsilon_i^3=[1]$、$\varepsilon_i^2=R_i$ である。
 これは underlying 関手の同型類の分類であり、coherent な同変構造はまだ標識していない。
 \end{proposition}
 \begin{proof}
-補題\ref{mbfc:lem:factorization}により自己同値を $\boxtimes_i F_i$ と書く。
+三ブロック以上では補題\ref{mbfc:lem:marked-block-rigidity}、
+二つの非同種因子では補題\ref{mbfc:lem:factorization}により、
+自己同値を $\boxtimes_i F_i$ と書く。
 $FQ_iF^{-1}\simeq Q_i$ を右辺の逆関手と合成すると、
 第 $i$、第 $b$ 因子だけを除いて恒等となる外積を得る。
 同補題の核の記述から、ある整数 $n_i$ に対し
@@ -134,6 +250,241 @@ $\varepsilon_i^3=[1]$ の下で式\eqref{mbfc:eq:centralizer}の部分格子に�
 同じ議論を source の $R_{i,p}$ と target の $R_{i,0}$ に適用すると、
 幾何的な underlying $H$-intertwiner は、各因子の全一因子 intertwiner の外積となる。
 周期を三乗した上の議論は、因子間で余分な shift を相殺する可能性も除いている。
+
+\subsection{双対群の抽象自己同型を許した正規化群}
+
+この小節では $H$ の標識を $\operatorname{Aut}(H)$ によって変更することを許す。
+まず関手の同型類の群における normalizer を扱い、
+coherent な作用構造についての主張は明記する。
+代数閉体 $\kappa$、$\operatorname{char}\kappa=0$ 上で
+$Y=\prod_{i=1}^kE_i$、$R_i=T_{\OO_{E_i}}(-\otimes L_i)$ とし、
+各 $L_i$ の次数は三、指定周期は $R_i^3\simeq[2]$ とする。
+\[
+ H=\left\{(t_i)\in\mathbf F_3^k:\sum_i t_i=0\right\}
+\]
+と表示する。整数 lift $\widetilde t_i$ に対し、$H$ の作用関手の同型類は
+\begin{equation}\label{mbfc:eq:normalizer-action}
+ Q_{\mathbf t}=
+ \left(\mathop{\boxtimes}_{i=1}^k R_i^{\widetilde t_i}\right)
+ \left[-\frac{2}{3}\sum_i\widetilde t_i\right]
+\end{equation}
+である。三次周期により lift の変更に依存しない。
+特に $Q_{e_i-e_j}=R_iR_j^{-1}$ であり、
+coherence は既存の $\Gamma$-同変 MF 模型からのものを用いる。
+この作用は忠実である。
+
+\begin{lemma}[三因子以上の指標配置]
+\label{mbfc:lem:normalizer-characters}
+$k\ge3$ とし、$\chi_i\in H^\vee$ を第 $i$ 座標の制限とする。
+$\{\pm\chi_i:1\le i\le k\}$ を保つ $\operatorname{GL}(H^\vee)$ の部分群は
+\[
+ \{\pm1\}\times S_k
+\]
+である。すなわち、その任意の元は一つの置換と全因子共通の符号から成る。
+$k=3$ にも例外はない。
+\end{lemma}
+\begin{proof}
+$H^\vee=\mathbf F_3^k/\langle(1,\ldots,1)\rangle$ において
+$\chi_i$ は標準基底の像である。
+$k\ge3$ なら $\chi_i=\pm\chi_j$ は $i=j$ で符号が正の場合に限る。
+実際、異なる $i,j$ に対して第三の座標を比較すれば、
+$e_i\mp e_j$ が $(1,\ldots,1)$ の倍となることはない。
+また、$\chi_i$ の間の関係全体は
+\[
+ \sum_i\chi_i=0
+\]
+の一次元空間である。
+従って配置を保つ線型同型は $\chi_i\mapsto\epsilon_i\chi_{\sigma(i)}$
+と書け、上の関係を移すと全ての $\epsilon_i\in\{\pm1\}$ が等しい。
+逆に共通符号と任意の置換はこの関係を保ち、線型同型を定める。
+これらの作用は忠実である。
+特に $k=3$ では、四点からなる $\mathbf P^1(\mathbf F_3)$ のうち
+選ばれた三点の集合を保つ射影作用は $S_3$ であり、
+残る共通 scalar が上の $\{\pm1\}$ である。
+\end{proof}
+
+\begin{proposition}[全双対作用の Fourier--Mukai normalizer]
+\label{mbfc:prop:normalizer}
+$k\ge3$ とする。因子の非同種性、CM の有無、$j$ の相異なることは仮定しない。
+Fourier--Mukai 自己同値の同型類の群において
+\[
+ N_H=\left\{F:\ \exists\alpha\in\operatorname{Aut}(H),\quad
+ FQ_{\mathbf t}F^{-1}\simeq Q_{\alpha(\mathbf t)}\quad
+ (\mathbf t\in H)\right\}
+\]
+と置く。
+このとき $F\in N_H$ が誘導する $\alpha$ は因子置換だけであり、
+共通反転は生じない。
+許される置換は正確に
+\[
+ \Pi=\left\{\sigma\in S_k:
+       (E_i,L_i)\simeq(E_{\sigma(i)},L_{\sigma(i)})\text{ for all }i\right\}
+\]
+であり、完全列
+\begin{equation}\label{mbfc:eq:normalizer-sequence}
+ 1\longrightarrow\operatorname{Cent}_{\operatorname{FM}(Y)}(H)
+ \longrightarrow N_H\longrightarrow\Pi\longrightarrow1
+\end{equation}
+を得る。
+各 $F$ は置換後に因子 Fourier--Mukai 同値の外積となり、
+その因子同値は $R_i$ を対応する $R_{\sigma(i)}$ へ shift なしで移す。
+
+代数閉体上では、$\Pi$ は $j$ の値を保つ置換群でもある。
+従って $j_i$ が相異なれば
+\begin{equation}\label{mbfc:eq:normalizer-equals-centralizer}
+ N_H=\operatorname{Cent}_{\operatorname{FM}(Y)}(H).
+\end{equation}
+同じ $j$ の因子ごとに偏極同型を選ぶと、
+式\eqref{mbfc:eq:normalizer-sequence}は分裂し、
+命題\ref{mbfc:prop:centralizer}の群に $\Pi$ が因子置換で作用する半直積となる。
+この分裂は選択に依存する。
+\end{proposition}
+\begin{proof}
+原点を選んで $V_i=E_i\times\widehat E_i$、$V=\prod_iV_i$ とする。
+補題\ref{mbfc:lem:orlov-rotation}により、Orlov 写像での作用は
+\[
+ \mathfrak u(Q_{\mathbf t})
+       =\operatorname{diag}(r^{t_1},\ldots,r^{t_k}),\qquad
+ r=\begin{pmatrix}-2&-1\\3&1\end{pmatrix}.
+\]
+これは数値 Grothendieck 群の代用ではなく、実際の $V$ 上の作用である。
+一つの素数 $\ell\ne3$ を固定し、Tate 加群を
+$\mathbf Q_\ell(\zeta_3)$ へ拡大する。
+$r$ の固有値は $\zeta_3,\zeta_3^{-1}$ なので、
+$H$ の指標の集合は正確に $\{\pm\chi_i\}$ である。
+各指標の重複度は二であり、因子の同種性や CM によって変わらない。
+
+Orlov 写像の関手性
+\cite[Proposition~2.15]{MBFCOrlovAbelian}から、
+$u=\mathfrak u(F)$ は $\alpha$ に沿ってこの表現を移す。
+従って前補題より、ある $\sigma\in S_k$ と共通符号
+$\epsilon\in\{\pm1\}$ があり、
+\[
+ (\alpha\mathbf t)_{\sigma(i)}=\epsilon t_i
+ \qquad(\mathbf t\in H)
+\]
+となる。
+
+ここで有理的な指標分解から実際の整数 block 分解へ戻る。
+各 $V_i$ の Tate 加群は共役指標対 $\{\chi_i,-\chi_i\}$ の成分である。
+従って $u$ の $V_i\to V_j$ 成分は、$j\ne\sigma(i)$ なら
+Tate 加群上で零となる。
+アーベル多様体の準同型は Tate 加群への作用で忠実に検出されるので、
+その成分は実際に零である。
+これは Tate 同種定理を用いた全射性の主張ではなく、
+非零な像を持つ準同型は Tate 加群上でも非零になるという忠実性だけを用いる。
+同じ議論を $u^{-1}$ に適用すると、残る
+\[
+ u_i:V_i\xrightarrow{\sim}V_{\sigma(i)}
+\]
+は isogeny だけでなく実際の同型である。
+Orlov の isometry 条件
+\cite[Definition~2.17, Proposition~2.18]{MBFCOrlovAbelian}は
+この block 分解に沿って各 $u_i$ の isometry 条件となる。
+
+標数零の代数閉体上なので、各 $u_i$ は
+$F_i:D^b(E_i)\xrightarrow{\sim}D^b(E_{\sigma(i)})$ へ持ち上がる。
+具体的には、まず isometry の存在から一つの同値 $F_i^0$ を得て
+\cite[Theorem~4.13]{MBFCOrlovAbelian}、その像を $u_i^0$ とする。
+次に $(u_i^0)^{-1}u_i\in U(V_i)$ を同曲線の自己同値へ持ち上げ
+\cite[Theorem~4.14]{MBFCOrlovAbelian}、$F_i^0$ と合成すれば、
+指定された isometry $u_i$ 自身を持つ $F_i$ が得られる。
+その外積と置換の合成を $F$ から除くと Orlov 写像の核に入り、
+それは shift、平行移動、$\Pic^0(Y)$ の線束の tensor から成る
+\cite[Proposition~3.3]{MBFCOrlovAbelian}。
+$\Pic^0(Y)=\prod_i\Pic^0(E_i)$ なので、これらも因子の外積である。
+従って $F$ 自身を、置換を伴う $F_i$ の外積としてよい。
+ここでは異なる因子間の isometry の持上げを代数閉体上でだけ用いており、
+任意の定義体上の全射性は仮定していない。
+
+$\mathbf t=e_i-e_j$ の intertwining を取り、
+外積が恒等になる核が総 shift 零だけであるという
+補題\ref{mbfc:lem:factorization}の記述を適用する。
+すると各因子について整数 $n_i$ があり、
+\[
+ F_iR_iF_i^{-1}\simeq R_{\sigma(i)}^{\epsilon}[n_i]
+\]
+となる。三乗を取れば
+\[
+ [2]\simeq[2\epsilon+3n_i]
+\]
+である。
+非零有界 coherent 複体は非零 shift と同型にならない。
+$\epsilon=-1$ なら $3n_i=4$ となって不可能であり、
+$\epsilon=1$ なら $n_i=0$ である。
+従って共通反転は生じず、各 $F_i$ は shift なしの rotation intertwiner となる。
+
+系\ref{cor:nfm-elliptic-any-intertwiner-criterion}を $p=0$ に適用すると、
+$F_i$ の存在から $(E_i,L_i)\simeq(E_{\sigma(i)},L_{\sigma(i)})$ が従う。
+逆にこの偏極同型の pushforward の外積は所要の置換を実現する。
+従って像は正確に $\Pi$ であり、核は定義から centralizer である。
+代数閉体上では同じ $j$ の genus-one 曲線は同型であり、
+次数三線束の差は平行移動で吸収できる。
+実際、平行移動から $\Pic^3$ への写像の線型部は $[3]$ で、これは全射である。
+同型類ごとの代表への偏極同型を固定すれば置換が厳密な群作用となり、
+最後の分裂と半直積を得る。
+\end{proof}
+
+\begin{remark}[coherent 構造と符号の別検算]
+\label{mbfc:rem:normalizer-coherence}
+前命題は underlying 関手の同型類を分類する。
+従って、coherent な $H$-normalizer に対しても誘導される自己同型の必要条件は同じである。
+代数閉体上では、上で構成した各偏極置換の因子比較を三乗根で規格化して
+指定周期に合わせ、その外積を取れば coherent な置換を実現できる。
+一般の体上では period multiplier や比較核の降下を別に確認する必要がある。
+
+共通反転の排除は CM の有無に依存しない関手の周期から得られた。
+数値格子上でも、$Xr=r^{-1}X$ を満たす実行列は
+\[
+ X=\begin{pmatrix}a&b\\3b-3a&-a\end{pmatrix},\qquad
+ \det X=-(a^2-3ab+3b^2)
+\]
+なので、非零なら行列式は負である。
+従って $r$ と $r^{-1}$ は $\operatorname{SL}_2(\mathbf Z)$ では共役でない。
+一方、上の証明では因子の Orlov isometry をこの二次元数値行列と同一視せず、
+実際の Fourier--Mukai 持上げと周期を用いた。
+\end{remark}
+
+\begin{corollary}[二つの非同種因子と体上の位相下界]
+\label{mbfc:cor:normalizer-bound}
+$k=2$ で $E_1,E_2$ が幾何学的に非同種なら、
+代数閉包上でも $N_H=\operatorname{Cent}_{\operatorname{FM}(Y)}(H)$ である。
+
+さらに $K\supset\C$ 上の順序付き実表示を考え、次のいずれかを仮定する：
+\begin{enumerate}
+ \item $k\ge3$ かつ $j(E_i)$ が相異なる。
+ \item $k=2$ かつ $E_1,E_2$ が幾何学的に非同種である。
+\end{enumerate}
+source の $H$ 作用を target の $H$ 作用へ
+ある抽象自己同型 $\alpha\in\operatorname{Aut}(H)$ に沿って移す
+coherent Fourier--Mukai 比較核があれば、必ず $\alpha=\mathrm{id}$ である。
+従ってこれらの範囲では、中心 band の基底を忘れ、抽象自己同型を許しても、
+指定された中心作用についての全核型判定は変わらない。
+特に定理\ref{mbfc:thm:sharp-all-types}の独立な Hesse 族では、
+この意味で標識を弱めても最小次数は $3^{k-1}$ と $3^k$ のままである。
+\end{corollary}
+\begin{proof}
+二つの非同種因子の場合、任意の Fourier--Mukai 自己同値は外積となる。
+$\operatorname{Aut}(H)=\{\pm1\}$ であり、反転を誘導する外積があれば、
+前命題と同じく各因子で
+$F_iR_iF_i^{-1}\simeq R_i^{-1}[n_i]$、従って $3n_i=4$ となる。
+これで第一の主張を得る。
+
+一般の $K$ 上では、まず代数閉包へ移す。
+各 $p_i$ はそこで実 Picard 線束を持つので、既存の Picard 比較により
+source の $H$ 作用を target の作用へ $\alpha=\mathrm{id}$ で移す基準核がある。
+与えられた比較とその逆を合成すれば、target の $H$-normalizer になる。
+前命題または第一の主張から $\alpha=\mathrm{id}$ である。
+$H$ は定数群なので、この結論は元の $K$ 上でも同じである。
+有限体拡大後にも仮定は保たれる。
+従って全型判定とその Kummer 分裂次数に新しい核型は加わらない。
+独立な Hesse 族の因子は幾何学的に非同種であることを
+定理\ref{mbfc:thm:sharp-all-types}で既に確認している。
+\end{proof}
+
+この系は中心作用を比較データから完全に除く主張ではない。
+normalizer に入らない残余圏自己同値の可能性は除いておらず、
+完全に無標識な Kuznetsov 圏の全比較核や、その最小定義次数を分類していない。
 
 \subsection{偏極自己同型が加える Kummer 位相}
 
@@ -221,9 +572,10 @@ $j\ne0,1728$ となるように選ぶ。
 factor Picard gerbe 上の scalar 重みが零であることにより $K$ 上で定義される。
 本節では $H^1(K,\mu_3)$ を加法記法で書く。
 
-\begin{theorem}[非同種な因子に対する全中心同変核の存在判定]
+\begin{theorem}[因子分離の下での全中心同変核の存在判定]
 \label{mbfc:thm:full-criterion}
-上の順序付き実表示について、$J_{E_i,\overline K}$ は互いに非同種であるとする。
+上の順序付き実表示について、$k\ge3$、または
+$k=2$ かつ $J_{E_1,\overline K},J_{E_2,\overline K}$ が非同種であるとする。
 以下の条件は、$K$ の任意の体拡大後にも同じ形で成立する。
 
 \begin{enumerate}
@@ -250,7 +602,7 @@ factor Picard gerbe 上の scalar 重みが零であることにより $K$ 上�
        である。
 \end{enumerate}
 ここで全ての shift と数値型を許している。
-中心作用そのものを忘れた核や、非同種性を外した積については主張していない。
+二つの同種因子の全算術的核型、中心作用そのものを忘れた核については主張していない。
 \end{theorem}
 \begin{proof}
 まず代数閉包上で $[M_i]=p_i$ を満たす線束を選び、
@@ -462,3 +814,214 @@ Hesse 境界例では追加 multiplier が消えるため、
 Picard 型で得た最小次数を全中心同変核へ拡張できる。
 この適用・結論と同一の先行結果があるかどうかの新規性調査は未完了である。
 \end{remark}
+
+\subsection{二つの同種因子における混合中央化群}
+
+以下では $k=2$、$Q=R_1^{-1}R_2$、
+$q=\operatorname{diag}(r^{-1},r)$ とする。
+主偏極を用いた Hom 行列の Rosati 転置を $X\mapsto X^\dagger$ とし、
+\[
+ J_2=\begin{pmatrix}0&1\\-1&0\end{pmatrix},\qquad
+ X^\sharp=J_2^{-1}X^\dagger J_2
+\]
+と書く。全体では $J=\operatorname{diag}(J_2,J_2)$ を用いる。
+Orlov の isometry 条件は $g^\sharp g=I$ である。
+この式は $\operatorname{End}(E_i)=\mathbf Z$ を仮定していない。
+
+\begin{proposition}[同種対に対する整数係数の混合元]
+\label{mbfc:prop:two-isogenous-mixing}
+$E_1,E_2$ が同種であれば、
+$\operatorname{Cent}_{U(Y\times\widehat Y)}(q)$ は
+非対角成分を持つ無限位数の元を含む。
+この主張は $E_1\simeq E_2$ を必要とせず、CM の有無にも依存しない。
+\end{proposition}
+\begin{proof}
+isogeny $u:E_2\to E_1$ を選び、その次数を $d$、
+主偏極に関する dual isogeny を $u^\dagger$ とする。
+$uu^\dagger=[d]$、$u^\dagger u=[d]$ である。
+整数行列
+\[
+ A_0=\begin{pmatrix}-1&-1\\0&1\end{pmatrix},\qquad
+ B_1=A_0,\qquad B_3=A_0(r-r^{-1})
+     =\begin{pmatrix}-3&-1\\6&3\end{pmatrix}
+\]
+は、$s=1,3$ について
+\[
+ r^{-1}B_s=B_sr,\qquad
+ rB_s=B_sr^{-1},\qquad
+ B_s^\sharp=-B_s,\qquad B_s^2=sI
+\]
+を満たす。
+$d$ と $3d$ の双方が平方数になることはないので、
+$D=ds$ が非平方となる $s\in\{1,3\}$ を選べる。
+
+$u,u^\dagger$ を二つの座標へ成分ごとに適用して
+\[
+ N=\begin{pmatrix}0&uB_s\\u^\dagger B_s&0\end{pmatrix}
+\]
+と置くと
+\[
+ Nq=qN,\qquad N^\sharp=-N,\qquad N^2=DI.
+\]
+Pell 方程式 $a^2-Db^2=1$ の $a>1,b>0$ となる整数解を取る。
+この解の存在は非平方正整数に対する通常の Pell の定理による。
+すると
+\[
+ g=aI+bN,\qquad g^{-1}=aI-bN
+\]
+は整数 Hom 成分を持つ実際のアーベル多様体自己同型であり、
+$g^\sharp g=(a^2-Db^2)I=I$、$gq=qg$ を満たす。
+二つの非対角成分は非零である。
+$D$ は非平方なので $\mathbf Q[N]\simeq\mathbf Q(\sqrt D)$ であり、
+この実二次体の埋込みの下で $g$ は
+$a+b\sqrt D>1$ とその逆へ移る。従って $g$ は無限位数である。
+\end{proof}
+
+\begin{remark}[数値群の整数 Hom 表示]
+\label{mbfc:rem:two-integral-centralizer}
+二因子の数値中央化群は、$g=(g_{ij})$ に対して
+\[
+ rg_{ii}=g_{ii}r,\qquad
+ r^{-1}g_{ij}=g_{ij}r\ (i\ne j),\qquad
+ g^\sharp g=I
+\]
+を課した整数 Hom 行列の群である。
+ここで $r^{-1}g_{ij}=g_{ij}r$ と $rg_{ij}=g_{ij}r^{-1}$ は同値である。
+可換成分は $uI+vr$、反転 intertwiner は
+$A_0(uI+vr)$ と一意に書ける。
+係数 $u,v$ は各成分に対応する $\operatorname{Hom}(E_j,E_i)$ に属する。
+これは $r$ の $(1,2)$ 成分が $-1$ であることを使って
+四つの成分方程式を解けば分かる。
+従って有理化で失われる整除条件を隠しておらず、
+CM を含む Hom 群のままでの記述となっている。
+\end{remark}
+
+\begin{lemma}[数値中央化元の実際の coherent 核への持上げ]
+\label{mbfc:lem:cyclic-centralizer-lift}
+代数閉体 $\kappa$ 上で、任意の
+$g\in\operatorname{Cent}_{U(Y\times\widehat Y)}(q)$ は
+指定された $\langle Q\rangle\simeq\mathbf Z/3$ 作用と
+coherently 可換する実際の Fourier--Mukai 自己同値へ持ち上がる。
+特に前命題の混合元は、単なる数値的候補ではない。
+
+underlying 自己同値の同型類については正確列
+\[
+ 1\longrightarrow
+   \mathbf Z\times E_1[3](\kappa)\times E_2[3](\kappa)
+ \longrightarrow \operatorname{Cent}_{\operatorname{FM}(Y)}(Q)
+ \xrightarrow{\mathfrak u}
+   \operatorname{Cent}_{U(Y\times\widehat Y)}(q)
+ \longrightarrow1
+\]
+がある。固定した underlying 中央化関手上の coherent 構造の同型類は
+$\mu_3$-torsor である。
+\end{lemma}
+\begin{proof}
+Orlov の全射 \cite[Theorem~4.14]{MBFCOrlovAbelian}で $g$ を $F$ へ持ち上げる。
+可換子の Orlov 像は恒等なので、ある $v\in Y\times\widehat Y$ と整数 $n$ に対し
+\[
+ FQF^{-1}\simeq\Phi_v[n]\,Q
+\]
+と書ける。$Q^3\simeq\mathrm{id}$ の指定された関係を三乗に用いると、
+$I+q+q^2=0$ により右辺の三乗は $[3n]$ となる。
+有界 coherent 圏上の非零 shift は恒等関手ではないので $n=0$ である。
+
+$(1-q)(2+q)=3I$ から $1-q$ は isogeny であり、
+代数閉体上で全射である。
+$(1-q)w=-v$ となる $w$ を取り、$F'=\Phi_wF$ と置けば
+\[
+ F'Q(F')^{-1}
+   \simeq \Phi_{w+v-qw}\,Q
+   \simeq Q.
+\]
+従って underlying 中央化関手が得られる。
+この補正の符号は、$\Phi_w$ を $F$ の左から合成する規約による。
+
+同型 $\eta:F'Q\xrightarrow{\sim}QF'$ を一つ選ぶ。
+$Q^3\simeq\mathrm{id}$ の指定された coherence を使って
+$\eta$ を三回合成した図式は、$F'$ の scalar 自己同型 $c$ となる。
+実際、可逆核の零次自己準同型は
+$\mathrm{HH}^0(Y)=H^0(Y,\OO_Y)=\kappa$ であり、負の自己 Ext は零である。
+$\eta$ を $t\eta$ に替えるとこの scalar は $t^3c$ になる。
+$t^3=c^{-1}$ を選べば、巡回群の三乗関係を保つ比較を得る。
+負の自己 Ext の消滅により比較の mapping space に更なる高次自己同型はなく、
+指定された群作用の coherence とこの三乗関係が実際の coherent intertwiner を与える。
+二つの選択の差は
+$\operatorname{Hom}(\mathbf Z/3,\kappa^\times)=\mu_3$ である。
+
+最後に Orlov 写像の核の $\Phi_w[n]$ が $Q$ と可換する条件は $qw=w$ である。
+$r$ と $r^{-1}$ の固定部分は、上の主偏極座標でともに
+$\{(x,0):x\in E_i[3]\}$ である。
+これと shift の独立性から正確列を得る。
+\end{proof}
+
+ここまでの二因子の持上げは代数閉体上の主張である。
+一般の定義体上で数値中央化元の全てが実核を持つことや、
+その各混合型の scalar gerbe・周期位相を分類したとはしていない。
+一方、同種な二因子について外積型だけで全核を尽くすことはできない、
+という障害は実際の coherent 中央化核によって証明されている。
+
+整数行列と Pell 元の有限検算は
+\texttt{computations/verify\_multiblock\_isogenous.py} に収める。
+このコードは Orlov の存在定理、忠実平坦降下、または coherent 核の持上げを
+機械的に証明するものではない。
+
+\begin{example}[二次同種で生じる混合反転核]
+\label{mbfc:ex:two-isogenous-inversion}
+二因子の場合、上の非同種性を単に $j_1\ne j_2$ へ弱めることはできない。
+代数閉体 $\kappa$、$\operatorname{char}\kappa=0$ 上で
+$\phi:E_1\to E_2$ を次数二の isogeny とし、主偏極による dual を $\phi^\vee$ とする。
+各因子の任意の次数三線束から $R_i$ を作り、
+$Q=R_1^{-1}R_2$、$D=\operatorname{diag}(r^{-1},r)$ と置く。
+整数行列
+\[
+ s=\begin{pmatrix}1&0\\-3&-1\end{pmatrix},\qquad
+ J_2=\begin{pmatrix}0&1\\-1&0\end{pmatrix}
+\]
+は
+$s^2=I$、$sr=r^{-1}s$、$s^{\mathsf t}J_2s=-J_2$ を満たす。
+$\phi,\phi^\vee$ を二つの座標へ成分ごとに作用させ、
+\begin{equation}\label{mbfc:eq:two-inversion-matrix}
+ U=\begin{pmatrix}s&\phi^\vee I_2\\\phi I_2&s\end{pmatrix}
+   :E_1^2\times E_2^2\longrightarrow E_1^2\times E_2^2
+\end{equation}
+と置く。このとき
+\[
+ U^{-1}=\begin{pmatrix}-s&\phi^\vee I_2\\\phi I_2&-s\end{pmatrix},
+ \qquad U^\dagger\operatorname{diag}(J_2,J_2)U
+          =\operatorname{diag}(J_2,J_2),\qquad UD=D^{-1}U.
+\]
+ここで $\dagger$ は主偏極に関する Rosati 転置を含む転置である。
+これらは $\phi^\vee\phi=[2]$、$\phi\phi^\vee=[2]$ と
+$s^{\mathsf t}J_2+J_2s=0$ から直接従う。
+従って $U$ は整数 Hom 成分を持つ実際の Orlov isometry であり、
+二つの非対角成分は非零である。
+
+これは実際の coherent 反転核へ持ち上がる。
+Orlov の定理\cite[Theorem~4.14]{MBFCOrlovAbelian}で $U$ を $F$ へ持ち上げると、
+ある $z\in Y\times\widehat Y$、整数 $n$ に対し
+\[
+ FQF^{-1}\simeq\Phi_z Q^{-1}[n]
+\]
+と書ける。$I+D+D^2=0$ と $Q^3\simeq\mathrm{id}$ を用いて三乗すると
+$[3n]\simeq\mathrm{id}$、従って $n=0$ である。
+$1-D^{-1}$ は isogeny なので、代数閉体上で
+$(1-D^{-1})w=-z$ となる $w$ が存在する。
+$F'=\Phi_wF$ と置けば
+\[
+ F'Q(F')^{-1}\simeq\Phi_{z+w-D^{-1}w}Q^{-1}\simeq Q^{-1}.
+\]
+同型 $F'Q\simeq Q^{-1}F'$ の三乗図式のずれは scalar であり、
+その逆数の三乗根で比較射を規格化すれば
+$\mathbf Z/3$ の指定された関係を保つ。
+可逆核の自己準同型は $\kappa$、負の自己 Ext は零なので、
+これは実際の coherent $H$-normalizer を与える。
+この補正は Orlov 像を変えないため、得られた核は因子の外積ではない。
+
+一般の二次同種対では $j(E_1)\ne j(E_2)$ となるので、
+異なる $j$ だけでは二因子の反転を排除できない。
+この例では代数閉体上の存在を述べている。
+一般の定義体上への核・coherence の降下や、
+個々の因子 rotation・指定周期まで保つ比較、
+混合型の scalar gerbe と Kummer 位相は結論していない。
+\end{example}

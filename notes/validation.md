@@ -1,20 +1,27 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月21日 / v39。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月21日 / v40。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
-## 現行v39の確認
+## 現行v40の確認
 
-- **自然な周期の全係数：** mbhp節を執筆担当以外も全文読解した。二つのchartによる全九flexの中心正則化、三捩れ点でのpolynomial Zhang twist、THCRの核直線、raw top syzygyを保つwindow、比較線V=λ⊗O(o)と同期前の三乗写像を点検した。原点の−3F対6Fからq_V(id³)=−1/2、conormalの一次項−tとWeierstrassの主部−2t⁻³からq(ω³)=−1/v_ω(p)を校正する。普遍被約Hesse表示上で射を一致させ、降下後に非被約底を含めて引き戻す。
-- **内在的な積核と比較stack：** mbic節を統合担当と別担当が全文読解し、第三担当もscalar・Γ慣性・非捩れ積表示を監査した。τ_z=θ_zの向き、対角liftの消去、積cocycle、PからBへの実核の降下、独立な偏極twistの両側相殺、全O認識開の適用範囲、順序なし相対rotation比較を確認した。核stackの降下と大域切断、個々のrotationの降下は区別する。
-- **非同種因子の全中心同変核：** mbfc節を執筆担当以外も全文読解した。Orlov完全列のblock分解、外積の核が総和零shiftのみであること、三次周期による因子shiftの排除、K上への幾何型と総対角核の降下を点検した。個々のδ_iの消滅を仮定せずα=Σδ_iを保持し、全coherent H構造の差をHom(H,Gm)=Gで分類する。pushforward規約のν=[c_g]、非零ν例、固定Hesse levelでのν消滅と全型最小3^(k−1)／3^kを確認した。中心標識を忘れた核・同種因子・任意非被約底の全型stackは含めない。
-- **一次資料：** Orlov著者版Propositions2.15・3.2–3.3とTheorem4.14、Artebani–Dolgachev刊行版§4 pp246–247を直接確認した。独立担当はBergh–Schnürer刊行版Propositions4.10・5.7、Corollaries4.12・5.9、Romagny Theorem5.1、Stacks0DMEも直接照合した。SilvermanのWeierstrass変換則は既存参照を用い、本文で変換を直接計算した。今回の書籍PDF再取得はtimeoutであり、新たに全該当本文を再読したとは扱わない。
-- **厳密計算：** `python3 computations/verify_multiblock_hesse_phase.py` を実行し、二つの中心正則化chart、原点の三次jet、dX/ω=V、Weierstrass式とqV=−1、原点係数、Hesse生成元の方程式保存、g(f)=af・g³=aIの全五組が成功した。SymPy 1.14.0の有理式・多項式計算であり、圏比較・降下・最小次数の形式証明ではない。既存の他の計算器は今回再実行していない。
-- **ソース整合・組版・表示確認：** `scripts/check_sources.py` は62個のTeXソース、1220個の一意ラベル、831個の参照先、146個の引用キーの整合を確認した。`git diff --check` は成功。確定原稿を `latexmk -lualatex papers/nc-cubic.tex` で組版し、終了コード0、555ページ・3,932,799 bytesのPDFとSyncTeXを生成した。最終ログに未定義参照・重複ラベル・欠落文字・overfull/underfull box・LaTeXエラーはない。既存の数式フォント寸法代替7件とその集約、旧font命令rmの警告は残る。概要と新しい主要主張の14ページ（1, 2, 227–231, 234–237, 240, 242, 244）を画像化して目視し、数式・参照・改頁に具体的な崩れは見られなかった。全555ページを目視検査したわけではない。
+- **三因子以上の全中心同変核と正規化群：** 拡張したmbfc節を執筆担当以外も全文読解した。Orlov像がblock対角の場合の外積分解、実際のE×Ê上でのrotation行列r、第三因子による `(r−I)g_ij=0⇒3g_ij=0⇒g_ij=0`、同種・CMを許すk≥3への拡張を点検した。normalizerでは指標配置の自己同型が±S_kに限られること、Tate加群から整数Homのblock分解への移行、指定isometryの実関手への持上げ、三次周期の `3n=4` による共通反転の排除を確認した。正規化群自体と、それがAut(H)へ誘導する像は区別する。
+- **全型の算術判定との接続：** k≥3、またはk=2で幾何学的非同種という仮定の下で、既存の全型判定が適用されることを再点検した。個々のδ_iの消滅を仮定せずα=Σδ_iを保持し、全coherent H構造の差をHom(H,Gm)=Gで分類する。通常の中心同変比較はγ_i+ν_i(φ_i)の一致、rotation・指定周期付きは全ての消滅を要する。固定Hesse levelの最小3^(k−1)／3^kはこの範囲で保持する。任意非被約底の全型stackや完全無標識比較へは一般化していない。
+- **同種二因子の実際の混合核：** Pell元の整数Hom表示、Rosati条件、非対角成分と無限位数を点検した。Orlov liftの可換子shiftは三次周期で零となり、1−qのisogeny補正と三乗根規格化でcoherent中央化核を得る。核Z×E₁[3]×E₂[3]を持つ正確列と、次数二isogenyによるH反転核も内部で独立点検した。これらは代数閉体上の主張であり、一般K上の実現gerbe・周期位相は未分類である。
+- **指定中心の非正規性と無限共役軌道：** mbun節を統合担当と執筆担当以外の担当が読解した。平面イデアル層のKuへの所属、χ(I_P,I_P)=2とSerre[2]からの球面性、実perfect kernel、flex接線による三平面、共通直線の過剰交差束O_L(−1)、Mukai行列2J₃−4I₃を確認した。球面反射による非正規性、二つの捻りの積の全整数冪による無限共役軌道、既存のG同変比較を介する非可換幾何点への移送を点検した。中心の共役類の内在的認識や元のK上での比較次数の低下までは示していない。
+- **一次資料：** Orlov著者版のDefinition2.17・Proposition2.18とTheorems4.13・4.14を、実アーベル多様体上のisometryと代数閉体上の持上げに照合した。Seidel–Thomas著者版§2b Definition2.9・Proposition2.10の球面捻りとdg評価写像、Kuznetsov刊行版p220の(2)–(3)とSerre関手の記述を直接確認した。書誌・識別子・参照箇所は `papers/references.tex` に記載する。既知の球面捻り・Orlov理論を新規結果とは扱わない。
+- **厳密計算：** `python3 computations/verify_multiblock_isogenous.py` を実行し、rotation行列、Rosati/Pell式、複数次数のPell元、同一因子の混合unipotent、次数二反転、三平面のGram行列と球面反射、無限共役軌道の全整数冪の式の全七組が成功した。SymPy 1.14.0の厳密な行列・多項式計算であり、幾何的対象の存在、Orlov liftやcoherenceの形式証明ではない。既存の他の計算器は今回再実行していない。
+- **ソース整合・組版・表示確認：** `scripts/check_sources.py` は63個のTeXソース、1250個の一意ラベル、846個の参照先、147個の引用キーの整合を確認した。`git diff --check` は成功。確定原稿を `latexmk -lualatex papers/nc-cubic.tex` で組版し、終了コード0、569ページ・4,013,078 bytesのPDFとSyncTeXを生成した。最終ログに未定義参照・重複ラベル・欠落文字・overfull/underfull box・LaTeXエラーはない。既存の数式フォント寸法代替7件とその集約、旧font命令rmの警告は残る。概要と主要主張の20ページ（1, 2, 11, 12, 240–246, 248, 252–259）を画像化して目視し、数式・参照・改頁に具体的な崩れは見られなかった。全569ページを目視検査したわけではない。
 
 既存の有効な証明・検算を保持するが、今回その全証明を再監査したわけではない。外部量子化稿・三様体稿も一括再監査していない。Lean等の形式証明と外部査読は未実施で、新規性の網羅的調査も未完了。
 
 ## 保持する数学的点検の範囲
 
+### 自然周期・内在的積核の既存点検
+
+- **自然な周期の全係数：** mbhp節を執筆担当以外も全文読解した。二つのchartによる全九flexの中心正則化、三捩れ点でのpolynomial Zhang twist、THCRの核直線、raw top syzygyを保つwindow、比較線V=λ⊗O(o)と同期前の三乗写像を点検した。原点の−3F対6Fからq_V(id³)=−1/2、conormalの一次項−tとWeierstrassの主部−2t⁻³からq(ω³)=−1/v_ω(p)を校正する。普遍被約Hesse表示上で射を一致させ、降下後に非被約底を含めて引き戻す。
+- **内在的な積核と比較stack：** mbic節を統合担当と別担当が全文読解し、第三担当もscalar・Γ慣性・非捩れ積表示を監査した。τ_z=θ_zの向き、対角liftの消去、積cocycle、PからBへの実核の降下、独立な偏極twistの両側相殺、全O認識開の適用範囲、順序なし相対rotation比較を確認した。核stackの降下と大域切断、個々のrotationの降下は区別する。
+- **因子自己同型の位相：** pushforward規約のν=[c_g]、非零ν例、固定Hesse levelでのν消滅を読解点検した。Orlov著者版Propositions2.15・3.2–3.3とTheorem4.14、Artebani–Dolgachev刊行版§4 pp246–247を直接確認した。内在的降下の担当はBergh–Schnürer刊行版Propositions4.10・5.7、Corollaries4.12・5.9、Romagny Theorem5.1、Stacks0DMEも直接照合した。SilvermanのWeierstrass変換則は既存参照を用い、本文で変換を直接計算した。書籍PDFの再取得はtimeoutであり、書籍全該当本文を再読したとは扱わない。
+- **厳密計算：** `computations/verify_multiblock_hesse_phase.py` の二つの中心正則化chart、原点の三次jet、dX/ω=V、Weierstrass式とqV=−1、原点係数、Hesse生成元の方程式保存、g(f)=af・g³=aIの全五組の成功を保持する。SymPy 1.14.0の有理式・多項式計算であり、圏比較・降下・最小次数の形式証明ではない。この計算器は今回再実行していない。
 
 ### 相対積・Picard型の既存点検
 

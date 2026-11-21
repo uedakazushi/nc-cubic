@@ -1,0 +1,307 @@
+% !TEX root = ../nc-cubic.tex
+\section{二ブロック残余圏における中心標識の非正規性}
+\label{mbun:sec:unmarked}
+
+二ブロックの中心 $\mu_3$ 作用は、全 $\OO$-局所型からは内在的に得られるが、
+通常の残余圏の全自己同値が保つ部分群ではない。
+本節では、滑らかな分離和三次四様体の三つの平面から、
+この中心群を生成元の逆転を許しても保存しない球面 twist を構成する。
+さらに、同じ共役軌道に属する相異なる中心部分群が無限個生じることを示す。
+証明には三つの平面の交点数だけを用い、
+K3 曲面への幾何化や三次四様体の全自己同値群の分類を仮定しない。
+
+以下、$\kappa\supset\C$ を代数閉体とし、
+\[
+ E_i=V(f_i)\subset\mathbb P(W_i),\qquad \dim W_i=3,\qquad i=1,2
+\]
+を滑らかな平面三次曲線とする。滑らかな三次四様体
+\[
+ X=V(f_1+f_2)\subset\mathbb P(W_1\oplus W_2)
+\]
+と、その標準 dg enhancement を備えた残余圏 $\mathcal C=\Ku(X)$ を考える。
+原始三乗根 $\zeta\in\kappa$ を固定し、
+\begin{equation}\label{mbun:eq:block-action}
+ g[x:y]=[x:\zeta y],\qquad
+ G=\langle g_*|_{\mathcal C}\rangle
+\end{equation}
+と置く。$g$ は $\OO_X(1)$ を保つので $\mathcal C$ を保つ。
+自己同値の群では、dg 自己同値を自然同型で割った同型類を考える。
+以下の自己同値は、実際の perfect Fourier--Mukai 核の制限として得られる。
+
+\subsection{平面のイデアル層と三つの球面類}
+
+\begin{lemma}[平面のイデアル層の球面性]
+\label{mbun:lem:plane-spherical}
+任意の平面 $P\simeq\mathbb P^2\subset X$ に対し、
+イデアル層 $I_P$ は $\mathcal C$ の $2$-球面対象である。
+従って
+\begin{equation}\label{mbun:eq:spherical-twist}
+ T_P(F)=
+ \operatorname{Cone}\!\left(
+   \operatorname{RHom}_X(I_P,F)\otimes_\kappa I_P\longrightarrow F
+ \right)
+\end{equation}
+は $\mathcal C$ の dg 自己同値である。
+\end{lemma}
+\begin{proof}
+残余圏の定義と Serre 関手は
+\[
+ \mathcal C=
+ \{F:H^\bullet(X,F(-j))=0\ (j=0,1,2)\},
+ \qquad S_{\mathcal C}=[2]
+\]
+である \cite[p.~220, (2)--(3)]{NFKuznetsovCubicFourfolds}。
+完全列
+\[
+ 0\longrightarrow I_P(-j)\longrightarrow\OO_X(-j)
+       \longrightarrow\OO_P(-j)\longrightarrow0
+\]
+を用いる。$j=0$ では定数切断の写像が同型で、それ以外のコホモロジーは零である。
+$j=1,2$ では両方の線束のコホモロジーが全て零である。
+従って $I_P\in\mathcal C$ となる。
+
+法束の完全列は
+\begin{equation}\label{mbun:eq:plane-normal}
+ 0\longrightarrow N_{P/X}\longrightarrow\OO_P(1)^{\oplus3}
+       \longrightarrow\OO_P(3)\longrightarrow0
+\end{equation}
+である。$H=c_1(\OO_P(1))$ とすると
+\[
+ c_1(N_{P/X})=0,\qquad c_2(N_{P/X})=3H^2,\qquad
+ \det N_{P/X}\simeq\OO_P .
+\]
+Riemann--Roch より $\chi(P,N_{P/X})=-1$ であり、
+正則埋込みの局所 Ext と局所大域スペクトル系列から
+\[
+ \chi_X(\OO_P,\OO_P)
+ =\sum_{j=0}^2(-1)^j\chi(P,\mathop{\bigwedge}\nolimits^jN_{P/X})
+ =1-(-1)+1=3 .
+\]
+また
+\[
+ \chi_X(\OO_X,\OO_X)=\chi_X(\OO_X,\OO_P)=1,\qquad
+ \chi_X(\OO_P,\OO_X)=\chi(P,\det N_{P/X}[-2])=1 .
+\]
+従って $[I_P]=[\OO_X]-[\OO_P]$ から
+\begin{equation}\label{mbun:eq:plane-self-euler}
+ \chi_X(I_P,I_P)=2
+\end{equation}
+を得る。
+
+$I_P$ は階数一の torsion-free 層である。
+その自己準同型は $X\setminus P$ 上で正則関数による乗法となり、
+$X$ の正規性と $\operatorname{codim}_X P=2$ から $X$ 全体へ延びる。
+従って $\operatorname{Hom}(I_P,I_P)=\kappa$ である。
+層の負次数 Ext は零であり、$S_{\mathcal C}=[2]$ により
+$\operatorname{Ext}^2(I_P,I_P)=\kappa$ および
+$\operatorname{Ext}^q(I_P,I_P)=0$（$q>2$）を得る。
+式\eqref{mbun:eq:plane-self-euler}から $\operatorname{Ext}^1(I_P,I_P)=0$ である。
+Serre 双対性の完全対と合わせ、これは $\mathcal C$ 内での $2$-球面性である。
+
+球面 twist とその双対評価による逆関手は
+\cite[Definition~2.9, Proposition~2.10]{MBUNSeidelThomas}の構成で得られる。
+この構成は dg Hom、評価および上記の完全対を用いるので、
+admissible な dg 部分圏 $\mathcal C$ に適用できる。
+具体的には、$I_P^\vee=\operatorname{RHom}_X(I_P,\OO_X)$ として
+\[
+ \operatorname{Cone}(I_P^\vee\boxtimes I_P\longrightarrow\OO_{\Delta_X})
+       \in\operatorname{Perf}(X\times X)
+\]
+が式\eqref{mbun:eq:spherical-twist}を表す。
+これは $\mathcal C$ を保ち、その制限が自己同値である。
+$I_P$ の球面性を $\mathrm D^b(X)$ 全体で主張しているわけではない。
+\end{proof}
+
+\begin{lemma}[flex 接線から得られる三平面]
+\label{mbun:lem:three-planes}
+$g(P_r)=P_{r+1}$（添字は $\mathbf Z/3$）を満たす三つの平面
+$P_0,P_1,P_2\subset X$ が存在する。
+相異なる二平面の scheme-theoretic な共通部分は同じ直線であり、
+\begin{equation}\label{mbun:eq:plane-intersections}
+ P_r^2=3,\qquad P_r\cdot P_s=-1\quad(r\ne s)
+\end{equation}
+である。
+\end{lemma}
+\begin{proof}
+各 $E_i$ の flex $o_i$ とその接線
+$\ell_i=\mathbb P(U_i)$（$\dim U_i=2$）を選ぶ。
+ある $c_i\in\kappa^\times$ と非零線型式 $u_i\in U_i^\vee$ により
+\[
+ f_i|_{U_i}=c_i u_i^3
+\]
+と書ける。ここで $\ker u_i$ が flex を表す。
+$\beta^3=-c_1/c_2$ を選ぶと、$\mathbb P(U_1\oplus U_2)\simeq\mathbb P^3$ 上で
+\[
+ c_1u_1^3+c_2u_2^3
+   =c_2\prod_{r=0}^2(u_2-\beta\zeta^r u_1)
+\]
+となる。その三つの線型因子で定まる平面を $P_r$ とする。
+式\eqref{mbun:eq:block-action}はこれらを巡回させ、
+任意の二つの共通部分は
+\[
+ L=V(u_1,u_2)\subset\mathbb P(U_1\oplus U_2)
+\]
+という直線である。
+
+自己交点は式\eqref{mbun:eq:plane-normal}の $c_2$ から $3$ となる。
+相異なる $P=P_r,Q=P_s$ は直線 $L$ に沿って clean に交わる。
+実際、線型平面の接空間の共通部分は $T_L$ である。
+余剰束 $\mathcal E$ は
+\[
+ 0\longrightarrow N_{L/Q}\simeq\OO_L(1)
+       \longrightarrow N_{P/X}|_L\longrightarrow\mathcal E\longrightarrow0
+\]
+により与えられる階数一束である。
+$\det N_{P/X}\simeq\OO_P$ より $\mathcal E\simeq\OO_L(-1)$ であり、
+余剰交差公式から $P\cdot Q=\deg c_1(\mathcal E)=-1$ を得る。
+\end{proof}
+
+$K_{\mathrm{num}}(\mathcal C)_\mathbf Q$ に Euler 形式の符号を変えた
+$(x,y)=-\chi(x,y)$ を入れ、
+$\delta_r=[I_{P_r}]$ と書く。
+相異なる平面 $P,Q$ について、Riemann--Roch の次数四成分から
+$\chi_X(\OO_P,\OO_Q)=P\cdot Q$ である。
+これは $\operatorname{ch}(\OO_P^\vee)$ と
+$\operatorname{ch}(\OO_Q)$ の最初の非零成分がいずれも余次元二の基本類であり、
+その積が既に最高次数であるためである。
+従って
+\[
+ \chi_X(I_P,I_Q)=P\cdot Q-1
+\]
+となり、三つの類の Gram 行列は
+\begin{equation}\label{mbun:eq:gram}
+ B=\bigl((\delta_r,\delta_s)\bigr)_{r,s}
+  =\begin{pmatrix}
+    -2&2&2\\2&-2&2\\2&2&-2
+   \end{pmatrix}
+  =2J_3-4I_3,\qquad \det B=32 .
+\end{equation}
+特に $\delta_0,\delta_1,\delta_2$ は独立である。
+$W=\mathbf Q\delta_0\oplus\mathbf Q\delta_1\oplus\mathbf Q\delta_2$ と置くと、
+$g_*$ はこれらを巡回させる。従って $g_*|_{\mathcal C}$ の位数は正確に三である。
+
+\subsection{中心群の非正規性と無限共役軌道}
+
+\begin{theorem}[通常の残余圏で中心群は正規でない]
+\label{mbun:thm:non-normal}
+上の任意の滑らかな分離和三次四様体に対して、
+$G\subset\operatorname{Aut}_{\mathrm{dg}}(\mathcal C)$ は正規部分群でない。
+具体的には、$T_0=T_{P_0}$ とすると
+\[
+ T_0g_*T_0^{-1}\not\simeq g_*,
+ \qquad T_0g_*T_0^{-1}\not\simeq g_*^{-1}.
+\]
+従って中心作用を生成元の逆転まで保存する自己同値だけでは、
+通常の $\Ku(X)$ の全自己同値を覆わない。
+\end{theorem}
+\begin{proof}
+式\eqref{mbun:eq:spherical-twist}を Grothendieck 群へ写すと、
+$T_i=T_{P_i}$ の作用は反射
+\begin{equation}\label{mbun:eq:reflection}
+ r_i(x)=x-\chi(I_{P_i},x)\delta_i
+       =x+(x,\delta_i)\delta_i
+\end{equation}
+である。特に $r_i^2=1$ であり、逆 twist も同じ数値作用を持つ。
+式\eqref{mbun:eq:gram}を用いて
+\[
+ r_0g_*r_0(\delta_0)
+  =-r_0(\delta_1)
+  =-\delta_1-2\delta_0
+\]
+を得る。一方、$g_*\delta_0=\delta_1$ および
+$g_*^{-1}\delta_0=\delta_2$ である。
+三つの類は独立だから、これらの数値作用はどちらも一致しない。
+自然同型な関手の数値作用は等しいため、主張が従う。
+ここで自己同値群から数値格子への作用が忠実であることは必要ない。
+\end{proof}
+
+\begin{corollary}[同じ共役軌道内の無限個の中心部分群]
+\label{mbun:cor:infinite-orbit}
+$\mathsf U=T_0T_1$ と置くと、部分群
+\[
+ G_n=\mathsf U^nG\mathsf U^{-n}\qquad(n\in\mathbf Z)
+\]
+は互いに相異なる。これらは全て同じ共役軌道に属する位数三の部分群であり、
+その coherent な作用の同変化は全て
+\[
+ \mathcal C^{G_n}\simeq\operatorname{Perf}(E_1\times E_2)
+\]
+と同値である。
+\end{corollary}
+\begin{proof}
+$W$ の順序付き基底 $(\delta_0,\delta_1,\delta_2)$ に関し、
+\[
+ r_0=\begin{pmatrix}-1&2&2\\0&1&0\\0&0&1\end{pmatrix},
+ \qquad
+ r_1=\begin{pmatrix}1&0&0\\2&-1&2\\0&0&1\end{pmatrix},
+ \qquad
+ h=r_0r_1=\begin{pmatrix}3&-2&6\\2&-1&2\\0&0&1\end{pmatrix}.
+\]
+$N=h-I$ とすると $N^3=0$ なので、全ての $m\in\mathbf Z$ に対し
+\[
+ h^m=I+mN+\binom m2N^2 .
+\]
+$g_*$ の $W$ 内の固定部分は
+$s=\delta_0+\delta_1+\delta_2$ が張る直線であり、
+\begin{equation}\label{mbun:eq:unipotent-orbit}
+ h^ms=
+ (1+4m^2+2m)\delta_0+
+ (1+4m^2-2m)\delta_1+\delta_2 .
+\end{equation}
+$\mathsf U^m$ が $G$ を正規化するなら、$g_*$ を逆元へ移す場合を含めて、
+$h^m$ は固定直線 $\mathbf Qs$ を保つ。
+式\eqref{mbun:eq:unipotent-orbit}の第三座標から比例係数は一であり、
+$4m^2+2m=4m^2-2m=0$ より $m=0$ である。
+従って $G_n=G_{n'}$ なら $n=n'$ となる。
+
+元の幾何学的 $G$ 作用を $\mathsf U^n$ とその逆で共役すれば、
+関手の合成同型も含む coherent な $G_n$ 作用を得る。
+この共役は同変化の同値
+$\mathcal C^G\simeq\mathcal C^{G_n}$ を与える。
+また定理\ref{mbrd:thm:split-product}、二ブロックでは
+\cite[Theorems~0.1 and~5.8]{TBHu}により
+$\mathcal C^G\simeq\operatorname{Perf}(E_1\times E_2)$ である。
+従って、同変化がこの積圏になるという性質だけでも、
+指定された部分群 $G$ は一意に選び出せない。
+\end{proof}
+
+\begin{corollary}[非可換二ブロック幾何点への移送]
+\label{mbun:cor:nc-non-normal}
+代数閉体 $\kappa\supset\C$ 上の、定理\ref{mbs:thm:presentation-stack}の
+基本楕円領域に属する二ブロック満支持実表示 $A$ を取る。
+その中心 $Z_0=(\mu_3^2)/\Delta\mu_3\simeq\mu_3$ の残余作用は、
+$\Ku_{\mathrm{coh}}(A)$ の全 dg Morita 自己同値群において正規でない。
+さらに、この自己同値群内の共役軌道は無限個の相異なる部分群を含む。
+\end{corollary}
+\begin{proof}
+定理\ref{mbrc:thm:finite-point-comparison}は、代数閉体上では拡大なしで
+実際の $Z_0$-同変 dg Morita 同値
+\[
+ \Ku_{\mathrm{coh}}(A)\simeq\Ku(X_{\mathrm{pt}})
+\]
+を与える。右辺は本節の滑らかな分離和三次四様体の残余圏である。
+この同値と逆を用いて $T_0,T_1$ および上の中心群作用を移せば、
+定理\ref{mbun:thm:non-normal}と系\ref{mbun:cor:infinite-orbit}がそのまま移る。
+因子の非同種性や一般点という追加条件は使わない。
+\end{proof}
+
+\begin{remark}[標識の忘却について得られたことと残ること]
+\label{mbun:rem:scope}
+本節は、通常の残余圏の全自己同値に対して不変な
+指定中心部分群を回復する方針を否定する。
+中心作用の共役類を内在的に認識する可能性や、
+比較の前後へ適切な自己同値を合成して中心を一致させる可能性は否定しない。
+また、非代数閉体 $K$ 上で新たな無標識比較核が存在すること、
+あるいは中心同変比較の最小定義体次数が標識の忘却によって下がることは、
+この反例だけからは従わない。
+構成に用いた flex、平面および twist の元の体への降下は別途必要である。
+とりわけ、系\ref{mbun:cor:infinite-orbit}は
+「非共役な作用が無限個ある」という主張ではない。
+
+平面の交差理論、球面 twist、および同変化の積表示は既知の入力である。
+本節の具体的な非正規性と無限共役軌道の先行研究との一致については、
+現時点で網羅的な新規性確認を終えていない。
+式\eqref{mbun:eq:gram}と式\eqref{mbun:eq:unipotent-orbit}の有限行列計算は
+\texttt{computations/verify\_multiblock\_isogenous.py} で独立に検算できる。
+この検算は球面性や幾何学的な実現の証明を代替しない。
+\end{remark}
