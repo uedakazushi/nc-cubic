@@ -12,14 +12,17 @@
 \newcommand{\Db}{D^{\mathrm b}}
 \title{中心三次商の一般中心値と二つの中心チャート}
 \author{}
-\date{2026年11月21日・v2}
+\date{2026年11月21日・v3}
 \begin{document}
 \maketitle
 \begin{abstract}
-中心三次商について、二つの中心チャートによるperfectness判定と一般中心値の正則性を扱う補助ノートである。
-外部のgeneric central value定理を明示し、任意の特殊パラメータでの正則性は主張しない。
-比較原稿の第28節に対応する部分的なTeX化であり、一般中心値に使う外部入力の独立再監査と原資料全体の照合は未了である。
-現行の量子化論文は\texttt{papers/cubic-quantization.tex}、一般点可換復元は\texttt{papers/nc-cubic.tex}を参照する。
+中心三次商について、二つの中心チャートによるperfectness判定と、
+チャート代数が可換有限型中心部分環上有限である場合の一般中心値の正則性を扱う。
+Rennemo--Segal--Van den Berghの非可換Bertini定理の有限中心性の仮定を保持し、
+任意のPBW変形や特殊中心値へは適用しない。
+一般点可換復元の正本は本repoの\texttt{papers/nc-cubic.tex}、
+量子化の正本は別repo
+\url{https://github.com/uedakazushi/cubic-quantization}である。
 \end{abstract}
 
 \section{二つの中心チャートによるperfectnessの判定}
@@ -40,8 +43,10 @@ $A[u^{-1}]_0$と$A[v^{-1}]_0$の大域次元は有限であり、
 \]
 \end{proposition}
 \begin{proof}
-$A$のcoherent moduleの有限生成graded lift $N$をとり、
-そのmatrix factorizationの有限presentationを用いる。
+$A$のcoherent moduleの有限生成graded lift $N$をとる。
+十分高いsyzygyを取ってもline objectで生成される対象しか変わらないので、
+$B$の有限大域次元と中心正則商のGorenstein性により、
+$N$を有限生成自由加群から成るmatrix factorizationで表してよい。
 $u$と$v$を局所化した二つのaffine chartでは
 有限大域次元の仮定からfactorizationがcontractibleとなる。
 contractionは有限個の係数・分母から成るので分母を払え、
@@ -63,7 +68,7 @@ $(u^r,v^s)$に殺される。
 \end{proof}
 
 \section{固定した周囲の一般中心三次商}
-\begin{theorem}[十分一般の二元三次中心係数]\label{thm:generic}
+\begin{theorem}[有限中心チャートの一般二元三次係数]\label{thm:generic}
 $B$をnoetherian connected graded AS-regular次元5の整域とする。
 二つの次数1中心元$u,v$、三次中心元$G$を持ち、$B$が
 $\mathbb C[u,v]$上自由であると仮定する。
@@ -73,7 +78,8 @@ $x,y,z$方向のfiltrationについて
 \simeq S\otimes\mathbb C[u,v],
 \]
 $S$は整域、$G$の最高部分$\gamma\in S_3$は非零正則元とする。
-良い中心チャートで
+係数空間$\mathbb A^4_{a,b,c,d}$の非空Zariski開集合$V$が存在し、
+その各点について
 \[
 A_{a,b,c,d}
 =B/(G+au^3+bu^2v+cuv^2+dv^3)
@@ -81,9 +87,10 @@ A_{a,b,c,d}
 が$\mathbb C[u,v]$上自由とする。
 さらに
 $\qgr B/(u,v,G)$が滑らかな楕円曲線のcoherent圏と同値であるとする。
-有限表示の係数全体を含む可算な部分体$k_0\subset\mathbb C$をとり、
-$a,d$が$k_0(b,c)$上代数的独立であると仮定する。
-このとき
+さらに$D_u=B[u^{-1}]_0$、$D_v=B[v^{-1}]_0$がそれぞれ
+可換有限型中心部分環$Z_u,Z_v$上有限生成加群であると仮定する。
+$Z_u$は$v/u,G/u^3$を、$Z_v$は$u/v,G/v^3$を含むものとする。
+このとき係数空間$\mathbb A^4_{a,b,c,d}$の非空Zariski開集合上で
 \[
 \gldim(\qgr A_{a,b,c,d})=3.
 \]
@@ -102,50 +109,80 @@ $u$-chartに$t=v/u$を導入すると
 A_{a,b,c,d}[u^{-1}]_0
 =D_u/(G/u^3+bt+ct^2+dt^3+a).
 \]
-$a$は残りの係数に対して超越的であり、
-括弧内の$a$を除いた中心元は最高$x,y,z$部分が
-非零の三次元なのでその冪は線形独立である。
-この状況に適用されるgeneric central valueの
-非可換Bertini型補題
-（Rennemo--Segal--Van den Berghの中心局所化と
-有限行列因子化に基づく結果）により、
-このchartは有限大域次元を持つ。
+ここで$a,b,c,d$は独立な普遍係数とする。
+全係数族のchart代数は
+\[
+\mathcal D_u=D_u[a,b,c,d]/(G/u^3+bt+ct^2+dt^3+a)
+             \simeq D_u[b,c,d]
+\]
+である。従って$\mathcal D_u$は有限大域次元を持ち、
+可換有限型環$\mathcal Z_u=Z_u[b,c,d]$上有限である。
+係数環$R=\mathbb C[a,b,c,d]$は
+$a\mapsto-G/u^3-bt-ct^2-dt^3$によって中心へ作用する。
+$Z_u$の有限個の$\mathbb C$-代数生成元は、この作用について
+$\mathcal Z_u$を$R$上でも生成するので、$\mathcal Z_u$は有限型$R$-代数である。
+最高active部分$\gamma$の非零性と整域性から、
+この中心元の冪は$\mathbb C(b,c,d)$上一次独立であり、$R$の作用は忠実である。
+Rennemo--Segal--Van den BerghのProposition~2.1を
+$(R,\mathcal Z_u,\mathcal D_u)$へ適用すると、
+非空開集合$U_u\subset\mathbb A^4$上の全chartが有限大域次元を持つ。
+ここで重要なのは$\mathcal Z_u$上の加群有限性である。
 
 同様に$v$-chartで$r=u/v$とすると
 \[
 A_{a,b,c,d}[v^{-1}]_0
 =D_v/(G/v^3+ar^3+br^2+cr+d).
 \]
-$d$の超越性によってこちらも有限大域次元になる。
-境界$\qgr B/(u,v,G)$の生成性と
+$d$を消去した全族は$D_v[a,b,c]$である。
+同じ命題を$Z_v[a,b,c]$上で用いれば非空開集合$U_v$を得る。
+既に仮定した非空開集合$V$と$U_u\cap U_v$を交わらせる。
+$\mathbb A^4$は既約なので、この共通部分も非空開集合である。
+最高active部分の条件と$\mathbb C[u,v]$上の自由性により、
+この範囲で$u,v$は$A_{a,b,c,d}$上の中心正則列である。
+境界$C=B/(u,v,G)$の次数twistは有限生成graded moduleのpresentationにより
+$\qgr C$を生成する。さらに$\qgr C\simeq\operatorname{coh}E$は
+hereditaryであるため、twistの有限直和による二項presentation complexから
+各coherent objectが直和因子として回収できる。
+従って$\Db(\qgr C)=\thick\{\pi C(n)\}$であり、この境界の生成性と
 命題\ref{prop:patch}を適用すれば
 $\Db(\qgr A)=\thick\{\pi A(n)\}$。
 最後に$B$のAS-regular性と中心三次正則商の
-AS-Gorenstein次元4、index 2のSerre双対を使うと
-大域次元は正確に3となる。
+AS-Gorenstein次元4から、perfect tailsのSerre関手は
+$T[3]$となる。ここで$T$はNakayama自己同型とGorenstein parameterに
+対応する次数twistから成るexact自己同値である。
+既に全coherent objectのperfectnessを示したので、任意の$M,N\in\qgr A$について
+\[
+ \operatorname{Ext}^p(M,N)
+ \simeq\operatorname{Ext}^{3-p}(N,T(M))^*=0\qquad(p>3).
+\]
+また非零対象$M$について
+$\operatorname{Ext}^3(M,T(M))\simeq\operatorname{End}(T(M))^*\ne0$
+であるから、大域次元は正確に3である。
+Gorenstein parameterの値を5と仮定する必要はない。
 \end{proof}
 
 \begin{remark}[適用限界と先行研究]
-この命題は固定した周囲$B$について、
-特定のZariski開集合全体での正則性ではなく
-代数的独立性を課したvery-generalな係数の
-十分条件である。各特殊係数での正則性は別問題であり、
-一般混合係数の全体に滑らかな量子的境界があることも
-自動的には従わない。
+この定理は明記した有限中心性の下で、固定した周囲$B$に対する
+非空Zariski開集合での十分条件を与える。
+任意の特殊係数、一般の非PI Sklyanin因子、有限中心性を未確認の混合PBW変形には
+そのまま適用できない。斉次特殊化がPIであっても、PBW変形の有限中心性は別途必要である。
+本稿の一中心変数・二ブロックの64例外値についても、この定理だけから滑らかさは得られない。
 
 中心局所化・非可換generic smoothnessの外部入力として
 J.~V.~Rennemo, E.~Segal, M.~Van den Bergh,
 \emph{A non-commutative Bertini theorem},
 \url{https://arxiv.org/abs/1705.01366}
-のLemmas 3.2--3.3と関連部分を用いる。
-本稿は既存研究原稿の証明をTeXで回復したものであり、
-外部定理を今回改めて完全監査したものではない。
+のProposition~2.1とその証明（arXiv v2, pp.~3--6）を用いる。
+同命題の仮定と、有限中心性が使われる箇所を一次資料で確認した。
+Lemmas~3.2--3.3の局所化・分離体拡大だけでは、
+一般の無限中心加群代数に対するsmoothnessの開性は結論できない。
+この補助ノートの条件を、主稿の分離型の直接MF比較の仮定へ追加するものではない。
 \end{remark}
 
-\section{復元した部分と原本の関係}
-原本の第28節の二つの主要命題と証明の論理をTeX化した。
-原本にはその他の有限中心性、点加群、判別式、中心三次公式、
-17次元モジュライと復元の議論がある。
-未収録の部分を照合するまで
-\texttt{central\_cubic\_technical.pdf}のGit追跡は解除しない。
+\section{次に確認する入力}
+混合表示へ適用するには、中心chartの可換有限型中心部分環とその上の有限生成性、
+および境界のcoherent生成性を実際に示す必要がある。
+これらを確認するまでは、中心係数のnormの根と特異係数の集合を同一視しない。
+分離型の直接比較と混合型の現状は\texttt{00\_research\_plan.md}、
+\texttt{notes/research\_notes.md}を参照する。
 \end{document}

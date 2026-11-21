@@ -77,7 +77,7 @@
 \title{非可換三次 $n$-fold の可換復元とモジュライ\\
 \large Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 \author{}
-\date{2026年11月21日・研究稿 v42}
+\date{2026年11月21日・研究稿 v43}
 \hypersetup{pdftitle={非可換三次 n-fold の可換復元とモジュライ},
 pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}}
 \begin{document}
@@ -104,7 +104,11 @@ categorical Torelli により、主予想を満たすが第二予想の全スキ
 この例の自然な残余対では被約部分は一致しており、被約化後の命題は別の問題である。
 二次関係にも中心変数が現れる混合型については、定常点の出現を次数 $8^k$ の
 有限ノルムで判定し、二ブロックで六十四個の相異なる有理例外値を持つ族を与える。
-この混合型における Ku 比較と例外値での圏の滑らかさは未解決である。
+その全例外点の affine character の自己 Ext は、中心方程式の高次作用を計算することで
+次数 $0,2,3,5$ に各一次元、それ以外で零と決定する。
+また分離型への代数的収縮を構成し、相対対角の perfect 性を追加仮定として、
+有限個を除く中心係数での可換 Ku 実現へ帰着する。
+この追加仮定と個々の混合商の滑らかさは未解決であり、有界な自己 Ext からは結論しない。
 
 次数別有限自由な中心三次非可換変形に対する完備曲率付き
 matrix factorizationの移送を構成し、任意の$n\ge3$について
@@ -342,6 +346,15 @@ PBW・AS正則性、指定Casimirの代数的中心持上げ、全ブロック�
 有限定常環のノルムで例外的な中心係数を判定する。
 例\ref{cmo:ex:sixty-four}は六十四個の単純な有理例外値を与えるが、
 これを混合型の Ku 存在定理や第二予想の新しい反例とはしない。
+命題\ref{cmo:prop:character-ext}は、一因子の character における中心三次の
+二次作用を有理式 $\kappa(a,b,c)$ で決定する。
+系\ref{cmo:cor:sixty-four-ext}では全六十四点の自己 Ext が
+次数 $0,2,3,5$ に限られることを証明し、定常点の存在から無限自己 Ext を推論する
+方法がこの族では使えないことを示す。
+さらに命題\ref{cmo:prop:contraction}で $c=t^{-3}$ による分離型への収縮を作り、
+系\ref{cmo:cor:conditional-cofinite}で、残余模型の相対対角が perfect なら
+有限個を除く $c$ で可換 Ku 実現を得る。
+相対 smoothness はこの系の追加仮定であり、特殊ファイバーの比較だけからは導かない。
 
 一ブロック型の定常成分については、零スキームの分解と
 固定 Poisson tensor による切断障害を第\ref{ppz:sec:comparison}節で明記する。
@@ -2118,6 +2131,9 @@ $n=3,4$ では全 full 同型類が降下し、周期の追加標識を忘れた
 以後の検証では被約版などの修正命題を元の予想と区別する。
 中心変数を持つ分離型の可換実現は定理\ref{csc:thm:comparison}で扱い、
 残る混合型では例\ref{cmo:ex:sixty-four}の正則中心商を具体的な検査対象とする。
+その定常 character の自己 Ext は系\ref{cmo:cor:sixty-four-ext}で決定したため、
+次は収縮族の対角に対する式\eqref{cmo:eq:missing-relative-diagonal}の検証と、
+自己 Ext が有界でも残り得る他の加群・境界の障害を調べる。
 $\overline\gamma_n[D]^{-1}$ の他の因子での分岐と
 正準位相体上の scalar index、代数的核の coherent な中心線型性、
 一般高次元の任意 full class と非分裂の他軌道は、必要な補助課題として保持する。

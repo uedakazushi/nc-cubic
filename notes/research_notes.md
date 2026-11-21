@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月21日 / v42。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月21日 / v43。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 二つの予想を中心とする研究の入口
 
@@ -35,7 +35,7 @@ m≥2,g≠0ではDは型(2^{3k},3)、次元m−2、次数3·8^kの完全交叉�
 
 自然な可換零スキーム側は同じ式のJをJ_cl=⊗Jac(f_i)、θを0に置いたもの。抽象スキーム同型でもgraded J≃graded J_clが必要である。完備局所環のassociated gradedはJ[t]で、次数一の冪零元が生成する部分環がJそのものだから、未証明の形式変数消去を使わずに回復できる。m=2ではこの条件は十分でもある。各Jacobian三次が滑らかでST非分解ならjの多重集合が必要不変量となる。この自然pairの障害だけでは、全Poisson構造・全Ku標的を排除していない。
 
-### 中心変数一つの混合型と有限ノルム
+### 中心変数一つの混合型：有限ノルムと自己 Ext
 
 `central_mixed_one_variable.tex` の `cmo:thm:point-norm` は、R=C[u]上のk因子をtensorし、二次関係にuが実際に現れる型を扱う。u=0で滑らかな固定点なしの楕円グラフを持ち、可換化の三つの二次式の最高active部分が正則列という仮定の下で、全可換化TはR上階数L=8^kの有限自由加群となる。C=Proj Tはu≠0に入り、Q=T/(u−1)と置けばC=Spec Q。中心三次wの像bに対し
 
@@ -49,6 +49,29 @@ m≥2,g≠0ではDは型(2^{3k},3)、次元m−2、次数3·8^kの完全交叉�
 具体例 `cmo:ex:sixty-four` は、[y,z]=x²−α_1u²と巡回置換、α=(1,4,9),(16,25,49)を用いる。中心元は Ω_α=(x³+y³+z³)/3−(2/3)sym(xyz)−u²(α_1x+α_2y+α_3z)、w_c=Ω_α+100Ω_α′+cu³。指定二組の中心性は全degree4関係行列を有理数上で消去して確認する。全次数PBW性はBraverman–Gaitsgory Main Theorem0.5 / Lemma3.3により別に証明し、次数3,4のHilbert関数だけから推測しない。u=0ではΩ_0=−c_3/3（De Laet–Le Bruyn §2の規格化）であり、中心和の正則性はuによる次数下降で持ち上がる。
 
 Q=C^{64}であり、R={±28,±16,±56/3,±28/3}、S={±448,±196,±176,±284/3}と置くとN(c)=∏_{r∈R,s∈S}(c+r+100s)。全64根は相異なる有理数で、各根では一つの被約定常点が加わる。根以外、特にc=0では点スキームは二つの楕円曲線だけ。この例外集合は次のsmoothness・Ku比較の検査対象である。一方、滑らかな中心変数一つのブロックJacobian可換標的では定常零点がなく、零スキームは純楕円曲線だけとなる（`cmo:prop:poisson-zero`）。同じKu標的の存在と全Poisson supportの排除をまだ得ていないので、この相違を第二予想や被約版の新しい反例とはしない。
+
+`cmo:prop:character-ext` は、u=1の一因子D_pとcharacter p=(a,b,c)∈(C×)^3について、中心元からその値を引いた f_p=Ω_p−λ_p の高次作用を
+
+\[
+\lambda_p=-\frac23(a^3+b^3+c^3+abc),\qquad
+\kappa(p)=\frac{2((ab)^3+(bc)^3+(ca)^3+9a^2b^2c^2)}{9abc}
+\]
+
+で決定する。D_p/(f_p)上の自己Extを計算するcochain複体は、|t|=2、|η|=3、dη=κ(p)t²を持つ C[t]⊕C[t]η。これはYoneda積の同定ではない。κ≠0ならExtは次数0,2のみ、κ=0なら非有界である。中心元の係数sはこの高次作用にs²として入る。証明は長さ三のPBW/Koszul分解、普遍的な二段のhigher homotopy、C[t]上の有限消去を使い、完備化・有限次数からの外挿は使わない。全多項式証明書は `computations/verify_mixed_character_ext.py` に収める。
+
+二因子の中心和では dη_1=κ(p)t²、dη_2=10000κ(p′)t²。全16因子characterについてκ≠0は324>251と176400>72827で示せるので、全64例外点の自己Extは次数0,2,3,5に各一次元で、それ以外は零（`cmo:cor:sixty-four-ext`）。従って、この族を定常点の存在だけから「無限自己Extを持つため非smooth」とする方法は使えない。一つのsimpleの自己Extの有界性から有限射影次元や全体のsmoothnessを導くこともできない。
+
+別の係数に対する有用な候補として、a=b=1、2ρ³+9ρ²+1=0を満たすρ≠0でc=ρとすればκ=0となる。同じtensor計算で、全因子のκが零なら多因子中心和のaffine characterに無限自己Extが残る。一因子でもκ≠0なら cohomology は次数付きベクトル空間として C[t]/(t²)⊗Λ(ζ_1,…,ζ_(k−1))（|ζ_i|=3）になる。これは一般式からの帰結であり、新たなsmoothなnc cubicの構成ではない。κ=0の候補ではaffine障害と全qgrの局所化を比較する必要がある。今回の64例ではこの条件を満たさない。
+
+### 混合族を分離型へ収縮する経路と未検証の対角
+
+`cmo:prop:contraction` はR=C[t]上でα_iをt²α_iへ移し、中心式をΣa_iΩ_(t²α_i)+u³に固定する。族は次数別R自由、中心三次は正則であり、t=0は既にKu比較のある分離型、t≠0はv=tuにより元のc=t^(−3)の族と次数付き同型になる。相対Koszul・Gorenstein解消と有限線束のmutationから、properな残余線束模型Γ_Rを作れる（`cmo:prop:proper-contraction`）。
+
+残る入力は、0のZariski近傍UでΓ_UがΓ_U^op⊗_U^LΓ_U上perfectとなること。これを追加仮定とした `cmo:cor:conditional-cofinite` は、n=3k−1≠4の実smooth proper族の開性を適用し、有限集合Fを除く元のcで全coherent Kuの可換実現を与える。Fは未知であり、normの64根と一致するとは主張しない。c=0や64例外値の個別判定もこの系には含まれない。
+
+次の具体作業は、分離ファイバーの有限な対角解消・retractをこの明示族へ持ち上げることである。special fiberがsmooth、相対Homが底上perfect、全Artin切断で比較できる、という各事実だけを相対対角のperfect性と同一視しない。Toënの有限性・準コンパクト性の定理も、適用仮定を点検せずsmoothnessの開性へ置き換えない。
+
+中心二チャートによる別経路は [補助ノート](central_cubic_generic_smoothness.tex) に置く。Rennemo–Segal–Van den Berghの非可換Bertini（arXiv:1705.01366、Proposition 2.1）には、chart代数が有限生成可換中心上有限という仮定がある。補助ノートの一般中心係数の結論はこの仮定付きであり、PBW性やassociated gradedのPI性だけで一般混合表示へ適用しない。現在の主稿の分離型比較や固定反例は、この補助ノートを入力にしない。
 
 ### 可換Ku実現locusの開性
 

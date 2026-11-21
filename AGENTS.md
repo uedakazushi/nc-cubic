@@ -1,6 +1,6 @@
 # Research instructions — nc-cubic
 
-2026-11-21 / v42。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-21 / v43。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
@@ -17,12 +17,13 @@
 - `central_split_comparison.tex` の `csc:thm:comparison` は、C上、k,m≥1、N=3k+m≥5、全a_i≠0、実楕円因子S_i/(Ω_i)=B(E_i,L_i,t_{p_i})、原点だけにcritical pointを持つ中心三次gについて、A=((⊗S_i)⊗C[U])/(Σa_iΩ_i+g)とX=V(Σf_i+g)の全coherent Ku同値を直接構成する。f_iは同じ偏極曲線E_iの任意の非零方程式でよい。点グラフの固定点なしはKu比較自体の仮定ではない。中心因子の有限MF、周期付きPicard補正、二重同変化、smoothness後のcoherent飽和の順序を保つ。Fermat中心和は `csc:cor:fermat` のA2模型だけで比較できる。
 - `central_split_points.tex` は、固定点なしの楕円点グラフを持つ分離表示の原代数の点関手を任意試験環で計算する。m=1,g=cu³,c≠0では、上の同じX上でPt(A)=Z_X(π)=⊔E_iとなる。m≥2でV(g)が滑らかなら、定常成分の完備局所環はJ[[t_1,…,t_{m−2}]]、J=⊗(S_i)_abの長さは8^kである。可換側のJ^cl=⊗Jac(f_i)との差を全スキーム比較で検査し、被約部分の一致や長さの一致を全スキーム同型としない。自然な中心射影のスキーム論的像と第零Fittingイデアルも区別する。
 - `explicit_sklyanin_input.tex` はS★のparameters (1:−3:−2)、指定中心元Ω★、点曲線E_{17/9}、中心商、AS正則な周囲環を具体的に確認する。`point_poisson_obstruction.tex` はこれと上の直接Ku比較を用い、A★=S★[u,v]/(Ω★+(u³+v³)/3)の全スキーム版反例を証明する。A★は点スキームの良い条件を満たす滑らかな楕円一ブロック型であり、そのsmoothnessと全coherent Kuは直接比較から得る。全O stackの全chart入力をh=1で独立確認したという主張にはしない。三つの定常点の局所環J_1、任意supportの局所補題、12点のHessian分類、Mayanskiyの全Poisson分類、BMMSのcategorical Torelliにより、別π/別Xも排除する。自然な対の被約部分は一致する。一ブロック零スキームのE_H⊔D_H分解と良いrank2標的への埋込み一致障害も保持する。境界中心評価εはZ(B)_3/Sym³UからJacobi次数三線への写像である。
-- `central_mixed_one_variable.tex` は、中心変数uが二次関係に現れる表示を扱う。明記した楕円グラフと可換化正則列の仮定の下で、定常環Qは長さ8^k、例外係数はmonic norm det(c+m_b)の零点となる。有理係数の二ブロック例では64個の相異なる例外値を明示し、各値で一つの被約定常点を得る。この真の混合型の商のsmoothnessと同じ可換標的へのKu比較は未解決であり、点関手の計算から主予想や第二予想の新しい反例を結論しない。
+- `central_mixed_one_variable.tex` は、中心変数uが二次関係に現れる表示を扱う。明記した楕円グラフと可換化正則列の仮定の下で、定常環Qは長さ8^k、例外係数はmonic norm det(c+m_b)の零点となる。有理係数の二ブロック例では64個の相異なる例外値を明示し、各値で一つの被約定常点を得る。`cmo:prop:character-ext` と `cmo:cor:sixty-four-ext` は普遍higher homotopyのκ公式から、全64点のaffine characterの自己Extが次数0,2,3,5のみ各一次元と証明する。有限自己Extを有限射影次元・smoothness・Yoneda積の同定と混同しない。`cmo:prop:contraction` の収縮はc=t^(-3)で元の族と同型になり、`cmo:cor:conditional-cofinite` は相対対角のperfect性を追加仮定とする余有限Ku実現である。この追加仮定と個々の混合商のsmoothnessは未解決。normの根をsmoothness判別式や新しい反例と扱わない。
 - `geometric_realization_locus.tex` の局所開性はn≠4の実smooth proper dg族と既存Artin形式認識を用いる。全Abel族の飽和性、境界での閉性、全intrinsic成分を自動的に与えない。
 - 全O認識・全慣性・第三Veronese・全根、相対積、Picard比較、自然周期q(ω³)=−1/v_ω(p)の既存証明を保持する。全中心同変核の判定はk≥3では同種・CMを許し、k=2では幾何学的非同種を仮定する。二因子の混合核や指定中心の非正規性を無視しない。中心の無限共役軌道は同じ共役類内の無限性であり、非共役作用の無限性とは異なる。
 - compact/Perfの任意導来底変更と非正則底の全Db(coh)を区別する。smooth regular元底のcoherent飽和の証明、raw最高次syzygy線、共通関係直線と指定periodを保持する。点集合だけから全非被約point functorや族の射を結論しない。
 - 一ブロックの中心三次商線、点曲線、残余射次数9/18、点型Picard指数三・非分裂指数九、γ̄_n/[D]の問題を多ブロックへ無条件に流用しない。full class選択、gerbe中立化、period位相は別段階。
-- `verify_point_poisson_obstruction.py` の更新部分を含む12 PASSの厳密計算を確認済み。有限語関係による中心性の証明、全次数PBWの文献による判定、smoothness・Ku比較の証明は別である。独立読解、組版、表示確認、保存の状態は `notes/validation.md` を正本とし、計算成功だけで組版や保存の完了を報告しない。
+- `notes/central_cubic_generic_smoothness.tex` の非可換Bertiniの適用には、中心chartが有限生成可換中心上有限という仮定が必要。PBW性やassociated gradedのPI性だけで代用しない。
+- `verify_mixed_character_ext.py` の4 PASSと `verify_point_poisson_obstruction.py` の12 PASSの厳密計算を確認済み。有限語関係による中心性の証明、全次数PBWの文献による判定、smoothness・Ku比較の証明は別である。独立読解、組版、表示確認、保存の状態は `notes/validation.md` を正本とし、計算成功だけで組版や保存の完了を報告しない。
 
 ## 正本・外部入力・保存
 

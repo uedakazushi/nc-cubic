@@ -279,3 +279,498 @@ $k=2,m=1$ は $N=7,n=5$ に当たり、定理\ref{cmo:thm:point-norm}の
 その係数での非可換三次の滑らかさと、別の Poisson support を含む全標的の排除が必要である。
 有限 norm による明示的な例外集合は、これらの次の検証対象を与える。
 \end{remark}
+
+\subsection{例外的な定常点の自己 Ext と中心方程式の高次作用}
+\label{cmo:subsec:character-ext}
+
+定常点の出現と商の非滑らかさは同じ条件ではない。
+本節の明示族では、例外値の定常 character の自己 Ext を全次数で計算できる。
+結論は自己 Ext の次数付きベクトル空間についてであり、
+その Yoneda 積、character の射影次元、商の smoothness は区別する。
+
+高次 homotopy から超曲面商上の自由分解を作る一般構成は
+Shamash--Eisenbud 理論に属する
+\cite[Theorem~7.2]{NFMEisenbudCI}。
+この可換環上の構成と、本稿の正則中心元に対する非可換版を区別し、
+後者の完全性は補題\ref{mbnp:lem:shamash}の濾過による証明を用いる。
+また非斉次三次 potential の Calabi--Yau 性、PBW 性と中心元は
+Etingof--Ginzburg の既知の理論
+\cite[Theorem~3.3.2, Sections~3.4,~8.3]{NFMEG}に位置付けられる。
+本節では指定中心元の普遍な多項式証明書を作り、有限消去から
+式\eqref{cmo:eq:kappa}を導いて六十四個の自己 Ext を全次数で決定する。
+一般の分解構成や周期性自体の新規性は主張せず、
+この具体式と自己 Ext 計算の包括的な新規性確認も未完了である。
+
+$p=(a,b,c)\in(\C^\times)^3$ とし、
+$\alpha=(a^2,b^2,c^2)$、
+$D_p=\mathcal B_\alpha/(u-1)$ と置く。
+$M_p=\C$ は $(x,y,z)$ が $(a,b,c)$ として作用する左 $D_p$-加群である。
+式\eqref{cmo:eq:mixed-center}の $u=1$ への特殊化を $\Omega_p$ と書き、
+\begin{equation}\label{cmo:eq:character-value}
+ \lambda_p=-\frac23(a^3+b^3+c^3+abc),\qquad
+ f_p=\Omega_p-\lambda_p,\qquad R_p=D_p/(f_p)
+\end{equation}
+とする。$f_p$ は $M_p$ を消す正則中心元である。
+ここではこの中心元の正規化を固定する。
+
+\begin{proposition}[character における中心三次の二次作用]
+\label{cmo:prop:character-ext}
+次の有理式を置く。
+\begin{equation}\label{cmo:eq:kappa}
+ \kappa(a,b,c)=
+ \frac{2\bigl((ab)^3+(bc)^3+(ca)^3+9a^2b^2c^2\bigr)}{9abc}.
+\end{equation}
+自己 Ext を計算する cochain 複体として
+\begin{equation}\label{cmo:eq:character-complex}
+ \operatorname{RHom}_{R_p}(M_p,M_p)
+  \simeq
+  \bigl(\C[t]\oplus\C[t]\eta,\quad
+        |t|=2,\ |\eta|=3,\ d(t)=0,\ d(\eta)=\kappa(p)t^2\bigr)
+\end{equation}
+がある。この表示の右辺の乗法を Yoneda 積と同定する主張は含めない。
+従って $\kappa(p)\ne0$ なら
+\[
+ \operatorname{Ext}_{R_p}^j(M_p,M_p)=
+ \begin{cases}\C,&j=0,2,\\0,&\text{その他},\end{cases}
+\]
+である。$\kappa(p)=0$ なら、自己 Ext は次数 $2q$ と $2q+3$
+（$q\geq0$）に各一次元あり、上に有界でない。
+中心方程式を $s f_p$、$s\in\C^\times$ に変更したとき、
+同じ Shamash 変数の規約では式\eqref{cmo:eq:character-complex}の係数は
+$s^2\kappa(p)$ となる。
+\end{proposition}
+
+\begin{proof}
+$X=x-a,Y=y-b,Z=z-c$ と置く。関係式は
+\[
+ [Y,Z]=X^2+2aX,\qquad [Z,X]=Y^2+2bY,\qquad
+ [X,Y]=Z^2+2cZ
+\]
+となる。左自由加群の係数を行として書き、写像の行列を右から掛ける規約で、
+\begin{equation}\label{cmo:eq:character-resolution}
+ 0\longrightarrow D_p\xrightarrow{d_3}D_p^3
+   \xrightarrow{d_2}D_p^3\xrightarrow{d_1}D_p
+   \longrightarrow M_p\longrightarrow0,
+ \quad
+ \begin{gathered}
+ d_1=(X,Y,Z)^{\mathsf t},\qquad d_3=(X,Y,Z),\\
+ d_2=\begin{pmatrix}
+  -X-2a&-Z&Y\\ Z&-Y-2b&-X\\ -Y&X&-Z-2c
+ \end{pmatrix}
+ \end{gathered}
+\end{equation}
+を得る。$d_2d_1=0$ と $d_3d_2=0$ は表示関係そのものである。
+第 $i$ 項を $i$ だけずらした通常の次数濾過を取ると、associated graded は
+$S(1,-1,-1)$ の augmentation の Koszul 分解である。
+例\ref{cmo:ex:sixty-four}の PBW 論証と Koszul 性により、
+この有界下濾過複体も完全である。
+$\Omega_p$ の最高次項は正則中心元 $\Omega_0$ なので、
+同じ濾過から $f_p$ の正則性を得る。
+中心性は、以下の普遍な有限証明書でも同時に確認する。
+
+$P_\bullet$ を式\eqref{cmo:eq:character-resolution}の自由分解とする。
+$f_p$ の乗法に対する higher homotopies を
+\[
+ h_{1,i}:P_i\longrightarrow P_{i+1}\quad(0\leq i\leq2),
+ \qquad h_2:P_0\longrightarrow P_3
+\]
+と書く。$\mathbb Q[a,b,c]$ 上で、係数がそれぞれ全次数二、三の行列を取り、
+\begin{equation}\label{cmo:eq:character-homotopy}
+ dh_1+h_1d=f_p\operatorname{id},\qquad
+ dh_2+h_2d+h_1^2=0
+\end{equation}
+を満たすようにできる。長さ三の分解なので、これより高い恒等式は
+写像先の次数の理由で零になる。
+ここで使う具体的な多項式行列の全係数と、その有限証明書の検算を
+\texttt{computations/verify\_mixed\_character\_ext.py} に収めた。
+三つの中心パラメータも次数一とし、全次数 $2,3,4$ の全語に対し、
+各関係の全左右語倍と全パラメータ倍を列挙する。
+その有理係数関係行列で、$d^2=0$、$[f_p,X]=[f_p,Y]=[f_p,Z]=0$、
+式\eqref{cmo:eq:character-homotopy}を全て零へ還元する。
+この検算は有限個のパラメータの代入や補間ではなく、
+$\mathbb Q[a,b,c]$ 上の多項式恒等式である。
+全次数での分解の完全性は前段の PBW/Koszul 論証で別に保証した。
+
+この証明書の character での値だけを記すと、
+\begin{equation}\label{cmo:eq:character-homotopy-values}
+ \begin{gathered}
+ d_2(p)=\operatorname{diag}(-2a,-2b,-2c),\qquad h_{1,1}(p)=0,\\
+ v=h_{1,0}(p)=-\frac23(bc,ac,ab+c^2),\\
+ z=h_{1,2}(p)=\frac23(a^2-bc,-ac-b^2,-ab)^{\mathsf t},\qquad
+ h_2(p)=\frac{16}{9}abc.
+ \end{gathered}
+\end{equation}
+補題\ref{mbnp:lem:shamash}の分解構成は、内部次数を忘れた正則中心元と
+任意の消される加群にも同じ証明で適用できる。
+すなわち $\bigoplus_{q\geq0}(R_p\otimes_{D_p}P_{n-2q})$ に
+$d,h_1,h_2$ を配置する。添字 $q$ による濾過の第一頁は
+二項中心分解から $M_p$ を二つ持ち、$dh_1+h_1d=f_p$ による連結射が
+隣接する項を恒等で相殺する。各全次数の濾過は有限なので、
+これは $M_p$ の自由 $R_p$-分解となる。
+
+この分解へ $\operatorname{Hom}_{R_p}(-,M_p)$ を施すと、
+\[
+ \left(\operatorname{Hom}_{D_p}(P_\bullet,M_p)[t],
+       d^*+t h_1^*+t^2h_2^*\right)
+\]
+を得る。式\eqref{cmo:eq:character-homotopy-values}の可逆な $d_2(p)$ を
+$\C[t]$ 上で消去する。$h_{1,1}(p)=0$ なのでこの消去は有限の行列操作であり、
+形式冪級数への完備化を必要としない。
+残る次数零と三の二つの基底間の係数は
+\[
+ \left(h_2(p)-v\,d_2(p)^{-1}z\right)t^2
+   =\kappa(p)t^2
+\]
+である。最後の等式は式\eqref{cmo:eq:character-homotopy-values}の代入による
+有理式恒等式であり、同じコードで記号的にも確認する。
+これが式\eqref{cmo:eq:character-complex}を与える。
+$\kappa\ne0$ なら残る cohomology は $\C[t]/(t^2)$、
+$\kappa=0$ なら微分は零である。
+また中心元を $s$ 倍すると式\eqref{cmo:eq:character-homotopy}では
+$h_1$ を $s$ 倍、$h_2$ を $s^2$ 倍するので、係数は $s^2\kappa$ となる。
+\end{proof}
+
+\begin{corollary}[六十四例外点の自己 Ext は有界である]
+\label{cmo:cor:sixty-four-ext}
+例\ref{cmo:ex:sixty-four}の二ブロックについて、
+$p=(\pm1,\pm2,\pm3)$、$p'=(\pm4,\pm5,\pm7)$ とし、
+$c_0=-\lambda_p-100\lambda_{p'}$ と置く。
+中心 chart の代数
+\[
+ D_{c_0}=(A_{c_0}[u^{-1}])_0
+    \simeq (D_p\otimes D_{p'})/(f_p+100f_{p'})
+\]
+の character $M=M_p\otimes M_{p'}$ に対して、
+\begin{equation}\label{cmo:eq:sixty-four-ext}
+ \operatorname{Ext}_{D_{c_0}}^j(M,M)=
+ \begin{cases}\C,&j=0,2,3,5,\\0,&\text{その他}\end{cases}
+\end{equation}
+である。従って全六十四例外値について、この定常 character の自己 Ext は
+商の非滑らかさを示す「無限次数の自己 Ext」という障害を与えない。
+\end{corollary}
+
+\begin{proof}
+二因子の式\eqref{cmo:eq:character-resolution}を tensor し、
+homological Koszul 符号付きに higher homotopies を足す。
+異なる因子の奇写像は反交換するため、
+中心 $f_p+100f_{p'}$ の higher homotopies は、第二因子の
+$h_1$ を $100$ 倍、$h_2$ を $10000$ 倍して得られる。
+先の $\C[t]$ 上の有限消去を各因子に施すと、
+自己 Ext を計算する複体は、次数付きベクトル空間として
+\begin{equation}\label{cmo:eq:two-character-complex}
+ \left(\C[t]\otimes\bigwedge(\eta_1,\eta_2),\quad
+ |t|=2,\ |\eta_i|=3,\quad
+ d(\eta_1)=\kappa(p)t^2,\quad
+ d(\eta_2)=10000\kappa(p')t^2\right)
+\end{equation}
+となる。外積と Leibniz 則はこの計算複体の記法であり、
+自己 Ext の Yoneda 積の同定は必要ない。
+
+式\eqref{cmo:eq:kappa}の分子で、全ての符号の選び方に対して
+\[
+ 9a^2b^2c^2=324>8+216+27=251
+\]
+が成立する。第二因子でも
+\[
+ 9a^2b^2c^2=176400>8000+42875+21952=72827
+\]
+なので、両方の $\kappa$ は零でない。
+$\eta=\eta_1/\kappa(p)$ と
+$\zeta=\eta_2-10000\kappa(p')\eta_1/\kappa(p)$ を取ると
+$d\eta=t^2,d\zeta=0$ である。従って全次数の cohomology は
+$\C[t]/(t^2)\otimes\bigwedge(\zeta)$ となり、
+式\eqref{cmo:eq:sixty-four-ext}を得る。
+全十六因子 character と六十四組の係数・有限行列の検算も
+上記再現コードに含めた。全次数の消滅は、この基底変換による証明であり、
+有限次数までの計算からの外挿ではない。
+\end{proof}
+
+\begin{remark}[自己 Ext 判定の射程]
+\label{cmo:rem:self-ext-scope}
+可換化の norm $N(c)$ が零であることは定常 character の存在を示す。
+上の結果は、その点で自己 Ext が必ず無限になるという推論を排除する。
+しかし非可換環上で、一つの simple の自己 Ext が有界であることから
+その simple の有限射影次元や全加群の有限大域次元を結論することはできない。
+本系は affine 中心 chart の加群についての主張に限り、
+$D^b(\operatorname{qgr}A_c)$ 全体の smoothness や、同じ可換 Ku 標的の存在を
+証明したとは扱わない。他の加群に対する Ext、対角双加群の perfect 性、
+境界 $u=0$ との接続を引き続き調べる必要がある。
+\end{remark}
+
+\subsection{分離表示への代数的収縮と残る相対 smoothness 入力}
+
+本節の混合表示には、中心係数の無限遠を分離表示へ戻す代数的収縮がある。
+この収縮は実際の代数の同型を与えるが、それだけで
+smoothness や可換 Ku 実現の開性を結論しない。
+
+\begin{proposition}[混合係数の収縮と中心係数の三乗被覆]
+\label{cmo:prop:contraction}
+$k\geq2$ とし、$\alpha^{(i)}\in\C^3$、$a_i\in\C^\times$ を固定する。
+例\ref{cmo:ex:sixty-four}の表示と同じ
+$\mathcal B_{\alpha^{(i)}}$ を用い、
+式\eqref{cmo:eq:mixed-center}の $\Omega_{\alpha^{(i)}}$ が実際に中心であるとする。
+この仮定は、同例の二組の係数について検証済みである。
+$R=\C[t]$、$\deg t=0$ と置き、
+\[
+ \mathscr B=
+   \bigotimes_{R[u],\,i=1}^{k}\mathcal B_{t^2\alpha^{(i)}},
+ \qquad
+ \mathscr w=\sum_i a_i\Omega_{t^2\alpha^{(i)}}+u^3,
+ \qquad \mathscr A=\mathscr B/(\mathscr w)
+\]
+とする。ここでは $x_i,y_i,z_i,u$ は内部次数一である。
+各 $\mathcal B_{t^2\alpha^{(i)}}$ の式は
+\[
+ [y_i,z_i]=x_i^2-t^2\alpha^{(i)}_1u^2
+\]
+とその巡回置換、および $u$ の中央性で与える。
+
+この族は以下を満たす。
+\begin{enumerate}[label=(\arabic*)]
+\item $\mathscr B$ は $R[u]$ 上自由であり、$\mathscr w$ は正則中心三次である。
+      $\mathscr A$ の各内部次数は有限自由な $R$-加群であり、
+      各ファイバーの Hilbert 級数は
+      \[
+        \frac{1-s^3}{(1-s)^{3k+1}}
+      \]
+      である。
+\item $S=\C\langle x,y,z\rangle/
+      ([y,z]-x^2,[z,x]-y^2,[x,y]-z^2)$ と書くと、
+      $t=0$ は分離表示
+      \[
+       \mathscr A_0=
+       \bigl(S^{\otimes k}\otimes\C[u]\bigr)/
+          \left(\sum_i a_i\Omega_0+u^3\right)
+      \]
+      である。従って定理\ref{csc:thm:comparison}の下で、
+      これは滑らかな可換三次 $(3k-1)$-fold の全 coherent Ku 成分を持つ。
+\item $t_0\ne0$ では、元の中心変数を $v$ と書くことにより
+      \begin{equation}\label{cmo:eq:contraction-isomorphism}
+       \mathscr A_{t_0}\simeq
+       \left(\bigotimes_{\C[v],\,i=1}^{k}
+                           \mathcal B_{\alpha^{(i)}}\right)
+       \bigg/\left(\sum_i a_i\Omega_{\alpha^{(i)}}+t_0^{-3}v^3\right).
+      \end{equation}
+      同型は全 active 変数を保ち、$v\mapsto t_0u$ とする次数付き代数の同型である。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+元の混合周囲代数を $\mathcal B^{\mathrm{orig}}$ とし、
+その中心変数を $v$ と書く。中心環の準同型
+\[
+ \C[v]\longrightarrow\C[t,u],\qquad v\longmapsto tu
+\]
+による底変更が、表示した $\mathscr B$ そのものである。
+例\ref{cmo:ex:sixty-four}で使った Braverman--Gaitsgory の判定は、
+三次重なりの定数補正について $\beta\otimes1-1\otimes\beta=0$ を使うだけなので、
+任意の固定した $\alpha^{(i)}$ に対して PBW 性を与える。
+その Rees 代数は $\C[v]$ 上自由であり、$k$ 因子の tensor 積も同様である。
+従って $\mathscr B$ は $R[u]$ 上自由である。
+各 $\Omega_{t^2\alpha^{(i)}}$ は指定した中心元の底変更なので中心であり、
+$u$ も中心である。
+
+$u=0$ では $\mathscr B/(u)=S^{\otimes k}\otimes R$ で、
+$\mathscr w$ は $\sum_i a_i\Omega_0$ となる。
+各 $S$ は $\C[\Omega_0]$ 上自由なので、この和は正則である。
+従って $\mathscr w f=0$ なら、まず $u=0$ へ移して $f\in u\mathscr B$ を得る。
+$u$ の正則性により同じ議論を繰り返せる。
+固定内部次数では $u$ で無限回割れないので $f=0$ である。
+同じ証明は任意の $t=t_0$ のファイバーで成立する。
+
+各内部次数における $\mathscr w$ の乗法は有限自由 $R$-加群間の写像であり、
+全ての閉ファイバーで単射である。
+最大小行列式による階数判定から、その余核は局所自由である。
+$R=\C[t]$ は PID なので余核は自由であり、
+正則中心三次の二項完全列から Hilbert 級数を得る。
+
+$t=0$ の式は定義から従う。
+$S$ の点曲線は $E=V(x^3+y^3+z^3+xyz)$、
+$\Omega_0$ はその THCR 商を与える標準中心三次の非零倍である。
+分離表示の中心式は $u^3$ で、その Jacobian 環は有限次元であるため、
+定理\ref{csc:thm:comparison}が適用できる。
+
+最後に $t_0\ne0$ なら、$v=t_0u$ によって全二次関係と
+$\Omega_{\alpha^{(i)}}$ がそれぞれ
+$\mathcal B_{t_0^2\alpha^{(i)}}$ と $\Omega_{t_0^2\alpha^{(i)}}$ の式へ移る。
+また $t_0^{-3}v^3=u^3$ である。
+逆変換 $u=t_0^{-1}v$ も次数を保つため、
+式\eqref{cmo:eq:contraction-isomorphism}は実際の代数同型となる。
+\end{proof}
+
+\begin{proposition}[収縮族の proper な有限線束模型]
+\label{cmo:prop:proper-contraction}
+上の族で $N=3k+1$、$n=N-2$、$a=N-3$ と置く。
+$\mathscr B$ は左右 noetherian で、$R$ に相対的な長さ $N$ の
+Koszul 双加群解消とその片側 augmentation 解消を持つ。
+それらは任意の係数変更と両立し、相対 Gorenstein 型は
+\[
+ R\underline{\operatorname{Hom}}_{\mathscr B}(R,\mathscr B)
+       \simeq R(N)[-N],\qquad
+ R\underline{\operatorname{Hom}}_{\mathscr A}(R,\mathscr A)
+       \simeq R(a)[-(N-1)]
+\]
+である。
+
+$\mathcal O(j)=\pi\mathscr A(j)$ とすると、有限線束部分
+$\mathscr C^{\mathrm{line}}$ とその残余部分は
+\[
+ E=\bigoplus_{j=0}^{N-1}\mathcal O(j),\qquad
+ \mathscr C^{\mathrm{line}}=\operatorname{thick}_R(E),\qquad
+ G=L_{\mathcal O}\cdots L_{\mathcal O(a-1)}(E)
+\]
+で生成される。
+特に
+\[
+ \Gamma_R=R\operatorname{End}(G)\in\operatorname{Perf}(R),\qquad
+ \mathscr K^{\mathrm{line}}\simeq\operatorname{Perf}(\Gamma_R)
+\]
+という proper な相対 dg 模型を持つ。
+ $R$ の局所化および閉ファイバーへの通常の底変更は、
+この線束模型と残余模型を対応する代数の模型へ移す。
+ここで $\Gamma_R$ の相対 smoothness は結論していない。
+\end{proposition}
+
+\begin{proof}
+各因子は $Q=R[u]$ 上の cyclic potential
+\[
+ \Phi_i=x_iy_iz_i-y_ix_iz_i
+       -\frac{x_i^3+y_i^3+z_i^3}{3}
+       +t^2u^2\left(\alpha^{(i)}_1x_i+
+                     \alpha^{(i)}_2y_i+\alpha^{(i)}_3z_i\right)
+\]
+の三つの cyclic 微分で定まる。
+active 濾過の随伴代数は $S\otimes Q$ であり、PBW 分裂は上の底変更と両立する。
+定理\ref{thm:nfm-relative-ambient-cy}の証明中の、
+中心環に相対的な長さ三の potential 解消を各因子で作る。
+その $Q$ 上の tensor 積は長さ $3k$ の相対解消であり、
+完全性は分裂した PBW 濾過の随伴複体で確認できる。
+$C=\mathscr B\otimes_R\mathscr B^{\mathrm{op}}$、
+$D=\mathscr B\otimes_Q\mathscr B^{\mathrm{op}}$ と置く。
+共有する中心変数 $u$ の左右差 $z=u_L-u_R$ は $C$ 上正則で、$D=C/(z)$ である。
+その Koszul 双対は
+$R\underline{\operatorname{Hom}}_C(D,C)=D(1)[-1]$ を与える。
+従って potential 解消の自己双対性と change of rings により
+\[
+ R\underline{\operatorname{Hom}}_C(\mathscr B,C)
+ \simeq R\underline{\operatorname{Hom}}_D
+              (\mathscr B,D(1)[-1])
+ \simeq\mathscr B(N)[-N]
+\]
+を得る。ここでは中心差の因子を一度だけ使っており、
+異なるブロックで共有する $u$ を重複して数えていない。
+また $D$ は $C$-perfect、$\mathscr B$ は $D$-perfect なので、
+$\mathscr B$ は $C$-perfect である。
+
+二次 Koszul 模型はこの change of rings とは別に指定できる。
+各体値で active 濾過の随伴代数は
+$S^{\otimes k}\otimes\C[u]$ であり、有限な内部次数の bar spectral sequence により
+その Koszul 性が元の代数へ移る。
+Hilbert 級数 $(1-s)^{-N}$ と合わせると、Koszul 空間の階数は
+$(1+s)^{3k}(1+s)=(1+s)^N$ の係数である。
+被約基底 $R$ 上の一定階数判定によりこれらは有限射影加群で、
+標準 Koszul 双加群複体は係数変更と両立して完全となる。
+augmentation を施せば最初の Gorenstein 式となり、
+正則中心三次の二項解消から第二式を得る。
+
+$S^{\otimes k}$ の noetherian 性は補題\ref{mbnp:lem:noetherian}による。
+$\mathscr B/(u)=S^{\otimes k}\otimes R$ は中心多項式拡大なので noetherian である。
+正次数中心元 $u$ による初項の持上げは、固定内部次数では有限回で止まるので、
+$\mathscr B$ も左右 noetherian となる。$\mathscr A$ もその商として同様である。
+
+$R=\C[t]$ の大域次元は一であり、上の有限双加群解消を片側加群へ tensor すると
+$\operatorname{gldim}\mathscr B\leq N+1$ を得る。
+正則中心元の change of rings により、$\mathscr A$ の左右 injective dimension も有限である。
+従って noetherian 性と相対 Gorenstein 式を合わせると、
+Burke--Stevenson の $\chi$ と有限 cohomological dimension の入力も満たされる。
+以上の有限解消と Gorenstein 型を用いると、
+補題\ref{lp:lem:local-cohomology}と式\eqref{lp:eq:H}の証明が適用できる。
+実際、ここで使う入力は上の noetherian 性・有限次元性・相対 augmentation 双対と次数別自由性であり、
+特殊ファイバーの可換性ではない。
+従って
+\[
+ \operatorname{Ext}^p(\mathcal O(i),\mathcal O(j))=
+ \begin{cases}
+  \mathscr A_{j-i},&p=0,\\
+  (\mathscr A_{i-j-a})^\vee,&p=n,\\
+  0,&\text{その他}
+ \end{cases}
+\]
+となる。右辺の各次数は有限自由 $R$-加群である。
+$R$ の ambient augmentation Koszul 解消を $\mathscr A$ へ導来 tensor する。
+中心三次の二項解消から $\operatorname{Tor}^{\mathscr B}_i(R,\mathscr A)$ は
+$i=0,1$ にのみあり、それぞれ $R,R(-3)$ である。
+これらは内部次数について torsion なので、得られる有限複体は tails 内で完全となる。
+両端は一つの線束で、中間項の shift は $1,\ldots,N-1$ にあるため、
+任意の連続した $N$ 個の twist からその前後を生成できる。
+これで $E$ の生成性と properness を得る。
+命題\ref{lp:prop:residual}と同じ有限 mutation によって $G$ を作ると、
+その自己 Hom は $R$-perfect である。
+底変更についても命題\ref{lp:prop:basechange}の
+次数別に安定する局所 cohomology と有限 Hom の議論を使う。
+指定した局所化と閉ファイバーでは、$\mathscr B,\mathscr A$ の noetherian 性は
+中央局所化または商から従う。底も有限大域次元の正則環であり、
+有限解消と次数別自由性は保たれるので、その適用条件を満たす。
+\end{proof}
+
+\begin{corollary}[追加の相対 smoothness の下での余有限実現]
+\label{cmo:cor:conditional-cofinite}
+命題\ref{cmo:prop:proper-contraction}の $\Gamma_R$ について、
+$0$ を含む Zariski 開近傍 $U\subset\mathbb A^1_t$ 上で
+\begin{equation}\label{cmo:eq:missing-relative-diagonal}
+ \Gamma_U\in
+ \operatorname{Perf}\!\left(
+       \Gamma_U^{\mathrm{op}}\otimes_U^{\mathbf L}\Gamma_U\right)
+\end{equation}
+が成立すると\emph{追加で仮定}する。
+このとき元の $c$-族について有限集合 $F\subset\C$ が存在し、
+$c\notin F$ では $D^b(\operatorname{qgr}A_c)$ は smooth proper であり、
+ある滑らかな可換三次 $(3k-1)$-fold $X_c$ と
+\[
+ \operatorname{Ku}_{\mathrm{coh}}(A_c)
+             \simeq\operatorname{Ku}(X_c)
+\]
+が存在する。
+これは通常の dg Morita 同値であり、rotation・周期・point scheme の
+標識の保存を追加しない。
+\end{corollary}
+
+\begin{proof}
+追加仮定と前命題によって $\operatorname{Perf}(\Gamma_U)$ は
+実際の相対 smooth proper な圏族である。
+$n=3k-1\geq5$ なので $n\ne4$ であり、
+$t=0$ の可換実現に定理\ref{grl:thm:open-locus}を適用できる。
+従って $0$ を含む開近傍 $U'\subset U$ 上で
+各残余線束圏は可換 Ku 成分を持つ。
+各閉ファイバーの周囲代数は、上の有限 Koszul 双加群解消により大域次元が
+高々 $N$、augmentation 双対の非零な最高 Ext により丁度 $N$ であり、
+Gorenstein parameter $N$ の両側 noetherian Koszul AS-regular 代数である。
+従って中心三次商に対する命題\ref{crs:prop:residual-smooth}と
+定理\ref{crs:thm:coherent}の仮定を満たす。
+残余圏と有限例外列の proper な gluing から線束部分の smoothness を得て、
+その後の coherent 飽和により線束部分と全 coherent 圏が一致する。
+
+$\mathbb A^1\setminus U'$ は有限集合である。
+$t\mapsto t^{-3}$ は $\mathbb G_m$ の有限全射であり、
+式\eqref{cmo:eq:contraction-isomorphism}により
+$U'\cap\mathbb G_m$ の像に属する全 $c$ で結論を得る。
+例えば $F$ は $0$ と $\mathbb A^1\setminus U'$ の非零点の像を含む
+有限集合として取れる。
+\end{proof}
+
+\begin{remark}[検証された入力と残る一つの段階]
+\label{cmo:rem:contraction-gap}
+この系の追加仮定\eqref{cmo:eq:missing-relative-diagonal}は現時点では未検証である。
+特殊ファイバーが smooth であること、相対 Hom が底上 perfect であること、
+有限個の線束が線束部分を生成することは、相対対角が perfect であることとは異なる。
+とくに proper な dg 代数が有限次元の厳密な dg 代数で表示されるとは主張しない。
+特殊ファイバーの対角の finite-cell/retract 表示の持上げ、
+またはこの族に適用できる相対 smoothness の定理を確保する必要がある。
+全 Artin 切断での圏同値から、通常の完備底または代数的近傍上の
+perfect 対角を自動的に結論してはならない。
+
+さらに $F$ が定理\ref{cmo:thm:point-norm}の norm の根集合に等しいとはいえない。
+norm は定常点の出現を検出するものであり、smoothness の判別式とは別である。
+例\ref{cmo:ex:sixty-four}の六十四個の値、$c=0$、および任意の指定された
+個別の $c$ における smoothness・Ku 比較は、この条件付き系では判定されない。
+\end{remark}

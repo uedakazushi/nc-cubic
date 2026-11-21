@@ -1,12 +1,16 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月21日 / v42。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月21日 / v43。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
-## 現行v42の確認
+## 現行稿の確認
 
-新しい四節 `central_split_comparison.tex`、`central_split_points.tex`、`central_mixed_one_variable.tex`、`explicit_sklyanin_input.tex` と、再構成した `point_poisson_obstruction.tex` を、執筆者とは別の担当と統合担当が読解した。以下は、その内部点検で確認した数学的範囲と依存であり、原稿に証明が記載されていることだけを根拠とする宣言ではない。
+今回の追加対象は `central_mixed_one_variable.tex` のcharacter自己Ext・分離型への収縮・条件付き余有限実現と、中心二チャート補助ノートのBertini仮定である。自己Extの証明と普遍証明書を執筆者以外が独立読解・検算し、分離型比較の同変化の入力も再点検した。以下では今回の確認と、現行結果を支える保持済みの点検を区別する。
 
 ### 数学的主張と証明の依存
+
+- **混合characterの全次数自己Ext：** `cmo:prop:character-ext` の左加群規約、長さ三のfiltered Koszul分解、中心元の正則性、全higher-homotopy恒等式、Shamash分解、有限Gaussian消去を独立点検した。全次数の結論は紙上の分解・基底変換によるもので、有限次数計算の外挿ではない。κの普遍式と係数100に対する10000の二次作用を確認し、`cmo:cor:sixty-four-ext` の全64点でExtが次数0,2,3,5のみ各一次元と得た。Yoneda積・有限射影次元・全qgrのsmoothnessは未結論。
+- **分離型への収縮：** `cmo:prop:contraction` の中心底変更v↦tu、PBW自由性、uによる次数下降での正則性、次数別平坦性、c=t^(−3)の実代数同型を点検した。properな有限線束残余模型と、相対対角を追加仮定とする `cmo:cor:conditional-cofinite` を区別する。相対smoothnessの入力、有限例外集合Fの決定、個々のcのsmoothnessは未確認。
+- **非可換Bertiniの適用範囲：** `notes/central_cubic_generic_smoothness.tex` では、中心chartの有限生成可換中心上の有限性を追加仮定として明示した。RSV Proposition 2.1はこの仮定なしの一般PBW代数には適用しない。二chartの係数消去、有限型性、非空開Vとの交わり、境界生成とSerre双対による大域次元3を独立点検した。AS正則次元5だけからGorenstein index 5を仮定せず、exact twist+[3]を用いる。
 
 - **研究目標と量化：** 主予想は、任意の滑らかなintrinsic nc cubicに対する、同じ次元の滑らかな可換三次超曲面へのC線型dg Morita Kuznetsov実現である。全対象での主予想は未解決であり、今回の分離表示の定理で全intrinsic対象を被覆したとはしない。第二予想は、その同じKu標的上に、全point schemeとPoisson零スキームが抽象スキームとして同型になるPoisson tensorが存在するという命題である。非被約構造を含むこの存在命題には、以下の複素数体上の反例がある。被約版などを自動的に代わりの予想として採用しない。
 - **中心変数を持つ分離型の直接Ku比較：** `csc:thm:comparison` と `csc:cor:fermat` の実因子・中心正則三次の仮定を確認した。特にFermat型の経路は執筆担当以外が依存する既存補題まで独立読解した。一変数の二対象A₂模型、その内部shiftと実方程式による三次周期、有限graded Homの外積、Koszul–Shamashの高次homotopy、有限群の二重同変化を点検した。k=1,m=2ではN=5,r=2であり、windowの三対象は連続する三剰余類で足り、rが三の倍数という仮定を使わない。楕円因子のPicard補正と三乗根による周期の同期は、実際のΩと方程式の周期を保持する。有限MF比較からsmoothnessを得た後、例外対象のgluingと線束による検出・有限Homを用いて全coherent残余圏へ飽和するため、全coherent圏のsmoothnessを前提にした循環はない。任意の滑らかな中心三次に対する補題と、Fermat型だけで完結する証明経路も区別した。
@@ -17,6 +21,8 @@
 - **形式MF移送と有限核の降下の基礎点検：** `generic_recovery/curved_transport.tex`、`local_model.tex`、`window.tex`、`generic_descent.tex`、`coherent_saturation.tex` とHesse残余入力を、証明の依存に沿って再読した。arityによる有限挿入、内部次数による有限行列、三対象window、properな線束dg模型上の実perfect核・逆・unit/counit、perfect coneの消滅から比較を得た後のsmoothnessとcoherent飽和、という順序を確認した。有限表示のspreadで必要なのは実核と有限な比較データであり、形式核の全jetの保存ではない。これらの一般的な構成は別の有効な研究内容として保持するが、formalityを含む基礎入力の全証明を今回独立に再証明したという意味ではなく、上の具体的反例の成立をこれらへ依存させない。
 
 ### 一次資料の確認範囲
+
+今回はElagin arXiv:1403.7027v2 Lemma 8.6のdg作用の仮定と、Rennemo–Segal–Van den Bergh arXiv:1705.01366v2 Proposition 2.1の有限中心性を一次本文で確認した。分離比較では実MF模型上の厳密な指標作用をbimodule圏へ移し、その圏にLemma 8.6を適用することを明記した。任意の三角圏作用が自動的にstrictifyできるとは述べない。自己Extの一般構成は既存のShamash–Eisenbud理論と、本文のcentral versionの証明を分けた。Etingof–Ginzburgの非斉次potential理論、Waltonのdeformed Sklyanin、GaddisのPBW変形とcharacterの範囲も限定して照合し、具体的κ公式の網羅的新規性は未確認とした。以下の他の一次資料の照合範囲は現行証明の保持済み入力であり、今回すべてを再取得したわけではない。
 
 書誌・識別子・リンクは `papers/references.tex` に記載する。既知の一般定理と、本稿で行う具体的な適用・係数計算を区別する。
 
@@ -32,11 +38,13 @@
 
 ### 厳密計算・組版・検証の限界
 
-`python3 computations/verify_point_poisson_obstruction.py` は、統合担当と別担当がそれぞれ実行し、**12個のPASS・終了コード0**を確認した。可積分方向の24変数行列と階数六の八次交代行列、Hesse Hessianの小行列式・determinant、中心三点とflex九点の核・制限三次、一般j差、固定h=1での中心性・非零性と正確なj値、二つの混合四生成元代数の中心性・非零性、normの六十四個の有理根を厳密演算で確認する。浮動小数点による近似や有限標本からの一般化ではない。局所環からassociated gradedへの議論、幾何点の全分類、全次数PBW性、smoothness、圏比較、Torelliは本文の証明であり、この計算で代用していない。
+`python3 computations/verify_mixed_character_ext.py` は統合担当と別担当が実行し、**4 PASS・終了コード0**を確認した。証明書はQQ[a,b,c]上の全次数2,3,4の二側関係倍空間で、d²=0、中心性、dh₁+h₁d=f、dh₂+h₂d+h₁²=0を厳密検証する。κは記号式として導き、全16因子characterと全64組を確認する。独立担当はさらに縮約後の模型を使わず、評価されたhomotopyから64次元tensorのShamash Hom複体を別実装で組み、異なる符号の二組について16次までのrankとd²=0を照合した。この有限範囲の独立検算と全次数の紙上証明を区別し、重複実装は現行資産へ収録しない。
 
-既存の `verify_geometric_corrections.py` は**13個のPASS**を確認した保存済み検算を保持するが、**今回のv42点検では再実行していない**。その検算対象とハッシュは後段に記載する。他の既存計算の実行状態も、各項の記述に従い、今回全suiteを再実行したとはしない。
+`python3 computations/verify_point_poisson_obstruction.py` は今回も再実行し、**12 PASS・終了コード0**を確認した。対象は中心性・非零性、Hessian・j、64個のnorm根などの厳密恒等式であり、全次数PBW、smoothness、Ku比較、Torelliを計算で代用しない。
 
-**ソース整合・組版・表示確認：** `python3 scripts/check_sources.py` は成功し、70 TeX入力・1354個の一意なlabel・928個の参照label・151個の引用bibkeyを確認した。`git diff --check` も成功。`latexmk -lualatex papers/nc-cubic.tex` は終了コード0、607頁・4,233,066 bytesのPDFを生成した。最終ログの未定義参照・重複label・overfull/underfull・欠落文字・TeX errorはいずれも零。既存の数式フォントsize置換七件とその総括、ltjsarticleの旧 `\rm` 警告は残る。1・7・8・223–241・333–345頁の計35頁を画像で実際に表示し、本文・数式・添字の欠け、重なり、余白外へのはみ出しがないことを確認した。反例節末尾の説明を短く整えて孤立した一行の改頁を解消した後、変更された344–345頁を再表示した。他の確認済み33頁は再描画した画像が一致することも確認した。全607頁の目視確認やVS Code UIの操作確認をしたという意味ではない。GitHubへの保存は、通常commitとmain更新後に別途確認する。
+既存の `verify_geometric_corrections.py` は13 PASSの保持済み検算があるが、今回再実行していない。他の既存計算も各項の確認範囲を保持し、全suiteを再実行したとはしない。
+
+**ソース整合・組版・表示確認：** 現行v43の最終ソース検査・LuaLaTeX組版・変更箇所の画像確認は統合完了後に行い、その結果へ本段落を置換する。GitHub mainへの反映とresearch-hub更新は、それぞれ保存後に別途確認する。
 
 今回の新証明の内部読解と、原稿に保存済みの基礎結果を区別する。Lean等の形式証明、外部査読、新規性の網羅的調査は未実施。主予想を全intrinsic対象で証明したとはせず、第二予想の反例の範囲を上に限定する。
 
@@ -362,7 +370,7 @@ N≥11 の二次最大階数と、n=9,10 の全 Hilbert 関数を確定する計
 
 ### 幾何補正と残余比較の保持した厳密検算
 
-`python computations/verify_geometric_corrections.py` は保存済み検証で全assertionと13個のPASSを確認したコードである。今回のv42点検では再実行していない。検算対象のSHA-256 は `78f592342b91531a6382576cc6025c8684e7f56d5efa84019b02d91b9923b85c`。その確認対象は次の通り。
+`python computations/verify_geometric_corrections.py` は保存済み検証で全assertionと13個のPASSを確認したコードである。今回の点検では再実行していない。検算対象のSHA-256 は `78f592342b91531a6382576cc6025c8684e7f56d5efa84019b02d91b9923b85c`。その確認対象は次の通り。
 
 - 四変数の二十個の三次単項式上で全十六個の gradient 一次倍を消す多項式汎関数、u³での値3t、t=1での階数16→17。
 - 滑らかさの二因子 `(1+12t³)(1+2t³+5t⁶)` と、八次自由臨界代数のtraceによる `F_t+h²t³u³`。
