@@ -1,0 +1,464 @@
+% !TEX root = ../nc-cubic.tex
+\section{非同種な点曲線の積における全比較核と位相補正}
+\label{mbfc:sec:full-comparison}
+
+本節では、点曲線の Jacobian が幾何学的に互いに非同種である場合に、
+第\ref{mbpd:sec:picard-descent}節の Picard 補正型を全ての比較核へ拡張する。
+一般の体では、偏極曲線自己同型による追加の Kummer 補正を許す必要がある。
+一方、固定 Hesse level を持つ族ではこの追加補正が消えるため、
+系\ref{mbpd:cor:phase-independence}の最小次数は全ての中心同変比較核について成り立つ。
+
+以下では $K\supset\C$ を体、$k\ge2$ とし、
+第\ref{mbrc:sec:rotation-comparison}節の順序付き実表示と自然な関係直線同期を固定する。
+$E_i/K$ は滑らかな genus-one 点曲線、$L_i$ は実次数三線束、
+$p_i\in J_{E_i}(K)$ は点の平行移動であり、
+\[
+ Y=\prod_{i=1}^k E_i,\qquad
+ R_{i,p}=T_{\OO_{E_i}}(t_{p_i})_*(-\otimes L_i),\qquad
+ R_{i,0}=T_{\OO_{E_i}}(-\otimes L_i)
+\]
+と書く。関係直線は体上で一度自明化し、指定周期を
+$\pi_{i,p}:R_{i,p}^3\simeq[2]$、
+$\pi_{i,0}:R_{i,0}^3\simeq[2]$ と表示する。
+この自明化を全因子で同時に変更しても以下の障害類は変わらない。
+
+基準因子 $b$ を固定し、
+\[
+ G=Z_0=(\mu_3^k)/\Delta\mu_3,\qquad H=\widehat G,
+ \qquad Q_{i,p}=R_{i,p}^{-1}R_{b,p},\quad
+ Q_{i,0}=R_{i,0}^{-1}R_{b,0}\quad(i\ne b)
+\]
+とする。積上の関手には他の因子の恒等関手を外積するものとする。
+$H$ の作用は指定周期を含む coherent な作用であり、
+その同定を任意の $\operatorname{Aut}(H)$ で変更することはしない。
+本節の全核という語は実際の perfect Fourier--Mukai 核を指す。
+有限群の二重同変化により、これは元の残余圏の
+$G$-同変 dg Morita 比較核の問題に等しい
+\cite[Proposition~4.1, Theorem~4.2]{MEDElagin}。
+体上の適用と rotation の同変性は
+定理\ref{mbrc:thm:finite-point-comparison}の証明で確認済みである。
+
+\subsection{外積分解と shift の曖昧さ}
+
+\begin{lemma}[非同種な楕円因子の全 Fourier--Mukai 外積分解]
+\label{mbfc:lem:factorization}
+$\kappa$ を標数零の代数閉体とし、$E_1,\ldots,E_k$ を
+互いに非同種な楕円曲線とする。
+$\operatorname{FM}(E_i)$ と $\operatorname{FM}(Y)$ を
+Fourier--Mukai 自己同値の同型類の群とすると、外積は全射であり、
+\begin{equation}\label{mbfc:eq:factorization}
+ \operatorname{FM}(Y)
+ \simeq
+ \left(\prod_i\operatorname{FM}(E_i)\right)
+ \big/
+ \left\{([n_1],\ldots,[n_k]):\sum_i n_i=0\right\}.
+\end{equation}
+特に、外積が恒等関手となる因子関手は、それぞれ shift である。
+\end{lemma}
+\begin{proof}
+Orlov の写像と完全列
+\cite[Propositions~2.15, 3.3, Theorem~4.14]{MBFCOrlovAbelian}を用いる。
+原点を選んで $Y$ をアーベル多様体とみなすと、
+\[
+ 0\longrightarrow \mathbf Z\oplus(Y\times\widehat Y)(\kappa)
+ \longrightarrow\operatorname{FM}(Y)
+ \longrightarrow U(Y\times\widehat Y)\longrightarrow1
+\]
+がある。
+非同種性から、$i\ne j$ に対し $E_i$ と $E_j$ またはその双対の間の
+群準同型は零である。従って
+\[
+ U(Y\times\widehat Y)=\prod_i U(E_i\times\widehat E_i).
+\]
+各成分を因子の Fourier--Mukai 同値へ持ち上げ、その外積を取る。
+与えられた同値との差は上の完全列の核に入り、
+平行移動・次数零線束の tensor・shift である。
+平行移動と $\Pic^0(Y)=\prod_i\Pic^0(E_i)$ の線束も外積であるから全射性を得る。
+
+核を確認する。因子同値の核 $P_i$ の外積が $\OO_{\Delta_Y}$ と同型なら、
+Orlov の層性\cite[Proposition~3.2]{MBFCOrlovAbelian}により
+$P_i=F_i[n_i]$ と書ける。
+支持の外積が $\Delta_Y=\prod_i\Delta_{E_i}$ なので、各 $F_i$ の支持は
+$\Delta_{E_i}$ である。対角のイデアルによる積も外積後に零となり、
+非零な他因子との体上の tensor は忠実なので、各 $F_i$ は対角に scheme-theoretically 支持される。
+外積が対角上の線束であることを、他の因子の点へ制限すると、
+各 $F_i$ 自体が対角上の線束となる。
+従って $P_i=\Delta_{E_i*}M_i[n_i]$ である。
+同じ制限により各 $M_i$ は自明であり、cohomology の次数から
+$\sum_i n_i=0$ を得る。逆の包含は外積の shift 則による。
+\end{proof}
+
+ここで用いた Orlov の完全列と楕円曲線上の数値分類は既知の結果である。
+本節で必要なのは、それらを指定された双対 rotation 作用へ適用する次の議論である。
+
+\begin{proposition}[双対 rotation 作用の全 underlying centralizer]
+\label{mbfc:prop:centralizer}
+代数閉体上で $E_i$ が互いに非同種であるとする。
+各 $L_i$ を次数三とし、$R_i=R_{i,0}$、
+$\varepsilon_i=R_i^{-1}[1]$ と置く。
+$\varepsilon_i^3=[1]$、$\varepsilon_i^2=R_i$ である。
+全ての $Q_i=R_i^{-1}R_b$ と関手の同型類で可換する自己同値の群は
+\begin{equation}\label{mbfc:eq:centralizer}
+ \operatorname{Cent}_{\operatorname{FM}(Y)}\{Q_i:i\ne b\}
+ \simeq
+ \left(\prod_i\operatorname{Aut}(E_i,L_i)\right)\times\Lambda_k,
+ \qquad
+ \Lambda_k=\mathbf Z^k/
+       \{(3n_i)_i:\sum_i n_i=0\}.
+\end{equation}
+ここで $(a_i)$ は外積 $\boxtimes_i\varepsilon_i^{a_i}$ を表す。
+基準因子を選ぶと $\Lambda_k\simeq\mathbf Z\oplus(\mathbf Z/3)^{k-1}$ となる。
+これは underlying 関手の同型類の分類であり、coherent な同変構造はまだ標識していない。
+\end{proposition}
+\begin{proof}
+補題\ref{mbfc:lem:factorization}により自己同値を $\boxtimes_i F_i$ と書く。
+$FQ_iF^{-1}\simeq Q_i$ を右辺の逆関手と合成すると、
+第 $i$、第 $b$ 因子だけを除いて恒等となる外積を得る。
+同補題の核の記述から、ある整数 $n_i$ に対し
+\[
+ F_iR_iF_i^{-1}\simeq R_i[n_i]
+\]
+となり、基準因子にも同様の式が成り立つ。
+三乗を取ると左辺は $[2]$、右辺は $[2+3n_i]$ である。
+非零有界 coherent 複体は非零 shift と同型にならないため $n_i=0$ である。
+従って全ての $F_i$ が $R_i$ と可換する。
+
+系\ref{cor:nfm-elliptic-full-centralizer}により、各因子で
+$F_i=\phi_{i*}\varepsilon_i^{a_i}$、
+$\phi_i\in\operatorname{Aut}(E_i,L_i)$ と一意に書ける。
+補題\ref{mbfc:lem:factorization}の shift の核は、
+$\varepsilon_i^3=[1]$ の下で式\eqref{mbfc:eq:centralizer}の部分格子に一致する。
+偏極自己同型は $R_i$ と shift に可換するので直積である。
+\end{proof}
+
+同じ議論を source の $R_{i,p}$ と target の $R_{i,0}$ に適用すると、
+幾何的な underlying $H$-intertwiner は、各因子の全一因子 intertwiner の外積となる。
+周期を三乗した上の議論は、因子間で余分な shift を相殺する可能性も除いている。
+
+\subsection{偏極自己同型が加える Kummer 位相}
+
+\begin{proposition}[平面自己同型の period multiplier]
+\label{mbfc:prop:multiplier}
+$E/K$ を滑らかな平面三次、$L=\OO_E(1)$ とし、
+$R_0=T_{\OO_E}(-\otimes L)$ とその三次方程式から来る指定周期
+$\pi:R_0^3\simeq[2]$ を固定する。
+$\phi\in\operatorname{Aut}_K(E,L)$ に対し、
+$\eta:\phi_*R_0\simeq R_0\phi_*$ の指定周期への適合障害を
+\[
+ \nu_E(\phi)\in H^1(K,\mu_3)=K^\times/K^{\times3}
+\]
+と置く。これは群準同型である。
+
+$W=H^0(E,L)$ とし、$\phi^*L\simeq L$ の選択から得る
+pullback $g:W\xrightarrow{\sim}W$ を取る。
+$f\in\operatorname{Sym}^3W$ を $E$ の方程式とし、
+\begin{equation}\label{mbfc:eq:multiplier}
+ g(f)=c_g f
+\end{equation}
+と書けば、pushforward の規約において
+\begin{equation}\label{mbfc:eq:multiplier-class}
+ \nu_E(\phi)=[c_g].
+\end{equation}
+$g$ の scalar 変更は $c_g$ を三乗倍するので右辺は選択に依存しない。
+$R_0$ の冪、$[1]$ および $\varepsilon=R_0^{-1}[1]$ の multiplier は零である。
+\end{proposition}
+\begin{proof}
+比較射の Hom は一次元であり、比較射を scalar 倍すると三重図式はその三乗倍になる。
+二つの自己同型の比較射を合成すると三重図式の scalar は積となるため、
+$\nu_E$ は群準同型である。
+
+符号を確認する。$\phi_*$ に対応する graded 加群の制限は、
+自由加群の行列に $g^{-1}$ を施す構成である。
+従って MF の曲率は $f$ から $g^{-1}(f)=c_g^{-1}f$ へ移る。
+この構成は内部 shift と MF の指定周期を保つ。
+一方、命題\ref{prop:nfm-period-equation-frame-change}により
+\[
+ \pi_{c_g^{-1}f}=c_g\pi_f.
+\]
+従って同じ $\pi_f$ を source と target に使って三重図式を表示すると、
+比較射の三乗の scalar は $c_g^{-1}$ である。
+period-normalized 比較射の方程式は $v^3=c_g$ となるから、
+式\eqref{mbfc:eq:multiplier-class}を得る。
+この MF/window の比較が $\phi_*$ であることは、商の graded 加群上での制限と
+section・evaluation による window の自然性から従う。
+
+方程式を $u f$ に替えても両側の period が同じ $u^{-1}$ 倍を受けるので
+$\nu_E$ は変わらない。
+rotation の冪と shift については、MF の指標 shift と三次周期の中心 coherence を用いる。
+それら自身の標準交換射は三乗周期を保つ。周期の cohomological degree は二なので、
+$[1]$ との交換にも余分な符号は残らない。
+\end{proof}
+
+\begin{example}[基本楕円領域でも非零となる multiplier]
+\label{mbfc:ex:nonzero-multiplier}
+$K=\C(a)$ とし、$\mu\in\C$ を、Hesse 三次の判別式が非零かつ
+$j\ne0,1728$ となるように選ぶ。
+\[
+ f=x^3+a y^3+a^2z^3-3\mu a xyz,
+ \qquad g(x)=az,\quad g(y)=x,\quad g(z)=y
+\]
+と置くと $g^3=aI$、$g(f)=a f$ である。
+代数閉包上で変数を三乗根により変更すれば、これは滑らかな Hesse 三次となる。
+従って $g$ は $E=V(f)$ の実際の偏極自己同型を定め、
+\[
+ \nu_E(\phi)=[a]\ne0
+\]
+となる。非零性は $a$-進付値で分かる。
+幾何的な $\operatorname{Aut}(E,0)$ は $\{\pm1\}$ であるから、
+この位数三の自己同型は幾何的には非零三捩れ点の平行移動である。
+一般の体上で全ての $\nu_E$ を零とみなすことはできない。
+\end{example}
+
+\subsection{全核型のスカラー障害と位相判定}
+
+各因子の Picard gerbe と位相を第\ref{mbpd:sec:picard-descent}節の通り
+\[
+ \delta_i=\delta_{E_i}(p_i)\in H^2(K,\mathbb G_m),\qquad
+ \gamma_i\in H^1(K,\mu_3),\qquad
+ \alpha=\sum_i\delta_i
+\]
+と書く。$\gamma_i$ は、個々の $p_i$ が実線束で表されない場合にも
+factor Picard gerbe 上の scalar 重みが零であることにより $K$ 上で定義される。
+本節では $H^1(K,\mu_3)$ を加法記法で書く。
+
+\begin{theorem}[非同種な因子に対する全中心同変核の存在判定]
+\label{mbfc:thm:full-criterion}
+上の順序付き実表示について、$J_{E_i,\overline K}$ は互いに非同種であるとする。
+以下の条件は、$K$ の任意の体拡大後にも同じ形で成立する。
+
+\begin{enumerate}
+ \item 全ての underlying $H$-intertwiner の幾何的同型類は、
+       $\boldsymbol\phi=(\phi_i)_i$、
+       $\phi_i\in\operatorname{Aut}(E_{i,\overline K},L_i)$ と
+       $\lambda\in\Lambda_k$ により一意に表示される。
+       その型が $K$ 上に実際の核を持つためには $\phi_i$ が $K$ 上に定義される必要があり、
+       このとき実現 gerbe の類は正確に $\alpha$ である。
+ \item 中心 $G$ の作用を保つ通常の残余圏の比較核が $K$ 上に存在するための必要十分条件は
+       \begin{equation}\label{mbfc:eq:ordinary-criterion}
+        \alpha=0,\qquad
+        \exists\,\phi_i\in\operatorname{Aut}_K(E_i,L_i):\quad
+        \gamma_i+\nu_{E_i}(\phi_i)
+           \text{ が全ての }i\text{ で等しい}
+       \end{equation}
+       である。
+ \item さらに rotation 比較と指定三次周期を保つ核が存在するための必要十分条件は
+       \begin{equation}\label{mbfc:eq:strong-criterion}
+        \alpha=0,\qquad
+        \exists\,\phi_i\in\operatorname{Aut}_K(E_i,L_i):\quad
+        \gamma_i+\nu_{E_i}(\phi_i)=0\quad\text{for all }i
+       \end{equation}
+       である。
+\end{enumerate}
+ここで全ての shift と数値型を許している。
+中心作用そのものを忘れた核や、非同種性を外した積については主張していない。
+\end{theorem}
+\begin{proof}
+まず代数閉包上で $[M_i]=p_i$ を満たす線束を選び、
+$F_0=\boxtimes_i(-\otimes M_i)$ とする。
+一因子比較により $F_0R_{i,p}\simeq R_{i,0}F_0$ がある。
+従って任意の underlying $H$-intertwiner $F$ について、
+$FF_0^{-1}$ は全ての $Q_{i,0}$ と可換する。
+命題\ref{mbfc:prop:centralizer}により
+\begin{equation}\label{mbfc:eq:normal-form}
+ F\simeq C_{\boldsymbol\phi,\lambda}F_0,
+ \qquad
+ C_{\boldsymbol\phi,\lambda}
+    =\boxtimes_i\bigl(\phi_{i*}\varepsilon_i^{a_i}\bigr),
+ \qquad[(a_i)]=\lambda
+\end{equation}
+となり、$(\boldsymbol\phi,\lambda)$ は一意である。
+$F_0$ の幾何的同型類は各 $p_i$ だけで決まり、Galois 不変である。
+また $\varepsilon_i$ は $K$ 上の関手なので、
+$F$ が $K$ 上の核なら一意性により各 $\phi_i$ は Galois 不変、従って $K$ 上へ降下する。
+その偏極保存性も降下する。
+実際、$\phi_i^*L_i\otimes L_i^{-1}$ は幾何的に自明な実線束であり、
+固有基底変換により $K$ 上でも自明である。
+
+従って $C_{\boldsymbol\phi,\lambda}$ は $K$ 上の実際の Fourier--Mukai 自己同値となる。
+これの逆を $F$ と合成した核は、代数閉包上で対角上の線束である。
+cohomology の集中、対角への支持、可逆層であることを忠実平坦降下すると、
+その核は $\Delta_{Y*}M$、
+\[
+ [M]=\sum_i\operatorname{pr}_i^*p_i\quad\text{in }\Pic^0(Y)(K)
+\]
+となる。
+逆にこの類の実線束があれば、式\eqref{mbfc:eq:normal-form}により全ての
+$K$-有理な型の underlying 核が得られる。
+命題\ref{mbpd:prop:product-gerbe}により、その実現 gerbe は
+$\mathfrak G_{\mathrm{Pic}}$ と band を保って同値で、類は $\alpha$ である。
+個々の $\delta_i$ の消滅は必要ではなく、ここではその和の相殺を保持している。
+
+次に coherent な構造を調べる。
+各 $\phi_i$ の period-normalized commutator の torsor を $V_i(\phi_i)$ と書く。
+その類は $\nu_{E_i}(\phi_i)$ である。
+$\varepsilon_i$ の標準比較は周期を保つので、
+型 $(\boldsymbol\phi,\lambda)$ の各因子の位相 torsor は
+\[
+ T_i(\phi_i)=T_i\mathbin{\wedge^{\mu_3}}V_i(\phi_i),
+ \qquad [T_i(\phi_i)]=\gamma_i+\nu_{E_i}(\phi_i)
+\]
+である。
+これは因子線束が局所的にしか存在しない場合にも、Picard gerbe 上で計算して降下できる。
+核の scalar 自己同型は比較射の両端で相殺し、追加の scalar 重みは生じない。
+
+定理\ref{mbpd:thm:coherent-corrections}の証明をこの合成比較射に適用すると、
+固定型に対する全 coherent $H$-構造の torsor は
+\[
+ D_{\boldsymbol\phi}
+   =\left(\prod_i T_i(\phi_i)\right)/\Delta\mu_3,
+ \qquad
+ [D_{\boldsymbol\phi}]_b
+   =\bigl(\gamma_b+\nu_{E_b}(\phi_b)
+          -\gamma_i-\nu_{E_i}(\phi_i)\bigr)_{i\ne b}
+\]
+である。
+これは構成した比較射だけの集合ではない。
+一つの coherent 構造があれば、任意の別の構造との差は
+$\operatorname{Hom}(H,\mathbb G_m)=G$ の指標となる。
+実際、同値核の degree-zero endomorphism は
+$\mathrm{HH}^0(Y)=H^0(Y,\OO_Y)=K$、負の自己 Ext は零であり、
+生成元の比較の差は scalar、積の coherence はちょうど指標条件である。
+従って上の torsor は全ての構造を尽くす。
+rotation と指定周期まで保持すると $\prod_iT_i(\phi_i)$ が残る。
+核の scalar 自己同型群はどちらの場合も $\mathbb G_m$ である。
+
+以上の実現 gerbe と有限 torsor の両方が中立となる条件が、
+それぞれ式\eqref{mbfc:eq:ordinary-criterion}、
+式\eqref{mbfc:eq:strong-criterion}である。
+二重同変化の自然性により元の $G$-同変残余比較へ移せる。
+この議論は全ての体拡大上で同じなので、指定した任意の拡大体にも適用できる。
+\end{proof}
+
+\begin{remark}[全型という範囲]
+\label{mbfc:rem:scope}
+前定理は幾何的核の型、その各体拡大上の実現 gerbe、および coherent 比較の存在を扱う。
+任意の非被約基底上の全核 stack を外積型へ分解する相対定理は主張していない。
+また、例\ref{mbfc:ex:nonzero-multiplier}により、
+Picard 補正型の $D$ が非自明であることだけから、
+一般の $K$ 上で全ての中心同変比較核の不存在を推論することはできない。
+全型では上の $\nu_{E_i}$ による補正を先に調べる必要がある。
+\end{remark}
+
+\subsection{Hesse 族における全型の最小次数}
+
+\begin{lemma}[固定 Hesse level の全偏極自己同型]
+\label{mbfc:lem:hesse-lifts}
+$K\supset\C$ 上の滑らかな Hesse 三次
+\[
+ f=u(x^3+y^3+z^3)+vxyz,\qquad j(E)\ne0,1728
+\]
+を考える。
+任意の体拡大 $K'/K$ 上の $\operatorname{Aut}_{K'}(E,L)$ の全ての元は、
+$\zeta\in\C$ を原始三乗根として
+\[
+ A(x,y,z)=(x,\zeta y,\zeta^2z),\qquad
+ B(x,y,z)=(y,z,x),\qquad
+ S(x,y,z)=(y,x,z)
+\]
+の積による $\operatorname{GL}_3(\C)$ の lift を持つ。
+それらは $f$ を厳密に保つので、全ての period multiplier は零である。
+\end{lemma}
+\begin{proof}
+$o=(1:-1:0)$ を flex 原点とする。
+この level の行列表示は
+\cite[\S4, pp.~246--247]{NFMArtebaniDolgachev}の標準表示である。
+$A,B$ は射影的に可換する位数三の元であり、相異なる九つの射影変換を生成する。
+$j\ne0,1728$ より原点保存自己同型は $\{\pm1\}$ なので、
+これらの位数三の元は三捩れ平行移動であり、$E[3]$ を尽くす。
+$S$ は $o$ を固定する非恒等な involution なので inversion である。
+次数三偏極を保存する曲線自己同型は
+$E[3]\rtimes\{\pm1\}$ だから、この十八元が幾何的な群全体である。
+全ての行列が $\C$ 上で定義されるため、任意の $K'$ 上でも追加の元はない。
+$A,B,S$ は $x^3+y^3+z^3$ と $xyz$ をそれぞれ保つ。
+命題\ref{mbfc:prop:multiplier}を適用すれば最後の主張を得る。
+\end{proof}
+
+\begin{theorem}[独立境界位相の全比較核に対する鋭い次数]
+\label{mbfc:thm:sharp-all-types}
+系\ref{mbpd:cor:phase-independence}の独立な $k$ 個の Hesse 族を取る。
+すなわち Sklyanin パラメータを
+\[
+ (a_i,b_i,c_i)=(1+d_i,1,c_i),\qquad
+ K_0=\C(d_1,\ldots,d_k)
+\]
+とし、$c_i\in\C$ は同系の滑らかさと基本楕円条件を満たす一般の定数とする。
+source と target には自然な中心・点三次直線比較を使い、指定周期を固定する。
+このとき
+\begin{enumerate}
+ \item 中心 $G$ の作用を保つ通常の残余比較核を得る有限体拡大の最小次数は
+       $3^{k-1}$ である。
+ \item さらに rotation 比較と指定三次周期を保つ核を得る有限体拡大の最小次数は
+       $3^k$ である。
+\end{enumerate}
+ここでは Picard 補正型への制限を置かず、全ての dg Morita 比較核を許している。
+同じ結論は $\operatorname{Frac}\C[[d_1,\ldots,d_k]]$ 上でも成り立つ。
+中心作用を忘れた比較についての最小性は主張しない。
+\end{theorem}
+\begin{proof}
+Hesse パラメータの三乗
+\[
+ \kappa_i=\frac{(a_i^3+b_i^3+c_i^3)^3}{a_i^3b_i^3c_i^3}
+\]
+は $a_i=1+d_i,b_i=1$ の下で $d_i$ の非定数有理関数である。
+Hesse 三次の $j$ は $\kappa_i$ の非定数有理関数である
+\cite[\S2, equations~(4)--(5)]{NFMArtebaniDolgachev}。
+従って各因子の $j_i$ は $d_i$ だけの非定数有理関数である。
+従って $j_1,\ldots,j_k$ は $\C$ 上代数的に独立である。
+同種な二つの楕円曲線の $j$ は代数関係を満たすため、
+因子は幾何学的に互いに非同種である。
+後者の事実は、固定した $j$ の曲線の有限位数部分群とその商が
+$\overline{\C(j)}$ 上に定義されることからも分かる。
+完備局所体へ移しても、同種性があれば同じ代数関係が生じるので非同種性は保たれる。
+
+Hesse flex により各 $p_i$ の実 Picard 線束があるので $\alpha=0$ である。
+補題\ref{mbfc:lem:hesse-lifts}により、任意の有限体拡大上でも全ての
+$\nu_{E_i}$ が零となる。
+従って定理\ref{mbfc:thm:full-criterion}の全型判定は、
+Picard 補正型の判定と一致する。
+
+命題\ref{mbpd:prop:boundary-phase}と系\ref{mbpd:cor:phase-independence}により、
+$K_0$ 上ではある $a_i(d_i)\in\C[d_i]_{(d_i)}^\times$ に対し
+\[
+ \gamma_i=[u_i],\qquad u_i=3d_i/a_i(d_i),\qquad
+ v_{d_j}(u_i)=\delta_{ij}
+\]
+と書ける。
+従って $\gamma_i$ の張る Kummer 部分空間の次元は $k$、
+$\gamma_b-\gamma_i$ $(i\ne b)$ の張る部分空間の次元は $k-1$ である。
+$K_0$ は $\mu_3$ を含むので、それぞれの全類を消す最小分裂体は
+\[
+ K_0\bigl(\sqrt[3]{u_b/u_i}:i\ne b\bigr),\qquad
+ K_0\bigl(\sqrt[3]{u_i}:1\le i\le k\bigr)
+\]
+であり、その次数は $3^{k-1}$ と $3^k$ である。
+全ての類を消す任意の有限体拡大はこれらの分裂体を含むので、この次数は下界でもある。
+前定理がその拡大上の全型比較の存在を与えるため、最小性を得る。
+
+完備局所環では全単元が三乗根を持つので $\gamma_i=[d_i]$ となる。
+同じ付値計算と Kummer 理論を適用すれば、そこでの主張も従う。
+ここで周期が境界まで延びる根拠は
+系\ref{mbrn:cor:factor-boundary}の実 Koszul 最上 syzygy 直線を用いた一因子 window であり、
+二捩れ境界で退化し得る $\det W_i$ への交代化同定は用いていない。
+\end{proof}
+
+\begin{corollary}[全中心同変核の大域切断の不存在]
+\label{mbfc:cor:no-global-kernel}
+前定理の有限型 Hesse 積族の基本楕円非空開上では、
+中心 $G$ の作用を保つ通常の比較核の大域切断は存在しない。
+任意の非空開へさらに縮小しても同じである。
+\end{corollary}
+\begin{proof}
+大域核があれば一般点 $K_0$ へ引き戻せるが、
+前定理の最小次数は $3^{k-1}>1$ である。
+\end{proof}
+
+\begin{remark}[既知の分類入力と本節の帰結]
+\label{mbfc:rem:novelty}
+アーベル多様体の Fourier--Mukai 完全列、楕円曲線の自己同値分類、
+Hesse level と Kummer 理論は既知の入力である。
+本節ではそれらを、満支持比較の指定された双対作用へ適用し、
+因子 shift の相殺を除き、全核型の scalar 和と自己同型 multiplier による判定を得た。
+Hesse 境界例では追加 multiplier が消えるため、
+Picard 型で得た最小次数を全中心同変核へ拡張できる。
+この適用・結論と同一の先行結果があるかどうかの新規性調査は未完了である。
+\end{remark}

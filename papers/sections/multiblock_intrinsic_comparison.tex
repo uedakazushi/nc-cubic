@@ -1,0 +1,414 @@
+% !TEX root = ../nc-cubic.tex
+\section{相対積比較と Picard 型核の全構造対象降下}
+\label{mbic:sec:intrinsic-comparison}
+
+第\ref{mbrn:sec:relative-nc}節の相対積関手を、実表示を選ばない基底へ移す。
+中心同変残余圏と曲線積の比較核は降下する。
+通常の残余圏どうしについては、Picard 補正型の核の
+\emph{stack} が降下し、その切断の存在はなお Picard 障害と周期位相に依存する。
+この二つの結論を区別する。
+
+重み零の複体の gerbe 降下と tensor--Hom の重み則は
+\cite[Propositions~4.10, 5.7; Corollaries~4.12, 5.9]{NFMBerghSchnurer}、
+rigidification と群作用の両立は
+\cite[Theorem~5.1]{MBFMRomagny}の既知の一般論である。
+以下では、既存の実関手がその降下条件を満たすことを次数ごとに確認する。
+任意の圏の変形や、全ての残余比較核の型の分類は主張しない。
+
+\subsection{三つの表示基底と関手の自然性}
+
+まずブロックの順序を固定し、基本楕円開上で
+\[
+ \widetilde{\mathfrak P}
+   =[\mathcal X_k/\GL_3^k],\qquad
+ \mathfrak P=[\mathcal X_k/(\GL_3^k/\mathbb G_m^{\mathrm{diag}})],
+ \qquad
+ \mathfrak B=[\mathcal U_k/\PGL_3^k]
+\]
+と置く。射
+\[
+ a:\widetilde{\mathfrak P}\longrightarrow\mathfrak P,\qquad
+ b:\mathfrak P\longrightarrow\mathfrak B
+\]
+はそれぞれ共通次数スカラーの $\mathbb G_m$-gerbe と、
+$G=Z_0=\mu_3^k/\Delta\mu_3$-gerbe である
+（定理\ref{mbsd2:thm:gerbe-period}、命題\ref{mbfm:prop:rigidification}）。
+各 $\mathfrak B$ 上の曲線を $E_i$、Jacobian の切断を $p_i$、
+積を $Y=\prod_iE_i$ とする。
+ここで $L_i=\OO_{E_i}(1)$ は $\widetilde{\mathfrak P}$ 上では実線束であるが、
+$\mathfrak B$ 上では一般に偏極類である。
+
+非可換側と自然な点三次側の compact 残余圏をそれぞれ
+$\mathscr K_p,\mathscr K_0$ と書く。
+両者は定理\ref{mbsd2:thm:projector-descent}により $\mathfrak P$ 上にある。
+定理\ref{mbpl:thm:commutative-family}の band を保つ表示 gerbe の同値と
+$\ell\simeq\ell_{\mathrm{pt}}$ を用い、以後はこの\emph{自然な同期}を固定する。
+二つの表示 gerbe を独立に自明化したり、周期を独立に scalar 倍したりしない。
+
+\begin{lemma}[実 window と外積の構造移送]
+\label{mbic:lem:naturality}
+定理\ref{mbrn:thm:relative-product}および
+定理\ref{mbrp:thm:relative-product}の積関手は、順序付き実表示の
+次数付き同型と関係直線の同型に、coherence を含めて自然である。
+共通次数スカラーに対する関手の重みは零である。
+これは核、逆核、単位、余単位、および指定された三次周期の図式について成立する。
+\end{lemma}
+\begin{proof}
+一因子の THCR の切断関手は、局所的に
+\[
+ F\longmapsto
+ \bigoplus_{n\geq0}R(f_i)_*(F\otimes L_{i,n})
+\]
+で書ける。ここで $L_{i,n}$ は $\sigma_i=t_{p_i}$ による積線束である。
+因子の次数スカラー $\lambda_i$ は $L_{i,n}$ に $\lambda_i^n$ として作用する。
+曲線を恒等に保つこのスカラーに対し、幾何側の $F$ には恒等の移送を用いると、
+切断の次数 $n$ に生じる比較は
+\[
+ m\longmapsto\lambda_i^n m
+\]
+である。これは命題\ref{mbsd2:prop:scalar-weight}の $\tau_{\lambda_i}$ と一致する。
+切断三角で用いた $\kappa_i\leftrightarrow\OO_{E_i}[1]$ についても、
+augmentation の次数零の作用は恒等なので、追加の character は入らない。
+内部 shift $(j)$ の重み $j$ は、幾何側の $j$ 回の因子 rotation の重みと一致する。
+
+余核、導来切断、次数による切断、特異 dg 商、相対評価 cone は、
+いずれも次数付き同型と可換する。
+有限 MF の余核比較の逆および window の逆は、Morita $\infty$-圏での
+同値の逆として取る。従って逆の選択に新しい scalar cocycle はなく、
+同値と単位・余単位の自然性を同時に保てる。
+有限 Koszul--Shamash higher homotopy の選択は生成性の証明にのみ使い、
+関手の構成には使っていないことがここで重要である。
+
+外積は因子の次数付き構造移送を tensor する操作であり、比較は乗法的である。
+共通関係直線の frame の変更は、第\ref{mbrn:sec:relative-nc}節で用いた
+twisted MF の一方の矢印および odd--odd 項の係数直線で補正される。
+この変更は source と target の同じ関係包含の変更である。
+余核二拡張の合成は指定した中心関係の乗法であり、
+その周期図式も構造移送に自然となる。
+以上を合成すると、共通スカラーを $\tau$ で消した後の積関手の作用は恒等になる。
+これは関手の同型類の一致だけでなく、各段階の自然同型の乗法性による主張である。
+\end{proof}
+
+\begin{theorem}[射影的表示上の実際の積核]
+\label{mbic:thm:projective-product}
+$\mathfrak P$ 上に相対 perfect Morita 核による同値
+\begin{equation}\label{mbic:eq:projective-product}
+ \Perf(Y/\mathfrak P)
+   \xrightarrow{\ \sim\ }\mathscr K_p^{hG},
+ \qquad
+ \Perf(Y/\mathfrak P)
+   \xrightarrow{\ \sim\ }\mathscr K_0^{hG}
+\end{equation}
+がある。両側は $\mathfrak P$ 上 smooth proper である。
+実表示 gerbe の中立化は必要ない。
+構成は許された任意の noetherian 底変更に両立する。
+この最後の主張は構成済み compact/Perf 模型についてのものであり、
+非正則底上の全 coherent 圏との同一視ではない。
+\end{theorem}
+\begin{proof}
+滑らかな表示チャートとその重なりに相対積定理を適用する。
+補題\ref{mbic:lem:naturality}は $\GL_3^k$ に対する比較を与え、
+共通 $\mathbb G_m$ の比較は $\tau$ によって自明になる。
+この $\tau$ は積に整合するので、$\GL_3^k/\mathbb G_m^{\mathrm{diag}}$ に対する
+実際の降下 datum となる。
+命題\ref{mbrd:prop:kernel-stack}の perfect 双加群とその作用写像の降下を用いれば、
+核・逆核・単位・余単位が降下する。
+ここで一つの大域 dg 代数や大域 generator の存在を仮定しているのではない。
+局所の perfect Morita 双加群が相対 Morita 圏の核を与えるという意味である。
+
+局所生成対象を用いて複体として見る場合にも、比較のスカラー重みは零である。
+重み零複体の降下と、その tensor・Hom の両立性
+\cite[Proposition~5.7, Corollary~5.9]{NFMBerghSchnurer}
+は双加群の作用写像・合成にも適用できる。
+smoothness、properness、および核の可逆性はこの fpqc 局所表示で検査できる。
+任意底変更との両立は、系\ref{mbrn:cor:base-change}、
+系\ref{mbrp:cor:base-change}と同じ降下 datum を引き戻して得る。
+\end{proof}
+
+\begin{proposition}[中心 rigidification 上の非捩れの積表示]
+\label{mbic:prop:rigidified-product}
+系\ref{mbfm:cor:equivariant-rigidification}の構成で得る
+$\mathfrak B$ 上の圏を $\mathscr D_p=b_*\mathscr K_p$、
+$\mathscr D_0=b_*\mathscr K_0$ とする。
+本稿の表示族については、実際の perfect Morita 核による同値
+\begin{equation}\label{mbic:eq:rigidified-product}
+ \mathscr D_p\simeq\Perf(Y/\mathfrak B)\simeq\mathscr D_0
+\end{equation}
+がある。従ってこの中心同変化の降下には、曲線積に対する追加の捩れは残らない。
+通常の残余圏 $\mathscr K_p,\mathscr K_0$ 自身が $\mathfrak B$ へ降りる、
+あるいはその間の通常の比較核が大域的に存在する、という主張ではない。
+\end{proposition}
+\begin{proof}
+前定理の核について、相対慣性 $G$ の比較を確認すればよい。
+$\Gamma_k$ の character 格子を
+\[
+ \Lambda_k=\mathbb Z^k/\langle3e_i-3e_j\rangle
+\]
+とする。$z\in G$ の持上げ $\widetilde z=(\zeta_i)\in\mu_3^k$ に対し、
+$\Gamma_k$-次数付き加群の次数 $\alpha$ の部分で
+\begin{equation}\label{mbic:eq:central-trivialization}
+ \tau_{\widetilde z}(m_\alpha)
+       =\left(\prod_i\zeta_i^{\alpha_i}\right)m_\alpha
+\end{equation}
+と置く。$\zeta_i^3=1$ によりこれは $\alpha$ の表示によらず、
+右作用を $\widetilde z^{-1}$ で移した加群から元の加群への同型である。
+共通曲率 character も $\widetilde z$ 上で一なので、MF の両微分と可換する。
+
+命題\ref{mbza:prop:gamma-action}の同定では、
+式\eqref{mbic:eq:central-trivialization}は同変対象の構造写像
+$\theta_z:\alpha_zM\to M$ そのものである。
+一方、各因子の切断に対する $\tau_{\zeta_i}$ を外積すると、
+正確に同じ式となる。幾何側で $\widetilde z$ は各 $E_i$ を恒等に保つので、
+これが積関手と幾何側の恒等作用の比較である。
+持上げを対角 $\zeta$ 倍すると比較の差は、全内部次数 $n$ 上の $\zeta^n$ となる。
+これは既に除いた共通スカラーの $\tau_\zeta$ であり、新しい選択を残さない。
+積 $\widetilde z\widetilde z'$ との整合性も上式から直接従う。
+
+gerbe $b$ を局所的に中立化すると、
+$b_*\mathscr K$ の切断は $\mathscr K^{hG}$ である。
+中立化の比較の持上げが $z$ だけ変わる際の同定は $\theta_z$ であり、
+上で積関手の比較と一致することを確認した。
+従って前定理の核は $\mathfrak B$ 上の式\eqref{mbic:eq:rigidified-product}へ降下する。
+これは一般の gerbe 上の圏の降下が常に非捩れになるという主張ではなく、
+この実関手に対する慣性の計算である。
+\end{proof}
+
+\subsection{偏極を実現しない底上の Picard 障害と周期}
+
+\begin{proposition}[因子モジュライ上の Picard gerbe]
+\label{mbic:prop:intrinsic-picard}
+$\mathfrak B$ 上に
+\[
+ \mathscr G_i=\mathcal{Pic}^{p_i}_{E_i/\mathfrak B},
+ \qquad
+ \mathscr G=\mathcal{Pic}^{m}_{Y/\mathfrak B},
+ \qquad m=\sum_i\operatorname{pr}_i^*p_i
+\]
+が定まり、
+\begin{equation}\label{mbic:eq:intrinsic-alpha}
+ \alpha_{\mathfrak B}=[\mathscr G]
+      =\sum_i\delta_{E_i/\mathfrak B}(p_i),\qquad
+ 3\delta_{E_i/\mathfrak B}(p_i)=0
+\end{equation}
+となる。実表示上の $\alpha_{\mathrm{Pic}}$ はこの類の引戻しである。
+この主張には、$\mathfrak B$ 上で $L_i$ 自体を実線束として選ぶ必要はない。
+\end{proposition}
+\begin{proof}
+曲線族と Jacobian の切断 $p_i$ は射影的な因子データであり、
+命題\ref{mbfm:prop:product-family}の構成で $\mathfrak B$ 上にある。
+Picard stack の構成と gerbe 性は fppf 局所であり
+\cite[Tag~0DME]{NFMStacksPicardGerbe}、
+外積の band は $\mathbb G_m^k\to\mathbb G_m$ の積写像である。
+従って命題\ref{mbpd:prop:product-gerbe}と同じ cocycle の積で和の式を得る。
+
+三捩れ性には偏極の実現に注意する。
+実表示を選んだチャートでは
+\[
+ N_i=(\sigma_i)_*L_i\otimes L_i^{-1}
+\]
+は相対 Picard 類 $3p_i$ を持つ。実際、
+$M_i=\OO(t_{p_i}(o)-o)$ を $p_i$ とする右加群の規約では、
+$t_{-p_i}^*L_i\otimes L_i^{-1}$ の類が $3p_i$ である。
+表示の lift を scalar 倍しても二つの $L_i$ の重みは相殺し、
+$N_i$ は $\PGL_3$ に対して自然である。
+重なりで $L_i$ が $L_i\otimes f_i^*Q_i$ に変わっても $Q_i$ は相殺する。
+従って $N_i$ は $\mathfrak B$ 上の実線束へ降下し、
+$\delta(3p_i)=3\delta(p_i)=0$ を与える。
+偏極の Brauer 障害とこの Picard 障害を同一視してはいない。
+\end{proof}
+
+\begin{lemma}[周期データの射影的自然性]
+\label{mbic:lem:phase-descent}
+$\lambda_i=(f_i)_*\Omega^1_{E_i/\mathfrak B}$ とすると、
+第\ref{mbpd:sec:picard-descent}節の比較直線、三乗写像、位相 torsor は
+$\mathfrak B$ 上のデータ
+\[
+ V_i=\lambda_i,\qquad q_i:\lambda_i^{\otimes3}\xrightarrow{\sim}\OO_{\mathfrak B},
+ \qquad T_i,\qquad \gamma_i=[T_i]
+\]
+の引戻しである。これらは中心係数 $a_i$ の選択によらない。
+幾何点の射影 Heisenberg 慣性 $E_i[3]$ は $\lambda_i,q_i,T_i$ に自明に作用する。
+\end{lemma}
+\begin{proof}
+一因子の実表示 gerbe 上で中心直線 $\mathcal C_i$ と点三次直線 $\mathcal J_i$ を用い、
+自然な $\vartheta_i:\mathcal C_i\simeq\mathcal J_i$ で二つの周期を同期する。
+係数 $a_i$ を持つ多因子表示は、これを
+$\ell\xrightarrow{\sim}\mathcal C_i$ で引き戻したものである。
+両側の周期に同じ直線同型が入るため、
+三重比較の比 $q_i$ ではその同型が相殺する。
+
+$L_i$ と因子 rotation は presentation scalar に対して重み一、
+中心線と点三次線は重み三である。
+一方、幾何曲線上の Picard 線束 $M_i$ と Hodge 線束は重み零である。
+従って $F_iR_{i,p}$ と $R_{i,0}F_i$ の重みは等しく、
+その Hom、自然な $\vartheta_i$ による周期の比、および $T_i$ は重み零となる。
+普遍 $M_i$ の \emph{Picard gerbe 自身の} scalar は別の重みであるが、
+これも Hom の両側で相殺する。
+この二つの相殺を混同しない。
+
+補題\ref{mbpd:lem:hodge-line}の graph--diagonal の構成は、
+曲線、$p_i$、および線束の pullback に自然である。
+従ってその $V_i\simeq\lambda_i$ と $q_i$ は射影的な同型に対して貼り合う。
+定理\ref{mbpl:thm:global-line-comparison}の $\vartheta_i$ も
+全次数付き同型に自然なので、period の追加 character は入らない。
+さらに定理\ref{mbhp:thm:period-formula}と系\ref{mbhp:cor:global-kummer}は、
+これを Jacobian の Hodge 線に値を持つ奇 Weierstrass 座標 $v_i(p_i)$ による
+\[
+ q_i=-v_i(p_i)^{-1},\qquad
+ T_i\simeq\operatorname{Cube}(v_i(p_i))
+\]
+として内在的に記述する。
+
+幾何点の残る射影慣性は $E_i[3]$ の平行移動である。
+これは Jacobian、$p_i$、および不変微分を恒等に保つため、
+上の三つのデータに恒等に作用する。
+しかし $t_q^*M_i\simeq M_i$ という同型を全 $q\in E_i[3]$ に対して
+coherent に選べるとは結論しない。
+そのような線束の実現の不足は、前命題の Picard gerbe に残る。
+\end{proof}
+
+\subsection{通常の比較核の stack と全構造対象開}
+
+$T=\prod_iT_i$、$D=T/\Delta\mu_3$ と置く。
+これは $\mathfrak B$ 上の $\mu_3^k$-torsor と $G$-torsor である。
+関係直線を保持した rotation 比較というときは、
+共通の表示 gerbe 上の二つの重み一 rotation を比較するデータを意味する。
+個々の rotation を $\mathfrak P$ 上の実関手として降ろすことは要求しない。
+
+\begin{theorem}[Picard 型比較 stack の内在化]
+\label{mbic:thm:kernel-stack}
+$\mathfrak P$ 上で、式\eqref{mbic:eq:projective-product}による積表示の下で
+対角 Picard 補正となる、$G$-同変な通常残余比較核の stack を
+$\mathscr K_{\mathrm{Pic}}$ とする。
+順序付き基準因子を一つ選び、相対 rotation 比較と指定周期も加えた stack を
+$\mathscr K_{\mathrm{Pic}}^{\rho,\pi}$ とする。
+このとき
+\begin{equation}\label{mbic:eq:kernel-stacks}
+ \mathscr K_{\mathrm{Pic}}
+     \simeq b^*(\mathscr G\times_{\mathfrak B}D),\qquad
+ \mathscr K_{\mathrm{Pic}}^{\rho,\pi}
+     \simeq b^*(\mathscr G\times_{\mathfrak B}T).
+\end{equation}
+従ってこれらの核の stack は因子モジュライ上の stack から来る。
+全対象の自己同型群は、周期標識後も $\mathbb G_m$ である。
+この同定は許された任意の底変更と両立する。
+\end{theorem}
+\begin{proof}
+実表示上では定理\ref{mbpd:thm:coherent-corrections}がこの同定を与える。
+積関手は定理\ref{mbic:thm:projective-product}で降下済みなので、
+Picard 補正型という条件は $\mathfrak P$ 上に定義できる。
+共通 scalar は Picard 核に重み零で作用する。
+rotation 比較の source と target はともに重み一であり、その Hom と周期の比は零である。
+命題\ref{mbks:prop:gerbe-synchronization}の意味で、
+比較データは個々の rotation の実現を待たずに降下する。
+
+$\mathfrak B$ まで降ろす際には、各因子の偏極の lift が独立に変わる。
+重なりで $L_i'=L_i\otimes f_i^*N_i$ と書けば、
+\[
+ R_{i,p}'=R_{i,p}\otimes N_i,\qquad
+ R_{i,0}'=R_{i,0}\otimes N_i
+\]
+であり、両方の三次周期の係数直線は $N_i^3$ だけ変わる。
+したがって因子比較射とその周期条件は変わらない。
+基準 $b$ を用いた双対作用の生成元 $R_i^{-1}R_b$ は
+$N_i^{-1}N_b$ だけ変わり得るが、この係数も source と target に共通である。
+両作用の intertwining の合成・交換・三乗の図式では、すべて同時に相殺する。
+三重重なりの scalar も同じ理由で相殺し、実際の cocycle 条件を満たす。
+
+Picard 核の因子分解を変える操作については
+定理\ref{mbpd:thm:coherent-corrections}の band の積と
+負の自己 Ext 消滅をそのまま用いる。
+coherent な双対作用の比較の選択は $D$、
+さらに相対 rotation と周期の比較を選ぶことは $T$ に一致する。
+これらは前補題によって $\mathfrak B$ 上にあり、
+普遍核の scalar は比較射の共役で相殺する。
+従って式\eqref{mbic:eq:kernel-stacks}の同定自体が降下する。
+有限双対同変化の平均化と Fourier 射影は構造移送に自然なので、
+積上の記述から通常の残余比較核へ戻す際にも同じ降下 datum を保つ。
+\end{proof}
+
+\begin{corollary}[全構造対象開上の比較と二つの障害]
+\label{mbic:cor:all-o}
+系\ref{mbrr:cor:stack-isomorphism}の開
+$\mathfrak M_k^\circ\simeq\mathfrak P_k^\circ$ 上で、
+中心同変残余圏と点曲線積の perfect 圏を比較する実際の核が存在する。
+Picard 型の通常比較核の stack もこの開へ移る。
+
+この開への任意の許された射 $S\to\mathfrak M_k^\circ$ に対し、
+その型の $G$-同変な通常比較核が存在する必要十分条件は
+\[
+ \alpha_S=0,\qquad D_S(S)\ne\varnothing,
+ \qquad
+ \alpha_S=\sum_i\delta_{E_i/S}(p_i)
+\]
+である。相対 rotation と指定周期も保持する条件は
+$\alpha_S=0$、$T_S(S)\ne\varnothing$ である。
+ここでは順序が局所的な場合、和と torsor は次の置換降下で解釈する。
+\end{corollary}
+\begin{proof}
+相対認識はこの開上で全 $\OO$ 同値と射影的な次数付き構造移送を同定する。
+従って前の核と stack の降下は全 $\OO$ 射に対して自然である。
+判定は式\eqref{mbic:eq:kernel-stacks}の二因子がそれぞれ大域対象を持つ条件である。
+類は $\mathfrak B$ の類をまず $\mathfrak P^\circ$ へ、次いで $S$ へ引き戻す。
+$H^2(\mathfrak B,\mathbb G_m)\to H^2(S,\mathbb G_m)$ の単射性は仮定せず、
+因子モジュライ上の gerbe が中立であることを必要条件にしているのではない。
+\end{proof}
+
+\subsection{順序を忘れる場合と残る標識}
+
+\begin{proposition}[因子置換と相対 rotation 比較]
+\label{mbic:prop:permutation}
+上の積核、Picard gerbe、および核 stack の記述は
+$\mathfrak S_k$ に coherent に同変である。
+順序を忘れた底では $\mu_3^k$ と $G$ を因子置換で降下した有限群とし、
+\[
+ \mathscr G\times D,\qquad \mathscr G\times T
+\]
+もその意味で降下する。
+第二の stack は、両側の線型化を同時に変更することを許した
+\emph{相対的な} rotation・周期比較を分類する。
+一つの標準 $G$-線型化付き rotation を順序なしに選ぶ主張ではない。
+\end{proposition}
+\begin{proof}
+曲線積、$m=\sum_i\operatorname{pr}_i^*p_i$、外積 Picard gerbe は因子の置換に自然である。
+各 $T_i$ は対応する曲線・$p_i$・Hodge データとともに置換される。
+従って $T$ の置換作用は対角 $\mu_3$ を保ち、$D$ にも作用する。
+核の外積と finite MF の外積は Koszul 符号を含む標準 braiding を用いる。
+その braid 関係と二乗関係が三重重なりの coherence を与える。
+共通 charge と全有限指標を保持する window もこの作用に自然である。
+ここで「符号を無視できる」とはしていない。
+
+rotation の比較では基準 $b$ の変更を明示する。
+定理\ref{mbpd:thm:coherent-corrections}の
+$D\times T_b\simeq T$ は、すべての因子の周期適合比較射を同時に与える記述である。
+したがって別の基準 $c$ に移ると、その同じ組の $c$ 成分を取ればよい。
+関手としては、命題\ref{mbza:prop:shift-character}の同じ character twist が
+source と target の両方に現れる。
+$G$-同変比較核の同変化は双対指標 twist を intertwine するため、
+この共通 twist を用いて二つの相対比較を同定できる。
+三つの基準の比較は既存の character cocycle と核の同変 coherence により一致する。
+period 図式も同じ三乗関係を用いるので保たれる。
+これにより $\mathscr G\times T$ は基準選択に依存せず置換で降下する。
+
+この議論は source と target の線型化を\emph{同時に}変えている。
+個々の rotation の線型化を一つ選ぶ torsor
+$\{\boldsymbol a\in\mathbf F_3^k:\sum a_i=1\}$ は別に残る。
+系\ref{mbza:cor:permutation-obstruction}により、その置換不変な切断は
+$3\nmid k$ のときに限り存在する。
+共通表示 $\mathbb G_m$-gerbe の中立化も、この相対比較からは従わない。
+\end{proof}
+
+\begin{remark}[核 stack と選択した核の降下の境界]
+\label{mbic:rem:scope}
+式\eqref{mbic:eq:rigidified-product}は中心同変化についての大域核を与えるが、
+双対群の作用を忘れた通常残余圏の比較核は別である。
+また $\mathfrak B$ 上では $L_i$ の独立な twist が残るため、
+各 $R_i$ や $R_i^{-1}R_b$ 自体を非捩れの大域関手として降ろしたとはしていない。
+降りるのは、比較の両側でこれらの twist を同期した核の stack である。
+
+この stack が $\mathscr G\times D$ と書けても、
+$\mathscr G$ や $D$ の大域切断は自動ではない。
+さらに、別の残余自己同値と合成して Picard 型の外へ出る核の存在・非存在を、
+この型の scalar 類や位相から結論することはできない。
+指定された形式核の全 jet の代数化も、本節の降下とは別問題である。
+\end{remark}

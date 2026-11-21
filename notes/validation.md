@@ -1,20 +1,29 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月21日 / v38。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月21日 / v39。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
-## 現行v38の確認
+## 現行v39の確認
 
-- **相対noetherian性と実window：** 新設mbrn節の全証明を執筆担当以外も読解した。訂正済みKeeler Theorem1.5の相対nef版消滅を用い、全kの多重評価イデアルの安定、非平坦な評価加群の射影公式、有限幅の端の帰納、中心正則列のfiltrationを確認した。任意noetherian基底のnoetherian性と、正則基底での有限大域次元・BSの適用は別段階である。BS Definition5.1とRemark5.2がcohomological shiftとinjective dimensionの一致を要求しないことを一次資料で照合した。
-- **相対非可換積核・任意底変更：** 関係直線を保持した有限Koszul–Shamash解消、Tor二段の連結射、Γ-Hom、有限生成対象、K-flatなHom模型、実windowと外積、有限群双対化を内部で独立点検した。構成済みMorita核とcompact/Perf模型の非平坦・非被約底変更まで確認する。元のsmooth affine基底でのcoherent飽和は別に証明し、非正則底での全Dbcohや全coherent MFへの同値は主張しない。
-- **Picard型のscalar・位相・kernel stack：** 新設mbpd節を統合担当と別担当が全文読解した。外積bandの積によるα_Pic=Σδ_i、Hom比較直線とHodge線の同定、c4/c6の重みによる単元表示、対角μ3商Dと積torsor T、G-marked Picard型kernel stack G_Pic×DとG_Pic×Tを点検した。共通位相は比作用から消えるが、rotationの指定周期に残る。中心作用を忘れた全核の分類とはしない。
-- **自然な二捩れ境界と最小位相次数：** mbrnの一因子補足とmbpdの境界証明を執筆担当以外も独立読解した。最上syzygy線Pのままの相対双対・window、a=bでのΩ_H非零、自然targetの3dF_H、周期の逆尺度変換から剰余+1を確認した。交代化P→detWは境界で使わない。有限型函数体C(d_1,…,d_k)とその完備局所例で、付値剰余行列が単位行列となり、指定Picard型・中心作用付きの最小位相次数3^(k−1)、rotation/period付き3^kを証明した。全核型や全上界3^(2k−1),3^(2k)の最小性は主張しない。
-- **一次資料：** Keelerの訂正済みarXiv:math/0108068v5のTheorem1.5（p3）、Definition2.9（p5）、Proposition7.2・Lemma7.6（pp30–31）、erratum TheoremE2.5（p40）を本文で確認した。Burke–Stevenson公刊版Definition5.1・Remark5.2（p110）とTheorem6.4（p115）、Smith–Tate §1（pp19–21）の位数二を除外しないSklyanin・中心商の記述を照合した。Silverman III§1 Table3.1（p45）のc4,c6,微分の変換則は原著PDFを対象とする検索抽出で確認した（PDF全体の直接取得はタイムアウト）。本文の使用はこの変換則に限る。既知の相対Fujita・Orlov・Picard/Kummer・同変化理論と本稿の適用を区別し、新規性の網羅的確認は未完了。
-- **厳密計算の状態：** 今回は新たな数値・記号計算器を追加せず、既存の計算器も再実行していない。保持する `verify_multiblock_point_line.py` の確認は、QQ(t)上の次数四自由単項式81、関係rank66、中心・交換子恒等式追加後rank66、Fermat点行列式、最大可換商の三次像、およびQQ[a,b,c,x,y,z]上のHesse行列式と比較certificateである。これを一般Hesse中心性・PBW全次数・圏同値の機械証明とは扱わない。
-- **ソース整合・組版・表示確認：** 全59個のTeXソース、1168個の一意ラベル、797個の参照先、145個の引用キーの整合を確認し、`git diff --check` は成功した。確定原稿を `latexmk -lualatex papers/nc-cubic.tex` で組版し、終了コード0、535ページのPDFとSyncTeXを生成した。最終ログに未定義参照・重複ラベル・欠落文字・overfull/underfull box・LaTeXエラーはない。既存の数式フォントサイズ代替7件、その集約1件、旧字体コマンドの警告1件は残る。PDFの1・2・196・198・199・200・202・204・216・218・219・222・223・224ページの計14ページを画像化して実見し、本文・数式の欠落や重なりがないことを確認した。全535ページの表示を今回再確認したという意味ではない。
+- **自然な周期の全係数：** mbhp節を執筆担当以外も全文読解した。二つのchartによる全九flexの中心正則化、三捩れ点でのpolynomial Zhang twist、THCRの核直線、raw top syzygyを保つwindow、比較線V=λ⊗O(o)と同期前の三乗写像を点検した。原点の−3F対6Fからq_V(id³)=−1/2、conormalの一次項−tとWeierstrassの主部−2t⁻³からq(ω³)=−1/v_ω(p)を校正する。普遍被約Hesse表示上で射を一致させ、降下後に非被約底を含めて引き戻す。
+- **内在的な積核と比較stack：** mbic節を統合担当と別担当が全文読解し、第三担当もscalar・Γ慣性・非捩れ積表示を監査した。τ_z=θ_zの向き、対角liftの消去、積cocycle、PからBへの実核の降下、独立な偏極twistの両側相殺、全O認識開の適用範囲、順序なし相対rotation比較を確認した。核stackの降下と大域切断、個々のrotationの降下は区別する。
+- **非同種因子の全中心同変核：** mbfc節を執筆担当以外も全文読解した。Orlov完全列のblock分解、外積の核が総和零shiftのみであること、三次周期による因子shiftの排除、K上への幾何型と総対角核の降下を点検した。個々のδ_iの消滅を仮定せずα=Σδ_iを保持し、全coherent H構造の差をHom(H,Gm)=Gで分類する。pushforward規約のν=[c_g]、非零ν例、固定Hesse levelでのν消滅と全型最小3^(k−1)／3^kを確認した。中心標識を忘れた核・同種因子・任意非被約底の全型stackは含めない。
+- **一次資料：** Orlov著者版Propositions2.15・3.2–3.3とTheorem4.14、Artebani–Dolgachev刊行版§4 pp246–247を直接確認した。独立担当はBergh–Schnürer刊行版Propositions4.10・5.7、Corollaries4.12・5.9、Romagny Theorem5.1、Stacks0DMEも直接照合した。SilvermanのWeierstrass変換則は既存参照を用い、本文で変換を直接計算した。今回の書籍PDF再取得はtimeoutであり、新たに全該当本文を再読したとは扱わない。
+- **厳密計算：** `python3 computations/verify_multiblock_hesse_phase.py` を実行し、二つの中心正則化chart、原点の三次jet、dX/ω=V、Weierstrass式とqV=−1、原点係数、Hesse生成元の方程式保存、g(f)=af・g³=aIの全五組が成功した。SymPy 1.14.0の有理式・多項式計算であり、圏比較・降下・最小次数の形式証明ではない。既存の他の計算器は今回再実行していない。
+- **ソース整合・組版・表示確認：** `scripts/check_sources.py` は62個のTeXソース、1220個の一意ラベル、831個の参照先、146個の引用キーの整合を確認した。`git diff --check` は成功。確定原稿を `latexmk -lualatex papers/nc-cubic.tex` で組版し、終了コード0、555ページ・3,932,799 bytesのPDFとSyncTeXを生成した。最終ログに未定義参照・重複ラベル・欠落文字・overfull/underfull box・LaTeXエラーはない。既存の数式フォント寸法代替7件とその集約、旧font命令rmの警告は残る。概要と新しい主要主張の14ページ（1, 2, 227–231, 234–237, 240, 242, 244）を画像化して目視し、数式・参照・改頁に具体的な崩れは見られなかった。全555ページを目視検査したわけではない。
 
-現行の中心線比較・体上の直接外積・中心完全交叉・中心thickening・全AutD・全G=K・根分類・全O相対認識、scalar/有限中心作用・表示障害・compact残余降下・相対可換perfect核・同期の実現条件の有効な証明と既存の独立点検を保持する。今回その全証明を再監査したという意味ではない。外部量子化稿・三様体稿も一括再監査していない。Lean等の形式証明と外部査読は未実施。
+既存の有効な証明・検算を保持するが、今回その全証明を再監査したわけではない。外部量子化稿・三様体稿も一括再監査していない。Lean等の形式証明と外部査読は未実施で、新規性の網羅的調査も未完了。
 
 ## 保持する数学的点検の範囲
+
+
+### 相対積・Picard型の既存点検
+
+- **相対noetherian性と実window：** mbrn節の全証明を執筆担当以外も読解した。訂正済みKeeler Theorem1.5の相対nef版消滅を用い、全kの多重評価イデアルの安定、非平坦な評価加群の射影公式、有限幅の端の帰納、中心正則列のfiltrationを確認した。任意noetherian基底のnoetherian性と、正則基底での有限大域次元・BSの適用は別段階である。BS Definition5.1とRemark5.2がcohomological shiftとinjective dimensionの一致を要求しないことを一次資料で照合した。
+- **相対非可換積核・任意底変更：** 関係直線を保持した有限Koszul–Shamash解消、Tor二段の連結射、Γ-Hom、有限生成対象、K-flatなHom模型、実windowと外積、有限群双対化を内部で独立点検した。構成済みMorita核とcompact/Perf模型の非平坦・非被約底変更まで確認する。元のsmooth affine基底でのcoherent飽和は別に証明し、非正則底での全Dbcohや全coherent MFへの同値は主張しない。
+- **Picard型のscalar・位相・kernel stack：** mbpd節を統合担当と別担当が全文読解した。外積bandの積によるα_Pic=Σδ_i、Hom比較直線とHodge線の同定、c4/c6の重みによる単元表示、対角μ3商Dと積torsor T、G-marked Picard型kernel stack G_Pic×DとG_Pic×Tを点検した。共通位相は比作用から消えるが、rotationの指定周期に残る。中心作用を忘れた全核の分類とはしない。
+- **自然な二捩れ境界と最小位相次数：** mbrnの一因子補足とmbpdの境界証明を執筆担当以外も独立読解した。最上syzygy線Pのままの相対双対・window、a=bでのΩ_H非零、自然targetの3dF_H、周期の逆尺度変換から剰余+1を確認した。交代化P→detWは境界で使わない。有限型函数体C(d_1,…,d_k)とその完備局所例で、付値剰余行列が単位行列となり、指定Picard型・中心作用付きの最小位相次数3^(k−1)、rotation/period付き3^kを証明した。全核型や全上界3^(2k−1),3^(2k)の最小性は主張しない。
+- **一次資料：** Keelerの訂正済みarXiv:math/0108068v5のTheorem1.5（p3）、Definition2.9（p5）、Proposition7.2・Lemma7.6（pp30–31）、erratum TheoremE2.5（p40）を本文で確認した。Burke–Stevenson公刊版Definition5.1・Remark5.2（p110）とTheorem6.4（p115）、Smith–Tate §1（pp19–21）の位数二を除外しないSklyanin・中心商の記述を照合した。Silverman III§1 Table3.1（p45）のc4,c6,微分の変換則は原著PDFを対象とする検索抽出で確認した（PDF全体の直接取得はタイムアウト）。本文の使用はこの変換則に限る。既知の相対Fujita・Orlov・Picard/Kummer・同変化理論と本稿の適用を区別し、新規性の網羅的確認は未完了。
+
 
 以下は分割前から保存されている有効な証明点検・文献比較・厳密検算であり、上の今回実行した内容とは区別する。仮定と結論は現行本文に保持する。
 

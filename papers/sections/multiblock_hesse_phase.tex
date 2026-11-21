@@ -1,0 +1,438 @@
+% !TEX root = ../nc-cubic.tex
+\section{Hesse 中心の正則化と一因子周期の全係数}
+\label{mbhp:sec:hesse-phase}
+
+本節では、補題\ref{mbpd:lem:hodge-line}の比較直線と、
+定理\ref{mbpl:thm:global-line-comparison}の自然な関係直線同期を用いる。
+その指定周期の三乗写像を、Jacobian 上の Weierstrass 奇函数によって計算する。
+中心元の既知の Hesse 式を使うが、中心直線の flex における正則化、
+比較の原点での規格化、および周期 torsor の全係数の決定が本節の内容である。
+以下の境界への延長は計算のための一因子模型であり、
+全 $\OO$ 認識の領域を境界へ広げる主張ではない。
+
+\subsection{固定した Hesse 曲線上の中心直線}
+
+$K\supset\C$、$\mu^3\ne1$ とし、
+\[
+ E=V(F_\mu),\qquad
+ F_\mu=x^3+y^3+z^3-3\mu xyz,\qquad
+ o=(1:-1:0),\qquad L=\OO_E(1)=\OO_E(3o)
+\]
+を固定する。平行移動点のパラメータ曲線を $P=E$ と書く。
+$p=(a:b:c)\in P$ に対し、族 $\mathcal S$ の関係は
+\[
+ cx^2+ayz+bzy,\qquad cy^2+azx+bxz,\qquad cz^2+axy+byx
+\]
+である。関係の共通 scalar を除いたこの表示は $P$ 上の関係部分束を定める。
+以下、$x,y,z$ は代数の生成元、$a,b,c$ はパラメータである。
+$C=x^3+y^3+z^3$、$U=xyz+yzx+zxy$、
+$V_0=xzy+zyx+yxz$ と書く。
+
+\begin{lemma}[九つの flex を含む中心直線の正則化]
+\label{mbhp:lem:regularized-center}
+中心式\eqref{mbpl:eq:hesse-center}について、
+$abc\ne0$ 上の
+\begin{equation}\label{mbhp:eq:regularized-center}
+ \widetilde\Omega=\frac{\Omega_H}{abc}
+\end{equation}
+は、$P$ 全体で非零な切断
+$\mathcal S_3\otimes\OO_P(1)$ に延長する。
+その像は直線部分束
+\[
+ \mathcal C\simeq\OO_P(-1)=\OO_P(-3o)\longrightarrow\mathcal S_3
+\]
+であり、全幾何ファイバーで中心正則三次を与える。
+その商は $(E,L,t_p)$ の相対 THCR である。
+点方程式の固定直線を
+$\mathcal J=KF_\mu\otimes\OO_P$ とすると、基本開の自然な比較は
+束の射
+\begin{equation}\label{mbhp:eq:extended-theta}
+ \vartheta:\mathcal C\longrightarrow\mathcal J,\qquad
+ \vartheta(\widetilde\Omega)=3(a-b)F_\mu
+\end{equation}
+へ延長する。その零因子は
+$E[2]\setminus\{o\}$ の三つの点の和である。
+\end{lemma}
+\begin{proof}
+各ファイバーは、非 flex では通常の滑らかな楕円 Sklyanin 代数である。
+通常の AS-regular 性の例外十二点は、三つの座標頂点と
+$a^3=b^3=c^3$ の九点であり、$\mu^3\ne1$ の $E_\mu$ 上にはない。
+flex では $p\in E[3]$ なので $t_p^*L\simeq L$ であり、
+$t_p$ は $H^0(E,L)$ 上の線型持上げを持つ。
+この持上げによる $\operatorname{Sym}H^0(E,L)$ の Zhang twist を取る。
+平面三次の次数二イデアルは零なので、その二次関係は
+$(E,L,t_p)$ の幾何二次関係そのものである。
+従って $a=0$、$b=0$、$c=0$ の全九 flex で、
+$\mathcal S_p$ はこの多項式環の Zhang twist に一致する。
+特に全ファイバーは三次元 quadratic AS-regular domain であり、
+Hilbert 級数は $(1-t)^{-3}$ である
+\cite[Theorems~6.6, 6.8]{GRSklyaninATV}
+\cite[Section~1]{GRSklyaninST}。
+有限関係行列の階数は各次数で一定なので、
+滑らかな被約曲線 $P$ 上の $\mathcal S_n$ は局所自由である。
+この議論は中心商の幾何を先に仮定していない。
+
+次数三の不変関係は
+\[
+ cC+aU+bV_0=0
+\]
+である。$b\ne0$ で $V_0$ を消去し、
+$a^3+b^3+c^3=3\mu abc$ を用いると
+\begin{equation}\label{mbhp:eq:division-certificate}
+ \Omega_H
+   =3ac\bigl((a^2-\mu bc)C+(\mu ab-c^2)U\bigr)
+       \quad\text{in }\mathcal S_3
+\end{equation}
+を得る。従って
+\begin{equation}\label{mbhp:eq:regular-chart}
+ \widetilde\Omega
+   =\frac3b\bigl((a^2-\mu bc)C+(\mu ab-c^2)U\bigr).
+\end{equation}
+$a\ne0$ では $U$ を消去して
+\[
+ \widetilde\Omega
+   =-\frac3a\bigl((b^2-\mu ac)C+(\mu ab-c^2)V_0\bigr)
+\]
+を得る。$\{a\ne0\}$ と $\{b\ne0\}$ は $P$ を覆うので、
+この二式は九つの flex の全てを含む。
+これらは稠密開で一致するため、局所自由な $\mathcal S_3$ 上で貼り合わさる。
+係数は $(a,b,c)$ に関して斉次次数一であり、
+正確には $\mathcal S_3\otimes\OO_P(1)$ の切断を得ている。
+ここでの除算は $\mathcal S_3$ 内の恒等式である。
+パラメータ torsion を持ち得る最大可換商の次数三で
+$abc$ を消去しているのではない。
+
+$c=0$、$b=-\zeta a$、$\zeta^3=1$ では
+\[
+ \widetilde\Omega=-3a\zeta^{-1}C+3\mu aU.
+\]
+補題\ref{mbpl:lem:hesse-center}の不変部分の計算はこの点でも適用でき、
+唯一の不変関係は $aU+bV_0$ である。
+よって $C,U$ はその商で独立であり、上の元は非零である。
+非 flex では同補題の非零性の証明を用いる。
+$a=0$ では
+$\widetilde\Omega=-3\mu cC-3c^2U/b$ であり、
+唯一の不変関係は $cC+bV_0$ なので非零である。
+$b=0$ では
+$\widetilde\Omega=3\mu cC+3c^2V_0/a$、
+唯一の不変関係は $cC+aU$ であり、やはり非零である。
+既知の中心式
+\cite[Section~2, p.~3]{GRSklyaninDLL}
+\cite[p.~35, Remark~(1)]{GRSklyaninST}
+と $\mathcal S_4$ の局所自由性により、
+中心性は稠密開から全体に延長する。
+各ファイバーが domain であるため、非零中心元は正則である。
+
+幾何的関係の評価は $\mathcal S$ から相対 THCR への射を与える。
+THCR の各次数は局所自由であり、$\widetilde\Omega$ の像は稠密開で零なので
+全体で零である。次数三の核は階数一で、
+上で得た非零中心元がこれを生成する。
+中心正則性による商の Hilbert 級数と THCR の Hilbert 級数は一致する。
+評価の次数一生成性から全射であり、従って全次数で同型となる。
+
+$F_H=abcF_\mu$ なので、
+式\eqref{mbpl:eq:hesse-comparison}は
+式\eqref{mbhp:eq:extended-theta}を与える。
+この射は $\OO_P(-1)\to\OO_P$ という斉次性とも整合する。
+$o$ を原点とする反転は $(a:b:c)\mapsto(b:a:c)$ である。
+その固定点は $o$ と直線 $a=b$ の三交点であり、
+標数零の滑らかな楕円曲線の二捩れ点は被約である。
+従って主張した零因子を得る。
+\end{proof}
+
+この族への相対 window の適用には
+系\ref{mbrn:cor:factor-boundary}を用いる。
+ここで $\mathcal C$ は指定した THCR 商の核の直線であり、
+中心の次数三全体の次元が境界でも一であるとは主張しない。
+特に最上 Koszul syzygy 直線は実際の
+$(W\otimes R_2)\cap(R_2\otimes W)$ のまま保持する。
+二捩れ点で退化することのある $\det W$ への交代化は使わない。
+中心商、有限 Koszul 模型、指定周期はこの補題の全パラメータ上で存在する。
+
+\subsection{比較直線の原点を含む延長}
+
+以下の符号規約を固定する。
+対角の余法束の同型は
+\begin{equation}\label{mbhp:eq:conormal-sign}
+ I_\Delta/I_\Delta^2\longrightarrow\Omega^1_E,\qquad
+ \overline{\operatorname{pr}_2^*f-\operatorname{pr}_1^*f}\longmapsto df
+\end{equation}
+とする。これが補題\ref{mbpd:lem:hodge-line}の同型の符号を定める。
+
+\begin{lemma}[比較直線と同期前の三乗写像]
+\label{mbhp:lem:global-comparison-line}
+$E_x\times P$ 上の線束
+$M=\OO(\{x=p\}-\{x=o\})$ を用い、$F_M=-\otimes M$ とする。
+$R_p=T_{\OO_E}(t_p)_*(-\otimes L)$、
+$R_0=T_{\OO_E}(-\otimes L)$ に対する比較射の直線 $\mathcal V$ は、
+$p=o$ を含めて
+\begin{equation}\label{mbhp:eq:global-lines}
+ \mathcal V\simeq\lambda\otimes\OO_P(o),\qquad
+ \widetilde q:\mathcal V^{\otimes3}
+       \xrightarrow{\sim}\mathcal J\otimes\mathcal C^\vee,
+ \qquad \lambda=H^0(E,\Omega_E^1)
+\end{equation}
+を満たす。
+$p\ne o$ 上の $\mathcal V\simeq\lambda$ は
+補題\ref{mbpd:lem:hodge-line}のものと一致する。
+$\vartheta$ で同期し、標準切断による
+$\lambda\to\lambda\otimes\OO_P(o)$ を三乗して得る
+有理写像 $q:\lambda^{\otimes3}\dashrightarrow\OO_P$ の因子は
+\begin{equation}\label{mbhp:eq:period-divisor}
+ \operatorname{div}(q)=3[o]
+       -\sum_{\tau\in E[2]\setminus\{o\}}[\tau].
+\end{equation}
+\end{lemma}
+\begin{proof}
+$E_x\times E_y\times P$ 上で $\Delta=(y=x)$、
+$\Gamma=(y=x+p)$ と置く。
+式\eqref{mbpd:eq:kernel-ratio}と同じ計算により、核の比は
+\[
+ N=\OO(\Gamma-\Delta)\otimes
+       \operatorname{pr}_{x,p}^*M\otimes
+       \operatorname{pr}_{y,p}^*M^{-1}
+\]
+である。$p\ne o$ では相対 Picard intertwiner の計算を使い、
+$p=o$ では二つの核と $M_o=\OO_E$ が一致する。
+従って全パラメータで $N$ のファイバーは自明な線束である。
+proper cohomology と底変更、または同じ相対 intertwiner の構成により、
+$g:E\times E\times P\to P$ に対して
+$\mathcal V=g_*N$ は直線束、$g^*\mathcal V\to N$ は同型となる。
+ここでは滑らかな被約のパラメータ曲線上で証明しており、
+非被約底上の結論を幾何ファイバーの一致だけから出していない。
+
+対角上では二つの $M$ は標準的に相殺する。
+$\Gamma$ と $\Delta$ の交わりは正確に $p=o$ なので、
+\[
+ N|_{\Delta\times P}
+     \simeq\Omega_E^1\boxtimes\OO_P(o).
+\]
+これが $\mathcal V$ の主張を与える。
+$p\ne o$ では $\OO_P(o)$ の標準切断で自明化するため、
+既存の Hodge 同型とも一致する。
+
+中心商の相対 window は、まだ同期していない二つの指定周期
+\[
+ R_p^3\simeq[2]\otimes\mathcal C,\qquad
+ R_0^3\simeq[2]\otimes\mathcal J
+\]
+を与える。比較射を三回合成してこれらを適用すると、
+$\mathcal V^3\to\mathcal J\otimes\mathcal C^\vee$ を得る。
+各ファイバーで比較射と周期はいずれも可逆なので、この写像は同型である。
+これは系\ref{mbrn:cor:factor-boundary}の実際の window 周期であり、
+途中で scalar を取り替えたものではない。
+$\vartheta$ は $\mathcal J\otimes\mathcal C^\vee$ の切断であるから、
+同期後の $q$ は $\widetilde q$ をこの切断で割った写像になる。
+$\lambda\to\mathcal V$ の零因子は $[o]$、
+$\vartheta$ の零因子は前補題の三つの二捩れ点である。
+これから式\eqref{mbhp:eq:period-divisor}を得る。
+\end{proof}
+
+\subsection{Weierstrass 奇函数による全係数}
+
+楕円曲線の原点付き Weierstrass 表示と微分を
+\[
+ y^2+a_1xy+a_3y=x^3+a_2x^2+a_4x+a_6,\qquad
+ v_\omega=2y+a_1x+a_3,\qquad \omega=dx/v_\omega
+\]
+と書く。この表示とその座標変換則には
+\cite[Chapter~III, \S1, Table~3.1; \S5]{NFMSilvermanArithmetic}
+を用いる。$v_\omega$ は反転で符号を変え、因子は
+\[
+ \operatorname{div}(v_\omega)
+   =\sum_{\tau\in E[2]\setminus\{o\}}[\tau]-3[o]
+\]
+である。
+
+\begin{theorem}[自然な同期に対する一因子周期の全係数]
+\label{mbhp:thm:period-formula}
+式\eqref{mbhp:eq:conormal-sign}の規約を用いる。
+定理\ref{mbpl:thm:global-line-comparison}の自然な同期に対し、
+補題\ref{mbpd:lem:hodge-line}の三乗写像は
+\begin{equation}\label{mbhp:eq:period-formula}
+ q(\omega^{\otimes3})=-\frac1{v_\omega(p)}.
+\end{equation}
+これは $p,2p,3p\ne0$ の全基本楕円開上の式であり、
+普遍族からの任意の許された底変更に両立する。
+より内在的には、
+$\mathfrak v(p)=v_\omega(p)\omega^{\otimes3}$
+という $\lambda^{\otimes3}$ の可逆切断について
+$q(\mathfrak v(p))=-1$ である。
+\end{theorem}
+\begin{proof}
+まず固定した $E_\mu$ 上で証明する。
+前補題の因子公式により、
+$q(\omega^{\otimes3})v_\omega$ は $p$ に依存しない非零定数である。
+その値を原点で求める。
+$a=1,b=-1,c=0$ では代数は可換多項式環であり、
+式\eqref{mbhp:eq:regular-chart}から
+\begin{equation}\label{mbhp:eq:origin-curvatures}
+ \widetilde\Omega_o=-3C+3\mu U=-3F_\mu,\qquad
+ \vartheta(\widetilde\Omega)_o=6F_\mu
+\end{equation}
+となる。ここでは可換代数の中で $U=3xyz$ である。
+曲率を $f$ から $cf$ へ変えると指定周期は
+$\pi_{cf}=c^{-1}\pi_f$ となる
+（命題\ref{prop:nfm-period-equation-frame-change}）。
+原点では両側の商代数と window の section 切断が同一であり、
+$M_o=\OO_E$ の標準自明化により比較射は恒等射 $\eta_o$ である。
+従って、同期済みだが $\mathcal V_o$ 上で評価した三乗写像は
+\begin{equation}\label{mbhp:eq:origin-cube}
+ q_{\mathcal V,o}(\eta_o^{\otimes3})
+        =\frac{1/6}{-1/3}=-\frac12.
+\end{equation}
+同一の quotient/window に二つの方程式 frame を入れた比較なので、
+ここに未指定の window scalar はない。
+
+Weierstrass の局所径数を $t=-x/y$ とすれば
+\[
+ \omega=dt+O(t)\,dt,\qquad
+ v_\omega=-2t^{-3}+O(t^{-2}).
+\]
+$\lambda\to\mathcal V$ の一次項も必要である。
+曲線上の原点とは異なる点の局所座標を $u$、出力座標を $z$ とし、
+平行移動を
+$z=u+A(u)t+O(t^2)$、$\omega=du/A(u)$ と書く。
+この近傍では $M$ の標準有理切断を用い、
+核の比線束の局所 frame を
+\[
+ e=\frac{z-u}{z-u-A(u)t+O(t^2)}
+\]
+と取れる。$t=0$ でこれは恒等射 $\eta_o$ に一致する。
+対角上で分子の余法類を式\eqref{mbhp:eq:conormal-sign}により $du$ へ送り、
+分母を $-A(u)t+O(t^2)$ へ制限すると、
+$\mathcal V\to\lambda$ の有理同型は
+$e\mapsto-\omega/t+O(1)$ となる。
+従って逆向きの正則射は
+\[
+ \omega\longmapsto-t\eta_o+O(t^2).
+\]
+式\eqref{mbhp:eq:origin-cube}と合わせて
+$q(\omega^3)=t^3/2+O(t^4)$ を得る。
+$v_\omega$ の主部を掛ければ定数は $-1$ となり、
+式\eqref{mbhp:eq:period-formula}が従う。
+
+この議論をまず $K=\C(\mu)$ に適用する。
+滑らかな普遍 Hesse 被覆上では両辺は正則な線束の射であり、
+稠密な一般点での一致は全基本開上の一致を与える。
+中心線比較と window は表示の同型に自然である。
+また Weierstrass 座標変更
+$x=u^2x'+r$、$y=u^3y'+su^2x'+t_0$ に対して
+$v_\omega=u^3v_{\omega'}$、$\omega=u^{-1}\omega'$ なので、
+$v_\omega\omega^3$ は不変である。
+従って普遍 Hesse 被覆の重なりでも式は一致し、
+補題\ref{mbpl:lem:hesse-cover}の fpqc 降下により
+全基本楕円族の式となる。
+最後にこの普遍族上の射の等式を引き戻す。
+これにより非被約な底変更にも対応し、
+任意底上で幾何点だけを比較する議論を避けている。
+\end{proof}
+
+\begin{corollary}[全基本開上の Kummer torsor]
+\label{mbhp:cor:global-kummer}
+原点を選ばない genus-one 曲線族についても、
+Jacobian $J=\Pic^0(E/S)$ とその点 $p$ を用いて
+$\mathfrak v(p)\in\Gamma(S,\lambda^{\otimes3})^\times$ が内在的に定まる。
+自然な同期に対する因子周期 torsor は
+\begin{equation}\label{mbhp:eq:cube-torsor}
+ T\simeq\{\xi\in\lambda^\times:
+              \xi^{\otimes3}=\mathfrak v(p)\}.
+\end{equation}
+特に Hodge frame $\omega$ を選んだ底上で
+\[
+ \gamma=[v_\omega(p)]\in H^1(S,\mu_3).
+\]
+この記述は因子の同型、共通 grading scalar、
+中心生成元とその自然な像の同時変更、および任意底変更に不変である。
+\end{corollary}
+\begin{proof}
+$E$ と $J$ の Hodge 線は標準的に一致する。
+Weierstrass 変換則により $\mathfrak v$ は Jacobian 上で定義され、
+原点と非零二捩れ点を除けば可逆である。
+定理の式より、周期適合条件 $q(\eta^3)=1$ は
+$\eta^3=-\mathfrak v(p)$ に等しい。
+$\xi=-\eta$ とすれば式\eqref{mbhp:eq:cube-torsor}を得る。
+これは $\mu_3$-同変である。
+Hodge frame の変更は函数を三乗倍するだけであり、
+中心方程式の同時変更は二つの周期を同じ比で変更する。
+その他の自然性は普遍族上の構成と前定理の降下による。
+\end{proof}
+
+\begin{corollary}[Hesse 座標での有理式]
+\label{mbhp:cor:hesse-expression}
+$a=1$ の chart 上で
+$\omega_H=dc/(3b^2-3\mu c)$ と置く。
+これは $E_\mu$ の不変微分であり、
+$l=a+b+\mu c$ と書けば
+\begin{equation}\label{mbhp:eq:hesse-phase}
+ \begin{split}
+ v_{\omega_H}(p)&=
+       9(1-\mu^3)\frac{a-b}{a+b+\mu c},\\
+ q(\omega_H^{\otimes3})&=
+       \frac{a+b+\mu c}{9(\mu^3-1)(a-b)},\\
+ \gamma&=\left[
+       9(1-\mu^3)\frac{a-b}{a+b+\mu c}\right].
+ \end{split}
+\end{equation}
+\end{corollary}
+\begin{proof}
+直線 $l=0$ は $o$ における接線であり、$E$ 上の因子は $3[o]$ である。
+したがって $(a-b)/l$ は $v_{\omega_H}$ と同じ因子を持つ。
+原点近傍で Hesse 方程式を解くと
+\[
+ b=-1-\mu c+\frac{\mu^3-1}{3}c^3+O(c^4),\qquad
+ l=\frac{\mu^3-1}{3}c^3+O(c^4),\qquad
+ \omega_H=(1/3+O(c))\,dc.
+\]
+$t=c/3+O(c^2)$ に対する主部
+$v_{\omega_H}=-54c^{-3}+O(c^{-2})$ から係数が決まる。
+
+別の直接検算として
+\[
+ X=\frac{3(\mu^3-1)c}{l},\qquad
+ V=\frac{9(1-\mu^3)(a-b)}{l}
+\]
+を用いれば、Hesse 方程式の剰余として
+\[
+ \frac{dX}{\omega_H}=V,\qquad
+ V^2=4X^3-27\mu^2X^2+
+       54\mu(\mu^3-1)X-27(\mu^3-1)^2
+\]
+が成立する。従って $Y=V/2$ は
+$\omega_H=dX/(2Y)$ の Weierstrass 表示を与える。
+残りの式は前定理と前系による。
+\end{proof}
+
+\begin{corollary}[既存の単元表示と境界剰余]
+\label{mbhp:cor:unit-and-residue}
+$j\ne0,1728$ 上で $h=c_6/c_4\in\lambda^2$ と置くと、
+系\ref{mbpd:cor:unit-phase}の単元と frame は
+\[
+ u=\frac{h^3}{\mathfrak v(p)^2},\qquad
+ e=-\frac{h^2}{\mathfrak v(p)}
+\]
+である。Hodge frame に関する $h=H\omega^2$、
+$\mathfrak v=V\omega^3$ では
+$[u]=[H^3/V^2]=[V]=\gamma$ となる。
+また良い還元を持つ一径数族で $p$ が非零二捩れ因子と横断的に交われば、
+自然な位相の Kummer 剰余は $+1\in\mathbb Z/3$ である。
+\end{corollary}
+\begin{proof}
+$q(\mathfrak v)=-1$ を
+$e=(q\otimes\mathrm{id})(h^2)$、$u=q^{\otimes2}(h^3)$ へ代入する。
+剰余の主張は $v_\omega$ が非零二捩れ点で単純零を持つことによる。
+従って命題\ref{mbpd:prop:boundary-phase}の非零剰余と一致する。
+\end{proof}
+
+本節が決定したのは、自然な関係直線同期に対する一因子の
+Picard 補正周期である。
+これを積に適用する際の scalar gerbe、対角位相商、
+および選んだ比較核型の条件は定理\ref{mbpd:thm:coherent-corrections}に従う。
+この有理式だけから全核型を同定したり、
+表示 gerbe や比較核の大域実現障害が消えると結論したりはしない。
+
+中心の除算恒等式、Hesse--Weierstrass 変換、原点での形式展開、および
+関連する period multiplier の例の有限多項式計算は
+\texttt{computations/verify\_multiblock\_hesse\_phase.py} で再検算できる。
+この計算は係数と恒等式を確認するものであり、
+window による圏比較、Hom 直線、または fpqc 降下の機械的証明ではない。

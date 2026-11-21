@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月21日 / v38。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月21日 / v39。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 完備MF移送、一般中心三次変形の可換復元、良い一ブロックのO-markedモジュライ、満支持複数ブロック型の全O局所型モジュライ・余法加群による幾何点認識・点曲線積への相対同変比較、残余Poisson射、Kuznetsov成分の比較核と算術的降下障害を扱う。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
 
@@ -66,14 +66,16 @@
 - [相対非可換積の実核](papers/sections/multiblock_relative_noncommutative.tex)：滑らかな準射影C基底の順序付き実表示で、`Ku_compact(A/S)^(Z_0)≃Perf(∏_S E_i)` を実perfect Morita核と逆核として構成する。相対tensor-noetherian性、有限Koszul–Shamash外積、window、perfect Homと生成性を証明し、共通関係直線・指定周期・因子rotation・coherent中心作用を保つ。compact圏はsmooth properであり、任意の準コンパクト・分離的noetherian底変更（非平坦・非被約を含む）に両立する。元の滑らかなaffine底では全coherent飽和も証明した。非正則底の全Db(coh)への同定は含めない。一因子の正則底windowは最高次Koszul syzygy直線を保持し、非零二捩れ点の境界模型にも適用する。
 - [Picard補正と固定点の有限比較](papers/sections/multiblock_rotation_comparison.tex)：因子rotationを点の実線束で共役し周期差を三乗根で補正する。順序付き実表示は次数高々 `3^(2k)` の有限拡大後に自然標的の通常Kuと中心作用・rotation・指定周期付きで比較できる。代数閉体上は全基本点で拡大不要。rotationを標識せず中心作用を保つ比較では、下記の相対Picard分類により上界を `3^(2k−1)` に改良した。これらの全上界の最小性は未証明。
 - [Picard補正型の相対降下](papers/sections/multiblock_picard_descent.tex)：積のPicard gerbe `G_Pic` の類は `α_Pic=Σδ_Ei(p_i)`。各因子の指定周期torsorを `T_i` とし、`T=∏T_i`、`D=T/Δμ_3` と置くと、中心作用を保つPicard型の核stackは `G_Pic×D`、さらにrotation・指定周期を保つものは `G_Pic×T` となる。個々のPicard障害が非零でも和は消え得る。核のAutはperiod標識後もG_mであり、このscalar gerbeは全ての比較核を分類するものではない。
-- **Hodge直線と位相単元。** 同じPicard節で、因子比較直線を `λ_i=π_*Ω¹_Ei/S`、周期を `q_i:λ_i³≃O` と同定した。`j_i≠0,1728` の開では `h_i=c6_i/c4_i`、`u_i=q_i^⊗2(h_i³)` により `γ_i=[u_i]` を得る。中心作用付きのPicard型が降下する条件は `α_Pic=0` かつ全 `γ_i` が等しいこと、rotation・指定周期まで保つ条件は `α_Pic=0` かつ全 `γ_i=0`。qの一般係数そのものは未決定である。
-- **自然な二捩れ境界と最小位相次数。** Hesse族 `(a,b,c)=(1+d,1,c)` ではPicard障害が零でも、自然な同期 `θ(Ω_H)=3dF_H` による位相は `γ=[d]`、二捩れ境界のKummer剰余は+1となる。独立なk因子の境界族では、指定Picard補正型の最小比較次数は中心作用付きで `3^(k−1)`、さらにrotation・指定周期付きで `3^k`。同じ最小次数は有限型函数体 `C(d_1,…,d_k)` 上にも成立する。これは実線束を既に持つ位相段階の鋭さであり、一般上界 `3^(2k−1)`・`3^(2k)` の最小性や、他の核型の不存在を主張しない。
+- [自然な周期の全係数](papers/sections/multiblock_hesse_phase.tex)：比較直線はHodge線λであり、自然な同期では `q(ω³)=−1/v_ω(p)`、`γ=[v_ω(p)]`。`v_ω=2y+a₁x+a₃` はJacobianの奇Weierstrass座標で、`v_ω(p)ω³∈λ³` は内在的である。Hesseの全九flexで中心を正則化し、原点で周期の定数を校正する。全基本開と許された任意底変更に成立し、一ブロック残余位相の未解決大域式とは区別する。
+- [非同種因子の全比較核](papers/sections/multiblock_full_comparison.tex)：幾何学的に互いに非同種な因子では、全ての中心同変核型のscalar障害は `α=Σδ_i`。偏極自己同型のperiod multiplier `ν_i(φ_i)` を加えた位相が全て等しいことが通常比較の条件、全て零がrotation・指定周期付きの条件となる。一般の体ではνは非零になり得る。固定Hesse levelの独立k変数族では全νが零なので、有限型函数体 `C(d₁,…,d_k)` 上の最小次数は全中心同変核に対して `3^(k−1)`／`3^k`。中心標識を忘れた核・同種因子・一般scalar上界の鋭さは未解決。
+- [比較核の全O降下](papers/sections/multiblock_intrinsic_comparison.tex)：次数ごとのscalarと中心慣性の比較から、相対積核が射影表示Pと中心rigidification Bへ降下し、B上で非捩れ `Perf(∏E_i)` を得る。Picard型核stackと相対rotation・周期比較もBから来て、既存の全O認識開と因子置換に両立する。個々のrotationの非捩れ降下、表示gerbeの中立化、通常比較核の大域切断とは区別する。
+- [周期公式の厳密検算](computations/verify_multiblock_hesse_phase.py)：中心の除算certificate、Hesseの原点jet、微分付きWeierstrass式、Hesse自己同型の方程式保存、非零multiplier例をSymPyの有理式で確認する。圏同値・降下・最小次数の証明は本文による。
 - [中心・点線比較の厳密計算](computations/verify_multiblock_point_line.py)：QQ(t)上のFermat次数四関係行列に加え、Hesse点行列式と `ab(Ω_H)−3(a−b)F_H=(a−b)³Σx_i r_i^ab` を多項式恒等式として検算する。一般Hesse中心性・PBW・圏同値の機械証明ではない。
 - [有限群の指標・表現検算](computations/verify_veronese_representation.py)と[共役類検算](computations/verify_multiblock_twists.py)を保持する。55次元表現の中心固有空間19・18・18、ambient線型normalizerの計算と、今回の紙上の全代数自己同型群の証明を区別する。
 
 基礎となる[点対応](papers/sections/two_block_points.tex)、[中心と自己同型](papers/sections/two_block_algebra.tex)、[表示stack](papers/sections/multiblock_presentations.tex)、[完備比較](papers/sections/two_block_recovery.tex)も保持する。任意の抽象圏変形や全境界を覆う主張ではない。表示gerbeとSerreの基底直線も保持する。
 
-**次のP0**は、構成済みの実表示上の相対核を全O上の比較へ接続し、Picard補正型以外も含む核の型と、自然な同期に対する周期写像qの全係数・他の分岐を決定すること。相対直接積・compact底変更・Picard型の降下条件・二捩れ境界剰余は証明済みとして用いる。全O上の圏と中心作用の降下、比較核stackの降下、指定核の大域切断を区別し、固定型のscalar gerbeだけから全核の不存在を結論しない。Oの像を指定しない全第三根、他の境界、`m=1`への拡張も残る。仮定・証明・具体的着手は[研究方針](00_research_plan.md)、確認範囲は[検証範囲](notes/validation.md)を参照する。
+**次のP0**は、中心標識を忘れた通常Ku比較、同種な因子を混ぜるFourier–Mukai核、scalar障害と位相を同時に消す最小次数である。全基本開の自然な周期式、Picard比較stackの全O認識開への降下、非同種因子の全中心同変核判定は既存入力として使う。核stackの降下と大域切断、中心同変圏と通常残余圏を区別する。Oの像を指定しない全第三根、認識開の境界、`m=1`への拡張も残る。具体的な着手は[研究方針](00_research_plan.md)、実際の確認範囲は[検証範囲](notes/validation.md)を参照する。
 
 **一般次元の O-marked moduli、point scheme、Poisson 多様体のモジュライへの射、Kuznetsov 成分の比較**を中心に進める。各既約成分の general / very general な対象を優先し、次元に一様な定理と族の構成を目指す。general な稠密開と very general な点集合、一ブロックの表示成分と全モジュライの成分は区別する。
 
@@ -180,12 +182,12 @@ Clifford 半 rotation はさらに、関手として O_Cl A≃Aρ⁻¹[1] と同
 
 ## 主要結果と未完成部分
 
-複数ブロックの相対比較と、一ブロックの点型・算術的障害について、次の適用範囲を区別する。複数ブロックの証明は上記の相対非可換積・Picard補正型の節、一ブロックの平面同型の分裂は [点曲線・尺度の本文](papers/sections/residual_point_scale.tex)、点型・full class は [点の平行移動と核の Picard 類の本文](papers/sections/residual_kernel_point.tex)、周期位相の不変量降下は [周期位相の節](papers/sections/residual_period_descent.tex) にある。
+複数ブロックの相対比較・自然な周期・非同種因子の全中心同変核と、一ブロックの点型・算術的障害について、次の適用範囲を区別する。複数ブロックは上記mbhp・mbic・mbfc節を参照する。一ブロックの平面同型の分裂は [点曲線・尺度の本文](papers/sections/residual_point_scale.tex)、点型・full class は [点の平行移動と核のPicard類の本文](papers/sections/residual_kernel_point.tex)、周期位相の未解決大域式は [周期位相の節](papers/sections/residual_period_descent.tex) にある。
 
 | 対象 | 現行稿に証明のある結果 | 証明の入口と限界 |
 |---|---|---|
-| 複数ブロックの相対直接積 | 順序付き実表示上の `Ku_compact(A/S)^Z0≃Perf(∏_S E_i)` を実perfect核として構成。compact比較は任意の準コンパクト・分離的noetherian底変更に両立し、元の滑らかなaffine底では全coherentと一致 | `mbrn:thm:relative-product`、`mbrn:cor:base-change`、`mbrn:cor:regular-coherent`。非正則底の全Db(coh)や全O上の比較核切断は含めない |
-| 複数ブロックのPicard補正型 | 核gerbeの類は `Σδ_Ei(p_i)`。中心作用付きの位相条件は `D=(∏T_i)/Δμ3` の分裂、rotation・周期付きは `T=∏T_i` の分裂 | `mbpd:thm:coherent-corrections`、`mbpd:cor:descent-criterion`。因子比較直線はHodge直線、基本j開では位相は単元類。全核型の分類ではない |
+| 複数ブロックの相対直接積 | 実perfect核と任意noetherian底へのcompact底変更。射影表示・中心rigidification上へ降下し、後者で非捩れ `Perf(∏E_i)` | `mbrn:thm:relative-product`、`mbic:thm:projective-product`、`mbic:prop:rigidified-product`。非正則底の全Db(coh)や通常残余圏自体のB降下は含めない |
+| 複数ブロックのPicard補正型 | 核gerbeは `Σδ_i`、位相は `Cube(v_i(p_i))`。通常／rotation・周期付きの核stackは `G_Pic×D`／`G_Pic×T` として因子stack・全O認識開へ降下 | `mbhp:thm:period-formula`、`mbic:thm:kernel-stack`。stackの降下と大域切断は別 |
 | 自然な二捩れ境界の独立位相 | 剰余+1の独立なk位相を実現。Picard型の最小比較次数は中心作用付きで `3^(k−1)`、さらにrotation・周期付きで `3^k`。有限型函数体 `C(d_1,…,d_k)` でも同じ | `mbpd:prop:boundary-phase`、`mbpd:cor:phase-independence`。Picard gerbeは既に中立。位相段階の最小性であり、任意の核型への下界ではない |
 | 全基本実表示の体上比較 | 通常Kuの中心作用付き比較は次数高々 `3^(2k−1)`、さらにrotation・指定周期付きなら高々 `3^(2k)` の有限拡大で存在 | `mbpd:cor:field-degree`、`mbrc:thm:finite-point-comparison`。順序付き実表示が入力。全上界の最小性は未証明 |
 | 全 active Fourier–Mukai 同値 | 実次数三偏極を持つ任意の標的曲線 C への intertwiner の存在は、偏極同型 E→C と δ_E(p)=0 に同値 | `cor:nfm-elliptic-any-intertwiner-criterion`、`prop:nfm-elliptic-intertwiner-gerbe`。追加の周期標識は別の μ₃-torsor。full 核の分類ではない |
@@ -271,6 +273,7 @@ python3 scripts/check_sources.py
 python3 computations/verify_two_block_structure.py
 python3 computations/verify_multiblock_twists.py
 python3 computations/verify_multiblock_point_line.py
+python3 computations/verify_multiblock_hesse_phase.py
 python3 computations/verify_center_hessian.py
 python3 computations/verify_geometric_corrections.py
 python3 computations/verify_active_invariants.py
