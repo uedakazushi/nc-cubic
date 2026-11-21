@@ -1,0 +1,670 @@
+% !TEX root = ../nc-cubic.tex
+\section{積 Picard 補正型の核 gerbe と相対周期位相}
+\label{mbpd:sec:picard-descent}
+
+本節では、点曲線の各 $p_i$ を次数零線束で表すという
+定理\ref{mbrc:thm:finite-point-comparison}の構成を、族の上で分類する。
+分類するのは積表示上で対角線に支持される Picard 補正型であり、
+任意の残余比較核の分類ではない。
+この型について、scalar gerbe は因子の Picard 障害の和となる。
+双対群作用の比較には因子周期位相の差が現れ、
+rotation 自体の比較にはさらに共通位相が残る。
+これらは Picard gerbe、Kummer 理論、有限双対同変化という既知の一般論の適用であり、
+本節の相対比較への適用について初出の網羅的な確認はしていない。
+
+\subsection{相対模型と分類する局所型}
+
+$S$ を滑らかな準射影有限型 $\C$-scheme とし、$k\geq2$ とする。
+順序付き実表示の点データ
+\[
+ f_i:E_i\longrightarrow S,\qquad
+ L_i=\OO_{E_i}(1),\qquad p_i\in J_i(S),\qquad
+ J_i=\operatorname{Pic}^0_{E_i/S}
+\]
+を固定する。各 $f_i$ は滑らかで固有、幾何学的に連結な genus-one 曲線族であり、
+$L_i$ の相対次数は三である。
+基本楕円開の条件、とくに $p_i,2p_i,3p_i\ne0$ を課す。
+さらに
+\[
+ Y=\prod_{i=1}^k{}_S E_i,\qquad
+ G=Z_0=(\mu_3^k)/\Delta\mu_3,
+ \qquad H=\widehat G
+\]
+と置く。以下の核は相対 perfect 核または可逆 perfect dg 双加群であり、
+すべての同型・作用には dg coherence を含める。
+
+相対模型への入力を明示しておく。
+定理\ref{mbrn:thm:relative-product}と
+定理\ref{mbrp:thm:relative-product}の構成により、実際の $S$-線型圏
+$\mathcal C_p,\mathcal C_0$ と、作用を保持する積表示
+\begin{equation}\label{mbpd:eq:relative-models}
+ \mathcal C_p^G\simeq\Perf(Y/S)\simeq\mathcal C_0^G
+\end{equation}
+を固定する。
+非可換側は compact 残余圏、可換側は自然な点三次族の perfect 残余圏である。
+命題\ref{mbrn:prop:rotations}の因子 rotation と可換側の相対 window は
+\begin{equation}\label{mbpd:eq:factor-rotations}
+ R_{i,p}=T_{\OO_{E_i}}\circ(t_{p_i})_*\circ(-\otimes L_i),
+ \qquad R_{i,0}=T_{\OO_{E_i}}\circ(-\otimes L_i)
+\end{equation}
+を与える。ここで twist は相対評価の cone である。
+定理\ref{mbpl:thm:global-line-comparison}の関係直線同期により、
+両側に共通の直線束 $\ell$ と指定された中心周期
+\begin{equation}\label{mbpd:eq:periods}
+ \pi_{i,p}:R_{i,p}^3\xrightarrow{\sim}[2]\otimes\ell,
+ \qquad
+ \pi_{i,0}:R_{i,0}^3\xrightarrow{\sim}[2]\otimes\ell
+\end{equation}
+を固定する。以下ではこれらを勝手に scalar 倍しない。
+基準因子 $b$ に対して、$H$ の生成元は
+\[
+ Q_{i,p}=R_{i,p}^{-1}R_{b,p},\qquad
+ Q_{i,0}=R_{i,0}^{-1}R_{b,0},\qquad i\ne b
+\]
+であり、同じ $\ell$ を用いるため三乗の関係では係数直線が相殺する。
+
+式\eqref{mbpd:eq:relative-models}を入力しない場合にも、以下の積曲線上の
+Picard gerbe と因子位相の主張は成立する。
+通常の残余圏上の核への移送には、この相対模型とその作用・周期を要求する。
+任意の noetherian 底変更についての主張は、
+系\ref{mbrn:cor:base-change}と系\ref{mbrp:cor:base-change}の
+導来引戻しによる perfect/compact 模型の範囲で述べる。
+非正則な底上の全 $D^b\operatorname{coh}$ へは読み替えない。
+
+\subsection{外積における scalar 障害の和}
+
+$p_i$ を表す実際の線束の gerbe を
+\[
+ \mathscr G_i=\mathcal{Pic}^{p_i}_{E_i/S},\qquad
+ \delta_i=[\mathscr G_i]\in H^2(S,\mathbb G_m)
+\]
+と書く。Picard stack が Picard functor 上の gerbe であることは
+\cite{NFMStacksPicardGerbe}による。
+射影 $\operatorname{pr}_i:Y\to E_i$ に対して
+\[
+ m=\sum_i\operatorname{pr}_i^*p_i\in\operatorname{Pic}_{Y/S}(S),
+ \qquad \mathscr G=\mathcal{Pic}^{m}_{Y/S}
+\]
+と置く。$\mathscr G$ の対象 $M$ は、fpqc 局所に
+$\bigotimes_i\operatorname{pr}_i^*M_i$、$[M_i]=p_i$ と書ける。
+この $M$ に対応する自己同値
+$F_M=-\otimes M$ を本節の \emph{Picard 補正型} と呼ぶ。
+核は $\Delta_{Y*}M$ である。
+
+\begin{proposition}[外積 gerbe の band と Brauer 類]
+\label{mbpd:prop:product-gerbe}
+外積は
+\[
+ \prod_i\mathscr G_i\longrightarrow\mathscr G,
+ \qquad (M_i)_i\longmapsto\bigotimes_i\operatorname{pr}_i^*M_i
+\]
+を定め、その band の写像は
+$\mathbb G_m^k\to\mathbb G_m$、$(u_i)\mapsto\prod_i u_i$ である。
+この band の核で rigidify した stack は $\mathscr G$ と同値であり、
+\begin{equation}\label{mbpd:eq:alpha}
+ \alpha_{\mathrm{Pic}}=[\mathscr G]
+       =\sum_{i=1}^k\delta_i\quad\text{in }H^2(S,\mathbb G_m),
+ \qquad 3\alpha_{\mathrm{Pic}}=0.
+\end{equation}
+従って実際の積補正 $F_M$ が存在する必要十分条件は
+$\sum_i\delta_i=0$ である。
+各 $\delta_i$ の個別の消滅は必要条件ではない。
+\end{proposition}
+\begin{proof}
+各 $E_i$ および $Y$ の構造層の相対零次直像は、任意底変更後も $\OO_S$ である。
+従って線束の自己同型は底の単元であり、外積の scalar はその積となる。
+fppf 局所にすべての $M_i$ を選べば、写像は
+$B\mathbb G_m^k\to B\mathbb G_m$ の積写像に一致する。
+相対 Picard 類が $m$ である線束はこの外積と fppf 局所で同型なので、
+band の核を除いた射は局所で完全忠実かつ本質的全射となり、主張した同値を得る。
+
+同じ計算を descent cocycle で書けば、$i$ 番目の局所線束の三重重なりの
+scalar $c_{i,abc}$ に対し、外積の scalar は
+$\prod_i c_{i,abc}$ である。これが式\eqref{mbpd:eq:alpha}の加法則である。
+必要な細分を許した fppf descent の計算なので、
+単一の通常 \v{C}ech 被覆で全ての $H^2$ を表せるとは仮定していない。
+補題\ref{lem:nfm-picard-tripling-line}は、$3p_i$ を表す実際の線束を
+$S$ 上で与える。Picard gerbe の tensor 積に関する加法則から
+$3\delta_i=\delta_{E_i}(3p_i)=0$ となる。
+gerbe が対象を持つこととその類の消滅は同値であり、最後の主張が従う。
+\end{proof}
+
+\subsection{因子比較直線の Hodge 表示}
+
+\begin{lemma}[因子の Hom 直線と周期 torsor]
+\label{mbpd:lem:factor-lines}
+$\mathscr G_i$ 上の普遍線束に対応する $F_i=-\otimes M_i$ について、
+\[
+ V_i=\mathcal H^0\mathbf R\operatorname{Hom}
+       (F_iR_{i,p},R_{i,0}F_i)
+\]
+は直線束である。これは $S$ 上へ標準的に降下し、同じ記号で表す。
+式\eqref{mbpd:eq:periods}の三重図式は
+\[
+ q_i:V_i^{\otimes3}\xrightarrow{\sim}\OO_S
+\]
+を与える。従って
+\begin{equation}\label{mbpd:eq:factor-torsors}
+ T_i=\{\eta_i\in V_i^\times:q_i(\eta_i^{\otimes3})=1\},
+ \qquad \gamma_i=[T_i]\in H^1(S,\mu_3)
+\end{equation}
+は、$S$ 上の有限 \'etale な $\mu_3$-torsor とその類を定める。
+これらは実線束 $M_i$ の選択によらず、任意底変更と両立する。
+\end{lemma}
+\begin{proof}
+命題\ref{prop:nfm-elliptic-intertwiner-gerbe}を
+$C=E_i$、graph $=\mathrm{id}$ に適用すれば、
+$F_iR_{i,p}\simeq R_{i,0}F_i$ は fppf 局所で成立する。
+この相対命題の graph/Picard 計算は非被約な底にも適用される。
+対角核 $\Delta_*M_i$ は層であり、負の相対 Ext は零である。
+その零次相対自己準同型は $(f_i)_*\OO_{E_i}=\OO_S$ で、任意底変更と両立する。
+可逆核との合成はこれらの性質を保つ。
+従って命題\ref{mbks:prop:comparison-line}を適用できる。
+
+普遍線束の scalar は比較射の始域と終域に同じ重みで作用するため、
+$V_i$、$q_i$ および $T_i$ 上では相殺する。
+重み零降下、または $M_i\mapsto M_i\otimes f_i^*N_i$ における
+底の線束 $N_i$ の直接の相殺から、これらは $S$ に降下する。
+式\eqref{mbpd:eq:periods}では両側の関係直線を同定済みなので、
+三乗写像の値域は正確に $\OO_S$ である。
+\end{proof}
+
+\begin{lemma}[比較直線は Hodge 線である]
+\label{mbpd:lem:hodge-line}
+$\lambda_i=(f_i)_*\Omega^1_{E_i/S}$ と置くと、
+$p_i\ne0$ の開上に、任意底変更と両立する標準同型
+\begin{equation}\label{mbpd:eq:hodge-line}
+ V_i\simeq\lambda_i
+\end{equation}
+がある。特に指定周期は $q_i:\lambda_i^{\otimes3}\simeq\OO_S$ を与え、
+$\gamma_i$ の $\operatorname{Pic}(S)[3]$ への像は $[\lambda_i]$ である。
+\end{lemma}
+\begin{proof}
+添字を省き、$E\times_SE$ の対角を $\Delta$、$t_p$ の graph を $\Gamma_p$ とする。
+入力座標を第一因子とする Fourier--Mukai 規約では、
+相対評価の完全列
+$0\to\OO(-\Delta)\to\OO\to\OO_\Delta\to0$ により、
+$R_p$、$R_0$ の核はそれぞれ
+\[
+ K_p=\operatorname{pr}_1^*L\otimes\OO(-\Gamma_p)[1],
+ \qquad K_0=\operatorname{pr}_1^*L\otimes\OO(-\Delta)[1]
+\]
+である。従って $F_MR_p$ から $R_0F_M$ への核の比線束は
+\begin{equation}\label{mbpd:eq:kernel-ratio}
+ N=\OO(\Gamma_p-\Delta)\otimes
+       \operatorname{pr}_1^*M\otimes\operatorname{pr}_2^*M^{-1}.
+\end{equation}
+前補題の相対 intertwining により、$N$ は fppf 局所に自明であり、
+射影 $g:E\times_SE\to S$ に対して
+$N\simeq g^*V$ となる。
+ここでは各幾何ファイバーでの自明性だけから非被約底上の自明性を推論していない。
+
+$p\ne0$ なので $\Gamma_p\cap\Delta=\varnothing$ であり、
+$\OO(\Gamma_p)|_\Delta$ は graph の標準切断で自明化される。
+二つの $M$ の因子は $\Delta$ 上で標準的に相殺し、
+\[
+ N|_\Delta\simeq\OO(-\Delta)|_\Delta
+       \simeq\Omega^1_{E/S}\simeq f^*\lambda
+\]
+となる。$f_*\OO_E=\OO_S$ により底の線束の引戻しは完全忠実なので、
+$V\simeq\lambda$ を得る。
+この構成は普遍 $M$ の scalar に不変であり、
+式\eqref{mbpd:eq:hodge-line}は $S$ に降下する。
+最後は Kummer 完全列と系\ref{mbks:cor:picard-phase}による。
+\end{proof}
+
+\begin{corollary}[基本 $j$-開における位相の単元表示]
+\label{mbpd:cor:unit-phase}
+さらに $j_i\ne0,1728$ とする。
+Jacobian の Weierstrass 不変量を
+$c_{4,i}\in\lambda_i^{\otimes4}$、$c_{6,i}\in\lambda_i^{\otimes6}$ と書き、
+\[
+ h_i=c_{6,i}/c_{4,i}\in\Gamma(S,\lambda_i^{\otimes2})^\times,
+ \quad e_i=(q_i\otimes\mathrm{id}_{\lambda_i})(h_i^{\otimes2}),
+ \quad u_i=q_i^{\otimes2}(h_i^{\otimes3})\in\Gamma(S,\OO_S^\times)
+\]
+と置く。このとき $e_i$ は $\lambda_i$ の大域 frame であり、
+\begin{equation}\label{mbpd:eq:unit-phase}
+ q_i(e_i^{\otimes3})=u_i^2,
+ \qquad \gamma_i=[u_i]\in H^1(S,\mu_3).
+\end{equation}
+特にこの開では位相の Picard 成分は零であり、
+$T_i$ は大域方程式 $z_i^3=u_i$ で表示できる。
+\end{corollary}
+\begin{proof}
+局所 Weierstrass 方程式の変換則
+\cite[Chapter~III, \S1, Table~3.1]{NFMSilvermanArithmetic}により、
+$c_4,c_6$ はそれぞれ Hodge 線の四乗、六乗の切断である。
+この変換則は任意の $\C$-代数上の座標変換恒等式であり、
+Jacobian の局所 Weierstrass 表示から相対的にも貼り合わさる。
+$c_4^3-c_6^2=1728\Delta$、$j=c_4^3/\Delta$ と $\Delta\ne0$ により、
+仮定した開では両者は零点を持たない。
+よって $h_i$ は二乗の frame であり、$q_i$ を併用すると $e_i$ は一乗の frame となる。
+tensor 冪を取れば
+$q_i(e_i^{\otimes3})=q_i^{\otimes4}(h_i^{\otimes6})=u_i^2$ である。
+$\eta_i=s_i e_i$ の周期条件は $s_i^3=u_i^{-2}$ なので、
+$z_i=u_i s_i$ と置けば $z_i^3=u_i$ を得る。
+従って Kummer 類は $[u_i^{-2}]=[u_i]$ となる。
+\end{proof}
+
+ここで $q_i$ は指定された MF/window 周期の三重合成で定義された実際の写像である。
+式\eqref{mbpd:eq:unit-phase}はその写像から位相を単元へ還元する公式であって、
+自然な Sklyanin 周期に対する $u_i$ が全基底上で三乗になることの証明ではない。
+$q_i$ の全係数に関する数値式や、$\gamma_i$ の一般点での非消滅も、
+この公式だけからは結論しない。
+
+\subsection{双対作用の位相と通常の比較核}
+
+因子 torsor の積とその対角商を
+\begin{equation}\label{mbpd:eq:phase-quotient}
+ T=\prod_i T_i,
+ \qquad D=T/\Delta\mu_3
+\end{equation}
+と置く。$T$ は $\mu_3^k$-torsor、$D$ は $G$-torsor である。
+基準因子 $b$ を選ぶと、後者の $k-1$ 個の座標は
+$\eta_i^{-1}\eta_b$ に対応し、
+\begin{equation}\label{mbpd:eq:difference-classes}
+ [D]_b=(\gamma_b-\gamma_i)_{i\ne b}
+       \in H^1(S,\mu_3)^{k-1},
+ \qquad T\xrightarrow{\sim}T_b\times_SD.
+\end{equation}
+ここで最後の射は $\eta\mapsto(\eta_b,[\eta])$ である。
+$G$ と $H$ の pairing の符号を明記すると、
+$(\zeta_i)\in\mu_3^k$ による変更は $Q_i$ の比較射を
+$\zeta_i^{-1}\zeta_b$ 倍するという規約である。
+
+\begin{theorem}[Picard 型の coherent 比較 stack]
+\label{mbpd:thm:coherent-corrections}
+$\mathscr K_{\mathrm{Pic}}^H$ を、$F_M$、$M\in\mathscr G$ と、
+二つの指定された $H$ 作用を intertwine する coherent 構造の stack とする。
+また $\mathscr K_{\mathrm{Pic}}^{H,\rho,\pi}$ では、
+$FR_{b,p}\simeq R_{b,0}F$ という $H$-同変な rotation 比較と
+式\eqref{mbpd:eq:periods}の周期条件も標識する。
+このとき $S$ 上に標準同値
+\begin{equation}\label{mbpd:eq:kernel-stacks}
+ \mathscr K_{\mathrm{Pic}}^H\simeq\mathscr G\times_SD,
+ \qquad
+ \mathscr K_{\mathrm{Pic}}^{H,\rho,\pi}\simeq\mathscr G\times_ST
+\end{equation}
+がある。両 stack の全対象の自己同型群は $\mathbb G_m$ である。
+有限双対同変化により、これらはそれぞれ
+$\mathcal C_p\simeq\mathcal C_0$ の \emph{$G$-同変な Picard 補正型}の比較核、
+およびその rotation・指定周期付き比較核の stack に移る。
+この移送は band を保ち、任意の許された底変更と両立する。
+\end{theorem}
+\begin{proof}
+まず fppf 局所にすべての $M_i$ と周期適合 $\eta_i$ を選ぶ。
+外積 $F=\boxtimes_iF_i$ に対し、$\eta_i$ と $\eta_b$ から
+$FQ_{i,p}\simeq Q_{i,0}F$ を作る。
+異なる因子の比較射の次数は零であり、外積の交換則と可換する。
+$Q_i^3$ を消す周期の図式は $\eta_i,\eta_b$ の周期条件により保たれる。
+従って $\prod_{i\ne b}Q_i^{d_i}$、$0\leq d_i<3$ という正規形を用いれば、
+交換と三乗の消去を生成関係とする全 coherent 作用が比較される。
+これは定理\ref{mbrc:thm:finite-point-comparison}の coherence 証明と同じ核の計算であり、
+中心周期の係数直線が共通なので相対的にも成立する。
+
+ここで全 coherent 構造を分類する。
+任意底変更後に $\Delta_{Y*}M$ の負の相対 Ext は零、
+零次相対自己準同型は $\OO_S$ である。
+従って一つの coherent $H$ 構造に対する別の構造は、
+各 $h\in H$ について一意の scalar $a_h$ を掛けることで得られる。
+積の coherence は正確に $a_{h+h'}=a_ha_{h'}$、$a_0=1$ であり、
+その差の層は $\operatorname{Hom}(H,\mathbb G_m)=G$ となる。
+この計算は高次の自己同型を除いているので、同型類だけの計算ではない。
+一方、$\eta_i\mapsto\zeta_i\eta_i$ の差は
+$Q_i$ 上で $\zeta_i^{-1}\zeta_b$ となり、
+核が正確に $\Delta\mu_3$、像が全 character 群となる。
+よって $T\to$ coherent 構造の層は $D$ を介して同型となる。
+
+$M_i$ を底の線束で変更しても比較 Hom ではそれらが相殺し、
+外積の scalar も比較構造を変えない。
+従ってこの同定は $\prod_i\mathscr G_i$ から
+命題\ref{mbpd:prop:product-gerbe}の $\mathscr G$ へ降下する。
+一般の $M\in\mathscr G$ が大域的には因子線束の外積で表せない場合にも、
+局所因子分解間の変更が相殺するため、$D$ から coherent 構造を作れる。
+これで第一の stack 同値を得る。
+
+次に $d\in D$ を固定する。
+前の因子計算では $FR_{b,p}\to R_{b,0}F$ の比較射自体も $H$-同変である。
+その Hom 線全体は $V_b$ であり、局所に一つの非零同変射があることと
+scalar-simple 性により、同変 Hom も正確に $V_b$ である。
+周期条件は $T_b$ となる。
+式\eqref{mbpd:eq:difference-classes}により
+$D\times_ST_b\simeq T$ なので第二の同値を得る。
+核の scalar 自己同型はすべての比較射の共役で相殺する。
+従って周期を標識しても自己同型群は $\mathbb G_m$ のままであり、
+$\mu_3$ に縮まるわけではない。
+
+最後に、$\OO_S$ は $1/|G|$ と全三乗根を含む。
+Elagin の二重同変化\cite[Proposition~4.1, Theorem~4.2, \S8]{MEDElagin}の
+証明で用いる平均化、有限直和、Fourier 射影はこの底上でも定義される。
+作用付き dg 模型上の実際の同変 perfect 双加群へ適用すると、
+同変関手および自然同型に自然な bidual の同値を与える。
+逆向きはもう一度同変化することで得られるため、これは指定作用を保つ核の
+groupoid を同定する。scalar 射はそのまま scalar 射へ移る。
+実相対模型の有限核・projector を用いる構成なので、
+導来底変更とも両立する。
+\end{proof}
+
+\begin{corollary}[二段階の降下条件]
+\label{mbpd:cor:descent-criterion}
+本節で指定した $G$-同変 Picard 補正型について、次が成り立つ。
+\begin{enumerate}
+ \item rotation 比較を標識しない実際の比較核が $S$ 上に存在する必要十分条件は
+ \[
+   \sum_i\delta_i=0,\qquad
+   \gamma_i=\gamma_b\quad\text{for all }i
+ \]
+ である。
+ \item $d\in D(S)$ により局所核の型を一つ選んだ後、
+ その forms gerbe の類は $\alpha_{\mathrm{Pic}}=\sum_i\delta_i$ である。
+ この型の rotation 比較直線は $\lambda_b$、指定周期 torsor の類は $\gamma_b$ である。
+ \item rotation と指定周期まで保つ実際の比較が存在する必要十分条件は
+ \[
+   \sum_i\delta_i=0,\qquad \gamma_i=0\quad\text{for all }i
+ \]
+ である。
+\end{enumerate}
+基本 $j$-開では、第一の位相条件は各 $u_b/u_i$ が大域単元の三乗であること、
+第三の位相条件は各 $u_i$ が大域単元の三乗であることに等しい。
+\end{corollary}
+\begin{proof}
+式\eqref{mbpd:eq:kernel-stacks}の大域対象の存在条件を取る。
+列 $1\to\Delta\mu_3\to\mu_3^k\to G\to1$ は基準因子 $b$ で分裂し、
+式\eqref{mbpd:eq:difference-classes}が成り立つ。
+したがって $D(S)\ne\varnothing$ と各 $\gamma_b-\gamma_i=0$ は同値である。
+固定した $d$ の上で $T\to D$ のファイバーを $T_b$ へ射影すると、
+同じ band の $\mu_3$-torsor の同型となる。
+残りは命題\ref{mbpd:prop:product-gerbe}、
+定理\ref{mbks:thm:kernel-criterion}および式\eqref{mbpd:eq:unit-phase}による。
+\end{proof}
+
+この系では、局所型を選ぶ $D$、選んだ型を実現する $\mathscr G$、
+選んだ実核の周期を合わせる $T_b$ を区別している。
+全因子に共通の非零位相 $\gamma_i=\gamma$ は $D$ では消えるが、
+rotation の指定周期には残る。
+一般の周期付き圏の族でこの現象を実現するには、定数族の全 target 周期を
+$S=\Spec\C[t,t^{-1}]$ 上で同じ単元 $t^{-1}$ 倍すればよい。
+その場合 $\alpha_{\mathrm{Pic}}=0$、$D$ は自明でも、残りは $[t]\ne0$ である。
+これは周期標識を変更した場合の例であり、自然な Sklyanin 周期の一般値を
+計算した例とはしない。
+
+\subsection{有限 \'etale 被覆と次数上界}
+
+\begin{proposition}[三分点による標準被覆と横断切片による被覆]
+\label{mbpd:prop:finite-covers}
+各 $i$ の三分点 torsor とその積を
+\[
+ P_i=[3]^{-1}(p_i)\longrightarrow S,
+ \qquad P=\prod_i P_i
+\]
+と置く。これは階数 $9^k$ の有限 \'etale 被覆である。
+このとき次の被覆上には、実際の比較核を構成できる：
+\[
+ \begin{array}{c|c|c}
+  \text{被覆} & \text{階数} & \text{保持する標識}\\ \hline
+  P\times_SD & 3^{3k-1} & G\text{ 作用}\\
+  P\times_ST & 3^{3k} & G\text{ 作用、rotation、指定周期}.
+ \end{array}
+\]
+これらの被覆は、固定した相対模型・周期データに対して標準的であり、
+因子の置換と底変更に両立する。
+
+$S$ が既約である場合、ある非空開 $U\subset S$ では
+各曲線の相対横断直線切片 $Z_i\to U$ を階数三の有限 \'etale 被覆として選べる。
+$Z=\prod_i Z_i$ とすれば、上の $P$ を $Z$ で置き換えた被覆の階数は、
+それぞれ $3^{2k-1}$ と $3^{2k}$ になる。
+この後半の被覆には直線の選択と開への制限を要する。
+\end{proposition}
+\begin{proof}
+楕円曲線上の $[3]$ は有限 \'etale 階数九である
+\cite{NFMStacksMultiplication}。
+相対 Jacobian 上でも微分は三倍で可逆だから $[3]$ は \'etale であり、
+固有かつ各ファイバーが有限なので有限となる。階数はファイバーの九に等しい。
+$P_i$ 上の普遍 $q_i'$、$3q_i'=p_i$ に対して、
+補題\ref{lem:nfm-picard-tripling-line}の標準線束
+$\mathscr N_{L_i}$ を $q_i'$ に制限する。
+これで $p_i$ を表す実際の $M_i$ を標準的に得る。
+従って $P$ 上では全因子の gerbe が中立化され、外積 $M$ を選べる。
+さらに $D$ または $T$ の普遍切断を用い、
+定理\ref{mbpd:thm:coherent-corrections}を適用すればよい。
+階数はそれぞれ $9^k\cdot3^{k-1}$ と $9^k\cdot3^k$ である。
+
+後半について、まず $S$ の一般点の無限体上で各平面三次に横断する直線を選ぶ。
+係数をある非空開へ広げ、必要ならさらに縮めれば、
+交わり $Z_i$ は有限 \'etale 階数三となる。
+底変更 $E_i\times_UZ_i\to Z_i$ は普遍交点 $o_i$ を切断に持つので、
+\[
+ M_i=\OO_{E_i\times_UZ_i}\bigl(t_{p_i}(o_i)-o_i\bigr)
+\]
+が $p_i$ の実線束を与える。
+あとは同じ構成を適用する。これらの階数は上界であり、最小性を主張しない。
+\end{proof}
+
+\begin{corollary}[体上で rotation を標識しない場合の改良上界]
+\label{mbpd:cor:field-degree}
+体 $K\supset\C$ 上の順序付き実表示に対し、
+ある $[K':K]=3^e$、$e\leq2k-1$ の有限分離拡大上で
+\[
+ \Ku_{\mathrm{coh}}(A_{K'})\simeq\Ku(X_{\mathrm{pt},K'})
+\]
+を与える $G$-同変な実際の核が存在する。
+rotation と指定周期まで標識する場合は、
+定理\ref{mbrc:thm:finite-point-comparison}の $e\leq2k$ が得られる。
+\end{corollary}
+\begin{proof}
+補題\ref{mbrc:lem:degree-three-point}を各因子へ順次適用すれば、
+高々 $k$ 回の三次拡大により全 $M_i$ を選べる。
+rotation を標識しない場合には、$D$ の $k-1$ 個の $\mu_3$-torsor を
+順次分裂させれば十分であり、さらに高々 $k-1$ 回の三次拡大で足りる。
+体は全三乗根を含むため、非自明な Kummer 拡大は次数三である。
+体上の積表示と bidual は定理\ref{mbnp:thm:product}、
+系\ref{mbnp:cor:coherent}、系\ref{mbrp:cor:comparison-field}から得られる。
+従ってこの系に相対模型の仮定を追加する必要はない。
+指定周期を保つには全 $T_i$ を分裂させるので、追加回数は高々 $k$ となる。
+\end{proof}
+
+\subsection{二捩れ境界から得られる非零位相と鋭い位相次数}
+
+前節までの公式は位相の自動消滅を意味しない。
+実際、自然な関係直線同期のまま、非零の位相を次のように検出できる。
+用いる形式基底は有限型 Hesse 族からの底変更であり、
+全 $\OO$-認識を二捩れ境界へ拡張するものではない。
+
+\begin{proposition}[自然な周期位相の二捩れ境界における剰余]
+\label{mbpd:prop:boundary-phase}
+$c\in\C^\times$ を、Hesse 三次
+\[
+ F_0=c(x^3+y^3+z^3)-(2+c^3)xyz
+\]
+が滑らかで $j(F_0)\ne0,1728$、かつ $c^3\ne1$ となるように選ぶ。
+$R=\C[[d]]$、$K=\C((d))$ とし、
+式\eqref{mbpl:eq:hesse-relations}に
+\[
+ (a,b,c)=(1+d,1,c)
+\]
+を代入する。source の中心元を $\Omega_H$ と固定し、
+target の方程式を自然な比較が与える
+$\vartheta(\Omega_H)=3dF_H$ とする。
+一般ファイバー上の Picard 補正型について
+\begin{equation}\label{mbpd:eq:boundary-phase}
+ \delta_E(p)=0,\qquad
+ \gamma=[d]\in K^\times/K^{\times3}.
+\end{equation}
+特に離散付値による Kummer 剰余は $1\in\mathbb Z/3$ である。
+\end{proposition}
+\begin{proof}
+まず、ここで必要な因子模型が閉ファイバーにも延びることを確認する。
+Hesse の点曲線は $R$ 上滑らかであり、
+$o=(1:-1:0)$ は全族の flex 切断である。
+$d=0$ では二次関係が左右交換で不変なので、
+点グラフの自己同型 $\sigma$ は $\sigma^2=1$ を満たす。
+もし $\sigma=1$ なら二次関係は $\wedge^2W$ になるが、
+実際の関係は $cx^2+yz+zy$ とその巡回式であり、その可能性はない。
+従って閉ファイバーの $p$ は非零二捩れである。
+特に $3p\ne0$ であり、$p$ と $3p$ の零切断はこの形式近傍に現れない。
+
+滑らかな楕円データの Sklyanin 代数が AS 正則であること、および
+中心正則三次による商が THCR となることには、
+二捩れの除外は要らない
+\cite[Theorems~6.6, 6.8]{GRSklyaninATV}
+\cite[\S1, pp.~19--21]{GRSklyaninST}。
+閉ファイバーでは
+\[
+ \Omega_H=(1-c^3)(U-V_0),
+ \qquad
+ (S_3)^{H_{27}}
+ =\langle C,U,V_0\rangle/\langle cC+U+V_0\rangle
+\]
+であるから、$\Omega_H$ は非零である。
+この計算は補題\ref{mbpl:lem:hesse-center}の不変部分の計算であり、
+$a-b$ を可逆にする必要がない。
+Sklyanin 代数は domain なのでこの中心元は正則である。
+また $3p\ne0$ により THCR の三次中心は零なので、
+$\Omega_H$ は THCR への三次 kernel の生成元となる。
+
+相対的にも、各次数の Hilbert 次元が一般・特殊ファイバーで等しいため、
+DVR 上の有限生成次数成分には torsion がなく、有限自由となる。
+三段 Koszul 分解は各次数で有限自由加群の複体であり、
+ファイバーでの完全性と Nakayama により相対的にも完全である。
+同じ議論で $S_R/(\Omega_H)$ の次数成分と THCR の次数成分を同定する。
+従って、系\ref{mbrn:cor:factor-boundary}の一因子の相対
+parameter-zero window と有限 MF 模型をこの正則基底上で適用できる。
+その構成は実際の最高 Koszul syzygy の直線を保持して行い、
+二捩れ境界で退化し得る $\det W$ との交代化による同定は使わない。
+source の $\Omega_H$ と auxiliary target の $F_H$ はともに正則な生成元なので、
+両者による指定周期は $R$ 上の同型として定義される。
+以上のデータと構成は、完備化前の正則局所環
+$R_0=\C[d]_{(d)}$ 上でも定義される。
+
+flex を原点とし、$M=\OO_E(t_p(o)-o)$ を取る。
+これは $R$ 上の実際の線束なので Picard 障害は零である。
+$p\ne0$ は閉ファイバーでも成り立つため、
+補題\ref{mbpd:lem:hodge-line}の比較直線 $\lambda$ も全 $R$ 上で定義される。
+先ほどの正則な二つの周期を使った三乗写像を
+$q':\lambda^{\otimes3}\simeq\OO_R$ と書く。
+$\lambda$ の $R$-frame で表した $q'$ の値は単元である。
+
+一方、自然な同期の target は $F_H$ から $3dF_H$ へ変わる。
+命題\ref{prop:nfm-period-equation-frame-change}の規約により
+\[
+ q_{\mathrm{nat}}=(3d)^{-1}q',\qquad
+ \gamma_{\mathrm{nat}}=[3d]\gamma'
+\]
+となる。$R^\times$ の全ての元は $R$ 内で三乗根を持つ。
+これは剰余体が $\C$ であることと Hensel の補題による。
+従って $\gamma'=0$、$[3]=0$ であり、
+$\gamma_{\mathrm{nat}}=[d]$ を得る。
+付値 $v_d(d)=1$ からこの類は非零である。
+\end{proof}
+
+\begin{corollary}[独立な境界位相と最小分裂次数]
+\label{mbpd:cor:phase-independence}
+任意の $k\geq2$ に対し、定数 $c_1,\ldots,c_k\in\C$ を
+前命題の条件および閉ファイバーの $j$ 値の相異なる条件を満たすように選べる。
+\[
+ R=\C[[d_1,\ldots,d_k]],\qquad K=\operatorname{Frac}(R),
+ \qquad (a_i,b_i,c_i)=(1+d_i,1,c_i)
+\]
+とし、source の関係元を $\sum_i\Omega_{H,i}$、
+自然な可換 target を $\sum_i3d_iF_{H,i}$ とする。
+一般ファイバーは基本楕円領域の順序付き実表示であり、
+\[
+ \alpha_{\mathrm{Pic}}=0,\qquad
+ \gamma_i=[d_i],\qquad
+ [D]_b=([d_b/d_i])_{i\ne b}
+\]
+となる。
+この表示の Picard 補正型において、$G$ 作用を保つ実際の比較核を定義する
+有限拡大の最小次数は $3^{k-1}$ であり、
+rotation と指定周期も保つ場合の最小次数は $3^k$ である。
+それぞれの分裂体として
+\begin{equation}\label{mbpd:eq:sharp-phase-fields}
+ K_D=K\bigl(\sqrt[3]{d_b/d_i}:i\ne b\bigr),
+ \qquad K_T=K\bigl(\sqrt[3]{d_i}:1\leq i\leq k\bigr)
+\end{equation}
+を取れる。
+同じ二つの最小次数は、元の有限型 Hesse 族の函数体
+$K_0=\C(d_1,\ldots,d_k)$ 上でも成り立つ。
+この場合、分裂体の表示には各 $\gamma_i$ の実際の有理関数代表を用いる。
+\end{corollary}
+\begin{proof}
+閉ファイバーの Hesse パラメータ
+$\mu=(2+c^3)/(3c)$ は $c$ の非定数関数であり、
+$j$ も非定数である。従って有限個の除外条件を避けて
+所要の定数を選べる。
+各因子は前命題の一変数族の引戻しであり、
+その flex と実線束 $M_i$ も引き戻せるので全 $\delta_i$ は零である。
+正則な三乗写像の値は $R^\times$ に属する。
+完全局所環 $R$ の単元も Hensel により三乗根を持つので、
+前命題と同じ frame 変換で $\gamma_i=[d_i]$ となる。
+
+各高さ一素因子 $(d_j)$ の離散付値を $v_j$ とする。
+もし $\prod_i d_i^{e_i}$、$e_i\in\{0,1,2\}$ が $K$ で三乗なら、
+全 $j$ に対して $e_j=v_j(\prod_i d_i^{e_i})$ は三で割れる。
+従って $[d_1],\ldots,[d_k]$ は $K^\times/K^{\times3}$ 上独立である。
+同じ付値で $[d_b/d_i]$、$i\ne b$ の独立性も得る。
+Kummer 理論\cite{NFMStacksKummer}により
+式\eqref{mbpd:eq:sharp-phase-fields}の次数はそれぞれ
+$3^{k-1}$、$3^k$ である。
+具体的には、$r$ 個の三乗根を加えた体の Galois 群は $\mu_3^r$ の部分群である。
+もし真の部分群なら、その上で恒等となる非自明な character があり、
+対応する三乗根の単項式は元の体に属する。
+三乗すると、元の $r$ 個の Kummer 類の非自明な関係となり、独立性に反する。
+
+Picard 障害は既に零なので、
+系\ref{mbpd:cor:descent-criterion}はこの二つの体上の核の存在を与える。
+逆に所要の型の核が有限拡大 $K'/K$ 上にあれば、
+$D$ または $T$ が $K'$-点を持つため、
+$K'$ は対応する三乗根を全て含む。
+$K$ が $\mu_3$ を含むので、これらの体は Galois であり、
+所要の最小次数の主張が従う。
+
+最後に $K_0$ 上で、前命題の完備化前の比較直線の frame を各
+$\C[d_i]_{(d_i)}$ 上で取る。
+regular な周期の三乗写像を $a_i(d_i)\in\C[d_i]_{(d_i)}^\times$ と書けば、
+自然な位相は
+$\gamma_i=[3d_i/a_i(d_i)]$ である。
+従って $d_j=0$ に沿う Kummer 剰余は $\delta_{ij}$ となる。
+同じ付値の議論により $\gamma_i$ と $\gamma_b-\gamma_i$ の独立性が従い、
+同じ Kummer 拡大次数と最小性を得る。
+形式完備化は、その単元因子を三乗として消し、
+式\eqref{mbpd:eq:sharp-phase-fields}の単純な表示を得るために使っただけである。
+\end{proof}
+
+この系が鋭くするのは、実線束を既に持つ場合の \emph{位相段階} の次数である。
+系\ref{mbpd:cor:field-degree}の全上界 $3^{2k-1}$ や
+定理\ref{mbrc:thm:finite-point-comparison}の $3^{2k}$ の最小性ではない。
+また Picard 補正型以外の比較核の不存在は結論しない。
+一方、元の有限型 Hesse 開上にも Picard 補正型の大域比較核は存在しない。
+もし存在すれば、その函数体上に必要な $D$ の切断を与えるためである。
+これは各因子の Picard gerbe がすでに中立である族での、
+自然な関係直線同期に対する実際の位相障害である。
+
+\begin{remark}[全比較核、順序降下、表示 gerbe との区別]
+\label{mbpd:rem:scope}
+式\eqref{mbpd:eq:alpha}は本節の対角 Picard 補正型についての計算である。
+因子の平行移動を graph に持つ核、数値作用の異なる核、因子を混合する核まで
+同じ gerbe で分類するとはしていない。
+また式\eqref{mbpd:eq:kernel-stacks}では中心 $G$ 作用を保つ構造を標識している。
+この標識を忘れた全比較核に対し、異なる $D$ の点が依然として相異なることや、
+追加の自己同型がないことは主張しない。
+
+因子の置換は $\delta_i$、$T_i$、$u_i$ を対応する添字へ移し、
+和 $\sum_i\delta_i$ と商 $T/\Delta\mu_3$ を保つ。
+従って相対模型と作用が置換に coherent に両立する範囲で、
+ここで構成した stack と有限被覆も同じ descent datum を持つ。
+基準 $b$ は差の座標表示と rotation の線型化を選ぶために用いており、
+商 $D$ の定義には現れない。
+$3\nmid k$ における対称な中心作用の分裂は、
+$\alpha_{\mathrm{Pic}}$ や $\gamma_i$ の消滅を意味しない。
+$3\mid k$ における分裂選択の障害も、
+本節の scalar gerbe および Kummer 類とは別である。
+
+最後に、本節は順序付きの実表示上で計算している。
+全 $\OO$-開へ移す場合には、
+命題\ref{mbks:prop:gerbe-synchronization}の表示 gerbe と関係直線の同期、
+および実際の相対模型の descent datum を維持する必要がある。
+表示 gerbe の差が零であることだけから、
+$D$ の切断、$\sum_i\delta_i=0$、または指定周期の位相の消滅は従わない。
+\end{remark}

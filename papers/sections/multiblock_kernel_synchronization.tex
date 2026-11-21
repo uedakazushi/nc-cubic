@@ -290,8 +290,10 @@ target の表示 cocycle と source の逆 cocycle の積である。
 式\eqref{mbks:eq:two-obstructions}と同値である。
 
 この判定は、任意の全 $\OO$-底上で $\alpha_P$ や $\gamma(P,\theta)$ が消えること、
-全 coherent 残余と compact 残余が一致すること、
-あるいは比較先の可換族が自動的に構成されることを述べない。
+または非正則な底で全 coherent 残余と compact 残余が一致することを述べない。
+本稿の自然な可換標的は定理\ref{mbpl:thm:commutative-family}で構成し、
+順序付き実表示上の相対模型と Picard 補正型の具体的判定には
+定理\ref{mbrn:thm:relative-product}と系\ref{mbpd:cor:descent-criterion}を用いる。
 \end{corollary}
 \begin{proof}
 残余族・中心作用の降下は系\ref{mbrd:cor:residual-family}による。
@@ -308,9 +310,11 @@ target の表示 cocycle と source の逆 cocycle の積である。
 従って同期と指定周期を自由に変更してよい問題には、
 固定した $(b,\theta)$ の非零な $\gamma$ をそのまま障害として使えない。
 定理\ref{mbpl:thm:commutative-family}の中心関係・点三次の比較は、
-その非空開上で自然な $b$ と $\theta$ を与える。
+基本楕円開全体で自然な $b$ と $\theta$ を与える。
 この同期を保持した問題では上の変更は許されず、
-二つの障害を実際に計算する必要がある。
+Picard 補正型の二つの障害は系\ref{mbpd:cor:descent-criterion}で記述される。
+自然な同期に対する非零位相は命題\ref{mbpd:prop:boundary-phase}で検出する。
+全ての核の型や周期三乗写像の全係数の計算は、この指定型の結果に含めない。
 \end{remark}
 
 \subsection{非消滅例と因子置換}
@@ -351,6 +355,8 @@ $R_{\rm sym}=(R_1R_2)^{-1}[2]$ を用いても成立する。
 周期の Kummer 障害も消えない。
 ここで変更した rotation や周期は意図的に別のデータであり、
 本稿の標準量子化族の自然な同期でこれらの類が非零であると主張する例ではない。
+自然な Sklyanin 同期を保持した非零位相と独立な位相の例は、
+命題\ref{mbpd:prop:boundary-phase}と系\ref{mbpd:cor:phase-independence}で与える。
 \end{example}
 
 \begin{proposition}[整合した置換作用の下での位相切断]
@@ -379,8 +385,9 @@ $a_{gh}=a_ga_h$ となる。
 
 \begin{remark}[置換位相の消滅が使える範囲]
 \label{mbks:rem:permutation-scope}
-命題\ref{mbks:prop:permutation-phase}は、ordered 被覆での位相が未計算のまま
-その消滅を与えるものではない。
+命題\ref{mbks:prop:permutation-phase}は、ordered 被覆上での位相の消滅そのものを
+与えるものではない。
+Picard 補正型の位相とその非消滅は第\ref{mbpd:sec:picard-descent}節で扱う。
 また、$3\mid k$ における rotation の標準線型化の対称選択の不存在
 （系\ref{mbza:cor:permutation-obstruction}）を取り除かない。
 その場合は、命題の前提となる rotation データの置換両立性を先に与える必要がある。

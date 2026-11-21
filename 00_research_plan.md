@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：可換復元とモジュライの研究方針
 
-2026年11月21日 / v37。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+2026年11月21日 / v38。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
 
 ## 独立論文と外部入力
 
@@ -8,11 +8,11 @@
 
 ## 可換復元・モジュライの基本目標と優先順位
 
-**現行の最優先研究目標（P0）：自然な可換標的への比較を相対化し、核の降下障害を決定する。** 主な対象は `n=4,N=6=3+3,k=2,m=0`、直接積定理は全 `k≥2,m=0` を扱う。基本楕円開全体に自然な可換三次族 `Φ_pt` と表示gerbe・関係直線の同期を構成した。体上の実表示では、中心同変残余圏を点曲線積へ直接比較し、全coherent飽和も得た。さらに順序付き実表示は次数高々 `3^(2k)` の有限拡大後に、自然な可換標的の通常Kuと中心作用・rotation・指定周期を保って比較できる。代数閉体上の全基本点に適用でき、一変数一般点の制限を外した。次はこの体上の構成を実相対核へ移し、局所型のgerbe類αと固定同期の周期torsor類γを計算する。全O開上の大域切断・全境界への拡張は未完成。
+**現行の最優先研究目標（P0）：比較核の型と周期障害を内在化し、全O降下・最小比較次数を決定する。** 主な対象は `n=4,N=6=3+3,k=2,m=0`、相対積とPicard補正は全 `k≥2,m=0` を扱う。自然な可換三次族 `Φ_pt` とgerbe/関係直線同期、体上の直接積・coherent飽和に加え、滑らかな順序付き実表示基底全体の相対非可換積核と、任意noetherian底変更のcompact比較を構成した。積Picard補正型では核のscalar類 `α_Pic=Σδ_Ei(pi)`、因子位相Tiの対角商 `D=(∏Ti)/Δμ3` が中心作用付き核型の選択を支配し、rotationの指定周期には共通位相が残る。Hodge線による位相の単元表示と二捩れ境界の非零剰余を得た。従って大域核の無条件な存在を目標にせず、指定した型と標識ごとの降下条件・最小次数を調べる。全核型の分類・全O基底への降下・全係数の周期式は未完成。
 
 **優先順位を変更する数学的理由：** 良い1ブロック型では既に広い範囲の一般次数・比較核の算術・周期の局所値が決まった。未解決の大域周期位相と scalar index は重要だが、そこだけを完成しても対象成分が増えない。複数ブロック型への拡張は全Poisson階数層を覆う構造理論へ直結し得るため、研究全体の価値の観点からこれをP0、既存の精密算術をP2にする。既存の証明・例・計算・未解決の詳細は削らず公表用主稿とノートに保持する。
 
-**既存入力と境界：** `poisson-cubic` の正規形は `N=n+2=3k+m`, `V=⊕_{s=1}^{k}W_s⊕U`（各 `dim W_s=3`, `dim U=m`）を与え、`cubic-quantization` の `thm:pg-all-dimensions` と `thm:pg-intrinsic-full-support-center` は複数パラメータのPBW/AS正則ambient、中心三次商と満supportの同変選択を、記載された原点近傍・滑らかさの範囲で与える。一般中心三次変形の可換復元 `gdr:thm:generic` は元々1ブロックに限定されない。満支持型の次数付き中心・中心直線・自己同型は下記の範囲で決定した。相対双対・切断飽和と全O同値の第三Veroneseによる認識は下記の範囲で得た。非空開上の全O局所型DM stack・次元2kを構成した。全自己同値群はK_kと決定し、さらに非空開で表示stackと全O局所型stackを同定した。残る課題は自然な可換三次族への非可換相対比較核とその大域切断、固定同期の周期位相、構造対象の像を指定しない全第三根、一般開の境界、中心一次変数を持つ型への拡張である。量子化自体の存在は `cubic-quantization` を正本とし本研究で循環証明しない。一般1ブロックの `Z(B)_1=U`, `Z(B)_3=KG⊕Sym³U`、点曲線と次数9/18を多ブロックへ無検証に流用しない。
+**既存入力と境界：** `poisson-cubic` の正規形は `N=n+2=3k+m`, `V=⊕_{s=1}^{k}W_s⊕U`（各 `dim W_s=3`, `dim U=m`）を与え、`cubic-quantization` の `thm:pg-all-dimensions` と `thm:pg-intrinsic-full-support-center` は複数パラメータのPBW/AS正則ambient、中心三次商と満supportの同変選択を、記載された原点近傍・滑らかさの範囲で与える。一般中心三次変形の可換復元 `gdr:thm:generic` は元々1ブロックに限定されない。満支持型の次数付き中心・中心直線・自己同型は下記の範囲で決定した。相対双対・切断飽和と全O同値の第三Veroneseによる認識は下記の範囲で得た。非空開上の全O局所型DM stack・次元2kを構成した。全自己同値群はK_kと決定し、さらに非空開で表示stackと全O局所型stackを同定した。残る課題は比較核型の全O降下と全型分類、自然な同期に関する大域周期式、構造対象の像を指定しない全第三根、一般開の境界、中心一次変数を持つ型への拡張である。量子化自体の存在は `cubic-quantization` を正本とし本研究で循環証明しない。一般1ブロックの `Z(B)_1=U`, `Z(B)_3=KG⊕Sym³U`、点曲線と次数9/18を多ブロックへ無検証に流用しない。
 
 **満支持型の表示モジュライ：** `B=⊗_{i=1}^k S_i`, `A=B/(Σa_iΩ_i)`、`k≥2,m=0`、全 `a_i≠0` とする。各因子は滑らかな楕円Sklyanin型で、`p_i,2p_i,3p_i≠0`、`j_i≠0,1728`、`j_i`相異なるという非空開を扱う。中心は `Z(B)_1=Z(A)_1=0`, `dim Z(B)_3=k`, `dim Z(A)_3=k−1`。次数二・三の乗法から周囲二次代数と商の中心直線を復元し、全次数付き同型を認識した。共通grading scalarを除いた**射影的な次数付き表示**の滑らかな既約DM stack `P_k` は次元`2k`、幾何点の慣性は `(H_27^k)/Δμ_3`、位数`3^(3k−1)`。二ブロックでは次元4・慣性243である。一般底上の大域的な実代数の存在には、別の表示gerbeの持上げが必要となる。
 
@@ -34,11 +34,13 @@
 
 **体上の直接非可換比較：** 全基本楕円領域の実表示 `A=(⊗S_i)/(Σa_iΩ_i)` に対し、有限Koszul–Shamash stabilizationの外積とBurke–Stevenson windowから `Ku_line(A)^(Z_0)≃Perf(∏E_i)` を直接構成する。多重THCRのnoetherian性はNC-ampleness・ideal sheafの安定・有限幅の端の帰納で全kを証明した。二因子のKeeler系を単純に反復していない。双対同変化でKu_lineのsmooth proper性を得て、既存crs飽和定理により `Ku_line=Ku_coh`。因子rotationは `R_i,p=T_O (t_pi)_*(−⊗L_i)`、dual characterは `R_i,p^−1 R_b,p`。各piを実線束化する高々三次拡大と指定周期の三乗根補正を各k回行い、次数 `3^e,e≤2k` の拡大後に `Ku_coh(A)≃Ku(X_pt)` を中心作用・rotation・周期付きで得る。代数閉体では拡大不要。これは全モジュライの表示チャートの一般点にも適用できるが、非分裂表示やブロック順序の持上げ次数は上界に含めない。さらに同じ偏極点曲線組の幾何fiber上でunmarked Kuの同値類は一定となる（関手の一意性・相対自明化・逆の回復は含めない）。証明は `mbnp:thm:product`, `mbnp:cor:coherent`, `mbnp:prop:rotations`, `mbrc:thm:finite-point-comparison`, `mbrc:cor:point-fiber-constancy`。
 
-**相対可換比較と実現の二障害：** 滑らかな準射影C基底上で `f_i∈Sym³W_i⊗L`、各平面三次がsmoothなら、相対Orlovと共通Lを含む実dg外積から `Perf(∏E_i)≃Ku_Perf(V(Σf_i)/S)^(Z_0)` の実perfect核を構成した。noetherian qc separated底への任意の導来引戻しもこの同値を保つ。非正則底でDb(coh)=Perfや絶対coherent MFとの一致を主張しない。因子置換はKoszul braidingによりcoherent。これは既知のOrlov–Thom–Sebastiani法の相対実施であり、最小A∞模型の予想は使わない（`mbrp:thm:relative-product`, `mbrp:cor:base-change`, `mbrp:prop:permutations`）。両側のsmooth proper族と指定周期（残余ではMF/window比較）、非可換側の局所rotation比較、scalar-simple性、負Ext消滅・底変更を仮定し、核の局所型と自然な同期を固定すると、比較直線 `L_P` と `q:L_P³≃ℓ_tℓ_s^−1` が付随する。実際の周期付き大域核が存在する条件は核のgerbe類 `α_P=0` とtorsor類 `γ(P,θ)=0`。period標識後も核のAutはG_mである。連結ordered cover上のphase sectionは、全データの置換coherenceが既にある場合にS_kへ降りるが、G_m核gerbeの障害には適用できない（`mbks:thm:kernel-criterion`, `mbks:prop:permutation-phase`）。自然な非可換族でのα・γの値は未計算。
+**相対非可換積と具体的な降下型：** `mbrn:thm:relative-product` はsmooth準射影C基底の順序付き実表示上で `Ku_comp(A/S)^Z0≃Perf(∏E_i/S)` の実Morita核を与える。Keelerの訂正済み相対Fujita消滅で任意noetherian基底のtensor-noetherian性を証明し、正則基底上でBS/window・有限Shamash・Γ-Homを構成する。構成済みcompact/Perf模型の任意導来底変更、因子rotationと指定周期も保持する。元のsmooth affine基底では全coherentとの一致を示すが、非正則底へは拡大しない。`mbpd` では積Picard型のscalar gerbeを `Σδ_i` と同定し、中心Z0構造を保つ核stackを `G_Pic×D`, `D=(∏Ti)/Δμ3`、rotation/period付きでは `G_Pic×∏Ti` と分類する。γ_iの比較直線はHodge線λ_i、基本j開では大域単元u_iのKummer類。標準有限étale比較被覆は階数 `3^(3k−1)` / `3^(3k)`、横断直線を選び縮小すると `3^(2k−1)` / `3^(2k)`。体上の前者も `3^e,e≤2k−1` へ改良した。Hesse二捩れ境界の剰余は+1、独立k方向の例では有限型函数体C(d_1,…,d_k)上でもα=0であり、位相による最小次数は `3^(k−1)` / `3^k`。これは指定したPicard型・中心作用を保つ核の主張であり、全比較核や全次数上界の最小性ではない。
+
+**相対可換比較と実現の二障害：** 滑らかな準射影C基底上で `f_i∈Sym³W_i⊗L`、各平面三次がsmoothなら、相対Orlovと共通Lを含む実dg外積から `Perf(∏E_i)≃Ku_Perf(V(Σf_i)/S)^(Z_0)` の実perfect核を構成した。noetherian qc separated底への任意の導来引戻しもこの同値を保つ。非正則底でDb(coh)=Perfや絶対coherent MFとの一致を主張しない。因子置換はKoszul braidingによりcoherent。これは既知のOrlov–Thom–Sebastiani法の相対実施であり、最小A∞模型の予想は使わない（`mbrp:thm:relative-product`, `mbrp:cor:base-change`, `mbrp:prop:permutations`）。両側のsmooth proper族と指定周期（残余ではMF/window比較）、非可換側の局所rotation比較、scalar-simple性、負Ext消滅・底変更を仮定し、核の局所型と自然な同期を固定すると、比較直線 `L_P` と `q:L_P³≃ℓ_tℓ_s^−1` が付随する。実際の周期付き大域核が存在する条件は核のgerbe類 `α_P=0` とtorsor類 `γ(P,θ)=0`。period標識後も核のAutはG_mである。連結ordered cover上のphase sectionは、全データの置換coherenceが既にある場合にS_kへ降りるが、G_m核gerbeの障害には適用できない（`mbks:thm:kernel-criterion`, `mbks:prop:permutation-phase`）。自然な非可換族の積Picard型のαと因子位相の構造・二捩れ境界剰余は `mbpd` で計算した。全核型と位相の大域係数式は未決定。
 
 **根の正確な範囲：** `s=(1)`とし`rO≃O(1)`を満たす自己同値は一意に`r=sΦ_h (h∈K_k)`と書け、自動的に`r³≃s³`となる。自然同型類は`3^(3k−1)`個、全O群による共役類数は`(11^k+2·8^k)/3`、二・三ブロックでは83・785。三乗同型やcoherenceは標識しない。この関手分類に`6p_i≠0`は不要である。一つの自己同型の冪による全代数的Zhang twist表示の直接分類は`6p_i≠0`の下で保持する。点関係の過剰`9 binom(k,2)`と、可換tensor端点間の一般twisting system剛性も保持する。`r³≃s³`だけを仮定した全根は未分類である。
 
-**多ブロックの同変一般点比較：** `R=C[h]_(h)` 上の次数別自由な三変数多項式環の変形 `D_i` と、滑らかな平面三次へ特殊化する中心三次 `Ω_i` の和を入力とする。既存 `cft:thm:complete`, `gdr:thm:generic` の下で、分裂式 `F_1+⋯+F_k` を `K=C(h)` 上に取れ、有限拡大上で中心群同変・rotation・指定周期保存のKu比較を得る。BFKの同変Thom–Sebastiani公式・Orlov比較を反復し、全 `k≥2` で既存の有限比較体上に `(K_A^coh)^(Z_0)≃Db(∏C_i)` を得た。可換積側の追加拡大は `mbrp:cor:comparison-field` により不要である。明示的Jacobian tensor/PBW族なら `J_i=g_i+ε_i² det Hess(g_i)/24` の分離和が復元模型であり、右辺は入力の実際の点曲線の積 `Db(∏E_i)` となる。任意の固定非零パラメータや特殊点を含む相対比較は結論しない。有限拡大上に別の比較核が存在することと、指定形式核の全jetの代数化を区別する。
+**多ブロックの同変一般点比較：** `R=C[h]_(h)` 上の次数別自由な三変数多項式環の変形 `D_i` と、滑らかな平面三次へ特殊化する中心三次 `Ω_i` の和を入力とする。既存 `cft:thm:complete`, `gdr:thm:generic` の下で、分裂式 `F_1+⋯+F_k` を `K=C(h)` 上に取れ、有限拡大上で中心群同変・rotation・指定周期保存のKu比較を得る。BFKの同変Thom–Sebastiani公式・Orlov比較を反復し、全 `k≥2` で既存の有限比較体上に `(K_A^coh)^(Z_0)≃Db(∏C_i)` を得た。可換積側の追加拡大は `mbrp:cor:comparison-field` により不要である。明示的Jacobian tensor/PBW族なら `J_i=g_i+ε_i² det Hess(g_i)/24` の分離和が復元模型であり、右辺は入力の実際の点曲線の積 `Db(∏E_i)` となる。この一般点法だけでは任意の固定非零パラメータや特殊点を含む相対比較を結論しない。その別構成は上記mbnp・mbrn・mbpdが与える。有限拡大上に別の比較核が存在することと、指定形式核の全jetの代数化を区別する。
 
 **残余降下と積表示の証明：** `multiblock_scalar_descent.tex` の `mbsd2:thm:gerbe-period`, `mbsd2:thm:projector-descent`, `mbsd2:prop:rotation-serre`, `mbsd2:prop:line-period`、`multiblock_central_action.tex` の `mbza:thm:central-action`, `mbza:prop:shift-character`, `mbza:cor:permutation-obstruction`、`multiblock_residual_descent.tex` の `mbrd:prop:kernel-stack`, `mbrd:thm:split-product`, `mbrd:prop:factor-rotations`, `mbrd:cor:symmetric-rotation`, `mbrd:cor:dual-action`, `mbrd:cor:nc-product`。三節の証明を執筆担当以外も内部読解した。形式証明・外部査読・新規性の網羅的確認は未実施。
 
@@ -163,6 +165,9 @@ Clifford 半 rotation はさらに、関手として O_Cl A≃Aρ⁻¹[1] と同
 
 | 基本目標 | 現行稿に証明のある到達点 | 未解決の核心 |
 |---|---|---|
+| 満支持多ブロックの相対積 | 順序付き実表示上の実Morita核、全kの相対noetherian性、任意noetherian底変更でのcompact/Perf比較。元の正則affine基底でcoherent飽和 | 非正則底の全coherentへの拡張は含めない。全O表示変更に沿う核型の内在化 |
+| 多ブロックのPicard型比較 | scalar類Σδ_i、因子位相の対角商D、Hodge比較線と単元表示。中心作用付きG_Pic×D、rotation/period付きG_Pic×∏Ti | 全Oへの降下、Picard型以外の全比較核、周期写像の全係数 |
+| 自然な多ブロック周期の算術 | 二捩れ境界の剰余+1。有限型函数体の独立k方向例でscalar類0、指定型の最小位相次数3^(k−1)/3^k。一般体上の比較上界3^(2k−1)/3^(2k) | 位相と非零scalar障害が共存する場合の最小次数。全核型への下界の拡張 |
 | O-marked moduli | 全 O-同値比較と重み付き tails による効果化。滑らかな出力を持つ良い pair では周囲単独の有限安定化子を外せ、滑らかな既約 DM stack Msm を構成。表示 gerbe は n≢1 mod3 で中立、n≡1 mod3 では全非空開上で位数3 | 各 intrinsic 成分の一般対象の局所表示、複数ブロック型、成分性 |
 | point scheme | 相対 Pt(A)=E⊔D、中心への八重被覆、定常成分の型(2,2,2,3)、埋込み点対応からの A 復元。I_sc は一般 split 係数体で分裂し、Jac(E_pt)[3] の非零 k_n-有理点がないため有理点 φ_sc は一意。φ_sc と点型の最高次線束条件は、良い一ブロックの共通稠密開上で全 O-同値・任意底変更へ降下 | full rotation からの点データ認識、各 intrinsic 成分への拡張、像・分岐・自己同型 |
 | Poisson moduli | Msm≅Pgood。入力Bの下で射影残余射 Ψ_res と T≃λ_res*、点微分による Ψ_res^±。正確な一般次数18、M/⟨ι⟩≃Z、χ_op=χ_sgn+χ_act。Hesse体への二次類単射とC₃対称族自身のJacobian同型被覆の分裂。有限対角による近傍延長からχ_act=0、半古典規格化full射の次数9と反対同変性。固定 harmonic tensor は very general に超越的 | 特殊族での圏的再構成との整合、各 intrinsic 成分 |
@@ -204,13 +209,13 @@ Clifford 半 rotation はさらに、関手として O_Cl A≃Aρ⁻¹[1] と同
 
 ## 優先する次の課題と具体的な着手
 
-### 1. P0：自然な可換標的への相対核・周期位相・全第三根
+### 1. P0：比較核型の全O降下・大域周期位相・全第三根
 
-**最初の対象は引き続き `n=4,k=2,m=0`、相対構成は全kを見据える。** 体上の全基本点で中心同変積表示と有限拡大後の自然標的比較を得たので、支配的一変数入力を探すことをP0から外し、相対模型・核型・障害の計算へ進む。表示gerbeとrotation指標は保持する。
+**最初の対象は引き続き `n=4,k=2,m=0`、構成と障害計算は全kを扱う。** 実表示上の相対積核と有限étale被覆上の通常Ku比較は得られた。自然な周期の二捩れ境界剰余は非零であり、無条件な大域核への期待を置かず、核型・中心作用・rotation標識ごとの降下を研究する。体上の比較、任意底のcompact引戻し、非正則底の全coherent圏は区別する。
 
-1. **自然な標的への非可換相対核。** 全基本開の `Φ_pt` を標的に固定する。`mbnp` の有限Koszul–Shamash模型とwindowを滑らかな実表示基底上で構成し、Homのperfect性・生成性・底変更を検証する。体上では全表示チャートの一般点の比較が `mbrc` で得られたので、実smooth proper相対模型を確保すれば `mbrd:prop:kernel-stack` により縮小後有限étale被覆へ広げられる。その後、局所核型の選択とαの中立化を調べる。指定形式核の全jetを代数化する主張にはしない。
-2. **自然な同期の周期位相。** `mbpl` のband同値と `ℓ≃ℓ_pt` を固定する。`mbrc` の因子補正で必要なPicard線束とperiod差のscalarを相対化し、実際の局所核から `L_P,q_P` を計算する。Picardの三捩れ成分と単数のKummer成分を分け、同期を自由に変える問題と固定γを区別する。二ブロックの対称rotationで始め、置換coherenceと核cocycleも確認する。
-3. **自然な射と認識開の境界。** Q₃のrank退化はHesse延長で越えられたが、2p=0の一般境界には比較係数の零点という障害がある。残る全O認識のfinite étale locus、等しいjや小位数の境界、全intrinsic成分性を別々に扱う。線同型の延長障害を、圏比較そのものの不存在と同一視しない。
+1. **Picard補正型の全O降下と核型の分類。** `mbrn` の相対積核と `mbpd` の `G_Pic×D` を入力に、graded表示変更・因子置換・共通scalarの全coherenceを比較し、全O認識開へ核型のstackを降ろす。表示gerbeの同期と核gerbeの中立化を分ける。続いて積曲線上の数値作用・graph成分を分類し、Picard型の障害が他の比較核でも必要かを調べる。型の限定を外す証明なしに全比較核の最小次数を主張しない。
+2. **自然な周期の大域式と残る分岐。** 比較直線はHodge線λ、基本j開では `γ_i=[u_i]`, `u_i=q_i²((c6_i/c4_i)³)` と判明した。Hesse座標で実MF/windowの三重合成q_iを有限模型から計算し、二捩れ境界で `v_(a−b)(γ_i)=1 mod3` という既知の剰余を校正条件にする。各因子位相の比が核型D、共通成分がrotation周期である。scalar類の和との相殺、全比較型での不変性、最小比較次数を検討する。局所剰余だけから大域関数式を推論しない。
+3. **自然な射と認識開の境界。** Q₃のrank退化はHesse延長で越えたが、2p=0では自然線比較が零となり、固定自然同期の位相に三次分岐が現れる。交代化によるKoszul最上直線とdetWの同定はこの境界で使えないため、raw syzygy lineを保持する。自然な標的自体の境界退化、全O認識のfinite étale locus、等しいj、全intrinsic成分性は別々に扱う。
 4. **構造対象の像を指定しない全第三根。** `rO≃O(1)`の根は完全分類した。残る `r³≃s³` の根では `rO` の候補を、中心商への制限・切断コホモロジー・三つの軌道対象の積から絞る。全O群の有限性だけから `rO` を固定しない。
 5. **中心一次変数を一つ加える。** `k=2,m=1,n=5`では混合中心三次、全自己同型、普遍中心核を再計算する。満支持m=0の式を流用せず、量子化側のm>0,k≥2の同変中心選択の未完成部分を確認する。
 

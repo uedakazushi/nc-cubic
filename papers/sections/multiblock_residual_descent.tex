@@ -22,6 +22,8 @@ Hu\cite[Theorems~0.1, 5.8]{TBHu}もこの型の同変Kuznetsov圏を扱う。
 定理\ref{mpc:thm:point-model}の仮定をそのまま保持する。
 一変数の仮定を外す体上の直接比較は
 第\ref{mbnp:sec:product}節、第\ref{mbrc:sec:rotation-comparison}節で別に証明する。
+順序付き実表示上の相対積核と Picard 補正型の降下条件は、
+第\ref{mbrn:sec:relative-nc}節、第\ref{mbpd:sec:picard-descent}節で扱う。
 
 \subsection{compact残余圏と比較核のモジュライ}
 
@@ -441,13 +443,16 @@ $c_i\lambda_i\ne0$なので各平面曲線は$V(J_i)=E_i$そのものである�
 同じ入力の範囲で全$k\ge2$へ拡張する。
 全O開上では左辺のcompact版は
 系\ref{mbrd:cor:residual-family}により内在的に定まる。
-しかし、このことと一般点上の積表示を合わせただけでは、
-全O開上の比較核の大域切断、
-任意の固定非零パラメータでの比較、または特殊点を含む相対比較は得られない。
+本系の一般点比較とは別に、固定された体上の全基本表示の比較は
+定理\ref{mbrc:thm:finite-point-comparison}によって得られる。
 点曲線積の族は命題\ref{mbfm:prop:product-family}で、
 自然な可換三次への射と表示 gerbe・関係直線の同期は
-定理\ref{mbpl:thm:commutative-family}の非空開で別に構成する。
-可換側の実表示族では定理\ref{mbrp:thm:relative-product}が相対比較核を与える。
-これらを非可換側と結ぶ相対核の存在は、一般点比較から自動的には従わない。
-そのような族の両側が構成され、幾何学的一般点の比較が確認された場合に限り、
-命題\ref{mbrd:prop:kernel-stack}(3)を有限\'etale被覆上の実際の核へ進むために使える。
+定理\ref{mbpl:thm:commutative-family}により基本楕円開全体で構成する。
+順序付き実表示族では、定理\ref{mbrp:thm:relative-product}と
+定理\ref{mbrn:thm:relative-product}が両側の相対積核を与える。
+その Picard 補正型を結ぶ核の存在条件は
+系\ref{mbpd:cor:descent-criterion}で決まり、
+系\ref{mbpd:cor:phase-independence}は自然な同期で大域切断を妨げる例を与える。
+全O開上の全ての比較核の型と大域切断の問題は、この指定型の結果に含めない。
+他の相対模型に命題\ref{mbrd:prop:kernel-stack}(3)を用いる場合には、
+同命題の両側の模型と一般点での非空性という仮定を引き続き確認する。

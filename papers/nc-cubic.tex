@@ -76,7 +76,7 @@
 \title{非可換三次 $n$-fold の可換復元とモジュライ\\
 \large Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 \author{}
-\date{2026年11月21日・研究稿 v37}
+\date{2026年11月21日・研究稿 v38}
 \hypersetup{pdftitle={非可換三次 n-fold の可換復元とモジュライ},
 pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}}
 \begin{document}
@@ -124,14 +124,23 @@ rotation の線型化には指標の torsor が残る。
 非可換側では、有限 Koszul--Shamash 模型と外積から、
 体上の実表示に対する中心同変残余圏を直接、点曲線の積の導来圏と同定する。
 smoothness と全 coherent 飽和も従う。
+相対 Fujita 消滅を用いて全因子数の tensor-noetherian 性を族へ移し、
+滑らかな順序付き実表示基底上の compact 残余圏についても
+相対積同値と指定周期を構成する。構成済みの perfect 模型は任意の導来底変更と両立する。
 点の Picard 類による因子 rotation の共役と指定周期の三乗根補正により、
 順序付き実表示では次数高々 $3^{2k}$ の有限拡大後に、
 自然な可換三次の通常の Kuznetsov 圏との比較を得る。
 代数閉体上では基本領域の全ての点で比較でき、一変数一般点の仮定を必要としない。
-局所 rotation 比較・負の自己 Ext 消滅・底変更の条件の下で、
-固定した scalar-simple な核の局所型と同期に対しては、
-核の $\mathbf G_m$-gerbe と周期比較の $\mu_3$-torsor が独立な実現条件となる。
-非可換族の大域比較核と、これら二障害の大域的な値はなお未完成である。
+積 Picard 補正型の核では scalar gerbe の類は
+$\alpha_{\rm Pic}=\sum_i\delta_{E_i}(p_i)$ となる。
+因子の周期 torsor を $T_i$ とすると、中心作用を保つ核の型を選ぶ障害は
+$D=(\prod_iT_i)/\Delta\mu_3$、rotation の指定周期にはさらに共通位相が残る。
+因子比較の Hom 直線を Hodge 線と同定し、基本 $j$-開では位相を大域単元の三乗障害に還元する。
+二捩れ Hesse 境界の位相付値は $1\bmod3$ であり、
+独立な $k$ 境界方向の例では scalar 障害が零でも
+$D$ と全周期の最小分裂次数はそれぞれ $3^{k-1}$、$3^k$ となる。
+rotation を標識しない体上の比較には次数高々 $3^{2k-1}$ で足りる。
+任意の核型の分類、指定周期の全係数に関する式、全構造対象モジュライへの大域降下は未完成である。
 
 三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ三次超曲面の量子化を扱う。
 良い一ブロック型の $\mathcal O$-marked 圏族の滑らかな既約 DM stack を構成し、
@@ -448,6 +457,22 @@ $(\mathcal K_A^{\mathrm{line}})^{Z_0}\simeq\Perf(\prod_iE_i)$ を得る
 有限群の双対同変化と既存の coherent 飽和判定により、
 $\mathcal K_A^{\mathrm{line}}=\mathcal K_A^{\mathrm{coh}}$ も従う。
 ここでは一変数変形や形式比較の存在を仮定しない。
+さらに Keeler の相対 Fujita 消滅
+\cite[Theorem~1.5, Definition~2.9, erratum Theorem~E2.5]{NFMKeelerAmple}を使うと、
+相対次数が全方向で十分大きい線束の消滅を一様に得られる。
+この消滅と同じイデアル層の安定化により、全因子数の noetherian 性を
+任意の noetherian 基底上で示す。
+滑らかな基底では Burke--Stevenson の次数零環に関する仮定も満たされ、
+有限 Koszul--Shamash 外積と window を相対化できる。
+その結果、順序付き実表示上で
+\[
+ \mathcal K_{A/S}^{Z_0}\simeq\Perf(E_1\times_S\cdots\times_SE_k/S)
+\]
+を smooth proper な相対 compact 圏の同値として構成する
+（定理\ref{mbrn:thm:relative-product}）。
+非正則な底への引戻しでは、この構成済み perfect 模型を用い、
+絶対的な全 coherent 特異圏との一致を要求しない
+（系\ref{mbrn:cor:base-change}）。
 可換積側も、相対核の底変更により元の体上で比較できる
 （系\ref{mbrp:cor:comparison-field}）。
 通常の Ku 自体は、積圏の双対指標作用による同変化として記述できるが、
@@ -481,7 +506,41 @@ $\alpha_P=0$ と $\gamma(P,\theta)=0$ である
 （定理\ref{mbks:thm:kernel-criterion}）。
 前者の band は周期を標識しても $\mathbf G_m$ のままである。
 この判定は Kummer 理論\cite{NFMStacksKummer}の相対的な適用であり、
-自然な非可換族における両障害の値はまだ決定していない。
+積 Picard 補正型では、さらに両障害を因子データで記述できる。
+$p_i$ の Picard gerbe の類を $\delta_i$ とすると、外積の band は
+$(u_i)\mapsto\prod_i u_i$ なので $\alpha_{\rm Pic}=\sum_i\delta_i$ となる
+（命題\ref{mbpd:prop:product-gerbe}）。
+因子比較の Hom 直線は
+$\lambda_i=(f_i)_*\Omega^1_{E_i/S}$ に標準同型であり、
+指定周期から $q_i:\lambda_i^{\otimes3}\simeq\OO_S$ を得る。
+$j_i\ne0,1728$ の開では $h_i=c_{6,i}/c_{4,i}$ として
+$u_i=q_i^{\otimes2}(h_i^{\otimes3})$ と置けば、
+因子周期の類は $\gamma_i=[u_i]$ である
+（補題\ref{mbpd:lem:hodge-line}、系\ref{mbpd:cor:unit-phase}）。
+中心作用を保つ Picard 型の比較 stack は
+$\mathscr G_{\rm Pic}\times D$、
+rotation と指定周期まで保持するものは
+$\mathscr G_{\rm Pic}\times\prod_iT_i$ となる
+（定理\ref{mbpd:thm:coherent-corrections}）。
+従って前者では $\sum_i\delta_i=0$ と全 $\gamma_i$ の一致、
+後者では $\sum_i\delta_i=0$ と全 $\gamma_i=0$ が必要十分である。
+前者の体上の存在次数は $3^{2k-1}$ に改良される
+（系\ref{mbpd:cor:field-degree}）。
+この分類では中心作用の標識を保持しており、
+その標識を忘れた全比較核の分類とはしていない。
+自然な同期でこれらの位相が消えない例も構成する。
+Hesse 族 $(a,b,c)=(1+d,1,c)$ では、$d=0$ の点曲線と中心元は非退化だが、
+自然な target の方程式は $3dF_H$ となる。
+最高 Koszul syzygy の直線を保持した一因子 window をこの境界へ延長し、
+正則な auxiliary 方程式 $F_H$ の周期と比較すると、
+自然な位相の剰余は $1\in\mathbb Z/3$ である
+（系\ref{mbrn:cor:factor-boundary}、命題\ref{mbpd:prop:boundary-phase}）。
+独立な $k$ 変数を使えば、$\alpha_{\rm Pic}=0$ でありながら、
+上記 Picard 型の中心作用付き比較に必要な最小拡大次数が $3^{k-1}$、
+rotation と指定周期も保持する場合は $3^k$ となる。
+これは有限型族の函数体 $\mathbb C(d_1,\ldots,d_k)$ でも成立する
+（系\ref{mbpd:cor:phase-independence}）。
+この位相段階の最小性を、全比較型や上記全次数上界の最小性へ拡大しない。
 既に全データが置換両立している場合には、連結な順序付き被覆上の
 周期 torsor の切断は $\Hom(\mathfrak S_k,\mu_3)=0$ により置換不変となる
 （命題\ref{mbks:prop:permutation-phase}）。
@@ -1902,8 +1961,10 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/multiblock_residual_descent.tex}
 \input{papers/sections/multiblock_relative_product.tex}
 \input{papers/sections/multiblock_noncommutative_product.tex}
+\input{papers/sections/multiblock_relative_noncommutative.tex}
 \input{papers/sections/multiblock_kernel_synchronization.tex}
 \input{papers/sections/multiblock_rotation_comparison.tex}
+\input{papers/sections/multiblock_picard_descent.tex}
 
 \input{papers/sections/graded_moduli.tex}
 \input{papers/sections/relative_duality.tex}
