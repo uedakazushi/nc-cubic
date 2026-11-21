@@ -1,0 +1,432 @@
+% !TEX root = ../nc-cubic.tex
+\section{満支持族の相対 Gorenstein 双対と反標準切断環}
+\label{mbsd:sec:serre}
+
+本節では、中心一次変数を持たない満支持表示に対し、
+全 $\OO$-保存同値を調べるための相対双対と切断飽和を構成する。
+中心一次変数を二つ使う補題\ref{lem:nfm-central-saturation}は適用しない。
+代わりに有限な切断加群の Ext を計算する。
+また、族の中では体上の Serre 式に現れない基底の直線束を保持する。
+この直線束を入れた反標準切断環は、共通の grading scalar を除いた
+表示スタックそのものへ降下する。
+
+\subsection{仮定と向きの直線束}
+
+基礎体は $\C$、$k\geq2$ とし、
+\[
+ N=3k,\qquad r=N-3,\qquad n=N-2
+\]
+と置く。$R$ は任意の可換 $\C$-代数である。
+第\ref{mbs:sec:presentations}節の普遍表示を
+$\Spec R$ へ引き戻したもの、または fpqc 局所的にそのようになる
+実際の次数付き代数表示を考える。
+各 $W_i=(S_i)_1$ は階数三、
+\[
+ S_i=T_R(W_i)/(R_i),\qquad
+ B=S_1\otimes_R\cdots\otimes_RS_k,\qquad
+ A=B/(\ell)
+\]
+とする。ここで $R_i$ は二次関係束、
+$\ell\subset\bigoplus_i Z(S_i)_3\subset B_3$ は各中心直線への射が
+同型となる直線部分束である。
+従って局所的には $\ell=Rw$、
+$w=\sum_i a_i\Omega_i$, $a_i\in R^\times$ と書ける。
+因子の幾何学的仮定は、滑らかな楕円曲線と平行移動 $t_{p_i}$ に対する
+$p_i,2p_i,3p_i\ne0$ である。
+異なる $j$ 不変量という仮定は表示スタックで用いるが、本節の双対計算には不要である。
+
+補題\ref{mbs:lem:factor-family}と定理\ref{mbs:thm:presentation-stack}により、
+全ての次数成分は有限射影であり、列
+\begin{equation}\label{mbsd:eq:regular-line}
+ 0\longrightarrow B_{a-3}\otimes_R\ell
+ \longrightarrow B_a\longrightarrow A_a\longrightarrow0
+\end{equation}
+は任意の底変更後にも完全である。
+この列は係数加群として分裂する。
+本節で非被約な $R$ を許すのは、この普遍族からの引戻しとしてである。
+任意の非被約底上の代数について、幾何ファイバーの次元だけから
+これらの結論を推論するものではない。
+
+次の二つの直線束を区別する。
+\begin{equation}\label{mbsd:eq:orientation}
+ V=\bigoplus_{i=1}^kW_i,\qquad
+ \mathscr V=\det V,\qquad
+ \mathscr D=\mathscr V\otimes_R\ell^\vee.
+\end{equation}
+$\ell$ は内部次数三の関係を表すが、式中の直線束そのものは係数加群として扱う。
+以下、$M^\vee$ は内部次数を反転する係数双対
+$(M^\vee)_a=\Hom_R(M_{-a},R)$ を表す。
+有限射影な次数成分に対して用いるので、通常の双対と導来双対は一致する。
+
+\begin{lemma}[一因子の potential 直線と行列式]
+\label{mbsd:lem:potential-line}
+各因子の三次 syzygy
+\[
+ P_i=(W_i\otimes_RR_i)\cap(R_i\otimes_RW_i)
+       \subset W_i^{\otimes3}
+\]
+は直和因子となる直線束で、形成は任意の底変更と両立する。
+外積への自然な射は同型
+\begin{equation}\label{mbsd:eq:potential-det}
+ P_i\xrightarrow{\sim}\det W_i
+\end{equation}
+を与える。$P_i$ は cyclic tensor からなる。
+\end{lemma}
+\begin{proof}
+まず滑らかで被約な普遍因子チャート $\mathcal T$ 上で考える。
+三次元二次 Sklyanin 代数の Koszul 解消では、三次 syzygy の次元は一である
+\cite[Theorems~6.6, 6.8]{GRSklyaninATV}。
+$P_i$ を核として表示する有限行列の階数は全幾何点で一定なので、
+補題\ref{mbs:lem:factor-family}と同じ小行列式の議論で、
+$P_i$ は直線の直和因子となり、その形成は任意底変更に両立する。
+
+各幾何点では Hesse 座標を選び、関係を
+\[
+ a yz+b zy+c x^2,\quad
+ a zx+b xz+c y^2,\quad
+ a xy+b yx+c z^2
+\]
+と書ける\cite[\S1, pp.~20--21]{GRSklyaninST}。
+このとき $P_i$ の生成元は
+\[
+ \Psi=a(xyz+yzx+zxy)+b(xzy+zyx+yxz)+c(x^3+y^3+z^3)
+\]
+であり、cyclic で、その外積像は $3(a-b)x\wedge y\wedge z$ である。
+もし $a=b$ なら全ての二次関係の多重線型化は二つの点の交換に不変となる。
+点対応は $t_{p_i}$ のグラフなので、グラフの対称性は
+$t_{p_i}=t_{p_i}^{-1}$、従って $2p_i=0$ を意味する。
+これは仮定に反する。よって外積像は全幾何点で非零であり、
+直線束間の射 \eqref{mbsd:eq:potential-det} は同型である。
+cyclic 性も、被約な普遍底上の有限局所自由束の射が全幾何点で零になることから従う。
+これらの同型と恒等式を引き戻すので、非平坦・非被約な底変更にも成立する。
+\end{proof}
+
+\begin{theorem}[tensor 周囲代数の普遍有限解消]
+\label{mbsd:thm:ambient-duality}
+$B$ は長さ $N$ の有限射影な相対二次 Koszul 双加群解消 $K_B$ を持つ。
+その第 $-j$ 項は $B\otimes_RU_j\otimes_RB$ の形で、
+$U_j$ の内部次数は $j$、階数は $\binom Nj$ であり、
+$U_0=R$, $U_N\simeq\mathscr V$ である。
+解消とその両側の片側 augmentation は任意の底変更後にも完全である。
+真正な次数付き双加群として
+\begin{equation}\label{mbsd:eq:ambient-duality}
+ \Theta_{B/R}:=
+ \mathbf R\underline{\Hom}_{B\otimes_RB^{\mathrm{op}}}
+       (B,B\otimes_RB^{\mathrm{op}})
+ \simeq B(N)\otimes_R\mathscr V^\vee[-N]
+\end{equation}
+があり、この同型も任意底変更およびブロックの置換に両立する。
+\end{theorem}
+\begin{proof}
+各因子には potential 複体
+\[
+ 0\longrightarrow S_i\otimes_RP_i\otimes_RS_i
+ \longrightarrow S_i\otimes_RR_i\otimes_RS_i
+ \longrightarrow S_i\otimes_RW_i\otimes_RS_i
+ \longrightarrow S_i\otimes_RS_i\longrightarrow S_i\longrightarrow0
+\]
+がある。局所的な cyclic tensor $\Psi$ に対し、第一の微分は変数の左右差、
+第二の微分は cyclic 微分の非可換 Hessian、第三の微分は
+$\Psi\in(W_i\otimes R_i)\cap(R_i\otimes W_i)$ の二つの表示の左右差である。
+cyclic 恒等式によりこれは複体となり、幾何ファイバーでは Sklyanin の
+Koszul 双加群解消である。
+この複体とその自己双対性は potential 解消の標準的な構成であり
+\cite[Theorem~3.6 の証明、Lemma~3.7]{NFMBeTa}、
+本稿の定理\ref{thm:nfm-relative-ambient-cy}の長さ三の計算と同じである。
+ただしここでは $P_i$ の生成元を固定せず、その直線を保持する。
+
+普遍チャート上で全内部次数を固定すると、augmentation を含む各複体は
+有限局所自由係数の有界複体である。
+各ファイバーで完全なので、右端から順に全射を分裂させれば
+全ての kernel が局所自由となり、複体全体が係数加群として局所分裂する。
+従って任意の底変更後にも完全である。
+片側 $S_i$-加群としては有限射影解消で、終端の $S_i$ は射影だから分裂し、
+augmentation $S_i\to R$ との tensor 後も完全となる。
+
+cyclic tensor による contraction は $R_i\simeq W_i^\vee\otimes_RP_i$ を与える。
+この対応で複体を双対化すると、Hessian の転置は左右反転した Hessian となり、
+左右差は符号を変える。
+従って定理\ref{thm:nfm-relative-ambient-cy}の符号付き鎖写像により
+\[
+ K_i^\vee\simeq K_i(3)\otimes_RP_i^\vee[-3]
+\]
+を得る。potential の生成元の変更は両辺で $P_i^\vee$ の変換として一致する。
+ここで現れる双加群の左右作用は通常の作用であり、
+Nakayama 自己同型による twist はない。
+
+$k$ 個の解消を $R$ 上で tensor して全複体を取る。
+各内部次数が係数射影で普遍的に完全であることから、
+これは $B$ の普遍的に完全な有限双加群解消である。
+係数束の階数は $(1+t)^{3k}$ の係数となる。
+各因子の二次 Koszul 複体の tensor は、異なる因子間の交換関係を含む
+$B$ の二次 Koszul 複体である。
+項別双対と補題\ref{mbsd:lem:potential-line}により
+\eqref{mbsd:eq:ambient-duality}を得る。
+ブロックを交換すると、長さ三の複体の最上項は $(-1)^{3\cdot3}=-1$ を受ける。
+これは $\det(\bigoplus_iW_i)$ の二つの三次元 summand を交換する符号と一致する。
+従って順序付きの積 $\bigotimes_i\det W_i$ だけで符号を忘れることなく、
+$\mathscr V=\det V$ を用いた同型がブロック置換にも両立する。
+\end{proof}
+
+\subsection{有限切断の Ext と中心一次変数を使わない飽和}
+
+\begin{theorem}[相対 Gorenstein 恒等式]
+\label{mbsd:thm:gorenstein}
+$M$ を、係数加群として有限射影な次数付き右 $A$-加群とする。
+通常の左作用を持つ次数付き加群として、自然な同型
+\begin{equation}\label{mbsd:eq:relative-gorenstein}
+ \mathbf R\underline{\Hom}_A(M,A)
+ \simeq M^\vee(r)\otimes_R\mathscr D^\vee[-(N-1)]
+\end{equation}
+がある。特に
+\[
+ \mathbf R\underline{\Hom}_A(R,A)
+ \simeq R(r)\otimes_R\mathscr D^\vee[-(N-1)].
+\]
+同じ結論は左右を交換しても成立し、全ての同型は任意底変更に両立する。
+体上では $A$ は左右の単射次元 $N-1$、Gorenstein parameter $r$ の
+AS--Gorenstein 代数である。
+ここでは AS--Gorenstein 条件を、この有限単射次元と左右の自明加群の Ext 条件の意味で用いる。
+任意の $R$ 上で主張するのは \eqref{mbsd:eq:relative-gorenstein}という相対恒等式であり、
+$R$ 自身の正則性・Gorenstein 性は仮定しない。
+\end{theorem}
+\begin{proof}
+有限射影な係数を持つ $M$ に対して、有限双加群解消の項別 tensor--Hom 随伴は
+\[
+ \mathbf R\underline{\Hom}_B(M,B)
+ \simeq\Theta_{B/R}\otimes_B^{\mathbf L}M^\vee
+ \simeq M^\vee(N)\otimes_R\mathscr V^\vee[-N]
+\]
+を与える。$M$ に追加の可換な作用があれば、その作用も保持する。
+一方、中心関係直線の二項解消
+\[
+ 0\longrightarrow B(-3)\otimes_R\ell\longrightarrow B\longrightarrow A\longrightarrow0
+\]
+の双対は、通常の両側作用を持つ $A$-双加群として
+\[
+ \mathbf R\underline{\Hom}_B(A,B)
+ \simeq A(3)\otimes_R\ell^\vee[-1]
+\]
+である。中心関係なので normalizing automorphism は現れない。
+change of rings の随伴から
+\[
+ \mathbf R\underline{\Hom}_B(M,B)
+ \simeq\mathbf R\underline{\Hom}_A(M,A)(3)\otimes_R\ell^\vee[-1]
+\]
+となる。この式を解けば \eqref{mbsd:eq:relative-gorenstein}を得る。
+有限射影解消と \eqref{mbsd:eq:regular-line} の分裂により、
+以上の計算は任意の係数変更と両立する。
+
+体上では $K_B$ を任意の片側 $B$-加群と tensor すると、長さ $N$ の射影解消を得る。
+従って $B$ の左右の大域次元は高々 $N$ である。
+任意の $A$-加群についての同じ change of rings により、
+$A$ の左右の単射次元は高々 $N-1$ となる。
+$M=R$ の非零な第 $N-1$ Ext が等号を与え、AS--Gorenstein 条件も従う。
+一般の係数環について、この絶対的な単射次元の主張はしない。
+\end{proof}
+
+\begin{corollary}[全整数の普遍切断飽和]
+\label{mbsd:cor:saturation}
+$\OO=\pi A\in\QGr A$ とする。
+全ての整数 $j$ に対し、左乗法から来る標準写像
+\begin{equation}\label{mbsd:eq:saturation}
+ A_j\xrightarrow{\sim}\Hom_{\QGr A}(\OO,\OO(j))
+\end{equation}
+は同型である。負の次数では両辺とも零である。
+この同型は任意の非平坦・非被約な底変更と両立する。
+\end{corollary}
+\begin{proof}
+$M_q=A/A_{\geq q}$ は係数加群として有限射影である。
+定理\ref{mbsd:thm:gorenstein}により
+$\underline{\Hom}_A(M_q,A)=\underline{\Ext}^1_A(M_q,A)=0$ となる。
+従って $0\to A_{\geq q}\to A\to M_q\to0$ の Hom 列は、全整数 $j$ に対し
+\[
+ A_j=\Hom_{\Gr A}(A,A(j))
+ \xrightarrow{\sim}\Hom_{\Gr A}(A_{\geq q},A(j))
+\]
+を与える。
+また $A$ の torsion 元は、ある $M_q$ の次数 shift からの射の像に入るので、
+同じ Hom 消滅により $A$ は torsion-free である。
+$A$ は次数一で有限生成だから torsion 部分圏は局所化部分圏であり、
+Gabriel 商の Hom 公式は
+\[
+ \Hom_{\QGr A}(\OO,\OO(j))
+ =\varinjlim_q\Hom_{\Gr A}(A_{\geq q},A(j))
+\]
+となる\cite[Chapitre~III, \S1]{NFMGabrielQuotient}。
+実際、$A$ の商が torsion となる部分加群は、$1$ の像が torsion であるため、
+ある $A_{\geq q}$ を含み、右辺の切断系は cofinal である。
+よって標準写像が同型となる。
+この証明を任意の変更後の係数環に適用でき、写像自体も底変更に自然である。
+\end{proof}
+
+\subsection{直線束を保持した相対 Serre 双対}
+
+\begin{theorem}[普遍線コホモロジーと Serre 関手]
+\label{mbsd:thm:serre}
+任意の係数変更後に、全ての $\OO(i)$ は $D(\QGr A)$ の compact 対象であり、
+$\bigoplus_{i=0}^{N-1}\OO(i)$ は compact generator である。
+$a=j-i$ と置くと、
+\begin{equation}\label{mbsd:eq:line-cohomology}
+ \mathbf R\Hom_{\QGr A}(\OO(i),\OO(j))\simeq
+ \begin{cases}
+ A_a[0],&a\geq0,\\
+ 0,&-r<a<0,\\
+ A_{-a-r}^\vee\otimes_R\mathscr D^\vee[-n],&a\leq-r.
+ \end{cases}
+\end{equation}
+compact 対象間の RHom は係数 perfect であり、任意の導来底変更と両立する。
+compact 部分の相対 Serre 関手は
+\begin{equation}\label{mbsd:eq:serre}
+ \mathsf S_A(K)=K(-r)\otimes_R\mathscr D[n]
+\end{equation}
+である。従って compact $K,L$ に対し、合成 pairing と両変数に自然な同型
+\[
+ \mathbf R\Hom_R\bigl(\mathbf R\Hom(K,L),R\bigr)
+ \simeq\mathbf R\Hom\bigl(L,K(-r)\otimes_R\mathscr D[n]\bigr)
+\]
+がある。この同型と trace は任意底変更に両立する。
+\end{theorem}
+\begin{proof}
+定理\ref{mbsd:thm:ambient-duality}と列\eqref{mbsd:eq:regular-line}は、
+定理\ref{thm:nfm-relative-line-cohomology}および
+定理\ref{thm:nfm-relative-serre}の一般部分の入力を与える。
+これらの証明は、周囲代数が一ブロックであることを使わず、
+普遍有限 Koszul 解消と中心正則三次の二項解消を用いている。
+以下ではその構成における係数直線を明記する。
+
+$M_q=A/A_{\geq q}$ に対する \eqref{mbsd:eq:relative-gorenstein}の colimit は、
+真正な $A$-双加群として
+\begin{equation}\label{mbsd:eq:local-duality}
+ \Gamma:=\mathbf R\Gamma_A(A)
+ \simeq A^\vee(r)\otimes_R\mathscr D^\vee[-(N-1)]
+\end{equation}
+を与える。左右の作用は有限切断の計算の段階から保持されている。
+周囲代数上の有限幅 torsion 模型と中心商への restriction により、
+定理\ref{thm:nfm-relative-line-cohomology}の証明と同様に
+非有界 Gabriel 局所化三角
+\[
+ \mathbf R\Gamma_A(M)\longrightarrow M\longrightarrow
+ \mathbf R\omega\pi M\longrightarrow
+\]
+が構成される。
+その $M=A$、内部次数 $a$ の部分に \eqref{mbsd:eq:local-duality}を代入すれば
+\eqref{mbsd:eq:line-cohomology}を得る。
+周囲代数上では有限 Koszul 解消が連続する $N$ 個の twist を compact generators とし、
+中心商への induction はこれらを $\OO_A(i)$ に送る。
+restriction は保守的かつ直和保存なので、この像も compact generator である。
+線対象間の Hom の式は係数 perfect かつ任意底変更に両立する。
+compact 部分は generator の thick 閉包なので、同じ結論が全 compact 対象に延びる。
+
+Serre pairing の作用を確認するため、線対象の dg 切断代数を $Q$ と書く。
+定理\ref{thm:nfm-relative-serre}の証明で用いた導来 Gabriel 局所化により
+$Q\otimes_A^{\mathbf L}Q\simeq Q$ である。
+\eqref{mbsd:eq:local-duality}の双対は
+\[
+ \Gamma^\vee\simeq A(-r)\otimes_R\mathscr D[N-1]
+\]
+となる。
+局所化三角 $\Gamma\to A\to Q\to$ を係数双対化して両側局所化を施すと、
+$A^\vee$ は torsion なので消え、
+\[
+ Q^\vee\simeq Q(-r)\otimes_R\mathscr D[N-2]
+\]
+を真正な $Q$-双加群として得る。
+perfect な次数付き $Q$-加群の tensor--Hom 評価により
+\eqref{mbsd:eq:serre}と両変数に自然な双対性が従う。
+trace は恒等射での評価から得られる。
+有限射影模型、局所化三角、係数双対、および評価は全て任意底変更と両立するので、
+pairing と trace も同じ性質を持つ。
+\end{proof}
+
+\begin{remark}[主張する範囲]
+体上で volume と中心方程式の生成元を選べば $\mathscr D$ は自明化され、
+Serre 式は $(-r)[n]$ となる。
+族ではこの自明化を暗黙に固定しない。
+また上の定理は $D(\QGr A)^c$ の properness と Serre 双対を与えるが、
+$\QGr A$ の有限大域次元、tails の dg smoothness、
+あるいは $D(\QGr A)^c=D^b(\qgr A)$ は結論しない。
+coherent 対象と compact 対象の一致を使う場合は、
+第\ref{crs:sec:saturation}節の独立な仮定を確認する必要がある。
+\end{remark}
+
+\subsection{構造対象からの反標準環と scalar の消去}
+
+\begin{corollary}[全同値の自然自己同型]
+\label{mbsd:cor:natural-scalars}
+任意底変更後に $\End(\operatorname{id}_{\QGr A})=R$ である。
+従って $R$-線型完全同値 $F:\QGr A\to\QGr A'$ の自然自己同型群は $R^\times$ であり、
+$F(\OO)\simeq\OO'$ の同定を保つ自然自己同型は恒等だけである。
+これは全 $\OO$-保存自己同値の\emph{同型類}の群が自明という意味ではない。
+\end{corollary}
+\begin{proof}
+切断飽和により $\End(\OO(i))=R$ である。
+恒等関手の自然自己準同型の $\OO(i)$ 上の成分を $b_i$ とすると、
+$\Hom(\OO(i),\OO(i+1))=A_1$ への自然性から
+$(b_{i+1}-b_i)A_1=0$ となる。
+$A_1$ は正の一定階数の有限射影加群で忠実なので、全ての $b_i$ は一つの $b\in R$ に等しい。
+任意の次数付き加群は自由加群の直和からの商であり、$\pi$ は完全だから、
+全ての $\OO(i)$ は Abel 圏 $\QGr A$ の生成族である。
+従って自然自己準同型は全対象上で $b$ 倍である。
+同値に対する結論は逆同値を合成すれば従う。
+\end{proof}
+
+\begin{corollary}[反標準切断環の内在性と表示スタックへの降下]
+\label{mbsd:cor:anticanonical}
+compact 部分上の $\mathsf H_A=\mathsf S_A^{-1}[n]$ は
+$(r)\otimes_R\mathscr D^\vee$ であり、これは Abel 圏全体の完全自己同値でもある。
+構造対象の反標準 orbit algebra は
+\begin{equation}\label{mbsd:eq:anticanonical-ring}
+ \mathcal R_{\mathrm{ac}}(A)
+ :=\bigoplus_{q\geq0}\Hom(\OO,\mathsf H_A^q\OO)
+ \simeq\bigoplus_{q\geq0}A_{rq}\otimes_R(\mathscr D^\vee)^{\otimes q}.
+\end{equation}
+右加群の左乗法に合わせ、次数 $p,q$ の射 $x,y$ の積を
+$\mathsf H_A^q(x)\circ y$ とする。
+この規約の下で右辺の積は $A$ の通常の積である。
+
+任意の $R$-線型完全同値 $F:\QGr A\to\QGr A'$ と
+$F(\OO)\simeq\OO'$ の同定は、Serre 比較を一貫して反復することにより、
+$\mathcal R_{\mathrm{ac}}(A)$ と $\mathcal R_{\mathrm{ac}}(A')$ の次数付き同型を与える。
+Serre 比較の scalar 変更は、この同型の grading scalar 変更に対応する。
+従って全 $\OO$-保存同値から得る次数付き同型は、grading scalar を除けば内在的である。
+この構成は任意底変更に両立する。
+
+普遍表示チャート $\mathcal X_k$ 上の右辺の代数は、
+次数付き表示スタック $\mathfrak P_k$ 上へ降下する。
+これは各 $A_j$ 自身の降下を要求しない。
+\end{corollary}
+\begin{proof}
+最初の式は定理\ref{mbsd:thm:serre}と系\ref{mbsd:cor:saturation}による。
+完全同値は非有界導来圏、その compact 部分、および係数線型 RHom を同定する。
+Serre 双対の表現対象の一意性により
+$F\mathsf S_A\simeq\mathsf S_{A'}F$ を得る。
+その逆を正負に反復し、構造対象の同定を使うと、
+反標準 orbit の全 Hom と合成が同定される。
+二つの Serre 比較の比を各 $\OO(i)$ 上で見ると、
+同値による End の同定と切断飽和から、その成分は単元 $b_i\in R^\times$ である。
+隣接する twist 間の Hom への自然性と $A_1$ の忠実性により、
+全ての $b_i$ は一つの単元に等しい。
+係数の可逆加群との tensor にも両立するので、
+反標準 orbit 上の反復は次数 $q$ にその単元の $q$ 乗を掛ける。
+従って grading scalar 以外の曖昧さを生まない。
+
+最後に降下を調べる。
+$\GL_3^k\rtimes\mathfrak S_k$ への共変性は、各直線と積の構成から従う。
+共通 grading scalar $t$ は $A_{rq}$ に重み $rq$、
+$\mathscr V=\det V$ に重み $N$、$\ell$ に重み三で作用する。
+従って $\mathscr D$ の重みは $r$ であり、
+$A_{rq}\otimes(\mathscr D^\vee)^{\otimes q}$ の重みは零となる。
+作用は $G_k=(\GL_3^k/\mathbf G_m^{\mathrm{diag}})\rtimes\mathfrak S_k$ を通り、
+積もこの作用に両立するから、代数全体が $[\mathcal X_k/G_k]$ へ降下する。
+\end{proof}
+
+\begin{remark}[次数一認識との区別]
+局所的に $\mathscr D$ を自明化すると、反標準環は $A^{(3k-3)}$ である。
+従って本節は、全 $\OO$-保存同値から Veronese 環へ移るための
+相対的・非被約底上の入力を供給する。
+この Veronese から $A$ の次数一 shift を回復することは別問題であり、
+系\ref{tbp:cor:all-blocks}の非自明な block $\mu_3$ twist は、
+本節の結論と両立してなお残る。
+また、本節は一般の Abel 圏族がこの表示族に fpqc 局所的に属することを主張しない。
+\end{remark}

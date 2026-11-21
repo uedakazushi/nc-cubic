@@ -1,0 +1,247 @@
+% !TEX root = ../nc-cubic.tex
+\section{満支持型の第三 Veronese と全構造対象保存同値}
+\label{mbv:sec:veronese}
+
+本節では、次数一の表示そのものではなく、第三 Veronese までを内在的に回復する。
+第\ref{mbs:sec:presentations}節の満支持表示を用い、$k\geq2$、
+$N=3k$, $n=N-2$, $r=N-3=3(k-1)$ とする。
+以下の $C=A^{(3)}$ の次数は三で割った次数である。
+次数一の中心がない $A$ に中心 Veronese 復元を直接適用することはできないが、
+$C$ の中心一次部分の階数は $k-1$ となる。
+この中心の計算を済ませてから、定理\ref{thm:nfm-central-veronese}を適用する。
+
+\subsection{有限個の位数条件による Veronese 中心の計算}
+
+まず基礎体を標数零の代数閉体とする。正整数 $d$ を固定し、
+各因子の平行移動について
+\begin{equation}\label{mbv:eq:order-bound}
+ \sigma_i^j\ne\operatorname{id}
+ \qquad(1\leq i\leq k,\ 1\leq j\leq3d)
+\end{equation}
+を仮定する。これは有限個の捩れ条件を除く非空開条件である。
+$V=Z(A)_3=(\bigoplus_i\mathbf C\Omega_i)/\mathbf Cw$ と書く。
+
+\begin{proposition}[第三 Veronese の有限次数中心]
+\label{mbv:prop:center}
+式\eqref{mbv:eq:order-bound}の下で、$\operatorname{Sym}V\to C$ は単射であり、
+\begin{equation}\label{mbv:eq:center}
+ Z(C)_e=\operatorname{Sym}^eV\qquad(0\leq e\leq d).
+\end{equation}
+特に $Z(A^{(3)})_1=Z(A)_3$ が成り立つ。
+\end{proposition}
+\begin{proof}
+$T_i=S_i/(\Omega_i)=B(E_i,\mathcal L_i,\sigma_i)$ と置く。
+補題\ref{tba:lem:tensor-center}の関数体による議論は、任意の正整数 $j$ について
+$\sigma_i^j\ne1$ なら $Z(T_i)_j=0$ を与える。
+中心元 $z\in(S_i)_j$ の像が零なら $z=\Omega_i z'$ であり、
+$\Omega_i$ の正則性から $z'$ も中心的である。
+従って $j\leq3d$ の中心は、$3\mid j$ なら $\mathbf C\Omega_i^{j/3}$、
+そうでなければ零である。
+
+$D=\bigotimes_{i=2}^kS_i$ と置き、第一ブロックの次数で濾過する。
+命題\ref{tba:prop:low-centers}と同じ最高記号の計算で
+\[
+ \operatorname{gr}_{W_1}A=T_1\otimes D
+\]
+を得る。$D$ は濾過零部分として $A$ に埋め込まれる。
+$z\in Z(C)_e$ の最高第一ブロック次数を $j$ とする。
+$j>0$ なら、その最高記号は $T_1$ の純粋な三次部分の全元と可換する。
+$D$ 側の係数を線型独立に書けば、非零な各係数
+$u\in(T_1)_j$ が $(T_1)_3$ を中心化することになる。
+捻った関数環内で $u=ft^j$、$a t^3,b t^3\in(T_1)_3$ と書き、
+二つの可換式を割ると
+$\sigma_1^j(a/b)=a/b$ を得る。
+次数九の線束の切断比は $\mathbf C(E_1)$ を生成するので、
+$\sigma_1^j=1$ となる。$j\leq3e\leq3d$ に反する。
+
+従って $j=0$、すなわち $z\in D$ である。
+$0\ne\bar u\in(T_1)_2$ の持上げ $u\in(S_1)_2$ と
+$v\in D_1$ に対して $uv\in A_3=C_1$ なので、$u[z,v]=0$ である。
+最高記号は $\bar u\otimes[z,v]$ だから $[z,v]=0$ となる。
+よって $z\in Z(D)$ であり、テンソル積の中心と最初の次数別計算から
+$z\in\mathbf C[\Omega_2,\ldots,\Omega_k]_{3e}$ を得る。
+逆の包含は中心性による。
+各 $S_i$ は正則な $\Omega_i$ に関して
+$\mathbf C[\Omega_i]$ 上自由である
+（$T_i$ の各次数の基底を持ち上げ、次数について帰納する）。
+従って $D$ 内で $\Omega_2,\ldots,\Omega_k$ は代数的に独立であり、
+$a_1\ne0$ による $\Omega_1$ の消去は $V$ とその張る多項式環を同定する。
+\end{proof}
+
+\subsection{中心平坦性と非被約底への変更}
+
+$\mathcal X_{k,d}$ を、第\ref{mbs:sec:presentations}節の $\mathcal X_k$ から
+式\eqref{mbv:eq:order-bound}の捩れ点を除いた開部分とする。
+中心関係直線束を $\ell$ とし、
+$\mathcal V=(\bigoplus_i\mathcal C_i)/\ell$ と置く。
+
+\begin{lemma}[相対中心多項式環上の平坦性]
+\label{mbv:lem:relative-center}
+$\mathcal C=\mathcal A^{(3)}$ は
+$\operatorname{Sym}\mathcal V$ 上平坦である。
+任意の試験スキーム $T\to\mathcal X_{k,d}$ に対して
+\[
+ Z(\mathcal C_T)_e=\operatorname{Sym}^e\mathcal V_T
+ \qquad(0\leq e\leq d)
+\]
+が成り立ち、これらの中心は次数成分の直和因子である。
+\end{lemma}
+\begin{proof}
+各中心直線束を自明化した affine 開 $\operatorname{Spec}R$ 上で考える。
+$\mathcal T_i=\mathcal S_i/(\Omega_i)$ の各次数は有限射影 $R$-加群である。
+実際、中心元の乗法は全幾何ファイバーで単射なので分裂単射となり、
+その余核が所定の Hilbert 関数を持つ有限局所自由加群となる。
+各次数で余核への射の $R$-線型切断を選ぶ。
+これらの持上げと $\Omega_i$ の冪を用いる次数帰納により、
+\[
+ \mathcal S_i\cong
+ \bigoplus_{a\geq0}(\mathcal T_i)_a\otimes_RR[z_i],
+ \qquad \deg z_i=3
+\]
+を中心多項式環上の次数付き加群として得る。
+全ての加群を同時に自由化する開集合は要求していない。
+各次数の射影性による切断を個別に選べば十分である。
+テンソル積を取り、単元 $a_1$ を使って $\sum a_i z_i=0$ から $z_1$ を消去すると、
+$\mathcal A$ は $R[z_2,\ldots,z_k]$ 上、有限射影 $R$-加群を係数とする直和となる。
+第三 Veronese は、この係数の元の次数が三の倍数となる直和成分である。
+従って $\mathcal C$ は $\operatorname{Sym}\mathcal V$ 上射影、特に平坦である。
+この加群記述を底変更しても同じ結論が成り立つ。
+
+中心は有限局所自由加群間の交換子行列
+\[
+ \mathcal C_e\longrightarrow
+ \mathcal Hom(\mathcal C_1,\mathcal C_{e+1})
+\]
+の核である。$\mathcal C$ は次数一生成なので、この核が実際の中心を計算する。
+命題\ref{mbv:prop:center}により、全幾何ファイバーで核の次元は
+$\operatorname{Sym}^e\mathcal V$ の階数に等しい。
+$\mathcal X_{k,d}$ は滑らかで被約なので、上位小行列式は恒等的に零となる。
+最大非零小行列式で局所化すれば行列は一定階数の標準形となる。
+従って核・像・余核は局所自由であり、中心核の形成は任意底変更に両立する。
+中心に入る $\operatorname{Sym}^e\mathcal V$ は各幾何ファイバーでこの核と一致するので、
+束としても一致する。非被約な $T$ に対する主張は、この分裂行列を引き戻して得る。
+\end{proof}
+
+\begin{theorem}[第三 Veronese までの一意な持上げ]
+\label{mbv:thm:third-lift}
+$k\geq3$, $d=k-1$ とし、$A,A'$ は同じ基底上の
+$\mathcal X_{k,d}$ から引き戻された二つの表示とする。
+このとき制限写像
+\[
+ \underline{\operatorname{Isom}}_{\rm gr}(A^{(3)},(A')^{(3)})
+ \longrightarrow
+ \underline{\operatorname{Isom}}_{\rm gr}(A^{(r)},(A')^{(r)})
+\]
+は fpqc 層として $\mu_{k-1}$-torsor である。
+核は第三 Veronese の次数スカラーである。
+$k=2$ では $r=3$ なので、この写像は恒等である。
+\end{theorem}
+\begin{proof}
+$C=A^{(3)}$ は次数一生成で、中心一次束 $\mathcal V$ の階数は $k-1\geq2$ である。
+補題\ref{mbv:lem:relative-center}は中心多項式環上の平坦性と、
+任意底変更後の次数 $d$ の中心条件を与える。
+従って $C,C'$ に定理\ref{thm:nfm-central-veronese}を適用できる。
+$C^{(d)}=A^{(3d)}=A^{(r)}$ である。
+\end{proof}
+
+\subsection{全構造対象保存同値の第三 Veronese による認識}
+
+以下では $d=k-1$ とし、第\ref{mbs:sec:presentations}節の表示を
+$\mathcal X_{k,d}$ 上に制限する。
+相対 Serre 関手の基底直線束を
+\[
+ \mathcal D=\det\!\left(\bigoplus_iW_i\right)\otimes\ell^\vee
+\]
+と書く。定理\ref{mbsd:thm:serre}で確認した式は
+$\mathsf S=(-r)[n]\otimes\mathcal D$ である。
+従って大域的に内在的なのは、まず
+$\bigoplus_{q\geq0}A_{rq}\otimes\mathcal D^{-q}$ であり、
+基底直線束を忘れて $A^{(r)}$ と同一視しない。
+
+\begin{theorem}[全 $\mathcal O$-保存同値の有限次数表示への還元]
+\label{mbv:thm:all-o-third}
+上の範囲の二つの表示 $A,A'$ に対して、自然な fpqc 層の同型
+\begin{equation}\label{mbv:eq:all-o-third}
+ \frac{\underline{\operatorname{Isom}}_{\rm gr}(A^{(3)},(A')^{(3)})}
+ {\mathbf G_m}
+ \ \xrightarrow{\sim}\
+ \operatorname{Eq}_{\mathcal O}
+ (\operatorname{QGr}A,\operatorname{QGr}A')
+\end{equation}
+がある。右辺は線型完全同値と構造対象の同定の対を、
+その同定を保つ自然同型で割ったものである。
+これは自己同型を持たない groupoid、すなわち集合値 fpqc 層である。
+左辺の $\mathbf G_m$ は第三 Veronese の次数スカラーである。
+\end{theorem}
+\begin{proof}
+一般 Veronese の Gabriel 同値
+（補題\ref{lem:nfm-gabriel}）により、左辺の次数付き同型は右辺の同値を与える。
+次数スカラーは正規化された自然同型で吸収される。
+
+逆に $\mathcal O$-保存同値 $F$ を取る。
+線対象の compact 性、任意底変更に両立する切断飽和と相対 Serre 双対を用いる。
+これらは定理\ref{mbsd:thm:serre}と系\ref{mbsd:cor:saturation}で、各因子の有限 Koszul 解消と正則中心商から得られる。
+fpqc 局所で $\mathcal D,\mathcal D'$ の frame を選ぶと、
+$H=\mathsf S^{-1}[n]$ は $(r)$ となる。
+Serre 双対の表現対象の一意性から得た比較 $FH\simeq H'F$ を正負に反復し、
+$F(\mathcal O)\simeq\mathcal O'$ と合わせる。
+全整数の切断飽和により、これは合成を保つ次数付き同型
+$A^{(r)}\simeq(A')^{(r)}$ を与える。
+定理\ref{mbv:thm:third-lift}により、それはさらに fpqc 局所で
+$C=A^{(3)}\simeq C'=(A')^{(3)}$ へ持ち上がる。
+$k=2$ ではこの持上げ操作は不要である。
+選んだ比較は全 $r$-orbit の切断と合成を同定しているので、
+Gabriel 切断の完全忠実性により、その構造移送は元の $F$ と自然同型になる。
+
+核も確認する。$C$ の次数付き自己同型 $\psi$ の構造移送が恒等なら、
+$\mathcal O_C(j)$ 上の自然同型は各々一つの単元 $b_j$ である。
+隣接 Hom は $C_1=A_3$ であり、正の階数の有限局所自由加群なので忠実である。
+自然性から $\psi_1$ は $b_{j+1}/b_j$ によるスカラーとなり、
+その比は $j$ に依存しない。
+$C$ は次数一生成なので、$\psi$ 全体が次数スカラーとなる。
+同様に恒等関手の自然自己準同型は、全 $\mathcal O_C(j)$ 上で同じ基底スカラーとなる。
+Gabriel 切断の忠実性から全対象でもそうであり、$\mathcal O$ 上を固定すれば恒等である。
+
+同値と自然同型の fpqc 降下は
+命題\ref{prop:nfm-equivalence-descent}の係数作用付き Gabriel 商の議論に従う。
+この議論は中心一次変数の存在に依存しない。
+従って右辺は fpqc 層であり、上の局所全射性と核計算は
+式\eqref{mbv:eq:all-o-third}を与える。
+基底直線束の frame と Serre 比較の変更は局所的な構成にだけ用いており、
+自然な左辺から右辺への写像自体にはそれらの選択は残らない。
+\end{proof}
+
+\subsection{第三 Veronese の二次表示と残る分類問題}
+
+\begin{lemma}[有限な二次表示]
+\label{mbv:lem:quadratic}
+上の第三 Veronese は
+\[
+ C=T(A_3)\big/\bigl(\ker(A_3\otimes A_3\longrightarrow A_6)\bigr)
+\]
+という二次表示を持つ。関係束は直和因子であり、任意底変更に両立する。
+\end{lemma}
+\begin{proof}
+$A$ は次数一で生成され、定義関係の次数は二と三だけである。
+自由代数の長さ $3m$ の語を、長さ三の語に区切る。
+一つの二次または三次関係を挿入した語は、区切りをまたいでも
+高々二つの隣接した長さ三ブロックに収まる。
+一ブロック内の関係は生成元空間を $A_3$ とすることで既に除かれ、
+二ブロックにまたがる関係は表示した次数二の核から生成される。
+関係イデアルの全次数成分はこのような挿入の和なので、他の高次関係は不要である。
+$A_3\otimes A_3\to A_6$ は全射で、$A_6$ は有限局所自由だから分裂し、
+その核の形成も任意底変更に両立する。
+\end{proof}
+
+従って式\eqref{mbv:eq:all-o-third}の左辺は、有限次元の生成元束の
+射影線型同型がこの二次関係束を保存するという有限個の代数方程式で表される。
+固定した二つの族の間の全 $\mathcal O$-同値層は、この意味で有限表示のスキームとして表現される。
+二ブロックでは $\dim A_3=55$, $\dim A_6=406$ なので、二次関係の階数は $2619$ である。
+
+この認識は次数一の $A$ を復元するものではない。
+同じ $C$ を持つ Heisenberg twist は別の次数一表示を与える。
+全ての第三根表示の分類、$C$ の射影的自己同型群の具体的決定、
+表示族の全 $\mathcal O$-同値による同値関係の平坦性、
+および全 intrinsic モジュライの成分・代数性は、なお別の課題である。
+有限表示の Isom 層を得たことだけから、元の次元 $2k$ の表示スタックを
+全 $\mathcal O$-marked モジュライと同定しない。

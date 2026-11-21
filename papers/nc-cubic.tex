@@ -76,7 +76,7 @@
 \title{非可換三次 $n$-fold の可換復元とモジュライ\\
 \large Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 \author{}
-\date{2026年11月21日・研究稿 v31}
+\date{2026年11月21日・研究稿 v32}
 \hypersetup{pdftitle={非可換三次 n-fold の可換復元とモジュライ},
 pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}}
 \begin{document}
@@ -90,15 +90,19 @@ Kuznetsov成分として復元する。比較はrotationと指定三次周期を
 可換模型の方程式は元の関数体上に定義できる。
 この一般復元は以下の一ブロック型のモジュライ定理より広い仮定で成立する。
 
-満支持 $k\geq2$ ブロック型では、中心一次変数を用いずに
-次数三までの中心、点対応、二次包絡と中心商の認識を与える。
+満支持 $k\geq2$ ブロック型では、中心、点対応、二次包絡と中心商の認識を与える。
 相異なる一般の楕円因子を持つ次数付き表示の滑らかな既約 DM stack は次元 $2k$、
 幾何点の慣性群の位数は $3^{3k-1}$ となる。
-点対応はブロック間の交換関係を検出せず、ブロック別の三乗根 Zhang twist は
-同じ Serre 指数の Veronese と同じ構造対象付き圏を持つ異なる次数一表示を与える。
-従ってこの表示 stack と全 $\mathcal O$-marked moduli の同定は未完成である。
-二ブロックの完備中心三次族には $\mu_3$ 同変な MF 比較を選べ、
-復元potentialも二つの三変数三次の和となる。
+相対 Gorenstein 双対と全整数の切断飽和を確認し、有限個の捩れ条件を除いた開上で、
+全構造対象保存同値を第三 Veronese の次数付き同型のスカラー商として認識する。
+その第三 Veronese は有限な二次表示を持つ。
+一方、次数一表示の根は一意ではなく、Heisenberg 群による全代数的 Zhang twist の
+同型類数は $(11^k+2\cdot8^k)/3$、二ブロックでは $83$ となる。
+全ての根の分類と全 intrinsic モジュライの代数性はなお別問題である。
+多ブロック一変数族では、既存の完備 MF 比較と一般点定理を入力として、
+分裂した三次方程式を元の関数体上に、$(\mu_3)^{k-1}$ 同変な比較核を有限拡大上に得る。
+二ブロックでは、既知の可換同変比較を経て、同変残余圏を有限拡大後に
+二つの復元種数一曲線の積の導来圏として記述する。
 
 三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ三次超曲面の量子化を扱う。
 良い一ブロック型の $\mathcal O$-marked 圏族の滑らかな既約 DM stack を構成し、
@@ -217,16 +221,49 @@ $(\prod_i\mathcal H_{27,i})/\Delta\mu_3$、位数は $3^{3k-1}$ である。
 Zhang の圏同値は既知の入力\cite{TBPZhangTwist}であり、
 ここでは満支持型の中心商に適用して次数一復元の具体的な限界を示す。
 
-二ブロックの完備族では、既存の定理\ref{cft:thm:complete}を入力に、
-$\mu_3$ 同変な比較と分裂した復元potential $W_1(x)+W_2(y)$ を得る
-（命題\ref{tbr:prop:complete-split}）。
-一変数の一般点では定理\ref{gdr:thm:generic}の仮定を確認し、
-有限拡大後の Ku 比較へ進めるが、同変性を保つ代数化と全 $\OO$-降下は未証明である。
-可換側の $\operatorname{Ku}(Y)^{\mu_3}\simeq D^b(E_1\times E_2)$ は
-既存の同変圏の定理\cite{TBHu}であり、通常の Ku 自体との同定ではない。
-Sklyanin の幾何、Heisenberg 群の作用、Zhang twist およびこの可換同変定理と、
-本稿の表示・中心商・同変完備復元への適用を区別する。
-これらを全 intrinsic モジュライの分類や新規性確定とは扱わない。
+相対双対では基底直線束
+$\mathscr D=\det(\bigoplus_iW_i)\otimes\ell^\vee$ を保持する。
+定理\ref{mbsd:thm:serre}と系\ref{mbsd:cor:saturation}により、
+Serre 関手は $(-3k+3)[3k-2]\otimes\mathscr D$ であり、全整数の切断は飽和する。
+全構造対象保存同値が認識する反標準切断環は
+$\bigoplus_{q\geq0}A_{(3k-3)q}\otimes\mathscr D^{-q}$ である。
+さらに $jp_i\ne0$ $(1\leq j\leq3k-3)$ の有限個の条件の下で、
+第三 Veronese の中心を直接計算し、中心平坦性を証明する。
+定理\ref{mbv:thm:all-o-third}は fpqc 層として
+\[
+ \operatorname{Eq}_{\OO}(\operatorname{QGr}A,\operatorname{QGr}A')
+ \simeq
+ \underline{\operatorname{Isom}}_{\rm gr}(A^{(3)},(A')^{(3)})/\mathbf G_m
+\]
+を与える。二ブロックでは第三 Veronese は $55$ 生成元と $2619$ 個の独立な
+二次関係を持ち、固定模型間の全同値層は有限表示のスキームで表される。
+全同値による同値関係の平坦性や、全 intrinsic モジュライの代数性までは結論しない。
+
+次数一の根を具体化するため、さらに $6p_i\ne0$ を課す。
+定理\ref{mbr:thm:algebraic-twist-groupoid}は、一つの次数付き自己同型の冪で定まる
+全代数的 Zhang twist の groupoid を
+$\mathcal K_k=(\prod_i\mathcal H_{27,i})/\Delta\mu_3$ の共役 groupoid と同定する。
+同型類数は $(11^k+2\cdot8^k)/3$、従って $k=2,3$ では $83,785$ である。
+これらは同じ第三 Veronese を持つ表示であり、異なる内在的モジュライ点ではない。
+他方、両端が可換 tensor 積表示なら、一般の twisting system でも
+次数付き同型類は変わらない（定理\ref{mbr:thm:commuting-twist-rigidity}）。
+全 $\OO$-同値が次数一の全 shift を対象として保つかは、なお別の根の問題である。
+
+多ブロック一変数族では、既存の定理\ref{cft:thm:complete}と
+定理\ref{gdr:thm:generic}を入力として、
+$G=(\mu_3)^{k-1}$ 不変な低 rotation 積の積分空間から
+分裂した復元方程式 $F_1+\cdots+F_k$ を元の関数体上に得る。
+同変核は crossed product 上の perfect 加群として coherence ごと有限型底へ降ろし、
+その閉点において有限拡大上の $G$ 同変・rotation・指定周期保存比較を得る
+（定理\ref{med:thm:multiblock-generic}）。
+これは指定した形式核の全 jet の代数化ではない。
+二ブロックの場合は Hu の既知の可換同変定理\cite{TBHu}と接続し、
+追加有限拡大後に同変残余圏を二つの復元種数一曲線の積の導来圏として記述する
+（系\ref{med:cor:elliptic-product}）。
+通常の Ku 自体との同定、元の点曲線との同定、比較核の全 $\OO$-降下は含めない。
+Sklyanin の幾何、Heisenberg 群、Zhang twist、同変圏と有限核降下の既知理論と、
+本稿の中心商・第三 Veronese・同変一般点復元への適用を区別する。
+これらの組合せの新規性について網羅的な確認は未完了である。
 量子化論文では周囲代数を$A$、中心商を$B$と記すのに対し、
 本稿では周囲を$B$、中心商を$A$と記す。
 中心元の規格化と中心イデアルを保つかどうかは、引用ごとに区別する。
@@ -1621,7 +1658,11 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/two_block_points.tex}
 \input{papers/sections/two_block_algebra.tex}
 \input{papers/sections/multiblock_presentations.tex}
+\input{papers/sections/multiblock_serre.tex}
+\input{papers/sections/multiblock_veronese.tex}
+\input{papers/sections/multiblock_roots.tex}
 \input{papers/sections/two_block_recovery.tex}
+\input{papers/sections/multiblock_equivariant_descent.tex}
 
 \input{papers/sections/graded_moduli.tex}
 \input{papers/sections/relative_duality.tex}

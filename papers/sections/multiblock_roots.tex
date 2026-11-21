@@ -1,0 +1,376 @@
+% !TEX root = ../nc-cubic.tex
+\section{満支持型の次数一表示の根と Zhang twist}
+\label{mbr:sec:roots}
+
+本節では、同じ第三 Veronese と同じ $\OO$-marked 圏を持つ表示を、
+まず一つの次数付き自己同型から作る twist について分類する。
+さらに、両端が可換 tensor 積表示である場合には、
+一般の twisting system も新しい次数付き同型類を生まないことを示す。
+後者を全 $\OO$-保存同値へ適用するためには、
+構造対象の全ての shift を対象として保つ条件がなお必要である。
+
+基礎体 $k$ は標数零の代数閉体とする。
+ブロック数を $\ell\ge2$ とし、
+\begin{equation}\label{mbr:eq:setup}
+ B=\bigotimes_{i=1}^{\ell}S_i,\qquad
+ S_i=S(E_i,\mathcal L_i,t_{p_i}),\qquad
+ A=B/(w),\quad w=\sum_{i=1}^{\ell}a_i\Omega_i,\quad a_i\ne0
+\end{equation}
+を固定する。前節までの楕円 Sklyanin の仮定に加えて、
+\begin{equation}\label{mbr:eq:good-open}
+ 6p_i\ne0,\qquad
+ j(E_i)\notin\{0,1728\},\qquad
+ j(E_i)\ne j(E_j)\quad(i\ne j)
+\end{equation}
+を課す。これは非空な Zariski 開条件である。
+$6p_i\ne0$ は、後で三捩れ点を足しても符号反転による同定が生じないように使う。
+$\mathcal H_i$ を $\Omega_i$ を固定する位数 $27$ の Heisenberg 群とし、
+\begin{equation}\label{mbr:eq:finite-group}
+ \mathcal H=\prod_i\mathcal H_i,\qquad
+ \mathcal K_\ell=\mathcal H/\mu_3^{\mathrm{diag}}
+\end{equation}
+と置く。系\ref{tba:cor:k-block-center-inertia}により
+$\Aut_{\mathrm{gr}}(A)/\mathbf G_m=\mathcal K_\ell$ である。
+$\mathcal H_i$ は指数三、すなわち全ての元の三乗が一である。
+これは Hesse 座標の二生成元とその中心交換子の表示からも直接従う。
+
+Zhang twist の基本性質と一般の twisting system の規格化は既知である
+\cite[Proposition~2.4, Theorems~3.1 and~3.7]{TBPZhangTwist}。
+Cooney--Grabowski はこの方法を点幾何による groupoid として研究した
+\cite[Proposition~10, Definition~11 and Theorem~28]{MBRCooneyGrabowski}。
+ただし本稿の周囲代数では、系\ref{tbp:cor:all-blocks}により
+$R_B\ne H^0(\mathcal I_{\Gamma_B}(1,1))$ である。
+従って同論文の geometric algebra の仮定は満たされず、
+その分類定理を本節へ直接適用することはできない。
+以下では混合二次関係と中心三次関係も使って分類する。
+
+\subsection{三捩れ平行移動を伴う代数的 twist}
+
+$\tau=(\tau_i)\in\mathcal H$ に対し、斉次元の積を
+\begin{equation}\label{mbr:eq:twist-product}
+ u*_{\tau}v=u\tau^{\deg u}(v)
+\end{equation}
+とする代数を $B^\tau$、その中心商を $A^\tau$ と書く。
+本節で\emph{代数的 twist} というときは、
+一つの次数付き自己同型の冪から来る twisting system を意味し、
+一般の twisting system と区別する。
+
+\begin{lemma}[三捩れ twist の中心商と点 shift]
+\label{mbr:lem:torsion-twist}
+$\tau\in\mathcal H$ に対して $w$ は $B^\tau$ でも正則な中心元で、
+\begin{equation}\label{mbr:eq:common-veronese}
+ A^\tau=B^\tau/(w),\qquad
+ (A^\tau)^{(3)}=A^{(3)},\qquad
+ (A^\tau)^{(3\ell-3)}=A^{(3\ell-3)}
+\end{equation}
+が同じ次数付きベクトル空間の上で成立する。
+これらは全て同じ $\OO$-marked 圏を与える。
+
+$\tau_i^*$ が $E_i$ 上で与える三捩れ平行移動を $t_{q_i}$ とする。
+ここで $\tau_i^*$ は点の座標への双対線型写像であり、
+$q_i$ の符号はこの規約で固定する。
+$A^\tau$ の点スキームは $\coprod_iE_i$ で、各成分上の shift は
+\begin{equation}\label{mbr:eq:point-shift}
+ \sigma_i^\tau=t_{p_i+q_i},\qquad q_i\in E_i[3]
+\end{equation}
+となる。
+\end{lemma}
+\begin{proof}
+$\tau^3=1$ かつ $\tau(w)=w$ なので、
+$w*_{\tau}u=wu$、$u*_{\tau}w=uw$ である。
+これで中心性・正則性と商の等式を得る。
+次数が三の倍数の元から始まる積は元の積だから、Veronese の等式も従う。
+右加群の作用を $m*_{\tau}u=m\tau^{\deg m}(u)$ と変える関手は
+torsion と正則右加群を保つので、$\OO$-marked 圏の同値を与える。
+
+$R$ を $B$ の二次関係空間とすると
+\begin{equation}\label{mbr:eq:twisted-relations}
+ R^\tau=(1\otimes\tau^{-1})R.
+\end{equation}
+この関係は $B^\tau$ を二次代数として表示する。
+実際、各 tensor 次数で
+$v_1\otimes\cdots\otimes v_m\mapsto
+v_1\otimes\tau(v_2)\otimes\cdots\otimes\tau^{m-1}(v_m)$
+を使うと、twist 後の関係イデアルと元の関係イデアルが対応する。
+従って双線型関係スキームは
+$\Gamma_{B^\tau}=(1\times\tau^*)\Gamma_B$ であり、
+系\ref{tbp:cor:all-blocks}から \eqref{mbr:eq:point-shift} を得る。
+各 $\Omega_i$ は普遍点列上で零であり、$\tau$ に固定されるので、
+中心商を課しても点スキームは変わらない。
+\end{proof}
+
+\begin{theorem}[代数的 twist の共役 groupoid]
+\label{mbr:thm:algebraic-twist-groupoid}
+$A$ の全ての代数的 Zhang twist を対象とし、
+射を次数付き同型の共通 grading scalar による商とする groupoid を
+$\mathfrak T_{\mathrm{alg}}(A)$ と書く。
+この groupoid は有限群 $\mathcal K_\ell$ の共役作用 groupoid
+\begin{equation}\label{mbr:eq:conjugacy-groupoid}
+ \mathfrak T_{\mathrm{alg}}(A)\simeq
+ [\mathcal K_\ell/\mathcal K_\ell]_{\mathrm{conj}}
+\end{equation}
+に同値である。
+具体的に、$\tau,\upsilon\in\mathcal H$ に対し
+\begin{equation}\label{mbr:eq:twist-isom}
+ \operatorname{Isom}_{\mathrm{gr}}(A^\tau,A^\upsilon)/k^\times
+ \simeq
+ \{h\in\mathcal K_\ell:
+            h\overline\tau h^{-1}=\overline\upsilon\}.
+\end{equation}
+従って対象の同型類は $\mathcal K_\ell$ の共役類であり、
+$A^\tau$ の射影的な次数付き自己同型群は
+$C_{\mathcal K_\ell}(\overline\tau)$ である。
+ここでは固定した代数閉体上の対象と射の groupoid を述べており、
+任意基底上の twist の族を分類する相対 stack の同値は主張しない。
+\end{theorem}
+
+\begin{proof}
+まず任意の $f\in\Aut_{\mathrm{gr}}(A)$ を考える。
+二次包絡とブロックの認識により、$f$ は各因子の自己同型 $f_i$ からなり、
+その中心指標 $\chi_i(f_i)$ は共通の値 $c$ となる。
+$t^3=c$ を選び、共通 grading scalar $t$ を除けば
+$\tau=t^{-1}f\in\mathcal H$ となる。
+共通 scalar による twist は、次数 $m$ の線型写像を
+$t^{-\binom m2}$ 倍することで取り除けるので、
+$A^f\simeq A^\tau$ である。従って $\mathcal H$ の元による twist を分類すればよい。
+
+次数付き同型 $F:A^\tau\to A^\upsilon$ を取り、その次数一部分を $h$ とする。
+点成分の線型包と $j$ の相異性から $h=\bigoplus_i h_i$ である。
+$h_i$ が曲線に誘導する同型は、原点を flex に選べば
+$t_{u_i}\epsilon_i$、$u_i\in E_i[3]$、$\epsilon_i\in\{1,-1\}$ の形である。
+点 shift の intertwining 条件と \eqref{mbr:eq:point-shift} により、
+もし $\epsilon_i=-1$ なら
+$2p_i=-(q_i+q'_i)$ となる。ただし $q_i,q'_i\in E_i[3]$ は
+$\tau_i,\upsilon_i$ に対応する点である。
+これは $6p_i=0$ を意味するので除外される。
+従って $\epsilon_i=1$ かつ $q_i=q'_i$ であり、
+$h_i$ は元の $t_{p_i}$ とも可換な射影自己同型を与える。
+その線型持上げ $h_i$ は元の因子 $S_i$ の次数付き自己同型である。
+この段階では各 $\chi_i(h_i)$ の一致はまだ使わない。
+
+異なる二ブロック $i,j$ の twist 後の関係は
+\begin{equation}\label{mbr:eq:mixed-graph}
+ \{x\otimes\tau_j^{-1}y-y\otimes\tau_i^{-1}x:
+                         x\in W_i,\ y\in W_j\}
+\end{equation}
+である。この空間を
+$(W_i\otimes W_j)\oplus(W_j\otimes W_i)$ の第一成分上のグラフと見て、
+$h\otimes h$ による移送を比較すると
+\[
+ (h_j\tau_jh_j^{-1})\otimes(h_i\tau_i^{-1}h_i^{-1})
+       =\upsilon_j\otimes\upsilon_i^{-1}
+\]
+を得る。
+二つの非零な単純 tensor が等しければ、それぞれの因子は互いに逆の
+スカラー倍である。全てのブロック対についてこれを使うと、
+一つの共通スカラー $c$ が存在して
+\begin{equation}\label{mbr:eq:conjugate-scalar}
+ h\tau h^{-1}=\lambda_c\upsilon
+\end{equation}
+となる。$\lambda_c$ は次数 $m$ に $c^m$ を掛ける grading scalar である。
+$\tau_i,\upsilon_i$ は各中心元を固定するので $c^3=1$ である。
+
+逆に \eqref{mbr:eq:conjugate-scalar} を満たす因子自己同型 $h$ は
+\begin{equation}\label{mbr:eq:isom-formula}
+ F|_{B_m}=c^{-\binom m2}h|_{B_m}
+\end{equation}
+によって $B^\tau\to B^\upsilon$ の次数付き同型を与える。
+実際、次数 $m,n$ の元について
+$h(u*_{\tau}v)=c^{mn}h(u)*_{\upsilon}h(v)$ であり、
+$\binom{m+n}{2}=\binom m2+\binom n2+mn$ が積の両立性を与える。
+二次包絡の普遍性により、与えられた次数一写像を延ばす同型はこれに限る。
+次数三では $c^{-\binom32}=c^{-3}=1$ なので、
+$F(\Omega_i)=\chi_i(h_i)\Omega_i$ である。
+従って $F$ が中心商へ降りる必要十分条件は
+全ての $\chi_i(h_i)$ が等しいことであり、
+これは $h\in\Aut_{\mathrm{gr}}(A)$ と同値である。
+
+共通 grading scalar を除くと $h$ は $\mathcal K_\ell$ の元となり、
+\eqref{mbr:eq:conjugate-scalar} はそこでの共役条件に等しい。
+これで \eqref{mbr:eq:twist-isom} を得る。
+$\mathcal H$ の二つの代表が共通 $\mu_3$ だけ異なる場合も
+\eqref{mbr:eq:isom-formula}が次数一で恒等な同型を与える。
+各 $\mathcal K_\ell$ の元の代表を一つ選べば、
+射の対応は次数一の線型写像の合成を保つので groupoid の同値となる。
+\end{proof}
+
+\subsection{同型類の数とブロックスカラーの部分群}
+
+\begin{corollary}[全代数的 twist の個数]
+\label{mbr:cor:twist-count}
+定理\ref{mbr:thm:algebraic-twist-groupoid}の仮定の下で、
+代数的 Zhang twist の次数付き同型類の個数は
+\begin{equation}\label{mbr:eq:count}
+ c_\ell=\frac{11^\ell+2\cdot8^\ell}{3}.
+\end{equation}
+従って二ブロックでは $83$、三ブロックでは $785$ である。
+全ての同型類は、補題\ref{mbr:lem:torsion-twist}の意味で
+同じ第三 Veronese と同じ $\OO$-marked 圏を持つ表示によって代表される。
+
+共役類を $q=(q_i)\in\prod_iE_i[3]$ ごとに分け、
+$s=|\{i:q_i\ne0\}|$ とすると、その $q$ の上の同型類数と自己同型群の位数は
+\begin{equation}\label{mbr:eq:support-count}
+ \#\{\text{同型類 over }q\}
+       =3^{\max(\ell-1-s,0)},\qquad
+ |\Aut_{\mathrm{gr}}(A^\tau)/\mathbf G_m|
+       =3^{3\ell-1-\min(s,\ell-1)}.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+$\mathcal K_\ell$ の中心とその商は
+\[
+ Z=\mu_3^\ell/\mu_3^{\mathrm{diag}},\qquad
+ Q=\prod_i E_i[3]
+\]
+である。各因子の Heisenberg 交換子は非退化な三捩れ pairing であり、
+$q_i\ne0$ なら、その因子との交換子は $\mu_3$ 全体を動く。
+$q_i=0$ なら、その成分の交換子は零である。
+従って support が $I$ である元の交換子像は
+\[
+ \mathbf F_3^I\longrightarrow
+ \mathbf F_3^\ell/\mathbf F_3(1,\ldots,1)
+\]
+の像である。その次元は $s<\ell$ なら $s$、$s=\ell$ なら $\ell-1$ である。
+なお $q\ne0$ のときこの像は非零なので、上記の $Z$ が中心全体である。
+
+$q$ の上には $3^{\ell-1}$ 個の元があり、
+各共役類の大きさは $3^{\min(s,\ell-1)}$ である。
+これで \eqref{mbr:eq:support-count} を得る。
+support の大きさ $s$ の $q$ は $\binom\ell s8^s$ 個あるので、総数は
+\[
+ \sum_{s=0}^{\ell-1}\binom\ell s8^s3^{\ell-1-s}+8^\ell
+   =\frac{11^\ell+2\cdot8^\ell}{3}
+\]
+となる。
+\end{proof}
+
+\begin{corollary}[ブロックスカラー twist の完全な分類]
+\label{mbr:cor:scalar-roots}
+$\tau|_{W_i}=\varepsilon_i\operatorname{id}$、$\varepsilon_i\in\mu_3$ とする。
+二つのこのような twist が次数付き同型となる必要十分条件は、
+その比が全ブロックで同じスカラーとなることである。
+従ってこの部分の同型類は正確に
+$\mu_3^\ell/\mu_3^{\mathrm{diag}}$、個数 $3^{\ell-1}$ である。
+各対象の射影的な次数付き自己同型群は $\mathcal K_\ell$ である。
+\end{corollary}
+\begin{proof}
+これらの twist は $\mathcal K_\ell$ の中心の元に対応し、
+その共役類は一点である。
+定理\ref{mbr:thm:algebraic-twist-groupoid}を適用する。
+\end{proof}
+
+\begin{remark}[有限検算と証明の区別]\label{mbr:rem:verification}
+\texttt{computations/verify\_multiblock\_twists.py} は
+$\mathbf F_3$ 上の上三角 Heisenberg 群の直積を共通中心で割った群を、
+明示的な積と逆元によって実装する。
+$\ell=2,3$ について全群要素を列挙し、生成元による共役軌道を求めて
+$83,785$ 個の共役類と \eqref{mbr:eq:support-count} を厳密に検算する。
+この検算は群の共役類を確認するものであり、
+代数の同型認識、圏同値、一般 $\ell$ の公式の証明を代用しない。
+\end{remark}
+
+\subsection{可換 tensor 積表示どうしの twist 剛性}
+
+\begin{theorem}[可換 tensor 積チャート内の一般 twisting system]
+\label{mbr:thm:commuting-twist-rigidity}
+$A,A'$ を \eqref{mbr:eq:setup}--\eqref{mbr:eq:good-open} の
+可換 tensor 積中心商とする。
+両者のブロック数は同じとし、因子や中心係数は異なってよい。
+一般の Zhang twisting system $\boldsymbol\tau$ により
+$A'\simeq A^{\boldsymbol\tau}$ であるならば、
+$A'$ と $A$ は次数付き同型である。
+従ってこのチャートの二つの対象について
+\begin{equation}\label{mbr:eq:graded-category-rigidity}
+ \operatorname{Gr}A\simeq\operatorname{Gr}A'
+ \quad\Longleftrightarrow\quad
+ A\simeq_{\mathrm{gr}} A'.
+\end{equation}
+この結論は同値な\emph{対象}の認識であり、
+与えられた全ての同値関手が次数付き同型の構造移送に等しいという主張ではない。
+\end{theorem}
+
+\begin{proof}
+Zhang の規格化 \cite[Proposition~2.4]{TBPZhangTwist}により
+$\tau_0=1$ としてよい。$V=A_1$ とし、
+$g=\tau_1|_V\in\GL(V)$ と置く。
+$A'$ をこの次数一空間へ同定すると、その二次関係は
+\[
+ R'=(1\otimes g^{-1})R_B
+\]
+であり、二次関係スキームは
+$(1\times g^*)\Gamma_B$ である。
+このスキームの第一射影の像は $E=\coprod_iE_i$、第二射影の像は $g^*E$ である。
+一方、$A'$ も可換 tensor 積表示なので、その二次関係スキームは
+その点スキームの自己同型のグラフであり、両射影の像は一致する。
+従って $g^*E=E$ となる。
+$j(E_i)$ が相異なるため $g^*$ は各 $E_i$ とその線型包を保ち、
+$g=\bigoplus_i g_i$ である。
+また第一射影により認識される $A'$ のブロック分解も、この同じ分解である。
+
+各混合ブロックの関係は
+$x\otimes g_j^{-1}y-y\otimes g_i^{-1}x$ である。
+これが可換 tensor 積の関係空間
+$\langle x\otimes y-y\otimes x\rangle$ に等しいので、
+二つの混合直和成分間のグラフを比較して
+\[
+ g_j\otimes g_i^{-1}=1_{W_j}\otimes1_{W_i}
+ \qquad(i\ne j)
+\]
+を得る。従って全ての $g_i$ は同じスカラーである。
+ゆえに $R'=R_B$、すなわち両者の二次包絡は同じ $B$ である。
+
+$A'$ の三次核は $B$ の中心三次直線であり、
+全非零係数という仮定から $\sum_i a_i'\Omega_i$ と書ける。
+系\ref{tba:cor:k-block-center-inertia}のブロック別尺度作用により、
+代数閉体上ではこの直線を $kw$ へ移せる。
+従って $A'\simeq_{\mathrm{gr}}A$ を得る。
+最後に、連結次数付き代数の graded module 圏の同値と twist の存在の同値は
+Zhang の定理 \cite[Theorem~3.5]{TBPZhangTwist}による。
+\end{proof}
+
+\begin{corollary}[全 shift を対象として保つ同値への帰結]
+\label{mbr:cor:sss-recognition}
+前定理の $A,A'$ に対し、自然な切断写像が
+\[
+ A_j\simeq\Hom(\OO,\OO(j)),\qquad
+ A'_j\simeq\Hom(\OO',\OO'(j))\qquad(j\in\mathbf Z)
+\]
+を与えると仮定する。
+同値 $F:\operatorname{QGr}A\to\operatorname{QGr}A'$ が
+\begin{equation}\label{mbr:eq:sss}
+ F(\OO(j))\simeq\OO'(j)\qquad(j\in\mathbf Z)
+\end{equation}
+を満たすならば、$A\simeq_{\mathrm{gr}}A'$ である。
+\end{corollary}
+\begin{proof}
+全ての $\OO(j)$ 上の同型を選び、$F$ をそれらの間の Hom と合成に適用する。
+これは二つの section $\mathbf Z$-代数を同定する。
+Zhang の定理 \cite[Theorems~3.3 and~3.7(2)]{TBPZhangTwist}により、
+二つの section 代数は一般の twisting system によって結ばれる。
+切断飽和性でそれらを $A,A'$ と同定し、
+定理\ref{mbr:thm:commuting-twist-rigidity}を適用する。
+\end{proof}
+
+本稿の $\C$ 上の満支持表示族では、上の切断飽和性は
+系\ref{mbsd:cor:saturation}によって任意の通常の底変更後にも満たされる。
+
+\begin{remark}[残る内在的認識]
+\label{mbr:rem:remaining-root-problem}
+条件 \eqref{mbr:eq:sss} は、各 shift を\emph{対象として}保つ条件であり、
+関手が次数一 shift と整合的に可換であるという、より強い条件とは異なる。
+また $F(\OO)\simeq\OO'$ だけからは従っていない。
+Serre 関手から復元されるのは反標準軌道、表示を分裂させた体上では
+$d=3\ell-3$ の Veronese であり、
+それだけで \eqref{mbr:eq:sss} を無条件に結論してはならない。
+定理\ref{mbv:thm:all-o-third}の有限捩れを除いた開上では、さらに
+全 $\OO$-保存同値を第三 Veronese の次数付き同型の共通 scalar による商へ還元できる。
+この還元は第三 Veronese の全ての次数一表示を認識するものではない。
+本節は全代数的 twist の有限 groupoid と、一般 twist の可換チャート内の剛性を決定した。
+一般の非代数的 twisting system の全分類、Veronese の全ての次数一の根、
+および任意の $\OO$-保存同値に対する \eqref{mbr:eq:sss} は未決定である。
+$c_\ell$ はこの限定した表示 groupoid の同型類数であり、
+全 intrinsic moduli の成分数や、全ての次数一の根の個数ではない。
+Zhang の同値、Heisenberg 表現、既存の一因子幾何は既知であり、
+本節で組み合わせた分類の新規性の網羅的確認は未完了である。
+\end{remark}

@@ -1,8 +1,8 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月21日 / v31。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月21日 / v32。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
-**本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 完備MF移送、一般中心三次変形の可換復元、良い一ブロックのO-markedモジュライ、満支持複数ブロック型の次数付き表示、残余Poisson射、Kuznetsov成分の比較と降下障害を扱う。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
+**本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 完備MF移送、一般中心三次変形の可換復元、良い一ブロックのO-markedモジュライ、満支持複数ブロック型の次数付き表示・全O同値の第三Veronese認識・同変一般点復元、残余Poisson射、Kuznetsov成分の比較と降下障害を扱う。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
 
 ## 可換復元・モジュライの内容
 
@@ -47,17 +47,19 @@
 
 ## 満支持複数ブロック型の到達点と次の目標
 
-**満支持`k≥2,m=0`の次数付き表示について、次元`2k`の滑らかな既約DM stackを構成した。** `B=⊗S_i`, `A=B/(Σa_iΩ_i)`、全係数非零、滑らかな楕円因子で`p_i,2p_i,3p_i≠0`、相異なる一般`j_i`という非空開の結果。共通grading scalarを除いた幾何的慣性は`(H_27^k)/Δμ_3`、位数`3^(3k−1)`であり、**二ブロック三次四様体では次元4・慣性243**となる。これは射影的なgraded表示のstackで、全O-marked圏のstackとの同定は未証明。
+**全O保存同値を第三Veroneseの射影的graded同型として認識し、同じ第三Veroneseを持つ全代数的Zhang twistを分類した。** `B=⊗S_i`, `A=B/(Σa_iΩ_i)`、`k≥2,m=0`、全中心係数非零の楕円開での結果である。表示stackは滑らか・既約・次元`2k`、慣性`3^(3k−1)`。全O認識には`jp_i≠0 (1≤j≤3k−3)`、twist分類には`6p_i≠0`と相異なる`j_i≠0,1728`を課す。一般底では表示gerbeとSerreの基底直線を保持する。
 
-- [点対応とZhang twist](papers/sections/two_block_points.tex)：点スキームは`⊔E_i`。点対応から二次関係を復元すると`9 binom(k,2)`次元の余分な関係が入り、二ブロックでは24対15となる。非自明なblock `μ_3` twistは同じSerre指数のVeroneseとO-marked圏を持ちながらgraded非同型。
-- [中心・中心直線・自己同型](papers/sections/two_block_algebra.tex)：三次中心の次元`k,k−1`、二次包絡と商直線の復元、中心係数の尺度商`B(μ_3^(k−1))`、全graded慣性を証明。中心係数比を新たな粗modulusとして数えない。
-- [表示スタック](papers/sections/multiblock_presentations.tex)：普遍平面三次の相対Jacobianから非空開を構成し、局所自由性・任意底変更・全graded同型を検証。scalarを除く商では実際の大域代数の存在に持上げ障害が残る。
-- [二ブロック完備復元](papers/sections/two_block_recovery.tex)：既存MF定理の下で`μ_3`同変比較を選び、復元potentialが`W_1(x)+W_2(y)`に分裂する。一変数一般点の有限拡大上のKu比較も仮定確認後に得る。同変代数化・全O降下・点曲線との同定は未証明。
-- [厳密有限検算](computations/verify_two_block_structure.py)：有理Sklyanin因子の次数4までの関係と中心、Heisenberg中央積の位数243を再現。一般証明と圏同値は計算の結論に含めない。
+- [相対双対と反標準環](papers/sections/multiblock_serre.tex)：有限tensor Koszul解消、相対Gorenstein、全整数の切断飽和、compact Serreを構成。`D=det(⊕W_i)⊗ℓ^∨`を含む反標準環は表示stackへ降下する。
+- [第三Veroneseと全O同値](papers/sections/multiblock_veronese.tex)：中心・中心平坦性を確認して`Eq_O=Isom_gr(A^(3),A'^(3))/G_m`を証明。第三Veroneseは二次表示を持ち、二ブロックでは55生成元・2619関係。固定模型間の全同値層は有限表示schemeとなる。
+- [次数一の根とtwist](papers/sections/multiblock_roots.tex)：全代数的twistのgroupoidは`(H_27^k)/Δμ_3`の共役groupoid。同型類数`(11^k+2·8^k)/3`、二・三ブロックで83・785。全て同じ第三VeroneseとO圏を持ち、別のintrinsic点ではない。可換tensorチャート内では一般twisting systemも新しいgraded同型類を生まない。
+- [同変一般点復元](papers/sections/multiblock_equivariant_descent.tex)：一変数の次数別自由変形という仮定と既存cft/gdrの下で、分裂cubicをK=C(h)上、`G=(μ_3)^(k−1)`同変・rotation/period保存核を有限拡大上に得る。二ブロックでは追加有限拡大後に同変残余圏を復元種数一曲線の積のDbへ比較する。
+- [有限群検算](computations/verify_multiblock_twists.py)：二・三ブロックの全要素を列挙し83・785個の共役類と安定化子を再現。一般証明・圏同値・相対降下は計算の結論に含めない。
 
-**P0の次の一手**は、二ブロックで全O保存同値と次数一の根のgroupoidを認識し、相対Serre・飽和を確保して表示stackから内在的モジュライへ進むこと。同時に`μ_3`同変比較核を代数化し、可換側の既知の同変Ku／楕円積比較に接続する。その後`k=2,m=1,n=5`を扱う。量子化の`m>0,k≥2`同変中心選択は外部repoでも未完成であり、既知入力としない。
+基礎となる[点対応](papers/sections/two_block_points.tex)、[中心と自己同型](papers/sections/two_block_algebra.tex)、[表示stack](papers/sections/multiblock_presentations.tex)、[完備比較](papers/sections/two_block_recovery.tex)の証明も保持する。点関係24対15の障害、中心係数が尺度の単一軌道であることを踏まえ、表示の慣性243と全O自己同値群を区別する。
 
-既存1ブロック型の大域周期位相`β_n=γ̄_n/[D]`と位相体上scalar indexはP2として保持する。具体的な仮定・証明箇所・残る課題は[研究方針](00_research_plan.md)、実際の検証範囲は[検証記録](notes/validation.md)を参照する。新規性の網羅的確認・外部査読・形式証明は未実施。
+**次のP0**は第三Veroneseの射影的自己同型群と全第三根を具体化し、全同値関係の平坦性・対象効果化から内在的モジュライへ進むこと。残余側では各復元曲線と点曲線の同定、G作用・比較核・Poisson射の全O降下を進める。指定形式核の全jetを保つ代数化は、有限拡大上に別の核が存在するという今回の定理とは異なる。`m>0`への拡張と既存一ブロックの周期算術も保持する。
+
+仮定・証明・未解決点は[研究方針](00_research_plan.md)、実行範囲は[検証記録](notes/validation.md)を参照。新規性の網羅的確認・外部査読・形式証明は未実施。
 
 **一般次元の O-marked moduli、point scheme、Poisson 多様体のモジュライへの射、Kuznetsov 成分の比較**を中心に進める。各既約成分の general / very general な対象を優先し、次元に一様な定理と族の構成を目指す。general な稠密開と very general な点集合、一ブロックの表示成分と全モジュライの成分は区別する。
 
@@ -249,6 +251,7 @@ Jacobi 行列の普遍的な階数上界は Gesmundo–Landsberg の Koszul flat
 python3 -m pip install -r requirements.txt
 python3 scripts/check_sources.py
 python3 computations/verify_two_block_structure.py
+python3 computations/verify_multiblock_twists.py
 python3 computations/verify_center_hessian.py
 python3 computations/verify_geometric_corrections.py
 python3 computations/verify_active_invariants.py
@@ -264,7 +267,7 @@ python3 computations/verify_jacobi_vertex.py --verify computations/jacobi_vertex
 latexmk papers/nc-cubic.tex
 ```
 
-引数なしの `latexmk` は上の二論文を組版する。`python3 scripts/check_sources.py` は各論文の入力・引用・ラベルを独立に検査する。量子化の再現コマンドは `notes/cubic_quantization.md` と量子化の検証資料を参照する。
+引数なしの `latexmk` は主原稿 `papers/nc-cubic.tex` を組版する。`python3 scripts/check_sources.py` は主原稿の入力・引用・ラベルを検査する。量子化の再現手順は別repoの [再現入口](https://github.com/uedakazushi/cubic-quantization/blob/main/computations/quantization/README.md) と検証資料を参照する。
 
 点障害、Jacobi・Hessian 補正、境界 MF と低積の計算資産を保持する。各検証器の実行・厳密証明書・原稿点検・組版・表示確認の状態は [検証範囲](notes/validation.md) を参照する。有限計算による恒等式確認と、全次数の平坦性、同型延長、Brauer 類、圏同値、Kummer 降下の証明は区別する。
 

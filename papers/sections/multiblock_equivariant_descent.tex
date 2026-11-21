@@ -1,0 +1,370 @@
+% !TEX root = ../nc-cubic.tex
+\section{多ブロック族の同変一般点復元}
+\label{med:sec:descent}
+
+本節では、有限群作用を保つ完備MF比較から、一般点上の同変Morita同値を取り出す。
+中心となるのは、同変核をcrossed product上のperfect加群として降下させることである。
+群作用のcoherenceを有限個の通常の射だけで代用することはしない。
+さらに低rotation積の不変な積分空間を使うと、ブロック分解を持つ三次方程式を
+元の関数体上に選べる。同値核には有限代数拡大を許す。
+これは定理\ref{cft:thm:complete}と定理\ref{gdr:thm:generic}を入力とする帰結であり、
+これらの基礎定理の独立な再証明ではない。
+一般的な核の有限表示と同変圏の構成には既知の結果を用いる。
+この組合せによる多ブロック入力への適用の新規性は、現段階では独立には確認していない。
+
+\subsection{有限群のcoherenceを含むperfect核の降下}
+
+有限群$G$の作用はdg模型上で与える。
+生成対象$H$が群で固定されていない場合は、有限和
+$\bigoplus_{g\in G}g^*H$とその置換による線形化を用いる。
+これにより、以下では厳密な$G$作用を持つdg代数で記述できる。
+同変圏には有限coneと冪等完備化を含める。
+この完備化を伴うdg同変圏と三角圏の同変化の比較は
+Elagin\cite[Lemma~8.6, Theorems~8.7, 8.9]{MEDElagin}に従う。
+同変核は、厳密な半線形群作用を持つdg双加群の導来圏で扱う。
+同変quasi-functorからはequivariant bar模型によってこのような核を得る。
+bar模型の項が無限個あっても、以下のperfect性は有限cellのretractとしての性質である。
+従って、coherenceの無限列を項ごとに有限型環へ降ろす必要はない。
+
+\begin{lemma}[crossed productとperfect性]\label{med:lem:crossed-perfect}
+$D$を可換環、$|G|\in D^\times$とし、$\mathsf E$を厳密な$D$線形$G$作用を持つ
+$D$上のdg代数とする。導来テンソルを計算できるflat模型を使い、
+\[
+ \mathsf E\rtimes G=\bigoplus_{g\in G}\mathsf E u_g,
+ \qquad (a u_g)(b u_h)=a\,g(b)u_{gh}
+\]
+と置く。$\mathsf E\rtimes G$上のdg加群$M$について、
+$M$がperfectであることと、忘却した$\mathsf E$加群がperfectであることは同値である。
+また$\mathsf E$が$D$上smooth properなら、$\mathsf E\rtimes G$もsmooth properである。
+\end{lemma}
+\begin{proof}
+証明では左加群の規約を使う。
+crossed productは左右の$\mathsf E$加群として有限自由なので、
+制限はperfect性を保ち、誘導はperfect加群をperfect加群へ送る。
+誘導・制限の余単位
+$(\mathsf E\rtimes G)\otimes_{\mathsf E}M\to M$には、
+\[
+ m\longmapsto |G|^{-1}\sum_{g\in G}u_g\otimes u_{g^{-1}}m
+\]
+という$\mathsf E\rtimes G$線形な分裂がある。
+これは微分と可換し、導来圏でも分裂を与える。
+従って忘却後perfectな$M$は、誘導されたperfect加群のretractである。
+
+proper性は$\mathsf E\rtimes G$が$D$複体として$|G|$個の$\mathsf E$の直和であることから従う。
+smooth性については、$\mathsf E$のperfectな対角を誘導して得る
+\[
+ (\mathsf E\rtimes G)\otimes_{\mathsf E}^{\mathbf L}(\mathsf E\rtimes G)
+\]
+が$(\mathsf E\rtimes G)^e$上perfectである。
+その乗法写像は、separability element
+$|G|^{-1}\sum_g u_g\otimes u_{g^{-1}}$によって双加群として分裂する。
+従って$(\mathsf E\rtimes G)$の対角もperfectである。
+\end{proof}
+
+\begin{lemma}[同変同値核の有限代数拡大上の存在]
+\label{med:lem:equivariant-descent}
+$\kappa$を標数零の体、$\Omega/\kappa$を任意の体拡大とする。
+$\mathsf C,\Gamma$を厳密な$G$作用を持つsmooth properな$\kappa$-dg代数とする。
+両側に$G$同変な可逆rotation双加群と、必要なら指定した三次周期同型を与える。
+$\Omega$上に$G$同変でrotation・指定周期を保つMorita同値があれば、
+ある有限代数拡大$\kappa'/\kappa$上にもそのような同値が存在する。
+ここで同変性の入力はenhancement上のcoherentな同変核であり、
+核の同型類が$G$不変であるという条件だけではない。
+\end{lemma}
+\begin{proof}
+同値を表す$(\mathsf C_\Omega,\Gamma_\Omega)$双加群を$P_\Omega$とする。
+右$\Gamma_\Omega$-perfect性と$\mathsf C_\Omega$のsmooth性により、これは
+$\mathsf E_\Omega=\mathsf C_\Omega^{\rm op}\otimes_\Omega\Gamma_\Omega$上perfectである
+\cite[Lemma~2.8(2)]{ROGTV}。
+同変核の群作用とcoherenceは、対角作用に関する
+$\mathsf E_\Omega\rtimes G$上の一つのdg加群として表す。
+必要なdg加群の置換を行った後、補題\ref{med:lem:crossed-perfect}により
+これはcrossed product上でもperfectである。
+
+$\Omega$を有限生成$\kappa$-部分代数のfiltered colimitとして表す。
+perfect加群のfiltered colimitとの両立
+\cite[Lemma~2.10]{ROGTV}、\cite[F4]{ROGToenDefinition}により、
+$P_\Omega$はある有限生成整域$D\subset\Omega$上の
+$(\mathsf C_D^{\rm op}\otimes_D^{\mathbf L}\Gamma_D)\rtimes G$-perfect加群$P_D$から来る。
+従って群作用の乗法則を含むcoherenceは、この段階ですでに降下している。
+忘却後の$P_D$も包絡代数上perfectであり、$\mathsf C_D$がproperなので右$\Gamma_D$-perfectである。
+
+右随伴の核
+$Q_D=R\operatorname{Hom}_{\Gamma_D}(P_D,\Gamma_D)$には自然な$G$作用がある。
+補題\ref{rog:lem:descent}の証明と同じperfect性の判定により、
+随伴の単位・余単位のconeは$D$-perfectとなる。
+これらの写像は同変で、$\Omega$への底変更後は同型である。
+有限個のcohomology加群のannihilatorを取れば、ある$0\ne f\in D$の反転後に
+両coneを零にできる。従って$P_{D_f}$は同変Morita同値を与える。
+
+rotation比較も、対角$G$作用を持つperfect双加群の圏における射として降下させる。
+その両辺は忘却後perfectであり、補題\ref{med:lem:crossed-perfect}により
+同じcrossed product上でもperfectである。
+上記のfiltered colimitの完全忠実性によって比較射、その逆、および
+指定周期図式の等式を有限段階へ降ろせる。
+必要なら$D$を拡大し、さらに非零元を反転すればよい。
+ここで有限個の周期図式を扱う議論と、群coherenceをcrossed productで扱う議論は別である。
+
+非空な有限型$\kappa$-scheme $\operatorname{Spec}D_f$の閉点を取る。
+その剰余体$\kappa'$はZariskiの補題により有限代数拡大であり、
+そこでの底変更が主張を与える。
+\end{proof}
+
+\begin{remark}[存在の降下と指定形式核の降下]
+\label{med:rem:formal-versus-existence}
+この証明は、元の$\Omega$上の核を有限型$\kappa$-代数上へ広げた後、
+その別の閉点で特殊化する。
+従って両体を含む共通拡大体へ戻しても、得た核が元の指定核と一致するとは限らない。
+形式係数が$\kappa$上代数的であることや、全jetを保存する代数化も従わない。
+有限拡大上の存在にはこの議論で十分であり、Artin近似による全形式分枝の再現を仮定していない。
+\end{remark}
+
+\begin{example}[指定された完備核は有限拡大へ降りるとは限らない]
+\label{med:ex:formal-kernel}
+$K=\mathbb C(h)$、$\widehat R=\mathbb C[[h]]$とし、$a=\exp(h)-1\in\widehat R$と置く。
+$\mathbb P^1_{\widehat R}$の自己同型
+$\sigma_a([X:Y])=[X+aY:Y]$のgraphの構造層は、自己Morita同値を与えるperfect核である。
+この核の一般ファイバーが、ある有限拡大$K'/K$上の核から来て、
+共通拡大体上で指定核と同型になったと仮定する。
+忠実平坦降下によって、そのsupportは$K'$上のgraphとなり、
+$[0:1]$の像から$a\in K'$を復元できる。
+しかし$a$は$K$上超越的である。
+実際、代数関係があれば分母を払って
+$\sum_{j=0}^m p_j(h)\exp(jh)=0$という非自明な関係を得るが、
+実軸で$h\to+\infty$とし、最大の指数項で割ると非零多項式$p_m(h)$が零に近づくことになり矛盾する。
+従ってこの指定核は有限代数拡大上へ降りない。
+一方、同じ二つの圏の間には恒等核が$K$上にある。
+これは補題\ref{med:lem:equivariant-descent}の存在結論と、指定核の降下との違いを示す。
+\end{example}
+
+\subsection{群作用を保つ方程式の基礎体降下}
+
+\begin{lemma}[同じ勾配空間を持つ不変三次式の同変比較]
+\label{med:lem:invariant-symmetrizer}
+$\Omega$を標数零の代数閉体、$V$を有限次元の$G$表現とする。
+二つの$G$不変な滑らかな三次式$F,F'\in\operatorname{Sym}^3V$が
+同じ勾配空間を持つなら、$G$と可換する線形座標変換で移り合う。
+\end{lemma}
+\begin{proof}
+$x\in V^*$について$F(x)=T(x,x,x)$とする。
+以下の$E_F$と座標変換は$V^*$に作用する。
+命題\ref{prop:ej-projective-uniqueness}の証明により、
+一意な$a\in E_F^\times$について$F'(x)=T(ax,x,x)$となる。
+$F,F'$の不変性から$gag^{-1}=a$であり、$a\in(E_F^G)^\times$である。
+補題\ref{ej:lem:symmetrizer-algebra}より$E_F$は有限\'etaleな可換代数である。
+代数閉体上では$E_F=\Omega^s$であり、$G$はその因子を置換するので、
+$E_F^G$も有限個の$\Omega$の積となる。
+各因子で三乗根を取り、$b\in(E_F^G)^\times$かつ$b^3=a$とできる。
+symmetrizerの定義から
+$F(bx)=T(bx,bx,bx)=T(b^3x,x,x)=F'(x)$であり、$b$は$G$と可換する。
+\end{proof}
+
+\begin{proposition}[同変cubic模型の方程式降下]
+\label{med:prop:equivariant-field-model}
+$\kappa$を標数零の体とし、$(\mathcal C,\rho)$をsmooth properなdg pairとする。
+有限群$G$がenhancement上で作用し、$\rho$と指定周期は$G$同変とする。
+ある代数閉拡大体$\Omega/\kappa$上で、このpairが
+$G$不変な滑らかな三次式$F_\Omega$のKuznetsov pairと$G$同変にMorita同値であると仮定する。
+変数の数は$N\ge5$とし、可換側の$G$作用は変数上の線形作用から来るものとする。
+このとき、式\eqref{gcd:eq:low}の$\kappa$-空間$V$上に
+\[
+ F_\kappa\in(\operatorname{Sym}^3_\kappa V)^G
+\]
+を選べる。その零点集合は幾何学的に滑らかであり、
+ある有限拡大$\kappa'/\kappa$上で元のpairと$G$同変にMorita同値である。
+同値はrotationと指定周期も保つ。
+\end{proposition}
+\begin{proof}
+$V,U$と積$\mu$には、$\rho$の同変構造から自然な$G$作用が入る。
+その形成は体拡大と可換する（補題\ref{gcd:lem:basechange}）。
+可換側では、一次式の乗法による自然変換
+$\mathrm{Id}\to(1)$と二次式の乗法による自然変換$\mathrm{Id}\to(2)$は
+線形座標変換に自然である。
+命題\ref{prop:ej-geometric-low-degree}の恒等sector計算はこれらを使うので、
+低次数のJacobian環との同定および積は$G$同変である
+（\cite[Theorem~3.5, Remark~3.6]{LZ}の多項式乗法による表示）。
+従って
+$Q=\ker(\operatorname{Sym}^2V\to U)$は$\kappa$上の$G$不変な$N$次元空間であり、
+$\Omega$上では$F_\Omega$の勾配空間となる。
+
+積分空間を
+\[
+ \mathcal I_Q=
+ \{H\in\operatorname{Sym}^3V:\partial_\lambda H\in Q\text{ for every }\lambda\in V^*\}
+\]
+と定める。これは$G$不変な$\kappa$-線形空間であり、その不変部分の形成も体拡大と可換する。
+各$H\in\mathcal I_Q$は線形写像
+$dH:V^*\to Q$を定める。
+基底を選んで$\det(dH)$を$\mathcal I_Q^G$上の多項式と見ると、
+$H=F_\Omega$で非零なので零多項式ではない。
+$\kappa$は無限体であるから、$\det(dF_\kappa)\ne0$となる
+$F_\kappa\in\mathcal I_Q^G$を選べる。
+この三次式の勾配空間はちょうど$Q$である。
+$Q_\Omega$には共通射影零点がないので、$F_\kappa$は幾何学的に滑らかである。
+
+補題\ref{med:lem:invariant-symmetrizer}により、$\Omega$上で
+$F_\kappa$と$F_\Omega$を移す座標変換を$G$と可換するように取れる。
+この座標変換は方程式を正確に移すため、MFの内部shiftと指定三次周期を保つ。
+したがって$\Omega$上で$G$同変なrotation付きMorita同値を得る。
+両側の$\kappa$-dg模型に補題\ref{med:lem:equivariant-descent}を適用すればよい。
+\end{proof}
+
+\subsection{多ブロック一変数族への適用}
+
+$k\ge2$、$R=\mathbb C[h]_{(h)}$、$K=\mathbb C(h)$とする。
+各$i=1,\ldots,k$について、非負次数付き中央$R$-代数$D_i$と
+中心三次元$\Omega_i\in Z(D_i)_3$を与え、次を仮定する。
+\begin{enumerate}
+\item $(D_i)_0=R$で、各$(D_i)_d$は有限自由である。
+\item $D_i/hD_i\simeq\mathbb C[x_{i1},x_{i2},x_{i3}]$である。
+\item $\Omega_i\bmod h=f_i$は滑らかな平面三次曲線を定める。
+\end{enumerate}
+$c_i\in R^\times$を取り、通常のテンソル積と全次数により
+\begin{equation}\label{med:eq:multiblock-input}
+ B_R=\bigotimes_{i=1}^kD_i,\qquad
+ w=\sum_{i=1}^k c_i\Omega_i,\qquad A_R=B_R/(w)
+\end{equation}
+と置く。各$\Omega_i$は対応するテンソル因子内の元と解釈する。
+本節の周囲代数$B_R$、商$A_R$は第\ref{gdr:sec:main}節の記号と逆である。
+$G=(\mu_3)^{k-1}$は、$i$番目の因子を$i<k$で独立に次数ごと三乗根倍し、
+第$k$因子を固定する。この作用は$w$を保つ。
+
+\begin{theorem}[多ブロック一般点の同変復元]
+\label{med:thm:multiblock-generic}
+式\eqref{med:eq:multiblock-input}の入力に対して、$K$上の三次式$F_i$を用いた
+滑らかな三次超曲面
+\begin{equation}\label{med:eq:split-model}
+ Y=V\bigl(F_1(z_{11},z_{12},z_{13})+\cdots+
+ F_k(z_{k1},z_{k2},z_{k3})\bigr)\subset\mathbb P^{3k-1}_K
+\end{equation}
+が存在する。各$C_i=V(F_i)\subset\mathbb P^2_K$も滑らかである。
+ある有限拡大$K'/K$上で
+\begin{equation}\label{med:eq:equivariant-pair}
+ \bigl(\mathcal K^{\rm coh}_{A_{K'}},\rho_A,\tau_A\bigr)
+ \simeq_G
+ \bigl(\operatorname{Ku}(Y_{K'}),\rho_Y,\tau_Y\bigr)
+\end{equation}
+という$G$同変Morita同値がある。
+ここで$Y$上の作用は第$i<k$ブロックを対応する三乗根倍する標準作用であり、
+$\tau$は指定した三次周期比較である。
+\end{theorem}
+\begin{proof}
+補題\ref{tbr:lem:input}の次数別分裂単射の証明は$k$因子でも同じである。
+$B_R$のHilbert級数は$(1-t)^{-3k}$であり、$w$は左右正則、商の各次数は有限自由となる。
+特殊ファイバーの勾配は$k$個の平面三次の勾配に分かれるため、その共通アフィン零点は原点だけである。
+従って$\sum_i\overline c_i f_i$は滑らかな射影三次式である。
+定理\ref{gdr:thm:generic}を$N=3k$に適用すると、
+$\mathcal K^{\rm coh}_{A_K}$はsmooth properであり、線束生成残余圏と一致する。
+この段階では非同変の一般点定理だけを用いる。
+
+次に$\widehat R=\mathbb C[[h]]$上で、命題\ref{tbr:prop:complete-split}の構成を$G$に適用する。
+同命題の証明は有限群の不変部分の完全性と線形共変性を用いるので、
+巡回群からこの直積群への変更でも成立する。
+各平方零段階の線形補正を不変部分で選び、非線形な解そのものは平均しない。
+中心写像、唯一の定数trivector、周期変数を固定したbar flowをすべて同変に取れるので、
+実際の完備MF同値とその逆の各Taylor成分は$G$同変となる。
+不変三次空間は
+\begin{equation}\label{med:eq:invariant-cubics}
+ \bigl(\operatorname{Sym}^3\textstyle\bigoplus_i\widehat R^3_i\bigr)^G
+ =\bigoplus_{i=1}^k\operatorname{Sym}^3\widehat R^3_i
+\end{equation}
+である。実際、各$i<k$ブロックの次数は三の倍数でなければならず、
+総次数が三なので一つのブロックに全次数が集中する。
+したがって完備potentialは$W=\sum_iW_i$と分裂し、$W_i\bmod h=\overline c_if_i$である。
+
+固定三対象とその有限個の$G$軌道へこの実際の同値を制限し、
+補題\ref{rog:lem:localization}の順序で通常のHom複体を構成してから$h$を反転する。
+群作用はこの有限対象模型に作用し、同変なTaylor成分と可換する。
+stabilization、内部shift、windowで用いる切断とevaluationは係数の群作用に自然であり、
+rotationおよび指定周期の比較も同変である。
+従ってここで得るのは、単なる核の不変な同型類ではなく、coherentな同変quasi-functorである。
+具体的にはそのbar双加群の各tensor因子へ$G$を対角的に作用させると、
+微分が$G$同変となり、群の乗法則は厳密に成立する。
+$L=\mathbb C((h))$の代数閉包$\overline L$へ移すと、
+命題\ref{rog:prop:euler}と命題\ref{gcd:prop:bound}により像は可換残余圏全体となる。
+これで$\overline L$上の$G$同変Morita同値を得る。
+任意のLaurent係数MFへ無限Taylor和を直接評価する必要はない。
+
+命題\ref{med:prop:equivariant-field-model}を$\kappa=K$、$\Omega=\overline L$に適用する。
+低rotation空間$V$の$G$表現は、$\overline L$上で各三次元のブロック指標空間の直和となる。
+$K$は三乗根を含むため、指標冪等元によって
+$V=V_1\oplus\cdots\oplus V_k$、$\dim_KV_i=3$と$K$上でも分解する。
+式\eqref{med:eq:invariant-cubics}を$K$上で用いると、復元した不変三次式は
+$F_K=\sum_iF_i$となる。各$V_i$の基底を選べば式\eqref{med:eq:split-model}を得る。
+全体の滑らかさは同命題から従う。
+ある$F_i$の平面三次が特異なら、その特異点と他の零ブロックを合わせた点が
+$Y$の特異点になるため、各$C_i$も滑らかである。
+同命題の最後の同変核降下が式\eqref{med:eq:equivariant-pair}を与える。
+\end{proof}
+
+\subsection{二ブロックの場合の楕円曲線の積}
+
+Huの定理\cite[Theorems~0.1, 5.8]{TBHu}は複素数体上で述べられている。
+以下では、その本文の体の仮定を無断で一般化せず、有限定義体とperfect核の降下を使う。
+
+\begin{lemma}[Huの比較の有限拡大上への移行]
+\label{med:lem:hu-field}
+$\kappa$を三乗根を含む標数零の体とし、
+$Y=V(F_1(x)+F_2(y))\subset\mathbb P^5_\kappa$を滑らかな三次四様体とする。
+$G=\mu_3$は一方の三変数ブロックを三乗根倍し、$C_i=V(F_i)$とする。
+ある有限拡大$\kappa'/\kappa$上で
+\[
+ \operatorname{Ku}(Y_{\kappa'})^G
+ \simeq D^b(C_{1,\kappa'}\times C_{2,\kappa'})
+\]
+というdg Morita同値がある。
+\end{lemma}
+\begin{proof}
+三乗根と$F_1,F_2$の有限個の係数を含む、$\mathbb Q$上有限生成の部分体
+$\kappa_0\subset\kappa$を選ぶ。
+$\kappa_0$上の三次四様体および二曲線は幾何学的に滑らかであり、
+その同変Kuznetsov成分と曲線の積の導来圏はsmooth properなdg模型を持つ。
+前者については、残余圏のsmooth proper模型と
+補題\ref{med:lem:crossed-perfect}を用いてもよい。
+
+$\kappa_0\hookrightarrow\mathbb C$という体の埋込みを選ぶ。
+その複素底変更へHuの定理を適用する。
+同論文\S5.1のderived McKay関手はFourier--Mukai核を持ち、
+\S5.4、Theorem~5.8の比較はこれとmutationおよびblow-upの関手の合成である。
+従って得られる同値はdg enhancement上のperfect核で表される。
+固定された$\kappa_0$-dg模型に補題\ref{rog:lem:descent}を、rotationの指定なしで適用すると、
+ある有限拡大$\kappa_1/\kappa_0$上に同値核が存在する。
+$\kappa_1$を$\kappa$の代数閉包へ$\kappa_0$上で埋め込み、合成体を$\kappa'$とすれば、
+$\kappa'/\kappa$は有限であり、所要の同値が得られる。
+\end{proof}
+
+\begin{corollary}[二ブロック残余圏の同変化の幾何模型]
+\label{med:cor:elliptic-product}
+定理\ref{med:thm:multiblock-generic}で$k=2$とする。
+そこで得た$K$上の二つの滑らかな平面三次$C_1,C_2$に対し、
+ある有限拡大$K''/K$上で
+\begin{equation}\label{med:eq:elliptic-product}
+ \bigl(\mathcal K^{\rm coh}_{A_{K''}}\bigr)^{\mu_3}
+ \simeq D^b(C_{1,K''}\times C_{2,K''})
+\end{equation}
+となる。必要なら$K''$をさらに有限拡大し、各$C_i$に原点を選ぶことで、
+右辺を楕円曲線の積の導来圏と呼べる。
+\end{corollary}
+\begin{proof}
+同変Morita同値は同変対象の圏のMorita同値を誘導する。
+この形成はcrossed productの表示により体拡大と両立する。
+式\eqref{med:eq:equivariant-pair}と補題\ref{med:lem:hu-field}を合成すればよい。
+各滑らかな平面三次は種数一であり、有限拡大後には閉点を有理点にできる。
+二つの点の定義体の合成を取れば、両曲線に原点を選べる。
+\end{proof}
+
+式\eqref{med:eq:elliptic-product}は同変対象の圏についての主張である。
+Huの可換模型における既知の同値を、新たな同変一般点比較へ適用したものであり、
+その可換側の同値自体を本研究の成果とは数えない。
+通常の残余圏を楕円曲線の積の導来圏と同定する主張や、
+積側の自己同値によるrotationの具体表示は含まない。
+
+\begin{remark}[得られた降下の範囲]\label{med:rem:scope}
+式\eqref{med:eq:split-model}の方程式は$K$上、同変比較核はある有限拡大上に存在する。
+不変積分空間から選んだ方程式が$h=0$で正則であることや、
+その剰余が指定された$\sum_i\overline c_if_i$であることは結論していない。
+各$C_i$を入力Sklyanin因子の点曲線と同定する結果も用いていない。
+指定した完備核と全jetを保つ代数化、特殊点を含む相対同値、
+任意の固定非零パラメータでの比較、および$\mathcal O$-保存同値のモジュライへの降下は、
+本節の一般点における存在定理からは従わない。
+\end{remark}
