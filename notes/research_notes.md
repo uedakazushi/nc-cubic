@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月21日 / v36。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月21日 / v37。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 0. 満支持複数ブロック型：全慣性・残余降下・曲線積比較
 
@@ -25,8 +25,10 @@
 | 核stackと実核 | 両側smooth proper族・作用を固定すればfpqc降下。一般点の実dg模型が有限拡大上にあり幾何学的一般点で非空なら、縮小後有限étale被覆上の核。大域sectionは別。`mbrd:prop:kernel-stack` |
 | 点三次と同変復元 | 明示的Jacobian tensor/PBW族、既存cft/gdrの下で `J_i=g_i+ε_i² det Hess(g_i)/24` の分離和を復元。全kで有限拡大後 `(K_A^coh)^(Z_0)≃Db(∏E_i)`。`mpc:thm:point-model`, `mbrd:cor:nc-product` |
 | 中心rigidificationと点族 | `P_k//Z_0≃B_k`、`B_k→E_k`はsmooth representable surjective・相対次元k。点曲線積のsmooth projective族は全O開にある。`mbfm:prop:rigidification`, `mbfm:prop:point-map`, `mbfm:prop:product-family` |
-| 中心線と点三次線の自然な同期 | 最大可換商の三次部Q₃がrank1、CとJの像が可逆な明示非空開で `θ:C≃J`。全graded同型・任意底変更に自然。`Φ_pt`と表示gerbeの同値・関係直線同型を同時に得る。`mbpl:prop:line-comparison`, `mbpl:thm:commutative-family` |
+| 中心線と点三次線の自然な同期 | 最大可換商による比較を相対Hesse被覆で全基本楕円開へ一意延長。全graded同型・任意底変更に自然。`Φ_pt`と表示gerbe・関係直線の同期を同時に得る。2p=0の一般境界では延長係数が零。`mbpl:thm:global-line-comparison`, `mbpl:thm:commutative-family` |
 | 可換分離和の相対核 | smooth準射影C基底・共通L・smooth各三次。実dg外積と相対Orlovにより実perfect核。構成済み核の引戻しは準コンパクト・分離的noetherian底（非平坦・非被約も許す）のPerf比較を保ち、置換coherent。`mbrp:thm:relative-product`, `mbrp:cor:base-change`, `mbrp:prop:permutations` |
+| 体上の直接非可換積 | 全基本領域の実表示で `Ku_line(A)^Z0≃Perf(∏E_i)`。全kのtensor-noetherian性・有限Koszul–Shamash・Γ-Hom・windowを本文証明。smooth proper性とcrsから `Ku_line=Ku_coh`。`mbnp:thm:product`, `mbnp:cor:coherent` |
+| 固定点の通常Ku比較 | 順序付き実表示で高々 `3^(2k)` 次の拡大後、自然なX_ptへ中心作用・rotation・指定周期付き同値。代数閉体では全基本点・拡大不要。最小次数・大域切断は未決定。`mbrc:thm:finite-point-comparison` |
 | 核型・同期固定後の実現条件 | 局所rotation比較・scalar-simple・負Ext消滅・底変更の下で `L_P³≃ℓ_tℓ_s^−1`。marked核stackはG_m-gerbeとμ₃-torsorの積で、存在iffα=γ=0。自然なnc族での値は未計算。`mbks:prop:comparison-line`, `mbks:thm:kernel-criterion` |
 
 
@@ -46,7 +48,7 @@
 
 **有限中心作用の基準変更。** `Z̃=μ3^k→Z_0` の全splitは `Spl_k={a∈F3^k:Σa_i=1}` で、`s_a([z])_i=z_i/∏z_j^(a_j)`。`s_a'=χ_aa' s_a`、`χ_aa'=∏z_i^(a_i−a_i')` とすると、τから作用のcoherent比較εと同変圏の比較Jを得る。積・三重cocycleはscalarの積の恒等式そのもの。shift/rotationでは `Jρ_a≃Tw_(χ^−1)ρ_a'J` が残るが、三乗ではχ³=1で消える。置換固定点は全a_i=k^−1で `3∤k` の場合に一意。`3|k` では `δ(1)∈H¹(𝔖_k,Ẑ_0)` が非零・order3で、ordered coverの既約性から各非空開にも切断がない。この有限split選択被覆上でも共通G_m-gerbeは残るため、rotationの線型化は実表示gerbeへ引き戻して述べる。
 
-**Thom–Sebastianiの適用とdual action。** `Γ_k={λ_i³が共通}`、共通character χは非torsion、作用群はreductiveである。各f_iのアフィンcritical locusが原点なので、BFK Cor5.18のsupport条件を外せる。Orlovのdg比較で `MF_gr(f_i)=Db(E_i)`、`MF_gr(Σf_i)=Ku(X)`、Γのsplitで `MF_Γ(Σf_i)=Ku(X)^(Z_0)`。全kの外積を合成する。module weight=degreeの規約では `Tw(e_i^−1)` が内部(1)、`Tw(e_i/e_b)` が積上の `R_i^−1 R_b` に対応する。各R_i³=[2]という同型類の等式だけで群法則を作らず、character作用のcoherenceを移送する。Elaginの二重同変化で通常Kuも積圏のdual equivariantizationとなる。非可換一般点へはmed/mpcの実際の同変核と有限拡大降下を通じて接続し、curve coefficientsを変更しない。
+**Thom–Sebastianiの適用とdual action。** `Γ_k={λ_i³が共通}`、共通character χは非torsion、作用群はreductive。可換各f_iのcritical locusは原点なのでBFK Cor5.18のsupport条件を外せる。Orlovで `MF_gr(f_i)=Db(E_i)`、`MF_gr(Σf_i)=Ku(X)`、Γのsplitで `MF_Γ(Σf_i)=Ku(X)^(Z_0)`。module weight=degreeの規約では `Tw(e_i^−1)` が内部(1)、`Tw(e_i/e_b)` が積上の `R_i^−1 R_b` に対応する。群法則はcharacter作用のcoherenceを移送する。非可換の場合は下の直接外積から同じΓ構造を得るが、因子rotationは `R_i,p=T_O(t_pi)_*(−⊗L_i)` となる。Elaginの二重同変化により通常Kuはこのdual equivariantizationである。K⊃CではFourier冪等元が全て定義され、代数閉仮定なしに同じ構成が働く。
 
 **比較核の降下と同期の障害。** 両側とG作用が降下済みなら、同変perfect双加群は局所的に `(C^op⊗D)⋊G` の加群として表され、群coherenceを含む∞stackが降下する。全比較核を一つのgerbeとは呼ばない。simpleな局所同型型を固定して初めてG_m-gerbeとなり、そのsectionは別の中立化問題である。実dg一般模型が有限拡大上に存在することも仮定すれば、一般点の核は縮小後の有限étale被覆へ広げられる。二つの表示gerbe上の `η:Pρ_s→ρ_tP` は重み `(−1,1)`、三乗周期の比較には `ℓ_s→ℓ_t` が伴う。比のband `β_t−β_s` の同期と、P自身のscalar障害の消滅は区別する。
 
@@ -58,13 +60,19 @@
 
 **同期を固定した周期障害。** 局所的なrotation比較の直線束 `L_P=H⁰RHom(Pρ_s,ρ_tP)` には三重合成 `q_P:L_P³≃ℓ_tℓ_s^−1` がある。同期θに対する `q_P(η³)=θ` がμ₃-torsorであり、Pic(S)[3]成分は[L_P]、直線自明化後は単数の三乗障害となる。核のscalarはηの両側で相殺するので、核の実現gerbeG_Pとphase torsorTは独立に降下し、marked stackは `G_P×T`。このためAut(P,η)=G_mは残る。gerbe同期をNで変えると `L_P→L_P⊗N`、`ℓ_t→ℓ_t⊗N³` となり、自由な同期変更で吸収できる場合とmbplの自然な同期を固定した問題を区別する。非自明なPic[3]直線、C(t)上の `η³=t` が位相非消滅例であり、標準nc族のγが非零と示した例ではない。全データのcoherent置換作用が既にあれば、連結ordered cover上のTの切断はHom(S_k,μ₃)=0により降りる。他方、S₂の弱作用のscalar cocycle tはG_m核gerbeの非降下例を与え、このphase消滅を核へ拡大できない。詳細はmbks節。
 
-**Hesse chartによる全良い楕円開への延長候補（未完成）。** Hesse関係 `ayz+bzy+cx²` と巡回式、点式 `F=abc C−(a³+b³+c³)xyz` を用いる。Smith–Tateの中心三次gの巡回和は `Ω_H=c(a³−b³)C+a(b³−c³)U+b(c³−a³)V`（`V=xzy+zyx+yxz`）。H₂₇不変な三次tensorは〈C,U,V〉、三次関係の不変部分は〈cC+aU+bV〉だから、Ω_H=0ならa³=b³=c³となり点三次のsmoothnessに反する、というgenerator証明が候補となる。最大可換商のrank1開では `θ(Ω_H)=3(a−b)F`。a−b≠0なら、この式自体は `(a+b)³+c³=0` の境界を越えて非零である。全基本開の定理にするには、相対flex原点・level3・theta frameをfpqc局所に取り、Hesse表示が任意の非被約試験底でも被覆になることを証明する必要がある。普遍的な被約重なりの稠密開で一致を示してから任意底へ引き戻す順序でgluingする。幾何点のHesse正規形や幾何点の一致だけでは十分でない。現行論文の確定範囲はT^naturalのままとする。一次式はSmith–Tate, K-Theory8(1994), p.35 Remark(1), [著者PDF](https://sites.math.washington.edu/~smith/Research/tate.pdf)（既存GRSklyaninST）。この延長が得られても非可換相対核の存在は別問題。
+**全基本楕円開での中心線比較。** Hesse関係 `ayz+bzy+cx²` と巡回式、点式 `F=abc C−(a³+b³+c³)xyz`、既知中心式 `Ω_H=c(a³−b³)C+a(b³−c³)U+b(c³−a³)V` を用いる。H₂₇不変三次tensorは〈C,U,V〉、三次関係の不変部分は〈cC+aU+bV〉なので、Ω_Hが零ならa³=b³=c³となり点三次が特異になる。分母なし恒等式 `ab(Ω_H)−3(a−b)F=(a−b)³Σx_i r_i^ab` により `θ(Ω_H)=3(a−b)F` が既存比較を延長する。flex原点・level3・三乗が1のtheta持上げを選ぶ有限étale被覆と、W・Rの二固有直線のframe torsorで滑らかなHesse被覆を構成した。普遍被約重なりの稠密開で一致を示して降下し、その後に任意非被約底へ引き戻す。これで最大可換商Q₃のrank退化を越えられる。2p=0のHesse境界ではΩ_HとFは非零のままa−b=0となるので、同じ比較を線同型として延長できない。証明は `mbpl:lem:hesse-cover`, `mbpl:lem:hesse-center`, `mbpl:thm:global-line-comparison`, `mbpl:rem:two-torsion-boundary`。
+
+**直接非可換外積の環論と生成。** `T_i=S_i/(Ω_i)=B(E_i,L_i,t_pi)`。Keelerの二因子tensor定理はそのまま反復できないため、X=∏E_i上の多重THCRで証明する。多重斉次ideal Jの評価ideal I_nは大域生成性から単調で、Noetherian X上で安定する。translationのNS作用は恒等、各方向が正なら外積線束はampleなのでNC-amplenessを適用できる。評価核のH¹消滅で十分深い多重次数を有限生成し、有限幅の端はk−1因子の有限加群で帰納する。反対環にも適用し、中心正則列Ω_iの正次数filtrationから⊗S_iの両側noetherian性を戻す。任意Kは代数閉包上の証明から忠実平坦降下する。詳細は `mbnp:lem:noetherian`。
+
+**有限模型とcoherent飽和の論理順序。** 各ambientの有限Koszul解消にcentral w_i=a_iΩ_iのhigher homotopiesを入れ、有限曲率付きfoldを作る。h₁²=0とは仮定しない。外積の異なる因子のodd演算は反可換し、総曲率はΣw_i。Shamash系は総augmentation stabilizationを与える。Γ指標ごとのHom分解で実dg外積の完全忠実性を示し、windowの三つのaugmentation shiftと全中心characterから残余部分を生成する。product圏はsmooth proper、有限群の双対同変化でKu_lineもsmooth proper、次いで既存crsの全coherent飽和定理を適用する。この順で全coherent生成を外積の入力にしない。相対基底の全noetherian性やHom底変更は、この体上の証明に含めない。
+
+**Picard補正と有限次数の上界。** 右加群shiftはσ_* tensorL。既存一因子共役式により、piを表す実線束MiのtensorはR_i,pを可換R_i,0へ共役する。次数三偏極の曲線は一般K直線との交わりに次数1又は3の閉点を持つので、高々k回の三次拡大で全Miを選べる。各intertwinerの三乗周期の差はK×のscalarで、比較射をv倍するとv³倍される。さらに高々k回の三次拡大で全periodを固定同期へ合わせる。因子の外積交換とperiod関係を保つためdual character作用もcoherentに対応し、二重同変化で通常Kuとrotationを回復する。従って `[K′:K]=3^e,e≤2k`。二ブロックの上界81は最小値を意味しない。実表示やブロック順序を作る拡大は含めない。実線束と三乗根の選択は大域核のα・γを消した証明ではない。 代数閉体上では同じ偏極点曲線組の二つの表示をそれぞれ自然標的へ比較し、block cube rescalingで標的を同型にできるので、unmarked Kuの同値類はB_k→E_kの幾何fiber上で一定。これは圏から曲線組を回復する逆向きや相対核を構成する主張ではない（`mbrc:cor:point-fiber-constancy`）。
 
 **保持する表現と障害。** 二ブロックC_1のK_2作用は射影的に忠実。55次元表現は自明表現3コピー、商の16個の非自明一次指標、二つの9次元既約表現各2コピーで、中心固有空間は19・18・18。ambient PGLのcentralizer次元32、normalizer/centralizer位数186624は関係を保つ群とは限らない。実際の全G=Kは上の別の証明で決定した。一般的な二次中心拡張では`xy−yx=g²`の`g↦−g`が還元上恒等となり、還元核を無条件にunipotentとする議論は失敗する。この例は保持するが、本対象の核自明性を妨げない。
 
-**次の核心。** 構成済み `Φ_pt` と自然なgerbe/関係直線同期を固定し、非可換側の相対核・局所型を構成してαとγを計算する。明示的一変数一般点の定理が全モジュライ一般点を覆うとはまだいえないので、支配的入力と有限dg模型の定義体を別に検査する。可換側の相対外積・曲線積族は既に得た構成として使う。中心線比較の開の延長、`r³≃s³`だけの全根、一般認識開の境界、m=1の中心核も残る。
+**次の核心。** 全基本開の `Φ_pt` と自然なgerbe/関係直線同期を固定する。体上の全表示に対する直接比較が得られたので、次は有限Koszul–Shamash/window模型を滑らかな実表示基底へ相対化し、局所核型のαと固定同期のγを計算する。実smooth proper相対模型が得られれば、全表示チャート一般点の比較を既存spreading定理で縮小後の有限étale被覆へ広げられる。可換側の相対外積・曲線積族は既存の構成として使う。2p=0境界、`r³≃s³`だけの全根、全O認識開の境界、m=1の中心核も残る。
 
-**点三次と同変比較の適用境界。** Jacobian tensor族のKontsevichグラフでは異色微分が零。残る異色成分は配置空間次元より角形式の次数が大きく、グラフごとに消える。従って正規化formalityは因子へ制限でき、既存の一ブロック恒等式から`W_i=b_iJ_i`を得る。`x_i↦(λ_i/b_i)^(1/3)x_i`はG・内部次数・指定周期を保ち、標的を最初からK上の`Σc_iλ_iJ_i`へ固定できる。降下で選び直すのは比較核であり点三次の係数ではない。形式単元b_iや指定核の代数性は主張しない。同じGとrotationの同変構造を保持する比較でのみ因子ごとのjが一致する。点三次の自然な全O射はmbplの非空開で得た。点shiftの平行移動との整合、非可換比較核の全O降下と特殊点上の比較は残る。
+**形式的点三次比較の独立な意味。** Jacobian tensor族のKontsevichグラフでは異色微分が零で、残る異色成分も配置空間次元と角形式の次数から消える。既存の一ブロック恒等式により `W_i=b_iJ_i`、block cube rescalingはG・内部次数・指定周期を保ち、可換方程式を元K上の `Σc_iλ_iJ_i` に固定できる。この形式入力に関する結果は直接積定理とは別に保持する。形式単元b_iや指定核全jetの代数性は主張しない。点三次の自然な全O射はmbplの全基本開上の射を既存全O認識開へ制限して得る。体上の固定点比較はmbrcで得たが、非可換相対比較核の全O降下は残る。
 
 **指定形式核の障害。** G-coherenceはcrossed product上のperfect加群として有限データとともに降ろす。有限型底の閉点は別の核を与えるため、指定形式核の全jetは保たない。`P¹`の`[X:Y]↦[X+(exp(h)−1)Y:Y]`のgraph核は指定核として有限代数拡大へ降りないが、恒等核は元の体上に存在する（`med:ex:formal-kernel`）。
 
@@ -76,9 +84,11 @@ BFK I, Publ.Math.IHÉS120(2014),1–111, [公刊PDF](https://numdam.org/item/10.
 
 因子rigidificationには Romagny, Michigan Math.J.53(2005),209–236, [著者PDF](https://imag.umontpellier.fr/~romagny/articles/group_actions.pdf), Theorem5.1・Remarks5.2 と Stacks [06PD](https://stacks.math.columbia.edu/tag/06PD) を使用する。相対比較には Ballard–Deliu–Favero–Isik–Katzarkov, [arXiv:1409.5568v1](https://arxiv.org/pdf/1409.5568v1), Corollary3.4・Propositions4.1,4.2,4.7,4.8とその後のKoszul対象を確認した。使用するのは実dg模型で、§5の最小A∞模型に関するConjecture5.1.2は入力にしない。Toën, Invent.Math.167(2007),615–667, DOI10.1007/s00222-006-0025-y, [2006年著者稿](https://www.math.univ-toulouse.fr/~btoen/mapdgcat.pdf)のTheorem8.15・Lemma8.11を一般可換環上のsmooth proper schemesに適用し、群線型化を核対応で移す。無条件の一般stack版として引用しない。相対phaseにはStacks [03PK](https://stacks.math.columbia.edu/tag/03PK), [040Q](https://stacks.math.columbia.edu/tag/040Q), [03RQ](https://stacks.math.columbia.edu/tag/03RQ)を参照する。rigidification、Kummer理論、可換Orlov–Thom–Sebastiani法自体の新規性は主張しない。
 
+相対Hesse被覆には Mumford, Invent.Math.1(1966),287–354, DOI10.1007/BF01389737, §1 Theorems1–2 pp293–298 と Shin, Algebra Number Theory6(2012),1719–1772, DOI10.2140/ant.2012.6.1719, §2B(2-1), Lemma2.8, §2C を使用する。既知theta理論を普遍関係束へ適用し、冪等射影で非被約底の固有直線を構成した。DLL arXiv:1405.1158v1 §2 p3の3c3式を確認し、Introductionの表示と取り違えない。Keeler, J.Algebra265(2003),299–311, DOI10.1016/S0021-8693(03)00126-1 は [arXiv本文](https://arxiv.org/abs/math/0210417) のTheorem2.7, Lemmas2.4/4.4, Corollary3.5を確認した。Cor3.5は二因子であり全kのideal-sheaf/edge証明を補った。定理番号はarXiv版に従い、刊行PDFとの番号対応は未照合。Burke–Stevenson公刊版Definition5.1, Lemmas6.1–6.2, Theorem6.4の仮定を確認し、一般非可換TS定理を未確認の文献から引用せず本件の有限模型を本文で証明する。これらを組み合わせた結果の初出・新規性の網羅的確認は未完了。
+
 Veroneseの関連研究としてAitzhanova–Makar-Limanov–Umirbaev、J.Algebra Appl.24(2025),2550095、[DOI](https://doi.org/10.1142/S0219498825500951)の[MPIM著者稿](https://archive.mpim-bonn.mpg.de/id/eprint/4913/1/mpim-preprint_2023-14.pdf) Theorem1・Corollaries4,5を確認した。自由Poisson代数／多項式環のd剰余次数付き持上げであり、自由結合代数には§5の障害がある。本件への無条件の非可換持上げとして引用しない。Chan–Young–Zhang [arXiv:1606.01296v1](https://arxiv.org/pdf/1606.01296) Theorems0.1,0.2は1の冪根をパラメータとするskew polynomial環と判別式を扱う。Cooney–Grabowskiのgeometric仮定も点関係の過剰により直接適用しない。これらとの差と本件の飽和・中心剛性の組合せをIntroductionで明記したが、初出の網羅的確認は未完了。
 
-**再現と確認状態。** `python3 computations/verify_multiblock_point_line.py` はQQ(t)上の次数四関係行列（81単項式、関係rank66）に9個の中心・交換子恒等式を加えてもrank66のままであること、点行列式、最大可換商の像を確認する。PBW・smoothness・圏比較の機械検証ではない。中心認識・相対認識、scalar/有限中心作用、残余projector、全k積表示の証明は本文にあり、執筆担当以外も内部読解した。形式証明や外部査読ではない。`verify_veronese_representation.py`、`verify_multiblock_twists.py`、`verify_two_block_structure.py`等の保持する計算と、今回の実行は `validation.md` で区別する。
+**再現と確認状態。** `python3 computations/verify_multiblock_point_line.py` はQQ(t)上の次数四関係行列（81単項式、関係rank66、9中心・交換子恒等式）と点行列式・最大可換商の像に加え、一般Hesseの行列式・分母なし比較式をQQ[a,b,c,x,y,z]上で確認する。一般Hesse中心性・PBW・smoothness・圏比較の機械検証ではない。追加したHesse延長、直接非可換積・coherent飽和、Picard/period補正の証明は本文にあり、独立読解の実際の範囲は `validation.md` に記す。保持する旧計算器と今回の実行を区別し、形式証明や外部査読と同一視しない。
 
 ## 1. 記法と成果の確実性
 

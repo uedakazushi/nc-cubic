@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Exact checks for the Fermat centre-to-point-line witness.
+"""Exact checks for the centre-to-point-line comparison.
 
 Run: python computations/verify_multiblock_point_line.py
-Dependency: SymPy. All linear algebra is over QQ(t), not at sample values.
+Dependency: SymPy. Fermat linear algebra is over QQ(t), not at sample values;
+the Hesse determinant and comparison certificate are polynomial identities.
 This verifies finite-degree identities, not PBW, smoothness, or equivalences.
 """
 
@@ -97,7 +98,31 @@ assert omega_image == -6 * t**2 * x * y * z
 assert point_image == t**2 * x * y * z
 assert sp.expand(omega_image + 6 * point_image) == 0
 
+# The Hesse comparison survives degeneration of the degree-three abelianization.
+# This certificate has polynomial coefficients: no localization or rank test
+# enters the equality. Centrality of this Hesse element is a separate, cited
+# theorem and is not certified here by specialization or sampling.
+a, b, c = sp.symbols("a b c")
+commutative_cubes = x**3 + y**3 + z**3
+hesse_point = a * b * c * commutative_cubes - (a**3 + b**3 + c**3) * x * y * z
+hesse_matrix = sp.Matrix([[c*x, b*z, a*y], [a*z, c*y, b*x], [b*y, a*x, c*z]])
+assert sp.expand(hesse_matrix.det() + hesse_point) == 0
+hesse_omega_ab = (
+    c * (a**3 - b**3) * commutative_cubes
+    + 3 * (a * (b**3 - c**3) + b * (c**3 - a**3)) * x * y * z
+)
+commutative_relations = [c*x**2 + (a+b)*y*z,
+                         c*y**2 + (a+b)*z*x,
+                         c*z**2 + (a+b)*x*y]
+relation_certificate = (a-b)**3 * sum(
+    variable * relation
+    for variable, relation in zip((x, y, z), commutative_relations)
+)
+assert sp.expand(hesse_omega_ab - 3*(a-b)*hesse_point - relation_certificate) == 0
+
 print("OK QQ(t): degree-four relation rank 66; all 9 centre/commutator identities vanish.")
 print("OK determinant: det(M) = -t * (x^3+y^3+z^3+t^2 xyz).")
 print("OK maximal commutative quotient: Omega -> -6 t^2 xyz, point cubic -> t^2 xyz.")
+print("OK Hesse determinant over QQ[a,b,c,x,y,z]: det(M_H) = -F_H.")
+print("OK Hesse certificate: ab(Omega_H)-3(a-b)F_H = (a-b)^3 sum(x_i r_i^ab).")
 print("LIMIT: finite-degree identities only; no PBW, smoothness, or categorical verification.")

@@ -1,14 +1,18 @@
 % !TEX root = ../nc-cubic.tex
-\section{最大可換商による中心直線と点三次直線の比較}
+\section{中心直線と点三次直線の自然な比較と可換標的}
 \label{mbpl:sec:point-line}
 
 中心三次と点曲線の方程式はともに共通 scalar の重み三を持つが、
 この事実だけから両直線を自然には同定できない。
-本節では、同じ代数の最大可換商へ両直線を写して比較する。
-二つの像が可逆になる非空開上では、係数の選択なしに中心直線を点三次直線へ移せる。
-その結果、満支持の分離和を全 $\OO$-開上の滑らかな可換三次族として降下し、
+本節では、まず同じ代数の最大可換商へ両直線を写して比較する。
+二つの像が可逆になる非空開で得た比較を、相対 Hesse 表示上の明示式により
+基本楕円開全体へ一意に延長する。
+その結果、満支持の分離和を表示スタック上の滑らかな可換三次族として構成し、
+全 $\OO$-認識開へ降下すると同時に、
 両側の表示 gerbe と関係直線を同期できる。
-この可換族と非可換残余圏の同値は、既存の一般点比較がある族に限って述べる。
+本節では線同型と可換族を構成する。
+体上の非可換残余圏との直接比較は
+第\ref{mbnp:sec:product}節、第\ref{mbrc:sec:rotation-comparison}節で別に構成する。
 
 \subsection{共通の一次元商と自然な線同型}
 
@@ -188,9 +192,310 @@ $j=0,1728$ も一般点では避けられる。
 表示スタックは既約なので、既存の非空な全 $\OO$-認識開との交わりも非空になる。
 \end{proof}
 
+\subsection{Hesse 中心式と基本楕円開全体への延長}
+
+以下の相対 Hesse 表示は、theta 群とその Schr\"odinger 表現という
+既知の構成を、本稿の普遍二次関係束に適用したものである。
+theta 群の基本的構造は
+\cite[\S1, Theorems~1--2, pp.~293--298]{MBPLMumfordTheta}、
+スキーム上の定式化は
+\cite[\S2B, equation~(2-1), Lemma~2.8; \S2C]{MBPLShinWeil}
+を参照する。以下では非被約な底で必要になる部分も直接示す。
+
+\begin{lemma}[相対 Hesse 表示の滑らかな被覆]
+\label{mbpl:lem:hesse-cover}
+式\eqref{mbs:eq:factor-chart}の滑らかな既約スキーム $\mathcal T$ 上で、
+補題\ref{mbs:lem:factor-family}の普遍代数を
+$\mathcal S=T(W\otimes\OO_{\mathcal T})/(\mathcal R)$ と書く。
+滑らかで全射な有限表示射 $q:\mathcal T_{\mathrm H}\to\mathcal T$ が存在し、
+その上で $q^*W$ と $q^*\mathcal R$ に基底を選ぶことにより、
+二次関係は
+\begin{equation}\label{mbpl:eq:relative-hesse-relations}
+ \begin{split}
+ r_0&=c x^2+a yz+b zy,\\
+ r_1&=c y^2+a zx+b xz,\\
+ r_2&=c z^2+a xy+b yx
+ \end{split}
+\end{equation}
+となる。ここで $a,b,c$ は $\mathcal T_{\mathrm H}$ 上の正則関数である。
+この被覆は、有限 \'etale 全射の合成の後に、二つの直線束の frame torsor を
+取ることで構成できる。従って $q$ は fpqc 被覆である。
+
+任意のスキーム $S\to\mathcal T$ に対して、この構成を引き戻すと、
+非被約・非 noetherian な $S$ でも fpqc 局所的に
+式\eqref{mbpl:eq:relative-hesse-relations}が成立する。
+また $\mathcal T_{\mathrm H}$ とその全ての有限 \v Cech 重なりは
+$\C$ 上滑らかで、従って被約である。
+$\mathcal T$ の任意の稠密開の逆像は、各重なりで稠密である。
+\end{lemma}
+
+\begin{proof}
+まず普遍曲線と次数三線束を $E\to\mathcal T$、$L$ と書く。
+flex の選択を、相対 Picard scheme における等式
+\[
+ [L]=[\OO_E(3o)]
+\]
+を満たす切断 $o$ の選択として定式化する。
+これは $E[3]$ の torsor であり、階数九の有限 \'etale 全射で表現される。
+実際、局所的に一つの原点を取れば、射
+$o\mapsto[\OO_E(3o)]$ は楕円スキームの三倍写像と平行移動の合成となる。
+三は可逆なので、その核は有限 \'etale である。
+選んだ flex を原点とすると $E$ は楕円スキームとなる。
+ここで $L\simeq\OO_E(3o)$ を実際の線束の同型として標識する必要はない。
+両者の差が底から来る線束であっても、以下の theta 群と作用は構成できる。
+
+$K(L)=\ker(q\mapsto[t_q^*L\otimes L^{-1}])=E[3]$ と置く。
+theta 群は、試験底上の組
+\[
+ (q,\phi),\qquad q\in E[3],\qquad \phi:t_q^*L\xrightarrow{\sim}L
+\]
+を分類し、中心拡大
+\begin{equation}\label{mbpl:eq:relative-theta-group}
+ 1\longrightarrow\mathbf G_m\longrightarrow\mathcal G(L)
+   \longrightarrow E[3]\longrightarrow1
+\end{equation}
+を与える。
+線束の同型層が $\mathbf G_m$-torsor であることは
+$\pi_*\OO_E=\OO$ とその普遍底変更から従う。
+この記述は $t_q^*L$ と $L$ が大域的に同型であることを仮定せず、
+同型を選ぶ torsor 自体を用いている。
+交換子は完全交代ペアリング
+$e^L:E[3]\times E[3]\to\mu_3$ を与える。
+
+原始三乗根 $\zeta\in\C$ を固定する。
+有限 \'etale な symplectic level-three 被覆を取り、
+$e^L(q_1,q_2)=\zeta$ となる基底 $q_1,q_2$ を選ぶ。
+各 $q_i$ の theta 持上げの torsor 上で、持上げの三乗は scalar である。
+持上げを $u$ 倍すると三乗は $u^3$ 倍されるので、
+三乗が一となる持上げを選ぶ層は $\mu_3$-torsor、従って有限 \'etale 全射である。
+この二つの被覆を施した後の持上げを $A,B$ と書けば、
+作用の向きに合わせて symplectic 基底を選ぶことにより
+\begin{equation}\label{mbpl:eq:schrodinger-generators}
+ A^3=B^3=1,\qquad AB=\zeta BA
+\end{equation}
+となる。これは位数二十七の Heisenberg 群の作用である。
+
+theta 群は $W=\pi_*L$ に
+$(q,\phi)(s)=\phi(t_q^*s)$ で作用する。
+各 $A$-固有束は、冪等射影
+\[
+ e_i=\frac13\sum_{j=0}^2\zeta^{-ij}A^j,\qquad i\in\mathbf Z/3
+\]
+の像として定まる直和因子である。
+式\eqref{mbpl:eq:schrodinger-generators}により $B$ はそれらを巡回的に同型へ移す。
+$W$ の階数は三なので、三つの固有束はそれぞれ直線束である。
+固有値一の束の frame $x$ を選ぶ $\mathbf G_m$-torsor を取り、
+$y=Bx$, $z=B^2x$ と置く。すると
+\[
+ A(x)=x,\quad A(y)=\zeta y,\quad A(z)=\zeta^2z,
+ \qquad B:x\mapsto y\mapsto z\mapsto x
+\]
+となる。冪等射影を使っているため、ここに底の被約性は不要である。
+
+次に $\mathcal R$ の作用を確認する。
+その定義は式\eqref{mbs:eq:relative-relations}であり、
+積写像の第二因子だけを $t_p^*$ で引き戻す。
+$t_qt_p=t_pt_q$ なので、$L\otimes t_p^*L$ 上の同型
+\[
+ \phi\otimes t_p^*\phi:
+ t_q^*(L\otimes t_p^*L)\xrightarrow{\sim}L\otimes t_p^*L
+\]
+により、この積写像は $W\otimes W$ 上の対角作用に関して同変である。
+従ってその核 $\mathcal R$ は安定である。
+$A\otimes A$ の固有束分解と $B\otimes B$ による巡回同型から、
+階数三の $\mathcal R$ の各固有束も階数一となる。
+固有値一の部分は
+\[
+ (W\otimes W)_0=\OO x^2\oplus\OO yz\oplus\OO zy
+\]
+の直線部分束である。その frame を選ぶもう一つの
+$\mathbf G_m$-torsor を取り、$r_0=cx^2+ayz+bzy$ と書く。
+$r_1=(B\otimes B)r_0$, $r_2=(B\otimes B)^2r_0$ は
+残る二固有束の frame であり、所要の三関係を得る。
+
+以上の各段階は有限 \'etale 全射または直線束の frame torsor である。
+従って合成 $q$ は滑らかな全射かつ準コンパクトであり、fpqc である。
+有限 \'etale 群、theta torsor、切断束、関係束と冪等射影の形成は
+全て底変更に両立する。
+補題\ref{mbs:lem:factor-family}の普遍底変更性と合わせると、
+任意の $S\to\mathcal T$ に対する主張を得る。
+
+最後に、$\mathcal T$ が滑らかで既約である理由を確認する。
+平面三次の滑らかな方程式空間 $\mathcal H$ は射影空間の開であり、
+$\Pic^0(E/\mathcal H)\to\mathcal H$ は幾何学的に連結な
+滑らかな楕円スキームである。
+その全空間は滑らかで既約であり、$\mathcal T$ はその非空開である。
+従って $\mathcal T_{\mathrm H}$ と全ての有限重なりは $\C$ 上滑らかとなる。
+各重なりから $\mathcal T$ への射は滑らかなので開写像である。
+任意の非空開の像は $\mathcal T$ の稠密開と交わり、
+従ってその逆像は重なりの全体で稠密である。
+\end{proof}
+
+\begin{lemma}[Hesse 中心の非零生成性と比較式]
+\label{mbpl:lem:hesse-center}
+補題\ref{mbpl:lem:hesse-cover}の被覆上で、関係を
+\begin{equation}\label{mbpl:eq:hesse-relations}
+ r_x=cx^2+a yz+b zy,\qquad
+ r_y=cy^2+a zx+b xz,\qquad
+ r_z=cz^2+a xy+b yx
+\end{equation}
+と書く。$C=x^3+y^3+z^3$、$U=xyz+yzx+zxy$、
+$V_0=xzy+zyx+yxz$ と置けば
+\begin{align}
+ \Omega_H&=c(a^3-b^3)C+a(b^3-c^3)U+b(c^3-a^3)V_0,
+       \label{mbpl:eq:hesse-center}\\
+ F_H&=abcC-(a^3+b^3+c^3)xyz
+       \label{mbpl:eq:hesse-point}
+\end{align}
+はそれぞれ $\mathcal C$ と $\mathcal J$ の生成元である。
+$a,b,c,a-b$ は可逆であり、線同型
+\begin{equation}\label{mbpl:eq:hesse-comparison}
+ \vartheta_H(\Omega_H)=3(a-b)F_H
+\end{equation}
+を定める。この同型は $\mathcal T^\natural$ の逆像上で
+命題\ref{mbpl:prop:line-comparison}の $\vartheta$ と一致する。
+式\eqref{mbpl:eq:hesse-center}--\eqref{mbpl:eq:hesse-comparison}は
+任意の底変更に両立する。
+\end{lemma}
+
+\begin{proof}
+中心式\eqref{mbpl:eq:hesse-center}自体は既知である
+\cite[Section~2, p.~3, the formula for $3c_3$]{GRSklyaninDLL}。
+これは Smith--Tate の中心元
+\[
+ (c^3-b^3)(cy^3-a xyz)+(c^3-a^3)(b yxz-cx^3)
+\]
+の巡回和でもある\cite[p.~35, Remark~(1)]{GRSklyaninST}。
+これらの式は無限位数の平行移動にも適用される。
+普遍 Hesse 被覆は $\C$ 上滑らか、従って被約であり、$S_4$ は局所自由なので、
+各幾何点での中心性はその被覆上の中心性を与える。
+以下では、中心式の全ファイバーでの非零性と比較の規格化を直接証明する。
+
+点対応の行列
+\[
+ \begin{pmatrix}
+ cx&bz&ay\\ az&cy&bx\\ by&ax&cz
+ \end{pmatrix}
+\]
+の行列式は $-F_H$ である。
+従って $F_H$ は滑らかな点曲線の方程式を生成する。
+ある幾何点で $abc=0$ なら $F_H$ は $xyz$ の倍数または零となるので、
+滑らかさに反する。よって $a,b,c$ は可逆である。
+また $a=b$ なら式\eqref{mbpl:eq:hesse-relations}は二つの tensor 因子の交換で保たれる。
+点グラフも因子交換で保たれるため $\Gamma_{t_p}=\Gamma_{t_p^{-1}}$、
+従って $2p=0$ となる。基本開ではこれを除いているので、$a-b$ も可逆である。
+
+非零性は各幾何点で調べればよい。
+$H_{27}$ の標準生成元を
+\[
+ (x,y,z)\longmapsto(x,\zeta y,\zeta^2z),\qquad
+ (x,y,z)\longmapsto(y,z,x),\qquad \zeta^3=1,\quad\zeta\ne1
+\]
+とする。自由 tensor の次数三では
+\[
+ (W^{\otimes3})^{H_{27}}=\langle C,U,V_0\rangle.
+\]
+実際、第一生成元の重み零の monomial は三つの cube と
+$xyz$ の六つの順列であり、第二生成元の軌道和が上の三元である。
+$W\otimes R_2$ の重み零部分は
+$xr_x,yr_y,zr_z$ で張られ、巡回作用の不変部分はその和だけである。
+$R_2\otimes W$ にも同じ計算を適用すると、両方の不変部分の像は
+\[
+ xr_x+yr_y+zr_z=r_xx+r_yy+r_zz=cC+aU+bV_0
+\]
+で一致する。標数零では有限群の不変部分を取る操作が完全なので
+\begin{equation}\label{mbpl:eq:hesse-invariant-relation}
+ (WR_2+R_2W)^{H_{27}}=\langle cC+aU+bV_0\rangle.
+\end{equation}
+従って $\Omega_H$ が $S_3$ で零なら
+\[
+ a^3-b^3=b^3-c^3=c^3-a^3
+\]
+であり、これらの和が零だから $a^3=b^3=c^3$ となる。
+この場合には $(a:b:c)$ で $F_H$ とその全偏微分が零になり、点曲線は特異である。
+よって $\Omega_H$ は全幾何点で非零であり、
+補題\ref{mbs:lem:factor-family}の中心直線を生成する。
+
+最後に、$\operatorname{ab}(\Omega_H)$ を自由可換環での像とすると、
+次の多項式恒等式が成立する：
+\begin{equation}\label{mbpl:eq:hesse-abelian-identity}
+ \begin{split}
+ \operatorname{ab}(\Omega_H)-3(a-b)F_H
+  &=(a-b)^3\bigl(cC+3(a+b)xyz\bigr)\\
+  &=(a-b)^3\bigl(x\overline r_x+y\overline r_y+z\overline r_z\bigr).
+ \end{split}
+\end{equation}
+従って $Q_3$ の階数によらず両辺の像は一致する。
+$\mathcal T^\natural$ 上では $j$ が可逆なので、
+式\eqref{mbpl:eq:hesse-comparison}は既存の $j^{-1}c$ と一致する。
+全ての式は関係係数に関する多項式であり、
+生成元性を確認した線束の同型を引き戻すので、任意底変更にも両立する。
+\end{proof}
+
+\begin{theorem}[基本楕円開全体の自然な中心線比較]
+\label{mbpl:thm:global-line-comparison}
+式\eqref{mbs:eq:factor-chart}の全基本楕円開 $\mathcal T$ 上に、
+命題\ref{mbpl:prop:line-comparison}を延長する一意な線同型
+\[
+ \vartheta:\mathcal C\xrightarrow{\sim}\mathcal J
+\]
+がある。この同型は全ての次数付き代数同型に自然であり、
+非平坦・非被約な底を含む任意の底変更に両立する。
+特に $\GL(W)$-同変である。
+\end{theorem}
+
+\begin{proof}
+補題\ref{mbpl:lem:hesse-cover}の滑らかな全射 $H\to\mathcal T$ を取る。
+補題\ref{mbpl:lem:hesse-center}は $H$ 上の線同型 $\vartheta_H$ を与える。
+$\mathcal T$ は滑らかな既約スキーム、
+$\mathcal T^\natural$ は命題\ref{mbpl:prop:nonempty-open}の非空開なので稠密である。
+$H\times_{\mathcal T}H$ は $\C$ 上滑らか、従って被約であり、
+その $\mathcal T$ への射は滑らかである。
+滑らかな射は開写像なので、$\mathcal T^\natural$ の逆像は
+この重なりの全ての非空開と交わる。
+二つの引戻しはその稠密開で既存の $\vartheta$ に一致する。
+被約スキーム上の線束間の射は稠密開での値で決まるため、両者は重なり全体で一致する。
+従って $\vartheta_H$ は $\mathcal T$ 上の線同型へ fpqc 降下する。
+同じ議論は三重の重なりでも両立し、降下した同型の一意性も与える。
+
+$\GL(W)\times\mathcal T$ は滑らかであり、
+作用写像と射影から得る二つの比較は $\GL(W)\times\mathcal T^\natural$ 上で一致する。
+同じ稠密開の議論により、全体で一致する。これが同変性である。
+次数付き同型は次数一の線型同型により与えられるので、全同型への自然性も従う。
+
+以上の降下は被約な普遍基底上で完了している。
+その後に任意の $T\to\mathcal T$ へ引き戻せばよく、
+中心核の形成は補題\ref{mbs:lem:factor-family}により、点三次直線の形成は
+その有限局所自由表示により任意底変更に両立する。
+非被約な底上での幾何点の一致を降下の理由には用いていない。
+\end{proof}
+
+\begin{remark}[中心公式と有限計算の役割]
+式\eqref{mbpl:eq:hesse-center}の中心性は上記の一次文献の既知結果を用いた。
+本節で加えたのは、その非零生成性の不変部分による証明、
+式\eqref{mbpl:eq:hesse-abelian-identity}による比較の規格化、
+および相対被覆を通じた自然な延長である。
+付属の計算 \texttt{verify\_multiblock\_point\_line.py} は、
+Fermat 族の次数四の交換子を $\mathbb Q(t)$ 上の関係行列で検算し、
+Hesse の行列式と式\eqref{mbpl:eq:hesse-abelian-identity}を
+$\mathbb Q[a,b,c,x,y,z]$ 上で検算する。
+この有限計算だけで一般 Hesse 中心の中心性、相対被覆や降下を認証しているのではない。
+\end{remark}
+
+\begin{remark}[二捩れ境界と比較の零点]
+\label{mbpl:rem:two-torsion-boundary}
+$a=b$ を許す滑らかな Hesse 族では、上の非零性の証明はそのまま成り立ち、
+$\Omega_H$ と $F_H$ はともに非零である。
+一方、式\eqref{mbpl:eq:hesse-comparison}の右辺はその因子上で零になる。
+従って稠密開の比較を保つ正則な線束の射は、一般の $2p=0$ 境界で可逆ではない。
+本節の比較を線同型として延長する際、基本開の $2p\ne0$ 条件は実質的である。
+最大可換商の三次部が退化する境界は、これとは異なり
+定理\ref{mbpl:thm:global-line-comparison}で越えられる。
+\end{remark}
+
 \subsection{可換分離和の自然な族と表示障害の同期}
 
-$\mathfrak P_k^\natural$ の実表示 gerbe 上で、
+$\mathfrak P_k$ の実表示 gerbe 上で、
 中心直線 $\ell\subset\bigoplus_i\mathcal C_i$ に
 \begin{equation}\label{mbpl:eq:point-relation-line}
  \ell_{\mathrm{pt}}=
@@ -211,18 +516,19 @@ $H_k=\GL_3^k\rtimes\mathfrak S_k$ に同変であり、関係直線の自然な�
 \[
  Y_{\mathrm{pt}}=V(\ell_{\mathrm{pt}})\subset\mathbb P(V^\vee)
 \]
-は $\mathfrak P_k^\natural$ 上へ降下する滑らかな三次 $3k-2$ 次元族を定める。
+は $\mathfrak P_k$ 上へ降下する滑らかな三次 $3k-2$ 次元族を定める。
 降下した ambient は相対次元 $3k-1$ の Brauer--Severi scheme であり、
 大域的な次数一ベクトル束の存在は要求しない。
 
 滑らかな三次超曲面の射影的表示スタックを
 $\mathfrak C_{3k}^{\mathrm{sm}}$ とすると自然な射
 \begin{equation}\label{mbpl:eq:moduli-map}
- \Phi_{\mathrm{pt}}:\mathfrak P_k^\natural
+ \Phi_{\mathrm{pt}}:\mathfrak P_k
        \longrightarrow\mathfrak C_{3k}^{\mathrm{sm}}
 \end{equation}
-がある。全 $\OO$-認識開との交わりでは、これは全 $\OO$-局所型モジュライ上の射となる。
-構成はこの開の任意の非被約試験底にも両立する。
+がある。系\ref{mbrr:cor:stack-isomorphism}の全 $\OO$-認識開では、
+これは全 $\OO$-局所型モジュライ上の射となる。
+構成は任意の非被約試験底にも両立する。
 
 両側の実表示 gerbe の類を $\beta,\beta_{\mathrm{cub}}$ とすると
 \begin{equation}\label{mbpl:eq:brauer-synchronization}
@@ -233,7 +539,7 @@ $\mathfrak C_{3k}^{\mathrm{sm}}$ とすると自然な射
 \end{theorem}
 
 \begin{proof}
-命題\ref{mbpl:prop:line-comparison}の自然性により各因子の同型は線型座標変更に両立する。
+定理\ref{mbpl:thm:global-line-comparison}の自然性により各因子の同型は線型座標変更に両立する。
 同じ構成を全因子に用いるので置換にも両立する。
 満支持条件により $\ell_{\mathrm{pt}}$ の各 $\mathcal J_i$ への射は可逆である。
 局所的に方程式を $\sum_i b_iJ_i$、$b_i\in R^\times$ と書くと、
@@ -268,10 +574,13 @@ $w=\sum_i a_i\Omega_i$ と書いた場合には、
  \qquad
  F_{\mathrm{pt}}=\sum_i a_iu_iJ_i,
  \qquad
- u_i=[\Omega_i]/[J_i]\in R^\times
+ u_i\in R^\times
 \]
-である。$u_i$ は共通の一次元商 $Q_{i,3}$ 内の比であり、任意には選ばない。
-例えば前補題の frame では $u_i=-6$ である。
+である。$u_i$ は自然な $\vartheta_i$ により一意に決まり、任意には選ばない。
+$\mathcal T^\natural$ 上では共通の一次元商 $Q_{i,3}$ 内の比
+$u_i=[\Omega_i]/[J_i]$ である。
+単一因子の Hesse frame では $u=3(a-b)$、
+補題\ref{mbpl:lem:fermat}の frame では $u_i=-6$ である。
 $F=\sum_i a_iJ_i$ と書けるのは、点方程式を
 $J_i=\vartheta_i(\Omega_i)$ と規格化した場合である。
 共通 scalar 重み三だけを理由に $u_i=1$ と置く操作は用いない。
@@ -282,7 +591,7 @@ $J_i=\vartheta_i(\Omega_i)$ と規格化した場合である。
 \begin{corollary}[Jacobian tensor 一変数族内での残余比較]
 \label{mbpl:cor:generic-comparison}
 第\ref{mpc:sec:point-comparison}節の入力と PBW 仮定を満たす一変数族を取り、
-その一般点が $\mathfrak P_k^\natural$ に属すると仮定する。
+その一般点が基本楕円開の $\mathfrak P_k$ に属すると仮定する。
 するとある有限代数拡大後に、同節の中心群同変・rotation・指定周期保存の比較の標的を、
 定理\ref{mbpl:thm:commutative-family}の可換族の一般ファイバーへ取れる。
 これは同節の一変数族での主張であり、全モジュライの一般対象についての
@@ -316,11 +625,12 @@ $\Omega_{d_ih}$ は primitive、満支持の特殊三次は Fermat 型の滑ら�
 この族での交わりの非空性と、全モジュライの既約性から得る
 全 $\OO$-認識開との交わりの非空性は、異なる主張として用いている。
 
-$\mathcal T^\natural$ は、有限表示\eqref{mbpl:eq:finite-presentation}と
-二つの射\eqref{mbpl:eq:two-maps}をともに可逆にするための開である。
-その外で別の自然な線比較が存在しないとは主張しない。
-$Q_3$ の階数が増える場合、または二つの射の一方が零になる場合には、
-本節の構成だけから延長は得られない。
-また表示 gerbe と関係直線の同期は、比較核や rotation 比較の大域的 section の存在、
-全点での smooth proper 残余比較、指定形式核の全 jet の代数化を与えない。
+$\mathcal T^\natural$ は、最大可換商だけから比較を計算できる補助的な非空開である。
+比較の延長そのものは定理\ref{mbpl:thm:global-line-comparison}により
+基本楕円開全体で得られ、$Q_3$ の階数が増す点も含む。
+また表示 gerbe と関係直線の同期だけから、
+比較核や rotation 比較の大域的 section や指定形式核の全 jet の代数化は従わない。
+体上の全基本実表示の smooth proper 残余比較には、
+第\ref{mbnp:sec:product}節、第\ref{mbrc:sec:rotation-comparison}節の
+独立した外積・Picard 補正の構成を用いる。
 \end{remark}

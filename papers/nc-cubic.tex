@@ -76,7 +76,7 @@
 \title{非可換三次 $n$-fold の可換復元とモジュライ\\
 \large Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 \author{}
-\date{2026年11月21日・研究稿 v36}
+\date{2026年11月21日・研究稿 v37}
 \hypersetup{pdftitle={非可換三次 n-fold の可換復元とモジュライ},
 pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}}
 \begin{document}
@@ -116,18 +116,22 @@ rotation の線型化には指標の torsor が残る。
 中心慣性による rigidification は因子データの stack となり、
 平面三次の組への射はその上で滑らか・相対次元 $k$ となる。
 点曲線積の族は全構造対象局所型の開へ降下する。
-さらに、最大可換商の三次部分を介して中心三次線と点三次線を
-非空開上で自然に比較し、可換三次超曲面の族と表示 gerbe・関係直線の同期を構成する。
+さらに、最大可換商による中心三次線と点三次線の比較を
+相対 Hesse 被覆により基本楕円開全体へ延長し、
+可換三次超曲面の族と表示 gerbe・関係直線の同期を構成する。
 共通係数直線を持つ可換分離和では、滑らかな実表示基底上の
 相対曲線積比較を perfect 核で構成し、その導来引戻しによる非平坦底変更も得る。
-一般点がこの非空開に入る明示的 Jacobian tensor 一変数族では、
-有限拡大後にこの自然な点三次の分離和を復元模型として選べる。
-既知の同変 Thom--Sebastiani・Orlov 比較と、既存の完備 MF・一般点比較の下で、
-全 $k\ge2$ の同変残余圏は有限拡大後に入力の $k$ 個の点曲線の積の導来圏となる。
+非可換側では、有限 Koszul--Shamash 模型と外積から、
+体上の実表示に対する中心同変残余圏を直接、点曲線の積の導来圏と同定する。
+smoothness と全 coherent 飽和も従う。
+点の Picard 類による因子 rotation の共役と指定周期の三乗根補正により、
+順序付き実表示では次数高々 $3^{2k}$ の有限拡大後に、
+自然な可換三次の通常の Kuznetsov 圏との比較を得る。
+代数閉体上では基本領域の全ての点で比較でき、一変数一般点の仮定を必要としない。
 局所 rotation 比較・負の自己 Ext 消滅・底変更の条件の下で、
 固定した scalar-simple な核の局所型と同期に対しては、
 核の $\mathbf G_m$-gerbe と周期比較の $\mu_3$-torsor が独立な実現条件となる。
-非可換族の大域比較核と、全モジュライ一般点での比較はなお未完成である。
+非可換族の大域比較核と、これら二障害の大域的な値はなお未完成である。
 
 三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ三次超曲面の量子化を扱う。
 良い一ブロック型の $\mathcal O$-marked 圏族の滑らかな既約 DM stack を構成し、
@@ -398,15 +402,21 @@ $S_i$ の最大可換商の三次部分 $Q_{i,3}$ が直線束で、
 中心三次線 $C_i$ と点三次線 $J_i$ からの射がともに可逆である非空開では、
 その商を介した同型 $\theta_i:C_i\simeq J_i$ が全次数付き同型と底変更に自然である
 （命題\ref{mbpl:prop:line-comparison}、命題\ref{mbpl:prop:nonempty-open}）。
+相対 theta 群の枠を選ぶ滑らかな被覆上で
+$\theta_i(\Omega_{H,i})=3(a_i-b_i)F_{H,i}$ と書ける。
+既知の Hesse 中心式\cite[\S2, p.~3]{GRSklyaninDLL}の非零性と、
+分母のない最大可換商の恒等式を用いて、この比較を基本楕円開全体へ一意に延長する
+（定理\ref{mbpl:thm:global-line-comparison}）。
+相対被覆には Mumford--Shin の theta 群の理論
+\cite{MBPLMumfordTheta,MBPLShinWeil}を用い、
+普遍被約重なりで降下した後に任意の非被約底へ引き戻す。
 従って中心関係直線 $\ell$ を点三次の分離和へ写すことにより、
 滑らかな射影三次の stack への射 $\Phi_{\rm pt}$ を得る。
 標的の Brauer--Severi 表示を許せば、
 $\beta=\Phi_{\rm pt}^*\beta_{\rm cub}$ と $\ell\simeq\ell_{\rm pt}$ を
 同時に、しかも自然に実現する（定理\ref{mbpl:thm:commutative-family}）。
-一般点がこの開に入る明示的一変数入力では、
-この標的への比較を有限拡大上に取れる
-（系\ref{mbpl:cor:generic-comparison}）。
-非空開の非空性と、任意の固定非可換パラメータでの圏同値は別の主張である。
+この延長は、全 $\OO$-認識自体の開を広げるものではない。
+また、二捩れ境界では比較係数が零となるため、同じ線同型を延長できない。
 
 可換分離和そのものについては、滑らかな準射影基底 $S$ 上で
 $f_i\in\Sym^3W_i\otimes L$ を共通の係数直線 $L$ に値を取る滑らかな三次とすると、
@@ -426,14 +436,38 @@ $f_i\in\Sym^3W_i\otimes L$ を共通の係数直線 $L$ に値を取る滑らか
 （系\ref{mbrp:cor:base-change}）。
 この相対可換比較は既知の Orlov--Thom--Sebastiani 法の本設定への相対的な実施であり、
 非可換側からの相対核を新たに存在させるものではない。
-既存の有限比較体上で、全 $k$ について実際の点曲線 $E_i$ に対し
-$(\mathcal K_A^{\mathrm{coh}})^{Z_0}\simeq D^b(\prod_iE_i)$ を得る
-（系\ref{mbrd:cor:nc-product}、系\ref{mbrp:cor:comparison-field}）。
-後者は可換積比較のための追加拡大が不要であることを示す。
+体上の非可換実表示には、さらに直接の外積法を適用できる。
+THCR の多重斉次イデアルを使って全 $k$ の tensor 積の noetherian 性を証明する。
+Keeler\cite[Theorem~2.7, Corollary~3.5]{MBNPKeelerMultiple}の二因子定理を
+形式的に反復せず、NC-ampleness と多重次数の端に関する帰納を用いる。
+各因子の有限 Koszul 解消の曲率付き stabilization を tensor し、
+全体の augmentation stabilization と同定する。
+Burke--Stevenson\cite[Theorem~6.4]{LP-BS}の window と合わせて
+$(\mathcal K_A^{\mathrm{line}})^{Z_0}\simeq\Perf(\prod_iE_i)$ を得る
+（定理\ref{mbnp:thm:product}）。
+有限群の双対同変化と既存の coherent 飽和判定により、
+$\mathcal K_A^{\mathrm{line}}=\mathcal K_A^{\mathrm{coh}}$ も従う。
+ここでは一変数変形や形式比較の存在を仮定しない。
+可換積側も、相対核の底変更により元の体上で比較できる
+（系\ref{mbrp:cor:comparison-field}）。
 通常の Ku 自体は、積圏の双対指標作用による同変化として記述できるが、
 積圏そのものとは同一視しない（系\ref{mbrd:cor:dual-action}）。
-これらは指定した一般点の比較であり、全 $\OO$-基底上の比較核の
-大域的 section、あるいは指定形式核の全 jet の代数化を与えない。
+非可換側の因子 rotation は
+$R_{i,p_i}=T_{\OO_{E_i}}\circ(t_{p_i})_*\circ(-\otimes L_i)$ である。
+$p_i$ を表す実線束の tensor により可換側の rotation と共役し、
+指定周期の差を三乗根で補正する。
+各曲線の次数三の閉点とこの補正から、
+順序付き実表示では次数高々 $3^{2k}$ の有限拡大後に
+$\Ku_{\mathrm{coh}}(A)\simeq\Ku(X_{\mathrm{pt}})$ を、
+中心作用・rotation・指定周期を保って構成できる
+（定理\ref{mbrc:thm:finite-point-comparison}）。
+特に代数閉体上の全ての基本領域の点に適用できる。
+従って、同じ偏極点曲線の組を持つ幾何点では、
+標識を忘れた残余圏の同値類は一定である
+（系\ref{mbrc:cor:point-fiber-constancy}）。
+これは比較関手の一意性や相対的な自明化を意味しない。
+この体上の比較を、全 $\OO$-基底上の核の大域的 section、
+あるいは指定形式核の全 jet の代数化と同一視しない。
 この大域問題について、両側の smooth proper な族と指定周期を固定する。
 残余圏の周期には引き続き MF/window 比較を要求する。
 局所的に rotation を intertwine する
@@ -1867,7 +1901,9 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/multiblock_point_line.tex}
 \input{papers/sections/multiblock_residual_descent.tex}
 \input{papers/sections/multiblock_relative_product.tex}
+\input{papers/sections/multiblock_noncommutative_product.tex}
 \input{papers/sections/multiblock_kernel_synchronization.tex}
+\input{papers/sections/multiblock_rotation_comparison.tex}
 
 \input{papers/sections/graded_moduli.tex}
 \input{papers/sections/relative_duality.tex}

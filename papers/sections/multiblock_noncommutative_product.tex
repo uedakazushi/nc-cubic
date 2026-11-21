@@ -1,0 +1,551 @@
+% !TEX root = ../nc-cubic.tex
+\section{Sklyanin 中心和の直接積比較}
+\label{mbnp:sec:product}
+
+本節では、Sklyanin 因子の中心商を直接用いて、中心群で同変化した
+非可換残余圏を点曲線の積と比較する。
+一変数の可換特殊化、完備化、復元三次の選択は仮定しない。
+入力は、実際の Sklyanin 代数と中心元を持つ体上の順序付き表示である。
+証明では、Burke--Stevenson の非可換 Orlov 定理、
+有限行列分解の余核比較、Shamash 型の augmentation 分解を組み合わせる。
+可換環に対する Thom--Sebastiani 定理を非可換環へそのまま引用せず、
+必要な外積の Hom と生成性を以下で証明する。
+この適用の包括的な新規性調査は未完了である。
+
+\subsection{実表示と noetherian 性}
+
+$K\supset\mathbb C$ を体、$k\geq2$ とする。
+各 $i$ について、$K$ 上の滑らかな平面 genus-one 曲線 $E_i$、
+実際の次数三線束 $L_i$、平行移動 $\sigma_i=t_{p_i}$ を取り、
+三次元 quadratic Sklyanin 代数 $S_i$ とその正則中心三次 $\Omega_i$ が
+\begin{equation}\label{mbnp:eq:factor-data}
+ T_i:=S_i/(\Omega_i)\simeq B(E_i,L_i,\sigma_i)
+\end{equation}
+を満たすとする。
+ここで $S_i$ は連結局所有限、Koszul、global dimension と
+Gorenstein parameter がともに三の AS-regular 代数である。
+本稿の基本楕円開に属する実表示はこれらの条件を満たす。
+点曲線を三次元空間内に固定するための追加条件や $j_i$ の相異性は、
+本節の積比較自体には不要である。
+以下の全ての加群は右加群とする。
+
+$a_i\in K^\times$ を取り、
+\begin{equation}\label{mbnp:eq:sum-data}
+ w_i=a_i\Omega_i,\quad B=\bigotimes_{i=1}^kS_i,\quad
+ w=\sum_{i=1}^kw_i,\quad A=B/(w),\quad N=3k,\quad r=N-3
+\end{equation}
+と置く。$w_i$ は方程式の frame も含む指定元である。
+各因子の有限行列分解の周期は、この $w_i$ による余核二拡張から定める。
+$w_i$ をスカラー倍しても中心商 $T_i$ は変わらないが、
+指定周期の同型まで同じと見なすことはしない。
+
+\begin{lemma}[独立な楕円因子の tensor 環]
+\label{mbnp:lem:noetherian}
+$\bigotimes_iT_i$、$B$、$A$ は両側 noetherian である。
+$B$ は Koszul AS-regular で、global dimension と parameter は $N$、
+$w$ は正則である。
+$A$ は両側有限 injective dimension を持つ AS-Gorenstein 環であり、
+parameter は $r$ である。従って $A$ に
+\cite[Proposition~4.18, Lemmas~6.1--6.2, Theorem~6.4]{LP-BS}
+の導来 section と Orlov 分解を適用できる。
+\end{lemma}
+\begin{proof}
+まず $T=\bigotimes_iT_i$ の noetherian 性を証明する。
+二因子の場合は \cite[Corollary~3.5]{MBNPKeelerMultiple}にも含まれるが、
+三因子以上の中間 tensor 環は通常の一変数 THCR ではないので、
+同系の単純な反復とはしない。
+体を代数閉包へ拡大しても切断と $T$ の tensor 表示は変わらず、
+noetherian 性は忠実平坦な体拡大から降下する。
+従ってまず $K$ を代数閉体としてよい。
+
+$X=\prod_iE_i$ とし、$\boldsymbol n\in\mathbb N^k$ に対して
+\[
+ L_{\boldsymbol n}=\boxtimes_i
+    (L_i\otimes\sigma_i^*L_i\otimes\cdots
+                  \otimes(\sigma_i^{n_i-1})^*L_i),\qquad
+ T_{\boldsymbol n}=H^0(X,L_{\boldsymbol n})
+\]
+と書く。$n_i=0$ の因子は $\OO_{E_i}$ とする。
+因子ごとの平行移動は $X$ の数値的 Picard 群に恒等に作用し、
+全ての $n_i>0$ なら $L_{\boldsymbol n}$ は ample である。
+従って \cite[Theorem~2.7]{MBNPKeelerMultiple}により、
+この可換な可逆双加群の組は NC-ample である。
+また全ての $L_{\boldsymbol n}$ は大域生成される。
+
+多重斉次右イデアル $J\subset T$ に対し
+\[
+ I_{\boldsymbol n}
+  =\operatorname{im}\bigl(J_{\boldsymbol n}\otimes
+                    L_{\boldsymbol n}^{-1}\longrightarrow\OO_X\bigr)
+\]
+と置く。積の定義と大域生成性から
+$I_{\boldsymbol n}\subset I_{\boldsymbol n+\boldsymbol m}$ である。
+$X$ の noetherian 性を対角の増大列に適用すると、
+ある $\boldsymbol n_0$ とイデアル層 $I$ があって
+$I_{\boldsymbol n}=I$ が全ての $\boldsymbol n\geq\boldsymbol n_0$ で成り立つ。
+評価全射
+$J_{\boldsymbol n_0}\otimes\OO_X\to I L_{\boldsymbol n_0}$
+の核を $Q$ とする。
+これを $\sigma_{\boldsymbol n_0}^*L_{\boldsymbol m}$ で tensor し、
+NC-ampleness による $H^1$ の消滅を使うと、全ての十分大きい各成分を持つ
+$\boldsymbol m$ に対して
+\[
+ J_{\boldsymbol n_0}T_{\boldsymbol m}
+    =H^0(X,I L_{\boldsymbol n_0+\boldsymbol m})
+    =J_{\boldsymbol n_0+\boldsymbol m}
+\]
+となる。最後の等号では、左辺が右イデアル $J$ に含まれることも使った。
+
+残る多重次数は、有限個の条件 $n_i<c_i$ の和集合に含まれる。
+$i$ と $d<c_i$ を固定した部分 $J_{n_i=d}$ は
+$(T_i)_d\otimes\bigotimes_{j\ne i}T_j$ の右
+$\bigotimes_{j\ne i}T_j$-部分加群である。
+因子数に関する帰納法により、各部分は有限生成である。
+帰納法の始点は因子零の環 $K$ とする。
+これら有限個の面の生成元と $J_{\boldsymbol n_0}$ から $J$ 全体が生成される。
+\cite[Lemma~4.4(1)]{MBNPKeelerMultiple}により、
+多重斉次右イデアルの ACC は通常の右 noetherian 性を与える。
+opposite は $(E_i,(\sigma_i^{-1})^*L_i,\sigma_i^{-1})$ の同種の環なので
+\cite[Lemma~2.4]{MBNPKeelerMultiple}、同じ証明で左 noetherian 性も従う。
+
+各 $S_i\to T_i$ の斉次 $K$-線型切断を選ぶと、
+$w_i$ の正則性と正の次数による帰納法から、
+$S_i$ は $K[w_i]$ 上自由である。
+従って $B$ は $K[w_1,\ldots,w_k]$ 上自由で、
+$w_1,\ldots,w_k$ は中心正則列を成す。
+$I=(w_1,\ldots,w_k)$ に関する随伴次数環は
+\[
+ \operatorname{gr}_I B\simeq T[t_1,\ldots,t_k]
+\]
+という中心多項式環であり、両側 noetherian である。
+斉次イデアルの初項の有限生成元を $B$ へ持ち上げる。
+内部次数 $d$ を固定すれば $I$ の次数は高々 $\lfloor d/3\rfloor$ なので、
+初項を順に消去する操作は有限回で終わる。
+従って全ての斉次左右イデアルは有限生成であり、
+通常の内部次数の初項を取れば $B$ 自身も両側 noetherian となる。
+また多項式環上の自由性から $\sum_iw_i$ は正則である。
+
+各因子の有限 Koszul 分解および有限双加群分解を tensor すると、
+$B$ の global dimension は $N$、AS 双対の parameter も $N$ となる。
+これは定理\ref{mbsd:thm:ambient-duality}の体上の構成である。
+中心元の二項分解による change of rings は
+\[
+ R\underline{\operatorname{Hom}}_A(K,A)\simeq K(r)[-N+1]
+\]
+と左右有限 injective dimension を与える。
+商の noetherian 性は既に従っているので、
+\cite[Definition~5.1, Lemmas~6.1--6.2]{LP-BS}の仮定が満たされる。
+ここでは環 $A_0=K$ の有限大域次元も用いた。
+\end{proof}
+
+\subsection{augmentation が生成する window}
+
+有限次数付き射影行列分解の dg 圏に有限 cone と冪等完備化を施したものを
+$\MF^{\mathbb Z}(B,w)$ と書く。
+$K$ の stabilization を $K_w$ とし、
+\[
+ \mathcal C_A=\operatorname{thick}\{\OO_A(j):j\in\mathbb Z\},\qquad
+ \mathcal K_A^{\mathrm{line}}
+   =\langle\OO_A,\ldots,\OO_A(r-1)\rangle^\perp\cap\mathcal C_A
+\]
+と置く。$r=0$ の一因子の場合は例外部分を空と読む。
+
+\begin{lemma}[体上の三対象 window]
+\label{mbnp:lem:window}
+上の環論的仮定の下で、実際の dg quasi-functor
+\begin{equation}\label{mbnp:eq:window}
+ \Psi_A=\operatorname{stab}\circ q_{\mathrm{sg}}
+                    \circ(R\omega(-))_{\geq1-r}
+\end{equation}
+は同値
+\[
+ \mathcal K_A^{\mathrm{line}}\simeq
+  \operatorname{thick}\{K_w,K_w(1),K_w(2)\}
+    \subset\MF^{\mathbb Z}(B,w)
+\]
+を与える。$k\geq2$ では residual rotation
+$\rho_A=L_{\OO_A}\circ(1)$ を内部 shift $(1)$ へ移し、
+$w$ から定まる指定周期 $(3)\simeq[2]$ と両立する。
+一因子では、同じ window1 が
+\begin{equation}\label{mbnp:eq:factor-window}
+ \MF^{\mathbb Z}(S_i,w_i)\simeq\Perf(E_i),\qquad
+ K_{w_i}\longleftrightarrow\OO_{E_i}[1]
+\end{equation}
+を与え、$K_{w_i},K_{w_i}(1),K_{w_i}(2)$ が左辺全体を生成する。
+\end{lemma}
+\begin{proof}
+まず有限 MF と特異 dg 圏との比較を確認する。
+ambient の大域次元が有限なので、商の有限生成 Gorenstein-projective 加群は
+ambient 上の射影次元が高々一であり、斉次な長さ一の射影表示から MF を作れる。
+余核の完全忠実性と本質的全射性は
+\cite[Corollary~2.11, Theorem~7.2, Remark~7.3(2)]{AMChen}による。
+右加群については opposite 環へ適用し、斉次な射影表示と射の持上げは
+次数零成分を取って行う。従って引用の左加群・非次数付きの表示から
+本節の有限 graded 版を得る。
+dg 化は補題\ref{tw:lem:stabilization}の証明と同じく、
+成分別 split exact な有限 MF の圏と Gorenstein-projective 加群の exact 圏を使う。
+有界導来 dg 圏を projective-injective 複体で割り、有限 totalization を取る。
+全 shift の stable Hom 比較が準同型を与えるので、これは dg Morita 同値である。
+この構成に特殊化や完備局所環は必要ない。
+二段の余核分解を ambient へ持ち上げた合成は指定した $w$ の乗法であり、
+式\eqref{tw:eq:period-extension}と同じ規約で指定周期も保持される。
+
+補題\ref{mbnp:lem:noetherian}により、
+\cite[Theorem~6.4とその証明]{LP-BS}を $i=1-r$ で適用できる。
+$q_{\mathrm{sg}}(R\omega(-))_{\geq i}$ の核は
+$\langle\OO_A,\ldots,\OO_A(r-1)\rangle$ であり、
+その Verdier 商を特異圏と同定する。
+半直交分解の表示の向きによらず、同じ商を表す右直交補への制限は完全忠実である。
+section、内部切断、dg 商は enhanced な関手であり、
+この完全忠実性を全 shift に適用して dg の完全忠実性を得る。
+従って体上の本補題では、特殊ファイバーからの Nakayama による持上げを使わない。
+
+$\OO_A(0),\ldots,\OO_A(N-1)$ は $\mathcal C_A$ を生成する。
+これは ambient の augmentation Koszul 分解を $A$ へ制限し、
+有限長の homology を tails で消すことによる。
+線コホモロジーの公式から、この範囲の $j$ について
+$(R\omega\OO_A(j))_{\geq i}=A(j)_{\geq i}$ である。
+$U_j=A(j)_{<i}$ と置くと、$j<r$ では $U_j=0$、
+$j=r,r+1,r+2$ では
+\begin{equation}\label{mbnp:eq:triangular}
+ \Psi_A(\OO_A(j))\simeq\operatorname{stab}(U_j)[-1],\qquad
+ \operatorname{gr}U_j=
+   \bigoplus_{u=0}^{j-r}A_u\otimes_KK(j-u)
+\end{equation}
+となる。$A_0=K$ なので、三つの有限 filtration を三角的に解けば、像は
+$K_w(r),K_w(r+1),K_w(r+2)$ の thick 閉包である。
+$(3)=[2]$ と $3\mid r$ により所要の三対象を得る。
+$r>0$ における rotation の比較は
+式\eqref{tw:eq:rotation-cut}の切断三角と evaluation による。
+その計算も剰余体や変形を使わず、指定周期の比較正方形
+\eqref{tw:eq:rotation-period-square}をそのまま与える。
+
+一因子では $T_i=B(E_i,L_i,\sigma_i)$ かつ parameter が零なので、
+\cite[Theorem~6.4(3)]{LP-BS}は特異圏と
+$D^b(\operatorname{coh}E_i)=\Perf(E_i)$ 全体を比較する。
+この場合も三つの線対象が生成することを直接確認できる。
+ambient の三段 Koszul 分解は tails 上で
+\[
+ 0\to\OO(j-3)\to\OO(j-2)^{\oplus3}
+          \to\OO(j-1)^{\oplus3}\to\OO(j)\to0
+\]
+を与える。従って三つの連続する twist が全 twist を生成する。
+THCR の ample pair によるこれらの twist は
+$D(\operatorname{Qcoh}E_i)$ を生成し、各 twist は compact なので、
+三つの線対象が $\Perf(E_i)$ を厚生成する。
+最後に $R\Gamma_{\geq1}\OO_{E_i}=(T_i)_{\geq1}$ と
+$0\to(T_i)_{\geq1}\to T_i\to K\to0$ から
+$K_{w_i}\leftrightarrow\OO_{E_i}[1]$ を得る。
+\end{proof}
+
+\subsection{有限 Shamash 模型と外積}
+
+\begin{lemma}[augmentation stabilization の加法性]
+\label{mbnp:lem:shamash}
+各 $S_i$ の augmentation に有限斉次射影分解を選ぶ。
+その higher homotopies による有限 folding で $K_{w_i}$ を表すことができる。
+独立因子の外積について、共通周期を同定した dg MF 圏の中で
+\begin{equation}\label{mbnp:eq:augmentation-product}
+ K_{w_1}\boxtimes\cdots\boxtimes K_{w_k}\simeq K_w
+\end{equation}
+である。この同定は各 $w_i$ と $w=\sum_iw_i$ による指定周期を使う。
+一次 nullhomotopy の平方が零であることは仮定しない。
+\end{lemma}
+\begin{proof}
+まず ambient $D$、中心正則三次 $v$、augmentation 分解
+$P_\bullet\to K$ を一つ固定する。
+$P_j$ は homological degree $j\geq0$ に置き、$s_0=d$ と書く。
+$v$ は $K$ に零として作用するので、その乗法は nullhomotopic である。
+負の Ext の消滅を順に使うと、斉次写像
+\begin{equation}\label{mbnp:eq:higher-homotopies}
+ s_a:P_j\longrightarrow P_{j+2a-1}(3a),\qquad
+ \sum_{a+b=q}s_as_b=
+ \begin{cases}v\operatorname{id},&q=1,\\0,&q\ne1\end{cases}
+\end{equation}
+を取れる。$q=0$ は $d^2=0$ である。
+$q\geq2$ の障害は、既に満たされた等式から閉じた負 cohomological degree の
+$\operatorname{End}(P_\bullet)$ の元となる。
+$P_\bullet\simeq K$ なのでその cohomology は零であり、次の $s_q$ を選べる。
+分解は有限なので写像の可能な範囲を越える $s_q$ は零である。
+特に一因子の三段分解では $s_1,s_2$ だけを加えればよい。
+全ての写像は右 $D$-線型であり、中心性は $v$ の乗法をこの計算で可換にする。
+
+\begin{equation}\label{mbnp:eq:fold}
+ F^0=\bigoplus_{j\ \mathrm{even}}P_j(3j/2),\qquad
+ F^{-1}=\bigoplus_{j\ \mathrm{odd}}P_j(3(j-1)/2)
+\end{equation}
+と置く。$\sum_as_a$ は
+$F^{-1}\to F^0\to F^{-1}(3)$ の微分を与え、その平方は $v$ である。
+これは有限階数の行列分解である。
+
+この folding が実際に augmentation を安定化することを確認する。
+$\overline P=P\otimes_DD/(v)$ として、非負次数の複体
+\begin{equation}\label{mbnp:eq:shamash-resolution}
+ C_n=\bigoplus_{q\geq0}\overline P_{n-2q}(-3q)
+\end{equation}
+を取る。微分の $s_a$ 成分は添字 $q$ を $q-a$ へ送り、
+$q-a<0$ の成分は零とする。
+式\eqref{mbnp:eq:higher-homotopies}から $C_\bullet$ は複体となる。
+$q$ で濾過すると、第一頁は
+\[
+ \operatorname{Tor}^{D}_j(K,D/(v))=
+ \begin{cases}K,&j=0,\\K(-3),&j=1,\\0,&\text{その他}\end{cases}
+\]
+である。$s_1$ は、$q\geq1$ の $j=0$ の項から $q-1$ の $j=1$ の項へ
+$\pm\operatorname{id}$ を誘導する。
+実際、$D(-3)\xrightarrow{v}D\to D/(v)$ の連結射で
+$[s_1x]$ の像を計算すると、$ds_1+s_1d=v$ により $[x]$ になる。
+従って第二頁では $(q,j)=(0,0)$ の $K$ だけが残る。
+各全 homological degree の濾過は有限なので収束し、$C_\bullet$ は $K$ の分解である。
+十分大きい $m$ では
+$C_{2m}=F^0(-3m)$、$C_{2m+1}=F^{-1}(-3m)$ である。
+従って $\operatorname{coker}(F^{-1}\to F^0)$ は
+$\operatorname{Syz}^{2m}(K)(3m)$ であり、特異圏では
+$K[-2m](3m)\simeq K$ となる。
+この最後の同型も $v$ の二段分解による指定周期である。
+
+各因子で上の系を取り、$\bigotimes_iP_{i,\bullet}$ 上で
+$s_a=\sum_i s_{i,a}$ とする。各 $s_{i,a}$ を他の因子へ延長する際は
+通常の homological Koszul 符号を入れる。
+これらの写像の homological degree は全て奇数なので、異なる因子の項は反交換する。
+従って cross term は消え、曲率は $\sum_iw_i$ となる。
+内部多重次数では $s_{i,a}$ の次数は $3ae_i$ である。
+指標群で $3e_i=3e_j$ を課した後、全項は同じ周期を持つ。
+また
+\[
+ \left\lfloor\frac j2\right\rfloor+
+ \left\lfloor\frac l2\right\rfloor+
+ \begin{cases}1,&j,l\text{ がともに奇数},\\0,&\text{その他}\end{cases}
+ =\left\lfloor\frac{j+l}{2}\right\rfloor
+\]
+により、tensor 分解の folding は MF の外積の奇成分どうしの周期補正と一致する。
+従って左辺は総 augmentation 分解の folding そのものであり、
+式\eqref{mbnp:eq:augmentation-product}を得る。
+\end{proof}
+
+\subsection{中心同変化した残余圏の積表示}
+
+\[
+ \Gamma_k=\{(\lambda_i)\in\mathbb G_m^k:
+                 \lambda_1^3=\cdots=\lambda_k^3\},\quad
+ \Lambda_k=\mathbb Z^k/\langle3e_i-3e_j\rangle,
+ \quad Z_0=(\mu_3^k)/\Delta\mu_3
+\]
+と置く。$\Gamma_k$ の共通三次指標を $\chi$ と書く。
+$S_i$ の次数一生成元の重みは $e_i$、$w_i$ の重みは $\chi$ である。
+以下の $Z_0$ 作用は、定理\ref{mbza:thm:central-action}の
+scalar 自明化による coherent な中心作用である。
+一つの基準因子による $\Gamma_k\simeq\mathbb G_m\times Z_0$ の分裂を用いれば
+通常の同変加群として表せるが、作用と同変圏の同型類はその分裂に依存しない。
+
+\begin{theorem}[Sklyanin 中心和の直接積比較]
+\label{mbnp:thm:product}
+式\eqref{mbnp:eq:factor-data}--\eqref{mbnp:eq:sum-data}の仮定の下で、
+体 $K$ 上の実際の dg Morita 同値
+\begin{equation}\label{mbnp:eq:product}
+ \bigl(\mathcal K_A^{\mathrm{line}}\bigr)^{Z_0}
+     \simeq \Perf(E_1\times_K\cdots\times_KE_k)
+\end{equation}
+が存在する。これは各因子の window1 と有限 MF の外積によって与えられる。
+体の有限拡大、可換特殊化、復元定理の一般性仮定を必要としない。
+両辺は smooth proper であり、$\mathcal K_A^{\mathrm{line}}$ も smooth proper である。
+全 coherent 残余圏との一致は系\ref{mbnp:cor:coherent}で従う。
+\end{theorem}
+\begin{proof}
+$\MF^{\Lambda_k}(B,w)$ を共通曲率次数 $\chi$ の有限 MF 圏とする。
+二因子の外積は有限射影右加群の外積と Koszul 符号付きの和微分で定義する。
+その成分は、共通内部 shift を $T=(\chi)$ と書けば
+\[
+ (P\boxtimes Q)^{-1}=P^{-1}\boxtimes Q^0\oplus P^0\boxtimes Q^{-1},\qquad
+ (P\boxtimes Q)^0=P^0\boxtimes Q^0\oplus T(P^{-1}\boxtimes Q^{-1})
+\]
+である。ここで $(\chi)$ は内部次数を下げる規約なので、
+群表現の tensor としては指標 $\chi^{-1}$ を表す。
+この式は \cite[Definition~3.51]{NFBFKKernels}と同じ有限構成であり、
+独立な二つの代数の元が tensor 環で可換することだけを使う。
+
+有限自由次数付き加群で始めると、各 Hom の係数について
+\[
+ \operatorname{Hom}_{S_i\otimes S_j}
+     (P_i\otimes P_j,Q_i\otimes Q_j)
+ =\operatorname{Hom}_{S_i}(P_i,Q_i)
+      \otimes_K\operatorname{Hom}_{S_j}(P_j,Q_j)
+\]
+という有限射影加群の同型を使える。
+指標を分解し、$\mathbb Z^k\to\Lambda_k$ の核
+$\langle3e_i-3e_j\rangle$ に沿う和を各因子の偶数 cohomological shift に配分すると、
+外積は複体の同型
+\begin{equation}\label{mbnp:eq:hom}
+ \bigotimes_i\operatorname{Hom}^\bullet_{\MF^{\mathbb Z}(S_i,w_i)}(P_i,Q_i)
+ \xrightarrow{\sim}
+ \operatorname{Hom}^\bullet_{\MF^{\Lambda_k}(B,w)}
+       (\boxtimes_iP_i,\boxtimes_iQ_i)
+\end{equation}
+を与える。奇数 shift の組合せは上の奇成分どうしの補正と一致する。
+各因子の graded Hom 複体は、有限個の自由 shift と代数の正次数性から下に有界である。
+従って固定した全 cohomological degree でこの配分の和は有限である。
+微分と合成の符号は複体の tensor の Koszul 符号に一致する。
+直和因子を取れば有限射影加群にも同じ結論が成り立つ。
+体上ではこれらの tensor は導来 tensor を計算する。
+従って外積は Morita tensor 積からの完全忠実な dg 関手を与える。
+これは \cite[Lemma~3.52の証明]{NFBFKKernels}の Hom 分解の、
+本節の独立な非可換因子への直接の検証である。
+
+各因子は補題\ref{mbnp:lem:window}の三つの augmentation shift で生成される。
+補題\ref{mbnp:lem:shamash}により、その外積像は
+$K_w(\lambda)$、$\lambda\in\Lambda_k$ の thick 閉包である。
+実際、$\mathbb Z^k\to\Lambda_k$ は全射であり、
+全ての因子内部 shift は各因子の三対象の thick 閉包に含まれる。
+
+一方、window はブロックの次数付き作用と可換する。
+基準因子を一つ取ると、$\Lambda_k$ 次数付き MF は
+$\mathbb Z$ 次数付き MF の $Z_0$ 同変化と同定される。
+$K_w$ とその整数 shift はこの作用の線型化を持つ。
+有限群の誘導と平均化により、その thick 閉包の同変化は、
+これらの対象を全 $Z_0$ 指標で twist した対象で生成される。
+実際、任意の同変対象は忘却後の対象を誘導したものの retract であり、
+誘導された各線型化対象は全指標 twist の直和に分解する。
+この生成部分はちょうど $\operatorname{thick}\{K_w(\lambda)\}_{\lambda\in\Lambda_k}$ である。
+分裂の変更は命題\ref{mbza:prop:gamma-action}の自然な比較による。
+これで外積の本質的全射性を、未確認の全 MF の生成性を使わずに得た。
+
+因子の window と smooth projective scheme の外積比較から
+\[
+ \bigotimes_i^{\mathbf L}\MF^{\mathbb Z}(S_i,w_i)
+  \simeq\bigotimes_i^{\mathbf L}\Perf(E_i)
+  \simeq\Perf\left(\prod_iE_i\right)
+\]
+となる。最後は perfect 圏の Morita tensor と積の標準比較であり、
+\cite[Section~8.3]{MBRPToenMorita}を用いられる。
+外積 generator とその Hom の K\"unneth 同型によっても確認できる。
+
+$Y=\prod_iE_i$ は smooth proper なので、得られた同変圏は smooth proper である。
+$K\supset\mathbb C$ は $Z_0$ の全指標を含むため、
+Elagin の二重同変化 \cite[Theorem~4.2, Section~8]{MEDElagin}が
+\[
+ \mathcal K_A^{\mathrm{line}}
+   \simeq\left((\mathcal K_A^{\mathrm{line}})^{Z_0}\right)^{\widehat Z_0}
+\]
+を与える。ここでの証明は有限 Fourier 分解と平均化であり、
+代数閉体という表記を外しても、$|Z_0|$ が可逆で全指標を含む本節の体 $K$ 上で通る。
+双対群の作用は dg 同変圏の指標 twist から移す。
+有限軌道の直和を生成対象に取り、同変 dg 模型の endomorphism 代数に移すと、
+有限群の作用を厳密な dg 代数作用として表せる。
+補題\ref{med:lem:crossed-perfect}をこの有限作用へ適用すると、
+$\mathcal K_A^{\mathrm{line}}$ 自身も smooth proper となる。
+最後に両辺の有限 generator を取れば、上で構成した dg 関手は
+それらの dg endomorphism 代数の間の実際の双加群で表される。
+smoothness と properness によりこの双加群は perfect であり、
+Morita 逆と単位・余単位も $K$ 上に存在する。
+従って式\eqref{mbnp:eq:product}は幾何学的点での抽象的な三角同値だけではない。
+\end{proof}
+
+\begin{proposition}[因子 rotation と双対指標作用]
+\label{mbnp:prop:rotations}
+定理\ref{mbnp:thm:product}で使う一因子の比較の下で、内部 shift $(1)$ は
+\begin{equation}\label{mbnp:eq:factor-rotation}
+ R_{i,p_i}=T_{\OO_{E_i}}\circ(\sigma_i)_*\circ(-\otimes L_i)
+\end{equation}
+に対応する。ここで
+$T_{\OO_E}(F)=\operatorname{Cone}(R\operatorname{Hom}(\OO_E,F)\otimes\OO_E\to F)$
+は spherical twist である。
+$R_{i,p_i}^3\simeq[2]$ の同型は、指定した $w_i=a_i\Omega_i$ の MF 周期を
+この window で移したものとする。
+
+$\mathsf T_\eta$ を $\Gamma_k$ の指標 $\eta$ の tensor と書けば、
+\begin{equation}\label{mbnp:eq:character-rotation}
+ \mathsf T_{e_i^{-1}}\longleftrightarrow R_{i,p_i},\qquad
+ \mathsf T_{e_i/e_b}\longleftrightarrow R_{i,p_i}^{-1}R_{b,p_b}
+\end{equation}
+である。後式は $\widehat Z_0$ の作用を与え、
+その群法則と三乗・交換の coherence は $\Gamma_k$ 次数付き MF から移す。
+基準 $b$ に対応する線型化付き residual rotation は $R_{b,p_b}$ へ移る。
+\end{proposition}
+\begin{proof}
+右 THCR の shift は
+式\eqref{eq:nfm-right-thcr-shift}の
+$s_i=(\sigma_i)_*\circ(-\otimes L_i)$ である。
+補題\ref{lem:nfm-twisted-elliptic-window}の切断三角を適用できる。
+その Orlov 仮定は補題\ref{mbnp:lem:window}で既に確認した。
+具体的には任意の $F\in\Perf(E_i)$ に対し
+\[
+ R\Gamma_{\geq1}(s_iF)\longrightarrow
+ R\Gamma_{\geq0}(s_iF)\longrightarrow
+ R\operatorname{Hom}(\OO_{E_i},s_iF)\otimes K\longrightarrow
+\]
+を特異圏へ写す。
+$K\leftrightarrow\OO_{E_i}[1]$ を用いて回転すれば、
+evaluation の cone が内部 $(1)$ に対応することが分かる。
+この議論は可換特殊化や DVR を使わない。
+$(\sigma_i)_*$ と $-\otimes L_i$ の順序は右加群の規約によって固定される。
+
+内部 shift の規約は $M(1)_n=M_{n+1}$ なので、
+因子 $i$ の $(1)$ は表現の指標 $e_i^{-1}$ の tensor に等しい。
+外積はこの指標作用とその自然な合成を保つため、
+式\eqref{mbnp:eq:character-rotation}を得る。
+各因子の三次周期は共通の $\chi^{-1}$ の twist に対応する。
+従って比の三乗を自明化する同型も共通の MF 模型から得られ、
+自己関手の抽象的な三乗同型を独立に選んで coherence を仮定しているのではない。
+基準変更に関する指標の逆向きも
+命題\ref{mbza:prop:shift-character}と一致する。
+\end{proof}
+
+\begin{corollary}[全 coherent 残余圏への飽和]
+\label{mbnp:cor:coherent}
+式\eqref{mbnp:eq:factor-data}--\eqref{mbnp:eq:sum-data}の体上の実表示について
+\begin{equation}\label{mbnp:eq:coherent}
+ \mathcal C_A=D^b_{\mathrm{dg}}(\operatorname{qgr}A),\qquad
+ \mathcal K_A^{\mathrm{line}}=\mathcal K_A^{\mathrm{coh}},\qquad
+ (\mathcal K_A^{\mathrm{coh}})^{Z_0}
+       \simeq\Perf\left(\prod_iE_i\right)
+\end{equation}
+である。必要な圏は全て冪等完備化して読む。
+全 coherent tails 圏と残余圏は smooth proper である。
+従ってこの場合は、全有限 MF に対しても
+\[
+ \bigotimes_i^{\mathbf L}\MF^{\mathbb Z}(S_i,w_i)
+    \simeq\MF^{\Lambda_k}(B,w)
+\]
+という Morita 同値が成り立つ。
+\end{corollary}
+\begin{proof}
+補題\ref{mbnp:lem:noetherian}は第\ref{crs:sec:saturation}節の全環論的仮定を満たす。
+具体的には、ambient は連結局所有限、両側 noetherian、Koszul AS-regular で、
+dimension と parameter が $N=3k\geq6$、商の中心元は正則三次である。
+従って補題\ref{crs:lem:sections}により、全 coherent 対象 $M$ に対する
+$R\operatorname{Hom}(\OO_A(j),M)$ は体上 perfect で、全 twist は対象を検出する。
+補題\ref{crs:lem:finite-lines}はその twist 全体を有限個の線対象で生成する。
+
+定理\ref{mbnp:thm:product}では、この全 coherent 圏との一致をまだ使わずに
+$\mathcal K_A^{\mathrm{line}}$ の smoothness を得た。
+有限例外部分との半直交分解に沿って smoothness を貼り合わせ、
+命題\ref{crs:prop:residual-smooth}および定理\ref{crs:thm:coherent}を適用すれば
+$\mathcal C_A=D^b(\operatorname{qgr}A)$ と残余圏の一致が従う。
+properness は線対象間の有限 Hom とこの有限生成性による。
+最後に全 coherent 圏への Orlov 分解を適用すると、
+補題\ref{mbnp:lem:window}の augmentation 部分が全特異圏に一致する。
+従って前の外積比較の像は全 $\Lambda_k$ 次数付き MF である。
+これは生成性を最初から仮定した議論ではない。
+\end{proof}
+
+\begin{remark}[体上の比較、translation、相対核の区別]
+\label{mbnp:rem:scope}
+本節の直接比較は、基本楕円開の任意の体上の実表示に適用される。
+従って定理\ref{med:thm:multiblock-generic}と
+定理\ref{mpc:thm:point-model}における明示的一変数の一般点という仮定を、
+\emph{中心同変化した残余圏と点曲線積との比較については}取り除く。
+これらの以前の定理が保持する、指定された完備復元核との関係まで置き換えるものではない。
+
+通常の残余圏は、積側の
+$R_{i,p_i}^{-1}R_{b,p_b}$ による双対同変化として得られる。
+可換分離和の $R_{i,0}^{-1}R_{b,0}$ との同定には、
+各因子の Picard 補正と指定周期の同期を用いる。
+体上のこの補正と有限拡大後の通常残余圏比較は
+定理\ref{mbrc:thm:finite-point-comparison}で得られる。
+また、本節で構成した体上の核の存在から、全基本開の相対核、
+表示を忘れた全O stack 上の核の切断、任意の非平坦底変更に対する
+全 coherent 圏の比較を推論しない。
+実際の相対 dg 模型とその perfect Hom・底変更を確保した場合の spreading は
+命題\ref{mbrd:prop:kernel-stack}の別の適用であり、
+核の存在 stack の降下と選んだ核の大域切断とは区別される。
+\end{remark}

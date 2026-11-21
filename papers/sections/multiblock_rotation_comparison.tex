@@ -1,0 +1,283 @@
+% !TEX root = ../nc-cubic.tex
+\section{点の Picard 類による多ブロック比較と有限定義体}
+\label{mbrc:sec:rotation-comparison}
+
+本節では、定理\ref{mbnp:thm:product}の非可換積表示を、
+自然な可換三次への比較に接続する。
+積圏上での因子 rotation は点の平行移動を含む。
+これを実際の次数零線束によって共役し、指定周期の差を三乗根で補正する。
+その結果は体上の実際の比較核の存在であり、
+モジュライ全体における核の大域切断とは区別する。
+
+\subsection{一因子の Picard 補正と指定周期}
+
+$K\supset\C$ を体、$E/K$ を滑らかな幾何学的連結 genus-one 曲線、
+$L$ を次数三の実際の線束とする。
+$p\in J_E(K)$ の平行移動を $t_p$ と書き、
+右加群の規約で
+\[
+ R_p=T_{\OO_E}\circ(t_p)_*\circ(-\otimes L),\qquad
+ R_0=T_{\OO_E}\circ(-\otimes L)
+\]
+と置く。
+実際の三次方程式と window から移した、coherent な中心周期
+\[
+ \pi_p:R_p^3\xrightarrow{\sim}[2],\qquad
+ \pi_0:R_0^3\xrightarrow{\sim}[2]
+\]
+も固定する。以下でこれらを任意の scalar 倍に取り替えることはしない。
+
+\begin{lemma}[実 Picard 線束による周期付き補正]
+\label{mbrc:lem:factor-correction}
+$[M]=p$ を満たす $E$ 上の実際の次数零線束 $M$ があるとする。
+$F_M=-\otimes M$ に対し、$K$ 上で同型
+\[
+ \eta:F_MR_p\xrightarrow{\sim}R_0F_M
+\]
+が存在する。その全体は $K^\times$-torsor であり、指定周期と両立する
+$\eta$ の fpqc 層は $K$ 上の $\mu_3$-torsor である。
+従って高々三次の有限拡大後には周期付きの $\eta$ が存在する。
+\end{lemma}
+\begin{proof}
+定理\ref{thm:nfm-elliptic-normalized-intertwiners}において
+$C=E$、$\phi=\mathrm{id}$ を取れば、$K$ 上の $\eta$ の存在を得る。
+これらの functor は perfect Fourier--Mukai 核を持つ。
+その自己準同型環は
+$\mathrm{HH}^0(E)=H^0(E,\OO_E)=K$ なので、同型の集合は
+$K^\times$-torsor である。
+
+$\eta$ を三回合成し、両側の $\pi_p,\pi_0$ を適用して得る
+$F_M[2]$ の自己同型を $u\,\mathrm{id}$ と書く。
+ここで $u\in K^\times$ であり、$\eta$ を $v\eta$ に取り替えると
+その scalar は $v^3u$ となる。
+従って周期条件は $v^3=u^{-1}$ に等しい。
+この方程式は有限 \'etale な $\mu_3$-torsor を定め、
+$K$ は三乗根を含むので、その分裂体を高々三次に取れる。
+中心周期と rotation の coherence は window のものを用いる。
+これは定理\ref{mbks:thm:kernel-criterion}の比較直線と
+三乗写像を、体上の一因子へ適用した計算でもある。
+\end{proof}
+
+一般の $K$ では $p\in\Pic^0(E)(K)$ が実線束で表されるとは限らない。
+その障害は
+$\delta_E(p)\in\operatorname{Br}(K)$ であり、
+系\ref{cor:nfm-elliptic-any-intertwiner-criterion}は、この障害が
+全数値型を許した一因子 intertwiner にも必要であることを示す。
+ただし、この一因子の必要条件を、そのまま多因子の
+\emph{全ての}比較核の必要条件とすることはしない。
+
+\begin{lemma}[次数三の偏極を持つ曲線での有限定義体]
+\label{mbrc:lem:degree-three-point}
+上の $(E,L)$ に対し、次数一または三の有限分離拡大 $K_1/K$ 上で
+$E(K_1)\ne\varnothing$ となる。
+従って任意の $p\in J_E(K)$ は $E_{K_1}$ 上の実際の次数零線束で表される。
+\end{lemma}
+\begin{proof}
+$L$ による平面三次表示を用いる。
+$K$ は無限体で標数零なので、$K$-有理な直線を、三つの相異なる幾何点で
+$E$ と交わるように選べる。
+その交わりは $K$ 上次数三の有限 \'etale スキームである。
+次数三の分解型は $3$、$2+1$、$1+1+1$ なので、
+次数一または三の閉点が存在する。その剰余体を $K_1$ とする。
+選んだ点 $o$ により $E_{K_1}$ を楕円曲線とみなし、
+$\OO_E(t_p(o)-o)$ を取ればよい。
+\end{proof}
+
+\subsection{通常の残余圏への比較}
+
+定理\ref{mbs:thm:presentation-stack}の基本楕円領域に属する
+\emph{順序付き実表示}を $K\supset\C$ 上に取り、
+\[
+ B=\bigotimes_{i=1}^k S_i,\quad
+ w=\sum_{i=1}^k a_i\Omega_i,\quad
+ A=B/(w),\qquad a_i\in K^\times
+\]
+とする。各 $S_i$ の点データを $(E_i,L_i,t_{p_i})$ と書く。
+定理\ref{mbpl:thm:global-line-comparison}の自然な線同型を用いて
+\[
+ f_i=a_i\vartheta_i(\Omega_i),\qquad
+ X_{\mathrm{pt}}=V\!\left(\sum_i f_i\right)
+       \subset\mathbb P\!\left(\bigoplus_i W_i^\vee\right)
+\]
+と置く。各 $f_i$ は非零で $V(f_i)=E_i$ が滑らかなので、
+$X_{\mathrm{pt}}$ も滑らかである。
+source と target の周期は、関係直線の
+自然な同期 $\ell\simeq\ell_{\mathrm{pt}}$ とこれらの実方程式から固定する。
+
+\begin{theorem}[固定体値点の有限比較と次数上界]
+\label{mbrc:thm:finite-point-comparison}
+上の仮定の下で、ある有限分離拡大 $K'/K$ 上に
+\begin{equation}\label{mbrc:eq:ordinary-comparison}
+ \Ku_{\mathrm{coh}}(A_{K'})
+       \xrightarrow{\sim}\Ku(X_{\mathrm{pt},K'})
+\end{equation}
+を与える実際の dg Morita 核が存在する。
+この比較は満支持表示の中心群
+$Z_0=(\mu_3^k)/\Delta\mu_3$ の作用、rotation、
+および自然な関係直線同期に関する指定周期を保つ。
+拡大は
+\[
+ [K':K]=3^e,\qquad 0\le e\le2k
+\]
+を満たすように選べる。この上界の最小性は主張しない。
+特に代数閉体上の全ての上記表示に対して、拡大なしで
+式\eqref{mbrc:eq:ordinary-comparison}が成立する。
+一変数変形の一般点という仮定は要らない。
+\end{theorem}
+\begin{proof}
+まず補題\ref{mbrc:lem:degree-three-point}を各曲線へ順に適用し、
+高々 $k$ 回の三次拡大後に $[M_i]=p_i$ を満たす実線束を選ぶ。
+次いで補題\ref{mbrc:lem:factor-correction}を各因子へ適用し、
+高々 $k$ 回の三次拡大後に
+\[
+ F_iR_{i,p_i}\xrightarrow{\sim}R_{i,0}F_i,\qquad
+ F_i=-\otimes M_i
+\]
+を指定周期と両立するように選ぶ。これで次数上界を得る。
+
+非可換側では定理\ref{mbnp:thm:product}と
+系\ref{mbnp:cor:coherent}、可換側では
+系\ref{mbrp:cor:comparison-field}と
+系\ref{mbrp:cor:base-change}を用い、共通の積
+$Y=\prod_iE_{i,K'}$ 上に
+\[
+ \Ku_{\mathrm{coh}}(A_{K'})^{Z_0}
+       \simeq\Perf(Y)
+       \simeq\Ku(X_{\mathrm{pt},K'})^{Z_0}
+\]
+を得る。ここで可換側も実方程式 $f_i$ を用い、
+各因子の周期を、その方程式の MF/window から移したものとする。
+可換側の比較には追加の体拡大を要しない。
+実際、$f_i$ の有限個の係数を含む $\C$ 上有限生成な部分体 $K_0\subset K'$ を選ぶ。
+$K_0$ 上の曲線も忠実平坦性により滑らかなので、
+系\ref{mbrp:cor:comparison-field}の実 perfect 核を適用できる。
+その証明に現れる滑らかな有限型模型から
+系\ref{mbrp:cor:base-change}で $\Spec K'$ へ引き戻せばよい。
+ここで field $K'$ は noetherian であり、$K'/\C$ の有限生成性は不要である。
+積上の実際の Fourier--Mukai 自己同値
+$F=F_1\boxtimes\cdots\boxtimes F_k$ によって、この二つの積表示を結ぶ。
+
+作用の coherence を確認する。
+命題\ref{mbnp:prop:rotations}と命題\ref{mbrd:prop:factor-rotations}により、
+双対指標作用の生成元は、基準因子 $b$ に対して
+$Q_{i,p}=R_{i,p_i}^{-1}R_{b,p_b}$ と
+$Q_{i,0}=R_{i,0}^{-1}R_{b,0}$ $(i\ne b)$ である。
+可換側の公式は、上で用いた相対外積と window の構成にもそのまま両立する。
+各因子の上の比較射は、三乗周期を保つように正規化済みである。
+異なる因子の関手・比較射は、外積の標準交換同型の下で可換する。
+比較射の次数は零、共通周期の shift は偶数であるため、
+交換の符号も両辺で一致する。
+これらの比較射とその逆から
+$FQ_{i,p}\simeq Q_{i,0}F$ を作ると、
+$Q_{i,p}^3=R_{i,p_i}^{-3}R_{b,p_b}^3\simeq[-2][2]\simeq\mathrm{id}$
+を定める正負の周期は、可換側の同じ正負の周期へ移り、
+異なる $Q_i$ の交換図式も保たれる。
+
+より具体的には、$\widehat Z_0\simeq(\mathbb Z/3)^{k-1}$ の各元を
+$0\le d_i<3$ の正規形 $\prod_{i\ne b}Q_i^{d_i}$ で表す。
+その積の coherence は、異なる因子を交換して同じ順序へ直し、
+各 $Q_i^3$ を上の周期によって消す操作からなる。
+周期の中心 coherence により、交換と三乗の消去の順序は結果を変えない。
+各比較射はこの二種類の操作と可換するため、全ての積の coherence 図式が可換する。
+これは
+\[
+ \mathbb Z^k/\langle3e_i-3e_j\rangle
+\]
+の graded MF 模型から来る指定された双対作用を、coherence ごと intertwine する構成である。
+これは生成元の functor 同型類だけを比較しているのではない。
+元の $\Gamma_k$-MF 模型上では指標作用は厳密な dg 作用である。
+そこへ移した比較双加群には上の図式による $\widehat Z_0$-同変構造があり、
+有限群の平均化と\cite[Lemma~8.6]{MEDElagin}により
+実際の同変 perfect 双加群として取れる。
+従って、同変化後の比較は単なる三角圏上の抽象同値ではなく dg Morita 比較である。
+
+有限群の双対同変化をこの実際の比較へ施す。
+系\ref{mbrd:cor:dual-action}で用いた Elagin の二重同変化により
+式\eqref{mbrc:eq:ordinary-comparison}を得る。
+原文\cite[Theorem~4.2]{MEDElagin}は代数閉体について述べられているが、
+その証明で用いるのは $|Z_0|$ の可逆性と Fourier 分解
+\[
+ K'[Z_0]\simeq\bigoplus_{\chi\in\widehat Z_0}K'\chi
+\]
+である。$K'\supset\C$ では両方が成立するので、同じ証明が $K'$ 上で適用できる。
+induction、上の Fourier 射影および冪等完備化によるこの構成は、
+同変 dg 関手とその自然同型に自然である
+\cite[Proposition~4.1, Lemma~8.6, Theorems~8.7, 8.9]{MEDElagin}。
+双対群の bidual を両辺で同じ規約で $Z_0$ と同定すると、
+元の $Z_0$ 作用が回復するため、得られた比較は $Z_0$-同変である。
+
+rotation についても、この自然性を適用するための同変性を確認する。
+基準因子の $R_{b,p_b}$ と $R_{b,0}$ は、元の rotation の
+$Z_0$-線型化を積表示へ移したものである。
+それらと $Q_i$ の交換同型は、因子の交換と同じ $R_b$ の冪の結合から作られる。
+従って $FR_{b,p_b}\simeq R_{b,0}F$ の比較図式も、
+同じ因子比較射の反復と外積の交換則により各 $Q_i$ と可換する。
+三乗を消す際の図式は既に保った指定周期の図式である。
+よってこの rotation 比較自体が $\widehat Z_0$-同変であり、
+二重同変化後に元の残余圏の rotation 比較を与える。
+元の指定周期も同じ自然性によって保持される。
+これらは全て dg functor または perfect 双加群の構成であり、
+smooth proper な圏間の同値は実際の Morita 核で表される。
+代数閉体上では実線束と三乗根が既に存在するので拡大は不要である。
+\end{proof}
+
+\begin{corollary}[偏極点曲線の組を固定した幾何ファイバー]
+\label{mbrc:cor:point-fiber-constancy}
+$\kappa\supset\C$ を代数閉体とし、基本楕円領域に属する二つの満支持実表示
+$A,A'$ を取る。
+それらの偏極点曲線の順序を忘れた組
+\[
+ \{(E_i,L_i)\}_{i=1}^k,\qquad
+ \{(E'_i,L'_i)\}_{i=1}^k
+\]
+が同型なら、標識を付けない残余 dg 圏は
+\[
+ \Ku_{\mathrm{coh}}(A)\simeq\Ku_{\mathrm{coh}}(A')
+\]
+となる。従って命題\ref{mbfm:prop:point-map}の点曲線組への射の
+幾何ファイバー上で、通常の残余圏の Morita 同値類は一定である。
+これは圏の族や選択した同値関手の降下を意味しない。
+\end{corollary}
+\begin{proof}
+ブロックを並べ替えて、偏極同型
+$\phi_i:(E_i,L_i)\xrightarrow{\sim}(E'_i,L'_i)$ を選ぶ。
+その次数一切断への作用を用いて射影平面を同定すると、
+二つの点三次の方程式はそれぞれ同じ直線を生成する。
+従って $X_{\mathrm{pt}}$ と $X'_{\mathrm{pt}}$ の実方程式は、
+共通のブロック変数の下で
+\[
+ \sum_i f_i,\qquad \sum_i u_i f_i,
+ \qquad u_i\in\kappa^\times
+\]
+と書ける。
+$\lambda_i^3=u_i$ を満たす $\lambda_i\in\kappa^\times$ を選び、
+第 $i$ ブロックの座標を $\lambda_i$ 倍すれば、二つの三次超曲面は射影的に同型となる。
+この同型は $\OO(1)$ を保つので、その Kuznetsov 圏を同定する。
+定理\ref{mbrc:thm:finite-point-comparison}を両表示へ適用し、これらの同値を合成すればよい。
+
+ここでは中心群作用、rotation 比較および関係直線同期の標識を忘れている。
+同値関手の一意性、大域的な比較核の存在、
+また残余圏から偏極点曲線の組を回復する逆向きの主張は含まない。
+\end{proof}
+
+\begin{remark}[体値点の比較と大域障害]
+\label{mbrc:rem:scope}
+定理\ref{mbrc:thm:finite-point-comparison}は、
+基本楕円領域内の固定された全ての順序付き実表示に適用できる。
+系\ref{mbrr:cor:stack-isomorphism}の全 $\OO$-認識開では、
+ここでの中心群作用は全 $\OO$-局所型から内在的に回復される作用に一致する。
+従って、全モジュライを支配する表示チャートの一般点にも適用できる。
+この主張は一変数部分族の一般点からの推測ではない。
+順序や実表示が元の体上にない場合、その持上げを得る拡大は
+上の $3^{2k}$ という上界に含めていない。
+
+また、点ごとに有限拡大上の核を構成しても、
+モジュライ上の核 gerbe の類 $\alpha_P$ や固定同期の
+周期 torsor の類 $\gamma(P,\vartheta)$ が消えるとは限らない。
+本証明は実線束の選択と周期の三乗根を用いるので、
+それらの選択を全 $\OO$-開上で降ろす問題は残る。
+実際の smooth proper な相対 dg 模型がある基底では、
+命題\ref{mbrd:prop:kernel-stack}を用いて一般点の比較を
+縮小後の有限 \'etale 被覆へ広げられる。
+相対模型の存在や任意の非平坦底への比較を、この体上の定理のみからは結論しない。
+\end{remark}
