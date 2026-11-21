@@ -1,28 +1,28 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月21日 / v43。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月21日 / v44。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
 ## 現行稿の確認
 
-今回の追加対象は `central_mixed_one_variable.tex` のcharacter自己Ext・分離型への収縮・条件付き余有限実現と、中心二チャート補助ノートのBertini仮定である。自己Extの証明と普遍証明書を執筆者以外が独立読解・検算し、分離型比較の同変化の入力も再点検した。以下では今回の確認と、現行結果を支える保持済みの点検を区別する。
-
+今回の追加対象は、定数型混合族の普遍六次中心元と有限中心性、射影的な中央対角からの相対smoothness、追加仮定を外した余有限Ku実現、characterの射影次元判定、有理係数の無限qgr自己Ext例である。中心証明書・次数帰納と相対対角の経路は執筆者以外も独立点検し、射影次元の一般補題と局所化のExt比較も別途点検した。既存の幾何実現locusの定理・分離比較・coherent飽和を入力としており、全624頁の全証明を今回独立に再検証したという意味ではない。
 ### 数学的主張と証明の依存
 
-- **混合characterの全次数自己Ext：** `cmo:prop:character-ext` の左加群規約、長さ三のfiltered Koszul分解、中心元の正則性、全higher-homotopy恒等式、Shamash分解、有限Gaussian消去を独立点検した。全次数の結論は紙上の分解・基底変換によるもので、有限次数計算の外挿ではない。κの普遍式と係数100に対する10000の二次作用を確認し、`cmo:cor:sixty-four-ext` の全64点でExtが次数0,2,3,5のみ各一次元と得た。Yoneda積・有限射影次元・全qgrのsmoothnessは未結論。
-- **分離型への収縮：** `cmo:prop:contraction` の中心底変更v↦tu、PBW自由性、uによる次数下降での正則性、次数別平坦性、c=t^(−3)の実代数同型を点検した。properな有限線束残余模型と、相対対角を追加仮定とする `cmo:cor:conditional-cofinite` を区別する。相対smoothnessの入力、有限例外集合Fの決定、個々のcのsmoothnessは未確認。
-- **非可換Bertiniの適用範囲：** `notes/central_cubic_generic_smoothness.tex` では、中心chartの有限生成可換中心上の有限性を追加仮定として明示した。RSV Proposition 2.1はこの仮定なしの一般PBW代数には適用しない。二chartの係数消去、有限型性、非空開Vとの交わり、境界生成とSerre双対による大域次元3を独立点検した。AS正則次元5だけからGorenstein index 5を仮定せず、exact twist+[3]を用いる。
-
+- **全定数型変形の有限中心性：** `cmo:lem:universal-sixth-center` のΩ,C_0,C_+,C_-の普遍中心性と、最高部四元の小行列式−4/9を読解・独立再実行した。Smith–Tate Theorem3.7のr=1は位数6を含み、Z(S)を三次一元・六次三元で生成する。これと低次数の独立性を合わせ、全生成元の持上げ→filtered次数帰納→全中心・module-finitenessを得る論証を確認した。斉次化でのu正則性、Lemma3.6、係数族に共通の有限生成語も確認し、associated gradedのPI性だけを根拠としていない。
+- **相対対角と余有限実現：** `cmo:thm:relative-smoothness` の有限中央環C_R・六次Veronese・strong grading・全twistの局所射影性・compact生成・外積Künneth・左右作用付き対角同定を独立点検した。通常のcoherent対角とenveloping代数のRflatness、t進完備化での非可換idempotent持上げ、忠実平坦降下、perfect locusとproper像から0の近傍を得る順序も確認した。特殊ファイバーのsmoothnessは既存分離比較を入力とする。`cmo:cor:cofinite` の相対smoothnessは追加仮定ではなく、この定理の結論である。最終のKu実現は既存 `grl:thm:open-locus` とcoherent飽和に依存する。有限例外集合F・64係数・c=0の全体の個別判定は未完了。
+- **characterのexact射影次元：** 既存の全次数自己Ext複体に、有限ambient分解・Rees同型・実二周期性を加えた `cmo:lem:periodic-pd` と `cmo:prop:character-pd` を独立点検した。高syzygyの周期同型のExt類が零なら射影になること、有限射影次元の最高Extの非消滅から上限を得ることを確認した。全64charactersはaffine pd5。有限初期rankからの外挿でも、一般の有限自己Extからの推論でもない。Yoneda積の同定は未主張。
+- **有理係数の非smooth例：** p=(3,−3,1), α=(9,9,1), λ=16/3, κ=0を確認した。二因子のc=−1616/3で全qgr自己ExtのHilbert級数は(1+s³)²/(1−s²)。中心局所化のexact右随伴を大きいQGrで用い、有限次元端点をPositselski–Schnürer Proposition2.1でqgrへ戻す論証を点検した。結論はqgrの無限homological dimension、Db(qgr)非proper、線束圏と残余線束圏の非smooth性であり、全Db(qgr)のdg smoothness単独の否定とは区別する。
+- **一般のproper dg族への障害：** 研究ノートのΓ=End(Cone(t))の反例について、全Artin切断の互換Morita同値、完備底での非smooth性、生成段数の非一様性を直接証明した。H*(Γ)はRflatでなく、今回の混合族への反例にはしていない。定常点の線束perfect性へのさらなる強化案はノートで未採用・独立点検前と明示し、今回の定理に使わない。
 - **研究目標と量化：** 主予想は、任意の滑らかなintrinsic nc cubicに対する、同じ次元の滑らかな可換三次超曲面へのC線型dg Morita Kuznetsov実現である。全対象での主予想は未解決であり、今回の分離表示の定理で全intrinsic対象を被覆したとはしない。第二予想は、その同じKu標的上に、全point schemeとPoisson零スキームが抽象スキームとして同型になるPoisson tensorが存在するという命題である。非被約構造を含むこの存在命題には、以下の複素数体上の反例がある。被約版などを自動的に代わりの予想として採用しない。
 - **中心変数を持つ分離型の直接Ku比較：** `csc:thm:comparison` と `csc:cor:fermat` の実因子・中心正則三次の仮定を確認した。特にFermat型の経路は執筆担当以外が依存する既存補題まで独立読解した。一変数の二対象A₂模型、その内部shiftと実方程式による三次周期、有限graded Homの外積、Koszul–Shamashの高次homotopy、有限群の二重同変化を点検した。k=1,m=2ではN=5,r=2であり、windowの三対象は連続する三剰余類で足り、rが三の倍数という仮定を使わない。楕円因子のPicard補正と三乗根による周期の同期は、実際のΩと方程式の周期を保持する。有限MF比較からsmoothnessを得た後、例外対象のgluingと線束による検出・有限Homを用いて全coherent残余圏へ飽和するため、全coherent圏のsmoothnessを前提にした循環はない。任意の滑らかな中心三次に対する補題と、Fermat型だけで完結する証明経路も区別した。
 - **分離型のpoint schemeと零スキーム：** `central_split_points.tex` で、m=1の定常成分消滅と、m≥2の定常成分 `Proj(J[U]/(g+θ))` を点関手から確認した。自然な可換Poisson対の定常成分は `Proj(J_cl[U]/g)` であり、θのsocle評価を捨てない。滑らかな中心超曲面に沿う完備局所環は `J[[t_1,…,t_{m−2}]]` となり、その極大イデアルのassociated gradedの次数一冪零部分からJを回復する。これによりJacobi環・jの障害を抽象スキームの障害へ移す論理を点検した。一般のm≥2について、この自然なPoisson対の不一致だけから全Poisson・全Ku標的を排除したとはしない。
-- **一中心変数を共有する混合型：** `cmo:thm:point-norm` の可換化による有限自由環Q、乗法のdeterminantとしてのnorm、定常成分の消滅判定を確認した。明示二ブロック例では `Q≃C^64` と相異なる六十四個の有理根を得る。指定した二組の係数の中心性・中心元の非零性は、次数三・四の全語と関係式の有理数上の厳密消去で確認する。一方、全次数PBW性とC[u]上の自由性は、Koszulな特殊Sklyanin代数にBraverman–Gaitsgoryの判定を適用し、唯一の三次重なり上の定数補正を検査する紙上証明である。有限次数のHilbert関数確認を全次数PBWの証明に置き換えていない。例外係数でのcoherent smoothnessや全Ku標的・全Poissonの排除は未確認であり、この混合例を追加の第二予想反例とはしていない。
+- **一中心変数を共有する混合型：** `cmo:thm:point-norm` の可換化による有限自由環Q、乗法のdeterminantとしてのnorm、定常成分の消滅判定を確認した。明示二ブロック例では `Q≃C^64` と相異なる六十四個の有理根を得る。指定した二組の係数の中心性・中心元の非零性は、次数三・四の全語と関係式の有理数上の厳密消去で確認する。一方、全次数PBW性とC[u]上の自由性は、Koszulな特殊Sklyanin代数にBraverman–Gaitsgoryの判定を適用し、唯一の三次重なり上の定数補正を検査する紙上証明である。有限次数のHilbert関数確認を全次数PBWの証明に置き換えていない。指定64係数でのcoherent smoothnessや全Ku標的・全Poissonの排除は未確認であり、この混合例を追加の第二予想反例とはしていない。
 - **固定したh=1の実Sklyanin入力：** `esi:prop:factor` と `esi:cor:ambient` を独立読解した。parameters `(1:−3:−2)` の代数D、点曲線 `g_{17/9}=0`、固定点のない平行移動graph、指定中心元 `Ω=79Σx³/144+5Σ_perm xyz/96` を具体的に扱う。graphのdeterminantと階数二からスキームとしての対応を得る。標準中心元との比 `Ω=−c₃/48`、次数三の非零汎関数、domainからの正則性、実THCR商、Jacobian potentialからのuntwisted Calabi–Yau性を、それぞれの一次定理と照合した。周囲環は `B=D[u,v]`、中心商は `A=B/(Ω+(u³+v³)/3)` である。この段階では全coherent圏の滑らかさを仮定せず、直接Ku比較と飽和から導く。
 - **全Poisson・全可換標的を排除する反例：** `ppz:cor:complex-counterexample` は、上の固定した複素代数Aと、`X=V(g_{17/9}+(u³+v³)/3)` の実際のKu同値を `csc:cor:fermat` から得る。形式的可換復元、形式Hesse残余係数の同定、一般点から複素閉点へのspreadは、この反例の証明に使用しない。sourceのsocle評価は `η=−4xyz/3≠0` であり、η²=0による根の修正とCRTから三つの孤立局所環J₁を得る。任意supportのPoisson零点について、長さ八・埋込み次元三からHessian階数二と滑らかな核制限三次を導き、そのassociated gradedが核制限三次のJacobi環となることを再点検した。対象Xの該当十二点の制限三次はj=0またはj(17/9)を持ち、j(1)と異なるため、X上の全Poisson tensorが排除される。さらにC線型categorical Torelliを用い、Ku(A)と同値なKuを持つ全ての滑らかな可換三次三様体Y上の全Poisson tensorまで排除する。ここでの「良い一ブロック」は点関手の条件であり、全O表示stackの全相対入力への所属を同時に主張しない。この例では主予想の可換実現自体は成立する。
 - **形式MF移送と有限核の降下の基礎点検：** `generic_recovery/curved_transport.tex`、`local_model.tex`、`window.tex`、`generic_descent.tex`、`coherent_saturation.tex` とHesse残余入力を、証明の依存に沿って再読した。arityによる有限挿入、内部次数による有限行列、三対象window、properな線束dg模型上の実perfect核・逆・unit/counit、perfect coneの消滅から比較を得た後のsmoothnessとcoherent飽和、という順序を確認した。有限表示のspreadで必要なのは実核と有限な比較データであり、形式核の全jetの保存ではない。これらの一般的な構成は別の有効な研究内容として保持するが、formalityを含む基礎入力の全証明を今回独立に再証明したという意味ではなく、上の具体的反例の成立をこれらへ依存させない。
 
 ### 一次資料の確認範囲
 
-今回はElagin arXiv:1403.7027v2 Lemma 8.6のdg作用の仮定と、Rennemo–Segal–Van den Bergh arXiv:1705.01366v2 Proposition 2.1の有限中心性を一次本文で確認した。分離比較では実MF模型上の厳密な指標作用をbimodule圏へ移し、その圏にLemma 8.6を適用することを明記した。任意の三角圏作用が自動的にstrictifyできるとは述べない。自己Extの一般構成は既存のShamash–Eisenbud理論と、本文のcentral versionの証明を分けた。Etingof–Ginzburgの非斉次potential理論、Waltonのdeformed Sklyanin、GaddisのPBW変形とcharacterの範囲も限定して照合し、具体的κ公式の網羅的新規性は未確認とした。以下の他の一次資料の照合範囲は現行証明の保持済み入力であり、今回すべてを再取得したわけではない。
+今回はSmith–Tateの著者PDF Lemma3.6・Theorem3.7、Waltonの学位論文DefinitionV.1・RemarkV.16と公刊論文Proposition4.1、Positselski–Schnürer arXiv:2003.11261v3 Proposition2.1、Cassidy–Conner–Kirkman–Mooreの周期分解Theorem4.2、Kellerのdg Morita Theorem3.8(c)、Stacks Tags00MC・0BQR・0FU4を一次本文で確認した。Rennemo–Segal–Van den Bergh arXiv:1705.01366v2 Proposition2.1の有限中心性も再確認した。中心の次数上界・周期分解・compact Morita・完備化・Künnethは既知の入力として扱い、具体的六次持上げやκ判定の初出・後続文献を含む網羅的新規性は未確定とする。既存のElaginのstrict作用入力の確認は保持する。以下の他の資料の照合範囲は現行証明の保持済み入力であり、今回すべてを再取得したわけではない。
 
 書誌・識別子・リンクは `papers/references.tex` に記載する。既知の一般定理と、本稿で行う具体的な適用・係数計算を区別する。
 
@@ -38,13 +38,15 @@
 
 ### 厳密計算・組版・検証の限界
 
-`python3 computations/verify_mixed_character_ext.py` は統合担当と別担当が実行し、**4 PASS・終了コード0**を確認した。証明書はQQ[a,b,c]上の全次数2,3,4の二側関係倍空間で、d²=0、中心性、dh₁+h₁d=f、dh₂+h₂d+h₁²=0を厳密検証する。κは記号式として導き、全16因子characterと全64組を確認する。 検証器のSHA-256は `a1aa4718dc6fa132adc8871f0935c5a6579ea76304a973ab3e54db764883a46e`。独立担当はさらに縮約後の模型を使わず、評価されたhomotopyから64次元tensorのShamash Hom複体を別実装で組み、異なる符号の二組について16次までのrankとd²=0を照合した。この有限範囲の独立検算と全次数の紙上証明を区別し、重複実装は現行資産へ収録しない。
+`python3 computations/verify_mixed_pi_center.py` は統合担当・執筆担当・独立点検担当が実行し、**3 PASS・終了コード0**を確認した。三独立パラメータの重み付き自由代数における全二側関係倍のQQ線形代数で、四中心元の全交換子を検証する。重み6の行列は1476×1036、rank917、商次元119、重み7は5454×3108、rank2919、商次元189。最高部四元の指定4×4小行列の全成分とdet−4/9もassertする。全次数の中心生成には本文でSmith–Tateを別に用いる。SHA-256は `1ebd67f944aa73eb3a7e0beabfa7102a2298c45739e2d337bf6e1a0210313893`。
+
+`python3 computations/verify_mixed_character_ext.py` は統合担当と別担当が実行し、**8 PASS・終了コード0**を確認した。普遍higher homotopy・κ公式・既存16因子charactersと64組に加え、α=(9,9,1)の八charactersと64組、全κ=0となる16組・4中心値、残り48組を検査する。射影次元の結論自体は本文のRees・周期性の証明による。SHA-256は `c249f5bf1790f18786c4d39fe07e5c3f81e24b51faa222761ab76a78fb4fe655`。既存の独立した64次元Shamash Hom複体による16次までの照合も保持するが、全次数の証明や今回の新規再実行と混同しない。重複実装は現行資産へ収録しない。
 
 `python3 computations/verify_point_poisson_obstruction.py` は今回も再実行し、**12 PASS・終了コード0**を確認した。対象は中心性・非零性、Hessian・j、64個のnorm根などの厳密恒等式であり、全次数PBW、smoothness、Ku比較、Torelliを計算で代用しない。
 
 既存の `verify_geometric_corrections.py` は13 PASSの保持済み検算があるが、今回再実行していない。他の既存計算も各項の確認範囲を保持し、全suiteを再実行したとはしない。
 
-**ソース整合・組版・表示確認：** `python3 scripts/check_sources.py` は成功し、70 TeX入力・1372個の一意なlabel・941個の参照label・151個の引用bibkeyを確認した。`git diff --check` も成功。`latexmk -lualatex papers/nc-cubic.tex` は終了コード0、614頁・4,282,381 bytesのPDFを生成した。最終ログの未定義参照・重複label・overfull/underfull・欠落文字・TeX errorはいずれも零。既存の数式フォントsize置換七件とその総括、ltjsarticleの旧 `\rm` 警告は残る。主稿の1・5・6・8・36・228–230・241–249頁の計17頁を画像で実表示し、文字と数式の欠け・重なり・欄外へのはみ出し、不要な孤立見出しがないことを確認した。中心二チャート補助ノートも3頁・185,435 bytesで組版し、全3頁を実表示した。全614頁の目視やVS Code UI操作を確認したという意味ではない。GitHub保存とresearch-hub更新は組版と別の確認対象とし、通常commit後のremote main取得と内容照合で確かめる。
+**ソース整合・組版・表示確認：** `python3 scripts/check_sources.py` は成功し、70 TeX入力・1394個の一意なlabel・952個の参照label・157個の引用bibkeyを確認した。`git diff --check` も成功。`latexmk -lualatex papers/nc-cubic.tex` は終了コード0、624頁・4,349,139 bytesのPDFを生成した。SHA-256は `f82903a9b134cda3e7087a00ad491c1925c7a7d6d99d86b3b15af262556edd54`。最終ログの未定義参照・重複label・overfull/underfull・欠落文字・TeX errorはいずれも零。既存の数式フォントsize置換七件と総括、ltjsarticleの旧 `\rm` 警告は残る。主稿1・8・36・244・246・248–251・255–258頁の計13頁と、中心二チャート補助ノート全3頁を画像で実表示し、文字・数式の欠け、重なり、欄外へのはみ出しがないことを確認した。補助ノートは3頁・188,375 bytes、SHA-256は `650eb7ab56c9c805e5178a464e77f5de17bad504214b829ad68ac015d52402c6`。全624頁の目視、VS Code UI操作を確認したという意味ではない。GitHub保存とresearch-hub更新は組版と別に、通常commit後のremote main取得・内容照合で確かめる。
 
 今回の新証明の内部読解と、原稿に保存済みの基礎結果を区別する。Lean等の形式証明、外部査読、新規性の網羅的調査は未実施。主予想を全intrinsic対象で証明したとはせず、第二予想の反例の範囲を上に限定する。
 

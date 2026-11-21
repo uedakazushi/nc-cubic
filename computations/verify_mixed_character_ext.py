@@ -10,8 +10,9 @@ We verify a free resolution differential, two higher homotopies for the
 central cubic minus its character value, and the resulting contraction.
 Only finite polynomial identities are machine checked.  Exactness in all
 degrees uses the PBW/Koszul argument and the central Shamash construction
-proved in the paper.  Bounded self-Ext is NOT a proof of finite projective
-dimension, homological smoothness, or a Kuznetsov comparison.
+proved in the paper.  The projective-dimension conclusion additionally uses
+the paper's Rees/periodicity proof; the finite matrix checks alone do not prove
+projective dimension, global smoothness, or a Kuznetsov comparison.
 
 Run: python3 computations/verify_mixed_character_ext.py
 Dependency: SymPy.  All arithmetic is exact; no sampling or interpolation.
@@ -317,12 +318,72 @@ def verify_all_characters(coefficient):
             assert sp.Matrix([[1/kappa1, -scaled_second/kappa1], [0, 1]]).det() != 0
     assert len(parameters) == 64 and 0 not in parameters
     print("PASS: every one of the 64 exceptional characters has self-Ext dimensions 1 in degrees 0,2,3,5 and 0 otherwise")
-    print("SCOPE: no assertion of finite projective dimension, global smoothness, or a commutative Ku target")
+
+
+def verify_rational_zero_kappa(coefficient):
+    """Check alpha=(9,9,1), all 64 pairs, and the distinguished rational fibre."""
+    characters = []
+    for signs in product((-1, 1), repeat=3):
+        point = tuple(sign * root for sign, root in zip(signs, (3, 3, 1)))
+        kappa = coefficient.subs(dict(zip(PARAMETERS, point)))
+        central_value = -sp.Rational(2, 3) * (
+            sum(entry**3 for entry in point) + sp.prod(point)
+        )
+        characters.append((point, central_value, kappa))
+
+    zero = [(point, value) for point, value, kappa in characters if kappa == 0]
+    assert len(zero) == 4
+    assert all(a == -b for (a, b, _), _ in zero)
+    assert sorted(value for _, value in zero) == [
+        -sp.Rational(16, 3), -sp.Rational(16, 3),
+        sp.Rational(16, 3), sp.Rational(16, 3),
+    ]
+    distinguished = next(entry for entry in characters if entry[0] == (3, -3, 1))
+    assert distinguished[1:] == (sp.Rational(16, 3), 0)
+    assert -101 * distinguished[1] == -sp.Rational(1616, 3)
+
+    bound = 12
+    variable = sp.Symbol("s")
+    infinite_series = sp.series(
+        (1 + variable**3)**2 / (1 - variable**2), variable, 0, bound + 1
+    ).removeO()
+    infinite_dimensions = tuple(infinite_series.coeff(variable, j) for j in range(bound + 1))
+    finite_dimensions = tuple(int(j in (0, 2, 3, 5)) for j in range(bound + 1))
+
+    infinite_characters = {}
+    all_parameters = set()
+    finite_count = 0
+    for point1, value1, kappa1 in characters:
+        for point2, value2, kappa2 in characters:
+            parameter = -value1 - 100 * value2
+            all_parameters.add(parameter)
+            # The second higher homotopy scales quadratically.
+            actual = cochain_dimensions(kappa1, 10000 * kappa2, bound)
+            if kappa1 == 0 and kappa2 == 0:
+                assert actual == infinite_dimensions
+                infinite_characters.setdefault(parameter, []).append((point1, point2))
+            else:
+                assert actual == finite_dimensions
+                finite_count += 1
+
+    assert len(all_parameters) == 36
+    assert set(infinite_characters) == {
+        -sp.Rational(1616, 3), -sp.Integer(528),
+        sp.Integer(528), sp.Rational(1616, 3),
+    }
+    assert all(len(points) == 4 for points in infinite_characters.values())
+    assert finite_count == 48
+    print("PASS: alpha=(9,9,1) has exactly four zero-kappa characters, lambda=+/-16/3")
+    print("PASS: c=-1616/3 contains the double character ((3,-3,1),(3,-3,1))")
+    print("PASS: rational 64 pairs have 16 all-zero-kappa pairs at four central values; 48 other pairs")
+    print("PASS: finite initial ranks agree with the two all-degree algebraic cohomology formulas")
+    print("SCOPE: scalar hypotheses for pd=5 / infinity are certified; the pd conclusion uses the paper's periodicity/Rees proof")
 
 
 def main():
     coefficient = verify_universal_certificate()
     verify_all_characters(coefficient)
+    verify_rational_zero_kappa(coefficient)
 
 
 if __name__ == "__main__":

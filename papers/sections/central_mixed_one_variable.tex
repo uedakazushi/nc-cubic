@@ -5,7 +5,8 @@
 分離表示の定理\ref{csc:thm:comparison}では、中心変数は各楕円因子の
 二次関係に現れない。本節では、この仮定を点関手の計算から取り除く。
 結果は中心変数を一つ共有する表示についての定理であり、
-この一般の混合表示に対する Ku 比較までを結論しない。
+一般の混合表示の点関手を計算した後、$S(1,-1,-1)$ の定数型変形については
+有限中心性と収縮族の相対 smoothness を証明し、余有限可換 Ku 実現を得る。
 
 \subsection{有限な定常環と point scheme}
 
@@ -487,17 +488,521 @@ $\C[t]/(t^2)\otimes\bigwedge(\zeta)$ となり、
 
 \begin{remark}[自己 Ext 判定の射程]
 \label{cmo:rem:self-ext-scope}
-可換化の norm $N(c)$ が零であることは定常 character の存在を示す。
-上の結果は、その点で自己 Ext が必ず無限になるという推論を排除する。
-しかし非可換環上で、一つの simple の自己 Ext が有界であることから
-その simple の有限射影次元や全加群の有限大域次元を結論することはできない。
-本系は affine 中心 chart の加群についての主張に限り、
-$D^b(\operatorname{qgr}A_c)$ 全体の smoothness や、同じ可換 Ku 標的の存在を
-証明したとは扱わない。他の加群に対する Ext、対角双加群の perfect 性、
-境界 $u=0$ との接続を引き続き調べる必要がある。
+可換化の norm $N(c)$ は定常 character の存在を検出する。
+有限自己 Ext から有限射影次元を結論する一般論は使えないが、
+以下では有限 ambient 分解と二周期性を追加して射影次元まで決定する。
+その結論も、全加群の有限大域次元や全 coherent 圏の smoothness の判定とは異なる。
+また計算複体に書いた外積を Yoneda 積と同一視する主張は含めない。
 \end{remark}
 
-\subsection{分離表示への代数的収縮と残る相対 smoothness 入力}
+\subsection{周期性を使った character の射影次元判定}
+
+有限自己 Ext だけから有限射影次元を結論することは一般にはできない。
+ここでは有限 ambient 分解から得られる二周期性と、中心商の Rees 同型を
+追加してこの推論を正当化する。以下の一般論自体の新規性は主張しない。
+Shamash 型分解は補題\ref{mbnp:lem:shamash}の証明を用いる。
+非可換な正則 normal 商の周期分解については Cassidy--Conner--Kirkman--Moore
+\cite[Theorem~4.2]{CMOPeriodicMF} も関連する。
+ただし同論文の主定理は連結次数付きの設定なので、以下の affine 版は直接証明する。
+
+\begin{lemma}[二周期性による有限射影次元の検出]
+\label{cmo:lem:periodic-pd}
+$R$ を環、$M$ を有限生成左 $R$-加群とする。
+$M$ が有限生成射影加群による分解を持ち、その十分高い syzygy が
+その分解の中で実際に二周期であると仮定する。
+さらに $\operatorname{Ext}_R^i(M,R)=0$ が十分大きい $i$ で成立するとする。
+このとき
+\[
+ \operatorname{pd}_R M<\infty
+ \quad\Longleftrightarrow\quad
+ \operatorname{Ext}_R^i(M,M)=0\quad(i\gg0).
+\]
+また $d\ge1$ とし、$\operatorname{Ext}_R^i(M,R)=0$ が $i\ge d$ で成立するなら、
+有限の場合には $\operatorname{pd}_R M\le d-1$ である。
+\end{lemma}
+\begin{proof}
+順方向は定義から従う。逆方向を示す。
+$K=\Omega_R^n M$ を二周期部分に入った syzygy とする。
+$M$ の分解の第 $i$ 項を $P_i$ と書く。
+各 $P_i$ は有限生成射影なので、$\operatorname{Ext}_R^{\gg0}(M,P_i)=0$ である。
+十分大きい $r$ に対して、第一変数、次いで第二変数の dimension shifting から
+\[
+ \operatorname{Ext}_R^{2r}(K,K)
+ \simeq\operatorname{Ext}_R^{2r+n}(M,K)
+ \simeq\operatorname{Ext}_R^{2r}(M,M)=0
+\]
+を得る。第二同型は有限個の完全列
+$0\to\Omega_R^{i+1}M\to P_i\to\Omega_R^iM\to0$
+に $\operatorname{Hom}_R(M,-)$ を適用して得られる。
+
+$K$ の二周期分解における同型
+$\theta:\Omega_R^{2r}K\xrightarrow{\sim}K$ を取る。
+標準の表示
+\[
+ \operatorname{Ext}_R^{2r}(K,K)
+ =\operatorname{coker}\!\left(
+  \operatorname{Hom}_R(P_{n+2r-1},K)
+  \longrightarrow\operatorname{Hom}_R(\Omega_R^{2r}K,K)\right)
+\]
+において $[\theta]=0$ なので、$\theta$ は $P_{n+2r-1}\to K$ へ延長する。
+この延長と $\theta^{-1}$ の合成は
+$\Omega_R^{2r}K\hookrightarrow P_{n+2r-1}$ の retraction となる。
+従って $K\simeq\Omega_R^{2r}K$ は射影で、$M$ の射影次元は有限である。
+
+最後に $m=\operatorname{pd}_R M<\infty$ とする。
+もし $m>0$ かつ $\operatorname{Ext}_R^m(M,R)=0$ なら、長さ $m$ の
+有限生成射影分解を双対化した最後の射
+$P_{m-1}^{\vee}\to P_m^{\vee}$ は全射である。
+$P_m^{\vee}$ は有限生成右射影加群だからこの全射は分裂する。
+有限生成射影加群の bidual 同型を使うと
+$P_m\to P_{m-1}$ が分裂単射となり、分解を短縮できて矛盾する。
+従って $m>0$ なら $\operatorname{Ext}_R^m(M,R)\ne0$。
+これより $m\le d-1$ を得る。
+\end{proof}
+
+\begin{corollary}[有限 ambient 分解を持つ中心超曲面加群]
+\label{cmo:cor:hypersurface-pd}
+$Q$ を環、$f\in Z(Q)$ を左右正則元、$R=Q/(f)$ とする。
+$M\ne0$ を左 $R$-加群とし、$Q$ 上で長さ $d\ge1$ の
+有限生成射影分解を持つと仮定する。
+このとき前補題の同値と有限の場合の上限 $\operatorname{pd}_R M\le d-1$ が成立する。
+左右を交換した主張も成立する。
+\end{corollary}
+\begin{proof}
+中心元の二項分解から
+\[
+ \operatorname{RHom}_Q(R,Q)\simeq R[-1],\qquad
+ \operatorname{RHom}_Q(M,Q)\simeq
+ \operatorname{RHom}_R(M,R)[-1]
+\]
+を得る。すなわち Rees 同型
+\[
+ \operatorname{Ext}_R^i(M,R)\simeq
+ \operatorname{Ext}_Q^{i+1}(M,Q)=0\quad(i\ge d)
+\]
+がある。ここで正則元の中央性により normalizing twist は現れない。
+
+$Q$ 上の有限分解 $P_\bullet$ に $f$ の higher homotopies $s_a$ を選ぶ。
+$s_a:P_j\to P_{j+2a-1}$ なので非零な $s_a$ は有限個である。
+補題\ref{mbnp:lem:shamash}と同じ濾過証明により
+\[
+ C_n=\bigoplus_{q\ge0}(R\otimes_QP_{n-2q})
+\]
+は $M$ の有限生成射影分解になる。
+十分大きい偶数 $n$ では $C_n=\bigoplus_{j\text{ even}}R\otimes_QP_j$、
+十分大きい奇数 $n$ では奇数 $j$ の直和となり、微分も parity のみに依存する。
+従ってこれは実際の二周期分解である。
+ここでは内部次数を忘れた affine 加群を扱うので、内部次数 shift を
+同型と取り違えているのではない。前補題が適用できる。
+\end{proof}
+
+\begin{proposition}[混合 character の射影次元の完全判定]
+\label{cmo:prop:character-pd}
+$p_i=(a_i,b_i,c_i)\in(\C^\times)^3$、$\beta_i\in\C^\times$ とし、
+命題\ref{cmo:prop:character-ext}の記法で
+\[
+ Q=\bigotimes_{i=1}^kD_{p_i},\quad
+ R=Q\Big/\Big(\sum_{i=1}^k\beta_if_{p_i}\Big),\quad
+ M=\bigotimes_{i=1}^kM_{p_i}
+\]
+と置く。中心和は正則とする。この仮定は本節の混合族では PBW 濾過から成立する。
+このとき
+\[
+ \operatorname{pd}_R M=
+ \begin{cases}
+  3k-1,&\text{少なくとも一つの }\kappa(p_i)\ne0,\\
+  \infty,&\text{全ての }\kappa(p_i)=0.
+ \end{cases}
+\]
+特に一因子の $\kappa\ne0$ では射影次元は $2$、
+例\ref{cmo:ex:sixty-four}の六十四個の affine character では全て $5$ である。
+\end{proposition}
+\begin{proof}
+各因子の三段自由分解を tensor すれば、$M$ は $Q$ 上で長さ $3k$ の
+有限自由分解を持つ。二因子の証明と同じ有限消去により、自己 Ext の計算複体は
+\[
+ \C[t]\otimes\bigwedge(\eta_1,\ldots,\eta_k),\quad
+ |t|=2,\quad|\eta_i|=3,\quad d\eta_i=\beta_i^2\kappa(p_i)t^2
+\]
+となる。全ての $\kappa(p_i)$ が零なら微分は零で、自己 Ext は無限次数にある。
+従って射影次元は無限である。
+少なくとも一つが非零なら、線型基底変換で
+$d\eta=t^2,d\zeta_1=\cdots=d\zeta_{k-1}=0$ となる。
+cohomology は次数付きベクトル空間として
+\[
+ \C[t]/(t^2)\otimes\bigwedge(\zeta_1,\ldots,\zeta_{k-1})
+\]
+であり、上に有界で最高非零次数は $3k-1$ である。
+前系より射影次元は有限で $3k-1$ 以下、最高自己 Ext の非消滅より以上でもある。
+\end{proof}
+
+\subsection{中心 chart の character 自己 Ext と qgr の比較}
+
+以下では右加群の規約を使う。先の左 character の計算を移すときは、
+有限次元 $M$ に対する自然なベクトル空間同型
+\[
+ \operatorname{Ext}_{R\text{-left}}^i(M,M)
+ \simeq \operatorname{Ext}_{R\text{-right}}^i(M^*,M^*)
+\]
+を使える。実際、左射影分解 $P_\bullet\to M$ の体上の双対は
+右単射分解 $M^*\to P_\bullet^*$ になる。
+$P_i$ が平坦であることと tensor--Hom 随伴から $P_i^*$ の単射性が従い、
+$\operatorname{Hom}_{R\text{-right}}(M^*,P_i^*)
+\simeq\operatorname{Hom}_{R\text{-left}}(P_i,M^{**})$
+で比較できる。一文字 character の場合は $M^*$ の座標も同じである。
+
+\begin{lemma}[有限次元 affine 加群の coherent な延長]
+\label{cmo:lem:chart-ext}
+$A$ を連結局所有限な次数付き右 noetherian 代数とし、
+$u\in Z(A)_1$ を正則元とする。
+$L=A[u^{-1}]$、$D=L_0$ と置く。
+$D$ 上の有限次元右加群 $M$ に対し、
+\[
+ P(M)=\bigoplus_{n\ge0}M u^n,
+ \qquad (m u^n)a_d=(m(a_du^{-d}))u^{n+d}
+\]
+を次数付き $A$-加群とし、$\mathcal P(M)=\pi P(M)$ と置く。
+これは coherent であり、有限次元 $D$-加群 $M,N$ に対し全ての $i\ge0$ で
+\[
+ \operatorname{Ext}^i_{\operatorname{qgr}A}(\mathcal P(M),\mathcal P(N))
+ \simeq\operatorname{Ext}^i_D(M,N)
+\]
+が成立する。
+\end{lemma}
+\begin{proof}
+$u$ は中心で次数一の可逆元なので $L\simeq D[u,u^{-1}]$ であり、
+次数零部分を取る関手は $\operatorname{Gr}L\simeq\operatorname{Mod}D$ を与える。
+平坦な中心局所化 $\operatorname{Gr}A\to\operatorname{Gr}L$ は exact であり、
+torsion 加群を消すので exact な関手
+\[
+ j^*:\operatorname{QGr}A\longrightarrow\operatorname{Mod}D
+\]
+を誘導する。
+
+その右随伴は
+$j_*N=\pi\operatorname{Res}(N\otimes_\C\C[u,u^{-1}])$ である。
+ここで adjunction が Serre 商に降りることを確認する。
+$V\in\operatorname{Gr}L$ の $L$ 上の単射分解を restriction すると、
+局所化が exact であるため $\operatorname{Gr}A$ 上の単射分解になる。
+従って任意の torsion $T$ に対し
+\[
+ \operatorname{Ext}^q_{\operatorname{Gr}A}(T,\operatorname{Res}V)
+ \simeq\operatorname{Ext}^q_{\operatorname{Gr}L}(T[u^{-1}],V)=0
+ \quad(q\ge0).
+\]
+ゆえに $\operatorname{Res}V$ は torsion-local であり、
+商写像の section と同一視できる。これで上の adjunction を得る。
+$j_*$ は $\pi$, restriction, $N\mapsto N[u,u^{-1}]$ の合成なので exact であり、
+$j^*j_*\simeq\operatorname{id}$ である。
+さらに exact な左随伴 $j^*$ を持つので $j_*$ は単射加群を単射対象へ移す。
+$N$ の単射分解を $j_*$ で移して計算すれば
+\[
+ \operatorname{Ext}^i_{\operatorname{QGr}A}(j_*M,j_*N)
+ \simeq\operatorname{Ext}^i_D(M,N)
+\]
+を得る。
+
+$M$ が有限次元なら $P(M)$ は次数零の有限個の元で生成される。
+$P(M)\subset M[u,u^{-1}]$ の商は負次数だけにあり、
+各斉次元は十分高い正次数部分により消されるので torsion である。
+従って $j_*M=\pi P(M)=\mathcal P(M)$ は coherent である。
+
+最後に $\operatorname{QGr}A$ は局所 noetherian Grothendieck 圏で、
+その noetherian 対象の部分圏が $\operatorname{qgr}A$ である。
+この包含は全ての Ext を保つ。
+これは Positselski--Schn\"urer \cite[Proposition~2.1]{CMOSmallBig} の適用である。
+同命題の仮定は、noetherian 対象への任意の全射について、その始域の
+有限生成部分対象を取ってもなお全射となることから従う。
+従って $D^-(\operatorname{qgr}A)\to D^-(\operatorname{QGr}A)$ は完全忠実であり、
+上の比較を $\operatorname{qgr}$ に制限できる。
+\end{proof}
+
+\subsection{有理係数の非滑らかな混合中心商}
+
+\begin{proposition}[無限自己 Ext を持つ有理係数例]
+\label{cmo:prop:rational-singular}
+$\alpha=(9,9,1)$ とし、独立な二組の変数を持つ
+$\mathcal B_\alpha$ を中心変数 $u$ で tensor する。
+\[
+ B=\mathcal B_\alpha\otimes_{\C[u]}\mathcal B_\alpha',\qquad
+ A=B\big/(\Omega_\alpha+100\Omega_\alpha'-\tfrac{1616}{3}u^3)
+\]
+と置く。$p=p'=(3,-3,1)$ の定常 character に対応する
+$\mathcal P\in\operatorname{qgr}A$ に対し
+\[
+ \sum_{j\ge0}\dim_\C\operatorname{Ext}^j_{\operatorname{qgr}A}
+       (\mathcal P,\mathcal P)\,s^j
+ =\frac{(1+s^3)^2}{1-s^2}.
+\]
+従って $\operatorname{qgr}A$ の homological dimension は無限で、
+$D^b(\operatorname{qgr}A)$ は proper でない。
+線束生成部分 $\mathcal C_A=\operatorname{thick}\{\mathcal O(j):j\in\mathbb Z\}$ は
+proper であるが smooth でなく、線束生成残余部分 $\mathcal K_A^{\rm lin}$ も smooth でない。
+また $\mathcal P\notin\mathcal C_A$ なので
+$D^b(\operatorname{qgr}A)/\mathcal C_A\ne0$ である。
+\end{proposition}
+\begin{proof}
+本節の普遍 PBW 表示と中心元の証明により、$B$ は左右 noetherian な
+Koszul AS-regular 代数で、global dimension と parameter は $7$ である。
+中心三次元は正則で、$u$ も $A$ 上正則である。
+後者二点は $u=0$ での $\Omega_0+100\Omega_0'$ の正則性からも直接従う。
+実際、各 $S=S(1,-1,-1)$ は正則中心元 $\Omega_0$ 上自由であり、
+$S\otimes S$ は $\C[\Omega_0,\Omega_0']$ 上自由なので、この中心線型和は正則である。
+$B$ の $u$-進 lowest term で中心元の正則性を持ち上げ、
+$u x=w y$ を $u$ で還元して $y=u z$ とすれば、$u$ の商上の正則性も得る。
+
+指定 character では
+\[
+ (ab)^3+(bc)^3+(ca)^3=-729,\qquad
+ 9a^2b^2c^2=729,\qquad
+ \kappa(p)=0,\quad\lambda_p=\frac{16}{3}.
+\]
+従って二因子の中心和はこの character を消し、自己 Ext の計算複体は
+$\C[t]\otimes\bigwedge(\eta_1,\eta_2)$、微分零となる。
+前補題によって affine 自己 Ext は全次数で coherent 自己 Ext と一致する。
+これが表示した Hilbert 級数と最初の二つの結論を与える。
+
+補題\ref{crs:lem:sections}と\ref{crs:lem:finite-lines}の仮定は満たされ、
+$\mathcal C_A$ は $\bigoplus_{j=0}^6\mathcal O(j)$ で生成され proper である。
+もし smooth なら定理\ref{crs:thm:coherent}により
+$\mathcal C_A=D^b(\operatorname{qgr}A)$ となり、右辺も proper になるが、
+$\mathcal P$ の無限自己 Ext と矛盾する。
+さらに命題\ref{crs:prop:residual-smooth}の対偶から残余線束部分も smooth でない。
+$\mathcal P$ 自身が proper な $\mathcal C_A$ に入ることも同じ理由で不可能である。
+\end{proof}
+
+\paragraph{結論の範囲.}
+この例は滑らかな非可換三次多様体の仮定を満たさないため、
+滑らかな対象についての可換 Ku 実現予想への反例ではない。
+また $D^b(\operatorname{qgr}A)$ の非proper性と、同 dg 圏の smoothness 単独は区別する。
+従って本命題は、全 coherent 圏そのものの dg smoothness 単独を否定する主張へ
+言い換えない。
+
+
+\subsection{定数型 Sklyanin 変形の普遍中心と有限中心性}
+\label{cmo:subsec:pi-center}
+
+本節では斉次 Sklyanin 入力を $S=S(1,-1,-1)$ に固定する。
+その定数項を任意に変えた PBW 変形について、中心の生成元を明示する。
+以下で使う $a,b,c$ は一ブロックの三つの変形係数であり、
+中心和の切断係数とは区別する。
+
+\begin{lemma}[普遍六次中心元]\label{cmo:lem:universal-sixth-center}
+中心変数 $a,b,c$ を用いて
+\[
+ \mathcal D=\C[a,b,c]\langle x,y,z\rangle/
+ \bigl([y,z]-x^2+a,\ [z,x]-y^2+b,\ [x,y]-z^2+c\bigr)
+\]
+と置く。$a,b,c$ に重み二、$x,y,z$ に重み一を与える。
+次の元は $\mathcal D$ の中心に属する：
+\begin{align}
+ C_0={}&z(z^2-c)(xzy+ax+by)+abz^2,
+ \label{cmo:eq:center-six-zero}\\
+ C_+={}&yz^4y+zyz^3y+z^2y^2z^2+2z^2yz^2y-z^4y^2+z^5x
+ \notag\\
+ &+a(zyz^2+2z^2yz+2z^3y)
+   +b(-yz^2x-2zy^3+4z^2yx+4z^4)
+ \notag\\
+ &+c(-y^2z^2-3yz^2y-z^2y^2-2z^3x)
+ \notag\\
+ &+a^2z^2+b^2(-yz+3zy)+c^2(2y^2+zx)
+ \notag\\
+ &+2abzx+ac(-yz-2zy)+bc(-yx-5z^2).
+ \label{cmo:eq:center-six-positive}
+\end{align}
+さらに、積の順序を逆転し、$x,a$ を固定し、
+$y,z$ および $b,c$ をそれぞれ交換する反自己同型を $\iota$ と置き、
+$C_-=\iota(C_+)$ とする。これも中心元である。
+
+$a=b=c=0$ での像を $C_{0,0},C_{+,0},C_{-,0}\in S_6$ と書く。
+既述の三次中心元
+\[
+ \Omega_0=\frac{x^3+y^3+z^3}{3}-\frac23\operatorname{sym}(xyz)
+\]
+について、四元
+\begin{equation}\label{cmo:eq:sixth-center-basis}
+ \Omega_0^2,\quad C_{0,0},\quad C_{+,0},\quad C_{-,0}
+\end{equation}
+は $S_6$ 内で一次独立である。
+\end{lemma}
+
+\begin{proof}
+三つの関係を $r_x,r_y,r_z$ と書く。
+$\iota(r_x)=r_x$、$\iota(r_y)=r_z$、$\iota(r_z)=r_y$ であるから、
+$\iota$ は実際に $\mathcal D$ の反自己同型である。
+従って $C_-$ の中心性は $C_+$ の中心性からも従う。
+
+中心性と一次独立性には、次の有限有理数計算を用いる。
+重み $d$ における自由代数の基底を
+\[
+ \bigl\{a^{e_1}b^{e_2}c^{e_3}w\ \bigm|\
+       2(e_1+e_2+e_3)+|w|=d\bigr\}
+\]
+とし、全ての二側関係倍
+$a^{e_1}b^{e_2}c^{e_3}v r_j w$ を行とする。
+行簡約は $\mathbb Q$ 上で行うので、零への簡約は二側関係イデアルへの
+厳密な所属証明である。重み六と七での行列の大きさ、rank はそれぞれ
+\[
+\begin{array}{c|r|r|r|r}
+ d&\text{行数}&\text{列数}&\text{rank}&\text{商の次元}\\ \hline
+ 6&1476&1036&917&119\\
+ 7&5454&3108&2919&189
+\end{array}
+\]
+となる。$[x,C_\nu],[y,C_\nu],[z,C_\nu]$ は
+$\nu\in\{0,+,-\}$ の全てについて重み七の関係行列で零へ簡約される。
+同じ計算は
+$\Omega=\Omega_0-ax-by-cz$ の中心性も重み四で確認する。
+
+active word の長さを降順、同じ長さでは $x<y<z$ の辞書式順序とし、
+同じ word に付くパラメータ指数を辞書式に並べる。
+重み六の簡約後に $a=b=c=0$ とすると、$S_6$ の二十八個の自由列を得る。
+式\eqref{cmo:eq:sixth-center-basis}を行に取り、そのうち
+\[
+ y^2z^3y,\quad yz^2y^3,\quad yz^4y,\quad z^3y^3
+\]
+の四列を選んだ係数行列は
+\begin{equation}\label{cmo:eq:sixth-center-minor}
+ \begin{pmatrix}
+  4/9&0&0&4/3\\
+  0&0&0&-1\\
+  0&0&1&0\\
+  0&-1&0&0
+ \end{pmatrix},\qquad \det=-\frac49\ne0
+\end{equation}
+である。よって一次独立性が従う。
+この計算を再生成する有限証明書が
+\path{computations/verify_mixed_pi_center.py} である。
+係数の代入・補間・浮動小数点 rank による検査ではなく、
+三つのパラメータを独立変数に保つ普遍恒等式を確認している。
+\end{proof}
+
+\begin{theorem}[全定数変形での有限中心性]\label{cmo:thm:finite-center}
+任意の $\alpha=(\alpha_1,\alpha_2,\alpha_3)\in\C^3$ に対して
+\[
+ D_\alpha=\C\langle x,y,z\rangle/
+ \bigl([y,z]-x^2+\alpha_1,\ [z,x]-y^2+\alpha_2,
+       \ [x,y]-z^2+\alpha_3\bigr)
+\]
+と置く。$C_{\nu,\alpha}$ を上の $C_\nu$ の係数特殊化とすると
+\begin{equation}\label{cmo:eq:affine-center-generators}
+ Z(D_\alpha)=\C[\Omega_\alpha,C_{0,\alpha},C_{+,\alpha},C_{-,\alpha}].
+\end{equation}
+ここで affine 表示では
+$\Omega_\alpha=\Omega_0-\alpha_1x-\alpha_2y-\alpha_3z$ である。
+$D_\alpha$ はこの可換有限型中心環上有限であり、従って PI である。
+
+さらに、$u$ を次数一の中心変数とする斉次化 $\mathcal B_\alpha$ で
+\[
+ \widehat C_{\nu,\alpha}
+     =C_\nu(x,y,z;\alpha_1u^2,\alpha_2u^2,\alpha_3u^2)
+\]
+と定めると
+\begin{equation}\label{cmo:eq:homogeneous-center-generators}
+ Z(\mathcal B_\alpha)=\C[u,\Omega_\alpha,
+             \widehat C_{0,\alpha},\widehat C_{+,\alpha},\widehat C_{-,\alpha}].
+\end{equation}
+右辺の $\Omega_\alpha$ は $\mathcal B_\alpha$ の斉次三次中心元を表す。
+$\mathcal B_\alpha$ もこの中心上有限である。
+\end{theorem}
+
+\begin{proof}
+まず、全次数に必要な既知の中心生成定理を特定する。
+$S=S(1,-1,-1)$ の点曲線は
+$E=V(x^3+y^3+z^3+xyz)$ であり、その点 shift は位数六である。
+後者は Walton \cite[Proposition~4.1]{CMOWaltonRepresentations} にも
+同じパラメータで記載されている。
+Smith--Tate \cite[Theorem~3.7, $r=1$]{GRSklyaninST} によれば、
+位数 $n$ の三次元 Sklyanin 代数の中心は
+次数三の元 $g$ と次数 $n$ の三元 $z_1,z_2,z_3$ で生成される。
+この定理は $3\mid n$ の場合も含む。
+本件の $n=6$ に適用すると
+\[
+ Z(S)=\C[g,z_1,z_2,z_3],\qquad
+ \deg g=3,\quad\deg z_i=6.
+\]
+従って $\dim_\C Z(S)_3=1$ かつ $\dim_\C Z(S)_6\le4$ である。
+$\Omega_0$ は非零である：例えば可換化
+$S_{\mathrm{ab}}=\C[x,y,z]/(x^2,y^2,z^2)$ への像は
+$-2xyz/3\ne0$ である。よって $\Omega_0$ は $g$ の非零 scalar 倍である。
+補題\ref{cmo:lem:universal-sixth-center}は $Z(S)_6$ の四つの独立元を与えるので、
+\emph{$\dim_\C Z(S)_6=4$ であり、式\eqref{cmo:eq:sixth-center-basis}はその全体の基底}
+となる。特に各 $z_i$ はこの四元の線形結合であり、
+\begin{equation}\label{cmo:eq:graded-center-generators}
+ Z(S)=\C[\Omega_0,C_{0,0},C_{+,0},C_{-,0}].
+\end{equation}
+これは低次数の中心計算だけから全次数の生成性を推測した結論ではない。
+全次数の生成上界が Smith--Tate の定理であり、有限計算はその全生成元の
+持上げを確認している。
+
+既述の PBW 判定により $D_\alpha$ の active 濾過の随伴代数は $S$ である。
+任意の中心元の最高部分は $Z(S)$ に属する。
+式\eqref{cmo:eq:graded-center-generators}の全生成元は、補題で与えた
+$D_\alpha$ の中心元へ持ち上がっている。
+従って任意の $h\in Z(D_\alpha)$ の最高部分と一致する中心生成元の多項式を
+$h$ から引き、active 次数について帰納すれば
+式\eqref{cmo:eq:affine-center-generators}を得る。
+
+同じ Smith--Tate の定理により $S$ は $Z(S)$ 上有限である。
+有限個の斉次加群生成元を取り、これらを $D_\alpha$ に持ち上げる。
+任意の元の最高部分をそれらで表し、次数を下げる帰納法を繰り返すと、
+同じ有限個の持上げが $D_\alpha$ を $Z(D_\alpha)$ 上生成する。
+
+斉次化については、$C_\nu$ の普遍恒等式に
+$(a,b,c)=(\alpha_1u^2,\alpha_2u^2,\alpha_3u^2)$ を代入すれば
+$\widehat C_{\nu,\alpha}$ の中心性を得る。
+$u$ は $\mathcal B_\alpha$ 上正則であり、$\mathcal B_\alpha/(u)=S$ である。
+これらの中心元の像が $Z(S)$ を全て生成するため、
+Smith--Tate \cite[Lemma~3.6]{GRSklyaninST} が適用でき、
+式\eqref{cmo:eq:homogeneous-center-generators}と加群有限性を得る。
+実際、この段階の帰納法は、中心元 $h$ の像を生成元の多項式で消して
+$h-P=u h_1$ と書き、$u$ の正則性から $h_1$ の中心性を得るものである。
+\end{proof}
+
+\begin{corollary}[係数族に一様な有限中心模型]
+\label{cmo:cor:relative-finite-center}
+上の中心元は三つの定数係数に関して多項式であり、係数の分母は生じない。
+したがって、係数環 $R$ 上で $\alpha_i\in R$ を指定し、既述の分裂した
+PBW 模型を底変更して得る $\mathcal B_{\alpha,R}$ は、
+\[
+ R[u,\Omega_\alpha,
+       \widehat C_{0,\alpha},\widehat C_{+,\alpha},\widehat C_{-,\alpha}]
+\]
+という可換有限型中心部分環上有限である。
+特に $R=\C[t]$、$\alpha\mapsto t^2\alpha$ の収縮族に適用できる。
+複数因子が同じ $u$ を共有する tensor 積も、各因子のこの有限中心部分環の
+$R[u]$ 上の tensor 積の像に対して有限である。
+\end{corollary}
+
+\begin{proof}
+$S$ の $Z(S)$ 上の有限斉次加群生成元を一度選び、その同じ語を全係数族で使う。
+PBW によって $\mathcal B_{\alpha,R}/(u)=S\otimes_\C R$ であり、
+式\eqref{cmo:eq:graded-center-generators}の係数拡大は、表示した中心部分環の像に
+含まれる。任意の斉次元を $u=0$ でこの有限個の語の結合として表し、差を $u$ で割る。
+内部次数が毎回一ずつ下がるため、有限回で停止する。
+この証明は $R$ の点ごとの有限生成性からの推論ではなく、一組の有限生成語を
+全係数族で共通に用いる。
+因子ごとの有限生成系の tensor 積を取れば最後の主張が従う。
+\end{proof}
+
+\begin{remark}[先行研究との関係と新規性の範囲]
+\label{cmo:rem:pi-center-literature}
+Walton の学位論文 \cite[Definition~V.1, Remark~V.16]{CMOWaltonThesis} は、
+三次元 Sklyanin 代数の一般中心拡大を扱い、位数六の場合について
+三次・六次中心元を持ち上げる方法を提案している。
+本節はそのうち、斉次パラメータが $(1,-1,-1)$、線形補正 $d_i x_i u$ が零で、
+定数補正 $e_i u^2$ が任意の部分族について、その持上げを明示し検証したものである。
+位数六の全 Sklyanin パラメータや、非零の線形補正を含む一般拡大を扱う主張ではない。
+
+Etingof--Ginzburg \cite[Theorem~3.3.2 and Section~9]{NFMEG} の
+三次中心元と PBW 変形の理論、および Smith--Tate の斉次中心生成定理は既知の入力である。
+本節の具体的六次持上げとこの定数型部分族への適用について、
+後続文献を含む初出の網羅的確認はまだ完了していない。
+有限中心性は明示した中心元から証明しており、associated graded の PI 性だけから
+PBW 変形の PI 性を結論していない。
+\end{remark}
+
+\subsection{分離表示への代数的収縮と有限線束模型}
 
 本節の混合表示には、中心係数の無限遠を分離表示へ戻す代数的収縮がある。
 この収縮は実際の代数の同型を与えるが、それだけで
@@ -508,8 +1013,8 @@ smoothness や可換 Ku 実現の開性を結論しない。
 $k\geq2$ とし、$\alpha^{(i)}\in\C^3$、$a_i\in\C^\times$ を固定する。
 例\ref{cmo:ex:sixty-four}の表示と同じ
 $\mathcal B_{\alpha^{(i)}}$ を用い、
-式\eqref{cmo:eq:mixed-center}の $\Omega_{\alpha^{(i)}}$ が実際に中心であるとする。
-この仮定は、同例の二組の係数について検証済みである。
+定理\ref{cmo:thm:finite-center}の普遍中心元
+$\Omega_{\alpha^{(i)}}$ を用いる。
 $R=\C[t]$、$\deg t=0$ と置き、
 \[
  \mathscr B=
@@ -628,7 +1133,7 @@ $\mathscr C^{\mathrm{line}}$ とその残余部分は
 という proper な相対 dg 模型を持つ。
  $R$ の局所化および閉ファイバーへの通常の底変更は、
 この線束模型と残余模型を対応する代数の模型へ移す。
-ここで $\Gamma_R$ の相対 smoothness は結論していない。
+相対 smoothness は、定理\ref{cmo:thm:relative-smoothness}で有限中心模型から導く。
 \end{proposition}
 
 \begin{proof}
@@ -713,16 +1218,205 @@ $i=0,1$ にのみあり、それぞれ $R,R(-3)$ である。
 有限解消と次数別自由性は保たれるので、その適用条件を満たす。
 \end{proof}
 
-\begin{corollary}[追加の相対 smoothness の下での余有限実現]
-\label{cmo:cor:conditional-cofinite}
-命題\ref{cmo:prop:proper-contraction}の $\Gamma_R$ について、
-$0$ を含む Zariski 開近傍 $U\subset\mathbb A^1_t$ 上で
-\begin{equation}\label{cmo:eq:missing-relative-diagonal}
- \Gamma_U\in
- \operatorname{Perf}\!\left(
-       \Gamma_U^{\mathrm{op}}\otimes_U^{\mathbf L}\Gamma_U\right)
+\subsection{有限中心上の通常の加群に対する局所持上げ}
+
+\begin{lemma}[中心的な一変数に沿う射影次元の持上げ]
+\label{cmo:lem:projective-lift}
+$(C,\mathfrak m)$ を noetherian な可換局所環、
+$t\in\mathfrak m$ とする。$B$ は中央 $C$-代数で $C$ 上有限、
+$M$ は有限 $B$-加群、$d\ge0$ とする。
+$t$ は $B$ と $M$ 上正則であると仮定する。
+このとき
+\[
+ \operatorname{pd}_{B/tB}(M/tM)\le d
+ \quad\Longrightarrow\quad
+ \operatorname{pd}_B M\le d.
+\]
+\end{lemma}
+\begin{proof}
+$B$ は左右 noetherian である。$M$ の有限階数自由分解の最初の
+$d$ 段を取り、その第 $d$ syzygy を $K$ とする。
+全ての syzygy は $t$-torsionfree であり、$t$ で割っても
+分解の完全性が保たれる。従って $K/tK$ は $B/tB$ 上有限射影である。
+
+$C$ の $(t)$-adic 完備化 $\widehat C$ は忠実平坦である
+（\cite[Tag~00MC]{CMOStacksCompletion}）。
+$\widehat B=B\otimes_C\widehat C$ と
+$\widehat K=K\otimes_C\widehat C$ を取る。
+有限性によりこれらは $(t)$-adically complete で、
+$t$ は $\widehat B$ の Jacobson radical に属する。
+$K/tK$ を表示する有限行列の idempotent は $\widehat B$ へ持ち上がる。
+この非可換行列に対する事実は、$e^2-e\in(t)$ から出発し、
+\[
+ e\longmapsto e-(2e-1)^{-1}(e^2-e)
+\]
+で誤差を二乗化して極限を取れば直接分かる。
+逆元は $(2e-1)^2=1+4(e^2-e)$ から存在する。
+従って $K/tK$ を持ち上げる有限射影 $\widehat B$-加群 $Q$ がある。
+
+$Q$ の射影性により、指定した $Q/tQ\simeq\widehat K/t\widehat K$ を
+射 $Q\to\widehat K$ へ持ち上げる。
+余核は $t$ で割ると零なので Nakayama によりこの射は全射である。
+核 $L$ は有限であり、$\widehat K$ 上の $t$ の正則性から
+$L/tL=0$ を得る。再び Nakayama により $L=0$、
+従って $\widehat K$ は射影である。
+
+有限射影性はこの中央の忠実平坦底変更から降下する。
+具体的には、有限自由表示 $0\to J\to B^r\to K\to0$ の分裂障害を考える。
+$K$ の有限階数自由分解と平坦性により
+\[
+ \operatorname{Ext}^1_B(K,J)\otimes_C\widehat C
+ \simeq
+ \operatorname{Ext}^1_{\widehat B}(\widehat K,\widehat J)=0.
+\]
+忠実平坦性から障害は零で、$K$ は有限射影である。
+\end{proof}
+
+\begin{lemma}[中央スキーム上の perfect locus]
+\label{cmo:lem:perfect-locus}
+$Y$ を noetherian スキーム、$\mathcal B$ を coherent な
+$\mathcal O_Y$-代数、$M$ を coherent $\mathcal B$-加群とする。
+$M_y$ が $\mathcal B_y$ 上有限射影次元を持つ点の集合は開である。
+この開集合上では $M$ は局所的に有限生成射影分解を持つ。
+\end{lemma}
+\begin{proof}
+アファイン近傍上で $M$ の有限自由分解を必要な段階まで取り、
+射影になった syzygy を $K$ とする。
+$K_y$ の有限自由加群からの射影表示とその splitting は有限個の元で記述される。
+$K$ の有限表示性により、射と splitting の等式の分母を有限個払えば
+$y$ の中央開近傍上で $K$ 自身が射影となる。
+\end{proof}
+
+\begin{proposition}[proper な中央台からの相対 perfect 性]
+\label{cmo:prop:proper-perfect-spread}
+$R=\mathbf C[t]$、$Y\to\operatorname{Spec}R$ を proper な
+noetherian スキームとする。
+$\mathcal B$ を coherent $\mathcal O_Y$-代数、$M$ を coherent
+$\mathcal B$-加群とし、両者が $R$-flat であると仮定する。
+$M_0$ が $\mathcal B_0$ 上 perfect なら、
+$0$ を含む Zariski 開近傍 $U\subset\operatorname{Spec}R$ が存在し、
+$M_U$ は $\mathcal B_U$ 上 perfect となる。
+\end{proposition}
+\begin{proof}
+$Y_0$ の各点で前二補題を適用する。
+非 perfect locus は閉集合で $Y_0$ と交わらない。
+proper な射によるその像も閉であり $0$ を含まないから、
+この像を除けばよい。
+\end{proof}
+
+
+\subsection{有限中心模型による収縮族の相対 smoothness}
+
+\begin{theorem}[分離ファイバーを含む相対 smooth proper 近傍]
+\label{cmo:thm:relative-smoothness}
+命題\ref{cmo:prop:contraction}の任意の
+$\alpha^{(i)}\in\C^3$、$a_i\in\C^\times$、$k\ge2$ を取る。
+$0$ を含む Zariski 開近傍 $U\subset\mathbb A^1_t$ 上で、
+命題\ref{cmo:prop:proper-contraction}の線束模型と残余模型は
+相対 smooth proper である。特に
+\begin{equation}\label{cmo:eq:relative-diagonal}
+ \Gamma_U\in\operatorname{Perf}\!\left(
+       \Gamma_U^{\mathrm{op}}\otimes_U^{\mathbf L}\Gamma_U\right).
 \end{equation}
-が成立すると\emph{追加で仮定}する。
+ここで追加の対角 perfect 性の仮定は課さない。
+\end{theorem}
+\begin{proof}
+系\ref{cmo:cor:relative-finite-center}によって、$\mathscr A$ は
+$u$、各 $\Omega_{t^2\alpha^{(i)}}$、各六次中心元の像が生成する
+可換有限型次数付き中心部分環 $C_R$ 上有限である。
+その生成元の内部次数は $1,3,6$ である。
+$C_R\subset\mathscr A$ は $R=\C[t]$ 上 torsionfree であり、
+$R$ が PID なので $R$-flat である。
+六次 Veronese $C_R^{(6)}$ は次数一で生成される。
+実際、重み $1,3,6$ の単項式で重みが六の倍数なら、重み六の単項式へ分割できる。
+
+\[
+ Z=\operatorname{Proj}C_R^{(6)},\qquad
+ \mathcal A=\widetilde{\mathscr A^{(6)}}
+\]
+と置く。$Z\to\operatorname{Spec}R$ は projective かつ flat であり、
+$\mathcal A$ は coherent な $\mathcal O_Z$-代数で $R$-flat である。
+flatness は、中央元を反転した次数零部分が $R$-torsionfree であることから従う。
+Veronese の tails 同値と、可換標準次数環上の Serre 同値を
+有限 $C_R^{(6)}$-代数の加群作用とともに用いれば
+\[
+ \operatorname{QGr}\mathscr A\simeq\operatorname{Qcoh}(Z,\mathcal A),\qquad
+ \operatorname{qgr}\mathscr A\simeq\operatorname{coh}(Z,\mathcal A)
+\]
+を得る。ここでは $\mathscr A$ が内部次数一で生成されることを使う。
+$C_R$ のファイバーが全中心と一致するという仮定は不要である。
+
+全ての元の twist $\mathcal O(j)$ が $\mathcal A$-perfect であることを確認する。
+$Z$ を六次の中央元 $f$ の標準開集合で覆い、
+$L=\mathscr A[f^{-1}]$ とする。
+$f$ を長さ六の語の和として表示し、先頭または末尾の一文字を分けると
+\[
+ 1\in L_1L_{-1},\qquad 1\in L_{-1}L_1
+\]
+となる。これを反復すれば $L$ は強 $\mathbb Z$-次数付きである。
+従って $L_j$ は $L_0$ 上有限生成射影で、各 twist は局所射影である。
+中央の ample twist $\mathcal A\otimes\mathcal O_Z(m)$ は
+元の $\mathcal O(6m)$ に対応する。
+これらは $D_{\mathrm{qc}}(Z,\mathcal A)$ を compact に生成する。
+具体的には、忘却関手との随伴と ample twist の検出性
+\cite[Tag~0BQR]{CMOStacksDerived}を用いる。
+生成性は ample な切断によるアファイン局所化、compact 性は有限アファイン被覆の
+\v Cech 複体と局所射影性から従う。
+命題\ref{cmo:prop:proper-contraction}の有限線束和 $E$ は全 twist を厚生成するので、
+$E$ はこの非有界導来圏の compact generator である。
+この記述は閉ファイバーと $R$ の局所化に両立する。
+
+$Y=Z\times_R Z$ 上で
+\[
+ \Lambda=\mathcal A^{\mathrm{op}}\boxtimes_R\mathcal A,
+ \qquad M=\Delta_*\mathcal A,
+ \qquad F=E^\vee\boxtimes_R E,
+ \qquad E^\vee=R\mathcal Hom_{\mathcal A}(E,\mathcal A)
+\]
+と置く。$\Lambda,M$ は coherent かつ $R$-flat であり、
+$M_0=\Delta_{0*}\mathcal A_0$ である。
+双対は左右の perfect 圏の反同値なので、$E^\vee$ は反対側を生成する。
+$F$ の厚生成部分は全ての中央 twist $\Lambda(i,j)$ を含み、
+特に ample な $\Lambda(m,m)$ を含む。
+従って $F$ は $D_{\mathrm{qc}}(Y,\Lambda)$ の compact generator である。
+
+$\Sigma_R=R\operatorname{End}_{\mathcal A}(E)$ と書く。
+局所有限射影加群の Hom は $R$-flat であり、有限アファイン被覆の
+\v Cech 模型を tensor すると K\"unneth 同型を得る
+\cite[Tag~0FU4]{CMOStacksDerived}。
+局所的な有限射影加群の評価同型と合わせて
+\begin{equation}\label{cmo:eq:kernel-diagonal}
+ \begin{split}
+ R\operatorname{End}_\Lambda(F)
+      &\simeq\Sigma_R^{\mathrm{op}}\otimes_R^{\mathbf L}\Sigma_R,\\
+ R\operatorname{Hom}_\Lambda(F,M)&\simeq\Sigma_R
+ \end{split}
+\end{equation}
+となる。第二式は局所的に $T\mapsto[\varphi\otimes e\mapsto\varphi(T(e))]$ で与えられる。
+$S^\vee\boxtimes U$ による前合成は $T\mapsto STU$ に対応するため、
+左右の作用を保持し、$\Sigma_R$ の対角双加群そのものを与える。
+compact generator による dg Morita 同値
+\cite[Theorem~3.8(c)]{NFMKellerDg}から、
+$M$ の $\Lambda$-perfect 性は線束圏の相対 smoothness と同値である。
+同じ説明が $t=0$ でも成立する。
+
+特殊ファイバーは分離表示であり、定理\ref{csc:thm:comparison}によって
+全 coherent 圏が smooth proper である。
+その有限線束和は生成対象なので、式\eqref{cmo:eq:kernel-diagonal}の特殊化により
+$M_0$ は $\Lambda_0$-perfect である。
+$Y\to\operatorname{Spec}R$ は proper なので、
+命題\ref{cmo:prop:proper-perfect-spread}を $\Lambda,M$ に適用できる。
+従って $0$ を含む開近傍 $U$ で $M_U$ は perfect であり、
+線束圏は $U$ 上 smooth となる。
+proper 性は既に命題\ref{cmo:prop:proper-contraction}で確認した。
+最後に、有限例外列による admissible な残余成分には smooth proper 性が移るため、
+$\Gamma_U$ について式\eqref{cmo:eq:relative-diagonal}を得る。
+\end{proof}
+
+\begin{corollary}[定数型混合族の余有限可換実現]
+\label{cmo:cor:cofinite}
+任意の $k\ge2$、$\alpha^{(i)}\in\C^3$、$a_i\in\C^\times$ を固定し、
+命題\ref{cmo:prop:contraction}の定数型混合族を考える。
 このとき元の $c$-族について有限集合 $F\subset\C$ が存在し、
 $c\notin F$ では $D^b(\operatorname{qgr}A_c)$ は smooth proper であり、
 ある滑らかな可換三次 $(3k-1)$-fold $X_c$ と
@@ -736,7 +1430,7 @@ $c\notin F$ では $D^b(\operatorname{qgr}A_c)$ は smooth proper であり、
 \end{corollary}
 
 \begin{proof}
-追加仮定と前命題によって $\operatorname{Perf}(\Gamma_U)$ は
+定理\ref{cmo:thm:relative-smoothness}によって $\operatorname{Perf}(\Gamma_U)$ は
 実際の相対 smooth proper な圏族である。
 $n=3k-1\geq5$ なので $n\ne4$ であり、
 $t=0$ の可換実現に定理\ref{grl:thm:open-locus}を適用できる。
@@ -758,19 +1452,18 @@ $U'\cap\mathbb G_m$ の像に属する全 $c$ で結論を得る。
 有限集合として取れる。
 \end{proof}
 
-\begin{remark}[検証された入力と残る一つの段階]
-\label{cmo:rem:contraction-gap}
-この系の追加仮定\eqref{cmo:eq:missing-relative-diagonal}は現時点では未検証である。
-特殊ファイバーが smooth であること、相対 Hom が底上 perfect であること、
-有限個の線束が線束部分を生成することは、相対対角が perfect であることとは異なる。
-とくに proper な dg 代数が有限次元の厳密な dg 代数で表示されるとは主張しない。
-特殊ファイバーの対角の finite-cell/retract 表示の持上げ、
-またはこの族に適用できる相対 smoothness の定理を確保する必要がある。
-全 Artin 切断での圏同値から、通常の完備底または代数的近傍上の
-perfect 対角を自動的に結論してはならない。
+\begin{remark}[有限中心性の役割と残る個別判定]
+\label{cmo:rem:cofinite-scope}
+この証明は、明示的な六次中心元による有限中心性、通常の coherent 対角加群、
+proper な中央台を使う。一般の proper dg 代数について、smooth な特殊ファイバーや
+全 Artin 切断での互換同値だけから相対 smoothness を推論しているのではない。
+その推論への反例と、通常の完備底で生成性が失われる機構は研究ノートに記す。
 
-さらに $F$ が定理\ref{cmo:thm:point-norm}の norm の根集合に等しいとはいえない。
+有限集合 $F$ はまだ有効に決定していない。
+$F$ を定理\ref{cmo:thm:point-norm}の norm の根集合と同一視する理由はない。
 norm は定常点の出現を検出するものであり、smoothness の判別式とは別である。
 例\ref{cmo:ex:sixty-four}の六十四個の値、$c=0$、および任意の指定された
-個別の $c$ における smoothness・Ku 比較は、この条件付き系では判定されない。
+個別の $c$ における全体の smoothness・Ku 比較は、この余有限系だけでは判定されない。
+また得られた可換標的について、point scheme と Poisson 零スキームの
+同時比較や、元のブロック分解の保存はまだ主張していない。
 \end{remark}
