@@ -1,6 +1,6 @@
 # Research instructions — nc-cubic
 
-2026-11-22 / v47。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-22 / v48。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
@@ -11,6 +11,10 @@
 - 次のP0は、指定混合族と明示可換候補を結ぶ実際のcurved/MF比較・次数付き核の構成、一般点同定、その後のDVR延長である。候補のsmooth locusは共通のP64で判定できるが、候補へのKu同値は一般点でも未証明とする。c=0のEckardt・四次二重被覆・crepant解消模型を比較の入口とし、normの64係数を含む全smooth locusを目標にする。一般αの中心切断の退化、より一般の混合表示、未被覆intrinsic成分、point/Poisson対応の制限された成立範囲も残る。比較次数・周期・全自己同値の精密化は補助課題へ移し、既存の有効な証明・例・計算は保持する。
 
 ## 現行結果の範囲と研究上の注意
+
+- `cmo:prop:full-relative-hh` は指定c族をU=A¹∖V(P64)全体で相対smooth properにする。固定ambient・次数別自由商・有限中心上の平坦なcoherent対角・properな中央台を構成し、proper-perfect-spreadを各閉点へ適用する。一般のfiberwise smooth⇒relative smoothを使わない。Mathew Theorem1.3から全UでHH₀=C², HH±₁=C²¹。他次数零。`cmo:cor:rational-euler-comparison` はpr(O(4)),pr(O(5))を有理Knumの基底とし、Gram=[[-27,−189],[−162,−1161]]、det729を両側で得る。積分格子の同型は未証明。c=0の非可換対合はHH₀では恒等だが、HH±₁指標は未決定。
+- `cmo:thm:eckardt-root-residual` はc=0の可換候補の対合商Bl_p(X₀)/μ₂≃Bl_Y(P⁵)、分離分岐H′⊔Z′の根スタックℛ、16明示例外対象の右直交K≃Ku(X₀)^μ₂とperfect射影核を与える。指標線束N²≃Oの指定coherenceで再同変化すると通常Kuを回復する。同変canonicalにはNが入り、ω_ℛ=π*O(−4h)⊗N。同変HHは次数−2,…,2で(1,5,24,5,1)、通常HH±₁の固有次元は(5,16)。Ku(Y),Ku(Z)のHHとの加法的一致からSODの相殺をしない。非可換A₀からの核は未構成で、対合保存は主予想の追加条件。
+- `cmo:prop:pointwise-affine-mf-comparison` は全固定s,cで、内部次数を忘れた有限射影Z/2-MFの冪等完備後の実Morita比較を与える。唯一のAzumaya Morse点への完備化は、有限長Homと大域simpleのsyzygyのstabilizationで直接証明する。Morse模型はCl₃またはCl₆、smooth値では零。全smooth cで射影Kuは非零なので、この圏を介する主予想の証明は得られない。各固定値の同値、相対族、次数付き核、通常Z次数のpropernessを混同しない。検算器 `verify_mixed_comparison_invariants.py` の9 PASSは有限行列・指標・Euler算術の確認であり、圏同値の形式証明ではない。
 
 - 一般中心三次変形のMF/window/coherent飽和・一般点復元は、一ブロックより広い明記した仮定で成立する基礎定理。全固定点・全抽象圏の表示定理ではない。
 - `point_poisson_split.tex` はm=0の楕円tensor表示について、同じ可換分離和へのKu比較とPt=Poisson零スキームを結合する。存在版は実因子・固定点なしの点グラフを仮定し、j相異性・特殊j除外・2p≠0を必要としない。自然なθによる標的は基本開に限定する。θの二捩れ境界退化を、何らかの可換標的の不存在と混同しない。

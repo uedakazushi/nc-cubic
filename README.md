@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月22日 / v47。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月22日 / v48。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 非可換三次の可換Ku実現、全point schemeとPoisson零スキームの比較、具体的な複素反例、中心変数を持つ分離型の直接比較と混合型の点関手を扱う。完備MF移送、一般中心三次変形の可換復元、一ブロック・満支持複数ブロック型のO-markedモジュライと認識、相対同変比較、残余Poisson射、比較核の算術的降下障害も保持する。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
 
@@ -22,16 +22,21 @@
 - **定数型混合族の余有限可換実現。** [一中心変数の混合型](papers/sections/central_mixed_one_variable.tex)では、S(1,−1,−1)の定数型PBW変形について、三つの普遍六次中心元を構成し、任意の混合係数で有限中心性を証明した。射影的な中央模型上の対角加群を使い、分離型への収縮族が0の近傍で相対smooth properとなることを示した。従って任意のk≥2、α^(i)∈C³、全a_i≠0について、有限集合Fを除くcでA_c=(⊗_{C[u]}B_{α^(i)})/(Σa_iΩ_i+cu³)の全coherent Kuを滑らかな可換三次(3k−1)-foldとして実現する（`cmo:cor:cofinite`）。Fは未決定であり、定常点のnormの根集合とは同一視しない。
 - **指定混合族のsmooth locusを完全決定。** α=(1,4,9),(16,25,49)、中心和係数1,100を固定すると、全coherent圏がsmooth properであることは64次終結式P64(c)≠0と同値である（`cmo:thm:exact-sixty-four`）。各中心の14節点のNCCR局所形、全節点での非等方なΩ切断、相対対角の合成、射影境界u=0の検査を用いる。従って **c=0と定常normの全64根はsmooth proper**。P64の64根では36次元simpleの局所模型がMat36上の5次元通常二重点となり、全coherent Kuは非proper、線束圏と残余線束圏は非smoothである。P64と定常normは互いに素であり、pointの出現とsmoothnessを区別する。全smooth係数での可換Ku比較はなお未解決。
 - **同じ判別式を持つ明示的な可換候補。** G_α=(x³+y³+z³+xyz)/3−u²(α₁x+α₂y+α₃z)、λ²=28/27として、X_c=V(λ(G_{(1,4,9)}+100G_{(16,25,49)})+cu³)⊂P⁶を得た。各Jacobi環の正則表現を厳密計算し、X_cもP64(c)≠0と同値に滑らかで、各悪い係数では唯一の通常五次元二重点を持つと示した。c=0にはEckardt点があり、そのblow-upは超平面と滑らかな三次四様体に分岐する二重被覆のクレパント解消となる（cmo:thm:commutative-discriminant-candidate、cmo:prop:zero-eckardt-resolution）。この具体的候補とのKu同値は一般点も含めて未証明であり、既存の余有限な「ある可換標的」の存在とは区別する。
+- **全smooth係数のHochschild群と有理Euler形式。** 指定c族をU=A¹∖V(P64)全体で相対smooth properとする有限中心・平坦対角の模型を構成した（`cmo:prop:full-relative-hh`）。Mathewの相対退化定理から全cでHH₀=C²、HH±₁=C²¹、他次数零となる。pr(O(4)),pr(O(5))は両側の有理数値Grothendieck群の基底であり、共通Euler行列は[[-27,−189],[−162,−1161]]、行列式729（`cmo:cor:rational-euler-comparison`）。明示候補への同値を仮定せず得る不変量の一致であり、積分格子の同型は未証明。
+- **零係数の可換標的の実際の残余模型。** 対合u↦−uによるBl_p(X₀)の商はT=Bl_Y(P⁵)である。分離分岐H′⊔Z′の根スタックℛ上で、16個の明示例外対象の右直交KがKu(X₀)^μ₂となり、有限mutationの畳込みがperfect射影核を与える。指標線束Nの指定されたN²≃Oを使う再同変化で通常Kuを回復する（`cmo:thm:eckardt-root-residual`）。可換側のHH±₁の対合固有次元は(5,16)、同変KuのHHは次数−2,…,2で(1,5,24,5,1)。Ku(Y)⊕Ku(Z)のHHとは一致するが、その圏分解は結論しない。A₀からの比較核は未構成。
+- **全固定値のaffine MF比較と次数情報の必要性。** 内部次数を忘れた有限射影Z/2-MFを冪等完備すると、一因子の全sと混合族の全cで可換候補と実Morita比較できる。Morse値ではCl₃・Cl₆の局所模型、smooth値では双方零となる（`cmo:prop:pointwise-affine-mf-comparison`）。全smooth cで射影Kuは非零なので、このaffine圏を介するKu同値は得られない。錐の原点・内部shift・三次周期を保つ比較が必要である。
 - **低次元単純加群と残余射影。** 二次元単純加群は半跡(a,b,c)∈(C×)³と(a²−bc,b²−ca,c²−ab)=αで完全分類し、退化係数も扱う。abcF≠0上で高次作用の普遍式κ₂=−2N₆/(9F)を得て、三次数体の例では全characterの有限射影次元検査を通りながら、characterを持たない中心値に無限射影次元の二次元simpleが存在する。指定二因子の各8 charactersと各2二次元simpleから得る100tensor simplesは全て射影次元5で、coherent延長は線束perfect。従来の64定常点の残余射影Kには Ext⁰(K,K)=C、Ext¹(K,K)=C¹⁰、他次数0を得た。これら対象のperfect性から全体のsmoothnessは結論しない。別の有理係数α=α′=(9,9,1),c=−1616/3での無限自己Ext例も保持する。 指定二因子ではさらに全simpleを分類し、非Azumaya中心上には各28類、次元1〜5の個数は8,2,8,2,8、正則中心の各点には6次元simpleが一つある（`cmo:thm:fourteen-node-orders`）。
 - **主予想の局所開性。** [可換実現locus](papers/sections/geometric_realization_locus.tex)の `grl:thm:open-locus` はn≠4の実smooth proper dg族で可換Ku実現領域がZariski開であり、étale局所に実際のcubic族と比較核があると示す。既存のArtin形式認識と核モジュライの代数性を用いる。全点での存在には境界延長と未被覆成分が残る。
 
-次の優先課題は、明示可換候補に対する曲率付きMFまたは次数付き残余圏の実際の比較核を構成し、c=0とnormの64根を含む全smooth locusで同値を確認することである。c=0のクレパント解消を具体的な入口とし、DVR上では随伴の単位・余単位のconeの有限長が零であることを判定する（grl:prop:trait-kernel-test）。smooth proper性と一般点での存在、あるいは判別式の一致だけから特殊点での同値は従わない。通常の周囲代数のMorita比較は中心の違いが妨げ、形式的なh進比較をh=1へ代入する方法にも代数化の証明が必要である。一般α・より一般の混合型・未被覆intrinsic成分は残る。全対象での被約point/Poisson対応は解決済みの否定的結果とし、孤立点を持たない範囲等に限定した別の問題と区別する。
+次の優先課題は、内部次数と三次周期を保持した実際の比較核を構成し、c=0とnormの64根を含む全smooth locusで同値を確認することである。c=0では根スタックの16直交条件と指標作用を具体的な標的とし、非可換側の対合付きHH±₁を先に検査する。非可換HH₀上の対合は恒等と分かるが、HH±₁のtraceは未決定。対合保存は主予想の追加条件である。実核を得た後のDVR延長には随伴の単位・余単位のconeの有限長判定を使う（grl:prop:trait-kernel-test）。smooth proper性、判別式・通常HH・有理Euler形式の一致だけからKu同値は従わない。通常の周囲代数のMorita比較は中心の違いが妨げ、形式的なh進比較をh=1へ代入する方法にも代数化の証明が必要である。一般α・より一般の混合型・未被覆intrinsic成分は残る。全対象での被約point/Poisson対応は否定的結果とし、孤立点を持たない範囲等に限定した別の問題と区別する。
 
 [普遍六次中心元の厳密検算](computations/verify_mixed_pi_center.py)は、独立な三パラメータを保ったQQ上で、全交換子の関係イデアルへの所属と中心最高部の独立性（小行列式−4/9）を確認する。全次数の中心生成にはSmith–Tateの定理を別に用いる。
 
 [中心の関係式と特異ファイバー](computations/verify_mixed_center_geometry.py)は、次数18までの正確な商計算、二つの21項中心関係、Gröbner消去、全28節点の横断Hessianの非退化、64次終結式の平方因子・normとの最大公約数を再現する。[二次元表現の恒等式](computations/verify_mixed_two_dimensional.py)と[高次作用の検算](computations/verify_mixed_two_dimensional_ext.py)も厳密演算で実行できる。後者の `--universal` は二変数有理関数体で普遍式を検証するため、既定の二つの数体例より時間を要する。`--zero-example` は三次数体上のκ₂=0と、全characterのκ₁≠0・指定中心値にcharacterがないことを検査する。 中心検証器の全14 PASSを確認した。
 
 [可換候補と共通判別式の厳密検算](computations/verify_mixed_commutative_candidate.py)は、QQ上のJacobi環の次元8、Hessianの可逆性、λ²=28/27での特性多項式の一致、独立な終結式と既存P64の全係数一致、normとの互いに素性、c=−44828の唯一のcharacterを確認する。**9 PASS**を二名が独立に実行した。孤立Poisson零点定理やKu同値の機械検証ではない。
+
+[比較不変量の厳密検算](computations/verify_mixed_comparison_invariants.py)は、指定有理係数のJacobian関係行列をQQ上で作り、次数二・三の対合固有次元、residueの符号、同変HHの算術、有理Euler行列を確認する（**9 PASS**）。必要環境はPython 3とSymPy。全領域の相対smoothness、Mathewの適用、根スタック圏模型、非可換MFの完備化比較は本文の証明であり、この有限計算による形式証明ではない。
 
 [characterの自己Extの厳密検算](computations/verify_mixed_character_ext.py)は、普遍higher homotopy、κ公式、既存64点、有理係数のκ=0例を確認する。射影次元は本文のRees・周期性の証明と合わせて結論し、有限次数のrank計算から外挿しない。
 

@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v47。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v48。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 二つの予想を中心とする研究の入口
 
@@ -157,11 +157,39 @@ X_c=V\!\left(\lambda(G_{\alpha^{(1)}}+100G_{\alpha^{(2)}})+cu^3\right)
 
 **未完成なのはKu_coh(A_c)≃Ku(X_c)の実際の比較である。** 判別集合、節点の形式模型、有限Jacobi環の臨界値スペクトルが一致しても、大域残余圏の同値は従わない。余有限可換実現 `cmo:cor:cofinite` が与える何らかの標的を、この明示候補X_cと同定したという結果もまだない。
 
-### c=0のEckardt点、四次二重被覆と比較の障害
+### 全smooth領域の相対模型と比較不変量
+
+`cmo:prop:full-relative-hh` は、U=Spec C[c,P64(c)⁻¹]上で指定c族の有限線束模型・残余模型を相対smooth properにする。固定ambientのKoszul解消、全cでの中心三次の正則性から次数別自由商を作り、有限中心C_R、Z=Proj C_R^(6)、通常のcoherent代数Λ=𝒜^op⊠𝒜と対角加群M=Δ_*𝒜を使う。Λ,Mの底上の平坦性とZ×Zのproper性を確認し、各smooth閉点での対角perfect性を `cmo:prop:proper-perfect-spread` で近傍へ延ばす。これは一般のproper dg族のfiberwise smoothnessからの推論ではなく、下記のEnd(R→^tR)の障害を避ける具体的な構成である。
+
+Mathew, *Kaledin’s degeneration theorem and topological Hochschild homology*, [arXiv:1710.09045v3](https://arxiv.org/abs/1710.09045), Theorem1.3（Geom.Topol.24(2020),2675–2708）をこの実相対族に適用すると、各HH_iはU上の有限射影加群となる。既存の余有限可換実現で階数を求め、Uの連結性から全cでHH₀=C²、HH±₁=C²¹、他次数零を得る。特定候補X_cへの同値を入力にしない。とくに全smooth cで射影Kuは非零である。
+
+`cmo:cor:rational-euler-comparison` は両側のe₄=[pr O(4)], e₅=[pr O(5)]を有理数値Grothendieck群の基底とし、共通Gram行列を[[-27,−189],[−162,−1161]]、det729と決定する。基底(e₄,e₅−7e₄)では27[[-1,0],[1,−1]]である。線束Euler数の多項式と例外射影から行列を直接計算し、HH₀の次元2とShklyarovの[dg HRR](https://arxiv.org/abs/0710.1937v3)、Theorem3.5・§3.2を使って基底性を証明する。積分格子の基底性・同型は未証明。c=0の対合はe₄,e₅を保つので、非可換側でもHH₀と有理Knum上は恒等である。
+
+### c=0のEckardt点、根スタックと実残余模型
 
 `cmo:prop:zero-eckardt-resolution` では、J=(x³+y³+z³+xyz)/3、G=J(x^(1))+100J(x^(2))、L=α^(1)·x^(1)+100α^(2)·x^(2)と置く。X₀=V(G−u²L)はλに依存せずQ上で定義される滑らかな五様体で、p=[0:⋯:0:1]の接超平面はL=0。その接切断は滑らかな三次三様体Y=V(G,L)⊂P⁵を底とするconeである。Z=V(G)は滑らかな分離型三次四様体であり、H=V(L)とYに沿って横断的に交わる。
 
 四次分岐二重被覆S→P⁵をw²=LGで定めると、pからの射影はBl_p(X₀)→S→P⁵と因子化する。第一の射はcrepant resolutionで、SのYに沿う局所型はA₁ surface singularityと滑らかな三次元因子の積、解消の幾何ファイバーはY上でP¹、それ以外で一点となる。局所模型はw²=ab、解消上のcanonical classとSからの引戻しはともに−4q*O_(P⁵)(1)である。この可換側の幾何は、Z・Yおよび二重被覆のClifford/解消模型を非可換側の中心u²と比較する具体的入口を与えるが、A₀のKu比較を完成してはいない。
+
+`cmo:prop:eckardt-smooth-quotient` は、対合ι:u↦−uの商Bl_p(X₀)/μ₂をT=Bl_Y(P⁵)と同定する。狭義変換H′≅P⁴、Z′≅Zは互いに交わらず、分岐線束M=O_T(2h−e)を得る。商スタックℛ=[Bl_p(X₀)/μ₂]はH′⊔Z′の二乗根スタックである。根因子を𝓗,𝓩とすると、指標線束N=O_ℛ(𝓗+𝓩)⊗π*M⁻¹、B=π*O_T(h)⊗O_ℛ(𝓗)が明示され、ω_ℛ=π*O_T(−4h)⊗Nとなる。N²≃Oには被覆由来のcoherenceを指定する。
+
+`cmo:thm:eckardt-root-residual` の16対象はB^r⊗N^εとj_*π_H*O_(P⁴)(s)⊗N^ε（r,s=0,…,3、ε=0,1）である。この順序の例外列の右直交KはKu(X₀)^μ₂に同値で、通常Ku(X₀)はKを−⊗Nで再同変化して回復できる。左mutation核Cone(F_i^∨⊠F_i→O_Δ)を最後の例外対象から順に適用すれば、Kへのperfect射影核になる。非可換A₀からKへの核は未構成。使用する既知入力はOrlov1993 Theorem4.3、Ishii–Ueda2015 Theorem1.6・Proposition6.1、Elagin arXiv:1403.7027v2 Theorem4.2・§8であり、同変Serreの指標と実際の16対象を本候補で具体化した。新規性の網羅的確認は未完了である。
+
+`cmo:prop:zero-involution-hh` は可換候補のHH±₁上の固有次元を(+5,−16)と決定する。Jacobian次数二の(+16,−5)からresidueへ移る際、det(ι)=−1が掛かる点に注意する。固定集合Z⊔{p}のEuler数28からもtrace−11を照合できる。根スタックのSODとorbifold HKRという二つの計算により、Ku(X₀)^μ₂のHHは次数−2,…,2で(1,5,24,5,1)となる。これはHH(Ku(Y))⊕HH(Ku(Z))に一致するが、圏のSODを相殺したりKu(Y),Ku(Z)の埋込みを得たと主張したりしない。
+
+次の検査は非可換側のHH±₁のι指標である。有限線束dg模型Σ₀とそのι作用を保ち、twisted Hochschild複体HH(Σ₀, {}_ιΣ₀)から調べる経路がある。u=1のchartでιは各active変数の符号反転となり、中心Ω_iは符号を変え、六次中心元は不変である。従って中心の固定点集合だけのEuler数を非可換Lefschetz数へ置き換えてはいけない。Azumaya上の内的実装・非Azumaya点の寄与が残る。c≠0ではιはA_cとA_−cを交換するため、通常HHの階数一定性からc=0の指標は得られない。また対合保存は通常の主予想の追加条件である。
+
+### 固定affine MFの比較と次数を忘れる障害
+
+`cmo:lem:isolated-azumaya-mf-completion` は、有限中心・有限大域次元のambient T、正則中心曲率w、唯一の圏的特異点がAzumaya Morse点という仮定の下で、有限射影Z/2-MFの完備化関手が冪等完備後の実Morita同値を与えることを証明する。中心の特異点が唯一であるという仮定ではない。MFのHom cohomologyの有限長性で完備化の完全忠実性を示し、大域simpleの高次syzygyを実際のMFへ持ち上げて、完備化先の剰余体stabilizationを像に入れる。可換局所圏のsplit-generationとClifford模型はDyckerhoff, [arXiv:0904.4713v5](https://arxiv.org/abs/0904.4713v5), Theorems4.1,5.2・§5.5による。非可換orderへの完備化定理の無条件な拡張を引用していない。
+
+`cmo:prop:pointwise-affine-mf-comparison` で、指定された二つのα⁽ⁱ⁾の各一因子(D_α,Ω−s)と(C[x,y,z],λf_α−s)は全固定sで比較される。8個のMorse値ではCl₃、その他は零となり、14中心節点の切断は有限大域次元なので追加のMF成分を生まない。混合族も全固定cで可換候補のaffine MFと同値で、P64根ではCl₆、その他は零。いずれもZ/2圏としての比較であり、通常Z次数のproperな射影Kuとの同一視ではない。
+
+全smooth cでこのaffine圏は零だが射影KuのHH₀は二次元である。特にc=−44828では既存の残余点対象KにExt⁰=C, Ext¹=C¹⁰がある。このためaffine MFを介する関手だけではKu比較を実現できず、内部shift・錐の原点・三次周期、または射影境界との貼合せが必要となる。さらに全空間(D_α[s],Ω−s)の商は有限大域次元のD_αなので全空間の通常MFは零であるが、Morse特殊ファイバーは非零である。各固定値の同値を通常MF族の底変更として無条件に貼り合わせることもできない。
+
+`python3 computations/verify_mixed_comparison_invariants.py`（9 PASS）はJacobian次数二・三、residue符号、同変HHの算術、有理Euler行列をQQ上で再現する。相対圏・核・生成性の証明とは区別する。
+
+### ambient比較と形式的な混合三角性の限界
 
 ambient D_αを通常のdg Morita同値でC[x,y,z]に置き換える経路は使えない。HH⁰は中心環を保つ一方、指定D_αの中心は14通常二重点を持ち、三変数多項式環の中心は正則だからである。これはcurved/MF圏や射影残余圏の比較を排除しない。使用する既知入力はKeller, *Derived invariance of higher structures on the Hochschild complex*, §3.2（2018年5月16日改訂の[著者稿](https://webusers.imj-prg.fr/~bernhard.keller/publ/dih.pdf)）。
 

@@ -3709,6 +3709,173 @@ $\mathbb A^1\setminus V(P_{64})$ が連結であることだけから
 比較核の境界延長である。
 \end{remark}
 
+\subsection{全 smooth locus 上の相対模型と通常の Hochschild 群}
+
+\begin{proposition}[指定混合族の全 smooth locus 上の相対模型と Hochschild homology]
+\label{cmo:prop:full-relative-hh}
+定理\ref{cmo:thm:exact-sixty-four}の指定係数を固定し、
+\[
+ R=\C[c],\qquad R^\circ=\C[c,P_{64}(c)^{-1}],
+ \qquad U=\operatorname{Spec}R^\circ
+\]
+と置く。族
+\[
+ \mathscr B=(\mathcal B_{\alpha^{(1)}}
+       \otimes_{\C[u]}\mathcal B_{\alpha^{(2)}})\otimes_\C R,
+ \qquad
+ \mathscr A=\mathscr B/
+       (\Omega_1+100\Omega_2+cu^3)
+\]
+の有限線束模型と残余模型は、$U$ 上相対 smooth proper である。
+残余模型の閉ファイバーは
+$\operatorname{Ku}_{\mathrm{coh}}(A_c)$ と同値であり、
+全ての $c\in U(\C)$ について
+\[
+ \dim_\C HH_i(\operatorname{Ku}_{\mathrm{coh}}(A_c))
+ =
+ \begin{cases}
+  2,&i=0,\\
+  21,&i=\pm1,\\
+  0,&\text{その他}
+ \end{cases}
+\]
+となる。ここで $HH_i$ は Hochschild \emph{homology} である。
+この結論は明示可換候補への同値を仮定しない。
+\end{proposition}
+
+\begin{proof}
+まず、相対 smoothness に必要な通常の有限中心模型を構成する。
+$\mathscr B$ は固定した ambient 代数の $R$ への底変更なので、
+命題\ref{cmo:prop:proper-contraction}の有限 Koszul 双加群解消、
+augmentation 双対および noetherian 性を持つ。
+中心元 $w_c=\Omega_1+100\Omega_2+cu^3$ は各閉ファイバーで正則である。
+実際、$u=0$ では正則な中心和 $\Omega_0^{(1)}+100\Omega_0^{(2)}$
+となるから、$w_cf=0$ なら $f$ は $u$ で割れる。
+$u$ は ambient 代数上正則であり、固定内部次数でこの議論を繰り返せば $f=0$ となる。
+同じ議論は $R$ 上でも成立する。
+従って各内部次数での $w_c$ の乗法は全閉ファイバーで単射となり、
+有限自由 $R$-加群間の一定階数判定によって
+$\mathscr A_d$ は有限自由である。
+
+命題\ref{cmo:prop:proper-contraction}の証明のうち、
+有限解消、正則中心三次、次数別自由性および相対 Gorenstein 型だけを使う部分を
+この族に適用する。$N=7,n=5,a=4$ とすると
+\[
+ E=\bigoplus_{j=0}^{6}\mathcal O(j)
+\]
+は全 twist を厚生成し、
+\[
+ \operatorname{Ext}^p(\mathcal O(i),\mathcal O(j))
+ =
+ \begin{cases}
+  \mathscr A_{j-i},&p=0,\\
+  (\mathscr A_{i-j-4})^\vee,&p=5,\\
+  0,&\text{その他}
+ \end{cases}
+\]
+である。従って $\Sigma_R=R\operatorname{End}(E)$ は $R$-perfect で、
+局所化および閉ファイバーへの導来底変更と両立する。
+四つの相対例外線束に沿う有限 mutation で得る残余生成対象 $G$
+についても $\Gamma_R=R\operatorname{End}(G)$ は $R$-perfect である。
+この時点では proper な線束模型だけを用い、相対 smoothness はまだ結論しない。
+
+系\ref{cmo:cor:relative-finite-center}により、$\mathscr A$ は
+$u,\Omega_1,\Omega_2$ と各因子の三つの六次中心元の像が生成する
+可換有限型中心部分環 $C_R$ 上有限である。
+$C_R\subset\mathscr A$ は $R$-torsionfree であり、$R$ は PID なので $R$-flat である。
+中心生成元の次数は $1,3,6$ だから $C_R^{(6)}$ は次数一で生成され、
+\[
+ Z=\operatorname{Proj}C_R^{(6)},\qquad
+ \mathcal A=\widetilde{\mathscr A^{(6)}}
+\]
+は $R$ 上 projective な中央スキームと、その上の coherent な有限代数を与える。
+各中央標準開上では対応する次数零局所化が $R$-torsionfree なので、
+$Z$ と $\mathcal A$ はいずれも $R$-flat である。
+中心部分環のファイバーが各 $A_c$ の全中心と一致することは要求しない。
+
+各六次中央元 $f$ を反転した $L=\mathscr A[f^{-1}]$ は強 $\mathbb Z$-次数付きである。
+実際、$\mathscr A$ の次数一生成性から $f$ を長さ六の語の和で書け、
+語の最初または最後の一文字を取り出すと
+$1\in L_1L_{-1}$ および $1\in L_{-1}L_1$ を得る。
+従って全 twist は $\mathcal A$-perfect であり、$E$ は
+$D_{\mathrm{qc}}(Z,\mathcal A)$ の compact generator である。
+生成性には、$E$ が全 twist を厚生成することと、
+中央の ample twist $\mathcal A(m)$ が全準連接導来圏を生成することを用いる。
+この記述は各閉ファイバーでも成立する。
+
+$Y=Z\times_R Z$ とし、
+\[
+ \Lambda=\mathcal A^{\mathrm{op}}\boxtimes_R\mathcal A,
+ \qquad M=\Delta_*\mathcal A,\qquad
+ F=E^\vee\boxtimes_R E
+\]
+と置く。$Y$ は $R$ 上 proper である。
+$\Lambda,M$ は $Y$ 上 coherent で $R$-flat であり、
+全ての $c_0$ について
+\[
+ \Lambda\otimes_R\C_{c_0}
+   =\mathcal A_{c_0}^{\mathrm{op}}\boxtimes_\C\mathcal A_{c_0},
+ \qquad
+ M\otimes_R\C_{c_0}=\Delta_{c_0*}\mathcal A_{c_0}
+\]
+である。ここでは $\mathcal A$ の $R$-flatness により、これらの通常の
+底変更が導来底変更にも一致する。
+$F$ は $D_{\mathrm{qc}}(Y,\Lambda)$ の compact generator となり、
+式\eqref{cmo:eq:kernel-diagonal}と同じ局所有限射影評価および
+\v Cech--K\"unneth 計算が
+\[
+ \begin{aligned}
+ R\operatorname{End}_\Lambda(F)
+ &\simeq\Sigma_R^{\mathrm{op}}\otimes_R^{\mathbf L}\Sigma_R,\\
+ R\operatorname{Hom}_\Lambda(F,M)&\simeq\Sigma_R
+ \end{aligned}
+\]
+を左右作用込みで与える。
+
+任意の $c_0\in U(\C)$ を取る。
+定理\ref{cmo:thm:exact-sixty-four}によって $\Sigma_{c_0}$ は smooth である。
+前の Morita 比較をこのファイバーに適用すると、
+$M_{c_0}$ は $\Lambda_{c_0}$ 上 perfect である。
+そこで底の変数を $c-c_0$ として、
+命題\ref{cmo:prop:proper-perfect-spread}を $\Lambda,M$ に適用する。
+必要な有限性・properness と両者の $R$-flatness は上で確認済みなので、
+$c_0$ の Zariski 開近傍で $M$ は $\Lambda$-perfect となる。
+全ての $c_0\in U(\C)$ についてこの議論を行えば、$U$ はそのような開集合で覆われる。
+$U$ は Jacobson かつ準コンパクトなので、有限部分被覆を取ることができ、
+$M_U$ は大域的に perfect である。
+従って $\Sigma_{R^\circ}$ は相対 smooth proper である。
+有限例外列を除く相対 admissible 成分 $\operatorname{Perf}(\Gamma_{R^\circ})$
+も相対 smooth proper となる。
+閉ファイバーでの coherent 飽和は
+定理\ref{cmo:thm:exact-sixty-four}による。
+
+Mathew の相対退化定理 \cite[Theorem~1.3]{CMOMathewDegeneration}により、
+各 $HH_i(\operatorname{Perf}(\Gamma_{R^\circ})/R^\circ)$ は有限射影 $R^\circ$-加群である。
+Hochschild 複体の導来底変更と、この射影性から通常のファイバーも
+$HH_i(\operatorname{Ku}_{\mathrm{coh}}(A_c))$ に一致する。
+$U$ は連結なので各階数は一定である。
+系\ref{cmo:cor:cofinite}の可換実現 locus は $U$ と交わり、
+そこでの標的は滑らかな三次五様体である。
+その Hodge 数は $h^{p,p}=1$ ($0\le p\le5$) と
+$h^{3,2}=h^{2,3}=21$ で、これら以外は零である。
+通常の HKR と四つの例外対象を除く Hochschild homology の加法性から、
+その Ku の次数零成分は二次元、次数 $\pm1$ は各二十一次元となる。
+階数一定性により同じ公式が $U$ 全体に成立する。
+\end{proof}
+
+\begin{remark}[相対化と対合付き比較の区別]
+上の相対 smoothness は、fiberwise smooth からの一般的な開性を仮定していない。
+通常の coherent な有限中心代数 $\Lambda$ とその対角加群 $M$ を作り、
+両者の底上の flatness と中央台の properness を確認した上で、
+命題\ref{cmo:prop:proper-perfect-spread}を適用した。
+この入力を持たない一般の proper dg 族へ同じ結論を流用しない。
+
+また、$u\mapsto-u$ は $c\ne0$ で $A_c$ と $A_{-c}$ を交換する。
+従って上の通常の Hochschild homology の階数一定性は、
+$c=0$ における対合の固有空間次元を決めない。
+非可換側の対合付き不変量には独立の計算または同変比較が必要である。
+\end{remark}
+
 \subsection{同じ判別集合を持つ明示的な可換三次族}
 
 指定族について、可換 Ku 比較の標的候補を具体的に与える。
@@ -3822,6 +3989,292 @@ $P_{64}(0)\ne0$ および $\gcd(P_{64},N)=1$ は既存の厳密検算による�
 最後の零スキームは命題\ref{cmo:prop:poisson-zero}を適用する。
 \end{proof}
 
+\begin{corollary}[有理数値 Euler 形式と零次 Hochschild 対合]
+\label{cmo:cor:rational-euler-comparison}
+$P_{64}(c)\ne0$ とする。
+$\mathcal K_c=\operatorname{Ku}_{\mathrm{coh}}(A_c)$ と
+$\mathcal K_c^{\mathrm{cl}}=\operatorname{Ku}(X_c)$ のそれぞれで、
+四つの例外線束の右直交への射影を $\operatorname{pr}$ とし、
+\[
+ e_4=[\operatorname{pr}(\mathcal O(4))],\qquad
+ e_5=[\operatorname{pr}(\mathcal O(5))]
+\]
+と置く。この二類は各圏の $K_{\mathrm{num}}\otimes_\mathbb Z\mathbb Q$
+の基底であり、Euler 形式は両側で
+\[
+ (\chi(e_i,e_j))_{i,j=4,5}
+ =
+ \begin{pmatrix}
+  -27&-189\\
+  -162&-1161
+ \end{pmatrix},
+ \qquad \det=729
+\]
+となる。従って $e_i\mapsto e_i^{\mathrm{cl}}$ は有理 Euler 空間の同型を与える。
+基底 $(e_4,e_5-7e_4)$ での行列は
+\[
+ 27\begin{pmatrix}-1&0\\1&-1\end{pmatrix}
+\]
+である。ここでは二類が積分数値格子の基底であるとは主張しない。
+
+$c=0$ では $u\mapsto-u$ は両側の
+$HH_0$ と $K_{\mathrm{num}}\otimes\mathbb Q$ 上で恒等となり、trace は二である。
+非可換側の $HH_{\pm1}$ 上の trace はこの系では決まらない。
+\end{corollary}
+
+\begin{proof}
+両側の線束の Euler 数は、次数別 Hom と Serre 双対から
+\[
+ \chi(\mathcal O(i),\mathcal O(j))
+ =
+ \binom{j-i+6}{6}-\binom{j-i+3}{6}
+\]
+である。負の上添字の二項係数は通常の多項式として解釈する。
+例外列 $\mathcal O,\ldots,\mathcal O(3)$ の Euler 行列に対し
+$\chi(\mathcal O(i),e_j)=0$ ($0\le i\le3$) を解くと、
+$\mathcal O,\ldots,\mathcal O(5)$ に関する二類の列は
+\[
+ P=
+ \begin{pmatrix}
+ 28&196\\
+ -34&-210\\
+ 21&113\\
+ -7&-28\\
+ 1&0\\
+ 0&1
+ \end{pmatrix}
+\]
+となる。六本の線束の Euler 行列を $H$ とすれば、
+$P^{\mathsf T}HP$ が主張した二次行列を与える。
+
+dg Hirzebruch--Riemann--Roch
+\cite[Theorem~3.5 and \S3.2]{CMOShklyarovHRR}によって、
+Euler 形式は $HH_0$ に値を取る Chern character の双線形 pairing を通じて因子化する。
+表示行列が非退化なので $\operatorname{ch}(e_4),\operatorname{ch}(e_5)$ は一次独立である。
+命題\ref{cmo:prop:full-relative-hh}と可換側の HKR によって、
+両側で $\dim HH_0=2$ だから、この二つの character は $HH_0$ の基底となる。
+したがって、二次行列として表示された Hochschild pairing も非退化である。
+
+任意の $x\in K_0\otimes\mathbb Q$ について、
+表示行列の逆行列を用いて一意な $a,b\in\mathbb Q$ を選べば、
+$x-ae_4-be_5$ は $e_4,e_5$ との右側 Euler pairing がともに零となる。
+character の基底性と前段の非退化性から
+$\operatorname{ch}(x-ae_4-be_5)=0$ であり、
+dg HRR によってこの差は全対象と両方向に Euler 直交する。
+よって $e_4,e_5$ は有理数値 Grothendieck 群を生成する。
+行列の非退化性から数値的に独立でもある。
+
+$c=0$ の対合は各 $\mathcal O(j)$ を保ち、その射影とも可換なので、
+$e_4,e_5$ とその character を固定する。
+基底性から最後の主張を得る。
+\end{proof}
+
+\subsection{固定したアファイン曲率の実際の比較とその限界}
+
+ここで $\operatorname{MF}_{\mathrm{pr}}(T,w)$ は、有限生成射影
+$\mathbb Z/2$ 次数付き $T$-加群 $E$ と奇自己準同型 $d$、
+$d^2=w\operatorname{id}$ からなる dg 圏を表す。
+内部次数は忘れ、上付き $\pi$ は pretriangulated hull の冪等完備化を表す。
+以下の比較はこの意味の dg Morita 同値であり、内部 shift、
+指定周期 $(3)\simeq[2]$、または係数方向の比較核を含まない。
+
+\begin{lemma}[孤立した Azumaya 曲率特異点への完備化]
+\label{cmo:lem:isolated-azumaya-mf-completion}
+$T$ は可換有限型 $\mathbb C$-代数 $Z\subset Z(T)$ 上有限な代数であり、
+左右の大域次元は有限とする。$w\in Z$ は $T$ の非零因子とし、
+$\Lambda=T/(w)$ と置く。
+$\mathfrak p\in\operatorname{Spec}Z$ は $w\in\mathfrak p$ を満たす閉点で、
+$\Lambda_{\mathfrak q}$ は $\mathfrak q\ne\mathfrak p$ の各閉点で有限大域次元を持つとする。
+さらに、$\mathfrak p$ における完備化について
+\[
+ (\widehat T_{\mathfrak p},w)
+ \simeq
+ \left(\operatorname{Mat}_r(\mathbb C[[v_1,\ldots,v_n]]),
+             \sum_{j=1}^n v_j^2\right)
+\]
+と仮定する。右辺の曲率はスカラー行列として作用する。
+このとき完備化関手は
+\[
+ \begin{aligned}
+ \operatorname{MF}_{\mathrm{pr}}(T,w)^\pi
+ &\simeq
+ \operatorname{MF}_{\mathrm{pr}}
+   (\mathbb C[[v_1,\ldots,v_n]],\sum_jv_j^2)^\pi\\
+ &\simeq \operatorname{Perf}_{\mathbb Z/2}(\mathrm{Cl}_n)
+ \end{aligned}
+\]
+という dg Morita 同値を与える。
+ここで $\mathrm{Cl}_n$ は、奇生成元 $e_1,\ldots,e_n$ と
+$e_ie_j+e_je_i=-2\delta_{ij}$ を持ち、微分が零の Clifford 超代数である。
+また、全ての $\Lambda_{\mathfrak q}$ が有限大域次元なら
+$\operatorname{MF}_{\mathrm{pr}}(T,w)^\pi=0$ である。
+\end{lemma}
+
+\begin{proof}
+最初に、中央非零因子に対する cokernel の基本事実を確認する。
+行列分解を
+\[
+ P_1\xrightarrow{\phi}P_0\xrightarrow{\psi}P_1,
+ \qquad \phi\psi=w,\quad\psi\phi=w
+\]
+と書く。$\phi,\psi$ は単射であり、法 $w$ で得られる二周期複体と
+その双対は完全である。従って $M=\operatorname{coker}\phi$ は
+$\Lambda$ 上の totally acyclic な射影解消を持つ。
+二つの行列分解の間の $H^0\operatorname{Hom}$ は、対応する cokernel の
+射を射影 $\Lambda$-加群を経由する射で割った stable Hom に等しい。
+実際、cokernel の射は $P_0$ の射影性で持ち上がり、$\phi$ の単射性により
+$P_1$ の射へ延長する。cokernel 上零である射は $\phi$ を経由し、
+奇 homotopy を与える。射影 $\Lambda$-加群を経由する射についても、
+法 $w$ の双対二周期複体の完全性を使うと同じ homotopy を構成できる。
+この議論は中心の局所化および平坦な完備化と両立する。
+特に有限大域次元の局所商上では $M$ は射影となり、その行列分解は零対象である。
+
+二つの有限射影行列分解 $E,F$ に対し、
+$\operatorname{Hom}_{T}(E,F)$ の各 parity の成分は有限 $Z$-加群である。
+従ってその cohomology も有限 $Z$-加群である。
+上の局所観察から、その台は $\{\mathfrak p\}$ に含まれるため有限長である。
+$Z\to\widehat{Z_{\mathfrak p}}$ は平坦であり、有限射影加群間の Hom と
+平坦底変更は可換する。従って完備化は各 Hom 複体の擬同型
+(quasi-isomorphism) を誘導する。
+これは完備化関手の quasi-fully-faithfulness を示す。
+候補点がない場合は同じ議論で全 Hom cohomology が零となる。
+
+本質的全射性を冪等完備後に示す。
+$L$ を $\mathfrak p$ 上の単純 $T$-加群とする。
+完備化が行列環なので、この単純加群は一意で、完備化後の Morita 比較で
+剰余体 $\mathbb C$ に対応する。$L$ は $w$ で消されるため
+$\Lambda$-加群として扱える。
+$d=\operatorname{gldim}T$ とし、$L$ の十分高い $\Lambda$-syzygy を $M$ とする。
+各射影 $\Lambda$-加群の $T$ 上の射影次元は高々一であるから、
+次元移動により、$j\ge2$ に対して
+\[
+ \operatorname{Ext}_T^j(M,N)
+ \simeq \operatorname{Ext}_T^{j+k}(L,N)=0
+\]
+となるよう $k\ge d-1$ を取れる。従って $\operatorname{pd}_T M\le1$ である。
+有限生成射影解消 $0\to P_1\xrightarrow\phi P_0\to M\to0$ を選ぶ。
+$wM=0$ から $w:P_0\to P_0$ は $\phi$ を経由し、
+$\phi\psi=w$ を満たす $\psi:P_0\to P_1$ が存在する。
+$\phi$ の単射性と $w$ の中心性から $\psi\phi=w$ でもある。
+これにより $M$ は大域的な有限射影行列分解の cokernel になる。
+
+その完備化は、剰余体の stabilization の shift に対応する。
+孤立した可換超曲面では剰余体の stabilization が split-generator である
+\cite[Theorems~4.1 and~5.2]{ROGDyckerhoff}。
+従って完備化関手の像は右辺を split-generate し、
+quasi-fully-faithfulness と合わせて冪等完備後の同値を得る。
+最後の Clifford 模型は同論文 Section~5.5 による。
+この証明では、可換スキームについての完備化不変性を
+非可換 order にそのまま適用していない。
+\end{proof}
+
+\begin{remark}[Clifford 模型の具体式]
+$Q=\mathbb C[[v_1,\ldots,v_n]]$、
+$E=Q\otimes\bigwedge^\bullet\mathbb C^n$ と置き、
+外積を $\varepsilon_j$、縮約を $\iota_j$ とすると
+\[
+ d=\sum_jv_j(\varepsilon_j+\iota_j),\qquad d^2=\sum_jv_j^2.
+\]
+奇作用素 $\iota_j-\varepsilon_j$ は $\operatorname{End}(E)$ の cycle であり、
+その反交換子は $-2\delta_{ij}$ となる。
+これらから得る Clifford 代数の包含は擬同型 (quasi-isomorphism) である。
+従って局所比較は、形式的 Morse 座標、行列環 Morita、
+この有限 rank Koszul 行列分解の三つで具体化できる。
+形式的局所行列を大域多項式行列として書いたという主張は含まない。
+\end{remark}
+
+\begin{proposition}[一因子と混合族の非次数付き affine MF 比較]
+\label{cmo:prop:pointwise-affine-mf-comparison}
+指定された二つの $\alpha^{(i)}$ と
+$\lambda^2=28/27$ を用い、
+\[
+ T=D_{\alpha^{(1)}}\otimes D_{\alpha^{(2)}},\quad
+ w_c=\Omega_1+100\Omega_2+c,\quad
+ F_c=\lambda f_{\alpha^{(1)}}+100\lambda f_{\alpha^{(2)}}+c
+\]
+と置く。このとき任意の固定した $s,c\in\mathbb C$ について
+\begin{align*}
+ \operatorname{MF}_{\mathrm{pr}}(D_{\alpha^{(i)}},\Omega_i-s)^\pi
+ &\simeq
+ \operatorname{MF}_{\mathrm{pr}}(\mathbb C[x,y,z],\lambda f_{\alpha^{(i)}}-s)^\pi,\\
+ \operatorname{MF}_{\mathrm{pr}}(T,w_c)^\pi
+ &\simeq
+ \operatorname{MF}_{\mathrm{pr}}(\mathbb C[x_1,y_1,z_1,x_2,y_2,z_2],F_c)^\pi.
+\end{align*}
+一因子の双方は $Q_i(s^2)\ne0$ なら零、$Q_i(s^2)=0$ なら
+$\operatorname{Perf}_{\mathbb Z/2}(\mathrm{Cl}_3)$ と Morita 同値である。
+混合族の双方は $P_{64}(c)\ne0$ なら零、$P_{64}(c)=0$ なら
+$\operatorname{Perf}_{\mathbb Z/2}(\mathrm{Cl}_6)$ と Morita 同値である。
+\end{proposition}
+
+\begin{proof}
+まず完備化補題の ambient に関する仮定を確認する。
+定理\ref{cmo:thm:azumaya-regular}の証明により、各 $D_{\alpha^{(i)}}$ は
+有限型中心上有限、左右 noetherian、三次元 Calabi--Yau で、
+左右の大域次元は三である。二つの長さ三の有限射影双加群解消を
+$\mathbb C$ 上で tensor すると、$T$ の長さ六の有限射影双加群解消を得る。
+従って $T$ の左右の大域次元も有限であり、$T$ は中心の tensor 積上有限なので
+左右 noetherian である。
+例\ref{cmo:ex:sixty-four}の PBW 濾過では
+$\operatorname{gr}D_{\alpha^{(i)}}=S(1,-1,-1)$ であり、
+$\Omega_i-s$ の最高部分はその正則中心元 $\Omega_0$ である。
+従って $\Omega_i-s$ は全 $s$ で非零因子である。
+また $S$ は $\mathbb C[\Omega_0]$ 上自由なので、
+$S\otimes S$ は $\mathbb C[\Omega_0,\Omega'_0]$ 上自由である。
+従って $w_c$ の最高部分 $\Omega_0+100\Omega'_0$ も正則であり、
+$w_c$ は全 $c$ で非零因子である。
+この中心和の正則性の議論は、命題\ref{cmo:prop:rational-singular}の証明と同じである。
+
+一因子では、正則中心の非臨界点での商は正則曲面上の Azumaya 代数である。
+十四個の中心節点でも、既存の非等方切断の計算により、完備商は
+$\mathbb C[[p,q]]\rtimes\mu_2$ と Morita 同値で、有限大域次元を持つ。
+この有限射影次元は忠実平坦完備化から降下する。
+従って圏的特異点は八つの正則中心上の Morse 点だけである。
+臨界値は相異なるので、指定した $s$ に属する圏的特異点は高々一つであり、
+存在するときの ambient 完備化は
+$(\operatorname{Mat}_6(\mathbb C[[v_1,v_2,v_3]]),\sum v_j^2)$ である。
+前補題が適用できる。
+命題\ref{cmo:prop:commutative-critical-spectrum}は、
+可換側の八つの相異なる Morse 臨界値が厳密に同じ集合であることを与える。
+従って可換側にも同じ前補題を適用できる。
+
+混合族では、定理\ref{cmo:thm:exact-sixty-four}の局所的な証明により、
+両因子が同時に上の Morse 点となる点を除き、商は有限大域次元を持つ。
+$P_{64}$ の squarefree 性と次数六十四から、各悪い $c$ では該当点が唯一である。
+そこでは ambient 完備化が三十六次行列環であり、曲率は
+六変数の非退化二次式となる。
+可換側についても定理\ref{cmo:thm:commutative-discriminant-candidate}が
+同じ唯一の Morse 点を与える。再び前補題を両側へ適用する。
+\end{proof}
+
+\begin{remark}[射影残余圏を忘れる具体的な障害]
+\label{cmo:rem:affine-mf-forgets-residual}
+上の同値は実際の固定係数で成立するが、smooth locus では常に
+$0\simeq0$ である。一方、命題\ref{cmo:prop:full-relative-hh}から
+全ての $c\in U$ で射影残余圏の $HH_0$ は二次元なので、その圏は非零である。
+例えば $c=-44828$ は定常 norm の根であり、
+$P_{64}(-44828)\ne0$ なので、その affine MF 圏は零である。
+一方、命題\ref{cmo:prop:projected-point-ext}の残余射影 $K$ は
+\[
+ \operatorname{Ext}^0(K,K)=\mathbb C,
+ \qquad \operatorname{Ext}^1(K,K)=\mathbb C^{10}
+\]
+を持ち、$\operatorname{Ku}_{\mathrm{coh}}(A_{-44828})$ は非零である。
+従ってこの affine MF 圏を介する関手では、その射影残余圏との同値は得られない。
+graded MF の原点と内部 shift、または射影境界との貼合せを保持する
+別の比較が必要である。
+
+各 $s$ の比較を単純に族へ貼り合わせることもできない。
+$D_\alpha[s]$ 上の曲率 $\Omega-s$ の商は $D_\alpha$ 自身なので、
+全空間の通常の有限射影 MF 圏は零である。
+その特異な特殊ファイバーの MF 圏は非零であり、
+全空間の通常の MF 圏からの底変更では生成されない。
+これは相対特異圏などの別の族概念の否定ではなく、
+通常の全空間 MF とファイバーの MF を同一視できないという注意である。
+\end{remark}
+
+\subsection{零係数の Eckardt 点と二重被覆}
+
 $V=\C^6$、$x=(x^{(1)},x^{(2)})$ とし、
 \[
  J(x_1,x_2,x_3)=\frac{x_1^3+x_2^3+x_3^3+x_1x_2x_3}{3},\qquad
@@ -3899,10 +4352,379 @@ $K_S=q_S^*\mathcal O_{\mathbb P^5}(-4)$ を与える。
 従って解消は crepant である。
 \end{proof}
 
-この幾何模型は可換候補側についての結果であり、非可換 $A_0$ の残余圏との
-比較を既に与えるものではない。次の入口は、分離型三次四様体 $Z$、
-その三次三様体切断 $Y$、および四次二重被覆の Clifford/解消模型を
-非可換側の中心 $u^2$ と照合することである。
+\subsection{Eckardt 候補の根スタック模型と同変残余圏}
+\label{cmo:subsec:eckardt-root-model}
+
+この小節では $k=\mathbb C$ とする。
+$G\in H^0(\mathbb P^5,\mathcal O(3))$ と
+$L\in H^0(\mathbb P^5,\mathcal O(1))$ に対して
+\[
+ X=V(G-u^2L)\subset\mathbb P^6,\qquad
+ Z=V(G)\subset\mathbb P^5,\qquad H=V(L),\qquad Y=H\cap Z
+\]
+とおき、$X,Z,Y$ が滑らかであると仮定する。
+特に $H,Z$ は $Y$ に沿って横断する。
+命題\ref{cmo:prop:zero-eckardt-resolution}の明示 $c=0$ 候補は
+これらの仮定を満たす。
+$\iota(x,u)=(x,-u)$、$\Gamma=\langle\iota\rangle\cong\mu_2$ とし、
+$p=[0:\cdots:0:1]$、$b:\widetilde X=\operatorname{Bl}_pX\to X$ とする。
+
+\begin{proposition}[滑らかな商と二つの分離された分岐成分]
+\label{cmo:prop:eckardt-smooth-quotient}
+自然な $\Gamma$ 作用に関する商は
+\[
+ T=\widetilde X/\Gamma\cong\operatorname{Bl}_Y\mathbb P^5
+\]
+である。$q:T\to\mathbb P^5$、$h=q^*\mathcal O_{\mathbb P^5}(1)$、
+$e$ を $q$ の例外因子とする。
+$H,Z$ の狭義変換 $H',Z'$ は交わらず、
+\[
+ H'\cong\mathbb P^4,\qquad Z'\cong Z,\qquad
+ [H']=h-e,\qquad[Z']=3h-e.
+\]
+写像 $f:\widetilde X\to T$ は
+$M=\mathcal O_T(2h-e)$ と
+$s\in H^0(T,M^{\otimes2})$、$\operatorname{div}(s)=H'+Z'$ による
+滑らかな二重被覆
+\[
+ \widetilde X\cong\operatorname{Spec}_T
+ \bigl(\mathcal O_T\oplus M^{-1}\bigr)
+\]
+である。したがって
+\[
+ \mathcal R=[\widetilde X/\Gamma]
+ \cong\sqrt[2]{(T,H'+Z')}
+\]
+となる。
+\end{proposition}
+
+\begin{proof}
+点 $p$ からの射影の解消を
+$\mathbb P_{\mathbb P^5}(\mathcal O(-1)\oplus\mathcal O)$ 内の
+\[
+ t^2G(x)=u^2L(x)
+\]
+と書く。ここで $[tx:u]$ が $X$ 上の点であり、$\Gamma$ は
+$[t:u]\mapsto[t:-u]$ と作用する。
+二乗写像 $[t:u]\mapsto[a:b]=[t^2:u^2]$ による商は
+$\mathbb P_{\mathbb P^5}(\mathcal O(-2)\oplus\mathcal O)$ 内の
+$aG=bL$ である。
+$L,G$ は正則列なので、その Rees 代数の唯一の一次関係はこの式であり、
+これは $\operatorname{Bl}_{(L,G)}\mathbb P^5$ を与える。
+$L=0$ と $G=0$ の狭義変換は、それぞれ $a=0$ と $b=0$ であり、
+互いに交わらない。各中心 $Y$ は $H,Z$ 内の Cartier 因子なので
+その blow-up は元の因子に同型であり、表示した同型と因子類を得る。
+
+四次二重被覆 $w^2=LG$ を $T$ に引き戻すと、右辺は例外因子を
+重複度二で含む。例外因子の局所方程式で $w$ を一回割って正規化すると
+$M=q^*\mathcal O(2)\otimes\mathcal O_T(-e)$ に値を持つ平方根となり、
+残る分岐因子は $H'+Z'$ である。
+たとえば $L=a,G=av$ の chart では $z=w/a$ に対して $z^2=v$ となる。
+これが上の二乗商と一致する。
+分岐因子は滑らかな互いに素な二成分なので被覆は滑らかであり、
+二重被覆の局所商 $[\operatorname{Spec}A[z]/(z^2-s)/\mu_2]$ は
+対応する二乗根スタックである。
+$H'$ と $Z'$ が交わらないため、この単一の根スタックは
+二成分に沿う独立した二乗根を取ったスタックにも自然に同型である。
+実際、$T\setminus H'$ と $T\setminus Z'$ は $T$ を覆い、
+各開集合では一方の根の section が可逆なので、その根スタックは底自身となる。
+共通部分では両 section が可逆であるから、この局所同型は一意に貼り合う。
+\end{proof}
+
+\paragraph{二つの明示線束.}
+$\pi:\mathcal R\to T$ とし、$\mathcal H,\mathcal Z$ を
+$H',Z'$ の被約逆像である根因子とする。
+\[
+ \begin{gathered}
+ 2\mathcal H=\pi^*H',\qquad
+ 2\mathcal Z=\pi^*Z',\\
+ \mathcal N=\mathcal O_{\mathcal R}(\mathcal H+\mathcal Z)
+                   \otimes\pi^*M^{-1},\\
+ \mathcal B=\pi^*\mathcal O_T(h)\otimes
+                   \mathcal O_{\mathcal R}(\mathcal H)
+ \end{gathered}
+\]
+とおく。$\mathcal N^{\otimes2}\cong\mathcal O_{\mathcal R}$ は
+被覆を定義するデータから自明化され、$\mathcal N$ は
+$\Gamma$ の非自明指標 $\chi$ に対応する線束である。
+この自明化を $\varphi$ と書けば、作用の coherence は
+$(-\otimes\mathcal N)^2\xrightarrow{\mathrm{id}\otimes\varphi}\mathrm{id}$
+で指定する。線束について
+$\varphi\otimes\mathrm{id}_{\mathcal N}
+=\mathrm{id}_{\mathcal N}\otimes\varphi$
+が成り立つので群作用の結合条件を満たす。
+同じデータの有限エタール $\mu_2$-torsor
+$\operatorname{Spec}_{\mathcal R}(\mathcal O_{\mathcal R}\oplus\mathcal N)$
+は $\widetilde X\to[\widetilde X/\Gamma]$ そのものである。
+従って以下では、二乗が恒等に同型という性質だけでなく、
+この指定された coherent 作用を用いる。
+忘却後の $\mathcal B$ は $b^*\mathcal O_X(1)$ である。
+実際、点からの射影では
+$b^*\mathcal O_X(1)=\mathcal O_{\widetilde X}(h+E_p)$ で、
+$E_p$ が $\mathcal H$ に対応する。
+線形化の二つの選択は $\mathcal N$ による捩りだけ異なるため、
+以下の両指標を含む集合と生成圏はその選択に依存しない。
+根スタックの標準束公式と blow-up の標準束公式から
+\begin{equation}
+\label{cmo:eq:root-canonical-sign}
+ \omega_{\mathcal R}
+ =\pi^*\mathcal O_T(-6h+e)
+      \otimes\mathcal O_{\mathcal R}(\mathcal H+\mathcal Z)
+ =\pi^*\mathcal O_T(-4h)\otimes\mathcal N.
+\end{equation}
+最後の指標線束を落とすと同変 Serre 関手を誤る。
+
+\begin{theorem}[十六個の明示例外対象による実残余模型]
+\label{cmo:thm:eckardt-root-residual}
+$j:\mathcal H\hookrightarrow\mathcal R$ と
+$\pi_H:\mathcal H\to H'\cong\mathbb P^4$ を自然な射とする。
+次の十六個の対象を、表示したブロック順、各ブロック内では指数の昇順に並べる：
+\[
+ \begin{gathered}
+ \mathcal L_{r,\epsilon}=\mathcal B^{\otimes r}\otimes\mathcal N^\epsilon,
+ \\
+ \mathcal E_{s,\epsilon}=
+ j_*\pi_H^*\mathcal O_{\mathbb P^4}(s)\otimes\mathcal N^\epsilon,
+ \\ 0\le r,s\le3,\quad\epsilon=0,1.
+ \end{gathered}
+\]
+各同じ指数における二つの指標の順序は任意である。
+これらは例外列であり、
+\begin{equation}
+\label{cmo:eq:eckardt-sixteen-sod}
+ D^b(\mathcal R)=
+ \left\langle
+ \mathcal K,\,
+ (\mathcal L_{r,\epsilon})_{r,\epsilon},\,
+ (\mathcal E_{s,\epsilon})_{s,\epsilon}
+ \right\rangle,
+ \qquad
+ \mathcal K\simeq\operatorname{Ku}(X)^\Gamma.
+\end{equation}
+特に $\mathcal K$ は十六個の表示された対象の右直交であり、
+$\mathcal N$ による tensor 作用に保たれる。
+指定した $\mathcal N^{\otimes2}\cong\mathcal O$ を coherence とする作用について
+\begin{equation}
+\label{cmo:eq:eckardt-deequivariantization}
+ \operatorname{Ku}(X)\simeq\mathcal K^{\langle-\otimes\mathcal N\rangle}
+\end{equation}
+が成り立つ。これらは自然な dg enhancement に両立する。
+\end{theorem}
+
+\begin{proof}
+Orlov の blow-up 公式\cite[Theorem~4.3]{CMOOrlovBlowup}を
+$p\subset X$ に適用すると、$\operatorname{codim}_Xp=5$ なので
+四つの点の成分を得る。
+全ての対応、包含、射影および法束には自然な $\Gamma$ 線形化があり、
+通常の fully faithful 関手と射影の構成は同変である。
+有限群の不変部分を取ることは $\mathbb C$ 上で完全なので、
+その Hom 比較と生成の証明は同変圏にも適用できる。
+さらに $p$ での接空間作用は $-\mathrm{id}$ であり、
+$\mathbb P(T_pX)=\mathbb P^4$ 上の作用は自明である。
+したがって
+\[
+ D^b(\mathcal R)=\left\langle
+ \bigl(j_*\pi_H^*\mathcal O_{\mathbb P^4}(-a)
+            \otimes\mathcal N^\epsilon\bigr)_{{a=4,3,2,1}\atop{\epsilon=0,1}},
+ b^*D^b(X)^\Gamma
+ \right\rangle.
+\]
+法束の自然な線形化による指標のずれは、各 $a$ で両方の指標を
+含むためこの表示に影響しない。
+
+三次五様体の
+$D^b(X)=\langle\operatorname{Ku}(X),\mathcal O_X,
+\mathcal O_X(1),\mathcal O_X(2),\mathcal O_X(3)\rangle$
+は $\Gamma$ 不変であり、同変化すると各線束に二つの指標が現れる。
+この分解を代入して、上の先頭八対象を Serre 逆関手で最後に移す。
+式\eqref{cmo:eq:root-canonical-sign}により
+\[
+ S_{\mathcal R}^{-1}(-)=(-)\otimes\pi^*\mathcal O_T(4h)
+                         \otimes\mathcal N[-5].
+\]
+$h|_{H'}=\mathcal O_{\mathbb P^4}(1)$ なので、先頭の
+$-4,-3,-2,-1$ は $0,1,2,3$ となる。
+共通シフトを生成圏から除き、二つの指標を入れ替えることで
+式\eqref{cmo:eq:eckardt-sixteen-sod}を得る。
+
+$-\otimes\mathcal N$ は表示された十六個の対象の集合を保つので
+$\mathcal K$ を保つ。
+商スタックの同定の下でこの作用は $\Gamma$ の指標作用そのものである。
+$\operatorname{Ku}(X)$ は冪等完備な $\mathbb C$ 線型圏であり、
+$\Gamma$ は有限可換群なので、Elagin の二重同変化
+\cite[Theorem~4.2, Section~8]{MEDElagin}から
+式\eqref{cmo:eq:eckardt-deequivariantization}が従う。
+幾何学的作用、有限群の平均化、射影および tensor の全てを
+自然な enhancement 上で行えるため、ここでは単なる加法圏の同値に留まらない。
+\end{proof}
+
+\paragraph{残余への明示射影核.}
+十六対象を式\eqref{cmo:eq:eckardt-sixteen-sod}の順に
+$F_1,\ldots,F_{16}$ と書く。
+各左 mutation は $\mathcal R\times\mathcal R$ 上の perfect 核
+\[
+ P_i=\operatorname{Cone}
+ \left(F_i^\vee\boxtimes F_i\longrightarrow\mathcal O_\Delta\right)
+\]
+で与えられる。従って、対応する関手の合成
+$\mathbb L_{F_1}\circ\cdots\circ\mathbb L_{F_{16}}$
+（右端を先に適用する）は、$\mathcal K$ を像とする射影である。
+その畳込み核は $\mathcal K$ 上で恒等となる。
+これは可換標的側の実際の射影核であり、
+非可換側から $\mathcal K$ への比較核をまだ与えない。
+
+\begin{corollary}[同変 Hochschild 群]
+\label{cmo:cor:eckardt-equivariant-hh}
+次数付き複素ベクトル空間として、非標準的な同型
+\[
+ HH_*(\operatorname{Ku}(X)^\Gamma)
+ \cong HH_*(\operatorname{Ku}(Z))\oplus
+         HH_*(\operatorname{Ku}(Y))
+\]
+が存在する。具体的な次元は
+\[
+ \dim HH_i(\operatorname{Ku}(X)^\Gamma)=
+ \begin{cases}
+ 24&i=0,\\
+ 5&i=\pm1,\\
+ 1&i=\pm2,\\
+ 0&\text{その他}.
+ \end{cases}
+\]
+\end{corollary}
+
+\begin{proof}
+Ishii--Ueda の根スタック分解
+\cite[Theorem~1.6]{CMOIshiiUedaRoot}を $H'\sqcup Z'$ に適用し、
+さらに $T=\operatorname{Bl}_Y\mathbb P^5$ の余次元二の blow-up
+分解を用いる。これは、順序と埋込みを省略した加法的不変量について
+\[
+ HH_*(\mathcal R)\cong
+ HH_*(\mathbb P^4)\oplus HH_*(Z)\oplus
+ HH_*(Y)\oplus HH_*(\mathbb P^5)
+\]
+を与える。
+三次四様体 $Z$ と三次三様体 $Y$ の標準残余分解はそれぞれ
+三個と二個の例外線束を含むため、右辺の次数零の例外部分は
+$5+3+2+6=16$ 次元である。
+定理\ref{cmo:thm:eckardt-root-residual}の十六例外対象と比較し、
+有限次元の次数付きベクトル空間で同次数の直和因子を相殺すれば最初の式を得る。
+HKR と滑らかな三次超曲面の Hodge 数から
+\[
+ \begin{array}{c|ccc}
+ &HH_0&HH_{\pm1}&HH_{\pm2}\\\hline
+ \operatorname{Ku}(Z)&22&0&1\\
+ \operatorname{Ku}(Y)&2&5&0
+ \end{array}
+\]
+であり、次元表を得る。
+\end{proof}
+
+\begin{proposition}[零係数の明示可換候補における対合指標]
+\label{cmo:prop:zero-involution-hh}
+命題\ref{cmo:prop:zero-eckardt-resolution}の記法を用い、
+$X_0=V(G-u^2L)\subset\mathbb P^6$、
+$Z=V(G)\subset\mathbb P^5$、$Y=V(G,L)\subset\mathbb P^5$ とする。
+$\iota(x,u)=(x,-u)$ と置くと
+\[
+ \operatorname{Fix}(\iota)=Z\sqcup\{p\}.
+\]
+$\iota$ は $\operatorname{Ku}(X_0)$ を保ち、
+その Hochschild homology 上の固有空間次元は
+\[
+\begin{array}{c|rr}
+ i&\dim HH_i^+&\dim HH_i^-\\ \hline
+ -1&5&16\\
+ 0&2&0\\
+ 1&5&16
+\end{array}
+\]
+である。これら以外の次数は零である。
+\end{proposition}
+
+\begin{proof}
+$\mathbb P^6$ の二つの固有部分空間は $u=0$ と一点 $p$ であり、
+$X_0$ との交わりは $Z$ と $p$ である。
+命題\ref{cmo:prop:zero-eckardt-resolution}により $X_0,Z,Y$ は滑らかである。
+
+$F=G-u^2L$ とし、その七変数 Jacobian 環を $J_F$ とする。
+$\operatorname{Sym}^2(\C^6\oplus\C_{\mathrm{sgn}})$ の
+$\pm$ 固有次元は $(22,6)$ である。
+六つの $x$ 微分は偶、$u$ 微分は奇であり、
+滑らかさにより七つの二次偏微分は一次独立である。
+従って $(J_F)_2$ の固有次元は $(16,5)$ となる。
+Griffiths の residue 同型
+\cite[Chapter~1, Theorem~4.21]{CMOHuybrechtsCubics}
+は $H^{3,2}(X_0)$ を $(J_F)_2$ から与えるが、
+その作用には ambient volume form の determinant character が掛かる。
+ここでは $F$ は不変で $\det(\iota)=-1$ なので、
+$H^{3,2}$ の固有次元は $(5,16)$ である。
+実際、斉次座標 $z_0,\ldots,z_6$ の体積形式
+$\sum_j(-1)^jz_j\,dz_0\wedge\cdots\wedge\widehat{dz_j}\wedge\cdots\wedge dz_6$
+は線型変換の determinant で変換する。
+これが $F$ の冪を分母とする residue 表示の符号を与える。
+複素共役により $H^{2,3}$ も同じである。
+対角 Hodge 成分は全て超平面類の冪であり、$\iota$ は恒等に作用する。
+通常の HKR と $\iota$ に不変な四つの例外線束に対する加法性から、
+最初の表を得る。
+独立の符号確認として、固定集合の Euler 数は
+$\chi(Z)+1=27+1=28$ である。
+Lefschetz 数の式
+$6-\operatorname{Tr}(\iota\mid H^5)=28$ も
+$\operatorname{Tr}(\iota\mid H^{3,2})=-11$ と整合する。
+
+orbifold HKR \cite[Corollary~1.17(2)]{CMOOrbifoldHKR}により
+\[
+ HH_*([X_0/\mu_2])
+ \simeq HH_*(X_0)^{\mu_2}\oplus HH_*(Z)\oplus HH_*(p).
+\]
+Hochschild homology のこの公式には age shift は入らない。
+右辺の次数零次元は $6+25+1=32$、
+次数 $\pm1$ は各五、次数 $\pm2$ は各一である。
+四つの例外線束は自然に $\mu_2$-linearize できる。
+同変化後は各線束から $\operatorname{Rep}(\mu_2)$ が現れ、
+二つの指標によって合計八つの例外対象を得る。
+同変射影は有限群の平均化と元の射影で構成されるので、
+通常の半直交分解を同変化できる。
+従って次数零から八を引くと、
+系\ref{cmo:cor:eckardt-equivariant-hh}の根スタックによる計算を独立に再現する。
+
+\end{proof}
+
+\begin{remark}[Jacobian 指標の有限検算と比較への制約]
+滑らかな $F$ の七つの二次偏微分は正則列なので、
+同変 Hilbert 級数は
+\[
+ \sum_{d\ge0}\operatorname{Tr}(\iota\mid(J_F)_d)t^d
+ =
+ \frac{(1-t^2)^6(1+t^2)}{(1-t)^6(1+t)}
+ =(1+t)^5(1+t^2).
+\]
+次数 $0,\ldots,7$ の trace は
+$(1,5,11,15,15,11,5,1)$ である。
+特に $(J_F)_3$ の固有次元は $(25,10)$ となる。
+この次数三計算は $H^1(X_0,T_{X_0})$ の対合付き変形接空間も計算する。
+
+
+\texttt{computations/verify\_mixed\_comparison\_invariants.py} は指定した有理係数 $3F$ に対し、
+次数二・三の Jacobian 関係行列を $\mathbb Q$ 上で構成して
+固有部分の階数を計算し、上の指標と同変 Hochschild homology の算術を検算する。
+通常または同変 Hochschild homology の一致から、
+圏の同値や半直交分解の相殺を結論しない。
+また主予想は対合を標識しないため、特定の $\iota$ の相違が見つかっても、
+それだけで主予想への反例となるわけではない。
+\end{remark}
+
+\paragraph{結論の範囲.}
+この計算では $\operatorname{Ku}(Y)$ と $\operatorname{Ku}(Z)$ が
+$\operatorname{Ku}(X)^\Gamma$ の半直交成分となることを主張しない。
+二つの異なる分解に現れる例外対象の個数の一致から、残る圏の同値や
+半直交分解は一般には導けない。
+また、同変 Hochschild 群の一致は、非可換 $A_0$ との
+$\Gamma$ 同変比較核の必要条件に過ぎない。
+通常の主予想自体は、$u\mapsto-u$ の作用を保存する同値までは要求しない。
+上の根スタック模型、線束 $\mathcal N$ と十六対象は比較核の具体的な標的と
+検証条件を与えるが、その非可換比較核の構成は未完了である。
 
 \begin{remark}[比較の残る入力]
 同じ判別集合、臨界値、完備局所節点を持つことだけでは、

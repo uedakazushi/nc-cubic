@@ -77,7 +77,7 @@
 \title{非可換三次 $n$-fold の可換復元とモジュライ\\
 \large Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 \author{}
-\date{2026年11月22日・研究稿 v47}
+\date{2026年11月22日・研究稿 v48}
 \hypersetup{pdftitle={非可換三次 n-fold の可換復元とモジュライ},
 pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}}
 \begin{document}
@@ -123,12 +123,20 @@ categorical Torelli により、主予想を満たすが第二予想の全スキ
 六十四点だけであると証明する。その集合は明示した四次多項式の終結式で定義される。
 そこで全 coherent Ku は非 proper であり、それ以外では全 coherent 圏が smooth proper である。
 従って零係数と定常ノルムの全六十四根も smooth proper locus に属する。
+この全領域上に相対 smooth proper な残余模型を構成し、
+全係数で Hochschild homology の次元が $HH_0$ で二、$HH_{\pm1}$ で各二十一、
+その他で零となることと、可換三次五様体との有理数値 Euler 形式の一致を示す。
 定常ノルムの各根では点スキームは二つの楕円曲線と一つの被約孤立点の非交和である。
 その一例は $c=-44828$ である。
 さらに尺度 $\lambda^2=28/27$ を持つ明示的な可換三次族について、
 Jacobi 環上の乗法作用の特性多項式を計算し、同じ六十四次判別式を得る。
 零係数の可換候補には Eckardt 点があり、その点の blow-up を、
 超平面と滑らかな三次四様体に分岐する二重被覆のクレパント解消として記述する。
+その対合の商は分岐成分の交叉に沿う $\mathbb P^5$ の blow-up であり、
+対応する根スタック上の十六個の明示例外対象の右直交が対合付き Ku に同値となる。
+指標線束による再同変化で通常の Ku を回復し、残余への射影核も与える。
+また、非次数付き affine MF 圏は全ての固定係数で可換候補と比較できるが、
+smooth locus では双方が零となるため、射影残余圏の比較には次数情報が不可欠である。
 一方、定常ノルムの六十四点は全て線束 perfect で、残余射影の自己 Ext は
 零次が一次元、一次が十次元、他の次数は零である。
 全二次元単純加群を分類し、剛的な部分の中心方程式の高次作用に普遍式を与える。
@@ -418,7 +426,27 @@ $\operatorname{End}_R(R^{\oplus a}\oplus I^{\oplus b})$ と決定する。
 尺度 $\lambda^2=28/27$ の明示的な可換三次五様体族が同じ判別式を持つ。
 命題\ref{cmo:prop:zero-eckardt-resolution}はその零係数での
 Eckardt 点とクレパント解消を与える。
-これらは可換候補の幾何であり、その候補との Ku 比較核は構成していない。
+定理\ref{cmo:thm:eckardt-root-residual}は、さらに対合の商を
+分岐交叉の blow-up 上の根スタックと同定し、十六例外対象の右直交による
+対合付き Ku の実模型と、その射影核を与える。
+用いる blow-up 分解\cite[Theorem~4.3]{CMOOrlovBlowup}、
+根スタック分解\cite[Theorem~1.6]{CMOIshiiUedaRoot}と
+二重同変化\cite[Theorem~4.2]{MEDElagin}は既知の定理である。
+本稿ではこの候補の商、例外対象、指標線束と同変 Serre 関手を具体化して適用する。
+Hochschild 群を二つの低次元三次のものへ分解する式から、圏の半直交分解は推論しない。
+命題\ref{cmo:prop:full-relative-hh}は、有限中心上の平坦な対角を使って
+全 smooth locus 上の相対 smooth proper 性を証明した上で、
+Mathew の相対退化定理\cite[Theorem~1.3]{CMOMathewDegeneration}を適用する。
+これにより通常の Hochschild 群が全係数で一致し、
+dg Riemann--Roch\cite[Theorem~3.5]{CMOShklyarovHRR}によって
+系\ref{cmo:cor:rational-euler-comparison}の有理 Euler 形式も比較できる。
+命題\ref{cmo:prop:pointwise-affine-mf-comparison}は有限長 Hom と大域単純加群の
+stabilization から非可換 order の完備化比較を証明し、
+可換局所圏には Dyckerhoff\cite[Theorems~4.1, 5.2, Section~5.5]{ROGDyckerhoff}
+の剰余体生成と Clifford 模型を使う。
+これは内部次数を忘れた固定曲率の比較であり、smooth locus では零圏同士の同値となる。
+以上は非可換側から明示可換候補への次数付き Ku 比較核をまだ与えない。
+これらの具体的適用の文献上の新規性は未確認である。
 一方、定理\ref{ppz:thm:isolated-zero-dimension}と
 系\ref{ppz:cor:reduced-point-poisson-counterexample}により、
 指定混合族の定常ノルムの全六十四根では被約 point/Poisson 対応が否定される。
@@ -2246,7 +2274,12 @@ norm と交わらない六十四係数で全 coherent Ku の非 proper 性が確
 次はこの既知の smooth locus 全体で可換 Ku 比較を構成する。
 具体的な比較先として、定理\ref{cmo:thm:commutative-discriminant-candidate}の
 可換三次族と、零係数での命題\ref{cmo:prop:zero-eckardt-resolution}の模型を使う。
-まず曲率付き MF または次数付き残余圏の実際の核を構成し、
+零係数では定理\ref{cmo:thm:eckardt-root-residual}の根スタック上の十六直交条件と
+指定された指標作用を比較核の標的として使える。
+通常の Hochschild 群と有理 Euler 形式は全 smooth 係数で一致するが、
+それだけで比較核は得られない。
+非次数付き affine MF 比較は同領域で零となるため、
+原点・内部 shift・三次周期を保持した MF または射影残余圏の実際の核を構成し、
 一般点での同値をこの具体的候補について確認する必要がある。
 その後、命題\ref{grl:prop:trait-kernel-test}の単位・余単位の
 有限長判定を使って各 DVR への延長を調べる。
