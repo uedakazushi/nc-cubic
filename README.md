@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月21日 / v33。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月21日 / v34。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 完備MF移送、一般中心三次変形の可換復元、良い一ブロックのO-markedモジュライ、満支持複数ブロック型の全O局所型モジュライ・余法加群による幾何点認識・点曲線による同変一般点復元、残余Poisson射、Kuznetsov成分の比較と降下障害を扱う。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
 
@@ -47,20 +47,19 @@
 
 ## 満支持複数ブロック型の到達点と次の目標
 
-**全O同値を射とする満支持局所型の、滑らかな既約DM stackを非空開上に構成した。次元は全 `k≥2` で `2k`。** `B=⊗S_i`, `A=B/(Σa_iΩ_i)`、`m=0`、全中心係数非零の楕円開での結果である。各因子の `jp_i≠0 (1≤j≤3k−3)`、相異なる `j_i≠0,1728` を基本とし、根の分類にはさらに `6p_i≠0` を課す。一般底では表示gerbeとSerreの基底直線を保持する。全満支持境界や任意の抽象圏変形を覆うとは主張しない。
+**全 `k≥2,m=0` の満支持楕円型で、全O自己同値群を `K_k=(H_27^k)/Δμ_3` と決定した。位数は `3^(3k−1)`、二ブロックでは正確に243である。** `B=⊗S_i`, `A=B/(Σa_iΩ_i)`、全中心係数非零、`p_i,2p_i,3p_i≠0`、相異なる`j_i≠0,1728`を基本とする。全O同値の認識にはさらに`jp_i≠0 (1≤j≤3k−3)`を課す。無限位数や全自己同値群の有限性を事前には仮定しない。
 
-- [第三Veroneseと全O同値](papers/sections/multiblock_veronese.tex)：`Eq_O=Isom_gr(A^(3),A'^(3))/G_m`。二ブロックでは55生成元・2619二次関係。前提となる[相対双対・飽和・Serre](papers/sections/multiblock_serre.tex)も保持する。
-- [中心商・余法加群・幾何点の剛性](papers/sections/multiblock_intrinsic_quotients.tex)：`D=C/(Z(C)_1)`の純成分商と余法加群から各`(E_i,L_i,σ_i)`を復元。可換tensor表示の幾何点では、全O同値類とgraded同型類が一致する。各同値関手のgraded持上げや、任意非被約底上の点関手の同定とは区別する。
-- [一般の全O局所型モジュライ](papers/sections/multiblock_generic_moduli.tex)：滑らかな可換三次への支配的特殊化で全自己同値群の一般有限性を証明。関係Grassmann多様体の像を縮め、一つのfppf被覆から全次数平坦性を降ろして`M_k°=[Z°/PGL(A_3)]`を構成する。全O慣性の具体的群構造は未決定。
-- [自己同値と根の共役](papers/sections/multiblock_veronese_automorphisms.tex)：`K_k=(H_27^k)/Δμ_3`は全O自己同値群に忠実に入り、全shift対象、同値に順序対`(O(1),O(2))`の安定化子となる。[代数的twist](papers/sections/multiblock_roots.tex)の二・三ブロック83・785類は、全自己同値群の中でも融合しない。全ての第三根の分類ではない。二ブロックの有限自己同値開では中心還元核は高々μ2。
-- [同変一般点復元](papers/sections/multiblock_equivariant_descent.tex)と[実際の点曲線による模型](papers/sections/multiblock_point_comparison.tex)：明示的Jacobian tensor一変数族・PBW自由性・既存cft/gdrの下で、`J_i=g_i+ε_i² det Hess(g_i)/24`の分離和をK上の復元模型に取る。二ブロックでは有限拡大後に`(K_A^coh)^(μ3)≃Db(E_1×E_2)`、ここでE_iは入力の点曲線である。通常のKu自体、特殊点を含む相対比較、全O降下は含めない。
-- [有限群の指標・表現検算](computations/verify_veronese_representation.py)：二ブロックの55次元表現、中心固有空間19・18・18、ambient線型normalizerの有限商を厳密演算で確認。[既存の共役類検算](computations/verify_multiblock_twists.py)も保持する。ambientの線型normalizerを実際の代数自己同型群とはしない。
+- [中心商・余法加群](papers/sections/multiblock_intrinsic_quotients.tex)から各`(E_i,L_i,σ_i)`を回復し、[飽和冪による全自己同型の認識](papers/sections/multiblock_center_automorphisms.tex)で中心商の全多重次数を復元する。`Aut_gr(D)=(∏Aut_gr(T_i))/Δμ_3`を得る。
+- [中心方向の持上げ剛性](papers/sections/multiblock_central_rigidity.tex)は負次数Hom・Ext消滅と正次数の安定性を使う。中心還元核は全`k≥2`で自明。次数一軌道の復元を[SSS認識](papers/sections/multiblock_veronese_automorphisms.tex)へ接続して全群K_kを得る。
+- [相対認識](papers/sections/multiblock_relative_recognition.tex)により、適切な非空開で表示stackと全O局所型stackが同型になる。この開では、任意の非被約底を含む族に対して`Eq_O=Isom_gr(A,A')/G_m`。全慣性の中心は順序付き被覆上で`(μ_3^k)/Δμ_3`、順序を忘れる際は因子置換で降下する。
+- [一般の全O局所型モジュライ](papers/sections/multiblock_generic_moduli.tex)は滑らか・既約・DM・次元`2k`。[相対双対](papers/sections/multiblock_serre.tex)と[第三Veronese認識](papers/sections/multiblock_veronese.tex)を基礎に、支配的可換特殊化と関係Grassmann像の独立な構成を保持する。二ブロックの第三Veroneseは55生成元・2619二次関係。
+- `s=(1)`に対し`rO≃O(1)`を満たす根は一意に`r=sΦ_h`と書け、二ブロックでは243個の自然同型類・83共役類となる。一般の共役類数は`(11^k+2·8^k)/3`。この分類に`6p_i≠0`は不要だが、[代数的Zhang twist表示の直接分類](papers/sections/multiblock_roots.tex)ではこの追加条件を使う。三乗同型・coherenceの標識や、Oの像を指定しない全根の分類は含めない。
+- [同変一般点復元](papers/sections/multiblock_equivariant_descent.tex)と[点曲線による模型](papers/sections/multiblock_point_comparison.tex)では、明示的Jacobian tensor/PBW族と既存cft/gdrの下で`J_i=g_i+ε_i² det Hess(g_i)/24`の分離和を復元する。二ブロックでは有限拡大後に`(K_A^coh)^(μ3)≃Db(E_1×E_2)`。残余enhancement・rotation・指定周期・比較核の全O降下は別に残る。
+- [有限群の指標・表現検算](computations/verify_veronese_representation.py)と[共役類検算](computations/verify_multiblock_twists.py)を保持する。55次元表現の中心固有空間19・18・18、ambient線型normalizerの計算と、今回の紙上の全代数自己同型群の証明を区別する。
 
-基礎となる[点対応](papers/sections/two_block_points.tex)、[中心と自己同型](papers/sections/two_block_algebra.tex)、[表示stack](papers/sections/multiblock_presentations.tex)、[完備比較](papers/sections/two_block_recovery.tex)の証明も保持する。表示慣性243と全O慣性は区別する。Zhang twistのVeronese積が元に戻ることは、ブロックスカラーがそのVeroneseに自明に作用することを意味しない。
+基礎となる[点対応](papers/sections/two_block_points.tex)、[中心と自己同型](papers/sections/two_block_algebra.tex)、[表示stack](papers/sections/multiblock_presentations.tex)、[完備比較](papers/sections/two_block_recovery.tex)も保持する。任意の抽象圏変形や全境界を覆う主張ではない。表示gerbeとSerreの基底直線も保持する。
 
-**次のP0**は全O自己同値群の具体的同定と全第三根、一般開の境界と相対的な余法加群復元、G作用・比較核・残余Poisson射の全O降下である。二ブロックでは中心一次変形類の非消滅、またはO(1),O(2)の持上げ剛性が、残る中心還元核μ2を除く候補となる。`m=1`への拡張と既存一ブロックの周期算術も保持する。
-
-仮定・証明・未解決点は[研究方針](00_research_plan.md)、実行範囲は[検証範囲](notes/validation.md)を参照。新規性の網羅的確認・外部査読・形式証明は未実施。
+**次のP0**は、内在的な中心群の作用とrotation・比較核のcoherenceを接続する全O降下、Oの像を指定しない全第三根、一般開の境界、`m=1`への拡張である。一次中心変形類の非消滅は全群の同定の入力には不要で、二ブロックでは逆に`κ_C≠0`を系として証明した。仮定・証明・未解決点は[研究方針](00_research_plan.md)、実行範囲は[検証範囲](notes/validation.md)を参照。新規性の網羅的確認・外部査読・形式証明は未実施。
 
 **一般次元の O-marked moduli、point scheme、Poisson 多様体のモジュライへの射、Kuznetsov 成分の比較**を中心に進める。各既約成分の general / very general な対象を優先し、次元に一様な定理と族の構成を目指す。general な稠密開と very general な点集合、一ブロックの表示成分と全モジュライの成分は区別する。
 

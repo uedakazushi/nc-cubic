@@ -1,0 +1,241 @@
+% !TEX root = ../nc-cubic.tex
+\section{表示スタックと全構造対象スタックの一般相対認識}
+\label{mbrr:sec:relative-recognition}
+
+幾何点の対象剛性と自己同型群の一致だけでは、非被約底上の同型層の一致は従わない。
+本節では、定理\ref{mbg:thm:generic-stack}の関係 Grassmann 模型を用いて、
+表示を忘れる射がさらに非空開上で有限 \'etale となることを先に示す。
+その後で幾何点の慣性の一致を用いる。
+この順序により、全ての非被約底へ余法線の認識を直接拡張することなく、
+一般開上の相対認識を得る。
+
+以下では定理\ref{mbg:thm:generic-stack}の
+$\mathcal X^\circ$, $Z^\circ$, $H=\PGL_m$ を固定し、
+\[
+ \mathfrak P^\circ=[\mathcal X^\circ/G_k],
+ \qquad
+ \mathfrak M^\circ=[Z^\circ/H]
+\]
+と書く。ここで $\mathfrak P^\circ$ は
+定理\ref{mbs:thm:presentation-stack}の表示スタックの対応する開部分である。
+第三 Veronese と tails を取る操作は自然な射
+\begin{equation}\label{mbrr:eq:forgetful}
+ \nu:\mathfrak P^\circ\longrightarrow\mathfrak M^\circ
+\end{equation}
+を定める。両者の対象は射影的な表示の降下を含み、
+大域的な実次数付き代数を持つとは限らない。
+
+\subsection{射影的な枠による相対ファイバー}
+
+\begin{lemma}[表示を忘れる射の忠実性]
+\label{mbrr:lem:faithful}
+射\eqref{mbrr:eq:forgetful}は任意の試験基底上で射に忠実であり、
+代数空間によって表現可能である。
+\end{lemma}
+\begin{proof}
+次数付き自己同型 $\alpha$ の構造移送が、構造対象の同定を保って
+恒等関手と自然同型になる場合を調べればよい。
+fpqc 局所で実際の次数付き代数 $A$ と $\alpha$ を選ぶ。
+各 $\OO(j)$ は $\alpha$ の構造移送で保たれる。
+系\ref{mbsd:cor:saturation}は任意底変更後にも
+\[
+ \End(\OO(j))=\OO_T,\qquad
+ \Hom(\OO(j),\OO(j+1))=A_1
+\]
+を与える。従って選んだ自然同型の各成分は単元 $b_j$ であり、
+隣接 Hom 上の自然性から
+$\alpha_1=(b_{j+1}/b_j)\operatorname{id}$ となる。
+$A_1$ は正の階数の有限局所自由加群なので、この比は $j$ に依存しない。
+次数一生成性により $\alpha$ は共通 grading scalar である。
+よって射影的な表示の射としては恒等である。
+これは非被約底でも成立し、fpqc 局所で確認した忠実性は降下する。
+忠実な algebraic stack の射の表現可能性
+\cite[Tag~04Y5]{MBGStacks}を用いる。
+\end{proof}
+
+線型枠では共通 grading scalar が $A_3$ に重み三で作用するため、
+ここでは射影的な枠
+\begin{equation}\label{mbrr:eq:projective-frames}
+ \mathcal P
+ =\operatorname{Fr}_{\mathcal X^\circ}(A_3)/\mathbf G_m
+ \longrightarrow\mathcal X^\circ
+\end{equation}
+を使う。これは $H$-torsor である。
+$G_k$ は $\mathcal P$ に作用し、その作用は $H$ と可換する。
+関係空間の射は $G_k$-不変な $H$-同変射
+$\bar\phi:\mathcal P\to Z^\circ$ を与える。
+
+\begin{proposition}[忘却射の平坦性と準有限性]
+\label{mbrr:prop:forgetful}
+$\nu$ は表現可能、有限表示、忠実平坦かつ準有限である。
+幾何点 $y$ を表す満支持模型 $A$ を一つ選ぶと、
+その幾何ファイバーの点の集合は
+\begin{equation}\label{mbrr:eq:coset-fiber}
+ |\mathfrak P^\circ_y|
+ \simeq G_A/\mathcal K_k,\qquad
+ G_A=\Aut_{\OO}(\QGr A)
+\end{equation}
+と同定される。ここではファイバーの被約性までは主張しない。
+\end{proposition}
+\begin{proof}
+射影的な枠を用いた二つの商を取ると
+\begin{equation}\label{mbrr:eq:atlas-basechange}
+ \mathfrak P^\circ\times_{\mathfrak M^\circ} Z^\circ
+ \simeq Q:=[\mathcal P/G_k]
+\end{equation}
+となる。具体的に、右辺の $H$-商は
+$[\mathcal X^\circ/G_k]$ であり、その $Z^\circ$ への射は
+$\bar\phi$ から誘導される。
+補題\ref{mbrr:lem:faithful}により $Q$ は代数空間である。
+その atlas $\mathcal P\to Q$ は滑らかな全射である。
+
+定理\ref{mbg:thm:generic-stack}で構成した
+$\operatorname{Fr}(A_3)\to Z^\circ$ は忠実平坦・有限表示である。
+$\operatorname{Fr}(A_3)\to\mathcal P$ は $\mathbf G_m$-torsor なので、
+平坦性の降下により $\bar\phi$ も忠実平坦・有限表示である。
+さらに $\mathcal P\to Q$ による降下と
+式\eqref{mbrr:eq:atlas-basechange}から $\nu$ の忠実平坦性を得る。
+有限表示性はこの有限型の商表示から従う。
+
+代数閉体上では系\ref{mbiq:cor:commuting-o-rigidity}により、
+$y$ の上の表示は一つの次数付き同型類である。
+その構造対象付き比較の選択は $G_A$ の元であり、
+表示の自己同型による変更が $\mathcal K_k$ の作用となる。
+補題\ref{mbrr:lem:faithful}により相対自己同型はないので、
+ファイバーの点は式\eqref{mbrr:eq:coset-fiber}の剰余類である。
+$G_A$ はこの開上有限であるから各幾何ファイバーの点数は有限である。
+有限型代数空間のファイバーに対する準有限性の判定により結論を得る。
+\end{proof}
+
+\subsection{一般有限 \'etale 比較と stack の同型}
+
+\begin{theorem}[一般開上の有限 \'etale な表示射]
+\label{mbrr:thm:finite-etale}
+$Z^\circ$ をさらに非空な $H$-不変開へ縮め、
+両スタックをその逆像へ制限すると、$\nu$ は有限 \'etale 全射になる。
+その階数は一定の正整数 $d$ であり、全幾何点で
+\begin{equation}\label{mbrr:eq:degree}
+ d=[G_A:\mathcal K_k]
+   =\frac{|G_A|}{3^{3k-1}}
+\end{equation}
+となる。
+\end{theorem}
+\begin{proof}
+$\mathcal P$ は滑らかな $\mathcal X^\circ$ 上の $H$-torsor なので、
+$\mathbb C$ 上滑らかである。
+$Z^\circ$ の一般点を $\eta$ とすると、
+$\mathcal P_\eta$ の局所環は正則環の局所化である。
+標数零の体上では正則性から幾何学的正則性、従って滑らかさが従う
+\cite[Tags~038U, 038X]{MBGStacks}。
+したがって $\mathcal P_\eta$ は $\kappa(\eta)$ 上滑らかである。
+滑らかな全射 $\mathcal P_\eta\to Q_\eta$ により、
+$Q_\eta$ もこの体上滑らかとなる。
+前命題により $Q_\eta$ は準有限かつ準コンパクトなので、有限 \'etale である。
+
+一般点は、一つの affine 開集合内の主開集合の逆極限である。
+$Q$ と $Z^\circ$ は準コンパクト・準分離な有限型代数空間である。
+前者の準分離性は、有限型の $G_k$ による有限型スキーム $\mathcal P$ の
+商表示から従う。従って有限性と \'etale 性の有限表示降下
+\cite[Tags~084Z, 07SL]{MBGStacks}を適用できる。
+これにより非空開 $Z_1\subset Z^\circ$ 上で $Q\to Z^\circ$ は有限 \'etale となる。
+この議論では $\mathfrak P^\circ$ の分離性を仮定していない。
+
+$Q\to Z^\circ$ は $H$-同変なので、その性質は各 $H$-平行移動 $hZ_1$ 上でも成立する。
+全ての平行移動の和へ置き換えても、有限 \'etale 性の標的上の局所性により保たれる。
+こうして $H$-不変な非空開を得る。
+式\eqref{mbrr:eq:atlas-basechange}から $\nu$ も有限 \'etale となり、
+全射性は前命題から従う。
+既約な標的上では階数は一定であり、
+今は幾何ファイバーが被約なので
+式\eqref{mbrr:eq:coset-fiber}がその階数を与える。
+\end{proof}
+
+\begin{corollary}[満支持一般開の全相対認識]
+\label{mbrr:cor:stack-isomorphism}
+本節の満支持局所型では、定理\ref{mbrr:thm:finite-etale}で
+さらに選んだ非空開上で
+\begin{equation}\label{mbrr:eq:stack-isomorphism}
+ \mathfrak P^\circ\xrightarrow{\sim}\mathfrak M^\circ
+\end{equation}
+である。特に、この開に属する二つの表示族について、任意の非被約底を含む
+試験スキーム上で自然な fpqc 層の同型
+\begin{equation}\label{mbrr:eq:relative-isom}
+ \underline{\operatorname{Isom}}_{\rm gr}(A,A')/\mathbf G_m
+ \xrightarrow{\sim}
+ \operatorname{Eq}_{\OO}(\QGr A,\QGr A')
+\end{equation}
+を得る。
+\end{corollary}
+\begin{proof}
+定理\ref{mbca:thm:full-inertia}により、チャートの全幾何点で
+$G_A=\mathcal K_k$ である。
+従って式\eqref{mbrr:eq:degree}の一定階数は一である。
+階数一の有限 \'etale 射は同型である。
+同じ結論は、表現可能な \'etale 射の幾何ファイバーが一つの被約点となることと、
+普遍単射な \'etale 射が開埋込みであること
+\cite[Tags~05W5, 0DUD]{MBGStacks}からも従う。
+スタックの同型は全ての基底変更と両立するので、
+表示スタックの同型層を取れば式\eqref{mbrr:eq:relative-isom}となる。
+ここで与えられた同値の次数付き持上げは fpqc 局所での主張であり、
+大域的な実代数の frame や持上げを追加で指定したわけではない。
+\end{proof}
+
+\begin{remark}[必要な相対議論]
+一般に、前系の議論には幾何一般点での慣性の一致だけでも十分である。
+有限 \'etale 射の階数が一般点で一なら、既約な標的上で恒等的に一となるためである。
+この系は、幾何点の全単射から直ちに導いたものではない。
+例えば $\operatorname{Spec}\mathbb C\to
+\operatorname{Spec}\mathbb C[\epsilon]/(\epsilon^2)$ は、
+全ての代数閉体で同じ点と自明な慣性を持つが同型ではない。
+ここでは射影枠による表現可能性、有限表示、および一般ファイバーからの
+有限 \'etale 性の降下がこの不足を埋める。
+縮小前の全ての表示パラメータ上で式\eqref{mbrr:eq:relative-isom}が成立することや、
+抽象 Abel 圏の全変形がこの局所型を持つことは結論しない。
+\end{remark}
+
+\subsection{全慣性の中心の内在的な認識}
+
+\begin{corollary}[中心三乗根群の相対的な回復]
+\label{mbrr:cor:central-band}
+式\eqref{mbrr:eq:stack-isomorphism}の非空開上で、
+$\mathfrak M^\circ$ の慣性の中心は、階数 $3^{k-1}$ の有限 \'etale な中央部分群である。
+ブロックを順序付ける有限 \'etale 被覆上では、その群は自然に
+\begin{equation}\label{mbrr:eq:central-band}
+ Z_0=(\mu_3^k)/\mu_3^{\rm diag}
+\end{equation}
+となる。一つのブロックを基準に取れば $Z_0\simeq(\mu_3)^{k-1}$ であり、
+これはそのブロックを固定して他の因子を独立に三乗根倍する標準作用である。
+順序を忘れた底上の descent は、$\mathfrak S_k$ が
+式\eqref{mbrr:eq:central-band}の因子を置換する作用による。
+\end{corollary}
+\begin{proof}
+まず幾何点の
+$\mathcal K_k=(\prod_i\mathcal H_i)/\mu_3^{\rm diag}$ を考える。
+その元が中心なら、第 $i$ 因子だけに属する全ての元との交換子が共通対角群に入る。
+$k\ge2$ なので、その交換子の他の成分が一であることから共通対角値も一である。
+Heisenberg pairing の非退化性により、各因子の元は中心 $\mu_3$ に属する。
+従って $Z(\mathcal K_k)=Z_0$ である。
+
+順序付き表示チャートでは、$Z_0$ はブロックスカラーとして
+$G_k$ のブロック保存部分に入り、$\mathcal X^\circ$ に自明に作用する。
+次数付き同型の相対認識
+（定理\ref{mbs:thm:presentation-stack}）により、
+全ての試験基底でブロック保存自己同型と可換する。
+従って慣性への有限 \'etale な中央部分群を与える。
+慣性は不分岐であるから、この部分群の単射は開埋込みである。
+幾何点で中心を尽くすので、任意基底上の中心の切断もこの開部分へ因子化する。
+これで中心そのものを表すことが分かる。
+ブロックの置換はこの群の因子を置換するため、
+順序付き被覆からの降下は記載した $\mathfrak S_k$ 作用となる。
+最後に式\eqref{mbrr:eq:stack-isomorphism}を通して全 $\OO$-stack へ移す。
+\end{proof}
+
+ここで回復したのは、構造対象付き Abel 同値の層の中の中心部分群と、
+順序付き表示上での標準ブロック作用との一致である。
+残余圏の enhancement、rotation の同変構造、指定周期、
+および完備比較核の coherent な同変降下までを一括して結論してはいない。
+特に射影的表示の共通 scalar を除く操作と、次数一 shift の比較の
+coherence は区別する必要がある。
+第\ref{med:sec:descent}節および第\ref{mpc:sec:point-comparison}節の
+指定した同変比較を全 $\OO$-モジュライへ降ろすには、
+この内在的な中心部分群を使ってそれらの構造との整合を別に確認する。

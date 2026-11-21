@@ -1,11 +1,13 @@
 % !TEX root = ../nc-cubic.tex
-\section{第三 Veronese の既知の自己同型と次数一軌道の安定化群}
+\section{第三 Veronese の表示作用と次数一軌道の認識}
 \label{mbva:sec:automorphisms}
 
 本節では、表示の自己同型群が第三 Veronese へ忠実に作用することと、
 その像が構造対象の全次数一軌道を保つ同値群に一致することを示す。
 二ブロックでは次数三の Heisenberg 表現も明示する。
-全自己同型群の決定は含めず、追加自己同型があり得る範囲を区別する。
+これらは定理\ref{mbca:thm:full-inertia}による全自己同値群の決定の入力となる。
+一般二次代数に対する中心還元核の上界も記録するが、
+満支持型では定理\ref{mbcr:thm:reduction-rigidity}が核の自明性を与える。
 
 基礎体は標数零の代数閉体とする。
 第\ref{mbr:sec:roots}節の記号により、ブロック数を $\ell\ge2$、
@@ -14,8 +16,10 @@
  A=B/(w),\qquad w=\sum_i a_i\Omega_i,\quad a_i\ne0,\qquad C=A^{(3)}
 \]
 とする。因子の $j$ 不変量は相異なり $0,1728$ を避け、
-$6p_i\ne0$ とする。全 $\OO$-同値を扱う箇所では
+$p_i,2p_i,3p_i\ne0$ とする。全 $\OO$-同値を扱う箇所では
 定理\ref{mbv:thm:all-o-third}の有限捩れ条件も課す。
+第\ref{mbr:sec:roots}節の直接的な Zhang twist 表示の分類を引用する場合には、
+その箇所で追加条件 $6p_i\ne0$ を課す。
 以下の次数一軌道の議論は、全整数の切断飽和性が成立する基礎体上で行う。
 本稿の $\C$ 上の表示族では系\ref{mbsd:cor:saturation}がこれを与える。
 記号を
@@ -45,8 +49,8 @@ Heisenberg 群である。
  \mathcal K_\ell\longrightarrow
  \operatorname{Aut}_{\mathrm{gr}}(C)/\mathbf G_m
 \]
-は単射である。従って二ブロックでは全 $\OO$-自己同値群は、
-位数 $243$ の既知の部分群 $\mathcal K_2$ を含む。
+は単射である。二ブロックでは位数 $243$ の $\mathcal K_2$ が忠実に作用する。
+定理\ref{mbca:thm:full-inertia}は、これが全 $\OO$-自己同値群に等しいことを示す。
 \end{proposition}
 \begin{proof}
 $h=(h_i)\in\prod_i\mathcal H_i$ の作用が $C$ 上の次数スカラーになるとし、
@@ -169,9 +173,9 @@ Gabriel 切断による完全忠実性と $\{\OO(j)\}_{j\in\mathbf Z}$ の Abel 
   =\operatorname{Stab}_{G}([\OO(1)],[\OO(2)])
   =\{F\in G:F\mathsf s\simeq\mathsf s F\}.
 \]
-従って追加自己同型が存在すれば、
-少なくとも $\OO(1),\OO(2)$ の一方の同型類を動かす。
-$\OO(1)$ 単独の安定化群が $\mathcal K_\ell$ であるとは主張しない。
+さらに定理\ref{mbca:thm:full-inertia}と合わせると、
+本稿の満支持型ではこれらは全て $G$ に等しく、
+$\operatorname{Stab}_G([\OO(1)])=G=\mathcal K_\ell$ でもある。
 \end{corollary}
 \begin{proof}
 $G$ の各元は $C$ の次数付き自己同型から来るので、
@@ -180,6 +184,7 @@ $\mathsf s^3$ と可換する。
 逆は明らかで、定理\ref{mbva:thm:sss}を適用する。
 また $\mathsf s$ と可換する $\OO$-保存同値は SSS である。
 逆に次数付き自己同型の構造移送は次数一 shift と可換する。
+最後の等式は定理\ref{mbca:thm:full-inertia}の $G=\mathcal K_\ell$ による。
 \end{proof}
 
 \subsection{既知の三乗根の対象軌道と全同値による共役}
@@ -231,12 +236,17 @@ $F\in\mathcal K_\ell$ である。さらに
  \operatorname{Stab}_{G}(\mathsf s_\tau)
        =C_{\mathcal K_\ell}(\bar\tau).
 \]
-従って第\ref{mbr:sec:roots}節の
-$(11^\ell+2\cdot8^\ell)/3$ 個の共役類は、
-未知の全自己同型群 $G$ による共役を許しても互いに異なる。
+従って有限群 $\mathcal K_\ell$ の
+$(11^\ell+2\cdot8^\ell)/3$ 個の共役類は
+（第\ref{mbr:sec:roots}節の有限群計算）、
+全自己同型群 $G$ による共役を許しても互いに異なる。
 二ブロックでは、固定した圏上の $243$ 個の既知の三乗根が
 全 $G$ の下でも正確に $83$ 個の異なる共役類に属する。
-ここでは既知の三乗根以外が存在しないとは主張しない。
+系\ref{mbca:cor:marked-roots}は、これらが
+$\mathsf r\OO\simeq\OO(1)$ を満たす全ての根を尽くすことを示す。
+構造対象の像を指定しない全ての根の分類とは区別する。
+また定理\ref{mbr:thm:algebraic-twist-groupoid}によって
+直接 Zhang twist 代数の同型 groupoid と比較する場合には、$6p_i\ne0$ を追加する。
 \end{corollary}
 \begin{proof}
 $F\OO\simeq\OO$ と共役条件から、全整数 $j$ について
@@ -247,15 +257,16 @@ $F(\mathsf s_\tau^j\OO)\simeq\mathsf s_\upsilon^j\OO$ である。
 $\bar\tau$ への通常の共役作用に一致する。
 \end{proof}
 
-特に、ある点で $G$ が有限であることが別途証明されたなら、
-$|G|$ は $3^{3\ell-1}$ の倍数であり、
-順序付き対象対 $([\OO(1)],[\OO(2)])$ の軌道の大きさは
-$|G|/3^{3\ell-1}$ である。これを有限性の証明や全群の決定の代用にはしない。
+定理\ref{mbca:thm:full-inertia}により $|G|=3^{3\ell-1}$ であり、
+順序付き対象対 $([\OO(1)],[\OO(2)])$ の $G$-軌道は一点である。
+その全群の決定は、中心商の多重次数の回復と中心方向の持上げ剛性に基づく。
 
-\subsection{中心一次元で割った後に残り得る有限核}
+\subsection{一般二次代数の中心還元における有限核}
 
-以下の補題は二ブロック以外にも使えるが、
-本稿では $Z(C)_1=kg$ の二ブロックの場合に適用する。
+以下は一般二次代数に使える有限群の判定である。
+満支持二ブロックでは $Z(C)_1=kg$ となるが、
+その還元核は定理\ref{mbcr:thm:reduction-rigidity}により、
+下記の有限性や変形類の条件を仮定せずに自明となる。
 
 \begin{proposition}[二次代数の中心還元の有限核]
 \label{mbva:prop:central-reduction-kernel}
@@ -270,7 +281,8 @@ $G=\operatorname{Aut}_{\mathrm{gr}}(C)/k^\times$ が有限群であると仮定�
 
 さらに、$C/(g^2)$ が定める一次変形類
 $\kappa_C\in HH^2(D,D)_{-1}$ が非零なら、この核は自明である。
-後半の非零性は、現在の二ブロック族に対して本節では証明しない。
+後半は一般的な十分条件である。
+満支持二ブロックの一次変形類の非消滅は、系\ref{mbcr:cor:nonzero-class}で別途証明する。
 \end{proposition}
 \begin{proof}
 核の元には、$D$ 上の作用が文字通り恒等となる
@@ -308,9 +320,10 @@ $D$ 上恒等で $g\mapsto\lambda g$ となる自己同型が存在すれば、
 $\kappa_C\ne0$ なら $\lambda=1$ であり、前半の単射性から核は自明となる。
 \end{proof}
 
-命題\ref{mbg:prop:finite-open}の二ブロックの非空開では、
-$Z(C)_1=kg$、$g$ の正則性と二次表示が既に確認されているので、
-この有限核の結論を各幾何点に適用できる。
+満支持二ブロックでは $Z(C)_1=kg$、$g$ の正則性と二次表示が成立し、
+定理\ref{mbca:thm:full-inertia}によって全群も有限である。
+従ってこの一般判定を適用できるが、
+実際の還元核は定理\ref{mbcr:thm:reduction-rigidity}により自明である。
 
 ここで $g$ を固定する条件を省いて、単に
 $\alpha\bmod g=1$ から unipotent 性を推論してはならない。
@@ -451,7 +464,8 @@ $2\cdot24^2=1152$ 個あり、交換を許せば $2304$ 個となる。
 この線型正規化群を実際の $G$ の部分群と取り違えない。
 $N$ の中で代数自己同型を求める際にも、
 さらに $C$ の $2619$ 次元の二次関係空間を保存する条件を課す必要がある。
-また、全 $G$ が既知の $\mathcal K_2$ を正規化することも、ここでは証明していない。
+定理\ref{mbca:thm:full-inertia}により $G=\mathcal K_2$ なので、
+関係空間を保つ実際の射影的代数自己同型は、この有限部分群に正確に一致する。
 
 \begin{remark}[検算と残る認識]
 \label{mbva:rem:verification}
@@ -462,9 +476,12 @@ $N$ の中で代数自己同型を求める際にも、
 $\Gamma$ の位数 $2304$ を有限体・整数演算で検算する。
 これは有限群表現の検算であって、
 全 $G$ の計算や次数一の全根の分類ではない。
-新たな認識は、既知部分群の忠実性、SSS 関手そのものの認識、
-および既知の三乗根が全 $G$ の共役でも融合しないことである。
-全 $G$、$\OO(1)$ 単独の軌道と安定化群、
-この部分群の外から来る次数一の根はなお未決定である。
+本節の認識は、表示作用の忠実性、SSS 関手そのものの認識、
+および表示から来る三乗根の共役作用である。
+全群 $G=\mathcal K_\ell$ の決定は
+定理\ref{mbcr:thm:reduction-rigidity}と定理\ref{mbca:thm:center-automorphisms}を
+組み合わせる定理\ref{mbca:thm:full-inertia}による。
+$\OO(1)$ の $G$-軌道は一点であり、その安定化群は全 $G$ である。
+構造対象の像を指定しない第三根の分類と、任意の非被約底上の相対認識は別問題である。
 これらを組み合わせた主張の新規性の網羅的確認は未完了である。
 \end{remark}

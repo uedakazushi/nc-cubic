@@ -76,7 +76,7 @@
 \title{非可換三次 $n$-fold の可換復元とモジュライ\\
 \large Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 \author{}
-\date{2026年11月21日・研究稿 v33}
+\date{2026年11月21日・研究稿 v34}
 \hypersetup{pdftitle={非可換三次 n-fold の可換復元とモジュライ},
 pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}}
 \begin{document}
@@ -90,17 +90,22 @@ Kuznetsov成分として復元する。比較はrotationと指定三次周期を
 可換模型の方程式は元の関数体上に定義できる。
 この一般復元は以下の一ブロック型のモジュライ定理より広い仮定で成立する。
 
-満支持 $k\geq2$ ブロック型では、有限個の捩れ条件を除いた楕円開上で、
-全構造対象保存同値を第三 Veronese の次数付き同型のスカラー商として認識する。
-中心商の純成分と余法加群から各因子の楕円曲線・偏極・平行移動を回復し、
-可換 tensor 表示の幾何点では全 $\OO$-同値類が次数付き同型類を決めることを示す。
-可換三次への支配的特殊化によって全 $\OO$-自己同値群の一般有限性を証明し、
-関係 Grassmann 多様体の非空開上に、全同値を射とする満支持局所型の
-滑らかな既約 DM stack を構成する。その次元は $2k$ である。
-次数付き表示の慣性群の位数は $3^{3k-1}$ であり、
-全自己同値群における $(\OO(1),\OO(2))$ の安定化子となる。
-代数的 Zhang twist の $(11^k+2\cdot8^k)/3$ 個の根の共役類は、
-全 $\OO$-自己同値群の中でも融合しない。ただし全ての根を分類してはいない。
+満支持 $k\geq2$ ブロック型では、中心商の純成分と余法加群から
+各因子の楕円曲線・偏極・平行移動を回復する。
+純商イデアルの飽和冪から全多重次数を認識し、中心商の全次数付き自己同型を
+元の tensor 代数へ持ち上げる。中心完全交叉の負次数 Ext 消滅により
+次数一軌道の加群を一意に復元し、第三 Veronese の全射影自己同型群を
+$\mathcal K_k=(\prod_i\mathcal H_{27,i})/\Delta\mu_3$、位数 $3^{3k-1}$ と決定する。
+有限個の捩れ条件を除いた楕円開では、これは全 $\OO$-自己同値群に等しい。
+中心還元の核は全 $k\geq2$ で自明であり、群の有限性を事前に仮定しない。
+二ブロックでは一次中心変形類も非零となる。
+表示 stack と全構造対象局所型 stack の忘却射を、さらに非空開上で
+有限 \'etale とした後に階数一と示す。従って両者は同型で、
+任意の非被約底を含む族の全同値層が射影的な次数付き同型層に等しい。
+得られる滑らかな既約 DM stack の次元は $2k$ である。
+$\mathsf r\OO\simeq\OO(1)$ を満たす根は $3^{3k-1}$ 個、
+その共役類は $(11^k+2\cdot8^k)/3$ 個である。
+構造対象の像を指定しない全ての三乗根の分類は含めない。
 明示的 Jacobian tensor 一変数族では、点三次式の分離和を復元模型として選べる。
 既存の完備 MF・一般点比較と可換同変定理の入力の下で、二ブロックの同変残余圏は
 有限拡大後に入力の二つの楕円点曲線の積の導来圏となる。
@@ -243,26 +248,64 @@ $\bigoplus_{q\geq0}A_{(3k-3)q}\otimes\mathscr D^{-q}$ である。
 従って、可換 tensor 表示の幾何点では全 $\OO$-同値から
 $(E_i,L_i,\sigma_i)$ と次数付き同型類が決まる
 （定理\ref{mbiq:thm:triple-recovery}、系\ref{mbiq:cor:commuting-o-rigidity}）。
-さらに滑らかな可換三次への支配的特殊化で自己同値群の一般有限性を示し、
-関係空間の像に generic flatness を適用することにより、
-非空開上の全 $\OO$-局所型を滑らかな既約 DM stack $\mathfrak M_k^\circ$ として構成する。
-次元は $2k$ である（定理\ref{mbg:thm:generic-stack}）。
-任意の抽象 Abel 圏変形がこの局所型に属することや、全境界を覆うことは含めない。
+本稿ではさらに、各 $I_i$ の冪の右飽和から $D$ の全多重次数を回復する。
+各剰余次数加群の次数付き自己準同型環が $K$ であることを使うと、
+$D=(\bigotimes_iT_i)^{(3)}$ の全自己同型は $\bigotimes_iT_i$ へ持ち上がる
+（定理\ref{mbca:thm:center-automorphisms}）。
+一方、中心完全交叉の AS--Cohen--Macaulay 性により
+$\overline M_j=(E(j))^{(3)}$ の負次数 $\Hom,\Ext^1$ が消える。
+これを全中心変数による thickening に適用し、正次数の次数別安定性で
+形式的同型を実際の次数付き同型へ戻す
+（補題\ref{mbcr:lem:graded-lifting}）。
+この二つの議論を接続した定理\ref{mbca:thm:full-inertia}は
+\[
+ \Aut_{\rm gr}(A^{(3)})/K^\times=\mathcal K_k,
+ \qquad
+ \Aut_{\OO}(\QGr A)=\mathcal K_k
+\]
+を与える。後者には上記の有限個の捩れ条件を課し、前者には冒頭の基本条件だけを使う。
+中心還元の射影的な核も自明である（定理\ref{mbcr:thm:reduction-rigidity}）。
+したがって二ブロックの全慣性の位数は正確に $243$ となる。
+さらに、一次中心変形が自明なら中心変数の符号反転が還元核を与えることから、
+二ブロックでは $\kappa_C\ne0$ を得る（系\ref{mbcr:cor:nonzero-class}）。
 
-次数一の根を具体化するため、さらに $6p_i\ne0$ を課す。
-定理\ref{mbr:thm:algebraic-twist-groupoid}は、一つの次数付き自己同型の冪で定まる
-全代数的 Zhang twist の groupoid を
-$\mathcal K_k=(\prod_i\mathcal H_{27,i})/\Delta\mu_3$ の共役 groupoid と同定する。
-同型類数は $(11^k+2\cdot8^k)/3$、従って $k=2,3$ では $83,785$ である。
-これらは同じ第三 Veronese を持つ表示であり、異なる内在的モジュライ点ではない。
-他方、両端が可換 tensor 積表示なら、一般の twisting system でも
-次数付き同型類は変わらない（定理\ref{mbr:thm:commuting-twist-rigidity}）。
-次数付き自己同型群は全 $\OO$-自己同値群に忠実に入り、
-全 shift 対象を保つ部分群、同値に $(\OO(1),\OO(2))$ の安定化子に等しい
-（定理\ref{mbva:thm:sss}、系\ref{mbva:cor:pair-stabilizer}）。
-既知の根の共役類は全自己同値群の中でも融合しない
-（系\ref{mbva:cor:root-orbits}）。
-全自己同値がこの部分群に入ることや、全ての第三根が代数的 twist であることは未証明である。
+可換三次への支配的特殊化と関係空間の generic flatness による独立の構成から、
+非空開上の全 $\OO$-局所型は滑らかな既約 DM stack $\mathfrak M_k^\circ$ となり、
+次元は $2k$ である（定理\ref{mbg:thm:generic-stack}）。
+さらに、射影枠を使って $\mathfrak P_k^\circ\to\mathfrak M_k^\circ$ の表現可能性を示し、
+標数零の一般滑らかさと有限表示降下から、非空開上で有限 \'etale とする。
+全慣性の一致によって階数は一となるため、この射は同型である
+（系\ref{mbrr:cor:stack-isomorphism}）。
+従ってこの開では、非被約底を含む全ての試験基底上で
+全 $\OO$-同値の層と次数付き同型のスカラー商が一致する。
+全慣性の中心は、順序付きブロック被覆上で
+$(\mu_3^k)/\mu_3^{\rm diag}$ と内在的に回復される。
+全境界や任意の抽象 Abel 圏変形を覆うことは含めない。
+
+根については、$\mathsf s=(1)$ としたとき
+$\mathsf r\OO\simeq\OO(1)$ を満たす自己同値は一意に
+$\mathsf r\simeq\mathsf s\Phi_h$、$h\in\mathcal K_k$ と書け、
+$\mathsf r^3\simeq\mathsf s^3$ も自動的に成立する
+（系\ref{mbca:cor:marked-roots}）。
+その自然同型類は $3^{3k-1}$ 個、全 $\OO$-群による共役類は
+$(11^k+2\cdot8^k)/3$ 個であり、二・三ブロックでは $83,785$ となる。
+この関手の分類には $6p_i\ne0$ を追加しない。
+一つの次数付き自己同型の冪で定まる全代数的 Zhang twist の表示を
+直接分類する定理\ref{mbr:thm:algebraic-twist-groupoid}では、この追加条件を使う。
+両端が可換 tensor 積表示である一般 twisting system の剛性も保持する
+（定理\ref{mbr:thm:commuting-twist-rigidity}）。
+根の三乗同型そのものや coherence は標識しておらず、
+$\mathsf r^3\simeq\mathsf s^3$ だけから $\mathsf r\OO$ を決定する問題は残る。
+
+Veronese の自己同型持上げについて、Aitzhanova--Makar-Limanov--Umirbaev
+\cite[Theorem~1, Corollaries~4, 5]{MBCAAMU}は自由 Poisson 代数と多項式環を扱う。
+同論文の $d$-graded は次数を $d$ で剰余化した意味であり、通常の次数保存とは区別する。
+また Chan--Young--Zhang\cite[Theorems~0.1, 0.2]{MBCACYZ}は、
+パラメータが非自明な1の冪根である skew polynomial 環の Veronese を判別式で扱う。
+これらは本稿の楕円 tensor 中心商への直接の持上げ定理ではない。
+本稿の認識は、余法加群・飽和冪・負次数 Ext と中心平坦性を組み合わせる。
+THCR の理論、Heisenberg 群、次数付き持上げの一般原理自体を新規成果とはせず、
+本件への組合せと適用については初出の網羅的確認を継続する。
 
 多ブロック一変数族では、既存の定理\ref{cft:thm:complete}と
 定理\ref{gdr:thm:generic}を入力として、
@@ -1689,7 +1732,10 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/multiblock_roots.tex}
 \input{papers/sections/multiblock_intrinsic_quotients.tex}
 \input{papers/sections/multiblock_veronese_automorphisms.tex}
+\input{papers/sections/multiblock_central_rigidity.tex}
+\input{papers/sections/multiblock_center_automorphisms.tex}
 \input{papers/sections/multiblock_generic_moduli.tex}
+\input{papers/sections/multiblock_relative_recognition.tex}
 \input{papers/sections/two_block_recovery.tex}
 \input{papers/sections/multiblock_equivariant_descent.tex}
 \input{papers/sections/multiblock_point_comparison.tex}

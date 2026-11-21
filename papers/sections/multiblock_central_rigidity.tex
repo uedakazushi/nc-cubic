@@ -1,0 +1,442 @@
+% !TEX root = ../nc-cubic.tex
+\section{中心商上の線対象と次数付き持上げの剛性}
+\label{mbcr:sec:central-rigidity}
+
+本節では、中心商上で次数一軌道の対象を保つ自己同型は、
+元の第三 Veronese 上でもそれらを保つことを示す。
+二ブロックで残っていた中心還元核を、自己同値群の有限性を仮定せずに除く。
+証明は中心変数が複数あっても同じなので、全ての満支持 $k\geq2$ を扱う。
+必要なのは中心上の平坦性、負次数の $\Ext^1$ と $\Hom$ の消滅、
+および正次数の中心イデアルによる商の次数別安定性である。
+
+基礎体を標数零の代数閉体 $K$ とし、
+第\ref{mbiq:sec:quotients}節の仮定の下で
+\[
+ B=\bigotimes_{i=1}^kS_i,\qquad
+ A=B/\left(\sum_i a_i\Omega_i\right),\quad a_i\ne0,\qquad
+ T_i=S_i/(\Omega_i),\qquad E=\bigotimes_iT_i
+\]
+と置く。本節の $E$ は次数付き代数であり、楕円曲線 $E_i$ と区別する。
+さらに
+\begin{equation}\label{mbcr:eq:setup}
+ C=A^{(3)},\quad Z_1=Z(C)_1,\quad
+ R=\Sym_K Z_1,\quad \mathfrak m=R_{>0},\quad I=\mathfrak m C,\quad
+ D=C/I=E^{(3)}
+\end{equation}
+とする。$R$ の生成元の次数は一、$\dim_KZ_1=k-1$ である。
+中心一次空間の同定には命題\ref{mbv:prop:center}の $d=1$ を使う。
+各整数 $j$ について
+\[
+ M_j=(A(j))^{(3)},\qquad \overline M_j=M_j/IM_j=(E(j))^{(3)}
+\]
+と書く。内部次数の規約は $M(j)_a=M_{a+j}$ である。
+以下の $\Ext_{\Gr}$ と $\Hom_{\Gr}$ は次数零の射について取る。
+内部次数を全て集める場合には下線を付ける。
+
+\subsection{中心上の自由性と完全交叉の局所コホモロジー}
+
+\begin{lemma}[中心多項式環上の自由性]
+\label{mbcr:lem:central-free}
+$R\to C$ は単射であり、$C$ と全ての $M_j$ は
+次数付き $R$-加群として自由である。
+自由基底は無限でもよいが、各内部次数は有限次元で、次数は下に有界である。
+\end{lemma}
+\begin{proof}
+$T_i$ の斉次基底を $S_i$ へ持ち上げ、その張る空間を $H_i$ とする。
+$\Omega_i$ の正則性と
+$S_i/\Omega_iS_i=T_i$ により、乗法は加群同型
+\[
+ K[z_i]\otimes_KH_i\xrightarrow{\sim}S_i,\qquad z_i\longmapsto\Omega_i,
+ \quad\deg z_i=3
+\]
+を与える。全射性は次数に関する帰納で従う。
+線型関係があれば、最小の $z_i$ 冪を正則性によって消去し、
+$z_i$ で割った商を取ることで、その最小係数が零となる。
+これを繰り返すと単射性も得られる。
+
+従って $H=\bigotimes_iH_i$ とすると、加群として
+\[
+ B\simeq K[z_1,\ldots,z_k]\otimes_KH,\qquad
+ A\simeq
+ \left(K[z_1,\ldots,z_k]/\left(\sum_i a_iz_i\right)\right)\otimes_KH .
+\]
+中心多項式環の次数を三で割ると、括弧内は $R$ となる。
+$H$ の次数 $d$ の基底元は、$d\equiv j\pmod3$ のときに限り
+$M_j$ の自由基底を与え、その新しい次数は $(d-j)/3$ である。
+特に $1\in H_0$ の成分が $R\to C$ の単射性を与える。
+剰余を取れば、表示した $\overline M_j$ の同定も従う。
+\end{proof}
+
+\begin{lemma}[中心完全交叉の双対と低次切断]
+\label{mbcr:lem:ci-cohomology}
+有限次元の次数付き右 $E$-加群 $F$ に対し、
+係数の一次元空間を自明化して
+\begin{equation}\label{mbcr:eq:finite-duality}
+ \mathbf R\underline{\Hom}_E(F,E)\simeq F^\vee[-2k]
+\end{equation}
+を得る。従って、irrelevant torsion の導来関手を
+$\mathbf R\Gamma_E$ と書けば
+\begin{equation}\label{mbcr:eq:ci-local-cohomology}
+ \mathbf R\Gamma_E(E)\simeq E^\vee[-2k].
+\end{equation}
+特に $E$ は局所コホモロジーが次元 $2k$ に集中する
+AS--Cohen--Macaulay 代数である。
+$\mathcal O_E=\pi_EE$ とすると、全整数 $b$ について
+\begin{equation}\label{mbcr:eq:ci-low-sections}
+ \Hom_{\QGr E}(\mathcal O_E,\mathcal O_E(b))=E_b,\qquad
+ \Ext^q_{\QGr E}(\mathcal O_E,\mathcal O_E(b))=0
+ \quad(1\leq q\leq2k-2)
+\end{equation}
+となる。
+\end{lemma}
+\begin{proof}
+前補題の tensor 積表示により、$\Omega_1,\ldots,\Omega_k$ は
+$B$ 上の中心正則列である。
+定理\ref{mbsd:thm:ambient-duality}の有限 Koszul 双対から
+\[
+ \mathbf R\underline{\Hom}_B(F,B)\simeq F^\vee(3k)[-3k].
+\]
+一方、この中心正則列の Koszul 解消を双対化すると
+\[
+ \mathbf R\underline{\Hom}_B(E,B)\simeq E(3k)[-k].
+\]
+change of rings の導来随伴を適用して二式を比較すると
+\eqref{mbcr:eq:finite-duality}を得る。
+これは定理\ref{mbsd:thm:gorenstein}の二項解消による計算を
+$k$ 回行ったものである。中心性により normalizing twist は生じない。
+同じ議論は左右を交換しても成立する。
+また任意の $E$-加群に対する change of rings と
+$B$ の大域次元 $3k$ から、$E$ の左右単射次元は高々 $2k$ である。
+$F=K$ の非零な第 $2k$ Ext により等号となる。
+
+$F_l=E/E_{\geq l}$ は有限次元である。
+torsion は
+$\Gamma_E(-)=\varinjlim_l\underline{\Hom}_E(F_l,-)$ で計算され、
+filtered colimit は完全なので
+\[
+ R^q\Gamma_E(E)
+   =\varinjlim_l\underline{\Ext}^q_E(F_l,E).
+\]
+\eqref{mbcr:eq:finite-duality}を代入して
+\eqref{mbcr:eq:ci-local-cohomology}を得る。
+Hilbert 級数は
+$(1+t+t^2)^k/(1-t)^{2k}$ なので、ここでの次元は $2k$ である。
+
+切断に移るための局所化三角の入力も確認する。
+定理\ref{thm:nfm-relative-line-cohomology}の証明は、
+有限 Koszul 解消を持つ $B$ 上で有界幅の derived torsion 模型を構成している。
+その中心商への比較は、今回の正則列の各段階で反復できる。
+実際、$Q'=Q/(\Omega)$、$\deg\Omega=3$ とし、
+$J$ を injective な次数付き右 $Q'$-加群とすると
+\[
+ \underline{\Ext}^{\,q}_Q(Q/Q_{\geq l},J)
+ \simeq
+ \underline{\Hom}_{Q'}\!
+ \left(\operatorname{Tor}^{Q}_q(Q/Q_{\geq l},Q'),J\right).
+\]
+正則元の二項解消により $q>1$ の Tor は零である。
+第 $1$ Tor は切断の上端にある幅三の次数に限られ、
+$l'\geq l+3$ から $l$ への遷移は零となる。
+従って忘却した $J$ は $\Gamma_Q$-acyclic であり、
+restriction は derived torsion の比較を与える。
+これを全段階で反復すれば、$E$ 上でも torsion 複体上で恒等となる
+有界幅の derived torsion と Gabriel 局所化三角
+\begin{equation}\label{mbcr:eq:localization}
+ \mathbf R\Gamma_E(N)\longrightarrow N
+ \longrightarrow\mathbf R\omega_E\pi_EN\longrightarrow
+\end{equation}
+を得る。標準的な局所化三角と切断右随伴の記述については
+\cite[\S4, Proposition~4.5 and equation~(4.15)]{NFMBurkeStevenson}も参照されたい。
+ここでは上記の有限解消と正則中心列から、その必要な入力を直接確認した。
+$N=E$ の内部次数 $b$ に
+\eqref{mbcr:eq:ci-local-cohomology}を代入すれば
+\eqref{mbcr:eq:ci-low-sections}が従う。
+この計算は $\QGr E$ の有限大域次元や smoothness を用いない。
+\end{proof}
+
+\subsection{Veronese の根加群に対する負次数 Ext}
+
+\begin{proposition}[根加群の負次数消滅]
+\label{mbcr:prop:negative-ext}
+任意の整数 $j$ と $n>0$ について
+\begin{equation}\label{mbcr:eq:negative-ext}
+ \Hom_{\Gr D}(\overline M_j,\overline M_j(-n))=0,\qquad
+ \Ext^1_{\Gr D}(\overline M_j,\overline M_j(-n))=0 .
+\end{equation}
+\end{proposition}
+\begin{proof}
+補題\ref{lem:nfm-gabriel}の完全同値を
+$\mathsf V:\QGr E\xrightarrow{\sim}\QGr D$ と書く。
+このとき
+\[
+ \mathsf V(\mathcal O_E(j))=\pi_D\overline M_j,\qquad
+ \mathsf V(\mathcal O_E(-3a))=\mathcal O_D(-a).
+\]
+切断右随伴を次数 $a$ で評価することは
+$\Hom(\mathcal O_D(-a),-)$ に等しい。
+従って、右随伴の各次数とその積作用を比較すると、
+加群上の Veronese を $\mathsf V_{\Gr}$ として
+$\mathsf V_{\Gr}\omega_E\simeq\omega_D\mathsf V$ を得る。
+$\mathsf V_{\Gr}$ は完全であり、$\mathsf V$ は完全同値なので injective を保つ。
+この関手の同型を導来化すれば、単位射に両立する同型
+\begin{equation}\label{mbcr:eq:veronese-sections}
+ \mathbf R\omega_D\pi_D\overline M_j
+ \simeq
+ \left(\mathbf R\omega_E\pi_E E(j)\right)^{(3)}
+\end{equation}
+を得る。これは切断右随伴の同定であり、
+通常の加群 $\Ext$ が Veronese で自動的に保存されるという主張ではない。
+
+式\eqref{mbcr:eq:localization}と
+\eqref{mbcr:eq:ci-local-cohomology}により、
+$E(j)\to\mathbf R\omega_E\pi_EE(j)$ の cone は
+コホモロジー次数 $2k-1$ にのみ成分を持つ。
+Veronese は次数付き加群上で完全なので、
+\[
+ \operatorname{Cone}\!
+ \left(\overline M_j\longrightarrow\mathbf R\omega_D\pi_D\overline M_j\right)
+ \in D^{\geq2k-1}(\Gr D).
+\]
+同じことは $\overline M_j(-n)$ にも成立する。
+次数零の複体 $\overline M_j$ からの導来 Hom は、この下界を下げない。
+従って $q=0,1$ について、導来随伴と上の cone は同型
+\begin{align*}
+ \Ext^q_{\Gr D}(\overline M_j,\overline M_j(-n))
+ &\simeq
+ \Ext^q_{\QGr D}(\pi_D\overline M_j,\pi_D\overline M_j(-n))\\
+ &\simeq
+ \Ext^q_{\QGr E}(\mathcal O_E(j),\mathcal O_E(j-3n))\\
+ &\simeq
+ \Ext^q_{\QGr E}(\mathcal O_E,\mathcal O_E(-3n))
+\end{align*}
+を与える。最後の同型は、次数 shift が $\QGr E$ の完全自己同値であることだけを使う。
+$\mathcal O_E(j)$ を可換多様体上の線束と仮定していない。
+式\eqref{mbcr:eq:ci-low-sections}と $E_{-3n}=0$ が
+\eqref{mbcr:eq:negative-ext}を与える。
+\end{proof}
+
+\subsection{中心 thickening 上の同型の一意持上げ}
+
+\begin{lemma}[正次数中心に沿った次数付き持上げ]
+\label{mbcr:lem:graded-lifting}
+$V$ を有限次元 $K$-空間、$R=\Sym_K V$ を $V$ を次数一に置く多項式環とし、
+$C$ は中心写像 $R\to C$ を持つ非負次数付き代数で、
+$R$ 上平坦であるとする。
+$I=R_{>0}C$、$D=C/I$ と置く。
+$P,Q$ は下に有界な次数付き右 $C$-加群で、
+$R$ 上平坦とし、$\overline P=P/IP$, $\overline Q=Q/IQ$ と書く。
+全ての $n>0$ に対して
+\[
+ \Hom_{\Gr D}(\overline P,\overline Q(-n))
+ =\Ext^1_{\Gr D}(\overline P,\overline Q(-n))=0
+\]
+なら、指定された次数付き同型
+$\overline P\xrightarrow{\sim}\overline Q$ は、
+ただ一つの次数付き同型 $P\xrightarrow{\sim}Q$ に持ち上がる。
+\end{lemma}
+\begin{proof}
+$\mathfrak m=R_{>0}$、$R_n=R/\mathfrak m^n$、
+$C_n=C/I^n$、$P_n=P/I^nP$、$Q_n=Q/I^nQ$ とする。
+平坦性により、$C_n$ と $P_n,Q_n$ はそれぞれ $R_n$ 上平坦である。
+従って
+\begin{equation}\label{mbcr:eq:derived-base-change}
+ P_{n+1}\otimes^{\mathbf L}_{C_{n+1}}D
+ \simeq
+ P_{n+1}\otimes^{\mathbf L}_{C_{n+1}}
+       \left(C_{n+1}\otimes^{\mathbf L}_{R_{n+1}}K\right)
+ \simeq P_{n+1}\otimes^{\mathbf L}_{R_{n+1}}K
+ \simeq\overline P .
+\end{equation}
+最初の同定には $C_{n+1}$ の平坦性、最後の同定には
+$P_{n+1}$ の平坦性を使う。
+中心の正則性だけから導来 tensor を通常の tensor に置き換えていない。
+導来随伴により、$D$-加群 $L$ について
+\[
+ \mathbf R\Hom_{\Gr C_{n+1}}(P_{n+1},L)
+ \simeq\mathbf R\Hom_{\Gr D}(\overline P,L)
+\]
+となる。
+
+$Q$ の平坦性は短完全列
+\begin{equation}\label{mbcr:eq:thickening-extension}
+ 0\longrightarrow
+ \overline Q(-n)\otimes_K\Sym^nV
+ \longrightarrow Q_{n+1}\longrightarrow Q_n\longrightarrow0
+\end{equation}
+を与える。ここで $\Sym^nV$ は次数零に置いた係数空間であり、
+中心単項式の次数 $n$ は $(-n)$ に含めた。
+$P_n\simeq Q_n$ が既に与えられたとする。
+$P_{n+1}\to P_n\to Q_n$ を持ち上げる障害と持上げの差は、
+\eqref{mbcr:eq:thickening-extension}への Hom 完全列により、それぞれ
+\[
+ \Ext^1_{\Gr C_{n+1}}
+  (P_{n+1},\overline Q(-n)\otimes_K\Sym^nV),\qquad
+ \Hom_{\Gr C_{n+1}}
+  (P_{n+1},\overline Q(-n)\otimes_K\Sym^nV)
+\]
+に属する。\eqref{mbcr:eq:derived-base-change}と仮定により両者は零である。
+従って同型の候補は一意に持ち上がる。
+
+この持上げは同型である。
+余核は $\mathfrak m$ で割ると零になり、
+$\mathfrak m^{n+1}=0$ により余核そのものが零となる。
+全射の核については、$Q_{n+1}$ の $R_{n+1}$-平坦性から
+剰余後も左端の完全性が保たれる。
+剰余写像が同型なので核も $\mathfrak m$ で割ると零であり、
+同じ冪零性により零となる。
+これで互いに両立する同型 $P_n\simeq Q_n$ を全ての $n$ で得る。
+
+最後に、形式的同型を実際の次数付き同型へ戻す。
+$P,Q$ の次数の下界を固定すると、各内部次数 $a$ について
+$n\gg0$ で $(I^nP)_a=(I^nQ)_a=0$ となる。
+従ってその次数の同型は実際の $P_a\simeq Q_a$ に安定する。
+任意の斉次元による作用の可換性は、始域と終域の両次数で十分大きな
+$n$ を取れば有限商上で確認できる。
+よって安定した写像は $C$-線型であり、逆も同じ方法で構成される。
+一意性も各有限商での一意性から従う。
+完備化した加群の存在だけで結論を止めてはいない。
+\end{proof}
+
+\subsection{自己同型への適用と中心還元の忠実性}
+
+自己同型の群については、さらに $j_i$ が相異なり $0,1728$ を避けるとする。
+位数の仮定は本節冒頭の $p_i,2p_i,3p_i\ne0$ のままでよい。
+全 $\mathcal O$-同値群と同定する場合には
+定理\ref{mbv:thm:all-o-third}の有限個の捩れ条件も課す。
+$\Phi_\alpha$ は右作用を
+$m\cdot c=m\alpha^{-1}(c)$ と変更する関手とする。
+
+\begin{theorem}[中心還元からの次数一軌道の認識]
+\label{mbcr:thm:reduction-rigidity}
+$\alpha\in\Aut_{\mathrm{gr}}(C)$ とし、その中心商上の作用を
+$\overline\alpha\in\Aut_{\mathrm{gr}}(D)$ とする。
+$j=1,2$ について
+\[
+ \Phi_{\overline\alpha}(\overline M_j)\simeq\overline M_j
+ \quad\text{in }\Gr D
+\]
+なら
+\[
+ \Phi_\alpha(M_j)\simeq M_j\quad\text{in }\Gr C .
+\]
+各剰余同型を指定すると、その持上げは一意である。
+従って $\alpha$ の射影的同型類は
+$\mathcal K_k=\Aut_{\mathrm{gr}}(A)/K^\times$ に属する。
+さらに、中心還元による準同型
+\begin{equation}\label{mbcr:eq:faithful-reduction}
+ \Aut_{\mathrm{gr}}(C)/K^\times
+ \longrightarrow \Aut_{\mathrm{gr}}(D)/K^\times
+\end{equation}
+は単射である。
+これらの結論に $\Aut_{\mathrm{gr}}(C)/K^\times$ の有限性は不要である。
+\end{theorem}
+\begin{proof}
+$\alpha$ は $Z_1$ を保ち、中心多項式環 $R$ の次数付き自己同型を誘導する。
+従って補題\ref{mbcr:lem:central-free}により、
+$M_j$ と $\Phi_\alpha(M_j)$ はともに $R$ 上平坦で、下に有界である。
+後者の剰余は $\Phi_{\overline\alpha}(\overline M_j)$ となる。
+指定した剰余同型で二つを同定し、
+命題\ref{mbcr:prop:negative-ext}と補題\ref{mbcr:lem:graded-lifting}を適用する。
+これで最初の主張を得る。
+
+Veronese 同値で $M_j$ は $\mathcal O_A(j)$ に対応する。
+$C$ の次数付き自己同型から来る関手は $(3)$ と可換するので、
+$j=1,2$ の対象を保てば全整数の $\mathcal O_A(j)$ を保つ。
+定理\ref{mbva:thm:sss}の証明により、その関手は元の次数付き表示の自己同型から来る。
+その証明で使うのは点グラフの $p_i,2p_i,3p_i\ne0$ と $j$ の相異性、
+および混合二次関係であり、同節の twist 分類用の $6p_i\ne0$ は使わない。
+第三 Veronese 上の次数付き自己同型が同じ構造移送を与える核は
+grading scalar であるから、$\alpha$ の射影的同型類は $\mathcal K_k$ に属する。
+
+単射性のため、まず $\mathcal K_k$ の $D$ への作用が射影的に忠実であることを確認する。
+$h=(h_i)\in\prod_i\mathcal H_i$ の作用が $D_1$ 上のスカラー $\lambda$ だとする。
+$i\ne j$ に対し、混合成分
+$(T_i)_2\otimes(T_j)_1\subset D_1$ 上では
+$(h_i)_2\otimes(h_j)_1=\lambda\operatorname{id}$ である。
+二つの可逆写像の tensor 積がスカラーなら各因子もスカラーなので、
+全ての $(h_j)_1=\varepsilon_j\operatorname{id}$ となる。
+$h_j$ は $\Omega_j$ を固定するため $\varepsilon_j^3=1$ であり、
+純成分 $(T_i)_3\subset D_1$ を見ると $\lambda=1$ である。
+混合成分の等式は
+$\varepsilon_i^2\varepsilon_j=1$、従って $\varepsilon_j=\varepsilon_i$ を与える。
+よって $h$ は共通 $\mu_3$ に属し、$\mathcal K_k$ では恒等である。
+
+次に\eqref{mbcr:eq:faithful-reduction}の核の元を取る。
+次数スカラーを除くと、$\overline\alpha=\operatorname{id}_D$ となる代表を選べる。
+その代表は全ての $\overline M_j$ を保つので、既に示した部分から
+$\mathcal K_k$ に属する。上の忠実性によって、この元は恒等である。
+\end{proof}
+
+\begin{corollary}[次数一代数への持上げを持つ還元]
+\label{mbcr:cor:reduction-lifts}
+前定理の $\overline\alpha$ が、$E=\bigotimes_iT_i$ の
+次数付き自己同型 $\beta$ の第三 Veronese への制限であるなら、
+$\alpha$ の射影的同型類は $\mathcal K_k$ に属する。
+\end{corollary}
+\begin{proof}
+$\Phi_\beta(E(j))\simeq E(j)$ は
+$m\mapsto\beta(m)$ による次数付き加群同型である。
+第三 Veronese を取ると
+$\Phi_{\overline\alpha}(\overline M_j)\simeq\overline M_j$ となるので、
+定理\ref{mbcr:thm:reduction-rigidity}を適用する。
+\end{proof}
+
+\begin{corollary}[二ブロックの一次中心変形の非消滅]
+\label{mbcr:cor:nonzero-class}
+$k=2$ とし、$Z(C)_1=Kg$ の生成元を選ぶ。
+$C/(g^2)$ が定める次数付き一次変形類は
+\[
+ \kappa_C\ne0\quad\text{in }HH^2(D,D)_{-1}
+\]
+である。従って $C$ は中心次数一変数に関して、一次から既に自明でない変形である。
+\end{corollary}
+\begin{proof}
+次の一般的な事実を使う。
+標数が二でない体上で、$C$ が連結二次代数、
+$g\in Z(C)_1$ が正則、$D=C/(g)$、$D_1\ne0$ とする。
+もし $\kappa_C=0$ なら、$D$ 上恒等で
+$g\mapsto-g$ となる非自明な射影的自己同型が存在する。
+
+実際、$C/(g^2)$ の積を斉次線型切断で
+$\mu_0+g\mu_1$ と書くと、$\mu_1$ は内部次数 $-1$ の
+Hochschild cocycle である。
+$[\mu_1]=0$ なら、それを与える内部次数 $-1$ の
+一 cochain を用いて切断を変更することで、単位と $g$ を保ち、
+$D$ 上恒等となる次数付き同型
+$D[g]/(g^2)\simeq C/(g^2)$ を得る。
+その $D_1$ の像を $C_1$ へ持ち上げ、$C_1=U\oplus Kg$ と書く。
+$R_D\subset U\otimes U$ を $D$ の二次関係空間とすると、
+各 $r\in R_D$ の $C_2$ における値は $c_rg^2$、$c_r\in K$ となる。
+従って $r-c_rg\otimes g$ は $C$ の二次関係である。
+
+これらと $g\otimes u-u\otimes g$ が全二次関係を張る。
+実際、関係空間の $U\otimes U$ への射影は $R_D$ へ全射である。
+その核に入る関係は
+$g\otimes u+v\otimes g+c\,g\otimes g$ と書け、
+積が零という条件は $g(u+v+cg)=0$ である。
+$g$ の正則性と直和分解から $v=-u$, $c=0$ となる。
+よって $U$ を固定し $g$ を $-g$ に送る写像は全二次関係を保ち、
+$C$ の次数付き自己同型を与える。
+$U\simeq D_1\ne0$ なので、この自己同型は共通 grading scalar ではない。
+
+本節の $C$ は補題\ref{mbv:lem:quadratic}により二次であり、
+$g$ の正則性は補題\ref{mbcr:lem:central-free}から従う。
+上の自己同型は定理\ref{mbcr:thm:reduction-rigidity}の中心還元の忠実性に反する。
+従って $\kappa_C\ne0$ である。
+\end{proof}
+
+\begin{remark}[二ブロックと主張の範囲]
+$k=2$ では $R=K[g]$、$I=(g)$ であり、
+\eqref{mbcr:eq:ci-local-cohomology}の集中次数は四である。
+従って中心還元核は有限開に限らず自明である。
+一般二次代数に対する高々 $\mu_2$ という有限群の上界や、
+一次中心変形類の非消滅をこの結論の仮定として使う必要はない。
+後者の非消滅は、逆に系\ref{mbcr:cor:nonzero-class}で結論として得られる。
+この系は非消滅を証明するもので、$\kappa_C$ の具体的な Hochschild cocycle や値は計算していない。
+
+ここでの定理は代数閉体上の固定された表示に関する主張である。
+$I$-進の非被約商は元の次数付き代数の内部の thickening であり、
+任意の非被約パラメータ底上の自己同型層の認識と同一視しない。
+また本節だけでは $\Aut_{\mathrm{gr}}(D)$ の全ての元が $E$ へ持ち上がるとは主張しない。
+その分類を別途与えれば、系\ref{mbcr:cor:reduction-lifts}が全自己同値群の決定へ接続する。
+\end{remark}

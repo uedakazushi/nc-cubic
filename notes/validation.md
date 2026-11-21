@@ -1,16 +1,16 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月21日 / v33。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月21日 / v34。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
-## 現行v33の確認
+## 現行v34の確認
 
-- **原稿の執筆と内部独立読解：** 中心商Dの幾何点加群分類、純商の内在性、余法加群から`(E,L,σ)`を回復する証明、可換tensor表示の幾何点剛性。SSS部分群、順序対安定化子、既知根の全群内非融合、有限全慣性下の中心還元核μ2上界。有限導分行列、支配的な可換特殊化、Grassmann像のfppf効果化・次元2k。明示的Jacobian tensor族のグラフ直和性、点三次模型、同変復元への接続。各核心を執筆担当とは別の担当者が読み、GL/PGLのframe作用と有限核の正規化を明確化した。
-- **追加仮定と既存入力：** 点三次模型は明示的Jacobian関係・次数別PBW自由性・primitive中心を仮定し、既存の一ブロック全次数恒等式、cft/gdr、同変核降下、Hu比較を使う。今回はこれらの適用と新しい直和・規格化を点検した。既存MF/window/coherent飽和の全証明の独立再監査、任意の抽象圏変形の認識、指定形式核の代数化を行ったとはしない。
-- **一次資料：** Stafford–Van den BerghのTHCRの式(3.1),(3.3), Theorem3.2、Stacks Project Tags047N,02G3,054K,052A,0DSLの群・不分岐・構成可能像・generic flatness・DM locusを確認。Kontsevich最終著者PDF §§5.1,6.1–6.3の配置空間と角形式、Mori–Smith arXiv:1502.07403v2 Theorems1.2,7.2と証明を担当者が確認した。旧来の引用と新規性の網羅的照合は別であり、後者は未完了。
-- **今回の厳密有限計算：** `python3 computations/verify_veronese_representation.py`を執筆担当と統合担当が実行して成功。群の位数243、55次元指標値の分布`{55:1,10:48,1:194}`、一次指標の重複度`3×1,1×16,0×64`、二つの9次元既約表現の重複度2、中心固有空間19・18・18、block similitude2304、ambient normalizer/centralizer186624を確認した。これは厳密指標演算と有限群列挙であり、55生成元・2619関係の全代数自己同型群を計算したものではない。
-- **ソース整合・組版・表示確認：** `python3 scripts/check_sources.py`は45 TeXソース、901個の一意なlabel、602個の参照label、133個の引用keyを検査して成功。`git diff --check`も成功。`latexmk -lualatex papers/nc-cubic.tex`は成功し、最終PDFは440頁、SyncTeXも生成した。最終ログに未定義・重複参照、欠落文字、overfull/underfull boxはない。既存の小サイズ字体代替と旧字体命令の警告は残る。最終PDFの1、103、104、108、114、115、128、130頁を画像化し、表題・余法加群・triple復元・根の非融合・一般DM stack・点三次模型と曲線積の系を表示確認した。全440頁の目視、VS Code上の操作確認は行っていない。
+- **新しい証明と独立読解：** 中心完全交叉の局所コホモロジー、中心商Torのpro-zero、Veroneseを介したRω比較、負次数Hom・Ext¹消滅、多中心変数のderived base change、同型の唯一lift、nilpotent Nakayama、次数別安定によるgraded同型を執筆担当以外が点検した。純商イデアルの飽和冪、多重次数の回復、剰余次数加群のEnd=K、Λ-character、全AutDのfactor liftも相互に独立読解した。これらをSSS認識へ接続する全G=K・中心還元核自明・rO条件付き根分類の証明を確認した。二ブロックのκ_C≠0は、first-order自明化から符号involutionを構成する二次関係の議論を独立読解し、還元核自明性へ接続した。
+- **相対認識：** 射影frame、任意底上の忠実性、表現可能性、fppf準有限、一般fiberの正則性、有限étaleの有限表示降下、階数一、中心bandを点検した。相対Isomの一致はさらに縮めた非空開に限定する。幾何点の一致だけから非被約底の認識を結論していない。
+- **一次資料：** Burke–Stevenson arXiv:1507.00830v1 §4 Proposition4.5・式(4.15)を担当者が確認。Stacks Project Tags04Y5,038U,038X,084Z,07SL,05W5,0DUDを確認し、統合担当も04Y5,084Z,07SLを直接照合した。Aitzhanova–Makar-Limanov–UmirbaevのMPIM著者稿Theorem1・Corollaries4,5、Chan–Young–Zhang arXiv:1606.01296v1 Theorems0.1,0.2を直接確認し、適用範囲の差を本文に記した。新規性の網羅的確認は未完了。
+- **今回の有限計算：** 新しい証明は有限数値計算に依存せず、既存の検証器は変更・再実行していない。保持する二ブロック表現計算は位数243、55次元指標値`{55:1,10:48,1:194}`、一次指標重複度`3×1,1×16,0×64`、二つの9次元既約表現各2、中心固有空間19・18・18、block similitude2304、ambient normalizer/centralizer186624。これらを今回の実行や全代数自己同型群の計算とはしない。
+- **ソース整合・組版・表示確認：** `python3 scripts/check_sources.py`は48 TeXソース、946個の一意なlabel、638個の参照label、135個の引用keyを検査して成功。`git diff --check`も成功。`latexmk -lualatex papers/nc-cubic.tex`は成功し、最終PDFは456頁、SyncTeXも生成した。最終ログに未定義・重複参照、欠落文字、overfull/underfull box、致命的エラーはない。既存の小サイズ字体代替と旧字体命令の警告は残る。最終PDFの1、115、116、118、120、123、124、131頁を画像化し、表題・負次数Ext・一意持上げ・一次変形非消滅・飽和冪・全慣性・根分類・stack同型を表示確認した。全456頁の目視、VS Code上の操作確認は行っていない。
 
-既存の相対双対・第三Veronese認識・Heisenberg共役類83/785・一般twisting system剛性・同変有限降下の証明点検は保持する。`verify_multiblock_twists.py`、`verify_two_block_structure.py`、一ブロック・Jacobi・Picard・Hessian・境界低積等の検証器は今回再実行していない。外部量子化稿・三様体稿の検証状態は各repoを正本とする。Lean等の形式検証、外部査読は行っていない。下記の保持する点検を今回の再実行とは読み替えない。
+既存の余法加群、SSS、支配的可換特殊化、Grassmann像、点三次模型、相対双対・第三Veronese認識、Heisenberg共役類83/785、一般twisting system剛性、同変有限降下の有効な証明点検を保持する。一般の二次中心拡張のμ2上界も保持するが、本対象の還元核は新証明で自明となる。既存MF/window/coherent飽和の全体、外部量子化稿・三様体稿を今回一括再監査していない。Lean等の形式検証・外部査読は未実施。下記の既存検算を今回の再実行とは読み替えない。
 
 ## 保持する数学的点検の範囲
 

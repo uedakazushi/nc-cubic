@@ -6,8 +6,12 @@
 まず一つの次数付き自己同型から作る twist について分類する。
 さらに、両端が可換 tensor 積表示である場合には、
 一般の twisting system も新しい次数付き同型類を生まないことを示す。
-後者を全 $\OO$-保存同値へ適用するためには、
-構造対象の全ての shift を対象として保つ条件がなお必要である。
+ここでの直接の証明は、全 shift を対象として保つ同値に適用される。
+可換 tensor チャート内の任意の全 $\OO$-保存同値についても、
+定理\ref{mbca:thm:full-inertia}と系\ref{mbiq:cor:commuting-o-rigidity}により
+同値関手そのものの次数付き認識が成立する。
+また系\ref{mbca:cor:marked-roots}は、構造対象を $\OO(1)$ へ送る根について、
+本節の共役 groupoid が全ての根を尽くすことを示す。
 
 基礎体 $k$ は標数零の代数閉体とする。
 ブロック数を $\ell\ge2$ とし、
@@ -286,8 +290,10 @@ $A'$ と $A$ は次数付き同型である。
  \quad\Longleftrightarrow\quad
  A\simeq_{\mathrm{gr}} A'.
 \end{equation}
-この結論は同値な\emph{対象}の認識であり、
-与えられた全ての同値関手が次数付き同型の構造移送に等しいという主張ではない。
+この定理の直接の結論は同値な\emph{対象}の認識である。
+$\operatorname{Gr}$ 圏の任意の同値には次数零生成対象の保存を仮定していない。
+全 $\OO$-保存 tails 同値の関手そのものの認識は、
+系\ref{mbiq:cor:commuting-o-rigidity}で別に得られる。
 \end{theorem}
 
 \begin{proof}
@@ -342,6 +348,7 @@ Zhang の定理 \cite[Theorem~3.5]{TBPZhangTwist}による。
  F(\OO(j))\simeq\OO'(j)\qquad(j\in\mathbf Z)
 \end{equation}
 を満たすならば、$A\simeq_{\mathrm{gr}}A'$ である。
+さらに定理\ref{mbva:thm:sss}により、$F$ 自体が次数付き同型の構造移送と自然同型である。
 \end{corollary}
 \begin{proof}
 全ての $\OO(j)$ 上の同型を選び、$F$ をそれらの間の Hom と合成に適用する。
@@ -350,31 +357,43 @@ Zhang の定理 \cite[Theorems~3.3 and~3.7(2)]{TBPZhangTwist}により、
 二つの section 代数は一般の twisting system によって結ばれる。
 切断飽和性でそれらを $A,A'$ と同定し、
 定理\ref{mbr:thm:commuting-twist-rigidity}を適用する。
+関手そのものについては、定理\ref{mbva:thm:sss}の全整数の frame 調整、
+混合二次関係と三次関係の認識、および Gabriel 生成の議論を適用する。
 \end{proof}
 
 本稿の $\C$ 上の満支持表示族では、上の切断飽和性は
 系\ref{mbsd:cor:saturation}によって任意の通常の底変更後にも満たされる。
 
-\begin{remark}[残る内在的認識]
+\begin{remark}[全自己同値の認識と未指定の第三根]
 \label{mbr:rem:remaining-root-problem}
 条件 \eqref{mbr:eq:sss} は、各 shift を\emph{対象として}保つ条件であり、
 定義の段階で関手と次数一 shift の可換同型を指定するものではない。
 本稿の可換 tensor チャートでは、定理\ref{mbva:thm:sss}により
 この条件から関手そのものの次数付き持上げを得る。
-また $F(\OO)\simeq\OO'$ だけからは従っていない。
-Serre 関手から復元されるのは反標準軌道、表示を分裂させた体上では
-$d=3\ell-3$ の Veronese であり、
-それだけで \eqref{mbr:eq:sss} を無条件に結論してはならない。
-定理\ref{mbv:thm:all-o-third}の有限捩れを除いた開上では、さらに
-全 $\OO$-保存同値を第三 Veronese の次数付き同型の共通 scalar による商へ還元できる。
-この還元は第三 Veronese の全ての次数一表示を認識するものではない。
-本節は全代数的 twist の有限 groupoid と、一般 twist の可換チャート内の剛性を決定した。
-系\ref{mbiq:cor:commuting-o-rigidity}は幾何点の対象剛性を SSS の仮定なしに与え、
-系\ref{mbva:cor:root-orbits}は既知の根の共役類が全自己同値群でも融合しないことを示す。
-一般の非代数的 twisting system の全分類、Veronese の全ての次数一の根、
-および任意の $\OO$-保存同値に対する \eqref{mbr:eq:sss} は未決定である。
-$c_\ell$ はこの限定した表示 groupoid の同型類数であり、
-全 intrinsic moduli の成分数や、全ての次数一の根の個数ではない。
+さらに、定理\ref{mbv:thm:all-o-third}の有限位数条件を満たす範囲では、
+定理\ref{mbca:thm:full-inertia}が全 $\OO$-自己同値群を $\mathcal K_\ell$ と同定する。
+従って系\ref{mbiq:cor:commuting-o-rigidity}と合わせると、
+可換 tensor チャートどうしでは $F(\OO)\simeq\OO'$ だけから
+与えられた関手の次数付き持上げと \eqref{mbr:eq:sss} が従う。
+任意の非被約底を含む相対同型層についても、
+系\ref{mbrr:cor:stack-isomorphism}がさらに選んだ非空開上で認識を与える。
+
+この結論は、同じ第三 Veronese を持つ任意の次数一表示が
+可換 tensor 積表示であることを意味しない。
+本節は代数的 Zhang twist の全体と、一般 twist の可換チャート内の剛性を決定した。
+根の関手としては、系\ref{mbca:cor:marked-roots}により
+$\mathsf r\OO\simeq\OO(1)$ を満たす全ての $\mathsf r$ が
+$\mathsf s\Phi_h$、$h\in\mathcal K_\ell$ の形であり、
+自動的に $\mathsf r^3\simeq\mathsf s^3$ を満たす。
+従ってこの条件付きの全根の共役 groupoid も
+$[\mathcal K_\ell/\mathcal K_\ell]_{\mathrm{conj}}$ である。
+二ブロックでは根の自然同型類が $243$、共役類が $83$ であり、
+一般の共役類数は式\eqref{mbr:eq:count}の $c_\ell$ である。
+三乗同型 $\mathsf r^3\simeq\mathsf s^3$ の選択や、その coherence は追加標識に含めない。
+
+$\mathsf r^3\simeq\mathsf s^3$ だけを仮定し、$\mathsf r\OO$ を指定しない
+全ての第三根の分類、および一般の非代数的 twisting system の全分類は未決定である。
+$c_\ell$ は全 intrinsic moduli の成分数や、像を指定しない全ての根の個数ではない。
 Zhang の同値、Heisenberg 表現、既存の一因子幾何は既知であり、
 本節で組み合わせた分類の新規性の網羅的確認は未完了である。
 \end{remark}

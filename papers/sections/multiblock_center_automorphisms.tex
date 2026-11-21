@@ -1,0 +1,365 @@
+% !TEX root = ../nc-cubic.tex
+\section{中心商の自己同型と全構造対象保存群}
+\label{mbca:sec:automorphisms}
+
+本節では、中心商の純ブロック商だけでなく、元の多重次数空間を内在的に回復する。
+そのために純商の核の冪を右飽和する。
+この認識と楕円曲線上の線束の自己準同型環を使うと、
+中心商の全次数付き自己同型が元の因子自己同型から来ることが分かる。
+中心方向の加群の持上げ剛性と合わせて、
+全 $\OO$-自己同値群を既知の有限 Heisenberg 商群へ同定する。
+
+基礎体は標数零の代数閉体 $K$、ブロック数は $k\ge2$ とする。
+第\ref{mbiq:sec:quotients}節の記号により
+\[
+ T_i=B(E_i,L_i,\sigma_i),\qquad
+ E=\bigotimes_{i=1}^kT_i,\qquad
+ D=E^{(3)},\qquad U_i=T_i^{(3)},\qquad F=\bigotimes_iU_i
+\]
+と置く。$L_i$ の次数は三、
+$\sigma_i=t_{p_i}$ は $p_i,2p_i,3p_i\ne0$ を満たす平行移動とし、
+$j(E_i)$ は相異なり $0,1728$ を避ける。
+各 $T_i$ は次数一生成の domain である。
+本節の自己同型の計算には $\sigma_i$ の無限位数性を要求しない。
+群の同定はまず固定した代数閉体上の対象について述べる。
+
+多重次数 $\boldsymbol a=(a_1,\ldots,a_k)$ に対して
+$T_{\boldsymbol a}=\bigotimes_i(T_i)_{a_i}$、
+$|\boldsymbol a|=\sum_i a_i$ と書く。
+$D_n=\bigoplus_{|\boldsymbol a|=3n}T_{\boldsymbol a}$ である。
+純商 $q_i:D\to U_i$ の核を $I_i$ とする。
+これらは系\ref{mbiq:cor:intrinsic-quotients}によって内在的であり、
+$j$ 不変量の相異性から全自己同型が各 $I_i$ を保つ。
+
+\subsection{飽和冪による多重次数の回復}
+
+次数付き右イデアル $J\subset D$ の右飽和を
+\[
+ J^{\mathrm{sat}}=
+ \{x\in D:xD_{\ge r}\subset J\text{ for some }r\ge0\}
+\]
+と定める。以下では $I_i^0=D$ とする。
+全次数付き自己同型は、イデアルの積とこの右飽和を保つ。
+
+\begin{lemma}[純商の核の飽和冪]
+\label{mbca:lem:saturated-powers}
+任意の $i$、$m\ge0$ について
+\begin{equation}\label{mbca:eq:saturated-powers}
+ (I_i^m)^{\mathrm{sat}}\cap D_n
+   =\bigoplus_{\substack{|\boldsymbol a|=3n\\
+                        \sum_{j\ne i}a_j\ge m}}T_{\boldsymbol a}.
+\end{equation}
+従って、$|\boldsymbol a|=3n$ に対し
+\begin{equation}\label{mbca:eq:multidegree-recovery}
+ T_{\boldsymbol a}
+  =D_n\cap\bigcap_{i=1}^k
+                (I_i^{\,3n-a_i})^{\mathrm{sat}}.
+\end{equation}
+特に、全次数付き自己同型は各多重次数空間と純部分代数
+$U_i\subset D$ を保つ。
+\end{lemma}
+\begin{proof}
+$m=0$ は明らかなので $m>0$ とする。
+まず $n\ge m$ において
+\[
+ (I_i^m)_n
+  =\bigoplus_{\substack{|\boldsymbol a|=3n\\
+                       \sum_{j\ne i}a_j\ge m}}T_{\boldsymbol a}
+\]
+を示す。左辺の元は $i$ 以外の次数が少なくとも $m$ なので一方の包含は従う。
+逆にその outside 次数が $m$ 以上なら、
+多重次数を表す $3n$ 個の文字から outside の文字を $m$ 個選び、
+それぞれを異なる三文字の組へ入れる。
+$n\ge m$ なので残りの文字でこれらの組を満たし、余りをさらに三文字ずつに分けられる。
+最初の $m$ 組に対応する多重次数は全て $(I_i)_1$ に属する。
+各 $T_j$ の次数一生成性から、指定した次数分割に対する切断乗法は全射である。
+従って $T_{\boldsymbol a}\subset(I_i^m)_n$ となる。
+
+outside 次数が $m$ 以上の成分は、十分高い次数を右から掛けると
+この等式の適用範囲へ入るため、右飽和に含まれる。
+逆に outside 次数が $m$ 未満の非零成分を持つ斉次元 $x$ を取る。
+任意に高い次数の非零な純元 $u\in(U_i)_r$ を右から掛ける。
+$T_i$ は domain なので、その純因子における右乗法は単射である。
+他の因子との tensor 積でも単射であり、
+$x$ の異なる多重次数成分どうしは掛けた後も異なる。
+従って $xu$ は outside 次数が $m$ 未満の非零成分を持ち、
+$I_i^m$ に入らない。
+これは $x\notin(I_i^m)^{\mathrm{sat}}$ を示す。
+
+式\eqref{mbca:eq:saturated-powers}で $m=3n-a_i$ を取ると、
+許される多重次数 $\boldsymbol b$ の条件は $b_i\le a_i$ となる。
+全ての $i$ についてこの条件を課し、$|\boldsymbol b|=|\boldsymbol a|$ を使えば、
+$\boldsymbol b=\boldsymbol a$ である。
+これで式\eqref{mbca:eq:multidegree-recovery}を得る。
+\end{proof}
+
+ここでは有限長の切断点スキームの非被約構造を使っていない。
+幾何学的点加群が与える $I_i$ と、代数内のイデアル演算・右飽和だけから
+多重次数を認識した。
+
+\subsection{剰余多重次数部分の自己準同型}
+
+$0\le e\le2$ に対し、次数付き右 $U_i$-加群を
+\[
+ P_i(e)=(T_i(e))^{(3)},\qquad
+ P_i(e)_n=(T_i)_{3n+e}\quad(n\ge0)
+\]
+と置く。これは次数零で生成される。
+
+\begin{lemma}[剰余次数加群の次数零自己準同型]
+\label{mbca:lem:residue-end}
+$\operatorname{End}_{\mathrm{gr}\,U_i}(P_i(e))=K$ である。
+さらに任意の $\boldsymbol e\in\{0,1,2\}^k$ について、
+$\bigotimes_iP_i(e_i)$ の多重次数を保つ右 $F$-自己準同型はスカラーに限られる。
+\end{lemma}
+\begin{proof}
+Veronese 同値と THCR 同値の下で、$P_i(e)$ の tails 像は
+$\operatorname{coh}E_i$ の線束となる。
+具体的には $T_i(e)$ の像であり、
+右加群の shift は式\eqref{mbiq:eq:thcr-shift}の自己同値である。
+この既知の THCR 同値は、曲線上の正次数線束の ampleness により
+有限位数の場合にも使える
+\cite[\S3, equations~(3.1), (3.3), Theorem~3.2]{NFMStaffordVdB}。
+滑らかな幾何学的連結射影曲線上の線束の自己準同型環は $K$ である。
+また $P_i(e)$ は $T_i$ の成分からなるため右 torsion を持たない。
+従って graded 自己準同型から tails 自己準同型への写像は単射であり、
+スカラー写像が既に全てを与える。
+
+tensor 積については二因子の場合を示して帰納する。
+$P,Q$ を二つの加群とし、多重次数を保つ $P\otimes Q$ の自己準同型を考える。
+$Q_0$ の基底を選び、$P\otimes Q_0$ へ制限すると、
+各行列成分は $P$ の次数零自己準同型である。
+従ってこの制限は $1_P\otimes b_0$ の形となる。
+$Q$ が $Q_0$ から生成されるので、右 $U_Q$-線型性は
+$b_0$ が $Q$ 全体の次数零自己準同型 $b$ へ延びることを要求する。
+実際、$Q_0$ の関係へ一つの非零な $p\in P$ を tensor すれば、
+$b_0$ が同じ関係を保つことが分かる。
+$b$ もスカラーであるから全体がスカラーとなる。
+同じ議論を残りの因子へ繰り返す。
+\end{proof}
+
+剰余多重次数群を
+\[
+ \Lambda=\left\{\bar{\boldsymbol e}\in(\mathbf Z/3)^k:
+                    \sum_i\bar e_i=0\right\}
+\]
+とする。各元の代表を $0\le e_i\le2$ に取れば、
+$F$-双加群として
+\[
+ D=\bigoplus_{\bar{\boldsymbol e}\in\Lambda}D_{\bar{\boldsymbol e}},
+ \qquad
+ D_{\bar{\boldsymbol e}}=
+ \bigoplus_{\boldsymbol q\in\mathbf N^k}
+       \bigotimes_i(T_i)_{3q_i+e_i}.
+\]
+多重次数を $3\boldsymbol q+\boldsymbol e$ で標識すると、
+右 $F$-加群 $D_{\bar{\boldsymbol e}}$ は $\bigotimes_iP_i(e_i)$ である。
+特に $D_{\bar0}=F$ である。
+
+\begin{proposition}[純部分を点ごと固定する自己同型]
+\label{mbca:prop:pure-kernel}
+各 $U_i\subset D$ を点ごと固定する次数付き自己同型は、
+剰余次数部分 $D_{\bar{\boldsymbol e}}$ 上で
+$\lambda(\bar{\boldsymbol e})$ 倍として作用する。
+ここで
+\[
+ \lambda\in\operatorname{Hom}(\Lambda,\mu_3)
+       \cong\mu_3^k/\mu_3^{\mathrm{diag}}.
+\]
+従ってこれらの自己同型は、全てブロック別の三乗根スカラーから来る。
+\end{proposition}
+\begin{proof}
+補題\ref{mbca:lem:saturated-powers}により自己同型は多重次数を保ち、
+$F$ を点ごと固定する。
+従って各 $D_{\bar{\boldsymbol e}}$ 上の作用は
+多重次数を保つ $F$-加群自己同型である。
+補題\ref{mbca:lem:residue-end}により、その作用は一つの非零スカラー
+$\lambda(\bar{\boldsymbol e})$ である。
+
+任意の二つの剰余次数部分には、積が非零となる元がある。
+各因子で非零な斉次元を選び、その tensor を取ればよい。
+各 $T_i$ の domain 性が、その積の非零性を保証する。
+積は和の剰余次数部分に入るので、
+\[
+ \lambda(\bar{\boldsymbol e}+\bar{\boldsymbol f})
+    =\lambda(\bar{\boldsymbol e})\lambda(\bar{\boldsymbol f})
+\]
+となる。$\Lambda$ の指数が三なので値は $\mu_3$ に属する。
+逆に任意のこのような指標は積を保つ。
+標準 pairing
+$\mu_3^k\times\Lambda\to\mu_3$ の左側の核は共通 $\mu_3$ であり、
+全ての指標を与える。これがブロックスカラーによる表示である。
+\end{proof}
+
+\subsection{中心商の全自己同型群}
+
+\begin{theorem}[中心商の自己同型は因子へ持ち上がる]
+\label{mbca:thm:center-automorphisms}
+制限写像は完全列
+\begin{equation}\label{mbca:eq:aut-d}
+ 1\longrightarrow\mu_3^{\mathrm{diag}}
+ \longrightarrow\prod_{i=1}^k\operatorname{Aut}_{\mathrm{gr}}(T_i)
+ \longrightarrow\operatorname{Aut}_{\mathrm{gr}}(D)
+ \longrightarrow1
+\end{equation}
+を与える。
+従って、$D$ の次数スカラーによる商は
+\begin{equation}\label{mbca:eq:projective-aut-d}
+ H_D:=\operatorname{Aut}_{\mathrm{gr}}(D)/K^\times
+   \cong
+   \left(\prod_i\operatorname{Aut}_{\mathrm{gr}}(T_i)\right)/
+                                         \mathbf G_m^{\mathrm{diag}}.
+\end{equation}
+特に、$D$ の全次数付き自己同型は $E=\bigotimes_iT_i$ の
+次数付き自己同型へ持ち上がる。
+\end{theorem}
+\begin{proof}
+$\alpha\in\operatorname{Aut}_{\mathrm{gr}}(D)$ を取る。
+補題\ref{mbca:lem:saturated-powers}により、純部分代数 $U_i$ も保たれる。
+定理\ref{mbiq:thm:triple-recovery}から、
+その作用は $(E_i,L_i,\sigma_i)$ の自己同型 $f_i$ を与える。
+線束同型 $f_i^*L_i\simeq L_i$ を一つ選ぶと、
+THCR の構成の自然性により $h_i\in\operatorname{Aut}_{\mathrm{gr}}(T_i)$ が得られる。
+
+$\alpha|_{U_i}$ と $h_i|_{U_i}$ は、点曲線とその次数九偏極に同じ射影作用を与える。
+従ってその比は $U_i$ の次数スカラーである。
+実際、次数一の射影作用が曲線上で恒等なら、
+曲線の既約性と線型非退化性からその線型写像はスカラーであり、
+$U_i$ の次数一生成性が全次数の作用を決める。
+このスカラーの三乗根を選んで $h_i$ を grading scalar 倍すれば、
+$h_i|_{U_i}=\alpha|_{U_i}$ とできる。
+
+$\alpha$ から $\bigotimes_i h_i$ の制限を除くと、
+各 $U_i$ を点ごと固定する自己同型となる。
+命題\ref{mbca:prop:pure-kernel}により、それもブロックスカラーから来る。
+これで式\eqref{mbca:eq:aut-d}の全射性を得る。
+
+核を調べる。各 $h_i|_{U_i}=1$ なら、
+点曲線の作用が恒等なので $h_i$ は $T_i$ の次数スカラー
+$\varepsilon_i$ であり、$\varepsilon_i^3=1$ となる。
+その $D$ 上の作用が恒等となるのは
+$\Lambda$ への指標が自明な場合、すなわち全ての $\varepsilon_i$ が同じ場合に限る。
+これが表示した核である。
+最後に、$T_i$ の共通 grading scalar $t$ は
+$D$ の新しい次数に対して $t^3$ の grading scalar を与える。
+代数閉体上では三乗写像が全射なので、
+この共通スカラーを除けば式\eqref{mbca:eq:projective-aut-d}となる。
+\end{proof}
+
+\begin{corollary}[相対ブロックトーラスと有限部分]
+\label{mbca:cor:center-torus}
+$\mathcal T=\mathbf G_m^k/\mathbf G_m^{\mathrm{diag}}$ は $H_D$ の中心部分群であり、
+\[
+ 1\longrightarrow\mathcal T
+ \longrightarrow H_D
+ \longrightarrow\prod_iE_i[3]\longrightarrow1
+\]
+となる。また既知の有限表示群 $\mathcal K_k$ の像について
+\[
+ H_D=\mathcal T\,\mathcal K_k,\qquad
+ \mathcal T\cap\mathcal K_k
+       =\mu_3^k/\mu_3^{\mathrm{diag}}.
+\]
+従って $\mathcal K_k$ は $H_D$ の正規部分群である。
+二ブロックでは $H_D$ の次元は一で、連結成分群の位数は $81$ である。
+\end{corollary}
+\begin{proof}
+$j(E_i)\ne0,1728$ と $2p_i\ne0$ より、
+次数三偏極を保ち $\sigma_i$ と可換する曲線自己同型は $E_i[3]$ の平行移動である。
+従って $\operatorname{Aut}_{\mathrm{gr}}(T_i)$ は
+$E_i[3]$ の、grading scalar による中心拡大である。
+これらは元の Sklyanin 因子へも持ち上がり、
+その中心三次指標を三乗根スカラーで規格化すると $\mathcal H_i$ に入る。
+定理\ref{mbca:thm:center-automorphisms}と既存の Heisenberg 群の記述を使えば、
+表示した全ての式が従う。
+\end{proof}
+
+\subsection{全自己同値群と構造対象の像を固定した根}
+
+\begin{theorem}[満支持型の全構造対象保存群]
+\label{mbca:thm:full-inertia}
+$A=(\bigotimes_iS_i)/(\sum_i a_i\Omega_i)$、全 $a_i\ne0$ とし、
+$C=A^{(3)}$ とする。上記の基本仮定の下で
+\begin{equation}\label{mbca:eq:full-inertia}
+ \operatorname{Aut}_{\mathrm{gr}}(C)/K^\times
+       =\mathcal K_k
+       =\Bigl(\prod_i\mathcal H_i\Bigr)/\mu_3^{\mathrm{diag}}
+\end{equation}
+である。
+さらに全 $\OO$-同値の第三 Veronese 認識の有限位数条件
+\[
+ jp_i\ne0\qquad(1\le i\le k,\ 1\le j\le3k-3)
+\]
+を課すと、
+\[
+ \operatorname{Aut}_{\OO}(\operatorname{QGr}A)=\mathcal K_k.
+\]
+その位数は $3^{3k-1}$、二ブロックでは $243$ である。
+ここでは事前に全自己同値群の有限性を仮定しない。
+\end{theorem}
+\begin{proof}
+$\alpha\in\operatorname{Aut}_{\mathrm{gr}}(C)$ を取る。
+中心一次生成イデアル $I=(Z(C)_1)$ は $\alpha$ によって保たれ、
+$D=C/I$ に自己同型 $\bar\alpha$ を誘導する。
+定理\ref{mbca:thm:center-automorphisms}により、
+$\bar\alpha$ は $E=\bigotimes_iT_i$ の次数付き自己同型 $\beta$ へ持ち上がる。
+
+$j=1,2$ に対し
+$M_j=(A(j))^{(3)}$、$\bar M_j=(E(j))^{(3)}$ と置く。
+$\beta$ の構造移送は $E(j)$ と同型なので、
+$\bar\alpha$ の構造移送は $\bar M_j$ と同型である。
+定理\ref{mbcr:thm:reduction-rigidity}により、
+この同型は $M_j$ の同型へ持ち上がる。
+従って $\alpha$ の tails 関手は $\OO(1),\OO(2)$ を保つ。
+$C$ の次数シフト、すなわち $A$ の $(3)$ とも可換するので、
+全整数の $\OO(j)$ を保つ。
+
+定理\ref{mbva:thm:sss}の隣接 Hom と混合二次関係による認識を適用すると、
+この関手は $A$ の次数付き自己同型から来る。
+その認識の証明は $p_i,2p_i,3p_i\ne0$ と $j$ の相異性だけを使い、
+$6p_i\ne0$ は使わない。
+$C$ の自己同型の構造移送の核は共通 grading scalar なので、
+式\eqref{mbca:eq:full-inertia}を得る。
+逆の包含と忠実性は命題\ref{mbva:prop:faithful}で既に示されている。
+最後に定理\ref{mbv:thm:all-o-third}を適用する。
+\end{proof}
+
+\begin{corollary}[第一対象を保つ三乗根の完全な分類]
+\label{mbca:cor:marked-roots}
+全 $\OO$-同値の第三 Veronese 認識が成立する範囲で
+$\mathsf s=(1)$ とする。
+固定した圏 $\operatorname{QGr}A$ の自己同値 $\mathsf r$ が
+\[
+ \mathsf r\OO\simeq\OO(1)
+\]
+を満たすなら、一意な $h\in\mathcal K_k$ に対して
+$\mathsf r\simeq\mathsf s\Phi_h$ となる。
+従って
+\[
+ \mathsf r^3\simeq\mathsf s^3,\qquad
+ \mathsf r^j\OO\simeq\OO(j)\quad(j\in\mathbf Z)
+\]
+も自動である。
+この条件を持つ根の自然同型類は $3^{3k-1}$ 個であり、
+全 $\OO$-自己同値による共役 groupoid は
+$[\mathcal K_k/\mathcal K_k]_{\mathrm{conj}}$ である。
+同型類数は $(11^k+2\cdot8^k)/3$、
+二ブロックでは $243$ 個の根・$83$ 個の共役類である。
+\end{corollary}
+\begin{proof}
+$\mathsf h=\mathsf s^{-1}\mathsf r$ は $\OO$ を保つので、
+定理\ref{mbca:thm:full-inertia}により一意な $h\in\mathcal K_k$ に対応する。
+$\Phi_h$ は $\mathsf s$ と可換し、$\mathcal K_k$ は指数三なので、
+表示した三乗と全軌道の式を得る。
+共役作用と個数は第\ref{mbr:sec:roots}節の有限群計算による。
+\end{proof}
+
+この根の分類は $\mathsf r\OO\simeq\OO(1)$ を仮定している。
+$\mathsf r^3\simeq\mathsf s^3$ だけを仮定した全ての根について、
+構造対象の像を先に決めたことにはならない。
+数えているのは自己同値の自然同型類であり、
+三乗同型 $\mathsf r^3\simeq\mathsf s^3$ の選択やその coherence を追加標識としてはいない。
+また、本節の証明から任意の非被約基底上の全同型層の一致を無条件に主張しない。
+THCR 同値、有限 Heisenberg 表現と中心方向の持上げ剛性を入力として用い、
+新たに行ったのは飽和冪による多重次数認識と剰余次数加群からの全自己同型の回収である。
+これらの組合せについての新規性の網羅的確認は未完了である。
