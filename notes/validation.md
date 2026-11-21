@@ -38,13 +38,13 @@
 
 ### 厳密計算・組版・検証の限界
 
-`python3 computations/verify_mixed_character_ext.py` は統合担当と別担当が実行し、**4 PASS・終了コード0**を確認した。証明書はQQ[a,b,c]上の全次数2,3,4の二側関係倍空間で、d²=0、中心性、dh₁+h₁d=f、dh₂+h₂d+h₁²=0を厳密検証する。κは記号式として導き、全16因子characterと全64組を確認する。独立担当はさらに縮約後の模型を使わず、評価されたhomotopyから64次元tensorのShamash Hom複体を別実装で組み、異なる符号の二組について16次までのrankとd²=0を照合した。この有限範囲の独立検算と全次数の紙上証明を区別し、重複実装は現行資産へ収録しない。
+`python3 computations/verify_mixed_character_ext.py` は統合担当と別担当が実行し、**4 PASS・終了コード0**を確認した。証明書はQQ[a,b,c]上の全次数2,3,4の二側関係倍空間で、d²=0、中心性、dh₁+h₁d=f、dh₂+h₂d+h₁²=0を厳密検証する。κは記号式として導き、全16因子characterと全64組を確認する。 検証器のSHA-256は `a1aa4718dc6fa132adc8871f0935c5a6579ea76304a973ab3e54db764883a46e`。独立担当はさらに縮約後の模型を使わず、評価されたhomotopyから64次元tensorのShamash Hom複体を別実装で組み、異なる符号の二組について16次までのrankとd²=0を照合した。この有限範囲の独立検算と全次数の紙上証明を区別し、重複実装は現行資産へ収録しない。
 
 `python3 computations/verify_point_poisson_obstruction.py` は今回も再実行し、**12 PASS・終了コード0**を確認した。対象は中心性・非零性、Hessian・j、64個のnorm根などの厳密恒等式であり、全次数PBW、smoothness、Ku比較、Torelliを計算で代用しない。
 
 既存の `verify_geometric_corrections.py` は13 PASSの保持済み検算があるが、今回再実行していない。他の既存計算も各項の確認範囲を保持し、全suiteを再実行したとはしない。
 
-**ソース整合・組版・表示確認：** 現行v43の最終ソース検査・LuaLaTeX組版・変更箇所の画像確認は統合完了後に行い、その結果へ本段落を置換する。GitHub mainへの反映とresearch-hub更新は、それぞれ保存後に別途確認する。
+**ソース整合・組版・表示確認：** `python3 scripts/check_sources.py` は成功し、70 TeX入力・1372個の一意なlabel・941個の参照label・151個の引用bibkeyを確認した。`git diff --check` も成功。`latexmk -lualatex papers/nc-cubic.tex` は終了コード0、614頁・4,282,381 bytesのPDFを生成した。最終ログの未定義参照・重複label・overfull/underfull・欠落文字・TeX errorはいずれも零。既存の数式フォントsize置換七件とその総括、ltjsarticleの旧 `\rm` 警告は残る。主稿の1・5・6・8・36・228–230・241–249頁の計17頁を画像で実表示し、文字と数式の欠け・重なり・欄外へのはみ出し、不要な孤立見出しがないことを確認した。中心二チャート補助ノートも3頁・185,435 bytesで組版し、全3頁を実表示した。全614頁の目視やVS Code UI操作を確認したという意味ではない。GitHub保存とresearch-hub更新は組版と別の確認対象とし、通常commit後のremote main取得と内容照合で確かめる。
 
 今回の新証明の内部読解と、原稿に保存済みの基礎結果を区別する。Lean等の形式証明、外部査読、新規性の網羅的調査は未実施。主予想を全intrinsic対象で証明したとはせず、第二予想の反例の範囲を上に限定する。
 
