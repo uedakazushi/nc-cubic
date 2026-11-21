@@ -1,38 +1,48 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月22日 / v50。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月22日 / v51。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
-## 三稿の編集と保存の確認
+## 零係数の同変比較に関する検証
 
-公表用本文を、可換Ku復元の主稿 `papers/nc-cubic.tex`、構造対象付きモジュライと精密降下の `papers/cubic-moduli-descent.tex`、具体的混合族の `papers/mixed-sklyanin-cubics.tex` に分けた。各稿に短い要約・序論と本文を置き、旧序論の詳細な主要結果は該当稿の本文へ移した。点スキームとPoisson零スキームの不一致は本文の補助例であり、独立した予想には戻していない。
+公表用三稿の構成を保ち、混合稿に `equivariant_window.tex` と `equivariant_deformation.tex` を統合した。主稿の序論も三対象Homの本文を参照する。既存の証明本文は変更していない。point/Poisson不一致は主稿と混合稿の補助例であり、独立の予想へ戻していない。
 
-### 内容・依存・ソース整合
+### 数学的読解と適用範囲
 
-旧稿の1490ラベルをすべて一意に保持した。658個のproof環境は、他稿参照コマンド、参照先の所属名、『前定理』を具体的なラベルへ直す変更を正規化した後に、旧本文とすべて一致する。旧序論の17個の主定理と主予想1個も、参照と旧稿名を除き本文・数式を保持した。これは移動による内容の脱落を点検したもので、658証明の正しさを新たに検証したという意味ではない。
+- **三対象生成性と全stable Hom：** 体上のAS-Gorenstein入力、a=4のsection-window、cutoff−3とT₄,T₅,T₆の三角filtrationを確認した。可換特殊化を仮定する相対window定理を直接適用せず、体上のOrlov商に必要な仮定を列挙する。逐次平均で同変higher homotopiesを構成し、各行列係数の正次数性からminimalityを得る。指定周期の指標+、Extの周期双次数(2,−3)、stable Homの内部次数条件を点検した。全表・Euler行列について複数担当の読解と独立線束計算を行った。
+- **HH計算との境界：** 384次元はH*End(G)の次元であり、HHではない。H¹Hom(K,K)の35次元が任意長の次数零bar語を生むため、総次数だけによる打切りは使えない。高次積・対角の有限解消・正当化されたHochschild縮約は未完成であり、非可換HH±₁の固有次元は未決定である。
+- **対合を保つh族：** 普遍中心三次式について三つの交換子恒等式を別担当でも直接展開した。hによる除算は使わない。Fermat型可換端点の重み100を保った偏微分、符号の64組を含む絶対値評価、Eckardt型接切断、residueのdeterminant符号−1を確認した。
+- **一般点の非PI性：** 形式群におけるt(p_h)=−h/2と[n]の可逆性、標準中心元との係数g_h=−3h Ω̄_h、THCR商を点検した。無限平行移動軌道上のm点への切断補間で全多重線型恒等式を排除する証明と、混合商からTHCRへの全射を確認した。これは既存有限中心法が適用できない証明であり、h族の相対smoothness自体を否定しない。
+- **条件付き指標比較：** 0,1を含む連結な底上の対合付き相対smooth proper模型を追加仮定とし、Mathew Theorem1.3と冪等射影(1±σ)/2を使う論理を点検した。相対平坦性、proper模型と底変更、対角perfect性をこのh族について構成済みとはしない。Fermat型端点Y_Fと既存候補X₀も区別する。
+- **研究ノートの補助縮約：** 通常affine twisted HHの中心変数消去は、二段の中心的非零因子のchange of ringsを別担当でも確認した。曲率付き・graded MFのHHへは未適用と明記する。二重根のskew group orderのPerf分解は、idempotent ideal、左右長さ一の射影分解、完全忠実性と生成性を確認した。qgr・残余圏への降下は未完成である。
 
-楕円window・THCR shift・rotation補正の基礎を主稿に集め、直接の分離型Ku比較が精密な降下結果を循環使用しない配置を確認した。自然な標的や相対比較には、モジュライ稿の中心直線・尺度・scalar自明化が実入力として残る。三稿間の参照は双方向であり、全依存が一方向になったとは主張しない。
+新規二節について執筆以外の担当による読解を行ったが、外部査読・形式証明器による検証・新規性の網羅的確認ではない。指定候補へのKu同値は一般点も含めて未証明である。
 
-`python3 scripts/check_sources.py` は三稿のinputグラフ、各ラベルの一意の所属、ローカル参照と他稿参照の区別、引用、著者欄、エディタroot指定を検査する。共用するのはpreambleと書誌であり、証明本文は複製しない。現時点の検査は87 TeX source、1505一意ラベルで通過した。数学的証明や組版の検証とは別の検査である。
+### 一次資料の今回の確認
+
+| 一次資料 | 確認箇所と使用範囲 |
+| --- | --- |
+| De Laet–Le Bruyn, arXiv:1405.1158 | Sections1–2、PDF pp.1–3。Sklyanin曲線、平行移動、標準中心三次とTHCR商。指定h族への係数代入は本文で直接計算。 |
+| Artin–Tate–Van den Bergh, Some algebras associated to automorphisms of elliptic curves | Theorem6.8(i),(ii)。regular elliptic tripleの正則代数と三次核。担当による原文再掲との照合を行い、本族の条件を本文に記す。 |
+| Mathew, arXiv:1710.09045v3 | Theorem1.3、PDF p.3。既に相対smooth properな圏に対するHHの有限射影性。族のsmoothnessそのものを与える定理ではない。 |
+| Polishchuk–Positselski, arXiv:1010.0982v2 | Theorems3.5.C–D、Section4.8。第一種・第二種のHH比較の十分条件と、可換正則環のMFへの適用範囲。研究ノートでは非可換適用の未確認点を記す。 |
+| Polishchuk, arXiv:1111.0728v7 | Introduction(0.3)。smooth proper dg圏のHHのsupertraceと、functor係数のHHのEuler数。 |
+| Nordström, arXiv:2406.13866v2 | Theorem16、Introduction(1)。有限群の同変dg圏のHHに現れるtwisted sector。通常HHの不変部分との混同を避ける。 |
+
+### 厳密計算とソース整合
+
+`python3 computations/verify_mixed_window_involution.py` は **8 PASS・終了コード0**。Python標準ライブラリの整数演算だけでKoszul指標、全13行のstable Hom表、384次元の集約表、通常・対合付き・不変部分のEuler行列を確認した。七本の線束のHilbert多項式から四例外対象を射影して得る独立な3×3 Gram行列と照合し、既存の二対象Gram・正規化・行列式729も一致した。計算の入力である同変minimal Shamash分解の正当性は本文の証明であり、このスクリプトの実行自体が証明器による確認ではない。
+
+検証器SHA-256：`cb4174ff892ad653ece3ef9a5ee459c0b763f9f39ad12350340e4a925b77ea24`。
+
+`python3 computations/verify_mixed_comparison_invariants.py` も **既存の9項目が全てPASS・終了コード0**。可換候補のJacobian関係行列、residueの符号、同変HHの算術、通常Eulerを再確認した。重い全中心計算や既存の全計算suiteを再実行したとはしない。
+
+`python3 scripts/check_sources.py` は **89 TeX source・1530一意ラベル**で成功。主稿33 source/477 labels、モジュライ稿45 source/874 labels、混合稿15 source/179 labels。稿ごとのinputグラフ、他稿参照、引用、著者欄、root指定を検査する。`git diff --check` も成功した。
 
 ### 組版・表示・保存の状態
 
-LuaHBTeX 1.18.0・latexmk 4.86・LaTeX2e 2024-11-01 patch level 2で、cleanな出力から `python3 scripts/build_papers.py` を実行し、三巡で三稿の参照が収束して終了コード0となった。最後の旧稿名一か所の訂正後もモジュライ稿を再組版し、終了コード0を確認した。
+現行ソースの三稿組版を実行中であり、この保存時点では新しいPDFの完成・表示確認を未確認とする。組版の完了後に、本節を実際の結果へ置き換える。
 
-| 最終PDF | 頁数 | bytes | SHA-256 |
-| --- | ---: | ---: | --- |
-| `nc-cubic.pdf` | 178 | 1,555,455 | `544d071b87f1cf64aaa0e18c6762cb054555b236a907607d9fa3bf5654a64ce5` |
-| `cubic-moduli-descent.pdf` | 453 | 3,187,647 | `2a557e35274e56c4eb2874faef6e6b9b3d46895f76a95f6123e17629e0594a44` |
-| `mixed-sklyanin-cubics.pdf` | 92 | 989,917 | `9f49dbd655e90f748fcaf08842ec1451193a6e3d5279fb941e88f9e9416870a9` |
-
-最終ログは三稿とも、未定義参照・引用・制御綴、Missing character、LaTeX Error、Overfull/Underfullが0。主稿には数式サイズ代替の要約1件、混合稿には数式フォント代替7件と要約1件が残る。旧書体命令 `\rm` の警告は各稿、`\atop` の警告は混合稿にある。これらを新規の欠字や組版エラーとして扱っていない。
-
-表示確認は主稿の1・3・4・5・6・140・147・159頁、モジュライ稿の1・2・3・4・5・29頁、混合稿の1・2・4・56・69・72・73・74頁、計22頁で行った。表紙、短い序論、R/M/S付きの他稿参照、抽出した基礎、移した主定理、不一致例を確認し、欠字、重なり、式番号の衝突や切れは認めなかった。モジュライ稿と混合稿は最終PDFとの差分について、この指定頁のRGB画素がすべて一致することも確認した。全723頁を目視したわけではない。
-
-二つの補助研究ノートも現行共通preambleから独立組版できるようにした。存在しない旧共通設定と旧原稿パスを直し、relative_construction_obstaclesの6証明、central_cubic_generic_smoothnessの2証明、および両ノートの数式は保持した。`latexmk -lualatex -outdir=build/notes notes/<name>.tex` はいずれも終了コード0、27頁と4頁。未定義参照・引用、欠字、Overfull/Underfullは0。前者の1–3・27頁、後者の全4頁を表示確認した。
-
-この環境では作業領域に整えた和文依存と、既存LaTeX kernelと整合するDebian `texlive-lang-japanese` 2024.20250309-1のLuaTeX-jaを使った。再生成にはLuaLaTeX・latexmk・LuaTeX-ja・AMS等、etoolbox、xr-hyper、和文フォントが必要である。主三稿のPDFとSyncTeXは `build/`、補助ノートのPDFとSyncTeXは `build/notes/` に出力する。エディタ設定と分割ファイルのroot指定は検査したが、VS CodeのUI操作は行っていない。
-
-現行原稿・方針・AGENTS・README・研究ノート・組版設定・参照検査を保存対象とする。計算コード・証明書は変更しない。PDF、TeX中間生成物、担当者別監査メモ、一時的な組版環境はGit追跡に含めない。研究repoとresearch-hubへの保存は、それぞれ遠隔refと保存内容で別に確認する。
+PDF、TeX中間生成物、担当別の一時メモ、外部文献PDF、一時的な組版環境はGit追跡に含めない。原稿・研究方針・ノート・AGENTS・README・必要な再現コードを通常コミットで保存し、遠隔mainのcommitとtreeを確認する。research-hubへの反映は対象repoの保存後に別に検査する。
 
 ## 保持する数学的検証
 

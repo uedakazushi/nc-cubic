@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v50。研究方針は `../00_research_plan.md`。証明全文は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v51。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -16,7 +16,7 @@ point schemeとPoisson零スキームまで同一視できるという素朴な�
 | --- | --- |
 | [可換復元の主稿](../papers/nc-cubic.tex) | 一般点可換復元、楕円windowとrotationの基礎、分離型の実Ku比較、残余圏の認識・可換実現の開性、三様体の非被約不一致例。 |
 | [モジュライ・降下稿](../papers/cubic-moduli-descent.tex) | O-marked認識・全慣性・点とPoissonのモジュライ射、Picard/Brauer/Kummer障害、周期位相、点型と全型の比較次数。主要結果の詳細は `moduli_overview.tex`、証明は各主題の節。 |
-| [混合Sklyanin稿](../papers/mixed-sklyanin-cubics.tex) | 中心・局所order・単純加群、全smooth locusと不変量、明示可換候補・Eckardt模型、被約point/Poisson不一致例。本文は `papers/sections/mixed/` の10節。 |
+| [混合Sklyanin稿](../papers/mixed-sklyanin-cubics.tex) | 中心・局所order・単純加群、全smooth locusと不変量、明示可換候補・Eckardt模型、被約point/Poisson不一致例。本文は `papers/sections/mixed/`。対合を保つ三対象Homとh変形もここに置く。 |
 
 主比較に必要な楕円windowと体上のrotation共役の正本は、主稿の `comparison_foundations.tex` である。`eq:nfm-right-thcr-shift`、`lem:nfm-twisted-elliptic-window` をここから引用し、`csc:thm:comparison` が用いる `mbrc:lem:factor-correction` と分離比較も主稿に置く。相対Picard gerbe、比較核の分類と算術的降下は、これらの実比較を入力とするモジュライ稿に置く。混合族の `cmo:cor:cofinite` は主稿の `grl:thm:open-locus` を使う。稿をまたぐ参照は、定理番号と稿名から証明の所在をたどれるようにする。
 
@@ -196,6 +196,158 @@ Mathew, *Kaledin’s degeneration theorem and topological Hochschild homology*, 
 `cmo:prop:zero-involution-hh` は可換候補のHH±₁上の固有次元を(+5,−16)と決定する。Jacobian次数二の(+16,−5)からresidueへ移る際、det(ι)=−1が掛かる点に注意する。固定集合Z⊔{p}のEuler数28からもtrace−11を照合できる。根スタックのSODとorbifold HKRという二つの計算により、Ku(X₀)^μ₂のHHは次数−2,…,2で(1,5,24,5,1)となる。これはHH(Ku(Y))⊕HH(Ku(Z))に一致するが、圏のSODを相殺したりKu(Y),Ku(Z)の埋込みを得たと主張したりしない。
 
 次の検査は非可換側のHH±₁のι指標である。有限線束dg模型Σ₀とそのι作用を保ち、twisted Hochschild複体HH(Σ₀, {}_ιΣ₀)から調べる経路がある。u=1のchartでιは各active変数の符号反転となり、中心Ω_iは符号を変え、六次中心元は不変である。従って中心の固定点集合だけのEuler数を非可換Lefschetz数へ置き換えてはいけない。Azumaya上の内的実装・非Azumaya点の寄与が残る。c≠0ではιはA_cとA_−cを交換するため、通常HHの階数一定性からc=0の指標は得られない。また対合保存は通常の主予想の追加条件である。
+
+### 零係数の同変三対象windowから再開する
+
+証明の正本は混合稿 `equivariant_window.tex` の `cmo:prop:equivariant-window-hom`。G=K⊕K(1)⊕K(2)をaugmentationの自明な同変構造から取り、内部shiftに追加の指標を掛けない。uの反射をσとすると、Koszul空間W_iの指標は(1+z)^6(1−z)の係数である。σ不変なhigher homotopiesを段階的に選び、三次周期の指標が+であることを確認したminimal Shamash分解から、全stable Homを計算する。
+
+| cohomological degree | 総次元 | σ=+1 | σ=−1 |
+| ---: | ---: | ---: | ---: |
+| −1 | 7 | 6 | 1 |
+| 0 | 80 | 48 | 32 |
+| 1 | 162 | 84 | 78 |
+| 2 | 112 | 48 | 64 |
+| 3 | 23 | 6 | 17 |
+
+総次元は384。全13行のHom表と通常・対合付きEuler行列は本文に置く。通常の隣接二対象のEuler形式は27[[-1,0],[1,−1]]で、七本の線束からの独立な射影計算と一致する。`python3 computations/verify_mixed_window_involution.py` はこの有限計算を整数演算で再現する。
+
+**HHを計算するための残る入力。** H*End(G)のベクトル空間と対合の作用は確定したが、minimal A∞構造の高次積は未計算である。H¹Hom(K,K)の35次元からsuspension後に次数零のbar文字が生じるため、同じ総次数のbar語の長さは任意に大きくなれる。内部shiftも零であり、総次数や三次周期だけによる有限長打切りは正当化できない。次は同変Shamash模型から高次積と対角の有限解消を構成するか、以下のtwisted sectorの比較を曲率・内部次数付きで完成する。384次元の表やHomのsupertraceをHHの表・supertraceと置き換えない。
+
+### 対合を保つh族と、有限中心法が使えない理由
+
+証明の正本は混合稿 `equivariant_deformation.tex`。関係式[y,z]=h(x²−α₁u²)と巡回二式に対する中心三次元は
+
+$$
+\Omega_{h,\alpha}=\frac{x^3+y^3+z^3}{3}-\frac{2h^2}{3}\operatorname{sym}(xyz)-u^2(\alpha_1x+\alpha_2y+\alpha_3z).
+$$
+
+`mix:prop:h-central` の証明はhで除さない普遍恒等式である。指定二ブロックの中心和を商したQ_hではu↦−uが底を固定し、Q_1=A₀となる。Q_0のProjであるFermat型Eckardt五様体Y_Fは、既存候補X₀とは異なる方程式を持つ。Y_Fの滑らかさとHH±₁固有次元(+5,−16)は `mix:prop:fermat-eckardt-endpoint` に証明を置く。
+
+一般点K=C(h)でQ_ηは非PIである（`mix:prop:h-generic-nonpi`）。u=0のSklyanin曲線E_h: x³+y³+z³+h²xyz=0上の平行移動点p_h=(1:−1:−h)は、形式群でt(p_h)=−h/2となるため非捩れである。標準中心元はg_h=−3h Ω̄_hで、Q_ηはTHCR B(E_h,O(1),t_p)を商に持つ。無限の平行移動軌道上のm点に次数3d>mの切断を補間すれば、任意の非零多重線型恒等式を排除できる。このため既存の有限中心・properな中央台による相対対角の証明は適用できない。
+
+`mix:prop:h-conditional-character` は、0,1を含む連結な底上に両端と同変Morita同値な相対smooth proper残余模型が存在すれば、Mathew Theorem1.3と(1±σ)/2の冪等射影から固有階数が一定となる、という条件付き命題である。相対次数別平坦性・Koszul/Gorenstein計算・proper線束模型・底変更・相対対角perfect性をこのh族で完了したとはしない。一般点での非PI性は相対smoothness自体を否定せず、端点の指標一致を得てもKu比較核を与えるわけではない。
+
+### 中心変数の反射と通常の twisted Hochschild homology
+
+以下は通常の代数の導来テンソル積についての補題であり、曲率付き Hochschild 複体や次数付き行列因子化圏への適用を主張しない。
+
+**補題（中心変数の消去）。** 体 $k$ 上の代数 $A$ と中心元 $u$ を取り、指定した準同型 $k[u]\to A$ に関して $A$ が平坦であると仮定する。$\gamma\in\operatorname{Aut}_k(A)$ が $\gamma(u)=\lambda u$、$\lambda\in k^\times\setminus\{1\}$ を満たすとする。$\bar A=A/(u)$ とし、誘導される自己同型を $\bar\gamma$ と書く。右作用を $\gamma$ で捻った双加群を $A_\gamma$ とすれば、導来圏 $D(k)$ に自然な同型
+
+$$
+A\otimes_{A^e}^{\mathbf L}A_\gamma
+\simeq
+\bar A\otimes_{\bar A^e}^{\mathbf L}\bar A_{\bar\gamma}
+$$
+
+がある。特に全ての整数 $i$ について
+
+$$
+HH_i(A,A_\gamma)\cong HH_i(\bar A,\bar A_{\bar\gamma})
+$$
+
+となる。$A$ が内部次数付きで、$u$ が正の次数の斉次元、$\gamma$ が次数を保存する場合、同型は内部次数も保存し、ホモロジー次数・内部次数のいずれにも追加の shift は生じない。
+
+**証明。** $E=A\otimes_k A^{\mathrm{op}}$、$u_L=u\otimes1$、$u_R=1\otimes u$、$t=u_L-u_R$ と置く。対角双加群 $A$ を右 $E$-加群として $a\cdot(b\otimes c^{\mathrm{op}})=cab$ で実現し、$A_\gamma$ を左 $E$-加群として $(b\otimes c^{\mathrm{op}})m=bm\gamma(c)$ で実現する。この規約では $t$ は対角 $A$ 上では零、$A_\gamma$ 上では $(1-\lambda)u$ として作用する。
+
+$k[u]$-平坦性により $E$ は $k[u_L,u_R]$-平坦である。したがって $t$ は $E$ 上の中心的非零因子であり、
+
+$$
+D=E/(t)=A\otimes_{k[u]}A^{\mathrm{op}}
+$$
+
+は $k[u]$-平坦である。$D$ の $E$ 上の二項自由分解を $A_\gamma$ とテンソルすると、微分は $(1-\lambda)u$ となる。これは $A_\gamma$ 上で単射なので
+
+$$
+D\otimes_E^{\mathbf L}A_\gamma\simeq\bar A_{\bar\gamma}
+$$
+
+を得る。右辺は自然に
+
+$$
+D_0=D/(u)\cong\bar A\otimes_k\bar A^{\mathrm{op}}
+$$
+
+の加群である。同様に、$D_0$ の $D$ 上の二項自由分解と $u$ の $A$ 上の単射性から
+
+$$
+A\otimes_D^{\mathbf L}D_0\simeq\bar A
+$$
+
+となる。導来テンソル積の結合法則を二度用いれば
+
+$$
+\begin{aligned}
+A\otimes_E^{\mathbf L}A_\gamma
+&\simeq A\otimes_D^{\mathbf L}
+       (D\otimes_E^{\mathbf L}A_\gamma)\\
+&\simeq(A\otimes_D^{\mathbf L}D_0)
+       \otimes_{D_0}^{\mathbf L}\bar A_{\bar\gamma}\\
+&\simeq\bar A\otimes_{\bar A^e}^{\mathbf L}\bar A_{\bar\gamma}.
+\end{aligned}
+$$
+
+内部次数付きの場合、二項分解には通常の $(-\deg u)$ が入るが、どちらも零次の cokernel のみを残すため、最終同型に追加の shift はない。以上で証明を終える。
+
+**今回の適用。** $A=A_0$、$\gamma=\sigma$、$\sigma(u)=-u$ とする。既存の中心変数の正則性から $u$ は $A_0$ 上の非零因子である。$A_0$ は非負内部次数付きなので、任意の非零多項式 $p(u)$ も最高次数成分を比較することで非零因子となる。従って $A_0$ は PID $\mathbf C[u]$ 上で torsion-free、したがって平坦である。$\sigma$ は残りの六生成元を固定し、
+
+$$
+B_0=A_0/(u)=(S\otimes S)/(\Omega_1+100\Omega_2)
+$$
+
+上で恒等作用を誘導する。よって
+
+$$
+HH_i(A_0,(A_0)_\sigma)\cong HH_i(B_0)
+$$
+
+が内部次数付きで成立する。これは affine cone の通常の twisted HH の計算であって、$HH_i(\operatorname{Ku}_{\mathrm{coh}}(A_0),\sigma)$ の計算ではない。局所化 $A_0[u^{-1}]$ に同じ変数反射を作用させた通常の twisted HH は、$2u$ が単元なので零になる。一方、射影 chart $u=1$ 上の作用は六生成元全ての符号反転であり、この消滅をその chart に移してはいけない。
+
+**次数付き MF へ進む際の未解決箇所。** ポテンシャルの内部次数は三であり、次数付き MF では $[2]\cong(3)$ を保つ必要がある。仮に固定 sector による表示を用いるなら、$\zeta^3=1$ に対する $\sigma\zeta$ の全 sector と grading の不変条件を扱う必要がある。これらは全て $u$ を $-\zeta u$ に送るので通常の代数に関する上の補題は適用できるが、そこから曲率付き複体の準同型や通常の MF 圏の HH との同一視は従わない。具体的には、曲率を含む対角模型、そこでの変数消去、第一種と第二種の HH の比較、および全内部次数を保持した sector 分解を別々に証明する必要がある。
+
+Polishchuk--Positselski, *Hochschild (co)homology of the second kind I*, [arXiv:1010.0982v2](https://arxiv.org/abs/1010.0982v2), Theorems 3.5.C--D と Section 4.8 は、第一種と第二種の比較を導く十分条件として対角生成条件を課す。Section 4.8 の行列因子化の直接的な適用例は可換正則環／滑らかな affine variety の場合であり、この非可換環への適用を既知とはしない。
+
+**指標計算への位置付け。** $\mathcal K=\operatorname{Ku}_{\mathrm{coh}}(A_0)$ とする。既知の通常 HH の次元と $HH_0$ 上の恒等作用、同変 Mukai 双対から、$a=\dim HH_1(\mathcal K)^+$ と置けば
+
+$$
+\operatorname{str}(\sigma\mid HH_*(\mathcal K))=44-4a.
+$$
+
+従って目標の固有次元 $(5,16)$ は supertrace $24$ と同値である。smooth proper dg 圏の Lefschetz 公式はこの supertrace を $HH(\mathcal K,\sigma)$ の Euler 数と同定するが、上の affine cone 補題だけではその Euler 数はまだ定まらない。参照：Polishchuk, *Lefschetz type formulas for dg-categories*, [arXiv:1111.0728v7](https://arxiv.org/abs/1111.0728v7), Introduction (0.3)。なお $HH(\mathcal K)^\Gamma$ と $HH(\mathcal K^\Gamma)$ は異なる。一般の有限群作用に対する後者の分解は Nordström, *Finite group actions on dg categories and Hochschild homology*, [arXiv:2406.13866v2](https://arxiv.org/abs/2406.13866v2), Theorem 16 により twisted sector の中心化群不変部分を含む。
+
+### 中心二重根の skew group algebra に対する確実な補助縮約
+
+以下は通常の環の perfect 圏の命題であり、ここでは qgr 版や残余圏版を結論しない。
+
+$R$ を標数が二でない体 $k$ 上の代数、$v\in Z(R)$ を両側非零因子とし、$A=R[u]/(u^2-v)$ で $u$ は中心とする。$\sigma|_R=1$、$\sigma(u)=-u$ とする。$C=A\rtimes\langle\sigma\rangle$、$e_\pm=(1\pm\sigma)/2$、$S=R/(v)$ と置く。このとき
+
+$$
+\operatorname{Perf}(C)
+=\left\langle\operatorname{Perf}(S),\operatorname{Perf}(R)\right\rangle.
+$$
+
+**証明。** $e_+Ce_+\cong R$ であり、$C/Ce_+C\cong S$ である。$R$-加群 $A=R\oplus uR$ 上の作用を取れば、次数を忘れた環として
+
+$$
+C\cong\begin{pmatrix}R&vR\\R&R\end{pmatrix},\qquad
+Ce_+C\cong\begin{pmatrix}R&vR\\R&vR\end{pmatrix}.
+$$
+
+$v$ の正則性により、積写像 $Ce_+\otimes_R e_+C\to Ce_+C$ は同型である。左右の $R$-加群は有限自由なので導来 Tor はない。また $S$ は左右の $C$-加群として長さ一の有限生成射影分解を持つ。左加群の分解は、$u$ が次数一なら
+
+$$
+0\longrightarrow Ce_+(-1)\xrightarrow{\ \cdot(e_+ue_-)\ }
+Ce_-\longrightarrow S\longrightarrow0
+$$
+
+であり、次数を忘れれば shift を除く。各 idempotent 成分では、この写像は $R(-1)\to uR$ の同型と $uR(-1)\to R$ の像 $vR$ を与える。右加群側にも同様の分解がある。従って $S\otimes_C^{\mathbf L}S\simeq S$ であり、inflation $i_*:\operatorname{Perf}(S)\to\operatorname{Perf}(C)$ は完全忠実となる。$j_!=Ce_+\otimes_R-:\operatorname{Perf}(R)\to\operatorname{Perf}(C)$ も完全忠実で、$\operatorname{RHom}_C(j_!M,i_*N)=0$ である。双加群の短完全列
+
+$$
+0\to Ce_+\otimes_R e_+C\to C\to S\to0
+$$
+
+を任意の perfect complex と導来テンソルすれば、両部分圏が全体を生成する。これが主張した SOD である。
+
+今回 $R=A_0^\sigma$、$v=u^2$ と置けば、全関係式が $u$ に関して偶であることから $A_0=R\oplus uR$、$R/(v)\cong B_0$ となり、この環の命題を適用できる。次数付き版では二つの off-diagonal 成分を $uR\cong R(-1)$ として保持する。qgr へ移すには、これらの具体的 tensor/inflation functor が有限生成加群と torsion 複体を保持し、導来 Serre 商と整合することを示す必要がある。たとえその降下を完成させても、重み $(1^6,2)$ の不変環 $R$ の HH が新たな未知として残り、これだけで source の固有次元は確定しない。
 
 ### 固定affine MFの比較と次数を忘れる障害
 

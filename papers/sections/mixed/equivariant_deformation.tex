@@ -1,0 +1,392 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\section{対合を保つ変形と Hochschild 指標の条件付き比較}
+\label{mix:sec:equivariant-deformation}
+
+命題\ref{cmo:prop:full-relative-hh}の $c$-族では、対合 $u\mapsto-u$ が
+$c$ と $-c$ のファイバーを交換する。
+ここでは別のパラメータ $h$ を導入し、対合が各ファイバーを保つ代数族を与える。
+中心三次式、滑らかな可換端点、および一般ファイバーの非 PI 性を証明する。
+この代数族の相対 smooth proper な残余 dg 模型はまだ構成されておらず、
+非可換端点の Hochschild 指標への帰結は、その構成を追加仮定とする。
+
+\subsection{交換子を縮小する族と中心三次式}
+
+$\alpha=(\alpha_1,\alpha_2,\alpha_3)\in\C^3$ に対し、
+全生成元の内部次数を一、$h$ の内部次数を零として
+\begin{equation}\label{mix:eq:h-relations}
+\begin{gathered}
+ \mathscr B_\alpha
+ =\C[h]\langle x,y,z,u\rangle/
+ (r_x,r_y,r_z,[u,x],[u,y],[u,z]),\\
+ r_x=[y,z]-h(x^2-\alpha_1u^2),\qquad
+ r_y=[z,x]-h(y^2-\alpha_2u^2),\\
+ r_z=[x,y]-h(z^2-\alpha_3u^2)
+\end{gathered}
+\end{equation}
+と置く。以下の中心性は、$\alpha_i$ も独立な可換パラメータとした
+$\C[h,\alpha_1,\alpha_2,\alpha_3]$ 上で成立する。
+
+\begin{proposition}[交換子パラメータを持つ中心三次式]
+\label{mix:prop:h-central}
+$\sym(xyz)$ を六つの順列語の平均とすると、
+\begin{equation}\label{mix:eq:h-central}
+ \Omega_{h,\alpha}
+ =\frac{x^3+y^3+z^3}{3}
+   -\frac{2h^2}{3}\sym(xyz)
+   -u^2(\alpha_1x+\alpha_2y+\alpha_3z)
+\end{equation}
+は $\mathscr B_\alpha$ の中心元である。
+$h=1$ では式\eqref{cmo:eq:mixed-center}に一致する。
+\end{proposition}
+
+\begin{proof}
+$a=\alpha_1u^2$、$b=\alpha_2u^2$、$c=\alpha_3u^2$ と略記し、
+$S=x^3+y^3+z^3$、$T=\sym(xyz)$ と置く。
+ここで $a,b,c$ は中心元である。
+交換子の積の公式と式\eqref{mix:eq:h-relations}から
+\[
+ \left[x,\frac{S}{3}-ax-by-cz\right]
+ =\frac{h}{3}(yz^2y-zy^2z)
+\]
+を得る。実際、各積の交換子を展開すれば
+\[
+\begin{aligned}
+ [x,y^3+z^3]&=h(yz^2y-zy^2z-3cy^2+3bz^2),\\
+ [x,-by-cz]&=h(cy^2-bz^2)
+\end{aligned}
+\]
+となり、$y^2,z^2$ の補正項が相殺する。
+さらに
+\[
+ yz^2y-zy^2z=[yz,zy]
+ =[zy+h(x^2-a),zy]=h[x^2,zy].
+\]
+六つの順列語を同じ関係式で書き換えると
+\begin{equation}\label{mix:eq:h-sym-identity}
+ 2T=xzy+zyx+h(x^3-ax)
+\end{equation}
+となる。例えば
+\[
+\begin{aligned}
+ xyz&=xzy+h(x^3-ax),\\
+ yxz&=xzy+h(x^3-ax)-h(z^3-cz),\\
+ yzx&=zyx+h(x^3-ax),\\
+ zxy&=zyx+h(z^3-cz)
+\end{aligned}
+\]
+に $xzy,zyx$ を加えれば式\eqref{mix:eq:h-sym-identity}を得る。
+従って
+\[
+ [x,T]=\frac12[x,xzy+zyx]=\frac12[x^2,zy]
+\]
+であり、
+\[
+ [x,\Omega_{h,\alpha}]
+ =\frac{h^2}{3}[x^2,zy]
+   -\frac{2h^2}{3}\cdot\frac12[x^2,zy]=0.
+\]
+$x,y,z$ と $a,b,c$ の巡回置換により $y,z$ とも可換である。
+$u$ は中心なので、これで全生成元との可換性が従う。
+この証明では $h$ による除算を用いていない。
+\end{proof}
+
+指定係数
+\[
+ \alpha^{(1)}=(1,4,9),\qquad \alpha^{(2)}=(16,25,49)
+\]
+について、二つのブロックの生成元を $(x_j,y_j,z_j)$ ($j=1,2$) とし、
+\begin{equation}\label{mix:eq:h-mixed-family}
+\begin{gathered}
+ \mathscr B=
+ \mathscr B_{\alpha^{(1)}}\otimes_{\C[h,u]}
+ \mathscr B_{\alpha^{(2)}},\qquad
+ w_h=\Omega_{h,\alpha^{(1)}}+100\Omega_{h,\alpha^{(2)}},\\
+ \mathscr Q=\mathscr B/(w_h),\qquad
+ Q_\lambda=\mathscr Q\otimes_{\C[h]}\C[h]/(h-\lambda)
+ \quad(\lambda\in\C)
+\end{gathered}
+\end{equation}
+と置く。$Q_1$ は例\ref{cmo:ex:sixty-four}の $c=0$ の代数 $A_0$ である。
+代数の対合
+\[
+ \iota(h)=h,\qquad \iota(u)=-u,\qquad
+ \iota(x_j)=x_j,\quad\iota(y_j)=y_j,\quad\iota(z_j)=z_j
+\]
+は全ての関係式と $w_h$ を保つので、各 $Q_\lambda$ に作用する。
+
+\subsection{滑らかな Fermat 型の可換端点}
+
+\[
+\begin{aligned}
+ G_F&=\frac{x_1^3+y_1^3+z_1^3}{3}
+       +100\frac{x_2^3+y_2^3+z_2^3}{3},\\
+ L_1&=x_1+4y_1+9z_1,\qquad
+ L_2=16x_2+25y_2+49z_2,\qquad L_F=L_1+100L_2
+\end{aligned}
+\]
+と置く。$Q_0$ は通常の可換斉次座標環であり、その三次五様体を
+\begin{equation}\label{mix:eq:fermat-endpoint}
+ Y_F=\operatorname{Proj}Q_0
+     =V(G_F-u^2L_F)\subset\mathbb P^6
+\end{equation}
+と書く。$Y_F$ は、$xyz$ 項を含む
+命題\ref{cmo:prop:zero-eckardt-resolution}の指定候補 $X_0$ とは区別する。
+
+\begin{proposition}[可換端点の滑らかさと対合指標]
+\label{mix:prop:fermat-eckardt-endpoint}
+$Y_F$ は滑らかであり、$p_F=[0:\cdots:0:1]$ は Eckardt 型の点である。
+対合 $\iota$ による $\operatorname{Ku}(Y_F)$ の Hochschild homology の
+固有空間次元は
+\begin{equation}\label{mix:eq:fermat-hh-character}
+ \begin{array}{c|rr}
+ i&\dim HH_i^+&\dim HH_i^-\\\hline
+ -1&5&16\\
+ 0&2&0\\
+ 1&5&16
+ \end{array}
+\end{equation}
+であり、その他の次数は零である。
+\end{proposition}
+
+\begin{proof}
+$F=G_F-u^2L_F$ とする。$u=0$ で六つの active 偏微分が零なら
+$x_j=y_j=z_j=0$ ($j=1,2$) となり、射影点を与えない。
+$u\ne0$ では $u=1$ と置く。六つの active 偏微分が零なら
+\[
+ (x_1,y_1,z_1)=(\pm1,\pm2,\pm3),\qquad
+ (x_2,y_2,z_2)=(\pm4,\pm5,\pm7).
+\]
+このとき
+\[
+ |L_1|=|\pm1\pm8\pm27|\le36,\qquad
+ |L_2|=|\pm64\pm125\pm343|
+        \in\{154,282,404,532\}.
+\]
+従って $L_1+100L_2\ne0$ であり、$F_u=-2(L_1+100L_2)\ne0$ となる。
+以上により $Y_F$ は滑らかである。
+
+$p_F$ での接超平面は $L_F=0$ であり、その切断は
+$V(G_F,L_F)\subset\mathbb P^5$ を底とし $p_F$ を頂点とする cone である。
+$Z_F=V(G_F)\subset\mathbb P^5$ は滑らかである。
+もし $V(G_F,L_F)$ が特異なら、ある非零の active 座標 $x$ と
+$a\in\C$ について $dG_F(x)=a\,dL_F$、$L_F(x)=0$ が成立する。
+$Z_F$ の滑らかさから $a\ne0$ であり、$u^2=a$ を選ぶと
+$[x:u]$ が $Y_F$ の特異点になる。これは矛盾である。
+従って cone の底は滑らかな三次三様体である。
+
+指標には命題\ref{cmo:prop:zero-involution-hh}と同じ同変 residue 計算を用いる。
+七変数の二次式の偶・奇固有次元は $(22,6)$ であり、
+七つの Jacobian 二次式の固有次元は $(6,1)$ である。
+後者の一次独立性は $Y_F$ の滑らかさによる。
+従って二次 Jacobian 商の固有次元は $(16,5)$ となる。
+residue 同型には $\det(\iota)=-1$ が掛かるので、
+$H^{3,2}(Y_F)$ の固有次元は $(5,16)$ である。
+複素共役により $H^{2,3}(Y_F)$ も同じであり、
+対角 Hodge 成分には恒等に作用する。
+HKR と四つの不変な例外線束に対する加法性から
+式\eqref{mix:eq:fermat-hh-character}を得る。
+\end{proof}
+
+\subsection{一般ファイバーの非 PI 性と有限中心法の制約}
+
+\begin{proposition}[一般の交換子パラメータでは非 PI]
+\label{mix:prop:h-generic-nonpi}
+$K=\C(h)$ とし、$Q_\eta=\mathscr Q\otimes_{\C[h]}K$ と置く。
+この $K$-代数 $Q_\eta$ は非 PI であり、中心上有限ではない。
+特に、$h=0,1$ を含む開集合上の族 $\mathscr Q$ に対して、
+命題\ref{cmo:prop:full-relative-hh}で用いた
+中心上有限な代数という入力は成立しない。
+\end{proposition}
+
+\begin{proof}
+$u=0$ の一ブロックは
+\[
+ S_h=K\langle x,y,z\rangle/
+ ([y,z]-hx^2,\ [z,x]-hy^2,\ [x,y]-hz^2)
+\]
+であり、Sklyanin parameters $(a,b,c)=(1,-1,-h)$ を持つ。
+\cite[Section~1, pp.~1--2]{GRSklyaninDLL}の曲線と平行移動の規約では
+\begin{equation}\label{mix:eq:h-elliptic-data}
+ E_h=V(x^3+y^3+z^3+h^2xyz),\qquad
+ O=(1:-1:0),\qquad p_h=(1:-1:-h),\qquad
+ \sigma_h=t_{p_h}.
+\end{equation}
+この引用のページ数は同文献の arXiv 版による。
+偏微分の計算から $E_h$ は $h^6+27\ne0$ で滑らかであり、
+$O$ は flex である。
+
+まず $p_h$ が $K$ 上非捩れであることを示す。
+式\eqref{mix:eq:h-elliptic-data}の曲線族は $\C[[h]]$ 上滑らかであり、
+その楕円曲線としての単位切断は $O$ である。
+$p_h$ は $h=0$ で $O$ に特殊化するが、$O$ の近傍の相対局所座標
+$t=z/(x-y)$ では
+\[
+ t(p_h)=-h/2\ne0.
+\]
+任意の正整数 $n$ について、この形式群の $n$ 倍写像は
+$[n](t)=nt+O(t^2)$ である。
+$n$ は $\C[[h]]$ の単元なので $[n]$ は形式群上の同型であり、
+$[n]p_h=O$ は $p_h=O$ を強制する。これは表示した座標値に反する。
+従って $p_h$ は $\C((h))$ 上、したがって $K$ 上も非捩れである。
+
+次に、$\overline\Omega_h$ を $\Omega_{h,\alpha}$ の $u=0$ への像とする。
+これは $\alpha$ に依存しない。
+$S=x^3+y^3+z^3$、
+$C_+=xyz+yzx+zxy$、$C_-=yxz+xzy+zyx$ と書けば
+\[
+ C_+-C_-=hS,\qquad
+ 9\overline\Omega_h=3S-h^2(C_++C_-).
+\]
+\cite[Section~2, p.~3]{GRSklyaninDLL}における標準的な三次中心元 $g_h=c_3$ の公式へ
+$(a,b,c)=(1,-1,-h)$ を代入すると
+\begin{align*}
+ 3g_h
+ &=(h^3-1)C_++(h^3+1)C_--2hS\\
+ &=h^3(C_++C_-)-3hS=-9h\overline\Omega_h.
+\end{align*}
+従って
+\begin{equation}\label{mix:eq:h-standard-central-scalar}
+ g_h=-3h\overline\Omega_h.
+\end{equation}
+$h\in K^\times$ なので、この比例係数は非零である。
+
+ここで $\mathcal L=\mathcal O_{E_h}(1)$ とする。
+平行移動は $\operatorname{Pic}^0(E_h)$ に恒等に作用するため、
+$(\sigma_h^*-1)^2[\mathcal L]=0$ であり、
+$p_h$ の非捩れ性と $\deg\mathcal L=3$ から
+$\sigma_h^*\mathcal L\not\cong\mathcal L$ である。
+従ってこれは regular な elliptic triple である。
+関係式の双線型化が $\sigma_h$ のグラフを定めるので、
+$S_h$ はこの triple に対応する二次代数である。
+\cite[Theorem~6.8(i),(ii)]{GRSklyaninATV}の三次核の定理と、
+Sklyanin の標準中心元についての
+\cite[Section~1, p.~1]{GRSklyaninDLL}の同定により、
+$g_h$ は非零の正則な三次中心元であり、
+\begin{equation}\label{mix:eq:h-thcr-quotient}
+ S_h/(\overline\Omega_h)=S_h/(g_h)
+ \cong B(E_h,\mathcal L,\sigma_h).
+\end{equation}
+ここで右辺は twisted homogeneous coordinate ring である。
+式\eqref{mix:eq:h-standard-central-scalar}による除算は一般点上だけで用いており、
+$h=0$ の中心性や可換端点の証明には用いていない。
+
+右辺が非 PI であることを、切断の補間によって直接確認する。
+標数零では多項式恒等式を多重線型化できるので、
+非零の多重線型多項式
+\[
+ P(X_1,\ldots,X_m)
+   =\sum_{\pi\in\mathfrak S_m}
+       a_\pi X_{\pi(1)}\cdots X_{\pi(m)}
+\]
+が恒等的に零にならないことを示せばよい。
+変数を並べ替えて $a_{\mathrm{id}}\ne0$ としてよい。
+多重線型恒等式は体の拡大で保たれるので、$\overline K$ 上で考える。
+$q\in E_h(\overline K)$ を取り、$3d>m$ となる正整数 $d$ を選ぶ。
+$\sigma_h$ は無限位数の平行移動なので
+\[
+ q,\ \sigma_h^d(q),\ \ldots,\ \sigma_h^{(m-1)d}(q)
+\]
+は相異なる。$\mathcal L_d=
+\mathcal L\otimes\sigma_h^*\mathcal L\otimes\cdots\otimes
+(\sigma_h^{d-1})^*\mathcal L$ は次数 $3d$ である。
+これら $m$ 点の和を $D$ とすると
+$H^1(E_h,\mathcal L_d(-D))=0$ だから、
+$H^0(E_h,\mathcal L_d)$ から各点でのファイバーへの同時評価は全射である。
+従って各 $i$ について、
+$\sigma_h^{(i-1)d}(q)$ では非零、残る $m-1$ 点では零となる
+$s_i\in H^0(E_h,\mathcal L_d)=B_d$ を選べる。
+THCR の積では
+\[
+ (s_{\pi(1)}\cdots s_{\pi(m)})(q)
+ =s_{\pi(1)}(q)\otimes
+   s_{\pi(2)}(\sigma_h^d q)\otimes\cdots\otimes
+   s_{\pi(m)}(\sigma_h^{(m-1)d}q).
+\]
+この値が非零となるのは $\pi=\mathrm{id}$ のときだけである。
+よって $P(s_1,\ldots,s_m)(q)\ne0$ であり、
+$B(E_h,\mathcal L,\sigma_h)$ は非 PI である。
+
+$Q_\eta$ で $u$ と第二ブロックの三変数を零にすると、
+$w_h$ は第一ブロックの $\overline\Omega_h$ になる。
+従って式\eqref{mix:eq:h-thcr-quotient}への全射
+\[
+ Q_\eta\twoheadrightarrow
+ S_h/(\overline\Omega_h)
+ \cong B(E_h,\mathcal L,\sigma_h)
+\]
+が存在する。PI 性は商へ降りるので $Q_\eta$ も非 PI である。
+中心上有限な代数は PI であるため、中心上有限性も否定される。
+ある開集合上で $\mathscr Q$ が可換中心部分環上有限なら、
+一般点への底変更後も PI となるので、
+命題の最後の主張も従う。
+\end{proof}
+
+\subsection{相対 smooth proper 性を仮定した指標一定性}
+
+\begin{proposition}[相対模型の存在を仮定した非可換端点の指標]
+\label{mix:prop:h-conditional-character}
+$R=\C[h,(h^6+27)^{-1}]$ と置く。
+$h=0,1$ を含む連結な affine 開集合 $V\subset\operatorname{Spec}R$ 上で、
+式\eqref{mix:eq:h-mixed-family}の族に対する残余 dg 模型 $\mathcal C_V$ が
+次の性質を満たすと仮定する。
+\begin{enumerate}[label=\textnormal{(\roman*)}]
+\item $\mathcal C_V$ は $V$ 上相対 smooth proper である。
+\item $\mathcal C_V$ は底を固定する $\mu_2$ 作用を持ち、
+      二つの端点のファイバーについて
+\[
+ \mathcal C_0\simeq\operatorname{Ku}(Y_F),\qquad
+ \mathcal C_1\simeq\operatorname{Ku}_{\mathrm{coh}}(A_0)
+\]
+      という $\iota$ と両立する Morita 同値がある。
+\end{enumerate}
+このとき非可換側 $\operatorname{Ku}_{\mathrm{coh}}(A_0)$ の対合指標も
+式\eqref{mix:eq:fermat-hh-character}に一致する。
+特に $HH_{\pm1}$ 上の trace はそれぞれ $-11$、
+Hochschild homology 全体の交代 trace は $24$ である。
+\end{proposition}
+
+\begin{proof}
+$V=\operatorname{Spec}R_V$ とする。
+Mathew の相対退化定理
+\cite[Theorem~1.3]{CMOMathewDegeneration}は、
+可換 $\mathbb Q$-代数上の smooth proper dg 圏に適用される。
+仮定 (i) により、各 $HH_i(\mathcal C_V/R_V)$ は
+有限射影 $R_V$-加群である。
+Hochschild 複体の導来底変更とこの射影性から、
+各ファイバーは $HH_i(\mathcal C_t)$ に一致する。
+仮定 (ii) の作用に対する冪等元
+\[
+ e_\pm=\frac{1\pm\iota}{2}
+\]
+は、これらを二つの有限射影直和因子に分ける。
+$V$ は連結なので、その階数はそれぞれ一定である。
+$h=0$ での階数は命題\ref{mix:prop:fermat-eckardt-endpoint}で計算済みだから、
+$h=1$ でも同じである。
+trace と交代 trace は、それぞれ $5-16=-11$ と
+$2-(-11)-(-11)=24$ から従う。
+\end{proof}
+
+\begin{remark}[未解決の相対入力と結論の範囲]
+\label{mix:rem:h-relative-gap}
+命題\ref{mix:prop:h-conditional-character}の相対模型の存在は、
+この節で証明した代数的事実には含まれない。
+必要な入力は、$h$-族についての次数別平坦性と相対 Koszul--Gorenstein 計算、
+有限線束による proper dg 模型およびその底変更、
+さらに $0,1$ を含む開集合上での対角双加群の相対 perfect 性である。
+命題\ref{cmo:prop:full-relative-hh}の proper 模型に至る部分を移すことは
+これらを調べる具体的な方法だが、その移行をここでは完了したとは扱わない。
+
+両端点の smooth proper 性だけから、同じパラメータ空間上での
+相対 smooth proper 性や指標一定性を結論することはできない。
+現行の $c$-族では中心上有限な代数を proper な中央スキーム上へ移し、
+通常の coherent な対角加群に
+命題\ref{cmo:prop:proper-perfect-spread}を適用した。
+$h$-族では命題\ref{mix:prop:h-generic-nonpi}によりこの有限中心性が失われる。
+従って別の相対対角の構成、またはその perfect 性を保証する入力が必要である。
+この障害は $h$-族の相対 smoothness 自体を否定するものではない。
+
+相対模型を構成して指標一致が得られたとしても、それだけでは
+$\operatorname{Ku}_{\mathrm{coh}}(A_0)$ と $\operatorname{Ku}(Y_F)$、
+あるいは指定候補 $\operatorname{Ku}(X_0)$ との同値は従わない。
+その同値には独立に実際の比較核を構成する必要がある。
+\end{remark}

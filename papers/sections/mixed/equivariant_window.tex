@@ -1,0 +1,262 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v51.
+\section{対合を保つ三対象生成子の Hom 指標}
+\label{mix:sec:equivariant-window}
+
+定理\ref{cmo:thm:exact-sixty-four}の指定係数に対して
+\[
+ B=\mathcal B_{(1,4,9)}\otimes_{\C[u]}\mathcal B_{(16,25,49)},
+ \qquad w=\Omega_1+100\Omega_2,\qquad A_0=B/(w)
+\]
+と置く。六つの active 生成元を固定し、$u\mapsto-u$ とする対合を
+$\sigma$ と書く。二次関係と $w$ は $u$ の偶数冪だけを含むので、
+$\sigma$ は $(B,w)$ の自己同型である。
+本節では、$\operatorname{Ku}_{\mathrm{coh}}(A_0)$ の有限生成子の
+自己 Hom における対合の作用を計算する。
+これは Hochschild homology における対合の作用とは別の計算である。
+
+内部 shift は $M(j)_q=M_{q+j}$ とし、指定された三次周期を
+$(3)\simeq[2]$ とする。augmentation 加群 $\C$ に自明な
+$\sigma$ 作用を入れ、
+\[
+ K=\operatorname{stab}(\C),\qquad
+ G=K\oplus K(1)\oplus K(2),\qquad
+ \Gamma=R\operatorname{End}(G)
+\]
+にそれから誘導される同変構造を入れる。
+各内部 shift の同変構造に、追加の符号指標は掛けない。
+$B$ は大域次元七の Koszul AS-regular 代数であり、$w$ は正則中心三次元である。
+$A_0$ は左右 noetherian な AS-Gorenstein 代数で、injective dimension は六、
+Gorenstein parameter は $a=4$ である。
+命題\ref{cmo:prop:proper-contraction}の証明で確認した
+$\chi$ 条件、有限 cohomological dimension、線束 Hom の公式と七本の線束の生成性を使う。
+ここで適用するのは三対象 window 定理\paperref{main}{tw:thm:window}の
+証明中の体上の section--window 部分であり、同節の可換特殊化の仮定ではない。
+実際、その証明で用いた非可換 Gorenstein 代数の有界 Orlov 分解は
+上の入力だけで適用でき、
+\[
+ \Psi=\operatorname{stab}\circ(R\omega(-))_{\ge-3}
+\]
+は四つの例外線束を除いた線束残余圏上で完全忠実である。
+これは体上の Orlov 商そのものによる完全忠実性であり、
+可換ファイバーとの Hom 比較または導来 Nakayama の適用を要しない。
+
+生成性も同じ証明の有限 filtration で確認できる。
+$4\le j\le6$ に対して $T_j=A_0(j)_{<-3}$ とすると、
+\[
+ \Psi(\operatorname{pr}\mathcal O(j))\simeq\operatorname{stab}(T_j)[-1],
+ \qquad
+ \operatorname{gr}T_j=\bigoplus_{r=0}^{j-4}(A_0)_r\otimes\C(j-r).
+\]
+従って三角的に $K(4),K(5),K(6)$ が生成され、$(3)\simeq[2]$ により
+その thick closure は $G$ のものと一致する。
+線束側の properness は既存の Hom 公式から従い、
+$G$ の Hom の有限性は以下でも直接計算する。
+定理\ref{cmo:thm:exact-sixty-four}により $A_0$ は smooth なので、
+同圏は全 coherent 残余圏と一致する。
+section、内部切断、augmentation stabilization の各操作は
+$\sigma$ と可換であり、この比較は同変に選べる。
+
+\begin{proposition}[三対象生成子の stable Hom の対合指標]
+\label{cmo:prop:equivariant-window-hom}
+$W_i=\operatorname{Tor}^B_i(\C,\C)$ とし、$W_i$ の内部次数を $i$ とする。
+$0\le i\le7$ に対して
+\begin{equation}\label{cmo:eq:koszul-involution-character}
+ \dim W_i=\binom7i,\qquad
+ \sum_{i=0}^7\operatorname{Tr}(\sigma\mid W_i)z^i
+ =(1+z)^6(1-z).
+\end{equation}
+$0\le a,b\le2$、$d=b-a$ とすると、$\sigma$ 表現として
+\begin{equation}\label{cmo:eq:stable-window-character}
+ H^rR\operatorname{Hom}(K(a),K(b))
+ \cong
+ \bigoplus_{\substack{0\le i\le7,\ p\in\mathbb Z\\
+                       i+3p=-d,\ r=i+2p}}W_i^*.
+\end{equation}
+この同型は加群の直和分解と対合の指標を述べるものであり、
+Yoneda 積または高次 $A_\infty$ 積の表示を主張しない。
+
+次の表が全ての非零 Hom を与える。
+$h_+$ と $h_-$ は、それぞれ $+1$ と $-1$ 固有空間の次元である。
+\begin{equation}\label{cmo:eq:window-hom-table}
+\begin{array}{c|rrr|rrrr}
+ d&r&i&p&\dim&\operatorname{Tr}\sigma&h_+&h_-\\\hline
+ -2& 2&2& 0&21& 9&15& 6\\
+ -2& 3&5&-1&21&-9& 6&15\\\hline
+ -1& 1&1& 0& 7& 5& 6& 1\\
+ -1& 2&4&-1&35&-5&15&20\\
+ -1& 3&7&-2& 1&-1& 0& 1\\\hline
+  0& 0&0& 0& 1& 1& 1& 0\\
+  0& 1&3&-1&35& 5&20&15\\
+  0& 2&6&-2& 7&-5& 1& 6\\\hline
+  1& 0&2&-1&21& 9&15& 6\\
+  1& 1&5&-2&21&-9& 6&15\\\hline
+  2&-1&1&-1& 7& 5& 6& 1\\
+  2& 0&4&-2&35&-5&15&20\\
+  2& 1&7&-3& 1&-1& 0& 1
+\end{array}
+\end{equation}
+特に $H^*\Gamma$ は合計 $384$ 次元であり、
+\begin{equation}\label{cmo:eq:window-total-table}
+\begin{array}{c|rrr}
+ r&\dim H^r\Gamma&\dim(H^r\Gamma)^+&\dim(H^r\Gamma)^-\\\hline
+ -1& 7& 6& 1\\
+  0&80&48&32\\
+  1&162&84&78\\
+  2&112&48&64\\
+  3&23&6&17
+\end{array}
+\end{equation}
+となる。
+\end{proposition}
+
+\begin{proof}
+まず $u$ は $B$ 上正則で、$B/(u)=S(1,-1,-1)^{\otimes2}$ の上では
+$\sigma$ が恒等である。この商の Hilbert 級数は $(1-z)^{-6}$ である。
+$B(-1)\xrightarrow{u}B$ を同変にするために源へ符号指標を掛けると、
+次数別指標の完全列から
+\[
+ H_B^\sigma(z)=\frac1{(1-z)^6(1+z)},\qquad H_B(z)=\frac1{(1-z)^7}
+\]
+を得る。標準 Koszul 分解 $P_i=B(-i)\otimes W_i$ は同変であり、
+その Euler 恒等式は
+\[
+ H_B^\sigma(z)\sum_{i=0}^7(-1)^i\operatorname{Tr}(\sigma\mid W_i)z^i=1
+\]
+である。通常の Hilbert 級数にも同じ恒等式を適用すれば
+式\eqref{cmo:eq:koszul-involution-character}を得る。
+
+次に、この指標を実際の stable Ext へ移す。
+補題\paperref{main}{mbnp:lem:shamash}の higher homotopies を
+同変に構成する。$s_0=d$ とし、homological degree を下添字で表すと
+\[
+ s_q:P_i\longrightarrow P_{i+2q-1}(3q),\qquad
+ \sum_{a+b=q}s_as_b=
+ \begin{cases}
+  w\operatorname{id},&q=1,\\
+  0,&q\ne1
+ \end{cases}
+\]
+である。$q=1$ では $w$ の augmentation 上の作用が零なので
+nullhomotopy が存在し、その $\sigma$ による共役との平均を取る。
+$s_1,\ldots,s_{q-1}$ を同変に選んだ後では、次の式の右辺
+\[
+ d s_q+s_qd=-\sum_{a=1}^{q-1}s_as_{q-a}
+\]
+は同変である。右辺が閉じていることと、
+$\operatorname{End}_B(P_\bullet)$ の負の cohomology の消滅により解が存在する。
+その解だけを共役と平均すれば、この線型方程式を保ったまま
+$s_q$ を同変にできる。
+既に選んだ低次の写像は変更しないので、以前の二次恒等式も保たれる。
+これは各 $s_q$ を独立に平均する議論ではない。
+分解の長さが七なので $q>4$ の写像は零である。
+
+$P_i$ と $P_{i+2q-1}(3q)$ の生成次数から、$s_q$ の行列係数は
+次数 $q+1$ を持つ。従って $q\ge1$ の係数は正次数であり、
+Koszul 微分の係数も次数一である。
+同補題で構成された $A_0$ 上の分解
+\begin{equation}\label{cmo:eq:equivariant-minimal-shamash}
+ F_n=\bigoplus_{q\ge0}
+       A_0(-i-3q)\otimes W_i,\qquad i=n-2q,\quad 0\le i\le7
+\end{equation}
+は同変な minimal 分解となる。
+完全性には同補題の filtration を用いる。
+その第一頁は $\operatorname{Tor}^B(\C,A_0)
+=\C\oplus\C(-3)[1]$ の各周期コピーであり、
+$s_1$ が隣接する二項を同型で相殺するため、augmentation だけが残る。
+従って、単なる Hilbert 級数の一致から分解の完全性を推論してはいない。
+
+十分高い次数で $F_{n+2}=F_n(-3)$ となる。
+この同定は $w$ による指定周期から来ており、$\sigma(w)=w$ と
+同変 higher homotopies の構成から、その周期変数 $t$ の指標は $+1$ である。
+周期変数は cohomological degree 二、分解の生成元の内部次数三を持つ。
+従って Ext の標的内部 shift の表記では、その双次数は $(2,-3)$ である。
+$A_0$ は正則中心商で Iwanaga--Gorenstein であるから、
+この周期尾部は augmentation の complete resolution を与える。
+stabilization と graded 特異圏の比較
+（補題\paperref{main}{tw:lem:stabilization}の体上の代数的余核比較）により、
+周期を反転した分解で $K$ の stable Hom を計算できる。
+minimality によって $\operatorname{Hom}_{A_0}(-,\C)$ の微分は零となり、
+得られる双次数付き表現は
+\[
+ \bigoplus_{i=0}^7 W_i^*\otimes\C[t,t^{-1}]
+\]
+である。
+ここでもこの式を積付き代数の同型としては用いない。
+
+$K(a)$ から $K(b)$ への次数零の内部 Hom を取る条件は
+$i+3p=-(b-a)$ であり、cohomological degree は $r=i+2p$ である。
+これで式\eqref{cmo:eq:stable-window-character}を得る。
+対合の双対表現の指標は元と等しい。
+式\eqref{cmo:eq:koszul-involution-character}の係数は
+\[
+ (1,5,9,5,-5,-9,-5,-1)
+\]
+なので、$h_\pm=(\binom7i\pm\operatorname{Tr}(\sigma\mid W_i))/2$ を代入すれば
+表\eqref{cmo:eq:window-hom-table}となる。
+各 $d$ は三つの対象の間に $3-|d|$ 回現れるため、
+その重複度で集計すると表\eqref{cmo:eq:window-total-table}を得る。
+\end{proof}
+
+\begin{corollary}[通常および対合付き Hom Euler 行列]
+\label{cmo:cor:equivariant-window-euler}
+順序 $(K,K(1),K(2))$ に関して
+\[
+ \begin{aligned}
+ E_{ab}&=\sum_r(-1)^r\dim H^rR\operatorname{Hom}(K(a),K(b)),\\
+ E^\sigma_{ab}&=\sum_r(-1)^r\operatorname{Tr}
+       \bigl(\sigma\mid H^rR\operatorname{Hom}(K(a),K(b))\bigr)
+ \end{aligned}
+\]
+と置くと、
+\begin{equation}\label{cmo:eq:equivariant-window-euler}
+ E=\begin{pmatrix}-27&0&27\\27&-27&0\\0&27&-27\end{pmatrix},
+ \qquad
+ E^\sigma=\begin{pmatrix}-9&18&-9\\-9&-9&18\\18&-9&-9\end{pmatrix}.
+\end{equation}
+不変 Hom の Euler 行列は
+\[
+ \frac{E+E^\sigma}{2}
+ =\begin{pmatrix}-18&9&9\\9&-18&9\\9&9&-18\end{pmatrix}
+\]
+である。
+\end{corollary}
+\begin{proof}
+表\eqref{cmo:eq:window-hom-table}の各行を交代和する。
+既存の線束計算との整合は、独立に次のように確認できる。
+三対象 window の三角的 filtration
+（式\papereqref{main}{tw:eq:triangular}）を $a=4$ に適用すると、
+系\ref{cmo:cor:rational-euler-comparison}の類は
+\[
+ e_4=-[K(1)],\qquad e_5=-7[K(1)]-[K(2)]
+\]
+となる。従って $(e_4,e_5-7e_4)$ の Euler 行列は
+式\eqref{cmo:eq:equivariant-window-euler}の隣接二対象の小行列
+$27\bigl(\begin{smallmatrix}-1&0\\1&-1\end{smallmatrix}\bigr)$ に一致する。
+\end{proof}
+
+\begin{remark}[有限な Hom 計算と Hochschild 計算の境界]
+\label{cmo:rem:window-not-hochschild}
+命題\ref{cmo:prop:equivariant-window-hom}は、
+対合を保つ minimal $A_\infty$ 模型の underlying cohomology を
+$384$ 次元に確定する。しかし、その高次積と Hochschild 微分はまだ計算していない。
+特に $E^\sigma$ は対象間の Hom の supertrace であり、
+$HH_*(\operatorname{Ku}_{\mathrm{coh}}(A_0))$ の supertrace ではない。
+
+この区別は bar 複体を有限長で切る際にも必要である。
+$H^1R\operatorname{Hom}(K,K)$ は三十五次元で、単位を含まない。
+従って正規化 Hochschild bar 複体でこれらを suspension すると次数零となり、
+同じ総次数に任意の長さの composable な bar 語が存在する。
+内部 shift も全て零なので、三次周期の grading からこの長さは制限されない。
+有限個の $m_r$ または有限 bar 長の計算だけでは、
+残りを縮約する証明なしに Hochschild homology の計算にならない。
+必要なのは対角の有限解消、正当化された bar 縮約、または別の同変比較である。
+非可換側の $HH_{\pm1}$ の固有次元が可換候補の $(5,16)$ と一致するかは、
+本節の計算からは結論しない。
+
+\texttt{computations/verify\_mixed\_window\_involution.py} は
+指標多項式、全 Hom 表、集約表、Euler 行列を整数で再計算する。
+さらに線束の Hilbert 多項式と例外射影から Euler 行列を独立に作り、
+上の window の基底変換と照合する。
+この検算に Hochschild 指標の未証明の値は含めない。
+\end{remark}

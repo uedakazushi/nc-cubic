@@ -5,7 +5,7 @@
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
 \large 有限中心・局所代数・可換比較の候補}
 \author{}
-\date{2026年11月22日・研究稿 v50}
+\date{2026年11月22日・研究稿 v51}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
 pdfsubject={有限中心・局所代数・可換比較の候補}}
 
@@ -20,6 +20,9 @@ $S(1,-1,-1)$ の全定数型変形について普遍中心元を明示し、
 全 smooth locus 上の相対残余圏を構成し、Hochschild homology と
 有理数値 Euler 形式を計算する。
 また同じ判別集合を持つ可換三次族と、零係数における Eckardt 根スタック模型を与える。
+零係数の非可換側では三対象生成子の全 stable Hom と対合指標を計算し、
+対合を保つ可換端点への変形と、その一般点での非 PI 性を示す。
+この変形の相対 smoothness と、非可換側の Hochschild 群の対合指標は未解決である。
 この明示候補への Ku 同値は一般点でも未証明である。
 一方、分離型比較と可換実現 locus の開性を用いれば、
 任意の固定した定数型混合係数に対する余有限の可換 Ku 実現は得られる。
@@ -73,7 +76,7 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
 
 \subsection{中心結果と成立範囲}
 
-本稿の中心結果は次の三段階からなる。
+本稿の中心結果は次の四つに分かれる。
 完全な仮定と証明は各参照先に置く。
 
 \begin{enumerate}
@@ -109,6 +112,19 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
  根スタック上の十六例外対象の右直交として
  $\Ku(X_0)^{\mu_2}$ を記述する。非可換側からこの圏への比較核は未構成である。
+
+ \item \emph{非可換零係数の対合を保つ有限計算。}
+ 命題\ref{cmo:prop:equivariant-window-hom}は augmentation の stabilization
+ $K$ と $G=K\oplus K(1)\oplus K(2)$ に対し、
+ $H^*R\operatorname{End}(G)$ の全 $384$ 次元と対合の固有分解を求める。
+ 同変な minimal Shamash 分解と指定三次周期から計算するもので、
+ 高次積や Hochschild 微分を計算済みとはしない。
+ 命題\ref{mix:prop:h-central}は対合が底を固定する明示変形を与え、
+ 命題\ref{mix:prop:fermat-eckardt-endpoint}はその可換端点の滑らかさを証明する。
+ 命題\ref{mix:prop:h-generic-nonpi}により一般点では中心上有限性が失われるため、既存の有限中心による
+ 相対 smoothness の証明をこの変形へ流用できない。
+ 指標一致の帰結は、相対模型を追加仮定とする
+ 命題\ref{mix:prop:h-conditional-character}として述べる。
 \end{enumerate}
 
 点スキームは可換 Ku 実現に付随する零点不変量として無条件には使えない。
@@ -148,6 +164,15 @@ Eckardt 模型の残余圏は Orlov の blow-up 公式
 その適用範囲の決定である。個々の具体化について後続文献まで含む
 新規性の網羅的な確認はなお完了していない。
 
+零係数の同変 Hom 計算は、中心正則元に対する有限 Shamash 模型を
+対合と両立させた具体的な計算である。
+交換子パラメータを持つ変形の一般点では、
+Sklyanin 曲線と標準中心元の既知の記述
+\cite[Sections~1--2]{GRSklyaninDLL}を使い、
+平行移動点の非捩れ性と THCR の非 PI 性を直接証明する。
+Mathew の定理は既に相対 smooth proper な圏を仮定するため、
+それ自体で本変形の相対 smoothness を補うことはできない。
+
 余有限可換実現には、可換復元を扱う主稿の分離型比較
 （定理\paperref{main}{csc:thm:comparison}）、coherent 飽和
 （定理\paperref{main}{crs:thm:coherent}）、可換実現 locus の開性
@@ -167,6 +192,8 @@ Eckardt 模型の残余圏は Orlov の blow-up 公式
 相対 smoothness、余有限可換実現、正確な smooth locus と Hochschild 群を与える。
 第\ref{mix:sec:commutative-candidate}--\ref{mix:sec:eckardt}節で
 明示可換候補と Eckardt 模型を構成し、
+第\ref{mix:sec:equivariant-window}--\ref{mix:sec:equivariant-deformation}節で非可換側の Hom 指標と
+対合を保つ変形の適用範囲を調べる。
 第\ref{mix:sec:poisson-limits}節を点・零スキームの不一致の例に充てる。
 最後に、得られた模型から進むための比較問題を述べる。
 
@@ -181,6 +208,8 @@ Eckardt 模型の残余圏は Orlov の blow-up 公式
 \input{papers/sections/mixed/smooth_locus.tex}
 \input{papers/sections/mixed/commutative_candidate.tex}
 \input{papers/sections/mixed/eckardt.tex}
+\input{papers/sections/mixed/equivariant_window.tex}
+\input{papers/sections/mixed/equivariant_deformation.tex}
 \input{papers/sections/mixed/poisson_limits.tex}
 
 \section{残る比較問題}
@@ -202,6 +231,13 @@ smooth な係数で零なので、非零の射影 Ku の比較をそこから得
 \paragraph{零係数の対合付き模型.}
 $c=0$ では、非可換側の $u\mapsto-u$ が $HH_{\pm1}$ に及ぼす作用を求め、
 可換側の固有次元 $(5,16)$ と比較する問題が残る。
+命題\ref{cmo:prop:equivariant-window-hom}の有限 Hom 表から進むには、
+対合を保つ高次積と正当化された bar 縮約、または有限な対角解消が必要である。
+同じ総次数に任意長の bar 語が現れるため、次数範囲だけで
+Hochschild 複体を有限長に切ることはできない。
+可換端点へつなぐ変形については、両端を含む連結な底上の
+相対 smooth proper 模型を構成できれば固有階数を比較できるが、
+その相対対角の perfect 性は未証明である。
 この検査が整合すれば、定理\ref{cmo:thm:eckardt-root-residual}の
 十六例外対象の右直交へ実際の核を構成し、指標線束の作用との両立を調べられる。
 ただし通常の可換 Ku 実現は対合の保存を要求しないため、

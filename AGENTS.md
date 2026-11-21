@@ -1,6 +1,6 @@
 # Research instructions — nc-cubic
 
-2026-11-22 / v50。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-22 / v51。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
@@ -10,6 +10,10 @@
 - 主予想の正本は主原稿の `conj:nc-main`。同じ可換Ku標的上でPt(𝒳)≃Z_X(π)も選べるという素朴な期待は一般には成り立たず、独立した予想や主予想と同格の最優先目標にしない。本文の注意 `ppz:rem:naive-expectation` と不一致の例として説明し、Introductionから参照する。既存の定理・証明・計算は保持し、修正版の予想探しを自動的にP0へ戻さない。零スキームの非被約構造を含め、point shiftの固定点とは区別する。
 
 ## 現行結果の範囲と研究上の注意
+
+- `cmo:prop:equivariant-window-hom` はc=0のG=K⊕K(1)⊕K(2)の全stable Homと対合指標を、同変minimal Shamash分解から確定する。総次元384はHHの次元ではなく、Hom EulerのsupertraceもHHのsupertraceではない。higher homotopiesは既選択の低次を固定して各段の線型方程式の解だけを平均する。HHには高次積と正当化されたbar縮約が必要で、H¹Hom(K,K)のsuspensionが次数零となるためbar長を総次数だけで切れない。`verify_mixed_window_involution.py` はこの有限計算と独立な線束Eulerの照合を行う。
+- `mix:prop:h-central` は[y,z]=h(x²−α₁u²)等に対してΩ_h=(Σx³)/3−(2h²/3)sym(xyz)−u²α·xを与える。h=0の滑らかなFermat型端点Y_Fとh=1のA₀を対合を保って結ぶが、Y_Fを既存の指定候補X₀と同一視しない。`mix:prop:h-generic-nonpi` の形式群・THCR補間証明により一般点は非PIで、既存の有限中心法は適用不能。`mix:prop:h-conditional-character` のHH±₁指標(+5,−16)は0,1を含む連結な底上の対合付き相対smooth proper模型を追加仮定とする。相対平坦性、proper模型と底変更、対角perfect性を確認済みと扱わない。
+- 研究ノートの中心変数消去HH(A₀,(A₀)_σ)≃HH(A₀/u)は通常affine coneのtwisted HHに関するもの。曲率付き複体、第一種・第二種の比較、内部次数とμ₃ sectorを無条件に移さない。中心二重根のskew group orderのSODも通常環のPerf段階で証明し、qgr・残余圏への降下と不変環のHHは未解決として区別する。
 
 - `ppz:cor:reduced-point-poisson-counterexample` は、指定混合五様体のnormの全64根で、被約point/Poisson一致への期待も成り立たないことを示す。c=−44828に有理係数の一例を固定でき、全滑らかな可換三次五様体の全Poisson零集合に孤立点がないことを使う。可換Ku比較はこの例の入力ではなく、主予想の真偽は結論しない。三様体A★（h=1、点曲線のHesse係数λ=17/9）の `ppz:cor:complex-counterexample` も保持する。こちらは `esi:prop:factor` と `csc:cor:fermat` により実Ku比較を直接構成する全スキーム不一致の例であり、形式復元・一般点のspreadを入力にしない。同じ射影埋込み、point correspondence、全族の自然降下、一般体上の核降下、中心作用・rotation・周期の標識は別の強化問題である。
 - `cmo:prop:full-relative-hh` は指定c族をU=A¹∖V(P64)全体で相対smooth properにする。固定ambient・次数別自由商・有限中心上の平坦なcoherent対角・properな中央台を構成し、proper-perfect-spreadを各閉点へ適用する。一般のfiberwise smooth⇒relative smoothを使わない。Mathew Theorem1.3から全UでHH₀=C², HH±₁=C²¹。他次数零。`cmo:cor:rational-euler-comparison` はpr(O(4)),pr(O(5))を有理Knumの基底とし、Gram=[[-27,−189],[−162,−1161]]、det729を両側で得る。積分格子の同型は未証明。c=0の非可換対合はHH₀では恒等だが、HH±₁指標は未決定。
@@ -35,7 +39,7 @@
 
 - 正本は `uedakazushi/nc-cubic` の `main`。本文のある主原稿は必ず `papers/nc-cubic.tex`、日本語LuaLaTeX、著者欄空欄。現在の成果を理解できる順に統合し、版ごとの補遺・履歴・旧ZIPを蓄積しない。
 - 公表稿は三本。`papers/nc-cubic.tex` は可換Ku復元・基礎・分離比較・三様体不一致例、`papers/cubic-moduli-descent.tex` はO-marked認識・モジュライ・Picard/period等の精密降下、`papers/mixed-sklyanin-cubics.tex` は中心・局所代数・全smooth locus・明示候補・Eckardt模型・被約不一致例を担当する。全稿とも日本語LuaLaTeX・著者欄空欄。主予想は主稿に保持し、指定候補の比較核未構成というP0は不変である。
-- 各数学的な節は一つの稿だけが読み込む。`papers/common/preamble.tex` と `papers/references.tex` は共有し、証明本文を複製しない。楕円windowの基礎は主稿の `comparison_foundations.tex`、精密降下はモジュライ稿、混合本文は `papers/sections/mixed/` の10節に置く。他稿を引用するときは稿名と定理番号を表示し、参照元と証明の正本を追える状態を保つ。
+- 各数学的な節は一つの稿だけが読み込む。`papers/common/preamble.tex` と `papers/references.tex` は共有し、証明本文を複製しない。楕円windowの基礎は主稿の `comparison_foundations.tex`、精密降下はモジュライ稿、混合本文は `papers/sections/mixed/` に置く。他稿を引用するときは稿名と定理番号を表示し、参照元と証明の正本を追える状態を保つ。
 - `poisson-cubic` は古典正規形とPoisson moduli、`cubic-quantization` は全Poissonの代数的中心三次量子化と同変降下、`nc-cubic-threefold` は三様体固有の全Abel変形・相対比較と独立点スキーム論文の正本。孤立零点定理の正規形入力は `poisson-cubic` commit `9f91efa3465f18219c36c31750f1e66220faeaa7` の `papers/support/papers/sections/poisson_geometry.tex`、`thm:pg-normal` に固定する。通常は読取り専用で、具体的定理・仮定・版を引用する。本稿はB=ambient、A=商、量子化稿は逆。
 - 方針・研究ノート・公表稿を中心とする自己完結した現行一式を維持する。証明済み・追加仮定付き・未完成・予想・計算的観察、原稿の証明と今回の独立読解、形式証明・新規性を区別する。誤りは依存する本文・要約・方針・hubへ反映し、有用な障害はノートに保持する。
 - 公表稿では一次文献を確認し、既存結果の適用範囲と本研究の寄与をIntroductionで比較する。外部PDFや大量の検索結果は保存しない。論文に十分な証明がある内容をノートへ全文重複しない。
