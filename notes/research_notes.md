@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v45。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v46。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 二つの予想を中心とする研究の入口
 
@@ -48,7 +48,7 @@ m≥2,g≠0ではDは型(2^{3k},3)、次元m−2、次数3·8^kの完全交叉�
 
 具体例 `cmo:ex:sixty-four` は、[y,z]=x²−α_1u²と巡回置換、α=(1,4,9),(16,25,49)を用いる。中心元は Ω_α=(x³+y³+z³)/3−(2/3)sym(xyz)−u²(α_1x+α_2y+α_3z)、w_c=Ω_α+100Ω_α′+cu³。中心性は三つの独立パラメータを保った普遍関係行列で確認する。全次数PBW性はBraverman–Gaitsgory Main Theorem0.5 / Lemma3.3により別に証明し、次数3,4のHilbert関数だけから推測しない。u=0ではΩ_0=−c_3/3（De Laet–Le Bruyn §2の規格化）であり、中心和の正則性はuによる次数下降で持ち上がる。
 
-Q=C^{64}であり、R={±28,±16,±56/3,±28/3}、S={±448,±196,±176,±284/3}と置くとN(c)=∏_{r∈R,s∈S}(c+r+100s)。全64根は相異なる有理数で、各根では一つの被約定常点が加わる。根以外、特にc=0では点スキームは二つの楕円曲線だけ。このnorm根集合は引き続きsmoothness・Ku比較の検査対象である。下記のP64で得る非smoothな64係数とは交わらない。一方、滑らかな中心変数一つのブロックJacobian可換標的では定常零点がなく、零スキームは純楕円曲線だけとなる（`cmo:prop:poisson-zero`）。同じKu標的の存在と全Poisson supportの排除をまだ得ていないので、この相違を第二予想や被約版の新しい反例とはしない。
+Q=C^{64}であり、R={±28,±16,±56/3,±28/3}、S={±448,±196,±176,±284/3}と置くとN(c)=∏_{r∈R,s∈S}(c+r+100s)。全64根は相異なる有理数で、各根では一つの被約定常点が加わる。根以外、特にc=0では点スキームは二つの楕円曲線だけ。このnorm根集合とc=0のsourceは、下記の正確なP64判定によって全てsmooth properと確定した。可換Ku比較は引き続き未解決である。P64で得る非smoothな64係数とは交わらない。一方、滑らかな中心変数一つのブロックJacobian可換標的では定常零点がなく、零スキームは純楕円曲線だけとなる（`cmo:prop:poisson-zero`）。同じKu標的の存在と全Poisson supportの排除をまだ得ていないので、この相違を第二予想や被約版の新しい反例とはしない。
 
 `cmo:prop:character-ext` は、u=1の一因子D_pとcharacter p=(a,b,c)∈(C×)^3について、中心元からその値を引いた f_p=Ω_p−λ_p の高次作用を
 
@@ -83,7 +83,7 @@ N_6=a^6+b^6+c^6+66((ab)^3+(bc)^3+(ca)^3)
 
 `cmo:ex:two-dimensional-zero-action` は、a³−2a²−11a+8=0、半跡(a,1,−1)、α=(a²+1,a+1,1−a)、λ₂=−2(a³−a)/3の例を与える。N₆(a,1,−1)=0であり、剛的な二次元simpleが自身の中心商上pd∞となる。同時に全8 characterは自身の中心商上pd2で、λ₂にはcharacterが一つもない。`--zero-example` は三次数体で全高次homotopyを再計算し、8次有限エタール可換化上の二つの乗法行列の行列式と互除法から後二条件を検査する。従ってcharacterだけの検査を二次元判定が実質的に強める。
 
-指定二因子ではκ₂≠0を数体で厳密検証した。各因子の8 charactersと2二次元simpleの全100tensor simpleは、互いに異なる100中心値に現れ、pd5、自己Extは0,2,3,5次各1、coherent延長は線束perfectである。3〜6次元simpleや全体のsmoothnessはこの判定に含めない。
+指定二因子ではκ₂≠0を数体で厳密検証した。各因子の8 charactersと2二次元simpleの全100tensor simpleは、互いに異なる100中心値に現れ、pd5、自己Extは0,2,3,5次各1、coherent延長は線束perfectである。この百加群の検査自体は全体のsmoothnessを含意しない。指定因子の全simple分類と全体判定は、下記のNCCR局所形と対角の証明で別に得る。
 
 ### 定数型混合族の有限中心と余有限Ku実現
 
@@ -100,7 +100,7 @@ N_6=a^6+b^6+c^6+66((ab)^3+(bc)^3+(ca)^3)
 3. Z×_R Z上のΛ=𝔄^op⊠𝔄とM=Δ_*𝔄はcoherentかつRflat。E^∨⊠EによるMorita同値で、Mが線束模型Σ_Rの対角に対応する。Künnethと評価は両側作用まで保持する。
 4. 特殊ファイバーのM_0は分離型比較からperfect。中心局所環のt進完備化、idempotentの持上げ、忠実平坦降下により、その近傍でMの有限射影次元を持ち上げる。非perfect locusは閉で、そのproperな射影像は0を含まない。従って0の近傍の相対対角はperfectで、残余Γもsmooth properとなる。
 
-`cmo:cor:cofinite` はn=3k−1≠4の可換実現locusの開性を適用し、任意の固定α_iと非零a_iについて、有限集合Fを除くcで全coherent Kuを可換実現する。下記P64の根では全coherent Kuが非properなので、それらはFから外せない。norm根だけを除外集合に取ることはできない。Fの全体と、normの64係数・c=0の全体判定は未解決である。
+`cmo:cor:cofinite` はn=3k−1≠4の可換実現locusの開性を適用し、任意の固定α_iと非零a_iについて、有限集合Fを除くcで全coherent Kuを可換実現する。下記P64の根では全coherent Kuが非properなので、それらはFから外せない。norm根だけを除外集合に取ることはできない。可換実現を保証する除外集合Fの全体は未決定である。一方、指定二因子の非smooth集合は下記のV(P64)と完全決定し、normの64係数・c=0もsmooth properと判定した。
 
 別経路として、D=⊗D_{α_i}は有限大域次元の有限中心代数なので、c↦−Σa_iΩ_iという中心作用でRennemo–Segal–Van den Berghの非可換Bertini（[arXiv:1705.01366v2](https://arxiv.org/abs/1705.01366)、Proposition2.1）を適用すると、一般cのaffine中心chartの有限大域次元を得る。R=C[c]の作用は最高active部分の正則性により忠実である。このaffine結論だけから全qgrや可換Ku比較を推論しない。主稿の余有限Ku比較は上の射影的対角と収縮を使う。二中心変数の [補助ノート](central_cubic_generic_smoothness.tex) は別の仮定を持ち、一般のPBW変形へ有限中心性を無断で流用しない。
 
@@ -114,7 +114,23 @@ N_6=a^6+b^6+c^6+66((ab)^3+(bc)^3+(ca)^3)
 
 `cmo:thm:morse-singular-sixty-four` は P64(c)=pp₊Res_z(Q1((-c−100z)²),Q2(z²)) を定める。64次、偶、平方因子なし、P64(0)≠0、gcd(P64,N)=1。根の全てで36次元simpleを持ち、その完備局所中心商はMat36(C[[v1,…,v6]]/(Σv_i²))となる。自己Ext級数は(1+s)⁶/(1−s²)、coherent延長も同じ。有限中央台から逆方向Extもchartで計算でき、RHom(𝒫,O(i))=C³⁶[−5]。例外射影Kの自己Extは十分高い全次数でC³²となり、全coherent Ku自体が非properである。線束圏と残余線束圏は非smooth。全Db(qgr)のdg smoothness単独の否定は主張しない。
 
-巨大なP64の係数全文は保存せず、resultantから再生成する。最高次から定数項まで65整数をASCIIコンマで結び改行なしの6910 bytesのSHA-256は `20923491b92e21c3fceb0b30b0f331e500d83f898f756d0cb853ace75de42dbb`。この新しい64根はnormの64根からすべて異なる。次は非Azumayaの14中心点における3〜6次元simpleと中心方程式の作用を調べる。19値ずつの和による上界候補とu=0の境界の検証は未完である。
+巨大なP64の係数全文は保存せず、resultantから再生成する。最高次から定数項まで65整数をASCIIコンマで結び改行なしの6910 bytesのSHA-256は `20923491b92e21c3fceb0b30b0f331e500d83f898f756d0cb853ace75de42dbb`。この64根はnormの64根からすべて異なる。次の局所・射影対角の証明により、指定族の非smooth係数はこの64根だけと確定した。
+
+### 全節点の局所代数、全simple、正確なsmooth locus
+
+`cmo:lem:formal-node-brauer` は R=C[[x,y,z,w]]/(xy−zw) の穿孔スペクトラムUのBr′(U)=0を示す。小解消Yの例外曲線P¹、Česnavičius Theorem1.1の純性、strictly Henselian底上のproper base change、Kummer列を使う。解析的なlinkだけから代数的Brauer群の消滅を推論しない。Azumaya分裂束を反射的に延長し、Hartogsから局所orderをEnd_R(M)と表す。完備化後の有限global dimensionを単純加群の解消とminimal resolution/Torで確認した上で、Iyama–Wemyss Lemma2.23・Proposition4.5・非generatorも含むTheorem5.20を適用する。
+
+`cmo:thm:fourteen-node-orders` の結論は実際のR-代数同型 End_R(R^{⊕a}⊕I^{⊕b})、I=(x,z)、a+b=6である。共通のrank1 reflexive twistはEndそのものを保つ。8個のcharacter中心では(1,5)、2個の2次元中心では(2,4)、Ω=0上の4点では(3,3)。従って各因子の非Azumaya simpleは28類、次元1,2,3,4,5の個数は8,2,8,2,8。正則中心の各点には6次元simpleが一つある。具体的な3〜5次元行列を列挙せず、中心点と局所orderの二つのsimpleで同型類を完全に記述できる。
+
+`cmo:prop:conifold-nonisotropic-slice` は中心関数fの一次項がdual quadratic formで非等方なら、Λ/(f)がC[[p,q]]⋊μ₂と同型、global dimension2になることを示す。高次項は任意に許す。R/(f)はA1、I/fIは非自由rank1 CM、両辺の反射性からEndの底変更を確認する。形式的対角は完成包絡環上の差Koszul分解と平均化で扱う。形式冪級数環の通常のC上tensorをsmoothとしない。`cmo:lem:all-nodes-nonisotropic` の追加入力は J=(P,P_W,P_U,P_V,P_T) 上の3変数Hessianの単元性であり、既存中心検証器に統合した。全28節点で非等方性を厳密確認した。
+
+`cmo:lem:relative-diagonal-from-slice` は有限中央模型の対角点で完備化し、中央パラメータの正則性、syzygyの射影持上げ、忠実平坦降下から代数的な相対対角を得る。混合和には `cmo:lem:mixed-relative-diagonal` を使う。一方AがC=C[s]上相対smooth、他方Bが絶対smoothなら、R=A⊗_C B、T=A^op⊗_C Aに対し N=R^e⊗_{B^e}B≅T⊗_C B はR^e-perfectであり、Aの相対分解をN⊗_T−で移す。相対projective項を無条件にR^e-freeと扱わない。
+
+`cmo:prop:projective-boundary-smooth` は任意の定数型α、非零a_i、k≥2、全cでu=0の境界対角がperfectと示す。六次中央chart L=A[f⁻¹]にQ=L/(f−1)を取り、強Z/6次数付けとQ⋊μ₆≅End_{L₀}(Q)を使う。uはQでは中心元だがL₀の次数零元ではないため、L₀/(u)とは書かない。Q/(u)は既存の分離境界の有限巡回模型でsmooth。u正則性は直接の消去で確認し、通常の中央対角持上げ・有限群平均化・Moritaで境界へ降ろす。
+
+以上とMorse点の局所計算から、`cmo:thm:exact-sixty-four` は指定族について P64(c)≠0 ⇔ affine対角perfect ⇔ 線束圏smooth ⇔ 全coherent圏smooth proper ⇔ coherent Ku smooth proper を与える。qgrのhomological dimensionはこの場合5、P64の根では∞。`cmo:cor:fixed-zero-norm-smooth` によりc=0とnorm全64根はsmooth properである。
+
+一般のαの非smooth集合と、指定族の全smooth係数での可換Ku比較は未解決。開性と基底の連結性だけでは比較locusの全体性は従わない。次はc=0・norm根の有限残余模型とDVR上の比較核延長を検査し、同じKuを持つ可換標的を得てから全Poisson supportを比較する。今回使った一般的なBrauer純性・NCCR分類は既知結果であり、本例の具体的結論の新規性の網羅的確認は未了。一次文献・定理番号・識別子は主稿Introductionと `papers/references.tex` に置く。
 
 ### 通常の完備底で生成性を失う障害
 

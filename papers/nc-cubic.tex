@@ -77,7 +77,7 @@
 \title{非可換三次 $n$-fold の可換復元とモジュライ\\
 \large Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 \author{}
-\date{2026年11月22日・研究稿 v45}
+\date{2026年11月22日・研究稿 v46}
 \hypersetup{pdftitle={非可換三次 n-fold の可換復元とモジュライ},
 pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}}
 \begin{document}
@@ -110,15 +110,20 @@ categorical Torelli により、主予想を満たすが第二予想の全スキ
 従って任意の固定した混合係数と非零中心和係数に対し、有限個を除く中心三乗係数で
 全 coherent Kuznetsov 成分は滑らかな可換三次 $(3k-1)$-fold の成分として実現する。
 さらに中心の一関係表示と PI 次数六を求め、正則中心上の Azumaya 性を証明する。
-指定した二ブロックでは、正則中心上の八個ずつの Morse 臨界値の和から
-六十四個の非 smooth な係数を、明示した四次多項式の終結式として決定する。
-そこで全 coherent Ku は非 proper であり、この六十四係数は定常ノルムの根と交わらない。
+指定した二ブロックでは、各十四個の中心節点で完備局所代数を
+通常二重点の非可換クレパント解消と同定し、全単純加群を分類する。
+節点の中央切断と射影境界の対角を検査することにより、
+非 smooth 係数は正則中心上の八個ずつの Morse 臨界値の和で与えられる
+六十四点だけであると証明する。その集合は明示した四次多項式の終結式で定義される。
+そこで全 coherent Ku は非 proper であり、それ以外では全 coherent 圏が smooth proper である。
+従って零係数と定常ノルムの全六十四根も smooth proper locus に属する。
 一方、定常ノルムの六十四点は全て線束 perfect で、残余射影の自己 Ext は
 零次が一次元、一次が十次元、他の次数は零である。
 全二次元単純加群を分類し、剛的な部分の中心方程式の高次作用に普遍式を与える。
 一次元表現では検出できない無限射影次元の二次元加群を明示する一方、指定した
 一次元・二次元因子からの百個の単純加群の射影次元を五と決定する。
-これらの対象の判定と、全体の smoothness・可換 Ku 実現は区別する。
+指定族の全体の smoothness は上の対角判定で確定するが、
+零係数と定常ノルムの根を含む全ての滑らかな係数での可換 Ku 実現はなお未解決である。
 
 次数別有限自由な中心三次非可換変形に対する完備曲率付き
 matrix factorizationの移送を構成し、任意の$n\ge3$について
@@ -371,6 +376,21 @@ Brown--Yakimov \cite[Corollary~5.2]{CMOBrownYakimov} の既知の判定を適用
 全定数変形の正則中心上の Azumaya 性を得る。
 二つの Morse 値の和は、この既知の局所理論と具体的中心計算を合わせて
 定理\ref{cmo:thm:morse-singular-sixty-four}の非 proper な全 coherent Ku を与える。
+非 Azumaya 節点では、穿孔完備節点の Brauer 群の消滅を
+\v{C}esnavi\v{c}ius の純性定理\cite[Theorem~1.1]{CMOCesnaviciusBrauer}、
+小解消と Kummer 列から確認する。
+Iyama--Wemyss \cite[Lemma~2.23, Proposition~4.5]{CMOIyamaWemyssMM} と
+\cite[Theorem~5.20]{CMOIyamaWemyssCA} の既知の NCCR/MM 分類を適用し、
+自由直和因子を事前に仮定せずに局所代数を
+$\operatorname{End}_R(R^{\oplus a}\oplus I^{\oplus b})$ と決定する。
+定理\ref{cmo:thm:fourteen-node-orders}は各因子の非 Azumaya 単純加群二十八類と
+重複度 $(1,5),(2,4),(3,3)$ を与える。
+これらの一般的な純性・分類自体は既知結果であり、本稿の入力は具体的中心の
+局所幾何、全仮定の確認、重複度と指定中央関数の切断である。
+非等方な切断が $A_1$ の skew group 模型となることと、
+相対対角の合成・射影境界の有限巡回模型から、
+定理\ref{cmo:thm:exact-sixty-four}は指定族の非 smooth 集合が
+正確に $V(P_{64})$ であることを示す。
 二次元表現については Walton \cite[Proposition~4.1 and Section~5.2]{CMOWaltonRepresentations}
 の斉次例・一般変形の課題と比較し、本稿の定数型表示の全分類と高次作用を区別する。
 命題\ref{cmo:prop:two-dimensional-universal-kappa}は、剛的な部分での高次作用を
@@ -2177,11 +2197,13 @@ $n=3,4$ では全 full 同型類が降下し、周期の追加標識を忘れた
 系\ref{cmo:cor:cofinite}の余有限可換実現を得た。
 指定二因子では、定理\ref{cmo:thm:morse-singular-sixty-four}により
 norm と交わらない六十四係数で全 coherent Ku の非 proper 性が確定した。
-次は十四個の非 Azumaya 中心点、とくに $\Omega=0$ 上の四点の局所代数と
-未分類の三次元以上の単純加群を調べ、有限例外集合の残りを決める。
-例\ref{cmo:ex:sixty-four}の norm の六十四係数と $c=0$ の全体判定も残る。
-一次元・二次元因子から得る百個の指定加群は全て線束 perfect であり、
-全体の判定には中央対角と射影境界をさらに検査する必要がある。
+定理\ref{cmo:thm:fourteen-node-orders}で十四節点の局所代数と全単純加群を決定し、
+中央切断・相対対角・射影境界の証明を合わせて
+定理\ref{cmo:thm:exact-sixty-four}の正確な非 smooth 集合 $V(P_{64})$ を得た。
+例\ref{cmo:ex:sixty-four}の norm の全六十四係数と $c=0$ は smooth proper である。
+次はこの既知の smooth locus 全体で可換 Ku 比較を構成する。
+具体的には零係数と norm の根の残余模型、既知の比較核の DVR 上の延長を調べる。
+可換実現 locus の開性だけでは全 smooth locus への拡張は従わない。
 本稿の有限中心族の外にある混合表示と、全 intrinsic 成分の被覆も残る。
 $\overline\gamma_n[D]^{-1}$ の他の因子での分岐と
 正準位相体上の scalar index、代数的核の coherent な中心線型性、

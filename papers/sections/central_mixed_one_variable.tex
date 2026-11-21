@@ -1880,6 +1880,498 @@ Azumaya locus と正則 locus の一致を推論してはいない。
 \end{remark}
 
 
+\subsection{十四節点における完備局所代数}
+
+三次元節点上の完備局所代数を決定するため、まず一般的な補題を示す。
+ここで NCCR とは、正規 Gorenstein 環 $R$ 上の非零反射的加群 $M$ に対し、
+$\operatorname{End}_R(M)$ が Cohen--Macaulay な $R$-加群であり、
+全ての素点で局所大域次元が局所中心の次元に等しいことをいう。
+この定義と有限大域次元を用いる定義の一致は
+\cite[Definition~1.7 and Lemma~2.23]{CMOIyamaWemyssMM} に従う。
+
+\begin{lemma}[三次元完備節点の穿孔スペクトラムの Brauer 群]
+\label{cmo:lem:formal-node-brauer}
+\[
+ R=\mathbb C[[x,y,z,w]]/(xy-zw),\qquad
+ X=\operatorname{Spec}R,\qquad
+ U=X\setminus\{\mathfrak m\}
+\]
+とする。このとき
+\[
+ \operatorname{Br}'(U):=
+ H^2_{\text{ét}}(U,\mathbb G_m)_{\mathrm{tors}}=0.
+\]
+従って $U$ 上の任意の Azumaya 代数は分裂する。
+特に次数 $n$ の Azumaya 代数 $\mathcal B$ は、階数 $n$ の
+ベクトル束 $\mathcal E$ を用いて
+$\mathcal B\simeq\mathcal E nd_{\mathcal O_U}(\mathcal E)$ と書ける。
+\end{lemma}
+
+\begin{proof}
+$X\times\mathbb P^1$ の中の閉部分スキーム
+\[
+ Y=\{xt=zs,\ wt=ys\},
+ \qquad [s:t]\in\mathbb P^1,
+\]
+と第一射影 $f:Y\to X$ を取る。
+この射は projective であり、閉ファイバーは
+$E=f^{-1}(\mathfrak m)=\mathbb P^1_{\mathbb C}$ である。
+$U$ 上では行列
+$\left(\begin{smallmatrix}x&z\\w&y\end{smallmatrix}\right)$ の
+階数は一なので $[s:t]$ が一意に定まり、
+$Y\setminus E\xrightarrow{\sim}U$ となる。
+
+純性の仮定を、完備化した基底に対して直接確認する。
+$E$ 上の閉点のうち $s\ne0$ の chart で $t/s=a$ となる点を取り、
+$h=t/s-a$ と置く。その点での完備局所環は
+\[
+ \begin{split}
+ \widehat{\mathcal O}_{Y,p}
+ &\simeq
+ \mathbb C[[x,y,z,w,h]]/
+ (xy-zw,\ x(a+h)-z,\ w(a+h)-y)\\
+ &\simeq \mathbb C[[x,w,h]].
+ \end{split}
+\]
+この表示で $E$ のイデアルは $(x,w)$ である。
+$t\ne0$ の chart も同様なので、$E$ 上の閉点で $Y$ は正則、
+かつ $E$ の余次元は二である。
+$E$ の一般点の局所環も、これらの正則局所環の局所化なので正則で、
+その次元は二である。
+従って $E$ の全ての点で $\mathcal O_{Y,p}$ は次元二以上の正則局所環である。
+$Y$ は Noetherian であるから、
+\v{C}esnavi\v{c}ius の純性定理
+\cite[Theorem~1.1 (=Theorem~6.1)]{CMOCesnaviciusBrauer}
+の全仮定を満たし、制限により
+\begin{equation}
+ H^2_{\text{ét}}(Y,\mathbb G_m)
+ \xrightarrow{\sim}
+ H^2_{\text{ét}}(Y\setminus E,\mathbb G_m)
+ =
+ H^2_{\text{ét}}(U,\mathbb G_m)
+ \label{cmo:eq:node-brauer-purity}
+\end{equation}
+を得る。
+
+任意の $n\ge1$ を取る。$R$ は剰余体 $\mathbb C$ を持つ完備局所環なので
+strictly Henselian である。
+strictly Henselian 局所環のスペクトラム上では大域切断関手は
+閉点の stalk 関手と一致し exact である
+（\cite[Lemma~59.55.1, Tag~03QN]{CMOStacksNode}）。
+従って、proper base change
+（\cite[Theorem~59.91.11, Tag~095T]{CMOStacksNode}）と Leray spectral sequence により、
+自然な制限写像は同型
+\[
+ H^2_{\text{ét}}(Y,\mu_n)
+ \xrightarrow{\sim}
+ H^2_{\text{ét}}(E,\mu_n)
+ \simeq\mathbb Z/n\mathbb Z
+\]
+となる。最後の同型は $E=\mathbb P^1_{\mathbb C}$ に対する
+曲線の Kummer 計算
+（\cite[Lemma~59.69.1, Tag~03RQ]{CMOStacksNode}）である。
+ここでは $f$ の smoothness を仮定しておらず、
+proper base change を使っている。
+
+第二射影からの引戻しで得られる $\mathcal L=\mathcal O_Y(1)$ は
+$E$ に制限すると $\mathcal O_{\mathbb P^1}(1)$ となる。
+その Kummer Chern class は
+$H^2_{\text{ét}}(E,\mu_n)$ の生成元なので、
+上の同型と自然性により
+\[
+ \operatorname{Pic}(Y)/n
+ \longrightarrow H^2_{\text{ét}}(Y,\mu_n)
+\]
+は全射である。
+$n$ は $\mathbb C$ 上で可逆だから、Kummer 完全列
+（\cite[Lemma~59.28.1, Tag~03PK]{NFMStacksKummer}）は
+\[
+ \operatorname{Pic}(Y)/n
+ \longrightarrow H^2_{\text{ét}}(Y,\mu_n)
+ \longrightarrow H^2_{\text{ét}}(Y,\mathbb G_m)[n]
+ \longrightarrow0
+\]
+を与える。従って最後の群は零である。
+$n$ は任意なので $\operatorname{Br}'(Y)=0$、
+式 \eqref{cmo:eq:node-brauer-purity} から
+$\operatorname{Br}'(U)=0$ を得る。
+
+Azumaya Brauer 群は cohomological Brauer 群に単射で入り、
+次数 $n$ の Azumaya 代数の類は $n$ で消える
+（\cite[Section~59.62, Lemma~59.62.2, Tag~0A2J]{CMOStacksNode}）。
+従って $\mathcal B$ の Brauer 類は零である。
+中心拡大
+$1\to\mathbb G_m\to\operatorname{GL}_n\to
+\operatorname{PGL}_n\to1$
+の非可換 cohomology 完全列で、その
+$\operatorname{PGL}_n$-torsor は $\operatorname{GL}_n$-torsor に持ち上がる。
+対応する階数 $n$ のベクトル束 $\mathcal E$ が主張を与える。
+\end{proof}
+
+\begin{lemma}[完備化した有限代数の大域次元]
+\label{cmo:lem:completion-global-dimension}
+$B$ を両側 Noetherian 代数、$Z\subset Z(B)$ を可換 Noetherian 部分環とし、
+$B$ は $Z$ 上有限とする。
+$\mathfrak m\subset Z$ を剰余体 $\mathbb C$ の極大イデアルとし、
+\[
+ R=\widehat{Z_{\mathfrak m}},\qquad
+ A=B\otimes_Z R
+\]
+と置く。$B$ の左および右大域次元が $d$ 以下なら、$A$ の左右の大域次元も
+$d$ 以下である。
+\end{lemma}
+\begin{proof}
+$A$ は完備局所環 $R$ 上有限なので半完全環であり、
+有限生成加群は有限生成射影加群による極小射影解消を持つ。
+これには、$\mathfrak m R A\subset\operatorname{rad}A$、
+$A/\mathfrak m R A$ が有限次元代数であること、および
+完備性による冪等元の持上げを用いる。
+任意の左単純 $A$-加群 $S$ は $\mathfrak m R$ で消されるので、
+$B/\mathfrak m B$ の単純加群から来る。
+$B$ 上の長さ $d$ 以下の有限生成射影解消を取り、
+$Z\to R$ の平坦性で底変更すると、$S$ の $A$ 上の射影解消を得る。
+従って $\operatorname{pd}_A S\le d$ である。
+
+有限生成右 $A$-加群 $N$ の極小射影解消 $P_\bullet$ を考える。
+もし $P_{d+1}\ne0$ なら、ある左単純加群 $S$ に対し
+$P_{d+1}\otimes_A S\ne0$ となる。
+極小性により $P_\bullet\otimes_A S$ の微分は全て零なので、
+$\operatorname{Tor}_{d+1}^A(N,S)\ne0$ である。
+これは先ほどの左射影次元の評価に反する。
+従って全ての有限生成右加群の射影次元は $d$ 以下である。
+Noetherian 環の大域次元は有限生成加群の射影次元の上限に等しいので、
+右大域次元は $d$ 以下となる。左右を交換して同じ結論を得る。
+\end{proof}
+
+\begin{proposition}[節点上の分裂 NCCR の局所形]
+\label{cmo:prop:conifold-order}
+\[
+ R=\mathbb C[[x,y,z,w]]/(xy-zw),\quad
+ U=\operatorname{Spec}R\setminus\{\mathfrak m\},\quad I=(x,z)
+\]
+とする。中心が $R$ である有限 $R$-代数 $A$ に対し、次を仮定する。
+\begin{enumerate}
+ \item $A$ は $R$ 上 Cohen--Macaulay である。
+ \item $A|_U$ は次数 $n$ の Azumaya 代数である。
+ \item $A$ の大域次元は有限である。
+\end{enumerate}
+このとき正整数 $a,b$ が存在して
+\begin{equation}
+ A\simeq \operatorname{End}_R(R^{\oplus a}\oplus I^{\oplus b}),\qquad a+b=n
+ \label{cmo:eq:conifold-order}
+\end{equation}
+となる。これは $R$-代数としての同型であり、従って特に $A$ は $R$ の
+NCCR、かつ大域次元三である。
+$I$ を双対に取り換えると $a,b$ が交換されるため、二つの ruling の選択を
+固定しない場合には $\{a,b\}$ を考える。
+また $A$ の単純加群はちょうど二種類で、その複素次元は $a,b$ である。
+\end{proposition}
+
+\begin{proof}
+補題\ref{cmo:lem:formal-node-brauer}より
+$\operatorname{Br}'(U)=0$ なので、$U$ 上の階数 $n$ のベクトル束
+$\mathcal E$ を用いて
+$A|_U\simeq\mathcal E nd(\mathcal E)$ と書ける。
+ここで分裂を一般中心単純環に対する仮定として置く必要はない。
+
+$\mathcal E$ を $\operatorname{Spec}R$ 上の連接加群 $N$ に延長し、
+$M=N^{**}$ と置く。連接延長および以下で使う反射的延長は
+\cite[Tag~0EBJ]{CMOStacksNode} の証明と主張による。
+その仮定は $R$ が整域かつ Noetherian で、除いた閉点で
+$\operatorname{depth}R=3\ge2$ であることから満たされる。
+$M$ は有限生成反射的加群で、
+$M|_U\simeq\mathcal E$、$\operatorname{rank}_R M=n$ である。
+$R$ は正規で、$A$ は Cohen--Macaulay なので反射的である。
+さらに反射的加群への $\operatorname{Hom}$ は反射的なので
+（\cite[Tag~0AV3]{CMOStacksNode}）、
+$\operatorname{End}_R(M)$ も反射的である。
+余次元二以上の補集合を持つ開集合への制限は反射的加群上で完全忠実であるから、
+$U$ 上の同型は一意に
+\[
+ A\simeq\operatorname{End}_R(M)
+\]
+へ延長する。積との整合性も $U$ 上で確認すればよい。
+この段階では $M$ が Cohen--Macaulay であることも、
+$R\in\operatorname{add}M$ であることも仮定していない。
+
+$R$ は三次元の正規 Gorenstein 完備局所整域であり、特に
+\cite{CMOIyamaWemyssMM} の意味で $3$-sCY である。
+同論文の Lemma~2.23 により、Cohen--Macaulay 性と有限大域次元から
+$\operatorname{End}_R(M)$ は NCCR である。
+同論文の Proposition~4.5 により $M$ は maximal modifying (MM) 加群である。
+
+次に $R$ を
+$\mathbb C[[z,w,x,y]]/(zw-xy)$ と書き、
+\cite[Theorems~5.1(2), 5.20]{CMOIyamaWemyssCA}
+を適用する。ここでは $k=\mathbb C$、$f=zw$ の二つの既約因子は
+$z,w$ であり、いずれも一次式なので定理の全仮定を満たす。
+同定理は自由直和因子を仮定しない MM 加群も分類している。
+従って $M$ の basic module は、ある階数一反射的加群 $J$ に対し
+\[
+ (J\otimes_R(R\oplus I_\varepsilon))^{**},\qquad
+ I_\varepsilon\in\{(x,z),(x,w)\}
+\]
+の形である。二つのイデアルの類は互いに逆であり、
+$(x,w)\simeq I^*$ である。
+完備局所環上の Krull--Schmidt 分解を用いると、正整数 $a,b$ に対し
+\[
+ M\simeq J^{\oplus a}\oplus\bigl((J\otimes_R I_\varepsilon)^{**}\bigr)^{\oplus b}
+\]
+となる。
+
+階数一反射的加群による反射的 tensor は、反射的加群の自己同値であり、
+$\operatorname{Hom}$ と合成を保存する。
+これは余次元一で線束による tensor となることを確認し、反射的延長を取ればよい。
+$J^*$ による tensor により共通因子を除くと
+\[
+ A\simeq\operatorname{End}_R(R^{\oplus a}\oplus I_\varepsilon^{\oplus b}).
+\]
+$I_\varepsilon=I^*$ の場合にはさらに $I$ で tensor し、二つの直和因子を
+入れ換えれば式\eqref{cmo:eq:conifold-order}になる。
+階数から $(a+b)^2=\operatorname{rank}_R A=n^2$、従って $a+b=n$ である。
+
+$R$ と $I$ は非同型の indecomposable 加群であり、
+$\operatorname{End}_R(R)=\operatorname{End}_R(I)=R$ である。
+従って Krull--Schmidt 分解に対応する Jacobson 根基の商は
+\[
+ A/\operatorname{rad}A\simeq
+ \operatorname{Mat}_a(\mathbb C)\times
+ \operatorname{Mat}_b(\mathbb C).
+\]
+これが単純加群についての主張を与える。
+\end{proof}
+
+\begin{theorem}[指定二因子の全非 Azumaya 単純加群]
+\label{cmo:thm:fourteen-node-orders}
+$\alpha=(1,4,9)$ または $(16,25,49)$ とする。
+$X_\alpha=\operatorname{Spec}Z(D_\alpha)$ の十四個の節点 $p$ において、
+$R=\widehat{\mathcal O}_{X_\alpha,p}$ を標準節点環と同定すると
+\[
+ \widehat{D_{\alpha,p}}
+ \simeq\operatorname{End}_R(R^{\oplus a}\oplus I^{\oplus b}),\qquad a+b=6
+\]
+である。二つの ruling の交換を許した重複度は次の通りである。
+\[
+\begin{array}{c|c|c|c}
+ \text{中心点の種類}&\text{中心点の個数}&\{a,b\}
+ &\text{各点上の単純加群の次元}\\\hline
+ \text{一次元単純加群の中心}&8&\{1,5\}&1,5\\
+ \text{二次元単純加群の中心}&2&\{2,4\}&2,4\\
+ \Omega=0\text{ 上の節点}&4&\{3,3\}&3,3
+\end{array}
+\]
+特に各因子の非 Azumaya 中心上の単純加群は全部で二十八同型類であり、
+次元 $1,2,3,4,5$ の個数は順に $8,2,8,2,8$ である。
+正則中心の各閉点上には、六次元単純加群が一つある。
+\end{theorem}
+
+\begin{proof}
+命題\ref{cmo:prop:center-critical-polynomials}より十四点は三次元通常二重点である。
+形式的 Morse 補題により、その完備局所環は標準節点環 $R$ に同型である。
+定理\ref{cmo:thm:azumaya-regular}より $D_\alpha$ は中心上
+Cohen--Macaulay、一般階数三十六であり、正則中心上で次数六の Azumaya 代数である。
+これらの性質は中心での局所化と完備化で保たれる。
+また中心は有限個の代数生成元との交換子写像の共通の核として表されるので、
+平坦な局所化と完備化により、完備化した代数の中心は正確に $R$ である。
+局所中心の特異集合は閉点だけで、その完備化における逆像も閉点だけなので、
+完備化した代数は穿孔スペクトラム上で Azumaya である。
+$D_\alpha$ の左右の大域次元は三であり、
+補題\ref{cmo:lem:completion-global-dimension}により完備化の大域次元も有限である。
+従って命題\ref{cmo:prop:conifold-order}を $n=6$ に適用できる。
+
+八つの一次元単純加群は全て異なる非零の $\Omega$ 値を持つ。
+命題\ref{cmo:prop:two-dimensional-classification}および
+命題\ref{cmo:prop:two-dimensional-center-rigidity}より、
+二次元単純加群は各因子について正確に二つであり、その中心値も互いに異なり、
+零および一次元加群の中心値と異なる。
+これら十個の中心点は $H_i(\Omega^2)=0$ に対応する十節点を尽くす。
+局所代数の二つの単純加群の次元和は六なので、
+一次元加群のある点では $\{a,b\}=\{1,5\}$、
+二次元加群のある点では $\{a,b\}=\{2,4\}$ となる。
+残る四点では全一次元・二次元分類により、そのいずれも存在しない。
+従って $a,b\ge3$、かつ $a+b=6$ から $a=b=3$ である。
+
+元の代数の中心 $p$ 上の単純加群と完備化の単純加群は、
+共通の有限次元商 $D_\alpha/\mathfrak m_pD_\alpha$ を通じて一致する。
+これで元の $D_\alpha$ の単純加群に関する表と個数が従う。
+正則中心上の主張は Azumaya 性による。
+\end{proof}
+
+\begin{remark}[用いた既知結果と本例に固有の入力]
+完全局所 $cA_n$ 環上の MM 分類と NCCR の一般論は
+Iyama--Wemyss の既知結果である。
+本例でこれらを適用するための入力は、中心の十四節点、
+中心上の Cohen--Macaulay 性、正則中心上の Azumaya 性、PI 次数六、
+および既に得た一次元・二次元単純加群の完全分類である。
+穿孔完備節点の Brauer 群、反射的 endomorphism 表示、完備化後の有限大域次元を
+上の補題で確認したため、generic CSA の分裂や自由直和因子の存在を
+追加仮定として残していない。
+この局所同定のみから任意の中心切断の有限大域次元は結論せず、
+指定中心関数の線形項と節点の二次形式の関係は別に検証する。
+\end{remark}
+
+
+\subsection{通常二重点上の非可換解消の中央切断}
+\label{cmo:subsec:conifold-slice}
+
+以下の完備局所模型について、加群の大域次元と形式的対角の perfect 性を区別する。
+形式的対角には完備テンソル積を用いる。
+形式冪級数環を、通常の $\C$ 上のテンソル積に関して有限型の滑らかな代数と扱うことはしない。
+
+\begin{proposition}[非等方な中央切断]
+\label{cmo:prop:conifold-nonisotropic-slice}
+\[
+ R=\C[[x,y,z,w]]/(xy-zw),\qquad
+ I=(x,z),\qquad \Lambda=\operatorname{End}_R(R\oplus I)
+\]
+とする。$f\in\mathfrak m_R$ の一次部分を
+$\ell=a x+b y+c z+d w$ と書き、
+\begin{equation}\label{cmo:eq:conifold-dual-nonisotropic}
+ ab-cd\ne0
+\end{equation}
+を仮定する。
+このとき、$f$ の二次以上の項にかかわらず
+\[
+ \Lambda/(f)\simeq\C[[p,q]]\rtimes\mu_2,
+ \qquad -1\cdot(p,q)=(-p,-q)
+\]
+という非標準的な同型があり、その左右大域次元は二である。
+さらにこの代数の形式的対角は、完備包絡環上で長さ二の有限生成射影分解を持つ。
+$\operatorname{End}_R(R^{\oplus r}\oplus I^{\oplus s})$、$r,s>0$ についても
+その中央切断は同じ代数と Morita 同値であり、同じ結論が成立する。
+\end{proposition}
+
+\begin{proof}
+二次形式 $xy-zw$ を $\ker\ell$ に制限した三変数二次形式が非退化であることは
+式\eqref{cmo:eq:conifold-dual-nonisotropic}と同値である。
+$\ell\ne0$ なので $f$ を一つの形式座標として使い、$f=0$ で消去する。
+残る方程式の二次部分は上の非退化二次形式である。
+形式的 Morse 補題により
+\[
+ S=R/(f)\simeq\C[[X,Y,Z]]/(XY-Z^2)
+\]
+を得る。この議論は $f$ の高次項を任意に許す。
+
+$R\oplus I$ と $\Lambda$ は $R$ 上 Cohen--Macaulay である。
+実際、$I$ とその双対は通常二重点の階数一 Cohen--Macaulay 加群であり、
+$\Lambda$ の四ブロックは $R,R,I,I^*$ である。
+$R$ は整域で $f\ne0$ なので、$f$ はこれら全てに正則に作用する。
+$J=I/fI$ と置くと、$J$ は $S$ 上の階数一 Cohen--Macaulay 加群である。
+自然な射
+\begin{equation}\label{cmo:eq:conifold-end-base-change}
+ \Lambda/f\Lambda\longrightarrow
+     \operatorname{End}_S(S\oplus J)
+\end{equation}
+は同型である。これを Hom と商の交換として無条件に使わず、次のように確認する。
+両辺は正規二次元環 $S$ 上で反射的である。
+左辺の反射性は深さ二、右辺の反射性は $S\oplus J$ の反射性による。
+閉点を除けば $I$ は可逆なので、上の射は行列環の底変更として同型になる。
+正規環上の反射的加群は余次元一の制限から回復されるので、射全体が同型となる。
+
+$f\in\mathfrak m_R$ より
+\[
+ \dim_\C J/\mathfrak m_SJ
+ =\dim_\C I/\mathfrak m_RI=2.
+\]
+従って $J$ は自由でない。
+$A=\C[[p,q]]$、$G=\mu_2$ とすると $S=A^G$ であり、
+$S$ の階数一反射的加群の同型類は $\operatorname{Cl}(S)\simeq\mathbb Z/2$ で分類される。
+この最後の記述も本例では直接確認できる。
+閉点を除いた $\operatorname{Spec}A$ は Picard 群が零であり、
+$G$ はその上で自由に作用する。
+従って降下する直線束は $G$ の二つの指標で与えられる。
+より具体的には $A^\times=\C^\times\times(1+\mathfrak m_A)$ と形式対数を使うと、
+平均化により $H^1(G,1+\mathfrak m_A)=0$ である。
+よって $J$ は奇部分 $A^-$ と同型であり、$S\oplus J\simeq A$ となる。
+
+自然な射 $A\rtimes G\to\operatorname{End}_{A^G}(A)$ も、
+閉点の外で有限エタール Galois 降下による同型である。
+両辺の反射性により閉点を越えて同型となる。
+これで式\eqref{cmo:eq:conifold-end-base-change}から主張した表示を得る。
+この同型は本例における Auslander の対応の直接証明でもある。
+
+$|G|=2$ は可逆である。
+任意の $A\rtimes G$ 加群 $N$ は、平均化によって
+$(A\rtimes G)\otimes_A N$ の直和因子になる。
+$A$ の大域次元は二であり、$A\rtimes G$ は左右 $A$ 自由なので、
+$\operatorname{pd}_{A\rtimes G}N\le2$ を得る。
+原点における単純加群を $A$ に制限すると剰余体 $\C$ になるので、
+逆の下限も成立し、大域次元は正確に二である。
+
+形式的対角の主張には、二変数の完備 Koszul 分解を $G$ 同変化する。
+各項は $\C G$ を介した誘導双加群であり、$\C G$ の分離性により
+完備包絡環上有限生成射影となる。
+長さは二で、随伴次数付き複体は通常の二変数 Koszul 分解だから完全である。
+最後の Morita 同値は $R\oplus I$ と $R^{\oplus r}\oplus I^{\oplus s}$ が同じ加法閉包を持つことから従う。
+\end{proof}
+
+\begin{remark}[一次項が等方な場合]
+\label{cmo:rem:conifold-isotropic-slice}
+非等方性は省略できない。
+特に $f=\ell\ne0$ が線形で $ab-cd=0$ なら、$\Lambda/(f)$ の大域次元は無限である。
+これを中央切断の可換特異性だけから結論するのではなく、quiver で確かめる。
+標準 conifold 代数は、二頂点、矢
+$a_1,a_2:0\to1$、$b_1,b_2:1\to0$ と
+\[
+ a_i b_j a_k=a_k b_j a_i,\qquad
+ b_i a_j b_k=b_k a_j b_i
+\]
+の関係で与えられる。
+中心の四つの生成元は $z_{ij}=a_i b_j+b_j a_i$ であり、
+$\det(z_{ij})=0$ である。
+この表示は $a_1=x,a_2=z,b_1=1,b_2=w/x$ という
+$R\oplus I$ の間の乗法写像で得られる。
+三次関係によって交互語中の $a$ 同士、$b$ 同士を並べ替えられ、
+長さ $2n$ の各対角ブロックの次元は $(n+1)^2$、
+長さ $2n+1$ の各非対角ブロックの次元は $(n+1)(n+2)$ になる。
+これは上記 End 環の Hilbert 級数と一致するので、表示には余分な関係はない。
+
+矢の基底変換により、階数一の線形中央元を $z_{11}$ にできる。
+商では $a_1b_1=b_1a_1=0$ である。
+他の二矢を零にする射と $a_1,b_1$ を残す包含によって、
+二頂点二周期の radical-square-zero 代数が代数 retract になる。
+その頂点半単純代数上の bar 複体は全次数に非零項を持ち、微分は零である。
+retract によりその Tor は商代数の Tor の直和因子となるから、大域次元は無限である。
+
+高次項を許しても、一次部分が非等方なら前命題がそのまま適用できる。
+一次部分が等方、または零の場合には、前命題からの結論は出さない。
+例えば等方な一次部分に高次項を加えると、可換切断は $A_2$ 以上の型になり得るため、
+切断後の加群と End 環を別に調べる必要がある。
+\end{remark}
+
+\begin{lemma}[指定中心の全節点における非等方性]
+\label{cmo:lem:all-nodes-nonisotropic}
+二つの指定中心 $X_i=V(P_i(s^2,U,V,T))$ の各十四節点で、
+$s-s_0$ の一次部分は通常二重点の双対二次形式に関して非等方である。
+\end{lemma}
+\begin{proof}
+$H_3=\det\operatorname{Hess}_{U,V,T}P_i$、
+$H_4=\det\operatorname{Hess}_{W,U,V,T}P_i$ と置く。
+再現コード \path{computations/verify_mixed_center_geometry.py} は、既存の検証済み関係式を入力して
+\[
+ J_i=(P_i,P_{i,W},P_{i,U},P_{i,V},P_{i,T})
+\]
+上で $H_3,H_4$ が単元であることを有理数上の Gr\"obner 消去で検査する。
+$W$ も単元であり、これは消去多項式 $H_i$ が零を根に持たないことから従う。
+ここで $\dim_\mathbb Q\mathbb Q[W,U,V,T]/J_i=5$ である。
+従来の検査に追加される条件は $H_3$ の単元性である。
+$s_0\ne0$ の十節点では Hessian は
+\[
+ \operatorname{Hess}_{s,U,V,T}P_i(s^2,U,V,T)
+ =\operatorname{diag}(2s_0,1,1,1)
+   \operatorname{Hess}_{W,U,V,T}P_i
+   \operatorname{diag}(2s_0,1,1,1)
+\]
+となる。その逆行列の $(s,s)$ 成分は
+$H_3/(4s_0^2H_4)\ne0$ である。
+
+$s_0=0$ の四節点では、既存の長さ四の被約環上で
+$P_{i,W}$ と $H_3|_{W=0}$ がともに単元である。
+Hessian は $2P_{i,W}$ と三変数 Hessian の直和となり、
+逆行列の $(s,s)$ 成分は $1/(2P_{i,W})\ne0$ である。
+これらはまさに共変ベクトル $ds$ の双対二次形式による値である。
+\end{proof}
+
 \subsection{有限台の chart 加群と線束 perfect 性}
 
 以下でいう線束 perfect とは
@@ -2852,6 +3344,363 @@ proper 性は既に命題\ref{cmo:prop:proper-contraction}で確認した。
 $\Gamma_U$ について式\eqref{cmo:eq:relative-diagonal}を得る。
 \end{proof}
 
+\subsection{中央切断から混合中心和の対角へ}
+\label{cmo:subsec:slice-mixed-diagonal}
+
+\begin{lemma}[形式的中央ファイバーから相対対角への持上げ]
+\label{cmo:lem:relative-diagonal-from-slice}
+$A$ を有限型可換中心上有限な noetherian $\C$ 代数、
+$s\in Z(A)$ とし、$A$ は $C=\C[s]$ 上平坦とする。
+$T=A^{\mathrm{op}}\otimes_C A$ と置く。
+中心の閉点 $z$、$s(z)=\lambda$ において、
+\[
+ \widehat A_z/(s-\lambda)
+\]
+の形式的対角が、完備包絡環上で長さ $d$ の有限生成射影分解を持つと仮定する。
+このとき $A$ の相対対角は、$T$ の中央点 $(z,z)$ の近傍で perfect であり、
+射影次元は高々 $d$ である。
+\end{lemma}
+
+\begin{proof}
+$T$ の可換中心部分環を $(z,z)$ で局所化して完備化し、
+得られる代数を $\widehat T$、$T$ 加群 $A$ の完備化を $\widehat M$ と書く。
+$T$ が有限な可換中心上有限であるため、この完備化は中央の忠実平坦底変更である。
+$t=s-\lambda$ は $\widehat T$ と $\widehat M$ に正則に作用し、
+$t\in\operatorname{Jac}(\widehat T)$ である。
+さらに $\widehat T/(t)$ は切断代数の完備包絡環であり、
+$\widehat M/t\widehat M$ はその形式的対角である。
+
+$\widehat M$ の有限生成自由分解を最初の $d$ 段まで取り、最後の syzygy を $K$ とする。
+$t$ の正則性から $\operatorname{Tor}^{\widehat T}_{>0}(\widehat T/(t),\widehat M)=0$ であり、
+この部分分解を $t$ で割っても完全である。
+仮定により $K/tK$ は射影である。
+完備環上でその冪等行列を持ち上げ、有限生成射影加群 $P$ と
+$P/tP\simeq K/tK$ を取る。
+$P$ の射影性によりこの同型を $P\to K$ に持ち上げる。
+Nakayama により全射となり、$t$ の $K$-正則性によりその核を $t$ で割ると零になる。
+再び Nakayama から核も零なので、$K$ は射影である。
+従って $\widehat M$ は射影次元高々 $d$ である。
+
+有限表示加群の射影性は中央忠実平坦底変更から降下するため、
+同じ有限自由部分分解の syzygy は完備化前でも局所的に射影である。
+有限表示性によりこの結論は $(z,z)$ の Zariski 近傍へ広がる。
+この証明は、非 Hensel 環 $\C[s]_{(s-\lambda)}$ 上での冪等元の持上げを仮定しない。
+\end{proof}
+
+\begin{lemma}[一方の相対対角が perfect な混合中心和]
+\label{cmo:lem:mixed-relative-diagonal}
+$C=\C[s]$、$A,B$ を中央の $C$-作用を持つ $C$-平坦代数とし、
+\[
+ T=A^{\mathrm{op}}\otimes_C A,\qquad R=A\otimes_C B
+\]
+と置く。
+$A$ の相対対角が $T$ 上 perfect、$B$ の対角が
+$B^e=B^{\mathrm{op}}\otimes_\C B$ 上 perfect なら、
+$R$ の対角は $R^e$ 上 perfect である。
+それぞれの分解の長さが $d,e$ なら、得られる長さは高々 $d+e$ である。
+この主張は有限可換中心上の中央点の近傍へ局所化しても成立する。
+\end{lemma}
+
+\begin{proof}
+包絡環の左作用を
+$(a^{\mathrm{op}}\otimes b)\cdot x=bxa$ に統一する。
+$(R^e,T)$ 双加群
+\[
+ N=R^e\otimes_{B^e}B
+\]
+を考える。$A$ の左右二つの中央パラメータは $B$ の対角作用によって一致するので、
+\[
+ N\simeq T\otimes_C B
+\]
+である。右 $T$-作用は $T$ 因子の右乗法で与えられ、
+左 $R^e$-作用と可換である。
+ここでは $B^e\to B$ を環準同型として使っていない。
+
+また
+\[
+ R^e\simeq(A^{\mathrm{op}}\otimes_\C A)
+                 \otimes_{C\otimes_\C C}B^e
+\]
+であり、$A$ の $C$-平坦性から $R^e$ は右 $B^e$-平坦である。
+従って $B$ の有限射影双加群分解を誘導すると、
+$N$ は $R^e$ 上 perfect で、その射影次元は高々 $e$ となる。
+一方、$B$ の $C$-平坦性から $N=T\otimes_C B$ は右 $T$-平坦である。
+$A$ の有限 $T$-射影分解 $P_\bullet\to A$ をテンソルすると、
+\[
+ N\otimes_TP_\bullet\longrightarrow
+ N\otimes_TA\simeq R
+\]
+は完全である。各項は有限個の $N$ の和の直和因子なので、
+$R^e$ 上 perfect であり、全複体から長さ $d+e$ の上限を得る。
+
+中央局所化後も同じテンソル積の表示と平坦性が成立する。
+相対包絡環の中央基底を $Z(A)\otimes_C Z(A)$ に選ぶ。
+その近傍を定める元は $Z(A)\otimes_\C Z(A)$ へ持ち上がるので、
+絶対包絡環の中央元として $R^e$ へ写す。
+その局所化上では $N$ の左右の作用で当該中央元が一致するため、
+局所的な有限 $T$-射影解消にも同じ議論を適用できる。
+相対対角の情報を完備局所模型から得る場合は、前補題により先に
+代数的な相対包絡環の近傍へ降下し、その後でこの議論を適用する。
+従って形式冪級数環の通常の包絡環に関する smoothness を仮定する必要はない。
+\end{proof}
+
+\begin{corollary}[節点を含む混合中心和への適用]
+\label{cmo:cor:node-mixed-smooth}
+混合因子の完備局所代数が
+$\operatorname{End}_R(R^{\oplus r}\oplus I^{\oplus s})$、$r,s>0$ と Morita 同値である点を考える。
+その点で $d\Omega_1$ が通常二重点の双対 Hessian に関して非等方なら、
+他方の三次元 Calabi--Yau 因子と作る中心和
+\[
+ (D_1\otimes_\C D_2)/(\Omega_1+\beta\Omega_2+c),\qquad \beta\ne0,
+\]
+の対角は、その中央点の近傍で perfect であり、長さは高々五である。
+\end{corollary}
+\begin{proof}
+$C=\C[s]$ は第一因子に $s\mapsto\Omega_1$、
+第二因子に $s\mapsto-c-\beta\Omega_2$ と作用させる。
+各因子は domain で、指定中心元 $\Omega_i$ は $\C$ 上超越的なので、$C$ 上 torsion-free、従って平坦である。
+命題\ref{cmo:prop:conifold-nonisotropic-slice}と
+補題\ref{cmo:lem:relative-diagonal-from-slice}が第一因子の相対長さ二を与える。
+第二因子の既存の三次元 Calabi--Yau 双加群分解は長さ三である。
+補題\ref{cmo:lem:mixed-relative-diagonal}から結論を得る。
+この系の標準 conifold への Morita 同値は独立の入力であり、
+中心が通常二重点であることだけからは仮定しない。
+\end{proof}
+
+\subsection{射影境界の対角 perfect 性}
+
+アファイン chart $u\ne0$ の判定を全射影圏へ移すため、
+ここでは $u=0$ の境界を任意の $c$ で扱う。
+内部次数一の $u$ を、六次 Veronese の chart 上でそのまま
+次数零の中心元と扱うことはできない。その点を有限巡回次数付けで解消する。
+
+\begin{lemma}[中心一次元に沿う smoothness の局所持上げ]
+\label{cmo:lem:central-smooth-lift}
+$Q$ を有限生成可換 $\mathbb C$-代数上有限な代数、
+$u\in Z(Q)$ を正則元とする。
+$\overline Q=Q/uQ$ の対角が、指定した閉中心点の近傍で perfect であるとする。
+このとき $u=0$ 上の対応する点の近傍で、$Q$ の対角も perfect である。
+\end{lemma}
+\begin{proof}
+底 $C=\mathbb C[u]$ を $(u)$ で局所化してよい。
+$u$ の正則性から $Q$ はこの離散付値環上 torsionfree、従って flat である。
+相対包絡環と対角加群を
+\[
+ T=Q^{\mathrm{op}}\otimes_C Q,\qquad M=Q
+\]
+と置く。両者は $C$-flat であり、
+$T/uT=\overline Q^{\mathrm{op}}\otimes_{\mathbb C}\overline Q$、
+$M/uM=\overline Q$ である。
+$T$ は有限型可換中心部分環上有限である。
+補題\ref{cmo:lem:projective-lift}をその中心点で適用し、
+同補題の忠実平坦完備化と射影性の降下を用い、
+補題\ref{cmo:lem:perfect-locus}で近傍へ広げると、$M$ は局所的に $T$-perfect となる。
+
+$Q^e=Q^{\mathrm{op}}\otimes_{\mathbb C}Q$ 上の中心元
+$\delta=u\otimes1-1\otimes u$ は正則である。
+実際、$Q^e$ は $C\otimes_{\mathbb C}C$ 上 flat であり、
+そこで二つの座標の差は正則である。
+従って $T=Q^e/(\delta)$ は $Q^e$ 上長さ一の有限自由解消を持つ。
+$M$ の有限 $T$-射影解消をこの解消と合成すれば、
+$M$ は $Q^e$-perfect となる。
+局所化後の結論は有限表示の分母を払って元の中央近傍へ戻る。
+\end{proof}
+
+\begin{proposition}[定数型混合族の全係数における射影境界]
+\label{cmo:prop:projective-boundary-smooth}
+任意の $k\ge2$、$\alpha^{(i)}\in\mathbb C^3$、
+$a_i\in\mathbb C^\times$ と $c\in\mathbb C$ に対し、
+\[
+ A_c=\left(\bigotimes_{\mathbb C[u]}B_{\alpha^{(i)}}\right)
+       \Big/\left(\sum_i a_i\Omega_i+cu^3\right)
+\]
+の有限中心射影模型の対角は、$u=0$ の近傍で perfect である。
+従ってこの境界から非 smooth 係数は生じない。
+\end{proposition}
+\begin{proof}
+既存の正則列と有限中心性により $u$ は $A_c$ 上正則であり、
+\[
+ \overline A=A_c/uA_c
+   =S^{\otimes k}/\left(\sum_i a_i\Omega_0^{(i)}\right)
+\]
+は $\alpha^{(i)},c$ に依存しない。
+定理\ref{pps:thm:elliptic-existence}と、その入力である
+系\ref{mbnp:cor:coherent}により、この分離表示の全 coherent 圏は
+smooth proper である。この直接比較では次元四を除外しない。
+有限中心模型の対角と compact generator の関係は
+式\eqref{cmo:eq:kernel-diagonal}と同じなので、
+$\overline A$ の各中央射影 chart の対角は perfect である。
+
+$A_c$ の次数 $1,3,6$ の既知の中心元が生成する可換環を $C_A$ とする。
+$\operatorname{Proj}C_A^{(6)}$ を六次中心元 $f$ の標準開集合で覆い、
+\[
+ L=A_c[f^{-1}],\qquad Q=L/(f-1)
+\]
+と置く。$A_c$ は次数一で生成されるので、
+定理\ref{cmo:thm:relative-smoothness}の証明と同じく $L$ は強 $\mathbb Z$-次数付きである。
+$Q$ は強 $\mathbb Z/6$-次数付きで、
+その零成分は $Q_{\bar0}\simeq L_0$ である。
+具体的には $L_{6j}$ の元を $f^{-j}$ 倍して $L_0$ と同定する。
+各巡回次数成分は $L_0$ 上可逆な双加群であり、
+$Q$ は左右とも有限生成射影な generator である。
+
+双対群 $\mu_6$ が次数に従って $Q$ に作用する。
+有限群次数付けと smash product の End 表示は既知の一般論である
+\cite[Theorems~1.3, 2.1]{CMONastasescuRodino}。
+本例では強次数付けから
+$\operatorname{Hom}_{L_0}(Q_{\bar s},Q_{\bar r})\simeq Q_{\overline{r-s}}$
+を左乗法で得る。各次数成分への射影を群代数の冪等元で表せば、自然な作用写像は
+\[
+ Q\rtimes\mu_6\ \simeq\ \operatorname{End}_{L_0}(Q_{L_0})
+\]
+となる。従って $Q\rtimes\mu_6$ と $L_0$ は Morita 同値である。
+位数六が可逆なので、この事実から
+$Q$ と $L_0$ の対角 perfect 性は同値となる。
+実際、有限群の skew group への移行では平均化による分裂を用い、
+逆向きには $(Q\rtimes\mu_6)$ が $Q$ 上有限自由であり、
+その対角の制限が $Q$ を直和因子に持つことを使う。
+同じ議論は中央開集合上で成立する。
+
+$u$ は $L$ 上正則である。
+$L/uL$ 上でも $f$ は可逆な六次の元なので、有限個の次数成分しか持たない元の
+最高次数を見ると $f-1$ は正則である。
+ここで $ua=(f-1)b$ なら、$u$ で割ってから $f-1$ の正則性を使うと
+$b=ud$ と書ける。$L$ 上で $u$ を消去すれば $a=(f-1)d$ である。
+従って $u$ は $Q$ 上正則となる。
+また $\overline Q=Q/uQ$ は $\overline A[f^{-1}]$ に対する同じ巡回次数付き模型である。
+先ほどの Morita 同値と平均化を $\overline Q$ に適用すると、
+分離境界の対角 perfect 性から $\overline Q$ の対角 perfect 性を得る。
+補題\ref{cmo:lem:central-smooth-lift}により、$Q$ は $u=0$ の近傍で smooth である。
+
+必要なら有限群 $\mu_6$ による有限個の近傍の共通部分を取り、
+近傍を群作用で不変にする。$Q$ は中央 chart の可換環
+$(C_A[f^{-1}])_0$ 上有限であり、その境界 $u^6/f=0$ の上では
+全ての閉点で $u=0$ である。
+従って有限群の skew group と Morita 同値を通して、
+$L_0$ の対角は境界の近傍で perfect となる。
+これらの chart は射影境界を覆うので結論を得る。
+\end{proof}
+
+\subsection{指定二因子の smooth locus の完全決定}
+
+\begin{theorem}[非 smooth 係数の正確な六十四点集合]
+\label{cmo:thm:exact-sixty-four}
+例\ref{cmo:ex:sixty-four}の
+$\alpha^{(1)}=(1,4,9)$、$\alpha^{(2)}=(16,25,49)$ と
+$a_1=1,a_2=100$ を固定する。
+式\eqref{cmo:eq:morse-resultant}の $P_{64}$ に対し、
+次の条件は同値である。
+\begin{enumerate}
+ \item $P_{64}(c)\ne0$。
+ \item アファイン中心 chart
+ \[
+  R_c=(D_{\alpha^{(1)}}\otimes_{\mathbb C}D_{\alpha^{(2)}})
+           /(\Omega_1+100\Omega_2+c)
+ \]
+ の対角は perfect である。
+ \item $A_c$ の線束生成圏は smooth である。
+ \item $D^b(\operatorname{qgr}A_c)$ は smooth proper である。
+ \item $\operatorname{Ku}_{\mathrm{coh}}(A_c)$ は smooth proper である。
+\end{enumerate}
+さらに $P_{64}(c)\ne0$ では $\operatorname{qgr}A_c$ の
+homological dimension は五であり、$P_{64}(c)=0$ では無限である。
+従って中心の非 Azumaya 点と射影境界を含めても、
+定理\ref{cmo:thm:morse-singular-sixty-four}の六十四点以外に
+非 smooth 係数は存在しない。
+\end{theorem}
+\begin{proof}
+$X_i=\operatorname{Spec}Z(D_{\alpha^{(i)}})$ とする。
+$R_c$ は可換有限型環
+\[
+ C_c=(Z(D_{\alpha^{(1)}})\otimes_{\mathbb C}Z(D_{\alpha^{(2)}}))
+          /(s_1+100s_2+c)
+\]
+の中央作用に関して有限である。その閉点は条件 $s_1(z_1)+100s_2(z_2)+c=0$ を満たす
+$(z_1,z_2)\in X_1\times X_2$ として表される。
+中心をさらに拡大した場合にも、この有限中央模型で対角の perfect 性を判定できる。
+
+各因子について、正則中心上の非臨界点では
+中心写像 $s_i$ が smooth であり、Azumaya 性から相対対角は perfect である。
+十四節点では、定理\ref{cmo:thm:fourteen-node-orders}と
+補題\ref{cmo:lem:all-nodes-nonisotropic}、
+命題\ref{cmo:prop:conifold-nonisotropic-slice}により、切断代数は形式的に
+$\mathbb C[[p,q]]\rtimes\mu_2$ と Morita 同値である。
+その完備対角の有限解消を代数的な中央局所環へ降下し、
+中心変数に沿う射影次元持上げを用いると、そこでも相対対角は perfect である。
+この二つの操作は補題\ref{cmo:lem:relative-diagonal-from-slice}による。
+従って各因子で相対対角が perfect でない可能性がある点は、
+$Q_i(s_i^2)=0$ に対応する八個の Morse 点だけである。
+
+$P_{64}(c)\ne0$ とする。
+終結式の定義から、任意の $(z_1,z_2)\in\operatorname{Spec}C_c$ で
+少なくとも一方の $z_i$ はこの八個の集合に属さない。
+その因子の相対対角 perfect 性と、他因子の三次元 Calabi--Yau 双加群解消を
+補題\ref{cmo:lem:mixed-relative-diagonal}で合成する。
+すると $R_c$ の対角は当該閉中心点で perfect である。
+対角の台の外では対角加群自体が零である。
+有限型中央スキームの全閉点をこのように覆い、perfect locus の開性と
+準コンパクト性を使えば、$R_c$ の対角は大域的に perfect となる。
+これで (1)$\Rightarrow$(2) を得る。
+
+命題\ref{cmo:prop:projective-boundary-smooth}により、
+$u=0$ の射影境界の対角は任意の $c$ で perfect である。
+従って (2) から有限中心射影模型全体の対角 perfect 性を得る。
+式\eqref{cmo:eq:kernel-diagonal}の compact generator による Morita 比較で
+線束生成圏は smooth となる。その proper 性は既存の
+命題\ref{cmo:prop:proper-contraction}と同じ次数別 Hom の議論、
+または補題\ref{cmo:lem:mixed-line-serre}の構成による。
+定理\ref{crs:thm:coherent}の coherent 飽和を適用すると、
+この線束圏は全 $D^b(\operatorname{qgr}A_c)$ に等しい。
+有限例外列を除く残余圏にも smooth proper 性が移る。
+従って (2)$\Rightarrow$(3),(4),(5) である。
+
+逆に $P_{64}(c)=0$ なら、
+定理\ref{cmo:thm:morse-singular-sixty-four}により
+$R_c$ は無限射影次元の三十六次元単純加群を持ち、対角は perfect でない。
+同定理は線束生成圏の非 smooth 性、
+全 coherent 圏とその残余圏の非 proper 性も与える。
+従って (2)--(5) はいずれも成立しない。
+
+最後に (1) の場合、coherent 飽和と
+補題\ref{cmo:lem:mixed-line-serre}により全 coherent 圏の Serre 関手は
+$(-4)[5]$ である。
+coherent 加群間の負次数 Ext の消滅と Serre 双対から五を超える Ext は零となり、
+$\operatorname{Ext}^5(\mathcal O,\mathcal O(-4))\simeq\mathbb C$ である。
+従って homological dimension は五である。
+(1) が成立しない場合の無限性は、同じ定理の無限自己 Ext による。
+\end{proof}
+
+\begin{corollary}[零係数と定常 norm の全六十四係数]
+\label{cmo:cor:fixed-zero-norm-smooth}
+上の指定混合族では、$c=0$ および定常 norm $N(c)$ の全六十四根で
+$D^b(\operatorname{qgr}A_c)$ と
+$\operatorname{Ku}_{\mathrm{coh}}(A_c)$ は smooth proper である。
+norm の各根では二つの楕円曲線に一つの被約定常点が加わり、
+$c=0$ では point scheme は二つの楕円曲線だけである。
+\end{corollary}
+\begin{proof}
+定理\ref{cmo:thm:morse-singular-sixty-four}の
+$P_{64}(0)\ne0$ と $\gcd(P_{64},N)=1$ を前定理へ適用する。
+point scheme の記述は定理\ref{cmo:thm:point-norm}と
+例\ref{cmo:ex:sixty-four}による。
+\end{proof}
+
+\begin{remark}[smooth locus と可換実現 locus]
+\label{cmo:rem:smooth-versus-realization}
+この定理は指定二因子について source の smooth locus を完全に決定する。
+滑らかな各 $c$ の残余圏が可換 cubic の Ku と同値であることまで
+証明したものではない。
+系\ref{cmo:cor:cofinite}による余有限可換実現を保持するが、
+特に $c=0$ と norm の根での実際の比較核はなお構成されていない。
+既知の可換実現 locus が開であることと、
+$\mathbb A^1\setminus V(P_{64})$ が連結であることだけから
+その locus が全体に等しいとは結論できない。
+従って次の核心は、既に滑らかと判定した個別係数での可換実現と、
+比較核の境界延長である。
+\end{remark}
+
+\subsection{一般定数型混合係数に対する余有限可換実現}
+
 \begin{corollary}[定数型混合族の余有限可換実現]
 \label{cmo:cor:cofinite}
 任意の $k\ge2$、$\alpha^{(i)}\in\C^3$、$a_i\in\C^\times$ を固定し、
@@ -2898,11 +3747,13 @@ proper な中央台を使う。一般の proper dg 代数について、smooth �
 全 Artin 切断での互換同値だけから相対 smoothness を推論しているのではない。
 その推論への反例と、通常の完備底で生成性が失われる機構は研究ノートに記す。
 
-有限集合 $F$ はまだ有効に決定していない。
-$F$ を定理\ref{cmo:thm:point-norm}の norm の根集合と同一視する理由はない。
-norm は定常点の出現を検出するものであり、smoothness の判別式とは別である。
-例\ref{cmo:ex:sixty-four}の六十四個の値、$c=0$、および任意の指定された
-個別の $c$ における全体の smoothness・Ku 比較は、この余有限系だけでは判定されない。
+可換実現を保証するための有限除外集合 $F$ はまだ有効に決定していない。
+一方、例\ref{cmo:ex:sixty-four}の指定二因子については、
+定理\ref{cmo:thm:exact-sixty-four}が非 smooth 係数を $V(P_{64})$ と完全に決定した。
+norm の全六十四根と $c=0$ は smooth proper locus に属する。
+この結果と余有限可換実現を合わせても、各滑らかな係数での比較核は自動的には得られない。
+norm は定常点の出現を検出し、$P_{64}$ は指定族の smoothness を判定する。
+これらと可換 Ku 実現の除外集合を区別する。
 また得られた可換標的について、point scheme と Poisson 零スキームの
 同時比較や、元のブロック分解の保存はまだ主張していない。
 \end{remark}

@@ -273,11 +273,13 @@ def verify_geometry(relation, linear_factors, quartic_coefficients):
     assert is_unit_on(at_zero, derivative.subs(w, 0))
     assert is_unit_on(at_zero, hessian3.subs(w, 0))
     assert is_unit_on(singular, hessian4)
+    assert is_unit_on(singular, hessian3)
     print("  PASS: critical scheme length 18; eliminant W*H(W)^2*Q(W)")
     print("  H =", sp.factor(h))
     print("  Q =", q)
     print("  PASS: centre has 14 ordinary double points; 19 singular Omega fibres")
     print("  PASS: Q(Omega^2)=0 gives 8 Morse critical points on the smooth centre")
+    print("  PASS: all 14 node slices have nondegenerate transverse Hessian")
 
 
 def verify_mixed_morse_resultant():
