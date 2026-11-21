@@ -1,0 +1,434 @@
+% !TEX root = ../nc-cubic.tex
+\section{中心三乗根群の作用と rotation の指標}
+\label{mbza:sec:central-action}
+
+系\ref{mbrr:cor:central-band}が認識した中心群を、関手の自然同型と合成則も含めて扱う。
+標準ブロック作用は、基準ブロックを選ばずに coherent な作用として降下する。
+その同変化も同じ意味で基準に依存しない。
+一方、次数一 shift と rotation の標準同変構造は、基準の変更で指標だけ変わる。
+この差を記述する有限 torsor は、ブロック数が三の倍数でないときに限り
+置換不変な切断を持つ。
+共通 $\mathbf G_m$ を除いた表示 gerbe による次数一関手の降下問題は、
+この有限群の線型化問題とは区別する。
+
+作用・同変対象・指標による twist の一般論は既知である
+\cite[Definitions~3.1, 3.5, \S4]{MEDElagin}。
+随伴と半直交分解の同変性、作用の strictification には
+\cite[Proposition~3.13, Theorems~5.4, 6.2]{MBZAShinder}を参照できる。
+以下では本稿に必要な比較写像を実際に書き、その全ての合成則を確認する。
+
+\subsection{中心拡大の全ての分裂}
+
+基礎は $\C$ 上とし、まず順序付き満支持表示
+$A=(\bigotimes_{i=1}^kS_i)/(\sum_i a_i\Omega_i)$、$k\ge2$ を固定する。
+\[
+ \widetilde Z=\mu_3^k,\qquad
+ \Delta=\mu_3^{\mathrm{diag}},\qquad Z_0=\widetilde Z/\Delta
+\]
+と置く。$h=(h_i)\in\widetilde Z$ は第 $i$ ブロックの次数一空間を $h_i$ 倍する。
+各 $\Omega_i$ とその係数を固定するので、これは $A$ の次数付き自己同型である。
+共通スカラー $\lambda_t$ は次数 $n$ に $t^n$ を掛ける自己同型を表す。
+
+\begin{proposition}[分裂の有限 torsor]
+\label{mbza:prop:splittings}
+中心拡大
+\begin{equation}\label{mbza:eq:central-extension}
+ 1\longrightarrow\Delta\longrightarrow\widetilde Z
+   \longrightarrow Z_0\longrightarrow1
+\end{equation}
+の群スキームとしての分裂は、有限集合
+\begin{equation}\label{mbza:eq:splitting-space}
+ \mathscr S_k=
+ \{\boldsymbol a=(a_1,\ldots,a_k)\in\mathbf F_3^k:
+                   \textstyle\sum_i a_i=1\}
+\end{equation}
+によって分類される。対応する分裂は
+\begin{equation}\label{mbza:eq:splitting-formula}
+ s_{\boldsymbol a}([h])_i
+   =h_i\left(\prod_jh_j^{a_j}\right)^{-1}.
+\end{equation}
+$\widehat Z_0=\operatorname{Hom}(Z_0,\mu_3)$ とすると
+\[
+ \widehat Z_0=\{\boldsymbol d\in\mathbf F_3^k:\textstyle\sum_i d_i=0\},
+ \qquad |\mathscr S_k|=3^{k-1},
+\]
+であり、$\mathscr S_k$ は $\widehat Z_0$ の torsor である。
+二つの分裂について
+\begin{equation}\label{mbza:eq:change-character}
+ s_{\boldsymbol a'}(z)
+   =\chi_{\boldsymbol a\boldsymbol a'}(z)s_{\boldsymbol a}(z),
+ \qquad
+ \chi_{\boldsymbol a\boldsymbol a'}([h])
+      =\prod_i h_i^{a_i-a_i'}
+\end{equation}
+となる。基準ブロック $b$ を固定する分裂は $\boldsymbol a=\boldsymbol e_b$ であり、
+基準を $b$ から $c$ へ変えると $\chi_{bc}([h])=h_b/h_c$ である。
+\end{proposition}
+\begin{proof}
+三乗根の原始元を選んで群を $\mathbf F_3$-ベクトル空間と見れば、
+分裂は対角直線への retraction と同値である。
+その retraction は線型形式 $v\mapsto\sum_i a_iv_i$ であり、
+対角上で恒等である条件が $\sum_i a_i=1$ となる。
+分裂は $v\mapsto v-(\sum_i a_iv_i)(1,\ldots,1)$ であるから、
+乗法表示へ戻すと式\eqref{mbza:eq:splitting-formula}を得る。
+この式は $h$ を共通三乗根倍しても変わらず、原始元の選択にも依存しない。
+二つの retraction の差は対角を消す線型形式であり、
+これが $\widehat Z_0$ と式\eqref{mbza:eq:change-character}を与える。
+\end{proof}
+
+\subsection{共通スカラーを消す自然同型}
+
+本稿の構造移送の規約を固定する。
+次数付き自己同型 $h$ に対して $\Phi_h(M)$ の右作用は
+\begin{equation}\label{mbza:eq:transport}
+ m*a=m\,h^{-1}(a)
+\end{equation}
+であり、$\Phi_h\Phi_g=\Phi_{hg}$ である。
+内部 shift は $M(j)_n=M_{n+j}$ とする。
+
+\begin{lemma}[scalar 自明化と shift の重みの再掲]
+\label{mbza:lem:scalar}
+共通 grading scalar $\lambda_t$ には自然同型
+\begin{equation}\label{mbza:eq:scalar-trivialization}
+ \tau_t:\Phi_{\lambda_t}\xrightarrow{\sim}\operatorname{id},
+ \qquad \tau_{t,M}(m)=t^n m\quad(m\in M_n)
+\end{equation}
+がある。この同型は $t$ の積と厳密に両立し、全ての次数付き構造移送と可換する。
+torsion 商と複体にも同じ式で誘導される。一方、全整数 $j$ について
+\begin{equation}\label{mbza:eq:shift-weight}
+ \tau_{t,M(j)}=t^{-j}(\tau_{t,M})(j)
+\end{equation}
+である。
+\end{lemma}
+\begin{proof}
+命題\ref{mbsd2:prop:scalar-weight}の自然同型と、その shift 比較を再掲したものである。
+特に比較の乗法性は、関手の同型類だけでなく自然同型自体について成立する。
+\end{proof}
+
+\begin{theorem}[中心作用と同変化の coherent な降下]
+\label{mbza:thm:central-action}
+各 $\boldsymbol a\in\mathscr S_k$ は
+\[
+ \alpha^{\boldsymbol a}_z=\Phi_{s_{\boldsymbol a}(z)}
+ \qquad(z\in Z_0)
+\]
+という厳密な $Z_0$-作用を $\mathcal C_A=\QGr A$ に与える。
+異なる分裂による作用の間には、恒等関手を underlying functor とする
+標準の coherent な同値があり、三つ以上の分裂の比較は cocycle 条件を満たす。
+これは構造対象の標準線型化も保つ。
+
+系\ref{mbrr:cor:stack-isomorphism}の一般開では、この作用は
+内在的な有限 \'etale 群 $Z_0$ の作用として全 $\OO$-局所型へ降下する。
+順序を忘れた底では $Z_0$ 自体を因子置換で降下した群スキームと解釈する。
+同変対象の圏も基準ブロックによらず降下する。
+
+標準導来 compact 部分と、定理\ref{mbsd2:thm:projector-descent}の
+compact 残余圏にも、任意底変更に両立して同じ結論が成り立つ。
+全 coherent 残余や MF 模型へ移す場合は、既存の window・飽和・比較の仮定を別に課す。
+\end{theorem}
+\begin{proof}
+$\chi=\chi_{\boldsymbol a\boldsymbol a'}$ と置く。
+式\eqref{mbza:eq:change-character}と補題\ref{mbza:lem:scalar}から
+\begin{equation}\label{mbza:eq:action-comparison}
+ \epsilon_{\boldsymbol a\boldsymbol a',z}:
+ \alpha_z^{\boldsymbol a'}\xrightarrow{\sim}\alpha_z^{\boldsymbol a},
+ \qquad m\in M_n\longmapsto\chi(z)^n m
+\end{equation}
+を得る。$\chi(zz')=\chi(z)\chi(z')$ と $\tau$ の乗法性は、
+これらが群の合成と両立することを与える。
+さらに
+\[
+ \chi_{\boldsymbol a\boldsymbol a'}\chi_{\boldsymbol a'\boldsymbol a''}
+   =\chi_{\boldsymbol a\boldsymbol a''}
+\]
+なので、三つの分裂を比較する二つの合成は厳密に等しい。
+
+構造対象の線型化は $\Phi_h(A)\to A$, $x\mapsto h(x)$ である。
+$s_{\boldsymbol a'}=\lambda_\chi s_{\boldsymbol a}$ を用いると、
+この写像は式\eqref{mbza:eq:action-comparison}と両立する。
+系\ref{mbsd:cor:natural-scalars}により構造対象の同定を保つ自然自己同型はないので、
+得られた比較には構造対象付き作用として余分なスカラー二コサイクルはない。
+
+実際の次数付き同型 $f:A\to A'$ はブロックを置換し、
+$f\,s_{\boldsymbol a}(z)f^{-1}=s_{\pi\boldsymbol a}(\pi z)$ を満たす。
+従って対応する移送関手は上の作用と比較を保つ。
+$f$ の持上げを共通 grading scalar だけ変えた場合も、
+比較は $\tau_t$ によって一致し、その合成則は補題\ref{mbza:lem:scalar}で確認済みである。
+相対認識により、全 $\OO$-同値は fpqc 局所でこの形である。
+従ってこれらの比較は全 $\OO$-局所型に対する descent datum を与える。
+
+具体的に、同変対象を $\theta_z:\alpha_zM\to M$ で書くと、
+二つの同変圏の間の同値は
+\begin{equation}\label{mbza:eq:equivariant-change}
+ J_{\boldsymbol a\boldsymbol a'}:
+ (\mathcal C_A,\alpha^{\boldsymbol a})^{Z_0}
+   \xrightarrow{\sim}(\mathcal C_A,\alpha^{\boldsymbol a'})^{Z_0},
+ \quad
+ (M,\theta_z)\longmapsto
+ (M,\theta_z\epsilon_{\boldsymbol a\boldsymbol a',z})
+\end{equation}
+である。上の計算はこの線型化の群法則と $J$ の全 cocycle を同時に証明する。
+
+複体上では式\eqref{mbza:eq:action-comparison}は各項に作用し、微分と可換する。
+従って標準 dg 局所化、torsion 商および冪等完備化へ同じ比較が移る。
+各 $\OO(j)$ は作用によって対象として保たれるので、
+定理\ref{mbsd2:thm:projector-descent}の admissible 部分圏と
+その compact 直交残余圏も保たれる。
+生成対象の線型化を変えても、その Hom と対象を tensor した evaluation では
+二つの指標が相殺される。従って残余への随伴射影にも比較が誘導される。
+これは随伴の同変性の一般論とも一致する
+\cite[Proposition~3.13, Theorem~6.2]{MBZAShinder}。
+同変 dg 圏を用いる際には、既存の enhancement と有限群作用からの構成
+\cite[Theorems~8.7, 8.9]{MEDElagin}、または
+補題\ref{med:lem:crossed-perfect}の模型を使う。
+compact 残余作用には追加の window 仮定は要らない。
+全 coherent 残余や MF 圏との同定、および smooth proper 性は、既存の入力の範囲で用いる。
+\end{proof}
+
+\subsection{同変 shift と rotation の変換則}
+
+指標 $\eta\in\widehat Z_0$ に対し、同変化上の自己同値を
+\begin{equation}\label{mbza:eq:character-twist}
+ T_\eta(M,\theta_z)=(M,\eta(z)\theta_z)
+\end{equation}
+とする。これは既知の双対群による作用である
+\cite[\S4, before Theorem~4.2]{MEDElagin}。
+
+\begin{proposition}[指標による rotation の差]
+\label{mbza:prop:shift-character}
+$\mathsf s=(1)$ とし、分裂 $\boldsymbol a$ による標準の同変 shift を
+$\mathsf s_{\boldsymbol a}$ と書く。
+$\chi=\chi_{\boldsymbol a\boldsymbol a'}$ に対し、全整数 $j$ について
+\begin{equation}\label{mbza:eq:shift-character}
+ J_{\boldsymbol a\boldsymbol a'}\mathsf s_{\boldsymbol a}^{j}
+ \simeq T_{\chi^{-j}}\mathsf s_{\boldsymbol a'}^{j}
+                     J_{\boldsymbol a\boldsymbol a'}.
+\end{equation}
+命題\ref{mbsd2:prop:rotation-serre}の compact 残余上の rotation
+$\rho=L_{\OO}\circ(1)$ についても
+\begin{equation}\label{mbza:eq:rotation-character}
+ J_{\boldsymbol a\boldsymbol a'}\rho_{\boldsymbol a}
+ \simeq T_{\chi^{-1}}\rho_{\boldsymbol a'}
+                      J_{\boldsymbol a\boldsymbol a'}
+\end{equation}
+である。ここで mutation は underlying 残余模型の evaluation から誘導した関手である。
+特に第三冪については指標が消え、
+\begin{equation}\label{mbza:eq:third-period}
+ J_{\boldsymbol a\boldsymbol a'}\rho_{\boldsymbol a}^{3}
+   \simeq\rho_{\boldsymbol a'}^{3}J_{\boldsymbol a\boldsymbol a'}.
+\end{equation}
+MF/window 比較を使って命題\ref{mbsd2:prop:line-period}の三次周期が得られる範囲では、
+その係数直線付きの周期比較も、この同定の下で保たれる。
+\end{proposition}
+\begin{proof}
+$J\mathsf s^j$ の線型化は
+$(\mathsf s^j\theta_z)\epsilon_{z,M(j)}$、
+$\mathsf s^jJ$ の線型化は
+$(\mathsf s^j\theta_z)(\epsilon_{z,M})(j)$ である。
+補題\ref{mbza:lem:scalar}より前者は後者の $\chi(z)^{-j}$ 倍なので、
+式\eqref{mbza:eq:shift-character}となる。
+この符号は規約\eqref{mbza:eq:transport}による。
+
+$J$ は構造対象の標準線型化を保つため、
+$\operatorname{RHom}(\OO,-)\otimes\OO\to\operatorname{id}$ とその cone に両立する。
+指標 twist もこの評価写像と可換する。
+従って式\eqref{mbza:eq:shift-character}を $L_{\OO}$ と合成して
+式\eqref{mbza:eq:rotation-character}を得る。
+ここで同変化の中の一つの線型化付き $\OO$ だけに対する mutation を使ってはいない。
+必要な評価は $Z_0$-表現全体を含むものであり、
+underlying の mutation を同変化へ移した関手である。
+
+$T_\chi$ は rotation と可換し、$T_\chi^3=\operatorname{id}$ なので第三冪の式が従う。
+周期が与えられた場合、その内部次数は三で、分裂変更が与える係数は $\chi^{-3}=1$ である。
+中心三次直線も $\widetilde Z$ に固定される。
+従って、指定された周期写像自体も比較と可換する。
+これは周期直線の大域的自明化を与える主張ではない。
+\end{proof}
+
+\begin{proposition}[線型化の選択の完全性]
+\label{mbza:prop:linearization-torsor}
+代数閉体 $K$ 上で $\mathcal C_A=\QGr A$ の一つの中心作用を固定する。
+内部 shift $(1)$ の $Z_0$-同変構造の同型類は $\widehat Z_0$ の torsor であり、
+分裂の標準構造を式\eqref{mbza:eq:action-comparison}で移したものが全てを尽くす。
+
+残余 rotation についても、その dg 模型 $\mathcal K$ が
+\[
+ HH^0(\mathcal K)=K,\qquad HH^q(\mathcal K)=0\quad(q<0)
+\]
+を満たす場合には同じ結論が成り立つ。
+第\ref{med:sec:descent}節の smooth proper 一般点では、有限体拡大後の
+三次 Kuznetsov 圏との比較と命題\ref{prop:nf-hh}からこの条件が従う。
+\end{proposition}
+\begin{proof}
+二つの同変構造の各 $z$ における比は、同値関手の自然自己同型である。
+系\ref{mbsd:cor:natural-scalars}により、それは $K^\times$ の元である。
+同変構造の群法則は、この比が $Z_0$ の指標であることと同値になる。
+関手の自然自己同型もスカラーなので、非自明な指標差を自然同型で消すことはできない。
+命題\ref{mbza:prop:splittings}と式\eqref{mbza:eq:shift-character}から、
+全ての指標差が分裂の変更によって得られる。
+
+残余の場合、可逆 Morita 関手の自己準同型は恒等双加群の自己準同型に帰着する。
+その次数零は $HH^0(\mathcal K)=K$、高い homotopy の曖昧さは
+負次数の $HH$ によって消えるため、同じ指標の議論を適用できる。
+smooth proper 性の下で Hochschild コホモロジーは体拡大と両立し、
+忠実平坦な体拡大後に上の等式が成立すれば元の体でも成立する。
+\end{proof}
+
+\subsection{順序を忘れる降下と三の倍数の障害}
+
+\begin{corollary}[置換不変な分裂の必要十分条件]
+\label{mbza:cor:permutation-obstruction}
+$\mathfrak S_k$ は $\mathscr S_k$ の座標を置換する。
+$\mathfrak S_k$-同変な分裂 $Z_0\to\widetilde Z$ が存在する必要十分条件は
+$3\nmid k$ である。その場合には一意であり、
+\begin{equation}\label{mbza:eq:symmetric-splitting}
+ a_i=k^{-1}\in\mathbf F_3\quad(1\le i\le k)
+\end{equation}
+で与えられる。
+
+$3\mid k$ の場合、分裂の torsor の障害類は
+\begin{equation}\label{mbza:eq:splitting-obstruction}
+ 0\ne\delta(1)\in H^1(\mathfrak S_k,\widehat Z_0),
+ \qquad
+ 0\longrightarrow\widehat Z_0\longrightarrow\mathbf F_3^k
+     \xrightarrow{\sum}\mathbf F_3\longrightarrow0
+\end{equation}
+から来て、位数三である。
+これは中心作用そのものや同変化の降下障害ではない。
+標準の次数一同変構造を、ブロックの順序によらず一つ選ぶことの障害である。
+命題\ref{mbza:prop:linearization-torsor}の仮定の下では、
+rotation の同変構造についても同じ意味で完全な障害となる。
+\end{corollary}
+\begin{proof}
+置換不変な $\boldsymbol a$ は全座標が一つの $c\in\mathbf F_3$ に等しい。
+条件 $\sum_i a_i=1$ は $kc=1$ となり、主張の必要十分条件と一意性を得る。
+完全列の不変部分を取った接続写像は、$1$ の逆像である torsor
+$\mathscr S_k$ の類を与える。$3\mid k$ なら不変部分上の $\sum$ は零なので
+$\delta(1)\ne0$ であり、係数が $\mathbf F_3$ なのでその位数は三である。
+各 $\boldsymbol a$ による作用は既に定理\ref{mbza:thm:central-action}の比較で降下している。
+残る指標の変換は命題\ref{mbza:prop:shift-character}に正確に記述され、
+線型化の選択を全て尽くすことは命題\ref{mbza:prop:linearization-torsor}による。
+\end{proof}
+
+順序付き表示被覆を $\widetilde{\mathfrak M}^{\circ}$ とすると、
+\begin{equation}\label{mbza:eq:splitting-cover}
+ \widetilde{\mathfrak M}^{\circ}
+       \times^{\mathfrak S_k}\mathscr S_k
+       \longrightarrow\mathfrak M^{\circ}
+\end{equation}
+は階数 $3^{k-1}$ の有限 \'etale な分裂選択被覆である。
+その上では中心拡大\eqref{mbza:eq:central-extension}の分裂を選べる。
+rotation の有限群線型化は、この被覆上の実表示 gerbe へ引き戻した
+rotation について選ぶものであり、共通 $\mathbf G_m$-gerbe を中立化する操作ではない。
+順序付き表示チャートは既約なので、この被覆の切断は
+$\mathscr S_k$ の $\mathfrak S_k$-固定点と同値である。
+従って $3\mid k$ なら、非空な Zariski 開へ縮めるだけでこの障害を除くことはできない。
+基準ブロック一つを選ぶ $k$ 重の有限 \'etale 被覆でも分裂を選べる。
+
+より具体的に、$\mathscr S_k$ の置換軌道は
+\[
+ n_0+n_1+n_2=k,\qquad n_1+2n_2\equiv1\pmod3
+\]
+を満たす三つの非負整数で分類され、その軌道の大きさは
+$k!/(n_0!n_1!n_2!)$ である。
+例えば $k=3$ では、九つの分裂は三つの三元軌道からなり、固定点はない。
+
+\begin{remark}[半直積としての中心拡大]
+同じ障害は
+\[
+ 1\longrightarrow\Delta\longrightarrow
+ \widetilde Z\rtimes\mathfrak S_k
+ \longrightarrow Z_0\rtimes\mathfrak S_k\longrightarrow1
+\]
+の群準同型による分裂にも現れる。
+分裂を $Z_0$ に制限すれば式\eqref{mbza:eq:central-extension}の分裂となる。
+$\widetilde Z$ が可換なので、$\sigma\in\mathfrak S_k$ の持上げを
+$\widetilde Z$ の元だけ変えても、その共役作用は変わらない。
+従って制限した分裂は必ず置換同変である。
+逆向きは明らかなので、この半直積の拡大も $3\nmid k$ のときに限り分裂する。
+しかし共通 scalar には式\eqref{mbza:eq:scalar-trivialization}の自然自明化があるため、
+分裂しない場合にも coherent な圏作用の降下は妨げられない。
+\end{remark}
+
+\subsection{同変 MF との一致と二ブロック}
+
+\begin{proposition}[拡大 grading 群による同じ中心作用]
+\label{mbza:prop:gamma-action}
+\[
+ \Gamma=\{(\lambda_1,\ldots,\lambda_k)\in\mathbf G_m^k:
+                         \lambda_i^3=\lambda_j^3\text{ for all }i,j\}
+\]
+とし、共通三乗を $\upsilon:\Gamma\to\mathbf G_m$ と書く。
+自然に
+\[
+ \Gamma=(\mathbf G_m\times\widetilde Z)/
+   \{(t,(t^{-1},\ldots,t^{-1})):t\in\mu_3\},
+ \qquad
+ 1\longrightarrow\mathbf G_m^{\mathrm{diag}}
+       \longrightarrow\Gamma\longrightarrow Z_0\longrightarrow1
+\]
+である。
+potential が $\upsilon$ による半不変量である同変 MF の模型では、
+対角 $\mathbf G_m$ による通常の内部 grading の後に現れる $Z_0$ の弱作用は、
+定理\ref{mbza:thm:central-action}の作用と一致する。
+従ってこの $Z_0$-同変化は、$\Gamma$ による同変 MF と同じ圏を与える。
+\end{proposition}
+\begin{proof}
+fpqc 局所で共通三乗の三乗根 $t$ を選ぶと、各 $\lambda_i/t$ は三乗根となる。
+その選択の差が対角 $\mu_3$ であり、最初の表示を得る。
+分裂 $s_{\boldsymbol a}$ を選べば
+\[
+ \mathbf G_m\times Z_0\xrightarrow{\sim}\Gamma,
+ \qquad(t,z)\longmapsto(t,\ldots,t)s_{\boldsymbol a}(z)
+\]
+で、$\upsilon(t,z)=t^3$ である。
+従って $\Gamma$-同変な factorization は、内部 grading と、
+potential を固定する $s_{\boldsymbol a}(Z_0)$ の線型化を持つ factorization である。
+これは標準の $Z_0$-同変 graded MF の定義そのものである。
+分裂変更は各内部次数 $n$ で $\chi(z)^n$ を掛ける写像を与える。
+二つの factorization 写像のうち shift を含む方でも、内部 shift は三であり、
+$\chi^3=1$ なのでこの写像は可換する。
+従って比較は式\eqref{mbza:eq:action-comparison}と同じであり、全 cocycle も一致する。
+\end{proof}
+
+\begin{corollary}[二ブロックの対称な選択]
+\label{mbza:cor:two-block}
+$k=2$ で $u=h_1/h_2$ により $Z_0\simeq\mu_3$ と書くと、
+三つの分裂は
+\[
+ s_2(u)=(u,1),\qquad
+ s_1(u)=(1,u^{-1}),\qquad
+ s_{\mathrm{sym}}(u)=(u^2,u)
+\]
+である。最後の分裂だけが因子交換と両立する。
+因子交換は $u\mapsto u^{-1}$ を誘導する。
+\end{corollary}
+\begin{proof}
+式\eqref{mbza:eq:splitting-space}の三点は $(0,1),(1,0),(2,2)$ である。
+式\eqref{mbza:eq:splitting-formula}を代表 $(u,1)$ に適用すれば表示した式を得る。
+例えば $s_{\mathrm{sym}}(u^{-1})=(u,u^2)$ は $s_{\mathrm{sym}}(u)$ の因子交換である。
+\end{proof}
+
+第\ref{med:sec:descent}節の、一方のブロックだけを三乗根倍する作用は $s_2$ に対応する。
+他方を基準に取る場合、同じ内在的群 $Z_0$ の座標を使えば作用は
+$(1,u^{-1})$ であり、$(1,u)$ と書く際には群の inversion も含める必要がある。
+三つの選択の同変残余圏は定理\ref{mbza:thm:central-action}によって同定されるので、
+Hu の比較を適用した同変化自体はこの基準選択に依存しない。
+ただし標準 rotation の比較には式\eqref{mbza:eq:rotation-character}の指標を含める。
+
+\begin{remark}[有限の指標障害と表示 gerbe の区別]
+\label{mbza:rem:scope}
+本節が降下したのは中心群の coherent な作用と同変化である。
+置換不変な分裂があっても、共通 $\mathbf G_m$ を除いた表示 gerbe が
+自明になったことにはならない。
+式\eqref{mbza:eq:shift-weight}は任意の $t\in\mathbf G_m$ について
+次数一 shift に $t^{-1}$ の差が残ることを示す。
+従って、全 $\OO$-底上の次数一関手・rotation・周期直線を
+追加の線束や gerbe のデータなしに一括して自明化したとは主張しない。
+また、二つの同変圏の間に比較核が存在することと、
+その核に全 $\OO$-降下の cocycle が選べることは別問題である。
+第\ref{med:sec:descent}節の指定した一般点比較や有限拡大上の核を、
+本節だけから全モジュライへ降ろすことはしていない。
+本節の scalar 比較と有限 torsor は直接証明したものであり、
+既知の同変圏の一般論との組合せの新規性の網羅的確認は未完了である。
+\end{remark}

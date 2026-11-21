@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月21日 / v34。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月21日 / v35。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 完備MF移送、一般中心三次変形の可換復元、良い一ブロックのO-markedモジュライ、満支持複数ブロック型の全O局所型モジュライ・余法加群による幾何点認識・点曲線による同変一般点復元、残余Poisson射、Kuznetsov成分の比較と降下障害を扱う。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
 
@@ -54,12 +54,15 @@
 - [相対認識](papers/sections/multiblock_relative_recognition.tex)により、適切な非空開で表示stackと全O局所型stackが同型になる。この開では、任意の非被約底を含む族に対して`Eq_O=Isom_gr(A,A')/G_m`。全慣性の中心は順序付き被覆上で`(μ_3^k)/Δμ_3`、順序を忘れる際は因子置換で降下する。
 - [一般の全O局所型モジュライ](papers/sections/multiblock_generic_moduli.tex)は滑らか・既約・DM・次元`2k`。[相対双対](papers/sections/multiblock_serre.tex)と[第三Veronese認識](papers/sections/multiblock_veronese.tex)を基礎に、支配的可換特殊化と関係Grassmann像の独立な構成を保持する。二ブロックの第三Veroneseは55生成元・2619二次関係。
 - `s=(1)`に対し`rO≃O(1)`を満たす根は一意に`r=sΦ_h`と書け、二ブロックでは243個の自然同型類・83共役類となる。一般の共役類数は`(11^k+2·8^k)/3`。この分類に`6p_i≠0`は不要だが、[代数的Zhang twist表示の直接分類](papers/sections/multiblock_roots.tex)ではこの追加条件を使う。三乗同型・coherenceの標識や、Oの像を指定しない全根の分類は含めない。
-- [同変一般点復元](papers/sections/multiblock_equivariant_descent.tex)と[点曲線による模型](papers/sections/multiblock_point_comparison.tex)では、明示的Jacobian tensor/PBW族と既存cft/gdrの下で`J_i=g_i+ε_i² det Hess(g_i)/24`の分離和を復元する。二ブロックでは有限拡大後に`(K_A^coh)^(μ3)≃Db(E_1×E_2)`。残余enhancement・rotation・指定周期・比較核の全O降下は別に残る。
+- [同変一般点復元](papers/sections/multiblock_equivariant_descent.tex)と[点曲線による模型](papers/sections/multiblock_point_comparison.tex)では、明示的Jacobian tensor/PBW族と既存cft/gdrの下で `J_i=g_i+ε_i² det Hess(g_i)/24` の分離和を復元する。[全kの積表示](papers/sections/multiblock_residual_descent.tex)により、有限拡大後に `(K_A^coh)^(Z_0)≃Db(∏E_i)`。可換側のBFK・Orlov公式とElaginの双対作用は既知の入力として扱う。
+- [表示gerbeと残余構造](papers/sections/multiblock_scalar_descent.tex)：表示類βは各非空開で正確に位数3。compact残余圏・mutation projectorは全O開へ降下し、例外成分は `Perf(P_k,−jβ)`。rotationは重み1で、MF/window比較の範囲では `ρ³⊗ℓ^∨≃[2]` が降下する指定周期となる。
+- [中心群のcoherent作用](papers/sections/multiblock_central_action.tex)：作用と同変化は基準に依存しない。線型的持上げの選択は `Σa_i=1` というF3上のtorsorで、rotation比較にはcharacter twistが生じる。置換不変な選択は `3∤k` のときに限り存在する。この障害と表示gerbeを区別する。
+- [比較核のstackと双対作用](papers/sections/multiblock_residual_descent.tex)：両側のsmooth proper族を固定すると同変核stackはfpqc降下する。一般点の実dg模型が有限拡大上にあり、幾何学的一般点で非空なら縮小後有限étale被覆上に実核が存在する。可換Kuは曲線積の導来圏の双対群同変化となり、その作用は因子rotationの比で記述される。`3∤k` の対称rotationも明示し、二因子では `(R_1R_2)^−1[2]` となる。大域核sectionや任意固定parameterへの比較は別課題。
 - [有限群の指標・表現検算](computations/verify_veronese_representation.py)と[共役類検算](computations/verify_multiblock_twists.py)を保持する。55次元表現の中心固有空間19・18・18、ambient線型normalizerの計算と、今回の紙上の全代数自己同型群の証明を区別する。
 
 基礎となる[点対応](papers/sections/two_block_points.tex)、[中心と自己同型](papers/sections/two_block_algebra.tex)、[表示stack](papers/sections/multiblock_presentations.tex)、[完備比較](papers/sections/two_block_recovery.tex)も保持する。任意の抽象圏変形や全境界を覆う主張ではない。表示gerbeとSerreの基底直線も保持する。
 
-**次のP0**は、内在的な中心群の作用とrotation・比較核のcoherenceを接続する全O降下、Oの像を指定しない全第三根、一般開の境界、`m=1`への拡張である。一次中心変形類の非消滅は全群の同定の入力には不要で、二ブロックでは逆に`κ_C≠0`を系として証明した。仮定・証明・未解決点は[研究方針](00_research_plan.md)、実行範囲は[検証範囲](notes/validation.md)を参照。新規性の網羅的確認・外部査読・形式証明は未実施。
+**次のP0**は、点曲線積とline-valued MF外積を相対化し、関係直線・rotationの指標・比較核のcocycleを同期すること。残余可換三次への全O射と大域核section、Oの像を指定しない全第三根、一般開の境界、`m=1`への拡張は残る。仮定・証明・具体的着手は[研究方針](00_research_plan.md)、確認した範囲は[検証範囲](notes/validation.md)を参照。新規性の網羅的確認・外部査読・形式証明は未実施。
 
 **一般次元の O-marked moduli、point scheme、Poisson 多様体のモジュライへの射、Kuznetsov 成分の比較**を中心に進める。各既約成分の general / very general な対象を優先し、次元に一様な定理と族の構成を目指す。general な稠密開と very general な点集合、一ブロックの表示成分と全モジュライの成分は区別する。
 

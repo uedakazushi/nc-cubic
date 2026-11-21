@@ -1,0 +1,446 @@
+% !TEX root = ../nc-cubic.tex
+\section{残余圏の降下と分離和の同変積表示}
+\label{mbrd:sec:residual-descent}
+
+本節では、残余圏と比較核の降下を区別する。
+系\ref{mbrr:cor:stack-isomorphism}の全O開では、次数付き表示の射影商から
+compact残余圏とその内在的中心作用を降ろせる。
+二つの残余dg族が与えられれば、それらを比較する同変perfect核の
+モジュライも降下する。しかし、このモジュライに大域切断が存在すること、
+または指定された形式核がその切断から来ることは別の問題である。
+
+具体的な可換標的については、Ballard--Favero--Katzarkovの
+Morita積公式\cite[Definition~3.50, Corollary~5.18]{NFBFKKernels}と
+Orlov比較のdg版\cite[Theorem~6.13]{NFBFKKernels}を反復する。
+これにより、$k$個の三変数三次式の分離和に対し、
+中心群による同変Kuznetsov圏を$k$個の種数一曲線の積の導来圏として記述する。
+二ブロックのcategorical coveringはすでに
+\cite[Example~4.7]{MBRDBFKFurther}に現れ、
+Hu\cite[Theorems~0.1, 5.8]{TBHu}もこの型の同変Kuznetsov圏を扱う。
+以下の可換積表示は既知の一般定理の本設定への適用である。
+非可換側への帰結では、定理\ref{med:thm:multiblock-generic}、
+定理\ref{mpc:thm:point-model}の仮定をそのまま保持する。
+
+\subsection{compact残余圏と比較核のモジュライ}
+
+$\mathcal M_k^\circ\simeq\mathcal P_k^\circ$を
+系\ref{mbrr:cor:stack-isomorphism}の非空開とし、
+\[
+ Z_0=Z(K_k)=(\mu_3^k)/\Delta\mu_3
+\]
+をその中心慣性とする。順序を忘れた底では、右辺は因子置換で降下する
+有限\'etale群の局所系と解釈する。
+
+\begin{corollary}[全O開上の同変compact残余圏]
+\label{mbrd:cor:residual-family}
+表示チャート上で
+\[
+ \mathcal C_A=\operatorname{thick}\{\mathcal O_A(j):j\in\mathbb Z\},
+ \qquad
+ \mathcal K_A^{\mathrm{line}}
+ =\langle\mathcal O_A,\ldots,\mathcal O_A(3k-4)\rangle^\perp
+    \cap\mathcal C_A
+\]
+と置く。$\mathcal C_A$、$\mathcal K_A^{\mathrm{line}}$、
+残余projector、および$\mathcal K_A^{\mathrm{line}}$のcoherentな$Z_0$作用と
+その同変化は、$\mathcal M_k^\circ$上に降下する。
+この主張だけから全coherent圏との一致やsmooth性は結論しない。
+\end{corollary}
+\begin{proof}
+定理\ref{mbsd2:thm:projector-descent}により、相対evaluation
+\[
+ R\operatorname{Hom}(\mathcal O_A(j),-)\otimes\mathcal O_A(j)
+       \longrightarrow\operatorname{Id}
+\]
+とそのdg cofiberを用いる残余projectorは共通scalarの重み零を持つ。
+実際、$\mathcal O_A(j)$を底の直線束の$j$乗で変えると、Hom側の逆重みと相殺する。
+従って射影的次数付き表示の重なりでcoherentに貼り合わさる。
+全O射との一致は系\ref{mbrr:cor:stack-isomorphism}による。
+中心作用と基準ブロックを変えたときの比較のcoherenceは
+定理\ref{mbza:thm:central-action}で得られ、projectorを保つ。
+同変化はこの作用図式のhomotopy fixed pointとして取る。
+局所的にはcrossed productのdg加群模型であり、
+降下のhomotopy limitと群作用のhomotopy limitは可換する。
+\end{proof}
+
+次の命題では、降下する対象を明示するため、比較の両側をあらかじめ固定する。
+これは$\mathcal M_k^\circ$上の可換復元先を自動的に構成する命題ではない。
+
+\begin{proposition}[同変Morita核のstackと有限被覆]
+\label{mbrd:prop:kernel-stack}
+$S$を標数零の体上のschemeまたは代数stackとする。
+$\mathcal C,\mathcal D$を$S$上のdg圏の族で、fpqc局所に
+smooth properなdg代数によって表されるものとする。
+$G/S$を有限\'etale群とし、両側にcoherentな$G$作用を与える。
+各$T\to S$に対し、$G_T$同変なMorita同値
+$\mathcal C_T\simeq\mathcal D_T$を表すperfect双加群の最大$\infty$-groupoidを
+$\mathscr E_G(T)$と置く。このとき次が成り立つ。
+\begin{enumerate}
+\item $\mathscr E_G$はfpqc降下を満たす。
+従って、$\mathcal C,\mathcal D$と群作用が射影的表示から降下していれば、
+比較核のstack自体も同じ商へ降下する。
+\item 両側に降下済みのrotation双加群と指定周期図式を与えた場合、
+これらと両立する比較同型およびcoherenceを核のデータに含めても、
+同じ降下の主張が成り立つ。
+\item $S$が標数零の体上有限型な整なschemeとする。
+この項ではさらに、両一般ファイバーがある有限代数拡大後に
+実際のsmooth properなdg代数模型を持つと仮定する。
+幾何学的一般点で$\mathscr E_G$が非空なら、
+ある非空開$S^\circ\subset S$と有限\'etale全射
+$T^\circ\to S^\circ$上に実際の同変Morita核が存在する。
+同じ結論は、前項の有限個のrotation・周期比較を指定した場合にも成り立つ。
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+局所的に$G$を定数群とし、群軌道の直和を生成対象に用いて作用を厳密化する。
+そこで
+\[
+ \mathsf E=\mathsf C^{\mathrm{op}}\otimes_S^{\mathbf L}\mathsf D
+\]
+と置けば、群作用の全coherenceを持つ双加群は
+$\mathsf E\rtimes G$上のdg加群として表せる。
+補題\ref{med:lem:crossed-perfect}により、そのperfect性は忘却後のperfect性と同値である。
+従って群の乗法則を核の同型類の不変性で代用してはいない。
+
+dg加群のfpqc降下は、複体の忠実平坦降下を作用写像とともに適用して得る。
+導来mapping spaceを含む形では
+\cite[Lemma~3.1とその証明]{ROGTV}の構成を用いる。
+そこで使われる忠実平坦なcohomological descentはfpqc被覆にも適用でき、
+perfect性はその底変更に関して局所的である。
+smooth proper性の下ではperfectとpseudo-perfectの判定は
+\cite[Lemma~2.8]{ROGTV}により一致する。
+Morita同値であることも局所的である。
+実際、核$P$の右随伴核$Q$を取り、単位と余単位
+\[
+ \mathsf C\longrightarrow P\otimes_{\mathsf D}^{\mathbf L}Q,\qquad
+ Q\otimes_{\mathsf C}^{\mathbf L}P\longrightarrow\mathsf D
+\]
+のconeの消滅を検査すればよく、忠実平坦底変更はこれを検出する。
+これで第1項を得る。第2項の比較射とcoherentな図式も
+同じmapping space内のデータであり、そのhomotopy limitとして降下する。
+三角圏の非関手的なconeの選択を貼り合わせる議論ではない。
+
+第3項では$K=k(S)$とし、仮定した両側のdg代数模型を得る有限拡大を先に取る。
+必要ならさらに有限拡大によって$G_K$を定数群にし、
+生成対象の有限軌道和によって作用を厳密化する。
+幾何学的一般点上の核に
+補題\ref{med:lem:equivariant-descent}を適用して、
+ある有限拡大$K'/K$上に同変核を取る。
+perfect核の有限表示性は\cite[Lemma~2.10]{ROGTV}による。
+$S$を非空開に縮めて正規とし、$K'$における正規化$T\to S$を取る。
+これは有限であり、標数零なので非空開上\'etaleとなる。
+核、その逆、単位・余単位と、指定した有限個の比較射は$T$の非空開へ広がる。
+群coherenceは最初からcrossed product加群の構造に含まれている。
+比較射が同型であることと、有限個の周期図式の等式は、さらに縮めれば保たれる。
+最後に除いた閉集合の$S$への像を取り除く。
+有限射は閉写像なので、得られた非空開の全逆像上で核が定義され、
+その射は有限\'etale全射である。
+本稿の定理\ref{med:thm:multiblock-generic}と
+定理\ref{mpc:thm:point-model}では、両側の実際のdg模型が
+もとの関数体上で与えられているので、この追加条件を満たす。
+\end{proof}
+
+\begin{remark}[核の型、gerbe、切断]
+\label{mbrd:rem:kernel-section}
+命題\ref{mbrd:prop:kernel-stack}は核の集合が一つのgerbeになるとは述べていない。
+異なる同値核には、自己同値を合成した互いに同型でない核も含まれる。
+局所的に同型な核の型を一つ固定し、その型の核$P$について
+任意底変更後も
+$\operatorname{Ext}^{<0}(P,P)=0$、
+$\operatorname{End}(P)=\mathcal O$
+を仮定した場合に限り、その型のformsは$\mathbb G_m$-gerbeとなる。
+このgerbeの大域切断は、その中立化を意味し、降下するstackの存在とは別である。
+例えば体$\kappa$上の非自明な中心単純代数$D$について、
+$\operatorname{Perf}(\kappa)$と$\operatorname{Perf}(D)$を比較する核は
+分裂体上で存在するが、$\kappa$上のMorita核が存在するのは$[D]=0$の場合だけである。
+従って局所的な核の存在だけで大域切断を結論することはできない。
+本研究で得る有限拡大上の存在も、
+注意\ref{med:rem:formal-versus-existence}のとおり指定形式核の全jetの代数化とは異なる。
+\end{remark}
+
+\begin{remark}[rotationを付加する前提]
+\label{mbrd:rem:rotation-framing}
+命題\ref{mbrd:prop:kernel-stack}(2)では、rotation自体が両側で降下していること、
+または同じ追加の標識空間上にあることを仮定した。
+共通scalarに対するrotationの重みは一であり、
+その三乗は関係直線の双対を伴う周期
+$\rho^3\otimes\ell^\vee\simeq[2]$を持つ
+（命題\ref{mbsd2:prop:scalar-weight}、命題\ref{mbsd2:prop:line-period}）。
+また中心群のsplitを変えると、rotationの線型化には
+命題\ref{mbza:prop:shift-character}のcharacter twistが生じる。
+従って、標識なしの核stackの降下から、
+選択済みのrotation比較や周期比較の降下を追加の確認なしに推論しない。
+命題\ref{mbza:prop:splittings}の有限\'etaleなsplit選択被覆は
+この線型化の選択を扱うが、核のgerbeを自動的に中立化するものではない。
+さらにsourceとtargetの表示gerbeを独立に取ると、
+$P\rho_{\mathrm s}\to\rho_{\mathrm t}P$のHomはscalar
+$(\lambda_{\mathrm s},\lambda_{\mathrm t})$に対して
+$\lambda_{\mathrm t}/\lambda_{\mathrm s}$の重みを持つ
+（注意\ref{mbsd2:rem:kernel-synchronization}）。
+この相対重みは共通対角scalarへの同期により消えるが、
+同期の選択自体から比較射や核の大域切断が存在するわけではない。
+\end{remark}
+
+\subsection{分離和の同変Kuznetsov圏}
+
+以下の可換比較では、まず$\kappa$を代数閉な標数零の体とする。
+$k\ge2$とし、互いに独立な三変数組$x_i=(x_{i1},x_{i2},x_{i3})$に対し
+$f_i(x_i)$を滑らかな平面三次を定める斉次式とする。
+\[
+ E_i=V(f_i)\subset\mathbb P^2_\kappa,\qquad
+ F=\sum_{i=1}^kf_i,\qquad
+ X=V(F)\subset\mathbb P^{3k-1}_\kappa
+\]
+と置く。各$f_i$の勾配の共通零点は原点だけなので、$X$は滑らかである。
+$Z_0=(\mu_3^k)/\Delta\mu_3$は各ブロックの三乗根倍によって$X$に作用する。
+
+重みを共有する対角化可能群を
+\begin{equation}\label{mbrd:eq:gamma}
+ \Gamma_k=
+ \{(\lambda_1,\ldots,\lambda_k)\in\mathbb G_m^k:
+      \lambda_1^3=\cdots=\lambda_k^3\},\qquad
+ \chi(\lambda)=\lambda_i^3
+\end{equation}
+と定める。これは三乗characterによる$k$個の$\mathbb G_m$のfiber productであり、
+\[
+ 1\longrightarrow\mathbb G_{m,\mathrm{diag}}
+  \longrightarrow\Gamma_k\longrightarrow Z_0\longrightarrow1
+\]
+を持つ。基準ブロック$b$を選ぶと、
+$\lambda\mapsto(\lambda_b,(\lambda_i/\lambda_b)_i)$により
+$\Gamma_k\simeq\mathbb G_m\times Z_0$となる。
+第2因子の代表では$b$番目の座標を一とする。
+この分裂で得るweak actionは
+命題\ref{mbza:prop:gamma-action}の内在的中心作用と一致し、
+分裂を変えた比較はscalarの自然自明化によってcoherentである。
+
+\begin{theorem}[分離和の中心同変圏の積表示]
+\label{mbrd:thm:split-product}
+上の仮定の下で、dg Morita同値
+\begin{equation}\label{mbrd:eq:split-product}
+ \operatorname{Ku}(X)^{Z_0}
+ \simeq
+ D^b(E_1\times\cdots\times E_k)
+\end{equation}
+が存在する。左辺の作用は上で指定したものとし、
+同変化にはenhancementと冪等完備化を含める。
+この同変圏は基準ブロック$b$に依存しない。
+\end{theorem}
+\begin{proof}
+$\operatorname{MF}_{\mathrm{gr}}(f_i)$を標準整数次数による
+有限rank MFのdg圏のMorita完備化とし、
+$\operatorname{MF}_{\Gamma_k}(F)$を
+式\eqref{mbrd:eq:gamma}の重みによるMF圏とする。
+Ballard--Favero--Katzarkovの外積は
+\begin{equation}\label{mbrd:eq:thom-sebastiani}
+ \operatorname{MF}_{\mathrm{gr}}(f_1)
+     \mathbin{\circledast}\cdots\mathbin{\circledast}
+ \operatorname{MF}_{\mathrm{gr}}(f_k)
+ \simeq \operatorname{MF}_{\Gamma_k}(F)
+\end{equation}
+を与える\cite[Definition~3.50, Corollary~5.18]{NFBFKKernels}。
+ここで$\circledast$は導来tensor積のperfect加群を取るMorita積である。
+適用条件を確認すると、周囲は滑らかなアフィン空間、作用群は対角化可能でreductive、
+共通の三乗characterは非torsionである。
+同系のsupport付き圏は各段階でsupportを外せる。
+実際、部分和の勾配も対応するブロックの原点でのみ消えるため、
+和の零超曲面の特異点は各項の零集合の積に含まれる。
+その外ではMFはacyclicである。
+
+各三変数三次ではGorenstein parameterが零なので、
+Orlov比較により
+$\operatorname{MF}_{\mathrm{gr}}(f_i)\simeq D^b(E_i)$となる。
+全体ではparameterが$3k-3$であり、
+$\operatorname{MF}_{\mathrm{gr}}(F)\simeq\operatorname{Ku}(X)$である。
+これらはdg比較として取れる
+\cite[Theorem~6.13]{NFBFKKernels}。
+標準windowはブロックの線型作用と可換するので、この全体の比較も$Z_0$同変である。
+基準$b$による$\Gamma_k$の分裂を用いれば
+\[
+ \operatorname{MF}_{\Gamma_k}(F)
+ \simeq \operatorname{MF}_{\mathrm{gr}}(F)^{Z_0}
+ \simeq \operatorname{Ku}(X)^{Z_0}.
+\]
+群coherenceはequivariant factorizationそのものに含まれる。
+最後にsmooth properなschemeのperfect圏のMorita積は積schemeのperfect圏であり
+\cite[式~(1.1)]{MBRDBFKFurther}、
+式\eqref{mbrd:eq:thom-sebastiani}から主張を得る。
+基準変更への独立性は、命題\ref{mbza:prop:gamma-action}のcoherentな比較による。
+\end{proof}
+
+\subsection{積上のcharacter作用と双対同変化}
+
+符号を固定するため、次数付き加群では$M(1)_n=M_{n+1}$、
+$\Gamma_k$の加群上の重みを次数とする。
+$e_i:\Gamma_k\to\mathbb G_m$を$e_i(\lambda)=\lambda_i$と書き、
+$\mathsf T_\eta$をcharacter $\eta$をtensorする関手とする。
+この規約で$i$番目の内部shift $(1)$は$\mathsf T_{e_i^{-1}}$に対応する。
+$e_i^3=\chi$なので、共通周期は
+$\mathsf T_{\chi^{-1}}\simeq[2]$である。
+
+各楕円因子上で
+\[
+ R_{E_i}=T_{\mathcal O_{E_i}}\circ
+       (-\otimes\mathcal O_{E_i}(1)),\qquad
+ T_{\mathcal O_{E_i}}(M)=
+ \operatorname{Cone}\bigl(
+ R\operatorname{Hom}(\mathcal O_{E_i},M)\otimes\mathcal O_{E_i}\to M
+ \bigr)
+\]
+と置き、積の第$i$因子にこの関手を作用させるものを$R_i$と書く。
+$\mathcal O_{E_i}$はsphericalであり、ここでの$T_{\mathcal O_{E_i}}$は
+exceptional対象のmutationではなくspherical twistである。
+
+\begin{proposition}[characterと因子rotation]
+\label{mbrd:prop:factor-rotations}
+式\eqref{mbrd:eq:split-product}の同値を、
+外積と上のOrlov windowから構成する。
+このとき$\mathsf T_{e_i^{-1}}$は$R_i$に対応し、
+\begin{equation}\label{mbrd:eq:character-rotation}
+ \mathsf T_{e_i/e_b}\quad\longleftrightarrow\quad R_i^{-1}R_b,
+ \qquad R_i^3\simeq[2].
+\end{equation}
+左辺の$e_i/e_b$は$\Gamma_k/\mathbb G_{m,\mathrm{diag}}=Z_0$のcharacterである。
+従って$\widehat Z_0=\operatorname{Hom}(Z_0,\mathbb G_m)$は、
+これらの比の関手を通じて積の導来圏にcoherently作用する。
+基準$b$による標準rotationの線型化は積側の$R_b$に対応する。
+\end{proposition}
+\begin{proof}
+外積の定義\cite[Definition~3.51]{NFBFKKernels}は、
+各因子のcharacter twistをそのまま$\Gamma_k$への制限characterのtwistへ送る。
+各因子のOrlov比較では内部$(1)$が
+$T_{\mathcal O_{E_i}}\circ(-\otimes\mathcal O_{E_i}(1))$に対応する
+\cite[Theorem~6.13]{NFBFKKernels}。
+二因子でのこのrotation比は\cite[Example~4.12]{MBRDBFKFurther}でも明示されている。
+従って最初の主張と式\eqref{mbrd:eq:character-rotation}を得る。
+periodと群法則のcoherenceはcharacterによる厳密な作用から移送する。
+各$R_i^3\simeq[2]$という同型類の等式だけを使って群作用を作るのではない。
+
+基準$b$の分裂では$e_b$は整数次数のcharacterである。
+従ってその逆characterによるtwistは線型化された内部$(1)$となる。
+基準$c$へ移すと
+$e_b^{-1}/e_c^{-1}=e_c/e_b$であり、
+これは$\chi_{bc}=z_b/z_c$に対して$\chi_{bc}^{-1}$である。
+従って命題\ref{mbza:prop:shift-character}の
+$J_{bc}\rho_b\simeq\mathsf T_{\chi_{bc}^{-1}}\rho_cJ_{bc}$と一致する。
+\end{proof}
+
+\begin{corollary}[対称分裂に対応する積側のrotation]
+\label{mbrd:cor:symmetric-rotation}
+固定した上の可換分離和について$3\nmid k$とする。
+$c\in\{1,2\}$を$ck\equiv1\pmod3$で定め、$m=(ck-1)/3$と置くと、
+\[
+ t:\Gamma_k\longrightarrow\mathbb G_m,\qquad
+ t(\lambda)=\left(\prod_{i=1}^k\lambda_i\right)^c\chi(\lambda)^{-m}
+\]
+は対角$\mathbb G_m$への因子置換不変なretractionである。
+この対称分裂で線型化された標準rotationは、積側では
+\begin{equation}\label{mbrd:eq:symmetric-rotation}
+ R_{\mathrm{sym}}=(R_1\cdots R_k)^c[-2m],
+ \qquad R_{\mathrm{sym}}^3\simeq[2]
+\end{equation}
+となる。特に$k=2$では
+$R_{\mathrm{sym}}\simeq(R_1R_2)^{-1}[2]$である。
+これは固定した可換表示の有限中心群の対称分裂に関する記述であり、
+実表示の$\mathbb G_m$-gerbeの中立化を主張しない。
+\end{corollary}
+\begin{proof}
+$ck-3m=1$なので、対角上で$t(\lambda,\ldots,\lambda)=\lambda$、
+また$\Gamma_k$上で$t^3=\chi$である。
+$\mu_3^k$上では$t(z)=(\prod_i z_i)^c$となるので、
+$z_i/t(z)$による分裂は、命題\ref{mbza:prop:splittings}の
+定数ベクトル$a_i=c$による対称分裂に一致する。
+内部$(1)$は$\mathsf T_{t^{-1}}$に対応し、
+\[
+ t^{-1}=(e_1^{-1}\cdots e_k^{-1})^c\chi^m
+\]
+である。命題\ref{mbrd:prop:factor-rotations}と
+$\mathsf T_{\chi^m}\simeq[-2m]$から式\eqref{mbrd:eq:symmetric-rotation}の最初の式を得る。
+その三乗は$[2ck-6m]=[2]$であり、周期のcoherenceは
+characterの恒等式$t^3=\chi$から移送される。
+$k=2$では$c=2,m=1$、$(R_1R_2)^3\simeq[4]$なので
+$(R_1R_2)^2[-2]\simeq(R_1R_2)^{-1}[2]$となる。
+\end{proof}
+
+\begin{corollary}[双対作用による通常のKuznetsov圏]
+\label{mbrd:cor:dual-action}
+命題\ref{mbrd:prop:factor-rotations}のcoherentな$\widehat Z_0$作用を用いると、
+\begin{equation}\label{mbrd:eq:dual-action}
+ \operatorname{Ku}(X)\simeq
+ D^b(E_1\times\cdots\times E_k)^{\widehat Z_0}
+\end{equation}
+となる。この作用は一般には曲線積のscheme自己同型による作用ではなく、
+character twistを移送した導来自己同値の作用である。
+\end{corollary}
+\begin{proof}
+有限abelian群に対する二重同変化
+$(\mathcal C^{Z_0})^{\widehat Z_0}\simeq\mathcal C$
+\cite[Theorem~4.2]{MEDElagin}を
+$\mathcal C=\operatorname{Ku}(X)$へ適用する。
+標数零、冪等完備性、additive性の仮定を満たす。
+character作用と比較はdg模型で構成され、
+\cite[Lemma~8.6, Theorems~8.7, 8.9]{MEDElagin}により三角構造も保持される。
+式\eqref{mbrd:eq:split-product}でこの作用を移送すればよい。
+\end{proof}
+
+\subsection{非可換一般点への適用と降下の範囲}
+
+\begin{lemma}[任意の定義体上の有限拡大後の積表示]
+\label{mbrd:lem:field-product}
+$\kappa$を標数零の体とし、三乗根を含むとする。
+$f_i$を$\kappa$上の幾何学的に滑らかな三変数三次式とする。
+ある有限拡大$\kappa'/\kappa$上で
+\[
+ \operatorname{Ku}(V(\textstyle\sum_i f_i)_{\kappa'})^{Z_0}
+ \simeq D^b\bigl(\textstyle\prod_i V(f_i)_{\kappa'}\bigr)
+\]
+となる。曲線の係数はこの操作で変更しない。
+\end{lemma}
+\begin{proof}
+代数閉包$\overline\kappa$上に定理\ref{mbrd:thm:split-product}を適用する。
+両側の$\kappa$-dg圏はsmooth properである。
+左辺は滑らかな射影超曲面のadmissible残余圏の有限群同変化なので、
+補題\ref{med:lem:crossed-perfect}を使える。
+右辺は滑らかな射影schemeのperfect圏である。
+得られた比較核へ、群を自明とした
+補題\ref{med:lem:equivariant-descent}を適用すればよい。
+降下するのは核であり、方程式$f_i$は元の$\kappa$上に固定したままである。
+ここではBFKの代数閉体という仮定を無断で取り除かず、
+有限拡大上での存在だけを結論した。
+\end{proof}
+
+\begin{corollary}[全ブロック数の非可換同変残余圏]
+\label{mbrd:cor:nc-product}
+定理\ref{med:thm:multiblock-generic}の入力
+式\eqref{med:eq:multiblock-input}と、そこで用いる
+定理\ref{cft:thm:complete}、定理\ref{gdr:thm:generic}の下で、
+ある有限拡大$K''/K$上に
+\begin{equation}\label{mbrd:eq:nc-product}
+ \bigl(\mathcal K^{\mathrm{coh}}_{A_{K''}}\bigr)^{Z_0}
+ \simeq D^b(C_{1,K''}\times\cdots\times C_{k,K''})
+\end{equation}
+が存在する。$C_i=V(F_i)$は同定理の復元曲線である。
+さらに定理\ref{mpc:thm:point-model}の明示的Jacobian tensor/PBW入力を仮定すると、
+右辺を実際のSklyanin点曲線の積
+$D^b(E_{1,K''}\times\cdots\times E_{k,K''})$と取れる。
+\end{corollary}
+\begin{proof}
+定理\ref{med:thm:multiblock-generic}の$G=(\mu_3)^{k-1}$は、
+最後のブロックを基準にした$Z_0$の分裂表示である。
+その同変比較を同変化し、補題\ref{mbrd:lem:field-product}と合成する。
+二つの有限拡大を含む有限拡大を$K''$と取れば式\eqref{mbrd:eq:nc-product}を得る。
+点曲線の場合は、定理\ref{mpc:thm:point-model}の標的を用いる。
+その式は$\sum_i c_i\lambda_iJ_i$であり、
+$c_i\lambda_i\ne0$なので各平面曲線は$V(J_i)=E_i$そのものである。
+\end{proof}
+
+系\ref{mbrd:cor:nc-product}は二ブロックの
+系\ref{med:cor:elliptic-product}と系\ref{mpc:cor:point-product}を、
+同じ入力の範囲で全$k\ge2$へ拡張する。
+全O開上では左辺のcompact版は
+系\ref{mbrd:cor:residual-family}により内在的に定まる。
+しかし、このことと一般点上の積表示を合わせただけでは、
+全O開上の比較核の大域切断、可換三次への大域射、
+任意の固定非零パラメータでの比較、または特殊点を含む相対比較は得られない。
+そのような族の両側が構成され、幾何学的一般点の比較が確認された場合に限り、
+命題\ref{mbrd:prop:kernel-stack}(3)を有限\'etale被覆上の実際の核へ進むために使える。

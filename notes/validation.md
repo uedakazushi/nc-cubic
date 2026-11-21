@@ -1,16 +1,17 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月21日 / v34。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月21日 / v35。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
-## 現行v34の確認
+## 現行v35の確認
 
-- **新しい証明と独立読解：** 中心完全交叉の局所コホモロジー、中心商Torのpro-zero、Veroneseを介したRω比較、負次数Hom・Ext¹消滅、多中心変数のderived base change、同型の唯一lift、nilpotent Nakayama、次数別安定によるgraded同型を執筆担当以外が点検した。純商イデアルの飽和冪、多重次数の回復、剰余次数加群のEnd=K、Λ-character、全AutDのfactor liftも相互に独立読解した。これらをSSS認識へ接続する全G=K・中心還元核自明・rO条件付き根分類の証明を確認した。二ブロックのκ_C≠0は、first-order自明化から符号involutionを構成する二次関係の議論を独立読解し、還元核自明性へ接続した。
-- **相対認識：** 射影frame、任意底上の忠実性、表現可能性、fppf準有限、一般fiberの正則性、有限étaleの有限表示降下、階数一、中心bandを点検した。相対Isomの一致はさらに縮めた非空開に限定する。幾何点の一致だけから非被約底の認識を結論していない。
-- **一次資料：** Burke–Stevenson arXiv:1507.00830v1 §4 Proposition4.5・式(4.15)を担当者が確認。Stacks Project Tags04Y5,038U,038X,084Z,07SL,05W5,0DUDを確認し、統合担当も04Y5,084Z,07SLを直接照合した。Aitzhanova–Makar-Limanov–UmirbaevのMPIM著者稿Theorem1・Corollaries4,5、Chan–Young–Zhang arXiv:1606.01296v1 Theorems0.1,0.2を直接確認し、適用範囲の差を本文に記した。新規性の網羅的確認は未完了。
-- **今回の有限計算：** 新しい証明は有限数値計算に依存せず、既存の検証器は変更・再実行していない。保持する二ブロック表現計算は位数243、55次元指標値`{55:1,10:48,1:194}`、一次指標重複度`3×1,1×16,0×64`、二つの9次元既約表現各2、中心固有空間19・18・18、block similitude2304、ambient normalizer/centralizer186624。これらを今回の実行や全代数自己同型群の計算とはしない。
-- **ソース整合・組版・表示確認：** `python3 scripts/check_sources.py`は48 TeXソース、946個の一意なlabel、638個の参照label、135個の引用keyを検査して成功。`git diff --check`も成功。`latexmk -lualatex papers/nc-cubic.tex`は成功し、最終PDFは456頁、SyncTeXも生成した。最終ログに未定義・重複参照、欠落文字、overfull/underfull box、致命的エラーはない。既存の小サイズ字体代替と旧字体命令の警告は残る。最終PDFの1、115、116、118、120、123、124、131頁を画像化し、表題・負次数Ext・一意持上げ・一次変形非消滅・飽和冪・全慣性・根分類・stack同型を表示確認した。全456頁の目視、VS Code上の操作確認は行っていない。
+- **scalarと表示障害：** 右加群の規約、τの乗法・shift重み、表示gerbeのorder3、ordered coverのweight1最小階数3、残余projectorの重み相殺を執筆担当以外も独立読解した。非零性は残余gerbe BK_kへの制限であり、代数閉体値点の引戻しとは区別した。有限mutationによるρの自己同値性・逆Serre公式、line-valued MFの `[2]=(3)⊗ℓ^∨`、条件付きrotation核実現gerbe=β、source/target同期の `(−1,1)` 重みも相互に点検した。
+- **有限中心作用：** 全split `Σa_i=1`、τによるcoherent作用比較、Jのcocycle、rotationの `χ^−1`、第三周期、置換不変splitの必要十分条件 `3∤k`、非空開に残るfinite torsorの障害を複数担当が独立読解した。split被覆は共通G_m-gerbeを中立化しないと明記した。compact残余の降下とfullcoherent/MFへの適用条件も区別した。
+- **積表示と核stack：** Γのfiber product、BFKのnon-torsion characterとsupport条件、Orlovのdg比較、factor rotationの逆character、対称rotationの `(∏R_i)^c[−2m]` と二因子の `(R_1R_2)^−1[2]`、Elaginの二重同変化を独立読解した。非可換一般点への適用はmed/mpcの仮定と有限拡大を保持する。kernel∞stackのfpqc降下と大域sectionを区別し、有限étale被覆へ広げる主張には一般点の実dg模型が有限拡大上にあることを明記した。
+- **一次資料：** Bergh–Schnürerの公刊PDF Propositions4.10,5.7・Corollaries4.12,5.8,5.9、Polishchuk–Vaintrob Definitions1.1,1.3、Shinder Proposition3.13・Theorems5.4,6.2、Elagin v2 Definitions3.1,3.5・Theorem4.2・§8を確認した。BFK I刊行版 Definition3.50・Corollary5.18・Theorem6.13、BFK II arXiv1310.2656v2 Examples4.7,4.12を複数担当が原文照合し、二ブロックのcoverとrotation比を既知として本文に位置づけた。Toën–Vaquié arXiv:math/0503269v5 Lemmas2.8,2.10,3.1の本文を核担当が確認した。Lemma3.1のstatementはétaleであり、fpqcは本文で忠実平坦な加群・作用写像の降下を用いて説明する。文献全体の監査・新規性の網羅的確認は未完了。
+- **今回の有限計算：** 新しい証明は有限数値実験に依存せず、既存計算器は変更・再実行していない。保持する表現・共役類・Hessian・中心元等の既存検算を今回の実行とはしない。
+- **ソース整合・組版・表示確認：** `python scripts/check_sources.py` は51 TeXソース・1011の一意ラベル・686の参照対象ラベル・138引用文献キーで成功し、`git diff --check` も成功した。`latexmk -lualatex papers/nc-cubic.tex` は成功し476頁のPDFとSyncTeXを生成した。未定義参照・未定義引用・重複ラベル・missing character・overfull/underfull boxは零。既存の数学フォントサイズ代替7件と集計警告1件は残る。最終PDFの1,134,135,137,141,143,161,163,165,166頁を画像化して読解・表示点検し、文字欠落・式の切れ・重なりを認めなかった。全476頁の目視点検ではない。
 
-既存の余法加群、SSS、支配的可換特殊化、Grassmann像、点三次模型、相対双対・第三Veronese認識、Heisenberg共役類83/785、一般twisting system剛性、同変有限降下の有効な証明点検を保持する。一般の二次中心拡張のμ2上界も保持するが、本対象の還元核は新証明で自明となる。既存MF/window/coherent飽和の全体、外部量子化稿・三様体稿を今回一括再監査していない。Lean等の形式検証・外部査読は未実施。下記の既存検算を今回の再実行とは読み替えない。
+中心完全交叉の負次数Ext、中心thickeningの一意lift、飽和冪、多重次数、全AutD・全G=K・中心還元核自明・二ブロックκ_C≠0・根分類の既存独立点検を保持する。射影frame、fppf準有限、有限étaleへの縮小、階数一、任意非被約底の相対認識も既存の確認であり、今回その全証明を再監査していない。MF/window/coherent飽和全体、外部量子化稿・三様体稿も一括再監査していない。Lean等の形式証明と外部査読は未実施。
 
 ## 保持する数学的点検の範囲
 

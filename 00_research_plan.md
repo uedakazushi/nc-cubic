@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：可換復元とモジュライの研究方針
 
-2026年11月21日 / v34。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
+2026年11月21日 / v35。再開時はこの文書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。
 
 ## 独立論文と外部入力
 
@@ -8,11 +8,11 @@
 
 ## 可換復元・モジュライの基本目標と優先順位
 
-**現行の最優先研究目標（P0）：既存の1ブロック型の復元・モジュライ・点対応・Poisson射・Kuznetsov比較を、複数Jacobianブロック型に拡張する。** まず `n=4, N=6=3+3, k=2,m=0` の満support二ブロック型（滑らかな三次四様体）で、非空開上の O-marked moduli stack、中心三次直線の内在的復元、残余可換三次とKu比較の適用範囲を記述する。現在、`m=0`の全`k≥2`で全慣性と一般相対認識を得た。残余比較の降下を進め、次に`k=2,m>0`（最初は`n=5,m=1`）へ拡張する。非空開の構成と圏同値・射の降下を具体的に証明するまで、一般成分性や射の次数を既成結果として述べない。
+**現行の最優先研究目標（P0）：既存の1ブロック型の復元・モジュライ・点対応・Poisson射・Kuznetsov比較を、複数Jacobianブロック型に拡張する。** 主な対象は `n=4,N=6=3+3,k=2,m=0`。現在は `m=0` の全 `k≥2` で全慣性・一般相対認識・中心作用付きcompact残余圏の全O降下を得た。全kの一般点で同変残余圏を曲線積へ比較する。次は関係直線とrotationの指標を保持した相対比較核、残余可換模型の全O降下を構成し、続いて `k=2,m=1,n=5` へ拡張する。一般点の存在から大域比較核や全境界を覆う主張を推論しない。
 
 **優先順位を変更する数学的理由：** 良い1ブロック型では既に広い範囲の一般次数・比較核の算術・周期の局所値が決まった。未解決の大域周期位相と scalar index は重要だが、そこだけを完成しても対象成分が増えない。複数ブロック型への拡張は全Poisson階数層を覆う構造理論へ直結し得るため、研究全体の価値の観点からこれをP0、既存の精密算術をP2にする。既存の証明・例・計算・未解決の詳細は削らず公表用主稿とノートに保持する。
 
-**既存入力と境界：** `poisson-cubic` の正規形は `N=n+2=3k+m`, `V=⊕_{s=1}^{k}W_s⊕U`（各 `dim W_s=3`, `dim U=m`）を与え、`cubic-quantization` の `thm:pg-all-dimensions` と `thm:pg-intrinsic-full-support-center` は複数パラメータのPBW/AS正則ambient、中心三次商と満supportの同変選択を、記載された原点近傍・滑らかさの範囲で与える。一般中心三次変形の可換復元 `gdr:thm:generic` は元々1ブロックに限定されない。満支持型の次数付き中心・中心直線・自己同型は下記の範囲で決定した。相対双対・切断飽和と全O同値の第三Veroneseによる認識は下記の範囲で得た。非空開上の全O局所型DM stack・次元2kを構成した。全自己同値群はK_kと決定し、さらに非空開で表示stackと全O局所型stackを同定した。残る課題は構造対象の像を指定しない全第三根、一般開の境界、残余射・rotation・比較核の整合的な全O降下と中心一次変数を持つ型への拡張である。量子化自体の存在は `cubic-quantization` を正本とし本研究で循環証明しない。一般1ブロックの `Z(B)_1=U`, `Z(B)_3=KG⊕Sym³U`、点曲線と次数9/18を多ブロックへ無検証に流用しない。
+**既存入力と境界：** `poisson-cubic` の正規形は `N=n+2=3k+m`, `V=⊕_{s=1}^{k}W_s⊕U`（各 `dim W_s=3`, `dim U=m`）を与え、`cubic-quantization` の `thm:pg-all-dimensions` と `thm:pg-intrinsic-full-support-center` は複数パラメータのPBW/AS正則ambient、中心三次商と満supportの同変選択を、記載された原点近傍・滑らかさの範囲で与える。一般中心三次変形の可換復元 `gdr:thm:generic` は元々1ブロックに限定されない。満支持型の次数付き中心・中心直線・自己同型は下記の範囲で決定した。相対双対・切断飽和と全O同値の第三Veroneseによる認識は下記の範囲で得た。非空開上の全O局所型DM stack・次元2kを構成した。全自己同値群はK_kと決定し、さらに非空開で表示stackと全O局所型stackを同定した。残る課題は構造対象の像を指定しない全第三根、一般開の境界、残余可換射と比較核の大域切断、表示gerbe上のrotation・周期の同期、中心一次変数を持つ型への拡張である。量子化自体の存在は `cubic-quantization` を正本とし本研究で循環証明しない。一般1ブロックの `Z(B)_1=U`, `Z(B)_3=KG⊕Sym³U`、点曲線と次数9/18を多ブロックへ無検証に流用しない。
 
 **満支持型の表示モジュライ：** `B=⊗_{i=1}^k S_i`, `A=B/(Σa_iΩ_i)`、`k≥2,m=0`、全 `a_i≠0` とする。各因子は滑らかな楕円Sklyanin型で、`p_i,2p_i,3p_i≠0`、`j_i≠0,1728`、`j_i`相異なるという非空開を扱う。中心は `Z(B)_1=Z(A)_1=0`, `dim Z(B)_3=k`, `dim Z(A)_3=k−1`。次数二・三の乗法から周囲二次代数と商の中心直線を復元し、全次数付き同型を認識した。共通grading scalarを除いた**射影的な次数付き表示**の滑らかな既約DM stack `P_k` は次元`2k`、幾何点の慣性は `(H_27^k)/Δμ_3`、位数`3^(3k−1)`。二ブロックでは次元4・慣性243である。一般底上の大域的な実代数の存在には、別の表示gerbeの持上げが必要となる。
 
@@ -22,13 +22,21 @@
 
 **中心商・全自己同値群・根：** `D=C/(Z(C)_1)=(⊗T_i)^(3)`の純成分と余法加群は元の`(E_i,L_i,σ_i)`を復元する。純商イデアルの飽和冪から全多重次数を回復し、`Aut_gr(D)=(∏Aut_gr(T_i))/Δμ_3`を得た。中心完全交叉の局所コホモロジーと負次数Ext消滅から`M_j=(A(j))^(3)`の全中心thickeningへの持上げを一意化し、次数別安定性により実際のgraded同型へ戻した。その結果、基本楕円開の全`k≥2`で`Aut_gr(C)/G_m=K_k=(H_27^k)/Δμ_3`、中心還元核は自明となる。上の全O認識条件を加えると全`Aut_O=K_k`であり、二ブロックの全慣性は正確に243である。有限性や中心一次変形類の非消滅を仮定しない。二ブロックでは逆に還元核自明性から`κ_C≠0`も従う。一次で自明なら二次関係を保つ`g↦−g`が生じるためである（`mbcr:cor:nonzero-class`）。具体的なcocycleの値は未計算。
 
-**相対認識と中心慣性：** 表示を忘れる射`P_k°→M_k°`は射影枠を使って表現可能・fppf・準有限と分かる。標数零の一般滑らかさと有限表示降下により、さらに非空開上で有限étaleとなり、全幾何慣性の一致から階数一、従って同型となる。この開に属する族では、任意の非被約試験底上で`Eq_O=Isom_gr(A,A')/G_m`である。全慣性の中心はブロック順序付き被覆上で`(μ_3^k)/Δμ_3`、順序を忘れた底では因子置換で降下する。全境界、全抽象Abel圏変形、残余enhancement・rotation・比較核のcoherenceまでを同時に認識したわけではない。
+**相対認識と中心慣性：** 表示を忘れる射`P_k°→M_k°`は射影枠を使って表現可能・fppf・準有限と分かる。標数零の一般滑らかさと有限表示降下により、さらに非空開上で有限étaleとなり、全幾何慣性の一致から階数一、従って同型となる。この開に属する族では、任意の非被約試験底上で`Eq_O=Isom_gr(A,A')/G_m`である。全慣性の中心はブロック順序付き被覆上で`(μ_3^k)/Δμ_3`、順序を忘れた底では因子置換で降下する。全境界と全抽象Abel圏変形は含めない。compact残余enhancementと中心作用は以下の構成で降下するが、rotationや比較核には別の障害を保持する。
+
+**表示障害と残余圏：** 実表示の `G_m`-gerbe の類 `β` は、表示stackの各非空開で正確に位数3である。関係直線 `ℓ` の重み3が上界、実表示慣性のcommutator内の共通 `μ3` が下界を与える。これはstack上の類の主張であり、各体値点の引戻しが常に非零とはしない。順序付き被覆でweight1束の最小正階数は3。`O(j)` とshift(j)は重みj、RHomと対象のtensorで重みが相殺するためcompact残余圏・評価・mutation projectorは全O開へ降下する。例外成分は `Perf(P_k,−jβ)` となる。有限mutationと相対Serreからrotationの自己同値性と `S_K=ρ^(−r)⊗D[n]` を得る。MF/window比較がある範囲では `ρ³⊗ℓ^∨≃[2]` が降下する周期であり、`ρ³≃[2]` は関係方程式のframeを選んだ後の式である。実際のrotation核の非降下はscalar-simple・負Ext消滅・底変更の条件を明記して述べる。
+
+**中心作用と順序：** `Z_0=(μ3^k)/Δμ3` の作用および同変化は、共通scalarの自然同型を用いてcoherenceごと全O開へ降下する。線型的持上げの選択は `S_k={a∈F3^k:Σa_i=1}`、階数 `3^(k−1)` の `Z_0` の双対群torsorである。基準bからcへの変更で `χ_bc=z_b/z_c` とすると `J_bc ρ_b≃Tw_(χ_bc^−1) ρ_c J_bc`。置換不変な選択は `3∤k` の場合に限り一意に存在し、`3|k` では非空開に縮めても分裂選択被覆は切断を持たない。これは作用本体の降下を妨げず、共通 `G_m`-gerbeの障害とも異なる。
+
+**積表示と比較核の境界：** 可換分離和 `X=V(Σf_i)` では `Ku(X)^(Z_0)≃Db(∏V(f_i))`。双対群のcharacterを移送すると、積側の因子rotation `R_i=T_O∘(−⊗O(1))` の比 `R_i^−1 R_b` によるcoherent作用を得て、通常のKuは積圏の双対同変化として記述される。`3∤k` では `c=k^−1∈{1,2}`, `m=(ck−1)/3` として対称rotationは `(R_1⋯R_k)^c[−2m]`、特に二因子では `(R_1R_2)^−1[2]` となる。この可換公式と二因子のrotation比はBFK・Elaginの既知結果の適用であり、新しい一般定理とは数えない。両側のsmooth proper族と作用を固定すれば同変Morita核の∞stackはfpqc降下する。一般点の実dg模型が有限拡大上にあり、幾何学的一般点で非空なら縮小後の有限étale被覆上に核が存在するが、大域切断は別問題。source/targetのrotation比較はscalar重み `(−1,1)`、比のbandは `β_t−β_s` を持ち、関係直線の同期も保持する。
 
 **根の正確な範囲：** `s=(1)`とし`rO≃O(1)`を満たす自己同値は一意に`r=sΦ_h (h∈K_k)`と書け、自動的に`r³≃s³`となる。自然同型類は`3^(3k−1)`個、全O群による共役類数は`(11^k+2·8^k)/3`、二・三ブロックでは83・785。三乗同型やcoherenceは標識しない。この関手分類に`6p_i≠0`は不要である。一つの自己同型の冪による全代数的Zhang twist表示の直接分類は`6p_i≠0`の下で保持する。点関係の過剰`9 binom(k,2)`と、可換tensor端点間の一般twisting system剛性も保持する。`r³≃s³`だけを仮定した全根は未分類である。
 
-**多ブロックの同変一般点比較：** `R=C[h]_(h)`上の次数別自由な三変数多項式環の変形`D_i`と、滑らかな平面三次へ特殊化する中心三次`Ω_i`の和を入力とする。既存`cft:thm:complete`, `gdr:thm:generic`の下で、`G=(μ_3)^(k−1)`不変な積分空間と同変symmetrizerにより分裂式`F_1+⋯+F_k`を`K=C(h)`上に取れる。crossed product上のperfect核としてcoherenceを降下し、有限拡大上にG同変・rotation・指定周期保存のKu比較を得た。二ブロックではHuの既知の同変定理と有限核降下を介し、追加有限拡大後の同変残余圏を二つの復元種数一曲線の積の導来圏として記述した。明示的Jacobian tensor族`[y,z]=ε_i sym(∂_x g_i)`とPBW自由性を追加すれば、点三次`J_i=g_i+ε_i² det Hess(g_i)/24`の分離和`Σc_iλ_iJ_i`をK上の復元模型として取れる。従って二ブロックの同変残余圏は、追加有限拡大後に入力の実際の点曲線の積`Db(E_1×E_2)`となる。通常のKuそのものとの同一視、全O降下、任意の固定非零パラメータや特殊点を含む相対比較への適用は含めない。有限拡大上で別の比較核が存在することと、指定形式核の全jetの代数化は区別する。
+**多ブロックの同変一般点比較：** `R=C[h]_(h)` 上の次数別自由な三変数多項式環の変形 `D_i` と、滑らかな平面三次へ特殊化する中心三次 `Ω_i` の和を入力とする。既存 `cft:thm:complete`, `gdr:thm:generic` の下で、分裂式 `F_1+⋯+F_k` を `K=C(h)` 上に取れ、有限拡大上で中心群同変・rotation・指定周期保存のKu比較を得る。BFKの同変Thom–Sebastiani公式・Orlov比較を反復し、全 `k≥2` で追加有限拡大後に `(K_A^coh)^(Z_0)≃Db(∏C_i)` を得た。明示的Jacobian tensor/PBW族なら `J_i=g_i+ε_i² det Hess(g_i)/24` の分離和が復元模型であり、右辺は入力の実際の点曲線の積 `Db(∏E_i)` となる。任意の固定非零パラメータや特殊点を含む相対比較は結論しない。有限拡大上に別の比較核が存在することと、指定形式核の全jetの代数化を区別する。
 
-**核心の証明：** `multiblock_central_rigidity.tex`の`mbcr:prop:negative-ext`, `mbcr:lem:graded-lifting`, `mbcr:thm:reduction-rigidity`、`multiblock_center_automorphisms.tex`の`mbca:thm:center-automorphisms`, `mbca:thm:full-inertia`, `mbca:cor:marked-roots`、`multiblock_relative_recognition.tex`の`mbrr:thm:finite-etale`, `mbrr:cor:stack-isomorphism`, `mbrr:cor:central-band`。基礎となる余法加群認識・SSS・Grassmann像・点三次比較の証明も現行稿に保持する。文献比較では自由Poisson／多項式環のVeronese持上げ（Aitzhanova–Makar-Limanov–Umirbaev）とskew polynomial環の判別式による自己同型分類（Chan–Young–Zhang）の仮定差をIntroductionに明記した。初出の網羅的確認は未完了。
+**残余降下と積表示の証明：** `multiblock_scalar_descent.tex` の `mbsd2:thm:gerbe-period`, `mbsd2:thm:projector-descent`, `mbsd2:prop:rotation-serre`, `mbsd2:prop:line-period`、`multiblock_central_action.tex` の `mbza:thm:central-action`, `mbza:prop:shift-character`, `mbza:cor:permutation-obstruction`、`multiblock_residual_descent.tex` の `mbrd:prop:kernel-stack`, `mbrd:thm:split-product`, `mbrd:prop:factor-rotations`, `mbrd:cor:symmetric-rotation`, `mbrd:cor:dual-action`, `mbrd:cor:nc-product`。三節の証明を執筆担当以外も内部読解した。形式証明・外部査読・新規性の網羅的確認は未実施。
+
+**中心認識の証明：** `multiblock_central_rigidity.tex`の`mbcr:prop:negative-ext`, `mbcr:lem:graded-lifting`, `mbcr:thm:reduction-rigidity`、`multiblock_center_automorphisms.tex`の`mbca:thm:center-automorphisms`, `mbca:thm:full-inertia`, `mbca:cor:marked-roots`、`multiblock_relative_recognition.tex`の`mbrr:thm:finite-etale`, `mbrr:cor:stack-isomorphism`, `mbrr:cor:central-band`。基礎となる余法加群認識・SSS・Grassmann像・点三次比較の証明も現行稿に保持する。文献比較では自由Poisson／多項式環のVeronese持上げ（Aitzhanova–Makar-Limanov–Umirbaev）とskew polynomial環の判別式による自己同型分類（Chan–Young–Zhang）の仮定差をIntroductionに明記した。初出の網羅的確認は未完了。
 
 **基礎の証明の入口：** 主稿の`multiblock_serre.tex`（`mbsd:thm:serre`）、`multiblock_veronese.tex`（`mbv:thm:all-o-third`）、`multiblock_roots.tex`（`mbr:thm:algebraic-twist-groupoid`）、`multiblock_equivariant_descent.tex`（`med:thm:multiblock-generic`）。前提となる点対応・中心・表示stack・完備比較は`two_block_points.tex`, `two_block_algebra.tex`, `multiblock_presentations.tex`, `two_block_recovery.tex`に保持する。証明の内部点検、有限群の全要素検算、既存MF基礎定理の再証明、形式証明、新規性の網羅的確認を区別する。
 
@@ -190,11 +198,11 @@ Clifford 半 rotation はさらに、関手として O_Cl A≃Aρ⁻¹[1] と同
 
 ## 優先する次の課題と具体的な着手
 
-### 1. P0：同変残余幾何の全O降下・全第三根・境界
+### 1. P0：曲線積への相対比較・残余可換射・全第三根
 
-**最初の対象は引き続き `n=4,k=2,m=0`。** 全O局所型DM stackの非空開・次元4、全慣性243、表示stackとの一般相対同型が得られた。全自己同値群の同定を前提課題から外し、内在的な中心μ3と残余比較の整合へ進む。
+**最初の対象は引き続き `n=4,k=2,m=0`、次に全kを同じ構造で扱う。** 全慣性・表示stack同型・compact残余圏と中心作用の降下は得られた。rotationそのものの大域化を当然視せず、表示gerbe・関係直線・有限指標torsorを保持した相対比較へ進む。
 
-1. **同変残余比較の全O降下。** 全慣性の中心`Z_0=(μ_3^k)/Δμ_3`は一般開上で内在的となった。次は表示チャートのG作用をこの中心と比較し、共通grading scalarの自然同型が次数一shiftへ及ぼす重みを計算する。rotationの線型化、指定周期、比較核のcocycleをそれぞれ確認する。点三次模型と有限拡大上の同変比較は既得だが、指定形式核の全jet代数化とは区別する。
+1. **曲線積比較の相対化と全O射。** 順序付き表示gerbe上で、点曲線の積と `Γ_k={λ_i³が共通}` のline-valued MF外積を相対化する。まず既存の明示的一変数一般点比較を有限étale被覆上の核へ広げ、source/targetの関係直線・表示類 `β_s,β_t` とrotation線型化を同期させる。次に因子置換のcocycleを検査する。核stackの降下、選択済み同型類の降下、実核sectionの存在を段階ごとに証明し、残余可換三次への全O射を構成する。一般点の同値だけから任意固定parameterの同値へ拡大しない。
 2. **構造対象の像を指定しない全第三根。** `rO≃O(1)`の根は完全分類した。残る`r³≃s³`の根では`rO`の候補を、中心商への制限・切断コホモロジー・三つの軌道対象の積から絞る。全O自己同値群が有限というだけで`rO`を固定しない。必要ならinvertible bimodule／偏極列の認識を別に証明する。
 3. **一般開を越える相対構造。** `P_k°≃M_k°`の縮小に用いたfinite étale locusを具体化し、全基本楕円開への拡張・等しいjや小位数の境界の群を調べる。非被約底の純成分・余法加群を直接認識する方法も有効な候補だが、一般開のIsom一致は既に得られた結果として扱う。全intrinsic成分性は別課題である。
 4. **中心一次変数を一つ加える。** `k=2,m=1,n=5`では混合中心三次、全自己同型、普遍中心核を再計算する。満支持`m=0`の次元・慣性・分裂式を流用せず、量子化側の`m>0,k≥2`の同変中心選択の未完成部分を確認する。

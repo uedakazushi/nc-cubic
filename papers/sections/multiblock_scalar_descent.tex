@@ -1,0 +1,416 @@
+% !TEX root = ../nc-cubic.tex
+\section{共通次数スカラーと残余構造の降下}
+\label{mbsd2:sec:scalar-descent}
+
+次数付き代数の共通スカラーは tails 上で恒等関手と自然同型であるが、
+その自然同型は次数 shift と厳密には可換しない。
+本節ではこの差を計算し、表示 gerbe、例外的成分、rotation の降下を区別する。
+相対 Serre 双対や残余 projector の構成には compact 部分を用いる。
+三次周期を残余圏へ移す箇所では、別途 shift と両立する MF/window 比較を仮定する。
+全表示上の tails の滑らかさや、compact と全 coherent 対象の一致は仮定しない。
+
+\subsection{表示 gerbe とスカラーの自然同型}
+
+第\ref{mbs:thm:presentation-stack}定理の満支持楕円開を用い、
+ブロック数を $k\geq2$ とする。記法を
+\[
+ H_k=\GL_3^k\rtimes\mathfrak S_k,
+ \qquad G_k=H_k/\mathbf G_m^{\mathrm{diag}},
+ \qquad
+ q:\widetilde{\mathfrak P}_k=[\mathcal X_k/H_k]
+       \longrightarrow\mathfrak P_k=[\mathcal X_k/G_k]
+\]
+と固定する。これは共通スカラーを band とする $\mathbf G_m$-gerbe であり、
+その類を $\beta\in H^2_{\mathrm{fppf}}(\mathfrak P_k,\mathbf G_m)$ と書く。
+順序付き被覆では、それぞれ $H_k$ と $G_k$ から $\mathfrak S_k$ を除く。
+実際の代数 $A=B/(\ell)$、$B=\bigotimes_iS_i$ と関係直線 $\ell\subset B_3$ は
+$\widetilde{\mathfrak P}_k$ 上に存在する。
+共通スカラー $\lambda$ は $A_d$ に $\lambda^d$、$\ell$ に $\lambda^3$ として作用する。
+
+右加群と内部 shift の規約を
+\begin{equation}\label{mbsd2:eq:convention}
+ \Phi_h(M)=M^{h^{-1}},\qquad m*a=m\,h^{-1}(a),
+ \qquad M(j)_n=M_{n+j}
+\end{equation}
+とする。このとき $h\mapsto\Phi_h$ は群作用である。
+以下で重みというとき、係数線束については通常の gerbe の重み、
+対象・関手については次の自然同型で共通スカラーを消した後の重みをいう。
+
+\begin{proposition}[次数 shift のスカラー重み]
+\label{mbsd2:prop:scalar-weight}
+共通 grading scalar $s_\lambda$ に対して
+\begin{equation}\label{mbsd2:eq:tau}
+ \tau_{\lambda,M}:\Phi_{s_\lambda}(M)\xrightarrow{\sim}M,
+ \qquad m\in M_n\longmapsto\lambda^n m
+\end{equation}
+は graded 加群、tails、導来 enhancement 上の自然同型である。
+これは積 $\lambda\mu$ と全 $H_k$ 作用に整合し、$\OO$ 上の同定を保つ。
+従って $\OO$ 付き Abel 圏とその導来 compact 部分は
+$\mathfrak P_k$ 上の線型圏の stack へ降下する。
+
+全 $j\in\mathbf Z$ に対して
+\begin{equation}\label{mbsd2:eq:shift-commutator}
+ \tau_{\lambda,M(j)}
+   =\lambda^{-j}\bigl(\tau_{\lambda,M}\bigr)(j).
+\end{equation}
+この規約で、標準の同変構造を持つ $\OO(j)$ と関手 $(j)$ はともに重み $j$ である。
+重み $a$ の係数線束 $L$ を tensor すると重みは $j+a$ になる。
+特に
+\begin{equation}\label{mbsd2:eq:corrected-shift}
+ (3m)\otimes\ell^{-m},\qquad
+ \OO(3m)\otimes\ell^{-m}\quad(m\in\mathbf Z)
+\end{equation}
+は $\mathfrak P_k$ へ降下する。
+\end{proposition}
+
+\begin{proof}
+$a\in A_d$ に対して
+$\tau_\lambda(m*a)=\lambda^{n+d}\lambda^{-d}ma
+=\tau_\lambda(m)a$ なので \eqref{mbsd2:eq:tau} は加群同型である。
+全写像が次数を保つことから自然性が従い、
+$\lambda^n\mu^n=(\lambda\mu)^n$ が積の coherence を与える。
+次数付き同型 $h$ とも可換する。これらの恒等式は複体の微分と両立し、
+torsion 加群を保つので、局所化と enhancement に移る。
+局所的な $H_k$ への持上げの差は共通スカラーである。
+その差を $\tau$ で同定すると、三重重なりの条件は上の積の恒等式となる。
+加群の fpqc 降下を適用し、得た線型圏の導来圏と compact 部分を取ればよい。
+$\Phi_h(A)\to A$ の同定は $a\mapsto h(a)$ であり、
+共通スカラーでは $\tau_{\lambda,A}$ そのものなので構造対象も降下する。
+
+$M(j)_n=M_{n+j}$ 上で二つの辺は、それぞれ $\lambda^n$ と $\lambda^{n+j}$ を掛ける。
+従って \eqref{mbsd2:eq:shift-commutator} を得る。
+符号を明確にするため、同変関手 $F$ の比較を
+$\gamma_\lambda:\Phi_{s_\lambda}F\to F\Phi_{s_\lambda}$ と書くと、
+誘導されるスカラー作用は
+\begin{equation}\label{mbsd2:eq:functor-weight}
+ F\xrightarrow{\tau_{\lambda,F}^{-1}}\Phi_{s_\lambda}F
+ \xrightarrow{\gamma_\lambda}F\Phi_{s_\lambda}
+ \xrightarrow{F(\tau_\lambda)}F
+\end{equation}
+である。$F=(j)$ の標準比較は恒等なので、この合成は $\lambda^j$ となる。
+また $\Phi_h(A(j))\to A(j)$ の標準同定は古い次数で $h$ を作用させる。
+次数 $n$ の成分では $\lambda^{n+j}$ であり、$\tau$ との差は同じ $\lambda^j$ である。
+tensor 積の重みは加算される。
+重み零の加群・複体が gerbe の底からの引戻しであることは
+\cite[Propositions~4.10, 5.7]{NFMBerghSchnurer}、
+tensor と Hom の重みは同文献 Corollaries~4.12, 5.9 による。
+ここでは対応する加群・双加群の作用写像も重み零なので、関手と合成も降下する。
+\end{proof}
+
+\subsection{表示 gerbe の正確な周期}
+
+\begin{theorem}[全非空開で残る三次障害]
+\label{mbsd2:thm:gerbe-period}
+$\mathfrak P_k$ の任意の非空開 $\mathfrak U$ に対し、
+$\beta|_{\mathfrak U}$ の位数は正確に三である。
+対応する表示 gerbe 上の線束が純重み $j$ を持つための必要十分条件は $3\mid j$ である。
+従って正の shift の冪を係数線束の tensor によって重み零にできる最小の冪は三である。
+
+順序付き被覆上では、純重み一のベクトル束の最小の正階数は三である。
+順序を忘れた底でも純重み一のベクトル束の階数は三の倍数であり、
+$V=\bigoplus_iW_i$ は階数 $3k$ の例を与える。
+\end{theorem}
+
+\begin{proof}
+重み三の線束 $\ell$ が存在するので $3\beta=0$ である。
+これは局所表示の持上げの三重積を $c_{abc}\in\mathbf G_m$ と書けば、
+$\ell$ の遷移写像により $c_{abc}^3$ が coboundary になることを意味する。
+同様に重み $j$ の線束の存在は $j\beta=0$ と同値である。
+
+非空開の任意の幾何点を取る。その射影的慣性は
+$K_k=(\prod_i\mathcal H_i)/\Delta\mu_3$ である。
+実表示の慣性は、定理\ref{tba:thm:generic-inertia}の証明により
+\begin{equation}\label{mbsd2:eq:central-extension}
+ \widetilde K_k=
+ \bigl(\mathbf G_m\times\prod_i\mathcal H_i\bigr)
+ \big/\{(\zeta,\zeta^{-1},\ldots,\zeta^{-1}):\zeta\in\mu_3\}.
+\end{equation}
+各 Heisenberg 群の commutator はその中心 $\mu_3$ 全体である。
+従って $\prod_i\mathcal H_i$ の対角 $\mu_3$ も commutator に含まれ、
+\eqref{mbsd2:eq:central-extension}ではこれが共通 grading scalar の $\mu_3$ となる。
+一次元表現は commutator を殺すため、$\widetilde K_k$ の任意の指標が
+共通 $\mathbf G_m$ 上で $\lambda^j$ なら $3\mid j$ でなければならない。
+gerbe 上の線束をこの幾何点の慣性へ制限すれば同じ条件が得られる。
+よって重み一・二の線束はなく、$\beta$ は非零である。
+これは任意の非空開で通る。逆に $j=3m$ なら $\ell^m$ が存在する。
+ここで用いたのは残余 gerbe $BK_k$ への制限であり、
+代数閉体の点そのものへの引戻しが非中立という主張ではない。
+
+重み一・階数 $d$ のベクトル束の行列式は重み $d$ の線束なので $3\mid d$ である。
+順序付き被覆には重み一・階数三の $W_i$ があり、下界を達成する。
+\end{proof}
+
+\begin{corollary}[関係方程式を標識する $\mu_3$-gerbe]
+\label{mbsd2:cor:relation-frame}
+$\ell$ の非零 frame を選ぶ stack
+\[
+ \widetilde{\mathfrak P}_k^{\ell=1}
+   :=\operatorname{Fr}(\ell)\longrightarrow\widetilde{\mathfrak P}_k
+       \longrightarrow\mathfrak P_k
+\]
+は $\mu_3$-gerbe である。その band を
+$\mu_3\hookrightarrow\mathbf G_m$ で拡張すると元の表示 gerbe を得る。
+特にこれも任意の非空開で中立にはならない。
+\end{corollary}
+\begin{proof}
+fpqc 局所的に実表示と frame を取れる。
+共通スカラーは frame に三乗で作用するので、frame を保つ相対慣性は $\mu_3$ である。
+三乗写像 $\mathbf G_m\to\mathbf G_m$ は fppf 全射なので、任意の二つの持上げは
+局所的に同型となる。band 拡張の記述はこの局所模型から従う。
+もしこの $\mu_3$-gerbe が中立なら、その band 拡張も中立となり前定理に反する。
+\end{proof}
+
+\subsection{例外的成分と残余 projector}
+
+$N=3k$, $r=N-3$, $n=N-2$ と置く。
+実表示上の compact 圏を $\mathscr D_A^c=D(\QGr A)^c$ とし、
+\[
+ \mathscr K_A=
+ \langle\OO,\OO(1),\ldots,\OO(r-1)\rangle^\perp
+ \subset\mathscr D_A^c
+\]
+と定める。右直交はこれらの対象からの全 RHom の消滅を意味する。
+
+\begin{theorem}[残余圏と mutation の降下]
+\label{mbsd2:thm:projector-descent}
+各 $\OO(j)$ の生成する admissible 成分、その評価 projector
+\[
+ E_j(M)=\mathbf R\Hom(\OO(j),M)\otimes\OO(j),
+\]
+評価射 $E_j\to\operatorname{id}$、left mutation $L_{\OO(j)}$ は重み零である。
+従って $\mathscr K_A$ とその projector は $\mathfrak P_k$ へ降下する。
+この主張と構成は、普遍表示からの任意の底変更に両立する。
+
+これは $\OO(j)$ 自体の降下を意味しない。
+重み $a$ の層を $a\beta$-twisted と呼ぶ規約では、降下した第 $j$ 成分は
+\begin{equation}\label{mbsd2:eq:twisted-block}
+ \operatorname{Perf}(\mathfrak P_k,-j\beta)
+\end{equation}
+から、局所的な $F\mapsto F\otimes\OO(j)$ によって与えられる。
+$3\nmid j$ ならこの block の局所的生成対象を大域的な $\OO(j)$ として選ぶことはできない。
+\end{theorem}
+
+\begin{proof}
+定理\ref{mbsd:thm:serre}より $\OO(j)$ は相対的に exceptional であり、
+compact 対象間の RHom は係数 perfect である。
+従って表示した評価とその cone は compact 部分上で定義され、
+左右の随伴を持つ admissible 成分を与える。
+$0\leq i<j<r$ なら
+$\mathbf R\Hom(\OO(j),\OO(i))=0$ なので、表示した有限列は半直交である。
+右直交への projector は、右端の例外成分から順に left mutation を施して得る。
+全評価写像とその cone は dg enhancement で取り、合成の coherence を保持する。
+
+$\OO(j)$ の重みは $j$、その第一変数から来る RHom の重みは $-j$ である。
+よって $E_j$ と評価射の重みは零となり、その cone と有限合成も同じである。
+実際、$\OO(j)$ を係数線束 $L$ だけ変更すると
+\[
+ \mathbf R\Hom(\OO(j)\otimes L,M)\otimes(\OO(j)\otimes L)
+ \simeq\mathbf R\Hom(\OO(j),M)\otimes\OO(j)
+\]
+が評価射と両立する。これが三重重なりでも成り立つ降下同型である。
+RHom、有限 cone、tensor の底変更は定理\ref{mbsd:thm:serre}による。
+
+係数が重み $-j$ なら $F\otimes\OO(j)$ の全重みは零になる。
+逆は $\mathbf R\Hom(\OO(j),-)$ で与えられるため、
+\eqref{mbsd2:eq:twisted-block} を得る。
+さらに $\End(\OO(j))=\OO$ で負の自己 Ext は零なので、
+この局所対象の実現 groupoid は $j\beta$ を類とする $\mathbf G_m$-gerbe である。
+定理\ref{mbsd2:thm:gerbe-period}により $3\nmid j$ の場合は中立ではない。
+\end{proof}
+
+\subsection{関係直線を保持した rotation と三次周期}
+
+標準 rotation 候補を、実表示上で
+\[
+ \rho=L_{\OO}\circ(1)|_{\mathscr K_A}
+\]
+と書く。まず自己同値性と相対 Serre 公式は有限 mutation だけから従う。
+
+\begin{proposition}[compact 残余の rotation と Serre]
+\label{mbsd2:prop:rotation-serre}
+普遍表示からの任意の底変更後に、$\rho$ は $\mathscr K_A$ の自己同値であり、
+その相対 Serre 関手は
+\begin{equation}\label{mbsd2:eq:rotation-serre}
+ \mathsf S_{\mathscr K_A}
+    \simeq\rho^{-r}\otimes\mathscr D[n],
+ \qquad\mathscr D=\det V\otimes\ell^\vee
+\end{equation}
+である。この結論には MF 比較を必要としない。
+\end{proposition}
+
+\begin{proof}
+$s=(1)$ と置く。$M\in\mathscr K_A$ に対する評価三角
+\[
+ \mathbf R\Hom(\OO,sM)\otimes\OO\longrightarrow sM\longrightarrow\rho M
+\]
+を使う。$\mathbf R\Hom(\OO,\rho M)=0$ は mutation の定義から従う。
+$1\leq a\leq r-1$ では
+$\mathbf R\Hom(\OO(a),\OO)=0$ および
+$\mathbf R\Hom(\OO(a),sM)
+=\mathbf R\Hom(\OO(a-1),M)=0$ なので、$\rho M\in\mathscr K_A$ である。
+
+包含を $i:\mathscr K_A\hookrightarrow\mathscr D_A^c$、その左随伴を $P$ と書くと、
+半直交列から
+\[
+ P=L_{\OO}L_{\OO(1)}\cdots L_{\OO(r-1)}
+\]
+となる。右端から適用する合成である。
+$sL_{\OO}=L_{\OO(1)}s$ を反復すれば
+\[
+ \rho^r=P s^r i
+\]
+を得る。相対的に proper な圏の admissible 部分圏の逆 Serre は
+$\mathsf S_{\mathscr K_A}^{-1}=P\mathsf S_A^{-1}i$ である。
+実際、左随伴と Serre pairing を適用すると、両対象 $M,N\in\mathscr K_A$ について
+\[
+ \mathbf R\Hom(P\mathsf S_A^{-1}iM,N)
+ \simeq\mathbf R\Hom(\mathsf S_A^{-1}iM,iN)
+ \simeq\mathbf R\Hom(N,M)^\vee
+\]
+となる。右随伴による Serre とこの逆は互いに逆である。
+定理\ref{mbsd:thm:serre}を代入すると
+\[
+ \mathsf S_{\mathscr K_A}^{-1}
+   =P s^r i\otimes\mathscr D^\vee[-n]
+   =\rho^r\otimes\mathscr D^\vee[-n].
+\]
+従って $\rho^r$ は自己同値であり、$\rho$ 自身も自己同値となる。
+逆を取れば \eqref{mbsd2:eq:rotation-serre}を得る。
+全比較は有限 mutation と既存の相対 Serre pairing から作られ、任意底変更に両立する。
+\end{proof}
+
+以下の周期に関する主張では、扱う残余 dg 圏と graded MF 圏の間に、
+内部 shift をこの $\rho$ へ移す比較があることを入力とする。
+例えば第\ref{tw:thm:window}定理およびその底変更が与える圏では、この条件を満たす。
+同定が構成された compact 残余と、全 coherent 残余への拡張の範囲は区別する。
+
+\begin{proposition}[係数直線を含む三次周期]
+\label{mbsd2:prop:line-period}
+残余 projector と両立する標準 rotation の重みは一である。
+MF 圏では関係直線を保持した正準的な周期は
+\begin{equation}\label{mbsd2:eq:mf-line-period}
+ [2]\simeq(3)\otimes\ell^\vee
+\end{equation}
+となる。上記の window 比較がある場合、その指定周期は
+\begin{equation}\label{mbsd2:eq:rotation-line-period}
+ \rho^3\otimes\ell^\vee\xrightarrow{\sim}[2],
+ \qquad\text{すなわち}\qquad
+ \rho^3\xrightarrow{\sim}[2]\otimes\ell
+\end{equation}
+である。左式は重み零の関手間の同型として $\mathfrak P_k$ へ降下する。
+$\ell$ の frame を選ぶ $\mu_3$-gerbe 上では、通常の指定式 $\rho^3\simeq[2]$ となる。
+
+一般に $\rho^j$ の標準同変構造は重み $j$ を持つ。
+係数線束による補正で重み零にできる正の最小冪は三であり、
+その補正は $\rho^3\otimes\ell^\vee$ で達成される。
+\end{proposition}
+
+\begin{proof}
+mutation の重みは零、shift の重みは一なので、最初の主張が従う。
+関係の包含 $\ell\to B_3$ は、中心自然変換
+\[
+ w:\operatorname{id}\longrightarrow T,
+ \qquad T=(3)\otimes\ell^\vee
+\]
+を与える。対応する line-valued MF は
+$P_1\xrightarrow{d_1}P_0\xrightarrow{d_0}T(P_1)$ と
+$d_0d_1=w$, $T(d_1)d_0=w$ からなる。
+翻訳は $(P_0,P_1)\mapsto(T(P_1),P_0)$ と両微分の符号反転であり、
+二回繰り返すと $T$ そのものになる。
+従って \eqref{mbsd2:eq:mf-line-period} は定義から従う。
+この line-valued 規約は
+\cite[Definitions~1.1, 1.3]{MBS2PolishchukVaintrob}と同じであり、
+中心元による非可換 MF でも同じ二つの合成式だけを使う。
+
+window の shift 比較を三回合成すると、\eqref{mbsd2:eq:rotation-line-period}を得る。
+これは局所 frame での中心元の二拡張を用いる
+式\eqref{tw:eq:specified-period}、\eqref{tw:eq:rotation-period-square}を
+関係直線を保持して書いたものである。
+frame の変更は $w$ とその二拡張を同時に変えるので、係数 $\ell^\vee$ がその差を消す。
+全構成は関係の包含と評価から作られ、同変性と指定周期の coherence を保つ。
+最小性は定理\ref{mbsd2:thm:gerbe-period}による。
+\end{proof}
+
+\begin{corollary}[scalar-simple な rotation 核の実現障害]
+\label{mbsd2:cor:rotation-obstruction}
+ある開部分で上の rotation が可逆な dg 核によって実現され、
+その核の実現 stack が fpqc 降下を満たすとする。
+さらに局所的な核について
+\[
+ \mathcal H^a\mathbf R\operatorname{Hom}(\rho,\rho)=0\ (a<0),
+ \qquad
+ \mathcal H^0\mathbf R\operatorname{Hom}(\rho,\rho)=\OO
+\]
+が任意底変更と両立すると仮定する。
+このとき局所 rotation の同型類を実現する $\mathbf G_m$-gerbe の類は $\beta$ である。
+従って任意の非空開で、この同型類の実際の大域的 rotation 核は存在しない。
+これは残余圏とその projector の降下とは両立する。
+\end{corollary}
+
+\begin{proof}
+局所 rotation は表示同型によって移されるので、その同型類の実現 stack は
+局所的に非空である。仮定した Ext 条件により、その同型類の部分は
+通常の $\mathbf G_m$-gerbe であり、高次の負の自己 Ext による追加の慣性はない。
+実表示をその標準 rotation 核へ送ると表示 gerbe からこの gerbe への射を得る。
+命題\ref{mbsd2:prop:scalar-weight}と projector の重み零性により、
+この射の band 上の写像は $\lambda\mapsto\lambda$ である。
+同じ band を持つ gerbe 間の band を保つ射は同値なので、その類は $\beta$ となる。
+前定理の非中立性を適用する。
+\end{proof}
+
+\begin{remark}[条件付き非降下と標準同変構造の区別]
+直前の系の scalar-simple 条件は、残余圏の $HH^{<0}=0$, $HH^0=\OO$ から従う。
+滑らかな可換三次との比較が与えられた場合には
+命題\ref{prop:nf-hh}が幾何ファイバーでの入力となるが、
+相対的な適用には上に明記した底変更も確認する。
+この条件を確かめていない全表示開で、本節が無条件に示すのは、
+標準 rotation の重み一、係数線束による補正の最小冪三、および
+projector の重み零である。特定の同変構造の失敗だけから、
+全ての可能な核の実現を否定してはいない。
+同様に $\rho^3$ の標準同変構造自体の重みは三であり、
+降下するのは \eqref{mbsd2:eq:rotation-line-period}の補正付き関手である。
+\end{remark}
+
+\begin{corollary}[残余 Serre 式の重み零部分]
+\label{mbsd2:cor:residual-serre}
+上の window 比較により三次周期が得られた範囲では
+\begin{equation}\label{mbsd2:eq:residual-serre}
+ \mathsf S_{\mathscr K}\simeq[k]\otimes
+       \bigl(\det V\otimes\ell^{-k}\bigr).
+\end{equation}
+係数直線 $\det V\otimes\ell^{-k}$ は重み零であり、$\mathfrak P_k$ へ降下する。
+\end{corollary}
+\begin{proof}
+$r=3(k-1)$ なので、\eqref{mbsd2:eq:rotation-line-period}から
+$\rho^{-r}=[-2(k-1)]\otimes\ell^{-(k-1)}$ を得る。
+$n=3k-2$ と $\mathscr D=\det V\otimes\ell^{-1}$ を
+命題\ref{mbsd2:prop:rotation-serre}に代入すれば
+\eqref{mbsd2:eq:residual-serre}となる。
+$\det V$ の重みは $3k$、$\ell^k$ の重みも $3k$ である。
+\end{proof}
+
+\begin{remark}[二つの表示のスカラーを同期する条件]
+\label{mbsd2:rem:kernel-synchronization}
+二つの表示 gerbe を添字 $s,t$ で区別し、その積の band を
+$\mathbf G_{m,s}\times\mathbf G_{m,t}$ とする。
+比較核 $P$ 自身の重みを固定すると、$P\rho_s$ と $\rho_tP$ の重みには
+それぞれ $(1,0)$ と $(0,1)$ が加わる。
+従って rotation 比較
+$\eta:P\rho_s\to\rho_tP$ の Hom は相対重み $(-1,1)$、
+すなわち $\lambda_t/\lambda_s$ で変換される。
+この差を消す共通スカラーは対角部分群である。
+比の band へ押し出した gerbe の類は $\beta_t-\beta_s$ となる。
+三重比較の周期図式では、関係直線の比較
+$\ell_s\to\ell_t$ に重み $(-3,3)$ が現れる。
+これらは比較\emph{データ}の重みの計算であり、比の gerbe の中立化、
+直線の同定、同変な $\eta$、あるいは実際の Morita 核の存在を与えるものではない。
+\end{remark}
+
+\begin{remark}[全構造対象モジュライへの適用範囲]
+定理\ref{mbrr:thm:finite-etale}と系\ref{mbrr:cor:stack-isomorphism}の非空開では、
+表示スタックと全 $\OO$-局所型スタックは同型である。
+従って本節の圏、projector、twisted block、および重み零の構造はその全 $\OO$-開へ移る。
+これは比較核の大域的 section、全表示上の残余 smoothness、
+あるいは別々の表示 gerbe 上の rotation を無補正で同期できることを主張しない。
+共通スカラーのこの障害は、因子を置換する際の有限中心群の splitting の障害とも区別する。
+\end{remark}

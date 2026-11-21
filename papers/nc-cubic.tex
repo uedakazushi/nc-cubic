@@ -76,7 +76,7 @@
 \title{非可換三次 $n$-fold の可換復元とモジュライ\\
 \large Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 \author{}
-\date{2026年11月21日・研究稿 v34}
+\date{2026年11月21日・研究稿 v35}
 \hypersetup{pdftitle={非可換三次 n-fold の可換復元とモジュライ},
 pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}}
 \begin{document}
@@ -106,9 +106,17 @@ $\mathcal K_k=(\prod_i\mathcal H_{27,i})/\Delta\mu_3$、位数 $3^{3k-1}$ と決
 $\mathsf r\OO\simeq\OO(1)$ を満たす根は $3^{3k-1}$ 個、
 その共役類は $(11^k+2\cdot8^k)/3$ 個である。
 構造対象の像を指定しない全ての三乗根の分類は含めない。
+表示 gerbe の類は各非空開で正確に位数三であり、
+compact 残余圏と mutation projector は重み零として上記非空開の全構造対象局所型へ降下する。
+標準 rotation は重み一で、MF/window 比較の範囲では
+$\rho^3\otimes\ell^\vee\simeq[2]$ が降下する指定周期である。
+中心群 $Z_0=\mu_3^k/\Delta\mu_3$ の作用と同変化は基準ブロックによらず降下するが、
+rotation の線型化には指標の torsor が残る。
+その置換不変な選択は $3\nmid k$ と同値である。
 明示的 Jacobian tensor 一変数族では、点三次式の分離和を復元模型として選べる。
-既存の完備 MF・一般点比較と可換同変定理の入力の下で、二ブロックの同変残余圏は
-有限拡大後に入力の二つの楕円点曲線の積の導来圏となる。
+既知の同変 Thom--Sebastiani・Orlov 比較と、既存の完備 MF・一般点比較の下で、
+全 $k\ge2$ の同変残余圏は有限拡大後に入力の $k$ 個の点曲線の積の導来圏となる。
+比較核の stack の降下と、その大域的 section の存在は区別する。
 
 三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ三次超曲面の量子化を扱う。
 良い一ブロック型の $\mathcal O$-marked 圏族の滑らかな既約 DM stack を構成し、
@@ -282,6 +290,32 @@ $\overline M_j=(E(j))^{(3)}$ の負次数 $\Hom,\Ext^1$ が消える。
 $(\mu_3^k)/\mu_3^{\rm diag}$ と内在的に回復される。
 全境界や任意の抽象 Abel 圏変形を覆うことは含めない。
 
+共通スカラーを戻した表示 gerbe の類 $\beta$ は、各非空開で正確に位数三である
+（定理\ref{mbsd2:thm:gerbe-period}）。
+上界は関係直線 $\ell$ の重み三、下界は実表示慣性の commutator に含まれる
+共通 $\mu_3$ による。順序付き被覆では重み一の最小ベクトル束階数も三である。
+$\OO(j)$ の重みは $j$ であり、例外的成分は
+$\operatorname{Perf}(\mathfrak P_k,-j\beta)$ として降下する。
+RHom と対象の重みの相殺により compact 残余 projector 自体は降下する
+（定理\ref{mbsd2:thm:projector-descent}）。
+標準 rotation は重み一であり、内部 shift を $\rho$ へ移す MF/window 比較がある範囲では、関係直線を含む周期
+$\rho^3\otimes\ell^\vee\simeq[2]$ と、方程式を標識した後の周期を区別する
+（命題\ref{mbsd2:prop:line-period}）。
+これは line-valued MF の既知の翻訳規約
+\cite[Definitions~1.1, 1.3]{MBS2PolishchukVaintrob}を本表示へ適用したものである。
+
+中心群 $Z_0$ の作用は、共通 scalar の自然同型を用いて合成則ごと降下する
+（定理\ref{mbza:thm:central-action}）。
+一方、その線型的持上げの選択は
+$\{(a_i)\in\mathbf F_3^k:\sum_i a_i=1\}$ という
+$\widehat Z_0$-torsor であり、基準変更は rotation の指標 twist となる。
+ブロック置換に不変な選択は $3\nmid k$ のときに限り存在する
+（系\ref{mbza:cor:permutation-obstruction}）。
+この有限群の障害は中心作用自体を妨げず、表示 gerbe の $\beta$ とも別である。
+群作用・同変化・双対群作用の一般論は Elagin\cite{MEDElagin}、
+随伴と半直交分解の同変性は Shinder\cite{MBZAShinder}を入力とし、
+ここでは scalar 自明化と全ての指標変換を明示する。
+
 根については、$\mathsf s=(1)$ としたとき
 $\mathsf r\OO\simeq\OO(1)$ を満たす自己同値は一意に
 $\mathsf r\simeq\mathsf s\Phi_h$、$h\in\mathcal K_k$ と書け、
@@ -315,9 +349,17 @@ $G=(\mu_3)^{k-1}$ 不変な低 rotation 積の積分空間から
 その閉点において有限拡大上の $G$ 同変・rotation・指定周期保存比較を得る
 （定理\ref{med:thm:multiblock-generic}）。
 これは指定した形式核の全 jet の代数化ではない。
-二ブロックの場合は Hu の既知の可換同変定理\cite{TBHu}と接続し、
-追加有限拡大後に同変残余圏を二つの復元種数一曲線の積の導来圏として記述する
-（系\ref{med:cor:elliptic-product}）。
+可換側では Ballard--Favero--Katzarkov の Morita 積公式
+\cite[Definition~3.50, Corollary~5.18]{NFBFKKernels}を
+$\Gamma=\{(\lambda_i):\lambda_i^3\text{ が共通}\}$ に適用する。
+その Orlov 比較\cite[Theorem~6.13]{NFBFKKernels}と合わせると、
+全 $k$ で $\operatorname{Ku}(V(\sum_iF_i))^{Z_0}\simeq D^b(\prod_iC_i)$ となる
+（定理\ref{mbrd:thm:split-product}）。
+二曲線の場合の categorical cover は既に
+\cite[Example~4.7]{MBRDBFKFurther}にあり、Hu\cite{TBHu}は幾何的比較を与える。
+本稿では全 $k$ への既知定理の反復適用を明記し、
+中心作用の coherent な同定と非可換一般点の有限核降下へ接続する。
+可換側の積公式そのものを新しい一般定理とは数えない。
 明示的な Jacobian tensor 族ではさらに、
 $J_i=g_i+\epsilon_i^2\det\operatorname{Hess}(g_i)/24$ を入力の点三次とすると、
 復元模型を $\sum_i c_i\lambda_iJ_i$ と取れる
@@ -326,10 +368,13 @@ Kontsevich のグラフ構成\cite[\S\S5.1,6.1--6.3]{NFMKontsevich}の直和性�
 既存の一ブロック全次数恒等式を用いる。
 点三次式の既知の計算\cite[Theorem~7.2]{MoriSmith}と、
 本稿の同変残余比較への接続を区別する。
-二ブロックでは実際の点曲線 $E_1,E_2$ に対して
-$(\mathcal K_A^{\mathrm{coh}})^{\mu_3}\simeq D^b(E_1\times E_2)$ を
-追加有限拡大後に得る（系\ref{mpc:cor:point-product}）。
-通常の Ku 自体との同定、任意の全 $\OO$-同値への比較核の降下は含めない。
+追加有限拡大後に、全 $k$ で実際の点曲線 $E_i$ に対し
+$(\mathcal K_A^{\mathrm{coh}})^{Z_0}\simeq D^b(\prod_iE_i)$ を得る
+（系\ref{mbrd:cor:nc-product}）。
+通常の Ku 自体は、積圏の双対指標作用による同変化として記述できるが、
+積圏そのものとは同一視しない（系\ref{mbrd:cor:dual-action}）。
+これらは指定した一般点の比較であり、全 $\OO$-基底上の比較核の
+大域的 section、あるいは指定形式核の全 jet の代数化を与えない。
 Sklyanin の幾何、Heisenberg 群、Zhang twist、同変圏と有限核降下の既知理論と、
 本稿の中心商・第三 Veronese・同変一般点復元への適用を区別する。
 これらの組合せの新規性について網羅的な確認は未完了である。
@@ -1736,9 +1781,12 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/multiblock_center_automorphisms.tex}
 \input{papers/sections/multiblock_generic_moduli.tex}
 \input{papers/sections/multiblock_relative_recognition.tex}
+\input{papers/sections/multiblock_scalar_descent.tex}
+\input{papers/sections/multiblock_central_action.tex}
 \input{papers/sections/two_block_recovery.tex}
 \input{papers/sections/multiblock_equivariant_descent.tex}
 \input{papers/sections/multiblock_point_comparison.tex}
+\input{papers/sections/multiblock_residual_descent.tex}
 
 \input{papers/sections/graded_moduli.tex}
 \input{papers/sections/relative_duality.tex}
