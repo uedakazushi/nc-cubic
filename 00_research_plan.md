@@ -1,14 +1,16 @@
 # 非可換三次 n-fold：二つの予想と研究方針
 
-2026年11月22日 / v46。再開時は本書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。正本は `uedakazushi/nc-cubic` の `main`、主公表原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)（日本語LuaLaTeX、著者欄空欄）。
+2026年11月22日 / v47。再開時は本書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。正本は `uedakazushi/nc-cubic` の `main`、主公表原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)（日本語LuaLaTeX、著者欄空欄）。
 
 ## 最優先の二つの予想
 
 **Main conjecture（主予想）**：任意の滑らかな非可換三次 n-fold 𝒳 に対して、同じ次元の滑らかな可換三次超曲面 X が存在し、Ku(𝒳)≃Ku(X) となる。
 
-**Second conjecture（当初の全スキーム版・反例あり）**：その同じ可換標的 X と比較同値を、Poisson構造 π が存在して Pt(𝒳)≃Z_X(π) となるように選べる。零点は π の切断としての零スキームであり、非被約構造も含める。
+**Second conjecture（当初の全スキーム版・被約版とも反例あり）**：その同じ可換標的 X と比較同値を、Poisson構造 π が存在して Pt(𝒳)≃Z_X(π) となるように選べる。零点は π の切断としての零スキームであり、非被約構造も含める。
 
-**検証結果：この全スキーム版は成立しない。** `ppz:cor:complex-counterexample` は、関係式と中心元を有理数係数で明示したC上の良い一ブロック三次三様体 A★ を与える。h=1、可換標的のHesse係数は17/9に固定できる。実Sklyanin因子を `esi:prop:factor` で確認し、楕円因子と二つのA₂因子から `csc:cor:fermat` でKu比較を直接構成する。反例の証明に一般点の形式復元・C閉点へのspreadは不要である。A★は主予想を満たすが、同じKuを持つどの滑らかな可換三次とどのPoisson構造を選んでも全point schemeは零スキームと同型でない。非被約な三つの定常点の長さ八局所環を使う反例であり、自然な残余pairでは被約部分は一致する。元の命題を記録し、被約版などを自動的に新予想として採用しない。Ku比較はC上の存在であり、有理係数の表示からQ上の比較核の存在を結論しない。
+**検証結果：被約スキームの同型へ弱めても、全対象に対する第二予想は成立しない。** `ppz:thm:isolated-zero-dimension` は、滑らかな可換三次 n-fold のPoisson零集合に孤立点があれば n=3k、一般階数2kであり、その局所零スキームが零次元完全交叉であることを示す。入力は `poisson-cubic` の固定版の全次元正規形であり、pure blockの楕円性を仮定しない。特に全ての滑らかな可換三次五様体の全Poisson零集合には孤立点がない。一方、指定混合族の定常normの全64根ではsourceとその全coherent Kuはsmooth properで、Pt(A_c)=E₁⊔E₂⊔{p_c}は被約である。`ppz:cor:reduced-point-poisson-counterexample` はこれにより全可換五様体・全Poisson構造を排除する。c=−44828に有理係数の一例を固定できる。この反例は可換Ku標的の存在を必要とせず、主予想の真偽には結論しない。
+
+**実Ku比較を伴う三様体の全スキーム版反例も保持する。** `ppz:cor:complex-counterexample` は、関係式と中心元を有理数係数で明示したC上の良い一ブロック三次三様体 A★ を与える。h=1、可換標的のHesse係数は17/9に固定できる。実Sklyanin因子を `esi:prop:factor` で確認し、楕円因子と二つのA₂因子から `csc:cor:fermat` でKu比較を直接構成する。反例の証明に一般点の形式復元・C閉点へのspreadは不要である。A★は主予想を満たすが、同じKuを持つどの滑らかな可換三次とどのPoisson構造を選んでも全point schemeは零スキームと同型でない。非被約な三つの定常点の長さ八局所環を使う反例であり、自然な残余pairでは被約部分は一致する。二つの反例の機構と入力を区別し、成立範囲を検証せず修正版を新予想として採用しない。Ku比較はC上の存在であり、有理係数の表示からQ上の比較核の存在を結論しない。
 
 この具体例の「良い」は点スキームの条件を指す。全O表示stackの全相対入力に属することをh=1で独立に確認したという意味ではなく、それらを反例の証明に用いない。
 
@@ -22,9 +24,9 @@
 
 主予想の解決と、第二のpoint/Poisson対応の正確な成立範囲の決定を最優先にする。O-markedモジュライ、点対応からの復元、残余Poisson射、全O同値・中心作用の認識は、そのための手段として位置付ける。比較次数・位相・全自己同値の精密化だけを進めて、対象範囲や第二予想の検証が広がらない作業を最上位に置かない。
 
-達成基準は、対象範囲と仮定を明記し、同じXについて実際のKu同値と全point schemeの零スキーム比較を証明すること。楕円成分のjの一致、点集合の一致、有限jet、幾何学的一般点だけの同値を全予想の解決と扱わない。一般体上の核降下や全族の大域核sectionは、C上の存在とは別の強化として扱う。
+主予想の肯定結果の達成基準は、対象範囲と仮定を明記し、実際のKu同値を構成することである。第二の対応を肯定する対象範囲では、同じXについてpoint schemeと零スキームの同型まで証明する。反例では全候補を排除できる範囲とその入力を明記し、可換Ku比較を必要とする三様体の論法と、全可換五様体を一括排除する論法を区別する。楕円成分のjの一致、点集合の一致、有限jet、幾何学的一般点だけの同値を全主予想の解決と扱わない。一般体上の核降下や全族の大域核sectionは、C上の存在とは別の強化として扱う。
 
-原目標の一般点可換復元・一ブロックモジュライ・満支持型比較は有効な部分結果として保持する。中心変数を加えた分離テンソル型では全固定複素点の可換Ku実現まで進み、定数型混合族にも余有限可換実現を得た。指定二因子では非smooth集合を正確に64係数と決定し、c=0と定常normの全64根のsmooth proper性も証明した。主予想について残る具体的な課題は、既知のsmooth locus全体での可換Ku比較、より一般の混合型、実楕円因子仮定の外の境界、全intrinsic成分の被覆である。全スキーム版の第二予想は上の反例で否定されたため、その局所機構と被約・滑らかな定常成分での成立範囲を調べる。これが現在の優先順位の理由である。方針変更の履歴は蓄積しない。
+原目標の一般点可換復元・一ブロックモジュライ・満支持型比較は有効な部分結果として保持する。中心変数を加えた分離テンソル型では全固定複素点の可換Ku実現まで進み、定数型混合族にも余有限可換実現を得た。指定二因子では非smooth集合を正確にV(P64)と決定し、同じ判別集合と局所節点を持つ明示可換候補も得た。c=0と定常normの全64根では両側が滑らかであるが、この候補へのKu同値は一般点でも未証明である。主予想の次の核心を、中心三次を保つ実際のcurved/MF比較・次数付き核の構成と、そのDVR延長へ絞る。より一般の混合型、実楕円因子仮定の外の境界、全intrinsic成分の被覆も残る。第二予想は被約版まで否定されたため、反例と正規形入力の外部検証、および既知の肯定結果が成立する対象範囲の明確化を進める。これは主予想の未解決点を減らす方針変更であり、反例の係数でKu比較を得たという変更ではない。方針変更の履歴は蓄積しない。
 
 ## 現在の到達点と二つの予想への位置付け
 
@@ -36,7 +38,9 @@
 | 中心変数m≥1を持つ分離型、N=3k+m≥5 | 実楕円因子・全a_i≠0・中心三次gのJacobian環有限次元の下で、任意の点曲線方程式f_iに対しX=V(Σf_i+g)への実Ku同値をC上で直接構成 | m=1,g=cu³,c≠0では同じX上でPt=Z=⊔E_i。m≥2では定常完備局所環J[[t_1,…,t_{m−2}]]、length J=8^k。自然な零スキーム側のJ_clと比較 | `central_split_comparison.tex`, `central_split_points.tex` |
 | 固定有理係数の一ブロック三様体 A★ | h=1,λ=17/9。指定Ω・THCR商を直接確認し、楕円因子＋二つのA₂因子で全coherent Ku比較 | 局所環J_1とJ_17/9の厳密j不一致、任意supportの局所補題、12点のHessian分類により全πを排除。BMMSで全Ku標的も排除 | `explicit_sklyanin_input.tex`, `point_poisson_obstruction.tex` の `ppz:cor:complex-counterexample`。Mayanskiy・BMMS等の既知入力を明記 |
 | S(1,−1,−1)の定数型混合kブロック | 全αで有限中心・PI6・正則中心上Azumaya、任意固定係数で余有限全coherent Ku可換実現。指定二因子は全14節点のNCCR局所形・全simpleを決定し、非smooth集合を正確にV(P64)と証明 | c=0と定常normの全64係数はsmooth proper。全smooth係数での可換Ku比較は未解決。norm点の残余Extは0次1・1次10、既存100simpleのpd5も保持 | `central_mixed_one_variable.tex` の `cmo:thm:fourteen-node-orders`, `cmo:thm:exact-sixty-four`, `cmo:cor:fixed-zero-norm-smooth`, `cmo:cor:cofinite` |
-| n≠4の通常Artin変形と開性 | 実smooth proper dg族で可換Ku実現locusがZariski開。étale局所に指定実核を延長 | πとpoint functorを同時に延ばすことは別に必要 | `residual_categories.tex` の `thm:nf-residual-formal` と `geometric_realization_locus.tex` の `grl:thm:open-locus` |
+| 全Poisson構造の孤立零点制約と混合五様体 | Ku比較を入力としない。norm根での主予想は未解決 | 孤立零点にはn=3k・一般階数2kが必要で、局所零環は0次元CI。normの全64根は被約第二予想の反例、c=−44828を明示 | `point_poisson_obstruction.tex` の `ppz:thm:isolated-zero-dimension`, `ppz:cor:reduced-point-poisson-counterexample`。固定版の全次元正規形を入力 |
+| 指定混合族の明示可換候補 | λ²=28/27で臨界値・P64・局所五次元節点が一致。c=0にはEckardt点からの四次二重被覆とcrepant解消模型。候補へのKu同値は一般点でも未証明 | 自然なPoisson零スキームは滑らかな各cでE₁⊔E₂。norm根では全ての別標的・別πも上の定理で排除 | `central_mixed_one_variable.tex` の `cmo:thm:commutative-discriminant-candidate`, `cmo:prop:zero-eckardt-resolution` |
+| n≠4の通常Artin変形・開性とtrait核判定 | 実smooth proper dg族で可換Ku実現locusがZariski開。generic同値を与える実perfect核の特殊化は二つのunit/counit coneの長さd_R=0と同値 | 開性・連結性や両側のsmooth proper性から閉性は従わない。核の存在自体とπ・point functorの延長は別問題 | `residual_categories.tex` の `thm:nf-residual-formal`、`geometric_realization_locus.tex` の `grl:thm:open-locus`, `grl:prop:trait-kernel-test` |
 
 全原稿の証明を今回独立に再検証したという表ではない。今回の追加結果・読解点検・計算・組版・表示・保存の状態は [notes/validation.md](notes/validation.md) に記す。新規性の網羅的確認と外部査読・形式証明は未完了。
 
@@ -44,13 +48,16 @@
 
 ### P0-M：主予想の存在領域を全対象へ広げる
 
-1. **滑らかな混合族の全係数で可換Ku実現を構成する。** 検査例は `cmo:ex:sixty-four` のk=2,m=1,n=5、α=(1,4,9),(16,25,49)。全14節点の完備局所代数は End_R(R^{⊕a}⊕I^{⊕b})、a+b=6、重複度(1,5),(2,4),(3,3)と決まり、各因子の全simpleを分類した。非等方なΩ切断はA1 skew group模型となり、相対対角の合成とu=0の射影境界の検査から、全coherent圏のsmooth proper性はP64(c)≠0と同値になった。c=0と定常normの64根のsmoothnessは解決済みであり、次の核心はそれらを含む全smooth locusでの実際の可換Ku比較である。まずc=0とnorm根の有限残余模型を取り、既存の比較核をDVRに沿って延長するためのperfect性・生成性と可換三次標的の滑らかさを検査する。開性と基底の連結性だけで全係数へ比較を延ばさない。一般αの例外判定は、中心の節点性とΩ切断の非等方性が失われるlocusから着手する。指定族でのsmoothness判定の完了に合わせた重点移動であり、主予想の全intrinsic対象への拡張は引き続き未解決。二次元の普遍高次作用、character非検出のpd∞例、100simpleのpd5、64定常点の残余Extも有効な入力として保持する。
+1. **明示可換候補への実際の比較核を構成する。** 検査例は `cmo:ex:sixty-four` のk=2,m=1,n=5、α¹=(1,4,9)、α²=(16,25,49)、重み1,100。G_α=(x³+y³+z³+xyz)/3−u²(α₁x+α₂y+α₃z)、λ=2√21/9として、候補はX_c=V(λ(G_α¹+100G_α²)+cu³)である。λ²=28/27によって臨界値が一致し、両側のsmooth locusは正確にP64(c)≠0、特異点の完備局所型も一致する。しかし既存の余有限可換実現はこの指定候補への一般点同定を含まない。まず中心三次を保持するcurved/MF比較、または全次数付き残余圏の実perfect核を作り、随伴・unit・counitを具体化する。通常のambient derived Morita同値でD_αを多項式環へ置き換える方法は、HH⁰である中心の特異性が異なるため使えない。C[[h]]では1−hが単元なのでh↦1の評価準同型は存在せず、h進形式比較から進むには代数化と当該係数での定義を別に証明する。
+2. **c=0の幾何模型を比較核の出発点として調べる。** X₀=V(G−u²L)にはEckardt型の点があり、そこをblow-upすると四次二重被覆w²=LGのcrepant解消となる。分岐の交叉Y=V(G,L)は滑らかな三次三様体、Z=V(G)は分離型三次四様体である。`cmo:prop:zero-eckardt-resolution` を入口に、Y・Z・二重被覆のClifford/解消模型と非可換側の中心u²を照合する。これは可換候補側の幾何定理であり、非可換A₀とのKu同値を得たものではない。
+3. **実kernelを得た後、全smooth係数へDVRで延長する。** 一般点での同値、perfect整核の存在、特殊点での同値性を三つの段階として扱う。`grl:prop:trait-kernel-test` により、最後の条件は生成対象上のunit/counit coneの有限長総和d_R=0で判定できる。正のd_Rは分岐指数eの底変更でe倍となり、固定核の不良特殊化は有限分岐だけでは消えない。c=0とnormの全64根は両側smoothであることが既知なので、そこで具体的な行列と必要な核の整格子を構成する。開性と連結性だけで全係数へ延ばさず、両側smooth proper・generic同値でもspecial同値が失われるF₂/F₀の障害例を踏まえる。
+4. **指定族の外へ広げる。** 一般αの例外判定は中心の節点性とΩ切断の非等方性が失われるlocusから着手する。指定族で得た全14節点のEnd_R(R^{⊕a}⊕I^{⊕b})模型、全simple分類、二次元の普遍高次作用、character非検出のpd∞例、100simpleのpd5、64定常点の残余Extを保持する。より一般の混合表示と全intrinsic対象の被覆は引き続き未解決である。
 
 ### P0-S：第二の対応の成立範囲と修正候補
 
-1. **明示反例と直接比較の外部検証・文献比較。** h=1の因子、指定Ω、THCR、分離MF積・Picard補正・周期同期、coherent飽和を入口とする。局所長さ8/埋込み次元3からHessian階数2への帰着、12点の制限三次、全Poisson分類、categorical Torelliが全標的排除の残りの依存である。形式復元とspreadは反例の必要入力ではない。本文の証明・内部読解・厳密計算を、外部査読・形式証明・新規性の確定と区別する。
-2. **被約版と滑らかな定常点付き混合型を検証する。** 明示反例の自然pairではPt(A)_red=Z_X(π)_redである。m=1の滑らかなブロックJacobian標的には定常零点がない一方、指定混合族のnormの64根では被約定常点が加わり、そのsourceは全てsmooth properと判定できた。点の残余射影は自己Extが0次1・1次10である。次はこれらの係数で同じKuを持つ可換三次標的を構成し、その全Poisson構造を検査する。自然なブロックJacobian標的との差だけでは、別π・別Xを排除できない。現時点で被約版の反例とも肯定定理とも扱わない。
-3. **定常成分が滑らかな場合。** 反例は非被約な定常点を用いる。一般混合係数でのDとD_Hの抽象同型を調べ、偏極・canonical ring等から不一致が被約な例にも残るか検査する。n6ではK_D=O_D(1)を使えるが、二次netからsupportを一意に回復する方法には交代行列の偶奇障害がある。詳細はノート。
+1. **孤立零点定理と被約反例の外部検証・新規性調査。** 全Poisson構造への適用は `poisson-cubic` commit `9f91efa3465f18219c36c31750f1e66220faeaa7` の `thm:pg-normal` に依存する。表示・Jacobi延長・Hessianの基点自由性・Lie代数の根基排除を含む入力と、そこからの孤立零点排除・0次元CIの証明を分けて検証する。五様体では全標的を一括して排除でき、norm根で可換Ku核を構成することは反例の未完了条件ではない。正式な新規性の確認と外部査読・形式証明は未完了である。
+2. **三様体の全スキーム反例と実Ku比較を保持・点検する。** h=1の因子、指定Ω、THCR、分離MF積・Picard補正・周期同期、coherent飽和を入口とする。局所長さ8/埋込み次元3からHessian階数2への帰着、12点の制限三次、Mayanskiyの全Poisson分類、BMMSのcategorical Torelliが全標的排除の依存である。形式復元とspreadは必要入力ではない。この例の自然pairの被約一致は有効だが、全対象への被約第二予想の肯定材料とはしない。
+3. **対象を制限した肯定結果の成立範囲を定める。** 五様体の反例は被約な定常点でも不一致が起こることを示す。したがって「定常成分が滑らか」という条件だけでは修正できない。既知の分離型・定常成分を持たない場合を出発点に、一般混合係数でのDとD_Hの抽象同型、偏極・canonical ring、全Poisson標的の可能性を調べる。n6ではK_D=O_D(1)を使えるが、二次netからsupportを一意に回復する方法には交代行列の偶奇障害がある。詳細はノート。
 4. **分離型の局所障害から相対・大域比較へ。** m≥2ではJとJ_clのgraded同型が全スキーム同型の必要条件であり、m=2では十分条件でもある。m>2の局所自明性から大域積を推論せず、中心socle θによる厚みを調べる。自然射のscheme imageは(g^{s+1})、Fitting supportは(g^{8^k})で異なる。j多重集合による自然pairの障害を、全π・全Ku標的の排除へ拡張できる範囲を検証する。
 
 ### P1：二つの予想に必要な認識・降下
@@ -71,9 +78,13 @@
 
 古典Poisson正規形・退化とmoduliの正本は [poisson-cubic](https://github.com/uedakazushi/poisson-cubic)、全次元・全Poissonの代数的中心量子化・中心元・同変降下の正本は [cubic-quantization](https://github.com/uedakazushi/cubic-quantization)。三様体固有の全Abel変形・相対比較と独立した点スキーム論文は [nc-cubic-threefold](https://github.com/uedakazushi/nc-cubic-threefold)。具体的な版・commit・定理・適用条件は [notes/research_notes.md](notes/research_notes.md) と参考文献を参照する。外部repoは通常読取り専用。本稿はB=ambient、A=中心商であり、量子化稿では逆の記法を使う。
 
+孤立零点定理が使う正規形は `poisson-cubic` commit `9f91efa3465f18219c36c31750f1e66220faeaa7` の `papers/support/papers/sections/poisson_geometry.tex`、`thm:pg-normal` に固定する。これは本研究群の未公表入力であり、公表済み分類定理として扱わない。
+
 再開順序は本書 → 適用AGENTS.md → 研究ノートの二予想と該当節 → 主原稿の証明 → 検証範囲。本文に証明がある既存内容は、planへ全文を重複しない。一般性はgeneralな稠密Zariski開、very general、全固定幾何点を区別し、Brauer–Severi ambientとsplit ambient、実O(1)と偏極類も区別する。
 
 基本確認は `python3 scripts/check_sources.py`、`latexmk -lualatex papers/nc-cubic.tex`。必要な計算の入口はREADMEと検証範囲。PDF/SyncTeXはbuild/、VS Code/LaTeX Workshopの既存設定を使う。GitHub反映は通常commitとmainへのfast-forward、認証できない経路を迂回して権限を広げない。保存の成否と数学的確認を分ける。
+
+明示可換候補の再現入口は `python3 computations/verify_mixed_commutative_candidate.py`（9 PASS）。有理係数Jacobi環から臨界値・Hessian・P64の一致を厳密に検算する。これはKu比較核や全Poisson分類の計算検証ではない。
 
 ## 研究全体に共通する一般原則と保存許可
 

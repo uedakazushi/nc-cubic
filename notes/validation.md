@@ -1,12 +1,50 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月22日 / v46。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月22日 / v47。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
 ## 現行稿の確認
 
-今回の対象は、指定二因子の全14節点の完備局所orderと単純加群、全節点のΩ切断、相対・混合対角、射影境界、および非smooth集合の正確な決定である。証明を主稿の既存節へ統合した。一般的なBrauer純性・NCCR/MM分類・有限群次数付けは既知結果として一次文献を引用し、本例の入力確認と具体的結論を区別する。全原稿の全証明を今回独立に再検証したという意味ではない。
+今回の対象は、全Poisson零集合の孤立点に対する次元制約、指定混合五様体の被約point/Poisson反例、同じ64次判別式を持つ明示的可換候補、零係数のEckardt点とクレパント解消、およびDVR上の比較核の同値判定である。全て主原稿の既存の該当節に統合した。既存の全smooth locus・節点order・全simple分類は保持し、反例のsourceのsmooth proper性の入力とする。全原稿の全証明を今回再監査したという意味ではない。
 
 ### 今回の数学的点検
+
+- **全Poisson正規形の入力：** poisson-cubicの固定コミット9f91efa3465f18219c36c31750f1e66220faeaa7（A-v62）の支持節poisson_geometry.texについて、全bivectorの表示、錐上Jacobiへの持上げ、Hessianの基点自由性、根基排除、三重ベクトルのsl₂ブロック分解、thm:pg-normalまでの証明を通読した。確認時の同repo main 288246bca7b703543d24cf6276894dc5467bf1d2の同支持節は固定入力と全文一致した。未公表入力であること、全一般性を含む入力であることを本文・書誌に明記する。
+- **孤立Poisson零点：** ppz:thm:isolated-zero-dimensionの証明を執筆担当と別の二名が点検した。Euler線の外積による零理想の同定、u≠0での3k偏微分、m=1の排除、m=2の零次元局所完全交叉、u=0での純ブロック曲線または複数臨界ベクトルの射影線型空間を確認した。純三次g_sの滑らかさ・非零性は使わず、中心方向の微分まで消えるとは主張しない。
+- **被約反例：** ppz:cor:reduced-point-poisson-counterexampleは、既存の全64ノルム根のsmooth proper性と被約点スキームE₁⊔E₂⊔{p}に上記定理を適用する。Ku同値やTorelliを仮定せず全可換三次五様体を排除するが、主予想は否定しない。c=−44828の中心値28,448と唯一のcharacterは厳密計算でも確認した。旧三様体の実Ku比較付き全スキーム反例は別の有効な結果として保持した。
+- **可換候補と共通判別式：** cmo:prop:commutative-critical-spectrum、cmo:thm:commutative-discriminant-candidateを二名が独立に点検した。QQ上のJacobi環、尺度λ²=28/27での特性多項式、境界u=0の滑らかさ、64個の相異なる臨界値、各悪いファイバーの唯一の通常五次元二重点を確認した。非可換側の完備Mat36模型との局所比較は非正準であり、大域Ku同値の証明ではない。この具体的候補への一般点での比較核も未構成である。
+- **零係数の模型：** cmo:prop:zero-eckardt-resolutionのG−u²L表示、pと接超平面、Y=V(G,L)の滑らかさ、incidence方程式、二つのchartでのwの貼合せ、Y上のP¹ファイバー、canonical divisorを二名が点検した。これは可換候補の幾何の証明であり、非可換圏との比較を含まない。
+- **DVR判定：** grl:prop:trait-kernel-testの右加群規約、Q=RHom_B(P,B)の向き、単位と余単位の二cone、底上perfect性、導来底変更、Nakayama、有限長、有限平坦DVR拡大での分岐指数eによる長さの倍率を執筆担当とは別に点検した。既知の随伴判定を有限長として整理したもので、一般的手法の新規性は主張しない。grl:ex:perfect-kernel-not-equivalenceと研究ノートのF₂/F₀例により、perfectな核の延長やsmooth proper性だけでは同値の特殊化を保証しないことを明示する。
+
+### 一次資料と確実性
+
+| 一次資料 | 今回確認した箇所・用途 |
+| --- | --- |
+| poisson-cubic A-v62、固定コミット9f91efa… | prop:pg-represent、prop:pg-jacobi-extension、lem:pg-basepoint-free-lie、lem:pg-quadratic-lie、thm:pg-normalの証明。三次超曲面上の全Poisson正規形。 |
+| Druel–Pereira–Pym–Touzet, arXiv:2606.03424v1 | Theorem1.2、Corollary1.3、§4.4 Theorem4.3と導入の帰着。五次元Fanoの零集合に正次元成分が存在する結果であり、他の孤立成分を排除する結果とは区別する。外部証明全体の再検証はしていない。 |
+| Gualtieri–Pym, arXiv:1203.4293 | Conjecture1.1、Theorem7.13。退化軌跡の十分大きい成分の存在との比較。定理の記述を確認。 |
+| Keller, Derived invariance of higher structures on the Hochschild complex, 著者版2018-05-16 | §3.2の定理・系。HH⁰=中心のderived Morita不変性から、周囲代数D_αと可換多項式環の直接比較を排除する。 |
+| Toën–Vaquié, Ann. Sci. ENS40 (2007), 387–444 | Lemma3.25、pp.437–438の単位・余単位による同値判定と、そのconeによる開性。 |
+| Okawa–Uehara, arXiv:1409.7813v2 | Remark1.2、Lemma4.2。F₂の球面対象とF₂からF₀への滑らかな射影族。研究ノートの一般的なDVR閉性障害の参考。 |
+
+書誌・識別子・URLは本文の参考文献と研究ノートに記載した。今回の孤立点の次元制約と具体的反例について、限定一次文献調査では同一の主張を特定できなかったが、文献上の新規性・初出は未確認である。外部査読・形式証明器による確認も未了。主予想の全intrinsic対象への拡張、指定族の全smooth係数での可換Ku比較、具体的候補への比較核、一般αの非smooth集合は未解決である。全対象を要求する被約point/Poisson対応には上記反例がある。
+
+### 厳密計算
+
+`python3 computations/verify_mixed_commutative_candidate.py` を最終ソースで実行し、**9 PASS、終了コード0**を確認した。別担当も独立に同じ結果を再現した。QQ上のGröbner基底の純冪先頭項から標準単項式の有限範囲を厳密に確定し、次元8のJacobi環・Hessian単元・8個の相異なる臨界値・λ²=28/27での二つのQとの全係数一致を確認する。可換候補から独立に作った終結式が既存P64と全係数で一致すること、c=0およびnorm全64根での非消失、c=−44828の唯一のcharacterも確認した。
+
+新検証器のSHA-256は `ab79c09df15205b63bb373a076e91a9dcb6bee5e0c43527fbd175b99b6d6b9e1`。P64の65整数係数を最高次からASCIIコンマで区切った改行なし6910 bytesのSHA-256は `20923491b92e21c3fceb0b30b0f331e500d83f898f756d0cb853ace75de42dbb`。新検証器は既存中心検証器の固定四次式を入力し、その重いPBW計算は再実行しない。孤立点定理・圏同値・形式証明器による検証とは区別する。
+
+### ソース整合・組版・表示・保存
+
+`python3 scripts/check_sources.py` は70 TeX source・1477一意label・1013参照label・167引用keyを検査し、参照・引用・入力グラフに欠落なし。`git diff --check` も通過した。これは証明点検とは別のソース整合検査である。
+
+LuaHBTeX1.18・latexmk4.86で主稿全体を再組版し、終了コード0、**668ページ、4,598,873 bytes**のPDFを生成した。最終ログのOverfull/Underfull、未定義参照・引用、Missing character、LaTeX Errorはいずれも0。既存のフォントサイズ代替警告と旧フォント命令の警告は残る。環境固有TeX依存とcache設定を使用し、repoのlatexmk/VS Code設定は保持した。標準環境の再生成コマンドは `latexmk -lualatex papers/nc-cubic.tex` である。
+
+最終PDFの1–3、8–10、38–39、256–257、281、292–296、392–396、401–402、429–431、656–657、668ページ、計29ページを画像で確認した。概要・既知結果との比較・展望・既存結果への参照訂正・新しい可換候補と解消・孤立零点の証明と反例・DVR判定・追加文献が対象で、切れ・重なり・文字欠けを認めなかった。全668ページの目視再点検ではない。PDFのSHA-256は `57c860f2629e3f329b92130c320545c40a88ae8da77ffbe3198577a36869f20c`。
+
+保存対象は現行原稿・方針・AGENTS・README・ノート・本検証範囲・書誌・新しい検証器である。PDF、TeX中間生成物、担当者別監査メモ、重複検証器はGit追跡に含めない。研究repoのmain反映とresearch-hub更新は、組版・計算の成否と分けてそれぞれ遠隔refと保存内容を照合する。
+
+### 保持する節点・対角の点検
 
 - **穿孔完備節点のBrauer群：** `cmo:lem:formal-node-brauer` の小解消Y、例外曲線P¹、Yの正則性と余次元2、Česnavičiusの純性、strictly Henselian底のproper base change、O_Y(1)のKummer classによるBr′=0を独立読解した。解析的linkと代数的穿孔Specを混同していない。
 - **NCCRと全simple：** `cmo:lem:completion-global-dimension` の左右simpleの解消・minimal resolution/Tor、中心が完備化と可換すること、分裂束のreflexive延長とEnd同定、IW Lemma2.23→Proposition4.5→Theorem5.20を統合担当と別担当が点検した。自由直和因子は仮定せず、共通rank1 reflexive twistがEndそのものを保つことを確認。`cmo:thm:fourteen-node-orders` の重複度(1,5),(2,4),(3,3)、各因子28simple、次元分布8/2/8/2/8を確認した。3〜5次元の具体的行列の列挙ではなく、中心点と局所orderのsimpleによる全同型類の記述である。
@@ -15,9 +53,9 @@
 - **射影境界：** `cmo:prop:projective-boundary-smooth` の強Z/6模型Q=L/(f−1)、Q⋊μ₆とL₀のMorita、有限群平均化、直接消去によるQ上のu正則性、中央持上げを点検した。次数一のuをL₀の元とせず、Q/(u)で切断する。既存の分離境界比較はk=2の次元4も許す。これは全α、非零a_i、k≥2、全cに対する境界の結果である。
 - **正確な判別集合：** `cmo:thm:exact-sixty-four` は全中央点で少なくとも一方の相対対角がperfectとなることを使う。射影境界とcoherent飽和からP64(c)≠0の場合の全coherent smooth proper性を得て、既存Morse節点の無限自己Extで逆向きを得る。Serre(−4)[5]からqgrのhomological dimension5、根上で∞を確認。P64(0)≠0とgcd(P64,N)=1によりc=0とnorm全64根がsmooth properである。可換Ku実現の全係数への延長は結論していない。
 
-### 一次資料と確実性
+### 保持する局所理論の一次資料
 
-| 一次資料 | 今回確認した箇所・用途 |
+| 一次資料 | 確認済みの箇所・用途 |
 | --- | --- |
 | Česnavičius, arXiv:1711.06456v4 | Theorem1.1=6.1。小解消から余次元2の例外曲線を除く際のH²(G_m)の純性。 |
 | Iyama–Wemyss, Invent. Math.197 (2014), 521–586 | 著者版Definition1.7、Lemma2.23、Proposition4.5。End型CM有限大域次元代数からNCCR/MMへ。 |
@@ -25,29 +63,17 @@
 | Stacks Project | Tags03QN,095T,03RQ,03PK,0A2J,0EBJ,0AV3。strictly Henselian cohomology、proper base change、Kummer、Azumaya、reflexive延長。 |
 | Năstăsescu–Rodinò, Rend. Sem. Mat. Univ. Padova74 (1985),129–137 | 公刊一次PDF Theorems1.3,2.1。有限群次数付けのsmash productとEnd表示。強次数付けでの零成分との同型は本文で具体的に確認。 |
 
-書誌・識別子・URLは `papers/references.tex` に記載した。今回の具体的結論について初出・後続研究との網羅的照合、外部査読、形式証明器による確認は未了。主予想の全intrinsic対象への拡張、指定族の全smooth係数での可換Ku比較、一般αの非smooth集合、第二予想の被約版は未解決である。
+### 保持する厳密計算
 
-### 厳密計算
-
-`python3 computations/verify_mixed_center_geometry.py` を最終計算ソースで再実行し、**14 PASS、終了コード0**を確認した。次数18までのPBW商、二つの21項中心関係、長さ18のcritical scheme、消去WH²Q、中心14節点、8Morse点、全節点の横断Hessian、64次終結式の偶性・平方因子なし・非零定数・定常normとのgcdを含む。追加した核心はJ=(P,P_W,P_U,P_V,P_T)上の3変数Hessianの単元性である。二つの別担当も既存関係式から可換部分を独立再実行した。重複する検証器は現行一式に追加していない。
+`python3 computations/verify_mixed_center_geometry.py` の最終計算ソースについて、**14 PASS、終了コード0**を確認した。次数18までのPBW商、二つの21項中心関係、長さ18のcritical scheme、消去WH²Q、中心14節点、8Morse点、全節点の横断Hessian、64次終結式の偶性・平方因子なし・非零定数・定常normとのgcdを含む。全節点の切断に必要な確認はJ=(P,P_W,P_U,P_V,P_T)上の3変数Hessianの単元性である。二つの別担当も既存関係式から可換部分を独立再実行した。重複する検証器は現行一式に追加していない。
 
 最終検証器のSHA-256は `1dafb9c120177e1ad1cb2b13222bfdf1951a0657cef58942097de86cdb464a27`。P64の全65整数係数を最高次からASCIIコンマで区切った改行なし6910 bytesのSHA-256は `20923491b92e21c3fceb0b30b0f331e500d83f898f756d0cb853ace75de42dbb`。大量係数列は保存せず再生成する。
 
-未変更の既存計算として、`verify_mixed_two_dimensional.py` 5 PASS（SHA-256 `0edd52f5ffca48d1b859baac285f66badb06cda3a908e6aa97af8460848887a1`）、`verify_mixed_two_dimensional_ext.py --universal` 9 PASS・`--zero-example` 10 PASS（SHA-256 `2c6b23b735efb630822c5fe3130c9c51897a6f6663c0b9a7e7a96d1f85c6e226`）を保持する。普遍計算後の変更は独立した零例helper/flagのみで、最終版の零例は確認済み。`verify_mixed_pi_center.py` 3 PASS、`verify_mixed_character_ext.py` 8 PASS、`verify_point_poisson_obstruction.py` 12 PASS等も保持済みであり、今回これらの全suiteを再実行してはいない。有限計算を全次数中心生成・NCCR分類・対角・圏同値の証明の代用にしない。
-
-### ソース整合・組版・表示・保存
-
-`python3 scripts/check_sources.py` は70 TeX source・1465一意label・1007参照label・164引用keyを検査し、参照・引用・入力グラフに欠落なし。`git diff --check` も通過した。これは証明点検とは別のソース整合検査である。
-
-LuaHBTeX1.18・latexmk4.86で主稿全体を再組版し、終了コード0、658ページ、4,548,108 bytesのPDFを生成した。最終ログのOverfull/Underfull、未定義参照・引用、Missing character、LaTeX Errorはいずれも0。既存のフォントサイズ代替警告と旧フォント命令の警告は残る。既存の環境固有TeX依存とcache設定を使用し、repoのlatexmk/VS Code設定は変更していない。標準環境の再生成コマンドは `latexmk -lualatex papers/nc-cubic.tex` である。
-
-最終PDFの1–2、8–9、37、265–272、285–292、657–658ページ、計23ページを画像で確認した。対象は概要・既知結果との比較・展望・新しい節点分類と切断・相対対角と射影境界・正確な判別集合・追加文献であり、切れ・重なり・文字欠けを認めなかった。全658ページの目視再点検を意味しない。最後の表記補正後、対象ページを再描画して画像hashを比較し、変化した271、286、287ページを再確認した。PDFのSHA-256は `ff1a10bc01861169806f386a4cae547fa39db020bdc466c8e11832771da1f5c7`。
-
-保存対象は現行原稿・方針・AGENTS・README・ノート・本検証範囲・書誌・変更した検証器である。PDF、TeX中間生成物、担当者別監査メモ、重複検証器はGit追跡に含めない。研究repoのmain反映とresearch-hub更新は、組版・計算の成否と分けてそれぞれ遠隔refと保存内容を照合する。
+未変更の既存計算として、`verify_mixed_two_dimensional.py` 5 PASS（SHA-256 `0edd52f5ffca48d1b859baac285f66badb06cda3a908e6aa97af8460848887a1`）、`verify_mixed_two_dimensional_ext.py --universal` 9 PASS・`--zero-example` 10 PASS（SHA-256 `2c6b23b735efb630822c5fe3130c9c51897a6f6663c0b9a7e7a96d1f85c6e226`）を保持する。普遍計算後の変更は独立した零例helper/flagのみで、最終版の零例は確認済み。`verify_mixed_pi_center.py` 3 PASS、`verify_mixed_character_ext.py` 8 PASS、`verify_point_poisson_obstruction.py` 12 PASS等も保持済みであり、これらの未変更の全suiteは今回再実行していない。有限計算を全次数中心生成・NCCR分類・対角・圏同値の証明の代用にしない。
 
 ### 保持する中心・表現・残余射影の点検
 
-以下は現行本文に依存する既存の検証範囲であり、今回の新しい局所・対角証明と区別する。
+以下は現行本文に依存する既存の検証範囲であり、今回の孤立点・可換候補・trait判定の点検と区別する。
 
 - **全中心の一関係表示とPI次数：** `cmo:prop:center-hypersurface-degree` は、保持済みの普遍中心元とgr中心一致にSmith–Tate Theorem4.8を適用する。次数18の関係の持上げとstrict filtered inductionで核全体を得ること、符号反転でΩの奇数冪を除くこと、Hilbert多重度比36からPI次数6を得ることを確認した。次数18までの有限計算だけを全核の証明にしていない。
 - **Azumaya locus＝正則中心：** `cmo:thm:azumaya-regular` を二名が独立読解した。3CYと全simple有限次元からhomologically homogeneous、Brown–Yakimov §3.8(b)(i)・Proposition3.10の入力から中心normal・中心上CMを得る。斉次化のu=0上の自由性とenveloping同型をNakayamaで持ち上げ、非Azumaya閉錐の次元を斉次Sklyaninの三曲線から抑える。余次元一Azumaya、有限大域次元、CM、normalityとreduced traceの条件を揃えて同論文Corollary5.2を適用する。有限中心性だけで結論していない。

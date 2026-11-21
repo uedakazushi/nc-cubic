@@ -1,10 +1,12 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v46。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v47。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 二つの予想を中心とする研究の入口
 
-主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現すること、当初の第二予想は同じ可換標的上でPtをPoisson零スキームとして実現することである。第二の全スキーム版には下記の反例を得たため、成立範囲と修正候補を別途検証する。C上n≥3を基本とし、generic・全固定点・全族・一般体上の降下を区別する。全intrinsic対象の認識やpoint functorの表現可能性は未完成であり、既知の局所表示だけを全対象と定義して済ませない。
+主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現すること、当初の第二予想は同じ可換標的上でPtをPoisson零スキームとして実現することである。**第二予想は全スキーム版だけでなく、被約スキームの同型へ弱めても成立しない。** 指定混合五様体の定常ノルムの全64根では、smooth properなsourceの点スキームに一つの被約孤立点がある。一方、滑らかな可換三次五様体上の全Poisson零集合には孤立点がないため、Ku比較を仮定せず全可換標的を排除できる。三様体の非被約局所環を用いる別の反例は、実際の可換Ku同値を持つsourceについての独立した結果として保持する。主予想と指定混合族の全smooth係数での可換Ku比較は未解決である。
+
+C上n≥3を基本とし、generic・全固定点・全族・一般体上の降下を区別する。全intrinsic対象の認識やpoint functorの表現可能性は未完成であり、既知の局所表示だけを全対象と定義して済ませない。可換候補の方程式・判別集合・局所特異点の一致と、その候補への実際の比較核の存在も区別する。
 
 ### 満支持型における同時存在
 
@@ -48,7 +50,7 @@ m≥2,g≠0ではDは型(2^{3k},3)、次元m−2、次数3·8^kの完全交叉�
 
 具体例 `cmo:ex:sixty-four` は、[y,z]=x²−α_1u²と巡回置換、α=(1,4,9),(16,25,49)を用いる。中心元は Ω_α=(x³+y³+z³)/3−(2/3)sym(xyz)−u²(α_1x+α_2y+α_3z)、w_c=Ω_α+100Ω_α′+cu³。中心性は三つの独立パラメータを保った普遍関係行列で確認する。全次数PBW性はBraverman–Gaitsgory Main Theorem0.5 / Lemma3.3により別に証明し、次数3,4のHilbert関数だけから推測しない。u=0ではΩ_0=−c_3/3（De Laet–Le Bruyn §2の規格化）であり、中心和の正則性はuによる次数下降で持ち上がる。
 
-Q=C^{64}であり、R={±28,±16,±56/3,±28/3}、S={±448,±196,±176,±284/3}と置くとN(c)=∏_{r∈R,s∈S}(c+r+100s)。全64根は相異なる有理数で、各根では一つの被約定常点が加わる。根以外、特にc=0では点スキームは二つの楕円曲線だけ。このnorm根集合とc=0のsourceは、下記の正確なP64判定によって全てsmooth properと確定した。可換Ku比較は引き続き未解決である。P64で得る非smoothな64係数とは交わらない。一方、滑らかな中心変数一つのブロックJacobian可換標的では定常零点がなく、零スキームは純楕円曲線だけとなる（`cmo:prop:poisson-zero`）。同じKu標的の存在と全Poisson supportの排除をまだ得ていないので、この相違を第二予想や被約版の新しい反例とはしない。
+Q=C^{64}であり、R={±28,±16,±56/3,±28/3}、S={±448,±196,±176,±284/3}と置くとN(c)=∏_{r∈R,s∈S}(c+r+100s)。全64根は相異なる有理数で、各根では一つの被約定常点が加わる。根以外、特にc=0では点スキームは二つの楕円曲線だけ。このnorm根集合とc=0のsourceは、下記の正確なP64判定によって全てsmooth properと確定した。P64で得る非smoothな64係数とは交わらない。滑らかな中心変数一つのブロックJacobian可換標的の零スキームが純楕円曲線だけとなること（`cmo:prop:poisson-zero`）に加え、全Poisson構造を扱う `ppz:thm:isolated-zero-dimension` により、norm根では任意の滑らかな可換三次五様体上の被約零スキームとの同型が不可能である（`ppz:cor:reduced-point-poisson-counterexample`）。この排除は可換Ku比較核を必要としない。可換Ku比較自体は引き続き未解決である。
 
 `cmo:prop:character-ext` は、u=1の一因子D_pとcharacter p=(a,b,c)∈(C×)^3について、中心元からその値を引いた f_p=Ω_p−λ_p の高次作用を
 
@@ -130,7 +132,42 @@ N_6=a^6+b^6+c^6+66((ab)^3+(bc)^3+(ca)^3)
 
 以上とMorse点の局所計算から、`cmo:thm:exact-sixty-four` は指定族について P64(c)≠0 ⇔ affine対角perfect ⇔ 線束圏smooth ⇔ 全coherent圏smooth proper ⇔ coherent Ku smooth proper を与える。qgrのhomological dimensionはこの場合5、P64の根では∞。`cmo:cor:fixed-zero-norm-smooth` によりc=0とnorm全64根はsmooth properである。
 
-一般のαの非smooth集合と、指定族の全smooth係数での可換Ku比較は未解決。開性と基底の連結性だけでは比較locusの全体性は従わない。次はc=0・norm根の有限残余模型とDVR上の比較核延長を検査し、同じKuを持つ可換標的を得てから全Poisson supportを比較する。今回使った一般的なBrauer純性・NCCR分類は既知結果であり、本例の具体的結論の新規性の網羅的確認は未了。一次文献・定理番号・識別子は主稿Introductionと `papers/references.tex` に置く。
+一般のαの非smooth集合と、指定族の全smooth係数での可換Ku比較は未解決。開性と基底の連結性だけでは比較locusの全体性は従わない。指定族には下記の明示可換候補があり、smooth locusと節点の完備局所模型は一致する。次の核心は、この候補への一般点での実同値、c=0・norm根を含むDVR上のperfect核の整延長、単位・余単位の特殊化での消滅である。norm根の全Poisson supportの排除は圏比較と独立に解決済み。一般的なBrauer純性・NCCR分類は既知結果であり、本例の具体的結論の新規性の網羅的確認は未了。一次文献・定理番号・識別子は主稿Introductionと `papers/references.tex` に置く。
+
+### 同じ判別集合を持つ明示可換三次族
+
+α^(1)=(1,4,9)、α^(2)=(16,25,49)、λ=2√21/9、λ²=28/27とし、
+
+\[
+G_\alpha(x,y,z,u)=\frac{x^3+y^3+z^3+xyz}{3}
+ -u^2(\alpha_1x+\alpha_2y+\alpha_3z),\qquad
+X_c=V\!\left(\lambda(G_{\alpha^{(1)}}+100G_{\alpha^{(2)}})+cu^3\right)
+\subset\mathbb P^6
+\]
+
+と置く。`cmo:prop:commutative-critical-spectrum` は、f_α=G_α|_(u=1)の八次元Jacobi環J_αが被約で、八臨界点が全てMorse型、臨界値も相異なることと、
+
+\[
+\det(t-\lambda m_{f_{\alpha^{(i)}}})=Q_i(t^2)/3^{17}
+\]
+
+を証明する。Q_iは非可換中心の正則点上のMorse臨界値を与える同じ四次多項式であり、近似した臨界値の比較ではなく有理係数の全恒等式である。八次元Jacobi環の乗法行列から終結式を作ると、既存P64の65係数と正準hashが一致する。再現の入口は `computations/verify_mixed_commutative_candidate.py`。
+
+`cmo:thm:commutative-discriminant-candidate` により、X_cが滑らかであることとP64(c)≠0は同値。P64の各根では特異点は一つで五次元通常二重点となり、非可換側の該当完備局所中心商はその局所環上のMat₃₆である。u=0の射影境界は全cで滑らか。従ってc=0とnormの64根にも滑らかな候補を得る。自然なブロックJacobian Poisson tensorの零スキームは、smooth locus全体で二つのHesse曲線E₁⊔E₂である。
+
+**未完成なのはKu_coh(A_c)≃Ku(X_c)の実際の比較である。** 判別集合、節点の形式模型、有限Jacobi環の臨界値スペクトルが一致しても、大域残余圏の同値は従わない。余有限可換実現 `cmo:cor:cofinite` が与える何らかの標的を、この明示候補X_cと同定したという結果もまだない。
+
+### c=0のEckardt点、四次二重被覆と比較の障害
+
+`cmo:prop:zero-eckardt-resolution` では、J=(x³+y³+z³+xyz)/3、G=J(x^(1))+100J(x^(2))、L=α^(1)·x^(1)+100α^(2)·x^(2)と置く。X₀=V(G−u²L)はλに依存せずQ上で定義される滑らかな五様体で、p=[0:⋯:0:1]の接超平面はL=0。その接切断は滑らかな三次三様体Y=V(G,L)⊂P⁵を底とするconeである。Z=V(G)は滑らかな分離型三次四様体であり、H=V(L)とYに沿って横断的に交わる。
+
+四次分岐二重被覆S→P⁵をw²=LGで定めると、pからの射影はBl_p(X₀)→S→P⁵と因子化する。第一の射はcrepant resolutionで、SのYに沿う局所型はA₁ surface singularityと滑らかな三次元因子の積、解消の幾何ファイバーはY上でP¹、それ以外で一点となる。局所模型はw²=ab、解消上のcanonical classとSからの引戻しはともに−4q*O_(P⁵)(1)である。この可換側の幾何は、Z・Yおよび二重被覆のClifford/解消模型を非可換側の中心u²と比較する具体的入口を与えるが、A₀のKu比較を完成してはいない。
+
+ambient D_αを通常のdg Morita同値でC[x,y,z]に置き換える経路は使えない。HH⁰は中心環を保つ一方、指定D_αの中心は14通常二重点を持ち、三変数多項式環の中心は正則だからである。これはcurved/MF圏や射影残余圏の比較を排除しない。使用する既知入力はKeller, *Derived invariance of higher structures on the Hochschild complex*, §3.2（2018年5月16日改訂の[著者稿](https://webusers.imj-prg.fr/~bernhard.keller/publ/dih.pdf)）。
+
+形式的混合三角性 `prop:nfm-residual-mixed-triangular` をFermat入力g=(x³+y³+z³)/3、b=0へ直接適用すると、Ŵ_h=J_g+B_h(g)ℓ+γ_h(g)d、J_g=(x³+y³+z³+h²xyz)/3、ℓ=−u²Σα_jx_jとなる。積一の三乗根対角変換への共変性でB_hは対角、巡回対称性でB_h=β_h idとなる。しかし形式単元β_h,γ_hのh=1での正則性・収束・実比較核は未証明であり、一般係数の有理式に現れる未検証の分母を特殊化しない。
+
+仮に固定係数でW=γ⁻¹(J−βu²Σα_jx_j)+cu³という比較が構成されれば、active変数を√β倍して候補とのscalar条件β³/γ²=28/27を得る。これは必要な規格化を示す計算であり、臨界値一致からβ,γや核を構成したものではない。またsplit点からの抽象的なArtin変形とwt(α)=2、wt(c)=3だけではα⁴/c²型の高次補正を排除できない。有限混合三角性は元の中央次数を保つ形式構成に依拠し、smooth proper変形の開性だけでは代用できない。
 
 ### 通常の完備底で生成性を失う障害
 
@@ -154,6 +191,66 @@ properなdg代数のsmoothnessを特殊ファイバーと全Artin切断だけか
 
 比較核stackはTVのperfect対象moduliと同値性の開性で局所有限表示Artin。既存 `thm:nf-residual-formal` の群oidとしての完全忠実性が、Artin持上げで既に指定された核とのactual自然同型を回復する。scalar Gmを消したとはしない。smooth atlasで局所smoothness criterionを使い、étale局所sectionを取る。n4、境界での閉性、全Abel族の相対smooth proper性、全intrinsic成分、point構造の同時延長は別問題。
 
+### DVR上の比較核を判定する有限長複体
+
+`geometric_realization_locus.tex` の `grl:prop:trait-kernel-test` では、DVR Rの商体をK、剰余体をkとする。R上smooth properなdg代数A,Bとperfect A–B双加群Pが既に与えられ、一般ファイバーの関手F_(P_K)=−⊗^L_(A_K) P_Kが同値である場合を扱う。Q=RHom_B(P,B)とし、
+
+\[
+C_A=\operatorname{Cone}\bigl(A\longrightarrow\operatorname{RHom}_B(P,P)\bigr),\qquad
+C_B=\operatorname{Cone}\bigl(Q\otimes_A^{\mathbf L}P\longrightarrow B\bigr)
+\]
+
+と置く。二つのconeはR-perfectで、全cohomologyは有限長である。F_Pが同値であること、特殊ファイバーF_(P_k)が同値であること、(C_A⊕C_B)⊗^L_R k=0は同値。生成対象で単位・余単位を検査し、一般点での消滅と導来Nakayamaを組み合わせる。既知入力はToën–Vaquié, *Moduli of objects in dg-categories*, Lemma3.25とその証明である。
+
+\[
+d_R(P;A,B)=\sum_j\bigl(\operatorname{length}_R H^j(C_A)
+ +\operatorname{length}_R H^j(C_B)\bigr)
+\]
+
+は有限な非負整数で、同値性はd_R=0と同値。分岐指数eの有限平坦局所DVR拡大R→R′ではd_(R′)=e d_Rとなるので、固定した延長核の不良特殊化は有限分岐だけでは消えない。有界有限自由複体のSmith標準形で、一般点でacyclicな各二項因子[R→^(t^m) R]のmを加えればこの長さを計算できる（`grl:rem:trait-smith`）。この数値は選んだ生成模型・延長核に依存し、圏だけの内在的不変量とはしない。
+
+perfect延長の存在だけでは不十分である。A=B=R、P=R⊕R/(t)は一般点で恒等核だが、特殊化はk²⊕k[1]となり同値を与えない（`grl:ex:perfect-kernel-not-equivalence`）。この例には良い別の格子Rがあるため、必要なのは適切な核の整格子の選択である。指定混合族で残る三段階は、候補X_cへの一般点の実同値、perfect双加群の整延長、二つのconeの特殊化での零性である（`grl:rem:mixed-trait-inputs`）。c=0・norm根でこれらの行列を計算済みとはしない。
+
+### smooth properな両側からは特殊同値を導けない
+
+一般のDVR延長原理への障害として、R=C[[t]]上のextension
+
+\[
+0\longrightarrow\mathcal O\longrightarrow\mathcal E
+\longrightarrow\mathcal O(2)\longrightarrow0,
+\qquad[\mathcal E]=t\in H^1(\mathbb P^1_R,\mathcal O(-2))\simeq R
+\]
+
+を取る。X=P(𝔈)はsmooth projectiveで、特殊ファイバーはF₂、一般ファイバーはF₀。後者は非零extensionの代表であるEuler列から従う。定数族Y=F_(0,R)と比べれば、両側がtrait全体でsmooth properで、一般点では同型である。これは既知のHirzebruch曲面の変形であり、Okawa–Uehara, *Exceptional sheaves on the Hirzebruch surface F2*, [arXiv:1409.7813v2](https://arxiv.org/abs/1409.7813v2), Lemma4.2（p.18）にも記されている。
+
+特殊ファイバーの導来圏は同値でない。F₂の(−2)-section C上のO_C(−1)は2-sphericalで、自己Extは0,2次が各C、1次が零である（同文献Remark1.2、p.3）。F₀上でE⊗K≃Eなら、−Kのample性とcohomology sheafのHilbert多項式から各台は零次元となり、Riemann–Rochによりχ(E,E)=0である。従ってχ=2を持つ2-spherical objectは存在しない。一般点の同型graphの閉包は正則な積X×_R Y上のcoherent、従ってperfectな核になるが、その特殊化は同値にならない。smooth proper性とperfect延長だけから比較核の同値性を結論する方法は使えない。この例は三次五様体の残余圏の追加構造を持たず、nc cubicの主予想への反例ではない。
+
+### 全Poisson零集合の孤立点制約と被約版の反例
+
+`point_poisson_obstruction.tex` の `ppz:thm:isolated-zero-dimension` は、C上の任意の滑らかな三次超曲面X⊂P^(n+1)、n≥3と任意のPoisson構造πについて、
+
+\[
+|Z_X(\pi)|\text{ に孤立点がある}
+\quad\Longrightarrow\quad
+n=3k,\qquad\operatorname{rank}_{\mathrm{gen}}\pi=2k
+\]
+
+を示す。各孤立零点の局所スキームは零次元局所完全交叉である。π=0の場合は零集合がX全体なので孤立点を持たない。全非零πへの適用は未公表入力 `NCCubicA`、`poisson-cubic` の `thm:pg-normal` に依存する。正規形に一般性や各ブロックの楕円性を加えない。固定版と使用する補題は第2節「入力研究の正確な範囲」に記す。
+
+証明の要点は、n+2=3k+mの正規形でEuler場Eとlift qの外積E∧qを計算することにある。中心座標u_α≠0のchartでは零理想が3k個のactive偏微分で生成され、局所次元は少なくともm−2。m=1ではEuler式がXの特異点を強制するため孤立点はm=2に限られ、正則局所環内の同数の生成元から局所完全交叉も従う。u=0では、非零ブロックbivectorを持つ点は純ブロックの平面三次曲線上にある。全active勾配が零で二つ以上のブロックが非零なら、それぞれを独立に拡大縮小して得る射影線型空間が零集合に入る。従ってu=0にも孤立点はない。この議論は各制限三次が特異あるいは零式の場合も含み、中央偏微分の消滅を仮定しない。
+
+五次元では3∤5なので、**どの滑らかな可換三次五様体上のどのPoisson零集合にも孤立成分がない**。`ppz:cor:reduced-point-poisson-counterexample` は、指定二因子のnormの全64根で
+
+\[
+\operatorname{Pt}(A_c)=E_1\sqcup E_2\sqcup\{p_c\}
+\]
+
+が被約であり、全coherent導来圏・全coherent Kuがsmooth properであることを組み合わせる。孤立連結成分の有無は抽象被約スキームの同型で保たれるため、任意の滑らかな可換三次五様体Yと任意のπについてPt(A_c)_red≄Z_Y(π)_redとなる。Ku(Y)≃Ku(A_c)を仮定する前に全Yを排除しており、主予想の真偽には結論しない。
+
+一つの完全に明示した係数は **c=−44828**（`ppz:ex:reduced-counterexample-rational`）。u=1で二つのcharacterを(−1,−2,−3)、(−4,−5,−7)と取ると、中心値は28、448であり、28+100·448−44828=0となる。normの根の相異性により定常点は一つで、gcd(P64,N)=1によりsourceはsmooth properである。定常成分自体も一つの滑らかな被約点なので、全対象について単に「定常成分が滑らか」と仮定しても第二の対応は修復できない。個別の成立族・別の点関手・付加構造を課す修正は、それぞれ別に検証する。
+
+Bondal予想の退化軌跡に関する結果とは量化が異なる。Druel–Pereira–Pym–Touzet, *Bondal's conjecture in dimension five*, [arXiv:2606.03424v1](https://arxiv.org/html/2606.03424v1), Theorem1.2、Corollary1.3、§4.4 Theorem4.3は、五次元Fano上のZ_X(π)に正次元成分が存在することを与える。これは別の孤立成分の併存を排除しない。本稿の全孤立成分排除は三次超曲面の正規形から得る別の結論である。一般次元の3整除制約と被約反例について、文献上の新規性の網羅的確認は未完了。一次資料の確認範囲は第7節を参照する。
+
 ### 一ブロックの定常成分が持つ情報
 
 `point_poisson_obstruction.tex` の `ppz:prop:zero-scheme` は、HとH|Kが滑らかなrank2 Jacobian対について Z_X(π_H)=E_H⊔D_H、D_H=V(H_x,H_y,H_z,H) を証明する。量子側は D=V(F_x,F_y,F_z,w_ab) であり、楕円曲線の一致だけでは定常成分の一致は従わない。
@@ -164,7 +261,7 @@ properなdg代数のsmoothnessを特殊ファイバーと全Artin切断だけか
 
 局所環同型ならm-adic associated gradedも同型であり、次数一・二の乗法から勾配空間を回復する。既存gradient復元により平面三次が同型になるはずだが、j(λ(h))−j(h)=13824h⁴+O(h⁵)≠0に反する。固定h=1ではλ=17/9、j(1)=9261/8、j(17/9)=3813232609367/4849120870776と厳密に異なる。`ppz:prop:split-artin-obstruction` はこの固定例を直接証明し、有限j計算だけをscheme非同型の証明としているわけではない。
 
-### 全Poisson構造・全可換Ku標的を排除する反例
+### 三様体の非被約局所環による全スキーム版の反例
 
 **全スキーム版の第二予想は偽である。** 正本は `point_poisson_obstruction.tex` の `ppz:cor:complex-counterexample`。具体的な複素代数は
 
@@ -186,7 +283,7 @@ S_\star=\mathbb C\langle x,y,z\rangle/(yz-3zy-2x^2,\ zx-3xz-2y^2,\ xy-3yx-2z^2),
 - H_λ=g_λ+(u³+v³)/3でλ≠0、λ³≠8,−1なら、Hessian階数≤2の点は中心三点とactive九flexの計12点だけ。中心ではG_p=g_λ、flexではG_pがFermat型でj=0（`ppz:lem:hesse-eckardt`）。したがってj(h)≠j(λ),0により、どのπの零スキームもJ_h型の孤立点を持てない。
 - 複素数体上のBMMS categorical Torelli Theorem1.1により、Kuが同値な二つの滑らかな三次三様体は同型。別の可換Ku標的も排除できる。ここで使うKu同値は固定h=1で直接構成済みである。
 
-この反例は主予想の失敗ではない。自然残余対ではPt(A)_redとZ_X(π)_redが一致している。被約版、滑らかな定常成分に限定した版、別の点関手を用いる版は、別の検証課題として保持し、元の第二予想と同一視しない。
+この三様体例では主予想の可換Ku比較が実際に構成されている。自然残余対の被約部分は一致するが、三つの非被約な長さ八局所環が全スキーム同型を妨げる。このため、上の五次元の被約反例とは独立した機構を示す結果として有効である。全対象についての被約版および滑らかな定常点を許す版は、既に上の混合五様体で否定されており、未解決の修正予想としては掲げない。
 
 有限計算は `computations/verify_point_poisson_obstruction.py` にある。T_Qの行列、Hesseの小行列式・Hessian determinant・九flexと中心三点の核と制限三次・一般j差に加え、h=1の正確なj値と中心性、混合二表示の中心性と64根のnormを有理数上で確認する。現行suiteは12 PASS。全locusを尽くすcase分け・任意supportの局所補題・全次数PBW・Ku比較・Torelliは本文の証明であり、有限計算だけで証明したものではない。
 
@@ -349,6 +446,12 @@ Veroneseの関連研究としてAitzhanova–Makar-Limanov–Umirbaev、J.Algebr
 
 | 主張 | 状態・依存 | 証明所在 |
 |---|---|---|
+| 全Poisson零集合の孤立点制約 | C上、任意のsmooth cubic、n≥3。未公表の全Poisson正規形を入力に、孤立零点ならn=3k、一般階数2k、局所完全交叉と証明。各active三次の楕円性は不要。新規性未確認 | `ppz:thm:isolated-zero-dimension` |
+| 被約point/Poisson対応の反例 | 指定混合五様体のnorm全64根はsmooth properで、点スキームに一つの被約孤立点を持つ。全smooth可換三次五様体・全πを排除し、Ku比較は入力に不要 | `ppz:cor:reduced-point-poisson-counterexample`, `ppz:ex:reduced-counterexample-rational` |
+| 三様体の全スキーム版反例 | h=1の実Sklyanin因子と分離型直接Ku比較によりsourceを固定。長さ八局所環、全Poisson分類、BMMS Torelliで全Ku標的を排除。自然対の被約部分は一致 | `ppz:cor:complex-counterexample`, `esi:prop:factor`, `csc:cor:fermat` |
+| 指定混合族の明示可換候補 | λ²=28/27のJacobi臨界値恒等式からP64判別集合と五次元節点の完備局所模型が一致。候補へのKu同値は未構成 | `cmo:prop:commutative-critical-spectrum`, `cmo:thm:commutative-discriminant-candidate` |
+| c=0候補の射影模型 | Eckardt点からの射影を四次二重被覆w²=LGで表し、Bl_p X₀がcrepant resolutionとなる。非可換側とのKu比較は含まない | `cmo:prop:zero-eckardt-resolution` |
+| DVR上の実perfect比較核の有限判定 | smooth properな両側・既存perfect核・一般点同値を仮定。単位と余単位のconeの有限長和の零性が特殊同値と同値。核の存在・明示候補への一般点同値は未解決 | `grl:prop:trait-kernel-test`, `grl:rem:mixed-trait-inputs` |
 | 一般中心三次変形の完備MF移送と可換復元 | 統合済みの基礎定理。\(n\ge3\)、中心三次対の次数別自由性・滑らかな剰余の仮定。関数体上の方程式と有限拡大上のfull coherent Ku比較を区別 | `cft:thm:complete`, `gdr:thm:generic`, `rog:lem:descent` |
 | 任意 d の中心 Veronese 復元 | C-flat、rank U≥2、普遍低次数中心条件の下で証明 | `thm:nfm-central-veronese` |
 | 全整数の切断飽和性 | 中心正則対と C-flat から証明。noetherian 性不要 | `lem:nfm-central-saturation` |
@@ -482,9 +585,10 @@ general の稠密 Zariski 開、幾何学的一般点、very general の可算�
 詳細の有効な技術的障害は [可換復元の補助ノート](recovery_foundations.md) に保持する。
 
 
-古典Poisson論文は `poisson-cubic/papers/poisson-cubic.tex`（A-v62、2026-11-21）を外部入力とする。現在の固定入力はcommit `9f91efa3465f18219c36c31750f1e66220faeaa7`。量子化の全証明は[cubic-quantizationの主論文](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex)（v1）を正本とする。旧論文B（B-v59）の必要証明は主原稿に統合され、本repoの `papers/sections/generic_recovery/` を正本とする。
+古典Poisson論文は `poisson-cubic/papers/poisson-cubic.tex`（A-v62、2026-11-21）を外部入力とする。現在の固定入力はcommit `9f91efa3465f18219c36c31750f1e66220faeaa7`。[正規形の支持節](https://github.com/uedakazushi/poisson-cubic/blob/9f91efa3465f18219c36c31750f1e66220faeaa7/papers/support/papers/sections/poisson_geometry.tex)は、main `288246bca7b703543d24cf6276894dc5467bf1d2` の同ファイルとも全文が同一であることを照合した。量子化の全証明は[cubic-quantizationの主論文](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex)（v1）を正本とする。旧論文B（B-v59）の必要証明は主原稿に統合され、本repoの `papers/sections/generic_recovery/` を正本とする。
 
 - 論文A `poisson_geometry.tex`：`prop:pg-represent` の bivector 表示、`prop:pg-jacobi-extension` の affine Jacobi 延長、`thm:pg-normal` の複数 Jacobian ブロック正規形、`cor:pg-generic` の一般三次における被約 Grassmann 錐。全次元の一般 Jacobi スキームの有限長冪零根基を論じる際には最後の被約分類を使う。二次方程式の不足、n=8 の長さ330の定理、およびその直和から作る特殊三次の非零冪零例は、この被約分類に依存しない。
+- 孤立Poisson零点の次元制約には、同支持節のHessianの基点自由性、`lem:pg-linearize`、`lem:pg-basepoint-free-lie` の根基排除、`lem:pg-quadratic-lie` のsl₂直和への帰着から `thm:pg-normal` に至る全Poisson正規形を用いる。主張だけでなくこの証明鎖を内部で読解点検した。正規形以降のEuler外積・局所次元・critical方向の線型空間の議論は本稿 `ppz:thm:isolated-zero-dimension` にあり、未公表入力の内容と本稿の帰結を分ける。外部査読や形式証明器による確認を意味しない。
 - 量子化論文 `papers/sections/quantization/general_dimension_universal_quantization.tex`：`thm:pg-all-dimensions`, `prop:pg-ad-relative-chart` が中心量子化の入力。一ブロック相対 PBW 開と中心三次束の存在は、この研究稿と Etingof–Ginzburg の既知の構成から取る。今回その全証明を独立に再検証したわけではない。
 - 量子化論文 `papers/sections/quantization/hesse_mixed_universal_center.tex`：`thm:pg-universal-hesse-mixed`、`eq:pg-hm-coefficients`、`cor:pg-hesse-hessian-form`、`eq:pg-hesse-hessian-closed` が全混合中心元と Ψ_λ(F) の有限公式。固定 commit の本文を直接確認し、四次係数を I,J と純中心項へ書き直した恒等式を厳密検算した。中心公式そのものは入力であり、今回の可換記号計算を非可換中心性の再証明と呼ばない。
 - 本稿の一般復元節 `papers/sections/generic_recovery/main_result.tex` 等：全 n≥3 が対象。C[h]_(h) 上の次数別有限自由な中心三次対が、多項式環と滑らかな三次式へ特殊化する場合を扱う。一般点の coherent 残余模型は rotation と指定三次周期を保つ。方程式は C(h)、同値核は有限拡大上という区別を守る。全パラメータ・任意の nc cubic・核の基底体への降下を自動的に含まない。
@@ -1987,6 +2091,13 @@ arity m の obstruction は H^(2−m)、高次の選択は H^(1−m−j)（j≥0
 ## 7. 一次資料の確認箇所と引用上の注意
 
 本文の引用文献の書誌とURLは `papers/references.tex`。以下は議論に直結する確認箇所と、ノートだけの補助経路の一次資料であり、全論文を監査したという一覧ではない。
+
+- Druel–Pereira–Pym–Touzet, *Bondal's conjecture in dimension five*, [arXiv:2606.03424v1](https://arxiv.org/html/2606.03424v1)（2026-06-02）。公式本文のTheorem1.2、Corollary1.3（PDF p.2）、§4.4 Theorem4.3の記述を確認した。次元2r+1のFanoではD_(2r−4)(π)に次元2r−3以上の既約成分が存在する。本文Theorem4.3は一般階数2rを仮定し、導入で低階数を既知結果へ帰着する。五次元での正次元零成分の存在と、本稿の全孤立成分の排除を区別する。外部証明全体の監査を行ったという確認ではない。
+- Gualtieri–Pym, *Poisson modules and degeneracy loci*, Proc. London Math. Soc. (3)107(2013),627–654、[DOI](https://doi.org/10.1112/plms/pds090)、[arXiv:1203.4293v1](https://arxiv.org/abs/1203.4293v1)。Conjecture1.1（PDF p.2）、導入に掲げられたTheorem7.13（PDF p.3）の記述を確認。上の定理番号はarXiv v1に従う。偶数次元の上位退化軌跡と四次元のBondal予想を扱い、ここでも十分大きい成分の存在が結論である。smooth cubicの孤立零点の3整除制約をこの既知結果の帰結とはしない。
+- Okawa–Uehara, *Exceptional sheaves on the Hirzebruch surface F2*, Int. Math. Res. Not. IMRN2015(23),12781–12803、[DOI](https://doi.org/10.1093/imrn/rnv079)、[arXiv:1409.7813v2](https://arxiv.org/abs/1409.7813v2)。Lemma4.2（p.18）のsmooth projectiveなHirzebruch曲面の変形、Remark1.2（p.3）の(−2)-curve上のspherical objectを一次本文で確認。これらの既知幾何と、smooth properな両側だけでは特殊同値が従わないという本ノートでの使用を区別する。
+- Keller, *Derived invariance of higher structures on the Hochschild complex*, August 2003, last modified 2018-05-16、[著者PDF](https://webusers.imj-prg.fr/~bernhard.keller/publ/dih.pdf)。Introductionと§3.2の主定理でHochschild cochainの導来不変性を確認。通常の代数ではHH⁰(A)=Z(A)であり、指定混合因子のambient Morita可換化を排除する際に使う。curved/MF圏・射影残余圏の比較を否定する入力ではない。
+
+上の一次文献とcubic hypersurface / cubic fivefold / isolated Poisson zerosについての限定検索では、孤立零点の一般次元の3整除制約と同一の主張をする先行一次資料は特定できなかった。検索の不発を先行結果の不存在の証明とせず、本定理および被約反例の文献上の新規性は未確認とする。
 
 - Etingof–Ginzburg, JEMS12(2010), Theorem3.3.2 / §9（印刷p.1414）：三変数 potential の PBW・中心元・Rains の有限中心公式。今回のεの非消滅は公刊式の斉次部分を直接使い、係数恒等式を独立に記号検算した。Proposition8.1.1と式(8.1.3)には形式量子化の中心とPoisson中心の同型が既にある。§8.1の証明（印刷pp.1407–1408）はunimodularityによる相対形式Jacobian potentialの認識も含み、これらの存在そのものを新規とは数えない。現行のtrace–Hessian処方は有限パラメータと相対降下について位置付ける。https://ems.press/content/serial-article-files/31746
 - Dito, *Kontsevich star-product on the dual of a Lie algebra*, arXiv:math/9905080, §2 equation (3), §3 Theorem2：§2 の式は一般 Poisson tensor の二次星積であり、eye 項を含む。§3 Theorem2 も一般 Poisson 構造の星積に対する Weyl 化である。Lie 代数に限定される後続の Gutt 星積との比較とは区別する。本稿の ρ₂F は §2 の式の線型形式の冪への適用と polarization から直接求める。[一次資料](https://arxiv.org/abs/math/9905080)。

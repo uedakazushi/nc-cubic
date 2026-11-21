@@ -165,8 +165,10 @@ $\beta$ の階数は $2s$ である。
 \subsection{六十四個の相異なる例外値を持つ表示}
 
 次の例では、定常成分が現れる全パラメータを有理数で記述できる。
-ここで構成する中心商の各例外値での coherent smoothness は未確認であり、
-第二予想の反例としては扱わない。
+これらの係数での coherent smoothness は
+系\ref{cmo:cor:fixed-zero-norm-smooth}で確定する。
+さらに系\ref{ppz:cor:reduced-point-poisson-counterexample}は、
+そこで生じる孤立定常点から被約 point/Poisson 対応も排除する。
 
 \begin{example}[混合二ブロックの完全な norm 分解]
 \label{cmo:ex:sixty-four}
@@ -276,8 +278,11 @@ $k=2,m=1$ は $N=7,n=5$ に当たり、定理\ref{cmo:thm:point-norm}の
 \emph{同じ}可換 Ku 標的を構成したことにはならない。
 分離表示では定理\ref{csc:thm:comparison}がこの不足を埋める。
 
-例外的な中心係数で定常点が生じても、それだけで第二予想への新しい反例とはしない。
-その係数での非可換三次の滑らかさと、別の Poisson support を含む全標的の排除が必要である。
+定常点の出現だけから反例を結論するのではなく、
+source の smoothness と全可換標的の排除を別に要する。
+指定した六十四係数では前者を系\ref{cmo:cor:fixed-zero-norm-smooth}、
+後者を孤立 Poisson 零点の次元制約
+（定理\ref{ppz:thm:isolated-zero-dimension}）で満たす。
 有限 norm による明示的な例外集合は、これらの次の検証対象を与える。
 \end{remark}
 
@@ -1134,8 +1139,11 @@ $\kappa_2(M)=0$ を、普遍式への代入から独立に再検査する。
 で対応する中心商へ降りる。
 これらの各加群は当該中心商上で射影次元五を持ち、
 自己 Ext の次元は $0,2,3,5$ 次で一、それ以外で零である。
-これは次元 $1,2,4$ の指定単純加群の判定であり、
-他の単純加群、全中心商の smoothness、Kuznetsov 成分への射影後の Ext は未判定である。
+本命題単独は次元 $1,2,4$ の指定単純加群を扱う。
+各因子の全単純加群は定理\ref{cmo:thm:fourteen-node-orders}、
+全係数での smoothness は定理\ref{cmo:thm:exact-sixty-four}で決定する。
+character の Kuznetsov 射影後の Ext は命題\ref{cmo:prop:projected-point-ext}で扱うが、
+二次元因子を含む残りの射影対象の Ext は未決定である。
 \end{proposition}
 
 \begin{proof}
@@ -2928,9 +2936,11 @@ $D^b(\operatorname{qgr}A)$ が非 proper であることは直ちに従う。
 非有界自己 Ext を持つ。この二集合は交わらない。
 従って定常点の出現値だけでは非 smooth locus を捉えられないことが、
 同じ固定混合族の中で具体的に示された。
-これら六十四個が非 smooth 係数の全体であるとは主張しない。
-norm の六十四係数と $c=0$ の全体の smoothness は引き続き未決定であり、
-滑らかな全対象に関する主予想への反例も得ていない。
+定理\ref{cmo:thm:exact-sixty-four}で節点切断と射影境界を調べると、
+非 smooth 係数は正確に $P_{64}$ の六十四根である。
+系\ref{cmo:cor:fixed-zero-norm-smooth}により、
+norm の六十四係数と $c=0$ は全て smooth proper である。
+それらでの可換 Ku 比較は未解決であり、主予想への反例は得ていない。
 \end{remark}
 
 \subsection{分離表示への代数的収縮と有限線束模型}
@@ -3697,6 +3707,215 @@ $\mathbb A^1\setminus V(P_{64})$ が連結であることだけから
 その locus が全体に等しいとは結論できない。
 従って次の核心は、既に滑らかと判定した個別係数での可換実現と、
 比較核の境界延長である。
+\end{remark}
+
+\subsection{同じ判別集合を持つ明示的な可換三次族}
+
+指定族について、可換 Ku 比較の標的候補を具体的に与える。
+以下の判別集合と局所特異点の一致は証明済みであるが、
+候補への実際の Ku 同値は別の未解決問題である。
+
+\begin{proposition}[Jacobi 環による臨界値の一致]
+\label{cmo:prop:commutative-critical-spectrum}
+$\alpha^{(1)}=(1,4,9)$、$\alpha^{(2)}=(16,25,49)$ とし、
+\[
+ f_\alpha(x,y,z)=\frac{x^3+y^3+z^3+xyz}{3}
+                 -\alpha_1x-\alpha_2y-\alpha_3z,\qquad
+ J_\alpha=\C[x,y,z]/(\partial_xf_\alpha,\partial_yf_\alpha,\partial_zf_\alpha)
+\]
+と置く。両方の $\alpha$ について $J_\alpha$ は階数八の被約代数であり、
+八個の臨界点は全て Morse 型で、その臨界値も相異なる。
+$m_{f_\alpha}$ を乗法作用とし、$\lambda^2=28/27$、$\lambda\ne0$ と選ぶと、
+命題\ref{cmo:prop:center-critical-polynomials}の規格化の下で
+\begin{equation}\label{cmo:eq:commutative-critical-spectrum}
+ \det(t-\lambda m_{f_{\alpha^{(i)}}})
+    =\frac{Q_i(t^2)}{3^{17}}\qquad(i=1,2).
+\end{equation}
+\end{proposition}
+\begin{proof}
+三つの偏微分は
+$x^2+yz/3-\alpha_1$ とその巡回置換である。
+有理数上の Gröbner 基底から得る標準単項式は八個であり、
+この基底での乗法行列を直接計算する。
+未規格化の特性多項式を $h_i(t)=\det(t-m_{f_{\alpha^{(i)}}})$ とすると、
+\begin{align*}
+ h_1(t)={}&t^8-\frac{88490}{63}t^6
+ +\frac{2638222849}{3969}t^4\\
+ &{}-\frac{1087802003896}{9261}t^2
+ +\frac{488560998869056}{83349},\\
+ h_2(t)={}&t^8-\frac{5343910}{21}t^6
+ +\frac{27957473572387}{1323}t^4\\
+ &{}-\frac{145061299763739531640}{250047}t^2
+ +\frac{92587433591992310910016}{83349}.
+\end{align*}
+両多項式は平方因子を持たず、Hessian 行列式の乗法行列も可逆である。
+これにより臨界点・値の相異性、被約性、Morse 性を得る。
+係数を比較すると
+$\lambda^8h_i(t/\lambda)=Q_i(t^2)/3^{17}$ である。
+全乗法行列・Hessian・恒等式は
+\texttt{computations/verify\_mixed\_commutative\_candidate.py}
+が元の三つの偏微分から厳密に再生成する。
+標準単項式の範囲は Gröbner 基底の純冪先頭項から定め、
+有限次数の探索を商全体の次元判定に代用しない。
+\end{proof}
+
+\begin{theorem}[判別集合と局所節点が一致する可換候補]
+\label{cmo:thm:commutative-discriminant-candidate}
+$G_\alpha(x,y,z,u)$ を $f_\alpha$ の次数三斉次化、すなわち
+\[
+ G_\alpha=\frac{x^3+y^3+z^3+xyz}{3}
+              -u^2(\alpha_1x+\alpha_2y+\alpha_3z)
+\]
+とし、$\lambda=2\sqrt{21}/9$ を固定する。
+\begin{equation}\label{cmo:eq:commutative-candidate}
+ X_c=V\!\left(\lambda\bigl(G_{\alpha^{(1)}}(x_1,y_1,z_1,u)
+            +100G_{\alpha^{(2)}}(x_2,y_2,z_2,u)\bigr)+cu^3\right)
+       \subset\PP^6_\C
+\end{equation}
+と置くと、次が成立する。
+\begin{enumerate}
+\item $X_c$ が滑らかであることと $P_{64}(c)\ne0$ は同値である。
+      従って $c=0$ と定常ノルムの全六十四根でも $X_c$ は滑らかである。
+\item $P_{64}(c)=0$ の各係数では、$X_c$ はただ一つの特異点 $p_c$ を持ち、
+      それは五次元通常二重点である。対応する非可換側の中央点 $z_c$ について、
+      非標準的な同型
+      \[
+       \widehat{\mathcal O}_{X_c,p_c}
+          \simeq\C[[v_1,\ldots,v_6]]/(v_1^2+\cdots+v_6^2),\qquad
+       \widehat{(R_c)}_{z_c}
+          \simeq\operatorname{Mat}_{36}(\widehat{\mathcal O}_{X_c,p_c})
+      \]
+      がある。
+\item 両ブロックの Jacobian Poisson tensor の和が定める $\pi_c$ に対して、
+      $X_c$ が滑らかなら
+      \[
+       Z_{X_c}(\pi_c)=E_1\sqcup E_2,\qquad
+       E_i=V(x_i^3+y_i^3+z_i^3+x_iy_iz_i)\subset\PP^2
+      \]
+      がスキームとして成立する。
+\end{enumerate}
+これらの結論は $\Ku_{\mathrm{coh}}(A_c)\simeq\Ku(X_c)$ を含まない。
+\end{theorem}
+\begin{proof}
+$u=0$ 上で六つの active 偏微分が同時に零になるなら、
+滑らかな Hesse 三次の gradient が各ブロックで零になる。
+各ブロックベクトルは零となるので、射影点は存在しない。
+従って $X_c$ は射影境界で全ての $c$ に対して滑らかである。
+
+$u=1$ 上では、特異点は $f_{\alpha^{(1)}}$ と
+$f_{\alpha^{(2)}}$ の臨界点の組で、
+$\lambda f_{\alpha^{(1)}}+100\lambda f_{\alpha^{(2)}}+c=0$
+を満たすものに等しい。
+前命題の臨界値多項式から、その存在条件は正確に
+式\eqref{cmo:eq:morse-resultant}の $P_{64}(c)=0$ である。
+$P_{64}$ が平方因子を持たず次数六十四であることから、
+八掛ける八の臨界値の和は全て相異なり、各特異ファイバーの特異点は一つである。
+六変数の Hessian は二つの可逆な三変数 Hessian の直和なので、
+形式的 Morse 補題が表示した通常二重点を与える。
+非可換側の同型は定理\ref{cmo:thm:morse-singular-sixty-four}の
+行列代数模型と合わせて得る。
+これは各特異点の完備局所代数の比較であり、族全体の大域同値ではない。
+
+$P_{64}(0)\ne0$ および $\gcd(P_{64},N)=1$ は既存の厳密検算による。
+再現コードは可換 Jacobi 環の特性多項式だけから終結式を作り、
+その六十五係数の正準 hash が既存の $P_{64}$ と一致することも確認する。
+最後の零スキームは命題\ref{cmo:prop:poisson-zero}を適用する。
+\end{proof}
+
+$V=\C^6$、$x=(x^{(1)},x^{(2)})$ とし、
+\[
+ J(x_1,x_2,x_3)=\frac{x_1^3+x_2^3+x_3^3+x_1x_2x_3}{3},\qquad
+ G(x)=J(x^{(1)})+100J(x^{(2)}),
+\]
+\[
+ L(x)=x^{(1)}_1+4x^{(1)}_2+9x^{(1)}_3
+       +100(16x^{(2)}_1+25x^{(2)}_2+49x^{(2)}_3)
+\]
+と置く。零係数の明示可換候補は
+\[
+ X_0=V(G-u^2L)\subset\mathbb P(V\oplus\C)
+\]
+であり、$\lambda$ の選択に依存せず $\mathbb Q$ 上で定義される。
+
+\begin{proposition}[零係数の具体的射影模型]
+\label{cmo:prop:zero-eckardt-resolution}
+$X_0$ は滑らかであり、$p=[0:\cdots:0:1]$ は Eckardt 型の点である。
+その接超平面は $L=0$、接超平面切断は
+滑らかな三次三様体
+\[
+ Y=V(G,L)\subset\mathbb P(V)=\mathbb P^5
+\]
+を底とし $p$ を頂点とする cone である。
+
+$\mathbb P^5$ 上の四次二重被覆
+\[
+ S=\operatorname{Spec}_{\mathbb P^5}
+      \bigl(\mathcal O\oplus\mathcal O(-2)\bigr),
+ \qquad w^2=LG
+\]
+を考える。分岐因子は超平面 $H=V(L)$ と滑らかな分離型三次四様体
+$Z=V(G)$ の和であり、両者は $Y$ に沿って横断的に交わる。
+$p$ からの射影は、滑らかな blow-up $\widetilde X_0=\operatorname{Bl}_pX_0$ 上で
+\[
+ \widetilde X_0\longrightarrow S\longrightarrow\mathbb P^5
+\]
+と因子化する。第一の射は $S$ の crepant resolution であり、
+$S\setminus Y$ 上では同型、$Y$ 上の幾何ファイバーは $\mathbb P^1$ である。
+$S$ の $Y$ に沿う完備局所型は $A_1$ surface singularity と滑らかな三次元因子の積である。
+\end{proposition}
+\begin{proof}
+$X_0$ の滑らかさは定理\ref{cmo:thm:commutative-discriminant-candidate}と $P_{64}(0)\ne0$ による。
+$G$ の勾配の共通零点は affine 原点だけであるため、$Z$ は滑らかである。
+$p$ では $d(G-u^2L)=-dL\ne0$ であり、接超平面は $L=0$ である。
+その切断の方程式 $G=L=0$ は $u$ に依存しないので cone の記述を得る。
+
+もし $Y$ が特異なら、ある $x\ne0$ と $a\in\C$ で
+$dG(x)=a\,dL$、$L(x)=0$ となる。
+$Z$ の滑らかさから $a\ne0$ であり、$u^2=a$ を選べば
+$[x:u]\in X_0$ は特異点となって矛盾する。
+従って $Y$ は滑らかで、$H$ と $Z$ は横断的に交わる。
+二重被覆 $S$ は $Y$ の近傍で $w^2=ab$ と書けるため、
+記した $A_1$ 局所型を持ち、その他では滑らかである。
+
+射影の incidence 模型では、基底 $[x]\in\mathbb P(V)$ 上の直線を
+$[tx:u]$ と書く。$X_0$ の strict transform は
+\[
+ t^2G(x)-u^2L(x)=0
+\]
+である。$t\ne0$ では $w=L(x)u/t$、$u\ne0$ では $w=G(x)t/u$ と置く。
+二式は strict transform の方程式により一致し、
+基底座標 $x$ の変更に対して次数二で変換するので、二重被覆への射を定める。
+$G=L=0$ 上のファイバーは全 $\mathbb P^1$ となり、それ以外では $S$ への射は同型である。
+従ってこれは $\widetilde X_0$ からの解消である。
+
+$\pi:\widetilde X_0\to X_0$ の例外因子を $E$、
+$X_0$ の超平面類を $H_X$ とすると
+\[
+ K_{\widetilde X_0}=-4\pi^*H_X+4E
+   =-4q^*\mathcal O_{\mathbb P^5}(1).
+\]
+一方、四次分岐二重被覆の随伴公式は
+$K_S=q_S^*\mathcal O_{\mathbb P^5}(-4)$ を与える。
+従って解消は crepant である。
+\end{proof}
+
+この幾何模型は可換候補側についての結果であり、非可換 $A_0$ の残余圏との
+比較を既に与えるものではない。次の入口は、分離型三次四様体 $Z$、
+その三次三様体切断 $Y$、および四次二重被覆の Clifford/解消模型を
+非可換側の中心 $u^2$ と照合することである。
+
+\begin{remark}[比較の残る入力]
+同じ判別集合、臨界値、完備局所節点を持つことだけでは、
+大域的な残余圏の同値は従わない。
+特に $D_\alpha$ 自体を多項式環 $\C[x,y,z]$ と通常の derived Morita 同値で
+置き換える方法は使えない。
+$HH^0$ である中心は derived Morita 不変
+\cite[\S3.2]{CMOKellerHochschild}だが、前者の中心には十四節点があり、
+後者の中心は滑らかな三次元アファイン空間だからである。
+必要なのは中心三次を保持した curved/MF 比較、または全次数付き残余圏の実際の核である。
+形式的な $h$ 進比較を $h=1$ へ無条件に特殊化することもしない。
+ノルムの根では、可換候補の自然な零スキームと非可換点スキームは異なり、
+系\ref{ppz:cor:reduced-point-poisson-counterexample}が全可換五様体の全 Poisson 構造を排除する。
 \end{remark}
 
 \subsection{一般定数型混合係数に対する余有限可換実現}

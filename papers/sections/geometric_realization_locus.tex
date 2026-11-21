@@ -164,3 +164,123 @@ Hochschild 変形方向があるため、この証明を適用できない。
 形式認識と核モジュライの既知の代数性を組み合わせた帰結であり、
 この開性の先行研究上の新規性の網羅的確認は未了である。
 \end{remark}
+
+\subsection{trait 上の比較核に残る二つの有限検査}
+
+可換模型の滑らかな延長と、比較核の延長は別の条件である。
+さらに、比較核を perfect 双加群として延長できても、
+その特殊ファイバーが同値を与えるとは限らない。
+以下は実際の延長核を得た後に残る検査を、有限複体として記述する。
+核の存在をこの検査自体から導くものではない。
+
+\begin{proposition}[DVR 上の同値核の有限判定]
+\label{grl:prop:trait-kernel-test}
+$R$ を DVR、$t$ をその一様化元、$K$ を商体、$k$ を剰余体とする。
+$A,B$ を $R$ 上 smooth proper な dg 代数とし、
+$P$ を $A$--$B$ perfect 双加群とする。
+右加群の圏を用い、
+\[
+ F_P=-\otimes_A^{\mathbf L}P:
+ \operatorname{Perf}(A)\longrightarrow\operatorname{Perf}(B)
+\]
+と置く。$F_{P_K}$ は同値であると仮定する。
+$Q=\operatorname{RHom}_B(P,B)$ とし、単位・余単位の cone を
+\[
+ C_A=\operatorname{Cone}\left(
+ A\longrightarrow\operatorname{RHom}_B(P,P)\right),\qquad
+ C_B=\operatorname{Cone}\left(
+ Q\otimes_A^{\mathbf L}P\longrightarrow B\right)
+\]
+とする。このとき以下が成立する。
+\begin{enumerate}
+\item $C_A,C_B$ は $R$ 上 perfect であり、その各 cohomology は有限長である。
+\item 次の三条件は同値である：
+  $F_P$ が同値であること、$F_{P_k}$ が同値であること、
+  $(C_A\oplus C_B)\otimes_R^{\mathbf L}k=0$ であること。
+\item 固定した $A,B,P$ に対して
+\[
+ d_R(P;A,B)=\sum_j\left(
+ \operatorname{length}_R H^j(C_A)
+ +\operatorname{length}_R H^j(C_B)\right)
+\]
+は有限な非負整数であり、上の条件は $d_R(P;A,B)=0$ と同値である。
+\item $R\to R'$ を DVR の有限平坦な局所拡大、$e$ を分岐指数とすると、
+\[
+ d_{R'}(P_{R'};A_{R'},B_{R'})=e\,d_R(P;A,B).
+\]
+従って、固定した延長核の不良な特殊化は、有限分岐底変更だけでは解消しない。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$P$ の $B$-perfect 性から、$F_P$ の右随伴は
+$G_P=\operatorname{RHom}_B(P,-)\simeq-\otimes_B^{\mathbf L}Q$ で与えられる。
+smooth proper 性と有限 cell--retract 表示により、
+$P,Q$、二つの合成核、二つの cone は底上 perfect である。
+随伴、単位・余単位、これらの cone の形成は導来底変更と両立する。
+
+$A$ は $\operatorname{Perf}(A)$ の生成対象である。
+従って $F_P$ の完全忠実性は $A$ 上で単位を検査すること、
+すなわち $C_A=0$ と同値である。
+同様に $B$ 上で余単位を検査することで、$C_A=C_B=0$ は
+同値性と同値となる。
+これは To\"en--Vaqui\'e
+\cite[Lemma~3.25 and its proof]{NFMToenVaquieModuli}
+の二つの代数に対する同じ生成対象の議論である。
+
+一般ファイバーで同値であるため $(C_A)_K=(C_B)_K=0$ である。
+従って有限生成な各 cohomology は $R$-torsion、従って有限長である。
+底上 perfect な複体 $C$ について、導来 Nakayama により
+$C\otimes_R^{\mathbf L}k=0$ なら $C=0$ である。
+これを二つの cone に適用して第2項を得る。
+第3項は有限長の非負性による。
+
+最後に $R'$ の平坦性と底変更から
+$H^j(C\otimes_R R')=H^j(C)\otimes_R R'$ である。
+有限長 $R$-加群の組成列を用いると、
+$\operatorname{length}_{R'}(M\otimes_R R')
+=e\operatorname{length}_R M$ となる。
+これを各 cohomology へ適用すれば第4項を得る。
+\end{proof}
+
+\begin{remark}[行列での検査とその依存性]
+\label{grl:rem:trait-smith}
+上の二つの cone を有界有限自由 $R$-複体で表せば、
+特殊ファイバーでの判定は有限個の行列の $t=0$ での exactness の検査である。
+DVR 上の Smith 標準形を逐次使うと、一般ファイバーで acyclic な
+有限自由複体は、shift を除いて
+$[R\xrightarrow{t^{m_\nu}}R]$、$m_\nu\ge0$、の有限直和に分解できる。
+$m_\nu=0$ の項は contractible であり、残る指数の和が
+上で定めた長さとなる。
+
+この数値は固定した dg 生成模型と延長核の数値であり、
+圏だけの新しい内在的不変量とはしない。
+異なる延長核を選んだときの値の不変性も主張しない。
+判定が有限であることと、具体的な族でその行列を既に計算したことは別である。
+\end{remark}
+
+\begin{example}[perfect 延長だけでは同値性は残らない]
+\label{grl:ex:perfect-kernel-not-equivalence}
+$A=B=R$ とし、$P=R\oplus R/(t)$ と置く。
+$R/(t)$ は二項有限自由分解を持つので、$P$ は perfect 双加群である。
+一般ファイバーでは $P_K=K$ で同値を与えるが、
+特殊ファイバーでは
+\[
+ P\otimes_R^{\mathbf L}k\simeq k^{\oplus2}\oplus k[1]
+\]
+であり、tensor 関手は完全忠実でない。
+この例では別の延長核 $R$ を選べば同値になる。
+従って問題は有限底変更の有無だけでなく、適切な核の整格子の構成にある。
+\end{example}
+
+\begin{remark}[指定混合族で残る入力]
+\label{grl:rem:mixed-trait-inputs}
+指定混合族で $c=c_0$ を調べるとき、まず
+$R=\C[c]_{(c-c_0)}$ 上の残余生成代数と、滑らかな可換三次候補の
+残余生成代数を取る。
+両者の smooth proper 性は上の命題の核の存在仮定を代用しない。
+必要な未完了の段階は、候補への一般点での実際の同値、
+その perfect 双加群としての整延長、および二つの cone の特殊化での零性である。
+判別式の一致、Hochschild 次元の一致、一般点での数値的不変量の一致だけから
+これらの三段階を結論しない。
+\end{remark}

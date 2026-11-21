@@ -77,7 +77,7 @@
 \title{非可換三次 $n$-fold の可換復元とモジュライ\\
 \large Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 \author{}
-\date{2026年11月22日・研究稿 v46}
+\date{2026年11月22日・研究稿 v47}
 \hypersetup{pdftitle={非可換三次 n-fold の可換復元とモジュライ},
 pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}}
 \begin{document}
@@ -101,7 +101,13 @@ pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 指定中心元の直接確認、二つの $A_2$ 因子を用いる Ku 比較、
 categorical Torelli により、主予想を満たすが第二予想の全スキーム版を満たさない
 複素対象を構成する。この反例は一般点の形式復元や特殊化に依存しない。
-この例の自然な残余対では被約部分は一致しており、被約化後の命題は別の問題である。
+この三様体例の自然な残余対では被約部分は一致する。
+一方、全次元 Poisson 正規形から、滑らかな三次 $n$-fold の Poisson 零集合が
+孤立点を持つには $n=3k$、一般階数 $2k$ が必要であり、
+各孤立零点は零次元局所完全交叉であると示す。
+従って五次元では孤立零点がなく、以下の混合族の定常ノルムの根は、
+被約化後の対応にも反例を与える。この排除は全ての可換三次五様体を対象とし、
+非可換側の Ku の可換実現を仮定しない。
 二次関係にも中心変数が現れる混合型については、定常点の出現を次数 $8^k$ の
 有限ノルムで判定する。$S(1,-1,-1)$ の定数型変形では、普遍的な六次中心元を
 明示して全パラメータの有限中心性を証明する。
@@ -117,6 +123,12 @@ categorical Torelli により、主予想を満たすが第二予想の全スキ
 六十四点だけであると証明する。その集合は明示した四次多項式の終結式で定義される。
 そこで全 coherent Ku は非 proper であり、それ以外では全 coherent 圏が smooth proper である。
 従って零係数と定常ノルムの全六十四根も smooth proper locus に属する。
+定常ノルムの各根では点スキームは二つの楕円曲線と一つの被約孤立点の非交和である。
+その一例は $c=-44828$ である。
+さらに尺度 $\lambda^2=28/27$ を持つ明示的な可換三次族について、
+Jacobi 環上の乗法作用の特性多項式を計算し、同じ六十四次判別式を得る。
+零係数の可換候補には Eckardt 点があり、その点の blow-up を、
+超平面と滑らかな三次四様体に分岐する二重被覆のクレパント解消として記述する。
 一方、定常ノルムの六十四点は全て線束 perfect で、残余射影の自己 Ext は
 零次が一次元、一次が十次元、他の次数は零である。
 全二次元単純加群を分類し、剛的な部分の中心方程式の高次作用に普遍式を与える。
@@ -124,6 +136,10 @@ categorical Torelli により、主予想を満たすが第二予想の全スキ
 一次元・二次元因子からの百個の単純加群の射影次元を五と決定する。
 指定族の全体の smoothness は上の対角判定で確定するが、
 零係数と定常ノルムの根を含む全ての滑らかな係数での可換 Ku 実現はなお未解決である。
+上記の具体的候補との Ku 同値も未証明であり、判別式の一致とは区別する。
+smooth proper な DVR 模型と一般点での比較核が与えられた場合には、
+随伴の単位・余単位の二つの cone の有限長がともに零であることを、
+特殊点への同値延長の判定条件として整理する。
 
 次数別有限自由な中心三次非可換変形に対する完備曲率付き
 matrix factorizationの移送を構成し、任意の$n\ge3$について
@@ -289,7 +305,13 @@ $\pi\in H^0(X,\bigwedge^2T_X)$ およびスキームの同型
 非被約構造も含める。
 \end{conjecture}
 
-\emph{この全スキーム版は一般には成立しない。}
+\emph{この全スキーム版も、被約化後の対応へ弱めた命題も、一般には成立しない。}
+系\ref{ppz:cor:reduced-point-poisson-counterexample}では、
+smooth proper な非可換三次五様体の点スキームに被約孤立点が現れる一方、
+任意の滑らかな可換三次五様体上の任意の Poisson 零集合には孤立点がないことを用いる。
+後者は定理\ref{ppz:thm:isolated-zero-dimension}の次元制約から従う。
+この反例は可換 Ku 実現を仮定せず、従って主予想の真偽は決めない。
+別の三様体例として、
 系\ref{ppz:cor:complex-counterexample}で、有理数係数の関係式と指定中心元を持つ
 複素数体上の良い一ブロック三次三様体を構成する。
 実因子の入力を命題\ref{esi:prop:factor}で確認し、
@@ -309,7 +331,8 @@ $\pi\in H^0(X,\bigwedge^2T_X)$ およびスキームの同型
 特に一ブロック型では、良い rank-two 標的に対する埋込み一致に
 命題\ref{ppz:prop:embedded-obstruction}の障害がある。
 この埋込み障害だけでは、抽象スキームとしての存在命題を否定しない。
-上記の全反例では、別の局所環不変量と全 Poisson 構造の分類を用いる。
+三様体の全スキーム反例では局所環不変量と全 Poisson 構造の分類を用い、
+五様体の被約反例では孤立成分の有無を用いる。
 
 「任意」は、既知の表示空間の稠密開や幾何学的一般点へ弱めない。
 全対象の内在的な定義・認識、全 $\mathcal O$-marked moduli の構成、
@@ -391,6 +414,23 @@ $\operatorname{End}_R(R^{\oplus a}\oplus I^{\oplus b})$ と決定する。
 相対対角の合成・射影境界の有限巡回模型から、
 定理\ref{cmo:thm:exact-sixty-four}は指定族の非 smooth 集合が
 正確に $V(P_{64})$ であることを示す。
+定理\ref{cmo:thm:commutative-discriminant-candidate}では、
+尺度 $\lambda^2=28/27$ の明示的な可換三次五様体族が同じ判別式を持つ。
+命題\ref{cmo:prop:zero-eckardt-resolution}はその零係数での
+Eckardt 点とクレパント解消を与える。
+これらは可換候補の幾何であり、その候補との Ku 比較核は構成していない。
+一方、定理\ref{ppz:thm:isolated-zero-dimension}と
+系\ref{ppz:cor:reduced-point-poisson-counterexample}により、
+指定混合族の定常ノルムの全六十四根では被約 point/Poisson 対応が否定される。
+孤立点の次元制約は、未公表入力\cite[定理\texttt{thm:pg-normal}]{NCCubicA}
+の全 Poisson 正規形を用い、一般性や各ブロックの楕円性を仮定しない。
+Gualtieri--Pym\cite[Conjecture~1.1, Theorem~7.13]{GualtieriPymDegeneracy}、
+Druel--Pereira--Pym--Touzet\cite[Theorem~1.2, Corollary~1.3]{DPPTBondalFive}
+の退化軌跡の結果は、十分大きな次元の既約成分の存在を保証する。
+特に後者は五次元 Fano の Poisson 零集合に正次元成分を与えるが、
+孤立成分の併存までは排除しない。
+本稿の三次超曲面についての全孤立成分の排除とは、結論と入力を区別する。
+この一般次元制約の文献上の新規性は未確認である。
 二次元表現については Walton \cite[Proposition~4.1 and Section~5.2]{CMOWaltonRepresentations}
 の斉次例・一般変形の課題と比較し、本稿の定数型表示の全分類と高次作用を区別する。
 命題\ref{cmo:prop:two-dimensional-universal-kappa}は、剛的な部分での高次作用を
@@ -2187,11 +2227,13 @@ $n=3,4$ では全 full 同型類が降下し、周期の追加標識を忘れた
 非分裂 rotation の障害 $\beta$ を用いて型を変更すれば、同じ四次元族の全型の最小次数は三である。
 低次元では一般に $\alpha\in\langle\beta\rangle$ が全型の元の体上での実現条件となる。
 五次元の Clifford 半 rotation は実核として $\rho^{-1}[1]$ と同定する。
-中心課題は主予想\ref{conj:nc-main}と第二予想\ref{conj:nc-second}であり、
-既知の可換実現 locus の境界延長、各 intrinsic 成分を覆う表示、
-同じ可換標的での定常成分の比較を優先する。
-全スキーム版の第二予想には系\ref{ppz:cor:complex-counterexample}の明示反例があるため、
-以後の検証では被約版などの修正命題を元の予想と区別する。
+中心課題は主予想\ref{conj:nc-main}であり、
+既知の可換実現 locus の境界延長と各 intrinsic 成分を覆う表示を優先する。
+第二予想\ref{conj:nc-second}の全スキーム版には
+系\ref{ppz:cor:complex-counterexample}の三様体反例があり、
+被約化後の対応にも系\ref{ppz:cor:reduced-point-poisson-counterexample}の
+五様体反例がある。孤立点を持たない対象などに範囲を限った対応は別の検証問題であり、
+そのような限定を元の予想の代わりに自動採用しない。
 中心変数を持つ分離型の可換実現は定理\ref{csc:thm:comparison}で扱い、
 定数型混合族では、有限中心性と相対対角の証明から
 系\ref{cmo:cor:cofinite}の余有限可換実現を得た。
@@ -2202,7 +2244,14 @@ norm と交わらない六十四係数で全 coherent Ku の非 proper 性が確
 定理\ref{cmo:thm:exact-sixty-four}の正確な非 smooth 集合 $V(P_{64})$ を得た。
 例\ref{cmo:ex:sixty-four}の norm の全六十四係数と $c=0$ は smooth proper である。
 次はこの既知の smooth locus 全体で可換 Ku 比較を構成する。
-具体的には零係数と norm の根の残余模型、既知の比較核の DVR 上の延長を調べる。
+具体的な比較先として、定理\ref{cmo:thm:commutative-discriminant-candidate}の
+可換三次族と、零係数での命題\ref{cmo:prop:zero-eckardt-resolution}の模型を使う。
+まず曲率付き MF または次数付き残余圏の実際の核を構成し、
+一般点での同値をこの具体的候補について確認する必要がある。
+その後、命題\ref{grl:prop:trait-kernel-test}の単位・余単位の
+有限長判定を使って各 DVR への延長を調べる。
+通常の周囲代数の derived Morita 比較と、形式的な $h$ 進核の
+$h=1$ への無条件な代入は、この手順の代わりにならない。
 可換実現 locus の開性だけでは全 smooth locus への拡張は従わない。
 本稿の有限中心族の外にある混合表示と、全 intrinsic 成分の被覆も残る。
 $\overline\gamma_n[D]^{-1}$ の他の因子での分岐と
