@@ -40,7 +40,19 @@
 
 ### 組版・表示・保存の状態
 
-現行ソースの三稿組版を実行中であり、この保存時点では新しいPDFの完成・表示確認を未確認とする。組版の完了後に、本節を実際の結果へ置き換える。
+LuaHBTeX 1.18.0・latexmk 4.86・LaTeX2e 2024-11-01 patch level 2で `python3 scripts/build_papers.py` を実行し、二巡で三稿の相互参照が収束して終了コード0となった。最後のソース検査も89 TeX source・1530ラベルで成功した。
+
+| 最終PDF | 頁数 | bytes | SHA-256 |
+| --- | ---: | ---: | --- |
+| `nc-cubic.pdf` | 178 | 1,555,765 | `8bba0813eb6921650285de202cd133a0cce66f6de0442cb1a7eb5f9c6531f709` |
+| `cubic-moduli-descent.pdf` | 453 | 3,187,647 | `4e6e87e1d5de830e1739223c72a2e1b06b1c58240d2d64234bb0f4067ae67123` |
+| `mixed-sklyanin-cubics.pdf` | 103 | 1,053,178 | `cc97f0a0ddb7aef9f06bbb76762abcf34a44398b141e36c3ad76453071286034` |
+
+三稿の最終ログについて、未定義参照・引用・制御綴、Missing character、LaTeX Error、multiply defined、Overfull/Underfullは0。既存の数式フォントのサイズ代替と旧書体命令に関する警告は残るため、全警告0とはしていない。
+
+Popplerで主稿の1・5頁、混合稿の1–4・73–83・85頁、計18頁を画像化して表示確認した。新規二節の全頁、全13行のHom表、集約表、Euler行列、中心三次式、非PI証明、条件付き命題の仮定、序論の他稿参照を確認し、欠字・重なり・切れ・式番号の衝突は認めなかった。74・81・82頁は拡大して再確認した。三稿全734頁を今回目視したわけではなく、未変更のモジュライ稿や補助ノートの全頁を改めて表示確認したともしていない。
+
+この環境では既存kernelと整合するLuaTeX-jaと和文フォントを用いた。再生成に必要なLuaLaTeX・latexmk・LuaTeX-ja・AMS等・etoolbox・xr-hyper・和文フォントはREADMEの手順に従う。主三稿のPDFとSyncTeXはbuild/へ出力する。組版設定は変更せず、VS CodeのUI操作は行っていない。
 
 PDF、TeX中間生成物、担当別の一時メモ、外部文献PDF、一時的な組版環境はGit追跡に含めない。原稿・研究方針・ノート・AGENTS・README・必要な再現コードを通常コミットで保存し、遠隔mainのcommitとtreeを確認する。research-hubへの反映は対象repoの保存後に別に検査する。
 
@@ -598,7 +610,7 @@ b7a9f66af04e2b4506aff22e87ebc53d3bc1eaa3466af0059d13025a424c019d
 
 ## 7. 再現と保存の区別
 
-再現手順はルートの `README.md`。原稿は `latexmk papers/nc-cubic.tex` で `build/` に出力する。主要依存は LuaLaTeX・LuaTeX-ja・和文フォント・標準 TeX パッケージ、Python 3・NumPy・SymPy、C++17 コンパイラ。次数三の検証は約450 MBの行列を再生成し、直接消去には約220 MBのメモリを用いる。大行列は保存せず、220個の入力・行番号の圧縮表・検証コードから再生成する。
+再現手順はルートの `README.md`。相互参照を含む三稿は `python3 scripts/build_papers.py` で `build/` に出力する。主要依存は LuaLaTeX・LuaTeX-ja・和文フォント・標準 TeX パッケージ、Python 3・NumPy・SymPy、C++17 コンパイラ。次数三の検証は約450 MBの行列を再生成し、直接消去には約220 MBのメモリを用いる。大行列は保存せず、220個の入力・行番号の圧縮表・検証コードから再生成する。
 
 保存対象は現在の原稿、研究方針、研究ノート、本検証範囲、書誌、再現コード、証明書、必要な設定だけ。入力稿の全コピー、旧稿、旧bundle、担当者別レポート、外部文献PDF、ビルド中間生成物を含めない。PDFは再生成物として提供し、Gitの追跡対象に含めない。
 
