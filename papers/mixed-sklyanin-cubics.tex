@@ -1,0 +1,221 @@
+% !TEX root = mixed-sklyanin-cubics.tex
+\input{papers/common/preamble.tex}
+\SetPaper{mixed}
+
+\title{混合 Sklyanin 三次の滑らかさと残余圏\\
+\large 有限中心・局所代数・可換比較の候補}
+\author{}
+\date{2026年11月22日・研究稿 v50}
+\hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
+pdfsubject={有限中心・局所代数・可換比較の候補}}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+中心一次変数を共有する Sklyanin ブロックの三次中心商を調べる。
+$S(1,-1,-1)$ の全定数型変形について普遍中心元を明示し、
+有限中心性、PI 次数六、Azumaya locus と正則中心の一致を証明する。
+指定した二ブロック五様体族では、各因子の十四節点の完備局所代数と
+中央切断を決定し、非 smooth 係数を六十四点の集合として厳密に求める。
+全 smooth locus 上の相対残余圏を構成し、Hochschild homology と
+有理数値 Euler 形式を計算する。
+また同じ判別集合を持つ可換三次族と、零係数における Eckardt 根スタック模型を与える。
+この明示候補への Ku 同値は一般点でも未証明である。
+一方、分離型比較と可換実現 locus の開性を用いれば、
+任意の固定した定数型混合係数に対する余有限の可換 Ku 実現は得られる。
+点スキームと Poisson 零スキームの一致を一般に期待できないことも、
+被約な孤立定常点を持つ例として本文で説明する。
+\end{abstract}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\section{序論}
+\label{mix:sec:introduction}
+
+\subsection{対象と比較問題}
+
+非可換三次の Kuznetsov 成分を可換三次の成分として実現する問題では、
+二次関係に中心変数が現れる混合表示が、楕円因子の分離テンソル比較の
+次に調べるべき具体的な対象となる。
+本稿は、そのうち一つの中心一次変数を共有する
+$S(1,-1,-1)$ の定数型変形を扱う。
+基礎体は $\C$ とし、$\alpha=(\alpha_1,\alpha_2,\alpha_3)\in\C^3$ に対して
+\[
+ \mathcal B_\alpha
+ =\C\langle x,y,z,u\rangle/
+ \bigl([y,z]-x^2+\alpha_1u^2,\,
+       [z,x]-y^2+\alpha_2u^2,\,
+       [x,y]-z^2+\alpha_3u^2,\,
+       [u,x],[u,y],[u,z]\bigr)
+\]
+と置く。各生成元の内部次数は一である。
+式\eqref{cmo:eq:mixed-center}の正則な三次中心元を $\Omega_\alpha$ とし、
+$k\ge2$、$a_i\in\C^\times$ に対して
+\[
+ A_c=
+ \left(\bigotimes_{\C[u],\,i=1}^k\mathcal B_{\alpha^{(i)}}\right)
+ \Big/\left(\sum_i a_i\Omega_{\alpha^{(i)}}+cu^3\right)
+ \qquad(c\in\C)
+\]
+を考える。滑らかな場合の次元は $n=3k-1$ である。
+アファイン中心 chart の一因子を
+$D_\alpha=\mathcal B_\alpha/(u-1)$ と書く。
+
+$D^b(\operatorname{qgr}A_c)$ の全 coherent 残余圏と、
+有限個の線束から生成する圏の残余部分は区別する。
+前者を $\Ku_{\mathrm{coh}}(A_c)$ と書き、
+$\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
+後者の smoothness を証明した後に coherent 飽和を適用するのが、
+本稿の可換比較と滑らかさの議論の順序である。
+有限次元 chart 加群の射影次元、全 coherent 圏の proper 性、
+線束生成圏の smoothness も同一の条件として扱わない。
+
+\subsection{中心結果と成立範囲}
+
+本稿の中心結果は次の三段階からなる。
+完全な仮定と証明は各参照先に置く。
+
+\begin{enumerate}
+ \item \emph{全定数型変形の中心と、指定因子の局所構造。}
+ 定理\ref{cmo:thm:finite-center}は全 $\alpha\in\C^3$ に対して中心の生成元と
+ 有限中心性を与え、命題\ref{cmo:prop:center-hypersurface-degree}と
+ 定理\ref{cmo:thm:azumaya-regular}は PI 次数六と正則中心上の Azumaya 性を与える。
+ さらに $\alpha^{(1)}=(1,4,9)$、$\alpha^{(2)}=(16,25,49)$ について、
+ 定理\ref{cmo:thm:fourteen-node-orders}は各因子の全十四節点で
+ 完備局所代数を $\operatorname{End}_R(R^{\oplus a}\oplus I^{\oplus b})$、
+ $a+b=6$ と決定する。これにより単純加群と中央切断を調べる。
+
+ \item \emph{指定五様体族の smooth locus と残余不変量。}
+ 上の二因子と重み $1,100$ を固定する。
+ 定理\ref{cmo:thm:exact-sixty-four}は
+ $D^b(\operatorname{qgr}A_c)$ と $\Ku_{\mathrm{coh}}(A_c)$ が
+ smooth proper である条件を、明示的な次数六十四多項式 $P_{64}$ による
+ $P_{64}(c)\ne0$ と同値にする。
+ この $P_{64}$ は、定常点の出現を測る有限 norm $N$ とは互いに素である。
+ 命題\ref{cmo:prop:full-relative-hh}は
+ $U=\mathbb A^1\setminus V(P_{64})$ 全体で相対 smooth proper な模型を構成し、
+ 全 $c\in U$ に対して $HH_0=\C^2$、$HH_{\pm1}=\C^{21}$、
+ 他次数零を与える。系\ref{cmo:cor:rational-euler-comparison}の
+ 有理数値 Euler 形式も、後述の可換候補と一致する。
+
+ \item \emph{可換実現の存在と、指定候補への比較の区別。}
+ 系\ref{cmo:cor:cofinite}は任意の固定した
+ $k\ge2$、$\alpha^{(i)}\in\C^3$、$a_i\ne0$ に対し、
+ 有限個を除く $c$ で何らかの滑らかな可換三次への Ku 同値を与える。
+ 他方、定理\ref{cmo:thm:commutative-discriminant-candidate}は指定五様体族について
+ 同じ $P_{64}$ と局所通常二重点を持つ明示的な可換族 $X_c$ を構成するが、
+ この特定の $X_c$ への同値は一般点でも証明していない。
+ $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
+ 根スタック上の十六例外対象の右直交として
+ $\Ku(X_0)^{\mu_2}$ を記述する。非可換側からこの圏への比較核は未構成である。
+\end{enumerate}
+
+点スキームは可換 Ku 実現に付随する零点不変量として無条件には使えない。
+第\ref{mix:sec:poisson-limits}節では、
+$N(c)=0$ の smooth proper な五様体について被約孤立定常点が現れ、
+全ての滑らかな可換三次五様体の Poisson 零スキームと一致しないことを示す。
+これは点スキームの一致という素朴な期待の限界を示す補助例であり、
+可換 Ku 実現そのものを否定する例ではない。
+全 Poisson 構造への排除は、未公表入力\cite{NCCubicA}の
+全次元正規形に依存する。
+
+\subsection{先行研究と本稿で加える具体化}
+
+Sklyanin 代数の斉次中心の生成は Smith--Tate
+\cite[Theorems~3.7, 4.8]{GRSklyaninST}、
+potential の PBW 変形と三次中心元は Etingof--Ginzburg
+\cite[Theorem~3.3.2]{NFMEG}に基づく。
+Walton \cite[Definition~V.1, Remark~V.16]{CMOWaltonThesis}の
+位数六の中心拡大に関する持上げの方針に対し、
+本稿は斉次パラメータ $(1,-1,-1)$、線形補正が零、定数補正が任意という
+部分族で六次中心元を明示し、その恒等式を検証する。
+associated graded が PI であることだけから変形の有限中心性を推論しない。
+Azumaya locus の議論には Brown--Yakimov
+\cite[Corollary~5.2]{CMOBrownYakimov}と、
+斉次 Sklyanin 代数についての Walton--Wang--Yakimov
+\cite[Theorem~1.3(1), Lemma~5.4]{CMOWaltonWangYakimov}を用いる。
+
+局所代数の記述には非可換クレパント解消の理論
+\cite{CMOIyamaWemyssMM,CMOIyamaWemyssCA}を、
+全 smooth locus 上の Hochschild 群には Mathew の相対退化定理
+\cite[Theorem~1.3]{CMOMathewDegeneration}を使う。
+Eckardt 模型の残余圏は Orlov の blow-up 公式
+\cite[Theorem~4.3]{CMOOrlovBlowup}と根スタックの半直交分解
+\cite[Theorem~1.6]{CMOIshiiUedaRoot}による。
+これらの一般理論自体を本稿の成果とはしない。
+本稿での内容は、指定族に対する中心・局所切断・対角・残余模型の具体的な組合せと、
+その適用範囲の決定である。個々の具体化について後続文献まで含む
+新規性の網羅的な確認はなお完了していない。
+
+余有限可換実現には、可換復元を扱う主稿の分離型比較
+（定理\paperref{main}{csc:thm:comparison}）、coherent 飽和
+（定理\paperref{main}{crs:thm:coherent}）、可換実現 locus の開性
+（定理\paperref{main}{grl:thm:open-locus}）を入力とする。
+各々の具体的な仮定を本文の適用箇所で確認する。
+有限中心元・有限行列・終結式などの計算証明書は本文に所在を記し、
+計算の再現と大域的な圏同値の証明を区別する。
+
+\subsection{構成}
+
+第\ref{cmo:sec:points}節で点スキームを有限 norm から計算し、
+第\ref{mix:sec:modules}節で小次元単純加群と中心方程式の高次作用を調べる。
+第\ref{mix:sec:centers}--\ref{mix:sec:local-orders}節で
+普遍中心、Azumaya 幾何、節点の局所代数を構成し、
+第\ref{mix:sec:perfect-modules}節で有限台加群と残余 Ext を扱う。
+第\ref{mix:sec:relative-smoothness}--\ref{mix:sec:smooth-locus}節が
+相対 smoothness、余有限可換実現、正確な smooth locus と Hochschild 群を与える。
+第\ref{mix:sec:commutative-candidate}--\ref{mix:sec:eckardt}節で
+明示可換候補と Eckardt 模型を構成し、
+第\ref{mix:sec:poisson-limits}節を点・零スキームの不一致の例に充てる。
+最後に、得られた模型から進むための比較問題を述べる。
+
+\PaperReferenceGuide
+
+\input{papers/sections/mixed/points.tex}
+\input{papers/sections/mixed/modules.tex}
+\input{papers/sections/mixed/centers.tex}
+\input{papers/sections/mixed/local_orders.tex}
+\input{papers/sections/mixed/perfect_modules.tex}
+\input{papers/sections/mixed/relative_smoothness.tex}
+\input{papers/sections/mixed/smooth_locus.tex}
+\input{papers/sections/mixed/commutative_candidate.tex}
+\input{papers/sections/mixed/eckardt.tex}
+\input{papers/sections/mixed/poisson_limits.tex}
+
+\section{残る比較問題}
+\label{mix:sec:questions}
+
+\paragraph{指定可換候補への次数付き比較核.}
+$P_{64}(c)\ne0$ の全係数について、明示候補 $X_c$ への
+$\Ku_{\mathrm{coh}}(A_c)\simeq\Ku(X_c)$ を構成できるか。
+最初に必要なのは、一般点での実際の比較核である。
+定理\ref{cmo:thm:commutative-discriminant-candidate}の判別集合の一致、
+有理 Euler 形式、Hochschild 群の一致だけではこれを与えない。
+命題\ref{cmo:prop:pointwise-affine-mf-comparison}の非次数付き affine MF 圏は
+smooth な係数で零なので、非零の射影 Ku の比較をそこから得ることもできない。
+内部次数、錐の原点、三次周期を保つ核を構成する必要がある。
+その後に perfect 整核と特殊ファイバーの同値性を分けて調べる。
+特殊化の unit/counit cone による判定は、主稿の
+命題\paperref{main}{grl:prop:trait-kernel-test}に従う。
+
+\paragraph{零係数の対合付き模型.}
+$c=0$ では、非可換側の $u\mapsto-u$ が $HH_{\pm1}$ に及ぼす作用を求め、
+可換側の固有次元 $(5,16)$ と比較する問題が残る。
+この検査が整合すれば、定理\ref{cmo:thm:eckardt-root-residual}の
+十六例外対象の右直交へ実際の核を構成し、指標線束の作用との両立を調べられる。
+ただし通常の可換 Ku 実現は対合の保存を要求しないため、
+対合付き比較の障害を通常の可換実現への反例としない。
+
+\paragraph{指定係数の外への拡張.}
+全 $\alpha$ に対する有限中心性と Azumaya locus は得られたが、
+十四節点と非等方な中央切断に基づく smooth locus の完全決定は
+指定した二組の係数に対する結果である。
+一般の $\alpha$ で中心の特異点と中央切断が退化する locus を求め、
+その外で同じ対角の議論が成立するかを調べる必要がある。
+位数六の他の Sklyanin パラメータや線形補正を含む変形、
+および中心変数が複数ある混合表示への拡張も別の問題として残る。
+また有理数値 Euler 形式の一致は積分数値格子の同型を含まない。
+
+\input{papers/references.tex}
+\end{document}

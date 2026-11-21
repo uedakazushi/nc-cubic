@@ -17,11 +17,12 @@ $\mathcal X$ について
 点シフトの固定点スキームではない。比較には非被約構造を含める。
 要求するのは抽象スキーム同型であり、既存の射影埋込み、
 点対応、族全体への自然な降下の保存は別の強化条件である。
-本節の二つの例は、この一致が可換 Ku 実現に付随する一般的な性質ではないことを示す。
+以下の三様体の例と、混合族を扱う別稿の五様体の例は、
+この一致が可換 Ku 実現に付随する一般的な性質ではないことを示す。
 三様体の例（系\ref{ppz:cor:complex-counterexample}）では
 可換 Ku 実現を直接構成できる一方、非被約な定常点の局所環が障害となり、
 同じ Ku を持つどの可換標的と Poisson 構造を選んでも一致しない。
-混合五様体の例（系\ref{ppz:cor:reduced-point-poisson-counterexample}）では
+混合五様体の例（系\paperref{mixed}{ppz:cor:reduced-point-poisson-counterexample}）では
 被約化後にも一致せず、可換 Ku 実現の存在を仮定せずに全 Poisson 標的を排除できる。
 これらは点スキームを用いた比較の限界を示す例であり、
 主予想\ref{conj:nc-main}の可換 Ku 実現を否定するものではない。
@@ -30,15 +31,15 @@ $\mathcal X$ について
 以下では、
 抽象スキームとしての同型と、既存の次数一偏極に関する埋込み同型を区別する。
 まず一ブロック型の零スキームを計算する。
-さらに全 Poisson 正規形から、孤立零点の存在には次元が三の倍数であることが
-必要と示し、混合五様体の被約点スキームによる反例を得る。
-これは全ての滑らかな可換三次五様体を排除し、Ku 比較を仮定しない。
 次に埋込み同型の障害と、長さ八の局所 Artin 環および Hessian 階数二の幾何を用い、
 複素数体上の具体的な非可換三次三様体について、
 同じ Kuznetsov 成分を持つ全ての可換三次と全ての Poisson tensor を調べる。
 その例では可換 Kuznetsov 実現が直接構成できる一方、
 全点スキームと零スキームの抽象同型は存在しない。
 圏比較には系\ref{csc:cor:fermat}の分離テンソル比較を用いる。
+混合五様体の被約な不一致と、その入力である全 Poisson 構造の孤立零点制約は、
+混合族を扱う別稿の定理\paperref{mixed}{ppz:thm:isolated-zero-dimension}と
+系\paperref{mixed}{ppz:cor:reduced-point-poisson-counterexample}を参照する。
 
 \subsection{射影 Poisson tensor の零イデアル}
 
@@ -101,7 +102,7 @@ $C_H\cap\PP(K)=\varnothing$ は $g_H$ の滑らかさから従うため、
 二種類の chart は零スキーム全体を覆い、式
 \eqref{ppz:eq:zero-decomposition}を得る。
 
-三つの active 偏微分は、定理\ref{thm:relative-point-nfold}の
+三つの active 偏微分は、定理\paperref{moduli}{thm:relative-point-nfold}の
 濾過 Koszul 計算と同様に正則列である。
 その商は中心多項式環上階数八で有限自由となる。
 非零因子 $H$ を加えると完全交叉型・次元・次数が従う。
@@ -110,162 +111,9 @@ $C_H\cap\PP(K)=\varnothing$ は $g_H$ の滑らかさから従うため、
 非平坦・非被約のものを含む基底変更後にも成立する。
 \end{proof}
 
-\subsection{孤立 Poisson 零点の次元制約と被約対応の反例}
-
-ここでは滑らかな三次超曲面上の\emph{全ての} Poisson 構造を扱う。
-入力は \cite[定理\texttt{thm:pg-normal}]{NCCubicA} の全次元正規形であり、
-一般三次、一般 Poisson 構造、あるいは各ブロックの楕円性を仮定しない。
-以下の結論はこの正規形から直接得られ、比較核の存在や
-categorical Torelli を入力としない。
-
-\begin{theorem}[孤立 Poisson 零点の必要次元]
-\label{ppz:thm:isolated-zero-dimension}
-$X\subset\mathbb P^{n+1}_{\mathbb C}$ を滑らかな三次超曲面、
-$n\ge3$ とし、$\pi\in H^0(X,\bigwedge^2T_X)$ を Poisson 構造とする。
-零スキーム $Z_X(\pi)$ の台が孤立点を持つなら、
-\[
- n=3k\quad(k\ge1),\qquad \operatorname{rank}_{\mathrm{gen}}\pi=2k.
-\]
-さらに各孤立点における零スキームは零次元局所完全交叉である。
-特に $3\nmid n$ なら、$Z_X(\pi)_{\mathrm{red}}$ は孤立点を持たない。
-\end{theorem}
-
-\begin{proof}
-$\pi=0$ なら零スキームは $X$ 全体であり、結論の仮定を満たさない。
-$\pi\ne0$ とする。引用した正規形により、
-$n+2=3k+m$、$k\ge1$、$m\ge0$ となる座標
-$x_s=(x_{s1},x_{s2},x_{s3})$、$u=(u_1,\ldots,u_m)$ を取れ、
-\[
- F=\sum_{s=1}^k f_s(x_s,u),\qquad
- q=\sum_{s=1}^k q_s,\qquad
- q_s=\iota_{d_{x_s}f_s}
- (\partial_{x_{s1}}\wedge\partial_{x_{s2}}\wedge\partial_{x_{s3}})
-\]
-となる。$q$ の射影化が $\pi$ で、一般階数は $2k$ である。
-$f_s$ は斉次三次式であり、中心変数のみの項はいずれかの $f_s$ に配分する。
-$g_s(x_s)=f_s(x_s,0)$ と置く。
-この $g_s$ は特異でも零式でもよい。
-
-Euler ベクトル場を
-$E=\sum_{s,i}x_{si}\partial_{x_{si}}+\sum_\alpha u_\alpha\partial_{u_\alpha}$
-と書く。原点を除く錐では $\mathbb CE$ が接束の直和因子となるので、
-零スキームの理想は $E\wedge q$ の係数を $X$ へ制限したものである。
-$X$ の滑らかさにより $\bigwedge^2T_X\hookrightarrow
-\bigwedge^2T_{\mathbb P^{n+1}}|_X$ も局所的に直和因子であり、
-この係数理想は $X$ 上の切断の零理想そのものである。
-
-まず $u_\alpha\ne0$ の chart を考える。
-$q$ は中心方向を含まないので、$E\wedge q$ の
-$\partial_{u_\alpha}\wedge\partial_{x_{si}}\wedge\partial_{x_{sj}}$
-の係数は、符号を除き
-$u_\alpha\partial f_s/\partial x_{s\ell}$ である。
-従ってこの chart の零理想は、全 $3k$ 個の active 偏微分
-\[
- \left(\frac{\partial f_s}{\partial x_{si}}\ \middle|\
-       1\le s\le k,\ 1\le i\le3\right)
-\]
-で生成される。
-正則な局所環 $\mathcal O_{X,p}$ は次元 $n$ なので、
-この零スキームの各局所成分は
-\[
- \dim_p Z_X(\pi)\ge n-3k=m-2
-\]
-を満たす。孤立点があるなら $m\le2$ である。
-一方、この chart があるので $m\ge1$。
-$m=1$ の場合、零点では全 active 偏微分が零となり、
-$F=0$ と Euler の等式から $u_1F_{u_1}=0$ も得る。
-これは $X$ の滑らかさに反する。
-従って $u\ne0$ に孤立点があれば $m=2$、すなわち $n=3k$ である。
-この場合、その点の零理想は次元 $n$ の正則局所環の
-$n=3k$ 個の元で生成される極大イデアル準素な理想である。
-従ってこれらの元は正則列となり、零次元局所完全交叉を得る。
-
-残る $u=0$ に孤立点がないことを、$g_s$ の滑らかさを使わずに示す。
-点 $p=[x_1:\cdots:x_k:0]$ を取り、$\pi(p)=0$ とする。
-もしある $q_s(p)\ne0$ なら、任意の $t\ne s$ について、
-$E\wedge q$ のブロック外積次数 $(1\text{ in }t,2\text{ in }s)$
-の成分は $x_t\wedge q_s(p)$ である。
-その成分に他の項は寄与しないため、$x_t=0$ となる。
-従って $p$ は一つの純ブロック平面にあり、
-$g_s(x_s)=F(p)=0$ を満たす。
-純ブロック平面の閉集合 $V(g_s)\subset\mathbb P^2$
-全体が Poisson 零集合に入る。
-実際、この平面上では他ブロックの二次偏微分は零であり、
-$E\wedge q=3g_s P_s$ となる。
-$g_s\ne0$ なら $V(g_s)$ は全ての点で局所次元一以上の平面三次曲線、
-$g_s=0$ なら平面全体なので、$p$ は孤立しない。
-
-次に全ての $q_s(p)=0$ の場合を考える。
-非零ブロックが一つだけなら前段の純ブロック曲線に属する。
-二つ以上あるなら、それぞれの非零 $x_s$ について
-$d g_s(x_s)=0$、従って $g_s(x_s)=0$ である。
-これらの各ブロックベクトルを独立にスカラー倍して得る射影線型空間は
-$X$ と Poisson 零集合に含まれる。
-実際、勾配は二次斉次、$g_s$ は三次斉次なので、
-その線型空間の全点でも全 active 勾配と $F$ が零となる。
-この線型空間は $p$ を通り次元一以上である。
-以上により $u=0$ のどの零点も孤立せず、証明が完了する。
-\end{proof}
-
-\begin{corollary}[混合五様体による被約対応の反例]
-\label{ppz:cor:reduced-point-poisson-counterexample}
-例\ref{cmo:ex:sixty-four}の二因子族を取る。
-定常ノルム $N(c)$ の六十四個の根のそれぞれにおいて、
-$A_c$ は全 coherent 導来圏と全 coherent Kuznetsov 成分が
-smooth proper である非可換三次五様体であり、
-\[
- \operatorname{Pt}(A_c)=E_1\sqcup E_2\sqcup\{p_c\}
-\]
-は被約である。
-任意の滑らかな可換三次五様体 $Y$ と任意の Poisson 構造 $\pi$ に対して
-\[
- \operatorname{Pt}(A_c)_{\mathrm{red}}
-   \not\cong Z_Y(\pi)_{\mathrm{red}}.
-\]
-従って点スキームと Poisson 零スキームの一致という素朴な期待は、
-被約スキームの同型へ弱めても一般には成立しない。
-\end{corollary}
-\begin{proof}
-source の smooth proper 性は系\ref{cmo:cor:fixed-zero-norm-smooth}、
-点スキームの表示と被約性は例\ref{cmo:ex:sixty-four}による。
-左辺には孤立した連結成分 $\{p_c\}$ があるが、
-定理\ref{ppz:thm:isolated-zero-dimension}により
-$3\nmid5$ の可換三次五様体の Poisson 零集合には孤立点がない。
-孤立点の有無は抽象被約スキーム同型で保存されるので結論を得る。
-この議論は同じ Ku を持つ標的の存在を仮定せず、
-全ての滑らかな可換三次五様体を一括して排除している。
-従って主予想の真偽については結論しない。
-\end{proof}
-
-\begin{example}[一つの有理係数の反例]
-\label{ppz:ex:reduced-counterexample-rational}
-$c=-44828$ を取ればよい。
-定常 character は $u=1$ において
-\[
- (x_1,y_1,z_1)=(-1,-2,-3),\qquad
- (x_2,y_2,z_2)=(-4,-5,-7)
-\]
-であり、中心値は $28$ と $448$ なので
-$28+100\cdot448+c=0$ を満たす。
-六十四個のノルム根が相異なることから、この係数で加わる定常点は一つだけである。
-$P_{64}$ と $N$ は互いに素なので $P_{64}(-44828)\ne0$ であり、
-この例は上の系の smooth proper な source を持つ。
-\end{example}
-
-\begin{remark}[既知入力と未解決点]
-本節の全 Poisson 構造への適用は、未公表入力\cite{NCCubicA}の
-全次元正規形に依存する。正規形の主張だけでなく、
-Hessian の基点自由性、\texttt{lem:pg-basepoint-free-lie} の根基排除、
-\texttt{lem:pg-quadratic-lie} の三重ベクトル分解を入力箇所として明記する。
-その一般的入力と本節の孤立点の排除を区別する。
-三様体の非被約局所環を用いる反例も、実際の Ku 同値を伴う有効な結果である。
-本節はノルム根での可換 Ku 比較核を構成せず、主予想を否定しない。
-この一般次元の制約に関する文献上の新規性は未確認である。
-\end{remark}
-
 \subsection{同じ埋込みを保つ一致の不存在}
 
-量子側には第\ref{sec:points}節と第\ref{sec:poisson-morphism}節の
+量子側には第\paperref{moduli}{sec:points}節と第\paperref{moduli}{sec:poisson-morphism}節の
 良い一ブロック中心商 $A=B/(w)$ を取り、
 \[
  \operatorname{Pt}(A)=E\amalg D,\qquad
@@ -292,14 +140,14 @@ $D_H=D$ をスキームとして実現することはできない。
 \begin{proof}
 滑らかな $H$ では $H=cF+G(u)$ の係数 $c$ は非零である。
 従って $C_H=C$ であり、$D_H=C\cap V(H)$ となる。
-命題\ref{prop:point-casimir-restriction-obstruction}により、
+命題\paperref{moduli}{prop:point-casimir-restriction-obstruction}により、
 この Cartier 切断は $D=C\cap V(w_{\mathrm{ab}})$ と一致しない。
 \end{proof}
 
 \begin{proposition}[良い一ブロック型の埋込み一致に対する障害]
 \label{ppz:prop:embedded-obstruction}
 上の仮定に加え、$g=F|_{u=0}$ が
-式\eqref{eq:point-hessian-scalar}の Hessian スカラー条件を満たすとする。
+式\papereqref{moduli}{eq:point-hessian-scalar}の Hessian スカラー条件を満たすとする。
 滑らかな一ブロック Poisson 対 $(X_H,\pi_H)$ について、
 active 平面三次が滑らかであり、$D_H$ が上の型 $(2,2,2,3)$ の
 完全交叉であると仮定する。
@@ -326,7 +174,7 @@ $E$ と $E_H$ の線型包はそれぞれの support 平面なので、
  \langle H_x,H_y,H_z\rangle=I(D_H)_2=I(D)_2=Q
 \]
 を得る。
-命題\ref{prop:point-casimir}の Hessian スカラー条件による積分の一意性から
+命題\paperref{moduli}{prop:point-casimir}の Hessian スカラー条件による積分の一意性から
 $H=cF+G(u)$ である。
 よって前系の切断障害に反する。
 \end{proof}
@@ -339,8 +187,8 @@ $H=cF+G(u)$ である。
 複数ブロックまたは退化した Poisson 標的を含む存在問題を
 この命題だけで否定したことにはならない。
 特に楕円成分の一致と、定常成分を含む全零スキームの一致は別である。
-命題\ref{prop:nfm-correction-point-cubic}が与える Hessian 補正の整合は前者であり、
-定理\ref{thm:nfm-residual-formal-poisson}の残余比較も
+命題\paperref{moduli}{prop:nfm-correction-point-cubic}が与える Hessian 補正の整合は前者であり、
+定理\paperref{moduli}{thm:nfm-residual-formal-poisson}の残余比較も
 全定常点スキームとの一致を結論していない。
 \end{remark}
 
@@ -471,7 +319,7 @@ $X_\star$ 上で別の support を持つ Poisson tensor を選ぶ可能性や、
 一方、被約な台や楕円成分だけの比較では失われる情報が、
 この例では長さ八の局所環に残っている。
 一般パラメータにおける Hesse の有理恒等式は
-第\ref{sec:nfm-residual-th-obstruction}節に記載した。
+第\paperref{moduli}{sec:nfm-residual-th-obstruction}節に記載した。
 ここで用いた有理数の厳密検算は
 \texttt{computations/verify\_point\_poisson\_obstruction.py}に含まれる。
 局所環の分解と非同型の証明は上の議論であり、
@@ -667,7 +515,7 @@ $j(t)=j(\lambda)$ または $j(t)=0$ が必要になり、仮定に反する。
 \end{proof}
 
 この判定は固定された有理パラメータの例だけに限らない。
-第\ref{sec:nfm-residual-th-obstruction}節の Hesse 有理恒等式を用いれば、
+第\paperref{moduli}{sec:nfm-residual-th-obstruction}節の Hesse 有理恒等式を用いれば、
 同節の幾何学的一般点でも同じ $j$ の非一致条件が成立する。
 この一般パラメータでの計算と、以下の複素数体上の直接構成を区別する。
 
@@ -727,7 +575,7 @@ $Y$ 上の Poisson tensor をこの同型で $X_\star$ へ移せば、
 それ単独では被約化後の一致を否定しない。
 実際、命題\ref{ppz:prop:split-artin-obstruction}では
 自然な残余 Poisson 対と被約部分が一致する。
-しかし系\ref{ppz:cor:reduced-point-poisson-counterexample}の混合五様体では
+しかし系\paperref{mixed}{ppz:cor:reduced-point-poisson-counterexample}の混合五様体では
 定常点自体が被約かつ滑らかであり、被約化後の対応も成立しない。
 従って被約性や定常点の滑らかさを加えるだけでは、全対象での命題を回復できない。
 孤立点がない対象に限定する場合や、別の点関手を採用する場合は、

@@ -1,0 +1,102 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm,mathrsfs}
+\usepackage{luatexja-fontspec}
+\usepackage{enumitem,booktabs,longtable,array,needspace}
+\usepackage{xcolor}
+\usepackage{etoolbox,xr-hyper}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\DeclareMathSizes{9}{9}{6}{5}
+\DeclareMathSizes{9.85501}{9}{6}{5}
+\IfFileExists{/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc}{%
+  \setmainjfont[Path=/usr/share/fonts/opentype/noto/]{NotoSerifCJK-Regular.ttc}%
+}{\setmainjfont{HaranoAjiMincho-Regular}}
+\setlength{\textwidth}{15.6cm}
+\setlength{\oddsidemargin}{0.25cm}
+\setlength{\evensidemargin}{0.25cm}
+\setlength{\textheight}{22.6cm}
+\setlength{\topmargin}{-0.2cm}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{maintheorem}{主定理}
+\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{example}[theorem]{例}
+\newtheorem{conjecture}[theorem]{予想}
+\renewcommand{\proofname}{証明}
+% 三稿で共通に用いる記号。本文と証明はそれぞれ一つの稿に置く。
+\providecommand{\ZZ}{\mathbb Z}
+\providecommand{\cK}{\mathcal K}
+\providecommand{\cP}{\mathcal P}
+\providecommand{\cD}{\mathcal D}
+\providecommand{\cC}{\mathcal C}
+\providecommand{\cE}{\mathcal E}
+\providecommand{\cF}{\mathcal F}
+\providecommand{\cM}{\mathcal M}
+\providecommand{\fm}{\mathfrak m}
+\providecommand{\Perf}{\operatorname{Perf}}
+\providecommand{\Ku}{\operatorname{Ku}}
+\providecommand{\MF}{\operatorname{MF}}
+\providecommand{\HH}{\operatorname{HH}}
+\providecommand{\Dsg}{D_{\mathrm{sg}}}
+\providecommand{\RHom}{\operatorname{RHom}}
+\providecommand{\REnd}{\operatorname{REnd}}
+\providecommand{\Ind}{\operatorname{Ind}}
+\providecommand{\Def}{\operatorname{Def}}
+\providecommand{\thick}{\operatorname{thick}}
+\providecommand{\Spf}{\operatorname{Spf}}
+\providecommand{\Id}{\operatorname{Id}}
+\providecommand{\sym}{\operatorname{sym}}
+\providecommand{\Cone}{\operatorname{Cone}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\otL}{\mathbin{\otimes^{\mathbf L}}}
+\newtheorem{problem}[theorem]{問題}
+
+\newcommand{\C}{\mathbb C}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Proj}{\operatorname{Proj}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\PGL}{\operatorname{PGL}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\QGr}{\operatorname{QGr}}
+
+% 他稿の番号には R (可換復元), M (モジュライ・降下), S (混合族) を添える。
+% clean build では scripts/build_papers.py が三稿の aux を順に生成・収束させる。
+\newcommand{\SetPaper}[1]{%
+  \def\CurrentPaper{#1}%
+  \ifstrequal{#1}{main}{}{\externaldocument[main-][nocite]{build/nc-cubic}[nc-cubic.pdf]}%
+  \ifstrequal{#1}{moduli}{}{\externaldocument[moduli-][nocite]{build/cubic-moduli-descent}[cubic-moduli-descent.pdf]}%
+  \ifstrequal{#1}{mixed}{}{\externaldocument[mixed-][nocite]{build/mixed-sklyanin-cubics}[mixed-sklyanin-cubics.pdf]}%
+}
+\makeatletter
+\def\PaperTag@main{R}
+\def\PaperTag@moduli{M}
+\def\PaperTag@mixed{S}
+\newcommand{\PaperRefText}[2]{\textnormal{[\csname PaperTag@#1\endcsname,~\ref{#1-#2}]}}
+\newcommand{\PaperEqRefText}[2]{\textnormal{[\csname PaperTag@#1\endcsname,~\eqref{#1-#2}]}}
+\DeclareRobustCommand{\paperref}[2]{\ifmmode\text{\PaperRefText{#1}{#2}}\else\PaperRefText{#1}{#2}\fi}
+\DeclareRobustCommand{\papereqref}[2]{\ifmmode\text{\PaperEqRefText{#1}{#2}}\else\PaperEqRefText{#1}{#2}\fi}
+\DeclareRobustCommand{\paperpageref}[2]{\textnormal{[\csname PaperTag@#1\endcsname,~p.~\pageref{#1-#2}]}}
+\newcommand{\PaperReferenceGuide}{%
+  本稿と関連する二稿の参照では、R を可換復元稿\cite{NCCubicRealization}、
+  M をモジュライ・降下稿\cite{NCCubicModuliDescent}、
+  S を混合族稿\cite{NCCubicMixedSklyanin}の略号とする。
+  他稿の結果は、例えば定理 [R, 2.1] のように稿の略号とその稿内の番号を併記する。
+  略号のない番号は本稿内の参照である。
+}
+\makeatother

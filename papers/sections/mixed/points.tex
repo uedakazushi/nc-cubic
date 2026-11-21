@@ -1,0 +1,287 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\section{中心一次変数が一つの混合ブロックと有限 norm}
+\label{cmo:sec:points}
+
+分離表示の定理\paperref{main}{csc:thm:comparison}では、中心変数は各楕円因子の
+二次関係に現れない。本稿では、この仮定を点関手の計算から取り除く。
+結果は中心変数を一つ共有する表示についての定理であり、
+一般の混合表示の点関手を計算した後、$S(1,-1,-1)$ の定数型変形については
+有限中心性と収縮族の相対 smoothness を証明し、余有限可換 Ku 実現を得る。
+
+\subsection{有限な定常環と point scheme}
+
+基礎体を $\C$、$R=\C[u]$、$k\geq2$ とする。
+各 $i$ について、次数一生成元 $x_i,y_i,z_i,u$ を持ち、
+$u$ が中心である二次代数 $\mathcal B_i$ を取る。
+$\mathcal B_i/(u)=S_i$ の双線型対応は、滑らかな平面三次 $E_i$ 上の
+固定点なしの自己同型 $\sigma_i$ のグラフであると仮定する。
+さらに可換化は
+\begin{equation}\label{cmo:eq:abelian}
+ (\mathcal B_i)_{\mathrm{ab}}
+   =R[x_i,y_i,z_i]/(q_{i1},q_{i2},q_{i3}),\qquad
+ q_{ia}\in R[x_i,y_i,z_i]_2
+\end{equation}
+であり、$q_{i1}|_{u=0},q_{i2}|_{u=0},q_{i3}|_{u=0}$ は
+$\C[x_i,y_i,z_i]$ の正則列とする。
+例えば、それらが滑らかな三次式の三つの偏微分ならばこの条件を満たす。
+active 変数と $u$ の混合項は許す。
+
+異なるブロックの元を可換とする $R$ 上の tensor 積
+\[
+ B=\mathcal B_1\otimes_R\cdots\otimes_R\mathcal B_k
+\]
+を考える。正則中心三次 $w\in Z(B)_3$ は、$u=0$ において
+$\sum_i a_i\Omega_i$ に移ると仮定する。
+ここで各 $\Omega_i$ は $S_i$ の全点加群を消す中心三次である。
+$c\in\C$ に対し $A_c=B/(w+cu^3)$ と置く。
+次の定理の点関手の主張自体には、$A_c$ の滑らかさを仮定しない。
+
+\begin{theorem}[一中心変数での定常点の有限判定]
+\label{cmo:thm:point-norm}
+上の仮定の下で
+\[
+ T=R[x_1,y_1,z_1,\ldots,x_k,y_k,z_k]/(q_{ia})
+\]
+は $R$ 上階数 $L=8^k$ の有限自由加群である。
+$Q=T/(u-1)$、$b=w_{\mathrm{ab}}|_{u=1}\in Q$ とすると、任意の試験環に対して
+\begin{equation}\label{cmo:eq:point-scheme}
+ \operatorname{Pt}(B)=\left(\coprod_i E_i\right)\amalg\operatorname{Spec}Q,
+ \qquad
+ \operatorname{Pt}(A_c)=\left(\coprod_i E_i\right)
+                  \amalg\operatorname{Spec}(Q/(b+c)).
+\end{equation}
+shift は $E_i$ 上で $\sigma_i$、定常成分上で恒等である。
+
+乗法 $m_b:Q\to Q$ の norm 多項式
+\begin{equation}\label{cmo:eq:norm}
+ N(c)=\det(c\operatorname{id}_Q+m_b)\in\C[c]
+\end{equation}
+は次数 $8^k$ の monic 多項式であり、
+\[
+ \operatorname{Pt}(A_c)=\coprod_iE_i
+ \quad\Longleftrightarrow\quad N(c)\ne0.
+\]
+従って定常点が現れるパラメータは有限個で、
+その零次 Fitting イデアルは $(N(c))$ である。
+これは閉点集合だけでなく、$c$ に関する族の有限表示としての主張である。
+\end{theorem}
+
+\begin{proof}
+$u,q_{11},\ldots,q_{k3}$ の同時零点は affine 空間の原点だけである。
+これらは $3k+1$ 変数多項式環の斉次 system of parameters なので正則列である。
+従って $T$ は Hilbert 級数
+\[
+ H_T(t)=\frac{(1+t)^{3k}}{1-t}
+\]
+を持つ。$T/uT$ の斉次基底を $T$ へ持ち上げると、
+次数についての帰納法によりそれらは $R$-加群として $T$ を生成する。
+基底の次数を保つ自由 $R$-加群からの全射の両辺の Hilbert 級数は同じなので、
+その核は零である。これで階数 $8^k$ の自由性を得る。
+また $C=\operatorname{Proj}T$ は $u=0$ と交わらず、
+$u\ne0$ の chart で $\operatorname{Spec}Q$ と同一視される。
+
+双線型関係を満たす二つの点を $p,p'$ と書く。
+$u(p)\ne0$ なら、中心交換関係
+$u(p)x'_i=x_i u(p')$ などと $p'\ne0$ から $u(p')\ne0$ であり、
+両方を一に規格化すると全座標が等しい。
+残る関係は式\eqref{cmo:eq:abelian}の $3k$ 本の二次式 $q_{ia}=0$ である。
+よってこの chart の対応は $\Delta_C$ である。
+
+$u(p)=0$ の幾何点では $u(p')=0$ となる。
+二つ以上のブロックが非零ならブロック間交換関係が各ブロックの二点を比例させ、
+$\sigma_i$ の固定点を生じるので不可能である。
+従ってその幾何点は純ブロックの $\Gamma_{\sigma_i}$ にある。
+そこでは固定点なしという仮定により、同一ブロックの二点の
+二行二列小行列式の少なくとも一つが単元となる。
+中心交換関係の対応する二式は $u,u'$ を環の中で消し、
+他ブロックとの交換関係も同じ単元小行列式によって全ての他座標を消す。
+残る対応は $\Gamma_{\sigma_i}$ そのものである。
+従って横断方向の冪零構造もなく、
+\[
+ \Gamma_B=\left(\coprod_i\Gamma_{\sigma_i}\right)\amalg\Delta_C
+\]
+をスキームとして得る。この局所環上の消去は任意の試験環でも成立する。
+
+対応が自己同型のグラフなので、無限点列は初期点から一意に定まる。
+純ブロックでは $u=0$、かつ $\Omega_i$ は普遍点加群を消す。
+定常列では三次関係の三重線型化はその可換化の評価であり、
+$u=1$ で $b+c$ となる。これで式\eqref{cmo:eq:point-scheme}を得る。
+
+普遍パラメータ $c$ を使うと、$Q[c]$ 上の乗法 $m_b+c$ は単射である。
+実際、非零の多項式ベクトルの最高次係数は $c\operatorname{id}$ により残る。
+従って
+\[
+ 0\longrightarrow Q[c]\xrightarrow{m_b+c}Q[c]
+   \longrightarrow Q[c]/(b+c)\longrightarrow0
+\]
+は階数 $L$ の正方表示を与え、その零次 Fitting イデアルは行列式である。
+閉点 $c$ で商が零となることは $b+c$ が $Q$ の単元であること、
+従って $N(c)\ne0$ と同値である。
+\end{proof}
+
+\subsection{滑らかな Poisson 標的での定常零点の消滅}
+
+同じ変数分解の下で
+\[
+ H=\sum_{i=1}^kF_i(x_i,y_i,z_i,u)+G(u),\qquad
+ X=V(H)\subset\mathbb P^{3k}
+\]
+とする。各 $F_i$ は斉次三次であり、$g_i=F_i|_{u=0}$ は滑らかな平面三次を定め、
+$X$ も滑らかとする。
+$P_i=\partial_{x_i}\wedge\partial_{y_i}\wedge\partial_{z_i}$、
+$d_i\in\C^\times$ を取り、
+\[
+ \beta=\sum_i d_i\iota_{dF_i}P_i
+\]
+の射影化を $\pi$ と書く。共通の $u$ は各項の Casimir であり、
+異なるブロックの Schouten 括弧も零なので $\beta$ は Poisson で、$H$ を保つ。
+
+\begin{proposition}[一中心変数の Poisson 零スキーム]
+\label{cmo:prop:poisson-zero}
+上の仮定の下で、非被約構造を含めて
+\begin{equation}\label{cmo:eq:poisson-zero}
+ Z_X(\pi)=\coprod_iV(g_i)
+\end{equation}
+である。右辺はそれぞれの純ブロック平面に埋め込む。
+\end{proposition}
+\begin{proof}
+Euler vector field を $\xi$ とする。
+命題\paperref{main}{pps:prop:zero-scheme}と同じく零イデアルは $\xi\wedge\beta$ の係数である。
+$u\ne0$ では $u\,d_i(F_i)_{x_i}$ などの係数から、
+全ての active 偏微分が零となる。
+$H=0$ と Euler 恒等式から $uH_u=0$ も従うので、
+もしこの chart に零点があれば $X$ の特異点となる。
+従って滑らかさの仮定によりこの chart の零スキームは空である。
+
+$u=0$ の幾何点で $s$ 個のブロックが非零なら、$g_i$ の滑らかさから
+$\beta$ の階数は $2s$ である。
+射影化が零なら $\beta\in\xi\wedge V$ なので階数は高々二であり、$s=1$ である。
+純ブロック $i$ では残る係数は $3d_i g_i$ である。
+さらにその点の近傍では $(F_i)_{x_i},(F_i)_{y_i},(F_i)_{z_i}$ の一つが単元なので、
+混合外積の係数は $u$ と全ての他ブロック座標を環の中で消す。
+残る式は $g_i=0$ となり、式\eqref{cmo:eq:poisson-zero}を得る。
+\end{proof}
+
+\subsection{六十四個の相異なる例外値を持つ表示}
+
+次の例では、定常成分が現れる全パラメータを有理数で記述できる。
+これらの係数での coherent smoothness は
+系\ref{cmo:cor:fixed-zero-norm-smooth}で確定する。
+さらに系\ref{ppz:cor:reduced-point-poisson-counterexample}は、
+そこで生じる孤立定常点から被約 point/Poisson 対応も排除する。
+
+\begin{example}[混合二ブロックの完全な norm 分解]
+\label{cmo:ex:sixty-four}
+$\alpha=(\alpha_1,\alpha_2,\alpha_3)$ に対し、$u$を中心とする代数
+\[
+ \mathcal B_\alpha=\C\langle x,y,z,u\rangle/
+ \left([y,z]-x^2+\alpha_1u^2,
+       [z,x]-y^2+\alpha_2u^2,
+       [x,y]-z^2+\alpha_3u^2,
+       [u,x],[u,y],[u,z]\right)
+\]
+を考える。次の二組を用いる。
+\[
+ \alpha=(1,4,9),\qquad \alpha'=(16,25,49).
+\]
+各代数で、$\sym(xyz)$を六語の平均として
+\begin{equation}\label{cmo:eq:mixed-center}
+ \Omega_\alpha
+ =\frac{x^3+y^3+z^3}{3}-\frac23\sym(xyz)
+       -u^2(\alpha_1x+\alpha_2y+\alpha_3z)
+\end{equation}
+は中心元である。
+$B=\mathcal B_\alpha\otimes_{\C[u]}\mathcal B_{\alpha'}$、
+$w_c=\Omega_\alpha+100\Omega_{\alpha'}+cu^3$と置く。
+定理\ref{cmo:thm:point-norm}の$Q$は$\C^{64}$と同型であり、
+そのnormは
+\begin{equation}\label{cmo:eq:explicit-norm}
+ \begin{gathered}
+ N(c)=\prod_{r\in\mathcal R}\prod_{s\in\mathcal S}(c+r+100s),\\
+ \mathcal R=\{\pm28,\ \pm16,\ \pm56/3,\ \pm28/3\},\qquad
+ \mathcal S=\{\pm448,\ \pm196,\ \pm176,\ \pm284/3\}
+ \end{gathered}
+\end{equation}
+となる。六十四個の根は全て相異なる。
+各根では点スキームにちょうど一つの被約な定常点が加わり、
+根以外では二つの楕円曲線だけとなる。特に$c=0$では定常成分は空である。
+\end{example}
+
+\begin{proof}
+$u=0$の代数はSklyanin parameters $(1:-1:-1)$を持ち、
+点曲線は$E=V(x^3+y^3+z^3+xyz)$である。
+$1+(1/3)^3\ne0$より滑らかで、
+対角関係$x^2=y^2=z^2=0$は射影共通零点を持たない。
+命題\paperref{main}{esi:prop:factor}と同じ行列の核の議論で、
+双線型対応は固定点なしの楕円グラフである。
+このSklyanin代数は\cite[Theorem~1.1, Corollary~1.3]{GRSklyaninTV}によりKoszulである。
+
+$u=1$の関係は定数項だけを加えたPBW変形である。
+実際、$r_x=yz-zy-x^2$とその巡回置換を用いると、
+唯一の三次Koszul重なりは
+\[
+ x\otimes r_x+y\otimes r_y+z\otimes r_z
+   =r_x\otimes x+r_y\otimes y+r_z\otimes z
+\]
+で生成される。
+Braverman--Gaitsgoryの判定
+\cite[Main Theorem~0.5, Lemma~3.3]{CMOBravermanGaitsgory}における
+一次補正は零、定数補正は$r_a\mapsto-\alpha_a$である。
+残る条件はこの重なり上の
+$\beta\otimes1-1\otimes\beta=0$であり、定数の可換性から成立する。
+従って表示した斉次代数はこのPBW変形のRees代数で、$\C[u]$上自由である。
+
+式\eqref{cmo:eq:mixed-center}の中心性は、指定した二組の係数について
+有理数上の有限な線型代数で直接検証する。
+次数$d$の全語を基底に、二次関係を長さ$d-2$の全左右語で挟んだ行列を作る。
+$d=3,4$の商次元は$20,35$であり、$\Omega_\alpha$の次数三剰余は非零、
+四生成元との全交換子の次数四剰余は零となる。
+再現コードは\texttt{verify\_point\_poisson\_obstruction.py}の
+\texttt{verify\_mixed\_central\_norm}にあり、全行列を関係式から再生成して厳密消去する。
+中心性は生成元とのこの有限個の交換子で尽くされ、
+全次数PBW性は前段の判定で別に示している。
+$u=0$では、$S=x^3+y^3+z^3$、
+$C_+=xyz+yzx+zxy$、$C_-=yxz+xzy+zyx$と書くと
+\[
+ C_+-C_--S=0,\qquad 3c_3=2C_--2S,\qquad
+ \Omega_0=\frac{3S-C_+-C_-}{9}=-\frac13c_3.
+\]
+ここで標準中心元$c_3$の式は
+\cite[Section~2, p.~3]{GRSklyaninDLL}に$(a,b,c)=(1,-1,-1)$を代入したものである。
+従って$\Omega_0$は全点加群を消す。
+二因子の中心三次和は$B/(u)$上正則であり、
+$u$の正則性と次数についての帰納法から、$w_c$も全ての$c$で正則である。
+
+可換化して$u=1$とすると$x^2=\alpha_1,y^2=\alpha_2,z^2=\alpha_3$である。
+各因子は八つの相異なる有理点に分解し、
+その上の中心元の値は
+\[
+ b_\alpha=-\frac23(\alpha_1x+\alpha_2y+\alpha_3z+xyz)
+\]
+となる。$(x,y,z)=(\pm1,\pm2,\pm3)$での全評価値が$\mathcal R$、
+$(\pm4,\pm5,\pm7)$での全評価値が$\mathcal S$である。
+従って$Q=\C^{64}$上の乗法は対角となり、式\eqref{cmo:eq:explicit-norm}を得る。
+$\mathcal S$の異なる二元の差の絶対値は少なくとも$20$、
+$\mathcal R$の直径は$56$なので、$100\mathcal S$を中心とする八つの組は交わらない。
+各組の八値も相異なるため、全ての根は単純である。
+また$100\min_{s\in\mathcal S}|s|>\max_{r\in\mathcal R}|r|$より$N(0)\ne0$である。
+点関手の結論は定理\ref{cmo:thm:point-norm}から従う。
+\end{proof}
+
+\begin{remark}[可換 Ku 実現と点スキーム比較との関係]
+\label{cmo:rem:scope}
+$k=2,m=1$ は $N=7,n=5$ に当たり、定理\ref{cmo:thm:point-norm}の
+有限定常環の長さは $64$ である。
+一般の中心係数では点スキームは二つの楕円曲線だけとなり、
+命題\ref{cmo:prop:poisson-zero}の零スキームと同じ形を持つ。
+しかし、一般の混合表示について、その楕円曲線を active 制限に持つ
+\emph{同じ}可換 Ku 標的を構成したことにはならない。
+分離表示では定理\paperref{main}{csc:thm:comparison}がこの不足を埋める。
+
+定常点の出現だけから反例を結論するのではなく、
+source の smoothness と全可換標的の排除を別に要する。
+指定した六十四係数では前者を系\ref{cmo:cor:fixed-zero-norm-smooth}、
+後者を孤立 Poisson 零点の次元制約
+（定理\ref{ppz:thm:isolated-zero-dimension}）で満たす。
+有限 norm による明示的な例外集合は、これらの次の検証対象を与える。
+\end{remark}

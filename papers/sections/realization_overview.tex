@@ -1,0 +1,88 @@
+% !TEX root = ../nc-cubic.tex
+\section{残余圏の形式認識と到達範囲}
+\label{real:sec:scope}
+\subsection{通常 Artin 変形の認識}
+\begin{maintheorem}[残余圏の通常の Artin 形式認識]
+滑らかな三次 $X$ の dg 残余圏を $\mathcal K_X=\operatorname{Ku}(X)$ とし、
+$\mathcal D_X=\operatorname{Ind}(\mathcal K_X)$ とする。
+$n\ge3$、$n\ne4$ なら、特殊ファイバーを同定した通常の可換局所 Artin 基底上で
+\[
+ \operatorname{Def}_X\simeq
+ \tau_{\le1}\operatorname{CatDef}^{c}_{\mathcal D_X}.
+\]
+両辺の同型類は $\binom{n+2}{3}$ 次元の滑らかな形式円板となる。
+$n=4$ では圏変形の形式 hull の通常 Artin 同型類関手が
+二十二次元形式円板となり、幾何的変形の円板は二十次元である。
+\end{maintheorem}
+
+証明は定理\ref{thm:nf-residual-formal}に与える。
+既知の sector 公式と幾何的 Kodaira--Spencer 単射性から得る接写像同型を、
+実際の幾何的変形の全次数の自然変換と合わせる。
+$HH^3$ の消滅に依存しないため、$HH^3=\C^2$ となる $n=7$ も含む。
+圏変形の形式 hull と実際の compactly generated 変形の比較には
+Lurie \cite{NFDAGX} の tame 圏に対する結果を用いる。
+未切断の高次群oidや導来 Artin 基底上での同値は主張しない。
+
+rotation $\mathsf R$ と Serre 関手 $S$ の既知の関係は
+$\mathsf R^3=[2]$、$S=\mathsf R^{-(n-1)}[n]$ である。
+$n\not\equiv1\pmod3$ では rotation を Serre と shift から回復できるが、
+$n\equiv1\pmod3$ ではこの方法は使えない。
+これは四次元の形式認識の例外とは異なる区分である。
+
+
+\subsection{相対比較と降下の位置付け}
+
+構造対象付きモジュライ、trace--Hessian と残余三次の差、
+点曲線による尺度の規格化、比較核の Picard 障害と周期位相は、
+モジュライ・降下稿\cite{NCCubicModuliDescent}で扱う。
+自然な標的を指定する比較や族上の比較では、本稿からもそこでの
+中心直線・相対尺度・scalar 自明化の結果を参照する。
+固定された複素係数で任意の平面方程式を選ぶ直接 Ku 比較は、
+これらの精密な降下条件を前提としない。
+幾何学的な同値の存在、核の同型類の定義体、実際の核の scalar 障害、
+rotation と指定周期の位相は、それぞれ異なる問題である。
+
+\subsection{可換実現の境界と残る問題}
+
+中心課題は主予想\ref{conj:nc-main}であり、
+既知の可換実現 locus の境界延長と各 intrinsic 成分を覆う表示を優先する。
+点スキームと Poisson 零スキームの一致を一般に期待できないことは、
+注意\ref{ppz:rem:naive-expectation}とそこで参照する三様体・五様体の例で説明した。
+既知の分離型における一致とその限界は、可換実現の幾何を理解するために保持する。
+中心変数を持つ分離型の可換実現は定理\ref{csc:thm:comparison}で扱い、
+定数型混合族では、有限中心性と相対対角の証明から
+系\paperref{mixed}{cmo:cor:cofinite}の余有限可換実現を得た。
+指定二因子では、定理\paperref{mixed}{cmo:thm:morse-singular-sixty-four}により
+norm と交わらない六十四係数で全 coherent Ku の非 proper 性が確定した。
+定理\paperref{mixed}{cmo:thm:fourteen-node-orders}で十四節点の局所代数と全単純加群を決定し、
+中央切断・相対対角・射影境界の証明を合わせて
+定理\paperref{mixed}{cmo:thm:exact-sixty-four}の正確な非 smooth 集合 $V(P_{64})$ を得た。
+例\paperref{mixed}{cmo:ex:sixty-four}の norm の全六十四係数と $c=0$ は smooth proper である。
+次はこの既知の smooth locus 全体で可換 Ku 比較を構成する。
+具体的な比較先として、定理\paperref{mixed}{cmo:thm:commutative-discriminant-candidate}の
+可換三次族と、零係数での命題\paperref{mixed}{cmo:prop:zero-eckardt-resolution}の模型を使う。
+零係数では定理\paperref{mixed}{cmo:thm:eckardt-root-residual}の根スタック上の十六直交条件と
+指定された指標作用を比較核の標的として使える。
+通常の Hochschild 群と有理 Euler 形式は全 smooth 係数で一致するが、
+それだけで比較核は得られない。
+非次数付き affine MF 比較は同領域で零となるため、
+原点・内部 shift・三次周期を保持した MF または射影残余圏の実際の核を構成し、
+一般点での同値をこの具体的候補について確認する必要がある。
+その後、命題\ref{grl:prop:trait-kernel-test}の単位・余単位の
+有限長判定を使って各 DVR への延長を調べる。
+通常の周囲代数の derived Morita 比較と、形式的な $h$ 進核の
+$h=1$ への無条件な代入は、この手順の代わりにならない。
+可換実現 locus の開性だけでは全 smooth locus への拡張は従わない。
+混合族稿の有限中心族の外にある混合表示と、全 intrinsic 成分の被覆も残る。
+
+精密な降下の側には、周期位相の他の境界での分岐、正準位相体上の scalar index、
+代数的核の coherent な中心線型性、高次元の任意の full class と非分裂軌道が残る。
+これらの記法と条件はモジュライ・降下稿に置く。
+特に同稿の補題\paperref{moduli}{lem:nfm-period-two-boundary-criterion}は、
+一つの完備 trait 上の位相値だけから大域式を結論できないことを明記する。
+同稿の第\paperref{moduli}{subsubsec:nfm-boundary-products-period}項では、
+全 orbit Hom と指定周期を保つ整模型で低次積・飽和関係・三次積の消失次数を調べる。
+この積の計算と局所尺度の比較は、滑らかな残余模型や full 比較核自体の
+境界延長とは別である。
+形式座標の代数性と内在的なモジュライの代数性も区別し、
+境界や全 Abel 形式近傍は、一般次元の可換実現を妨げる障害の解消に必要な範囲で扱う。

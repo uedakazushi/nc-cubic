@@ -1,10 +1,10 @@
-% !TEX root = ../nc-cubic.tex
+% !TEX root = ../cubic-moduli-descent.tex
 \section{点の平行移動と比較核の Picard 類}
 \label{sec:nfm-kernel-point-class}
 
 最高次線束型の比較核について、スカラー障害は次数零 Picard 類
 $m_P$ の表現障害である。
-本節では楕円曲線の rotation を保つ全 Fourier--Mukai 同値を分類し、
+本節では体上の楕円因子比較を入力として相対核の分類を行い、
 可換特殊ファイバーを含む非可換 active 商の相対 THCR/window1 比較を構成する。
 これにより、固定入力と良い一ブロックの仮定の下で、
 点の平行移動と $m_P$ を結ぶ追加型の非空性とスカラー障害の具体式を証明する。
@@ -13,258 +13,21 @@ $m_P$ の表現障害である。
 代数的な active 同値核の assignment や、full 核の同型類の選択を
 無条件に構成するものではない。
 
-\subsection{平行移動・線束と rotation の共役}
+\subsection{楕円 rotation の全自己同値と相対核}
 
-楕円曲線の点 $b$ を次数零線束 $P_b=\mathcal O_E(b-0)$ と同一視する。
-以下の式はまず代数閉体上で証明し、必要な等式を忠実平坦降下して用いる。
-右加群の twisted homogeneous coordinate ring の規約は
-\cite[\S3, equation~(3.1)]{NFMStaffordVdB}に合わせる。
-すなわち $\sigma$ が点加群の shift を表すとき、
-coherent sheaf 上の次数 shift は
-\begin{equation}
-\label{eq:nfm-right-thcr-shift}
- s=\sigma_*\circ(-\otimes L)
-\end{equation}
-である。特に $s(k(x))=k(\sigma(x))$ となる。
-$\sigma^*$ と取り違えると、以下の平行移動の符号が逆になる。
-
-\begin{lemma}[楕円曲線の rotation の共役式]
-\label{lem:nfm-elliptic-rotation-conjugacy}
-$E$ を標数零の代数閉体上の楕円曲線、$L$ を次数三の線束とする。
-\[
- U_{a,b}=t_a^*\circ(-\otimes P_b),\qquad
- \rho=T_{\mathcal O_E}\circ(-\otimes L)
-\]
-と置く。関手の同型類について
-\begin{equation}
-\label{eq:nfm-elliptic-rotation-conjugacy}
- \rho U_{a,b}\rho^{-1}\simeq U_{-2a-b,\,3a+b}
-\end{equation}
-が成り立つ。
-$\sigma=t_p$ とし、右加群の規約に従って
-$\rho_p=T_{\mathcal O_E}\circ\sigma_*\circ(-\otimes L)$ と置くと、
-\begin{equation}
-\label{eq:nfm-elliptic-point-intertwiner}
- U_{a,b}\rho_pU_{a,b}^{-1}\simeq\rho
- \quad\Longleftrightarrow\quad
- 3a=0,\qquad b=p.
-\end{equation}
-特に $\rho$ と可換する $U_{a,b}$ は $U_{a,0}$、$a\in E[3]$ に限られ、
-これらは次数零 Picard 類を変えない。
-\end{lemma}
-
-\begin{proof}
-平行移動は次数零 Picard 類に自明に作用するので、
-$U_{a,b}$ の同型類の積は $(a,b)$ の加法である。
-$t_a^*L\otimes L^{-1}\simeq P_{-3a}$ より
-\[
- \operatorname{Ad}_{-\otimes L}(a,b)=(a,b+3a).
-\]
-また
-\[
- \operatorname{Ad}_{T_{\mathcal O_E}}(a,b)=(a-b,b)
-\]
-である。後式の graph と線束を確認する。
-twist の Fourier--Mukai 核は
-$\operatorname{Cone}(\mathcal O_{E\times E}\to\mathcal O_\Delta)
-=\mathcal O_{E\times E}(-\Delta)[1]$ であり、
-$T_{\mathcal O_E}^{-1}k(x)=\mathcal O_E(x)$ となる。
-従って共役 $T_{\mathcal O_E}U_{a,b}T_{\mathcal O_E}^{-1}$ は
-$k(x)$ を $k(x-a+b)$ へ送り、$\mathcal O_E$ を $P_b$ へ送る。
-点層を shift なしの点層へ送る同値の核は、その台である graph 上の線束である。
-この場合の graph は $t_{a-b}$ の pullback、線束は $P_b$ なので、所要の式を得る。
-これは上記の twist 核を使った畳込み計算とも一致する。
-
-二つの共役作用の積は
-\[
- A=\begin{pmatrix}-2&-1\\3&1\end{pmatrix}
-\]
-であり、\eqref{eq:nfm-elliptic-rotation-conjugacy}を与える。
-平行移動は $\mathcal O_E$ を保つので、その pullback は
-$T_{\mathcal O_E}$ と可換する。
-従って $\rho_p=U_{-p,0}\rho$ であり、intertwining の条件は
-\[
- (I-A)\binom ab=\binom p0,
- \qquad\text{すなわち}\qquad
- 3a+b=p,\quad -3a=0
-\]
-に等しい。これで全ての主張が従う。
-\end{proof}
-
-\subsection{全楕円同値の分類と二段階の障害}
-
-次に、平行移動と線束の tensor 以外も含む全ての Fourier--Mukai 同値を扱う。
-$K$ を標数零の体、$E,C$ を $K$ 上の滑らかな射影 genus-one 曲線とし、
-実際の次数三線束 $L_E,L_C$ を固定する。原点や $K$-有理点は仮定しない。
-$p\in J_E(K)=\operatorname{Pic}^0(E)(K)$ に対し
-\[
- \rho_{E,p}=T_{\mathcal O_E}\circ(t_p)_*\circ(-\otimes L_E),
- \qquad
- \rho_C=T_{\mathcal O_C}\circ(-\otimes L_C)
-\]
-と置く。
-以下で intertwiner というときは、実際の perfect Fourier--Mukai 核による
-$K$-線型同値 $F$ に、$F\rho_{E,p}\simeq\rho_CF$ という
-\emph{同型の存在条件}を課す。その同型自体の標識と指定周期との整合は、
-最後に別に扱う。
-
-\begin{lemma}[数値 centralizer と graph の認識]
-\label{lem:nfm-elliptic-numerical-graph}
-幾何的数値格子を $(\operatorname{rank},\deg)$ によって $\mathbf Z^2$ と同定する。
-$\rho_{E,p}$ と $\rho_C$ の行列はともに
-\[
- R=\begin{pmatrix}-2&-1\\3&1\end{pmatrix},\qquad R^3=I
-\]
-であり、
-\begin{equation}\label{eq:nfm-elliptic-numerical-centralizer}
- \operatorname{Cent}_{\operatorname{SL}_2(\mathbf Z)}(R)
-   =\{\pm I,\pm R,\pm R^2\}.
-\end{equation}
-また、実際の $K$-線型 Fourier--Mukai 同値
-$F:D^b(E)\to D^b(C)$ の幾何的数値作用が恒等なら、
-$K$-同型 $\phi:E\xrightarrow{\sim}C$、$C$ 上の次数零線束 $M$、
-整数 $a$ があって
-\begin{equation}\label{eq:nfm-elliptic-numerical-graph}
- F\simeq(-\otimes M)\circ\phi_*[2a]
-\end{equation}
-となる。これらは同型を除いて一意であり、
-$F(\mathcal O_E)$ が shift のない次数零線束なら $a=0$ である。
-\end{lemma}
-
-\begin{proof}
-次数三線束の tensor と $T_{\mathcal O}$ の数値行列は、それぞれ
-\[
- \begin{pmatrix}1&0\\3&1\end{pmatrix},\qquad
- \begin{pmatrix}1&-1\\0&1\end{pmatrix}
-\]
-であり、平行移動の数値作用は恒等である。従ってその積は $R$ となる。
-$B=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$ とすると、
-$BR=RB$ は $c=-3b$、$d=a-3b$ に等しい。
-さらに
-\[
- 1=\det B=a^2-3ab+3b^2
-   =\left(a-\frac32b\right)^2+\frac34b^2
-\]
-なので $|b|\le1$ である。
-$b=0$ なら $a=\pm1$、$b=1$ なら $a=1,2$、
-$b=-1$ なら $a=-1,-2$ であり、これが表示した六行列を与える。
-
-graph の主張をまず代数閉包上で証明する。
-滑らかな曲線では $\operatorname{Ext}^{\ge2}=0$ なので、
-有界複体は cohomology 層の shift の直和である。
-$F(k(x))$ は indecomposable で数値類 $(0,1)$ を持つため、
-ある点 $\phi(x)$ と整数 $a(x)$ に対し
-$F(k(x))\simeq k(\phi(x))[2a(x)]$ となる。
-kernel の第一射影に関する relative perfect 性と Tor amplitude の開性から
-$a(x)$ は局所定数であり、$E$ の連結性によって一定である。
-shift を除いた kernel は第一射影について平坦な長さ一の層の族なので、
-一つの graph 上の線束となる。
-逆 kernel にも同じ議論を適用すると、graph の射は同型である。
-これで\eqref{eq:nfm-elliptic-numerical-graph}を得る。
-数値作用が恒等なので $\deg M=0$ であり、
-$F(\mathcal O_E)=M[2a]$ から最後の主張も従う。
-この graph 認識は
-\cite[Proposition~4.2, Corollary~4.3 and Theorem~5.3]{NFMHilleVdBFM}
-の証明と同じ議論である。
-
-$K$ 上への降下では、kernel が実際の $K$ 上の対象であることを用いる。
-忠実平坦な体拡大後に cohomology が一つの次数に集中するので、
-$K$ 上でも同じ次数の層となる。
-その平坦性、graph 上の可逆性は fpqc 局所的性質である。
-scheme 理論的 support の $E$ への射は代数閉包上で同型なので、
-$K$ 上でも同型となり、$\phi$ と線束が降下する。
-graph とその上の線束の一意性から、表示の一意性も従う。
-ここで $K$ 上の数値格子が次数一の対象を含むとは仮定していない。
-\end{proof}
-
-\begin{theorem}[構造層の像で規格化した全楕円 intertwiner]
-\label{thm:nfm-elliptic-normalized-intertwiners}
-$F:D^b(E)\to D^b(C)$ を実際の $K$-線型 Fourier--Mukai 同値とし、
-$F(\mathcal O_E)$ は shift のない次数零線束とする。
-このとき $F\rho_{E,p}\simeq\rho_CF$ であることは、
-\begin{equation}\label{eq:nfm-elliptic-normalized-intertwiners}
- F\simeq(-\otimes M)\circ\phi_*,\qquad
- \phi^*L_C\simeq L_E,\qquad
- [M]=\operatorname{Jac}(\phi)(p)
-\end{equation}
-を満たす $K$-同型 $\phi:E\to C$ と実線束 $M$ があることと同値である。
-ここで $\operatorname{Jac}(\phi)$ は $\phi$ による共変な Picard 同型である。
-\end{theorem}
-
-\begin{proof}
-$F$ の幾何的数値行列 $B$ は $e_1=(1,0)^{\mathsf t}$ を固定し、
-$BR=RB$ を満たす。$e_1$ と $Re_1=(-2,3)^{\mathsf t}$ は
-$\mathbf Q$ 上独立なので $B=I$ である。
-前補題によって $F=(-\otimes M)\phi_*$ と書ける。
-\[
- q=\operatorname{Jac}(\phi)(p),\qquad
- L'=\phi_*L_E,\qquad d=[L'\otimes L_C^{-1}],\qquad m=[M]
-\]
-と置く。
-代数閉包上で原点を取り、補題\ref{lem:nfm-elliptic-rotation-conjugacy}の
-$U_{a,b}$ を用いると
-\[
- \phi_*\rho_{E,p}\phi_*^{-1}=U_{-q,0}\rho_CU_{0,d}
-\]
-である。従って同補題の共役式から
-\begin{equation}\label{eq:nfm-elliptic-graph-conjugation}
- \begin{split}
- F\rho_{E,p}F^{-1}
- &=U_{0,m}U_{-q,0}\rho_CU_{0,d}U_{0,-m}\\
- &=U_{m-q-d,d}\rho_C
- \end{split}
-\end{equation}
-となる。
-$U_{a,b}\simeq\mathrm{id}$ なら、$\mathcal O$ の像から $b=0$、
-点層の像から $a=0$ である。
-従って intertwining は $d=0$、$m=q$ に等しい。
-特に非偏極的な $\phi$ のずれを線束 $M$ で補償することはできない。
-
-これらは相対 Picard 類の等式なので $K$ 上へ降りる。
-$d=0$ は、実線束 $L'\otimes L_C^{-1}$ が
-$\operatorname{Spec}K$ からの線束であることを意味し、従って自明である。
-逆向きの functor の同型も $K$ 上で存在する。
-実際、比較する二つの同値 kernel は代数閉包上で同型であり、
-その $\operatorname{Hom}^0$ は $\mathrm{HH}^0(E_{\overline K})=\overline K$
-によって一次元である。
-proper perfect Hom の体拡大により $K$ 上でも一次元であり、
-その非零元は代数閉包上で同型となるため、既に $K$ 上で同型である。
-\end{proof}
-
-\begin{corollary}[全数値型を含む active 同値の存在判定]
-\label{cor:nfm-elliptic-any-intertwiner-criterion}
-$F(\mathcal O_E)$ に条件を課さない場合にも、
-実際の $K$-線型 Fourier--Mukai intertwiner
-$(D^b(E),\rho_{E,p})\to(D^b(C),\rho_C)$ が存在することは、
-次の二条件と同値である：
-\begin{enumerate}
- \item $(E,L_E)$ と $(C,L_C)$ の $K$ 上の偏極曲線同型が存在する。
- \item $\delta_E(p)=0$、すなわち $p$ は $E$ 上の実際の次数零線束で表される。
-\end{enumerate}
-特に同じ $(E,L)$ 上では
-\begin{equation}\label{eq:nfm-elliptic-any-intertwiner-obstruction}
- \{F:F\rho_{E,p}\simeq\rho_EF\}\ne\varnothing
- \quad\Longleftrightarrow\quad \delta_E(p)=0.
-\end{equation}
-この主張は intertwining 同型自体の周期付き rigidification を含まない。
-\end{corollary}
-
-\begin{proof}
-任意の intertwiner の数値行列は
-\eqref{eq:nfm-elliptic-numerical-centralizer}に属する。
-$K$ 上で定義された $\rho_C$ の冪と shift を postcompose して、
-数値作用を恒等にする。
-補題\ref{lem:nfm-elliptic-numerical-graph}によって graph と
-次数零線束の偶 shift を得るので、その shift も除けば前定理を適用できる。
-従って偏極曲線同型 $\phi$ と
-$\operatorname{Jac}(\phi)(p)$ を表す実線束を得る。
-実際の $K$-同型 $\phi$ による線束の移送は Picard gerbe の band を保つから
-\[
- \delta_C(\operatorname{Jac}(\phi)(p))=\delta_E(p)
-\]
-であり、必要性を得る。
-逆に $p$ の実線束を $\phi$ で移送すれば、前定理から所要の同値を得る。
-\end{proof}
+体上の rotation の共役式、全楕円 intertwiner の存在判定、右 THCR の規約は、
+主稿の第\paperref{main}{cf:sec:elliptic-foundations}節に証明とともにまとめた。
+本節では補題\paperref{main}{lem:nfm-elliptic-rotation-conjugacy}、
+定理\paperref{main}{thm:nfm-elliptic-normalized-intertwiners}、
+系\paperref{main}{cor:nfm-elliptic-any-intertwiner-criterion}を用いる。
+以下、$K$ は標数零の体とし、$E,C$ は $K$ 上の滑らかな射影 genus-one 曲線、
+$L_E,L_C$ は実際の次数三線束とする。原点や $K$-有理点は仮定しない。
+$p\in J_E(K)$ に対して
+$\rho_{E,p}=T_{\mathcal O_E}(t_p)_*(-\otimes L_E)$、
+$\rho_C=T_{\mathcal O_C}(-\otimes L_C)$ と書く。
+intertwining は実際の perfect Fourier--Mukai 核による同値についての
+同型 $F\rho_{E,p}\simeq\rho_CF$ の存在を表し、
+その同型と指定周期の標識は別に扱う。
 
 \begin{corollary}[楕円 rotation の全 Fourier--Mukai centralizer]
 \label{cor:nfm-elliptic-full-centralizer}
@@ -281,8 +44,8 @@ $\varepsilon^2\simeq\rho$、$\varepsilon^3\simeq[1]$ となる。
 
 \begin{proof}
 数値作用を $\rho$ の冪と shift で恒等にし、
-補題\ref{lem:nfm-elliptic-numerical-graph}を適用した後、偶 shift を除く。
-定理\ref{thm:nfm-elliptic-normalized-intertwiners}を $p=0$ に適用すると、
+補題\paperref{main}{lem:nfm-elliptic-numerical-graph}を適用した後、偶 shift を除く。
+定理\paperref{main}{thm:nfm-elliptic-normalized-intertwiners}を $p=0$ に適用すると、
 残る関手は偏極曲線自己同型の pushforward である。
 これは $\rho$ と shift の両方と可換する。
 plane cubic の window による三次周期 $\rho^3\simeq[2]$ から
@@ -328,7 +91,7 @@ $\mathfrak I_\theta$ 上では $\delta_E(p)$ の引戻しにも等しい。
 \end{proposition}
 
 \begin{proof}
-各幾何的ファイバーで定理\ref{thm:nfm-elliptic-normalized-intertwiners}を用いる。
+各幾何的ファイバーで定理\paperref{main}{thm:nfm-elliptic-normalized-intertwiners}を用いる。
 二つの射影は滑らかなので、相対 perfect kernel はそれぞれについて
 有限 Tor amplitude を持つ。
 第一因子の各幾何点上で kernel は shift のない長さ一の点層であるから、
@@ -342,7 +105,7 @@ $P$ はその graph 上の線束となる。
 逆核にも同じ議論を適用すれば、その graph の射 $\phi$ は同型である。
 $M=F(\mathcal O_E)$ とすると、kernel は
 $(\Gamma_\phi)_*(\phi^*M)$ と書ける。
-前定理の共役式は fppf 局所的に原点を選んで使えるため、
+定理\paperref{main}{thm:nfm-elliptic-normalized-intertwiners}の共役式は fppf 局所的に原点を選んで使えるため、
 偏極類の一致と $[M]=\theta(p)$ を与える。
 ここで幾何点ごとの Picard 類の一致から、非被約な底上の一致を推論しているのではない。
 共役式は graph kernel、Poincar\'e 線束、相対評価三角形の計算であり、
@@ -352,7 +115,7 @@ graph の一致から切断 $m-q=0$ を得る。
 
 逆に右辺の $(\phi,M)$ から graph kernel を作る。
 必要な底からの線束を fppf 局所的に自明化し、
-\eqref{eq:nfm-elliptic-graph-conjugation}を用いれば intertwining を得る。
+\papereqref{main}{eq:nfm-elliptic-graph-conjugation}を用いれば intertwining を得る。
 異なる graph 上の kernel は同型ではなく、同じ graph 上の kernel の同型は
 $M$ の同型そのものなので、表示した射は stack の同値である。
 
@@ -403,52 +166,11 @@ $\widetilde{\mathfrak I}_\theta$ であり、その実現 gerbe は
 同型類の sheaf と同一視してはならない。
 \end{remark}
 
-\subsection{右座標環の window と内部 shift}
-
-\begin{lemma}[右楕円座標環の window1 と内部 shift]
-\label{lem:nfm-twisted-elliptic-window}
-$A=B(E,L,\sigma)$ を右 twisted homogeneous coordinate ring とする。
-$\operatorname{qgr}A\simeq\operatorname{coh}E$ の下で
-$\pi A\leftrightarrow\mathcal O_E$、$(1)\leftrightarrow s$ は
-\eqref{eq:nfm-right-thcr-shift}に従うものとする。
-$A$ に Gorenstein parameter 零の Orlov 同値が適用でき、
-window1 を $\Phi_1=q_{\mathrm{sg}}R\Gamma_{\ge1}$ と取る。
-このとき
-\begin{equation}
-\label{eq:nfm-twisted-active-window}
- \kappa_A\longleftrightarrow\mathcal O_E[1],\qquad
- \Phi_1^{-1}(1)\Phi_1=T_{\mathcal O_E}\circ s.
-\end{equation}
-\end{lemma}
-
-\begin{proof}
-この window の存在については
-\cite[Theorem~2.5(iii)]{NFMOrlovSingularities}を用いる。
-$m>0$ に対して $s^m\mathcal O_E$ は次数 $3m$ の線束なので、
-その高次 cohomology は消える。
-従って $R\Gamma_{\ge1}\mathcal O_E=A_{\ge1}$ であり、
-$0\to A_{\ge1}\to A\to k\to0$ を特異圏へ写すと第一式を得る。
-任意の $F$ に対し
-\[
- (R\Gamma_{\ge1}F)(1)=R\Gamma_{\ge0}(sF)
-\]
-であり、次数零の切断は三角形
-\[
- R\Gamma_{\ge1}(sF)\longrightarrow R\Gamma_{\ge0}(sF)
- \longrightarrow R\operatorname{Hom}(\mathcal O_E,sF)\otimes k
- \longrightarrow
-\]
-を与える。
-特異圏へ写し、第一式を用いて三角形を回転すると、評価写像の三角形
-\[
- R\operatorname{Hom}(\mathcal O_E,sF)\otimes\mathcal O_E
- \longrightarrow sF\longrightarrow\Phi_1^{-1}(1)\Phi_1(F)
- \longrightarrow
-\]
-を得る。この cone は $T_{\mathcal O_E}(sF)$ である。
-従って剰余体と内部 shift の双方について同じ window の規約を得た。
-この切断の議論は $A$ の可換性を用いない。
-\end{proof}
+体上の window1 と内部 shift の比較は、主稿の
+補題\paperref{main}{lem:nfm-twisted-elliptic-window}に与えた。
+右 THCR の shift は式\papereqref{main}{eq:nfm-right-thcr-shift}、
+剰余体と rotation の対応は式\papereqref{main}{eq:nfm-twisted-active-window}の規約に従う。
+以下ではこの比較の相対構成と底変更を扱う。
 
 \subsection{可換特殊ファイバーを含む相対楕円座標環と window1}
 
@@ -718,7 +440,7 @@ Tag~0B91 を適用すれば分かる。
 
 最後に $R\Gamma_{\ge1}\mathcal O_{E_R}=(A_R)_{\ge1}$ と
 $0\to(A_R)_{\ge1}\to A_R\to R\to0$ から augmentation の式を得る。
-補題\ref{lem:nfm-twisted-elliptic-window}の切断三角形を $R$ 上で用いれば、
+補題\paperref{main}{lem:nfm-twisted-elliptic-window}の切断三角形を $R$ 上で用いれば、
 内部 shift は相対評価写像の cone
 $T_{\mathcal O_{E_R}}\circ s$ へ移る。
 指定周期の比較は、入力B \texttt{tw:eq:period-extension} の余核二拡張をそのまま使う。
@@ -769,7 +491,7 @@ relative Tor amplitude が $[0,0]$ となる locus は開で、閉ファイバ�
 線束の次数は局所定数なので零である。
 
 一般ファイバーの代数閉包上で
-補題\ref{lem:nfm-elliptic-rotation-conjugacy}を適用すると、
+補題\paperref{main}{lem:nfm-elliptic-rotation-conjugacy}を適用すると、
 \eqref{eq:nfm-formal-elliptic-intertwining}は $3a=0$、$b=p$ を与える。
 これらは相対 Jacobian の切断の等式なので $R$ 上へ降りる。
 $E[3]$ は有限 \'etale であり、閉点で零となる $a$ は零である。
@@ -865,7 +587,7 @@ potential の単元倍を扱うときは、既存の比較と同じ指定周期�
 選んだ CF 比較は閉ファイバーで恒等であり、二つの window もそこで一致するので、
 その核の閉ファイバーは $\mathcal O_\Delta$ である。
 内部 shift の適合性と
-補題\ref{lem:nfm-twisted-elliptic-window}から
+補題\paperref{main}{lem:nfm-twisted-elliptic-window}から
 \eqref{eq:nfm-formal-elliptic-intertwining}が成立する。
 従って補題\ref{lem:nfm-formal-elliptic-point-line}により
 \[
@@ -1854,7 +1576,7 @@ $\theta_{\mathrm{sc}}$ は $k_n$ 上の群同型なので三倍性を保ち、
 \end{corollary}
 
 \begin{proof}
-系\ref{cor:nfm-elliptic-any-intertwiner-criterion}により、
+系\paperref{main}{cor:nfm-elliptic-any-intertwiner-criterion}により、
 同値の存在は特に $\delta_{E_{\mathrm{pt}}}(p_{\mathrm{pt}})=0$ を要求する。
 これは系\ref{cor:nfm-generic-point-picard-index-three}に反する。
 有限拡大 $L/k_n$ 上でこの類が消えるなら、restriction と corestriction の合成により
@@ -2478,7 +2200,7 @@ $k_n$ 上にも、三に素な次数の有限拡大上にも存在しない。
 点型の実際の full 比較核は有限拡大後に存在する。
 これを $\overline{k_n}$ 上へ移し、その幾何的類を取る。
 必要な $\mathrm{HH}^{<0}=0$、$\mathrm{HH}^0=\overline{k_n}$ は
-命題\ref{prop:nf-hh}から得られる。
+命題\paperref{main}{prop:nf-hh}から得られる。
 前命題と補題\ref{lem:nfm-cyclic-kernel-class-descent}から、
 この類は $k_n$ 上の class 切断を定める。
 最高次線束条件と点型等式は Galois 不変であり、
@@ -2523,7 +2245,7 @@ $T=\rho_Y^{-1}[1]$ も $\rho_Y$ と可換する。
 幾何的に rotation を intertwine する一つの underlying full 比較核 class が
 $K$ 上で選ばれているものとし、その実現 gerbe を $\mathcal G$、
 普遍核を $P$ とする。
-式\eqref{eq:nf-hh}と同じ simple 性の仮定により
+式\papereqref{main}{eq:nf-hh}と同じ simple 性の仮定により
 \[
  V=\operatorname{Hom}^0(P\rho_{\mathcal A},\rho_{\mathcal B}P)
 \]
@@ -3668,7 +3390,7 @@ $Z=\kappa_{\mathrm{nc}}[-1]$ と $P_0$ の rotation 適合性を用いれば、
 \]
 は $\mathcal B_{\overline K}$ の compact generator となる。
 $H_p$ の全元は $G_p$ を対象として保つ。
-命題\ref{prop:nf-hh}の Hochschild 消滅と
+命題\paperref{main}{prop:nf-hh}の Hochschild 消滅と
 補題\ref{lem:nfm-generator-stabilizer-finite}により $H_p$ は有限である。
 
 $E_p$ の同型類は Galois 不変なので $H_p$ も Galois 不変な部分群である。

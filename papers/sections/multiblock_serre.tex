@@ -4,7 +4,7 @@
 
 本節では、中心一次変数を持たない満支持表示に対し、
 全 $\OO$-保存同値を調べるための相対双対と切断飽和を構成する。
-中心一次変数を二つ使う補題\ref{lem:nfm-central-saturation}は適用しない。
+中心一次変数を二つ使う補題\paperref{moduli}{lem:nfm-central-saturation}は適用しない。
 代わりに有限な切断加群の Ext を計算する。
 また、族の中では体上の Serre 式に現れない基底の直線束を保持する。
 この直線束を入れた反標準切断環は、共通の grading scalar を除いた
@@ -17,7 +17,7 @@
  N=3k,\qquad r=N-3,\qquad n=N-2
 \]
 と置く。$R$ は任意の可換 $\C$-代数である。
-第\ref{mbs:sec:presentations}節の普遍表示を
+第\paperref{moduli}{mbs:sec:presentations}節の普遍表示を
 $\Spec R$ へ引き戻したもの、または fpqc 局所的にそのようになる
 実際の次数付き代数表示を考える。
 各 $W_i=(S_i)_1$ は階数三、
@@ -35,7 +35,7 @@ $w=\sum_i a_i\Omega_i$, $a_i\in R^\times$ と書ける。
 $p_i,2p_i,3p_i\ne0$ である。
 異なる $j$ 不変量という仮定は表示スタックで用いるが、本節の双対計算には不要である。
 
-補題\ref{mbs:lem:factor-family}と定理\ref{mbs:thm:presentation-stack}により、
+補題\paperref{moduli}{mbs:lem:factor-family}と定理\paperref{moduli}{mbs:thm:presentation-stack}により、
 全ての次数成分は有限射影であり、列
 \begin{equation}\label{mbsd:eq:regular-line}
  0\longrightarrow B_{a-3}\otimes_R\ell
@@ -77,7 +77,7 @@ $(M^\vee)_a=\Hom_R(M_{-a},R)$ を表す。
 三次元二次 Sklyanin 代数の Koszul 解消では、三次 syzygy の次元は一である
 \cite[Theorems~6.6, 6.8]{GRSklyaninATV}。
 $P_i$ を核として表示する有限行列の階数は全幾何点で一定なので、
-補題\ref{mbs:lem:factor-family}と同じ小行列式の議論で、
+補題\paperref{moduli}{mbs:lem:factor-family}と同じ小行列式の議論で、
 $P_i$ は直線の直和因子となり、その形成は任意底変更に両立する。
 
 各幾何点では Hesse 座標を選び、関係を
@@ -132,7 +132,7 @@ cyclic 恒等式によりこれは複体となり、幾何ファイバーでは 
 Koszul 双加群解消である。
 この複体とその自己双対性は potential 解消の標準的な構成であり
 \cite[Theorem~3.6 の証明、Lemma~3.7]{NFMBeTa}、
-本稿の定理\ref{thm:nfm-relative-ambient-cy}の長さ三の計算と同じである。
+モジュライ・降下稿の定理\paperref{moduli}{thm:nfm-relative-ambient-cy}の長さ三の計算と同じである。
 ただしここでは $P_i$ の生成元を固定せず、その直線を保持する。
 
 普遍チャート上で全内部次数を固定すると、augmentation を含む各複体は
@@ -146,7 +146,7 @@ augmentation $S_i\to R$ との tensor 後も完全となる。
 cyclic tensor による contraction は $R_i\simeq W_i^\vee\otimes_RP_i$ を与える。
 この対応で複体を双対化すると、Hessian の転置は左右反転した Hessian となり、
 左右差は符号を変える。
-従って定理\ref{thm:nfm-relative-ambient-cy}の符号付き鎖写像により
+従って定理\paperref{moduli}{thm:nfm-relative-ambient-cy}の符号付き鎖写像により
 \[
  K_i^\vee\simeq K_i(3)\otimes_RP_i^\vee[-3]
 \]
@@ -289,8 +289,8 @@ compact 部分の相対 Serre 関手は
 \end{theorem}
 \begin{proof}
 定理\ref{mbsd:thm:ambient-duality}と列\eqref{mbsd:eq:regular-line}は、
-定理\ref{thm:nfm-relative-line-cohomology}および
-定理\ref{thm:nfm-relative-serre}の一般部分の入力を与える。
+定理\paperref{moduli}{thm:nfm-relative-line-cohomology}および
+定理\paperref{moduli}{thm:nfm-relative-serre}の一般部分の入力を与える。
 これらの証明は、周囲代数が一ブロックであることを使わず、
 普遍有限 Koszul 解消と中心正則三次の二項解消を用いている。
 以下ではその構成における係数直線を明記する。
@@ -303,7 +303,7 @@ $M_q=A/A_{\geq q}$ に対する \eqref{mbsd:eq:relative-gorenstein}の colimit �
 \end{equation}
 を与える。左右の作用は有限切断の計算の段階から保持されている。
 周囲代数上の有限幅 torsion 模型と中心商への restriction により、
-定理\ref{thm:nfm-relative-line-cohomology}の証明と同様に
+定理\paperref{moduli}{thm:nfm-relative-line-cohomology}の証明と同様に
 非有界 Gabriel 局所化三角
 \[
  \mathbf R\Gamma_A(M)\longrightarrow M\longrightarrow
@@ -319,7 +319,7 @@ restriction は保守的かつ直和保存なので、この像も compact gener
 compact 部分は generator の thick 閉包なので、同じ結論が全 compact 対象に延びる。
 
 Serre pairing の作用を確認するため、線対象の dg 切断代数を $Q$ と書く。
-定理\ref{thm:nfm-relative-serre}の証明で用いた導来 Gabriel 局所化により
+定理\paperref{moduli}{thm:nfm-relative-serre}の証明で用いた導来 Gabriel 局所化により
 $Q\otimes_A^{\mathbf L}Q\simeq Q$ である。
 \eqref{mbsd:eq:local-duality}の双対は
 \[

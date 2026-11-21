@@ -1,4 +1,4 @@
-% !TEX root = ../nc-cubic.tex
+% !TEX root = ../cubic-moduli-descent.tex
 \section{中心直線と点三次直線の自然な比較と可換標的}
 \label{mbpl:sec:point-line}
 
@@ -12,7 +12,7 @@
 両側の表示 gerbe と関係直線を同期できる。
 本節では線同型と可換族を構成する。
 体上の非可換残余圏との直接比較は
-第\ref{mbnp:sec:product}節、第\ref{mbrc:sec:rotation-comparison}節で別に構成する。
+第\paperref{main}{mbnp:sec:product}節、第\paperref{main}{mbrc:sec:rotation-comparison}節で別に構成する。
 
 \subsection{共通の一次元商と自然な線同型}
 
@@ -93,7 +93,7 @@ $\operatorname{Hilb}Q=(1+t)^3$、特に $\dim Q_3=1$ である。
 $J$ の方程式だけからその比を省略してはならない。
 点三次の Hessian 公式は既知の
 \cite[Theorem~7.2]{MoriSmith}、本稿の規約では
-式\eqref{mpc:eq:point-determinant}による。
+式\papereqref{main}{mpc:eq:point-determinant}による。
 \end{remark}
 
 \subsection{非空性を与える明示的な中心恒等式}
@@ -184,7 +184,7 @@ $x^2=y^2=z^2=0$ となり、射影曲線に点がなく矛盾する。
 よって平行移動切断は非零で、特殊化は零である。
 標数零の楕円曲線の形式群に非零有限位数点はない。
 従って一般点の平行移動は無限位数であり、全ての有限個の捩れ条件を避ける。
-Hesse の $j$ 関数\eqref{gre:eq:hesse-j}へ $\mu=t^2/3$ を代入すると非定数なので、
+Hesse の $j$ 関数\papereqref{main}{gre:eq:hesse-j}へ $\mu=t^2/3$ を代入すると非定数なので、
 $j=0,1728$ も一般点では避けられる。
 
 各因子について独立な $t_i$ を取れば $j_i$ は相異なり、満支持係数も取れる。
@@ -590,7 +590,7 @@ $J_i=\vartheta_i(\Omega_i)$ と規格化した場合である。
 
 \begin{corollary}[Jacobian tensor 一変数族内での残余比較]
 \label{mbpl:cor:generic-comparison}
-第\ref{mpc:sec:point-comparison}節の入力と PBW 仮定を満たす一変数族を取り、
+第\paperref{main}{mpc:sec:point-comparison}節の入力と PBW 仮定を満たす一変数族を取り、
 その一般点が基本楕円開の $\mathfrak P_k$ に属すると仮定する。
 するとある有限代数拡大後に、同節の中心群同変・rotation・指定周期保存の比較の標的を、
 定理\ref{mbpl:thm:commutative-family}の可換族の一般ファイバーへ取れる。
@@ -600,7 +600,7 @@ $J_i=\vartheta_i(\Omega_i)$ と規格化した場合である。
 
 \begin{proof}
 $K=\mathbb C(h)$ 上で、同節の点方程式の frame を $J_i$ と書く。
-式\eqref{mpc:eq:algebraic-potential}の既存標的は
+式\papereqref{main}{mpc:eq:algebraic-potential}の既存標的は
 $H_{\mathrm{pt}}=\sum_i c_i\lambda_iJ_i$ であり、
 本節の標的は $F_{\mathrm{pt}}=\sum_i c_iu_iJ_i$ である。
 各 $u_i,\lambda_i$ は $K^\times$ に属する。
@@ -609,7 +609,7 @@ $H_{\mathrm{pt}}=\sum_i c_i\lambda_iJ_i$ であり、
  F_{\mathrm{pt}}(s_1x_1,\ldots,s_kx_k)=H_{\mathrm{pt}}.
 \]
 このブロック対角座標変換は中心三乗根群と可換し、potential を正確に移す。
-従って定理\ref{mpc:thm:point-model}の比較と合成でき、
+従って定理\paperref{main}{mpc:thm:point-model}の比較と合成でき、
 内部 shift と指定周期も保たれる。
 \end{proof}
 
@@ -621,7 +621,7 @@ $j(E_{t_i})=512d_i^6h^6+O(h^{12})$ なので各 $j_i$ も相異なる。
 $\varepsilon_i=d_i h$ の Jacobian tensor 族である。
 補題\ref{mbpl:lem:fermat}の DVR 上の自由性が PBW 入力を与え、
 $\Omega_{d_ih}$ は primitive、満支持の特殊三次は Fermat 型の滑らかな分離和になる。
-従って実際に第\ref{mpc:sec:point-comparison}節と直前の系の適用範囲に入る。
+従って実際に第\paperref{main}{mpc:sec:point-comparison}節と直前の系の適用範囲に入る。
 この族での交わりの非空性と、全モジュライの既約性から得る
 全 $\OO$-認識開との交わりの非空性は、異なる主張として用いている。
 
@@ -631,6 +631,6 @@ $\mathcal T^\natural$ は、最大可換商だけから比較を計算できる�
 また表示 gerbe と関係直線の同期だけから、
 比較核や rotation 比較の大域的 section や指定形式核の全 jet の代数化は従わない。
 体上の全基本実表示の smooth proper 残余比較には、
-第\ref{mbnp:sec:product}節、第\ref{mbrc:sec:rotation-comparison}節の
+第\paperref{main}{mbnp:sec:product}節、第\paperref{main}{mbrc:sec:rotation-comparison}節の
 独立した外積・Picard 補正の構成を用いる。
 \end{remark}

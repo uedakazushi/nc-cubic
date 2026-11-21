@@ -1,8 +1,18 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月22日 / v49。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月22日 / v50。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
-**本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 非可換三次の可換Ku実現を中心に、中心変数を持つ分離型の直接比較と混合型の点関手を扱う。全point schemeとPoisson零スキームの比較、および素朴な一致への期待が成り立たない複素例も本文に収める。完備MF移送、一般中心三次変形の可換復元、一ブロック・満支持複数ブロック型のO-markedモジュライと認識、相対同変比較、残余Poisson射、比較核の算術的降下障害も保持する。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
+**本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
+
+| 公表用原稿 | 役割と証明の範囲 |
+| --- | --- |
+| [nc-cubic.tex](papers/nc-cubic.tex) | 主予想、完備MF移送と一般点可換復元、楕円因子の基礎・分離型の直接Ku比較、残余圏の認識と可換実現の開性、三様体の点スキーム不一致例。 |
+| [cubic-moduli-descent.tex](papers/cubic-moduli-descent.tex) | 構造対象付きモジュライと表示認識、相対点関手・Poissonモジュライ、精密なPicard/Brauer/Kummer降下、周期位相と最小比較次数。 |
+| [mixed-sklyanin-cubics.tex](papers/mixed-sklyanin-cubics.tex) | 混合Sklyanin族の有限中心・局所代数・単純加群、全smooth locusと不変量、明示可換候補とEckardt模型、被約point/Poisson不一致例。 |
+
+各数学的な節の本文は一つの稿を正本とし、他稿では稿名と定理番号を付けて参照する。組版設定は `papers/common/preamble.tex`、書誌は `papers/references.tex` を共有する。混合稿の本文は `papers/sections/mixed/` の10節に分けている。三稿の整理は、既存の数学全体を新たに証明・検証したという意味ではない。
+
+全次元・全ブロックの代数的量子化は [cubic-quantization](https://github.com/uedakazushi/cubic-quantization)、古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
 
 ## 最優先目標と現在の到達点
 
@@ -15,7 +25,7 @@
 
 - **満支持型の同時実現。** [点と零スキームの比較](papers/sections/point_poisson_split.tex)の `pps:thm:elliptic-existence` は、m=0、k≥2、実際の楕円Sklyanin因子・正則中心三次・固定点なしの点グラフという仮定の下で、同じX=V(Σf_i)についてKu同値とPt(A)=Z_X(π)=⊔E_iを証明する。jの相異性・j≠0,1728・2p_i≠0を課さない。自然θが二捩れで零になることは、別の方程式選択による存在を妨げない。基本開では従来の自然なX_ptを選べる。
 - **固定された複素三様体での障害。** [点スキームと零点比較の障害](papers/sections/point_poisson_obstruction.tex)は、後述のA★に三つの定常点Spec J_1があることを示す。孤立零点の局所環とHessian階数2の12点の分類により、X★上の全Poisson構造を排除し、categorical Torelliで同じKuを持つ全可換標的も排除する。指定中心元の非零socle値は−4xyz/3であり、j(1)≠j(17/9),0が局所環の差を検出する。実際の因子・正則中心元は [具体的Sklyanin入力](papers/sections/explicit_sklyanin_input.tex) で確認する。一ブロック零スキームのE_H⊔D_H分解と、良いrank2標的への射影埋込み一致障害も保持する。
-- **定数型混合族の余有限可換実現。** [一中心変数の混合型](papers/sections/central_mixed_one_variable.tex)では、S(1,−1,−1)の定数型PBW変形について、三つの普遍六次中心元を構成し、任意の混合係数で有限中心性を証明した。射影的な中央模型上の対角加群を使い、分離型への収縮族が0の近傍で相対smooth properとなることを示した。従って任意のk≥2、α^(i)∈C³、全a_i≠0について、有限集合Fを除くcでA_c=(⊗_{C[u]}B_{α^(i)})/(Σa_iΩ_i+cu³)の全coherent Kuを滑らかな可換三次(3k−1)-foldとして実現する（`cmo:cor:cofinite`）。Fは未決定であり、定常点のnormの根集合とは同一視しない。
+- **定数型混合族の余有限可換実現。** [混合族の相対滑らかさと余有限可換実現](papers/sections/mixed/relative_smoothness.tex)では、S(1,−1,−1)の定数型PBW変形について、三つの普遍六次中心元を構成し、任意の混合係数で有限中心性を証明した。射影的な中央模型上の対角加群を使い、分離型への収縮族が0の近傍で相対smooth properとなることを示した。従って任意のk≥2、α^(i)∈C³、全a_i≠0について、有限集合Fを除くcでA_c=(⊗_{C[u]}B_{α^(i)})/(Σa_iΩ_i+cu³)の全coherent Kuを滑らかな可換三次(3k−1)-foldとして実現する（`cmo:cor:cofinite`）。Fは未決定であり、定常点のnormの根集合とは同一視しない。
 - **指定混合族のsmooth locusを完全決定。** α=(1,4,9),(16,25,49)、中心和係数1,100を固定すると、全coherent圏がsmooth properであることは64次終結式P64(c)≠0と同値である（`cmo:thm:exact-sixty-four`）。各中心の14節点のNCCR局所形、全節点での非等方なΩ切断、相対対角の合成、射影境界u=0の検査を用いる。従って **c=0と定常normの全64根はsmooth proper**。P64の64根では36次元simpleの局所模型がMat36上の5次元通常二重点となり、全coherent Kuは非proper、線束圏と残余線束圏は非smoothである。P64と定常normは互いに素であり、pointの出現とsmoothnessを区別する。全smooth係数での可換Ku比較はなお未解決。
 - **同じ判別式を持つ明示的な可換候補。** G_α=(x³+y³+z³+xyz)/3−u²(α₁x+α₂y+α₃z)、λ²=28/27として、X_c=V(λ(G_{(1,4,9)}+100G_{(16,25,49)})+cu³)⊂P⁶を得た。各Jacobi環の正則表現を厳密計算し、X_cもP64(c)≠0と同値に滑らかで、各悪い係数では唯一の通常五次元二重点を持つと示した。c=0にはEckardt点があり、そのblow-upは超平面と滑らかな三次四様体に分岐する二重被覆のクレパント解消となる（cmo:thm:commutative-discriminant-candidate、cmo:prop:zero-eckardt-resolution）。この具体的候補とのKu同値は一般点も含めて未証明であり、既存の余有限な「ある可換標的」の存在とは区別する。
 - **全smooth係数のHochschild群と有理Euler形式。** 指定c族をU=A¹∖V(P64)全体で相対smooth properとする有限中心・平坦対角の模型を構成した（`cmo:prop:full-relative-hh`）。Mathewの相対退化定理から全cでHH₀=C²、HH±₁=C²¹、他次数零となる。pr(O(4)),pr(O(5))は両側の有理数値Grothendieck群の基底であり、共通Euler行列は[[-27,−189],[−162,−1161]]、行列式729（`cmo:cor:rational-euler-comparison`）。明示候補への同値を仮定せず得る不変量の一致であり、積分格子の同型は未証明。
@@ -32,7 +42,7 @@
 
 **全スキームとして一致しない三様体の例。** h=1、Sklyanin parameters (1:−3:−2)、点曲線のHesse係数λ=17/9を用いる。実因子の確認 `esi:prop:factor` と中心A2因子の直接比較 `csc:cor:fermat` により、A★=S★[u,v]/(Ω★+(u³+v³)/3)と滑らかな可換三次X★のKu同値をC上で構成した。A★は点スキームの良い条件を満たす滑らかな楕円一ブロック型であり、そのsmoothnessと全coherent Kuは直接比較から得る。同じKuを持つどの滑らかな可換三次上のどのPoisson構造でも全point schemeを実現できない（`ppz:cor:complex-counterexample`）。この反例の構成に形式復元や一般点からのspread、全O stackのchartへの所属は必要ない。この三様体例の自然な対応で被約部分は一致する。
 
-**被約化しても一致しない五様体の例。** 全Poisson正規形から、滑らかな三次n-foldのPoisson零集合に孤立点があるならn=3k、一般階数2kであり、各孤立零点は零次元局所完全交叉であることを証明した（ppz:thm:isolated-zero-dimension）。従って五次元では孤立零点はない。一方、指定混合族の定常ノルムの全64根ではPt(A_c)=E₁⊔E₂⊔{p_c}が被約で、A_cはsmooth properである（ppz:cor:reduced-point-poisson-counterexample）。例えばc=−44828を取れる。これはどの滑らかな可換三次五様体上のどのPoisson構造でも、被約零集合と同型にはならない。可換Ku比較やTorelliを仮定せず、全可換標的を排除するため、主予想の真偽は決めない。正規形はpoisson-cubicの固定された未公表入力であり、一般性やブロックの楕円性は仮定しない。この次元制約の文献上の新規性は未確認である。
+**被約化しても一致しない五様体の例。** 証明の正本は混合稿の [孤立零点と不一致の節](papers/sections/mixed/poisson_limits.tex)。全Poisson正規形から、滑らかな三次n-foldのPoisson零集合に孤立点があるならn=3k、一般階数2kであり、各孤立零点は零次元局所完全交叉であることを証明した（ppz:thm:isolated-zero-dimension）。従って五次元では孤立零点はない。一方、指定混合族の定常ノルムの全64根ではPt(A_c)=E₁⊔E₂⊔{p_c}が被約で、A_cはsmooth properである（ppz:cor:reduced-point-poisson-counterexample）。例えばc=−44828を取れる。これはどの滑らかな可換三次五様体上のどのPoisson構造でも、被約零集合と同型にはならない。可換Ku比較やTorelliを仮定せず、全可換標的を排除するため、主予想の真偽は決めない。正規形はpoisson-cubicの固定された未公表入力であり、一般性やブロックの楕円性は仮定しない。この次元制約の文献上の新規性は未確認である。
 
 ### 主要計算の再現
 
@@ -50,7 +60,7 @@
 
 ## 可換復元・モジュライの内容
 
-完備MF移送と一般点の全coherent残余圏のKu比較（旧 `poisson-cubic` 論文B）の全証明をこの主原稿へ統合した。一般の中心三次変形の基礎定理は、一ブロック型のモジュライ構成とは独立した仮定の下で述べる。外部の未公表入力は `poisson-cubic` の古典Poisson論文と、`nc-cubic-threefold` の三様体固有の指定版である。三様体固有の全Abel圏形式近傍と相対射はそのrepoに保持し、全次元の復元・Poisson射・点型算術は本repoを正本とする。量子化の全証明は別repo `cubic-quantization` に置く。
+完備MF移送と一般点の全coherent残余圏のKu比較の証明は主稿 `papers/nc-cubic.tex`、構造対象付きモジュライと精密降下は `papers/cubic-moduli-descent.tex`、混合族の具体的な代数と幾何は `papers/mixed-sklyanin-cubics.tex` に置く。一般の中心三次変形の基礎定理は、一ブロック型のモジュライ構成とは独立した仮定の下で述べる。外部の未公表入力は `poisson-cubic` の古典Poisson論文と、`nc-cubic-threefold` の三様体固有の指定版である。三様体固有の全Abel圏形式近傍と相対射はそのrepoに保持し、全次元の復元・Poisson射・点型算術は本repoを正本とする。量子化の全証明は別repo `cubic-quantization` に置く。
 
 - [可換復元の基礎節](papers/sections/generic_recovery/main_result.tex)：完備MF比較 `cft:thm:complete`、一般点の可換復元 `gdr:thm:generic`、局所模型・window・飽和・低積の積分・明示Hesse模型を含む全9節。主原稿から読み込む。
 - [可換復元の研究上の障害と再現入口](notes/recovery_foundations.md)：定義体、有限降下、symmetrizer、具体例の規約、残るkernel有効化。
@@ -58,11 +68,12 @@
 - [中心変数を持つ分離和の直接Ku比較](papers/sections/central_split_comparison.tex)：孤立中心三次のMF因子、明示A2模型、有限外積と周期付き補正、全coherent Kuの可換実現。`csc:thm:comparison`、`csc:cor:fermat`。
 - [分離型の点関手と零スキーム](papers/sections/central_split_points.tex)：任意試験環の点グラフ、中心定常成分、スキーム論的像とFittingイデアル、長さ8^kの局所Artin環、同じ標的でのm=1の一致。`csp:thm:point-functor`、`csp:thm:poisson-zero`。
 - [具体的な複素Sklyanin因子](papers/sections/explicit_sklyanin_input.tex)：parameters (1:−3:−2)、点曲線E_{17/9}、指定中心元Ω★の規格化、中心商、AS正則な周囲環を一次資料と直接計算で確認する。`esi:prop:factor`。
-- [中心一次変数が一つの混合ブロック](papers/sections/central_mixed_one_variable.tex)：有限norm、中心一関係・PI6・Azumaya性、全14節点のNCCR局所形と全simple分類、全Ω節点切断、非smooth集合V(P64)の完全決定とc=0・norm全根のsmoothness、2次元普遍高次作用、100simpleのpd5、64点の残余Ext、余有限可換Ku実現。`cmo:thm:fourteen-node-orders`、`cmo:thm:exact-sixty-four`、`cmo:cor:fixed-zero-norm-smooth`、`cmo:cor:cofinite`。
+- [混合Sklyanin三次稿](papers/mixed-sklyanin-cubics.tex)：有限norm、中心一関係・PI6・Azumaya性、全14節点のNCCR局所形と全simple分類、全Ω節点切断、非smooth集合V(P64)の完全決定とc=0・norm全根のsmoothness、2次元普遍高次作用、100simpleのpd5、64点の残余Ext、余有限可換Ku実現。`cmo:thm:fourteen-node-orders`、`cmo:thm:exact-sixty-four`、`cmo:cor:fixed-zero-norm-smooth`、`cmo:cor:cofinite`。
 - [点・Poisson比較の有限証明書](computations/verify_point_poisson_obstruction.py)：Hessian小行列・制限三次・j不変量、固定中心元と混合中心元の語関係、有限定常環の正則表現と64根の厳密検算。全幾何学的議論や圏同値の代用ではない。
 
 
-- [公表用研究稿](papers/nc-cubic.tex)：中心復元、局所一ブロック型の O-marked DM stack と Brauer 障害、相対点関手と中心商の復元、trace–Hessian による Poisson 対の開部分との同型、残余復元との比較障害、次数9の代数的 Poisson 補正、形式 support 保存、全混合五次 tensor と残余四次 potential、四次の比較障害と新しい代数的補正、split 族の残余比較、一般混合係数の代数的残余三次・点曲線の j の一致・点微分による一般有限な符号商 Poisson 射、有限被覆上の Ku 比較、点型の全 O-降下と scalar 障害、n=3,4 の全 full class 降下と最小比較次数三、三分点体の次数九と ASL₂(F₃) モノドロミー、固定 tensor の very general な超越性、Jacobi スキーム、残余圏の通常 Artin 形式認識。
+- [モジュライ・降下稿](papers/cubic-moduli-descent.tex)：中心復元、局所一ブロック型の O-marked DM stack と Brauer 障害、相対点関手と中心商の復元、trace–Hessian による Poisson 対の開部分との同型、残余復元との比較障害、次数9の代数的 Poisson 補正、形式 support 保存、全混合五次 tensor と残余四次 potential、四次の比較障害と新しい代数的補正、split 族の残余比較、一般混合係数の代数的残余三次・点曲線の j の一致・点微分による一般有限な符号商 Poisson 射、有限被覆上の Ku 比較、点型の全 O-降下と scalar 障害、n=3,4 の全 full class 降下と最小比較次数三、三分点体の次数九と ASL₂(F₃) モノドロミー、固定 tensor の very general な超越性、Jacobi スキーム。
+- [残余圏の通常Artin形式認識](papers/sections/residual_categories.tex)と[可換実現locusの開性・DVR核判定](papers/sections/geometric_realization_locus.tex)は主稿に置く。
 - [研究ノート](notes/research_notes.md)：主張の依存・適用範囲、反例・障害、文献の確認箇所、次の計算の入口。
 - [検証範囲](notes/validation.md)：原稿点検・組版・厳密計算を区別した確認状態。
 - [量子化の検証状態](https://github.com/uedakazushi/cubic-quantization/blob/main/validation_quantization.json) と [再現入口](https://github.com/uedakazushi/cubic-quantization/blob/main/computations/quantization/README.md)：中心元・多ブロック計算と独立量子化稿の確認範囲。
@@ -79,7 +90,7 @@
 - [残余四次項の厳密検算](computations/verify_fourth_potential.py)：古典的 Hessian・Aronhold 微分との恒等式、中心 symbol、純中心項、尺度、全次元の Jacobi 双対証明書。
 - [残余射・尺度・比較核の本文](papers/sections/residual_algebraic.tex)：一般次元の相対復元、全 O-降下、有限被覆上の Ku 比較、完備中心商、最高次 cohomology と階数三束によるscalar index、従来のEuler格子、固定tensorの超越性。
 - [点曲線と自然な残余尺度の本文](papers/sections/residual_point_scale.tex)：active 部分の全次数比較、Hodge 線束、点曲線の同型被覆、符号商射、反対代数、正確な一般次数18、混合三角性・符号消滅・半古典full射の次数9、一般係数体上の平面同型torsorの分裂、指定半古典平面同型の全O降下。
-- [四次補正の本文](papers/sections/fourth_correction.tex)：上の有限計算を一般次元の証明と Poisson moduli の射へ統合する主原稿の分割ファイル。
+- [四次補正の本文](papers/sections/fourth_correction.tex)：上の有限計算を一般次元の証明と Poisson moduli の射へ統合する、モジュライ・降下稿の本文。
 - [点の平行移動と核のPicard類](papers/sections/residual_kernel_point.tex)：右加群の rotation 共役、相対 THCR/window1、非空で内在的な点型、active 同値の全分類、点側・残余側の exact index 三、非分裂 period、三分点体の ASL₂(F₃) モノドロミー、n=3,4 の全 full class 降下・周期位相の class 不変性・相対尺度による最小次数三／九、三乗倍までの方程式規格化と γ_sc の形式像、高次元の T-軌道降下・奇数次元の数値中央化群、随伴復元点型の有限 class torsor・全次元の正準強化 class・全奇数次元の有限な数値自明安定化群、七次元の球面 twist による障害。
 - [周期位相の混合定数降下](papers/sections/residual_period_descent.tex)：κ(m) 上の周期付き full Morita 比較、γ_sc,n の C(c₄,−c₆) への一意な降下、他の分岐を排除できた場合の大域式 [D]。
 - [Hesse 境界の残余模型](papers/sections/residual_boundary.tex)：三分点被覆、点線束の有理相対行列、指定周期を保つ積分模型、右射影と有限 MF。
@@ -92,7 +103,7 @@
 - [点障害の厳密検算](computations/verify_picard_obstruction.py)：Hesse 接線・巡回 norm、Sklyanin 点三次・係数の逆、rotation の六つの数値 centralizer、巡回平面 twist・norm 係数・symbol 補正、普遍 Jacobian の三捩れ点・八点軌道・安定化群 core、右点対応。
 - [参考文献](papers/references.tex)。外部文献PDFは含めない。
 
-外部の古典入力は [poisson-cubicの論文](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex) のPoisson正規形であり、代数的量子化の入力は別repoの [cubic-quantization.tex](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) である。旧論文Bの一般点復元は現行主原稿内に証明を統合した。統合は結果を新たに今回証明したという意味ではない。
+外部の古典入力は [poisson-cubicの論文](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex) のPoisson正規形であり、代数的量子化の入力は別repoの [cubic-quantization.tex](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) である。一般点復元の証明は現行主稿の `papers/sections/generic_recovery/` に保持する。本文の配置変更と数学的な検証範囲は区別する。
 
 ## 満支持複数ブロック型の到達点と次の目標
 
@@ -347,14 +358,14 @@ python3 computations/verify_mixed_fifth.py
 python3 computations/verify_fourth_potential.py
 python3 computations/verify_jacobi_rank.py --verify computations/jacobi_rank_certificate.json
 python3 computations/verify_jacobi_vertex.py --verify computations/jacobi_vertex_certificate.json
-latexmk papers/nc-cubic.tex
+python3 scripts/build_papers.py
 ```
 
-引数なしの `latexmk` は主原稿 `papers/nc-cubic.tex` を組版する。`python3 scripts/check_sources.py` は主原稿の入力・引用・ラベルを検査する。量子化の再現手順は別repoの [再現入口](https://github.com/uedakazushi/cubic-quantization/blob/main/computations/quantization/README.md) と検証資料を参照する。
+`python3 scripts/build_papers.py` はLuaLaTeXとlatexmkで三稿を組版し、他稿の定理番号付き参照を整える。出力は `build/nc-cubic.pdf`、`build/cubic-moduli-descent.pdf`、`build/mixed-sklyanin-cubics.pdf`。SyncTeXも同じ `build/` に置く。`python3 scripts/check_sources.py` は三稿の入力・引用・ラベルと他稿参照を検査する。VS CodeのLaTeX Workshopも三稿組版のレシピを使う。量子化の再現手順は別repoの [再現入口](https://github.com/uedakazushi/cubic-quantization/blob/main/computations/quantization/README.md) と検証資料を参照する。
 
 点障害、Jacobi・Hessian 補正、境界 MF と低積の計算資産を保持する。各検証器の実行・厳密証明書・原稿点検・組版・表示確認の状態は [検証範囲](notes/validation.md) を参照する。有限計算による恒等式確認と、全次数の平坦性、同型延長、Brauer 類、圏同値、Kummer 降下の証明は区別する。
 
-active 不変量の検算は rψ=ar、判別式・Jacobian の公式を有理係数で確認する。active符号の検算はQQ(ζ)上のHesse群の24要素・閉性・不変量・二次指標と、体次数の消去式を確認する。有限対角によるPoisson対の近傍延長・同変降下とχ_actの消滅は、この計算ではなく本文の証明による。幾何学的一般ファイバー、全次数混合三角性、正確な一般次数18は本文の証明に依る。中心・Hessian と幾何補正の検算は有理係数の記号恒等式、八次自由代数の trace、Jacobi 商の双対証明書、普遍 cofactor 恒等式と Hesse の j 差を再現する。補正検算では十個の独立係数を持つ三変数三次、任意の対称行列、二パラメータ Hesse 中心の係数変換、混合項の復元行列、九重被覆の分岐、Weyl の整数重複度と四次不変式も確認する。混合五次の検算は保存した73項の graph データから β,γ を評価し、四次 potential の検算は中心 symbol の全係数恒等式・純中心項・尺度・全次元の非消滅証明書を確認する。入力論文の混合中心公式の非可換中心性、graph 積分そのもの、圏同値はこれらの記号計算で再検証しない。組版設定は既存の repo ルート基準のパスを維持し、PDF と SyncTeX を `build/` に揃えている。研究hubの現行テンプレートと設定も参照し、LaTeX Workshop の推奨拡張を指定した。
+active 不変量の検算は rψ=ar、判別式・Jacobian の公式を有理係数で確認する。active符号の検算はQQ(ζ)上のHesse群の24要素・閉性・不変量・二次指標と、体次数の消去式を確認する。有限対角によるPoisson対の近傍延長・同変降下とχ_actの消滅は、この計算ではなく本文の証明による。幾何学的一般ファイバー、全次数混合三角性、正確な一般次数18は本文の証明に依る。中心・Hessian と幾何補正の検算は有理係数の記号恒等式、八次自由代数の trace、Jacobi 商の双対証明書、普遍 cofactor 恒等式と Hesse の j 差を再現する。補正検算では十個の独立係数を持つ三変数三次、任意の対称行列、二パラメータ Hesse 中心の係数変換、混合項の復元行列、九重被覆の分岐、Weyl の整数重複度と四次不変式も確認する。混合五次の検算は保存した73項の graph データから β,γ を評価し、四次 potential の検算は中心 symbol の全係数恒等式・純中心項・尺度・全次元の非消滅証明書を確認する。入力論文の混合中心公式の非可換中心性、graph 積分そのもの、圏同値はこれらの記号計算で再検証しない。組版設定は既存の repo ルート基準のパスを維持し、PDF と SyncTeX を `build/` に揃える。研究hubの現行テンプレートと設定を参照した共通preambleを使い、LaTeX Workshopの三稿レシピと出力先を合わせる。
 
 原 graph データから抽出・規約も再検証する場合は、[出典と SHA-256 を記した JSON](computations/data/harmonic_linear_products.json) の `star5.txt` と `kontsevich_2_k.txt`・`weights_kontsevich_2_k.txt`（k=1,…,5）を同じディレクトリに置き、次を実行する。通常の検算は保存済みの必要項だけで完結し、外部データ取得は不要である。
 

@@ -1,6 +1,8 @@
 # 一般点可換復元：有効な技術的注意と再現
 
-2026年11月21日 / v27。研究全体の入口は [研究方針](../00_research_plan.md)。証明の正本は [主原稿](../papers/nc-cubic.tex) の `papers/sections/generic_recovery/`、主張の確実性は [研究ノート](research_notes.md) を参照する。
+2026年11月22日 / v50。研究全体の入口は [研究方針](../00_research_plan.md)。証明の正本は [主原稿](../papers/nc-cubic.tex) の `papers/sections/generic_recovery/`、主張の確実性は [研究ノート](research_notes.md) を参照する。
+
+可換復元の基礎は主稿に集約し、楕円因子のwindowとrotation共役は [comparison_foundations.tex](../papers/sections/comparison_foundations.tex) を正本とする。構造対象付きモジュライと精密なPicard・周期降下は [モジュライ・降下稿](../papers/cubic-moduli-descent.tex)、混合族の中心とsmooth locus、具体的な比較候補は [混合Sklyanin稿](../papers/mixed-sklyanin-cubics.tex) を参照する。各証明の本文を三稿へ重複して置かない。
 
 ## 核心の定理と依存
 
@@ -37,6 +39,8 @@
 `python3 computations/verify_generic_cubic_descent.py`：可積分行列と非分裂symmetrizer。
 `python3 computations/verify_recovery_example.py`：中心恒等式、二次jetとHesse係数・五変数式の有限検算。
 
-これらのコードは有限恒等式の検算であり、全coherentの同値、曲線の全次数比較、Brauer障害や指定周期の証明そのものを確認するものではない。今回の統合時にPythonを再実行したという記録はない。
+これらのコードは有限恒等式の検算であり、全coherentの同値、曲線の全次数比較、Brauer障害や指定周期の証明そのものを確認するものではない。三稿への編集整理だけで、これらのPython計算を再実行したとは扱わない。
 
 新たな計算では、原点stabilizationの有限Homとrotation核から \(V=H^0R\operatorname{Hom}(\Delta,P)\)、\(U=H^0R\operatorname{Hom}(\Delta,P^2)\) と積を直接構成し、既知の楕円比較で得た方程式との一致を調べる。独立のArtin・étale・point-schemeの広範な成果は `nc-cubic2` を正本とする。
+
+三稿のソース参照は `python3 scripts/check_sources.py`、他稿の定理番号付き参照を含む組版は `python3 scripts/build_papers.py` で確認する。出力は `build/<各稿名>.pdf` と対応するSyncTeXであり、実行済みの範囲は [検証範囲](validation.md) に記す。

@@ -1,0 +1,470 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\section{Eckardt 候補の根スタックと同変残余圏}
+\label{mix:sec:eckardt}
+
+\subsection{零係数の Eckardt 点と二重被覆}
+
+$V=\C^6$、$x=(x^{(1)},x^{(2)})$ とし、
+\[
+ J(x_1,x_2,x_3)=\frac{x_1^3+x_2^3+x_3^3+x_1x_2x_3}{3},\qquad
+ G(x)=J(x^{(1)})+100J(x^{(2)}),
+\]
+\[
+ L(x)=x^{(1)}_1+4x^{(1)}_2+9x^{(1)}_3
+       +100(16x^{(2)}_1+25x^{(2)}_2+49x^{(2)}_3)
+\]
+と置く。零係数の明示可換候補は
+\[
+ X_0=V(G-u^2L)\subset\mathbb P(V\oplus\C)
+\]
+であり、$\lambda$ の選択に依存せず $\mathbb Q$ 上で定義される。
+
+\begin{proposition}[零係数の具体的射影模型]
+\label{cmo:prop:zero-eckardt-resolution}
+$X_0$ は滑らかであり、$p=[0:\cdots:0:1]$ は Eckardt 型の点である。
+その接超平面は $L=0$、接超平面切断は
+滑らかな三次三様体
+\[
+ Y=V(G,L)\subset\mathbb P(V)=\mathbb P^5
+\]
+を底とし $p$ を頂点とする cone である。
+
+$\mathbb P^5$ 上の四次二重被覆
+\[
+ S=\operatorname{Spec}_{\mathbb P^5}
+      \bigl(\mathcal O\oplus\mathcal O(-2)\bigr),
+ \qquad w^2=LG
+\]
+を考える。分岐因子は超平面 $H=V(L)$ と滑らかな分離型三次四様体
+$Z=V(G)$ の和であり、両者は $Y$ に沿って横断的に交わる。
+$p$ からの射影は、滑らかな blow-up $\widetilde X_0=\operatorname{Bl}_pX_0$ 上で
+\[
+ \widetilde X_0\longrightarrow S\longrightarrow\mathbb P^5
+\]
+と因子化する。第一の射は $S$ の crepant resolution であり、
+$S\setminus Y$ 上では同型、$Y$ 上の幾何ファイバーは $\mathbb P^1$ である。
+$S$ の $Y$ に沿う完備局所型は $A_1$ surface singularity と滑らかな三次元因子の積である。
+\end{proposition}
+\begin{proof}
+$X_0$ の滑らかさは定理\ref{cmo:thm:commutative-discriminant-candidate}と $P_{64}(0)\ne0$ による。
+$G$ の勾配の共通零点は affine 原点だけであるため、$Z$ は滑らかである。
+$p$ では $d(G-u^2L)=-dL\ne0$ であり、接超平面は $L=0$ である。
+その切断の方程式 $G=L=0$ は $u$ に依存しないので cone の記述を得る。
+
+もし $Y$ が特異なら、ある $x\ne0$ と $a\in\C$ で
+$dG(x)=a\,dL$、$L(x)=0$ となる。
+$Z$ の滑らかさから $a\ne0$ であり、$u^2=a$ を選べば
+$[x:u]\in X_0$ は特異点となって矛盾する。
+従って $Y$ は滑らかで、$H$ と $Z$ は横断的に交わる。
+二重被覆 $S$ は $Y$ の近傍で $w^2=ab$ と書けるため、
+記した $A_1$ 局所型を持ち、その他では滑らかである。
+
+射影の incidence 模型では、基底 $[x]\in\mathbb P(V)$ 上の直線を
+$[tx:u]$ と書く。$X_0$ の strict transform は
+\[
+ t^2G(x)-u^2L(x)=0
+\]
+である。$t\ne0$ では $w=L(x)u/t$、$u\ne0$ では $w=G(x)t/u$ と置く。
+二式は strict transform の方程式により一致し、
+基底座標 $x$ の変更に対して次数二で変換するので、二重被覆への射を定める。
+$G=L=0$ 上のファイバーは全 $\mathbb P^1$ となり、それ以外では $S$ への射は同型である。
+従ってこれは $\widetilde X_0$ からの解消である。
+
+$\pi:\widetilde X_0\to X_0$ の例外因子を $E$、
+$X_0$ の超平面類を $H_X$ とすると
+\[
+ K_{\widetilde X_0}=-4\pi^*H_X+4E
+   =-4q^*\mathcal O_{\mathbb P^5}(1).
+\]
+一方、四次分岐二重被覆の随伴公式は
+$K_S=q_S^*\mathcal O_{\mathbb P^5}(-4)$ を与える。
+従って解消は crepant である。
+\end{proof}
+
+\subsection{Eckardt 候補の根スタック模型と同変残余圏}
+\label{cmo:subsec:eckardt-root-model}
+
+この小節では $k=\mathbb C$ とする。
+$G\in H^0(\mathbb P^5,\mathcal O(3))$ と
+$L\in H^0(\mathbb P^5,\mathcal O(1))$ に対して
+\[
+ X=V(G-u^2L)\subset\mathbb P^6,\qquad
+ Z=V(G)\subset\mathbb P^5,\qquad H=V(L),\qquad Y=H\cap Z
+\]
+とおき、$X,Z,Y$ が滑らかであると仮定する。
+特に $H,Z$ は $Y$ に沿って横断する。
+命題\ref{cmo:prop:zero-eckardt-resolution}の明示 $c=0$ 候補は
+これらの仮定を満たす。
+$\iota(x,u)=(x,-u)$、$\Gamma=\langle\iota\rangle\cong\mu_2$ とし、
+$p=[0:\cdots:0:1]$、$b:\widetilde X=\operatorname{Bl}_pX\to X$ とする。
+
+\begin{proposition}[滑らかな商と二つの分離された分岐成分]
+\label{cmo:prop:eckardt-smooth-quotient}
+自然な $\Gamma$ 作用に関する商は
+\[
+ T=\widetilde X/\Gamma\cong\operatorname{Bl}_Y\mathbb P^5
+\]
+である。$q:T\to\mathbb P^5$、$h=q^*\mathcal O_{\mathbb P^5}(1)$、
+$e$ を $q$ の例外因子とする。
+$H,Z$ の狭義変換 $H',Z'$ は交わらず、
+\[
+ H'\cong\mathbb P^4,\qquad Z'\cong Z,\qquad
+ [H']=h-e,\qquad[Z']=3h-e.
+\]
+写像 $f:\widetilde X\to T$ は
+$M=\mathcal O_T(2h-e)$ と
+$s\in H^0(T,M^{\otimes2})$、$\operatorname{div}(s)=H'+Z'$ による
+滑らかな二重被覆
+\[
+ \widetilde X\cong\operatorname{Spec}_T
+ \bigl(\mathcal O_T\oplus M^{-1}\bigr)
+\]
+である。したがって
+\[
+ \mathcal R=[\widetilde X/\Gamma]
+ \cong\sqrt[2]{(T,H'+Z')}
+\]
+となる。
+\end{proposition}
+
+\begin{proof}
+点 $p$ からの射影の解消を
+$\mathbb P_{\mathbb P^5}(\mathcal O(-1)\oplus\mathcal O)$ 内の
+\[
+ t^2G(x)=u^2L(x)
+\]
+と書く。ここで $[tx:u]$ が $X$ 上の点であり、$\Gamma$ は
+$[t:u]\mapsto[t:-u]$ と作用する。
+二乗写像 $[t:u]\mapsto[a:b]=[t^2:u^2]$ による商は
+$\mathbb P_{\mathbb P^5}(\mathcal O(-2)\oplus\mathcal O)$ 内の
+$aG=bL$ である。
+$L,G$ は正則列なので、その Rees 代数の唯一の一次関係はこの式であり、
+これは $\operatorname{Bl}_{(L,G)}\mathbb P^5$ を与える。
+$L=0$ と $G=0$ の狭義変換は、それぞれ $a=0$ と $b=0$ であり、
+互いに交わらない。各中心 $Y$ は $H,Z$ 内の Cartier 因子なので
+その blow-up は元の因子に同型であり、表示した同型と因子類を得る。
+
+四次二重被覆 $w^2=LG$ を $T$ に引き戻すと、右辺は例外因子を
+重複度二で含む。例外因子の局所方程式で $w$ を一回割って正規化すると
+$M=q^*\mathcal O(2)\otimes\mathcal O_T(-e)$ に値を持つ平方根となり、
+残る分岐因子は $H'+Z'$ である。
+たとえば $L=a,G=av$ の chart では $z=w/a$ に対して $z^2=v$ となる。
+これが上の二乗商と一致する。
+分岐因子は滑らかな互いに素な二成分なので被覆は滑らかであり、
+二重被覆の局所商 $[\operatorname{Spec}A[z]/(z^2-s)/\mu_2]$ は
+対応する二乗根スタックである。
+$H'$ と $Z'$ が交わらないため、この単一の根スタックは
+二成分に沿う独立した二乗根を取ったスタックにも自然に同型である。
+実際、$T\setminus H'$ と $T\setminus Z'$ は $T$ を覆い、
+各開集合では一方の根の section が可逆なので、その根スタックは底自身となる。
+共通部分では両 section が可逆であるから、この局所同型は一意に貼り合う。
+\end{proof}
+
+\paragraph{二つの明示線束.}
+$\pi:\mathcal R\to T$ とし、$\mathcal H,\mathcal Z$ を
+$H',Z'$ の被約逆像である根因子とする。
+\[
+ \begin{gathered}
+ 2\mathcal H=\pi^*H',\qquad
+ 2\mathcal Z=\pi^*Z',\\
+ \mathcal N=\mathcal O_{\mathcal R}(\mathcal H+\mathcal Z)
+                   \otimes\pi^*M^{-1},\\
+ \mathcal B=\pi^*\mathcal O_T(h)\otimes
+                   \mathcal O_{\mathcal R}(\mathcal H)
+ \end{gathered}
+\]
+とおく。$\mathcal N^{\otimes2}\cong\mathcal O_{\mathcal R}$ は
+被覆を定義するデータから自明化され、$\mathcal N$ は
+$\Gamma$ の非自明指標 $\chi$ に対応する線束である。
+この自明化を $\varphi$ と書けば、作用の coherence は
+$(-\otimes\mathcal N)^2\xrightarrow{\mathrm{id}\otimes\varphi}\mathrm{id}$
+で指定する。線束について
+$\varphi\otimes\mathrm{id}_{\mathcal N}
+=\mathrm{id}_{\mathcal N}\otimes\varphi$
+が成り立つので群作用の結合条件を満たす。
+同じデータの有限エタール $\mu_2$-torsor
+$\operatorname{Spec}_{\mathcal R}(\mathcal O_{\mathcal R}\oplus\mathcal N)$
+は $\widetilde X\to[\widetilde X/\Gamma]$ そのものである。
+従って以下では、二乗が恒等に同型という性質だけでなく、
+この指定された coherent 作用を用いる。
+忘却後の $\mathcal B$ は $b^*\mathcal O_X(1)$ である。
+実際、点からの射影では
+$b^*\mathcal O_X(1)=\mathcal O_{\widetilde X}(h+E_p)$ で、
+$E_p$ が $\mathcal H$ に対応する。
+線形化の二つの選択は $\mathcal N$ による捩りだけ異なるため、
+以下の両指標を含む集合と生成圏はその選択に依存しない。
+根スタックの標準束公式と blow-up の標準束公式から
+\begin{equation}
+\label{cmo:eq:root-canonical-sign}
+ \omega_{\mathcal R}
+ =\pi^*\mathcal O_T(-6h+e)
+      \otimes\mathcal O_{\mathcal R}(\mathcal H+\mathcal Z)
+ =\pi^*\mathcal O_T(-4h)\otimes\mathcal N.
+\end{equation}
+最後の指標線束を落とすと同変 Serre 関手を誤る。
+
+\begin{theorem}[十六個の明示例外対象による実残余模型]
+\label{cmo:thm:eckardt-root-residual}
+$j:\mathcal H\hookrightarrow\mathcal R$ と
+$\pi_H:\mathcal H\to H'\cong\mathbb P^4$ を自然な射とする。
+次の十六個の対象を、表示したブロック順、各ブロック内では指数の昇順に並べる：
+\[
+ \begin{gathered}
+ \mathcal L_{r,\epsilon}=\mathcal B^{\otimes r}\otimes\mathcal N^\epsilon,
+ \\
+ \mathcal E_{s,\epsilon}=
+ j_*\pi_H^*\mathcal O_{\mathbb P^4}(s)\otimes\mathcal N^\epsilon,
+ \\ 0\le r,s\le3,\quad\epsilon=0,1.
+ \end{gathered}
+\]
+各同じ指数における二つの指標の順序は任意である。
+これらは例外列であり、
+\begin{equation}
+\label{cmo:eq:eckardt-sixteen-sod}
+ D^b(\mathcal R)=
+ \left\langle
+ \mathcal K,\,
+ (\mathcal L_{r,\epsilon})_{r,\epsilon},\,
+ (\mathcal E_{s,\epsilon})_{s,\epsilon}
+ \right\rangle,
+ \qquad
+ \mathcal K\simeq\operatorname{Ku}(X)^\Gamma.
+\end{equation}
+特に $\mathcal K$ は十六個の表示された対象の右直交であり、
+$\mathcal N$ による tensor 作用に保たれる。
+指定した $\mathcal N^{\otimes2}\cong\mathcal O$ を coherence とする作用について
+\begin{equation}
+\label{cmo:eq:eckardt-deequivariantization}
+ \operatorname{Ku}(X)\simeq\mathcal K^{\langle-\otimes\mathcal N\rangle}
+\end{equation}
+が成り立つ。これらは自然な dg enhancement に両立する。
+\end{theorem}
+
+\begin{proof}
+Orlov の blow-up 公式\cite[Theorem~4.3]{CMOOrlovBlowup}を
+$p\subset X$ に適用すると、$\operatorname{codim}_Xp=5$ なので
+四つの点の成分を得る。
+全ての対応、包含、射影および法束には自然な $\Gamma$ 線形化があり、
+通常の fully faithful 関手と射影の構成は同変である。
+有限群の不変部分を取ることは $\mathbb C$ 上で完全なので、
+その Hom 比較と生成の証明は同変圏にも適用できる。
+さらに $p$ での接空間作用は $-\mathrm{id}$ であり、
+$\mathbb P(T_pX)=\mathbb P^4$ 上の作用は自明である。
+したがって
+\[
+ D^b(\mathcal R)=\left\langle
+ \bigl(j_*\pi_H^*\mathcal O_{\mathbb P^4}(-a)
+            \otimes\mathcal N^\epsilon\bigr)_{{a=4,3,2,1}\atop{\epsilon=0,1}},
+ b^*D^b(X)^\Gamma
+ \right\rangle.
+\]
+法束の自然な線形化による指標のずれは、各 $a$ で両方の指標を
+含むためこの表示に影響しない。
+
+三次五様体の
+$D^b(X)=\langle\operatorname{Ku}(X),\mathcal O_X,
+\mathcal O_X(1),\mathcal O_X(2),\mathcal O_X(3)\rangle$
+は $\Gamma$ 不変であり、同変化すると各線束に二つの指標が現れる。
+この分解を代入して、上の先頭八対象を Serre 逆関手で最後に移す。
+式\eqref{cmo:eq:root-canonical-sign}により
+\[
+ S_{\mathcal R}^{-1}(-)=(-)\otimes\pi^*\mathcal O_T(4h)
+                         \otimes\mathcal N[-5].
+\]
+$h|_{H'}=\mathcal O_{\mathbb P^4}(1)$ なので、先頭の
+$-4,-3,-2,-1$ は $0,1,2,3$ となる。
+共通シフトを生成圏から除き、二つの指標を入れ替えることで
+式\eqref{cmo:eq:eckardt-sixteen-sod}を得る。
+
+$-\otimes\mathcal N$ は表示された十六個の対象の集合を保つので
+$\mathcal K$ を保つ。
+商スタックの同定の下でこの作用は $\Gamma$ の指標作用そのものである。
+$\operatorname{Ku}(X)$ は冪等完備な $\mathbb C$ 線型圏であり、
+$\Gamma$ は有限可換群なので、Elagin の二重同変化
+\cite[Theorem~4.2, Section~8]{MEDElagin}から
+式\eqref{cmo:eq:eckardt-deequivariantization}が従う。
+幾何学的作用、有限群の平均化、射影および tensor の全てを
+自然な enhancement 上で行えるため、ここでは単なる加法圏の同値に留まらない。
+\end{proof}
+
+\paragraph{残余への明示射影核.}
+十六対象を式\eqref{cmo:eq:eckardt-sixteen-sod}の順に
+$F_1,\ldots,F_{16}$ と書く。
+各左 mutation は $\mathcal R\times\mathcal R$ 上の perfect 核
+\[
+ P_i=\operatorname{Cone}
+ \left(F_i^\vee\boxtimes F_i\longrightarrow\mathcal O_\Delta\right)
+\]
+で与えられる。従って、対応する関手の合成
+$\mathbb L_{F_1}\circ\cdots\circ\mathbb L_{F_{16}}$
+（右端を先に適用する）は、$\mathcal K$ を像とする射影である。
+その畳込み核は $\mathcal K$ 上で恒等となる。
+これは可換標的側の実際の射影核であり、
+非可換側から $\mathcal K$ への比較核をまだ与えない。
+
+\begin{corollary}[同変 Hochschild 群]
+\label{cmo:cor:eckardt-equivariant-hh}
+次数付き複素ベクトル空間として、非標準的な同型
+\[
+ HH_*(\operatorname{Ku}(X)^\Gamma)
+ \cong HH_*(\operatorname{Ku}(Z))\oplus
+         HH_*(\operatorname{Ku}(Y))
+\]
+が存在する。具体的な次元は
+\[
+ \dim HH_i(\operatorname{Ku}(X)^\Gamma)=
+ \begin{cases}
+ 24&i=0,\\
+ 5&i=\pm1,\\
+ 1&i=\pm2,\\
+ 0&\text{その他}.
+ \end{cases}
+\]
+\end{corollary}
+
+\begin{proof}
+Ishii--Ueda の根スタック分解
+\cite[Theorem~1.6]{CMOIshiiUedaRoot}を $H'\sqcup Z'$ に適用し、
+さらに $T=\operatorname{Bl}_Y\mathbb P^5$ の余次元二の blow-up
+分解を用いる。これは、順序と埋込みを省略した加法的不変量について
+\[
+ HH_*(\mathcal R)\cong
+ HH_*(\mathbb P^4)\oplus HH_*(Z)\oplus
+ HH_*(Y)\oplus HH_*(\mathbb P^5)
+\]
+を与える。
+三次四様体 $Z$ と三次三様体 $Y$ の標準残余分解はそれぞれ
+三個と二個の例外線束を含むため、右辺の次数零の例外部分は
+$5+3+2+6=16$ 次元である。
+定理\ref{cmo:thm:eckardt-root-residual}の十六例外対象と比較し、
+有限次元の次数付きベクトル空間で同次数の直和因子を相殺すれば最初の式を得る。
+HKR と滑らかな三次超曲面の Hodge 数から
+\[
+ \begin{array}{c|ccc}
+ &HH_0&HH_{\pm1}&HH_{\pm2}\\\hline
+ \operatorname{Ku}(Z)&22&0&1\\
+ \operatorname{Ku}(Y)&2&5&0
+ \end{array}
+\]
+であり、次元表を得る。
+\end{proof}
+
+\begin{proposition}[零係数の明示可換候補における対合指標]
+\label{cmo:prop:zero-involution-hh}
+命題\ref{cmo:prop:zero-eckardt-resolution}の記法を用い、
+$X_0=V(G-u^2L)\subset\mathbb P^6$、
+$Z=V(G)\subset\mathbb P^5$、$Y=V(G,L)\subset\mathbb P^5$ とする。
+$\iota(x,u)=(x,-u)$ と置くと
+\[
+ \operatorname{Fix}(\iota)=Z\sqcup\{p\}.
+\]
+$\iota$ は $\operatorname{Ku}(X_0)$ を保ち、
+その Hochschild homology 上の固有空間次元は
+\[
+\begin{array}{c|rr}
+ i&\dim HH_i^+&\dim HH_i^-\\ \hline
+ -1&5&16\\
+ 0&2&0\\
+ 1&5&16
+\end{array}
+\]
+である。これら以外の次数は零である。
+\end{proposition}
+
+\begin{proof}
+$\mathbb P^6$ の二つの固有部分空間は $u=0$ と一点 $p$ であり、
+$X_0$ との交わりは $Z$ と $p$ である。
+命題\ref{cmo:prop:zero-eckardt-resolution}により $X_0,Z,Y$ は滑らかである。
+
+$F=G-u^2L$ とし、その七変数 Jacobian 環を $J_F$ とする。
+$\operatorname{Sym}^2(\C^6\oplus\C_{\mathrm{sgn}})$ の
+$\pm$ 固有次元は $(22,6)$ である。
+六つの $x$ 微分は偶、$u$ 微分は奇であり、
+滑らかさにより七つの二次偏微分は一次独立である。
+従って $(J_F)_2$ の固有次元は $(16,5)$ となる。
+Griffiths の residue 同型
+\cite[Chapter~1, Theorem~4.21]{CMOHuybrechtsCubics}
+は $H^{3,2}(X_0)$ を $(J_F)_2$ から与えるが、
+その作用には ambient volume form の determinant character が掛かる。
+ここでは $F$ は不変で $\det(\iota)=-1$ なので、
+$H^{3,2}$ の固有次元は $(5,16)$ である。
+実際、斉次座標 $z_0,\ldots,z_6$ の体積形式
+$\sum_j(-1)^jz_j\,dz_0\wedge\cdots\wedge\widehat{dz_j}\wedge\cdots\wedge dz_6$
+は線型変換の determinant で変換する。
+これが $F$ の冪を分母とする residue 表示の符号を与える。
+複素共役により $H^{2,3}$ も同じである。
+対角 Hodge 成分は全て超平面類の冪であり、$\iota$ は恒等に作用する。
+通常の HKR と $\iota$ に不変な四つの例外線束に対する加法性から、
+最初の表を得る。
+独立の符号確認として、固定集合の Euler 数は
+$\chi(Z)+1=27+1=28$ である。
+Lefschetz 数の式
+$6-\operatorname{Tr}(\iota\mid H^5)=28$ も
+$\operatorname{Tr}(\iota\mid H^{3,2})=-11$ と整合する。
+
+orbifold HKR \cite[Corollary~1.17(2)]{CMOOrbifoldHKR}により
+\[
+ HH_*([X_0/\mu_2])
+ \simeq HH_*(X_0)^{\mu_2}\oplus HH_*(Z)\oplus HH_*(p).
+\]
+Hochschild homology のこの公式には age shift は入らない。
+右辺の次数零次元は $6+25+1=32$、
+次数 $\pm1$ は各五、次数 $\pm2$ は各一である。
+四つの例外線束は自然に $\mu_2$-linearize できる。
+同変化後は各線束から $\operatorname{Rep}(\mu_2)$ が現れ、
+二つの指標によって合計八つの例外対象を得る。
+同変射影は有限群の平均化と元の射影で構成されるので、
+通常の半直交分解を同変化できる。
+従って次数零から八を引くと、
+系\ref{cmo:cor:eckardt-equivariant-hh}の根スタックによる計算を独立に再現する。
+
+\end{proof}
+
+\begin{remark}[Jacobian 指標の有限検算と比較への制約]
+滑らかな $F$ の七つの二次偏微分は正則列なので、
+同変 Hilbert 級数は
+\[
+ \sum_{d\ge0}\operatorname{Tr}(\iota\mid(J_F)_d)t^d
+ =
+ \frac{(1-t^2)^6(1+t^2)}{(1-t)^6(1+t)}
+ =(1+t)^5(1+t^2).
+\]
+次数 $0,\ldots,7$ の trace は
+$(1,5,11,15,15,11,5,1)$ である。
+特に $(J_F)_3$ の固有次元は $(25,10)$ となる。
+この次数三計算は $H^1(X_0,T_{X_0})$ の対合付き変形接空間も計算する。
+
+
+\texttt{computations/verify\_mixed\_comparison\_invariants.py} は指定した有理係数 $3F$ に対し、
+次数二・三の Jacobian 関係行列を $\mathbb Q$ 上で構成して
+固有部分の階数を計算し、上の指標と同変 Hochschild homology の算術を検算する。
+通常または同変 Hochschild homology の一致から、
+圏の同値や半直交分解の相殺を結論しない。
+また主予想は対合を標識しないため、特定の $\iota$ の相違が見つかっても、
+それだけで主予想への反例となるわけではない。
+\end{remark}
+
+\paragraph{結論の範囲.}
+この計算では $\operatorname{Ku}(Y)$ と $\operatorname{Ku}(Z)$ が
+$\operatorname{Ku}(X)^\Gamma$ の半直交成分となることを主張しない。
+二つの異なる分解に現れる例外対象の個数の一致から、残る圏の同値や
+半直交分解は一般には導けない。
+また、同変 Hochschild 群の一致は、非可換 $A_0$ との
+$\Gamma$ 同変比較核の必要条件に過ぎない。
+通常の主予想自体は、$u\mapsto-u$ の作用を保存する同値までは要求しない。
+上の根スタック模型、線束 $\mathcal N$ と十六対象は比較核の具体的な標的と
+検証条件を与えるが、その非可換比較核の構成は未完了である。
+
+\begin{remark}[比較の残る入力]
+同じ判別集合、臨界値、完備局所節点を持つことだけでは、
+大域的な残余圏の同値は従わない。
+特に $D_\alpha$ 自体を多項式環 $\C[x,y,z]$ と通常の derived Morita 同値で
+置き換える方法は使えない。
+$HH^0$ である中心は derived Morita 不変
+\cite[\S3.2]{CMOKellerHochschild}だが、前者の中心には十四節点があり、
+後者の中心は滑らかな三次元アファイン空間だからである。
+必要なのは中心三次を保持した curved/MF 比較、または全次数付き残余圏の実際の核である。
+形式的な $h$ 進比較を $h=1$ へ無条件に特殊化することもしない。
+ノルムの根では、可換候補の自然な零スキームと非可換点スキームは異なり、
+系\ref{ppz:cor:reduced-point-poisson-counterexample}が全可換五様体の全 Poisson 構造を排除する。
+\end{remark}

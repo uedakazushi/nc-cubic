@@ -1,9 +1,9 @@
-% !TEX root = ../nc-cubic.tex
+% !TEX root = ../cubic-moduli-descent.tex
 \section{積 Picard 補正型の核 gerbe と相対周期位相}
 \label{mbpd:sec:picard-descent}
 
 本節では、点曲線の各 $p_i$ を次数零線束で表すという
-定理\ref{mbrc:thm:finite-point-comparison}の構成を、族の上で分類する。
+定理\paperref{main}{mbrc:thm:finite-point-comparison}の構成を、族の上で分類する。
 分類するのは積表示上で対角線に支持される Picard 補正型であり、
 任意の残余比較核の分類ではない。
 この型について、scalar gerbe は因子の Picard 障害の和となる。
@@ -34,15 +34,15 @@ $L_i$ の相対次数は三である。
 すべての同型・作用には dg coherence を含める。
 
 相対模型への入力を明示しておく。
-定理\ref{mbrn:thm:relative-product}と
-定理\ref{mbrp:thm:relative-product}の構成により、実際の $S$-線型圏
+定理\paperref{main}{mbrn:thm:relative-product}と
+定理\paperref{main}{mbrp:thm:relative-product}の構成により、実際の $S$-線型圏
 $\mathcal C_p,\mathcal C_0$ と、作用を保持する積表示
 \begin{equation}\label{mbpd:eq:relative-models}
  \mathcal C_p^G\simeq\Perf(Y/S)\simeq\mathcal C_0^G
 \end{equation}
 を固定する。
 非可換側は compact 残余圏、可換側は自然な点三次族の perfect 残余圏である。
-命題\ref{mbrn:prop:rotations}の因子 rotation と可換側の相対 window は
+命題\paperref{main}{mbrn:prop:rotations}の因子 rotation と可換側の相対 window は
 \begin{equation}\label{mbpd:eq:factor-rotations}
  R_{i,p}=T_{\OO_{E_i}}\circ(t_{p_i})_*\circ(-\otimes L_i),
  \qquad R_{i,0}=T_{\OO_{E_i}}\circ(-\otimes L_i)
@@ -67,7 +67,7 @@ $\mathcal C_p,\mathcal C_0$ と、作用を保持する積表示
 Picard gerbe と因子位相の主張は成立する。
 通常の残余圏上の核への移送には、この相対模型とその作用・周期を要求する。
 任意の noetherian 底変更についての主張は、
-系\ref{mbrn:cor:base-change}と系\ref{mbrp:cor:base-change}の
+系\paperref{main}{mbrn:cor:base-change}と系\paperref{main}{mbrp:cor:base-change}の
 導来引戻しによる perfect/compact 模型の範囲で述べる。
 非正則な底上の全 $D^b\operatorname{coh}$ へは読み替えない。
 
@@ -302,7 +302,7 @@ $FQ_{i,p}\simeq Q_{i,0}F$ を作る。
 $Q_i^3$ を消す周期の図式は $\eta_i,\eta_b$ の周期条件により保たれる。
 従って $\prod_{i\ne b}Q_i^{d_i}$、$0\leq d_i<3$ という正規形を用いれば、
 交換と三乗の消去を生成関係とする全 coherent 作用が比較される。
-これは定理\ref{mbrc:thm:finite-point-comparison}の coherence 証明と同じ核の計算であり、
+これは定理\paperref{main}{mbrc:thm:finite-point-comparison}の coherence 証明と同じ核の計算であり、
 中心周期の係数直線が共通なので相対的にも成立する。
 
 ここで全 coherent 構造を分類する。
@@ -452,16 +452,16 @@ $\mathscr N_{L_i}$ を $q_i'$ に制限する。
 \]
 を与える $G$-同変な実際の核が存在する。
 rotation と指定周期まで標識する場合は、
-定理\ref{mbrc:thm:finite-point-comparison}の $e\leq2k$ が得られる。
+定理\paperref{main}{mbrc:thm:finite-point-comparison}の $e\leq2k$ が得られる。
 \end{corollary}
 \begin{proof}
-補題\ref{mbrc:lem:degree-three-point}を各因子へ順次適用すれば、
+補題\paperref{main}{mbrc:lem:degree-three-point}を各因子へ順次適用すれば、
 高々 $k$ 回の三次拡大により全 $M_i$ を選べる。
 rotation を標識しない場合には、$D$ の $k-1$ 個の $\mu_3$-torsor を
 順次分裂させれば十分であり、さらに高々 $k-1$ 回の三次拡大で足りる。
 体は全三乗根を含むため、非自明な Kummer 拡大は次数三である。
-体上の積表示と bidual は定理\ref{mbnp:thm:product}、
-系\ref{mbnp:cor:coherent}、系\ref{mbrp:cor:comparison-field}から得られる。
+体上の積表示と bidual は定理\paperref{main}{mbnp:thm:product}、
+系\paperref{main}{mbnp:cor:coherent}、系\paperref{main}{mbrp:cor:comparison-field}から得られる。
 従ってこの系に相対模型の仮定を追加する必要はない。
 指定周期を保つには全 $T_i$ を分裂させるので、追加回数は高々 $k$ となる。
 \end{proof}
@@ -530,7 +530,7 @@ DVR 上の有限生成次数成分には torsion がなく、有限自由とな�
 三段 Koszul 分解は各次数で有限自由加群の複体であり、
 ファイバーでの完全性と Nakayama により相対的にも完全である。
 同じ議論で $S_R/(\Omega_H)$ の次数成分と THCR の次数成分を同定する。
-従って、系\ref{mbrn:cor:factor-boundary}の一因子の相対
+従って、系\paperref{main}{mbrn:cor:factor-boundary}の一因子の相対
 parameter-zero window と有限 MF 模型をこの正則基底上で適用できる。
 その構成は実際の最高 Koszul syzygy の直線を保持して行い、
 二捩れ境界で退化し得る $\det W$ との交代化による同定は使わない。
@@ -636,7 +636,7 @@ $\gamma_i=[3d_i/a_i(d_i)]$ である。
 
 この系が鋭くするのは、実線束を既に持つ場合の \emph{位相段階} の次数である。
 系\ref{mbpd:cor:field-degree}の全上界 $3^{2k-1}$ や
-定理\ref{mbrc:thm:finite-point-comparison}の $3^{2k}$ の最小性ではない。
+定理\paperref{main}{mbrc:thm:finite-point-comparison}の $3^{2k}$ の最小性ではない。
 また Picard 補正型以外の比較核の不存在は結論しない。
 一方、元の有限型 Hesse 開上にも Picard 補正型の大域比較核は存在しない。
 もし存在すれば、その函数体上に必要な $D$ の切断を与えるためである。

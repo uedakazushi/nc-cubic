@@ -1,0 +1,550 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\section{普遍中心と Azumaya 幾何}
+\label{mix:sec:centers}
+
+\subsection{定数型 Sklyanin 変形の普遍中心と有限中心性}
+\label{cmo:subsec:pi-center}
+
+本節では斉次 Sklyanin 入力を $S=S(1,-1,-1)$ に固定する。
+その定数項を任意に変えた PBW 変形について、中心の生成元を明示する。
+以下で使う $a,b,c$ は一ブロックの三つの変形係数であり、
+中心和の切断係数とは区別する。
+
+\begin{lemma}[普遍六次中心元]\label{cmo:lem:universal-sixth-center}
+中心変数 $a,b,c$ を用いて
+\[
+ \mathcal D=\C[a,b,c]\langle x,y,z\rangle/
+ \bigl([y,z]-x^2+a,\ [z,x]-y^2+b,\ [x,y]-z^2+c\bigr)
+\]
+と置く。$a,b,c$ に重み二、$x,y,z$ に重み一を与える。
+次の元は $\mathcal D$ の中心に属する：
+\begin{align}
+ C_0={}&z(z^2-c)(xzy+ax+by)+abz^2,
+ \label{cmo:eq:center-six-zero}\\
+ C_+={}&yz^4y+zyz^3y+z^2y^2z^2+2z^2yz^2y-z^4y^2+z^5x
+ \notag\\
+ &+a(zyz^2+2z^2yz+2z^3y)
+   +b(-yz^2x-2zy^3+4z^2yx+4z^4)
+ \notag\\
+ &+c(-y^2z^2-3yz^2y-z^2y^2-2z^3x)
+ \notag\\
+ &+a^2z^2+b^2(-yz+3zy)+c^2(2y^2+zx)
+ \notag\\
+ &+2abzx+ac(-yz-2zy)+bc(-yx-5z^2).
+ \label{cmo:eq:center-six-positive}
+\end{align}
+さらに、積の順序を逆転し、$x,a$ を固定し、
+$y,z$ および $b,c$ をそれぞれ交換する反自己同型を $\iota$ と置き、
+$C_-=\iota(C_+)$ とする。これも中心元である。
+
+$a=b=c=0$ での像を $C_{0,0},C_{+,0},C_{-,0}\in S_6$ と書く。
+既述の三次中心元
+\[
+ \Omega_0=\frac{x^3+y^3+z^3}{3}-\frac23\operatorname{sym}(xyz)
+\]
+について、四元
+\begin{equation}\label{cmo:eq:sixth-center-basis}
+ \Omega_0^2,\quad C_{0,0},\quad C_{+,0},\quad C_{-,0}
+\end{equation}
+は $S_6$ 内で一次独立である。
+\end{lemma}
+
+\begin{proof}
+三つの関係を $r_x,r_y,r_z$ と書く。
+$\iota(r_x)=r_x$、$\iota(r_y)=r_z$、$\iota(r_z)=r_y$ であるから、
+$\iota$ は実際に $\mathcal D$ の反自己同型である。
+従って $C_-$ の中心性は $C_+$ の中心性からも従う。
+
+中心性と一次独立性には、次の有限有理数計算を用いる。
+重み $d$ における自由代数の基底を
+\[
+ \bigl\{a^{e_1}b^{e_2}c^{e_3}w\ \bigm|\
+       2(e_1+e_2+e_3)+|w|=d\bigr\}
+\]
+とし、全ての二側関係倍
+$a^{e_1}b^{e_2}c^{e_3}v r_j w$ を行とする。
+行簡約は $\mathbb Q$ 上で行うので、零への簡約は二側関係イデアルへの
+厳密な所属証明である。重み六と七での行列の大きさ、rank はそれぞれ
+\[
+\begin{array}{c|r|r|r|r}
+ d&\text{行数}&\text{列数}&\text{rank}&\text{商の次元}\\ \hline
+ 6&1476&1036&917&119\\
+ 7&5454&3108&2919&189
+\end{array}
+\]
+となる。$[x,C_\nu],[y,C_\nu],[z,C_\nu]$ は
+$\nu\in\{0,+,-\}$ の全てについて重み七の関係行列で零へ簡約される。
+同じ計算は
+$\Omega=\Omega_0-ax-by-cz$ の中心性も重み四で確認する。
+
+active word の長さを降順、同じ長さでは $x<y<z$ の辞書式順序とし、
+同じ word に付くパラメータ指数を辞書式に並べる。
+重み六の簡約後に $a=b=c=0$ とすると、$S_6$ の二十八個の自由列を得る。
+式\eqref{cmo:eq:sixth-center-basis}を行に取り、そのうち
+\[
+ y^2z^3y,\quad yz^2y^3,\quad yz^4y,\quad z^3y^3
+\]
+の四列を選んだ係数行列は
+\begin{equation}\label{cmo:eq:sixth-center-minor}
+ \begin{pmatrix}
+  4/9&0&0&4/3\\
+  0&0&0&-1\\
+  0&0&1&0\\
+  0&-1&0&0
+ \end{pmatrix},\qquad \det=-\frac49\ne0
+\end{equation}
+である。よって一次独立性が従う。
+この計算を再生成する有限証明書が
+\path{computations/verify_mixed_pi_center.py} である。
+係数の代入・補間・浮動小数点 rank による検査ではなく、
+三つのパラメータを独立変数に保つ普遍恒等式を確認している。
+\end{proof}
+
+\begin{theorem}[全定数変形での有限中心性]\label{cmo:thm:finite-center}
+任意の $\alpha=(\alpha_1,\alpha_2,\alpha_3)\in\C^3$ に対して
+\[
+ D_\alpha=\C\langle x,y,z\rangle/
+ \bigl([y,z]-x^2+\alpha_1,\ [z,x]-y^2+\alpha_2,
+       \ [x,y]-z^2+\alpha_3\bigr)
+\]
+と置く。$C_{\nu,\alpha}$ を上の $C_\nu$ の係数特殊化とすると
+\begin{equation}\label{cmo:eq:affine-center-generators}
+ Z(D_\alpha)=\C[\Omega_\alpha,C_{0,\alpha},C_{+,\alpha},C_{-,\alpha}].
+\end{equation}
+ここで affine 表示では
+$\Omega_\alpha=\Omega_0-\alpha_1x-\alpha_2y-\alpha_3z$ である。
+$D_\alpha$ はこの可換有限型中心環上有限であり、従って PI である。
+
+さらに、$u$ を次数一の中心変数とする斉次化 $\mathcal B_\alpha$ で
+\[
+ \widehat C_{\nu,\alpha}
+     =C_\nu(x,y,z;\alpha_1u^2,\alpha_2u^2,\alpha_3u^2)
+\]
+と定めると
+\begin{equation}\label{cmo:eq:homogeneous-center-generators}
+ Z(\mathcal B_\alpha)=\C[u,\Omega_\alpha,
+             \widehat C_{0,\alpha},\widehat C_{+,\alpha},\widehat C_{-,\alpha}].
+\end{equation}
+右辺の $\Omega_\alpha$ は $\mathcal B_\alpha$ の斉次三次中心元を表す。
+$\mathcal B_\alpha$ もこの中心上有限である。
+\end{theorem}
+
+\begin{proof}
+まず、全次数に必要な既知の中心生成定理を特定する。
+$S=S(1,-1,-1)$ の点曲線は
+$E=V(x^3+y^3+z^3+xyz)$ であり、その点 shift は位数六である。
+後者は Walton \cite[Proposition~4.1]{CMOWaltonRepresentations} にも
+同じパラメータで記載されている。
+Smith--Tate \cite[Theorem~3.7, $r=1$]{GRSklyaninST} によれば、
+位数 $n$ の三次元 Sklyanin 代数の中心は
+次数三の元 $g$ と次数 $n$ の三元 $z_1,z_2,z_3$ で生成される。
+この定理は $3\mid n$ の場合も含む。
+本件の $n=6$ に適用すると
+\[
+ Z(S)=\C[g,z_1,z_2,z_3],\qquad
+ \deg g=3,\quad\deg z_i=6.
+\]
+従って $\dim_\C Z(S)_3=1$ かつ $\dim_\C Z(S)_6\le4$ である。
+$\Omega_0$ は非零である：例えば可換化
+$S_{\mathrm{ab}}=\C[x,y,z]/(x^2,y^2,z^2)$ への像は
+$-2xyz/3\ne0$ である。よって $\Omega_0$ は $g$ の非零 scalar 倍である。
+補題\ref{cmo:lem:universal-sixth-center}は $Z(S)_6$ の四つの独立元を与えるので、
+\emph{$\dim_\C Z(S)_6=4$ であり、式\eqref{cmo:eq:sixth-center-basis}はその全体の基底}
+となる。特に各 $z_i$ はこの四元の線形結合であり、
+\begin{equation}\label{cmo:eq:graded-center-generators}
+ Z(S)=\C[\Omega_0,C_{0,0},C_{+,0},C_{-,0}].
+\end{equation}
+これは低次数の中心計算だけから全次数の生成性を推測した結論ではない。
+全次数の生成上界が Smith--Tate の定理であり、有限計算はその全生成元の
+持上げを確認している。
+
+既述の PBW 判定により $D_\alpha$ の active 濾過の随伴代数は $S$ である。
+任意の中心元の最高部分は $Z(S)$ に属する。
+式\eqref{cmo:eq:graded-center-generators}の全生成元は、補題で与えた
+$D_\alpha$ の中心元へ持ち上がっている。
+従って任意の $h\in Z(D_\alpha)$ の最高部分と一致する中心生成元の多項式を
+$h$ から引き、active 次数について帰納すれば
+式\eqref{cmo:eq:affine-center-generators}を得る。
+
+同じ Smith--Tate の定理により $S$ は $Z(S)$ 上有限である。
+有限個の斉次加群生成元を取り、これらを $D_\alpha$ に持ち上げる。
+任意の元の最高部分をそれらで表し、次数を下げる帰納法を繰り返すと、
+同じ有限個の持上げが $D_\alpha$ を $Z(D_\alpha)$ 上生成する。
+
+斉次化については、$C_\nu$ の普遍恒等式に
+$(a,b,c)=(\alpha_1u^2,\alpha_2u^2,\alpha_3u^2)$ を代入すれば
+$\widehat C_{\nu,\alpha}$ の中心性を得る。
+$u$ は $\mathcal B_\alpha$ 上正則であり、$\mathcal B_\alpha/(u)=S$ である。
+これらの中心元の像が $Z(S)$ を全て生成するため、
+Smith--Tate \cite[Lemma~3.6]{GRSklyaninST} が適用でき、
+式\eqref{cmo:eq:homogeneous-center-generators}と加群有限性を得る。
+実際、この段階の帰納法は、中心元 $h$ の像を生成元の多項式で消して
+$h-P=u h_1$ と書き、$u$ の正則性から $h_1$ の中心性を得るものである。
+\end{proof}
+
+\begin{corollary}[係数族に一様な有限中心模型]
+\label{cmo:cor:relative-finite-center}
+上の中心元は三つの定数係数に関して多項式であり、係数の分母は生じない。
+したがって、係数環 $R$ 上で $\alpha_i\in R$ を指定し、既述の分裂した
+PBW 模型を底変更して得る $\mathcal B_{\alpha,R}$ は、
+\[
+ R[u,\Omega_\alpha,
+       \widehat C_{0,\alpha},\widehat C_{+,\alpha},\widehat C_{-,\alpha}]
+\]
+という可換有限型中心部分環上有限である。
+特に $R=\C[t]$、$\alpha\mapsto t^2\alpha$ の収縮族に適用できる。
+複数因子が同じ $u$ を共有する tensor 積も、各因子のこの有限中心部分環の
+$R[u]$ 上の tensor 積の像に対して有限である。
+\end{corollary}
+
+\begin{proof}
+$S$ の $Z(S)$ 上の有限斉次加群生成元を一度選び、その同じ語を全係数族で使う。
+PBW によって $\mathcal B_{\alpha,R}/(u)=S\otimes_\C R$ であり、
+式\eqref{cmo:eq:graded-center-generators}の係数拡大は、表示した中心部分環の像に
+含まれる。任意の斉次元を $u=0$ でこの有限個の語の結合として表し、差を $u$ で割る。
+内部次数が毎回一ずつ下がるため、有限回で停止する。
+この証明は $R$ の点ごとの有限生成性からの推論ではなく、一組の有限生成語を
+全係数族で共通に用いる。
+因子ごとの有限生成系の tensor 積を取れば最後の主張が従う。
+\end{proof}
+
+\begin{remark}[先行研究との関係と新規性の範囲]
+\label{cmo:rem:pi-center-literature}
+Walton の学位論文 \cite[Definition~V.1, Remark~V.16]{CMOWaltonThesis} は、
+三次元 Sklyanin 代数の一般中心拡大を扱い、位数六の場合について
+三次・六次中心元を持ち上げる方法を提案している。
+本節はそのうち、斉次パラメータが $(1,-1,-1)$、線形補正 $d_i x_i u$ が零で、
+定数補正 $e_i u^2$ が任意の部分族について、その持上げを明示し検証したものである。
+位数六の全 Sklyanin パラメータや、非零の線形補正を含む一般拡大を扱う主張ではない。
+
+Etingof--Ginzburg \cite[Theorem~3.3.2 and Section~9]{NFMEG} の
+三次中心元と PBW 変形の理論、および Smith--Tate の斉次中心生成定理は既知の入力である。
+本節の具体的六次持上げとこの定数型部分族への適用について、
+後続文献を含む初出の網羅的確認はまだ完了していない。
+有限中心性は明示した中心元から証明しており、associated graded の PI 性だけから
+PBW 変形の PI 性を結論していない。
+\end{remark}
+
+\subsection{中心の有限表示と二つの係数における臨界値}
+\label{cmo:subsec:effective-center-geometry}
+
+定理~\ref{cmo:thm:finite-center} の中心生成元を用い、
+\[
+ W=\Omega_\alpha^2,\qquad U=C_0,\qquad V=C_+,\qquad T=C_-
+\]
+とおく。これらのフィルター次数はすべて $6$ である。
+以下の三次多項式を固定する：
+\begin{equation}
+\begin{split}
+ P_3(W,U,V,T)={}&81W^2U+468WU^2+784U^3\\
+ &-36WVT-176UVT+16V^3+16T^3.
+\end{split}
+\label{cmo:eq:center-cubic-top}
+\end{equation}
+
+\begin{proposition}[中心の一関係表示と PI 次数]
+\label{cmo:prop:center-hypersurface-degree}
+任意の $\alpha\in\mathbb C^3$ に対し、最高次部分が $P_3$ である
+全次数 $3$ の多項式 $P_\alpha(W,U,V,T)$ が一意に存在し、
+\begin{equation}
+ Z(D_\alpha)\simeq
+ \mathbb C[s,U,V,T]/\bigl(P_\alpha(s^2,U,V,T)\bigr),
+ \qquad s\longmapsto\Omega_\alpha
+ \label{cmo:eq:center-hypersurface}
+\end{equation}
+となる。さらに $D_\alpha$ の中心上の分数体階数は $36$、
+PI 次数は $6$ である。
+\end{proposition}
+
+\begin{proof}
+定理~\ref{cmo:thm:finite-center} の証明は
+$\operatorname{gr}Z(D_\alpha)=Z(S)$ も与える。
+Smith--Tate \cite[Theorem~4.8]{GRSklyaninST} によれば、
+$S=S(1,-1,-1)$ の中心は次数 $3,6,6,6$ の生成元を持ち、
+関係イデアルは次数 $18$ の一元で生成される。
+補題~\ref{cmo:lem:universal-sixth-center} の四元の最高部は
+この生成系の可逆な線型変更を与える。
+後述する厳密計算から $P_3(\Omega_0^2,C_{0,0},C_{+,0},C_{-,0})=0$
+が従うので、この非零多項式が最高次数での関係を生成する。
+
+中心への全射はフィルター付きで狭義であるから、
+この次数 $18$ の関係を低次数で補正して核の元に持ち上げられる。
+$x,y,z\mapsto-x,-y,-z$ は $D_\alpha$ の自己同型であり、
+$\Omega_\alpha\mapsto-\Omega_\alpha$、$C_\nu\mapsto C_\nu$ と作用する。
+補正の偶数部分を取れば、関係は $s$ の偶数冪だけからなる。
+従って $W=s^2$ を用いて全次数 $3$ 以下の $P_\alpha$ と書ける。
+これより低いフィルター次数には関係がないため、最高部分を
+$P_3$ と規格化した持上げは一意である。
+任意の核の元の最高部分は $P_3$ で割り切れるので、
+$P_\alpha$ の倍を引いてフィルター次数を下げる帰納法により、
+核全体が $P_\alpha$ で生成される。
+
+中心の Hilbert 級数は
+\[
+ H_{\operatorname{gr}Z(D_\alpha)}(t)=
+ \frac{1-t^{18}}{(1-t^3)(1-t^6)^3},
+ \qquad H_{\operatorname{gr}D_\alpha}(t)=\frac1{(1-t)^3}.
+\]
+有限中心性により $D_\alpha$ は中心上の有限フィルター加群であり、
+両者の多重度の比は分数体階数に等しい。
+従ってその階数は
+\[
+ \lim_{t\to1}
+ \frac{(1-t^3)(1-t^6)^3}{(1-t)^3(1-t^{18})}
+ =\frac{3\cdot6^3}{18}=36.
+\]
+$D_\alpha$ は PBW 性と $\operatorname{gr}D_\alpha=S$ の整域性から
+整域である。中心の分数体に移した中心単純環の次元は PI 次数の
+二乗なので、PI 次数は $6$ となる。
+\end{proof}
+
+以下では
+\[
+ \alpha^{(1)}=(1,4,9),\qquad
+ \alpha^{(2)}=(16,25,49)
+\]
+とする。$P_i=P_{\alpha^{(i)}}$ は $P_3$ に次表の低次項を加えた
+多項式である。表にない単項式の係数は零である。
+\begin{center}
+\small
+\begin{tabular}{c|r|r}
+単項式 & $P_1$ の係数 & $P_2$ の係数\\ \hline
+$WU$ & $-59760$ & $-11301840$\\
+$WV$ & $144$ & $230400$\\
+$WT$ & $324$ & $451584$\\
+$U^2$ & $-193984$ & $-39551680$\\
+$UV$ & $-13952$ & $-3701824$\\
+$UT$ & $-20752$ & $-3076672$\\
+$V^2$ & $5152$ & $718992$\\
+$VT$ & $13856$ & $2825120$\\
+$T^2$ & $3472$ & $899856$\\
+$W$ & $-47952$ & $-16719897600$\\
+$U$ & $7099264$ & $180425753600$\\
+$V$ & $-152048$ & $-43671732224$\\
+$T$ & $-153248$ & $-48922542080$\\
+$1$ & $997056$ & $448348972646400$
+\end{tabular}
+\end{center}
+
+\begin{lemma}[有限計算による関係の証明]
+\label{cmo:lem:center-relation-certificate}
+上の二つの表は、それぞれ
+$P_i(\Omega_{\alpha^{(i)}}^2,C_0,C_+,C_-)=0$ を与える。
+全次数 $3$ 以下の四変数単項式 $35$ 個の間の関係空間は一次元である。
+\end{lemma}
+
+\begin{proof}
+\path{computations/verify_mixed_center_geometry.py} は
+既存の \path{verify_mixed_pi_center.py} の中心元を直接読み込み、
+すべての演算を $\mathbb Q$ 上で行う。再現の線型代数を説明する。
+フィルター次数 $n-1$ 以下の語代表基底と右乗法表が既に構成されたとする。
+次数 $n$ の仮の最高部分には、次数 $n-1$ の基底語の右に
+$x,y,z$ を付加した $3\binom{n+1}{2}$ 列だけを用いる。
+低次数部分には既知の基底を用いる。
+次数 $n-2$ の基底語 $w$ に対し
+\[
+ w(yz-zy-x^2+\alpha_1),\quad
+ w(zx-xz-y^2+\alpha_2),\quad
+ w(xy-yx-z^2+\alpha_3)
+\]
+を既知の乗法表で表し、その行空間で割る。
+これらは実際の関係なので、得られた空間から $F_nD_\alpha$ への
+全射がある。計算は各 $2\le n\le18$ で新しい最高部分の次元が
+$\binom{n+2}{2}$ であり、低次数に新しい関係がないことを検査する。
+既知の PBW 次元と一致するため、この全射は同型である。
+したがって得られた乗法表は次数 $18$ までの正確な商計算を与える。
+
+$n=18$ では最高部分の仮の列数は $513$、実際の最高部分の次元は
+$190$、低次数を含む語代表は $1330$ 個である。
+四中心元の全次数 $3$ 以下の単項式をこの基底に展開すると
+$35$ 列の階数は $34$ となり、核は表示した $21$ 項の関係で張られる。
+これは自由語 $3^{18}$ 個の列挙、浮動小数点の階数判定、係数の標本補間の
+いずれにも依存しない有限の理想所属計算である。
+全次数における中心表示には、命題の証明で Smith--Tate の
+一関係定理を別に用いている。
+\end{proof}
+
+臨界値を表示するため、次の多項式を置く：
+\begin{align*}
+ H_1(W)={}&(W-784)(W-256)(9W-3136)(9W-784)(343W-73728),\\
+ H_2(W)={}&(W-200704)(W-38416)(W-30976)(9W-80656)\\
+ &\hspace{18mm}\cdot(748505944125W-37623589339922432),
+\end{align*}
+\begin{align*}
+ Q_1(W)={}&129140163W^4-188108856360W^3+92316693932208W^2\\
+ &-16917496764590592W+875501309973348352,\\
+ Q_2(W)={}&129140163W^4-34079674491720W^3
+       +2934863745734897712W^2\\
+ &-83555308663913970224640W
+       +165916680996850221150748672.
+\end{align*}
+
+\begin{proposition}[中心の特異点と八つの新しい Morse 臨界値]
+\label{cmo:prop:center-critical-polynomials}
+$X_i=\operatorname{Spec}Z(D_{\alpha^{(i)}})$ とし、
+$s=\Omega_{\alpha^{(i)}}:X_i\to\mathbb A^1$ とする。
+\begin{enumerate}
+ \item $s^{-1}(\lambda)$ が特異であるための必要十分条件は
+ \[
+   \lambda H_i(\lambda^2)Q_i(\lambda^2)=0
+ \]
+ である。この条件は相異なる $19$ 個の値を与える。
+ \item $X_i$ 自身の特異点は $14$ 個で、すべて通常二重点である。
+ そのうち $10$ 個は $H_i(s^2)=0$ 上にあり、
+ 残りの $4$ 個は $s=0$ 上にある。
+ \item $Q_i(s^2)=0$ に対応する $8$ 個の臨界点は $X_i$ の滑らかな部分にあり、
+ それぞれ $s$ の Morse 臨界点である。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$R_i=\mathbb Q[W,U,V,T]$ 内のイデアル
+\[
+ I_i=(P_i,\partial_UP_i,\partial_VP_i,\partial_TP_i)
+\]
+を用いる。同じ再現コードの有理数体上の Gr\"obner 基底計算は
+\begin{equation}
+ \dim_{\mathbb Q}R_i/I_i=18,\qquad
+ I_i\cap\mathbb Q[W]=(W H_i(W)^2Q_i(W))
+ \label{cmo:eq:center-critical-elimination}
+\end{equation}
+を、非零有理数倍を除いて検証する。
+$Q_i$ は $\mathbb Q$ 上既約であり、$W,H_i,Q_i$ は互いに素、
+$H_i$ は重根を持たない。
+臨界スキームは零次元なので射影の像も閉であり、
+消去多項式の根はちょうど特異なファイバーを与える。
+これに $W=s^2$ を代入すると (1) を得る。
+
+$P_{i,W}=\partial_WP_i$ と略記する。
+$I_i+(P_{i,W})$ の商は長さ $5$ で、
+$W$ の消去多項式は $H_i$、しかも四変数 Hessian の行列式は
+この商で単元である。従って非零の $s$ 上の中心特異点は
+$H_i(s^2)=0$ で与えられる $10$ 個の通常二重点である。
+$W=0$ での $I_i$ の商は長さ $4$ の被約環であり、
+$P_{i,W}$ と三変数 $U,V,T$ に関する Hessian の行列式はともに単元である。
+$s=0$ における $P_i(s^2,U,V,T)$ の Hessian は、
+$s$ 方向の成分 $2P_{i,W}$ とこの三変数 Hessian の直和なので可逆である。
+これで (2) が従う。
+
+最後に $I_i+(Q_i)$ の商は長さ $4$ である。
+この商でも $P_{i,W}$ と三変数 Hessian の行列式は単元である。
+$W\ne0$ なので $\partial_sP_i(s^2,U,V,T)=2sP_{i,W}\ne0$ となり、
+対応する中心の点は滑らかである。
+陰関数定理で $s$ を $U,V,T$ の関数とみれば、その Hessian は
+非零スカラー倍の三変数 Hessian となる。従って八つの点は Morse 臨界点である。
+各単元判定は、対応する Gr\"obner 基底に当該行列式または微分を加えた
+イデアルが単位イデアルになることを有理数体上で検証している。
+\end{proof}
+
+
+\subsection{全定数変形の Azumaya locus}
+
+中心の臨界点から非可換中心商の特異性を結論するには、
+中心上の代数の局所構造を確認しなければならない。
+本表示では、その入力を全定数係数について得られる。
+
+\begin{theorem}[正則中心上の Azumaya 性]
+\label{cmo:thm:azumaya-regular}
+任意の $\alpha\in\C^3$ に対して、$D_\alpha$ は PI 次数六の
+homologically homogeneous 代数である。
+その中心 $Z_\alpha=Z(D_\alpha)$ は正規で、$D_\alpha$ は
+$Z_\alpha$ 上 Cohen--Macaulay である。
+さらに
+\[
+ \operatorname{Az}(D_\alpha)=
+       (\operatorname{Spec} Z_\alpha)_{\mathrm{reg}}.
+\]
+特に中心の任意の正則閉点で、完備化した代数は
+$\operatorname{Mat}_6(\widehat{Z_{\alpha,\mathfrak m}})$ と同型である。
+\end{theorem}
+\begin{proof}
+三次 potential の長さ三の自己双対な双加群解消により
+$D_\alpha$ は三次元 Calabi--Yau で大域次元は三以下である
+\cite[Theorem~3.3.2]{NFMEG}。
+随伴代数 $S=S(1,-1,-1)$ は domain なので、$D_\alpha$ も domain である。
+定理\ref{cmo:thm:finite-center}より中心上有限であり、
+全ての単純加群 $V$ は有限次元である。
+Calabi--Yau 双対から
+\[
+ \operatorname{Ext}_{D_\alpha}^3(V,V)
+       \simeq\operatorname{End}_{D_\alpha}(V)^*\ne0
+\]
+なので、全ての単純加群の射影次元は正確に三である。
+従って $D_\alpha$ は homologically homogeneous である。
+Brown--Hajarnavis による中心の正規性と中心上の Cohen--Macaulay 性を適用する。
+ここではこの既知の結果の形を、
+Brown--Yakimov \cite[\S3.8(b)(i), Proposition~3.10 and its proof]{CMOBrownYakimov}
+に記載されたものに従う。
+PI 次数六は、命題\ref{cmo:prop:center-hypersurface-degree}の Hilbert 級数の比から従う。
+
+余次元一での Azumaya 性を、斉次化から示す。
+$B=\mathcal B_\alpha$、$T=Z(B)$ とすると、全中心生成元の持上げと
+$u$ の正則性により
+\[
+ B/(u)=S,\qquad T/(u)=Z(S),\qquad
+ B[u^{-1}]=D_\alpha[u,u^{-1}],\qquad
+ T[u^{-1}]=Z_\alpha[u,u^{-1}].
+\]
+$T/(u)$ への中心の全射性は定理\ref{cmo:thm:finite-center}で証明済みであり、
+その核が $uT$ であることは $ub\in Z(B)\Rightarrow b\in Z(B)$ による。
+$T$ は次元四の連結正次数付き可換有限型 domain で、$B$ はその上有限である。
+
+$u=0$ 上で $S$ が Azumaya である閉点 $z$ を取る。
+局所環 $T_z$ 上で $B_z$ と $T_z$ に $u$ は正則に作用し、
+$B_z/uB_z$ は $T_z/(u)$ 上有限射影である。
+この有限射影加群は局所環 $T_z/(u)$ 上で階数三十六の自由加群である。
+その基底を持ち上げると、Nakayama により全射 $T_z^{36}\to B_z$ を得る。
+核を $L$ とすると、$u$ の $B_z$-正則性による
+$\operatorname{Tor}_1^{T_z}(B_z,T_z/(u))=0$ から $L/uL=0$ が従う。
+$L$ は有限生成なので再び Nakayama により $L=0$。
+従って $B_z$ は $T_z$ 上有限自由である。
+自然な射
+\[
+ B_z\otimes_{T_z}B_z^{\mathrm{op}}
+       \longrightarrow\operatorname{End}_{T_z}(B_z)
+\]
+は、$u$ で割れば同型である。両辺は同じ階数の有限自由加群なので、
+Nakayama の補題、または行列式の単元性からこの射自身が同型となる。
+従って $B_z$ は Azumaya である。
+
+$\mathcal N\subset\operatorname{Spec}T$ を $B$ の非 Azumaya locus とする。
+これは閉集合で、正次数の dilation 作用で不変である。
+Walton--Wang--Yakimov
+\cite[Theorem~1.3(1), Lemma~5.4]{CMOWaltonWangYakimov}によれば、
+位数六の $S$ の非 Azumaya locus は、中心の特異 locus に等しく、
+三本の曲線の和である。従って、前段の持上げから
+\[
+ \dim\bigl(\mathcal N\cap V(u)\bigr)\leq1.
+\]
+もし $\mathcal N$ に次元三以上の既約成分 $Y$ があれば、
+$\mathbb G_m$ の連結性により $Y$ 自身が dilation 不変であり、
+斉次閉錐として原点を含む。
+$u|_Y=0$ なら上の次元上限に反する。
+$u|_Y\ne0$ なら、非空の主切断 $Y\cap V(u)$ は
+有限型 domain の次元公式から次元 $\dim Y-1\geq2$ であり、やはり矛盾する。
+従って $\dim\mathcal N\leq2$ である。
+
+$u\ne0$ 上の上記 Laurent 表示では、Azumaya 性の忠実平坦降下により
+\[
+ \mathcal N\cap D(u)=
+       \bigl(\operatorname{Spec}Z_\alpha\setminus
+                     \operatorname{Az}(D_\alpha)\bigr)\times\mathbb G_m.
+\]
+従って $D_\alpha$ の非 Azumaya locus は次元一以下であり、
+$D_\alpha$ は中心の余次元一で Azumaya である。
+
+以上で、prime、中心上有限、有限大域次元、正規中心、中心上 Cohen--Macaulay、
+余次元一の Azumaya 性が揃った。
+reduced trace を選べば Brown--Yakimov の Main Theorem の trace 仮定も満たされ、
+同論文\cite[Corollary~5.2]{CMOBrownYakimov}から
+Azumaya locus と正則 locus の一致が従う。
+完備局所環は剰余体 $\C$ を持つ Hensel 環なので、その上の Azumaya 代数は分裂する。
+PI 次数が六であることから、最後の行列代数の大きさも従う。
+\end{proof}
+
+\begin{remark}
+この持上げは、中心の全生成元が持ち上がることと、
+斉次化の正次数構造を使っている。
+PBW 性、有限中心性、有限大域次元の三条件だけから
+Azumaya locus と正則 locus の一致を推論してはいない。
+\end{remark}

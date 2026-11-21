@@ -1,0 +1,109 @@
+% !TEX root = ../nc-cubic.tex
+\section{序論}
+\label{sec:introduction}
+
+\subsection{可換 Kuznetsov 実現の問題}
+
+本稿の目的は、非可換三次の Kuznetsov 成分を、同じ次元の滑らかな
+可換三次超曲面の成分として実現することである。
+基礎体を $\C$、次元を $n\ge3$ とし、非可換三次 $n$-fold を
+$\mathcal X$ と書く。標準的な三次型の例外部分を除いた dg 残余圏を
+$\Ku(\mathcal X)$ とする。中心三次表示 $A=B/(w)$ を用いる場合は、
+有限線束から生成する残余部分と全 coherent 残余圏を区別し、
+window と飽和を証明した範囲で後者と同定する。
+
+\begin{conjecture}[主予想：任意の非可換三次の可換 Ku 実現]
+\label{conj:nc-main}
+任意の滑らかな非可換三次 $n$-fold $\mathcal X$ に対して、
+滑らかな可換三次超曲面 $X\subset\PP^{n+1}_{\C}$ と
+$\C$-線型 dg Morita 同値
+\[
+ \Ku(\mathcal X)\simeq\Ku(X)
+\]
+が存在する。
+\end{conjecture}
+
+この予想の「任意」は、既知の表示空間の稠密開へ弱めない。
+全対象の内在的な定義・認識、全 $\mathcal O$-marked モジュライの構成、
+表示による全成分の被覆には未完成部分がある。
+以下で証明するのは、各定理に明記する中心三次変形や実楕円因子の
+表示を持つ対象についての結果である。
+一般体への核の降下や指定 rotation・周期の保持は、有効な強化問題であるが、
+複素数体上の全対象についての存在問題とは区別する。
+
+\subsection{主結果とその範囲}
+
+第一の結果は、次数別有限自由な中心三次変形の一般点における可換復元である。
+可換な特殊ファイバーと滑らかな剰余三次を持つ、指定された代数的変形に対し、
+定理\ref{gdr:thm:generic}は元の関数体上に滑らかな可換三次を構成し、
+有限拡大上で全 coherent 残余圏の同値を与える。
+この同値は rotation と指定三次周期を保つ。
+完備曲率移送、三対象 window、通常の一般点への移行、方程式の降下、
+coherent 飽和を別々に証明する。
+全閉パラメータでの同値や、形式的な核への $h=1$ の代入は結論しない。
+
+第二の結果は、複素数体上の実楕円因子からなる分離型の直接比較である。
+定理\ref{pps:thm:elliptic-existence}と定理\ref{csc:thm:comparison}は、
+実際の THCR 商を持つ因子と、有限 Jacobi 環を持つ中心三次式について、
+有限行列分解の積表示と周期付き因子比較から可換 Ku 実現を構成する。
+存在のために因子の $j$ 不変量が互いに異なることや一般的であることは要求しない。
+必要な右 THCR の shift、楕円 window、rotation の補正を
+第\ref{cf:sec:elliptic-foundations}節にまとめる。
+中心変数のない満支持型、および中心変数が一つで三乗係数が非零の型では、
+明記した点対応の仮定の下で点スキームと Poisson 零スキームの同時比較も得る。
+
+第三の結果は、可換実現を族の中で進めるための形式認識と延長判定である。
+定理\ref{thm:nf-residual-formal}は $n\ne4$ の滑らかな可換三次について、
+通常の可換局所 Artin 基底上の変形を、圏変形の $1$-切断 $\tau_{\le1}$ から認識する。
+定理\ref{grl:thm:open-locus}は $n\ne4$ について、実際の smooth proper 圏族における
+可換実現 locus の開性と \'etale 局所の比較核を与える。
+一般点での比較核と perfect な DVR 模型が与えられた場合には、
+命題\ref{grl:prop:trait-kernel-test}の単位・余単位の cone が
+特殊点への同値延長を判定する。開性だけで全 smooth locus は覆えない。
+
+可換 Ku 実現から点スキームと Poisson 零スキームの一致まで期待することは、
+一般には正しくない。本文の注意\ref{ppz:rem:naive-expectation}に
+この素朴な期待を述べ、系\ref{ppz:cor:complex-counterexample}に、
+実際の Ku 比較が存在しても非被約局所環が一致しない三様体の例を与える。
+混合五様体では被約化後にも一致しない例があり、
+混合族稿の系\paperref{mixed}{ppz:cor:reduced-point-poisson-counterexample}で扱う。
+これらは点スキームによる可換標的の理解の限界を示す補助例である。
+
+\subsection{先行研究との関係}
+
+三様体の中心一次空間、二次包絡、中心三次の直線と残余圏を結ぶ構成
+\cite{Threefold}は出発点の一つである。
+一般次元では Serre 関手が回復する twist、Hochschild 群、
+Poisson 方程式のスキーム構造が変わるため、次元を置き換えるだけでは足りない。
+Poisson 正規形と相対 Poisson 層は未公表研究稿\cite{NCCubicA}、
+PBW・AS 正則性、指定 Casimir の中心持上げと量子化の存在は
+別稿\cite{CubicQuantization}を用いる。
+本稿の一般点復元は、入力となる変形を明記して適用する独立した基礎定理である。
+
+非可換 Proj と導来 section の基礎は Artin--Zhang\cite{LP-AZ}および
+相対双対の既存理論\cite{LP-BS}を用いる。
+楕円 THCR と Sklyanin 代数の構造\cite{GRSklyaninATV,GRSklyaninST}、
+特異圏と行列分解の window\cite{NFMOrlovSingularities}を基に、
+本稿では有限模型、内部次数、rotation と実中心元の指定周期を追跡する。
+一般点の同値を得た後に全 coherent 圏との一致を証明する順序は、
+smoothness を比較の前提に紛れ込ませないために必要である。
+
+三様体の全 Poisson 構造の分類\cite[Theorem~1, Section~2.2]{Mayanskiy}と
+categorical Torelli\cite[Theorem~1.1]{NFMThreefoldCategoricalTorelli}は、
+点スキーム不一致の例で用いる既知の入力である。
+本稿の内容は、孤立零点の局所 Artin 環の障害と、直接比較を持つ非可換族への適用である。
+圏変形の形式認識には Lurie\cite{NFDAGX}の tame 圏の理論を用いる。
+これらの具体的適用の文献上の新規性について、網羅的な確認はなお未完了である。
+
+\subsection{構成と関連する二稿}
+
+本稿は一般点復元の基礎、実楕円因子の積比較、分離型の点対応、
+三様体の不一致例、形式認識と可換実現 locus を扱う。
+構造対象付きモジュライ、表示認識、自然な中心直線、
+Picard 障害と周期位相の精密な降下はモジュライ・降下稿に置く。
+自然な標的を指定する相対比較には、そこでの尺度や scalar 自明化の結果も使う。
+固定表示に対する直接の存在定理と、この相対的な追加構造は区別する。
+混合族の中心、局所代数、正確な smooth locus、可換候補、Eckardt 模型は混合族稿に置く。
+指定した可換候補への実際の Ku 比較は、一般点でも未解決である。
+
+\PaperReferenceGuide

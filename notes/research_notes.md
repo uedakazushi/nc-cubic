@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v49。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v50。研究方針は `../00_research_plan.md`。証明全文は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -10,13 +10,19 @@ C上n≥3を基本とし、generic・全固定点・全族・一般体上の降�
 
 point schemeとPoisson零スキームまで同一視できるという素朴な期待は、本文の注意 `ppz:rem:naive-expectation` と不一致の例で扱う。指定混合五様体の定常ノルムの全64根では、smooth properなsourceの点スキームに一つの被約孤立点がある。一方、滑らかな可換三次五様体上の全Poisson零集合には孤立点がないため、Ku比較を仮定せず全可換標的を排除できる。三様体の非被約局所環を用いる別の例は、実際の可換Ku同値を持つsourceについての結果である。これらは可換Ku実現から点スキームについて結論できる範囲を示す補助的な例として保持し、独立の予想や修正版を最優先課題として掲げない。
 
-### 公表用原稿の構成を整理する際の検討事項
+### 三稿の役割と再開する本文
 
-現行稿は既にTeXソースを節ごとに分けているが、可換Ku実現、構造対象付きモジュライ・精密降下、混合Sklyanin族の具体計算を一つの長い序論で扱っている。公表単位の候補は、(1) 主稿 `papers/nc-cubic.tex` に一般点復元・分離型の直接比較・必要な基礎と適用範囲、(2) 別稿にO-marked認識・全自己同値・Picard/Brauer/Kummer障害・周期位相と比較次数、(3) 別稿に混合族の中心・局所order・smooth locus・不変量・明示可換候補を置く構成である。これは分割の検討案であり、現時点では独立原稿を新設していない。各稿の中心結果と文献上の新規性を確認し、同じrepo内で証明の正本を一箇所に保つ。
+| 正本となる原稿 | 内容と入口 |
+| --- | --- |
+| [可換復元の主稿](../papers/nc-cubic.tex) | 一般点可換復元、楕円windowとrotationの基礎、分離型の実Ku比較、残余圏の認識・可換実現の開性、三様体の非被約不一致例。 |
+| [モジュライ・降下稿](../papers/cubic-moduli-descent.tex) | O-marked認識・全慣性・点とPoissonのモジュライ射、Picard/Brauer/Kummer障害、周期位相、点型と全型の比較次数。主要結果の詳細は `moduli_overview.tex`、証明は各主題の節。 |
+| [混合Sklyanin稿](../papers/mixed-sklyanin-cubics.tex) | 中心・局所order・単純加群、全smooth locusと不変量、明示可換候補・Eckardt模型、被約point/Poisson不一致例。本文は `papers/sections/mixed/` の10節。 |
 
-ファイル単位で機械的に移す前に、主比較に必要な楕円windowとrotation補正を基礎部へまとめる。`csc:thm:comparison` は `mbrc:lem:factor-correction` を使い、`multiblock_noncommutative_product.tex` は `residual_kernel_point.tex` にある `eq:nfm-right-thcr-shift` と `lem:nfm-twisted-elliptic-window` を使う。精密なPicard降下の分類は逆に実積模型・rotation比較を入力するため、降下関連の節を丸ごと別稿へ移すと参照が往復する。これはファイル間の参照関係であり、数学的証明に循環があるという判定ではない。混合族の `cmo:cor:cofinite` は `grl:thm:open-locus` を使うので、主稿の比較・開性から具体族へという証明の依存を明示する。
+主比較に必要な楕円windowと体上のrotation共役の正本は、主稿の `comparison_foundations.tex` である。`eq:nfm-right-thcr-shift`、`lem:nfm-twisted-elliptic-window` をここから引用し、`csc:thm:comparison` が用いる `mbrc:lem:factor-correction` と分離比較も主稿に置く。相対Picard gerbe、比較核の分類と算術的降下は、これらの実比較を入力とするモジュライ稿に置く。混合族の `cmo:cor:cofinite` は主稿の `grl:thm:open-locus` を使う。稿をまたぐ参照は、定理番号と稿名から証明の所在をたどれるようにする。
 
-point/Poisson不一致例だけを独立稿の中心に据えない。三様体の例は主比較の射程を説明する本文に適する。混合五様体の例は混合族のsmoothnessを入力とするため、分割時にはその証明を置く稿を一つに定め、他稿では具体的定理を引用する。Introductionを短く整理しても、公表価値のある既存結果と証明は本文または対応する独立稿へ保持する。
+point/Poisson不一致は本文の補助例として扱う。三様体の例の証明は主稿の `point_poisson_obstruction.tex`、混合五様体の例と孤立零点制約は混合稿の `mixed/poisson_limits.tex` を正本とする。Introductionはそれぞれの本文を参照し、例のために独立の予想を立てない。各稿の序論は中心問題・主要結果・既存理論との差・適用範囲を述べ、詳細な主張と証明を本文へ置く。
+
+研究方針・研究ノート・共通preamble・書誌は三稿で共有し、数学的な本文は複製しない。三稿への整理は編集と参照の再構成であり、既存の数学全体の再証明ではない。以下の点検・計算に関する記述は各結果の既存の確認範囲であり、今回のソース保持・組版・表示確認とは区別する。実際の確認状態は [検証範囲](validation.md) を参照する。
 
 研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。現在のP0では、非可換対合のHochschild指標、根スタック模型の16直交条件、内部次数と三次周期を保つ核、単位・余単位の同値判定を区別する。構成の候補と実際の同値の証明を混同せず、必要な入力は研究方針と本文への参照で再開できるようにする。
 
@@ -51,7 +57,7 @@ m≥2,g≠0ではDは型(2^{3k},3)、次元m−2、次数3·8^kの完全交叉�
 
 ### 中心変数一つの混合型：有限ノルムと自己 Ext
 
-`central_mixed_one_variable.tex` の `cmo:thm:point-norm` は、R=C[u]上のk因子をtensorし、二次関係にuが実際に現れる型を扱う。u=0で滑らかな固定点なしの楕円グラフを持ち、可換化の三つの二次式の最高active部分が正則列という仮定の下で、全可換化TはR上階数L=8^kの有限自由加群となる。C=Proj Tはu≠0に入り、Q=T/(u−1)と置けばC=Spec Q。中心三次wの像bに対し
+混合稿の `mixed/points.tex` にある `cmo:thm:point-norm` は、R=C[u]上のk因子をtensorし、二次関係にuが実際に現れる型を扱う。u=0で滑らかな固定点なしの楕円グラフを持ち、可換化の三つの二次式の最高active部分が正則列という仮定の下で、全可換化TはR上階数L=8^kの有限自由加群となる。C=Proj Tはu≠0に入り、Q=T/(u−1)と置けばC=Spec Q。中心三次wの像bに対し
 
 \[
 \operatorname{Pt}(B/(w+cu^3))=\coprod_iE_i\amalg\operatorname{Spec}(Q/(b+c)),
@@ -77,7 +83,7 @@ Q=C^{64}であり、R={±28,±16,±56/3,±28/3}、S={±448,±196,±176,±284/3}�
 
 κ=0は有理点p=(3,−3,1)、α=(9,9,1)で実現し、λ_p=16/3となる。同じ係数の二因子を係数1,100で合わせ、c=−1616/3とすると、対応するcoherent点の自己ExtのHilbert級数は (1+s³)²/(1−s²) である（`cmo:prop:rational-singular`）。中心chartのfd加群をπ(M[u])へ延ばすと、exactなj_*と大きいQGrでの単射分解から全次数Extを比較でき、Positselski–Schnürer Proposition2.1でcoherent部分へ戻せる。従ってqgrのhomological dimensionは無限、Db(qgr)は非proper、線束生成圏とその残余部分は非smoothである。全Db(qgr)のdg smoothness単独の否定とは区別する。このsourceは滑らかなnc cubicの仮定を満たさず、主予想の反例ではない。
 
-同じαの八characterにはκ=0が四個あり、λ=±16/3が各二個。二因子の両κ=0となる16組は c=±1616/3,±528 に各四点ずつ分かれる。残り48組はpd5である。検証器はこの全組合せも厳密確認する。以前の別候補 a=b=1, 2ρ³+9ρ²+1=0, c=ρ でもκ=0となるが、主稿の障害には上の有理例を使えば十分である。
+同じαの八characterにはκ=0が四個あり、λ=±16/3が各二個。二因子の両κ=0となる16組は c=±1616/3,±528 に各四点ずつ分かれる。残り48組はpd5である。検証器はこの全組合せも厳密確認する。以前の別候補 a=b=1, 2ρ³+9ρ²+1=0, c=ρ でもκ=0となるが、混合稿の障害例には上の有理例を使えば十分である。
 
 ### 二次元単純加群と中心方程式の高次作用
 
@@ -101,7 +107,7 @@ N_6=a^6+b^6+c^6+66((ab)^3+(bc)^3+(ca)^3)
 
 ### 定数型混合族の有限中心と余有限Ku実現
 
-`cmo:thm:finite-center` は、斉次入力をS(1,−1,−1)に固定した定数型変形の全α∈C³を扱う。中心生成元はΩ_αと三つの六次元C_0,C_+,C_-であり、斉次化ではさらにuを加える。C_0=z(z²−α_3)(xzy+α_1x+α_2y)+α_1α_2z²、C_+の全式とC_-の反自己同型による定義は主稿に置く。検証器 `verify_mixed_pi_center.py` は三パラメータを独立な重み二変数に保ち、QQ上の全二側関係倍で中心性を検証する。重み6,7の商の次元は119,189、最高部Ω_0²,C_0,0,C_+,0,C_-,0の独立性は小行列式−4/9で確認する。
+`cmo:thm:finite-center` は、斉次入力をS(1,−1,−1)に固定した定数型変形の全α∈C³を扱う。中心生成元はΩ_αと三つの六次元C_0,C_+,C_-であり、斉次化ではさらにuを加える。C_0=z(z²−α_3)(xzy+α_1x+α_2y)+α_1α_2z²、C_+の全式とC_-の反自己同型による定義は混合稿の `mixed/centers.tex` に置く。検証器 `verify_mixed_pi_center.py` は三パラメータを独立な重み二変数に保ち、QQ上の全二側関係倍で中心性を検証する。重み6,7の商の次元は119,189、最高部Ω_0²,C_0,0,C_+,0,C_-,0の独立性は小行列式−4/9で確認する。
 
 全次数の生成性はSmith–Tate Theorem3.7（3|nも含む）によりZ(S)が次数3と三つの次数6で生成されることを入力とする。したがってZ(S)_6の次元は高々4で、上の四元が全基底となる。全生成元が持ち上がった後にfiltered次数帰納、斉次化では同論文Lemma3.6を使い、全中心の生成とmodule-finitenessを得る。同じ有限生成語を係数族でも用いるため、点ごとのPI性の外挿ではない。
 
@@ -116,7 +122,7 @@ N_6=a^6+b^6+c^6+66((ab)^3+(bc)^3+(ca)^3)
 
 `cmo:cor:cofinite` はn=3k−1≠4の可換実現locusの開性を適用し、任意の固定α_iと非零a_iについて、有限集合Fを除くcで全coherent Kuを可換実現する。下記P64の根では全coherent Kuが非properなので、それらはFから外せない。norm根だけを除外集合に取ることはできない。可換実現を保証する除外集合Fの全体は未決定である。一方、指定二因子の非smooth集合は下記のV(P64)と完全決定し、normの64係数・c=0もsmooth properと判定した。
 
-別経路として、D=⊗D_{α_i}は有限大域次元の有限中心代数なので、c↦−Σa_iΩ_iという中心作用でRennemo–Segal–Van den Berghの非可換Bertini（[arXiv:1705.01366v2](https://arxiv.org/abs/1705.01366)、Proposition2.1）を適用すると、一般cのaffine中心chartの有限大域次元を得る。R=C[c]の作用は最高active部分の正則性により忠実である。このaffine結論だけから全qgrや可換Ku比較を推論しない。主稿の余有限Ku比較は上の射影的対角と収縮を使う。二中心変数の [補助ノート](central_cubic_generic_smoothness.tex) は別の仮定を持ち、一般のPBW変形へ有限中心性を無断で流用しない。
+別経路として、D=⊗D_{α_i}は有限大域次元の有限中心代数なので、c↦−Σa_iΩ_iという中心作用でRennemo–Segal–Van den Berghの非可換Bertini（[arXiv:1705.01366v2](https://arxiv.org/abs/1705.01366)、Proposition2.1）を適用すると、一般cのaffine中心chartの有限大域次元を得る。R=C[c]の作用は最高active部分の正則性により忠実である。このaffine結論だけから全qgrや可換Ku比較を推論しない。混合稿の余有限Ku比較は上の射影的対角と収縮を使う。二中心変数の [補助ノート](central_cubic_generic_smoothness.tex) は別の仮定を持ち、一般のPBW変形へ有限中心性を無断で流用しない。
 
 ### 有効な中心幾何、Azumaya性、norm外の64非smooth係数
 
@@ -144,7 +150,7 @@ N_6=a^6+b^6+c^6+66((ab)^3+(bc)^3+(ca)^3)
 
 以上とMorse点の局所計算から、`cmo:thm:exact-sixty-four` は指定族について P64(c)≠0 ⇔ affine対角perfect ⇔ 線束圏smooth ⇔ 全coherent圏smooth proper ⇔ coherent Ku smooth proper を与える。qgrのhomological dimensionはこの場合5、P64の根では∞。`cmo:cor:fixed-zero-norm-smooth` によりc=0とnorm全64根はsmooth properである。
 
-一般のαの非smooth集合と、指定族の全smooth係数での可換Ku比較は未解決。開性と基底の連結性だけでは比較locusの全体性は従わない。指定族には下記の明示可換候補があり、smooth locusと節点の完備局所模型は一致する。次の核心は、この候補への一般点での実同値、c=0・norm根を含むDVR上のperfect核の整延長、単位・余単位の特殊化での消滅である。norm根の全Poisson supportの排除は圏比較と独立に解決済み。一般的なBrauer純性・NCCR分類は既知結果であり、本例の具体的結論の新規性の網羅的確認は未了。一次文献・定理番号・識別子は主稿Introductionと `papers/references.tex` に置く。
+一般のαの非smooth集合と、指定族の全smooth係数での可換Ku比較は未解決。開性と基底の連結性だけでは比較locusの全体性は従わない。指定族には下記の明示可換候補があり、smooth locusと節点の完備局所模型は一致する。次の核心は、この候補への一般点での実同値、c=0・norm根を含むDVR上のperfect核の整延長、単位・余単位の特殊化での消滅である。norm根の全Poisson supportの排除は圏比較と独立に解決済み。一般的なBrauer純性・NCCR分類は既知結果であり、本例の具体的結論の新規性の網羅的確認は未了。一次文献・定理番号・識別子は混合稿Introductionと共有書誌 `papers/references.tex` に置く。
 
 ### 同じ判別集合を持つ明示可換三次族
 
@@ -267,7 +273,7 @@ perfect延長の存在だけでは不十分である。A=B=R、P=R⊕R/(t)は一
 
 ### 全Poisson零集合の孤立点制約と被約版の反例
 
-`point_poisson_obstruction.tex` の `ppz:thm:isolated-zero-dimension` は、C上の任意の滑らかな三次超曲面X⊂P^(n+1)、n≥3と任意のPoisson構造πについて、
+混合稿の `mixed/poisson_limits.tex` にある `ppz:thm:isolated-zero-dimension` は、C上の任意の滑らかな三次超曲面X⊂P^(n+1)、n≥3と任意のPoisson構造πについて、
 
 \[
 |Z_X(\pi)|\text{ に孤立点がある}
@@ -617,7 +623,7 @@ general の稠密 Zariski 開、幾何学的一般点、very general の可算�
 - **完備移送:** `cft:thm:complete` は任意の完備noetherian局所 \(\mathbb C\)-底上で有限rank graded MF関手と逆を構成し、内部shift・二つのrank・周期を保つ。これと正則底のwindow（`tw:thm:window`）および一般点でのcoherent飽和（`crs:thm:coherent`）は別の定理。
 - **降下:** `rog:lem:descent` では実際のperfect核、逆核、単位・余単位・rotation・周期図式を有限表示で降下する。\(K\) 上に方程式があることはその \(K\)-線型同値核の存在を意味しない。非分裂symmetrizerと可積分行列空間の区別は `gcd:thm:field-model` 及び `gcd:ex:forms`。
 - **明示Hesse例:** `gre:thm:exact-potential` の \(\lambda(h)=(h+h^2/3+h^5/12)/(1-h^4/4)\) と固定 \(K\)-三次 \((4-h^4)(x^3+y^3+z^3+u^3+v^3)+(12h+4h^2+h^5)xyz=0\) は全次数の幾何・圏比較を用いる。有限jetの外挿ではない。
-- **境界:** 比較核の具体行列と一般的な最小拡大次数、元の固定非可換入力からの低rotation積 \(V,U,\mu\) の全行列、特殊点を含む代数的相対同値は別課題である。追加の高次元の同型類選択・period・Brauer障害は主稿の残余節を参照。
+- **境界:** 比較核の具体行列と一般的な最小拡大次数、元の固定非可換入力からの低rotation積 \(V,U,\mu\) の全行列、特殊点を含む代数的相対同値は別課題である。追加の高次元の同型類選択・period・Brauer障害はモジュライ・降下稿の残余節を参照。
 - **計算:** `computations/verify_complete_curved_transport.py`、`verify_three_object_window.py`、`verify_generic_cubic_descent.py`、`verify_recovery_example.py`。記録済み結果と今回の再実行を区別する。
 
 一次資料の適用差分：Etingof–Ginzburgの有限rank MF、Carqueville–Kayの第二種変形複体、BFKの生成上界、Lin–Zhangの低積、Hwangのsymmetrizer、Pirozhkovの三次 \(n>3\) Torelliは既知。新たな基礎結果の核心は全有限rankの実際の相対MF functor・逆・指定周期、正則windowとの接続、全coherent比較と有限降下であり、初出の網羅確認は未了。
@@ -625,15 +631,15 @@ general の稠密 Zariski 開、幾何学的一般点、very general の可算�
 詳細の有効な技術的障害は [可換復元の補助ノート](recovery_foundations.md) に保持する。
 
 
-古典Poisson論文は `poisson-cubic/papers/poisson-cubic.tex`（A-v62、2026-11-21）を外部入力とする。現在の固定入力はcommit `9f91efa3465f18219c36c31750f1e66220faeaa7`。[正規形の支持節](https://github.com/uedakazushi/poisson-cubic/blob/9f91efa3465f18219c36c31750f1e66220faeaa7/papers/support/papers/sections/poisson_geometry.tex)は、main `288246bca7b703543d24cf6276894dc5467bf1d2` の同ファイルとも全文が同一であることを照合した。量子化の全証明は[cubic-quantizationの主論文](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex)（v1）を正本とする。旧論文B（B-v59）の必要証明は主原稿に統合され、本repoの `papers/sections/generic_recovery/` を正本とする。
+古典Poisson論文は `poisson-cubic/papers/poisson-cubic.tex`（A-v62、2026-11-21）を外部入力とする。現在の固定入力はcommit `9f91efa3465f18219c36c31750f1e66220faeaa7`。[正規形の支持節](https://github.com/uedakazushi/poisson-cubic/blob/9f91efa3465f18219c36c31750f1e66220faeaa7/papers/support/papers/sections/poisson_geometry.tex)は、main `288246bca7b703543d24cf6276894dc5467bf1d2` の同ファイルとも全文が同一であることを照合した。量子化の全証明は[cubic-quantizationの主論文](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex)（v1）を正本とする。一般点可換復元の必要証明は主稿の `papers/sections/generic_recovery/` を正本とする。
 
 - 論文A `poisson_geometry.tex`：`prop:pg-represent` の bivector 表示、`prop:pg-jacobi-extension` の affine Jacobi 延長、`thm:pg-normal` の複数 Jacobian ブロック正規形、`cor:pg-generic` の一般三次における被約 Grassmann 錐。全次元の一般 Jacobi スキームの有限長冪零根基を論じる際には最後の被約分類を使う。二次方程式の不足、n=8 の長さ330の定理、およびその直和から作る特殊三次の非零冪零例は、この被約分類に依存しない。
-- 孤立Poisson零点の次元制約には、同支持節のHessianの基点自由性、`lem:pg-linearize`、`lem:pg-basepoint-free-lie` の根基排除、`lem:pg-quadratic-lie` のsl₂直和への帰着から `thm:pg-normal` に至る全Poisson正規形を用いる。主張だけでなくこの証明鎖を内部で読解点検した。正規形以降のEuler外積・局所次元・critical方向の線型空間の議論は本稿 `ppz:thm:isolated-zero-dimension` にあり、未公表入力の内容と本稿の帰結を分ける。外部査読や形式証明器による確認を意味しない。
+- 孤立Poisson零点の次元制約には、同支持節のHessianの基点自由性、`lem:pg-linearize`、`lem:pg-basepoint-free-lie` の根基排除、`lem:pg-quadratic-lie` のsl₂直和への帰着から `thm:pg-normal` に至る全Poisson正規形を用いる。主張だけでなくこの証明鎖を内部で読解点検した。正規形以降のEuler外積・局所次元・critical方向の線型空間の議論は混合稿の `ppz:thm:isolated-zero-dimension` にあり、未公表入力の内容とその帰結を分ける。外部査読や形式証明器による確認を意味しない。
 - 量子化論文 `papers/sections/quantization/general_dimension_universal_quantization.tex`：`thm:pg-all-dimensions`, `prop:pg-ad-relative-chart` が中心量子化の入力。一ブロック相対 PBW 開と中心三次束の存在は、この研究稿と Etingof–Ginzburg の既知の構成から取る。今回その全証明を独立に再検証したわけではない。
 - 量子化論文 `papers/sections/quantization/hesse_mixed_universal_center.tex`：`thm:pg-universal-hesse-mixed`、`eq:pg-hm-coefficients`、`cor:pg-hesse-hessian-form`、`eq:pg-hesse-hessian-closed` が全混合中心元と Ψ_λ(F) の有限公式。固定 commit の本文を直接確認し、四次係数を I,J と純中心項へ書き直した恒等式を厳密検算した。中心公式そのものは入力であり、今回の可換記号計算を非可換中心性の再証明と呼ばない。
-- 本稿の一般復元節 `papers/sections/generic_recovery/main_result.tex` 等：全 n≥3 が対象。C[h]_(h) 上の次数別有限自由な中心三次対が、多項式環と滑らかな三次式へ特殊化する場合を扱う。一般点の coherent 残余模型は rotation と指定三次周期を保つ。方程式は C(h)、同値核は有限拡大上という区別を守る。全パラメータ・任意の nc cubic・核の基底体への降下を自動的に含まない。
-- 本稿の一般復元節の `cft:thm:complete`, `cft:lem:model`, `cft:lem:center`：選んだ formality と厳密同型 φ に対し、残余 potential は W=C_π^(-1)φ(w) である。W mod h=F は W=F を意味しない。`gcd:thm:field-model` は幾何的な可換模型の存在を得た後の方程式の関数体への降下であり、h=0 での正則性や同値核の同じ体への降下を自動的に与えない。`gre:prop:input`, `gre:prop:hesse-normalform`, `gre:thm:exact-potential`, `gre:prop:jet` の split Hesse 公式を全 n の比較例に用いる。固定標的への一般点比較には `rog:lem:localization`, `rog:lem:descent` を使い、線束生成部分から全 coherent 残余圏へ移るには `crs:prop:residual-smooth`, `crs:thm:coherent` をさらに使う。旧Bの証明を現行主原稿に全文統合したが、今回それらの全証明を独立に再検証したとは主張しない。
-- 本稿の一般復元節 `papers/sections/generic_recovery/curved_transport.tex` の完備比較は N≥3 を対象とし、`cft:lem:arity`, `cft:lem:flow`, `cft:eq:bound`, `cft:eq:t-weight`, `cft:eq:insertions`, `cft:eq:two-block-matrix` を直接確認した。これに対し `window.tex` の節全体は N≥5 を仮定する。三変数の active 比較は相対 bar 写像の中心係数還元で構成し、一般点生成・window 定理を n=1 へ流用しない。三変数の相対 a=0 比較・proper Hom・Laurent 底変更には `papers/sections/generic_recovery/explicit_example.tex` の `gre:prop:elliptic-quotient`, `gre:lem:elliptic-mf` を用い、正則 DVR と滑らかな active 曲線という仮定を確認した。剰余体と rotation の具体式は Galinat の同じ window1 に統一する。
+- 主稿の一般復元節 `papers/sections/generic_recovery/main_result.tex` 等：全 n≥3 が対象。C[h]_(h) 上の次数別有限自由な中心三次対が、多項式環と滑らかな三次式へ特殊化する場合を扱う。一般点の coherent 残余模型は rotation と指定三次周期を保つ。方程式は C(h)、同値核は有限拡大上という区別を守る。全パラメータ・任意の nc cubic・核の基底体への降下を自動的に含まない。
+- 主稿の一般復元節の `cft:thm:complete`, `cft:lem:model`, `cft:lem:center`：選んだ formality と厳密同型 φ に対し、残余 potential は W=C_π^(-1)φ(w) である。W mod h=F は W=F を意味しない。`gcd:thm:field-model` は幾何的な可換模型の存在を得た後の方程式の関数体への降下であり、h=0 での正則性や同値核の同じ体への降下を自動的に与えない。`gre:prop:input`, `gre:prop:hesse-normalform`, `gre:thm:exact-potential`, `gre:prop:jet` の split Hesse 公式を全 n の比較例に用いる。固定標的への一般点比較には `rog:lem:localization`, `rog:lem:descent` を使い、線束生成部分から全 coherent 残余圏へ移るには `crs:prop:residual-smooth`, `crs:thm:coherent` をさらに使う。証明全文は現行主稿に保持し、三稿への整理によってそれらの全証明を独立に再検証したとは主張しない。
+- 主稿の一般復元節 `papers/sections/generic_recovery/curved_transport.tex` の完備比較は N≥3 を対象とし、`cft:lem:arity`, `cft:lem:flow`, `cft:eq:bound`, `cft:eq:t-weight`, `cft:eq:insertions`, `cft:eq:two-block-matrix` を直接確認した。これに対し `window.tex` の節全体は N≥5 を仮定する。三変数の active 比較は相対 bar 写像の中心係数還元で構成し、一般点生成・window 定理を n=1 へ流用しない。三変数の相対 a=0 比較・proper Hom・Laurent 底変更には `papers/sections/generic_recovery/explicit_example.tex` の `gre:prop:elliptic-quotient`, `gre:lem:elliptic-mf` を用い、正則 DVR と滑らかな active 曲線という仮定を確認した。剰余体と rotation の具体式は Galinat の同じ window1 に統一する。
 - 三様体稿 v22 の固定 commit は `6c35d2c84671c2538e61836a6bf3a511392eacce`。任意係数の全 Hom 比較と点スキームの出発点を参照するが、n=3 の形式環を高次元にそのまま転用しない。
 
 古い一般次元ノート中の別リポジトリ名を現行の依存先として使わない。上記の固定 commit と現行稿の参考文献が参照の正本である。
@@ -2295,7 +2301,7 @@ Joseph H. Silverman, *The Arithmetic of Elliptic Curves*, 2nd ed., Graduate Text
 
 ## 8. 再現の入口
 
-README の再生成手順で、ソース参照、二次・三次の保存済み証明書、LuaLaTeX 組版を確認できる。TeX はルートから実行し、`.latexmkrc` が `build/` を出力先とする。次数三の検証は Python・NumPy と C++17 コンパイラを用い、大きな行列を `build/jacobi-vertex/` に再生成する。証明に必要なテンソル・選択行・検証コードを保存し、再生成できる大行列自体は収録しない。
+README の再生成手順で、ソース参照、二次・三次の保存済み証明書、LuaLaTeX 組版を確認できる。`python3 scripts/check_sources.py` で三稿の入力・引用・ラベル・他稿参照を検査し、ルートで `python3 scripts/build_papers.py` を実行して組版する。PDFは `build/nc-cubic.pdf`、`build/cubic-moduli-descent.pdf`、`build/mixed-sklyanin-cubics.pdf`、SyncTeXも同じ `build/` に出す。次数三の検証は Python・NumPy と C++17 コンパイラを用い、大きな行列を `build/jacobi-vertex/` に再生成する。証明に必要なテンソル・選択行・検証コードを保存し、再生成できる大行列自体は収録しない。
 
 trace–Hessian の中心係数・八次代数 trace、全次元の KS 例、split Hesse の有理式と j 差、混合係数の二次恒等式についても、README と `notes/validation.md` にある該当手順と確認範囲を参照する。厳密な記号計算による係数検証を、未公表入力の非可換中心性・完備 MF 移送・一般点復元の全証明の独立検証と同一視しない。任意次元・任意基底の主張は、有限個の計算例だけでなく本文の相対証明に依拠する。
 
@@ -2329,7 +2335,7 @@ Picard 障害と三捩れ monodromy の有限恒等式は `python computations/v
 
 指定 MF 周期の中心的 coherence、T^m による class 不変性、相対 frame の変換則、混合有理比較と C(s,t) への降下を、指定した入力と照合して内部で独立点検した。境界の局所値 [D_R] には、実際の低積とその一次項、二次関係の飽和、全次数平坦性、smooth potential 三次による Isom 延長を組み合わせる。有限行列の実行確認、紙上証明の点検、組版、外部査読、形式証明器での検証を別々に扱い、実施状態は `notes/validation.md` に記載する。ΔD 外の分岐排除と大域式 [D] は未証明である。
 
-随伴復元による強化点型では、q^RO_C≃j_Y!OのKoszul証明、両ファイバーを用いるDVR上の最高次線束の持上げ、coneのproper性による非空型の有限降下を紙上で点検した。有限H_pには固定入力Bの三対象生成、Morita核のfree A^e、TV Proposition3.20と可逆核の開性、HH¹=0を実際に照合した。S_p×Pic_C^p、低次元の唯一のclass、Euler格子による奇数次元の数値的自明性、最小実現次数公式は一般証明であり、新たな計算コードや有限例だけによる確認ではない。全moduli上の実核の存在は主張しない。一方、全次元の一般一ブロック族でH_p=1、S_p=Spec(k_n)となる別のTate–Koszul証明は、本版で独立読解点検した。
+随伴復元による強化点型では、q^RO_C≃j_Y!OのKoszul証明、両ファイバーを用いるDVR上の最高次線束の持上げ、coneのproper性による非空型の有限降下を紙上で点検した。有限H_pには固定入力Bの三対象生成、Morita核のfree A^e、TV Proposition3.20と可逆核の開性、HH¹=0を実際に照合した。S_p×Pic_C^p、低次元の唯一のclass、Euler格子による奇数次元の数値的自明性、最小実現次数公式は一般証明であり、新たな計算コードや有限例だけによる確認ではない。全moduli上の実核の存在は主張しない。一方、全次元の一般一ブロック族でH_p=1、S_p=Spec(k_n)となる別のTate–Koszul証明は、既存の独立読解点検の対象である。
 
 高次元の中央shift部分の除去、classと軌道の安定化群の一致、奇数次元の数値格子・六元中央化群、七次元のZ²とrotation中央化群の無限指数は、本文の証明を別担当が独立に読解した。Iliev–Manivelの球面対象は既知入力と分け、数値的自明な自己同値の分類や対応torsorの中立性まで検証したとはしない。
 

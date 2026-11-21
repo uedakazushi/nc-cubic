@@ -1,0 +1,525 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\section{指定混合族の smooth locus と Hochschild homology}
+\label{mix:sec:smooth-locus}
+
+\subsection{中央切断から混合中心和の対角へ}
+\label{cmo:subsec:slice-mixed-diagonal}
+
+\begin{lemma}[形式的中央ファイバーから相対対角への持上げ]
+\label{cmo:lem:relative-diagonal-from-slice}
+$A$ を有限型可換中心上有限な noetherian $\C$ 代数、
+$s\in Z(A)$ とし、$A$ は $C=\C[s]$ 上平坦とする。
+$T=A^{\mathrm{op}}\otimes_C A$ と置く。
+中心の閉点 $z$、$s(z)=\lambda$ において、
+\[
+ \widehat A_z/(s-\lambda)
+\]
+の形式的対角が、完備包絡環上で長さ $d$ の有限生成射影分解を持つと仮定する。
+このとき $A$ の相対対角は、$T$ の中央点 $(z,z)$ の近傍で perfect であり、
+射影次元は高々 $d$ である。
+\end{lemma}
+
+\begin{proof}
+$T$ の可換中心部分環を $(z,z)$ で局所化して完備化し、
+得られる代数を $\widehat T$、$T$ 加群 $A$ の完備化を $\widehat M$ と書く。
+$T$ が有限な可換中心上有限であるため、この完備化は中央の忠実平坦底変更である。
+$t=s-\lambda$ は $\widehat T$ と $\widehat M$ に正則に作用し、
+$t\in\operatorname{Jac}(\widehat T)$ である。
+さらに $\widehat T/(t)$ は切断代数の完備包絡環であり、
+$\widehat M/t\widehat M$ はその形式的対角である。
+
+$\widehat M$ の有限生成自由分解を最初の $d$ 段まで取り、最後の syzygy を $K$ とする。
+$t$ の正則性から $\operatorname{Tor}^{\widehat T}_{>0}(\widehat T/(t),\widehat M)=0$ であり、
+この部分分解を $t$ で割っても完全である。
+仮定により $K/tK$ は射影である。
+完備環上でその冪等行列を持ち上げ、有限生成射影加群 $P$ と
+$P/tP\simeq K/tK$ を取る。
+$P$ の射影性によりこの同型を $P\to K$ に持ち上げる。
+Nakayama により全射となり、$t$ の $K$-正則性によりその核を $t$ で割ると零になる。
+再び Nakayama から核も零なので、$K$ は射影である。
+従って $\widehat M$ は射影次元高々 $d$ である。
+
+有限表示加群の射影性は中央忠実平坦底変更から降下するため、
+同じ有限自由部分分解の syzygy は完備化前でも局所的に射影である。
+有限表示性によりこの結論は $(z,z)$ の Zariski 近傍へ広がる。
+この証明は、非 Hensel 環 $\C[s]_{(s-\lambda)}$ 上での冪等元の持上げを仮定しない。
+\end{proof}
+
+\begin{lemma}[一方の相対対角が perfect な混合中心和]
+\label{cmo:lem:mixed-relative-diagonal}
+$C=\C[s]$、$A,B$ を中央の $C$-作用を持つ $C$-平坦代数とし、
+\[
+ T=A^{\mathrm{op}}\otimes_C A,\qquad R=A\otimes_C B
+\]
+と置く。
+$A$ の相対対角が $T$ 上 perfect、$B$ の対角が
+$B^e=B^{\mathrm{op}}\otimes_\C B$ 上 perfect なら、
+$R$ の対角は $R^e$ 上 perfect である。
+それぞれの分解の長さが $d,e$ なら、得られる長さは高々 $d+e$ である。
+この主張は有限可換中心上の中央点の近傍へ局所化しても成立する。
+\end{lemma}
+
+\begin{proof}
+包絡環の左作用を
+$(a^{\mathrm{op}}\otimes b)\cdot x=bxa$ に統一する。
+$(R^e,T)$ 双加群
+\[
+ N=R^e\otimes_{B^e}B
+\]
+を考える。$A$ の左右二つの中央パラメータは $B$ の対角作用によって一致するので、
+\[
+ N\simeq T\otimes_C B
+\]
+である。右 $T$-作用は $T$ 因子の右乗法で与えられ、
+左 $R^e$-作用と可換である。
+ここでは $B^e\to B$ を環準同型として使っていない。
+
+また
+\[
+ R^e\simeq(A^{\mathrm{op}}\otimes_\C A)
+                 \otimes_{C\otimes_\C C}B^e
+\]
+であり、$A$ の $C$-平坦性から $R^e$ は右 $B^e$-平坦である。
+従って $B$ の有限射影双加群分解を誘導すると、
+$N$ は $R^e$ 上 perfect で、その射影次元は高々 $e$ となる。
+一方、$B$ の $C$-平坦性から $N=T\otimes_C B$ は右 $T$-平坦である。
+$A$ の有限 $T$-射影分解 $P_\bullet\to A$ をテンソルすると、
+\[
+ N\otimes_TP_\bullet\longrightarrow
+ N\otimes_TA\simeq R
+\]
+は完全である。各項は有限個の $N$ の和の直和因子なので、
+$R^e$ 上 perfect であり、全複体から長さ $d+e$ の上限を得る。
+
+中央局所化後も同じテンソル積の表示と平坦性が成立する。
+相対包絡環の中央基底を $Z(A)\otimes_C Z(A)$ に選ぶ。
+その近傍を定める元は $Z(A)\otimes_\C Z(A)$ へ持ち上がるので、
+絶対包絡環の中央元として $R^e$ へ写す。
+その局所化上では $N$ の左右の作用で当該中央元が一致するため、
+局所的な有限 $T$-射影解消にも同じ議論を適用できる。
+相対対角の情報を完備局所模型から得る場合は、前補題により先に
+代数的な相対包絡環の近傍へ降下し、その後でこの議論を適用する。
+従って形式冪級数環の通常の包絡環に関する smoothness を仮定する必要はない。
+\end{proof}
+
+\begin{corollary}[節点を含む混合中心和への適用]
+\label{cmo:cor:node-mixed-smooth}
+混合因子の完備局所代数が
+$\operatorname{End}_R(R^{\oplus r}\oplus I^{\oplus s})$、$r,s>0$ と Morita 同値である点を考える。
+その点で $d\Omega_1$ が通常二重点の双対 Hessian に関して非等方なら、
+他方の三次元 Calabi--Yau 因子と作る中心和
+\[
+ (D_1\otimes_\C D_2)/(\Omega_1+\beta\Omega_2+c),\qquad \beta\ne0,
+\]
+の対角は、その中央点の近傍で perfect であり、長さは高々五である。
+\end{corollary}
+\begin{proof}
+$C=\C[s]$ は第一因子に $s\mapsto\Omega_1$、
+第二因子に $s\mapsto-c-\beta\Omega_2$ と作用させる。
+各因子は domain で、指定中心元 $\Omega_i$ は $\C$ 上超越的なので、$C$ 上 torsion-free、従って平坦である。
+命題\ref{cmo:prop:conifold-nonisotropic-slice}と
+補題\ref{cmo:lem:relative-diagonal-from-slice}が第一因子の相対長さ二を与える。
+第二因子の既存の三次元 Calabi--Yau 双加群分解は長さ三である。
+補題\ref{cmo:lem:mixed-relative-diagonal}から結論を得る。
+この系の標準 conifold への Morita 同値は独立の入力であり、
+中心が通常二重点であることだけからは仮定しない。
+\end{proof}
+
+\subsection{射影境界の対角 perfect 性}
+
+アファイン chart $u\ne0$ の判定を全射影圏へ移すため、
+ここでは $u=0$ の境界を任意の $c$ で扱う。
+内部次数一の $u$ を、六次 Veronese の chart 上でそのまま
+次数零の中心元と扱うことはできない。その点を有限巡回次数付けで解消する。
+
+\begin{lemma}[中心一次元に沿う smoothness の局所持上げ]
+\label{cmo:lem:central-smooth-lift}
+$Q$ を有限生成可換 $\mathbb C$-代数上有限な代数、
+$u\in Z(Q)$ を正則元とする。
+$\overline Q=Q/uQ$ の対角が、指定した閉中心点の近傍で perfect であるとする。
+このとき $u=0$ 上の対応する点の近傍で、$Q$ の対角も perfect である。
+\end{lemma}
+\begin{proof}
+底 $C=\mathbb C[u]$ を $(u)$ で局所化してよい。
+$u$ の正則性から $Q$ はこの離散付値環上 torsionfree、従って flat である。
+相対包絡環と対角加群を
+\[
+ T=Q^{\mathrm{op}}\otimes_C Q,\qquad M=Q
+\]
+と置く。両者は $C$-flat であり、
+$T/uT=\overline Q^{\mathrm{op}}\otimes_{\mathbb C}\overline Q$、
+$M/uM=\overline Q$ である。
+$T$ は有限型可換中心部分環上有限である。
+補題\ref{cmo:lem:projective-lift}をその中心点で適用し、
+同補題の忠実平坦完備化と射影性の降下を用い、
+補題\ref{cmo:lem:perfect-locus}で近傍へ広げると、$M$ は局所的に $T$-perfect となる。
+
+$Q^e=Q^{\mathrm{op}}\otimes_{\mathbb C}Q$ 上の中心元
+$\delta=u\otimes1-1\otimes u$ は正則である。
+実際、$Q^e$ は $C\otimes_{\mathbb C}C$ 上 flat であり、
+そこで二つの座標の差は正則である。
+従って $T=Q^e/(\delta)$ は $Q^e$ 上長さ一の有限自由解消を持つ。
+$M$ の有限 $T$-射影解消をこの解消と合成すれば、
+$M$ は $Q^e$-perfect となる。
+局所化後の結論は有限表示の分母を払って元の中央近傍へ戻る。
+\end{proof}
+
+\begin{proposition}[定数型混合族の全係数における射影境界]
+\label{cmo:prop:projective-boundary-smooth}
+任意の $k\ge2$、$\alpha^{(i)}\in\mathbb C^3$、
+$a_i\in\mathbb C^\times$ と $c\in\mathbb C$ に対し、
+\[
+ A_c=\left(\bigotimes_{\mathbb C[u]}B_{\alpha^{(i)}}\right)
+       \Big/\left(\sum_i a_i\Omega_i+cu^3\right)
+\]
+の有限中心射影模型の対角は、$u=0$ の近傍で perfect である。
+従ってこの境界から非 smooth 係数は生じない。
+\end{proposition}
+\begin{proof}
+既存の正則列と有限中心性により $u$ は $A_c$ 上正則であり、
+\[
+ \overline A=A_c/uA_c
+   =S^{\otimes k}/\left(\sum_i a_i\Omega_0^{(i)}\right)
+\]
+は $\alpha^{(i)},c$ に依存しない。
+定理\paperref{main}{pps:thm:elliptic-existence}と、その入力である
+系\paperref{main}{mbnp:cor:coherent}により、この分離表示の全 coherent 圏は
+smooth proper である。この直接比較では次元四を除外しない。
+有限中心模型の対角と compact generator の関係は
+式\eqref{cmo:eq:kernel-diagonal}と同じなので、
+$\overline A$ の各中央射影 chart の対角は perfect である。
+
+$A_c$ の次数 $1,3,6$ の既知の中心元が生成する可換環を $C_A$ とする。
+$\operatorname{Proj}C_A^{(6)}$ を六次中心元 $f$ の標準開集合で覆い、
+\[
+ L=A_c[f^{-1}],\qquad Q=L/(f-1)
+\]
+と置く。$A_c$ は次数一で生成されるので、
+定理\ref{cmo:thm:relative-smoothness}の証明と同じく $L$ は強 $\mathbb Z$-次数付きである。
+$Q$ は強 $\mathbb Z/6$-次数付きで、
+その零成分は $Q_{\bar0}\simeq L_0$ である。
+具体的には $L_{6j}$ の元を $f^{-j}$ 倍して $L_0$ と同定する。
+各巡回次数成分は $L_0$ 上可逆な双加群であり、
+$Q$ は左右とも有限生成射影な generator である。
+
+双対群 $\mu_6$ が次数に従って $Q$ に作用する。
+有限群次数付けと smash product の End 表示は既知の一般論である
+\cite[Theorems~1.3, 2.1]{CMONastasescuRodino}。
+本例では強次数付けから
+$\operatorname{Hom}_{L_0}(Q_{\bar s},Q_{\bar r})\simeq Q_{\overline{r-s}}$
+を左乗法で得る。各次数成分への射影を群代数の冪等元で表せば、自然な作用写像は
+\[
+ Q\rtimes\mu_6\ \simeq\ \operatorname{End}_{L_0}(Q_{L_0})
+\]
+となる。従って $Q\rtimes\mu_6$ と $L_0$ は Morita 同値である。
+位数六が可逆なので、この事実から
+$Q$ と $L_0$ の対角 perfect 性は同値となる。
+実際、有限群の skew group への移行では平均化による分裂を用い、
+逆向きには $(Q\rtimes\mu_6)$ が $Q$ 上有限自由であり、
+その対角の制限が $Q$ を直和因子に持つことを使う。
+同じ議論は中央開集合上で成立する。
+
+$u$ は $L$ 上正則である。
+$L/uL$ 上でも $f$ は可逆な六次の元なので、有限個の次数成分しか持たない元の
+最高次数を見ると $f-1$ は正則である。
+ここで $ua=(f-1)b$ なら、$u$ で割ってから $f-1$ の正則性を使うと
+$b=ud$ と書ける。$L$ 上で $u$ を消去すれば $a=(f-1)d$ である。
+従って $u$ は $Q$ 上正則となる。
+また $\overline Q=Q/uQ$ は $\overline A[f^{-1}]$ に対する同じ巡回次数付き模型である。
+先ほどの Morita 同値と平均化を $\overline Q$ に適用すると、
+分離境界の対角 perfect 性から $\overline Q$ の対角 perfect 性を得る。
+補題\ref{cmo:lem:central-smooth-lift}により、$Q$ は $u=0$ の近傍で smooth である。
+
+必要なら有限群 $\mu_6$ による有限個の近傍の共通部分を取り、
+近傍を群作用で不変にする。$Q$ は中央 chart の可換環
+$(C_A[f^{-1}])_0$ 上有限であり、その境界 $u^6/f=0$ の上では
+全ての閉点で $u=0$ である。
+従って有限群の skew group と Morita 同値を通して、
+$L_0$ の対角は境界の近傍で perfect となる。
+これらの chart は射影境界を覆うので結論を得る。
+\end{proof}
+
+\subsection{指定二因子の smooth locus の完全決定}
+
+\begin{theorem}[非 smooth 係数の正確な六十四点集合]
+\label{cmo:thm:exact-sixty-four}
+例\ref{cmo:ex:sixty-four}の
+$\alpha^{(1)}=(1,4,9)$、$\alpha^{(2)}=(16,25,49)$ と
+$a_1=1,a_2=100$ を固定する。
+式\eqref{cmo:eq:morse-resultant}の $P_{64}$ に対し、
+次の条件は同値である。
+\begin{enumerate}
+ \item $P_{64}(c)\ne0$。
+ \item アファイン中心 chart
+ \[
+  R_c=(D_{\alpha^{(1)}}\otimes_{\mathbb C}D_{\alpha^{(2)}})
+           /(\Omega_1+100\Omega_2+c)
+ \]
+ の対角は perfect である。
+ \item $A_c$ の線束生成圏は smooth である。
+ \item $D^b(\operatorname{qgr}A_c)$ は smooth proper である。
+ \item $\operatorname{Ku}_{\mathrm{coh}}(A_c)$ は smooth proper である。
+\end{enumerate}
+さらに $P_{64}(c)\ne0$ では $\operatorname{qgr}A_c$ の
+homological dimension は五であり、$P_{64}(c)=0$ では無限である。
+従って中心の非 Azumaya 点と射影境界を含めても、
+定理\ref{cmo:thm:morse-singular-sixty-four}の六十四点以外に
+非 smooth 係数は存在しない。
+\end{theorem}
+\begin{proof}
+$X_i=\operatorname{Spec}Z(D_{\alpha^{(i)}})$ とする。
+$R_c$ は可換有限型環
+\[
+ C_c=(Z(D_{\alpha^{(1)}})\otimes_{\mathbb C}Z(D_{\alpha^{(2)}}))
+          /(s_1+100s_2+c)
+\]
+の中央作用に関して有限である。その閉点は条件 $s_1(z_1)+100s_2(z_2)+c=0$ を満たす
+$(z_1,z_2)\in X_1\times X_2$ として表される。
+中心をさらに拡大した場合にも、この有限中央模型で対角の perfect 性を判定できる。
+
+各因子について、正則中心上の非臨界点では
+中心写像 $s_i$ が smooth であり、Azumaya 性から相対対角は perfect である。
+十四節点では、定理\ref{cmo:thm:fourteen-node-orders}と
+補題\ref{cmo:lem:all-nodes-nonisotropic}、
+命題\ref{cmo:prop:conifold-nonisotropic-slice}により、切断代数は形式的に
+$\mathbb C[[p,q]]\rtimes\mu_2$ と Morita 同値である。
+その完備対角の有限解消を代数的な中央局所環へ降下し、
+中心変数に沿う射影次元持上げを用いると、そこでも相対対角は perfect である。
+この二つの操作は補題\ref{cmo:lem:relative-diagonal-from-slice}による。
+従って各因子で相対対角が perfect でない可能性がある点は、
+$Q_i(s_i^2)=0$ に対応する八個の Morse 点だけである。
+
+$P_{64}(c)\ne0$ とする。
+終結式の定義から、任意の $(z_1,z_2)\in\operatorname{Spec}C_c$ で
+少なくとも一方の $z_i$ はこの八個の集合に属さない。
+その因子の相対対角 perfect 性と、他因子の三次元 Calabi--Yau 双加群解消を
+補題\ref{cmo:lem:mixed-relative-diagonal}で合成する。
+すると $R_c$ の対角は当該閉中心点で perfect である。
+対角の台の外では対角加群自体が零である。
+有限型中央スキームの全閉点をこのように覆い、perfect locus の開性と
+準コンパクト性を使えば、$R_c$ の対角は大域的に perfect となる。
+これで (1)$\Rightarrow$(2) を得る。
+
+命題\ref{cmo:prop:projective-boundary-smooth}により、
+$u=0$ の射影境界の対角は任意の $c$ で perfect である。
+従って (2) から有限中心射影模型全体の対角 perfect 性を得る。
+式\eqref{cmo:eq:kernel-diagonal}の compact generator による Morita 比較で
+線束生成圏は smooth となる。その proper 性は既存の
+命題\ref{cmo:prop:proper-contraction}と同じ次数別 Hom の議論、
+または補題\ref{cmo:lem:mixed-line-serre}の構成による。
+定理\paperref{main}{crs:thm:coherent}の coherent 飽和を適用すると、
+この線束圏は全 $D^b(\operatorname{qgr}A_c)$ に等しい。
+有限例外列を除く残余圏にも smooth proper 性が移る。
+従って (2)$\Rightarrow$(3),(4),(5) である。
+
+逆に $P_{64}(c)=0$ なら、
+定理\ref{cmo:thm:morse-singular-sixty-four}により
+$R_c$ は無限射影次元の三十六次元単純加群を持ち、対角は perfect でない。
+同定理は線束生成圏の非 smooth 性、
+全 coherent 圏とその残余圏の非 proper 性も与える。
+従って (2)--(5) はいずれも成立しない。
+
+最後に (1) の場合、coherent 飽和と
+補題\ref{cmo:lem:mixed-line-serre}により全 coherent 圏の Serre 関手は
+$(-4)[5]$ である。
+coherent 加群間の負次数 Ext の消滅と Serre 双対から五を超える Ext は零となり、
+$\operatorname{Ext}^5(\mathcal O,\mathcal O(-4))\simeq\mathbb C$ である。
+従って homological dimension は五である。
+(1) が成立しない場合の無限性は、同じ定理の無限自己 Ext による。
+\end{proof}
+
+\begin{corollary}[零係数と定常 norm の全六十四係数]
+\label{cmo:cor:fixed-zero-norm-smooth}
+上の指定混合族では、$c=0$ および定常 norm $N(c)$ の全六十四根で
+$D^b(\operatorname{qgr}A_c)$ と
+$\operatorname{Ku}_{\mathrm{coh}}(A_c)$ は smooth proper である。
+norm の各根では二つの楕円曲線に一つの被約定常点が加わり、
+$c=0$ では point scheme は二つの楕円曲線だけである。
+\end{corollary}
+\begin{proof}
+定理\ref{cmo:thm:morse-singular-sixty-four}の
+$P_{64}(0)\ne0$ と $\gcd(P_{64},N)=1$ を前定理へ適用する。
+point scheme の記述は定理\ref{cmo:thm:point-norm}と
+例\ref{cmo:ex:sixty-four}による。
+\end{proof}
+
+\begin{remark}[smooth locus と可換実現 locus]
+\label{cmo:rem:smooth-versus-realization}
+この定理は指定二因子について source の smooth locus を完全に決定する。
+滑らかな各 $c$ の残余圏が可換 cubic の Ku と同値であることまで
+証明したものではない。
+系\ref{cmo:cor:cofinite}による余有限可換実現を保持するが、
+特に $c=0$ と norm の根での実際の比較核はなお構成されていない。
+既知の可換実現 locus が開であることと、
+$\mathbb A^1\setminus V(P_{64})$ が連結であることだけから
+その locus が全体に等しいとは結論できない。
+従って次の核心は、既に滑らかと判定した個別係数での可換実現と、
+比較核の境界延長である。
+\end{remark}
+
+\subsection{全 smooth locus 上の相対模型と通常の Hochschild 群}
+
+\begin{proposition}[指定混合族の全 smooth locus 上の相対模型と Hochschild homology]
+\label{cmo:prop:full-relative-hh}
+定理\ref{cmo:thm:exact-sixty-four}の指定係数を固定し、
+\[
+ R=\C[c],\qquad R^\circ=\C[c,P_{64}(c)^{-1}],
+ \qquad U=\operatorname{Spec}R^\circ
+\]
+と置く。族
+\[
+ \mathscr B=(\mathcal B_{\alpha^{(1)}}
+       \otimes_{\C[u]}\mathcal B_{\alpha^{(2)}})\otimes_\C R,
+ \qquad
+ \mathscr A=\mathscr B/
+       (\Omega_1+100\Omega_2+cu^3)
+\]
+の有限線束模型と残余模型は、$U$ 上相対 smooth proper である。
+残余模型の閉ファイバーは
+$\operatorname{Ku}_{\mathrm{coh}}(A_c)$ と同値であり、
+全ての $c\in U(\C)$ について
+\[
+ \dim_\C HH_i(\operatorname{Ku}_{\mathrm{coh}}(A_c))
+ =
+ \begin{cases}
+  2,&i=0,\\
+  21,&i=\pm1,\\
+  0,&\text{その他}
+ \end{cases}
+\]
+となる。ここで $HH_i$ は Hochschild \emph{homology} である。
+この結論は明示可換候補への同値を仮定しない。
+\end{proposition}
+
+\begin{proof}
+まず、相対 smoothness に必要な通常の有限中心模型を構成する。
+$\mathscr B$ は固定した ambient 代数の $R$ への底変更なので、
+命題\ref{cmo:prop:proper-contraction}の有限 Koszul 双加群解消、
+augmentation 双対および noetherian 性を持つ。
+中心元 $w_c=\Omega_1+100\Omega_2+cu^3$ は各閉ファイバーで正則である。
+実際、$u=0$ では正則な中心和 $\Omega_0^{(1)}+100\Omega_0^{(2)}$
+となるから、$w_cf=0$ なら $f$ は $u$ で割れる。
+$u$ は ambient 代数上正則であり、固定内部次数でこの議論を繰り返せば $f=0$ となる。
+同じ議論は $R$ 上でも成立する。
+従って各内部次数での $w_c$ の乗法は全閉ファイバーで単射となり、
+有限自由 $R$-加群間の一定階数判定によって
+$\mathscr A_d$ は有限自由である。
+
+命題\ref{cmo:prop:proper-contraction}の証明のうち、
+有限解消、正則中心三次、次数別自由性および相対 Gorenstein 型だけを使う部分を
+この族に適用する。$N=7,n=5,a=4$ とすると
+\[
+ E=\bigoplus_{j=0}^{6}\mathcal O(j)
+\]
+は全 twist を厚生成し、
+\[
+ \operatorname{Ext}^p(\mathcal O(i),\mathcal O(j))
+ =
+ \begin{cases}
+  \mathscr A_{j-i},&p=0,\\
+  (\mathscr A_{i-j-4})^\vee,&p=5,\\
+  0,&\text{その他}
+ \end{cases}
+\]
+である。従って $\Sigma_R=R\operatorname{End}(E)$ は $R$-perfect で、
+局所化および閉ファイバーへの導来底変更と両立する。
+四つの相対例外線束に沿う有限 mutation で得る残余生成対象 $G$
+についても $\Gamma_R=R\operatorname{End}(G)$ は $R$-perfect である。
+この時点では proper な線束模型だけを用い、相対 smoothness はまだ結論しない。
+
+系\ref{cmo:cor:relative-finite-center}により、$\mathscr A$ は
+$u,\Omega_1,\Omega_2$ と各因子の三つの六次中心元の像が生成する
+可換有限型中心部分環 $C_R$ 上有限である。
+$C_R\subset\mathscr A$ は $R$-torsionfree であり、$R$ は PID なので $R$-flat である。
+中心生成元の次数は $1,3,6$ だから $C_R^{(6)}$ は次数一で生成され、
+\[
+ Z=\operatorname{Proj}C_R^{(6)},\qquad
+ \mathcal A=\widetilde{\mathscr A^{(6)}}
+\]
+は $R$ 上 projective な中央スキームと、その上の coherent な有限代数を与える。
+各中央標準開上では対応する次数零局所化が $R$-torsionfree なので、
+$Z$ と $\mathcal A$ はいずれも $R$-flat である。
+中心部分環のファイバーが各 $A_c$ の全中心と一致することは要求しない。
+
+各六次中央元 $f$ を反転した $L=\mathscr A[f^{-1}]$ は強 $\mathbb Z$-次数付きである。
+実際、$\mathscr A$ の次数一生成性から $f$ を長さ六の語の和で書け、
+語の最初または最後の一文字を取り出すと
+$1\in L_1L_{-1}$ および $1\in L_{-1}L_1$ を得る。
+従って全 twist は $\mathcal A$-perfect であり、$E$ は
+$D_{\mathrm{qc}}(Z,\mathcal A)$ の compact generator である。
+生成性には、$E$ が全 twist を厚生成することと、
+中央の ample twist $\mathcal A(m)$ が全準連接導来圏を生成することを用いる。
+この記述は各閉ファイバーでも成立する。
+
+$Y=Z\times_R Z$ とし、
+\[
+ \Lambda=\mathcal A^{\mathrm{op}}\boxtimes_R\mathcal A,
+ \qquad M=\Delta_*\mathcal A,\qquad
+ F=E^\vee\boxtimes_R E
+\]
+と置く。$Y$ は $R$ 上 proper である。
+$\Lambda,M$ は $Y$ 上 coherent で $R$-flat であり、
+全ての $c_0$ について
+\[
+ \Lambda\otimes_R\C_{c_0}
+   =\mathcal A_{c_0}^{\mathrm{op}}\boxtimes_\C\mathcal A_{c_0},
+ \qquad
+ M\otimes_R\C_{c_0}=\Delta_{c_0*}\mathcal A_{c_0}
+\]
+である。ここでは $\mathcal A$ の $R$-flatness により、これらの通常の
+底変更が導来底変更にも一致する。
+$F$ は $D_{\mathrm{qc}}(Y,\Lambda)$ の compact generator となり、
+式\eqref{cmo:eq:kernel-diagonal}と同じ局所有限射影評価および
+\v Cech--K\"unneth 計算が
+\[
+ \begin{aligned}
+ R\operatorname{End}_\Lambda(F)
+ &\simeq\Sigma_R^{\mathrm{op}}\otimes_R^{\mathbf L}\Sigma_R,\\
+ R\operatorname{Hom}_\Lambda(F,M)&\simeq\Sigma_R
+ \end{aligned}
+\]
+を左右作用込みで与える。
+
+任意の $c_0\in U(\C)$ を取る。
+定理\ref{cmo:thm:exact-sixty-four}によって $\Sigma_{c_0}$ は smooth である。
+前の Morita 比較をこのファイバーに適用すると、
+$M_{c_0}$ は $\Lambda_{c_0}$ 上 perfect である。
+そこで底の変数を $c-c_0$ として、
+命題\ref{cmo:prop:proper-perfect-spread}を $\Lambda,M$ に適用する。
+必要な有限性・properness と両者の $R$-flatness は上で確認済みなので、
+$c_0$ の Zariski 開近傍で $M$ は $\Lambda$-perfect となる。
+全ての $c_0\in U(\C)$ についてこの議論を行えば、$U$ はそのような開集合で覆われる。
+$U$ は Jacobson かつ準コンパクトなので、有限部分被覆を取ることができ、
+$M_U$ は大域的に perfect である。
+従って $\Sigma_{R^\circ}$ は相対 smooth proper である。
+有限例外列を除く相対 admissible 成分 $\operatorname{Perf}(\Gamma_{R^\circ})$
+も相対 smooth proper となる。
+閉ファイバーでの coherent 飽和は
+定理\ref{cmo:thm:exact-sixty-four}による。
+
+Mathew の相対退化定理 \cite[Theorem~1.3]{CMOMathewDegeneration}により、
+各 $HH_i(\operatorname{Perf}(\Gamma_{R^\circ})/R^\circ)$ は有限射影 $R^\circ$-加群である。
+Hochschild 複体の導来底変更と、この射影性から通常のファイバーも
+$HH_i(\operatorname{Ku}_{\mathrm{coh}}(A_c))$ に一致する。
+$U$ は連結なので各階数は一定である。
+系\ref{cmo:cor:cofinite}の可換実現 locus は $U$ と交わり、
+そこでの標的は滑らかな三次五様体である。
+その Hodge 数は $h^{p,p}=1$ ($0\le p\le5$) と
+$h^{3,2}=h^{2,3}=21$ で、これら以外は零である。
+通常の HKR と四つの例外対象を除く Hochschild homology の加法性から、
+その Ku の次数零成分は二次元、次数 $\pm1$ は各二十一次元となる。
+階数一定性により同じ公式が $U$ 全体に成立する。
+\end{proof}
+
+\begin{remark}[相対化と対合付き比較の区別]
+上の相対 smoothness は、fiberwise smooth からの一般的な開性を仮定していない。
+通常の coherent な有限中心代数 $\Lambda$ とその対角加群 $M$ を作り、
+両者の底上の flatness と中央台の properness を確認した上で、
+命題\ref{cmo:prop:proper-perfect-spread}を適用した。
+この入力を持たない一般の proper dg 族へ同じ結論を流用しない。
+
+また、$u\mapsto-u$ は $c\ne0$ で $A_c$ と $A_{-c}$ を交換する。
+従って上の通常の Hochschild homology の階数一定性は、
+$c=0$ における対合の固有空間次元を決めない。
+非可換側の対合付き不変量には独立の計算または同変比較が必要である。
+\end{remark}

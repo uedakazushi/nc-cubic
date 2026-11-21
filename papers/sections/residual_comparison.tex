@@ -1,17 +1,17 @@
-% !TEX root = ../nc-cubic.tex
+% !TEX root = ../cubic-moduli-descent.tex
 \section{Trace--Hessian 三次と残余復元三次の比較障害}
 \label{sec:nfm-residual-th-obstruction}
 
 本節では、Trace--Hessian 写像が与える三次と、
 rotation を備えた残余圏から復元される三次を区別する。
-固定入力論文Bの完備移送・一般点復元定理を用いる箇所を明示する。
+可換復元稿の完備移送・一般点復元定理を用いる箇所を明示する。
 同入力の全証明の独立再検証を行ったという意味ではない。
 特に、可換特殊ファイバーとの一致や同じ一次変形類だけでは、
 二つの復元を同一視できないことを、任意の次元の一ブロック族で示す。
 
 \subsection{残余復元が選ぶデータ}
 
-本稿の定理\ref{cft:thm:complete}は、次数別有限自由な完備中心三次対
+可換復元稿の定理\paperref{main}{cft:thm:complete}は、次数別有限自由な完備中心三次対
 $(B,\Omega)$ に対し、特殊ファイバー $F$ を持つ形式三次式 $W$ と、
 内部 shift および指定三次周期を保つ graded MF 同値を構成する。
 同入力の補題\texttt{cft:lem:model}, \texttt{cft:lem:center}で、
@@ -101,7 +101,7 @@ $D_R$ を
  \end{split}
 \]
 とする。
-固定入力論文Bの命題\texttt{gre:prop:input}の Sklyanin 中心公式と
+可換復元稿の命題\texttt{gre:prop:input}の Sklyanin 中心公式と
 次数別自由性の証明は active な三変数で完結している。
 従って中心変数を任意個付加しても、$B_R$ は次数別有限自由で、
 $w_h$ は中心三次元、剰余 $F_0$ は滑らかな三次式である。
@@ -144,7 +144,7 @@ trace の純中心成分 $G$ を加えると主張を得る。
 
 \begin{proposition}[指定周期付き残余復元の Hesse 係数]
 \label{prop:nfm-residual-hesse-input}
-固定入力論文Bの完備移送定理とその明示 Hesse 計算を用いると、
+可換復元稿の完備移送定理とその明示 Hesse 計算を用いると、
 上の族の残余圏は有限拡大後に
 \[
  H_h^{\mathrm{res}}=F_0+\lambda_{\mathrm{res}}(h)xyz,
@@ -285,7 +285,7 @@ Weierstrass 形に $(t_0,t_1)=(1,3\lambda)$ を入れると
 
 rotation を保つ Kuznetsov pair の同値があれば、低 rotation 積から
 二つの滑らかな三次の射影同型を得るので矛盾する。
-$n\not\equiv1\pmod3$ では命題\ref{prop:nf-rotation}により rotation は
+$n\not\equiv1\pmod3$ では命題\paperref{main}{prop:nf-rotation}により rotation は
 Serre 関手と cohomological shift の積から回復できる。
 任意の dg Morita 同値はそれらを保つため、rotation の標識を外しても同じ矛盾を得る。
 $n\equiv1\pmod3$ で rotation を外した同値の不存在は、この議論からは結論しない。
@@ -522,7 +522,7 @@ $H^0(V(F),T_{V(F)})=0$ なので、特殊ファイバー上恒等な同型は
 $h^2$ を法としても恒等である。
 そのような同型があれば差は $(J_F)_3$ で零となり、仮定に反する。
 
-圏については、命題\ref{prop:nf-hh}の実際の幾何的 Kodaira--Spencer 写像
+圏については、命題\paperref{main}{prop:nf-hh}の実際の幾何的 Kodaira--Spencer 写像
 \[
  \eta_F:(J_F)_3\hookrightarrow HH^2(\operatorname{Ku}(V(F)))
 \]

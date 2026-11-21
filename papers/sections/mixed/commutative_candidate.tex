@@ -1,0 +1,400 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\section{明示可換候補とアファイン MF 比較の限界}
+\label{mix:sec:commutative-candidate}
+
+\subsection{同じ判別集合を持つ明示的な可換三次族}
+
+指定族について、可換 Ku 比較の標的候補を具体的に与える。
+以下の判別集合と局所特異点の一致は証明済みであるが、
+候補への実際の Ku 同値は別の未解決問題である。
+
+\begin{proposition}[Jacobi 環による臨界値の一致]
+\label{cmo:prop:commutative-critical-spectrum}
+$\alpha^{(1)}=(1,4,9)$、$\alpha^{(2)}=(16,25,49)$ とし、
+\[
+ f_\alpha(x,y,z)=\frac{x^3+y^3+z^3+xyz}{3}
+                 -\alpha_1x-\alpha_2y-\alpha_3z,\qquad
+ J_\alpha=\C[x,y,z]/(\partial_xf_\alpha,\partial_yf_\alpha,\partial_zf_\alpha)
+\]
+と置く。両方の $\alpha$ について $J_\alpha$ は階数八の被約代数であり、
+八個の臨界点は全て Morse 型で、その臨界値も相異なる。
+$m_{f_\alpha}$ を乗法作用とし、$\lambda^2=28/27$、$\lambda\ne0$ と選ぶと、
+命題\ref{cmo:prop:center-critical-polynomials}の規格化の下で
+\begin{equation}\label{cmo:eq:commutative-critical-spectrum}
+ \det(t-\lambda m_{f_{\alpha^{(i)}}})
+    =\frac{Q_i(t^2)}{3^{17}}\qquad(i=1,2).
+\end{equation}
+\end{proposition}
+\begin{proof}
+三つの偏微分は
+$x^2+yz/3-\alpha_1$ とその巡回置換である。
+有理数上の Gröbner 基底から得る標準単項式は八個であり、
+この基底での乗法行列を直接計算する。
+未規格化の特性多項式を $h_i(t)=\det(t-m_{f_{\alpha^{(i)}}})$ とすると、
+\begin{align*}
+ h_1(t)={}&t^8-\frac{88490}{63}t^6
+ +\frac{2638222849}{3969}t^4\\
+ &{}-\frac{1087802003896}{9261}t^2
+ +\frac{488560998869056}{83349},\\
+ h_2(t)={}&t^8-\frac{5343910}{21}t^6
+ +\frac{27957473572387}{1323}t^4\\
+ &{}-\frac{145061299763739531640}{250047}t^2
+ +\frac{92587433591992310910016}{83349}.
+\end{align*}
+両多項式は平方因子を持たず、Hessian 行列式の乗法行列も可逆である。
+これにより臨界点・値の相異性、被約性、Morse 性を得る。
+係数を比較すると
+$\lambda^8h_i(t/\lambda)=Q_i(t^2)/3^{17}$ である。
+全乗法行列・Hessian・恒等式は
+\texttt{computations/verify\_mixed\_commutative\_candidate.py}
+が元の三つの偏微分から厳密に再生成する。
+標準単項式の範囲は Gröbner 基底の純冪先頭項から定め、
+有限次数の探索を商全体の次元判定に代用しない。
+\end{proof}
+
+\begin{theorem}[判別集合と局所節点が一致する可換候補]
+\label{cmo:thm:commutative-discriminant-candidate}
+$G_\alpha(x,y,z,u)$ を $f_\alpha$ の次数三斉次化、すなわち
+\[
+ G_\alpha=\frac{x^3+y^3+z^3+xyz}{3}
+              -u^2(\alpha_1x+\alpha_2y+\alpha_3z)
+\]
+とし、$\lambda=2\sqrt{21}/9$ を固定する。
+\begin{equation}\label{cmo:eq:commutative-candidate}
+ X_c=V\!\left(\lambda\bigl(G_{\alpha^{(1)}}(x_1,y_1,z_1,u)
+            +100G_{\alpha^{(2)}}(x_2,y_2,z_2,u)\bigr)+cu^3\right)
+       \subset\PP^6_\C
+\end{equation}
+と置くと、次が成立する。
+\begin{enumerate}
+\item $X_c$ が滑らかであることと $P_{64}(c)\ne0$ は同値である。
+      従って $c=0$ と定常ノルムの全六十四根でも $X_c$ は滑らかである。
+\item $P_{64}(c)=0$ の各係数では、$X_c$ はただ一つの特異点 $p_c$ を持ち、
+      それは五次元通常二重点である。対応する非可換側の中央点 $z_c$ について、
+      非標準的な同型
+      \[
+       \widehat{\mathcal O}_{X_c,p_c}
+          \simeq\C[[v_1,\ldots,v_6]]/(v_1^2+\cdots+v_6^2),\qquad
+       \widehat{(R_c)}_{z_c}
+          \simeq\operatorname{Mat}_{36}(\widehat{\mathcal O}_{X_c,p_c})
+      \]
+      がある。
+\item 両ブロックの Jacobian Poisson tensor の和が定める $\pi_c$ に対して、
+      $X_c$ が滑らかなら
+      \[
+       Z_{X_c}(\pi_c)=E_1\sqcup E_2,\qquad
+       E_i=V(x_i^3+y_i^3+z_i^3+x_iy_iz_i)\subset\PP^2
+      \]
+      がスキームとして成立する。
+\end{enumerate}
+これらの結論は $\Ku_{\mathrm{coh}}(A_c)\simeq\Ku(X_c)$ を含まない。
+\end{theorem}
+\begin{proof}
+$u=0$ 上で六つの active 偏微分が同時に零になるなら、
+滑らかな Hesse 三次の gradient が各ブロックで零になる。
+各ブロックベクトルは零となるので、射影点は存在しない。
+従って $X_c$ は射影境界で全ての $c$ に対して滑らかである。
+
+$u=1$ 上では、特異点は $f_{\alpha^{(1)}}$ と
+$f_{\alpha^{(2)}}$ の臨界点の組で、
+$\lambda f_{\alpha^{(1)}}+100\lambda f_{\alpha^{(2)}}+c=0$
+を満たすものに等しい。
+前命題の臨界値多項式から、その存在条件は正確に
+式\eqref{cmo:eq:morse-resultant}の $P_{64}(c)=0$ である。
+$P_{64}$ が平方因子を持たず次数六十四であることから、
+八掛ける八の臨界値の和は全て相異なり、各特異ファイバーの特異点は一つである。
+六変数の Hessian は二つの可逆な三変数 Hessian の直和なので、
+形式的 Morse 補題が表示した通常二重点を与える。
+非可換側の同型は定理\ref{cmo:thm:morse-singular-sixty-four}の
+行列代数模型と合わせて得る。
+これは各特異点の完備局所代数の比較であり、族全体の大域同値ではない。
+
+$P_{64}(0)\ne0$ および $\gcd(P_{64},N)=1$ は既存の厳密検算による。
+再現コードは可換 Jacobi 環の特性多項式だけから終結式を作り、
+その六十五係数の正準 hash が既存の $P_{64}$ と一致することも確認する。
+最後の零スキームは命題\ref{cmo:prop:poisson-zero}を適用する。
+\end{proof}
+
+\begin{corollary}[有理数値 Euler 形式と零次 Hochschild 対合]
+\label{cmo:cor:rational-euler-comparison}
+$P_{64}(c)\ne0$ とする。
+$\mathcal K_c=\operatorname{Ku}_{\mathrm{coh}}(A_c)$ と
+$\mathcal K_c^{\mathrm{cl}}=\operatorname{Ku}(X_c)$ のそれぞれで、
+四つの例外線束の右直交への射影を $\operatorname{pr}$ とし、
+\[
+ e_4=[\operatorname{pr}(\mathcal O(4))],\qquad
+ e_5=[\operatorname{pr}(\mathcal O(5))]
+\]
+と置く。この二類は各圏の $K_{\mathrm{num}}\otimes_\mathbb Z\mathbb Q$
+の基底であり、Euler 形式は両側で
+\[
+ (\chi(e_i,e_j))_{i,j=4,5}
+ =
+ \begin{pmatrix}
+  -27&-189\\
+  -162&-1161
+ \end{pmatrix},
+ \qquad \det=729
+\]
+となる。従って $e_i\mapsto e_i^{\mathrm{cl}}$ は有理 Euler 空間の同型を与える。
+基底 $(e_4,e_5-7e_4)$ での行列は
+\[
+ 27\begin{pmatrix}-1&0\\1&-1\end{pmatrix}
+\]
+である。ここでは二類が積分数値格子の基底であるとは主張しない。
+
+$c=0$ では $u\mapsto-u$ は両側の
+$HH_0$ と $K_{\mathrm{num}}\otimes\mathbb Q$ 上で恒等となり、trace は二である。
+非可換側の $HH_{\pm1}$ 上の trace はこの系では決まらない。
+\end{corollary}
+
+\begin{proof}
+両側の線束の Euler 数は、次数別 Hom と Serre 双対から
+\[
+ \chi(\mathcal O(i),\mathcal O(j))
+ =
+ \binom{j-i+6}{6}-\binom{j-i+3}{6}
+\]
+である。負の上添字の二項係数は通常の多項式として解釈する。
+例外列 $\mathcal O,\ldots,\mathcal O(3)$ の Euler 行列に対し
+$\chi(\mathcal O(i),e_j)=0$ ($0\le i\le3$) を解くと、
+$\mathcal O,\ldots,\mathcal O(5)$ に関する二類の列は
+\[
+ P=
+ \begin{pmatrix}
+ 28&196\\
+ -34&-210\\
+ 21&113\\
+ -7&-28\\
+ 1&0\\
+ 0&1
+ \end{pmatrix}
+\]
+となる。六本の線束の Euler 行列を $H$ とすれば、
+$P^{\mathsf T}HP$ が主張した二次行列を与える。
+
+dg Hirzebruch--Riemann--Roch
+\cite[Theorem~3.5 and \S3.2]{CMOShklyarovHRR}によって、
+Euler 形式は $HH_0$ に値を取る Chern character の双線形 pairing を通じて因子化する。
+表示行列が非退化なので $\operatorname{ch}(e_4),\operatorname{ch}(e_5)$ は一次独立である。
+命題\ref{cmo:prop:full-relative-hh}と可換側の HKR によって、
+両側で $\dim HH_0=2$ だから、この二つの character は $HH_0$ の基底となる。
+したがって、二次行列として表示された Hochschild pairing も非退化である。
+
+任意の $x\in K_0\otimes\mathbb Q$ について、
+表示行列の逆行列を用いて一意な $a,b\in\mathbb Q$ を選べば、
+$x-ae_4-be_5$ は $e_4,e_5$ との右側 Euler pairing がともに零となる。
+character の基底性と前段の非退化性から
+$\operatorname{ch}(x-ae_4-be_5)=0$ であり、
+dg HRR によってこの差は全対象と両方向に Euler 直交する。
+よって $e_4,e_5$ は有理数値 Grothendieck 群を生成する。
+行列の非退化性から数値的に独立でもある。
+
+$c=0$ の対合は各 $\mathcal O(j)$ を保ち、その射影とも可換なので、
+$e_4,e_5$ とその character を固定する。
+基底性から最後の主張を得る。
+\end{proof}
+
+\subsection{固定したアファイン曲率の実際の比較とその限界}
+
+ここで $\operatorname{MF}_{\mathrm{pr}}(T,w)$ は、有限生成射影
+$\mathbb Z/2$ 次数付き $T$-加群 $E$ と奇自己準同型 $d$、
+$d^2=w\operatorname{id}$ からなる dg 圏を表す。
+内部次数は忘れ、上付き $\pi$ は pretriangulated hull の冪等完備化を表す。
+以下の比較はこの意味の dg Morita 同値であり、内部 shift、
+指定周期 $(3)\simeq[2]$、または係数方向の比較核を含まない。
+
+\begin{lemma}[孤立した Azumaya 曲率特異点への完備化]
+\label{cmo:lem:isolated-azumaya-mf-completion}
+$T$ は可換有限型 $\mathbb C$-代数 $Z\subset Z(T)$ 上有限な代数であり、
+左右の大域次元は有限とする。$w\in Z$ は $T$ の非零因子とし、
+$\Lambda=T/(w)$ と置く。
+$\mathfrak p\in\operatorname{Spec}Z$ は $w\in\mathfrak p$ を満たす閉点で、
+$\Lambda_{\mathfrak q}$ は $\mathfrak q\ne\mathfrak p$ の各閉点で有限大域次元を持つとする。
+さらに、$\mathfrak p$ における完備化について
+\[
+ (\widehat T_{\mathfrak p},w)
+ \simeq
+ \left(\operatorname{Mat}_r(\mathbb C[[v_1,\ldots,v_n]]),
+             \sum_{j=1}^n v_j^2\right)
+\]
+と仮定する。右辺の曲率はスカラー行列として作用する。
+このとき完備化関手は
+\[
+ \begin{aligned}
+ \operatorname{MF}_{\mathrm{pr}}(T,w)^\pi
+ &\simeq
+ \operatorname{MF}_{\mathrm{pr}}
+   (\mathbb C[[v_1,\ldots,v_n]],\sum_jv_j^2)^\pi\\
+ &\simeq \operatorname{Perf}_{\mathbb Z/2}(\mathrm{Cl}_n)
+ \end{aligned}
+\]
+という dg Morita 同値を与える。
+ここで $\mathrm{Cl}_n$ は、奇生成元 $e_1,\ldots,e_n$ と
+$e_ie_j+e_je_i=-2\delta_{ij}$ を持ち、微分が零の Clifford 超代数である。
+また、全ての $\Lambda_{\mathfrak q}$ が有限大域次元なら
+$\operatorname{MF}_{\mathrm{pr}}(T,w)^\pi=0$ である。
+\end{lemma}
+
+\begin{proof}
+最初に、中央非零因子に対する cokernel の基本事実を確認する。
+行列分解を
+\[
+ P_1\xrightarrow{\phi}P_0\xrightarrow{\psi}P_1,
+ \qquad \phi\psi=w,\quad\psi\phi=w
+\]
+と書く。$\phi,\psi$ は単射であり、法 $w$ で得られる二周期複体と
+その双対は完全である。従って $M=\operatorname{coker}\phi$ は
+$\Lambda$ 上の totally acyclic な射影解消を持つ。
+二つの行列分解の間の $H^0\operatorname{Hom}$ は、対応する cokernel の
+射を射影 $\Lambda$-加群を経由する射で割った stable Hom に等しい。
+実際、cokernel の射は $P_0$ の射影性で持ち上がり、$\phi$ の単射性により
+$P_1$ の射へ延長する。cokernel 上零である射は $\phi$ を経由し、
+奇 homotopy を与える。射影 $\Lambda$-加群を経由する射についても、
+法 $w$ の双対二周期複体の完全性を使うと同じ homotopy を構成できる。
+この議論は中心の局所化および平坦な完備化と両立する。
+特に有限大域次元の局所商上では $M$ は射影となり、その行列分解は零対象である。
+
+二つの有限射影行列分解 $E,F$ に対し、
+$\operatorname{Hom}_{T}(E,F)$ の各 parity の成分は有限 $Z$-加群である。
+従ってその cohomology も有限 $Z$-加群である。
+上の局所観察から、その台は $\{\mathfrak p\}$ に含まれるため有限長である。
+$Z\to\widehat{Z_{\mathfrak p}}$ は平坦であり、有限射影加群間の Hom と
+平坦底変更は可換する。従って完備化は各 Hom 複体の擬同型
+(quasi-isomorphism) を誘導する。
+これは完備化関手の quasi-fully-faithfulness を示す。
+候補点がない場合は同じ議論で全 Hom cohomology が零となる。
+
+本質的全射性を冪等完備後に示す。
+$L$ を $\mathfrak p$ 上の単純 $T$-加群とする。
+完備化が行列環なので、この単純加群は一意で、完備化後の Morita 比較で
+剰余体 $\mathbb C$ に対応する。$L$ は $w$ で消されるため
+$\Lambda$-加群として扱える。
+$d=\operatorname{gldim}T$ とし、$L$ の十分高い $\Lambda$-syzygy を $M$ とする。
+各射影 $\Lambda$-加群の $T$ 上の射影次元は高々一であるから、
+次元移動により、$j\ge2$ に対して
+\[
+ \operatorname{Ext}_T^j(M,N)
+ \simeq \operatorname{Ext}_T^{j+k}(L,N)=0
+\]
+となるよう $k\ge d-1$ を取れる。従って $\operatorname{pd}_T M\le1$ である。
+有限生成射影解消 $0\to P_1\xrightarrow\phi P_0\to M\to0$ を選ぶ。
+$wM=0$ から $w:P_0\to P_0$ は $\phi$ を経由し、
+$\phi\psi=w$ を満たす $\psi:P_0\to P_1$ が存在する。
+$\phi$ の単射性と $w$ の中心性から $\psi\phi=w$ でもある。
+これにより $M$ は大域的な有限射影行列分解の cokernel になる。
+
+その完備化は、剰余体の stabilization の shift に対応する。
+孤立した可換超曲面では剰余体の stabilization が split-generator である
+\cite[Theorems~4.1 and~5.2]{ROGDyckerhoff}。
+従って完備化関手の像は右辺を split-generate し、
+quasi-fully-faithfulness と合わせて冪等完備後の同値を得る。
+最後の Clifford 模型は同論文 Section~5.5 による。
+この証明では、可換スキームについての完備化不変性を
+非可換 order にそのまま適用していない。
+\end{proof}
+
+\begin{remark}[Clifford 模型の具体式]
+$Q=\mathbb C[[v_1,\ldots,v_n]]$、
+$E=Q\otimes\bigwedge^\bullet\mathbb C^n$ と置き、
+外積を $\varepsilon_j$、縮約を $\iota_j$ とすると
+\[
+ d=\sum_jv_j(\varepsilon_j+\iota_j),\qquad d^2=\sum_jv_j^2.
+\]
+奇作用素 $\iota_j-\varepsilon_j$ は $\operatorname{End}(E)$ の cycle であり、
+その反交換子は $-2\delta_{ij}$ となる。
+これらから得る Clifford 代数の包含は擬同型 (quasi-isomorphism) である。
+従って局所比較は、形式的 Morse 座標、行列環 Morita、
+この有限 rank Koszul 行列分解の三つで具体化できる。
+形式的局所行列を大域多項式行列として書いたという主張は含まない。
+\end{remark}
+
+\begin{proposition}[一因子と混合族の非次数付き affine MF 比較]
+\label{cmo:prop:pointwise-affine-mf-comparison}
+指定された二つの $\alpha^{(i)}$ と
+$\lambda^2=28/27$ を用い、
+\[
+ T=D_{\alpha^{(1)}}\otimes D_{\alpha^{(2)}},\quad
+ w_c=\Omega_1+100\Omega_2+c,\quad
+ F_c=\lambda f_{\alpha^{(1)}}+100\lambda f_{\alpha^{(2)}}+c
+\]
+と置く。このとき任意の固定した $s,c\in\mathbb C$ について
+\begin{align*}
+ \operatorname{MF}_{\mathrm{pr}}(D_{\alpha^{(i)}},\Omega_i-s)^\pi
+ &\simeq
+ \operatorname{MF}_{\mathrm{pr}}(\mathbb C[x,y,z],\lambda f_{\alpha^{(i)}}-s)^\pi,\\
+ \operatorname{MF}_{\mathrm{pr}}(T,w_c)^\pi
+ &\simeq
+ \operatorname{MF}_{\mathrm{pr}}(\mathbb C[x_1,y_1,z_1,x_2,y_2,z_2],F_c)^\pi.
+\end{align*}
+一因子の双方は $Q_i(s^2)\ne0$ なら零、$Q_i(s^2)=0$ なら
+$\operatorname{Perf}_{\mathbb Z/2}(\mathrm{Cl}_3)$ と Morita 同値である。
+混合族の双方は $P_{64}(c)\ne0$ なら零、$P_{64}(c)=0$ なら
+$\operatorname{Perf}_{\mathbb Z/2}(\mathrm{Cl}_6)$ と Morita 同値である。
+\end{proposition}
+
+\begin{proof}
+まず完備化補題の ambient に関する仮定を確認する。
+定理\ref{cmo:thm:azumaya-regular}の証明により、各 $D_{\alpha^{(i)}}$ は
+有限型中心上有限、左右 noetherian、三次元 Calabi--Yau で、
+左右の大域次元は三である。二つの長さ三の有限射影双加群解消を
+$\mathbb C$ 上で tensor すると、$T$ の長さ六の有限射影双加群解消を得る。
+従って $T$ の左右の大域次元も有限であり、$T$ は中心の tensor 積上有限なので
+左右 noetherian である。
+例\ref{cmo:ex:sixty-four}の PBW 濾過では
+$\operatorname{gr}D_{\alpha^{(i)}}=S(1,-1,-1)$ であり、
+$\Omega_i-s$ の最高部分はその正則中心元 $\Omega_0$ である。
+従って $\Omega_i-s$ は全 $s$ で非零因子である。
+また $S$ は $\mathbb C[\Omega_0]$ 上自由なので、
+$S\otimes S$ は $\mathbb C[\Omega_0,\Omega'_0]$ 上自由である。
+従って $w_c$ の最高部分 $\Omega_0+100\Omega'_0$ も正則であり、
+$w_c$ は全 $c$ で非零因子である。
+この中心和の正則性の議論は、命題\ref{cmo:prop:rational-singular}の証明と同じである。
+
+一因子では、正則中心の非臨界点での商は正則曲面上の Azumaya 代数である。
+十四個の中心節点でも、既存の非等方切断の計算により、完備商は
+$\mathbb C[[p,q]]\rtimes\mu_2$ と Morita 同値で、有限大域次元を持つ。
+この有限射影次元は忠実平坦完備化から降下する。
+従って圏的特異点は八つの正則中心上の Morse 点だけである。
+臨界値は相異なるので、指定した $s$ に属する圏的特異点は高々一つであり、
+存在するときの ambient 完備化は
+$(\operatorname{Mat}_6(\mathbb C[[v_1,v_2,v_3]]),\sum v_j^2)$ である。
+前補題が適用できる。
+命題\ref{cmo:prop:commutative-critical-spectrum}は、
+可換側の八つの相異なる Morse 臨界値が厳密に同じ集合であることを与える。
+従って可換側にも同じ前補題を適用できる。
+
+混合族では、定理\ref{cmo:thm:exact-sixty-four}の局所的な証明により、
+両因子が同時に上の Morse 点となる点を除き、商は有限大域次元を持つ。
+$P_{64}$ の squarefree 性と次数六十四から、各悪い $c$ では該当点が唯一である。
+そこでは ambient 完備化が三十六次行列環であり、曲率は
+六変数の非退化二次式となる。
+可換側についても定理\ref{cmo:thm:commutative-discriminant-candidate}が
+同じ唯一の Morse 点を与える。再び前補題を両側へ適用する。
+\end{proof}
+
+\begin{remark}[射影残余圏を忘れる具体的な障害]
+\label{cmo:rem:affine-mf-forgets-residual}
+上の同値は実際の固定係数で成立するが、smooth locus では常に
+$0\simeq0$ である。一方、命題\ref{cmo:prop:full-relative-hh}から
+全ての $c\in U$ で射影残余圏の $HH_0$ は二次元なので、その圏は非零である。
+例えば $c=-44828$ は定常 norm の根であり、
+$P_{64}(-44828)\ne0$ なので、その affine MF 圏は零である。
+一方、命題\ref{cmo:prop:projected-point-ext}の残余射影 $K$ は
+\[
+ \operatorname{Ext}^0(K,K)=\mathbb C,
+ \qquad \operatorname{Ext}^1(K,K)=\mathbb C^{10}
+\]
+を持ち、$\operatorname{Ku}_{\mathrm{coh}}(A_{-44828})$ は非零である。
+従ってこの affine MF 圏を介する関手では、その射影残余圏との同値は得られない。
+graded MF の原点と内部 shift、または射影境界との貼合せを保持する
+別の比較が必要である。
+
+各 $s$ の比較を単純に族へ貼り合わせることもできない。
+$D_\alpha[s]$ 上の曲率 $\Omega-s$ の商は $D_\alpha$ 自身なので、
+全空間の通常の有限射影 MF 圏は零である。
+その特異な特殊ファイバーの MF 圏は非零であり、
+全空間の通常の MF 圏からの底変更では生成されない。
+これは相対特異圏などの別の族概念の否定ではなく、
+通常の全空間 MF とファイバーの MF を同一視できないという注意である。
+\end{remark}

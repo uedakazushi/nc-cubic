@@ -1,0 +1,80 @@
+% !TEX root = ../cubic-moduli-descent.tex
+\section{序論}
+\label{sec:moduli-introduction}
+
+\subsection{構造対象から何を認識し、どの体へ降ろせるか}
+
+非可換三次を次数付き代数の中心三次商 $A=B/(w)$ で表示すると、
+点曲線、中心、次数一 shift、残余圏という複数の幾何的データが現れる。
+本稿の問題は、そのうち何が構造対象を備えた圏
+$(\QGr A,\mathcal O_A)$ から内在的に決まり、
+表示の選択を変えても族や比較核として降下するか、ということである。
+次数一 shift や中心作用を最初から構造対象付き圏の標識に含めず、
+回復できる条件と回復を妨げる例を分けて扱う。
+
+対象は、良い局所一ブロック型の三次 $n$-fold と、
+$k\ge2$ 個の楕円 Sklyanin 因子を持つ満支持型の三次 $(3k-2)$-fold である。
+各定理に明記する PBW 性、楕円因子、普遍中心、相対双対、有限捩れ除外などの
+仮定の下で、表示 stack と全 $\mathcal O$-同値の比較を行う。
+全ての内在的な非可換三次がこれらの表示で覆われるとは主張しない。
+
+比較核については、幾何学的な圏同値の存在、核の同型類の定義体、
+その類を実際の核として実現する scalar 障害、
+rotation と指定周期を保存する位相障害を区別する。
+中心作用を保つ比較や点型の比較は、通常の Kuznetsov 圏の同値に追加した条件である。
+これらの条件を外すと最小比較次数が変わる例も扱う。
+
+\subsection{主要結果と既存理論との関係}
+
+第一に、Serre 関手から得られる Veronese 切断環とその中心を用い、
+次数一の表示と全 $\mathcal O$-同値を認識する。
+一ブロック型では良い局所モジュライと中心三次の torsor を構成し、
+満支持型では第三 Veronese の自己同型持上げと全慣性を求める
+（定理\ref{thm:nfm-local-moduli}、\ref{mbca:thm:full-inertia}、
+系\ref{mbrr:cor:stack-isomorphism}）。
+Artin--Zhang の ample pair と非可換 Proj の理論\cite{LP-AZ}、
+Sklyanin 代数と中心拡大の理論\cite{GRSklyaninATV,LBSV}を基礎に、
+本稿では普遍中心、余法加群、飽和冪、相対双対を用いて、
+指定した中心商における全同値と降下を具体化する。
+
+第二に、相対点関手と中心三次直線を復元し、
+良い一ブロック型から Poisson 対のモジュライへの射を構成する。
+trace--Hessian 処方が選ぶ三次と残余圏から回復する三次の差を明示し、
+代数的補正、点曲線による尺度の選択、有限被覆上の比較を調べる
+（定理\ref{thm:point-omarked-descent}、\ref{thm:point-trace-hessian}、
+第\ref{sec:poisson-inverse}節、第\ref{sec:nfm-residual-th-obstruction}節）。
+Poisson 構造の古典的分類は未公表研究稿\cite{NCCubicA}、
+代数的量子化の存在は別稿\cite{CubicQuantization}を入力とする。
+本稿が扱うのは、その入力の下でのモジュライ射、補正、相対性と降下である。
+点スキームと Poisson 零スキームを同一視する素朴な期待の限界は、
+可換復元稿の注意\paperref{main}{ppz:rem:naive-expectation}と具体例を参照されたい。
+
+第三に、比較核の Picard 障害と周期位相を求める。
+満支持型の Picard 補正核、全中心同変核の判定、
+一ブロック型の点型核とその三分点被覆について、
+核の存在と一般係数体上の最小比較次数を区別して記述する
+（第\ref{mbpd:sec:picard-descent}節、定理\ref{mbfc:thm:full-criterion}、
+定理\ref{main:nfm-third-division-monodromy}）。
+Picard gerbe、Kummer 理論、有限群の二重同変化\cite{MEDElagin}や
+可換多様体の核の理論\cite{MBFCOrlovAbelian}そのものは既知の入力である。
+本稿では指定した中心作用・次数・周期の下で障害を明示し、
+その適用範囲と、標識を忘れたときに残る問題を示す。
+これらの適用について、文献上の新規性の網羅的確認は未完了である。
+
+\subsection{他稿との分担と主張の範囲}
+
+完備行列分解の移送、一般点の可換復元、および分離型の実際の
+Kuznetsov 比較は可換復元稿の結果を用いる
+（定理\paperref{main}{cft:thm:complete}、\paperref{main}{gdr:thm:generic}、
+\paperref{main}{csc:thm:comparison}）。
+本稿はそれらの比較を入力として、表示からの認識、モジュライ上の自然性、
+比較核の型と定義体を精密化する。
+指定した混合族の中心・特異点・滑らかさの具体的計算は混合族の別稿で扱う。
+
+第\ref{sec:moduli-overview}節に、対象範囲と仮定を保った主要結果の全体像を置き、
+以後の各節で証明する。有限計算と証明書を使う箇所では、
+その計算が確認する主張と、文献・紙上の証明に依存する主張を分ける。
+全 $\mathcal O$-marked モジュライの構成、全 intrinsic 成分の表示被覆、
+任意の滑らかな非可換三次の可換 Kuznetsov 実現は未解決である。
+
+\PaperReferenceGuide

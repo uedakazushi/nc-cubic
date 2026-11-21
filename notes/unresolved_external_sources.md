@@ -1,6 +1,8 @@
 # 外部原資料の未照合箇所
 
-2026-11-21 / v1。ここは公表済み・検証済みの成果の一覧ではなく、独立した相対構成と原資料に残る重要な内容の再取得先である。今回の三論文分割では外部PDFの所在・本文を再確認していない。移管前に得られた書誌・原本識別・未照合箇所を保持する。現在の主張は `papers/cubic-quantization.tex` と `papers/nc-cubic.tex` を正本とする。
+2026-11-22 / v50。ここは公表済み・検証済みの成果の一覧ではなく、独立した相対構成と原資料に残る重要な内容の再取得先である。原資料の書誌・原本識別・未照合箇所を保持し、三稿への編集整理を外部PDFの所在・本文の再照合とは扱わない。
+
+現在の証明の正本は、[可換復元主稿](../papers/nc-cubic.tex)、[モジュライ・降下稿](../papers/cubic-moduli-descent.tex)、[混合Sklyanin稿](../papers/mixed-sklyanin-cubics.tex) である。代数的量子化は別repoの [cubic-quantization.tex](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を正本とする。外部原資料の内容を使う場合は、対応する現行稿の具体的定理・仮定・証明との一致を個別に確認する。
 
 ## 原資料と残る照合
 
@@ -22,4 +24,4 @@
 - [有限barノート](https://github.com/uedakazushi/nc-cubic2/blob/main/notes/sm_bar_and_spreading.tex) は有限bar-skeleton、Artin底の検出、generic spreadingを扱う。これだけで相対smoothness全体が証明されたとはしない。
 - 一次Poisson変形のJacobian接空間への写像と五変数のPlücker障害については、nc-cubic2の `papers/relative_reconstruction/first_order_poisson_kernel.tex` が元資料に指定された参照先である。JLLZのη同型、三様体の接空間20→10と核10、17次元族の7方向の対応を区別し、最後の対応を確認済みと扱わない。
 
-独自の定理・必要な証明・反例・厳密入力を現行TeXへ統合し、原本と照合する前に原資料を削除しない。見出しや主題の一致は証明単位の照合ではない。`sources/candidates/` の包括稿等は今回未再編集であり、現行主張の根拠や量子化論文の入力ではない。
+独自の定理・必要な証明・反例・厳密入力を現行TeXへ統合し、原本と照合する前に原資料を削除しない。見出しや主題の一致は証明単位の照合ではない。`sources/candidates/` 等として識別されていた包括稿も未照合の原資料であり、現在の三稿や量子化論文の証明入力にはしていない。
