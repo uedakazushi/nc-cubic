@@ -1009,7 +1009,8 @@ $N_6(a,b,c)\ne0$ なら二、$N_6(a,b,c)=0$ なら無限である。
 \begin{proof}
 まず $r=1,c=-1/b$ とした普遍表現を
 $\mathbb Q(a,b)$ 上で考える。
-再現コード \texttt{verify\_mixed\_two\_dimensional\_ext.py --universal} は
+再現コード \path{verify_mixed_two_dimensional_ext.py} の
+\texttt{--universal} オプションは
 式\eqref{cmo:eq:two-dimensional-resolution}と
 式\eqref{cmo:eq:two-dimensional-homotopies}をこの有理関数体上で厳密に計算し、
 全行列恒等式を関係式の全左右倍による剰余で検査する。
@@ -1663,8 +1664,8 @@ $P_i(\Omega_{\alpha^{(i)}}^2,C_0,C_+,C_-)=0$ を与える。
 \end{lemma}
 
 \begin{proof}
-\texttt{computations/verify\_mixed\_center\_geometry.py} は
-既存の \texttt{verify\_mixed\_pi\_center.py} の中心元を直接読み込み、
+\path{computations/verify_mixed_center_geometry.py} は
+既存の \path{verify_mixed_pi_center.py} の中心元を直接読み込み、
 すべての演算を $\mathbb Q$ 上で行う。再現の線型代数を説明する。
 フィルター次数 $n-1$ 以下の語代表基底と右乗法表が既に構成されたとする。
 次数 $n$ の仮の最高部分には、次数 $n-1$ の基底語の右に

@@ -63,9 +63,13 @@
 
 `python3 scripts/check_sources.py` は成功し、70 TeX入力・1444個の一意なlabel・988個の参照label・159個の引用bibkeyを確認した。`git diff --check` も成功。
 
-<!-- V45_BUILD_STATE -->
-主稿のLuaLaTeX組版と新規部分のPDF表示を確認中。環境で不足するLuaLaTeX形式の整備後、完了した範囲をここへ置換する。GitHub保存とresearch-hub更新は組版とは別に、通常commit後のremote main取得・内容照合で確認する。
-<!-- /V45_BUILD_STATE -->
+主稿のLuaLaTeX組版は終了コード0で完了し、**645頁・4,470,439 bytes**のPDFを生成した。SHA-256は `de7f0820b599e4ef6af8a23e9fcc551eb1e6a1b33e38642848707e21aa2afc41`。最終TeXログの未定義参照・引用、overfull/underfull、欠落文字、TeX errorはいずれも零。既存の数式フォントsize置換七件と総括、ltjsarticleの旧 `\rm` 警告は残る。
+
+変更箇所を含む主稿1・2・8・245–273頁の計32頁を画像として実表示し、文字・数式・表の欠け、重なり、欄外へのはみ出しがないことを確認した。全645頁の目視、VS Code UIの操作を確認したという意味ではない。未変更の中心二チャート補助ノートは今回再組版していない。
+
+計算環境はPython 3.12.14、SymPy 1.14.0。組版環境では既存のTeX検索DB・format・font mapとLua/和文パッケージが欠けていたため、Debian公式の同版 `texlive-luatex`・`texlive-lang-japanese` を利用者領域に展開し、formatとmapを生成した。LuaHBTeX 1.18.0、latexmk 4.86を使用。今回の環境固有のcache書込み制約には、書込み可能なbuild配下のTEXMFCACHEと、repo絶対パスを使った `-outdir`・`-auxdir`、`-e '$normalize_names=0;'` を指定して対応した。repoのLuaLaTeX/latexmk設定は変更しておらず、完全なTeX環境での標準再生成コマンドはREADMEに置く。環境再生成用の一時ファイルや中間生成物は追跡しない。
+
+GitHub保存の確認には、通常commit後のremote main取得・treeと内容の照合を用いる。対象repoの保存とresearch-hub更新は、組版と別々に確認する。PDF自体はGitで追跡せず、再生成に必要なソースと入力を保持する。
 
 内部の独立読解、厳密有限計算、組版を区別する。Lean等の形式証明、外部査読、新規性の網羅的確認は未実施。以下は現行証明を支える保持済みの点検範囲であり、今回全てを再取得・再実行したという記録ではない。
 
