@@ -1,0 +1,514 @@
+% !TEX root = ../nc-cubic.tex
+\section{中心変数を持つ分離テンソル型の点関手と零スキーム}
+\label{csp:sec:central-split}
+
+中心一次変数を持つ場合、満支持型の点スキームに何が加わるかを
+原代数の点関手から計算する。
+本節の対象は、各楕円因子の関係式が中心変数に依存しない
+\emph{分離テンソル表示}である。
+中心変数を係数として関係式自体が変形される混合型の表示は含めない。
+中心変数が一つなら非零の中心三次項が追加成分を消す一方、
+二つ以上では非被約成分の局所 Artin 環が残る。
+この区別は閉点集合の計算だけでは検出できない。
+
+\subsection{設定、中心三次式、可換化}
+
+$\kappa\supset\C$ を代数閉体、$k\ge1$、$m\ge1$ とする。
+各 $i=1,\ldots,k$ について
+\[
+ S_i=T(W_i)/(R_i),\qquad \dim W_i=\dim R_i=3
+\]
+を三次元の二次楕円 Sklyanin 代数とする。
+その双線型関係スキームが、滑らかな平面三次
+$E_i\subset\PP(W_i^\vee)$ 上の固定点のない自己同型 $\sigma_i$ の
+グラフ $\Gamma_{\sigma_i}$ であると仮定する。
+また正則中心三次 $\Omega_i$ により
+\[
+ S_i/(\Omega_i)=B(E_i,\OO_{E_i}(1),\sigma_i)
+\]
+となるものとする。
+$\dim U=m$ とし、全ての生成元に次数一を与えて
+\begin{equation}\label{csp:eq:pair}
+ \begin{aligned}
+ B&=\left(\bigotimes_{i=1}^kS_i\right)\otimes_\kappa\operatorname{Sym}U,
+ &V&=\bigoplus_iW_i\oplus U,\\
+ w&=\sum_{i=1}^k a_i\Omega_i+g,
+ &A&=B/(w),\qquad g\in\operatorname{Sym}^3U
+ \end{aligned}
+\end{equation}
+と置く。$a_i\in\kappa^\times$ とする。
+以下の点関手の計算自体は、一部の $a_i$ が零でも成立する。
+この表示の三次超曲面の次元は $n=3k+m-2$ である。
+
+\begin{lemma}[分離表示の中心三次式]
+\label{csp:lem:center}
+$Z(S_i)_1=Z(S_i)_2=0$ を仮定すると
+\begin{equation}\label{csp:eq:centers}
+ Z(B)_1=U,\qquad Z(B)_2=\operatorname{Sym}^2U,\qquad
+ Z(B)_3=\left(\bigoplus_iZ(S_i)_3\right)
+                  \oplus\operatorname{Sym}^3U.
+\end{equation}
+さらに $Z(S_i)_3=\kappa\Omega_i$ ならば、全ての中心三次式は
+式\eqref{csp:eq:pair}の分離和の形である。
+後者の仮定は、例えば $\sigma_i^j\ne\operatorname{id}$
+$(1\le j\le3)$ により保証される。
+\end{lemma}
+
+\begin{proof}
+補題\ref{tba:lem:tensor-center}のテンソル積の中心の等式を反復し、
+全次数三以下の成分を取る。
+異なる二因子に正次数を配分した三次項には、いずれかの因子の
+一次または二次中心が必要なので、そのような項は消える。
+最後の十分条件も同補題による。
+\end{proof}
+
+一次・二次中心の消滅\emph{だけ}から三次中心の一次元性を結論しない。
+また、式\eqref{csp:eq:centers}は関係式を固定したテンソル表示の結果であり、
+一般の中心変数付き二次関係をこの形に直す主張ではない。
+
+各因子の可換化と中心三次式の像を
+\begin{equation}\label{csp:eq:artin-data}
+ J_i=(S_i)_{\mathrm{ab}}
+       =\operatorname{Sym}W_i/(\operatorname{ab}R_i),\qquad
+ J=\bigotimes_iJ_i,\qquad
+ \omega_i=[\Omega_i]\in(J_i)_3,\qquad
+ \theta=\sum_i a_i\omega_i\in J_3
+\end{equation}
+と書く。$J_i$ を Jacobian 環と呼ぶのは、別途
+$\operatorname{ab}R_i=\langle\partial q_i\rangle$ という
+三次式 $q_i$ の表示がある場合に限る。
+その $q_i$ と点曲線 $E_i$ の三次方程式は、一般には異なる。
+
+\begin{lemma}[可換化の長さ八の構造]
+\label{csp:lem:artin}
+各 $J_i$ は三つの二次式の Artin 完全交叉であり、
+\begin{equation}\label{csp:eq:hilbert}
+ H_{J_i}(t)=(1+t)^3,\qquad H_J(t)=(1+t)^{3k},\qquad
+ \dim_\kappa J=8^k=:L
+\end{equation}
+となる。$(J_i)_3$ は socle であり、$\omega_i^2=0$ である。
+\end{lemma}
+
+\begin{proof}
+$\operatorname{Proj}J_i$ は $\Gamma_{\sigma_i}$ と対角の交差である。
+固定点がないので空であり、三つの可換化した二次関係の共通零点は
+affine 原点だけである。
+従ってこれらは三変数多項式環の正則列をなし、
+Hilbert 級数は $(1-t^2)^3/(1-t)^3=(1+t)^3$ である。
+完全交叉の Gorenstein 性と最高次数三から socle の主張を得る。
+テンソル積を取れば $J$ の式が従う。
+\end{proof}
+
+\subsection{任意の試験環上での点関手}
+
+\begin{theorem}[分離テンソル型の点グラフ]
+\label{csp:thm:point-functor}
+式\eqref{csp:eq:pair}の下で、
+\begin{equation}\label{csp:eq:central-schemes}
+ C=\operatorname{Proj}(J\otimes\operatorname{Sym}U),\qquad
+ D=\operatorname{Proj}\bigl((J\otimes\operatorname{Sym}U)/(g+\theta)\bigr)
+\end{equation}
+と置く。
+$B$ の双線型関係スキームと $A$ の点関手はそれぞれ
+\begin{align}
+ \Gamma_B&=\left(\coprod_{i=1}^k\Gamma_{\sigma_i}\right)\amalg\Delta_C,
+ \label{csp:eq:graph}\\
+ \operatorname{Pt}(A)&=\left(\coprod_{i=1}^kE_i\right)\amalg D
+ \label{csp:eq:points}
+\end{align}
+で与えられる。点加群の shift は $E_i$ 上では $\sigma_i$、
+$D$ 上では恒等写像である。
+これらは同じ射影空間内のスキームの等式であり、
+任意の可換 $\kappa$-試験環への基底変更と両立する。
+\end{theorem}
+
+\begin{proof}
+点対の二つの座標を $p,q$ とする。
+ある中心座標 $u$ の $p$ における値が可逆な chart では、
+中心生成元との可換関係
+\[
+ u(p)v(q)-v(p)u(q)=0\qquad(v\in V)
+\]
+により $q$ は $p$ に比例する。
+$q$ が射影点なので、必要なら chart を細分すれば $u(q)$ も可逆であり、
+両方を一に正規化して $p=q$ を得る。
+各ブロックの残る関係はちょうど $\operatorname{ab}R_i$ である。
+従ってこの開集合上の関係スキームは $\Delta_C$ となる。
+
+中心座標が全て零である幾何点については、
+定理\ref{tbp:thm:point-graph}および系\ref{tbp:cor:all-blocks}の
+ブロック間可換関係の議論を適用できる。
+二つ以上のブロックが非零なら、ある非零ブロック内の $p_i,q_i$ が
+比例し、$\sigma_i$ の固定点を与えてしまう。
+従って残る幾何点は純ブロックの $\Gamma_{\sigma_i}$ に属する。
+
+この台の議論に加えて、純ブロック $i$ の近傍でイデアルを計算する。
+$p_i,q_i$ は比例しないので、その二列から作るある二次小行列式が
+可逆な近傍を取れる。
+他の任意の座標 $v$、すなわち別ブロックの座標または中心座標に対し、
+ブロック間の二つの可換関係は
+\[
+ p_{ia}v(q)-q_{ia}v(p)=0,\qquad
+ p_{ib}v(q)-q_{ib}v(p)=0
+\]
+である。係数行列の行列式が可逆なので $v(p)=v(q)=0$ となる。
+よって横断方向の冪零成分は残らず、この近傍は正確に
+$\Gamma_{\sigma_i}$ である。
+以上の開集合は関係スキーム全体を覆い、
+$C_{\mathrm{red}}=\PP(U^\vee)$ は各純ブロック平面と交わらない。
+これで式\eqref{csp:eq:graph}を得る。
+
+各射影が同型であるこのグラフの反復は、任意の試験環上で
+$B$ の無限点加群を与える。
+$E_i$ 上の普遍点加群は $S_i/(\Omega_i)$ を経由するので、
+$w$ はその上で零となる。
+一方、定常な点加群では任意の非可換語の値は可換化した語の値と一致する。
+従って追加の三次関係は正確に $g+\theta=0$ であり、
+shift が恒等であるため全ての次数で同じ条件となる。
+これが式\eqref{csp:eq:points}を与える。
+
+局所計算は全て多項式関係と単元による消去であり、
+試験環の被約性を用いない。
+従って点の集合だけでなく、任意の試験環上の関手として等式が成立する。
+\end{proof}
+
+\subsection{中心超曲面の厚みと中心変数一つの場合}
+
+$P=\PP(U^\vee)$ と書く。
+中心座標による射影 $f:C\to P$ は有限平坦で、
+\begin{equation}\label{csp:eq:central-algebra}
+ f_*\OO_C=\bigoplus_{d=0}^{3k}J_d\otimes\OO_P(-d)
+\end{equation}
+である。ここで積は $J$ の次数付き積による。
+特に $C$ は階数 $L$ の、中心射影空間の非被約な厚みである。
+
+\begin{proposition}[中心成分の消滅と完全交叉]
+\label{csp:prop:central-component}
+次が成立する。
+\begin{enumerate}
+ \item $m=1$、$g=cu^3$、$c\ne0$ ならば $D=\varnothing$ である。
+ 従って $k=2,m=1,n=5$ の場合を含め、
+ \[
+ \operatorname{Pt}(A)=\coprod_i E_i
+ \]
+ がスキームとして成立する。
+ \item $m\ge2$、$g\ne0$ ならば $D$ は
+ $\PP^{3k+m-1}$ 内の型 $(2^{3k},3)$ の完全交叉であり、
+ \begin{equation}\label{csp:eq:complete-intersection}
+ \dim D=m-2,\qquad \deg D=3\cdot8^k,\qquad
+ \omega_D=\OO_D(3k+3-m).
+ \end{equation}
+ $D_{\mathrm{red}}=V_P(g)_{\mathrm{red}}$ であり、
+ 中心射影の第零 Fitting イデアルは $(g^L)$ である。
+ \item $s=\#\{i:a_i\omega_i\ne0\}$ とする。
+ $D\to P$ のスキーム論的像は $V_P(g^{s+1})$ である。
+ 特に $\theta\ne0$、$m\ge2$、$g\ne0$ なら、この自然な射影は
+ $V_P(g)$ を経由しない。
+\end{enumerate}
+最後の主張では $m=1$ の空な像も同じ式で解釈する。
+\end{proposition}
+
+\begin{proof}
+中心 chart $u_j=1$ 上で $C$ は $\operatorname{Spec}(J\otimes\OO_P)$
+となるので、式\eqref{csp:eq:central-algebra}を得る。
+$m=1$ ならこの chart は $C$ 全体を覆い、
+$D=\operatorname{Spec}J/(c+\theta)$ である。
+$\theta$ は冪零なので $c+\theta$ は可逆となり、第一の主張が従う。
+
+次に $g\ne0$ とする。
+$J\otimes\operatorname{Sym}U$ を $J$ の次数で濾過すると、
+$g+\theta$ の乗法の次数零部分は $g$ の乗法である。
+各次数成分は $\operatorname{Sym}U$ 上自由であり、$g$ は非零因子なので、
+最小の非零次数を比較して $g+\theta$ も非零因子であることが分かる。
+補題\ref{csp:lem:artin}の二次正則列にこの三次式を加えると、
+完全交叉の次元・次数・双対化層の公式から
+式\eqref{csp:eq:complete-intersection}を得る。
+$\theta$ が冪零なので被約化の式も従う。
+また有限射 $f$ について
+\begin{equation}\label{csp:eq:pushforward-sequence}
+ 0\longrightarrow f_*\OO_C(-3)
+ \xrightarrow{\ g+\theta\ } f_*\OO_C
+ \longrightarrow f_*\OO_D\longrightarrow0
+\end{equation}
+である。
+局所的な行列式は $\det(gI+m_\theta)=g^L$ なので、
+第零 Fitting イデアルは $(g^L)$ となる。
+
+非零な $a_i\omega_i$ は互いに異なるテンソル因子の socle に属する。
+従って
+\[
+ \theta^s=s!\prod_{a_i\omega_i\ne0}a_i\omega_i\ne0,
+ \qquad \theta^{s+1}=0
+\]
+である。$s=0$ のときは $\theta^0=1$ と読む。
+乗法 $m_\theta$ の最大 Jordan block の大きさは $s+1$ である。
+中心 chart でこの作用素を $\kappa$ 上の Jordan 標準形に取ると、
+$gI+m_\theta$ の余核は、各 block の大きさ $\ell$ に対する
+$\OO_P/(g^\ell)$ の直和となる。
+その零化イデアルは $(g^{s+1})$ であり、
+単位を持つ $\OO_P$-代数 $f_*\OO_D$ の零化イデアルは
+$\OO_P\to f_*\OO_D$ の核と等しい。
+従ってスキーム論的像は $V_P(g^{s+1})$ である。
+$D$ 上では $g=-\theta$ であるから、$\theta\ne0$ の場合に
+$V_P(g)$ を経由するという結論にはならない。
+\end{proof}
+
+Fitting イデアル $(g^L)$ と、像を定めるイデアル $(g^{s+1})$ は
+異なる情報である。
+特に全ての $\omega_i$ が非零なら像は $(k+1)$ 重の中心超曲面だが、
+その横断的な長さは $8^k$ である。
+$\omega_i$ の非零性は固定点がないことだけからは仮定しない。
+一方 $g=0$ の境界では
+$D=\operatorname{Proj}((J/(\theta))\otimes\operatorname{Sym}U)$ となり、
+上の三次非零因子の議論は適用しない。
+
+\begin{proposition}[滑らかな中心超曲面に沿う局所 Artin 環]
+\label{csp:prop:local-artin}
+$m\ge2$、$g\ne0$、$H=V_P(g)$ が滑らかであると仮定する。
+任意の閉点 $q\in H$ において
+\begin{equation}\label{csp:eq:completed-local}
+ \widehat{\OO}_{D,q}\simeq
+ J[[t_1,\ldots,t_{m-2}]]
+\end{equation}
+である。この同型は局所座標の選択に依存する。
+$m=2$ ならば
+\begin{equation}\label{csp:eq:binary-central}
+ D\simeq\coprod_{q\in H}\operatorname{Spec}J
+       =\coprod_{a=1}^3\operatorname{Spec}J.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+中心 chart で $g$ を非斉次化する。
+$dg(q)\ne0$ なので、完備局所環において $g$ 自身を正則局所座標の
+一つとし、残りを $t_1,\ldots,t_{m-2}$ とできる。
+従って $D$ の完備局所環は
+\[
+ J[[g,t_1,\ldots,t_{m-2}]]/(g+\theta)
+ \simeq J[[t_1,\ldots,t_{m-2}]]
+\]
+となる。$\theta$ が冪零であるため $g=-\theta$ の代入は正当である。
+滑らかな二変数三次は射影直線上の三つの相異なる点を切り出す。
+この場合の局所環は既に Artin 環で完備なので、最後の式を得る。
+\end{proof}
+
+式\eqref{csp:eq:completed-local}は $D$ が大域的に
+$H\times\operatorname{Spec}J$ であることを意味しない。
+また、自然な中心射影 $D\to P$ の $q$ 上のファイバーは
+$\operatorname{Spec}(J/(\theta))$ であり、
+局所環全体を記述する $J$ と区別する必要がある。
+
+\subsection{同じ分離三次上の Poisson 零スキーム}
+
+各 $E_i$ の非零方程式を $f_i\in\operatorname{Sym}^3W_i$ とし、
+\begin{equation}\label{csp:eq:commutative-target}
+ F=\sum_i f_i+g,\qquad
+ X=V(F)\subset\PP(V^\vee),\qquad
+ J_i^{\mathrm{cl}}=\operatorname{Jac}(f_i),\qquad
+ J^{\mathrm{cl}}=\bigotimes_iJ_i^{\mathrm{cl}}
+\end{equation}
+と置く。
+$m=1$ なら $g=cu^3$、$c\ne0$、
+$m\ge2$ なら $g\ne0$ かつ $H=V_P(g)$ は滑らかと仮定する。
+これらの仮定により $X$ は滑らかである。
+各 $W_i$ の座標を $x_{i1},x_{i2},x_{i3}$ とし、
+\begin{equation}\label{csp:eq:block-poisson}
+ \beta=\sum_i b_i\,\iota_{df_i}
+  (\partial_{x_{i1}}\wedge\partial_{x_{i2}}\wedge\partial_{x_{i3}}),
+ \qquad b_i\in\kappa^\times
+\end{equation}
+を取る。$\beta$ は Poisson で $F$ は Casimir だから、
+射影化して $X$ 上の Poisson tensor $\pi$ を得る。
+
+\begin{theorem}[中心変数を持つ分離和の零スキーム]
+\label{csp:thm:poisson-zero}
+式\eqref{csp:eq:commutative-target}--\eqref{csp:eq:block-poisson}の下で
+\begin{equation}\label{csp:eq:poisson-zero}
+ Z_X(\pi)=\left(\coprod_i E_i\right)\amalg D_{\mathrm{cl}},\qquad
+ D_{\mathrm{cl}}=\operatorname{Proj}
+       \bigl((J^{\mathrm{cl}}\otimes\operatorname{Sym}U)/(g)\bigr).
+\end{equation}
+この式は任意の $\kappa$-基底変更に両立する。
+$m=1$ なら $D_{\mathrm{cl}}=\varnothing$ であり、
+\begin{equation}\label{csp:eq:one-central-equality}
+ \operatorname{Pt}(A)=Z_X(\pi)=\coprod_iE_i
+\end{equation}
+が同じ射影空間内のスキームの等式として成立する。
+$m\ge2$ なら $D_{\mathrm{cl}}\to H$ は有限平坦で階数 $L=8^k$、
+その代数は
+\begin{equation}\label{csp:eq:commutative-thickening}
+ \bigoplus_{d=0}^{3k}(J^{\mathrm{cl}})_d\otimes\OO_H(-d)
+\end{equation}
+である。特に被約スキームは常に一致し、
+\begin{equation}\label{csp:eq:reduced-equality}
+ \operatorname{Pt}(A)_{\mathrm{red}}
+   =Z_X(\pi)_{\mathrm{red}}
+   =\left(\coprod_iE_i\right)\amalg H
+\end{equation}
+となる。
+\end{theorem}
+
+\begin{proof}
+Euler ベクトル場を $\xi$ とすると、
+命題\ref{pps:prop:zero-scheme}の局所直和因子の議論により、
+$Z_X(\pi)$ のイデアルは $\xi\wedge\beta$ の係数で与えられる。
+中心座標 $u_j$ が可逆な chart では、
+第 $i$ ブロックの二つの tangent 基底と $\partial_{u_j}$ からなる
+係数が、符号を除いて $u_jb_i\partial_{x_{ia}}f_i$ となる。
+従って零イデアルは全ての $\partial_{x_{ia}}f_i$ を含み、
+逆の包含も $\beta$ の式から成り立つ。
+各ブロックの Euler 恒等式により
+$f_i=0$ in $J_i^{\mathrm{cl}}$ なので、$F$ の残る条件は $g=0$ である。
+これが $D_{\mathrm{cl}}$ を与える。
+
+中心座標が全て零である幾何点では、
+非零 active ブロックの数を $r$ とすると $\beta$ の階数は $2r$ である。
+射影化が零なら $\beta=\xi\wedge v$ なので階数は高々二であり、
+純ブロック以外の点は存在しない。
+純ブロック $E_i$ の近傍では、ある偏微分 $\partial_{x_{ia}}f_i$ が可逆である。
+$\xi\wedge\beta$ の混合係数は、この偏微分に他ブロックの座標または
+中心座標を掛けたものとなる。
+従って全ての横断座標が零になり、残るイデアルは $(f_i)$ である。
+この局所消去は非被約な基底でも有効なので、
+式\eqref{csp:eq:poisson-zero}をスキームとして得る。
+
+$m=1$ の中心 chart では $g=c$ が可逆なので $D_{\mathrm{cl}}$ は空である。
+命題\ref{csp:prop:central-component}と合わせると
+式\eqref{csp:eq:one-central-equality}が従う。
+$m\ge2$ では $g$ が中心変数だけの式であるため、
+中心射影は $H$ を経由し、式\eqref{csp:eq:commutative-thickening}を得る。
+被約化の等式は両側の明示式から従う。
+\end{proof}
+
+\begin{corollary}[中心変数一つの分離型における同時存在]
+\label{csp:cor:simultaneous-one-center}
+基礎体を $\C$ とし、$m=1$、$N=3k+1\ge5$ とする。
+本節の点グラフの仮定に加えて、各 $S_i,\Omega_i$ が
+式\eqref{csc:eq:factor}の実楕円因子の仮定を満たすとする。
+すなわち $S_i$ は連結局所有限な二次 Koszul AS 正則代数で、
+大域次元と Gorenstein parameter は三、$\Omega_i$ は次数三の実際の正則中心元であり、
+$S_i/(\Omega_i)\simeq B(E_i,\OO_{E_i}(1),t_{p_i})$ とする。
+さらに、本節で仮定した通り二次関係スキームは固定点のない
+$t_{p_i}$ のグラフであるとする。
+$a_i,c\in\C^\times$ とし、
+\[
+ A=\left(\bigotimes_iS_i\right)[u]
+       \Big/\left(\sum_i a_i\Omega_i+cu^3\right),\qquad
+ X=V\!\left(\sum_i f_i+cu^3\right)\subset\PP^{3k}_\C
+\]
+と置く。ここで $f_i$ は同じ埋込み平面三次 $E_i$ の任意の非零方程式である。
+この $X$ は滑らかで、実際の dg Morita 同値と Poisson tensor が存在し、
+\begin{equation}\label{csp:eq:simultaneous-one-center}
+ \Ku_{\mathrm{coh}}(A)\simeq\Ku(X),\qquad
+ \operatorname{Pt}(A)=Z_X(\pi)=\coprod_iE_i
+\end{equation}
+を同時に満たす。第二の等式は元の次数一射影空間でのスキームの等式である。
+特に $k=2,m=1,n=5$ の分離型で、同じ可換標的が二つの条件を満たす。
+\end{corollary}
+
+\begin{proof}
+$\C[u]/(\partial_u(cu^3))=\C[u]/(u^2)$ は有限次元だから、
+定理\ref{csc:thm:comparison}の中心因子の孤立 critical point 条件を満たす。
+指定した実楕円因子の仮定により同定理を適用でき、第一の同値を得る。
+式\eqref{csp:eq:block-poisson}で任意の $b_i\ne0$ を選ぶと、
+定理\ref{csp:thm:poisson-zero}の式\eqref{csp:eq:one-central-equality}が
+残るスキームの等式を与える。
+\end{proof}
+
+\subsection{抽象スキーム同型にも残る Artin 環の障害}
+
+\begin{proposition}[局所 Artin 環による必要条件]
+\label{csp:prop:abstract-obstruction}
+$m\ge2$、$g\ne0$、$H$ が滑らかであるという上の仮定を保つ。
+抽象 $\kappa$-スキームとして
+$\operatorname{Pt}(A)\simeq Z_X(\pi)$ ならば
+\begin{equation}\label{csp:eq:necessary-artin}
+ J\simeq J^{\mathrm{cl}}
+ \quad\text{as graded }\kappa\text{-algebras}
+\end{equation}
+である。
+$m=2$ の場合、この条件は抽象スキーム同型の存在の必要十分条件である。
+また任意の $m\ge2$ で $\theta=0$ なら、
+式\eqref{csp:eq:necessary-artin}は同じく十分である。
+\end{proposition}
+
+\begin{proof}
+各 $E_i$ は被約だが、$D$ と $D_{\mathrm{cl}}$ の全ての点で
+局所環は非被約である。
+従って全体のスキーム同型は、$D$ の点を $D_{\mathrm{cl}}$ の点へ移す。
+命題\ref{csp:prop:local-artin}と可換側の同じ計算により、
+対応する完備局所環は
+\[
+ J[[t_1,\ldots,t_{m-2}]],\qquad
+ J^{\mathrm{cl}}[[t_1,\ldots,t_{m-2}]]
+\]
+である。その極大イデアルに関する随伴次数付き環はそれぞれ
+$J[t_1,\ldots,t_{m-2}]$ と
+$J^{\mathrm{cl}}[t_1,\ldots,t_{m-2}]$ で、全ての変数の次数は一である。
+これらの次数付き環の冪零根基の次数一部分は、それぞれ $J_1$ と
+$(J^{\mathrm{cl}})_1$ である。
+その次数一部分が生成する単位的部分代数は、正確に $J$ と
+$J^{\mathrm{cl}}$ なので、環同型から式\eqref{csp:eq:necessary-artin}を回復できる。
+
+$m=2$ なら式\eqref{csp:eq:binary-central}により、
+中心成分はそれぞれ三つの $\operatorname{Spec}J$ と
+$\operatorname{Spec}J^{\mathrm{cl}}$ の非交和である。
+従って次数付き環同型は中心成分の同型を与え、
+$E_i$ 上の恒等写像と合わせて全体の同型を得る。
+$\theta=0$ の場合は一般の $m$ でも、式\eqref{csp:eq:central-algebra}を
+$H$ に制限した次数付き代数が両側で同型となるので十分性が従う。
+\end{proof}
+
+\begin{corollary}[ブロック別の $j$ 不変量による不一致の判定]
+\label{csp:cor:block-j-obstruction}
+命題\ref{csp:prop:abstract-obstruction}の仮定の下で、さらに
+$J_i=\operatorname{Jac}(q_i)$ という滑らかな平面三次式 $q_i$ の表示を持ち、
+各 $q_i,f_i$ が Sebastiani--Thom 分解不能であるとする。
+例えば、各平面三次の $j$ 不変量が非零なら分解不能である。
+多重集合として
+\begin{equation}\label{csp:eq:j-obstruction}
+ \{j(V(q_i))\}_{i=1}^k\ne\{j(E_i)\}_{i=1}^k
+\end{equation}
+ならば、$\operatorname{Pt}(A)$ と式\eqref{csp:eq:block-poisson}の
+$Z_X(\pi)$ は抽象スキームとしても同型でない。
+\end{corollary}
+
+\begin{proof}
+両スキームが同型なら、命題により
+\[
+ \operatorname{Jac}\left(\sum_iq_i\right)
+       \simeq\operatorname{Jac}\left(\sum_if_i\right)
+\]
+という次数付き環同型を得る。
+次数一・二の積から勾配の二次式空間が線形同型で対応するので、
+命題\ref{prop:ej-projective-uniqueness}により二つの滑らかな三次和は
+線形座標変換で移り合う。
+補題\ref{ej:lem:symmetrizer-algebra}の最細分解の一意性と
+各因子の分解不能性により、$q_i$ と $f_i$ は順序を除いて
+因子ごとに射影同型となる。これは式\eqref{csp:eq:j-obstruction}に矛盾する。
+なお、滑らかな三変数三次式が非自明に直和分解すると、
+二変数の滑らかな三次式と一変数の三乗との和に直せる。
+二変数三次の三つの根は射影変換で互いに移せるので、これは Fermat 型であり、
+その $j$ 不変量は零である。
+\end{proof}
+
+\begin{remark}[二つの予想への適用範囲]
+\label{csp:rem:scope}
+本節は点関手と、明示した可換分離三次上の block Poisson tensor の
+零スキームを計算するものである。
+$\C$ 上で定理\ref{csc:thm:comparison}の実楕円因子と中心多項式の仮定を
+満たす分離型では、この同じ $X$ への残余圏同値も構成されている。
+$m=1$ での同時存在は系\ref{csp:cor:simultaneous-one-center}である。
+$m=0$ の比較は既に定理\ref{pps:thm:elliptic-existence}で構成した。
+これらの正の結果は分離テンソル表示に対するものである。
+関係式自体が中心変数に依存する混合型については、
+第\ref{cmo:sec:points}節の有限 norm による点スキームの判定を用い、
+上の分離型の残余圏比較をそのまま適用しない。
+
+$m\ge2$ では、被約部分の一致を full scheme の一致と取り違えない。
+系\ref{csp:cor:block-j-obstruction}は、この $X$ とこの block tensor
+という自然な処方の障害である。
+同じ $X$ の別の Poisson tensor や別の残余圏標的の存在まで排除しない。
+その全称的な排除は、三次三様体の場合の
+定理\ref{ppz:thm:all-poisson-obstruction}で別途扱った。
+\end{remark}

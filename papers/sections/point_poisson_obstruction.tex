@@ -4,9 +4,13 @@
 
 点スキームと Poisson tensor の零スキームとの一致を検証する際には、
 抽象スキームとしての同型と、既存の次数一偏極に関する埋込み同型を区別する。
-以下は一ブロック型における零スキームの直接計算と、後者に対する障害である。
-Kuznetsov 成分の同値を仮定した結果ではなく、
-その同値に適合する Poisson 対を探す際の独立した必要条件を与える。
+まず一ブロック型の零スキームを計算し、埋込み同型に対する障害を示す。
+次に長さ八の局所 Artin 環と Hessian 階数二の幾何を用い、
+複素数体上の具体的な非可換三次三様体について、
+同じ Kuznetsov 成分を持つ全ての可換三次と全ての Poisson tensor を調べる。
+その例では可換 Kuznetsov 実現が直接構成できる一方、
+全点スキームと零スキームの抽象同型は存在しない。
+圏比較には系\ref{csc:cor:fermat}の分離テンソル比較を用いる。
 
 \subsection{射影 Poisson tensor の零イデアル}
 
@@ -166,116 +170,129 @@ $H=cF+G(u)$ である。
 別の Poisson tensor の存在を排除する結果ではない。
 被約な台では消える差を、定常点の局所 Artin 環で検出する。
 
-\begin{proposition}[分離型 Hesse 残余対の定常局所環の不一致]
+\begin{proposition}[具体的な分離型 Hesse 対の定常局所環の不一致]
 \label{ppz:prop:split-artin-obstruction}
-第\ref{sec:nfm-residual-th-obstruction}節の split Hesse 族を
-$n=3$、$r=2$ に取り、$\kappa=\overline{\C(h)}$ へ移す。
-同節の非可換中心商を $A_h$ とし、
+命題\ref{esi:prop:factor}の複素 Sklyanin 因子と指定中心三次式を
+$S_\star,\Omega_\star$ と書く。すなわち
+\begin{equation}\label{ppz:eq:explicit-pair}
+ \begin{split}
+ S_\star&=\C\langle x,y,z\rangle/
+ (yz-3zy-2x^2,\ zx-3xz-2y^2,\ xy-3yx-2z^2),\\
+ \Omega_\star&=\frac{79}{144}(x^3+y^3+z^3)
+       +\frac5{96}(xyz+yzx+zxy+yxz+xzy+zyx),\\
+ A_\star&=S_\star[u,v]/(\Omega_\star+G),\qquad
+ G=(u^3+v^3)/3.
+ \end{split}
+\end{equation}
+$u,v$ は中心変数である。
 \[
- g_t=(x^3+y^3+z^3)/3+txyz,\qquad G=(u^3+v^3)/3,
- \qquad
- \lambda=\frac{h+h^2/3+h^5/12}{1-h^4/4}
+ g_t=(x^3+y^3+z^3)/3+txyz,\qquad
+ \lambda=17/9,\qquad X_\star=V(g_\lambda+G)\subset\PP^4_\C
 \]
 と置く。
-既存の残余比較が与える三次は
-$X_{\mathrm{res}}=V(g_\lambda+G)$ であり、
-その自然な一ブロック tensor を
+この滑らかな可換三次の自然な一ブロック tensor を
 \[
- \pi_{\mathrm{res}}
+ \pi_\star
  =\left.\iota_{d(g_\lambda+G)}
        (\partial_x\wedge\partial_y\wedge\partial_z)
-   \right|_{X_{\mathrm{res}}}
+   \right|_{X_\star}
 \]
 とする。その非零スカラー倍でも以下の結論は同じである。
 このとき
 \begin{equation}\label{ppz:eq:split-artin-nonisom}
- \operatorname{Pt}(A_h)\not\simeq
- Z_{X_{\mathrm{res}}}(\pi_{\mathrm{res}})
+ \operatorname{Pt}(A_\star)\not\simeq Z_{X_\star}(\pi_\star)
 \end{equation}
 が抽象スキームとして成立する。
-一方、両者の被約部分は、元の $\PP^4_\kappa$ の中でも一致する。
-固定した MF/window 入力の下では
-$\Ku(A_h)\simeq\Ku(X_{\mathrm{res}})$ であるから、
-この例の不一致は Kuznetsov 比較の不存在を意味しない。
+一方、両者の被約部分は、元の $\PP^4_\C$ の中でも一致する。
+さらに実際の dg Morita 同値
+$\Ku_{\mathrm{coh}}(A_\star)\simeq\Ku(X_\star)$ が存在する。
 \end{proposition}
 
 \begin{proof}
-$J_t=\kappa[x,y,z]/(x^2+tyz,y^2+tzx,z^2+txy)$ と置く。
+$J_t=\C[x,y,z]/(x^2+tyz,y^2+tzx,z^2+txy)$ と置く。
 $1+t^3\ne0$ ならば $J_t$ は Hilbert 級数 $(1+s)^3$ の
 長さ八の局所 Artin 環であり、極大イデアルの四乗は零である。
-同節の中心元の式から、その可換化の $J_h[u,v]$ への像は
+三つの非可換二次関係の可換化は、非零定数倍を除いて
+$x^2+yz,y^2+zx,z^2+xy$ である。
+$J_1$ では $x^3=y^3=z^3=-xyz$ なので、指定した中心三次式の像は
 \[
- G+\eta,\qquad
- \eta=-\frac23h^2(1+h^3)xyz\in(J_h)_3
+ \eta=[\Omega_\star]
+   =\left(-\frac{79}{48}+\frac5{16}\right)xyz
+   =-\frac43xyz\ne0.
 \]
-となる。特に $\eta\ne0$ であり、境界中心評価の非消滅条件を満たす。
-定常スキーム $D_h$ の被約部分は
+従って境界中心評価の非消滅条件も満たす。
+定理\ref{csp:thm:point-functor}により、点スキームは
+$E_\lambda\amalg D_\star$ であり、その定常成分は
+$D_\star=\operatorname{Proj}(J_1[u,v]/(G+\eta))$ である。
+ここで $E_\lambda=V(g_\lambda)$ は命題\ref{esi:prop:factor}で確認した点曲線である。
+定常成分の被約部分は
 $x=y=z=0$ と $u^3+v^3=0$ で与えられる三点である。
 全ての点は $u\ne0$ に属するので、$u=1$ とする。
-各 $a\in\kappa$、$a^3=-1$ に対して
+各 $a\in\C$、$a^3=-1$ に対して
 \[
  v=a-\eta/a^2
 \]
-は $J_h$ の中で $(1+v^3)/3+\eta=0$ を厳密に満たす。
+は $J_1$ の中で $(1+v^3)/3+\eta=0$ を厳密に満たす。
 これは $\eta^2=0$ による。
 三つの根の差は単元なので、可換環上の中国剰余定理から
 \begin{equation}\label{ppz:eq:source-local-artin}
- D_h\simeq\coprod_{a^3=-1}\operatorname{Spec}J_h
+ D_\star\simeq\coprod_{a^3=-1}\operatorname{Spec}J_1
 \end{equation}
 を得る。従って中心三次の非零 socle 項を捨てたわけではなく、
 その項を中心座標の冪零補正に吸収して局所環を計算した。
 
-命題\ref{ppz:prop:zero-scheme}を残余対へ適用すると、
+命題\ref{ppz:prop:zero-scheme}を $(X_\star,\pi_\star)$ へ適用すると、
 その定常成分は
 \[
- D_{\mathrm{res}}=V((g_\lambda)_x,(g_\lambda)_y,(g_\lambda)_z,
-                         g_\lambda+G)
+ D_{\mathrm{cl}}=V((g_\lambda)_x,(g_\lambda)_y,(g_\lambda)_z,g_\lambda+G)
  \simeq\coprod_{a^3=-1}\operatorname{Spec}J_\lambda
 \]
 である。最後の式には Euler 恒等式による $[g_\lambda]=0$ in $J_\lambda$
 を用いた。
 
-仮に $J_h\simeq J_\lambda$ が局所 $\kappa$-代数として成立すれば、
+仮に $J_1\simeq J_\lambda$ が局所 $\C$-代数として成立すれば、
 極大イデアルの冪に関する associated graded 環も同型になる。
 両環は標準次数付きで斉次二次イデアルによる商なので、
-この associated graded 環はそれぞれ $J_h,J_\lambda$ 自身である。
+この associated graded 環はそれぞれ $J_1,J_\lambda$ 自身である。
 次数一と二の乗法から二つの勾配空間の線型同型を得て、
 命題\ref{prop:ej-projective-uniqueness}により
-$V(g_h)\simeq V(g_\lambda)$ を得るはずである。
-しかし定理\ref{thm:nfm-th-residual-obstruction}の厳密 Hesse 計算は
-\[
- j(t)=\frac{27t^3(8-t^3)^3}{(1+t^3)^3},\qquad
- j(\lambda)-j(h)=13824h^4+O(h^5)\ne0
-\]
+$V(g_1)\simeq V(g_\lambda)$ を得るはずである。
+しかし Hesse の不変量の公式は厳密に
+\begin{equation}\label{ppz:eq:explicit-j}
+ \begin{split}
+ j(t)&=\frac{27t^3(8-t^3)^3}{(1+t^3)^3},\qquad j(1)=\frac{9261}{8},\\
+ j(17/9)&=\frac{3813232609367}{4849120870776},\qquad
+ j(17/9)-j(1)=-\frac{1402412578855675}{1212280217694}\ne0
+ \end{split}
+\end{equation}
 を与える。従ってこの局所代数同型は存在しない。
 点スキームの一次元成分は楕円曲線一つだけなので、
 全スキームの抽象同型があれば零次元成分同士が対応する。
 三つ全ての局所環が上の非同型な二種類であるため、
 式\eqref{ppz:eq:split-artin-nonisom}が従う。
 
-量子側の楕円点曲線の式は、命題\ref{prop:nfm-correction-point-cubic}から
-\[
- g_h+\frac{h^2}{24}\det\operatorname{Hess}(g_h)
- =\left(1-\frac{h^4}{4}\right)g_\lambda
-\]
-である。従って両側の楕円成分は同じ埋込み平面三次であり、
+両側の楕円成分は同じ埋込み平面三次 $E_\lambda$ であり、
 定常成分の被約部分も上の同じ三点である。
 これで被約部分の一致も得る。
-Kuznetsov 比較は命題\ref{prop:nfm-residual-hesse-input}の結論を
-代数閉体 $\kappa$ 上へ移したものである。
+最後に、命題\ref{esi:prop:factor}は実楕円因子の正則性と中心商
+$S_\star/(\Omega_\star)=B(E_\lambda,\OO_{E_\lambda}(1),t_p)$ を与える。
+系\ref{csc:cor:fermat}を $a=1$、$c=d=1/3$、$f=g_\lambda$ に適用すると、
+複素数体上で直接 $\Ku_{\mathrm{coh}}(A_\star)\simeq\Ku(X_\star)$ を得る。
 \end{proof}
 
 \begin{remark}[自然な処方への反例と存在問題の区別]
 この例は、自然な残余 support と tensor をそのまま使う処方に対する反例である。
-$X_{\mathrm{res}}$ 上で別の support を持つ Poisson tensor を選ぶ可能性や、
+$X_\star$ 上で別の support を持つ Poisson tensor を選ぶ可能性や、
 同じ Kuznetsov 成分を持つ別の可換三次を選ぶ可能性は扱っていない。
 従ってこの命題だけでは「ある可換三次とある Poisson tensor が同時に存在する」という
 第二予想\ref{conj:nc-second}を否定したことにはならない。
 次小節で任意の support を調べ、この例についてその可能性も排除する。
 一方、被約な台や楕円成分だけの比較では失われる情報が、
 この例では長さ八の局所環に残っている。
-Hesse の有理恒等式の厳密検算は既存の
-\texttt{computations/verify\_geometric\_corrections.py}に含まれる。
+一般パラメータにおける Hesse の有理恒等式は
+第\ref{sec:nfm-residual-th-obstruction}節に記載した。
+ここで用いた有理数の厳密検算は
+\texttt{computations/verify\_point\_poisson\_obstruction.py}に含まれる。
 局所環の分解と非同型の証明は上の議論であり、
 その有限多項式検算と同一視しない。
 \end{remark}
@@ -425,135 +442,103 @@ $p=(1,-\epsilon,0,0,0)$、$\epsilon^3=1$ としてよい。
 
 \begin{theorem}[分離型三次三様体における全 Poisson 零スキームの障害]
 \label{ppz:thm:all-poisson-obstruction}
-命題\ref{ppz:prop:split-artin-obstruction}の幾何学的一般点の状況で、
-$X_{\mathrm{res}}$ 上のどの Poisson tensor $\pi$ に対しても
+$k$ を標数零の代数閉体とし、
 \[
- \operatorname{Pt}(A_h)\not\simeq Z_{X_{\mathrm{res}}}(\pi)
+ \lambda\ne0,\qquad \lambda^3\ne8,-1,\qquad
+ 1+t^3\ne0,\qquad j(t)\notin\{0,j(\lambda)\}
+\]
+とする。
+$X_\lambda=V(g_\lambda+(u^3+v^3)/3)$ 上のどの Poisson tensor の
+零スキームも、局所環が
+$J_t=k[x,y,z]/(x^2+tyz,y^2+tzx,z^2+txy)$ と同型な孤立点を持たない。
+従って、そのような孤立点を持つ任意のスキームは、
+どの $Z_{X_\lambda}(\pi)$ とも同型でない。
+
+特に命題\ref{ppz:prop:split-artin-obstruction}の具体的な複素代数について、
+$X_\star$ 上のどの Poisson tensor $\pi$ に対しても
+\[
+ \operatorname{Pt}(A_\star)\not\simeq Z_{X_\star}(\pi)
 \]
 である。ここでは support の指定、active 制限の滑らかさ、
 零スキームの完全交叉性を標的への追加仮定として課さない。
-さらに既存の MF/window 比較を入力とすれば、
-$\Ku(A_h)$ と同値な Kuznetsov 成分を持つ任意の滑らかな可換三次三様体にも
-この点スキームを零スキームとして実現する Poisson tensor は存在しない。
 \end{theorem}
 
 \begin{proof}
-$\pi=0$ の零スキームは三次元の $X_{\mathrm{res}}$ 全体であり、
-一次元成分と孤立点を持つ $\operatorname{Pt}(A_h)$ と同型でない。
-$\pi\ne0$ の場合、仮に同型があれば、三つの孤立点の各局所環は $J_h$ である。
+$\pi=0$ の零スキームは滑らかな三次元の $X_\lambda$ 全体であり、孤立点を持たない。
+$\pi\ne0$ の場合、仮に $J_t$ と同型な局所環を持つ孤立零点があれば、
+その長さは八、埋込み次元は三である。
 補題\ref{ppz:lem:isolated-artin-eckardt}と
 補題\ref{ppz:lem:hesse-eckardt}により、その associated graded 環は
 $J_\lambda$ または Fermat 三次の Jacobian 環になる。
-$J_h$ は標準次数付きなので、自身の極大イデアル filtration の
+$J_t$ は標準次数付きなので、自身の極大イデアル filtration の
 associated graded 環に等しい。
 よって命題\ref{prop:ej-projective-uniqueness}から
-$j(h)=j(\lambda)$ または $j(h)=0$ が必要になる。
-既存の Hesse 恒等式は、いずれも幾何学的一般点では成立しないことを示す。
-これで任意の Poisson tensor を排除した。
+$j(t)=j(\lambda)$ または $j(t)=0$ が必要になり、仮定に反する。
 
-残る可換標的を $Y$ とすると、既存比較との合成により
-$\Ku(Y)\simeq\Ku(X_{\mathrm{res}})$ となる。
-三次元では命題\ref{prop:nf-rotation}によって $\rho=S[-1]$ なので、
-同値は rotation を保つ。
-命題\ref{prop:ej-geometric-low-degree}による低 rotation 積の比較と
-命題\ref{prop:ej-projective-uniqueness}によって
-$Y\simeq X_{\mathrm{res}}$ を得る。
-従って $Y$ 上の Poisson tensor もその同型で移送すれば既に排除したものとなる。
-複素数体上ではこの標的一意性は、三次三様体の categorical Torelli
-\cite[Theorem~1.1]{NFMThreefoldCategoricalTorelli}の既知結果からも直接従う。
+具体例では $t=1$、$\lambda=17/9$ である。
+式\eqref{ppz:eq:explicit-j}に加えて
+\[
+ \lambda^3-8=-\frac{919}{729}\ne0,\qquad
+ \lambda^3+1=\frac{5642}{729}\ne0
+\]
+だから全ての仮定を満たす。
+式\eqref{ppz:eq:source-local-artin}の三つの孤立点により、最後の結論を得る。
 \end{proof}
 
-\subsection{複素数体上の実際の反例}
+この判定は固定された有理パラメータの例だけに限らない。
+第\ref{sec:nfm-residual-th-obstruction}節の Hesse 有理恒等式を用いれば、
+同節の幾何学的一般点でも同じ $j$ の非一致条件が成立する。
+この一般パラメータでの計算と、以下の複素数体上の直接構成を区別する。
 
-\begin{lemma}[分離型比較の複素閉点への実現]
-\label{ppz:lem:complex-specialization}
-上の split Hesse 族について、既存の PBW、相対双対、MF/window 比較の入力の下で、
-有限型の整な複素曲線の非空開 $T$ と非定数射 $T\to\mathbb A^1_h$ を取れて、
-全ての複素閉点 $t\in T$ に対して、実際の比較核による同値
-\[
- \Ku^{\mathrm{coh}}(A_{h(t)})
- \simeq\Ku(X_{\mathrm{res},h(t)})
-\]
-が存在する。
-さらに $T$ を縮め、上の点スキーム計算、十二点の Hessian 分類、
-$j(h)\ne0$、$j(h)\ne j(\lambda)$ の全てを各閉点で満たすようにできる。
-この主張は可換特殊点 $h=0$ を含む相対同値や、全パラメータでの同値を意味しない。
-\end{lemma}
-
-\begin{proof}
-まず Sklyanin 代数が正則で楕円点対応が滑らかな
-非空開 $U\subset\mathbb A^1_h$ を取る。
-active 代数の次数別有限射影性と有限 Koszul/CY 解消を、
-二つの中心多項式変数 $u,v$ へ延長する。
-中心元 $w_h$ は $v$ に関して先頭係数 $1/3$ の三次式なので、
-その正則性と商の次数別平坦性は任意の係数変更後にも成立する。
-定理\ref{thm:nfm-relative-ambient-cy}と
-定理\ref{thm:nfm-relative-line-cohomology}の相対双対・線束間のコホモロジーにより、
-\[
- E=\bigoplus_{i=0}^4\OO(i)
-\]
-を $\langle\OO,\OO(1)\rangle$ から有限 mutation した像 $pE$ の
-endomorphism dg 代数 $\Gamma_U$ は $U$-perfect である。
-その形成は基底変更と両立し、各ファイバーで線束生成残余圏
-$\Ku^{\mathrm{lin}}(A_s)$ の模型となる。
-可換側の滑らかな三次族にも、有限個の線束と mutation による
-smooth proper な dg 模型 $\mathsf C_U$ を取る。
-ここで任意の非正則底上の全 coherent 圏の底変更を仮定していない。
-
-命題\ref{prop:nfm-residual-hesse-input}、定理\ref{gdr:thm:generic}と
-補題\ref{rog:lem:descent}により、ある有限拡大
-$K'/\C(h)$ 上で実際の Morita 核、逆核、および単位・余単位が存在する。
-$K'$ における $U$ の正規化を取ると、必要なら $U$ を縮めて
-有限射 $T\to U$ を持つ有限型の整な曲線となる。
-perfect 双加群の有限 cell と retract の表示、および比較射を
-$T$ の非空開へ降ろす。
-補題\ref{rog:lem:descent}の証明と同様に、
-$\mathsf C_T$ の smooth proper 性と $\Gamma_T$ の proper 性から、
-随伴の単位・余単位の cone は $\OO_T$-perfect である。
-これらは一般点で零だから、さらに開を縮めると零となり、
-全てのファイバーで
-$\Perf(\Gamma_t)\simeq\Ku(X_{\mathrm{res},h(t)})$ を得る。
-
-この段階で $\Ku^{\mathrm{lin}}(A_{h(t)})$ は smooth となった。
-命題\ref{crs:prop:residual-smooth}と定理\ref{crs:thm:coherent}を
-各体値ファイバーへ適用して、全 coherent 残余圏との一致を得る。
-従って核を降ろしたことだけから全 coherent 圏の同定を推論しているのではない。
-
-最後に、記載した有限個の非消滅条件の逆像へ縮める。
-これらは一般点で成立するので開は非空であり、
-有限型複素曲線の非空開は複素閉点を持つ。
-必要なのはこの開上の実核であり、元の形式分枝の全 jet を代数化することではない。
-\end{proof}
+\subsection{具体的な複素非可換三次三様体による反例}
 
 \begin{corollary}[全零スキーム版の第二予想に対する複素数体上の反例]
 \label{ppz:cor:complex-counterexample}
-既存の PBW、相対双対、MF/window 比較の入力の下で、
-複素数体上に良い一ブロック型の非可換三次三様体 $A$ が存在し、
-次の二つを同時に満たす。
+式\eqref{ppz:eq:explicit-pair}の $A_\star$ は、複素数体上の
+点スキームの良い一ブロック条件を満たす滑らかな楕円一ブロック型の
+非可換三次三様体であり、次の二つを同時に満たす。
 \begin{enumerate}
- \item 滑らかな可換三次三様体 $X$ と実際の同値
- $\Ku(A)\simeq\Ku(X)$ が存在する。
- \item $\Ku(A)\simeq\Ku(Y)$ を満たすどの滑らかな可換三次三様体 $Y$ と、
+ \item 滑らかな可換三次三様体
+ \[
+ X_\star=V\!\left(
+ \frac{x^3+y^3+z^3+u^3+v^3}{3}+\frac{17}{9}xyz\right)
+ \subset\PP^4_\C
+ \]
+ と実際の dg Morita 同値
+ $\Ku_{\mathrm{coh}}(A_\star)\simeq\Ku(X_\star)$ が存在する。
+ \item $\Ku_{\mathrm{coh}}(A_\star)\simeq\Ku(Y)$ を満たす
+ どの滑らかな可換三次三様体 $Y$ と、
  その上のどの Poisson tensor $\pi$ に対しても、
- $\operatorname{Pt}(A)\not\simeq Z_Y(\pi)$ が抽象スキームとして成立する。
+ $\operatorname{Pt}(A_\star)\not\simeq Z_Y(\pi)$ が抽象スキームとして成立する。
 \end{enumerate}
 従って、非被約構造を含む全 point scheme と全 Poisson 零スキームの同型を要求する
-第二予想\ref{conj:nc-second}は、この入力の下で成立しない。
+第二予想\ref{conj:nc-second}は成立しない。
 主予想の可換 Kuznetsov 実現はこの例では成立している。
 \end{corollary}
 
 \begin{proof}
-前補題の非空開の複素閉点を選び、$A=A_{h(t)}$、
-$X=X_{\mathrm{res},h(t)}$ とする。
-第一項はそこで実現した同値である。
-任意の非零 Poisson tensor の零スキームについては、
-定理\ref{ppz:thm:all-poisson-obstruction}の局所環と Hessian の証明が
-同じ非消滅条件の下でそのまま成り立つ。
-$\pi=0$ は次元によって排除される。
-別の標的 $Y$ に対しては、同値を合成した後、
+系\ref{esi:cor:ambient}は、指定した複素代数の AS 正則な周囲環と
+中心正則三次商を与える。
+命題\ref{ppz:prop:split-artin-obstruction}の証明で、
+系\ref{csc:cor:fermat}による全 coherent 残余圏の比較を構成した。
+従って第一項が成立し、同じ比較の smoothness と coherent 飽和により
+$A_\star$ は滑らかな非可換三次三様体である。
+active 可換化 $g_1$、点曲線 $g_{17/9}$ はともに滑らかであり、
+中心三次の socle 評価 $-4xyz/3$ は非零である。
+定常三次は $J_1[u,v]$ 上の非零因子であるから、
+点スキームの良い一ブロック条件も満たす。
+ここでいう良い条件は点関手の条件であり、
+全 $\OO$-表示 stack の全ての相対入力への所属を同時に主張するものではない。
+それらの入力は本系の反例の証明には用いない。
+
+$X_\star$ 上の全ての Poisson tensor は
+定理\ref{ppz:thm:all-poisson-obstruction}により排除される。
+別の標的 $Y$ に対しては、第一項の同値を合成して
+$\Ku(Y)\simeq\Ku(X_\star)$ を得た後、
 三次三様体の categorical Torelli
-\cite[Theorem~1.1]{NFMThreefoldCategoricalTorelli}から $Y\simeq X$ を得る。
-従って第二項も従う。
+\cite[Theorem~1.1]{NFMThreefoldCategoricalTorelli}から $Y\simeq X_\star$ を得る。
+$Y$ 上の Poisson tensor をこの同型で $X_\star$ へ移せば、
+その零スキームも移送されるため、第二項が従う。
 \end{proof}
 
 \begin{remark}[反例が排除する範囲と残る問題]
@@ -564,9 +549,9 @@ $\pi=0$ は次元によって排除される。
 従って被約化を取った命題、滑らかな定常成分を仮定した命題、
 または別の点関手による命題は、別の検証問題として残る。
 これらのいずれかを元の第二予想の代わりに自動採用するものではない。
-Hessian の階数と十二点の制限三次の有限恒等式は
-\texttt{computations/verify\_point\_poisson\_obstruction.py}で厳密検算する。
-任意 support の排除、局所環の議論、核の実点化および categorical Torelli の適用は
-本文の証明であり、その計算だけで確認したものではない。
+Hessian と制限三次の恒等式は
+\texttt{computations/verify\_point\_poisson\_obstruction.py}で検算する。
+全 support の排除、局所環、Ku 比較、Torelli の適用は本文で証明し、
+この計算で代用しない。
 \end{remark}
 

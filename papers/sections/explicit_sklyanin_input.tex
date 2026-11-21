@@ -1,0 +1,223 @@
+% !TEX root = ../nc-cubic.tex
+\section{一つの複素 Sklyanin 因子の厳密な入力確認}
+\label{esi:sec:input}
+
+本節では、形式パラメータの特殊化に関する主張を使わず、
+複素数上の一つの楕円因子とその指定中心三次式を直接確認する。
+以下で非可換な語と可換多項式を区別し、
+\[
+ S=x^3+y^3+z^3,\qquad
+ C_+=xyz+yzx+zxy,\qquad C_-=yxz+xzy+zyx
+\]
+は自由結合代数の元とする。
+
+\begin{proposition}[指定中心元を持つ具体的楕円因子]
+\label{esi:prop:factor}
+次数一の生成元を持つ複素代数と中心元の候補を
+\begin{equation}\label{esi:eq:factor}
+ \begin{split}
+ D&=\mathbb C\langle x,y,z\rangle/
+ (yz-3zy-2x^2,\ zx-3xz-2y^2,\ xy-3yx-2z^2),\\
+ \Omega&=\frac{79}{144}S+\frac5{96}(C_++C_-)
+ \end{split}
+\end{equation}
+と定める。また
+\begin{equation}\label{esi:eq:elliptic-curve}
+ \begin{gathered}
+  \lambda=\frac{17}{9},\qquad
+  g_\lambda=\frac{x^3+y^3+z^3}{3}+\lambda xyz,\\
+  E=V(g_\lambda)\subset\mathbb P^2,\qquad
+  o=(1:-1:0),\quad p=(1:-3:-2)
+ \end{gathered}
+\end{equation}
+と置き、$o$を$E$の原点とする。次が成り立つ。
+\begin{enumerate}
+ \item $E$は滑らかな楕円曲線で、$p\ne o$は変曲点ではない。
+ 二次関係の多重線型化は、スキームとして平行移動$t_p:E\to E$のグラフである。
+ 特にこのグラフと対角線の交わりは空である。
+ \item $D$は Noetherian domain で、Koszul、AS 正則である。
+ 大域次元と Gorenstein parameter はともに$3$、Hilbert 級数は$(1-t)^{-3}$であり、
+ Nakayama 自己同型は恒等である。
+ \item $\Omega$は非零の中心正則元である。
+ 標準的な Sklyanin 中心生成元$c_3$を
+ \cite[Sections~1--2, pp.~1, 3]{GRSklyaninDLL}の規約で取ると
+ \begin{equation}\label{esi:eq:center-normalization}
+  \Omega=-\frac1{48}c_3.
+ \end{equation}
+ \item 次数付き代数の同型
+ \begin{equation}\label{esi:eq:thcr}
+  D/(\Omega)\simeq B(E,\OO_E(1),t_p)
+ \end{equation}
+ が成り立つ。
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+まず$g_\lambda$の偏微分は$x^2+\lambda yz$とその巡回置換である。
+三つの偏微分が射影点で同時に零なら、いずれかの座標が零の場合は
+残る座標も零となる。全座標が非零の場合は三式の積から$1+\lambda^3=0$を得る。
+しかし
+\[
+ 1+\lambda^3=\frac{5642}{729}\ne0
+\]
+なので$E$は滑らかである。$o,p\in E$は直接代入で分かる。
+$o$は変曲点なので楕円曲線の原点として選べる。
+Hessian の計算は
+\[
+ \det\operatorname{Hess}(g_\lambda)
+  =(8+2\lambda^3)xyz-2\lambda^2(x^3+y^3+z^3)
+\]
+を与え、$E$上では$8(1+\lambda^3)xyz$となる。
+特に$p$での値は$90272/243\ne0$であり、$p$は変曲点でない。
+従って$3p\ne o$であり、$p\ne o$でもある。
+
+左側の射影座標を$(x:y:z)$、右側を$(X:Y:Z)$とすると、
+多重線型化は
+\begin{equation}\label{esi:eq:graph-matrix}
+ \begin{gathered}
+  M(x,y,z)\begin{pmatrix}X\\Y\\Z\end{pmatrix}=0,
+  \qquad
+  M(x,y,z)=
+  \begin{pmatrix}
+   -2x&-3z&y\\ z&-2y&-3x\\ -3y&x&-2z
+  \end{pmatrix},\\
+  \det M=-18g_\lambda
+ \end{gathered}
+\end{equation}
+である。$E$上で$M$の階数はちょうど$2$となる。
+実際、階数が$1$以下なら余因子がすべて零となり、
+$\det M$の全偏微分も零となって$E$の滑らかさに反する。
+従って、可逆な二次小行列式の開集合上で二つの右座標を消去すると、
+残る方程式は$\det M=0$となる。
+これは多重線型化で定まる閉部分スキームが
+$E$上の核直線束の射影化であり、第一射影が$E$との同型であることを示す。
+左右を交換した行列の行列式も$-18g_\lambda$なので第二射影も同型である。
+よってこの閉部分スキームは自己同型$\tau:E\to E$のグラフである。
+
+対角線上の三関係は、非零定数倍を除いて
+\[
+ x^2+yz=0,\qquad y^2+zx=0,\qquad z^2+xy=0
+\]
+となる。座標が一つでも零ならすべて零となり、全座標が非零なら三式の積が
+$(xyz)^2=-(xyz)^2$を与えるので、射影共通零点はない。
+従って対角線とのスキーム交叉も空である。
+楕円曲線の自己同型を$t_q\alpha$と書き、$\alpha$が原点を固定するとする。
+$\alpha\ne1$なら$1-\alpha$は非零 isogeny で全射なので、
+$t_q\alpha$は固定点を持つ。よって$\tau$は平行移動である。
+さらに$M(o)(1,-3,-2)^{\mathsf t}=0$より$\tau(o)=p$、従って$\tau=t_p$である。
+以上のグラフの確認は閉点の対応だけでなく、スキームとしての確認である。
+
+式\eqref{esi:eq:factor}は Sklyanin parameters
+$(a:b:c)=(1:-3:-2)$の表示である。
+その標準的な曲線の方程式
+\[
+ abc(x^3+y^3+z^3)-(a^3+b^3+c^3)xyz=0
+\]
+は$6(x^3+y^3+z^3)+34xyz=18g_\lambda=0$に一致する。
+この表示と$(E,t_p,\OO_E(1))$の対応、および中心商の記述は
+\cite[Section~1, p.~1]{GRSklyaninDLL}による。
+滑らかな楕円曲線、平行移動、次数$3$の可逆層という入力に対し、
+Tate--Van den Bergh の Theorem~1.1 と Corollary~1.3
+\cite[著者版 pp.~2--3; 構成は Section~4.1]{GRSklyaninTV}は
+Hilbert 級数、Koszul 性、Noetherian 性、domain 性と AS 正則性を与える。
+これらの主張には$p$が有限位数であるという仮定はない。
+Koszul 性と Hilbert 級数から単純加群の極小分解は
+\[
+ 0\longrightarrow D(-3)\longrightarrow D(-2)^{\oplus3}
+ \longrightarrow D(-1)^{\oplus3}\longrightarrow D
+ \longrightarrow\mathbb C\longrightarrow0
+\]
+となり、Gorenstein parameter は$3$である。
+また$D$は cyclic potential
+\[
+ \Psi=xyz-3yxz-\frac23(x^3+y^3+z^3)
+\]
+の三つの cyclic derivative を関係式とする Jacobian 代数である。
+三生成元の Jacobian 代数が AS 正則なら untwisted $3$-Calabi--Yau であること
+\cite[Corollary~2.9]{MoriSmith}から、Nakayama 自己同型は恒等となる。
+
+指定した中心元の規格化を確認する。
+\cite[Section~2, p.~3]{GRSklyaninDLL}の公式は
+\[
+ \begin{aligned}
+ 3c_3&=a(b^3-c^3)C_++b(c^3-a^3)C_-+c(a^3-b^3)S\\
+     &=-19C_++27C_--56S
+ \end{aligned}
+\]
+を与える。一方、三関係をそれぞれ右から$x,y,z$で掛けて加えると
+$C_+-3C_--2S=0$である。従って
+\[
+ \begin{aligned}
+ 3c_3&=-94S-30C_-,\\
+ -144\Omega&=-79S-\frac{15}{2}(C_++C_-)
+              =-94S-30C_-
+ \end{aligned}
+\]
+となり、式\eqref{esi:eq:center-normalization}と中心性を得る。
+
+非零性は有限次元の明示的な証明でも確認できる。
+自由結合代数の次数三部分に線型汎関数$\ell$を
+\[
+ \ell(x^3)=\ell(y^3)=\ell(z^3)=1,\qquad
+ \ell(xyz)=\ell(yzx)=\ell(zxy)=2
+\]
+と定め、他の語では零とする。
+各二次関係を左または右から対応する二乗項の変数で掛けたとき、
+その像は$2-3\cdot0-2\cdot1=0$となる。
+別の変数で掛けたときは、すべての語で$\ell$が零となる。
+従って$\ell$は二次関係イデアルの次数三部分を消し、$D_3$上に降下する。
+そこで
+\[
+ \ell(\Omega)=\frac{79}{144}\cdot3+\frac5{96}\cdot6
+             =\frac{47}{24}\ne0
+\]
+なので$\Omega\ne0$である。$D$は domain だから$\Omega$は左右とも正則である。
+最後に、上記の標準中心元は
+$D/(c_3)=B(E,\OO_E(1),t_p)$を満たす
+\cite[Section~1, p.~1]{GRSklyaninDLL}。
+式\eqref{esi:eq:center-normalization}の係数は非零なので、
+$(\Omega)=(c_3)$となり式\eqref{esi:eq:thcr}を得る。
+\end{proof}
+
+\begin{corollary}[二つの中心変数を加えた実三次対]
+\label{esi:cor:ambient}
+命題\ref{esi:prop:factor}の$D,\Omega$を用いて
+\begin{equation}\label{esi:eq:ambient}
+ B=D[u,v],\qquad w=\Omega+\frac{u^3+v^3}{3},\qquad A=B/(w)
+\end{equation}
+と置く。$u,v$は中心の次数一変数である。
+$B$は Noetherian、Koszul、AS 正則な domain で、
+大域次元と Gorenstein parameter はともに$5$、Nakayama 自己同型は恒等である。
+$w$は中心正則な次数三元で、
+\[
+ H_A(t)=\frac{1-t^3}{(1-t)^5}.
+\]
+$A$は非可換であり、対応する可換式
+\[
+ g_{17/9}(x,y,z)+\frac{u^3+v^3}{3}
+\]
+は滑らかな複素三次三様体を定める。
+\end{corollary}
+\begin{proof}
+中心多項式環とのテンソル積により、命題\ref{esi:prop:factor}の
+Noetherian 性、domain 性と Koszul 性は保たれる。
+左右の Koszul 分解とその双対をテンソル積すると、
+AS 正則性、次元$5$、parameter $5$を得る。
+同様に Calabi--Yau 双加群分解のテンソル積から Nakayama 自己同型は恒等である。
+$w$は$v$に関して最高次係数$1/3$の多項式なので非零であり、
+domain $B$上で中心正則である。正則元の短完全列から Hilbert 級数が従う。
+
+$yz-zy$は$D$の次数二の関係空間に属さない。
+実際、その空間で各関係の二乗項の係数を見ると、
+$yz-zy$を表す線型結合の三つの係数はすべて零でなければならない。
+次数三の元で割っても次数二は変わらないので、$A$も非可換である。
+最後の可換式の偏微分が同時に零なら$u=v=0$となり、
+残る三式は$g_{17/9}$の偏微分である。
+命題\ref{esi:prop:factor}で確認した滑らかさにより、
+その共通零点はアフィン原点だけである。
+\end{proof}
+
+系\ref{esi:cor:ambient}は、実際の複素代数と中心商を与えるための入力である。
+$\operatorname{qgr}A$の滑らかさと全 coherent Kuznetsov 成分の比較は、
+楕円因子の比較、中心 Fermat 因子との外積、および coherent 飽和を適用して別に得る。
+本節の正則性の証明は、有限個の Hilbert 関数の検算や、
+形式族のある開集合が$h=1$を含むという推論には依存しない。

@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月21日 / v41。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月21日 / v42。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 二つの予想を中心とする研究の入口
 
@@ -16,6 +16,40 @@ Ku比較は非可換・可換両側の中心同変積表示をPicard線束で共
 
 代数閉体ではblock scalingがΩ_iへ三乗で作用するので、全非零の中心係数直線は一つの軌道をなす。係数がpoint schemeに見えないことだけから非同型な満支持商を得たとは結論できない。
 
+### 中心変数を持つ分離型の直接Ku比較と全点スキーム
+
+`central_split_comparison.tex` の `csc:thm:comparison` は、C上、k,m≥1、N=3k+m≥5、B=(⊗S_i)⊗C[U]、w=Σa_iΩ_i+g(U)、全a_i≠0、gのJacobian環が有限次元の分離型を扱う。S_iは実際のquadratic Koszul AS正則三次元楕円因子であり、正則中心Ω_iとTHCR商S_i/(Ω_i)=B(E_i,L_i,t_pi)を仮定する。各E_iの任意の非零三次方程式f_iに対し、X=V(Σf_i+g)は滑らかで、Ku_coh(B/(w))≃Ku(X)を直接構成する。gに一次・二次のactive–central混合を許したという定理ではない。
+
+証明は、線束windowの三つのaugmentation shift、有限Koszul–Shamash Hom、Γによる共通次数化から、中心群同変化をPerf(∏E_i)⊗MF^Z(C[U],g)へ比較する。楕円因子ではPicard補正とスカラー三乗根でrotation・actual Ωの指定周期を合わせ、中心因子は同一模型で比較する。有限二重同変化後にsmooth proper性とcoherent飽和を用いる。g=Σc_j u_j³の場合は各MF(C[u_j],c_j u_j³)≃Db(mod A₂)を直接用いる系 `csc:cor:fermat` があり、一般gのsmoothness補題への依存も不要。反例で使うのはk=1,m=2のこの経路である。
+
+点グラフが固定点なしという仮定を加え、J_i=(S_i)_ab、J=⊗J_i、θ=Σa_i[Ω_i]とすると、`central_split_points.tex` の `csp:thm:point-functor` は任意の試験環で
+
+\[
+\operatorname{Pt}(A)=\coprod_i E_i\amalg D,\qquad
+D=\operatorname{Proj}\bigl(J\otimes\operatorname{Sym}U/(g+\theta)\bigr)
+\]
+
+を与える。各J_iは三つの二次式の局所完全交叉、Hilbert級数(1+t)³、長さ8である。m=1,g=cu³,c≠0ではc+θが単元なのでDは空。`csp:cor:simultaneous-one-center` は同じXとブロックJacobian Poisson tensorについてKu同値とPt=Z=⊔E_iを同時に与える。
+
+m≥2,g≠0ではDは型(2^{3k},3)、次元m−2、次数3·8^kの完全交叉。H=V(g)が滑らかなら、各点の完備局所環はJ[[t_1,…,t_{m−2}]]となる。中心射影は一般にHを経由しない。非零socle項a_i[Ω_i]の個数をsとするとscheme imageはV(g^{s+1})、第零Fittingイデアルは(g^{8^k})であり、この二つを混同しない。m=2ならDは三つのSpec Jだが、m>2では局所模型から大域的な積を主張しない。
+
+自然な可換零スキーム側は同じ式のJをJ_cl=⊗Jac(f_i)、θを0に置いたもの。抽象スキーム同型でもgraded J≃graded J_clが必要である。完備局所環のassociated gradedはJ[t]で、次数一の冪零元が生成する部分環がJそのものだから、未証明の形式変数消去を使わずに回復できる。m=2ではこの条件は十分でもある。各Jacobian三次が滑らかでST非分解ならjの多重集合が必要不変量となる。この自然pairの障害だけでは、全Poisson構造・全Ku標的を排除していない。
+
+### 中心変数一つの混合型と有限ノルム
+
+`central_mixed_one_variable.tex` の `cmo:thm:point-norm` は、R=C[u]上のk因子をtensorし、二次関係にuが実際に現れる型を扱う。u=0で滑らかな固定点なしの楕円グラフを持ち、可換化の三つの二次式の最高active部分が正則列という仮定の下で、全可換化TはR上階数L=8^kの有限自由加群となる。C=Proj Tはu≠0に入り、Q=T/(u−1)と置けばC=Spec Q。中心三次wの像bに対し
+
+\[
+\operatorname{Pt}(B/(w+cu^3))=\coprod_iE_i\amalg\operatorname{Spec}(Q/(b+c)),
+\qquad N(c)=\det(cI+m_b)
+\]
+
+であり、定常成分が現れる係数はmonic次数LのNの根に等しい。普遍加群のFittingイデアルも(N)。これは各例外値でsourceがcoherently smoothだという主張ではない。
+
+具体例 `cmo:ex:sixty-four` は、[y,z]=x²−α_1u²と巡回置換、α=(1,4,9),(16,25,49)を用いる。中心元は Ω_α=(x³+y³+z³)/3−(2/3)sym(xyz)−u²(α_1x+α_2y+α_3z)、w_c=Ω_α+100Ω_α′+cu³。指定二組の中心性は全degree4関係行列を有理数上で消去して確認する。全次数PBW性はBraverman–Gaitsgory Main Theorem0.5 / Lemma3.3により別に証明し、次数3,4のHilbert関数だけから推測しない。u=0ではΩ_0=−c_3/3（De Laet–Le Bruyn §2の規格化）であり、中心和の正則性はuによる次数下降で持ち上がる。
+
+Q=C^{64}であり、R={±28,±16,±56/3,±28/3}、S={±448,±196,±176,±284/3}と置くとN(c)=∏_{r∈R,s∈S}(c+r+100s)。全64根は相異なる有理数で、各根では一つの被約定常点が加わる。根以外、特にc=0では点スキームは二つの楕円曲線だけ。この例外集合は次のsmoothness・Ku比較の検査対象である。一方、滑らかな中心変数一つのブロックJacobian可換標的では定常零点がなく、零スキームは純楕円曲線だけとなる（`cmo:prop:poisson-zero`）。同じKu標的の存在と全Poisson supportの排除をまだ得ていないので、この相違を第二予想や被約版の新しい反例とはしない。
+
 ### 可換Ku実現locusの開性
 
 `geometric_realization_locus.tex` の `grl:thm:open-locus` は、有限型C基底Sの実smooth proper dg族（étale局所Perf(Γ)、Γは底上perfect、対角perfect）について、n≠4なら可換cubicのKuとして実現する幾何点の集合がZariski開であり、étale局所に実際のcubic族・核を持つことを示す。
@@ -28,23 +62,39 @@ Ku比較は非可換・可換両側の中心同変積表示をPicard線束で共
 
 境界中心評価は ε:Z(B)_3/Sym³U→Jac(g)_3 という**商直線間**の写像。全Z(B)_3と一次元空間の同型ではない。ε同型の開では元のDを同じΠの古典Casimir切断として実現できない（`prop:point-casimir-restriction-obstruction`）。Hessian scalar条件を加えると、全Ptの射影埋込み一致は良いrank2標的全体で不可能（`ppz:prop:embedded-obstruction`）。抽象同型や別supportを、これだけで排除しない。
 
-三次三様体のsplitHesse族では、g_t=(x³+y³+z³)/3+txyz、λ(h)=(h+h²/3+h⁵/12)/(1−h⁴/4) と置くと、量子点楕円曲線と残余active曲線はE_λで一致する。自然残余pairの被約point schemeも同じである。一方、三つの定常点の局所環は量子側でJ_h、残余側でJ_λ、J_t=k[x,y,z]/(x²+tyz,y²+tzx,z²+txy)。全長さは各8である。中心socle項η=−(2/3)h²(1+h³)xyzは零とせず、u=1でv=a−η/a²（a³=−1,η²=0）へ吸収して厳密に局所環を計算する。
+三次三様体のsplitHesse族では、g_t=(x³+y³+z³)/3+txyz、λ(h)=(h+h²/3+h⁵/12)/(1−h⁴/4) と置くと、量子点楕円曲線と残余active曲線はE_λで一致する。自然残余pairの被約point schemeも同じである。一方、三つの定常点の局所環は量子側でJ_h、残余側でJ_λ、J_t=C[x,y,z]/(x²+tyz,y²+tzx,z²+txy)。全長さは各8である。中心socle項η=−(2/3)h²(1+h³)xyzは零とせず、u=1でv=a−η/a²（a³=−1,η²=0）へ吸収して厳密に局所環を計算する。一般hの有理恒等式は `residual_comparison.tex` に保持する。
 
-局所環同型ならm-adic associated gradedも同型であり、次数一・二の乗法から勾配空間を回復する。既存gradient復元により平面三次が同型になるはずだが、j(λ(h))−j(h)=13824h⁴+O(h⁵)≠0に反する。これは `ppz:prop:split-artin-obstruction` の証明であり、有限j計算だけをscheme非同型の証明としているわけではない。
+局所環同型ならm-adic associated gradedも同型であり、次数一・二の乗法から勾配空間を回復する。既存gradient復元により平面三次が同型になるはずだが、j(λ(h))−j(h)=13824h⁴+O(h⁵)≠0に反する。固定h=1ではλ=17/9、j(1)=9261/8、j(17/9)=3813232609367/4849120870776と厳密に異なる。`ppz:prop:split-artin-obstruction` はこの固定例を直接証明し、有限j計算だけをscheme非同型の証明としているわけではない。
 
 ### 全Poisson構造・全可換Ku標的を排除する反例
 
-**全スキーム版の第二予想は、現行のPBW・相対双対・MF/window入力の下で偽である。** 正本は `point_poisson_obstruction.tex` の `ppz:cor:complex-counterexample`。前の自然pairでの非同型から、この結論へ進むためには次の追加証明が必要であり、本文に全て記載した。
+**全スキーム版の第二予想は偽である。** 正本は `point_poisson_obstruction.tex` の `ppz:cor:complex-counterexample`。具体的な複素代数は
+
+\[
+S_\star=\mathbb C\langle x,y,z\rangle/(yz-3zy-2x^2,\ zx-3xz-2y^2,\ xy-3yx-2z^2),
+\quad A_\star=S_\star[u,v]/\bigl(\Omega_\star+(u^3+v^3)/3\bigr),
+\]
+\[
+\Omega_\star=\frac{79}{144}(x^3+y^3+z^3)+\frac5{96}
+(xyz+yzx+zxy+yxz+xzy+zyx).
+\]
+
+指定因子は `explicit_sklyanin_input.tex` で、点曲線E_17/9、平行移動点p=(1:−3:−2)、THCR商、Koszul AS正則性、Ω★=−c_3/48を確認する。系 `csc:cor:fermat` は楕円因子と二つのA₂因子からX★=V(g_17/9+(u³+v³)/3)への実Ku同値と全coherent smoothnessを与える。この経路は一般点の形式復元とspreadを使わない。『良い一ブロック』は点関手の条件を指し、全O表示stackの全入力をこの固定係数で独立に確認したという意味ではない。係数は有理数だが、Ku比較の存在はC上の主張である。
+
+前の自然pairでの非同型から全標的・全πの排除へ進むための追加証明は次のとおりであり、本文に全て記載した。
 
 - Mayanskiy Theorem1と§2.2の既知のSchouten/Plücker計算により、任意の滑らかなcubic threefoldの全非零Poisson構造は分解可能なP∈Λ³C⁵から来る。active切断の滑らかさやgood条件を全πへ仮定しない。
 - 任意の孤立Poisson零点pで局所長さ8・埋込み次元3なら、pはsupport平面外にあり、零イデアルの一次項が全て消える。Euler式と合わせるとHessian B_pは階数2。R_p=ker B_pは三次元で、G_p=H|R_pは滑らかな平面三次である。gr_m O_Z,p≃Jac(G_p)となる（`ppz:lem:isolated-artin-eckardt`）。G_pの滑らかさは、特異方向aがあればa+tp上で唯一の残りの法微分の二次式に根を持ちXが特異になることから示す。
 - H_λ=g_λ+(u³+v³)/3でλ≠0、λ³≠8,−1なら、Hessian階数≤2の点は中心三点とactive九flexの計12点だけ。中心ではG_p=g_λ、flexではG_pがFermat型でj=0（`ppz:lem:hesse-eckardt`）。したがってj(h)≠j(λ),0により、どのπの零スキームもJ_h型の孤立点を持てない。
-- 複素数体上のBMMS categorical Torelli Theorem1.1により、Kuが同値な二つの滑らかな三次三様体は同型。別の可換Ku標的も排除できる。幾何学的一般点上では、本文のSerreからrotation復元・低積から勾配復元による代数的証明も記す。
-- C上の実例はhを形式記号やC上超越元として扱わず、実際の有限拡大K'/C(h)上の核を有限型複素曲線へspreadして得る。相対線束・mutationから作るproper dg模型Γ_Uと可換模型C_U、finite-cell核・逆・unit/counitを降ろし、perfect coneを開上で消す。ファイバーのsmoothnessを得た後に既存coherent飽和結果を適用する。有限個の非消滅条件を保つ非空開のC閉点で、実際のKu同値と反例を同時に得る（`ppz:lem:complex-specialization`）。h=1等特定の数値やh=0の延長をこの証明で保証したとはしない。
+- 複素数体上のBMMS categorical Torelli Theorem1.1により、Kuが同値な二つの滑らかな三次三様体は同型。別の可換Ku標的も排除できる。ここで使うKu同値は固定h=1で直接構成済みである。
 
 この反例は主予想の失敗ではない。自然残余対ではPt(A)_redとZ_X(π)_redが一致している。被約版、滑らかな定常成分に限定した版、別の点関手を用いる版は、別の検証課題として保持し、元の第二予想と同一視しない。
 
-新しい有限計算は `computations/verify_point_poisson_obstruction.py` にある。T_Qの行列に加え、Hesseの2×2minor恒等式、Hessian determinant、九flexと中心三点の核・制限三次、j差の先頭係数を厳密に確認する。全locusを尽くすcase分け・任意supportの局所補題・核のspread・Torelliは紙上証明であり、有限計算だけで証明したものではない。
+有限計算は `computations/verify_point_poisson_obstruction.py` にある。T_Qの行列、Hesseの小行列式・Hessian determinant・九flexと中心三点の核と制限三次・一般j差に加え、h=1の正確なj値と中心性、混合二表示の中心性と64根のnormを有理数上で確認する。現行suiteは12 PASS。全locusを尽くすcase分け・任意supportの局所補題・全次数PBW・Ku比較・Torelliは本文の証明であり、有限計算だけで証明したものではない。
+
+### 一般点の実核を複素閉点へ移す手法の適用範囲
+
+固定反例の必要入力ではないが、他の族で一般点上の実核から複素閉点へ進む場合には、正則な非空開U上で相対線束と有限mutationの模型Γ_Uを先に作り、各ファイバーがKu^linを表すことを `thm:nfm-relative-ambient-cy` / `thm:nfm-relative-line-cohomology` で確認する。有限拡大K′/C(h)上の実perfect核があれば、UのK′内の正規化T上へ核・逆・単位・余単位をfinite-cell/retract表示で広げる。`rog:lem:descent` と同様、可換側のsmooth proper性とΓ_Tのproper性により比較coneはO_T-perfectであり、一般点で零なら非空開へ縮めて零になる。その後、各ファイバーのKu^linのsmoothnessを使って `crs:prop:residual-smooth` / `crs:thm:coherent` を適用し、全coherent残余圏と同定する。有限個の開条件を保つ複素閉点を選べるが、指定したh値や元の形式分枝の全jetを再現する主張ではない。
 
 ### 二次方程式空間だけからsupportを復元する方法の限界
 

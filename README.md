@@ -1,22 +1,28 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月21日 / v41。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月21日 / v42。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
-**本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 完備MF移送、一般中心三次変形の可換復元、良い一ブロックのO-markedモジュライ、満支持複数ブロック型の全O局所型モジュライ・余法加群による幾何点認識・点曲線積への相対同変比較、残余Poisson射、Kuznetsov成分の比較核と算術的降下障害を扱う。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
+**本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 非可換三次の可換Ku実現、全point schemeとPoisson零スキームの比較、具体的な複素反例、中心変数を持つ分離型の直接比較と混合型の点関手を扱う。完備MF移送、一般中心三次変形の可換復元、一ブロック・満支持複数ブロック型のO-markedモジュライと認識、相対同変比較、残余Poisson射、比較核の算術的降下障害も保持する。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
 
-## 最優先の二つの予想
+## 最優先目標と現在の到達点
 
-**主予想**は、任意の滑らかな非可換三次 n-fold 𝒳に対し、同じ次元の滑らかな可換cubic XとKu(𝒳)≃Ku(X)が存在すること。**第二予想**は、その同じX上でPoisson構造πを選び、Pt(𝒳)≃Z_X(π)を非被約構造も含むスキームとして実現できること。
+**主予想**は、任意の滑らかな非可換三次 n-fold 𝒳に対し、同じ次元の滑らかな可換cubic XとKu(𝒳)≃Ku(X)が存在すること。**当初の第二予想**は、その同じX上でPoisson構造πを選び、Pt(𝒳)≃Z_X(π)を非被約構造も含むスキームとして実現できること。
 
-**第二予想の全スキーム版は、現行稿のPBW・相対双対・MF/window入力の下で反例を得た。** C上の良い一ブロック三次三様体で、主予想は成立するが、同じKuを持つどの滑らかな可換三次上のどのPoisson構造でも全point schemeを実現できない（`ppz:cor:complex-counterexample`）。自然な対応で被約部分は一致する。被約版を元の命題の代わりに自動採用せず、その成立範囲を検証する。
+**第二予想の全スキーム版には、固定された複素代数A★による反例がある。** h=1、Sklyanin parameters (1:−3:−2)、点曲線のHesse係数λ=17/9を用いる。実因子の確認 `esi:prop:factor` と中心A2因子の直接比較 `csc:cor:fermat` により、A★=S★[u,v]/(Ω★+(u³+v³)/3)と滑らかな可換三次X★のKu同値をC上で構成した。A★は点スキームの良い条件を満たす滑らかな楕円一ブロック型であり、そのsmoothnessと全coherent Kuは直接比較から得る。同じKuを持つどの滑らかな可換三次上のどのPoisson構造でも全point schemeを実現できない（`ppz:cor:complex-counterexample`）。この反例の構成に形式復元や一般点からのspread、全O stackのchartへの所属は必要ない。自然な対応で被約部分は一致する。被約版を元の命題の代わりに自動採用せず、その成立範囲を検証する。
 
-まずC上、n≥3の存在を最優先にする。genericな表示のみへ「任意」を弱めず、境界・中心変数を持つ型・未被覆intrinsic成分を課題として明記する。射影埋込みも保つ一致は強化であり、一ブロック型にはその障害がある。自然な残余πでの不一致だけでは別π・別Xを排除できないため、今回の反例では全Poisson分類とcategorical Torelliも用いる。
+まずC上、n≥3の主予想を最優先にする。genericな表示のみへ「任意」を弱めず、境界と未被覆intrinsic成分を課題として明記する。中心変数を持つ分離型では下記の直接比較を得たが、中心変数が二次関係にも現れる真の混合型のKu比較は残る。射影埋込みも保つ一致は強化であり、一ブロック型にはその障害がある。全Poisson分類とcategorical Torelliを用いて、上の反例では別π・別Xまで排除する。
+
+- **中心変数を持つ分離型の可換実現。** [直接Ku比較](papers/sections/central_split_comparison.tex)の `csc:thm:comparison` は、k,m≥1、N=3k+m≥5、全a_i≠0、実楕円因子S_i/(Ω_i)=B(E_i,L_i,t_{p_i})、原点だけにcritical pointを持つ中心三次gについて、A=((⊗S_i)⊗C[U])/(Σa_iΩ_i+g)とX=V(Σf_i+g)の全coherent Ku同値を構成する。f_iは同じ偏極曲線E_iの任意の非零方程式でよい。有限MF外積、周期付きPicard補正、二重同変化から比較し、そのsmoothnessを用いて全coherent圏へ飽和する。中心Fermat和は一変数A2因子だけでも証明できる。
+- **中心変数の数による全スキームの違い。** [分離型の点関手と零スキーム](papers/sections/central_split_points.tex)は、固定点なしの楕円点グラフを仮定して原代数の点関手を任意試験環で計算する。m=1、g=cu³、c≠0では、上の同じX上でPt(A)=Z_X(π)=⊔E_iとなる。m≥2でV(g)が滑らかなら、定常成分の完備局所環はJ[[t_1,…,t_{m−2}]]で、J=⊗(S_i)_abの長さは8^kである。可換側ではJ^cl=⊗Jac(f_i)となり、両者の差が全スキーム同型の障害を与える。被約部分は一致するが、全スキームの一致は一般には成立しない。
 
 - **満支持型の同時実現。** [点と零スキームの比較](papers/sections/point_poisson_split.tex)の `pps:thm:elliptic-existence` は、m=0、k≥2、実際の楕円Sklyanin因子・正則中心三次・固定点なしの点グラフという仮定の下で、同じX=V(Σf_i)についてKu同値とPt(A)=Z_X(π)=⊔E_iを証明する。jの相異性・j≠0,1728・2p_i≠0を課さない。自然θが二捩れで零になることは、別の方程式選択による存在を妨げない。基本開では従来の自然なX_ptを選べる。
-- **一ブロックの具体的障害。** [点スキームと零点比較の障害](papers/sections/point_poisson_obstruction.tex)は、Z_X(π_H)=E_H⊔V(H_x,H_y,H_z,H)をスキームとして計算する。良いrank2標的への射影埋込み一致を排除し、さらに三様体のsplitHesse族では自然残余pairの全point schemeが抽象的にも異なることを証明する。被約部分は同じだが、三つの定常点の長さ八の局所Artin環が異なる。さらに孤立零点の局所環とHessian階数2の12点の分類により全Poisson構造を排除し、categorical Torelliと有限表示spreadによりC上の全可換Ku標的に対する反例を得た。
+- **固定された複素三様体での障害。** [点スキームと零点比較の障害](papers/sections/point_poisson_obstruction.tex)は、上のA★に三つの定常点Spec J_1があることを示す。孤立零点の局所環とHessian階数2の12点の分類により、X★上の全Poisson構造を排除し、categorical Torelliで同じKuを持つ全可換標的も排除する。指定中心元の非零socle値は−4xyz/3であり、j(1)≠j(17/9),0が局所環の差を検出する。実際の因子・正則中心元は [具体的Sklyanin入力](papers/sections/explicit_sklyanin_input.tex) で確認する。一ブロック零スキームのE_H⊔D_H分解と、良いrank2標的への射影埋込み一致障害も保持する。
+- **真の混合型の有限な例外集合。** [一中心変数と有限norm](papers/sections/central_mixed_one_variable.tex)は、uが二次関係に現れる表示について、明記した楕円グラフ・可換化正則列の下で長さ8^kの定常環Qを得る。中心係数cでの定常点の出現はmonic norm det(c+m_b)で判定できる。有理係数の二ブロック例では64個の相異なる例外値を全て明示し、各値で一つの被約定常点が現れる。この混合型の商のsmoothnessと同じ可換標的へのKu比較は未解決である。
 - **主予想の局所開性。** [可換実現locus](papers/sections/geometric_realization_locus.tex)の `grl:thm:open-locus` はn≠4の実smooth proper dg族で可換Ku実現領域がZariski開であり、étale局所に実際のcubic族と比較核があると示す。既存のArtin形式認識と核モジュライの代数性を用いる。全点での存在には境界延長と未被覆成分が残る。
 
-三結果の証明は本文へ統合した。独立読解・有限計算・組版・保存の確認範囲は [検証範囲](notes/validation.md)を参照する。既存のモジュライ・全O認識・比較算術は有効な補助成果として保持する。
+次の優先課題は、真の混合型のsmoothnessとKu比較、既知の可換実現領域の境界、未被覆intrinsic成分、定常成分を含むpoint/Poisson対応の成立条件である。既存のモジュライ・全O認識・比較算術は有効な補助成果として保持する。
+
+更新した [点・零スキームの厳密検算](computations/verify_point_poisson_obstruction.py) は12 PASSを確認した。有限語関係による中心性、Hessian・j不変量、64個の例外値の検算と、全次数PBW・圏同値の証明は区別する。独立読解・組版・表示確認・保存の状態は [検証範囲](notes/validation.md)を参照する。
 
 ## 可換復元・モジュライの内容
 
@@ -25,6 +31,11 @@
 - [可換復元の基礎節](papers/sections/generic_recovery/main_result.tex)：完備MF比較 `cft:thm:complete`、一般点の可換復元 `gdr:thm:generic`、局所模型・window・飽和・低積の積分・明示Hesse模型を含む全9節。主原稿から読み込む。
 - [可換復元の研究上の障害と再現入口](notes/recovery_foundations.md)：定義体、有限降下、symmetrizer、具体例の規約、残るkernel有効化。
 - [可換復元の検証スクリプト](computations/verify_generic_cubic_descent.py)：既知の勾配空間の積分と非分裂symmetrizer。`verify_complete_curved_transport.py`、`verify_three_object_window.py`、`verify_recovery_example.py` も同じ `computations/` に置く。
+- [中心変数を持つ分離和の直接Ku比較](papers/sections/central_split_comparison.tex)：孤立中心三次のMF因子、明示A2模型、有限外積と周期付き補正、全coherent Kuの可換実現。`csc:thm:comparison`、`csc:cor:fermat`。
+- [分離型の点関手と零スキーム](papers/sections/central_split_points.tex)：任意試験環の点グラフ、中心定常成分、スキーム論的像とFittingイデアル、長さ8^kの局所Artin環、同じ標的でのm=1の一致。`csp:thm:point-functor`、`csp:thm:poisson-zero`。
+- [具体的な複素Sklyanin因子](papers/sections/explicit_sklyanin_input.tex)：parameters (1:−3:−2)、点曲線E_{17/9}、指定中心元Ω★の規格化、中心商、AS正則な周囲環を一次資料と直接計算で確認する。`esi:prop:factor`。
+- [中心一次変数が一つの混合ブロック](papers/sections/central_mixed_one_variable.tex)：有限定常環とnorm、混合二次関係の有理例、64個の単純な例外値。商のsmoothnessと一般のKu比較は残る。`cmo:thm:point-norm`、`cmo:ex:sixty-four`。
+- [点・Poisson比較の有限証明書](computations/verify_point_poisson_obstruction.py)：Hessian小行列・制限三次・j不変量、固定中心元と混合中心元の語関係、有限定常環の正則表現と64根の厳密検算。全幾何学的議論や圏同値の代用ではない。
 
 
 - [公表用研究稿](papers/nc-cubic.tex)：中心復元、局所一ブロック型の O-marked DM stack と Brauer 障害、相対点関手と中心商の復元、trace–Hessian による Poisson 対の開部分との同型、残余復元との比較障害、次数9の代数的 Poisson 補正、形式 support 保存、全混合五次 tensor と残余四次 potential、四次の比較障害と新しい代数的補正、split 族の残余比較、一般混合係数の代数的残余三次・点曲線の j の一致・点微分による一般有限な符号商 Poisson 射、有限被覆上の Ku 比較、点型の全 O-降下と scalar 障害、n=3,4 の全 full class 降下と最小比較次数三、三分点体の次数九と ASL₂(F₃) モノドロミー、固定 tensor の very general な超越性、Jacobi スキーム、残余圏の通常 Artin 形式認識。
@@ -286,6 +297,7 @@ Jacobi 行列の普遍的な階数上界は Gesmundo–Landsberg の Koszul flat
 ```bash
 python3 -m pip install -r requirements.txt
 python3 scripts/check_sources.py
+python3 computations/verify_point_poisson_obstruction.py
 python3 computations/verify_two_block_structure.py
 python3 computations/verify_multiblock_twists.py
 python3 computations/verify_multiblock_point_line.py

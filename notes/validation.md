@@ -1,21 +1,53 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月21日 / v41。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月21日 / v42。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
-## 現行v41の確認
+## 現行v42の確認
 
-- **研究目標：** 主予想を任意のnc cubicの可換Ku実現、第二の検証対象を同じX上でのPtとPoisson零スキームの同型として明記した。全スキーム版の第二予想に反例を得たことを原稿・方針・ノート・README・AGENTSへ反映し、被約版などを自動的に新予想として採用しない。
-- **満支持型の同時存在：** `point_poisson_split.tex` の零イデアル計算を統合担当と執筆担当以外が読解した。Euler外積の係数イデアル、mixed supportの階数、gradient単元による他block座標消去から、非被約底を含むスキーム等式を確認した。実因子を仮定する存在版は、既存の積比較・actual Ωの周期・Picard補正・三乗根同期を使い、j相異性・特殊j・2p≠0の除外を必要としないことを依存箇所まで再読した。自然θの境界延長や全O stackの自然tensorの存在とは区別する。
-- **一ブロックの埋込みと自然pair：** `point_poisson_obstruction.tex` のE_H⊔D_H分解、Hessian scalar条件による積分一意性と既存Casimir切断障害の接続を点検した。splitHesseのsource中心socleを捨てず、η²=0による根の冪零修正とCRTから三つのJ_hを得ること、targetの三つのJ_λ、local同型からassociated graded・勾配空間・jへ進む論理を執筆担当以外も独立読解した。
-- **全Poisson・全可換標的を排除する反例：** 新しい孤立零点補題、Hessian階数2の12点分類、全support排除、比較核の複素閉点へのspread、categorical Torelliの適用を、統合担当と執筆担当以外の二担当が独立読解した。support制限の滑らかさや完全交叉を全πに仮定せず、local長さ8/埋込み次元3からHessian核の滑らかな平面三次とassociated graded Jacobi環を得る点を確認した。source相対線束模型→finite-cell核・逆→perfect cone消滅→各ファイバーのsmoothness→coherent飽和、という実点化の依存も確認。既存PBW・相対双対・MF/window入力の全証明を今回全面再検証したという意味ではない。
-- **可換実現locusの開性：** `geometric_realization_locus.tex` を執筆担当と統合担当が読解した。finite-type C-baseと実相対smooth proper dg模型、比較核stackのlfp/Artin性、通常Artin形式認識の完全忠実性による指定核の持上げ、scalar Gmを保持したsmooth atlasとétale局所sectionを点検した。n4、DVR境界での閉性、全Abel族の飽和性、pointデータの保持は結論に含めない。
-- **一次資料：** Mayanskiy arXiv:1303.5916v1 Theorem1・§2.2の全cubicthreefoldに対するSchouten/Plücker計算、BMMS arXiv:0903.4414v2 Theorem1.1のC線型categorical Torelliを本文で確認した。前者の分類は文献自身がLoray–Pereira–Touzetへ帰属する。Toën–Vaquié v5 Corollaries3.15,3.21,3.22・Lemma3.25、Stacks Tags02HX,055Uの局所smoothness・étale局所sectionも今回確認。書誌・識別子・正確な使用箇所を主原稿に記載した。
-- **厳密計算：** `computations/verify_point_poisson_obstruction.py` の八組がPASS・終了コード0。可積分方向の24変数行列、8次交代行列rank6、Hesse Hessianの小行列式・determinant、中心3点・flex9点の核と制限三次、j差の先頭係数13824h⁴と非零性を有理係数で確認した。既存 `verify_geometric_corrections.py` も十四組PASS・終了コード0。中心socle・Hesse残余係数・j差等を再実行した。局所環同型、全幾何点の分類、圏比較・spread・Torelliは紙上証明であり、計算で代用していない。旧suite全体は再実行していない。
-- **ソース整合・組版・表示：** `python3 scripts/check_sources.py` は成功し、66 TeX入力・1284個の一意なlabel・875個の参照label・149個の引用bibkeyを確認した。`git diff --check` も成功。`latexmk -lualatex papers/nc-cubic.tex` は終了コード0、586頁・4,109,712 bytesのPDFを生成した。最終ログの未定義参照・重複label・overfull/underfull・欠落文字・TeX errorはいずれも零。既存の数式フォントsize置換七件とその総括、ltjsarticleの旧`\rm`警告は残る。追加箇所の1・6・7・218–222・315–323・348–350頁（計20頁）を画像にして実際に表示し、文字・数式の欠け、重なり、余白外へのはみ出し、顕著なページ割りの崩れがないことを確認した。全586頁の目視確認やVS Code UIの操作確認をしたという意味ではない。
+新しい四節 `central_split_comparison.tex`、`central_split_points.tex`、`central_mixed_one_variable.tex`、`explicit_sklyanin_input.tex` と、再構成した `point_poisson_obstruction.tex` を、執筆者とは別の担当と統合担当が読解した。以下は、その内部点検で確認した数学的範囲と依存であり、原稿に証明が記載されていることだけを根拠とする宣言ではない。
 
-今回の新証明の内部読解と、原稿に保存済みの基礎結果を区別する。Lean等の形式証明、外部査読、新規性の網羅的調査は未実施。二つの存在を全intrinsic対象で肯定的に証明したとはしない。
+### 数学的主張と証明の依存
+
+- **研究目標と量化：** 主予想は、任意の滑らかなintrinsic nc cubicに対する、同じ次元の滑らかな可換三次超曲面へのC線型dg Morita Kuznetsov実現である。全対象での主予想は未解決であり、今回の分離表示の定理で全intrinsic対象を被覆したとはしない。第二予想は、その同じKu標的上に、全point schemeとPoisson零スキームが抽象スキームとして同型になるPoisson tensorが存在するという命題である。非被約構造を含むこの存在命題には、以下の複素数体上の反例がある。被約版などを自動的に代わりの予想として採用しない。
+- **中心変数を持つ分離型の直接Ku比較：** `csc:thm:comparison` と `csc:cor:fermat` の実因子・中心正則三次の仮定を確認した。特にFermat型の経路は執筆担当以外が依存する既存補題まで独立読解した。一変数の二対象A₂模型、その内部shiftと実方程式による三次周期、有限graded Homの外積、Koszul–Shamashの高次homotopy、有限群の二重同変化を点検した。k=1,m=2ではN=5,r=2であり、windowの三対象は連続する三剰余類で足り、rが三の倍数という仮定を使わない。楕円因子のPicard補正と三乗根による周期の同期は、実際のΩと方程式の周期を保持する。有限MF比較からsmoothnessを得た後、例外対象のgluingと線束による検出・有限Homを用いて全coherent残余圏へ飽和するため、全coherent圏のsmoothnessを前提にした循環はない。任意の滑らかな中心三次に対する補題と、Fermat型だけで完結する証明経路も区別した。
+- **分離型のpoint schemeと零スキーム：** `central_split_points.tex` で、m=1の定常成分消滅と、m≥2の定常成分 `Proj(J[U]/(g+θ))` を点関手から確認した。自然な可換Poisson対の定常成分は `Proj(J_cl[U]/g)` であり、θのsocle評価を捨てない。滑らかな中心超曲面に沿う完備局所環は `J[[t_1,…,t_{m−2}]]` となり、その極大イデアルのassociated gradedの次数一冪零部分からJを回復する。これによりJacobi環・jの障害を抽象スキームの障害へ移す論理を点検した。一般のm≥2について、この自然なPoisson対の不一致だけから全Poisson・全Ku標的を排除したとはしない。
+- **一中心変数を共有する混合型：** `cmo:thm:point-norm` の可換化による有限自由環Q、乗法のdeterminantとしてのnorm、定常成分の消滅判定を確認した。明示二ブロック例では `Q≃C^64` と相異なる六十四個の有理根を得る。指定した二組の係数の中心性・中心元の非零性は、次数三・四の全語と関係式の有理数上の厳密消去で確認する。一方、全次数PBW性とC[u]上の自由性は、Koszulな特殊Sklyanin代数にBraverman–Gaitsgoryの判定を適用し、唯一の三次重なり上の定数補正を検査する紙上証明である。有限次数のHilbert関数確認を全次数PBWの証明に置き換えていない。例外係数でのcoherent smoothnessや全Ku標的・全Poissonの排除は未確認であり、この混合例を追加の第二予想反例とはしていない。
+- **固定したh=1の実Sklyanin入力：** `esi:prop:factor` と `esi:cor:ambient` を独立読解した。parameters `(1:−3:−2)` の代数D、点曲線 `g_{17/9}=0`、固定点のない平行移動graph、指定中心元 `Ω=79Σx³/144+5Σ_perm xyz/96` を具体的に扱う。graphのdeterminantと階数二からスキームとしての対応を得る。標準中心元との比 `Ω=−c₃/48`、次数三の非零汎関数、domainからの正則性、実THCR商、Jacobian potentialからのuntwisted Calabi–Yau性を、それぞれの一次定理と照合した。周囲環は `B=D[u,v]`、中心商は `A=B/(Ω+(u³+v³)/3)` である。この段階では全coherent圏の滑らかさを仮定せず、直接Ku比較と飽和から導く。
+- **全Poisson・全可換標的を排除する反例：** `ppz:cor:complex-counterexample` は、上の固定した複素代数Aと、`X=V(g_{17/9}+(u³+v³)/3)` の実際のKu同値を `csc:cor:fermat` から得る。形式的可換復元、形式Hesse残余係数の同定、一般点から複素閉点へのspreadは、この反例の証明に使用しない。sourceのsocle評価は `η=−4xyz/3≠0` であり、η²=0による根の修正とCRTから三つの孤立局所環J₁を得る。任意supportのPoisson零点について、長さ八・埋込み次元三からHessian階数二と滑らかな核制限三次を導き、そのassociated gradedが核制限三次のJacobi環となることを再点検した。対象Xの該当十二点の制限三次はj=0またはj(17/9)を持ち、j(1)と異なるため、X上の全Poisson tensorが排除される。さらにC線型categorical Torelliを用い、Ku(A)と同値なKuを持つ全ての滑らかな可換三次三様体Y上の全Poisson tensorまで排除する。ここでの「良い一ブロック」は点関手の条件であり、全O表示stackの全相対入力への所属を同時に主張しない。この例では主予想の可換実現自体は成立する。
+- **形式MF移送と有限核の降下の基礎点検：** `generic_recovery/curved_transport.tex`、`local_model.tex`、`window.tex`、`generic_descent.tex`、`coherent_saturation.tex` とHesse残余入力を、証明の依存に沿って再読した。arityによる有限挿入、内部次数による有限行列、三対象window、properな線束dg模型上の実perfect核・逆・unit/counit、perfect coneの消滅から比較を得た後のsmoothnessとcoherent飽和、という順序を確認した。有限表示のspreadで必要なのは実核と有限な比較データであり、形式核の全jetの保存ではない。これらの一般的な構成は別の有効な研究内容として保持するが、formalityを含む基礎入力の全証明を今回独立に再証明したという意味ではなく、上の具体的反例の成立をこれらへ依存させない。
+
+### 一次資料の確認範囲
+
+書誌・識別子・リンクは `papers/references.tex` に記載する。既知の一般定理と、本稿で行う具体的な適用・係数計算を区別する。
+
+| 一次資料 | 確認した参照箇所と本稿での用途 |
+| --- | --- |
+| Tate–Van den Bergh, *Homological properties of Sklyanin algebras* | 著者版Theorem1.1・Corollary1.3、§4.1。滑らかな楕円曲線と平行移動からのSklyanin代数のHilbert級数、Koszul性、noetherian性、domain、AS正則性。有限位数を仮定する別の中心有限性の定理と混同しない。 |
+| De Laet–Le Bruyn, arXiv:1405.1158 | §1 p1の点graphと実THCR商、§2 p3の `3c₃` の巡回式。指定Ωとの比は本稿で関係式から計算した。 |
+| Mori–Smith, arXiv:1502.07403v2 | Corollary2.9。三生成元の三次Jacobian代数について、AS正則性からuntwisted 3-Calabi–Yau性を得る適用。 |
+| Braverman–Gaitsgory, arXiv:hep-th/9411113 | Main Theorem0.5・Lemma3.3。Koszul二次代数の非斉次変形に対する全次数PBW判定。混合例では一次補正零・定数補正の重なり条件を直接検査する。 |
+| Burke–Stevenson, arXiv:1507.00830 | Definition5.1、Proposition4.18、Lemmas6.1–6.2、Theorem6.4。左右noetherian性、有限injective dimension、Gorenstein parameter、χ・有限cohomological dimensionを実表示で確かめた上でwindowを適用する。dg余核比較と周期の保持は本稿の追加証明も用いる。 |
+| Mayanskiy, arXiv:1303.5916v1 | Theorem1・§2.2の既存の原文確認を保持し、今回の具体例への適用を再点検した。分類は全ての滑らかな三次三様体についてのSchouten/Plücker計算であり、genericなものだけへの定理ではない。文献自身は分類をLoray–Pereira–Touzetに帰属する。 |
+| Bernardara–Macrì–Mehrotra–Stellari, arXiv:0903.4414v2 | Theorem1.1の既存の原文確認を保持し、今回の適用を再点検した。複素数体上の滑らかな三次三様体について、C線型なKuznetsov成分の三角圏同値から三様体の同型を得る。dg Morita同値からこの仮定を満たす。任意の基礎体や全次元のTorelliを引用したものではない。 |
+
+### 厳密計算・組版・検証の限界
+
+`python3 computations/verify_point_poisson_obstruction.py` は、統合担当と別担当がそれぞれ実行し、**12個のPASS・終了コード0**を確認した。可積分方向の24変数行列と階数六の八次交代行列、Hesse Hessianの小行列式・determinant、中心三点とflex九点の核・制限三次、一般j差、固定h=1での中心性・非零性と正確なj値、二つの混合四生成元代数の中心性・非零性、normの六十四個の有理根を厳密演算で確認する。浮動小数点による近似や有限標本からの一般化ではない。局所環からassociated gradedへの議論、幾何点の全分類、全次数PBW性、smoothness、圏比較、Torelliは本文の証明であり、この計算で代用していない。
+
+既存の `verify_geometric_corrections.py` は**13個のPASS**を確認した保存済み検算を保持するが、**今回のv42点検では再実行していない**。その検算対象とハッシュは後段に記載する。他の既存計算の実行状態も、各項の記述に従い、今回全suiteを再実行したとはしない。
+
+**ソース整合・組版・表示確認：** `python3 scripts/check_sources.py` は成功し、70 TeX入力・1354個の一意なlabel・928個の参照label・151個の引用bibkeyを確認した。`git diff --check` も成功。`latexmk -lualatex papers/nc-cubic.tex` は終了コード0、607頁・4,233,066 bytesのPDFを生成した。最終ログの未定義参照・重複label・overfull/underfull・欠落文字・TeX errorはいずれも零。既存の数式フォントsize置換七件とその総括、ltjsarticleの旧 `\rm` 警告は残る。1・7・8・223–241・333–345頁の計35頁を画像で実際に表示し、本文・数式・添字の欠け、重なり、余白外へのはみ出しがないことを確認した。反例節末尾の説明を短く整えて孤立した一行の改頁を解消した後、変更された344–345頁を再表示した。他の確認済み33頁は再描画した画像が一致することも確認した。全607頁の目視確認やVS Code UIの操作確認をしたという意味ではない。GitHubへの保存は、通常commitとmain更新後に別途確認する。
+
+今回の新証明の内部読解と、原稿に保存済みの基礎結果を区別する。Lean等の形式証明、外部査読、新規性の網羅的調査は未実施。主予想を全intrinsic対象で証明したとはせず、第二予想の反例の範囲を上に限定する。
 
 ## 保持する数学的点検の範囲
+
+### 満支持型の点・零スキームと幾何実現locus
+
+- **満支持型の同時存在：** `point_poisson_split.tex` の零イデアル計算を統合担当と執筆担当以外が読解した。Euler外積の係数イデアル、mixed supportの階数、gradient単元による他block座標消去から、非被約底を含むスキーム等式を確認した。実因子を仮定する存在版は、既存の積比較・actual Ωの周期・Picard補正・三乗根同期を使い、j相異性・特殊j・2p≠0の除外を必要としないことを依存箇所まで再読した。自然θの境界延長や全O stackの自然tensorの存在とは区別する。
+- **一ブロックの埋込み：** `point_poisson_obstruction.tex` のE_H⊔D_H分解、Hessian scalar条件による積分一意性、既存Casimir切断障害との接続を独立読解した。埋込みの一致を要求する障害と、全Poisson・全可換Ku標的を排除する現在の抽象スキームの反例とは論理の段階が異なる。
+- **可換実現locusの開性：** `geometric_realization_locus.tex` のfinite-type C-baseと実相対smooth proper dg模型、比較核stackのlfp/Artin性、通常Artin形式認識の完全忠実性による指定核の持上げ、scalar Gmを保持したsmooth atlasとétale局所sectionを点検した。n4、DVR境界での閉性、全Abel族の飽和性、pointデータの保持は結論に含めない。連結性だけで全対象の可換実現を得ることもない。
+- **局所開性の一次資料：** Toën–Vaquié arXiv:math/0503269v5 Corollaries3.15,3.21,3.22・Lemma3.25と、Stacks Tags02HX,055Uの局所smoothness・étale局所sectionについて、保存済みの原文確認を保持する。Sklyanin代数に用いるTate–Van den Berghとは別の文献である。
 
 ### 全中心同変核・無標識作用の既存点検
 
@@ -330,7 +362,7 @@ N≥11 の二次最大階数と、n=9,10 の全 Hilbert 関数を確定する計
 
 ### 幾何補正と残余比較の保持した厳密検算
 
-`python computations/verify_geometric_corrections.py` は保存済み検証で全assertionと13個のPASSを確認したコードである。既存の点検では再実行していない。検算対象のSHA-256 は `78f592342b91531a6382576cc6025c8684e7f56d5efa84019b02d91b9923b85c`。その確認対象は次の通り。
+`python computations/verify_geometric_corrections.py` は保存済み検証で全assertionと13個のPASSを確認したコードである。今回のv42点検では再実行していない。検算対象のSHA-256 は `78f592342b91531a6382576cc6025c8684e7f56d5efa84019b02d91b9923b85c`。その確認対象は次の通り。
 
 - 四変数の二十個の三次単項式上で全十六個の gradient 一次倍を消す多項式汎関数、u³での値3t、t=1での階数16→17。
 - 滑らかさの二因子 `(1+12t³)(1+2t³+5t⁶)` と、八次自由臨界代数のtraceによる `F_t+h²t³u³`。
