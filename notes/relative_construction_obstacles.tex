@@ -1,16 +1,27 @@
-\input{papers/quantization-common}
+% !TEX root = relative_construction_obstacles.tex
+\input{papers/common/preamble.tex}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{15pt}
 \hypersetup{pdftitle={非可換cubicの可換モデル：研究ノート}}
 \title{研究ノート\\\large 非可換cubicの可換モデル：証明監査・適用条件・次の問題}
 \author{}
 \fancyhead[L]{\small 相対構成・生成性の研究ノート}
-\fancyhead[R]{\small 2026-11-21 / v1}
-\date{2026年11月21日・v1}
+\fancyhead[R]{\small 2026-11-22 / v50}
+\date{2026年11月22日・v50}
 \begin{document}
 \maketitle
+\thispagestyle{plain}
 \paragraph{現在の所在と読み方.}
 本ノートは相対Beilinson模型、有限中心性、PI中心幾何、生成性の障害など、個別の構成に使う議論と適用条件を保持する研究資料である。
-量子化の公表原稿は\texttt{papers/cubic-quantization.tex}、一般点の可換復元と非可換モジュライの公表原稿は\texttt{papers/nc-cubic.tex}である。
-一般点存在定理は後者の\texttt{papers/sections/generic\_recovery/}を正本とし、
+量子化の公表原稿は別repoの
+\href{https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex}{cubic-quantizationの主稿}、
+一般点の可換復元は\path{papers/nc-cubic.tex}、
+非可換モジュライは\path{papers/cubic-moduli-descent.tex}を正本とする。
+混合族の中心・局所代数・滑らかさは\path{papers/mixed-sklyanin-cubics.tex}を参照する。
+一般点存在定理の証明は主稿の\path{papers/sections/generic_recovery/}を正本とし、
 本ノートの個別構成に残る条件を一般点存在そのものの未解決性と混同しない。
 独立した相対構成・楕円ブロック・有限対角・bar/Morita比較は
 \url{https://github.com/uedakazushi/nc-cubic2}の現行研究方針を参照する。

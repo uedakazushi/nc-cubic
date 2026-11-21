@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月22日 / v50。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月22日 / v50。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -325,7 +325,7 @@ Jacobi 行列の普遍的な階数上界は Gesmundo–Landsberg の Koszul flat
 
 ## 再生成
 
-必要な環境は LuaLaTeX、latexmk、LuaTeX-ja、AMS、hyperref、enumitem、booktabs、needspace、和文フォント（Noto Serif CJK または Harano Aji）、Python 3・NumPy・SymPy、および C++17 対応コンパイラ（GCC または Clang）。PDFと検証用の中間ファイルは `build/` に生成し、Gitでは追跡しない。
+必要な環境は LuaLaTeX、latexmk、LuaTeX-ja、AMS、hyperref、xr-hyper、etoolbox、enumitem、booktabs、needspace、和文フォント（Noto Serif CJK または Harano Aji）、Python 3・NumPy・SymPy、および C++17 対応コンパイラ（GCC または Clang）。PDFと検証用の中間ファイルは `build/` に生成し、Gitでは追跡しない。
 
 リポジトリのルートで実行する：
 
@@ -362,6 +362,14 @@ python3 scripts/build_papers.py
 ```
 
 `python3 scripts/build_papers.py` はLuaLaTeXとlatexmkで三稿を組版し、他稿の定理番号付き参照を整える。出力は `build/nc-cubic.pdf`、`build/cubic-moduli-descent.pdf`、`build/mixed-sklyanin-cubics.pdf`。SyncTeXも同じ `build/` に置く。`python3 scripts/check_sources.py` は三稿の入力・引用・ラベルと他稿参照を検査する。VS CodeのLaTeX Workshopも三稿組版のレシピを使う。量子化の再現手順は別repoの [再現入口](https://github.com/uedakazushi/cubic-quantization/blob/main/computations/quantization/README.md) と検証資料を参照する。
+
+補助ノートを単独で組版する場合は、repoルートで次を実行する。PDFは `build/notes/` に出力される。
+
+```sh
+latexmk -lualatex -outdir=build/notes notes/relative_construction_obstacles.tex
+latexmk -lualatex -outdir=build/notes notes/central_cubic_generic_smoothness.tex
+```
+
 
 点障害、Jacobi・Hessian 補正、境界 MF と低積の計算資産を保持する。各検証器の実行・厳密証明書・原稿点検・組版・表示確認の状態は [検証範囲](notes/validation.md) を参照する。有限計算による恒等式確認と、全次数の平坦性、同型延長、Brauer 類、圏同値、Kummer 降下の証明は区別する。
 

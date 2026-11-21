@@ -16,9 +16,21 @@
 
 ### 組版・表示・保存の状態
 
-三稿をcleanな出力から `python3 scripts/build_papers.py` で組版中である。三稿の番号付き相互参照が収束し、最終PDFを確認した後に、この欄を実際の頁数・ログ・表示確認の結果で置き換える。旧単稿の組版済みという状態を、新三稿の確認済み状態には流用しない。
+LuaHBTeX 1.18.0・latexmk 4.86・LaTeX2e 2024-11-01 patch level 2で、cleanな出力から `python3 scripts/build_papers.py` を実行し、三巡で三稿の参照が収束して終了コード0となった。最後の旧稿名一か所の訂正後もモジュライ稿を再組版し、終了コード0を確認した。
 
-組版はLuaLaTeX・latexmk・LuaTeX-jaを用い、PDFとSyncTeXは `build/` に出力する。エディタの既定レシピも三稿を順に組版する。VS CodeのUI操作は行っていない。
+| 最終PDF | 頁数 | bytes | SHA-256 |
+| --- | ---: | ---: | --- |
+| `nc-cubic.pdf` | 178 | 1,555,455 | `544d071b87f1cf64aaa0e18c6762cb054555b236a907607d9fa3bf5654a64ce5` |
+| `cubic-moduli-descent.pdf` | 453 | 3,187,647 | `2a557e35274e56c4eb2874faef6e6b9b3d46895f76a95f6123e17629e0594a44` |
+| `mixed-sklyanin-cubics.pdf` | 92 | 989,917 | `9f49dbd655e90f748fcaf08842ec1451193a6e3d5279fb941e88f9e9416870a9` |
+
+最終ログは三稿とも、未定義参照・引用・制御綴、Missing character、LaTeX Error、Overfull/Underfullが0。主稿には数式サイズ代替の要約1件、混合稿には数式フォント代替7件と要約1件が残る。旧書体命令 `\rm` の警告は各稿、`\atop` の警告は混合稿にある。これらを新規の欠字や組版エラーとして扱っていない。
+
+表示確認は主稿の1・3・4・5・6・140・147・159頁、モジュライ稿の1・2・3・4・5・29頁、混合稿の1・2・4・56・69・72・73・74頁、計22頁で行った。表紙、短い序論、R/M/S付きの他稿参照、抽出した基礎、移した主定理、不一致例を確認し、欠字、重なり、式番号の衝突や切れは認めなかった。モジュライ稿と混合稿は最終PDFとの差分について、この指定頁のRGB画素がすべて一致することも確認した。全723頁を目視したわけではない。
+
+二つの補助研究ノートも現行共通preambleから独立組版できるようにした。存在しない旧共通設定と旧原稿パスを直し、relative_construction_obstaclesの6証明、central_cubic_generic_smoothnessの2証明、および両ノートの数式は保持した。`latexmk -lualatex -outdir=build/notes notes/<name>.tex` はいずれも終了コード0、27頁と4頁。未定義参照・引用、欠字、Overfull/Underfullは0。前者の1–3・27頁、後者の全4頁を表示確認した。
+
+この環境では作業領域に整えた和文依存と、既存LaTeX kernelと整合するDebian `texlive-lang-japanese` 2024.20250309-1のLuaTeX-jaを使った。再生成にはLuaLaTeX・latexmk・LuaTeX-ja・AMS等、etoolbox、xr-hyper、和文フォントが必要である。主三稿のPDFとSyncTeXは `build/`、補助ノートのPDFとSyncTeXは `build/notes/` に出力する。エディタ設定と分割ファイルのroot指定は検査したが、VS CodeのUI操作は行っていない。
 
 現行原稿・方針・AGENTS・README・研究ノート・組版設定・参照検査を保存対象とする。計算コード・証明書は変更しない。PDF、TeX中間生成物、担当者別監査メモ、一時的な組版環境はGit追跡に含めない。研究repoとresearch-hubへの保存は、それぞれ遠隔refと保存内容で別に確認する。
 
