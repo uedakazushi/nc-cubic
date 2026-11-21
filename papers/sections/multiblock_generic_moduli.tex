@@ -1,0 +1,268 @@
+% !TEX root = ../nc-cubic.tex
+\section{満支持型の全構造対象保存モジュライの非空開}
+\label{mbg:sec:generic-moduli}
+
+本節では、全 $\OO$-自己同値群の具体的な群構造を先に決めることなく、
+その一般有限性と、満支持局所型のモジュライの非空開を構成する。
+第三 Veronese の有限表示、中心商の余法加群による幾何点の認識、
+可換三次への特殊化を組み合わせる。
+構成する対象は、指定した満支持族に fpqc 局所的に同値な
+$\OO$-marked Abel 圏族の stack である。
+任意の非可換三次の変形がこの局所表示を持つという主張は含めない。
+
+\subsection{有限な関係行列と自己同値群の接空間}
+
+補題\ref{mbv:lem:quadratic}の状況で、
+\[
+ C=A^{(3)}=T(V)/(R_2),\qquad V=A_3,\qquad
+ R_2=\ker(V\otimes V\longrightarrow A_6)
+\]
+と書く。係数基底上で $V,R_2,C_2$ は有限局所自由である。
+次の有限行列を考える：
+\begin{equation}\label{mbg:eq:derivation-matrix}
+ \overline\Delta_C:\End(V)/\OO\operatorname{id}
+ \longrightarrow\Hom(R_2,C_2),\qquad
+ [u]\longmapsto\mu(u\otimes1+1\otimes u)|_{R_2}.
+\end{equation}
+次数スカラーは関係を保つので、この式は商上で定義される。
+
+\begin{lemma}[自己同値の接空間と開条件]
+\label{mbg:lem:tangent-open}
+幾何点での $\ker\overline\Delta_C$ は
+$\Aut_{\mathrm{gr}}(C)/\mathbf G_m$ の単位元における接空間である。
+この核が零となる条件は表示基底上の Zariski 開条件であり、
+全 $\OO$-同値によって不変である。
+この開上の各幾何点では全 $\OO$-自己同値群は有限 \'etale であり、
+任意の二つの族の間の全 $\OO$-同値スキームは有限表示かつ不分岐・準有限である。
+最後の二つの性質は、同値スキームから二つの族の共通基底への射について述べる。
+\end{lemma}
+\begin{proof}
+$1+\epsilon u$ が $R_2$ を保つ条件は、
+$(u\otimes1+1\otimes u)R_2\subset R_2$ である。
+これが \eqref{mbg:eq:derivation-matrix} の核であり、
+二次表示によって高次の条件を別に加える必要はない。
+有限局所自由束間の写像が各ファイバーで単射となる条件は、
+所定の最大小行列式の非消滅として開である。
+定理\ref{mbv:thm:all-o-third}により、この条件は全 $\OO$-同値で不変となる。
+
+射影的自己同型群は $\PGL(V)$ の閉部分群スキームで有限型である。
+標数零の有限型群スキームは滑らかである
+\cite[Tag~047N]{MBGStacks}。
+接空間が零なら次元零、従って有限 \'etale となる。
+二模型間の射影的 Isom の幾何ファイバーは、空でなければ
+一方の自己同型群の torsor なので有限 \'etale である。
+その表現可能性と有限表示性は補題\ref{mbv:lem:quadratic}から従う。
+ファイバーによる不分岐性の判定と不分岐射の準有限性
+\cite[Tag~02G3, Lemmas~29.36.10 and~29.36.12]{MBGStacks}を適用する。
+この議論は相対 Isom の平坦性や有限性までは与えない。
+\end{proof}
+
+\begin{lemma}[滑らかな可換三次の切断環の導分]
+\label{mbg:lem:commutative-tangent}
+標数零の体上の滑らかな三次超曲面
+$X=V(F)\subset\PP^{N-1}$、$N\ge6$ に対し、
+$C_0=(k[x_1,\ldots,x_N]/(F))^{(3)}$ と置く。
+このとき
+\[
+ \operatorname{Der}_0(C_0)=k\cdot\operatorname{Eu},
+ \qquad \operatorname{Eu}|_{(C_0)_q}=q\operatorname{id}
+\]
+である。
+\end{lemma}
+\begin{proof}
+超曲面の完全列と射影空間のコホモロジーから
+$(C_0)_q=H^0(X,\OO_X(3q))$、$H^1(X,\OO_X)=0$ を得る。
+次数零の導分は $X=\Proj C_0$ 上の vector field を誘導する。
+その核を確認する。誘導された vector field が零なら、
+非零な次数一切断 $s,t$ の比に対して
+$\delta(s)t-s\delta(t)=0$ となる。
+基点のない $\OO_X(3)$ の局所 frame ごとに $\delta(s)/s$ は正則で、
+重なり上で一致する。従ってこれは $H^0(X,\OO_X)=k$ の元である。
+次数一生成性により $\delta$ は Euler 導分のスカラー倍となる。
+
+次に $H^0(X,T_X)=0$ を示す。
+制限 Euler 列により、ambient の vector field は
+線型形式 $l_i$ による $\sum_i l_i\partial_{x_i}$ をスカラーで割ったものである。
+normal 列で $T_X$ に入る条件は
+$\sum_i l_iF_{x_i}=cF$ である。
+Euler 恒等式を用いて $l_i$ から $(c/3)x_i$ を引けば
+\[
+ \sum_i\bigl(l_i-(c/3)x_i\bigr)F_{x_i}=0.
+\]
+滑らかさと Euler 恒等式により、偏微分 $F_{x_i}$ の共通零点は
+affine 原点だけである。従ってこれらの二次式は多項式環の正則列をなし、
+第一 syzygy は Koszul syzygy で生成される。
+後者の係数の次数は二であり、次数一係数の非零 syzygy はない。
+よって全ての $l_i-(c/3)x_i$ が零で、射影 vector field も零となる。
+以上から主張が従う。
+\end{proof}
+
+\begin{proposition}[満支持一般点での有限自己同値]
+\label{mbg:prop:finite-open}
+第\ref{mbs:sec:presentations}節の既約な表示スタック $\mathfrak P_k$ で、
+定理\ref{mbv:thm:all-o-third}の有限位数条件を課した開の中に、
+全 $\OO$-自己同値群が有限 \'etale となる非空開 $\mathfrak P_k^{\mathrm{fin}}$ が存在する。
+\end{proposition}
+\begin{proof}
+開性は補題\ref{mbg:lem:tangent-open}によるので、一般点での非空性を示す。
+$\alpha_i,\beta_i$ を代数的に独立な $2k$ 個の変数とし、
+\[
+ k_0=\C(\alpha_1,\beta_1,\ldots,\alpha_k,\beta_k),\qquad
+ R=k_0[h]_{(h)}
+\]
+と置く。各因子を巡回関係
+\begin{equation}\label{mbg:eq:degeneration}
+ (1+h\alpha_i)yz+(-1+h\alpha_i)zy+h\beta_i x^2=0
+\end{equation}
+とその巡回置換で定める。
+一般ファイバーは一般の楕円 Sklyanin 代数で、特殊ファイバーは三変数多項式環である。
+両者の Hilbert 級数が $(1-t)^{-3}$ なので、
+命題\ref{gre:prop:input}と同じ DVR 上の構造定理により、全次数成分は有限自由となる。
+中心三次の一般ファイバーの直線と $(S_i)_3$ の交叉を取り、
+その primitive な生成元を $\Omega_i$ とする。
+交換子の標的 $(S_i)_4^{\oplus3}$ が自由なので、
+中心核は飽和部分加群であり、この生成元の剰余は非零である。
+
+一次の Poisson 括弧は、符号を除けば
+\[
+ F_i=\frac{\beta_i}{3}(x^3+y^3+z^3)+2\alpha_i xyz
+\]
+の Jacobian 括弧である。$f_i=\Omega_i\bmod h$ はその三次 Casimir だから
+$\nabla f_i\wedge\nabla F_i=0$ である。
+Euler 恒等式を使うと $F_i\,df_i-f_i\,dF_i=0$、すなわち
+$d(f_i/F_i)=0$ となり、標数零では $f_i=\lambda_iF_i$、
+$\lambda_i\in k_0^\times$ である。
+定数倍を調整して $\Omega_i\bmod h=F_i$ とできる。
+各 $F_i$ は滑らかなので、分離した和 $F=\sum_iF_i$ も
+$\PP^{3k-1}_{k_0}$ の滑らかな三次超曲面を定める。
+
+$B_R=\bigotimes_iS_i$、$A_R=B_R/(\sum_i\Omega_i)$ と置く。
+剰余の $F$ は非零因子であり、次数ごとの自由性から
+この中心商も次数別有限自由となる。
+具体的に、$w b\in hB_R$ なら剰余の正則性から $b\in hB_R$ なので、
+各商次数成分は $h$-torsion を持たない。
+正則性自体も同じ議論と有限自由加群の $h$-進分離性から従う。
+従って $C_R=A_R^{(3)}$ の二次関係束と乗法核は底変更に両立する。
+特殊ファイバーでは補題\ref{mbg:lem:commutative-tangent}により
+$\overline\Delta_{C_0}$ が単射である。
+その最大小行列式の一つは単元だから、一般ファイバーでも単射となる。
+
+最後に、この一般ファイバーが満支持表示の一般点を検出することを確認する。
+Hesse 座標で $[a:b:c]$ を用い、$a-b\ne0$ で $a-b=2$ と規格化すれば、
+$a=1+u$, $b=-1+u$, $c=v$ となる。
+式\eqref{mbg:eq:degeneration}では $u=h\alpha_i$, $v=h\beta_i$ であり、
+$h$ を可逆にすると各因子の二つの独立なパラメータを与える。
+楕円 Sklyanin 因子の Hesse 表示と座標変換により、この族は表示の一般点を支配する
+\cite[\S1]{GRSklyaninST}。
+中心係数の全非零部分はブロックスカラーの一軌道なので、
+和の係数を一にしたことは表示モジュライの一般性を失わない。
+従って上で示した接空間の消滅は $\mathfrak P_k$ の一般点で成立する。
+有限個の捩れ条件を除く既存の非空開と交わらせればよい。
+\end{proof}
+
+\subsection{関係 Grassmann 多様体による一般局所型の効果化}
+
+以下では $\mathcal X\subset\mathcal X_k$ を、前命題と
+系\ref{mbiq:cor:commuting-o-rigidity}の仮定を満たす非空開とする。
+元の群 $G_k$ に不変な開を取る。
+$m=\rank A_3$、$s=m^2-\rank A_6$ とし、
+\[
+ \mathcal F=\operatorname{Fr}_{\mathcal X}(A_3),\qquad
+ \mathcal G=\Gr(s,\C^m\otimes\C^m),\qquad H=\PGL_m
+\]
+と置く。第三 Veronese の関係核は $\GL_m$-同変な射
+\begin{equation}\label{mbg:eq:relation-map}
+ \phi:\mathcal F\longrightarrow\mathcal G
+\end{equation}
+を定める。標的への作用は $H$ を経由し、frame の共通 scalar は関係空間を変えない。
+$Z$ をこの像の被約閉包とする。$Z$ は既約で $H$-不変である。
+
+\begin{theorem}[全 $\OO$-局所型の一般 DM stack]
+\label{mbg:thm:generic-stack}
+$Z$ に $H$-不変な非空開 $Z^\circ$ が存在し、
+\begin{equation}\label{mbg:eq:generic-stack}
+ \mathfrak M_k^\circ=[Z^\circ/\PGL_m]
+\end{equation}
+は有限型・滑らか・既約の Deligne--Mumford stack で、次元は $2k$ である。
+この stack は、対応する非空開 $\mathcal X^\circ\subset\mathcal X$ の
+満支持表示に fpqc 局所的に同値な $\OO$-marked Abel 圏の局所型を、
+全 $\OO$-保存同値を射として分類する。
+幾何点での慣性群は
+\[
+ G_A=\Aut_{\mathrm{gr}}(A^{(3)})/\mathbf G_m
+\]
+であり、有限 \'etale である。その具体的な群構造は本定理には含めない。
+また、次数一の表示による幾何点の同型類と、この stack の幾何点の同型類は一致する。
+この最後の一致は慣性群の一致を意味しない。
+\end{theorem}
+\begin{proof}
+まず像の効果化を行う。
+$\mathcal F\to Z$ は有限型の支配射なので、Chevalley の定理により
+その像は非空開を含む。generic flatness によってさらに縮めれば、
+$\mathcal F\times_Z Z_0\to Z_0$ は有限表示・忠実平坦となる
+\cite[Tags~054K and~052A]{MBGStacks}。
+$Z$ の smooth locus、および式\eqref{mbg:eq:derivation-matrix}の
+核が零となる開と交わらせる。いずれも一般点を含む。
+得られた開の全 $H$-平行移動の和を $Z^\circ$ とすれば、
+これは $H$-不変な非空開である。$H$ の元は fpqc 局所的に $\GL_m$ へ持ち上がるので、同変性により
+\[
+ \mathcal F^\circ:=\mathcal F\times_Z Z^\circ\longrightarrow Z^\circ
+\]
+は依然として忠実平坦・有限表示である。
+Noetherian 性によりこの射は準コンパクトであり、fppf 被覆となる。
+$\mathcal F^\circ$ は $\GL_m$-不変な開なので、frame torsor を通じて
+非空開 $\mathcal X^\circ\subset\mathcal X$ へ降下する。
+
+Grassmann 多様体上の普遍二次代数を $Z^\circ$ に制限する。
+その各次数成分は、上の fppf 被覆後に $A^{(3)}$ の各次数成分となる。
+従って全次数の局所自由性と底変更は忠実平坦降下によって従う。
+無限個の平坦性開集合を交わしているのではなく、
+一つの fppf 被覆上で既知の全次数平坦性を降ろしている。
+これにより任意の試験基底、特に非被約底上でも、
+$Z^\circ$ の族は fpqc 局所的に指定された満支持表示を持つ。
+
+この局所表示の間の全 $\OO$-同値は、
+定理\ref{mbv:thm:all-o-third}によって第三 Veronese の
+射影的な次数付き同型に等しい。
+二次表示により、その同型はちょうど $\PGL_m$ による関係空間の移送である。
+従って局所表示とその全同値の fpqc stack 化は
+式\eqref{mbg:eq:generic-stack}と同値である。
+次数スカラーは tails 上で標準的に恒等関手と同型であり、
+その同型は積に両立する。従って $\GL_m$ の frame を選ぶ必要はなく、
+射影的 frame の降下で構造対象も降下する。
+実際の大域次数付き代数の存在を別途仮定してはいない。
+対象は局所 tails 圏と同値の descent datum として構成でき、
+その射・合成・係数変更の降下は命題\ref{prop:nfm-equivalence-descent}に従う。
+
+$Z^\circ$ は滑らかで、$H$ も滑らかなので、商 stack は滑らかな有限型代数 stack である。
+関係空間の安定化子は $G_A$ そのもので、補題\ref{mbg:lem:tangent-open}により
+有限 \'etale である。従ってこの商は Deligne--Mumford となる
+\cite[Tag~0DSL]{MBGStacks}。既約性は $Z$ の既約性から従う。
+
+次元を計算する。$\dim\mathcal X=11k-1$ なので
+$\dim\mathcal F=11k-1+m^2$ である。
+幾何点 $z\in Z^\circ$ を固定する。
+系\ref{mbiq:cor:commuting-o-rigidity}により、$z$ と同じ第三 Veronese を持つ
+$\mathcal X$ の表示は一つの次数付き同型類をなし、そのパラメータは
+$G_k$-軌道である。表示の幾何慣性が有限なので、この軌道の次元は $9k-1$。
+各表示上で $z$ を与える線型 frame の空間は、
+$\Aut_{\mathrm{gr}}(C)$ の torsor であり、次元は一である。
+従って $\phi$ の幾何ファイバーの次元は $9k$ で、
+\[
+ \dim Z^\circ=(11k-1+m^2)-9k=m^2+2k-1.
+\]
+$\dim\PGL_m=m^2-1$ を引くと $\dim\mathfrak M_k^\circ=2k$ となる。
+幾何点の同型類についての最後の主張も同じ対象剛性から従う。
+\end{proof}
+
+\begin{remark}[得られた開と残る問題]
+\label{mbg:rem:scope}
+この構成は非空開の存在を与えるが、$Z$ の全境界や全満支持表示を覆うとは主張しない。
+開を切り出す最大小行列式・flat locus を明示的に計算したわけでもない。
+同じ幾何点を持つ次数付き表示 stack と全 $\OO$-stack では、
+後者の慣性が大きい可能性が残る。
+特に二ブロックの表示慣性 $243$ を $|G_A|$ と同一視しない。
+また、任意の次数一根の分類、残余比較核の全 $\OO$-降下、
+この局所型が全非可換三次の変形モジュライの既約成分をなすことは別問題である。
+有限表示の認識と一般開の商構成を、任意の抽象 Abel 圏変形の認識へ拡張していない。
+\end{remark}

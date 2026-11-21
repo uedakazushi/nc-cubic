@@ -1,0 +1,368 @@
+% !TEX root = ../nc-cubic.tex
+\section{第三 Veronese の点と余法線による因子の回復}
+\label{mbiq:sec:quotients}
+
+本節は代数閉体上の幾何学的対象を扱う。
+第三 Veronese の中心一次部分で割った代数から、まず純ブロック商を内在的に認識する。
+その点対応が直接与えるのは三乗の平行移動と次数九の偏極である。
+さらに商の余法線双加群を用いると、元の次数一 shift そのものを回復できる。
+この結果は、可換 tensor 積表示どうしの全 $\OO$-同値に関する対象剛性を与える。
+与えられた全同値関手の次数一への持上げや、非被約底上の点関手の分類は含めない。
+
+\subsection{中心商と純三次部分}
+
+基礎体を標数零の代数閉体 $K$、ブロック数を $k\geq2$ とする。
+各 $i$ に対し、滑らかな楕円曲線 $E_i$、次数三の線束 $L_i$、
+平行移動 $\sigma_i=t_{p_i}$ と
+\begin{equation}\label{mbiq:eq:order}
+ p_i\ne0,\qquad 2p_i\ne0,\qquad 3p_i\ne0
+\end{equation}
+を与える。
+$S_i=S(E_i,L_i,\sigma_i)$ を既存の二次 Sklyanin 代数、
+$\Omega_i$ をその正則中心三次元とし、
+\[
+ T_i=S_i/(\Omega_i)=B(E_i,L_i,\sigma_i),\qquad W_i=(T_i)_1
+\]
+と置く。中心係数が全て非零な
+$A=(\bigotimes_iS_i)/(\sum_i a_i\Omega_i)$ に対して、
+\begin{equation}\label{mbiq:eq:central-quotient}
+ C=A^{(3)},\qquad
+ D=C/(Z(C)_1)\simeq
+       \left(\bigotimes_iT_i\right)^{(3)}
+\end{equation}
+である。
+ここでは命題\ref{mbv:prop:center}の $d=1$ を用いた。
+括弧 $(Z(C)_1)$ は中心一次空間が生成するイデアルを表す。
+有限位数の場合に現れ得る高次数中心まで全て零にする操作ではない。
+実際、三次中心の全像を $A$ で零にすると各 $\Omega_i$ が零になり、
+この中心商と第三 Veronese は可換する。
+
+以下では $D$ 自体の表示だけを使う。
+\[
+ U_i=T_i^{(3)},\qquad
+ F=\bigotimes_iU_i\subset D,
+ \qquad L_{i,3}=L_i\otimes\sigma_i^*L_i\otimes\sigma_i^{2*}L_i
+\]
+と置く。$U_i=B(E_i,L_{i,3},\sigma_i^3)$ であり、$\deg L_{i,3}=9$ である。
+全ての Veronese の次数は三で割る。
+多重次数 $\boldsymbol a=(a_1,\ldots,a_k)$ には
+$T_{\boldsymbol a}=\bigotimes_i(T_i)_{a_i}$ と書く。
+
+各 $T_i$ と $U_i$ は次数一生成である。
+また THCR の標準同値と本稿の右加群規約では
+\begin{equation}\label{mbiq:eq:thcr-shift}
+ \qgr T_i\simeq\operatorname{coh}E_i,\qquad
+ (1)\longleftrightarrow s_i=\sigma_{i,*}\circ(-\otimes L_i),
+ \qquad s_i^{-1}=(-\otimes L_i^{-1})\circ\sigma_i^*.
+\end{equation}
+曲線上の正次数線束は任意の自己同型について ample sequence を与えるので、
+ここに無限位数の仮定は要らない
+\cite[\S3, equations~(3.1), (3.3), Theorem~3.2]{NFMStaffordVdB}。
+次数一生成は、次数が少なくとも三の楕円線束の切断乗法の全射性からも従う。
+
+\begin{lemma}[純三次部分上の有限生成性]
+\label{mbiq:lem:finite-pure}
+$D$ は $F$ 上、左右とも有限生成な次数付き加群である。
+生成元の次数は $\lfloor2k/3\rfloor$ 以下に取れる。
+\end{lemma}
+\begin{proof}
+$|\boldsymbol a|=3n$ を満たす多重次数を
+$a_i=3q_i+e_i$, $0\leq e_i\leq2$ と書く。
+各因子が次数一生成なので、積は
+\[
+ \left(\bigotimes_i(T_i)_{e_i}\right)
+ \otimes\left(\bigotimes_i(T_i)_{3q_i}\right)
+ \longrightarrow T_{\boldsymbol a}
+\]
+で全射であり、左右の順序を逆にしても同じである。
+残余多重次数 $\boldsymbol e$ は有限個で、
+$|\boldsymbol e|$ は三の倍数、$|\boldsymbol e|\leq2k$ である。
+対応する有限次元空間の基底が求める生成元となる。
+\end{proof}
+
+\subsection{全点加群の純ブロック性}
+
+点加群とは、次数零で生成され、各非負次数が一次元の次数付き右加群をいう。
+THCR $B(E,L,\sigma)$ の点加群は $E$ の点により一意に決まる。
+ここで使う範囲を確認しておく。
+点加群の非零部分加群は tail 全体を含むので、その tails 像は単純対象である。
+THCR 同値の下でこれは skyscraper sheaf であり、切断加群の各次数は一次元である。
+点加群からその飽和切断加群への標準写像は torsion-free 性により単射なので、
+非負次数で同型となる。
+従って点加群はその点から来る標準切断加群であり、shift は $\sigma$ に対応する。
+この議論にも平行移動の無限位数性は不要である。
+
+\begin{theorem}[中心商の点加群]
+\label{mbiq:thm:point-locus}
+$D$ の全ての点加群は、ただ一つの純ブロック商
+\begin{equation}\label{mbiq:eq:pure-quotient}
+ q_i:D\longrightarrow U_i
+\end{equation}
+を通じて得られる $U_i$ の点加群である。
+従って、第一の作用座標がなす被約閉集合と、その二項の点対応は
+\begin{equation}\label{mbiq:eq:reduced-point-locus}
+ \coprod_{i=1}^k(E_i,|L_{i,3}|)
+       \subset\PP(D_1^*),\qquad
+ \coprod_{i=1}^k\Gamma_{\sigma_i^3}
+\end{equation}
+である。
+この主張は全ての幾何学的点加群を分類する。
+点加群関手の非被約方向や、有限長の切断点スキームが既にこのグラフと等しいことは主張しない。
+\end{theorem}
+\begin{proof}
+$M$ を $D$ の点加群とする。
+補題\ref{mbiq:lem:finite-pure}により、$M$ は $F$ 上も有限生成である。
+従ってある $b$ 以上で $M_nF_1=M_{n+1}$ となり、
+$M_{\geq b}(b)$ は $F$ の点加群となる。
+その次数 $n$ における各純部分 $(U_i)_1$ の作用を
+$\alpha_{i,n}\in(U_i)_1^*$ で表し、非零となる添字集合を $J_n$ とする。
+$J_n$ は空ではない。
+異なる二ブロック間の交換関係は
+\[
+ \alpha_{i,n}(u)\alpha_{j,n+1}(v)
+ =\alpha_{j,n}(v)\alpha_{i,n+1}(u)
+ \qquad(i\ne j)
+\]
+を与える。もし $i\in J_n\setminus J_{n+1}$ なら
+$j\in J_{n+1}$ を選んで矛盾を得る。逆向きも同じなので $J_n=J_{n+1}$ である。
+
+この集合が二つ以上の添字を含むと、非零な単純 tensor の等式により、
+各 $[\alpha_{i,n}]\in\PP((U_i)_1^*)$ は $n$ によらなくなる。
+一方、$U_i$ への制限は点加群なので、その点列は $\sigma_i^3$ で移る。
+これは $\sigma_i^3$ の固定点を与え、$3p_i\ne0$ に反する。
+従って tail 上で active な純ブロックはただ一つ、$i$ である。
+
+混合部分の作用も除く。
+$|\boldsymbol e|=3$ に対し $Q_{\boldsymbol e}=T_{\boldsymbol e}\subset D_1$ と置く。
+各 $T_i$ の次数一生成性により、$D_2$ の部分空間として
+\begin{equation}\label{mbiq:eq:mixed-propagation}
+ (U_i)_1Q_{\boldsymbol e}=Q_{\boldsymbol e}(U_i)_1
+\end{equation}
+が成り立つ。
+tail のある次数で $Q_{\boldsymbol e}$ の作用が非零なら、
+次の次数での $(U_i)_1$ の作用と合成して非零な積を取れる。
+\eqref{mbiq:eq:mixed-propagation}を用いると、
+その次の次数でも $Q_{\boldsymbol e}$ の作用が非零でなければならない。
+従って非零性は全ての高次数へ伝播する。
+
+$\boldsymbol e\ne3\boldsymbol e_i$ なら inactive なブロック $j$ に $e_j>0$ がある。
+連続する三次数で $Q_{\boldsymbol e}$ の非零作用を選んで合成すると、
+点加群上の非零作用となる。
+しかしこの積の多重次数は $3\boldsymbol e$ であり、$F$ に属する。
+さらに inactive な $U_j$ の正次数を含むので、tail 上の作用は零である。
+これは矛盾である。よって全ての混合部分と inactive な純部分は tail 上で零に作用する。
+
+最後に初期次数へ戻る。
+ある次数以上で $Q_{\boldsymbol e}$ の作用が零、$(U_i)_1$ の作用が非零であるとする。
+直前の次数で $Q_{\boldsymbol e}$ の作用が非零なら、
+\eqref{mbiq:eq:mixed-propagation}によって次の次数でも非零になり、矛盾する。
+従って直前の次数でも全ての $\boldsymbol e\ne3\boldsymbol e_i$ が零に作用する。
+$D_1$ は次の一次元成分を生成するので、残る $(U_i)_1$ の作用は非零である。
+逆帰納により全次数で純一ブロックの点加群となる。
+
+逆に $q_i$ を通じた $U_i$ の点加群は $D$ の点加群である。
+$U_i$ の標準的な点加群の記述から、第一座標は $|L_{i,3}|$ による埋込み、
+shift は $\sigma_i^3$ となる。
+これらの曲線とグラフは既に閉で被約なので、表示した被約閉集合が得られる。
+\end{proof}
+
+\begin{corollary}[純ブロック商の内在的認識]
+\label{mbiq:cor:intrinsic-quotients}
+$I_i=\ker(q_i)$ とする。
+次数付き代数 $D$ は、順序を除いてイデアル $I_i$ と商 $D/I_i=U_i$ を決定する。
+具体的には、\eqref{mbiq:eq:reduced-point-locus}の各既約成分の線型包の annihilator が
+$(I_i)_1$ であり、$I_i=((I_i)_1)$ である。
+従ってこの形の代数間の次数付き同型は純ブロック商を置換し、
+$(E_i,L_{i,3},\sigma_i^3)$ を対応する triple と同定する。
+\end{corollary}
+\begin{proof}
+各 $|L_{i,3}|$ は完全線型系であり、その像は $\PP((U_i)_1^*)$ を張る。
+従ってその線型包の annihilator は $D_1\to(U_i)_1$ の核である。
+多重次数 $\boldsymbol a$ が $i$ 以外の正成分を持ち、$|\boldsymbol a|=3n$ なら、
+その成分を含む $|\boldsymbol e|=3$, $\boldsymbol e\leq\boldsymbol a$ を選べる。
+積 $T_{\boldsymbol e}T_{\boldsymbol a-\boldsymbol e}=T_{\boldsymbol a}$ は全射なので、
+この成分は $(I_i)_1D_{n-1}$ に含まれる。
+よって $I_i$ は次数一で生成される。
+次数付き同型は点加群とその shift を保ち、第一座標に射影線型に作用するから、
+曲線・偏極・点対応、およびこれらのイデアルを置換する。
+\end{proof}
+
+\begin{remark}[Segre 対角は商ではない]
+\label{mbiq:rem:segre}
+$|\boldsymbol e|=3$ の混合多重次数について、
+$\bigoplus_{n\geq0}T_{n\boldsymbol e}$ は積曲線上の THCR 型の対角部分代数である。
+しかし他の $D_1$ 成分を全て零にすることで、この代数を商として取り出すことはできない。
+実際、その操作は全ての純部分 $(U_j)_1$ を零にする。
+一方 $Q_{\boldsymbol e}^3=T_{3\boldsymbol e}$ はこれらの純部分の積で張られるので、
+その商では $Q_{\boldsymbol e}^3=0$ となる。
+この商は次数二以下にしか成分を持たず、点加群を持たない。
+従って Segre 対角の積曲線を $D$ の追加の点成分とみなしてはいけない。
+\end{remark}
+
+\subsection{余法線双加群が回復する元の shift}
+
+点のグラフだけでは $\sigma_i$ の三乗までしか見えない。
+この不足は、内在的な商 $D\to U_i$ の余法線
+\[
+ N_i=I_i/I_i^2
+\]
+を左右の $U_i$ 作用付きで保持することで解消する。
+以下の tensor は次数付き tensor であり、商圏へ移してから関手として解釈する。
+
+\begin{proposition}[余法線による次数一の負 shift]
+\label{mbiq:prop:conormal-root}
+$r_i=3(k-1)>0$ とし、$U_i$-双加群
+\[
+ M_i=(T_i(-1))^{(3)},\qquad (M_i)_n=(T_i)_{3n-1}
+\]
+を置く。
+次数一にのみ集中し、左右の $(U_i)_{>0}$ が零に作用する有限次元双加群 $Q_i$ があり、
+\begin{equation}\label{mbiq:eq:conormal}
+ N_i\simeq M_i^{\oplus r_i}\oplus Q_i
+\end{equation}
+である。
+$-\otimes_{U_i}N_i$ が tails 上で誘導する完全関手を $\mathcal N_i$ と書くと、
+THCR 同値の下で
+\begin{equation}\label{mbiq:eq:conormal-functor}
+ \mathcal N_i(\mathcal F)
+ \simeq\bigl(\sigma_i^*\mathcal F\otimes L_i^{-1}\bigr)^{\oplus r_i}
+ \qquad(\mathcal F\in\operatorname{coh}E_i)
+\end{equation}
+となる。
+\end{proposition}
+\begin{proof}
+多重次数 $\boldsymbol a$ に対して
+$b=\sum_{j\ne i}a_j$ を outside 次数と呼ぶ。
+$I_i$ は $b\geq1$ の全成分からなる。
+新しい次数 $n\geq2$ では、$I_i^2$ はちょうど $b\geq2$ の全成分である。
+一方の包含は明らかである。
+逆に $|\boldsymbol a|=3n$, $b\geq2$ なら、
+\[
+ 1\leq t\leq\min(3,b-1),\qquad 3-t\leq a_i
+\]
+となる整数 $t$ を選べる。
+outside 成分から合計 $t$ 個、$i$ 成分から $3-t$ 個を取って
+$|\boldsymbol e|=3$, $\boldsymbol e\leq\boldsymbol a$ とする。
+$\boldsymbol e$ と $\boldsymbol a-\boldsymbol e$ は両方 outside 次数が正なので、
+切断乗法の全射性により $T_{\boldsymbol a}\subset I_i^2$ となる。
+
+従って $n\geq2$ で生き残るのは $b=1$ の成分だけであり、
+\[
+ (N_i)_n=\bigoplus_{j\ne i}(T_i)_{3n-1}\otimes W_j.
+\]
+この部分は $n=1$ から存在し、左右の純 $i$-ブロック作用を保持して
+$M_i\otimes(\bigoplus_{j\ne i}W_j)$ に等しい。
+$n=1$, $b\geq2$ の残りを $Q_i$ とすると、
+正次数の $U_i$ を左右どちらから掛けても $n\geq2$, $b\geq2$ に移るため零になる。
+これで \eqref{mbiq:eq:conormal} を双加群として得る。
+
+次に $M_i$ の tensor 関手を調べる。
+$P$ を次数付き右 $U_i$-加群とし、$P^{[3]}$ は次数を三倍する操作とする。
+次数成分を直接取ると、自然な同型
+\begin{equation}\label{mbiq:eq:veronese-root-tensor}
+ P\otimes_{U_i}M_i
+ \simeq
+ \left(\left(P^{[3]}\otimes_{U_i^{[3]}}T_i\right)(-1)\right)^{(3)}
+\end{equation}
+を得る。
+右辺の induction と Veronese は、補題\ref{lem:nfm-gabriel}の互いに逆な tails 同値である。
+従って $-\otimes_{U_i}M_i$ は、$\qgr T_i$ の $(-1)$ を
+$\qgr U_i$ へ移した完全自己同値を誘導する。
+有限次元項 $Q_i$ との tensor は正次数作用が零なので tails で消える。
+よって $\mathcal N_i$ はこの自己同値の $r_i$ 重複である。
+最後に \eqref{mbiq:eq:thcr-shift} の逆を使えば
+\eqref{mbiq:eq:conormal-functor}となる。
+\end{proof}
+
+\begin{theorem}[中心商からの元の楕円 triple の回復]
+\label{mbiq:thm:triple-recovery}
+上の形の二つの中心商 $D,D'$ の間に次数付き同型があれば、
+ブロック数は等しく、添字の置換後に曲線同型 $f_i:E_i\xrightarrow{\sim}E_i'$ が存在して
+\begin{equation}\label{mbiq:eq:recovered-triple}
+ f_i^*L_i'\simeq L_i,\qquad
+ f_i\sigma_i=\sigma_i'f_i
+\end{equation}
+を満たす。
+特に回復されるのは $\sigma_i^3$ だけでなく元の $\sigma_i$ である。
+\end{theorem}
+\begin{proof}
+系\ref{mbiq:cor:intrinsic-quotients}により、同型は $I_i$、$U_i$ を置換し、
+$f_i^*L_{i,3}'\simeq L_{i,3}$、$f_i\sigma_i^3=(\sigma_i')^3f_i$ を与える。
+商の次数付き同型 $U_i\simeq U_i'$ が THCR 同値の下で誘導する関手は $f_{i,*}$ である。
+実際、次数一写像はこの曲線同型と偏極同型の切断写像に grading scalar を掛けたものであり、
+両代数は次数一生成なので全同型がそこで決まる。
+THCR 切断関手の自然性と、grading scalar が tails 上で恒等に自然同型であることから従う。
+基底線束との tensor の余分な曖昧さはない。
+
+元の同型は $I_i/I_i^2$ を左右の商作用ごと同定する。
+従って命題\ref{mbiq:prop:conormal-root}の関手を intertwine し、
+\[
+ f_{i,*}\bigl(\sigma_i^*\mathcal F\otimes L_i^{-1}\bigr)^{\oplus r_i}
+ \simeq
+ \bigl((\sigma_i')^*f_{i,*}\mathcal F\otimes(L_i')^{-1}\bigr)^{\oplus r_i}
+\]
+を得る。
+$\mathcal F=K(x)$ とすると、左辺の支持は $f_i(\sigma_i^{-1}x)$、
+右辺の支持は $(\sigma_i')^{-1}f_i(x)$ である。
+$r_i>0$ なのでこれらは一致する。
+全閉点での等式と曲線の被約性により $f_i\sigma_i=\sigma_i'f_i$ となる。
+
+さらに $\mathcal F=\OO_{E_i}$ を代入すると
+\[
+ (f_{i,*}L_i^{-1})^{\oplus r_i}
+       \simeq((L_i')^{-1})^{\oplus r_i}
+\]
+を得る。
+行列の少なくとも一成分は零でないので、二つの次数 $-3$ の線束の間に非零な射がある。
+同次数の線束間の非零射は同型であり、$f_i^*L_i'\simeq L_i$ が従う。
+\end{proof}
+
+\subsection{可換 tensor 表示に対する全構造対象保存同値}
+
+\begin{corollary}[可換 tensor チャート内の全 $\OO$-同値と対象剛性]
+\label{mbiq:cor:commuting-o-rigidity}
+$A,A'$ を第\ref{mbs:sec:presentations}節の満支持可換 tensor 積表示とし、
+代数閉体上で、定理\ref{mbv:thm:all-o-third}の有限個の位数除外条件
+$jp_i\ne0$, $jp_i'\ne0$ $(1\leq j\leq3k-3)$ を満たすとする。
+このとき
+\begin{equation}\label{mbiq:eq:object-rigidity}
+ (\QGr A,\OO_A)\simeq(\QGr A',\OO_{A'})
+ \quad\Longleftrightarrow\quad A\simeq_{\mathrm{gr}}A'.
+\end{equation}
+これは対象の同型類の認識であり、
+与えられた全同値関手が次数一の代数同型に由来するという主張ではない。
+\end{corollary}
+\begin{proof}
+全 $\OO$-保存同値から、定理\ref{mbv:thm:all-o-third}により
+$C=A^{(3)}$ と $C'=(A')^{(3)}$ の次数付き同型を得る。
+ここでは代数閉体上で、grading scalar の torsor を自明化してよい。
+中心一次生成イデアルで割ると、\eqref{mbiq:eq:central-quotient}により $D\simeq D'$ となる。
+定理\ref{mbiq:thm:triple-recovery}から、因子の元の楕円 triple が置換を除いて一致する。
+二次関係は
+\[
+ \ker\left(H^0(E_i,L_i)\otimes H^0(E_i,L_i)
+ \longrightarrow H^0(E_i,L_i\otimes\sigma_i^*L_i)\right)
+\]
+なので、この triple 同型は Sklyanin 因子の次数付き同型を与える。
+従って周囲代数も同型である。
+各三次中心は直線であり、全ての中心係数は非零なので、
+ブロックごとの grading scalar の三乗を選んで商の中心直線を一致させられる。
+このとき周囲同型は $A\simeq A'$ へ降りる。
+逆向きは次数付き同型の構造移送による。
+\end{proof}
+
+\begin{remark}[自己同型群と相対認識に残る範囲]
+一般の $j$ が相異なり、$j_i\ne0,1728$ であるとき、
+全 $\OO$-保存自己同値が各点曲線に誘導する自己同型は、
+次数三偏極を保って $\sigma_i$ と可換する $E_i[3]$ の平行移動に限られる。
+次数九の偏極だけから得られる $E_i[9]$ への拡大は、余法線によって排除される。
+ただし全曲線上で恒等な自己同値の核は、本節だけでは計算していない。
+
+また、本節の対象剛性は非被約底上の同型層の一致、
+与えられた全同値の次数一への持上げ、あるいは任意の第三根表示の分類を意味しない。
+第\ref{mbr:sec:roots}節の非可換な混合関係を持つ Zhang twist では、
+余法線の左右作用を本節の可換 tensor 公式に置き換えられない。
+従って同じ第三 Veronese を持つ非同型の twist の存在とは矛盾しない。
+本節の内在的な構成は商と余法線であり、
+純因子 $U_i\subset D$ の埋込み自体を一意に選んだという主張でもない。
+\end{remark}

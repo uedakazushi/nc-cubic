@@ -1,0 +1,470 @@
+% !TEX root = ../nc-cubic.tex
+\section{第三 Veronese の既知の自己同型と次数一軌道の安定化群}
+\label{mbva:sec:automorphisms}
+
+本節では、表示の自己同型群が第三 Veronese へ忠実に作用することと、
+その像が構造対象の全次数一軌道を保つ同値群に一致することを示す。
+二ブロックでは次数三の Heisenberg 表現も明示する。
+全自己同型群の決定は含めず、追加自己同型があり得る範囲を区別する。
+
+基礎体は標数零の代数閉体とする。
+第\ref{mbr:sec:roots}節の記号により、ブロック数を $\ell\ge2$、
+\[
+ B=\bigotimes_{i=1}^{\ell}S_i,\qquad
+ A=B/(w),\qquad w=\sum_i a_i\Omega_i,\quad a_i\ne0,\qquad C=A^{(3)}
+\]
+とする。因子の $j$ 不変量は相異なり $0,1728$ を避け、
+$6p_i\ne0$ とする。全 $\OO$-同値を扱う箇所では
+定理\ref{mbv:thm:all-o-third}の有限捩れ条件も課す。
+以下の次数一軌道の議論は、全整数の切断飽和性が成立する基礎体上で行う。
+本稿の $\C$ 上の表示族では系\ref{mbsd:cor:saturation}がこれを与える。
+記号を
+\[
+ \mathscr C=\operatorname{QGr}A,\qquad
+ \mathsf s=(1),\qquad \OO(j)=\mathsf s^j\OO,\qquad
+ G=\operatorname{Aut}_{\OO}(\mathscr C)
+     \cong\operatorname{Aut}_{\mathrm{gr}}(C)/\mathbf G_m
+\]
+とする。$G$ の元は構造対象の同定を持つ同値を、
+その同定を保つ自然同型で割ったものである。
+表示自己同型群は
+\[
+ \mathcal K_\ell=
+ \operatorname{Aut}_{\mathrm{gr}}(A)/\mathbf G_m
+ =\Bigl(\prod_i\mathcal H_i\Bigr)/\mu_3^{\mathrm{diag}}
+\]
+である。ここで各 $\mathcal H_i$ は中心三次元を固定する指数三・位数 $27$ の
+Heisenberg 群である。
+
+\subsection{全次数の第三 Veronese への忠実性}
+
+\begin{proposition}[表示慣性は第三 Veronese 上でも忠実である]
+\label{mbva:prop:faithful}
+制限による準同型
+\[
+ \mathcal K_\ell\longrightarrow
+ \operatorname{Aut}_{\mathrm{gr}}(C)/\mathbf G_m
+\]
+は単射である。従って二ブロックでは全 $\OO$-自己同値群は、
+位数 $243$ の既知の部分群 $\mathcal K_2$ を含む。
+\end{proposition}
+\begin{proof}
+$h=(h_i)\in\prod_i\mathcal H_i$ の作用が $C$ 上の次数スカラーになるとし、
+$C_1=A_3$ 上の値を $\lambda$ とする。
+$h$ は全ての $\Omega_i$ を固定し、その像の張る $Z(A)_3$ は
+次元 $\ell-1>0$ なので $\lambda=1$ である。
+
+異なる $i,j$ について、混合部分
+\[
+ (S_i)_2\otimes W_j\subset B_3
+\]
+は $A_3$ へ単射に入る。実際、三次関係 $w$ は純粋なブロック三次部分にのみ成分を持つ。
+この部分で $h$ は $(h_i)_2\otimes(h_j)_1$ として作用する。
+非零な有限次元空間上で二つの可逆写像の tensor 積が恒等なら、
+各写像は互いに逆のスカラーである。
+従って各 $(h_j)_1=\varepsilon_j\operatorname{id}$ であり、
+$h_j\in\mathcal H_j$ より $\varepsilon_j^3=1$ となる。
+混合部分上の恒等式は
+$\varepsilon_i^2\varepsilon_j=1$、すなわち $\varepsilon_j=\varepsilon_i$ を与える。
+よって $h$ は共通 $\mu_3$ に属し、$\mathcal K_\ell$ では恒等である。
+\end{proof}
+
+\begin{remark}[twist の積と自己同型の作用]
+\label{mbva:rem:scalar-action}
+原始三乗根 $\zeta$ を固定する。
+二ブロックで $h=(\zeta\operatorname{id}_{W_1},\operatorname{id}_{W_2})$ とすると、
+$A_3$ の三つの固有空間は
+\[
+ \begin{array}{c|c|c}
+ \text{部分空間}&\text{固有値}&\text{次元}\\ \hline
+ ((S_1)_3\oplus(S_2)_3)/kw&1&19\\
+ (S_1)_2\otimes W_2&\zeta^2&18\\
+ W_1\otimes(S_2)_2&\zeta&18
+ \end{array}
+\]
+である。したがってブロックスカラー $\mu_3$ は第三 Veronese 上で消えない。
+$(A^h)^{(3)}=A^{(3)}$ という等式は、次数三の倍数から始まる
+Zhang twist の積が元の積に等しいという意味であり、
+$h$ 自身のこの自己同型作用が恒等になるという意味ではない。
+\end{remark}
+
+\subsection{全次数一軌道を保つ同値関手の認識}
+
+\begin{theorem}[SSS 部分群の関手レベルの認識]
+\label{mbva:thm:sss}
+$A,A'$ を上の仮定を満たす二つの可換 tensor 積中心商とする。
+全整数について
+$F(\OO(j))\simeq\OO'(j)$ を満たす $\OO$-保存同値の集合は、
+自然に
+\[
+ \operatorname{Isom}_{\mathrm{gr}}(A,A')/k^\times
+\]
+と同定される。特に $G$ の SSS 部分群
+\[
+ G_{\mathrm{SSS}}=
+ \{F\in G:F(\OO(j))\simeq\OO(j)\ \text{for all }j\in\mathbf Z\}
+\]
+は $\mathcal K_\ell$ に正確に一致する。
+\end{theorem}
+\begin{proof}
+各整数 $j$ について同型 $F(\OO(j))\simeq\OO'(j)$ を選ぶ。
+切断飽和と $F$ の完全忠実性により、隣接 Hom 上に可逆線型写像
+\[
+ h_j:V=A_1\longrightarrow V'=A'_1
+\]
+を得る。合成を長さ二へ適用すると
+\begin{equation}\label{mbva:eq:adjacent-relations}
+ (h_{j+1}\otimes h_j)R_B=R_{B'}
+\end{equation}
+である。右加群では切断 $x$ の写像は左乗法であり、
+二つの射の合成は $f_y\circ f_x=f_{yx}$ となるため、この tensor 順序を用いる。
+
+式\eqref{mbva:eq:adjacent-relations}の双線型零点スキームの第一射影と第二射影を取る。
+系\ref{tbp:cor:all-blocks}により、それらは各々の点曲線の非交和であり、
+$h_j,h_{j+1}$ は両側の点曲線の線型包を対応させる。
+$j$ 不変量が相異なるため、成分の対応は $j$ 不変量の一致から一意である。
+したがって、このブロックの置換は整数 $j$ に依存しない。
+標的のブロックを一度並べ直すと、
+$h_j=\bigoplus_i h_{j,i}$ となる。
+
+異なる二ブロック $i,t$ の混合関係は可換関係である。
+式\eqref{mbva:eq:adjacent-relations}を
+$(W'_i\otimes W'_t)\oplus(W'_t\otimes W'_i)$ に制限し、
+第一成分上のグラフとして比較すると
+\[
+ (h_{j,t}h_{j+1,t}^{-1})
+       \otimes(h_{j+1,i}h_{j,i}^{-1})
+   =1_{W'_t}\otimes1_{W'_i}.
+\]
+従って一つの $c_j\in k^\times$ が存在して、全ブロックについて
+$h_{j+1,i}=c_jh_{j,i}$ となる。
+二ブロックの場合にも一つの混合対が両方のスカラーを一致させ、
+三ブロック以上では各対の共通成分を通して同じ結論を得る。
+ゆえに $h_j=d_jh_0$ となる $d_j\in k^\times$ が全整数で存在する。
+
+各対象の同型の frame を $b_j\in k^\times$ で変更すると、
+隣接 Hom の写像は $(b_{j+1}/b_j)h_j$ になる。
+$b_0=1$ とし、$b_{j+1}/b_j=d_j^{-1}$ を正負両方向へ再帰して、
+全ての $h_j$ を同じ写像 $h=h_0$ に揃えられる。
+次数二の合成から $(h\otimes h)R_B=R_{B'}$ なので、
+$h$ は二次包絡 $B\simeq B'$ を与える。
+長さ三の合成は、その二次包絡内の三次核 $kw$ を $kw'$ へ移す。
+従って $h$ は $A\simeq A'$ の次数付き同型である。
+
+$A,A'$ は次数一生成なので、全ての
+$\Hom(\OO(j),\OO(j+m))$ への作用は隣接 Hom と合成で決まる。
+上の frame の下で $F$ と $h$ の構造移送はこれら全てに一致する。
+Gabriel 切断による完全忠実性と $\{\OO(j)\}_{j\in\mathbf Z}$ の Abel 生成性から、
+両関手は構造対象の同定を保つ自然同型を持つ。
+最後に、次数付き同型の構造移送が同じになる核は共通 grading scalar である。
+これは隣接 Hom 上の自然性、または命題\ref{mbva:prop:faithful}と
+定理\ref{mbv:thm:all-o-third}から従う。
+\end{proof}
+
+\begin{corollary}[二つの対象と次数一自己同値の安定化群]
+\label{mbva:cor:pair-stabilizer}
+全 $\OO$-同値の第三 Veronese 認識が成立する範囲では、
+\[
+ \mathcal K_\ell
+  =\operatorname{Stab}_{G}([\OO(1)],[\OO(2)])
+  =\{F\in G:F\mathsf s\simeq\mathsf s F\}.
+\]
+従って追加自己同型が存在すれば、
+少なくとも $\OO(1),\OO(2)$ の一方の同型類を動かす。
+$\OO(1)$ 単独の安定化群が $\mathcal K_\ell$ であるとは主張しない。
+\end{corollary}
+\begin{proof}
+$G$ の各元は $C$ の次数付き自己同型から来るので、
+$\mathsf s^3$ と可換する。
+従って $\OO,\OO(1),\OO(2)$ を保てば全整数の $\OO(j)$ を保つ。
+逆は明らかで、定理\ref{mbva:thm:sss}を適用する。
+また $\mathsf s$ と可換する $\OO$-保存同値は SSS である。
+逆に次数付き自己同型の構造移送は次数一 shift と可換する。
+\end{proof}
+
+\subsection{既知の三乗根の対象軌道と全同値による共役}
+
+右加群の構造移送の規約として、$\Phi_h$ は
+作用を $m\cdot a=m h^{-1}(a)$ と変える関手とする。
+これにより $h\mapsto\Phi_h$ は準同型となる。
+共通 grading scalar は自然同型で恒等になるので、
+$h\in\mathcal K_\ell$ に対して $\Phi_h$ が定まる。
+
+\begin{proposition}[代数的 twist の根は同じ対象軌道を持つ]
+\label{mbva:prop:root-functors}
+$\tau\in\prod_i\mathcal H_i$ に対し、共通の第三 Veronese を使って
+$\operatorname{QGr}A^\tau$ を $\mathscr C$ へ同定する。
+その次数一 shift を移した自己同値は
+\begin{equation}\label{mbva:eq:root-functor}
+ \mathsf s_\tau=\Phi_{\tau^{-1}}\mathsf s,\qquad
+ \mathsf s_\tau^3\simeq\mathsf s^3
+\end{equation}
+であり、全整数 $j$ について
+$\mathsf s_\tau^j\OO\simeq\OO(j)$ となる。
+したがって $\mathcal K_\ell$ の各元は、固定した圏の上で互いに異なる
+$\mathsf s^3$ の三乗根の自然同型類を与える。
+\end{proposition}
+\begin{proof}
+Zhang 関手を $\mathsf T_\tau:\operatorname{Gr}A\to\operatorname{Gr}A^\tau$ と書く。
+次数 $d$ の元の右作用は $m*a=m\tau^d(a)$ である。
+第三 Veronese では $d=3n$ なので、この関手の制限は恒等である。
+従って共通 Veronese による比較は $\mathsf T_\tau^{-1}$ に等しい。
+
+$\mathsf T_\tau^{-1}(1)\mathsf T_\tau$ を計算すると、
+shift 後の次数 $d$ の元の作用は
+$m\tau^{d+1}(\tau^{-d}(a))=m\tau(a)$ である。
+これが式\eqref{mbva:eq:root-functor}を与える。
+$\Phi_\tau$ は $\mathsf s$ と可換し、$\tau^3=1$ なので三乗の式も従う。
+$A^\tau(j)$ を元の圏へ移した右加群の作用は
+$m\cdot a=m\tau^j(a)$ であり、$m\mapsto\tau^{-j}(m)$ が
+元の $A(j)$ との同型を与える。これは負の整数にも成立する。
+最後に $\mathsf s_\tau\simeq\mathsf s_\upsilon$ なら
+$\Phi_{\tau^{-1}}\simeq\Phi_{\upsilon^{-1}}$ であり、
+命題\ref{mbva:prop:faithful}から $\bar\tau=\bar\upsilon$ となる。
+\end{proof}
+
+\begin{corollary}[全 $\OO$-同値は既知の共役類を融合しない]
+\label{mbva:cor:root-orbits}
+$F\in G$ が $\mathsf s_\tau$ を $\mathsf s_\upsilon$ へ共役するなら、
+$F\in\mathcal K_\ell$ である。さらに
+\[
+ \operatorname{Stab}_{G}(\mathsf s_\tau)
+       =C_{\mathcal K_\ell}(\bar\tau).
+\]
+従って第\ref{mbr:sec:roots}節の
+$(11^\ell+2\cdot8^\ell)/3$ 個の共役類は、
+未知の全自己同型群 $G$ による共役を許しても互いに異なる。
+二ブロックでは、固定した圏上の $243$ 個の既知の三乗根が
+全 $G$ の下でも正確に $83$ 個の異なる共役類に属する。
+ここでは既知の三乗根以外が存在しないとは主張しない。
+\end{corollary}
+\begin{proof}
+$F\OO\simeq\OO$ と共役条件から、全整数 $j$ について
+$F(\mathsf s_\tau^j\OO)\simeq\mathsf s_\upsilon^j\OO$ である。
+命題\ref{mbva:prop:root-functors}によりこれは SSS 条件そのものである。
+従って $F\in\mathcal K_\ell$ となる。
+この群は $\mathsf s$ と可換し、その $\mathsf s_\tau$ への共役作用は
+$\bar\tau$ への通常の共役作用に一致する。
+\end{proof}
+
+特に、ある点で $G$ が有限であることが別途証明されたなら、
+$|G|$ は $3^{3\ell-1}$ の倍数であり、
+順序付き対象対 $([\OO(1)],[\OO(2)])$ の軌道の大きさは
+$|G|/3^{3\ell-1}$ である。これを有限性の証明や全群の決定の代用にはしない。
+
+\subsection{中心一次元で割った後に残り得る有限核}
+
+以下の補題は二ブロック以外にも使えるが、
+本稿では $Z(C)_1=kg$ の二ブロックの場合に適用する。
+
+\begin{proposition}[二次代数の中心還元の有限核]
+\label{mbva:prop:central-reduction-kernel}
+$C$ を次数一生成の連結二次代数、$g\in Z(C)_1$ を正則元とし、
+$Z(C)_1=kg$、$D=C/(g)$、$D_1\ne0$ とする。
+$G=\operatorname{Aut}_{\mathrm{gr}}(C)/k^\times$ が有限群であると仮定する。
+このとき制限写像
+\[
+ G\longrightarrow\operatorname{Aut}_{\mathrm{gr}}(D)/k^\times
+\]
+の核は自明群または位数二の中心部分群である。
+
+さらに、$C/(g^2)$ が定める一次変形類
+$\kappa_C\in HH^2(D,D)_{-1}$ が非零なら、この核は自明である。
+後半の非零性は、現在の二ブロック族に対して本節では証明しない。
+\end{proposition}
+\begin{proof}
+核の元には、$D$ 上の作用が文字通り恒等となる
+唯一の次数付き自己同型の代表 $\alpha$ がある。
+実際、共通 grading scalar によってそのように規格化でき、
+$D_1\ne0$ が一意性を与える。この規格化は積と可換するので、
+これらの代表自身も有限群をなす。
+$\alpha(g)=\lambda g$ と書くと、$\alpha\mapsto\lambda$ は核の指標となる。
+$\lambda=1$ なら $C_1$ 上で
+$\alpha=1+g\otimes l$、$l(g)=0$ であり、これは unipotent である。
+有限群の元なので標数零では恒等となり、$C$ の次数一生成性から $\alpha=1$ である。
+従ってこの指標は単射で、核は循環群である。
+
+その位数を $m\ge3$ と仮定し、生成元 $\alpha$ を取る。
+有限群表現の半単純性により
+$C_1=kg\oplus U$ と分解でき、$\alpha$ は $g$ に原始 $m$ 乗根 $\lambda$、
+$U\simeq D_1$ に恒等として作用する。
+二次 tensor の固有値は $1,\lambda,\lambda^2$ の三つで、互いに異なる。
+二次関係空間をそれらの固有空間へ分解する。
+固有値 $\lambda$ の関係は $g\otimes u-u\otimes g$ だけである。
+それ以外があれば $g$ と $U$ の非零な元との積が零となり、正則性に反する。
+固有値 $\lambda^2$ の関係は $g^2\ne0$ により存在しない。
+従って全ての残りの関係は $U\otimes U$ に属し、
+\[
+ C\simeq D[g]
+\]
+となる。しかしこの場合は $U$ を固定し $g$ だけを尺度変更する
+$\mathbf G_m$ が $G$ に単射に入るため、有限性に反する。
+よって $m\le2$ である。位数二の核は正規部分群なので $G$ の中心に入る。
+
+最後に $C/(g^2)$ を、次数一の変形変数 $g$ による
+$D$ の一次変形と見る。
+$D$ 上恒等で $g\mapsto\lambda g$ となる自己同型が存在すれば、
+その一次変形類は $\kappa_C=\lambda\kappa_C$ を満たす。
+$\kappa_C\ne0$ なら $\lambda=1$ であり、前半の単射性から核は自明となる。
+\end{proof}
+
+命題\ref{mbg:prop:finite-open}の二ブロックの非空開では、
+$Z(C)_1=kg$、$g$ の正則性と二次表示が既に確認されているので、
+この有限核の結論を各幾何点に適用できる。
+
+ここで $g$ を固定する条件を省いて、単に
+$\alpha\bmod g=1$ から unipotent 性を推論してはならない。
+例えば二次代数
+$k\langle x,y,g\rangle/([g,x],[g,y],xy-yx-g^2)$ では、
+$g\mapsto-g$、$x,y$ 固定は、$g$ で割ると恒等となる位数二の自己同型である。
+これは上の一般的な議論で二次の可能性が残る理由を示す例であり、
+本稿の二ブロック代数にこの自己同型が存在するという主張ではない。
+
+\subsection{二ブロックの次数三表現}
+
+以下は $\ell=2$ とする。$Q_i=\mathcal H_i/\mu_3\simeq\mathbf F_3^2$、
+$Q=Q_1\oplus Q_2$ と置く。
+$\mathcal K_2$ の中心 $Z$ は位数三で、$Q=\mathcal K_2/Z$ である。
+中心の二つの非自明な指標を持つ九次元既約表現を
+$U_+=W_1\otimes W_2^\vee$、$U_-=W_1^\vee\otimes W_2$ と書く。
+二つの因子の線型指標は、$Q$ の指標へ膨張して使う。
+
+\begin{proposition}[五十五次元表現の完全な分解]
+\label{mbva:prop:representation}
+$\mathcal K_2$-表現として
+\begin{equation}\label{mbva:eq:representation}
+ C_1=A_3\simeq
+ k^{\oplus3}
+ \oplus\bigoplus_{\substack{\chi\in Q_1^\vee\\\chi\ne1}}k_\chi
+ \oplus\bigoplus_{\substack{\chi\in Q_2^\vee\\\chi\ne1}}k_\chi
+ \oplus U_+^{\oplus2}\oplus U_-^{\oplus2}.
+\end{equation}
+特に、中心の固有空間の次元は $19,18,18$ である。
+$h\in\mathcal K_2$ の $Q$ における像の support を $s$ とすると、
+$C_1$ 上の指標は
+\[
+ \operatorname{tr}(h|C_1)=
+ \begin{cases}
+ 55&h=1,\\
+ 10&s=1,\\
+ 1&\text{それ以外}
+ \end{cases}
+\]
+となる。
+\end{proposition}
+\begin{proof}
+各 $\mathcal H_i$ の二次関係空間 $R_i$ は、
+非自明中心指標を持つ三次元既約表現なので $W_i^\vee$ と同型である。
+従って $(S_i)_2\simeq(W_i^\vee)^{\oplus2}$ となる。
+Heisenberg の標準生成元は行列式一であり、
+三次 syzygy 直線 $P_i\simeq\det W_i$ は自明表現である。
+ここでは補題\ref{mbsd:lem:potential-line}の potential 直線の同定を使う。
+Koszul 解消の次数三部分と半単純性から
+\[
+ (S_i)_3\simeq(W_i\otimes W_i^\vee)\oplus k
+             \simeq k[Q_i]\oplus k
+\]
+を得る。基底 $e_j$（$j\in\mathbf Z/3$）上の
+$Xe_j=e_{j-1}$、$Ye_j=\zeta^je_j$ を用いると、
+最後の同型は九つの行列 $X^aY^b$ が
+$\operatorname{End}(W_i)$ において $Q_i$ の全指標を各一回ずつ与えることによる。
+
+純三次部分 $(S_1)_3\oplus(S_2)_3$ から不変直線 $kw$ を除くと、
+自明表現が三回、二つの $Q_i$ の非自明指標が各一回残る。
+二つの混合部分は、それぞれ $U_-^{\oplus2},U_+^{\oplus2}$ である。
+これで式\eqref{mbva:eq:representation}を得る。
+
+各 $W_i$ の指標は、中心元でのみ非零である。
+$(S_i)_3$ の指標は $Q_i$ における像が零なら $10$、そうでなければ $1$ である。
+この値と混合部分の tensor 積の指標を足せば、表示した trace の公式を得る。
+\end{proof}
+
+\begin{corollary}[線型空間内の中心化群]
+\label{mbva:cor:linear-centralizer}
+この作用の射影線型中心化群は
+\[
+ Z_{\operatorname{PGL}(C_1)}(\mathcal K_2)
+ \cong
+ \bigl(\operatorname{GL}_3\times\mathbf G_m^{16}
+                  \times\operatorname{GL}_2\times\operatorname{GL}_2\bigr)/\mathbf G_m
+\]
+であり、次元は $32$ である。
+これは $C_1$ という線型空間における中心化群であって、
+代数 $C$ の自己同型群における中心化群ではない。
+\end{corollary}
+\begin{proof}
+線型中心化群の表示は式\eqref{mbva:eq:representation}と Schur の補題による。
+射影的に中心化する写像は、線型持上げにおいてある一次指標 $\chi$ を用いた
+$C_1\simeq C_1\otimes\chi$ を与える。
+しかし一次指標のうち重複度三を持つものは自明指標だけなので、$\chi=1$ である。
+従って射影中心化群は線型中心化群の共通スカラー商に等しい。
+\end{proof}
+
+\begin{proposition}[線型空間内の正規化群の有限商]
+\label{mbva:prop:linear-normalizer}
+$N= N_{\operatorname{PGL}(C_1)}(\mathcal K_2)$、
+$Z_{\mathrm{lin}}= Z_{\operatorname{PGL}(C_1)}(\mathcal K_2)$ と置く。
+$N/Z_{\mathrm{lin}}$ は位数 $81\cdot2304=186624$ の有限群であり、
+\[
+ 1\longrightarrow Q
+ \longrightarrow N/Z_{\mathrm{lin}}
+ \longrightarrow\Gamma\longrightarrow1,\qquad
+ |\Gamma|=2304
+\]
+となる。$\Gamma$ は $Q_1,Q_2$ の順序なし分解を保つ symplectic similitude 群である。
+ブロックを保つ部分は
+\[
+ \{(g_1,g_2)\in\operatorname{GL}_2(\mathbf F_3)^2:
+                    \det g_1=\det g_2\}
+\]
+であり、これにブロック交換を加えた群が $\Gamma$ である。
+\end{proposition}
+\begin{proof}
+$\mathcal K_2$ は指数三の extraspecial 群であり、その交換子は
+$Q$ 上の非退化交代形式 $\omega=\omega_1-\omega_2$ を定める。
+半分の交換子を積に使う Heisenberg 座標では、
+積は $(q,t)(q',t')=(q+q',t+t'+\tfrac12\omega(q,q'))$ であり、
+multiplier が $\varepsilon$ の similitude $u$ は
+$(q,t)\mapsto(uq,\varepsilon t)$ に持ち上がる。
+自己同型群から $\operatorname{GSp}(Q,\omega)$ への写像は全射である。
+その核は $\operatorname{Hom}(Q,\mathbf F_3)$ であり、
+非退化 pairing によって内部自己同型群 $Q$ と同一視される。
+
+射影正規化群の元も、ある一次指標を掛けた表現の intertwiner である。
+前系と同じ重複度三の一意性により、その指標は自明である。
+従って正規化群の有限商は
+式\eqref{mbva:eq:representation}の同型類を保つ $\mathcal K_2$ の自己同型群に等しい。
+一次指標の support は
+$(Q_1^\vee\cup Q_2^\vee)\setminus\{0\}$ なので、
+許される similitude は二つの二次元平面を置換しなければならない。
+実際、両平面の和集合に含まれる二次元部分空間は、この二平面のいずれかである。
+逆にそれらを置換する similitude は一次指標の重複度を保ち、
+中心指標の符号変更も $U_+,U_-$ の等しい重複度を保つので、
+必ず線型 intertwiner を持つ。
+
+各二次元ブロックでは similitude multiplier は行列式である。
+二ブロックの行列式が等しい組は
+$2\cdot24^2=1152$ 個あり、交換を許せば $2304$ 個となる。
+内部自己同型群の位数 $|Q|=81$ を掛けて主張を得る。
+\end{proof}
+
+この線型正規化群を実際の $G$ の部分群と取り違えない。
+$N$ の中で代数自己同型を求める際にも、
+さらに $C$ の $2619$ 次元の二次関係空間を保存する条件を課す必要がある。
+また、全 $G$ が既知の $\mathcal K_2$ を正規化することも、ここでは証明していない。
+
+\begin{remark}[検算と残る認識]
+\label{mbva:rem:verification}
+\texttt{computations/verify\_veronese\_representation.py} は、
+既存の Heisenberg 群の座標実装と Koszul 指標式を入力とし、
+全 $243$ 元での次数三の指標、
+既約分解の重複度、中心の三つの固有空間次元、および
+$\Gamma$ の位数 $2304$ を有限体・整数演算で検算する。
+これは有限群表現の検算であって、
+全 $G$ の計算や次数一の全根の分類ではない。
+新たな認識は、既知部分群の忠実性、SSS 関手そのものの認識、
+および既知の三乗根が全 $G$ の共役でも融合しないことである。
+全 $G$、$\OO(1)$ 単独の軌道と安定化群、
+この部分群の外から来る次数一の根はなお未決定である。
+これらを組み合わせた主張の新規性の網羅的確認は未完了である。
+\end{remark}

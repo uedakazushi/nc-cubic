@@ -1,36 +1,42 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月21日 / v32。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月21日 / v33。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
-## 0. 満支持複数ブロック型：第三Veroneseの認識と同変復元
+## 0. 満支持複数ブロック型：全O局所型・余法加群・点曲線比較
 
-**設定。** `N=n+2=3k+m`。満支持`m=0,k≥2`では楕円Sklyanin因子と中心三次から`B=⊗S_i`, `A=B/(Σa_iΩ_i)`、全`a_i≠0`とする。`p_i,2p_i,3p_i≠0`、相異なる`j_i≠0,1728`という開を基本とする。第三Veroneseの全O認識にはさらに`jp_i≠0 (1≤j≤3k−3)`、全代数的twistの分類には`6p_i≠0`を課す。これらは有限個の条件からなる非空開であり、無限位数を要求していない。
+**設定。** `N=n+2=3k+m`。満支持`m=0,k≥2`では`B=⊗S_i`, `A=B/(Σa_iΩ_i)`、全`a_i≠0`。`p_i,2p_i,3p_i≠0`、相異なる`j_i≠0,1728`を基本とし、第三Veroneseの全O認識には`jp_i≠0 (1≤j≤3k−3)`、根の分類には`6p_i≠0`を課す。無限位数は要求しない。以下の全O群は自然同型類の群であり、構造対象の同定を含む。
 
 | 内容 | 状態・仮定・証明所在 |
 | --- | --- |
-| 表示stackと中心 | 三次中心の次元はBでk、Aでk−1。二次包絡と中心直線を回復し、射影的graded表示DM stackは次元2k、慣性`(H_27^k)/Δμ_3`。`tba:prop:quadratic-envelope`, `mbs:thm:presentation-stack` |
-| 点対応の限界 | 点スキーム`⊔E_i`。点対応の双線型イデアルは二次関係より`9 binom(k,2)`次元大きい。二ブロック24対15。中心係数は尺度の単一軌道。`tbp:cor:all-blocks`, `tba:prop:central-pencil-gerbe` |
-| 普遍相対双対 | potential直線をdetW_iへ同定し、tensor Koszul解消、相対Gorenstein、全整数飽和、compact proper Serreを得る。`mbsd:thm:ambient-duality`, `mbsd:cor:saturation`, `mbsd:thm:serre` |
-| 基底直線と反標準環 | `D=det(⊕W_i)⊗ℓ^∨`、Serreは`(-3k+3)[3k−2]⊗D`。`⊕A_(rq)⊗D^(−q)`は全O内在的で、scalar重み零により表示stackへ降下。`mbsd:cor:anticanonical` |
-| 第三Veroneseの中心と平坦性 | `C=A^(3)`、`Z(C)_e=Sym^e Z(A)_3`（`e≤d`、位数条件`j≤3d`）。Cは中心多項式環上平坦、非被約底変更も可。`mbv:prop:center`, `mbv:lem:relative-center` |
-| 全O同値の認識 | `Eq_O(QGr A,QGr A')=Isom_gr(A^(3),A'^(3))/G_m`（fpqc層）。k≥3では中心復元で`(k−1)`-Veroneseから戻し、k2はSerre指数3を直接使う。`mbv:thm:all-o-third` |
-| 全同値の有限表示 | CはA_3生成・二次関係`ker(A_3⊗A_3→A_6)`。k2では55生成元・2619関係。固定模型間のEq_Oは有限表示scheme。相対関係の平坦性・全stack代数性は別。`mbv:lem:quadratic` |
-| 全代数的twist | `K_k=(H_27^k)/Δμ_3`の共役groupoid。同型類数`(11^k+2·8^k)/3`、k2で83・k3で785。同じ第三Veroneseの別表示。`mbr:thm:algebraic-twist-groupoid`, `mbr:cor:twist-count` |
-| 可換tensorチャートの剛性 | 両端が可換tensor中心商なら、一般twisting systemによる同値は次数付き同型を意味する。全O同値への適用には全shift対象の保存（SSS）が必要。`mbr:thm:commuting-twist-rigidity`, `mbr:cor:sss-recognition` |
-| 同変一般点復元 | 一変数の次数別自由変形という入力と既存cft/gdrの下で、分裂cubicはK=C(h)上、`G=(μ_3)^(k−1)`同変・rotation/period保存核は有限拡大上に存在。`med:thm:multiblock-generic` |
-| 二ブロック同変圏 | 追加有限拡大後、同変残余圏は二つの復元種数一曲線の積のDb。Huの既知定理と有限核降下を使用。通常のKuそのものでも、点曲線との同定でもない。`med:cor:elliptic-product` |
+| 表示stack・相対双対 | 表示DM stackは次元2k、慣性`K_k=(H_27^k)/Δμ_3`。Serreは基底直線`D=det(⊕W_i)⊗ℓ^∨`を保持。`mbs:thm:presentation-stack`, `mbsd:thm:serre` |
+| 全O同値の有限表示 | `Eq_O=Isom_gr(C,C')/G_m`, `C=A^(3)`。二ブロック55生成元・2619二次関係。`mbv:thm:all-o-third`, `mbv:lem:quadratic` |
+| 中心商の純成分 | `D=C/(Z(C)_1)=(⊗T_i)^(3)`、`T_i=S_i/(Ω_i)`。幾何点加群は純`T_i^(3)`成分だけ。混合対角は点成分を増やさない。非被約点関手全体の分類ではない。`mbiq:thm:point-locus` |
+| 余法加群から根を復元 | 純商の核I_iに対し、tails上`I_i/I_i²`は`(T_i(-1))^(3)`の`3(k−1)`コピー。`σ_i^*(−)⊗L_i^(−1)`を回復し、`(E_i,L_i,σ_i)`を決める。`mbiq:prop:conormal-root`, `mbiq:thm:triple-recovery` |
+| 可換tensor幾何点の剛性 | 全O同値ならgraded同型。SSSを仮定しない対象の主張であり、各同値関手の持上げや相対Isomの一致ではない。`mbiq:cor:commuting-o-rigidity` |
+| 一般の有限全慣性 | 可換三次への支配的特殊化と有限導分行列により、全O自己同値群が有限étaleとなる非空開を証明。`mbg:prop:finite-open` |
+| 全O局所型DM stack | 関係Grassmann像の非空開に`M_k°=[Z°/PGL(A_3)]`を構成。滑らか・既約・次元2k。任意抽象圏の全変形成分や全境界の主張ではない。`mbg:thm:generic-stack` |
+| 既知部分群と根 | K_kは全群に忠実、SSS部分群＝`(O(1),O(2))`安定化子＝shift中央化群。既知twistの83・785類は全群でも非融合。全根分類は未完。`mbva:thm:sss`, `mbva:cor:root-orbits` |
+| 二ブロックの還元核 | 有限全慣性開では`G_C→G_D`の核は高々μ2。中心一次変形類非零なら自明だが、非消滅は未証明。`mbva:prop:central-reduction-kernel` |
+| 同変復元と点三次模型 | 明示的Jacobian tensor/PBW族で`J_i=g_i+ε_i² det Hess(g_i)/24`, `H_pt=Σc_iλ_iJ_i`。既存cft/gdrの下で有限拡大上の同変Ku比較。`mpc:thm:point-model` |
+| 実際の点曲線の積 | 二ブロックではHu比較を介し、有限拡大後に`(K_A^coh)^(μ3)≃Db(E_1×E_2)`。同じG/rotationを保つ復元曲線と点曲線の平面同型被覆はrank18^k。`mpc:cor:point-product`, `mpc:cor:plane-isom-cover` |
 
-**第三Veronese中心の証明の要点。** 第一ブロック濾過のgrは`T_1⊗(⊗_{i≥2}S_i)`。Cの中心元の最高第一ブロック次数jが正なら、純三次`(T_1)_3`の切断比との可換性から`σ_1^j=1`となる。j=0へ落とした後は第一ブロック二次×他ブロック一次との可換性で残る因子の中心へ入る。各Sの中心はΩによる除算帰納で求める。普遍底の被約性と交換子行列の一定階数から、中心核の任意底変更を得る。非被約底のfiber rankだけでflatnessを主張しない。
+**点の支持と余法加群。** `F=⊗T_i^(3)⊂D`に対しDは左右有限加群。点加群の十分なtailをFへ制限すると、複数active因子は`σ_i³`の固定点を要求して不可能。混合次数一作用が残れば、その三乗はinactive因子を持つFの元として零になる一方、点列では非零となり矛盾する。純成分核I_iは次数一で生成される。I_i²は次数二以上で「外部次数≥2」の部分なので、余法加群は外部次数一、すなわち`(T_i)_(3n−1)`のコピーを残す。次数一だけの有限長例外はtailsで消える。skyscraperの支持からσ、構造層の像からLを回復する。全文は`mbiq`節。
 
-**根の分類の範囲。** 代数的twistは単一のgraded automorphismの冪によるもの。83・785はこの範囲を尽くす個数であり、全第三根の個数ではない。`6p_i≠0`はp_iに三捩れ点を足した後の±反転同定を排除する。q∈∏E_i[3]のsupportがsなら、その上の共役類数は`3^max(k−1−s,0)`、安定化子位数は`3^(3k−1−min(s,k−1))`。これらを全O自己同値群の位数と解釈しない。
+**モジュライの一般開。** `End(C_1)/kI→Hom(R_2,C_2)`の核が全射影自己同型のLie代数。滑らかな可換三次ではEuler以外の次数零導分がなく、Hesse関係`(1+hα)yz+(−1+hα)zy+hβx²`の支配的変形で一般の核も零となる。中心のprimitive剰余はPoisson Casimirとして滑らかなHesse三次の定数倍。関係Grassmann像ZへChevalleyとgeneric flatnessを適用し、一つのfppf被覆から全次数の自由性を降ろす。GLのframe束にPGLが直接作用するとはしない。対象はこの局所表示と全O同値のstack化であり、大域graded代数は不要。幾何fiberは9k次元なので商の次元2kを得る。相対Isomの有限性・平坦性を有限幾何fiberだけから結論していない。
 
-**同変核の降下と形式分枝。** G-coherenceは`(C^op⊗Γ)⋊G`上のperfect加群として一括して降ろす。|G|可逆のReynolds分裂により忘却後perfectと同変perfectが同値であり、filtered-colimit降下が使える。有限型底の閉点は別の核を与えるため、指定形式核の全jetは保存しない。`P¹`上の`[X:Y]↦[X+(exp(h)−1)Y:Y]`のgraph核は指定核として有限代数拡大へ降りない一方、恒等核は元の体上に存在する（`med:ex:formal-kernel`）。不変三次式の基礎体降下では、不変積分空間の非零det開と、不変symmetrizer代数内の三乗根を使う。
+**自己同値群の残る障害。** 第三Veroneseでtwistの積が戻ることと、ブロックスカラーの作用が消えることは異なる。二ブロックC_1の中心固有空間は19・18・18、K_2作用は射影的にも忠実。55次元表現は自明表現3コピー、商の16個の非自明一次指標、二つの9次元既約表現各2コピーに分かれる。ambient PGLのcentralizer次元は32、normalizer/centralizerの位数は186624だが、これらは二次関係を保つとは限らない。全GがK_2を正規化することも未証明。
 
-**まだ必要なこと。** 全第三根と第三Veronese自己同型群の分類、可換tensor表示間の全O同値のSSS性、全同値関係の平坦性・対象効果化、点曲線と復元曲線の同定、G作用・比較核・残余Poisson射の全O降下。compact proper Serreを得たことから、tails smoothnessやcompact＝全coherentを推論しない。coherent一般点比較は別のgdr定理を入力とする。
+中心還元核の元はD上恒等となる代表へ一意に規格化できる。これは群を保ち、gの固有値へ単射する。位数≥3なら二次関係の固有値分離で`C=D[g]`となり有限性に矛盾するため、残る核は高々μ2。`xy−yx=g²`の`g↦−g`は、還元が恒等でもunipotentとは限らない反例である。次の候補は一次中心変形類`κ_C≠0`の検出。別案として`(A(j))^(3)`の中心thickening上の持上げをExt消滅で剛性化するが、formal qgrからgraded moduleへ戻す段階は未完成である。この案を既得の核自明性とはしない。
 
-**一次資料と適用境界。** Smith–Tateのgraph/THCR/HeisenbergとZhangのtwist理論は既知入力。Cooney–Grabowski刊行版Proposition10のSSS条件を確認したが、本件の24対15の関係過剰によりDefinition11のgeometric algebra条件は成立せず、Theorem28を直接適用できない。一般twist剛性は混合関係から独立に証明した。Elagin arXiv:1403.7027v2 Lemma8.6, Theorems8.7,8.9はenhanced有限群作用と同変圏の比較に使用。Toën–Vaquié Lemmas2.8,2.10と既存降下補題の入力・coherenceを確認した。Hu arXiv:2312.17392v1は複素数体上の結果であり、有限Q定義体とperfect核降下を経て有限拡大上に移す。ATVの原文全体の再監査・新規性の網羅的確認は未完了。
+未完成の補強案の具体的な入口は、`E=T_1⊗T_2`, `D=E^(3)`, `M̄_j=(E(j))^(3)`のdepth4と局所化三角から、`Ext¹_GrD(M̄_j,M̄_j(−n))=Hom_GrD(M̄_j,M̄_j(−n))=0 (n>0)`を得る計算である。次に`C_n=C/(g^n)`とし、g-flatなP,Qに対する`P_(n+1)⊗^L_(C_(n+1))D≃P̄`を使う。短完全列`0→Q̄(−n)→Q_(n+1)→Q_n→0`へのderived adjunctionで同型を唯一に持ち上げ、固定次数でg^n商が安定することからgraded同型へ戻す方針である。この補強は本文の定理として統合・最終点検しておらず、現行の確定結論は核が高々μ2である。
 
-**再現。** `python3 computations/verify_multiblock_twists.py`はF3上のHeisenberg直積を共通中心で割り、k=2,3の全要素と生成元共役軌道を列挙して83・785を確認する。一般kの公式や代数・圏の認識を計算で証明したという意味ではない。既存`verify_two_block_structure.py`は具体的二因子の次数4までの中心・Hilbert値を再現する。実行状態と組版は`notes/validation.md`を参照。
+**点三次と同変比較の適用境界。** Jacobian tensor族のKontsevichグラフでは異色微分が零。残る異色成分は配置空間次元より角形式の次数が大きく、グラフごとに消える。従って正規化formalityは因子へ制限でき、既存の一ブロック恒等式から`W_i=b_iJ_i`を得る。`x_i↦(λ_i/b_i)^(1/3)x_i`はG・内部次数・指定周期を保ち、標的を最初からK上の`Σc_iλ_iJ_i`へ固定できる。降下で選び直すのは比較核であり点三次の係数ではない。形式単元b_iや指定核の代数性は主張しない。同じGとrotationの同変構造を保持する比較でのみ因子ごとのjが一致する。点shiftの平行移動との整合、全O降下、特殊点上の相対比較は残る。
+
+**指定形式核の障害。** G-coherenceはcrossed product上のperfect加群として有限データとともに降ろす。有限型底の閉点は別の核を与えるため、指定形式核の全jetは保たない。`P¹`の`[X:Y]↦[X+(exp(h)−1)Y:Y]`のgraph核は指定核として有限代数拡大へ降りないが、恒等核は元の体上に存在する（`med:ex:formal-kernel`）。
+
+**一次資料。** THCRとshift規約はStafford–Van den Bergh §3の式(3.1),(3.3), Theorem3.2。一般モジュライの代数幾何入力はStacks Project Tags047N,02G3,054K,052A,0DSL。点三次式はMori–Smith arXiv:1502.07403v2 Theorem7.2、グラフの配置次元と角形式はKontsevich §§5.1,6.1–6.3。既存のZhang、Smith–Tate、Elagin、Toën–Vaquié、Huの入力は本文の指定箇所を使用する。Cooney–Grabowskiのgeometric仮定は点関係24対15の過剰により本件に直接使えない。新規性の網羅的確認・既存MF基礎全体の再監査は未完了。
+
+**再現。** `verify_veronese_representation.py`はF3の243元群とZ[ζ]上の厳密指標内積、中心固有空間、GL2(F3)の組を列挙する。入力表現の幾何的構成は本文の証明による。既存`verify_multiblock_twists.py`と`verify_two_block_structure.py`も保持し、実行状態は`validation.md`を参照する。
 
 ## 1. 記法と成果の確実性
 

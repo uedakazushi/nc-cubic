@@ -1,0 +1,379 @@
+% !TEX root = ../nc-cubic.tex
+\section{Jacobian tensor族の復元曲線と点曲線}
+\label{mpc:sec:point-comparison}
+
+第\ref{med:sec:descent}節の分裂三次模型について、各平面三次を入力因子の点曲線と比較する。
+ここでは因子間に混合関係のないJacobian型の一変数族を扱う。
+この追加仮定の下では、生成元固定のharmonic-angle formalityがブロックの直和を保ち、
+中心写像も各因子への制限と可換する。
+既存の一ブロックの全次数Hessian--Casimir恒等式を使うと、
+復元potentialの各ブロックは点曲線の方程式の形式単元倍になる。
+その単元をブロックごとの座標変換で吸収することで、点曲線から直接書ける
+代数的な分裂方程式へ、有限拡大上の同変比較を取れる。
+
+この節は定理\ref{cft:thm:complete}、定理\ref{gdr:thm:generic}、
+補題\ref{lem:nfm-active-restriction-all-orders}を入力とする。
+点曲線のHessian公式そのものはMori--Smithの既知結果
+\cite[Theorems~1.2, 7.2]{MoriSmith}である。
+ここでの多ブロック比較への組合せの新規性は、独立には確認していない。
+
+\subsection{入力の範囲とprimitiveな中心三次}
+
+$R=\mathbb C[h]_{(h)}$、$\widehat R=\mathbb C[[h]]$、$K=\mathbb C(h)$とし、$k\ge2$とする。
+各$i=1,\ldots,k$について三変数$x_i=(x_{i1},x_{i2},x_{i3})$、
+$g_i\in R[x_i]_3$および$0\ne\varepsilon_i\in hR$を固定する。
+$\overline g_i=g_i\bmod h$は滑らかな平面三次を定めるものとする。
+次数付き代数$D_i$を、巡回的に三つの関係
+\begin{equation}\label{mpc:eq:factor-relations}
+ [x_{i2},x_{i3}]
+ =\varepsilon_i\operatorname{sym}(\partial_{x_{i1}}g_i)
+\end{equation}
+で定める。$\operatorname{sym}$は二次式のWeyl対称化である。
+各次数成分が有限自由であるというPBW条件を仮定する。
+これはこの節で量子化の存在を証明するという意味ではない。
+
+中心三次$\Omega_i\in Z(D_i)_3$は$R$上primitive、すなわち
+$\Omega_i\notin h(D_i)_3$とし、$c_i\in R^\times$を取る。
+\begin{equation}\label{mpc:eq:input}
+ B_R=\bigotimes_{i=1}^kD_i,
+ \qquad w=\sum_{i=1}^k c_i\Omega_i,
+ \qquad A_R=B_R/(w)
+\end{equation}
+と置く。テンソル積は通常のもので、異なるブロックの生成元は可換である。
+以下のHessianは各ブロックの固定座標で計算し、
+\begin{equation}\label{mpc:eq:point-polynomials}
+ J_i=g_i+\frac{\varepsilon_i^2}{24}\det\operatorname{Hess}(g_i),
+ \qquad E_{i,R}=V(J_i)\subset\mathbb P^2_R
+\end{equation}
+と書く。
+
+\begin{lemma}[中心の先頭項と点曲線]\label{mpc:lem:primitive-point}
+一意な$\lambda_i\in\mathbb C^\times$が存在して
+\begin{equation}\label{mpc:eq:central-leading-term}
+ \Omega_i\bmod h=\lambda_i\overline g_i
+\end{equation}
+となる。各$E_{i,R}$は滑らかで、その一般ファイバー$E_i$は$D_{i,K}$の点曲線である。
+$E_{i,R}$はその平坦閉包であり、$h=0$の多項式環の点スキーム全体ではない。
+\end{lemma}
+\begin{proof}
+$\varepsilon_i=h^{\nu_i}u_i$、$u_i\in R^\times$と書く。
+式\eqref{mpc:eq:factor-relations}の最初の非可換項は、
+$u_i(0)\iota_{d\overline g_i}
+(\partial_{x_{i1}}\wedge\partial_{x_{i2}}\wedge\partial_{x_{i3}})$である。
+中心性の最初の係数を取ると、$\Omega_i\bmod h$はこのJacobian Poisson構造の三次Casimirとなる。
+滑らかな$\overline g_i$の三つの偏微分は正則列なので、
+補題\ref{lem:nfm-relative-casimir-tensor}と同じKoszul完全性により、その微分は
+$d\overline g_i$の定数倍である。Euler恒等式から式\eqref{mpc:eq:central-leading-term}を得る。
+primitive性によりこの定数は非零であり、一意性も明らかである。
+
+$p=(x_{i1},x_{i2},x_{i3})^{\mathsf t}$とし、$C(p)q=p\times q$と書く。
+二次関係の双線型化は
+\[
+ M_i(p)q=0,
+ \qquad M_i(p)=C(p)-\frac{\varepsilon_i}{2}\operatorname{Hess}(g_i)(p)
+\]
+である。命題\ref{prop:nfm-correction-point-cubic}の行列式計算により
+\begin{equation}\label{mpc:eq:point-determinant}
+ \det M_i=-3\varepsilon_i J_i.
+\end{equation}
+これは\cite[Theorem~7.2]{MoriSmith}のHessian公式を、本稿の交換子規約で書いたものである。
+$J_i\bmod h=\overline g_i$より判別式は$R$の単元であり、$E_{i,R}$は滑らかである。
+$K$上では$\varepsilon_i$を逆にできる。
+右射影の行列式は$\varepsilon_i$を$-\varepsilon_i$へ替えた同じ計算で得られ、
+$J_i$は$\varepsilon_i$について偶関数なので、点対応の左右の射影像はともに$E_i$となる。
+曲線上で$M_i$の階数が一以下なら行列式の全偏微分が消え、滑らかさに反する。
+従って階数は二であり、可逆な二次小行列式を用いて核直線を取ると、
+点対応は両射影が同型であるグラフとなる。
+これが点曲線を与える。
+最後に$J_i$の乗法は各次数で剰余上単射なので、
+単元小行列式の議論により商の各次数は$R$-自由である。
+従って$V(J_i)$は一般点曲線の平坦閉包である。
+\end{proof}
+
+\subsection{生成元固定formalityの直和性}
+
+以下では、補題\ref{lem:nfm-normalized-star-model}と同じ
+harmonic-angleのKontsevich写像を全ての変数の個数で固定する。
+曲率付きMF圏のtensor積公式を仮定するのではなく、
+曲率を移す前の星積と中心写像を直接比較する。
+
+\begin{lemma}[独立ブロックに関するグラフの消滅]
+\label{mpc:lem:graph-direct-sum}
+$\pi_i$を$x_i$だけに係数を持ち、$x_i$方向だけを微分する形式bivectorとし、
+$\pi_i\equiv0\pmod h$とする。$\pi=\sum_i\pi_i$と置く。
+$f_i,g_i'$を$i$番目の変数だけの多項式とすると
+\begin{equation}\label{mpc:eq:factor-star-center}
+ \begin{aligned}
+ f_i*_{\pi}g_i'&=f_i*_{\pi_i}g_i',\\
+ f_i*_{\pi}f_j&=f_if_j=f_j*_{\pi}f_i\quad(i\ne j),\\
+ C_{\pi}(f_i)&=C_{\pi_i}(f_i)
+ \end{aligned}
+\end{equation}
+が全形式次数で成立する。最後の$C_\pi$は関数上のformality接写像である。
+\end{lemma}
+\begin{proof}
+Kontsevichのグラフ表示\cite[Sections~5.1, 6.1--6.3]{NFMKontsevich}で、
+各bivector頂点をそのブロック番号で色付けする。
+異なる色の内部頂点へ向かう辺は、係数を別ブロックの変数で微分するので零になる。
+従って非零の項では、bivector頂点同士の辺だけからなるグラフの各連結成分は単色である。
+
+$r>0$個のbivector頂点からなる成分には、出る辺がちょうど$2r$本ある。
+この成分が接する境界頂点が$b\le1$個なら、その辺の角一形式の積は
+配置空間$C_{r,b}$からの引戻しである。
+しかし$\dim C_{r,b}=2r+b-2<2r$なので、この$2r$形式は零である。
+境界が零個の場合は成分全体の実affine変換、境界が一個の場合は
+その実点を中心とする拡大縮小が、同じ消滅を直接与える。
+これは重みの和における相殺ではなく、該当グラフの積分形式自体の消滅である。
+
+$f_i*_{\pi}g_i'$では、他の色の成分は境界に接することができないため消える。
+残るグラフは三変数だけの式そのものであり、第一式を得る。
+$f_i*_{\pi}f_j$、$i\ne j$では、各単色成分は境界の高々一つにしか接することができず、
+正の頂点数を持つグラフは全て消える。これが第二式である。
+
+$C_\pi(f_i)$では$f_i$は出辺が零本の指定内部頂点である。
+他の色のbivector成分はこの頂点に接することもできないので、
+その$2r$形式は$C_{r,0}$からの引戻しとなって消える。
+従って残るグラフは全て$i$番目のブロックに属し、第三式を得る。
+各固定$h$次数では有限個のグラフだけを使うので、等式は形式極限でも成立する。
+\end{proof}
+
+\begin{proposition}[tensor族の正規化模型と中心の直和]
+\label{mpc:prop:normalized-direct-sum}
+各$D_i\otimes_R\widehat R$の生成元固定模型を$(\pi_i,\phi_i)$とする。
+式\eqref{mpc:eq:input}の周囲代数に対する生成元固定模型は
+\[
+ \pi=\sum_i\pi_i,
+ \qquad \phi|_{D_i}=\phi_i
+\]
+である。$W_i=C_{\pi_i}^{-1}\phi_i(\Omega_i)$と書けば、その中心逆像は
+\begin{equation}\label{mpc:eq:direct-potential}
+ W=C_\pi^{-1}\phi(w)=\sum_i c_iW_i
+\end{equation}
+である。
+\end{proposition}
+\begin{proof}
+補題\ref{cft:lem:model}により各因子の模型が存在し、
+補題\ref{lem:nfm-normalized-star-model}により生成元を固定できる。
+異なるブロックのSchouten括弧は零なので、$\sum_i\pi_i$はPoisson tensorである。
+補題\ref{mpc:lem:graph-direct-sum}の最初の二式により、
+各$\phi_i$の像は互いに可換な部分代数となり、tensor積から星積代数への準同型$\phi$を定める。
+各内部次数でその剰余は恒等であり、有限自由加群間の完備Nakayamaにより同型である。
+これは全生成元を固定するので、正規化模型の一意性により表示した$(\pi,\phi)$が得られる。
+
+各$W_i$は$i$番目の変数だけの三次式であり、
+同補題の第三式と中心写像の線型性から
+\[
+ C_\pi\Bigl(\sum_i c_iW_i\Bigr)
+ =\sum_i c_i C_{\pi_i}(W_i)
+ =\phi(w)
+\]
+となる。三次成分上で$C_\pi$は可逆なので式\eqref{mpc:eq:direct-potential}を得る。
+\end{proof}
+
+\subsection{Hessian三次から書ける指定代数的模型}
+
+\begin{proposition}[各復元ブロックと点三次の全次数比較]
+\label{mpc:prop:exact-point-potential}
+一意な形式単元$b_i\in\widehat R^\times$、$b_i(0)=\lambda_i$が存在して
+\begin{equation}\label{mpc:eq:exact-potential}
+ W_i=b_iJ_i,
+ \qquad W=\sum_i c_ib_iJ_i
+\end{equation}
+となる。従って、$h$とMFの周期変数を固定し、剰余が恒等である
+ブロック対角の線型座標変換の後、完備比較のpotentialを
+\begin{equation}\label{mpc:eq:algebraic-potential}
+ H_{\mathrm{pt}}=\sum_i c_i\lambda_iJ_i\in R[x_1,\ldots,x_k]_3
+\end{equation}
+に取れる。この変更は内部shift、標準の$G=(\mu_3)^{k-1}$作用および指定三次周期を保つ。
+\end{proposition}
+\begin{proof}
+補題\ref{lem:nfm-active-restriction-all-orders}の三変数の普遍恒等式を各因子へ用いる。
+同補題の各形式係数は三次式の係数の多項式なので、係数へ$g_i(h)$を代入し、
+その形式パラメータへ$\varepsilon_i(h)$を代入してよい。
+$\varepsilon_i\in hR$であるため、この代入は各$h$次数で有限和となる。
+生成元固定再帰の一意性により、得られるtensorは上の$\pi_i$に一致する。
+従って
+\[
+ \iota_{dJ_i}\pi_i=0,
+ \qquad \pi_i/\varepsilon_i\equiv
+ \iota_{d\overline g_i}
+ (\partial_{x_{i1}}\wedge\partial_{x_{i2}}\wedge\partial_{x_{i3}})
+ \pmod h
+\]
+である。$\pi_i$の$\varepsilon_i$による可除性も、同じ普遍再帰の代入から従う。
+$J_i$の三つの偏微分は、正則な特殊ファイバーの勾配の完備変形である。
+補題\ref{lem:nfm-relative-casimir-tensor}により
+\[
+ \pi_i=\varepsilon_i u_i(h)\,\iota_{dJ_i}
+ (\partial_{x_{i1}}\wedge\partial_{x_{i2}}\wedge\partial_{x_{i3}}),
+ \qquad u_i(h)\in1+h\widehat R
+\]
+と書ける。
+
+$W_i$は$\pi_i$のCasimirである。$\widehat R$は整域で
+$\varepsilon_i u_i\ne0$なので、$dJ_i\wedge dW_i=0$を得る。
+勾配Koszul複体の完全性と内部次数から$dW_i=b_i\,dJ_i$、$b_i\in\widehat R$となり、
+Euler恒等式により$W_i=b_iJ_i$である。
+補題\ref{mpc:lem:primitive-point}と$C_{\pi_i},\phi_i\equiv1\pmod h$から
+$b_i(0)=\lambda_i\ne0$となる。これで単元性と一意性を得る。
+命題\ref{mpc:prop:normalized-direct-sum}が全potentialの式を与える。
+
+各$i$について$s_i=(\lambda_i/b_i)^{1/3}\in1+h\widehat R$を取る。
+剰余が一という条件で、この形式三乗根は一意である。
+三次斉次性により
+\[
+ W(s_1x_1,\ldots,s_kx_k)=\sum_i c_i\lambda_iJ_i=H_{\mathrm{pt}}.
+\]
+この座標変換はpotentialを正確に移し、ブロックごとの三乗根作用と可換する。
+周期変数には作用しないので、指定周期を含む主張が従う。
+\end{proof}
+
+\begin{remark}[中心生成元の自由度]
+三次Casimirは上のKoszul計算から$\widehat R J_i$に一致する。
+従って$C_{\pi_i}^{-1}\phi_i$は
+$Z(D_i\otimes_R\widehat R)_3$をこの直線へ同定し、primitiveな$\Omega_i$はその生成元となる。
+中心性は三つの生成元との交換子からなる有限行列の核で判定できるので、
+完備化の忠実平坦性により$Z(D_i)_3=R\Omega_i$でもある。
+別のprimitive生成元との差は$R^\times$であり、$b_i$へ吸収される。
+従って特定の高次Hesse中心公式を選ぶことは、この平面曲線の同定には必要ない。
+ただし中心元の指定を保持した圏比較では、上のpotentialを正確に移す座標変換を使う。
+\end{remark}
+
+\begin{theorem}[点三次の和への同変一般点比較]
+\label{mpc:thm:point-model}
+式\eqref{mpc:eq:input}の仮定の下で
+\[
+ Y_{\mathrm{pt},R}=V(H_{\mathrm{pt}})\subset\mathbb P^{3k-1}_R
+\]
+は滑らかな三次超曲面族であり、その特殊方程式は$w\bmod h$に等しい。
+ある有限拡大$K'/K$上で
+\begin{equation}\label{mpc:eq:point-model-equivalence}
+ (\mathcal K^{\rm coh}_{A_{K'}},\rho_A,\tau_A)
+ \simeq_G
+ (\operatorname{Ku}(Y_{\mathrm{pt},K'}),\rho_{\mathrm{pt}},\tau_{H_{\mathrm{pt}}})
+\end{equation}
+となる。ここで各点曲線$E_i$の方程式$J_i$は、式\eqref{mpc:eq:algebraic-potential}の
+対応する三変数ブロックそのものである。
+\end{theorem}
+\begin{proof}
+$c_i\lambda_i$は単元であり、各$J_i$は滑らかな平面三次を定める。
+勾配がブロックごとに分かれるので、全勾配の共通アフィン零点は原点だけである。
+従って$Y_{\mathrm{pt},R}$は滑らかであり、特殊方程式の主張は
+式\eqref{mpc:eq:central-leading-term}から従う。
+
+定理\ref{gdr:thm:generic}を適用できることは
+補題\ref{mpc:lem:primitive-point}およびテンソル積の次数別自由性から分かる。
+これで一般点の全coherent残余圏のsmooth proper性を確保する。
+一方、命題\ref{mpc:prop:exact-point-potential}は、標的を
+既に$R$上で定義された$H_{\mathrm{pt}}$に固定した完備比較を与える。
+生成元固定模型の共変性と第\ref{med:sec:descent}節の同変bar flowにより、これは$G$同変である。
+固定した有限個の対象とその$G$軌道上のHomを先に構成してから局所化し、
+非零EulerベクトルとBFKの生成性を用いると、$\overline{\mathbb C((h))}$上で
+全残余圏の同変Morita同値を得る。
+
+ここで両方のdg模型は$K$上にある。
+補題\ref{med:lem:equivariant-descent}を、標的$Y_{\mathrm{pt},K}$を固定して適用すればよい。
+有限型模型の閉点で特殊化するのは比較核と比較図式であり、
+点曲線の係数$J_i$を別の係数へ特殊化する操作は行わない。
+従って式\eqref{mpc:eq:point-model-equivalence}を得る。
+\end{proof}
+
+\subsection{復元方程式の選択に依存しない各ブロックの同型類}
+
+\begin{corollary}[任意の同変復元ブロックの$j$]
+\label{mpc:cor:block-j}
+上の入力について、第\ref{med:sec:descent}節の方法により
+$Y_F=V(F_1+\cdots+F_k)$を$K$上の分裂模型として選び、$C_i=V(F_i)$とする。
+同じ標準$G$作用とrotationの同変構造を保持することを要求する。
+このとき各$i$について
+\begin{equation}\label{mpc:eq:block-j}
+ (\mathbb P^2_{\overline K},C_{i,\overline K})
+ \simeq(\mathbb P^2_{\overline K},E_{i,\overline K}),
+ \qquad j(C_i)=j(E_i)\in K
+\end{equation}
+である。同じ結論は、有限拡大上でそのような同変rotation付き比較を持つ任意の分裂模型に成り立つ。
+\end{corollary}
+\begin{proof}
+定理\ref{mpc:thm:point-model}と$Y_F$への比較を、共通の代数閉拡大体上で合成する。
+これにより二つの可換Kuznetsov pairの間の同変rotation付き同値を得る。
+低rotation積の同定により、次数一空間の$G$同変線型同型は勾配空間を移す。
+両方の三次式を同じ次数一空間へ移し、
+補題\ref{med:lem:invariant-symmetrizer}を適用すると、
+さらに$G$と可換する座標変換で両方の三次式が一致する。
+
+標準$G$作用の$k$個のブロック指標は相異なるので、
+これらの$G$同変線型同型はブロック対角である。
+従って$i$番目の平面三次は$i$番目の点曲線へ移る。
+同型を与える有限個の行列係数はある有限型$K$-代数上にあり、
+その同型schemeの幾何点の存在から$\overline K$上でも同型となる。
+両$j$は$K$に属し、体拡大後に等しいので$K$上で等しい。
+\end{proof}
+
+\begin{corollary}[順序付き平面同型の有限被覆]
+\label{mpc:cor:plane-isom-cover}
+前系でさらに$j(E_i)\notin\{0,1728\}$を仮定する。
+順序付きの平面同型のscheme
+\[
+ I=\prod_{i=1}^k
+ \underline{\operatorname{Isom}}_{\rm plane}
+ \bigl((\mathbb P^2_K,E_i),(\mathbb P^2_K,C_i)\bigr)
+\]
+は$K$上有限\'etaleかつ階数$18^k$であり、その上で各平面同型を選べる。
+因子の$j$が相異なるという条件はこの階数には不要である。
+\end{corollary}
+\begin{proof}
+代数閉包上で同じ$j$を持つ種数一曲線は同型である。
+両方の次数三線束の差は、平行移動によるPicard類の変化が三倍写像であることから吸収できる。
+従って平面同型が存在する。
+一つの滑らかな平面三次の射影自己同型群は、原点をflexに選ぶと
+$E[3]\rtimes\operatorname{Aut}(E,0)$である。
+$j\ne0,1728$では後者は$\{\pm1\}$なので、群schemeは有限\'etale階数十八である。
+平面同型のschemeはこの群のtorsorであり、
+各因子が階数十八となる。積を取れば主張を得る。
+この議論は命題\ref{prop:nfm-point-residual-isom-cover}の曲線ごとの計算と同じである。
+\end{proof}
+
+\begin{corollary}[二ブロック同変残余圏の点曲線積]
+\label{mpc:cor:point-product}
+$k=2$の場合、ある有限拡大$K''/K$上で
+\[
+ (\mathcal K^{\rm coh}_{A_{K''}})^{\mu_3}
+ \simeq D^b(E_{1,K''}\times E_{2,K''})
+\]
+となる。必要ならさらに有限拡大して各$E_i$に原点を選べる。
+\end{corollary}
+\begin{proof}
+定理\ref{mpc:thm:point-model}に補題\ref{med:lem:hu-field}を適用する。
+比較先の分裂三次の二曲線は、ここでは点曲線$E_1,E_2$そのものである。
+\end{proof}
+
+\subsection{Hesse表示と比較の限界}
+
+例えば$g_i=p_i(x_{i1}^3+x_{i2}^3+x_{i3}^3)/3+q_ix_{i1}x_{i2}x_{i3}$なら、
+式\eqref{mpc:eq:point-polynomials}は
+\[
+ \begin{aligned}
+ J_i&=A_i(x_{i1}^3+x_{i2}^3+x_{i3}^3)/3+B_ix_{i1}x_{i2}x_{i3},\\
+ A_i&=p_i\left(1-\frac{\varepsilon_i^2q_i^2}{4}\right),
+ &B_i&=q_i+\frac{\varepsilon_i^2(4p_i^3+q_i^3)}{12}
+ \end{aligned}
+\]
+と書ける。$A_i\ne0$の範囲で$\mu_i=B_i/A_i$と置くと、
+式\eqref{gre:eq:hesse-j}より
+\[
+ j(C_i)=j(E_i)
+ =\frac{27\mu_i^3(8-\mu_i^3)^3}{(1+\mu_i^3)^3}
+\]
+である。この式は個々の中心元の高次係数を計算せずに得られる。
+
+本節で代数的に固定したのは、式\eqref{mpc:eq:algebraic-potential}の方程式と、
+各点曲線の平面同型類である。中心写像が与える形式単元$b_i$、
+その三乗根、および指定完備比較核そのものの代数性は主張しない。
+有限被覆$I$は各平面同型を選ぶ被覆であり、比較核の指定された同型類を選ぶ被覆ではない。
+点曲線上のshiftに対応する平行移動切断と比較核との整合も、別の問題である。
+
+また、入力のブロック分解と標準$G$作用を用いている。
+任意の全$\mathcal O$-保存同値がこの$G$作用やrotationの同変構造を保つとは証明していないため、
+この比較をそのまま全$\mathcal O$-markedモジュライ上の射とは呼ばない。
+一般の混合多ブロック関係や、式\eqref{mpc:eq:factor-relations}で表示されていない変形への拡張も含めない。
+滑らかな方程式族$Y_{\mathrm{pt},R}$の存在と、特殊点を含む$R$上の相対同値の存在は区別する。
