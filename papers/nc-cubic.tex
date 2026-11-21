@@ -76,7 +76,7 @@
 \title{非可換三次 $n$-fold の可換復元とモジュライ\\
 \large Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 \author{}
-\date{2026年11月21日・研究稿 v35}
+\date{2026年11月21日・研究稿 v36}
 \hypersetup{pdftitle={非可換三次 n-fold の可換復元とモジュライ},
 pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}}
 \begin{document}
@@ -113,10 +113,21 @@ $\rho^3\otimes\ell^\vee\simeq[2]$ が降下する指定周期である。
 中心群 $Z_0=\mu_3^k/\Delta\mu_3$ の作用と同変化は基準ブロックによらず降下するが、
 rotation の線型化には指標の torsor が残る。
 その置換不変な選択は $3\nmid k$ と同値である。
-明示的 Jacobian tensor 一変数族では、点三次式の分離和を復元模型として選べる。
+中心慣性による rigidification は因子データの stack となり、
+平面三次の組への射はその上で滑らか・相対次元 $k$ となる。
+点曲線積の族は全構造対象局所型の開へ降下する。
+さらに、最大可換商の三次部分を介して中心三次線と点三次線を
+非空開上で自然に比較し、可換三次超曲面の族と表示 gerbe・関係直線の同期を構成する。
+共通係数直線を持つ可換分離和では、滑らかな実表示基底上の
+相対曲線積比較を perfect 核で構成し、その導来引戻しによる非平坦底変更も得る。
+一般点がこの非空開に入る明示的 Jacobian tensor 一変数族では、
+有限拡大後にこの自然な点三次の分離和を復元模型として選べる。
 既知の同変 Thom--Sebastiani・Orlov 比較と、既存の完備 MF・一般点比較の下で、
 全 $k\ge2$ の同変残余圏は有限拡大後に入力の $k$ 個の点曲線の積の導来圏となる。
-比較核の stack の降下と、その大域的 section の存在は区別する。
+局所 rotation 比較・負の自己 Ext 消滅・底変更の条件の下で、
+固定した scalar-simple な核の局所型と同期に対しては、
+核の $\mathbf G_m$-gerbe と周期比較の $\mu_3$-torsor が独立な実現条件となる。
+非可換族の大域比較核と、全モジュライ一般点での比較はなお未完成である。
 
 三つの非可換生成元と $n-1$ 個の中心一次生成元を持つ三次超曲面の量子化を扱う。
 良い一ブロック型の $\mathcal O$-marked 圏族の滑らかな既約 DM stack を構成し、
@@ -316,6 +327,19 @@ $\widehat Z_0$-torsor であり、基準変更は rotation の指標 twist と�
 随伴と半直交分解の同変性は Shinder\cite{MBZAShinder}を入力とし、
 ここでは scalar 自明化と全ての指標変換を明示する。
 
+因子の中心係数を忘れる射は $Z_0$-gerbe であり、
+rigidification $\mathfrak P_k\mathbin{/\mkern-6mu/}Z_0$ は
+楕円 Sklyanin 因子の組の stack $\mathfrak B_k$ と同型になる
+（命題\ref{mbfm:prop:rigidification}）。
+これは Romagny\cite[Theorem~5.1]{MBFMRomagny}の一般的な操作を、
+係数 torus 上の三乗写像によって具体化したものである。
+平面三次の組の stack $\mathfrak E_k$ への射
+$\mathfrak B_k\to\mathfrak E_k$ は表現可能・滑らか・全射で相対次元 $k$ となり、
+曲線積の普遍族を引き戻せる（命題\ref{mbfm:prop:point-map}、
+命題\ref{mbfm:prop:product-family}）。
+中心作用付き圏の同変化は、この rigidification 上の圏としても記述できるが、
+それだけで曲線積との同値や表示 gerbe の中立化を結論しない。
+
 根については、$\mathsf s=(1)$ としたとき
 $\mathsf r\OO\simeq\OO(1)$ を満たす自己同値は一意に
 $\mathsf r\simeq\mathsf s\Phi_h$、$h\in\mathcal K_k$ と書け、
@@ -368,13 +392,66 @@ Kontsevich のグラフ構成\cite[\S\S5.1,6.1--6.3]{NFMKontsevich}の直和性�
 既存の一ブロック全次数恒等式を用いる。
 点三次式の既知の計算\cite[Theorem~7.2]{MoriSmith}と、
 本稿の同変残余比較への接続を区別する。
-追加有限拡大後に、全 $k$ で実際の点曲線 $E_i$ に対し
+
+この点三次への対応には、中心線の尺度を含む自然な形がある。
+$S_i$ の最大可換商の三次部分 $Q_{i,3}$ が直線束で、
+中心三次線 $C_i$ と点三次線 $J_i$ からの射がともに可逆である非空開では、
+その商を介した同型 $\theta_i:C_i\simeq J_i$ が全次数付き同型と底変更に自然である
+（命題\ref{mbpl:prop:line-comparison}、命題\ref{mbpl:prop:nonempty-open}）。
+従って中心関係直線 $\ell$ を点三次の分離和へ写すことにより、
+滑らかな射影三次の stack への射 $\Phi_{\rm pt}$ を得る。
+標的の Brauer--Severi 表示を許せば、
+$\beta=\Phi_{\rm pt}^*\beta_{\rm cub}$ と $\ell\simeq\ell_{\rm pt}$ を
+同時に、しかも自然に実現する（定理\ref{mbpl:thm:commutative-family}）。
+一般点がこの開に入る明示的一変数入力では、
+この標的への比較を有限拡大上に取れる
+（系\ref{mbpl:cor:generic-comparison}）。
+非空開の非空性と、任意の固定非可換パラメータでの圏同値は別の主張である。
+
+可換分離和そのものについては、滑らかな準射影基底 $S$ 上で
+$f_i\in\Sym^3W_i\otimes L$ を共通の係数直線 $L$ に値を取る滑らかな三次とすると、
+相対 Orlov 比較\cite[Corollary~3.4]{MBRPBDFIK}と実 dg Koszul 模型から
+\[
+ \Perf(E_1\times_S\cdots\times_SE_k)
+ \simeq\Ku_{\Perf}(V(\textstyle\sum_i f_i)/S)^{Z_0}
+\]
+を実際の perfect 核で構成する（定理\ref{mbrp:thm:relative-product}）。
+共通の周期直線を含む Hom 複体の外積を直接照合し、
+最小 $A_\infty$ 模型に関する同文献の予想は用いない。
+核の表現は To\"en\cite[Theorem~8.15]{MBRPToenMorita}を
+滑らか proper な相対 scheme に適用して得る。
+構成済みの核・逆核・projector を引き戻すことで、
+準コンパクト・分離的 noetherian 底への perfect 圏の比較も従う。
+底変更の平坦性や底の被約性は要求しない
+（系\ref{mbrp:cor:base-change}）。
+この相対可換比較は既知の Orlov--Thom--Sebastiani 法の本設定への相対的な実施であり、
+非可換側からの相対核を新たに存在させるものではない。
+既存の有限比較体上で、全 $k$ について実際の点曲線 $E_i$ に対し
 $(\mathcal K_A^{\mathrm{coh}})^{Z_0}\simeq D^b(\prod_iE_i)$ を得る
-（系\ref{mbrd:cor:nc-product}）。
+（系\ref{mbrd:cor:nc-product}、系\ref{mbrp:cor:comparison-field}）。
+後者は可換積比較のための追加拡大が不要であることを示す。
 通常の Ku 自体は、積圏の双対指標作用による同変化として記述できるが、
 積圏そのものとは同一視しない（系\ref{mbrd:cor:dual-action}）。
 これらは指定した一般点の比較であり、全 $\OO$-基底上の比較核の
 大域的 section、あるいは指定形式核の全 jet の代数化を与えない。
+この大域問題について、両側の smooth proper な族と指定周期を固定する。
+残余圏の周期には引き続き MF/window 比較を要求する。
+局所的に rotation を intertwine する
+scalar-simple な核の局所型を固定し、負の自己 Ext 消滅と底変更を仮定する。
+核の実現 gerbe の類を $\alpha_P$、関係直線の同期を $\theta$ とすると、
+rotation 比較の直線束 $L_P$ には
+$q_P:L_P^{\otimes3}\simeq\ell_t\otimes\ell_s^\vee$ が付随する。
+$q_P(\eta^3)=\theta$ を満たす比較は $\mu_3$-torsor であり、
+その類を $\gamma(P,\theta)$ とすると実現条件は
+$\alpha_P=0$ と $\gamma(P,\theta)=0$ である
+（定理\ref{mbks:thm:kernel-criterion}）。
+前者の band は周期を標識しても $\mathbf G_m$ のままである。
+この判定は Kummer 理論\cite{NFMStacksKummer}の相対的な適用であり、
+自然な非可換族における両障害の値はまだ決定していない。
+既に全データが置換両立している場合には、連結な順序付き被覆上の
+周期 torsor の切断は $\Hom(\mathfrak S_k,\mu_3)=0$ により置換不変となる
+（命題\ref{mbks:prop:permutation-phase}）。
+この限定的な消滅は核自身の $\mathbf G_m$-gerbe へは適用できない。
 Sklyanin の幾何、Heisenberg 群、Zhang twist、同変圏と有限核降下の既知理論と、
 本稿の中心商・第三 Veronese・同変一般点復元への適用を区別する。
 これらの組合せの新規性について網羅的な確認は未完了である。
@@ -1783,10 +1860,14 @@ boundary や全 Abel 形式近傍の記述は、この一般次元の構成に�
 \input{papers/sections/multiblock_relative_recognition.tex}
 \input{papers/sections/multiblock_scalar_descent.tex}
 \input{papers/sections/multiblock_central_action.tex}
+\input{papers/sections/multiblock_factor_moduli.tex}
 \input{papers/sections/two_block_recovery.tex}
 \input{papers/sections/multiblock_equivariant_descent.tex}
 \input{papers/sections/multiblock_point_comparison.tex}
+\input{papers/sections/multiblock_point_line.tex}
 \input{papers/sections/multiblock_residual_descent.tex}
+\input{papers/sections/multiblock_relative_product.tex}
+\input{papers/sections/multiblock_kernel_synchronization.tex}
 
 \input{papers/sections/graded_moduli.tex}
 \input{papers/sections/relative_duality.tex}

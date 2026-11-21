@@ -1,0 +1,326 @@
+% !TEX root = ../nc-cubic.tex
+\section{最大可換商による中心直線と点三次直線の比較}
+\label{mbpl:sec:point-line}
+
+中心三次と点曲線の方程式はともに共通 scalar の重み三を持つが、
+この事実だけから両直線を自然には同定できない。
+本節では、同じ代数の最大可換商へ両直線を写して比較する。
+二つの像が可逆になる非空開上では、係数の選択なしに中心直線を点三次直線へ移せる。
+その結果、満支持の分離和を全 $\OO$-開上の滑らかな可換三次族として降下し、
+両側の表示 gerbe と関係直線を同期できる。
+この可換族と非可換残余圏の同値は、既存の一般点比較がある族に限って述べる。
+
+\subsection{共通の一次元商と自然な線同型}
+
+第\ref{mbs:thm:presentation-stack}定理の一因子の楕円開を用いる。
+普遍因子を $S=T(W)/(R_2)$、$\operatorname{rank}W=
+\operatorname{rank}R_2=3$ と書き、中心三次直線を
+$\mathcal C=Z(S)_3$ とする。
+点曲線 $E\subset\mathbb P(W^\vee)$ の方程式直線を
+\[
+ \mathcal J=\ker\bigl(\operatorname{Sym}^3W
+                  \longrightarrow\pi_*\OO_E(3)\bigr)
+       \subset\operatorname{Sym}^3W
+\]
+と書く。これは階数一の直和因子であり、任意底変更に両立する。
+ここで $\mathbb P(W^\vee)$ の斉次座標環を $\operatorname{Sym}W$ とする。
+
+最大可換代数商を
+\begin{equation}\label{mbpl:eq:abelianization}
+ Q=S_{\mathrm{ab}}
+   :=S/\langle ab-ba:a,b\in S\rangle
+   =\operatorname{Sym}W/(\overline R_2)
+\end{equation}
+と置く。これは交換子の\emph{線型包}による商とは異なる。
+次数三は有限表示
+\begin{equation}\label{mbpl:eq:finite-presentation}
+ R_2\otimes W\longrightarrow\operatorname{Sym}^3W
+       \longrightarrow Q_3\longrightarrow0
+\end{equation}
+を持つ。左辺の階数は九、中央の階数は十である。
+従って各幾何ファイバーで $\dim Q_3\geq1$ であり、
+左の射の階数が九となる条件は開条件である。
+この開を $\mathcal T^{\mathrm{ab}}$ と書く。
+
+二つの自然な射
+\begin{equation}\label{mbpl:eq:two-maps}
+ c:\mathcal C\longrightarrow S_3\longrightarrow Q_3,
+ \qquad
+ j:\mathcal J\longrightarrow\operatorname{Sym}^3W\longrightarrow Q_3
+\end{equation}
+を取る。$\mathcal T^{\mathrm{ab}}$ 上で両射が可逆となる開を
+$\mathcal T^\natural$ と定める。
+
+\begin{proposition}[中心三次と点三次の自然な比較]
+\label{mbpl:prop:line-comparison}
+$\mathcal T^\natural$ 上には一意な線同型
+\begin{equation}\label{mbpl:eq:canonical-comparison}
+ \vartheta:\mathcal C\xrightarrow{\sim}\mathcal J,
+ \qquad j\vartheta=c
+\end{equation}
+がある。この同型は $\GL(W)$-同変であり、次数付き代数の全同型と任意底変更に両立する。
+$\mathcal T^\natural$ 自身も $\GL(W)$-不変な開である。
+\end{proposition}
+\begin{proof}
+階数九の小行列式を逆にした開では
+式\eqref{mbpl:eq:finite-presentation}の左の射は直和因子への同型である。
+従って $Q_3$ は可逆加群で、その形成は非平坦・非被約な底変更にも両立する。
+その上で $c,j$ は線束間の射なので、可逆となる条件も開条件である。
+$\vartheta=j^{-1}c$ と定めれば存在と一意性が従う。
+最大可換商、点曲線の方程式直線、中心および二つの射は全て代数同型に自然である。
+従って全構成は同変である。
+\end{proof}
+
+\begin{remark}[Jacobian chart における意味]
+\label{mbpl:rem:jacobian-chart}
+体上で $\varepsilon\ne0$ とし、関係を
+$[y,z]=\varepsilon\operatorname{sym}(g_x)$ とその巡回版で書くと、
+\[
+ Q=K[x,y,z]/(g_x,g_y,g_z).
+\]
+$V(g)$ が滑らかなら三つの偏微分は二次正則列であり、
+$\operatorname{Hilb}Q=(1+t)^3$、特に $\dim Q_3=1$ である。
+点三次の代表 $J=g+\varepsilon^2\det\operatorname{Hess}(g)/24$ は
+\[
+ [J]=\frac{\varepsilon^2}{24}[\det\operatorname{Hess}(g)]\in Q_3
+\]
+へ写る。Euler 恒等式により $[g]=0$ を使った。
+ここではさらに中心の像 $[\Omega]$ との比を取る必要があり、
+$J$ の方程式だけからその比を省略してはならない。
+点三次の Hessian 公式は既知の
+\cite[Theorem~7.2]{MoriSmith}、本稿の規約では
+式\eqref{mpc:eq:point-determinant}による。
+\end{remark}
+
+\subsection{非空性を与える明示的な中心恒等式}
+
+\begin{lemma}[Fermat 型の厳密計算]
+\label{mbpl:lem:fermat}
+$K=\mathbb C(t)$ とし、
+\[
+ S_t=K\langle x,y,z\rangle/
+ ([y,z]-t x^2,\ [z,x]-t y^2,\ [x,y]-t z^2)
+\]
+と置く。$C=x^3+y^3+z^3$、$U=xyz+yzx+zxy$ と書くと
+\begin{equation}\label{mbpl:eq:fermat-center}
+ \Omega_t=(3+t^3)C-2t^2U
+\end{equation}
+は非零の中心三次である。点三次の代表は
+\begin{equation}\label{mbpl:eq:fermat-point}
+ F_t=x^3+y^3+z^3+t^2xyz
+\end{equation}
+であり、最大可換商では
+\begin{equation}\label{mbpl:eq:fermat-images}
+ Q=K[x,y,z]/(x^2,y^2,z^2),\qquad
+ [\Omega_t]=-6t^2xyz,\quad [F_t]=t^2xyz.
+\end{equation}
+従ってこの因子は $\mathcal T^\natural$ に属し、
+$\vartheta(\Omega_t)=-6F_t$ である。
+同じ表示を $R=\mathbb C[t]_{(t)}$ 上で取ると、各次数は有限自由であり、
+$\Omega_t$ は $R$ 上 primitive な中心三次である。
+\end{lemma}
+
+\begin{proof}
+以下の交換子計算は三つの表示関係だけを使う。
+$D_x=[yz,x^2]$ と置くと
+\[
+ [C,x]=t(zy^2z-yz^2y)=t^2D_x.
+\]
+また
+\[
+ [U,x]=D_x+t(y^3x-xz^3).
+\]
+関係を二回代入すれば
+\[
+ D_x=t(y^3x+xy^3-z^3x-xz^3)
+     =2t(y^3x-xz^3)-t[C,x]
+\]
+となるので、
+\[
+ [U,x]=\frac{3+t^3}{2}D_x.
+\]
+従って $[\Omega_t,x]=0$ であり、巡回置換から $y,z$ とも可換する。
+最大可換商の表示と式\eqref{mbpl:eq:fermat-images}は直接従う。
+$xyz\ne0$ なので、$\Omega_t$ は非零である。
+
+$g=C/3$, $\varepsilon=t$ を点三次の公式へ代入する。
+$\det\operatorname{Hess}(g)=8xyz$ だから、
+$J=(C+t^2xyz)/3$ となり、式\eqref{mbpl:eq:fermat-point}を得る。
+これは Hesse パラメータ $(a:b:c)=(1:-1:-t)$ の通常の Sklyanin 表示である。
+点曲線が滑らかな一般パラメータでは三次元二次 AS 正則代数となる
+\cite[Section~1, Theorems~6.6, 6.8]{GRSklyaninATV}。
+式\eqref{mbpl:eq:fermat-point}は $t=0$ で滑らかな Fermat 三次に特殊化するので、
+一般点で滑らかである。中心三次の次元が一となる基本楕円開では
+$\Omega_t$ がその直線を生成し、最後の結論を得る。
+
+$R$ 上の各次数は有限生成加群である。
+一般ファイバーの Hilbert 級数は $(1-z)^{-3}$、特殊ファイバーは三変数多項式環なので、
+各次数の一般階数と特殊ファイバーの次元は一致する。
+DVR 上の有限加群の構造定理により torsion 部分はなく、各次数は自由である。
+中心恒等式は $R$ 上でも成立し、$\Omega_t\bmod t=3C\ne0$ なので primitive である。
+\end{proof}
+
+\begin{proposition}[良い楕円開および全構造対象開との交わり]
+\label{mbpl:prop:nonempty-open}
+$\mathcal T^\natural$ は非空であり、任意の有限個の条件
+$mp\ne0$ を加えた良い楕円開と交わる。
+各因子を $\mathcal T^\natural$ に制限した満支持表示の開
+$\mathfrak P_k^\natural$ も非空であり、
+系\ref{mbrr:cor:stack-isomorphism}の全 $\OO$-認識開との交わりは非空である。
+\end{proposition}
+
+\begin{proof}
+前補題の族を $t=0$ の trait 上で見る。
+点三次 $F_t$ の族はこの trait 上で滑らかである。
+点対応の行列は $t=0$ で外積行列となり、曲線上で常に階数二を持つ。
+従ってその核による点自己同型は曲線族上へ延長され、特殊ファイバーでは恒等になる。
+Sklyanin の楕円表示ではこれは平行移動である。
+$t\ne0$ で恒等なら点対応の対角上の関係から
+$x^2=y^2=z^2=0$ となり、射影曲線に点がなく矛盾する。
+よって平行移動切断は非零で、特殊化は零である。
+標数零の楕円曲線の形式群に非零有限位数点はない。
+従って一般点の平行移動は無限位数であり、全ての有限個の捩れ条件を避ける。
+Hesse の $j$ 関数\eqref{gre:eq:hesse-j}へ $\mu=t^2/3$ を代入すると非定数なので、
+$j=0,1728$ も一般点では避けられる。
+
+各因子について独立な $t_i$ を取れば $j_i$ は相異なり、満支持係数も取れる。
+従って $\mathfrak P_k^\natural$ は非空である。
+表示スタックは既約なので、既存の非空な全 $\OO$-認識開との交わりも非空になる。
+\end{proof}
+
+\subsection{可換分離和の自然な族と表示障害の同期}
+
+$\mathfrak P_k^\natural$ の実表示 gerbe 上で、
+中心直線 $\ell\subset\bigoplus_i\mathcal C_i$ に
+\begin{equation}\label{mbpl:eq:point-relation-line}
+ \ell_{\mathrm{pt}}=
+ \left(\bigoplus_i\vartheta_i\right)(\ell)
+ \subset\bigoplus_i\mathcal J_i\subset\operatorname{Sym}^3V,
+ \qquad V=\bigoplus_iW_i
+\end{equation}
+を対応させる。
+
+\begin{theorem}[全構造対象開上の可換三次族]
+\label{mbpl:thm:commutative-family}
+式\eqref{mbpl:eq:point-relation-line}は
+$H_k=\GL_3^k\rtimes\mathfrak S_k$ に同変であり、関係直線の自然な同型
+\begin{equation}\label{mbpl:eq:relation-synchronization}
+ \ell\xrightarrow{\sim}\ell_{\mathrm{pt}}
+\end{equation}
+を伴う。これによって
+\[
+ Y_{\mathrm{pt}}=V(\ell_{\mathrm{pt}})\subset\mathbb P(V^\vee)
+\]
+は $\mathfrak P_k^\natural$ 上へ降下する滑らかな三次 $3k-2$ 次元族を定める。
+降下した ambient は相対次元 $3k-1$ の Brauer--Severi scheme であり、
+大域的な次数一ベクトル束の存在は要求しない。
+
+滑らかな三次超曲面の射影的表示スタックを
+$\mathfrak C_{3k}^{\mathrm{sm}}$ とすると自然な射
+\begin{equation}\label{mbpl:eq:moduli-map}
+ \Phi_{\mathrm{pt}}:\mathfrak P_k^\natural
+       \longrightarrow\mathfrak C_{3k}^{\mathrm{sm}}
+\end{equation}
+がある。全 $\OO$-認識開との交わりでは、これは全 $\OO$-局所型モジュライ上の射となる。
+構成はこの開の任意の非被約試験底にも両立する。
+
+両側の実表示 gerbe の類を $\beta,\beta_{\mathrm{cub}}$ とすると
+\begin{equation}\label{mbpl:eq:brauer-synchronization}
+ \beta=\Phi_{\mathrm{pt}}^*\beta_{\mathrm{cub}}.
+\end{equation}
+この等式は band を保つ gerbe の同値で実現され、
+式\eqref{mbpl:eq:relation-synchronization}も同時に保持される。
+\end{theorem}
+
+\begin{proof}
+命題\ref{mbpl:prop:line-comparison}の自然性により各因子の同型は線型座標変更に両立する。
+同じ構成を全因子に用いるので置換にも両立する。
+満支持条件により $\ell_{\mathrm{pt}}$ の各 $\mathcal J_i$ への射は可逆である。
+局所的に方程式を $\sum_i b_iJ_i$、$b_i\in R^\times$ と書くと、
+各 $V(J_i)$ は滑らかな平面三次である。
+勾配はブロックごとに分かれ、全偏微分の共通アフィン零点は原点だけなので、
+分離和の射影超曲面は全幾何ファイバーで滑らかである。
+相対 Cartier 方程式の平坦性と Jacobian 判定により、族も滑らかである。
+
+共通スカラーは $\mathbb P(V^\vee)$ に自明に作用し、
+$\ell_{\mathrm{pt}}$ と $\operatorname{Sym}^3V$ に同じ三乗で作用する。
+従って射影 ambient と超曲面は $G_k$ へ降下する。
+projective frame を局所的に取れば滑らかな三次の係数空間への射を得て、
+その $\PGL_{3k}$ 商が式\eqref{mbpl:eq:moduli-map}である。
+全 $\OO$-射についての主張は、表示スタックとの同型
+系\ref{mbrr:cor:stack-isomorphism}を使う。
+
+実表示からは $V$ と実際の方程式直線 $\ell_{\mathrm{pt}}$ が得られるため、
+元の表示 gerbe から、標的の実表示 gerbe を引き戻したものへの射がある。
+$H_k\to\GL(V)$ は共通スカラー $\lambda$ を同じ $\lambda$ に送るので、
+band 上の写像は恒等である。従ってこの二つの $\mathbf G_m$-gerbe は同値であり、
+式\eqref{mbpl:eq:brauer-synchronization}を得る。
+関係直線の比較は最初から式\eqref{mbpl:eq:point-relation-line}に含まれている。
+以上は有限局所自由な加群の射と同変降下から作られ、任意底変更に両立する。
+\end{proof}
+
+\begin{remark}[局所方程式の係数を省略しない]
+\label{mbpl:rem:scale}
+中心生成元と点方程式を独立に $\Omega_i,J_i$ と選び、
+$w=\sum_i a_i\Omega_i$ と書いた場合には、
+\[
+ \vartheta_i(\Omega_i)=u_iJ_i,
+ \qquad
+ F_{\mathrm{pt}}=\sum_i a_iu_iJ_i,
+ \qquad
+ u_i=[\Omega_i]/[J_i]\in R^\times
+\]
+である。$u_i$ は共通の一次元商 $Q_{i,3}$ 内の比であり、任意には選ばない。
+例えば前補題の frame では $u_i=-6$ である。
+$F=\sum_i a_iJ_i$ と書けるのは、点方程式を
+$J_i=\vartheta_i(\Omega_i)$ と規格化した場合である。
+共通 scalar 重み三だけを理由に $u_i=1$ と置く操作は用いない。
+\end{remark}
+
+\subsection{既存の一般点比較との接続と境界}
+
+\begin{corollary}[Jacobian tensor 一変数族内での残余比較]
+\label{mbpl:cor:generic-comparison}
+第\ref{mpc:sec:point-comparison}節の入力と PBW 仮定を満たす一変数族を取り、
+その一般点が $\mathfrak P_k^\natural$ に属すると仮定する。
+するとある有限代数拡大後に、同節の中心群同変・rotation・指定周期保存の比較の標的を、
+定理\ref{mbpl:thm:commutative-family}の可換族の一般ファイバーへ取れる。
+これは同節の一変数族での主張であり、全モジュライの一般対象についての
+残余比較を新たに証明するものではない。
+\end{corollary}
+
+\begin{proof}
+$K=\mathbb C(h)$ 上で、同節の点方程式の frame を $J_i$ と書く。
+式\eqref{mpc:eq:algebraic-potential}の既存標的は
+$H_{\mathrm{pt}}=\sum_i c_i\lambda_iJ_i$ であり、
+本節の標的は $F_{\mathrm{pt}}=\sum_i c_iu_iJ_i$ である。
+各 $u_i,\lambda_i$ は $K^\times$ に属する。
+有限拡大で $s_i^3=\lambda_i/u_i$ を満たす $s_i$ を選べば
+\[
+ F_{\mathrm{pt}}(s_1x_1,\ldots,s_kx_k)=H_{\mathrm{pt}}.
+\]
+このブロック対角座標変換は中心三乗根群と可換し、potential を正確に移す。
+従って定理\ref{mpc:thm:point-model}の比較と合成でき、
+内部 shift と指定周期も保たれる。
+\end{proof}
+
+\begin{remark}[開の非空性と未主張の境界]
+例えば $t_i=d_i h$、$d_i\in\mathbb C^\times$、$d_i^6$ 相異なるとして
+補題\ref{mbpl:lem:fermat}の因子を tensor すれば、一般点で各比較射は可逆となる。
+$j(E_{t_i})=512d_i^6h^6+O(h^{12})$ なので各 $j_i$ も相異なる。
+この例は $g_i=(x_i^3+y_i^3+z_i^3)/3$ と
+$\varepsilon_i=d_i h$ の Jacobian tensor 族である。
+補題\ref{mbpl:lem:fermat}の DVR 上の自由性が PBW 入力を与え、
+$\Omega_{d_ih}$ は primitive、満支持の特殊三次は Fermat 型の滑らかな分離和になる。
+従って実際に第\ref{mpc:sec:point-comparison}節と直前の系の適用範囲に入る。
+この族での交わりの非空性と、全モジュライの既約性から得る
+全 $\OO$-認識開との交わりの非空性は、異なる主張として用いている。
+
+$\mathcal T^\natural$ は、有限表示\eqref{mbpl:eq:finite-presentation}と
+二つの射\eqref{mbpl:eq:two-maps}をともに可逆にするための開である。
+その外で別の自然な線比較が存在しないとは主張しない。
+$Q_3$ の階数が増える場合、または二つの射の一方が零になる場合には、
+本節の構成だけから延長は得られない。
+また表示 gerbe と関係直線の同期は、比較核や rotation 比較の大域的 section の存在、
+全点での smooth proper 残余比較、指定形式核の全 jet の代数化を与えない。
+\end{remark}

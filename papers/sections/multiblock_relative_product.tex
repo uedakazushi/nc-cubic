@@ -1,0 +1,376 @@
+% !TEX root = ../nc-cubic.tex
+\section{実表示上の相対曲線積比較}
+\label{mbrp:sec:relative-product}
+
+定理\ref{mbrd:thm:split-product}の体上の比較を、
+順序付きのベクトル束と実際の方程式を持つ族へ相対化する。
+相対 Orlov 比較には Ballard--Deliu--Favero--Isik--Katzarkov の
+具体的な hypersurface fibration の定理を使い、
+Thom--Sebastiani の外積については基底上の Hom 計算と生成性を確認する。
+体上で各ファイバーに同値が存在することだけから相対同値を推論しない。
+また、以下で構成する核は可換な分離和の実表示上の核である。
+非可換族との比較核や、表示を忘れた底上の核の切断は別の問題である。
+
+\subsection{共通の係数直線を持つ三次族}
+
+$S$ を滑らかで連結な準射影 $\mathbb C$-多様体、$k\geq2$ とする。
+$W_i$ を $S$ 上の階数三のベクトル束、$L$ を直線束とし、
+\begin{equation}\label{mbrp:eq:data}
+ f_i\in H^0(S,\Sym^3W_i\otimes L),\qquad
+ E_i=V(f_i)\subset\mathbb P_S(W_i),\qquad 1\leq i\leq k
+\end{equation}
+を取る。ここでは $\mathbb P_S(W_i)=\Proj_S\Sym W_i$ の規約を用いる。
+各 $E_i\to S$ が滑らかな平面三次曲線族であると仮定する。
+\[
+ W=\bigoplus_iW_i,\quad F=\sum_i f_i,\quad
+ X=V(F)\subset\mathbb P_S(W),\quad
+ Y=E_1\times_S\cdots\times_SE_k,\quad r=3k-3
+\]
+と置く。$X\to S$ も滑らかである。
+実際、各幾何学的ファイバーで $d f_i=0$ は原点のみを含むから、
+$dF=0$ の射影的な解は存在しない。
+
+群 $\Gamma_k$ と $Z_0$ は式\eqref{mbrd:eq:gamma}のものを用いる。
+その指標群を加法的に書くと
+\begin{equation}\label{mbrp:eq:lattice}
+ \Lambda_k=\mathbb Z^k/
+    \langle3e_i-3e_j\rangle_{i,j},\qquad
+ \chi=3e_i,\qquad Z_0=(\mu_3^k)/\Delta\mu_3.
+\end{equation}
+$\Gamma_k$ は $W_i$ の変数に指標 $e_i$ で作用する。
+共通対角 $\mathbb G_m$ を除くと $Z_0$ の射影的な $X$ への作用を得る。
+
+有限局所自由な twisted graded MF の dg 圏を Morita 完備化し、
+$S$ 上の線型圏の stack として扱う。
+その一因子版を $\mathcal M_i=\MF_{\mathrm{gr},S}(f_i;L)$、
+$\Lambda_k$ 次数版を $\mathcal M_F=\MF_{\Gamma_k,S}(F;L)$ と書く。
+これらの記号は、アフィン開での有限 MF とその perfect 加群の圏を
+局所自由束・微分・加群作用の降下で貼り合わせたものを表す。
+内部次数の規約は $M(1)_n=M_{n+1}$ である。
+一因子では
+\begin{equation}\label{mbrp:eq:line-period}
+ [2]=(3)\otimes L,
+\end{equation}
+多因子では $(3)$ を共通の指標 twist
+$\mathsf T_{\chi^{-1}}$ と読む。
+関係直線を使う記法では $\ell=L^\vee$ であり、
+式\eqref{mbrp:eq:line-period}は
+命題\ref{mbsd2:prop:line-period}の $[2]=(3)\otimes\ell^\vee$ と一致する。
+
+\begin{lemma}[相対 Orlov window]
+\label{mbrp:lem:relative-orlov}
+式\eqref{mbrp:eq:data}の仮定の下で、$S$-線型 dg Morita 同値
+\begin{equation}\label{mbrp:eq:relative-orlov}
+ \mathcal M_i\simeq\Perf(E_i/S),\qquad
+ \MF_{\mathrm{gr},S}(F;L)\simeq\Ku_{\Perf}(X/S)
+\end{equation}
+を取れる。ここで $\Perf(E_i/S)$ は $E_i$ の perfect 圏の相対 stack、
+右辺の残余圏は
+\[
+ \Ku_{\Perf}(X/S)=
+ \bigl\langle p^*\Perf(S),p^*\Perf(S)\otimes\OO_X(1),
+                  \ldots,p^*\Perf(S)\otimes\OO_X(r-1)\bigr\rangle^\perp
+\]
+である。全体の比較は $Z_0$ 作用と両立し、従って
+\begin{equation}\label{mbrp:eq:gamma-window}
+ \mathcal M_F\simeq\Ku_{\Perf}(X/S)^{Z_0}
+\end{equation}
+を与える。右辺は homotopy-coherent な同変化と冪等完備化を含む。
+\end{lemma}
+\begin{proof}
+\cite[Section~3, Corollary~3.4]{MBRPBDFIK}は、滑らかな基底、
+ベクトル束 $W$、係数直線束 $L$、
+$\Sym^dW\otimes L$ の切断に対する相対 Orlov 定理を与える。
+ここでは零超曲面も滑らかなので、同文献の $D^b(\operatorname{coh})$ は
+perfect 圏に等しい。階数三、次数三の場合は parameter が零であり、
+階数 $3k$ の場合は parameter が $r$ である。
+
+使用する比較は抽象的な三角同値だけではない。
+同文献の構成は、係数直線の全空間を加えた二つの GIT phase の window と、
+正則切断に対する Koszul 比較から成る。
+window の制限、導来引戻し・押出し、Koszul factorization は dg 関手である。
+引用した完全忠実性を全 shift に適用すると Hom 複体の準同型となるので、
+これらの関手は dg Morita 比較を与える。
+window の制限同値の逆は Morita $\infty$-圏で取る。
+同値の逆を選ぶ空間は可縮なので、局所比較の合成にもこの coherence を用いる。
+
+引用の半直交分解は例外成分を左に置く規約である。
+残余像を $\OO_X(-r)$ で tensor すれば、ここで採用した右直交補になる。
+これは $\omega_{X/S}=\OO_X(-r)\otimes p^*D$ という相対随伴公式と
+相対 Serre 双対による。$D$ は基底上の直線束であり、残余部分圏を変えない。
+一因子では $r=0$ なのでこの調整は不要である。
+
+window は共通対角 $\mathbb G_m$ の整数 charge で定義し、
+各 charge の全 $Z_0$ 指標を保持する。
+ブロックの線型作用はこの window と Koszul 比較を保つ。
+また $3\mid r$ なので、上の $\OO_X(-r)$ による調整も $Z_0$ と両立する。
+$\Gamma_k$ の分裂を一つ使ってこの記述を通常の同変化に直せば
+式\eqref{mbrp:eq:gamma-window}を得る。
+分裂を変えた同定は命題\ref{mbza:prop:gamma-action}の scalar 自明化による。
+従って作用そのものと同変圏には基準ブロックの選択を残さない。
+\end{proof}
+
+\subsection{相対外積の直接構成}
+
+\begin{lemma}[共通係数直線を持つ相対外積]
+\label{mbrp:lem:relative-ts}
+上の仮定の下で、実際の外積 dg 関手が $S$-線型 Morita 同値
+\begin{equation}\label{mbrp:eq:relative-ts}
+ \mathcal M_1\otimes^{\mathbf L}_{\Perf(S)}\cdots
+       \otimes^{\mathbf L}_{\Perf(S)}\mathcal M_k
+       \xrightarrow{\ \sim\ }\mathcal M_F
+\end{equation}
+を与える。相対 tensor 積は線型圏の stack の Morita tensor 積とする。
+\end{lemma}
+\begin{proof}
+まず $S=\Spec R$ とし、束と係数直線の frame を取る。
+二因子の外積は、\cite[Definition~3.51]{NFBFKKernels}の行列によって作る。
+$P^{-1}\to P^0\to P^{-1}(3)\otimes L$ という MF の規約では、
+共通の周期 functor を $T=\mathsf T_{\chi^{-1}}\otimes L$ として
+\begin{align}
+ (P\boxtimes Q)^{-1}
+   &=P^{-1}\boxtimes Q^0\oplus P^0\boxtimes Q^{-1},\\
+ (P\boxtimes Q)^0
+   &=P^0\boxtimes Q^0\oplus T(P^{-1}\boxtimes Q^{-1}).
+ \label{mbrp:eq:exterior-components}
+\end{align}
+微分は Koszul 符号付きの和であり、その平方は $f_P+f_Q$ である。
+二つの周期を $\Lambda_k$ の共通次数 $\chi$ へ写してからこの式を使う。
+特に奇成分どうしの積には $L$ が一つ付く。
+これは通常の二周期圏を、各因子に独立の周期変数を残したまま tensor する操作ではない。
+反復外積では $\epsilon\in\{0,1\}^k$ に対応する項は
+$T^{\lfloor|\epsilon|/2\rfloor}(\boxtimes_iP_i^{-\epsilon_i})$ であり、
+$|\epsilon|$ の偶奇に従う成分に置かれる。
+この表示は括弧の付け方によらず、共通 $L$ の冪も一意に指定する。
+
+Hom の比較を $R$ 上で確認する。
+有限次数付き射影 MF $P_i,Q_i$ に対して、外積は自然な写像
+\begin{equation}\label{mbrp:eq:relative-hom}
+ \bigotimes_{i=1}^k
+    \Hom^\bullet_{\MF_{\mathrm{gr},R}(f_i)}(P_i,Q_i)
+ \longrightarrow
+ \Hom^\bullet_{\MF_{\Gamma_k,R}(F)}
+       (\boxtimes_iP_i,\boxtimes_iQ_i)
+\end{equation}
+を与える。これは複体の同型である。
+実際、各項を自由次数付き加群の場合に分解すると、
+右辺の多重次数は $\mathbb Z^k\to\Lambda_k$ の核
+$\langle3e_i-3e_j\rangle$ に沿った和である。
+これを各因子の偶数 cohomological shift に配分すると、
+全 cohomological degree が指定された左辺の tensor 複体の項になる。
+奇数 shift の組合せでは式\eqref{mbrp:eq:exterior-components}の周期補正が同じ配分を与える。
+微分と合成の符号は通常の複体の tensor の符号に一致する。
+固定した全次数では多項式の正次数性により和は有限である。
+直和因子を取れば有限射影加群にも同じ同型を得る。
+これは \cite[Lemma~3.52の証明]{NFBFKKernels}の指標分解を、
+体上の cohomology の K\"unneth 公式を使わず複体の段階で行ったものである。
+
+この通常の tensor が導来 tensor を計算することも確認する。
+各 Hom 複体の項は有限射影 $R$-加群であり、下に有界である。
+補題\ref{mbrp:lem:relative-orlov}と $E_i\to\Spec R$ の properness により、
+その導来同型類は $R$-perfect である。
+$R$ は有限大域次元を持つ正則環なので、
+有界な有限射影模型からの準同型の cone は可縮である。
+ここでは射影加群からなる非有界 acyclic 複体でも、
+短完全列の dimension shifting を大域次元回だけ繰り返すと全 cycle が射影になることを使う。
+従って元の Hom 複体は有界な有限射影複体と homotopy 同値であり、$K$-flat である。
+式\eqref{mbrp:eq:relative-hom}は Morita 外積の完全忠実性を与える。
+
+生成性には零切断の Koszul stabilization を用いる。
+各 $f_i$ について Euler 恒等式
+\[
+ f_i=\sum_{a=1}^3 x_{ia}\,\frac{\partial f_i}{3\partial x_{ia}}
+\]
+から有限 Koszul MF $K_i=K(x_i,\tfrac13d f_i)$ を作る。
+この式は垂直微分と tautological section の pairing なので座標に依存しない。
+零切断の全 character shift と $\Perf(S)$ の作用による thick 閉包が
+MF 圏を生成することは
+\cite[Propositions~4.1, 4.2, 4.8]{MBRPBDFIK}の実 dg Koszul 模型から従う。
+適用条件は、全空間の零超曲面の特異 locus が零切断であることであり、
+各平面三次およびその分離和の滑らかさがこれを保証する。
+
+同じ生成主張を $\Gamma_k$ へ移すには、証明のために一つ分裂を選べば十分である。
+有限群 $Z_0$ への induction を施した生成対象は、
+標数零の平均化によって全同変対象を生成する。
+その induction は零切断の全 $Z_0$ 指標の直和である。
+従って $\Gamma_k$ では零切断の全 $\Lambda_k$ shift が生成する。
+一方、Koszul 外積には自然な同型
+\[
+ \boxtimes_i K_i\simeq K_{F}
+\]
+があり、$\mathbb Z^k\to\Lambda_k$ は全射なので、
+$K_F$ の全 shift が外積の像に入る。
+これで本質的全射性を得る。
+非アフィン基底では $\OO_S$ 一対象での生成を主張せず、
+$\Perf(S)$ の作用を含む相対 thick 閉包を用いている。
+
+最後に frame の変更を確認する。
+式\eqref{mbrp:eq:exterior-components}は共通の直線束 $L$ を含む式であり、
+$L$ の frame の変更は奇成分の積に付けた $L$ の遷移関数で補正される。
+ベクトル束の変更にも垂直微分と Koszul 外積は自然である。
+従って局所関手と上の Hom 同型は重なりで一致し、三重重なりの条件を満たす。
+有限局所自由な因子化と perfect 加群の降下により、
+式\eqref{mbrp:eq:relative-ts}は $S$ 上に貼り合う。
+この議論では、\cite[Conjecture~5.1.2]{MBRPBDFIK}に関係する
+最小 $A_\infty$ 模型への置換を一切使わない。
+\end{proof}
+
+\subsection{実核、底変更、置換}
+
+\begin{theorem}[相対曲線積の perfect 核]
+\label{mbrp:thm:relative-product}
+式\eqref{mbrp:eq:data}の仮定の下で、$S$-線型 dg Morita 同値
+\begin{equation}\label{mbrp:eq:relative-product}
+ \Phi_S:\Perf(Y)\xrightarrow{\ \sim\ }
+                 \Ku_{\Perf}(X/S)^{Z_0}
+\end{equation}
+が存在する。これは相対 Orlov window と補題\ref{mbrp:lem:relative-ts}の外積の合成であり、
+その同変残余圏への包含を含めた関手は実際の核
+\begin{equation}\label{mbrp:eq:kernel}
+ \mathcal P\in\Perf^{Z_0}(Y\times_S X)
+\end{equation}
+による積分変換として表される。
+$Z_0$ は $Y$ に自明に、$X$ にブロック倍によって作用する。
+同値と核の構成には、基底の有限拡大や $L$ の三乗根の選択を要しない。
+\end{theorem}
+\begin{proof}
+補題\ref{mbrp:lem:relative-orlov}と\ref{mbrp:lem:relative-ts}を合成する。
+滑らかで proper な $S$-scheme の perfect 圏の相対 Morita 積は
+fiber product の perfect 圏である。
+この主張はアフィン $S=\Spec R$ 上で
+\cite[Lemma~8.11とTheorem~8.15]{MBRPToenMorita}の積公式による。
+同文献の基礎環は一般の可換環であり、ここでは $R$ を用いている。
+積・導来外積の構成は基底上で自然なので、perfect 複体の降下によって $S$ 上へ貼り合う。
+これで式\eqref{mbrp:eq:relative-product}を得る。
+
+核の存在を単に三角同値の表現可能性から推論する必要はない。
+構成した dg 関手を $\Perf(X)$ へ合成し、
+各アフィン開 $U\subset S$ 上で
+\cite[Theorem~8.15]{MBRPToenMorita}を $Y_U,X_U$ に適用する。
+両者は $U$ 上 smooth proper なので、関手は
+$\Perf(Y_U\times_U X_U)$ の実際の perfect 核に対応する。
+核と dg 関手の対応は morphism 複体も含む同値であるから、
+関手の $Z_0$ 同変構造は核の coherent な $Z_0$ 線型化へ移る。
+同じ理由で、重なり上の関手の比較とその coherence は核へ移る。
+perfect 複体の降下を適用して式\eqref{mbrp:eq:kernel}を得る。
+\end{proof}
+
+\begin{corollary}[非平坦底変更後の比較]
+\label{mbrp:cor:base-change}
+定理\ref{mbrp:thm:relative-product}の核を固定する。
+任意の準コンパクト・分離的 noetherian $S$-scheme $T$ に対して、
+その導来引戻し $\mathcal P_T$ は
+\begin{equation}\label{mbrp:eq:base-change}
+ \Perf(Y_T)\simeq\Ku_{\Perf}(X_T/T)^{Z_0}
+\end{equation}
+を与える。$T\to S$ の flatness や $T$ の被約性は仮定しない。
+引戻しと比較は、合成した底変更とも coherent に両立する。
+$T$ も滑らかな準射影基底なら、これは引戻したデータからの上記構成に一致する。
+\end{corollary}
+\begin{proof}
+$X,Y$ は $S$ 上 smooth proper なので、
+関手の随伴と残余 projector も perfect 核で表される。
+相対例外成分の projector の核は
+$\OO_X(-j)\boxtimes_S\OO_X(j)$ と評価写像から構成される。
+この核の $Z_0$ 線型化は二つの重みが相殺するため定まる。
+従って $\OO_X(j)$ の個別の線型化を選ぶ必要はない。
+有限個の mutation の cone によって得る残余 projector を $\Pi$ とする。
+これは $X\times_SX$ 上の diagonal $Z_0$-同変核である。
+同変圏上の projector の核は
+\[
+ \widehat\Pi=
+ \operatorname{Ind}_{\Delta Z_0}^{Z_0\times Z_0}\Pi
+ \quad\text{on }[X/Z_0]\times_S[X/Z_0]
+\]
+と読む。従って全 $\operatorname{Rep}(Z_0)$ 成分を保持する underlying mutation の同変化であり、
+一つの線型化を持つ $\OO_X(j)$ への invariant Hom だけを取る投影ではない。
+同値の逆を残余 projector と合成すれば、その核 $\mathcal Q$ とともに
+\[
+ \mathcal Q\circ\mathcal P\simeq\OO_{\Delta_Y},\qquad
+ \mathcal P\circ\mathcal Q\simeq\widehat\Pi
+\]
+を得る。第2式は同変 perfect 圏上の projector の恒等式である。
+$\mathcal P$ と $\mathcal Q$ の核はそれぞれ
+$Y\times_S[X/Z_0]$ と $[X/Z_0]\times_SY$ 上にあり、
+convolution では中間の $Z_0$ の不変部分を取る。
+
+これらの核・評価・unit と counit を $T$ へ導来引戻しする。
+各 fiber product の射は $S$ 上 flat で、積分変換の射影は proper perfect であるから、
+核の convolution とこの引戻しは両立する。
+有限群不変部分も平均化 idempotent により底変更と両立する。
+引戻した $\Pi_T$ は同じ相対例外成分の残余 projector であり、
+その induction は $\widehat\Pi_T$ である。
+これは射影束のコホモロジーと超曲面の短完全列による計算で、
+$T$ の正則性を使わず確認できる。
+上の二つの恒等式が $T$ 上にも成立するので、式\eqref{mbrp:eq:base-change}を得る。
+導来引戻しの合成同型が coherence を与える。
+
+滑らかな $T$ では有限 MF の引戻し、Koszul 外積、
+window の制限も同じ pullback と両立するため、直接の構成に一致する。
+一般の $T$ についてここで主張するのは perfect 圏の比較であり、
+$D^b(\operatorname{coh}Y_T)=\Perf(Y_T)$ や
+特異基底上の絶対的な coherent MF 圏への拡張ではない。
+\end{proof}
+
+\begin{corollary}[既存の比較体上での曲線積表示]
+\label{mbrp:cor:comparison-field}
+$K$ を $\mathbb C$ 上有限生成な体とし、
+$f_i\in K[x_{i1},x_{i2},x_{i3}]_3$ が滑らかな平面三次を定めるとする。
+このとき追加の体拡大なしに
+\[
+ \Ku(V(\textstyle\sum_i f_i))^{Z_0}
+       \simeq D^b\bigl(\textstyle\prod_iV(f_i)\bigr)
+\]
+が $K$ 上の実 perfect 核で得られる。
+従って定理\ref{med:thm:multiblock-generic}の仮定の下で
+同変可換比較を得た有限比較体上では、
+系\ref{mbrd:cor:nc-product}の可換積比較のための追加有限拡大を省ける。
+定理\ref{mpc:thm:point-model}の明示的 Jacobian tensor 族でも、
+同じ有限比較体上で入力の点曲線の積との比較を得る。
+\end{corollary}
+\begin{proof}
+有限個の係数を含む $\mathbb C$ 上有限生成な整域を選び、
+その分数体を $K$ に取る。
+その非空開に縮めて基底を滑らかにし、
+さらに平面三次の判別式を可逆にすれば、$f_i$ は
+定理\ref{mbrp:thm:relative-product}の族へ延びる。
+系\ref{mbrp:cor:base-change}を一般点 $\Spec K$ に適用すればよい。
+係数は元の $f_i$ のままであり、比較体を変更していない。
+既存の二つの非可換適用で得る有限比較体は $\mathbb C(h)$ の有限拡大なので、
+この場合に含まれる。
+その体上で既に存在する同変可換比較と、今構成した積比較を合成する。
+これは指定された形式比較核の全 jet の代数化を主張するものではない。
+\end{proof}
+
+\begin{proposition}[因子置換との整合性]
+\label{mbrp:prop:permutations}
+定理\ref{mbrp:thm:relative-product}の相対比較は、
+データ $(W_i,f_i;L)$ の同型と因子置換に対して coherent に取れる。
+置換は $\Gamma_k$ と $Z_0$ の指標も同時に置換する。
+\end{proposition}
+\begin{proof}
+外積は複体の標準的な Koszul braiding を用いる。
+従って隣接交換の二乗および braid 関係を、その符号を含めて満たす。
+Koszul 対象の
+$\bigwedge(\bigoplus_iW_i)\simeq\bigotimes_i\bigwedge W_i$
+もこの braiding に関して自然である。
+相対 Orlov window は共通対角 charge によって定義され、
+全 $Z_0$ 指標を保持するから因子の順序を用いない。
+これらの実 dg 関手の coherence は、核と関手の対応によって
+式\eqref{mbrp:eq:kernel}の核の coherence に移る。
+\end{proof}
+
+\begin{remark}[相対可換比較と未解決の降下]
+\label{mbrp:rem:scope}
+本節は、共通係数直線まで含む可換分離和の実表示上で比較核を構成したものである。
+相対外積の構成を仮定に置いた条件付き主張でも、
+幾何点での同値からの存在降下だけでもない。
+一方、非可換残余圏からこの可換分離和へ至る相対核は
+定理\ref{med:thm:multiblock-generic}の一般点の有限降下とは別に必要である。
+実表示を持たない全 $\OO$-モジュライ上へ選んだ核が降りることも、
+本節の基底変更・置換整合性のみからは従わない。
+その際は表示 gerbe の重みと source/target の同期を確認する必要がある。
+さらに標準 rotation の線型化を保持するなら、
+命題\ref{mbza:prop:shift-character}の character 変換を含めなければならない。
+ここで得た置換整合性は、線型化された rotation の分裂選択の存在を主張しない。
+\end{remark}

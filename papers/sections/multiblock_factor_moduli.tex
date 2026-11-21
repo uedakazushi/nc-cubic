@@ -1,0 +1,193 @@
+% !TEX root = ../nc-cubic.tex
+\section{因子モジュライへの射と点曲線積の相対模型}
+\label{mbfm:sec:factor-moduli}
+
+本節では、中心商の係数を忘れる射と、各Sklyanin因子の平行移動を忘れる射を分ける。
+点曲線の積は中心三次の生成元を選ばずに全$\OO$開上へ降下する。
+一方、その積との残余圏比較には別の核が必要である。
+一般のrigidificationについては\cite[Theorem~5.1]{MBFMRomagny}を参照するが、
+ここで必要な商とbandは表示群の作用から直接求める。
+
+\subsection{中心係数を忘れる有限gerbe}
+
+第\ref{mbs:sec:presentations}節の$\mathcal H,\mathcal T,\mathcal U_k,
+\mathcal X_k$を使い、$\mathcal H_k^{\ne}\subset\mathcal H^k$を
+$j$が対ごとに異なる開部分とする。次の三つのstackを置く。
+\begin{equation}\label{mbfm:eq:three-stacks}
+\begin{aligned}
+ \mathfrak P_k&=[\mathcal X_k/
+ ((\GL_3^k/\mathbb G_m^{\rm diag})\rtimes\mathfrak S_k)],\\
+ \mathfrak B_k&=[\mathcal U_k/(\PGL_3^k\rtimes\mathfrak S_k)],\\
+ \mathfrak E_k&=[\mathcal H_k^{\ne}/(\PGL_3^k\rtimes\mathfrak S_k)].
+\end{aligned}
+\end{equation}
+$\mathfrak B_k$は射影的なSklyanin因子の組、$\mathfrak E_k$は
+順序を忘れた平面三次の組を分類する。
+後者の偏極はBrauer--Severi平面上の次数三偏極類として扱い、
+全ての底で実際の$\mathcal O(1)$が存在するとはしない。
+
+\begin{proposition}[中心慣性によるrigidification]
+\label{mbfm:prop:rigidification}
+中心関係直線を忘れる射
+\[
+ q_k:\mathfrak P_k\longrightarrow\mathfrak B_k
+\]
+は、順序付き被覆上で$Z_0=\mu_3^k/\Delta\mu_3$をbandとするgerbeである。
+順序を忘れた底のbandは因子置換で降下する有限\'etale群である。
+さらに$q_k$は$Z_0$を相対慣性から除くrigidificationであり、
+\begin{equation}\label{mbfm:eq:rigidification}
+ \mathfrak P_k\mathbin{/\mkern-6mu/}Z_0\simeq\mathfrak B_k.
+\end{equation}
+幾何点の慣性群の射は
+\[
+ K_k=(\mathcal H_{27}^k)/\Delta\mu_3
+ \longrightarrow\prod_i E_i[3]
+\]
+で、核は$Z_0$である。
+\end{proposition}
+\begin{proof}
+まず順序を固定する。群の完全列
+\[
+ 1\longrightarrow T_k=\mathbb G_m^k/\mathbb G_m^{\rm diag}
+ \longrightarrow\GL_3^k/\mathbb G_m^{\rm diag}
+ \longrightarrow\PGL_3^k\longrightarrow1
+\]
+を用いる。中心直線束を局所的に自明化すると、
+$\mathcal X_k\to\mathcal U_k$のファイバーは全係数が非零な
+射影$(k-1)$次元トーラスとなる。$T_k$の作用は
+\[
+ [a_1:\cdots:a_k]\longmapsto
+ [\lambda_1^3a_1:\cdots:\lambda_k^3a_k].
+\]
+従ってこの作用はfppf局所に推移的で、全ての相対安定化子は
+$T_k[3]=\mu_3^k/\Delta\mu_3$である。
+三乗写像が標数零で有限\'etale全射であることも使える。
+
+$\mathfrak B_k$上の対象をfppf局所で座標付き表示へ戻せば、
+中心直線束のframeと全係数非零な関係直線を選べる。
+二つのそのような選択は、係数比の三乗根を取った後に同型となる。
+同型の相対核は上記$Z_0$である。これでgerbeの二条件を直接確認した
+（商groupoidによる判定は\cite[Tag~06PD]{MBFMStacksGerbes}）。
+同型層からこの核を割り、stack化すると、因子の全射影同型の層になる。
+対象も局所的に全て持ち上がるので、そのstackは$\mathfrak B_k$と同型である。
+これが式\eqref{mbfm:eq:rigidification}の普遍性も与える。
+
+各因子の射影自己同型は、点曲線の次数三偏極と非二捩れの平行移動を保つ。
+$j\ne0,1728$では原点を保つ群は$\{\pm1\}$であり、
+$2p_i\ne0$が負符号を除く。そのため残るのは$E_i[3]$である。
+Heisenberg群の中心拡大を因子ごとに射影化すると表示した慣性の射を得る。
+因子置換は上の群完全列と三乗写像を保つので、全構成が
+$\mathfrak S_k$に同変であり、順序を忘れた結論も従う。
+\end{proof}
+
+\begin{remark}[二種類のgerbe]
+\label{mbfm:rem:two-gerbes}
+$q_k$のbandは有限群$Z_0$であり、
+定理\ref{mbsd2:thm:gerbe-period}の実表示
+$\widetilde{\mathfrak P}_k\to\mathfrak P_k$のband$\mathbb G_m$とは異なる。
+中心係数を忘れたことから、実表示の障害$\beta$の消滅は従わない。
+また$q_k$の存在は、その有限gerbeの中立性を主張するものではない。
+\end{remark}
+
+\begin{corollary}[中心同変化の因子モジュライへの降下]
+\label{mbfm:cor:equivariant-rigidification}
+$\mathfrak P_k^\circ$上のcompact残余圏の族を
+$\mathscr K$とし、$Z_0$はその内在的慣性として作用するものとする。
+$\mathfrak B_k$の対応する開部分$\mathfrak B_k^\circ$上に
+圏の族$\mathscr D$があり、
+\[
+ q_k^*\mathscr D\simeq\mathscr K^{hZ_0}
+\]
+となる。右辺はcoherenceを含む同変化である。
+これは$\mathscr K$自身の降下や、$\mathscr D$と非捩れの曲線積の圏との
+同値を主張しない。
+\end{corollary}
+\begin{proof}
+gerbeの上の圏の切断を取り、$\mathscr D=(q_k)_*\mathscr K$と定める。
+fpqc局所でgerbeの対象$x$を選ぶと、その表示は$BZ_0$となり、
+切断の圏は$\mathscr K_x$のhomotopy fixed point圏に一致する。
+二つの中立化を比較する同型の持上げは$Z_0$だけ異なるが、
+同変対象の構造写像$\theta_z$がその差を自然に同定する。
+三重の重なりでの等式は、$\mathscr K$の内在的作用のcoherenceと
+$\theta$の群作用条件である。順序の変更は$Z_0$の群の輸送も含めて扱う。
+これで局所の同変圏は$\mathfrak B_k^\circ$上へ貼り合わさる。
+有限群の位数は可逆であり、有限軌道和と平均射影によってcompact対象の
+同変化もcompactな模型内で行える。
+一般にはこの降下結果にgerbe由来の捩れが残り得る。
+同値核の選択やその捩れの消滅は、この降下の証明には含まれない。
+\end{proof}
+
+\subsection{平行移動を忘れる滑らかな射}
+
+\begin{proposition}[点曲線のモジュライへの射]
+\label{mbfm:prop:point-map}
+自然な射
+\begin{equation}\label{mbfm:eq:point-map}
+ \operatorname{pt}_k:\mathfrak P_k
+ \xrightarrow{q_k}\mathfrak B_k
+ \xrightarrow{v_k}\mathfrak E_k
+\end{equation}
+がある。$v_k$は表現可能な滑らかな全射で相対次元$k$を持つ。
+$\dim\mathfrak E_k=k$、$\dim\mathfrak B_k=2k$であり、
+順序付き平面三次の組を固定した$v_k$の幾何ファイバーは
+\[
+ \prod_i\bigl(\operatorname{Jac}(E_i)
+       \setminus(E_i[2]\cup E_i[3])\bigr)
+\]
+である。ここで捩れ部分群はJacobianのものを意味する。
+$\operatorname{pt}_k$の対応するファイバーは、この積上の$Z_0$-gerbeである。
+全$\OO$開$\mathfrak M_k^\circ\simeq\mathfrak P_k^\circ$へ制限しても
+自然な射を得て、像は$\mathfrak E_k$の非空開となる。
+\end{proposition}
+\begin{proof}
+$\mathcal T\to\mathcal H$は普遍Jacobianから有限捩れ閉部分を除いた射であり、
+滑らか・全射・相対次元一である。従って
+$\mathcal U_k\to\mathcal H_k^{\ne}$は滑らか・全射・相対次元$k$である。
+両者を同じ群$\PGL_3^k\rtimes\mathfrak S_k$で割ると$v_k$を得る。
+その基底変更は、点曲線を固定したJacobianの開部分の積であるため表現可能で、
+滑らかさとファイバーの記述が従う。
+商の次元は$9k-8k=k$および$10k-8k=2k$である。
+有限gerbe$q_k$の局所模型は$BZ_0$なので、
+$\operatorname{pt}_k$もstackの射として滑らかで相対次元$k$である。
+その非空開への制限の像は滑らかな射の開性から非空開となる。
+全$\OO$射に対する自然性は系\ref{mbrr:cor:stack-isomorphism}による。
+\end{proof}
+
+\begin{proposition}[点曲線積の全$\OO$相対模型]
+\label{mbfm:prop:product-family}
+$\mathfrak E_k$上に、順序付きチャートでは$E_1\times\cdots\times E_k$となる
+相対次元$k$の滑らかな射影的族$\mathscr Y_k\to\mathfrak E_k$がある。
+従って$\operatorname{pt}_k$による引戻しは$\mathfrak P_k$上、
+さらに$\mathfrak M_k^\circ$上の点曲線積の族と
+smooth properな$\operatorname{Perf}$の族を与える。
+この構成は任意底変更と両立し、幾何的な族への中心慣性$Z_0$の作用は自明である。
+\end{proposition}
+\begin{proof}
+$\mathcal H_k^{\ne}$上の普遍曲線の積には、各因子の射影座標変換と
+因子置換が自然に作用する。これを基底と同時に割ると族$\mathscr Y_k$を得る。
+滑らかさ・proper性と相対次元は表示チャート上で検査できる。
+射影性を確かめるには、各平面上の
+\[
+ \mathcal O_{\mathbb P(W_i^*)}(3)\otimes(\det W_i)^{-1}
+\]
+を用いる。この線束は共通scalarの重みが零なので$\PGL(W_i)$に同変であり、
+曲線への制限は次数九である。その外積には因子置換の自然な線型化があり、
+相対ample線束として降下する。
+従って族は射影的であり、$\operatorname{Perf}$は相対smooth properとなる。
+普遍族の引戻しとして定義したため、底変更も保たれる。
+中心$Z_0$は各$W_i$のscalarによって作用し、射影曲線上では恒等である。
+\end{proof}
+
+\begin{remark}[点曲線積と残余比較]
+\label{mbfm:rem:comparison-boundary}
+命題\ref{mbfm:prop:product-family}は、点曲線積という可換標的の族を
+全$\OO$開上で構成する。非可換同変残余圏からこの族への比較核を自動的には与えない。
+その一般点比較には系\ref{mbrd:cor:nc-product}の入力が必要であり、
+相対比較では核の実現とrotation・周期を別に確認する。
+また、点曲線の組のモジュライへの射と、
+中心関係の係数を含む一つの分離和三次超曲面への射を区別する。
+後者に必要な中心三次線と点三次線の自然な比較は、
+命題\ref{mbpl:prop:line-comparison}で最大可換商を介して非空開上に構成する。
+従って定理\ref{mbpl:thm:commutative-family}の可換三次族と、
+本節の点曲線積の族はともに得られるが、非可換残余圏との相対核はなお別に必要である。
+\end{remark}

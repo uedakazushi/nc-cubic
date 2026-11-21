@@ -1,0 +1,406 @@
+% !TEX root = ../nc-cubic.tex
+\section{比較核・関係直線・三次周期の相対同期}
+\label{mbks:sec:synchronization}
+
+本節は、比較核の stack の降下と、その大域切断の存在を区別する
+命題\ref{mbrd:prop:kernel-stack}を、rotation と指定周期を付加した場合に精密化する。
+一つの underlying 核の型を固定すると、残る障害は核の scalar gerbe と、
+比較同型を入れる直線束の三次 Kummer 類に分かれる。
+表示 gerbe の同期を固定しない場合には、この後者も固定された不変量ではない。
+
+体上の周期位相と、核の scalar 慣性が周期標識後も残ることは、
+式\eqref{eq:nfm-period-phase-convention}--\eqref{eq:nfm-period-phase-kummer}および
+注意\ref{rem:nfm-full-kernel-period-nine}ですでに扱った。
+ここでは係数直線、相対 Picard 群、全構造対象局所型への降下を保持する。
+用いる Kummer 完全列と、三乗を自明化した直線束による
+$H^1(\mu_3)$ の記述は既知である\cite{NFMStacksKummer}。
+以下の相対比較への適用について、初出の網羅的な確認はしていない。
+
+\subsection{固定した比較核に対する直線と三次形式}
+
+$S$ は $\C$ 上の scheme または代数 stack とする。
+以下の層とコホモロジーは fppf 位相で扱う。
+$3$ は可逆なので、現れる $\mu_3$-torsor は有限 \'etale である。
+$\mathcal C_s,\mathcal C_t$ を $S$-線型 dg 圏の族とし、
+fpqc 局所に smooth proper な dg 代数で表されると仮定する。
+両側に実際の可逆核 $\rho_s,\rho_t$ と直線束 $\ell_s,\ell_t$、
+指定された中心的周期
+\begin{equation}\label{mbks:eq:periods}
+ \pi_i:\rho_i^3\xrightarrow{\sim}[2]\otimes\ell_i,\qquad i=s,t
+\end{equation}
+を与える。ここで中心的とは、rotation、shift、底の直線束との標準交換同型に関し、
+周期を左右どちらから適用しても一致するという意味であり、
+その dg coherence もデータに含める。
+本稿の残余圏へ適用する際の周期の存在には、
+命題\ref{mbsd2:prop:line-period}の MF/window 比較を引き続き要求する。
+
+$P:\mathcal C_s\simeq\mathcal C_t$ を実際の Morita 核とする。
+任意底変更後に
+\begin{equation}\label{mbks:eq:simple}
+ \mathcal H^a\mathbf R\operatorname{Hom}(P,P)=0\quad(a<0),
+ \qquad
+ \mathcal H^0\mathbf R\operatorname{Hom}(P,P)=\OO_S
+\end{equation}
+が成立し、これらの同定が底変更と両立すると仮定する。
+また $P\rho_s$ と $\rho_tP$ が fpqc 局所で同型であるとする。
+有限 \'etale 群の coherent 作用を同時に扱う場合には、
+核、局所同型、周期をすべて同変なものとし、
+以下の Hom も同変核の圏で取る。
+標数零では不変部分を取ることが完全であり、
+underlying な式\eqref{mbks:eq:simple}から同変版も従う。
+
+\begin{proposition}[比較直線と関係直線の三乗則]
+\label{mbks:prop:comparison-line}
+以上の仮定の下で
+\[
+ L_P=\mathcal H^0\mathbf R\operatorname{Hom}(P\rho_s,\rho_tP)
+\]
+は $S$ 上の直線束であり、同型の層はその frame torsor
+$\mathit{Isom}(P\rho_s,\rho_tP)=L_P^\times$ に等しい。
+周期の三重図式は標準同型
+\begin{equation}\label{mbks:eq:cubic-line}
+ q_P:L_P^{\otimes3}\xrightarrow{\sim}
+ M_{st},\qquad M_{st}=\ell_t\otimes\ell_s^\vee
+\end{equation}
+を与える。すべての構成は任意底変更と両立する。
+
+指定した関係直線同型 $\theta:\ell_s\xrightarrow{\sim}\ell_t$ に対し、
+周期を保つ比較同型の層は
+\begin{equation}\label{mbks:eq:period-torsor}
+ T_{P,\theta}
+ =\{\eta\in L_P^\times:q_P(\eta^{\otimes3})=\theta\}
+\end{equation}
+という有限 \'etale $\mu_3$-torsor である。
+従って大域比較同型が存在する必要十分条件は
+\begin{equation}\label{mbks:eq:kummer-class}
+ \gamma(P,\theta):=[T_{P,\theta}]=0
+       \quad\text{in }H^1(S,\mu_3)
+\end{equation}
+である。
+\end{proposition}
+\begin{proof}
+fpqc 局所で同型 $\eta_0:P\rho_s\to\rho_tP$ を取る。
+可逆核との合成は導来 Hom を保つので、
+式\eqref{mbks:eq:simple}により全ての次数零射は一意に $u\eta_0$ と書ける。
+これが同型である条件は $u\in\OO^\times$ である。
+従って局所 Hom は階数一自由で、重なりの移行は可逆スカラーであり、
+$L_P$ と $L_P^\times$ が得られる。
+負の Ext 消滅は、同型の mapping space にさらに高次の自己同型がないことを保証する。
+
+合成の順序を右から左として
+\[
+ \eta^{(3)}
+  =(\rho_t^2\eta)(\rho_t\eta\rho_s)(\eta\rho_s^2)
+  :P\rho_s^3\longrightarrow\rho_t^3P
+\]
+と置く。周期で始域と終域を移すと、
+\[
+ (\pi_tP)\eta^{(3)}(P\pi_s)^{-1}
+ :P[2]\otimes\ell_s\longrightarrow [2]P\otimes\ell_t
+\]
+を得る。$P$ の scalar-simple 性により、この Hom は $M_{st}$ と同定される。
+この写像を
+\begin{equation}\label{mbks:eq:cubic-convention}
+ (\pi_tP)\eta^{(3)}
+   =\bigl([2]P\otimes q_P(\eta^{\otimes3})\bigr)(P\pi_s)
+\end{equation}
+と記述する。$\eta$ を $u\eta$ に替えると右辺の係数は $u^3$ 倍になるので、
+局所的な式は $L_P^{\otimes3}\to M_{st}$ へ貼り合わさる。
+frame $\eta_0$ の三重合成は同型であり、$q_P$ も同型である。
+
+局所 frame $e$ を選び、
+$\theta^{-1}q_P(e^{\otimes3})=c\in\OO^\times$ と書けば、
+式\eqref{mbks:eq:period-torsor}は $u^3=c^{-1}$ である。
+これは階数三の有限 \'etale 被覆で、$\mu_3$ が $u$ の乗法で自由推移的に作用する。
+異なる frame の式はこの作用を保って貼り合わさる。
+torsor に大域切断があることとその類の消滅は同値である。
+各段階の底変更両立性は仮定した Hom の底変更と、合成・周期の自然性から従う。
+\end{proof}
+
+\begin{corollary}[相対 Picard 成分と尺度の成分]
+\label{mbks:cor:picard-phase}
+関係直線同型 $\theta$ がある場合、$\gamma(P,\theta)$ の
+$\operatorname{Pic}(S)[3]$ への像は $[L_P]$ である。
+従って次の二つの条件を順に検査すればよい：
+\begin{enumerate}
+ \item $L_P$ が自明である。
+ \item その frame $e$ について
+ $\theta/q_P(e^{\otimes3})\in\Gamma(S,\OO_S^\times)$ が三乗である。
+\end{enumerate}
+第2の条件は frame の選択によらない。
+$\theta$ を $u\theta$ に替えると
+\begin{equation}\label{mbks:eq:theta-change}
+ \gamma(P,u\theta)=\gamma(P,\theta)+[u]
+\end{equation}
+となる。ここで $[u]$ は $z^3=u$ の Kummer 類である。
+
+関係直線同型をまだ指定していない場合にも、
+$[M_{st}]=3[L_P]$ は必ず成立する。
+$\theta$ と $\eta$ の双方を自由に選べるなら、両者の存在は $L_P$ の自明性と同値である。
+固定した $\theta$ に対する周期障害と、この自由な選択問題は異なる。
+\end{corollary}
+\begin{proof}
+Kummer 完全列\cite{NFMStacksKummer}の部分
+\[
+ 0\longrightarrow
+ \Gamma(S,\OO_S^\times)/\Gamma(S,\OO_S^\times)^3
+ \longrightarrow H^1(S,\mu_3)
+ \longrightarrow\operatorname{Pic}(S)[3]\longrightarrow0
+\]
+を、対 $(L_P,\theta^{-1}q_P)$ に適用する。
+残りは式\eqref{mbks:eq:cubic-line}と局所式 $u^3=c^{-1}$ から従う。
+scheme に対する通常の証明は、直線束とその frame の fppf 降下により
+代数 stack にも同じ形で適用できる。
+\end{proof}
+
+\subsection{核の型を固定した stack と二つの障害}
+
+次に $P$ 自体は大域的に選ばず、
+underlying Morita 核の局所同型型を $S$ 上で一つ固定する。
+その forms の stack を $\mathscr G_P$ とする。
+局所核に式\eqref{mbks:eq:simple}を仮定すれば、
+注意\ref{mbrd:rem:kernel-section}により $\mathscr G_P$ は
+$\mathbf G_m$-gerbe となる。その類を $\alpha_P\in H^2(S,\mathbf G_m)$ と書く。
+以下では、この型の局所核が rotation を局所的に intertwine することも仮定する。
+
+\begin{theorem}[指定周期付き核の相対実現判定]
+\label{mbks:thm:kernel-criterion}
+上記の仮定と、指定した $\theta:\ell_s\simeq\ell_t$ の下で、
+普遍核から作る $L_P,q_P,T_{P,\theta}$ は $\mathscr G_P$ から $S$ へ降下する。
+周期を保つ比較同型を持つ、この型の核の stack は
+\begin{equation}\label{mbks:eq:product-stack}
+ \mathscr G_{P,\theta}^{\rm per}
+       \simeq\mathscr G_P\times_S T_{P,\theta}
+\end{equation}
+である。従って大域的な核と比較同型の対が存在する必要十分条件は
+\begin{equation}\label{mbks:eq:two-obstructions}
+ \alpha_P=0,\qquad \gamma(P,\theta)=0.
+\end{equation}
+一つの実際の $P$ とそれへの同定を固定した fiber は $T_{P,\theta}$ である。
+一方、核を動かす stack の自己同型群は周期標識後も $\mathbf G_m$ であり、
+$\mu_3$ に縮まるわけではない。
+\end{theorem}
+\begin{proof}
+局所核の scalar 自己同型 $v\operatorname{id}_P$ は、
+$P\rho_s$ と $\rho_tP$ の双方に同じ $v$ を掛ける。
+従って Hom による $L_P$ への作用は自明である。
+局所核の同型による移送も、この同型を scalar 倍しても変わらない。
+そのため $L_P$、合成による $q_P$、および $T_{P,\theta}$ の降下 cocycle は
+実際の等式として成立する。
+
+降下後の torsor の $U$ 上の切断を与えることは、
+$U$ 上の任意の局所核に周期を保つ比較同型を与え、
+核の全ての同型による移送と両立させることに等しい。
+これが式\eqref{mbks:eq:product-stack}を与える。
+大域切断の存在は、二つの因子のそれぞれに大域切断があることと同値である。
+また任意の scalar 自己同型は
+\[
+ (\rho_t(v\operatorname{id}_P))\eta
+      =\eta((v\operatorname{id}_P)\rho_s)
+\]
+を満たすので、$\eta$ を保つ。逆に核の自己同型は全て scalar であり、
+自己同型群は $\mathbf G_m$ のままである。
+負の自己 Ext 消滅により、ここで省略された高次慣性はない。
+\end{proof}
+
+\begin{remark}[実現型と比較の合成]
+\label{mbks:rem:composition}
+同じ核の型の別の form を選んでも、$L_P,q_P,\gamma(P,\theta)$ は変わらない。
+特に $P$ を底の直線束で tensor しても、核の重みは Hom の両側で相殺する。
+これは後述の rotation の同期自体を直線束で変更する操作とは異なる。
+
+二つの比較 $P:s\to t$, $Q:t\to u$ について同じ scalar-simple 条件を満たすなら、
+比較同型の合成は
+$L_{QP}\simeq L_Q\otimes L_P$ を与える。
+関係直線同型を $\theta_{su}=\theta_{tu}\theta_{st}$ と選んだ場合、
+三重図式の合成により
+$\gamma(QP,\theta_{su})=\gamma(Q,\theta_{tu})+\gamma(P,\theta_{st})$
+となる。これは比較核の合成の coherence を用いる恒等式であり、
+同型類の不変性だけから降下を推論しているのではない。
+\end{remark}
+
+\subsection{表示 gerbe の同期と全構造対象族への適用}
+
+$\mathscr G_s,\mathscr G_t\to S$ を二つの表示 $\mathbf G_m$-gerbe とし、
+類を $\beta_s,\beta_t$ とする。
+rotation はそれぞれの gerbe 上で重み一、$\ell_s,\ell_t$ は重み三とする。
+この段階では rotation 自体が $S$ 上の実核であることは要求しない。
+
+\begin{proposition}[比の gerbe と同期選択の変換則]
+\label{mbks:prop:gerbe-synchronization}
+band を保つ同値 $b:\mathscr G_s\simeq\mathscr G_t$ が存在する必要十分条件は
+$\beta_t-\beta_s=0$ である。
+その一つを固定し、両側を共通 gerbe $\mathscr G_s$ 上で比較する。
+このとき $M_{st}=\ell_t\ell_s^\vee$ は重み零であり、$S$ 上の直線束となる。
+核の型の gerbe $\mathscr G_P$ をさらに取った場合にも、
+普遍 Hom 直線の二つの scalar 重みはともに零であるから、
+命題\ref{mbks:prop:comparison-line}と
+定理\ref{mbks:thm:kernel-criterion}は $S$ 上に降下して成立する。
+ここでの $\eta$ は、共通 gerbe 上の二つの重み一 rotation を比較するデータであり、
+個々の rotation の $S$ 上への実現を意味しない。
+
+同期 $b$ を底の直線束 $N$ による target 側の twist で変更すると
+\begin{equation}\label{mbks:eq:synchronization-change}
+ \rho_t\longmapsto\rho_t\otimes N,\qquad
+ \ell_t\longmapsto\ell_t\otimes N^{\otimes3},\qquad
+ L_P\longmapsto L_P\otimes N,\qquad
+ M_{st}\longmapsto M_{st}\otimes N^{\otimes3}.
+\end{equation}
+従って $\gamma(P,\theta)$ は、固定した同期と関係直線同型に対する障害である。
+
+逆に、一つの核の型が $S$ 上で選ばれており、
+$\mathscr G_P\times_S\mathscr G_s\times_S\mathscr G_t$ 上の普遍核が
+rotation を fpqc 局所で intertwine するなら、
+その Hom 直線の存在だけで $\beta_t-\beta_s=0$ が必要となる。
+\end{proposition}
+\begin{proof}
+最初の同値は、同じ band の gerbe の同型類が $H^2(S,\mathbf G_m)$ で
+分類されることの適用である。局所表示の二コサイクルで書けば、
+両 cocycle の比が coboundary となることが、band を保つ同期の条件である。
+同期後は rotation の重みが双方で一となり、Hom では相殺する。
+核の scalar も両側で相殺する。
+重み零の直線束とその写像は gerbe から底へ降下するため、
+前二小節の証明をそのまま適用できる。
+
+二つの同期の差は $\mathbf G_m$-gerbe の band を保つ自己同値であり、
+その同型類は底の $\mathbf G_m$-torsor、すなわち直線束 $N$ で記述される。
+重み $j$ の対象はこの変更で $N^{\otimes j}$ 倍されるので、
+式\eqref{mbks:eq:synchronization-change}を得る。
+
+最後の主張では、同期を選ぶ前の Hom 直線の重みは
+核・source・target の順に $(0,-1,1)$ である。
+まず核の gerbe の重み零を降ろす。
+残った直線束を局所表示で trivialize すると、その遷移の三重積は
+target の表示 cocycle と source の逆 cocycle の積である。
+従ってこの比は coboundary となり、$\beta_t-\beta_s=0$ を得る。
+これは任意の underlying 同値に対する結論ではなく、
+一つの大域的な核の型が局所 rotation 型を保つという仮定の必要条件である。
+\end{proof}
+
+\begin{corollary}[全構造対象開上の条件付き判定]
+\label{mbks:cor:all-o-criterion}
+系\ref{mbrr:cor:stack-isomorphism}の全構造対象局所型の開から、
+二つの残余族と中心作用を $S$ 上へ引き戻す。
+比較する両族が命題\ref{mbrd:prop:kernel-stack}の smooth proper 仮定を満たし、
+指定周期の MF/window 比較、核の型、普遍 scalar-simple 条件、
+局所 rotation 比較を与えたとする。
+さらに表示 gerbe の同期 $b$ と関係直線同型 $\theta$ を固定する。
+このとき、同変な比較核・rotation 比較・指定周期を持つ stack は
+全 $\OO$-表示変更に関して fpqc 降下し、その実際の大域切断の存在は
+式\eqref{mbks:eq:two-obstructions}と同値である。
+
+この判定は、任意の全 $\OO$-底上で $\alpha_P$ や $\gamma(P,\theta)$ が消えること、
+全 coherent 残余と compact 残余が一致すること、
+あるいは比較先の可換族が自動的に構成されることを述べない。
+\end{corollary}
+\begin{proof}
+残余族・中心作用の降下は系\ref{mbrd:cor:residual-family}による。
+比較核と追加の同型の stack の降下は命題\ref{mbrd:prop:kernel-stack}を用いる。
+命題\ref{mbks:prop:gerbe-synchronization}により Hom と周期のデータは重み零である。
+あとは定理\ref{mbks:thm:kernel-criterion}を適用する。
+\end{proof}
+
+\begin{remark}[同期を自由に変える問題との違い]
+\label{mbks:rem:free-synchronization}
+式\eqref{mbks:eq:synchronization-change}で $N=L_P^\vee$ を選び、
+関係直線同型も $q_P$ に従って選び直せば、
+比較直線とその三乗はともに自明化できる。
+従って同期と指定周期を自由に変更してよい問題には、
+固定した $(b,\theta)$ の非零な $\gamma$ をそのまま障害として使えない。
+定理\ref{mbpl:thm:commutative-family}の中心関係・点三次の比較は、
+その非空開上で自然な $b$ と $\theta$ を与える。
+この同期を保持した問題では上の変更は許されず、
+二つの障害を実際に計算する必要がある。
+\end{remark}
+
+\subsection{非消滅例と因子置換}
+
+\begin{example}[相対 Picard 障害と単数の Kummer 障害]
+\label{mbks:ex:picard-unit}
+滑らかな平面三次 $E$ 上の
+$R=T_{\OO_E}\circ(-\otimes\OO_E(1))$ は $R^3\simeq[2]$ を持つ
+（命題\ref{mbrd:prop:factor-rotations}）。
+滑らかな楕円曲線 $S$ 上で、非自明な $N\in\operatorname{Pic}^0(S)[3]$ と
+$v:N^{\otimes3}\simeq\OO_S$ を取る。
+定数族 $\operatorname{Perf}(E\times S/S)$ で
+\[
+ P=\operatorname{id},\qquad \rho_s=R,\qquad \rho_t=R\otimes N,\qquad
+ \ell_s=\ell_t=\OO_S
+\]
+とし、target の周期に $v$ を用いる。
+このとき $L_P=N$, $q_P=v$ である。
+両表示 gerbe は中立、実際の $P$ と関係直線同型も存在するが、
+$L_P^\times(S)=\varnothing$ なので大域 rotation 比較は存在しない。
+smooth proper 性、負の自己 Ext 消滅、$\operatorname{End}(P)=\OO_S$ と
+その底変更は定数族の Hochschild 複体から従う。
+
+一方、$S=\operatorname{Spec}\C(t)$ とし、同じ $R$ を両側に取る。
+source の周期を $\pi$、target の周期を $t^{-1}\pi$ とし、
+$\theta=\operatorname{id}$ とする。
+この場合は $L_P=\OO_S$ であるが、
+式\eqref{mbks:eq:cubic-convention}から周期条件は $\eta^3=t$ となる。
+$t=0$ における付値が一なので $t$ は $\C(t)$ の三乗ではなく、
+$T_{P,\theta}$ は非自明な三次 torsor である。
+同じ例は $\operatorname{Spec}\C[t,t^{-1}]$ 上の有限 \'etale 被覆 $u^3=t$ として表せ、
+どの非空 Zariski 開へ縮めても切断を持たない。
+
+これらは $E$ の代わりに二曲線の積を取り、
+系\ref{mbrd:cor:symmetric-rotation}の
+$R_{\rm sym}=(R_1R_2)^{-1}[2]$ を用いても成立する。
+従って $3\nmid k$ による対称 split の存在だけでは、相対 Picard 障害も
+周期の Kummer 障害も消えない。
+ここで変更した rotation や周期は意図的に別のデータであり、
+本稿の標準量子化族の自然な同期でこれらの類が非零であると主張する例ではない。
+\end{example}
+
+\begin{proposition}[整合した置換作用の下での位相切断]
+\label{mbks:prop:permutation-phase}
+$U$ を連結な $\C$-scheme、$H=\mathfrak S_k$、$k\ge2$ とし、
+$[U/H]$ 上で前節の全てのデータがすでに coherent に与えられているとする。
+特に核の型、rotation、関係直線比較、指定周期も置換で保たれ、
+$H$ は係数 $\mu_3$ に自明に作用する。
+$T_{P,\theta}|_U$ に切断があれば、その切断は自動的に $H$-不変であり、
+$[U/H]$ 上へ降下する。
+同値に、この状況の引戻し
+\[
+ H^1([U/H],\mu_3)\longrightarrow H^1(U,\mu_3)
+\]
+は単射である。
+\end{proposition}
+\begin{proof}
+切断 $e$ とその移送 $g(e)$ の比は
+$a_g\in\Gamma(U,\mu_3)=\mu_3(\C)$ である。
+作用の coherence と係数への自明作用により
+$a_{gh}=a_ga_h$ となる。
+任意の置換は位数二の隣接互換で生成され、$\mu_3$ には位数二の非自明元がない。
+従って $\operatorname{Hom}(\mathfrak S_k,\mu_3)=0$ であり、全ての $a_g$ は一である。
+よって $e$ は不変で、torsor の fpqc 降下により商 stack の切断を与える。
+\end{proof}
+
+\begin{remark}[置換位相の消滅が使える範囲]
+\label{mbks:rem:permutation-scope}
+命題\ref{mbks:prop:permutation-phase}は、ordered 被覆での位相が未計算のまま
+その消滅を与えるものではない。
+また、$3\mid k$ における rotation の標準線型化の対称選択の不存在
+（系\ref{mbza:cor:permutation-obstruction}）を取り除かない。
+その場合は、命題の前提となる rotation データの置換両立性を先に与える必要がある。
+自然同型は次数零で、作用は $S$-線型であり、周期と関係直線比較まで
+coherent に保存されるという条件を、単なる同型類の置換不変性に弱めてはいけない。
+
+さらに核の scalar 慣性は $\mathbf G_m$ であるため、
+この $\mu_3$ の議論は核自体の置換降下には適用できない。
+例えば $K=\C(t)$、$Y=E\times E$ とし、因子交換の関手を $\sigma^*$ とする。
+source には通常の $\mathfrak S_2$ 作用、target には同じ関手を用いるが、
+$\sigma^*\sigma^*\simeq\operatorname{id}$ の乗法比較を $t$ 倍した弱作用を与える。
+正規化二コサイクルの唯一の非自明な値を $c(\sigma,\sigma)=t$ と置けば、
+結合則は $t$ が scalar であることから成立する。
+恒等核の型は交換で不変であるが、その同変構造は
+$u^2t=1$ を満たす $u\in K^\times$ を要求し、存在しない。
+両族は $B_K\mathfrak S_2$ 上へ降下するが、
+この型の実際の比較核の gerbe は非中立である。
+対称 rotation とその三次周期は scalar cocycle と可換するため両側で保たれる。
+これは整合した dg 作用から作る一般的な反例であり、
+標準のブロック置換にこの余分な cocycle が発生すると断定するものではない。
+具体的な外積核の Koszul symmetry が全ての置換関係を満たすと証明できれば、
+その構成についてはこの別の障害を排除できる。
+\end{remark}

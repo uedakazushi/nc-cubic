@@ -1,17 +1,18 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月21日 / v35。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月21日 / v36。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
 
-## 現行v35の確認
+## 現行v36の確認
 
-- **scalarと表示障害：** 右加群の規約、τの乗法・shift重み、表示gerbeのorder3、ordered coverのweight1最小階数3、残余projectorの重み相殺を執筆担当以外も独立読解した。非零性は残余gerbe BK_kへの制限であり、代数閉体値点の引戻しとは区別した。有限mutationによるρの自己同値性・逆Serre公式、line-valued MFの `[2]=(3)⊗ℓ^∨`、条件付きrotation核実現gerbe=β、source/target同期の `(−1,1)` 重みも相互に点検した。
-- **有限中心作用：** 全split `Σa_i=1`、τによるcoherent作用比較、Jのcocycle、rotationの `χ^−1`、第三周期、置換不変splitの必要十分条件 `3∤k`、非空開に残るfinite torsorの障害を複数担当が独立読解した。split被覆は共通G_m-gerbeを中立化しないと明記した。compact残余の降下とfullcoherent/MFへの適用条件も区別した。
-- **積表示と核stack：** Γのfiber product、BFKのnon-torsion characterとsupport条件、Orlovのdg比較、factor rotationの逆character、対称rotationの `(∏R_i)^c[−2m]` と二因子の `(R_1R_2)^−1[2]`、Elaginの二重同変化を独立読解した。非可換一般点への適用はmed/mpcの仮定と有限拡大を保持する。kernel∞stackのfpqc降下と大域sectionを区別し、有限étale被覆へ広げる主張には一般点の実dg模型が有限拡大上にあることを明記した。
-- **一次資料：** Bergh–Schnürerの公刊PDF Propositions4.10,5.7・Corollaries4.12,5.8,5.9、Polishchuk–Vaintrob Definitions1.1,1.3、Shinder Proposition3.13・Theorems5.4,6.2、Elagin v2 Definitions3.1,3.5・Theorem4.2・§8を確認した。BFK I刊行版 Definition3.50・Corollary5.18・Theorem6.13、BFK II arXiv1310.2656v2 Examples4.7,4.12を複数担当が原文照合し、二ブロックのcoverとrotation比を既知として本文に位置づけた。Toën–Vaquié arXiv:math/0503269v5 Lemmas2.8,2.10,3.1の本文を核担当が確認した。Lemma3.1のstatementはétaleであり、fpqcは本文で忠実平坦な加群・作用写像の降下を用いて説明する。文献全体の監査・新規性の網羅的確認は未完了。
-- **今回の有限計算：** 新しい証明は有限数値実験に依存せず、既存計算器は変更・再実行していない。保持する表現・共役類・Hessian・中心元等の既存検算を今回の実行とはしない。
-- **ソース整合・組版・表示確認：** `python scripts/check_sources.py` は51 TeXソース・1011の一意ラベル・686の参照対象ラベル・138引用文献キーで成功し、`git diff --check` も成功した。`latexmk -lualatex papers/nc-cubic.tex` は成功し476頁のPDFとSyncTeXを生成した。未定義参照・未定義引用・重複ラベル・missing character・overfull/underfull boxは零。既存の数学フォントサイズ代替7件と集計警告1件は残る。最終PDFの1,134,135,137,141,143,161,163,165,166頁を画像化して読解・表示点検し、文字欠落・式の切れ・重なりを認めなかった。全476頁の目視点検ではない。
+- **因子モジュライ：** mbfm節の係数torusの三乗写像、Z₀-gerbeとrigidification、相対Jacobianの開によるsmooth射、次数九のweight0 ample束による曲線積の射影性を、執筆担当以外も独立読解した。圏のgerbe上のsectionとhomotopy fixed categoryの比較は別担当が点検し、捩れのない曲線積圏との同値やgerbe中立化を自動的には結論しないことを確認した。
+- **中心線・点線・自然な可換族：** mbpl節の最大可換商の有限表示、rank1/非零locus、Fermat族の中心恒等式、PBWのDVR自由性、形式群によるtorsion排除、gerbeのbandを保つ同値と関係直線同期を相互読解した。別担当が中心恒等式と商の像を独立に手計算した。結論は明示非空開に限定し、全良い開へのHesse延長は研究ノートの未完成候補とした。一変数一般点の比較と全モジュライ一般点を区別した。
+- **相対可換積核：** mbrp節を執筆担当以外の三者が読解した。共通Lのodd⊗odd補正、Γ指標分解によるHom複体同型、正則係数環の有限大域次元によるK-flat性、Koszul零切断と全character shiftの生成、相対Orlovの直交向き、smooth proper schemeへのToën核対応を点検した。同変projectorはdiagonal-Z₀核と商stack上のZ₀×Z₀誘導核を区別して修正した。非平坦底変更は構成済みperfect核・逆核・projectorの導来引戻しに限定した。有限生成C体上では可換積側の追加拡大が不要となる系も確認した。
+- **同期と実現障害：** mbks節の `L_P³≃ℓ_tℓ_s^−1`、固定θのμ₃-torsor、核のG_m-gerbeとの積、同期変更Nによる変換を独立点検した。Picard/単数の非消滅例、連結ordered cover上のphase切断の置換不変性、G_m核には同じ議論を使えないS₂ cocycle例を保持する。自然な非可換族でのα・γの値は未計算であり、scalar-simple・負Ext・底変更・局所rotation比較は明示仮定。
+- **一次資料：** Romagny, Michigan Math.J.53(2005), Theorem5.1・Remarks5.2とStacks06PDを確認した。BDFIK arXiv:1409.5568v1 Corollary3.4・Propositions4.1,4.2,4.7,4.8とKoszul構成、BFK I Definitions3.50,3.51・Lemma3.52、Toënの2006年著者稿の基礎環規約・Lemma8.11・Theorem8.15を複数担当で一次照合した。BDFIKのConjecture5.1.2は入力に使わない。phaseはStacks03PK,040Q,03RQ、延長候補の中心式はSmith–Tate p.35 Remark(1)を担当者が確認した。文献全体の監査・新規性の網羅的確認は未完了。
+- **今回実行した厳密計算：** `python3 computations/verify_multiblock_point_line.py` は終了コード0。QQ(t)上の次数四自由単項式81、表示関係の行列rank66、9個の中心・交換子恒等式を追加したrankも66であることを確認した。点行列式と最大可換商の三次像も厳密演算で一致した。PBW全次数、形式群、smoothness、圏同値の機械証明ではない。旧計算器は変更・再実行していない。
+- **ソース整合・組版・表示確認：** `python3 scripts/check_sources.py` は55 TeXソース・1080の一意ラベル・732の参照対象ラベル・142引用文献キーで成功し、`git diff --check` も成功した。最終の `latexmk -lualatex papers/nc-cubic.tex` は終了コード0で497頁のPDFとSyncTeXを生成した。最終ログの未定義参照・未定義引用・重複ラベル・missing character・overfull/underfull boxは零。既存の数学フォントサイズ代替7件と集計警告1件、旧rmコマンドの互換警告1件は残る。最終PDFの1,146,148,166,167,177,179,180,182,183,186,187頁を画像化して読解・表示点検し、文字欠落・式の切れ・重なりを認めなかった。全497頁の目視点検ではない。
 
-中心完全交叉の負次数Ext、中心thickeningの一意lift、飽和冪、多重次数、全AutD・全G=K・中心還元核自明・二ブロックκ_C≠0・根分類の既存独立点検を保持する。射影frame、fppf準有限、有限étaleへの縮小、階数一、任意非被約底の相対認識も既存の確認であり、今回その全証明を再監査していない。MF/window/coherent飽和全体、外部量子化稿・三様体稿も一括再監査していない。Lean等の形式証明と外部査読は未実施。
+中心完全交叉・中心thickening・全AutD・全G=K・根分類・全O相対認識、scalar/有限中心作用・表示障害・compact残余降下・体上のBFK/Orlov/Elagin比較の既存独立点検を保持する。今回その全証明を再監査したという意味ではない。MF/window/coherent飽和の基礎全体、外部量子化稿・三様体稿も一括再監査していない。Lean等の形式証明と外部査読は未実施。
 
 ## 保持する数学的点検の範囲
 

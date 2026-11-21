@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月21日 / v35。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月21日 / v36。日本語LuaLaTeXによる主論文と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本repoの公表用主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex) のみ。** 完備MF移送、一般中心三次変形の可換復元、良い一ブロックのO-markedモジュライ、満支持複数ブロック型の全O局所型モジュライ・余法加群による幾何点認識・点曲線による同変一般点復元、残余Poisson射、Kuznetsov成分の比較と降下障害を扱う。量子化の全次元・全ブロック存在証明と独立した原稿・計算・ノートは [cubic-quantization](https://github.com/uedakazushi/cubic-quantization) に移した。古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
 
@@ -58,11 +58,16 @@
 - [表示gerbeと残余構造](papers/sections/multiblock_scalar_descent.tex)：表示類βは各非空開で正確に位数3。compact残余圏・mutation projectorは全O開へ降下し、例外成分は `Perf(P_k,−jβ)`。rotationは重み1で、MF/window比較の範囲では `ρ³⊗ℓ^∨≃[2]` が降下する指定周期となる。
 - [中心群のcoherent作用](papers/sections/multiblock_central_action.tex)：作用と同変化は基準に依存しない。線型的持上げの選択は `Σa_i=1` というF3上のtorsorで、rotation比較にはcharacter twistが生じる。置換不変な選択は `3∤k` のときに限り存在する。この障害と表示gerbeを区別する。
 - [比較核のstackと双対作用](papers/sections/multiblock_residual_descent.tex)：両側のsmooth proper族を固定すると同変核stackはfpqc降下する。一般点の実dg模型が有限拡大上にあり、幾何学的一般点で非空なら縮小後有限étale被覆上に実核が存在する。可換Kuは曲線積の導来圏の双対群同変化となり、その作用は因子rotationの比で記述される。`3∤k` の対称rotationも明示し、二因子では `(R_1R_2)^−1[2]` となる。大域核sectionや任意固定parameterへの比較は別課題。
+- [因子モジュライと点曲線積](papers/sections/multiblock_factor_moduli.tex)：`P_k//Z_0≃B_k` と、平面三次の組への滑らかな相対次元kの射を構成する。点曲線積のsmooth projective族は全O開へ降下する。
+- [中心線から点三次線への自然な比較](papers/sections/multiblock_point_line.tex)：最大可換商の三次部を介して非空開で `C_i≃J_i` を構成し、自然な可換三次族 `Φ_pt` と表示gerbe・関係直線の同期を得る。Fermat型の中心恒等式と非空性を証明した。一般点がこの開に入る明示的一変数入力ではこの標的を使えるが、全モジュライ一般点での圏同値は未証明。
+- [相対曲線積の実核](papers/sections/multiblock_relative_product.tex)：滑らかな準射影C基底、共通係数直線 `L` に値を取る滑らかな三次の分離和について、相対Orlovと実dg外積から `Perf(∏E_i)≃Ku_Perf(X/S)^(Z_0)` を構成する。実perfect核・逆核の導来引戻しによって準コンパクト・分離的noetherian底（非平坦・非被約も許す）にも両立し、因子置換もcoherent。有限生成C体上の可換積比較には追加拡大が不要で、med/mpcの既存有限比較体のまま曲線積へ進める。非正則底のDb(coh)や非可換側の相対比較とは区別する。
+- [比較核と周期の同期](papers/sections/multiblock_kernel_synchronization.tex)：局所rotation比較とscalar-simple/負Ext/底変更の仮定の下で、固定核型のgerbe類αと固定同期の周期torsor類γの両消滅が大域実現条件となる。period標識後も核のAutはG_m。自然な非可換族でのα・γの値は未計算。
+- [中心・点線比較の厳密計算](computations/verify_multiblock_point_line.py)：QQ(t)上の次数四関係行列で中心性と交換子恒等式を確認し、点行列の行列式と最大可換商の三次像を検算する。PBWや圏同値の証明そのものは本文にある。
 - [有限群の指標・表現検算](computations/verify_veronese_representation.py)と[共役類検算](computations/verify_multiblock_twists.py)を保持する。55次元表現の中心固有空間19・18・18、ambient線型normalizerの計算と、今回の紙上の全代数自己同型群の証明を区別する。
 
 基礎となる[点対応](papers/sections/two_block_points.tex)、[中心と自己同型](papers/sections/two_block_algebra.tex)、[表示stack](papers/sections/multiblock_presentations.tex)、[完備比較](papers/sections/two_block_recovery.tex)も保持する。任意の抽象圏変形や全境界を覆う主張ではない。表示gerbeとSerreの基底直線も保持する。
 
-**次のP0**は、点曲線積とline-valued MF外積を相対化し、関係直線・rotationの指標・比較核のcocycleを同期すること。残余可換三次への全O射と大域核section、Oの像を指定しない全第三根、一般開の境界、`m=1`への拡張は残る。仮定・証明・具体的着手は[研究方針](00_research_plan.md)、確認した範囲は[検証範囲](notes/validation.md)を参照。新規性の網羅的確認・外部査読・形式証明は未実施。
+**次のP0**は、構成済みの自然な可換三次族を標的に、非可換側の相対比較核とその局所同型型を確定し、指定された同期に対するα・γを計算すること。明示的一変数の一般点比較から全モジュライ一般点へ進む支配性・定義体も確認する。中心線比較の開の境界、Oの像を指定しない全第三根、`m=1`への拡張は残る。仮定・証明・具体的着手は[研究方針](00_research_plan.md)、確認した範囲は[検証範囲](notes/validation.md)を参照。新規性の網羅的確認・外部査読・形式証明は未実施。
 
 **一般次元の O-marked moduli、point scheme、Poisson 多様体のモジュライへの射、Kuznetsov 成分の比較**を中心に進める。各既約成分の general / very general な対象を優先し、次元に一様な定理と族の構成を目指す。general な稠密開と very general な点集合、一ブロックの表示成分と全モジュライの成分は区別する。
 
@@ -255,6 +260,7 @@ python3 -m pip install -r requirements.txt
 python3 scripts/check_sources.py
 python3 computations/verify_two_block_structure.py
 python3 computations/verify_multiblock_twists.py
+python3 computations/verify_multiblock_point_line.py
 python3 computations/verify_center_hessian.py
 python3 computations/verify_geometric_corrections.py
 python3 computations/verify_active_invariants.py
