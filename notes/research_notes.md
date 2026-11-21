@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月21日 / v44。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v45。研究方針は `../00_research_plan.md`。証明全文は現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 二つの予想を中心とする研究の入口
 
@@ -48,7 +48,7 @@ m≥2,g≠0ではDは型(2^{3k},3)、次元m−2、次数3·8^kの完全交叉�
 
 具体例 `cmo:ex:sixty-four` は、[y,z]=x²−α_1u²と巡回置換、α=(1,4,9),(16,25,49)を用いる。中心元は Ω_α=(x³+y³+z³)/3−(2/3)sym(xyz)−u²(α_1x+α_2y+α_3z)、w_c=Ω_α+100Ω_α′+cu³。中心性は三つの独立パラメータを保った普遍関係行列で確認する。全次数PBW性はBraverman–Gaitsgory Main Theorem0.5 / Lemma3.3により別に証明し、次数3,4のHilbert関数だけから推測しない。u=0ではΩ_0=−c_3/3（De Laet–Le Bruyn §2の規格化）であり、中心和の正則性はuによる次数下降で持ち上がる。
 
-Q=C^{64}であり、R={±28,±16,±56/3,±28/3}、S={±448,±196,±176,±284/3}と置くとN(c)=∏_{r∈R,s∈S}(c+r+100s)。全64根は相異なる有理数で、各根では一つの被約定常点が加わる。根以外、特にc=0では点スキームは二つの楕円曲線だけ。この例外集合は次のsmoothness・Ku比較の検査対象である。一方、滑らかな中心変数一つのブロックJacobian可換標的では定常零点がなく、零スキームは純楕円曲線だけとなる（`cmo:prop:poisson-zero`）。同じKu標的の存在と全Poisson supportの排除をまだ得ていないので、この相違を第二予想や被約版の新しい反例とはしない。
+Q=C^{64}であり、R={±28,±16,±56/3,±28/3}、S={±448,±196,±176,±284/3}と置くとN(c)=∏_{r∈R,s∈S}(c+r+100s)。全64根は相異なる有理数で、各根では一つの被約定常点が加わる。根以外、特にc=0では点スキームは二つの楕円曲線だけ。このnorm根集合は引き続きsmoothness・Ku比較の検査対象である。下記のP64で得る非smoothな64係数とは交わらない。一方、滑らかな中心変数一つのブロックJacobian可換標的では定常零点がなく、零スキームは純楕円曲線だけとなる（`cmo:prop:poisson-zero`）。同じKu標的の存在と全Poisson supportの排除をまだ得ていないので、この相違を第二予想や被約版の新しい反例とはしない。
 
 `cmo:prop:character-ext` は、u=1の一因子D_pとcharacter p=(a,b,c)∈(C×)^3について、中心元からその値を引いた f_p=Ω_p−λ_p の高次作用を
 
@@ -65,6 +65,26 @@ Q=C^{64}であり、R={±28,±16,±56/3,±28/3}、S={±448,±196,±176,±284/3}�
 
 同じαの八characterにはκ=0が四個あり、λ=±16/3が各二個。二因子の両κ=0となる16組は c=±1616/3,±528 に各四点ずつ分かれる。残り48組はpd5である。検証器はこの全組合せも厳密確認する。以前の別候補 a=b=1, 2ρ³+9ρ²+1=0, c=ρ でもκ=0となるが、主稿の障害には上の有理例を使えば十分である。
 
+### 二次元単純加群と中心方程式の高次作用
+
+`cmo:prop:two-dimensional-classification` では、X=aI+U等と跡零分解し、既約性からU,V,Wがsl₂の基底になることを示す。半跡はq(a,b,c)=α、abc≠0を満たし、この条件は十分でもある。q(q(p))=F(p)p、F(q(p))=F(p)²、F(p)=a³+b³+c³−3abc。F(α)≠0ではq(α)の全座標が非零ならちょうど2類、半跡はq(α)/√F(α)。F(α)=0でq(α)≠0なら存在せず、q(α)=0の非零係数ではC*から6点を除いた曲線、α=0では3本のC*となる。Waltonの公刊稿Proposition4.1は斉次α=0の存在、§5.2は一般変形の分類を課題としており、ここで扱う具体的分類の新規性は未確定。
+
+指定中心の値はλ₂=−2(a³+b³+c³+abc)/3。一次変形の正規形を双対数環上で取るとExt¹=ker Dq、det Dq=−2Fとなり、3CY双対から全ambient自己Extを得る。F(α)≠0では0,3次のみ各1。中心商のpd判定には高次作用κ₂が別に必要で、rank(2,6,6,2)の自由分解から全Shamash恒等式を解き、identity/trace規格化で二段消去する（`cmo:lem:two-dimensional-shamash`）。普遍式は `cmo:prop:two-dimensional-universal-kappa` の
+
+\[
+\kappa_2(a,b,c)=-\frac{2N_6(a,b,c)}{9F(a,b,c)},\qquad abcF(a,b,c)\ne0,
+\]
+\[
+N_6=a^6+b^6+c^6+66((ab)^3+(bc)^3+(ca)^3)
+ +26abc(a^3+b^3+c^3)+153a^2b^2c^2
+\]
+
+である。`--universal` はc=−1/b,r=1の表現をQQ(a,b)上で計算する。これは補間ではなく、全homotopy恒等式と二段消去の有理関数恒等式である。相対複体のconstant rank、identity/traceによる両端の自明化、最初のchange-of-rings微分の選択独立性からκ₂はabcF≠0上正則であり、補助的な分母の零点にも延長する。N₆≠0なら単因子中心商上pd2、N₆=0ならpd∞。F=0でのκ₂判定はこの式の適用範囲外である。
+
+`cmo:ex:two-dimensional-zero-action` は、a³−2a²−11a+8=0、半跡(a,1,−1)、α=(a²+1,a+1,1−a)、λ₂=−2(a³−a)/3の例を与える。N₆(a,1,−1)=0であり、剛的な二次元simpleが自身の中心商上pd∞となる。同時に全8 characterは自身の中心商上pd2で、λ₂にはcharacterが一つもない。`--zero-example` は三次数体で全高次homotopyを再計算し、8次有限エタール可換化上の二つの乗法行列の行列式と互除法から後二条件を検査する。従ってcharacterだけの検査を二次元判定が実質的に強める。
+
+指定二因子ではκ₂≠0を数体で厳密検証した。各因子の8 charactersと2二次元simpleの全100tensor simpleは、互いに異なる100中心値に現れ、pd5、自己Extは0,2,3,5次各1、coherent延長は線束perfectである。3〜6次元simpleや全体のsmoothnessはこの判定に含めない。
+
 ### 定数型混合族の有限中心と余有限Ku実現
 
 `cmo:thm:finite-center` は、斉次入力をS(1,−1,−1)に固定した定数型変形の全α∈C³を扱う。中心生成元はΩ_αと三つの六次元C_0,C_+,C_-であり、斉次化ではさらにuを加える。C_0=z(z²−α_3)(xzy+α_1x+α_2y)+α_1α_2z²、C_+の全式とC_-の反自己同型による定義は主稿に置く。検証器 `verify_mixed_pi_center.py` は三パラメータを独立な重み二変数に保ち、QQ上の全二側関係倍で中心性を検証する。重み6,7の商の次元は119,189、最高部Ω_0²,C_0,0,C_+,0,C_-,0の独立性は小行列式−4/9で確認する。
@@ -80,9 +100,21 @@ Q=C^{64}であり、R={±28,±16,±56/3,±28/3}、S={±448,±196,±176,±284/3}�
 3. Z×_R Z上のΛ=𝔄^op⊠𝔄とM=Δ_*𝔄はcoherentかつRflat。E^∨⊠EによるMorita同値で、Mが線束模型Σ_Rの対角に対応する。Künnethと評価は両側作用まで保持する。
 4. 特殊ファイバーのM_0は分離型比較からperfect。中心局所環のt進完備化、idempotentの持上げ、忠実平坦降下により、その近傍でMの有限射影次元を持ち上げる。非perfect locusは閉で、そのproperな射影像は0を含まない。従って0の近傍の相対対角はperfectで、残余Γもsmooth properとなる。
 
-`cmo:cor:cofinite` はn=3k−1≠4の可換実現locusの開性を適用し、任意の固定α_iと非零a_iについて、有限集合Fを除くcで全coherent Kuを可換実現する。Fはまだ計算しておらず、normの64根と一致するとも、64係数またはc=0が含まれる／含まれないとも判定していない。次は中心の関係式、中央対角のsyzygy、高次元simpleとAzumaya境界を使い、Fの有効な上界と個別値の判定を得る。
+`cmo:cor:cofinite` はn=3k−1≠4の可換実現locusの開性を適用し、任意の固定α_iと非零a_iについて、有限集合Fを除くcで全coherent Kuを可換実現する。下記P64の根では全coherent Kuが非properなので、それらはFから外せない。norm根だけを除外集合に取ることはできない。Fの全体と、normの64係数・c=0の全体判定は未解決である。
 
 別経路として、D=⊗D_{α_i}は有限大域次元の有限中心代数なので、c↦−Σa_iΩ_iという中心作用でRennemo–Segal–Van den Berghの非可換Bertini（[arXiv:1705.01366v2](https://arxiv.org/abs/1705.01366)、Proposition2.1）を適用すると、一般cのaffine中心chartの有限大域次元を得る。R=C[c]の作用は最高active部分の正則性により忠実である。このaffine結論だけから全qgrや可換Ku比較を推論しない。主稿の余有限Ku比較は上の射影的対角と収縮を使う。二中心変数の [補助ノート](central_cubic_generic_smoothness.tex) は別の仮定を持ち、一般のPBW変形へ有限中心性を無断で流用しない。
+
+### 有効な中心幾何、Azumaya性、norm外の64非smooth係数
+
+`cmo:prop:center-hypersurface-degree` はSmith–Tate Theorem4.8とfiltered次数帰納により、全αで Z(Dα)=C[s,U,V,T]/(Pα(s²,U,V,T)) を与える。Pαの全次数は3、最高部は81W²U+468WU²+784U³−36WVT−176UVT+16V³+16T³、W=s²。全体符号反転によってsは偶数冪だけにできる。中心とDのHilbert多重度の比は36で、PI次数6を得る。指定二係数の21項の全関係は本文の表と再現コードに一度ずつ収録する。
+
+`verify_mixed_center_geometry.py` は次数n−1の基底語×一文字から一段ずつ正確な商を作る。実際の関係倍で割った次元が既知PBW次元に一致するので、その乗法表は正しい。次数18でも仮の最高部分513列、全語代表1330個で足りる。中心の35単項式の核は1次元。さらにI=(P,P_U,P_V,P_T)の商は長さ18、Wへの消去はWH(W)²Q(W)。Hは五つの一次因子、Qは四次既約で、全係数は本文に置く。各中心の特異点は14通常二重点（H上10点、s=0上4点）、sの特異ファイバー値は19個、Q(s²)=0上の8点は正則中心上のMorse臨界点である。長さ・消去・被約性・Hessian単元性は全てQQ上の厳密計算による。
+
+`cmo:thm:azumaya-regular` は全αでAzumaya locus＝正則中心を証明する。Dαは3CY・全simple有限次元なので全simpleのpd3、従ってhomologically homogeneousで、中心normalと中心上CMを得る。斉次化Bαの全中心TについてT/(u)=Z(S)。u=0上のAzumaya性を自由加群の基底とNakayamaで持ち上げる。Bad(Bα)の余次元1成分があれば斉次閉錐のu=0切断は次元2以上となり、Walton–Wang–Yakimov Theorem1.3(1),Lemma5.4の3曲線に矛盾。余次元1AzumayaとBrown–Yakimov Corollary5.2から結論する。有限中心性だけでregular=Azumayaとする一般論は用いない。
+
+`cmo:thm:morse-singular-sixty-four` は P64(c)=pp₊Res_z(Q1((-c−100z)²),Q2(z²)) を定める。64次、偶、平方因子なし、P64(0)≠0、gcd(P64,N)=1。根の全てで36次元simpleを持ち、その完備局所中心商はMat36(C[[v1,…,v6]]/(Σv_i²))となる。自己Ext級数は(1+s)⁶/(1−s²)、coherent延長も同じ。有限中央台から逆方向Extもchartで計算でき、RHom(𝒫,O(i))=C³⁶[−5]。例外射影Kの自己Extは十分高い全次数でC³²となり、全coherent Ku自体が非properである。線束圏と残余線束圏は非smooth。全Db(qgr)のdg smoothness単独の否定は主張しない。
+
+巨大なP64の係数全文は保存せず、resultantから再生成する。最高次から定数項まで65整数をASCIIコンマで結び改行なしの6910 bytesのSHA-256は `20923491b92e21c3fceb0b30b0f331e500d83f898f756d0cb853ace75de42dbb`。この新しい64根はnormの64根からすべて異なる。次は非Azumayaの14中心点における3〜6次元simpleと中心方程式の作用を調べる。19値ずつの和による上界候補とu=0の境界の検証は未完である。
 
 ### 通常の完備底で生成性を失う障害
 
@@ -92,11 +124,13 @@ properなdg代数のsmoothnessを特殊ファイバーと全Artin切断だけか
 
 この反例ではH⁰(Γ)=H¹(Γ)=kで、cohomologyはRflatではない。したがってcohomologyの平坦性まで持つ命題の反例ではなく、混合族の非smooth性も意味しない。今回の相対対角証明は通常のcoherent加群とproperな中央台を使い、この障害を回避する。
 
-### 次の検査候補：定常点自体の線束perfect性
+### 有限台加群の線束perfect性と64点の残余射影
 
-**未採用・独立点検前の証明案。** 64点のaffine pd5を、点対象𝒫=πC[u]が線束生成部分に属することへ強める経路がある。a,b,cをau,bu,cuと置き換えた斉次Koszul分解をC[u]上tensorすれば、P=C[u]はB上長さd=3kの分解を持つ。Rees同型と既存 `eq:nfm-relative-local-dual` のRΓ_A(A(l))=A^∨(a+l)[−d]、A^∨のgraded injectivityからExt_qgr^j(𝒫,O(l))=0（j≥d）が全lに一様に従う見込みである。反対向きは既存の有限cohomological dimensionを用いる。
+`cmo:lem:finite-support-perfect` は、有限中心模型でM[u]の中心像がC[u]上有限になることから、有限次元chart加群のcoherent延長𝒫(M)の中央台がu≠0内で閉じた有限集合であることを示す。従って𝒫(M)が線束perfectであることとpd_D M<∞は同値。任意のj_*がperfect性を保存するとは主張しない。左右のcharacter規約はy,z交換と反対代数で合わせる。これによりκの非零条件がそのまま定常点の線束perfect判定となり、全64点、および下記の100個の低次元simpleの延長はperfectである。
 
-この両向きの一様消滅を確認したうえで、graded Shamashの高いsyzygy KについてΩ²K≃K(−3)、𝒫≃𝒫(1)を使う。κが一つでも非零なら、dimension shiftingによりExt^{2r}(K,K(−3r))≃Ext^{2r}(𝒫,𝒫)=0となる。長さ2rの周期完全列のYoneda類が零なので、Kはその中間の有限線束複体のretractとなり、𝒫も線束生成部分へ入る。線束がabelian圏で射影だとは仮定しない。この案は今回の主定理には使わず、affine有限pdからj_*がperfectnessを保存すると直接推論することもしない。
+`cmo:prop:projected-point-ext` は、二ブロックの𝒫の例外射影を F=[O²⁰→O(1)¹⁵⊕O→O(2)⁶→O(3)]（次数−3..0）で構成する。全4例外とのRHomを斉次Shamashの内部次数成分で照合し、properな線束圏上のSerre(−4)[5]を使う。残余射影Kの自己Extは次数0が1、次数1が10、他0、Euler値−9。𝒫自体のExt(0,2,3,5)と混同しない。数値類は [K]=[𝒫]+19[O]−15[O(1)]+6[O(2)]−[O(3)]。Yoneda積の同定は使わない。
+
+有限中心性を持たない別の表示では、graded Shamashの周期syzygyと線束への一様Ext消滅からperfect性へ進む代案が残る。その場合は両向きの一様消滅とtwist付きYoneda類の分裂を別に証明する必要があり、本稿の上記判定には用いない。
 
 ### 可換Ku実現locusの開性
 

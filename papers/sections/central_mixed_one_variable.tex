@@ -495,6 +495,240 @@ $\C[t]/(t^2)\otimes\bigwedge(\zeta)$ となり、
 また計算複体に書いた外積を Yoneda 積と同一視する主張は含めない。
 \end{remark}
 
+\subsection{二次元単純加群の分類と中心固有値}
+\label{cmo:subsec:two-dimensional}
+
+定常 character が検出しない有限次元単純加群を、最小の次元で調べる。
+本節では $D_\alpha=\mathcal B_\alpha/(u-1)$ とし、
+$\Omega_\alpha$ は式\eqref{cmo:eq:mixed-center}の $u=1$ 特殊化を表す。
+$\alpha=0$ における二次元既約表現の存在は
+\cite[Proposition~4.1]{CMOWaltonRepresentations}で既知である。
+以下は定数項を含む本表示について、全ての二次元単純加群と
+指定中心元の値を直接計算するものであり、分類公式の新規性は未確定である。
+
+\begin{proposition}[半跡による全二次元単純加群の分類]
+\label{cmo:prop:two-dimensional-classification}
+次の二次写像と三次式を用いる。
+\[
+ q(a,b,c)=(a^2-bc,b^2-ca,c^2-ab),\qquad
+ F(a,b,c)=a^3+b^3+c^3-3abc.
+\]
+二次元単純 $D_\alpha$ 加群の同型類は
+\begin{equation}\label{cmo:eq:two-dimensional-fibre}
+ \{(a,b,c)\in(\C^\times)^3:q(a,b,c)=\alpha\}
+\end{equation}
+と一対一に対応する。
+対応する表現の $x,y,z$ の半跡はそれぞれ $a,b,c$ であり、
+$r^2=-bc$ を選ぶと代表は
+\begin{equation}\label{cmo:eq:two-dimensional-matrices}
+ \begin{split}
+ X&=aI+\begin{pmatrix}r&0\\0&-r\end{pmatrix},\\
+ Y&=bI+\begin{pmatrix}0&1\\-ca&0\end{pmatrix},\qquad
+ Z=cI+\begin{pmatrix}0&r/c\\ra&0\end{pmatrix}
+ \end{split}
+\end{equation}
+で与えられる。二つの $r$ の選択は同型な表現を与える。
+
+特に $D=F(\alpha)\ne0$、$Q=q(\alpha)$ とすると、
+二次元単純加群が存在するための必要十分条件は
+$Q_1Q_2Q_3\ne0$ である。この場合、ちょうど二つの同型類があり、
+それらの半跡は
+\begin{equation}\label{cmo:eq:two-dimensional-inversion}
+ (a,b,c)=\frac{Q}{\delta},\qquad \delta^2=D
+\end{equation}
+である。
+\end{proposition}
+
+\begin{proof}
+$X=aI+U,Y=bI+V,Z=cI+W$ と分解し、
+$U,V,W\in\mathfrak{sl}_2(\C)$ とする。
+対称双線型形式を $\langle U,V\rangle=\frac12\operatorname{tr}(UV)$ と置く。
+二次 Cayley--Hamilton 恒等式から
+$U^2=\langle U,U\rangle I$ であり、関係式のスカラー部分と跡零部分は
+\begin{equation}\label{cmo:eq:two-dimensional-traceless}
+ \begin{gathered}
+ \langle U,U\rangle=\alpha_1-a^2,\quad
+ \langle V,V\rangle=\alpha_2-b^2,\quad
+ \langle W,W\rangle=\alpha_3-c^2,\\
+ [V,W]=2aU,\qquad [W,U]=2bV,\qquad[U,V]=2cW
+ \end{gathered}
+\end{equation}
+となる。
+$\operatorname{span}(U,V,W)$ は $\mathfrak{sl}_2$ の Lie 部分代数である。
+真部分代数は可解であるから、Lie の定理により同時三角化される。
+従って既約表現では $U,V,W$ は $\mathfrak{sl}_2$ の基底をなす。
+非零な跡零二次行列の $\mathfrak{sl}_2$ 内の中心化部分代数は一次元なので、
+式\eqref{cmo:eq:two-dimensional-traceless}から $abc\ne0$ が従う。
+跡形式の不変性から $U,V,W$ は互いに直交する。
+
+跡零二次行列の恒等式
+\[
+ [[U,V],V]
+ =4\bigl(\langle V,V\rangle U-\langle U,V\rangle V\bigr)
+\]
+と式\eqref{cmo:eq:two-dimensional-traceless}を合わせると
+\[
+ U^2=-bcI,\qquad V^2=-caI,\qquad W^2=-abI
+\]
+を得る。従って $q(a,b,c)=\alpha$ である。
+
+逆に式\eqref{cmo:eq:two-dimensional-fibre}を満たす点に対し、
+式\eqref{cmo:eq:two-dimensional-matrices}の行列は
+式\eqref{cmo:eq:two-dimensional-traceless}を直接満たす。
+$r\ne0$ であり、$U$ の二つの固有直線は $V$ の不変直線ではないから既約である。
+また任意の既約表現で $U$ を対角化すると、直交性により $V$ は非対角成分だけを持つ。
+$V^2=-caI$ より両非対角成分が非零で、対角行列による共役で上右成分を $1$ にできる。
+このとき下左成分は $-ca$、$W=[U,V]/(2c)$ となり、表示された形を得る。
+$r$ の符号の変更は $V$ による共役で実現される。
+半跡は共役不変なので、異なる $(a,b,c)$ は非同型である。
+
+多項式恒等式
+\begin{equation}\label{cmo:eq:quadratic-involution}
+ q(q(a,b,c))=F(a,b,c)(a,b,c),\qquad
+ F(q(a,b,c))=F(a,b,c)^2
+\end{equation}
+から、$q(a,b,c)=\alpha$、$F(\alpha)\ne0$ なら
+$F(a,b,c)=\delta$、$\delta^2=D$、$(a,b,c)=Q/\delta$ となる。
+逆にこの式により $q(Q/\delta)=q(Q)/D=\alpha$ である。
+非零座標の条件は $Q_1Q_2Q_3\ne0$ と同値である。
+\end{proof}
+
+\begin{corollary}[退化係数を含む存在条件]
+\label{cmo:cor:two-dimensional-boundary}
+$F(\alpha)=0$ とする。
+$q(\alpha)\ne0$ なら二次元単純 $D_\alpha$ 加群は存在しない。
+$q(\alpha)=0$ なら存在し、次のように分類される。
+\begin{enumerate}
+\item $\alpha=0$ のとき、同型類の空間は
+$(a,b,c)=(s,\zeta s,\zeta^2s)$、
+$s\in\C^\times$、$\zeta^3=1$ による三つの $\C^\times$ の非交和である。
+\item $\alpha\ne0$ のとき、$\alpha=h(1,\zeta,\zeta^2)$
+（$h\ne0$, $\zeta^3=1$）であり、同型類の空間は
+一つの $\C^\times$ から六つの相異なる点を除いた曲線である。
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+式\eqref{cmo:eq:quadratic-involution}より
+$F(\alpha)=0$ を満たす解では $F(a,b,c)=0$、従って $q(\alpha)=0$ である。
+$q(\alpha)=0$ の非零解は表示された三本の直線上の点である。
+原始三乗根 $\omega$ を固定し、
+\[
+ R=a+b+c,\quad S=a+\omega b+\omega^2c,\quad
+ T=a+\omega^2b+\omega c
+\]
+と置く。$q(a,b,c)=\alpha$ は
+\[
+ ST=\alpha_1+\alpha_2+\alpha_3,\quad
+ RS=\alpha_1+\omega\alpha_2+\omega^2\alpha_3,\quad
+ RT=\alpha_1+\omega^2\alpha_2+\omega\alpha_3
+\]
+に等しい。右辺が全て零なら、$R,S,T$ の座標軸の非零部分を得る。
+右辺の一つだけが非零なら、二変数の積を非零定数に固定し、残る変数を零とする双曲線を得る。
+例えば $\alpha=(h,h,h)$ では $R=0$、$ST=3h$ であり、
+$abc=(S^3+T^3)/27$ だから、除かれる点は $S^6=-27h^3$ の六解である。
+他の二直線も Fourier 座標の巡回置換で同じ結論となる。
+\end{proof}
+
+\begin{proposition}[中心固有値と既約二次元加群の剛性]
+\label{cmo:prop:two-dimensional-center-rigidity}
+命題\ref{cmo:prop:two-dimensional-classification}の加群 $M_{a,b,c}$ において、
+$\Omega_\alpha$ は次のスカラーで作用する。
+\begin{equation}\label{cmo:eq:two-dimensional-lambda}
+ \lambda_2(a,b,c)=-\frac23(a^3+b^3+c^3+abc).
+\end{equation}
+$D=F(\alpha)\ne0$、$Q=q(\alpha)$、$Q_1Q_2Q_3\ne0$ のとき、二つの値は
+\begin{equation}\label{cmo:eq:two-dimensional-lambda-polynomial}
+ \lambda_2=-\frac{2(D^2+4Q_1Q_2Q_3)}{3D\delta},\quad \delta^2=D,
+ \qquad
+ \lambda_2^2=\frac{4(D^2+4Q_1Q_2Q_3)^2}{9D^3}
+\end{equation}
+を満たす。分子が零なら、二つの非同型単純加群の中心値はともに零である。
+また
+\begin{equation}\label{cmo:eq:two-dimensional-self-ext}
+ \operatorname{Ext}_{D_\alpha}^i(M_{a,b,c},M_{a,b,c})
+ \cong
+ \begin{cases}
+ \C&i=0,3,\\
+ \C^{e}&i=1,2,\\
+ 0&i>3,
+ \end{cases}
+ \qquad
+ e=\begin{cases}0&F(\alpha)\ne0,\\1&F(\alpha)=0\end{cases}
+\end{equation}
+がベクトル空間として成立する。
+\end{proposition}
+
+\begin{proof}
+中心性と Schur の補題により、中心値は半跡で計算できる。
+前命題で得た積の公式から
+\[
+ \tfrac12\operatorname{tr}(X^3)=a^3-3abc,\qquad
+ \tfrac12\operatorname{tr}\bigl(\sym(XYZ)\bigr)=abc,
+ \qquad
+ \alpha_1a+\alpha_2b+\alpha_3c=a^3+b^3+c^3-3abc
+\]
+となる。これを中心元へ代入すると式\eqref{cmo:eq:two-dimensional-lambda}を得る。
+また $F(Q)=D^2$ より
+$Q_1^3+Q_2^3+Q_3^3+Q_1Q_2Q_3=D^2+4Q_1Q_2Q_3$ であり、
+式\eqref{cmo:eq:two-dimensional-lambda-polynomial}が従う。
+
+一次変形を双対数環 $A=\C[\varepsilon]/(\varepsilon^2)$ 上で考える。
+$abc$ と $r$ は単元なので、前命題の正規形の構成はこの環上でも成立する。
+実際、$U$ の二つの固有値は差が単元であり、その固有基底を
+特殊化時の基底から持ち上げられる。
+直交性により $V$ は非対角形となり、その上右成分を単元の対角共役で $1$ にできる。
+従って恒等写像へ特殊化する共役で割った一次変形は、
+$q(a+\varepsilon\dot a,b+\varepsilon\dot b,c+\varepsilon\dot c)=\alpha$ と一対一に対応する。
+これは
+\[
+ \operatorname{Ext}^1_{D_\alpha}(M_{a,b,c},M_{a,b,c})
+ \cong\ker
+ \begin{pmatrix}
+ 2a&-c&-b\\-c&2b&-a\\-b&-a&2c
+ \end{pmatrix}
+\]
+を与える。この行列式は $-2F(a,b,c)$ である。
+$abc\ne0$ では階数は少なくとも二である。
+実際、階数一以下なら三つの主小行列から
+$4ab=c^2,4bc=a^2,4ca=b^2$ となり、積を取ると $64=1$ を得る。
+$F(\alpha)=F(a,b,c)^2$ により、表示した $e$ を得る。
+
+本代数の三次 potential による長さ三の bimodule 分解は、
+定数項の PBW 変形でも自己双対であり、$D_\alpha$ は三次元 Calabi--Yau である
+\cite[Theorem~3.3.2]{NFMEG}。
+その有限次元加群間の双対性
+$\operatorname{Ext}^{3-i}(M,M)\cong\operatorname{Ext}^{i}(M,M)^*$、
+Schur の補題、および同分解から、残る次数の主張を得る。
+\end{proof}
+
+\begin{example}[六十四 character の表示における二次元加群]
+\label{cmo:ex:two-dimensional-sixty-four}
+例\ref{cmo:ex:sixty-four}の各因子は、ちょうど二つずつの二次元単純加群を持つ。
+中心固有値の集合を $\mathcal T,\mathcal T'$ とすると
+\[
+ \mathcal T=\left\{\pm\frac{192\sqrt{14}}{49}\right\},\qquad
+ \mathcal T'=\left\{\pm\sqrt{\frac{37623589339922432}{748505944125}}\right\}.
+\]
+実際、$(D,Q)=(686,(-35,7,77))$、
+$(78570,(-969,-159,2001))$ である。
+これらの加群はいずれも周囲代数 $D_\alpha$ または $D_{\alpha'}$ 上で剛的である。
+
+二つの因子の一次元または二次元単純加群のテンソル積は、
+$D_\alpha\otimes D_{\alpha'}$ の単純加群である。
+その次元は $1,2,4$ であり、中心商
+$(D_\alpha\otimes D_{\alpha'})/(\Omega_\alpha+100\Omega_{\alpha'}+c)$
+へ降りる条件は
+\[
+ c\in-(\mathcal R\cup\mathcal T)-100(\mathcal S\cup\mathcal T')
+\]
+である。ここで $\mathcal R,\mathcal S$ は式\eqref{cmo:eq:explicit-norm}の集合である。
+これは単純加群の出現値の計算であり、この集合を非滑らかな中心値の集合と同一視しない。
+二次元因子の剛性だけから中心商上の射影次元を結論することはできない。
+命題\ref{cmo:prop:one-two-dimensional-pd}では、指定中心方程式の高次作用を
+別に計算し、ここに現れる全百個の加群の射影次元を決定する。
+\end{example}
+
 \subsection{周期性を使った character の射影次元判定}
 
 有限自己 Ext だけから有限射影次元を結論することは一般にはできない。
@@ -634,6 +868,324 @@ cohomology は次数付きベクトル空間として
 \]
 であり、上に有界で最高非零次数は $3k-1$ である。
 前系より射影次元は有限で $3k-1$ 以下、最高自己 Ext の非消滅より以上でもある。
+\end{proof}
+
+\subsection{二次元加群に対する中心方程式の高次作用}
+
+二次元加群の中心商上の射影次元を判定するため、
+character の証明書を形式的に代入する代わりに、その加群の自由分解を用いる。
+以下では自由左加群の射を行行列で記述する。
+表現行列を $X,Y,Z$ とし、
+\[
+ A=xI-X^{\mathsf t},\qquad B=yI-Y^{\mathsf t},\qquad C=zI-Z^{\mathsf t}
+\]
+と置く。$M$ には基底を選び、その双対基底で自由加群の行成分を添字付ける。
+
+\begin{lemma}[行列係数の長さ三分解と高次作用の抽出]
+\label{cmo:lem:two-dimensional-shamash}
+任意の二次元 $D_\alpha$ 加群 $M$ に対し、
+\begin{equation}\label{cmo:eq:two-dimensional-resolution}
+ 0\longrightarrow D_\alpha^2\xrightarrow{d_3}D_\alpha^6
+ \xrightarrow{d_2}D_\alpha^6\xrightarrow{d_1}D_\alpha^2
+ \longrightarrow M\longrightarrow0,
+\end{equation}
+\[
+ d_1=\begin{pmatrix}A\\B\\C\end{pmatrix},\quad
+ d_2=\begin{pmatrix}
+ -xI-X^{\mathsf t}&-C&B\\
+ C&-yI-Y^{\mathsf t}&-A\\
+ -B&A&-zI-Z^{\mathsf t}
+ \end{pmatrix},\qquad
+ d_3=(A\ B\ C)
+\]
+は自由分解である。
+
+$M=M_{a,b,c}$ が命題\ref{cmo:prop:two-dimensional-classification}の
+$F(\alpha)\ne0$ を満たす単純加群で、
+$f=\Omega_\alpha-\lambda_2(a,b,c)$ とする。
+PBW 性と斉次 Sklyanin 代数の整域性より $f$ は正則中心元である。
+次の恒等式を満たす行列 $h_0,h_1,h_2,g$ を取る。
+\begin{equation}\label{cmo:eq:two-dimensional-homotopies}
+ \begin{gathered}
+ h_0d_1=fI_2,\qquad d_1h_0+h_1d_2=fI_6,\\
+ d_2h_1+h_2d_3=fI_6,\qquad d_3h_2=fI_2,\\
+ gd_3+h_0h_1=0,\qquad d_1g+h_1h_2=0.
+ \end{gathered}
+\end{equation}
+行列の大きさは順に $2\times6,6\times6,6\times2,2\times2$ である。
+各成分を $M$ に作用させた複素行列を
+$D_i,H_j,G$ と書き、$v=(1,0,0,1)^{\mathsf t}$ とする。
+$D_2b=H_2v$ を満たす $b\in\C^{12}$ に対し
+\begin{equation}\label{cmo:eq:two-dimensional-kappa-extraction}
+ Gv-H_0b=\kappa_2v
+\end{equation}
+で $\kappa_2\in\C$ を定める。このスカラーは $b$ の選択に依存しない。
+また固定した $f$ と両端の規格化の下で、高次 homotopy と収縮の選択にも依存しない。
+この規格化では、$D_\alpha/(f)$ 上の自己 Ext を計算する小複体は
+\begin{equation}\label{cmo:eq:two-dimensional-effective}
+ \C[T]\oplus\C[T]\eta,\qquad |T|=2,\quad|\eta|=3,\quad
+ d\eta=\kappa_2T^2
+\end{equation}
+である。
+半跡と表現を同時に $s\ne0$ 倍し、係数を $s^2\alpha$ とすると、
+この規格化の係数は $s^3\kappa_2$ になる。
+\end{lemma}
+
+\begin{proof}
+表示された行列について、$d_2d_1=d_3d_2=0$ は
+$D_\alpha$ と $X,Y,Z$ の関係式から従う。
+例えば $d_2d_1$ の最初の $2\times2$ ブロックは
+\[
+ -x^2I+(X^{\mathsf t})^2+[y,z]I+[Y^{\mathsf t},Z^{\mathsf t}]
+ =-\alpha_1I+(X^2-[Y,Z])^{\mathsf t}=0
+\]
+である。各自由加群をその homological degree で濾過シフトすると、
+随伴次数付き複体は斉次 Sklyanin 代数の Koszul 分解の二直和になる。
+PBW 性と濾過の有界下性により式\eqref{cmo:eq:two-dimensional-resolution}は完全である。
+
+$\operatorname{Hom}_{D_\alpha}(-,M)$ を適用した複体の大きさは
+$4,12,12,4$ であり、その微分は $D_1,D_2,D_3$ である。
+命題\ref{cmo:prop:two-dimensional-center-rigidity}から階数は $3,9,3$ となる。
+最初と最後の四次元空間は $\operatorname{End}_{\C}(M)$ と同一視する。
+$v$ は恒等行列を表し、$\ker D_1=\C v$、
+$\operatorname{im}D_3$ は跡零行列の空間である。
+従って $v$ は $H^0,H^3$ の生成元を指定する。
+特に $H^3$ の規格化は商への射影 $U\mapsto\operatorname{tr}(U)/2$ である。
+
+式\eqref{cmo:eq:two-dimensional-homotopies}は、長さ三の分解上の全高次 homotopy 恒等式である。
+補題\ref{mbnp:lem:shamash}から中心商上の自由分解を得る。
+その Hom 複体の微分は、周囲微分に $TH_j$ と $T^2G$ を加えたものである。
+まず $H_2v$ は $\ker D_3=\operatorname{im}D_2$ に属し、$b$ が存在する。
+また $D_1(Gv-H_0b)=0$ なので、式\eqref{cmo:eq:two-dimensional-kappa-extraction}が成立する。
+$b$ を変えたときの差は $\ker D_2=\operatorname{im}D_1$ に属し、
+$H_0D_1=0$ なので係数は変わらない。
+
+有界な周囲複体を $H^0\oplus H^3$ に収縮する。
+$H_j$ は元の cochain degree を一つ、$G$ は三つ下げるため、
+収縮後の非零な微分は $H^3\to T^2H^0$ だけであり、
+二段の消去式はちょうど $Gv-H_0b$ である。
+収縮の補正級数は元の cochain degree を下げるので有限であり、
+これは $\C[T]$ 上の homotopy 同値を与える。
+従って式\eqref{cmo:eq:two-dimensional-effective}は全次数の計算である。
+小複体の外積表示を Yoneda 積の主張とはしない。
+この係数は中心商の change-of-rings spectral sequence において
+$\operatorname{Ext}^3_{D_\alpha}(M,M)$ から
+$T^2\operatorname{Ext}^0_{D_\alpha}(M,M)$ への最初に許される微分の係数である。
+従って $f$ による周期変数 $T$ と両端の生成元を固定すれば、
+高次 homotopy や収縮を変えても同じ係数になる。
+実際、二つの高次 homotopy 系の比較射は $T$ による濾過を保ち、
+$E_1=\operatorname{Ext}_{D_\alpha}^{\bullet}(M,M)[T]$ に恒等を誘導するので、
+最初の非零微分を保存する。
+
+最後に、座標変換 $x\mapsto sx,y\mapsto sy,z\mapsto sz$ では
+$d_i$ は一次、$f$ は三次である。
+式\eqref{cmo:eq:two-dimensional-homotopies}の $h_j$ は二次、$g$ は三次に変換できる。
+式\eqref{cmo:eq:two-dimensional-kappa-extraction}における二項はともに三次に変換されるから、
+$\kappa_2\mapsto s^3\kappa_2$ を得る。
+表現の同時共役は両端の恒等行列を固定するので、この規格化に影響しない。
+\end{proof}
+
+\begin{proposition}[二次元加群の普遍な高次作用]
+\label{cmo:prop:two-dimensional-universal-kappa}
+$abcF(a,b,c)\ne0$、$\alpha=q(a,b,c)$ とし、
+\begin{equation}\label{cmo:eq:two-dimensional-sextic}
+ \begin{split}
+ N_6(a,b,c)={}&a^6+b^6+c^6
+   +66\bigl((ab)^3+(bc)^3+(ca)^3\bigr)\\
+ &+26abc(a^3+b^3+c^3)+153a^2b^2c^2
+ \end{split}
+\end{equation}
+と置く。
+補題\ref{cmo:lem:two-dimensional-shamash}で規格化した高次作用は
+\begin{equation}\label{cmo:eq:two-dimensional-universal-kappa}
+ \boxed{\displaystyle
+ \kappa_2(a,b,c)=-\frac{2N_6(a,b,c)}{9F(a,b,c)}}
+\end{equation}
+である。従って $M_{a,b,c}$ の
+$D_\alpha/(\Omega_\alpha-\lambda_2)$ 上の射影次元は、
+$N_6(a,b,c)\ne0$ なら二、$N_6(a,b,c)=0$ なら無限である。
+\end{proposition}
+
+\begin{proof}
+まず $r=1,c=-1/b$ とした普遍表現を
+$\mathbb Q(a,b)$ 上で考える。
+再現コード \texttt{verify\_mixed\_two\_dimensional\_ext.py --universal} は
+式\eqref{cmo:eq:two-dimensional-resolution}と
+式\eqref{cmo:eq:two-dimensional-homotopies}をこの有理関数体上で厳密に計算し、
+全行列恒等式を関係式の全左右倍による剰余で検査する。
+さらに微分の階数 $3,9,3$ と
+式\eqref{cmo:eq:two-dimensional-kappa-extraction}を同じ体上で計算する。
+具体的には
+\[
+ \begin{split}
+ P(a,b)={}&a^6b^6-26a^4b^6+66a^3b^9-66a^3b^3+153a^2b^6\\
+ &-26ab^9+26ab^3+b^{12}-66b^6+1
+ \end{split}
+\]
+と置くと、得られる係数は
+\[
+ -\frac{2P(a,b)}
+ {9b^3(ab+b^2-1)(a^2b^2-ab^3+ab+b^4+b^2+1)}
+\]
+である。これは式\eqref{cmo:eq:two-dimensional-universal-kappa}への
+$c=-1/b$ の代入と、有理関数として恒等的に等しい。
+この計算は有限個のパラメータでの補間ではない。
+
+計算中に現れる補助的な分母の零点を含め、全ての
+$abcF\ne0$ へ結論を延ばす理由を確認する。
+$r^2=-bc$、$abcF$ を可逆にした係数環を $R$ とする。
+式\eqref{cmo:eq:two-dimensional-matrices}は $R$ 上自由な階数二加群を与え、
+式\eqref{cmo:eq:two-dimensional-resolution}も $R$ 上の相対 PBW 分解として完全である。
+相対 Hom 複体の $H^0,H^3$ は恒等行列と半跡により自明な直線束であり、
+全幾何点で $H^1=H^2=0$、微分の階数は $3,9,3$ で一定である。
+従って係数環上で局所的に contraction を選べる。
+中心方程式の null homotopy とその高次持上げも、この自由分解から局所的に取れる。
+前補題の選択独立性により、これらから得た $\kappa_2$ は $\operatorname{Spec}R$ 上の正則関数として貼り合う。
+一方、右辺 $-2N_6/(9F)$ も同じ基礎上で正則である。
+
+$r\ne0$ なので全ての点で $s=1/r$ の同次変換が可能であり、
+変換後は $r=1,c=-1/b$ となる。
+前補題の三次変換則により、計算した有理関数の恒等式は $R$ の稠密開上で成立する。
+$R$ は整域なので、二つの正則関数の一致は $\operatorname{Spec}R$ 全体へ延びる。
+従って計算時の補助分母に追加の非消滅条件を課す必要はない。
+
+$\kappa_2\ne0$ のとき、小複体の cohomology は $\mathbb C[T]/(T^2)$ である。
+$\kappa_2=0$ のときは $\mathbb C[T]\oplus\mathbb C[T]\eta$ で非有界となる。
+長さ三の周囲分解に対する中心商の周期性と Rees の議論
+（命題\ref{cmo:prop:character-pd}の証明）から、表示した射影次元を得る。
+\end{proof}
+
+\begin{example}[character が検出しない二次元単純加群の無限射影次元]
+\label{cmo:ex:two-dimensional-zero-action}
+$a$ を $p(T)=T^3-2T^2-11T+8$ の任意の複素根とし、
+\[
+ \alpha=(a^2+1,a+1,1-a),\qquad
+ \lambda=-\frac23(a^3-a)
+\]
+と置く。
+半跡 $(a,1,-1)$ の二次元単純 $D_\alpha$ 加群 $M$ は剛的であるが、
+$D_\alpha/(\Omega_\alpha-\lambda)$ 上では射影次元が無限である。
+この中心値には $D_\alpha$ の character は一つも存在しない。
+また $D_\alpha$ の八個の character は全て自身の中心商上で射影次元二を持つ。
+従って character の計算だけでは、中心商における単純加群の有限射影次元を判定できない。
+\end{example}
+
+\begin{proof}
+$p$ は有理数体上既約であり、
+$\gcd(p(T),T(T^2+3)(1-T^4))=1$ である。
+従って $a\ne0$、$F(a,1,-1)=a(a^2+3)\ne0$、
+$\alpha_1\alpha_2\alpha_3=1-a^4\ne0$ となる。
+命題\ref{cmo:prop:two-dimensional-classification}と
+命題\ref{cmo:prop:two-dimensional-center-rigidity}から $M$ の存在と剛性を得る。
+さらに
+\[
+ N_6(T,1,-1)
+ =(T^3-2T^2-11T+8)(T^3+2T^2-11T-8)
+\]
+なので、命題\ref{cmo:prop:two-dimensional-universal-kappa}から
+$\kappa_2(M)=0$ と無限射影次元を得る。
+
+character に関する二つの主張は、有限エタール代数
+\[
+ E_a=\mathbb Q(a)[u,v,w]/
+ (u^2-\alpha_1,v^2-\alpha_2,w^2-\alpha_3)
+\]
+における次の二元の可逆性である。
+\[
+ \begin{split}
+ K={}&\alpha_1\alpha_2uv+\alpha_2\alpha_3vw
+        +\alpha_3\alpha_1wu+9\alpha_1\alpha_2\alpha_3,\\
+ L={}&\alpha_1u+\alpha_2v+\alpha_3w+uvw-(a^3-a).
+ \end{split}
+\]
+ここで $K$ は character の $\kappa_1$ の非零定数倍の分子であり、
+$L$ は $-3/2$ 倍した character の中心値と $\lambda$ の差である。
+基底 $u^iv^jw^k$（$i,j,k\in\{0,1\}$）で乗法行列を作り、
+その行列式を $\mathbb Q[T]$ 上で計算すると、いずれも $p(T)$ と互いに素になる。
+従って任意の根 $a$ に対して $K,L$ は可逆である。
+再現コード \texttt{verify\_mixed\_two\_dimensional\_ext.py --zero-example} は
+これら二つの行列式と互除法を厳密に検査する。
+同じコードは $\mathbb Q(a)$ 上で $M$ の全高次 homotopy 恒等式と
+$\kappa_2(M)=0$ を、普遍式への代入から独立に再検査する。
+\end{proof}
+
+\begin{proposition}[指定二係数の二次元高次作用と百個の単純加群]
+\label{cmo:prop:one-two-dimensional-pd}
+例\ref{cmo:ex:sixty-four}の二係数に対し、
+半跡の一方の符号を次のように選ぶと、高次作用は
+\begin{equation}\label{cmo:eq:two-dimensional-exact-kappa}
+ \begin{array}{c|c|c}
+ \alpha&(a,b,c)&\kappa_2\\\hline
+ (1,4,9)&(-5,1,11)/\sqrt{14}&
+ \displaystyle\frac{1297144\sqrt{14}}{151263}\\[3pt]
+ (16,25,49)&(-323,-53,667)/(3\sqrt{970})&
+ \displaystyle\frac{2200813914116392\sqrt{970}}{121008460966875}
+ \end{array}
+\end{equation}
+であり、いずれも非零である。
+他方の半跡の符号では $\kappa_2$ の符号も反転する。
+
+各因子の八個の character と二個の二次元単純加群から得られる
+百個のテンソル積単純加群は、互いに相異なる百個の中心値
+\[
+ c\in-(\mathcal R\cup\mathcal T)-100(\mathcal S\cup\mathcal T')
+\]
+で対応する中心商へ降りる。
+これらの各加群は当該中心商上で射影次元五を持ち、
+自己 Ext の次元は $0,2,3,5$ 次で一、それ以外で零である。
+これは次元 $1,2,4$ の指定単純加群の判定であり、
+他の単純加群、全中心商の smoothness、Kuznetsov 成分への射影後の Ext は未判定である。
+\end{proposition}
+
+\begin{proof}
+式\eqref{cmo:eq:two-dimensional-matrices}を使い、まず半跡を整数にした二つの表現を計算する。
+\[
+ \begin{array}{c|c|c|c}
+ (a,b,c)&r&\text{係数}&\kappa_2\\\hline
+ (-5,1,11)&\sqrt{-11}&14(1,4,9)&5188576/3087\\
+ (-323,-53,667)&\sqrt{35351}&8730(16,25,49)&
+ 8803255656465568/19053225
+ \end{array}
+\]
+これらの値は普遍式\eqref{cmo:eq:two-dimensional-universal-kappa}への代入で得られ、
+$\mathbb Q(\sqrt{-11})$、$\mathbb Q(\sqrt{35351})$ 上の厳密な有限線型代数でも独立に検査する。
+再現コード \texttt{verify\_mixed\_two\_dimensional\_ext.py} は、
+次数二以下の $h_j$ と次数三以下の $g$ を式\eqref{cmo:eq:two-dimensional-homotopies}から順に解き、
+全恒等式を独立に剰余計算で検査する。
+剰余計算は必要な次数以下の全語と全左右関係倍を列挙して行い、
+剰余空間の次元も PBW の値と照合する。
+同じコードで微分の階数 $3,9,3$ と式\eqref{cmo:eq:two-dimensional-kappa-extraction}を検査する。
+これは補間や浮動小数点近似を用いない再生成可能な計算証明書である。
+$s=1/\sqrt{14}$ と $s=1/\sqrt{8730}$ の斉次変換から
+式\eqref{cmo:eq:two-dimensional-exact-kappa}を得る。
+$s=-1$ により反対の符号の類も得られる。
+
+二因子の単純加群を $M_1,M_2$ とする。
+その像はそれぞれ全行列環なので、$M_1\otimes M_2$ は単純である。
+八個の character に対する $\kappa_1\ne0$ は既に検査されており、
+二次元加群については上で $\kappa_2\ne0$ を得た。
+各因子の小複体を $\C[T]$ 上でテンソルすると
+\[
+ \C[T]\otimes\bigwedge(\eta_1,\eta_2),\qquad
+ d\eta_1=\kappa(M_1)T^2,\qquad
+ d\eta_2=100^2\kappa(M_2)T^2
+\]
+となる。
+片方の奇基底を正規化し、他方からその倍を引けば、微分は
+$d\eta_1=T^2,d\eta_2=0$ となる。
+従って表示した自己 Ext を全次数で得る。
+命題\ref{cmo:prop:character-pd}の証明で用いた中心商の周期性と Rees の議論は、
+character であることではなく、長さ六の有限な周囲射影分解を使う。
+式\eqref{cmo:eq:two-dimensional-resolution}のテンソル積がこの分解を与えるので、
+同じ議論により射影次元は五である。
+
+中心値の数は $8\cdot8+2\cdot8+8\cdot2+2\cdot2=100$ である。
+最初の六十四値が相異なることは既証である。
+残る値は、それぞれ $\mathbb Q+\mathbb Q^\times\sqrt{14}$、
+$\mathbb Q+\mathbb Q^\times\sqrt{970}$、
+$\mathbb Q^\times\sqrt{14}+\mathbb Q^\times\sqrt{970}$ に属する。
+$1,\sqrt{14},\sqrt{970},\sqrt{14\cdot970}$ の一次独立性と、
+各有理部分の相異性により、表示した百個の値は全て相異なる。
 \end{proof}
 
 \subsection{中心 chart の character 自己 Ext と qgr の比較}
@@ -1000,6 +1552,892 @@ Etingof--Ginzburg \cite[Theorem~3.3.2 and Section~9]{NFMEG} の
 後続文献を含む初出の網羅的確認はまだ完了していない。
 有限中心性は明示した中心元から証明しており、associated graded の PI 性だけから
 PBW 変形の PI 性を結論していない。
+\end{remark}
+
+\subsection{中心の有限表示と二つの係数における臨界値}
+\label{cmo:subsec:effective-center-geometry}
+
+定理~\ref{cmo:thm:finite-center} の中心生成元を用い、
+\[
+ W=\Omega_\alpha^2,\qquad U=C_0,\qquad V=C_+,\qquad T=C_-
+\]
+とおく。これらのフィルター次数はすべて $6$ である。
+以下の三次多項式を固定する：
+\begin{equation}
+\begin{split}
+ P_3(W,U,V,T)={}&81W^2U+468WU^2+784U^3\\
+ &-36WVT-176UVT+16V^3+16T^3.
+\end{split}
+\label{cmo:eq:center-cubic-top}
+\end{equation}
+
+\begin{proposition}[中心の一関係表示と PI 次数]
+\label{cmo:prop:center-hypersurface-degree}
+任意の $\alpha\in\mathbb C^3$ に対し、最高次部分が $P_3$ である
+全次数 $3$ の多項式 $P_\alpha(W,U,V,T)$ が一意に存在し、
+\begin{equation}
+ Z(D_\alpha)\simeq
+ \mathbb C[s,U,V,T]/\bigl(P_\alpha(s^2,U,V,T)\bigr),
+ \qquad s\longmapsto\Omega_\alpha
+ \label{cmo:eq:center-hypersurface}
+\end{equation}
+となる。さらに $D_\alpha$ の中心上の分数体階数は $36$、
+PI 次数は $6$ である。
+\end{proposition}
+
+\begin{proof}
+定理~\ref{cmo:thm:finite-center} の証明は
+$\operatorname{gr}Z(D_\alpha)=Z(S)$ も与える。
+Smith--Tate \cite[Theorem~4.8]{GRSklyaninST} によれば、
+$S=S(1,-1,-1)$ の中心は次数 $3,6,6,6$ の生成元を持ち、
+関係イデアルは次数 $18$ の一元で生成される。
+補題~\ref{cmo:lem:universal-sixth-center} の四元の最高部は
+この生成系の可逆な線型変更を与える。
+後述する厳密計算から $P_3(\Omega_0^2,C_{0,0},C_{+,0},C_{-,0})=0$
+が従うので、この非零多項式が最高次数での関係を生成する。
+
+中心への全射はフィルター付きで狭義であるから、
+この次数 $18$ の関係を低次数で補正して核の元に持ち上げられる。
+$x,y,z\mapsto-x,-y,-z$ は $D_\alpha$ の自己同型であり、
+$\Omega_\alpha\mapsto-\Omega_\alpha$、$C_\nu\mapsto C_\nu$ と作用する。
+補正の偶数部分を取れば、関係は $s$ の偶数冪だけからなる。
+従って $W=s^2$ を用いて全次数 $3$ 以下の $P_\alpha$ と書ける。
+これより低いフィルター次数には関係がないため、最高部分を
+$P_3$ と規格化した持上げは一意である。
+任意の核の元の最高部分は $P_3$ で割り切れるので、
+$P_\alpha$ の倍を引いてフィルター次数を下げる帰納法により、
+核全体が $P_\alpha$ で生成される。
+
+中心の Hilbert 級数は
+\[
+ H_{\operatorname{gr}Z(D_\alpha)}(t)=
+ \frac{1-t^{18}}{(1-t^3)(1-t^6)^3},
+ \qquad H_{\operatorname{gr}D_\alpha}(t)=\frac1{(1-t)^3}.
+\]
+有限中心性により $D_\alpha$ は中心上の有限フィルター加群であり、
+両者の多重度の比は分数体階数に等しい。
+従ってその階数は
+\[
+ \lim_{t\to1}
+ \frac{(1-t^3)(1-t^6)^3}{(1-t)^3(1-t^{18})}
+ =\frac{3\cdot6^3}{18}=36.
+\]
+$D_\alpha$ は PBW 性と $\operatorname{gr}D_\alpha=S$ の整域性から
+整域である。中心の分数体に移した中心単純環の次元は PI 次数の
+二乗なので、PI 次数は $6$ となる。
+\end{proof}
+
+以下では
+\[
+ \alpha^{(1)}=(1,4,9),\qquad
+ \alpha^{(2)}=(16,25,49)
+\]
+とする。$P_i=P_{\alpha^{(i)}}$ は $P_3$ に次表の低次項を加えた
+多項式である。表にない単項式の係数は零である。
+\begin{center}
+\small
+\begin{tabular}{c|r|r}
+単項式 & $P_1$ の係数 & $P_2$ の係数\\ \hline
+$WU$ & $-59760$ & $-11301840$\\
+$WV$ & $144$ & $230400$\\
+$WT$ & $324$ & $451584$\\
+$U^2$ & $-193984$ & $-39551680$\\
+$UV$ & $-13952$ & $-3701824$\\
+$UT$ & $-20752$ & $-3076672$\\
+$V^2$ & $5152$ & $718992$\\
+$VT$ & $13856$ & $2825120$\\
+$T^2$ & $3472$ & $899856$\\
+$W$ & $-47952$ & $-16719897600$\\
+$U$ & $7099264$ & $180425753600$\\
+$V$ & $-152048$ & $-43671732224$\\
+$T$ & $-153248$ & $-48922542080$\\
+$1$ & $997056$ & $448348972646400$
+\end{tabular}
+\end{center}
+
+\begin{lemma}[有限計算による関係の証明]
+\label{cmo:lem:center-relation-certificate}
+上の二つの表は、それぞれ
+$P_i(\Omega_{\alpha^{(i)}}^2,C_0,C_+,C_-)=0$ を与える。
+全次数 $3$ 以下の四変数単項式 $35$ 個の間の関係空間は一次元である。
+\end{lemma}
+
+\begin{proof}
+\texttt{computations/verify\_mixed\_center\_geometry.py} は
+既存の \texttt{verify\_mixed\_pi\_center.py} の中心元を直接読み込み、
+すべての演算を $\mathbb Q$ 上で行う。再現の線型代数を説明する。
+フィルター次数 $n-1$ 以下の語代表基底と右乗法表が既に構成されたとする。
+次数 $n$ の仮の最高部分には、次数 $n-1$ の基底語の右に
+$x,y,z$ を付加した $3\binom{n+1}{2}$ 列だけを用いる。
+低次数部分には既知の基底を用いる。
+次数 $n-2$ の基底語 $w$ に対し
+\[
+ w(yz-zy-x^2+\alpha_1),\quad
+ w(zx-xz-y^2+\alpha_2),\quad
+ w(xy-yx-z^2+\alpha_3)
+\]
+を既知の乗法表で表し、その行空間で割る。
+これらは実際の関係なので、得られた空間から $F_nD_\alpha$ への
+全射がある。計算は各 $2\le n\le18$ で新しい最高部分の次元が
+$\binom{n+2}{2}$ であり、低次数に新しい関係がないことを検査する。
+既知の PBW 次元と一致するため、この全射は同型である。
+したがって得られた乗法表は次数 $18$ までの正確な商計算を与える。
+
+$n=18$ では最高部分の仮の列数は $513$、実際の最高部分の次元は
+$190$、低次数を含む語代表は $1330$ 個である。
+四中心元の全次数 $3$ 以下の単項式をこの基底に展開すると
+$35$ 列の階数は $34$ となり、核は表示した $21$ 項の関係で張られる。
+これは自由語 $3^{18}$ 個の列挙、浮動小数点の階数判定、係数の標本補間の
+いずれにも依存しない有限の理想所属計算である。
+全次数における中心表示には、命題の証明で Smith--Tate の
+一関係定理を別に用いている。
+\end{proof}
+
+臨界値を表示するため、次の多項式を置く：
+\begin{align*}
+ H_1(W)={}&(W-784)(W-256)(9W-3136)(9W-784)(343W-73728),\\
+ H_2(W)={}&(W-200704)(W-38416)(W-30976)(9W-80656)\\
+ &\hspace{18mm}\cdot(748505944125W-37623589339922432),
+\end{align*}
+\begin{align*}
+ Q_1(W)={}&129140163W^4-188108856360W^3+92316693932208W^2\\
+ &-16917496764590592W+875501309973348352,\\
+ Q_2(W)={}&129140163W^4-34079674491720W^3
+       +2934863745734897712W^2\\
+ &-83555308663913970224640W
+       +165916680996850221150748672.
+\end{align*}
+
+\begin{proposition}[中心の特異点と八つの新しい Morse 臨界値]
+\label{cmo:prop:center-critical-polynomials}
+$X_i=\operatorname{Spec}Z(D_{\alpha^{(i)}})$ とし、
+$s=\Omega_{\alpha^{(i)}}:X_i\to\mathbb A^1$ とする。
+\begin{enumerate}
+ \item $s^{-1}(\lambda)$ が特異であるための必要十分条件は
+ \[
+   \lambda H_i(\lambda^2)Q_i(\lambda^2)=0
+ \]
+ である。この条件は相異なる $19$ 個の値を与える。
+ \item $X_i$ 自身の特異点は $14$ 個で、すべて通常二重点である。
+ そのうち $10$ 個は $H_i(s^2)=0$ 上にあり、
+ 残りの $4$ 個は $s=0$ 上にある。
+ \item $Q_i(s^2)=0$ に対応する $8$ 個の臨界点は $X_i$ の滑らかな部分にあり、
+ それぞれ $s$ の Morse 臨界点である。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$R_i=\mathbb Q[W,U,V,T]$ 内のイデアル
+\[
+ I_i=(P_i,\partial_UP_i,\partial_VP_i,\partial_TP_i)
+\]
+を用いる。同じ再現コードの有理数体上の Gr\"obner 基底計算は
+\begin{equation}
+ \dim_{\mathbb Q}R_i/I_i=18,\qquad
+ I_i\cap\mathbb Q[W]=(W H_i(W)^2Q_i(W))
+ \label{cmo:eq:center-critical-elimination}
+\end{equation}
+を、非零有理数倍を除いて検証する。
+$Q_i$ は $\mathbb Q$ 上既約であり、$W,H_i,Q_i$ は互いに素、
+$H_i$ は重根を持たない。
+臨界スキームは零次元なので射影の像も閉であり、
+消去多項式の根はちょうど特異なファイバーを与える。
+これに $W=s^2$ を代入すると (1) を得る。
+
+$P_{i,W}=\partial_WP_i$ と略記する。
+$I_i+(P_{i,W})$ の商は長さ $5$ で、
+$W$ の消去多項式は $H_i$、しかも四変数 Hessian の行列式は
+この商で単元である。従って非零の $s$ 上の中心特異点は
+$H_i(s^2)=0$ で与えられる $10$ 個の通常二重点である。
+$W=0$ での $I_i$ の商は長さ $4$ の被約環であり、
+$P_{i,W}$ と三変数 $U,V,T$ に関する Hessian の行列式はともに単元である。
+$s=0$ における $P_i(s^2,U,V,T)$ の Hessian は、
+$s$ 方向の成分 $2P_{i,W}$ とこの三変数 Hessian の直和なので可逆である。
+これで (2) が従う。
+
+最後に $I_i+(Q_i)$ の商は長さ $4$ である。
+この商でも $P_{i,W}$ と三変数 Hessian の行列式は単元である。
+$W\ne0$ なので $\partial_sP_i(s^2,U,V,T)=2sP_{i,W}\ne0$ となり、
+対応する中心の点は滑らかである。
+陰関数定理で $s$ を $U,V,T$ の関数とみれば、その Hessian は
+非零スカラー倍の三変数 Hessian となる。従って八つの点は Morse 臨界点である。
+各単元判定は、対応する Gr\"obner 基底に当該行列式または微分を加えた
+イデアルが単位イデアルになることを有理数体上で検証している。
+\end{proof}
+
+
+\subsection{全定数変形の Azumaya locus}
+
+中心の臨界点から非可換中心商の特異性を結論するには、
+中心上の代数の局所構造を確認しなければならない。
+本表示では、その入力を全定数係数について得られる。
+
+\begin{theorem}[正則中心上の Azumaya 性]
+\label{cmo:thm:azumaya-regular}
+任意の $\alpha\in\C^3$ に対して、$D_\alpha$ は PI 次数六の
+homologically homogeneous 代数である。
+その中心 $Z_\alpha=Z(D_\alpha)$ は正規で、$D_\alpha$ は
+$Z_\alpha$ 上 Cohen--Macaulay である。
+さらに
+\[
+ \operatorname{Az}(D_\alpha)=
+       (\operatorname{Spec} Z_\alpha)_{\mathrm{reg}}.
+\]
+特に中心の任意の正則閉点で、完備化した代数は
+$\operatorname{Mat}_6(\widehat{Z_{\alpha,\mathfrak m}})$ と同型である。
+\end{theorem}
+\begin{proof}
+三次 potential の長さ三の自己双対な双加群解消により
+$D_\alpha$ は三次元 Calabi--Yau で大域次元は三以下である
+\cite[Theorem~3.3.2]{NFMEG}。
+随伴代数 $S=S(1,-1,-1)$ は domain なので、$D_\alpha$ も domain である。
+定理\ref{cmo:thm:finite-center}より中心上有限であり、
+全ての単純加群 $V$ は有限次元である。
+Calabi--Yau 双対から
+\[
+ \operatorname{Ext}_{D_\alpha}^3(V,V)
+       \simeq\operatorname{End}_{D_\alpha}(V)^*\ne0
+\]
+なので、全ての単純加群の射影次元は正確に三である。
+従って $D_\alpha$ は homologically homogeneous である。
+Brown--Hajarnavis による中心の正規性と中心上の Cohen--Macaulay 性を適用する。
+ここではこの既知の結果の形を、
+Brown--Yakimov \cite[\S3.8(b)(i), Proposition~3.10 and its proof]{CMOBrownYakimov}
+に記載されたものに従う。
+PI 次数六は、命題\ref{cmo:prop:center-hypersurface-degree}の Hilbert 級数の比から従う。
+
+余次元一での Azumaya 性を、斉次化から示す。
+$B=\mathcal B_\alpha$、$T=Z(B)$ とすると、全中心生成元の持上げと
+$u$ の正則性により
+\[
+ B/(u)=S,\qquad T/(u)=Z(S),\qquad
+ B[u^{-1}]=D_\alpha[u,u^{-1}],\qquad
+ T[u^{-1}]=Z_\alpha[u,u^{-1}].
+\]
+$T/(u)$ への中心の全射性は定理\ref{cmo:thm:finite-center}で証明済みであり、
+その核が $uT$ であることは $ub\in Z(B)\Rightarrow b\in Z(B)$ による。
+$T$ は次元四の連結正次数付き可換有限型 domain で、$B$ はその上有限である。
+
+$u=0$ 上で $S$ が Azumaya である閉点 $z$ を取る。
+局所環 $T_z$ 上で $B_z$ と $T_z$ に $u$ は正則に作用し、
+$B_z/uB_z$ は $T_z/(u)$ 上有限射影である。
+この有限射影加群は局所環 $T_z/(u)$ 上で階数三十六の自由加群である。
+その基底を持ち上げると、Nakayama により全射 $T_z^{36}\to B_z$ を得る。
+核を $L$ とすると、$u$ の $B_z$-正則性による
+$\operatorname{Tor}_1^{T_z}(B_z,T_z/(u))=0$ から $L/uL=0$ が従う。
+$L$ は有限生成なので再び Nakayama により $L=0$。
+従って $B_z$ は $T_z$ 上有限自由である。
+自然な射
+\[
+ B_z\otimes_{T_z}B_z^{\mathrm{op}}
+       \longrightarrow\operatorname{End}_{T_z}(B_z)
+\]
+は、$u$ で割れば同型である。両辺は同じ階数の有限自由加群なので、
+Nakayama の補題、または行列式の単元性からこの射自身が同型となる。
+従って $B_z$ は Azumaya である。
+
+$\mathcal N\subset\operatorname{Spec}T$ を $B$ の非 Azumaya locus とする。
+これは閉集合で、正次数の dilation 作用で不変である。
+Walton--Wang--Yakimov
+\cite[Theorem~1.3(1), Lemma~5.4]{CMOWaltonWangYakimov}によれば、
+位数六の $S$ の非 Azumaya locus は、中心の特異 locus に等しく、
+三本の曲線の和である。従って、前段の持上げから
+\[
+ \dim\bigl(\mathcal N\cap V(u)\bigr)\leq1.
+\]
+もし $\mathcal N$ に次元三以上の既約成分 $Y$ があれば、
+$\mathbb G_m$ の連結性により $Y$ 自身が dilation 不変であり、
+斉次閉錐として原点を含む。
+$u|_Y=0$ なら上の次元上限に反する。
+$u|_Y\ne0$ なら、非空の主切断 $Y\cap V(u)$ は
+有限型 domain の次元公式から次元 $\dim Y-1\geq2$ であり、やはり矛盾する。
+従って $\dim\mathcal N\leq2$ である。
+
+$u\ne0$ 上の上記 Laurent 表示では、Azumaya 性の忠実平坦降下により
+\[
+ \mathcal N\cap D(u)=
+       \bigl(\operatorname{Spec}Z_\alpha\setminus
+                     \operatorname{Az}(D_\alpha)\bigr)\times\mathbb G_m.
+\]
+従って $D_\alpha$ の非 Azumaya locus は次元一以下であり、
+$D_\alpha$ は中心の余次元一で Azumaya である。
+
+以上で、prime、中心上有限、有限大域次元、正規中心、中心上 Cohen--Macaulay、
+余次元一の Azumaya 性が揃った。
+reduced trace を選べば Brown--Yakimov の Main Theorem の trace 仮定も満たされ、
+同論文\cite[Corollary~5.2]{CMOBrownYakimov}から
+Azumaya locus と正則 locus の一致が従う。
+完備局所環は剰余体 $\C$ を持つ Hensel 環なので、その上の Azumaya 代数は分裂する。
+PI 次数が六であることから、最後の行列代数の大きさも従う。
+\end{proof}
+
+\begin{remark}
+この持上げは、中心の全生成元が持ち上がることと、
+斉次化の正次数構造を使っている。
+PBW 性、有限中心性、有限大域次元の三条件だけから
+Azumaya locus と正則 locus の一致を推論してはいない。
+\end{remark}
+
+
+\subsection{有限台の chart 加群と線束 perfect 性}
+
+以下でいう線束 perfect とは
+\[
+ \mathcal C_A=\operatorname{thick}\{\mathcal O(j):j\in\mathbb Z\}
+ \subset D^b(\operatorname{qgr}A)
+\]
+に属することをいう。この部分圏の proper 性は、全 coherent 圏の
+smoothness を仮定せずに成立する。
+
+\begin{lemma}[有限中心上の有限台 chart 加群]
+\label{cmo:lem:finite-support-perfect}
+$A$ を次数一で生成される連結局所有限 noetherian 次数付き代数とし、
+$u\in Z(A)_1$ を正則元とする。
+$u$ を含む可換有限型次数付き中心部分環 $C\subset A$ があり、
+$A$ は $C$ 上有限であると仮定する。
+$D=(A[u^{-1}])_0$ とし、有限次元右 $D$-加群 $M$ に対して
+補題\ref{cmo:lem:chart-ext}の $\mathcal P(M)=\pi(M[u])$ を取る。
+このとき
+\begin{equation}\label{cmo:eq:chart-perfect-iff}
+ \mathcal P(M)\in\mathcal C_A
+ \quad\Longleftrightarrow\quad
+ \operatorname{pd}_{D}M<\infty.
+\end{equation}
+\end{lemma}
+\begin{proof}
+$\ell>0$ を十分割り切れる整数として、$C^{(\ell)}$ が次数一で生成されるようにする。
+$Z=\operatorname{Proj}C^{(\ell)}$、
+$\mathcal A=\widetilde{A^{(\ell)}}$ と置く。
+定理\ref{cmo:thm:relative-smoothness}の証明の有限中心模型と同じく、
+\[
+ \operatorname{QGr}A\simeq\operatorname{Qcoh}(Z,\mathcal A),\qquad
+ \operatorname{qgr}A\simeq\operatorname{coh}(Z,\mathcal A)
+\]
+がある。これは smoothness の結論に先立つ同値である。
+また、次数 $\ell$ の中央元 $f$ を反転した $A[f^{-1}]$ は強次数付きである。
+実際、$f$ を次数一の元の長さ $\ell$ の積の和として書き、
+先頭または末尾の元を分ければ
+$1\in A[f^{-1}]_1A[f^{-1}]_{-1}$ および
+$1\in A[f^{-1}]_{-1}A[f^{-1}]_1$ を得る。
+従って全ての $\mathcal O(j)$ は局所有限生成射影 $\mathcal A$-加群である。
+中央の ample twist $\mathcal A\otimes\mathcal O_Z(m)$ は
+$\mathcal O(\ell m)$ に対応し、これらは
+$D_{\mathrm{qc}}(Z,\mathcal A)$ を compact に生成する。
+有限アファイン被覆上での局所有限射影分解と同じ生成論から、
+\begin{equation}\label{cmo:eq:line-is-local-perfect}
+ \mathcal C_A=\operatorname{Perf}(Z,\mathcal A)
+\end{equation}
+である。混合族では、命題\ref{cmo:prop:proper-contraction}の有限線束和 $E$
+がこれら全 twist を厚生成するため、同じ等式はその compact generator
+の記述からも従う。
+
+ここで $P=M[u]$ 上の中心作用を調べる。
+各 $c\in C_e$ は、$M$ 上の $cu^{-e}$ の作用行列に $u^e$ を掛けたものとして作用する。
+従って中心像は、$u$ を含む次数付き可換部分環
+\[
+ S=C/\operatorname{Ann}_C P
+ \ \subset\ \operatorname{End}_{\mathbb C}(M)[u]
+\]
+である。右辺は $\mathbb C[u]$ 上有限であり、
+$S$ はその $\mathbb C[u]$-部分加群だから、$S$ も有限である。
+従って $S/(u)$ は有限次元であり、
+\[
+ \operatorname{Proj}S^{(\ell)}\subset Z
+\]
+は $u\ne0$ 内の有限閉部分スキームである。
+より具体的には、$S[u^{-1}]_0\subset\operatorname{End}_{\mathbb C}(M)$ は
+有限次元可換代数で、上の Proj はその Spec に等しい。
+$\mathcal P(M)$ の中央台はこの有限閉集合に含まれる。
+
+$U=D_+(u^\ell)$ では $\mathcal A|_U$ のアファイン代数は $D$ であり、
+$\mathcal P(M)|_U$ は $M$ に対応する。
+もし $\operatorname{pd}_D M<\infty$ なら $U$ 上で perfect である。
+中央台の補集合では零なので、$Z$ 全体で局所 perfect となる。
+式\eqref{cmo:eq:line-is-local-perfect}から順方向を得る。
+
+逆に $j^*:\operatorname{QGr}A\to\operatorname{Mod}D$ は exact で、
+$j^*\mathcal O(j)\simeq D$、$j^*\mathcal P(M)=M$ である。
+従って $\mathcal P(M)\in\mathcal C_A$ なら
+$M\in\operatorname{Perf}(D)$、すなわち有限生成加群 $M$ の射影次元は有限である。
+これは、任意の perfect 加群を開埋込みの $j_*$ が perfect に保つという主張ではない。
+順方向で不可欠なのは、有限次元性から得た、開 chart 内で閉じた中央台である。
+\end{proof}
+
+\begin{proposition}[定常点の線束 perfect 性の完全判定]
+\label{cmo:prop:point-perfect}
+命題\ref{cmo:prop:character-pd}の $k$ 因子の混合型を取り、
+$p_i=(a_i,b_i,c_i)\in(\mathbb C^\times)^3$ とする。
+中心商の係数を $c_0=-\sum_i\beta_i\lambda_{p_i}$ とし、
+対応する次数付き一点加群 $P=\mathbb C[u]$ と
+$\mathcal P=\pi P$ を取る。このとき
+\begin{equation}\label{cmo:eq:point-perfect-criterion}
+ \mathcal P\in\mathcal C_A
+ \quad\Longleftrightarrow\quad
+ \text{少なくとも一つの }\kappa(p_i)\ne0.
+\end{equation}
+有限の場合、対応する右 affine character の射影次元は正確に $3k-1$ である。
+特に例\ref{cmo:ex:sixty-four}の全六十四個の定常点は線束 perfect である。
+\end{proposition}
+\begin{proof}
+最初に左右の規約を揃える。各因子に対して、語の順序を逆転させるとともに
+\[
+ x\longmapsto x,\qquad y\longmapsto z,\qquad
+ z\longmapsto y,\qquad u\longmapsto u
+\]
+とする同型
+\[
+ \mathcal B_{(a^2,b^2,c^2)}
+ \xrightarrow{\sim}
+ \mathcal B_{(a^2,c^2,b^2)}^{\mathrm{op}}
+\]
+がある。三つの関係式を直接代入すれば確認でき、
+中心元 $\Omega$ と character はそれぞれ対応する中心元と $(a,c,b)$ へ移る。
+$\lambda$ と $\kappa$ は三座標の置換で不変だから、
+命題\ref{cmo:prop:character-pd}の左射影次元の結論は右加群にも移る。
+有限次元体双対による自己 Ext の比較だけから右射影次元を推論しているのではない。
+
+定理\ref{cmo:thm:finite-center}の普遍中心元の像が生成する中心部分環を使うと、
+$A$ は $u$ を含む有限型次数付き中心上有限である。
+従って前補題と右 affine character の射影次元判定が適用できる。
+一点の場合は中心像がちょうど $\mathbb C[u]$ なので、
+中央台は $u\ne0$ 内の一つの閉点である。
+六十四点では系\ref{cmo:cor:sixty-four-ext}の二つの不等式により
+両因子の $\kappa$ がともに非零である。
+\end{proof}
+
+\begin{corollary}[低次元単純加群の coherent な perfect 延長]
+\label{cmo:cor:hundred-perfect}
+命題\ref{cmo:prop:one-two-dimensional-pd}の百個の左単純加群を体双対して
+右加群 $M$ とし、各出現係数の $A_c$ 上で $\mathcal P(M)=\pi(M[u])$ と置く。
+これらは全て線束 perfect である。
+\end{corollary}
+\begin{proof}
+体双対は有限次元端点の自己 Ext を、反対向きの自己 Ext に同型に移す。
+例えば有限生成射影分解を体双対した単射分解と Hom の随伴からこの同型を得る。
+右側の周囲 tensor 代数も有限大域次元六を持ち、$M$ は有限生成なので、
+長さ六の有限生成射影分解がある。
+従って、双対した後に系\ref{cmo:cor:hypersurface-pd}を右加群へ適用すれば
+有限自己 Ext から $\operatorname{pd}M=5$ を得る。
+体双対だけから射影次元を移してはいない。
+補題\ref{cmo:lem:finite-support-perfect}を適用して結論を得る。
+\end{proof}
+
+\begin{remark}[判定の範囲]
+この結果は定常点そのものが有限線束複体の直和因子になることを示す。
+全 coherent 対象の perfect 性や、全カテゴリー・対角の smoothness を意味しない。
+全 $\kappa=0$ の場合には、既存の非有界自己 Ext と同じく
+$\mathcal P\notin\mathcal C_A$ である。
+また $\operatorname{RHom}(\mathcal O,\mathcal P)=\mathbb C$ なので、
+$\mathcal P$ 自体は残余圏の対象ではない。
+\end{remark}
+
+\subsection{二ブロックの定常点を残余圏へ射影する}
+
+次の Serre 入力は全 coherent 圏の smoothness を要求しない。
+
+\begin{lemma}[混合型の線束圏上の Serre 双対]
+\label{cmo:lem:mixed-line-serre}
+$N=3k+1$、$n=N-2$、$a=N-3$ とする。
+本節の混合中心三次商の proper 圏 $\mathcal C_A$ は
+\[
+ S_{\mathcal C_A}=(-a)[n]
+\]
+を Serre 関手として持つ。特に線束 perfect な定常点では
+$S_{\mathcal C_A}(\mathcal P)\simeq\mathcal P[n]$ である。
+\end{lemma}
+\begin{proof}
+命題\ref{cmo:prop:proper-contraction}の証明は、
+各因子の potential 解消の tensor と中心差 $u_L-u_R$ の Koszul 解消から
+\[
+ R\underline{\operatorname{Hom}}_{B\otimes B^{\mathrm{op}}}
+     (B,B\otimes B^{\mathrm{op}})\simeq B(N)[-N]
+\]
+を真正な次数付き双加群として構成している。
+この構成は中心商の係数 $c_0$ に依存しない。
+正則中心三次による change of rings と両側局所双対により
+\[
+ R\Gamma_A(A)\simeq A^\vee(a)[-(N-1)]
+\]
+を得る。
+これは、定理\ref{thm:nfm-relative-serre}の証明で使う
+局所双対式\eqref{eq:nfm-relative-local-dual}と同じ入力であり、
+一ブロックという表示はこの入力を得た後には使わない。
+同証明の導来局所化の三角を双対化すると、tails の双対化双加群は
+内部 shift $-a$ と cohomological shift $N-2$ を持つ。
+従って全 compact 対象 $K,L$ について
+\[
+ R\operatorname{Hom}(K,L)^\vee
+ \simeq R\operatorname{Hom}(L,K(-a)[N-2])
+\]
+となる。有限中心模型では compact 部分は $\mathcal C_A$ であり、
+この圏は proper であるから、これが主張した Serre 双対である。
+$u:P(-1)\to P$ の余核は有限次元なので
+$\mathcal P(-1)\simeq\mathcal P$ であり、最後の結論を得る。
+\end{proof}
+
+\begin{proposition}[残余射影の自己 Ext]
+\label{cmo:prop:projected-point-ext}
+$k=2$ とし、少なくとも一つの $\kappa(p_i)$ が非零である定常点
+$\mathcal P$ を取る。
+$\mathcal E=\langle\mathcal O,\mathcal O(1),\mathcal O(2),\mathcal O(3)\rangle$ と置き、
+\[
+ F\longrightarrow\mathcal P\longrightarrow K
+\]
+を $F\in\mathcal E$、$K\in\mathcal E^\perp\cap\mathcal C_A
+=\mathcal K_A^{\mathrm{line}}$ となる射影三角とする。
+このとき
+\begin{equation}\label{cmo:eq:projected-point-ext}
+ \operatorname{Ext}^j(K,K)=
+ \begin{cases}
+  \mathbb C,&j=0,\\
+  \mathbb C^{10},&j=1,\\
+  0,&j\ne0,1.
+ \end{cases}
+\end{equation}
+特に $\chi(K,K)=-9$ であり、$K$ は exceptional 対象でも spherical 対象でもない。
+この結論は全六十四個の定常点に適用できる。
+\end{proposition}
+\begin{proof}
+\textbf{第一段階：斉次分解と例外射影。}
+一因子では $X=x-au,Y=y-bu,Z=z-cu$ と置き、
+式\eqref{cmo:eq:character-resolution}の行列の定数 $a,b,c$ を
+$au,bu,cu$ へ置換する。これにより
+\[
+ 0\to\mathcal B_\alpha(-3)\to\mathcal B_\alpha(-2)^3
+ \to\mathcal B_\alpha(-1)^3\to\mathcal B_\alpha
+ \to\mathbb C[u]\to0
+\]
+を得る。$u=0$ では $S(1,-1,-1)$ の Koszul 解消となる。
+増大複体の全項が $\mathbb C[u]$ 上平坦であり、内部次数は下に有界なので、
+$u$ による帰納法で完全性が持ち上がる。
+二因子の $\mathbb C[u]$ 上の tensor は、右加群の規約へ移せば
+\[
+ B(-i)^{\binom6i}\qquad(0\leq i\leq6)
+\]
+を第 $i$ 項とする $P$ の有限自由 $B$-分解となる。
+
+斉次な higher homotopy を使う Shamash 分解 $Q_\bullet\to P$ の項は
+\[
+ Q_m=\bigoplus_{q\ge0}A(-m-q)^{\binom6{m-2q}},
+\]
+ただし範囲外の二項係数は零とする。
+$Q_\bullet(3)$ のうち、自由生成元の line twist が非負の項を取ると、
+微分で閉じた有限部分複体
+\begin{equation}\label{cmo:eq:point-exceptional-complex}
+ F=\left[
+ \mathcal O^{20}\longrightarrow
+ \mathcal O(1)^{15}\oplus\mathcal O\longrightarrow
+ \mathcal O(2)^6\longrightarrow\mathcal O(3)
+ \right]
+\end{equation}
+を得る。表示した項の cohomological 次数は順に $-3,-2,-1,0$ である。
+増大写像と $\mathcal P(3)\simeq\mathcal P$ により $F\to\mathcal P$ がある。
+
+$0\leq i,j\leq3$ では線束間の高次 Ext は零である。
+従って $R\operatorname{Hom}(\mathcal O(i),F)$ は項ごとの Hom で計算できる。
+これは自由分解 $Q_\bullet$ の内部次数 $3-i$ の成分そのものである。
+実際、$F$ から除いた項の line twist は負なので、この成分に寄与しない。
+従ってこの Hom 複体は次数零の $P_{3-i}=\mathbb C$ のみを持つ。
+また exact な $j^*\dashv j_*$ により
+\[
+ R\operatorname{Hom}(\mathcal O(i),\mathcal P)
+ =R\operatorname{Hom}_D(D,M)=\mathbb C
+\]
+であり、上の増大写像はこの同型を与える。
+よって全ての $i=0,1,2,3$ について $R\operatorname{Hom}(\mathcal O(i),K)=0$。
+命題\ref{cmo:prop:point-perfect}により $\mathcal P$ は線束 perfect なので、
+$K$ も線束 perfect である。
+従って式\eqref{cmo:eq:point-exceptional-complex}は所要の例外射影を実際に表す。
+
+\textbf{第二段階：$R\operatorname{Hom}(F,\mathcal P)$ と制限写像。}
+二因子の affine ambient character 分解に Hom を施した複体を
+$(C^\bullet,\delta)$ と書く。
+各因子は次元 $(1,3,3,1)$、唯一の非零微分が二つの三次元空間の間の
+$\operatorname{diag}(-2a_i,-2b_i,-2c_i)$ である。
+従って tensor 複体では
+\[
+ \dim(C^0,C^1,C^2,C^3)=(1,6,15,20),\qquad
+ \delta:C^1\hookrightarrow C^2,\qquad
+ \operatorname{rank}(\delta:C^2\to C^3)=9.
+\]
+全 Shamash cochain 複体は
+$C^\bullet[t]$、$|t|=2$、微分
+$\delta+t h_1^*+t^2h_2^*+\cdots$ である。
+式\eqref{cmo:eq:point-exceptional-complex}に対応する Hom 複体は
+\[
+ C^0\longrightarrow C^1\longrightarrow C^2\oplus tC^0
+ \longrightarrow C^3.
+\]
+最初の微分は零、次の微分は $\delta:C^1\to C^2$ の成分が単射なので階数六、
+最後の微分は $\delta:C^2\to C^3$ なので階数九である。
+従って
+\begin{equation}\label{cmo:eq:exceptional-to-point-ext}
+ \operatorname{Ext}^j(F,\mathcal P)=
+ \begin{cases}
+ \mathbb C,&j=0,2,\\
+ \mathbb C^{11},&j=3,\\
+ 0,&\text{その他}.
+ \end{cases}
+\end{equation}
+
+自然な写像
+\[
+ \operatorname{Ext}^j(\mathcal P,\mathcal P)
+ \longrightarrow\operatorname{Ext}^j(F,\mathcal P)
+\]
+は、全 Shamash cochain 複体から上の有限複体への制限で計算できる。
+これは $u\ne0$ への制限と $j^*\dashv j_*$ の随伴により確認できる。
+次数零では恒等写像である。
+次数二では両複体の次数一・二の項が同じなので、cohomology 上の写像は単射である。
+両側の次元は一だから同型となる。
+次数三の単射性も直接確認できる。
+制限が境界となる全 cocycle から、その境界の持上げを引くと、
+残りは $t v$、$v\in C^1$ の形である。
+その微分の $tC^2$ 成分は $t\delta v$ である。
+$\delta:C^1\to C^2$ が単射だから $v=0$ となる。
+従って次数三でも制限写像は単射である。
+
+\textbf{第三段階：proper 線束圏での双対と cone。}
+前補題を $k=2$ に適用すると $S=(-4)[5]$ であり、
+$\mathcal P(-4)\simeq\mathcal P$ である。
+従って式\eqref{cmo:eq:exceptional-to-point-ext}を双対化して
+\[
+ \operatorname{Ext}^j(\mathcal P,F)=
+ \begin{cases}
+ \mathbb C^{11},&j=2,\\
+ \mathbb C,&j=3,5,\\
+ 0,&\text{その他}
+ \end{cases}
+\]
+を得る。Serre 双対の自然性により
+$\operatorname{Ext}^j(\mathcal P,F)\to
+\operatorname{Ext}^j(\mathcal P,\mathcal P)$ は、
+第二段階の次数 $5-j$ の写像の双対である。
+従って次数二では全射、次数三・五では同型となる。
+この双対を適用している圏は proper な $\mathcal C_A$ であり、
+全 $D^b(\operatorname{qgr}A)$ の proper 性や smoothness は使わない。
+
+$R\operatorname{Hom}(F,K)=0$ なので射影三角から
+\[
+ R\operatorname{Hom}(K,K)\simeq R\operatorname{Hom}(\mathcal P,K)
+ \simeq\operatorname{Cone}\bigl(
+ R\operatorname{Hom}(\mathcal P,F)\to
+ R\operatorname{Hom}(\mathcal P,\mathcal P)\bigr).
+\]
+既存の自己 Ext の次元 $(1,1,1,1)$（次数 $0,2,3,5$）と、
+今得た写像の階数を長完全列へ代入すると、
+次数零に一、次数一に $11-1=10$ のみが残る。
+これが式\eqref{cmo:eq:projected-point-ext}である。
+\end{proof}
+
+\begin{remark}[数値的な独立検算と積について]
+例外列の Euler 行列は
+\[
+ U=\begin{pmatrix}
+ 1&7&28&83\\0&1&7&28\\0&0&1&7\\0&0&0&1
+ \end{pmatrix}.
+\]
+$\chi(\mathcal O(i),\mathcal P)=1$ から
+$U(c_0,c_1,c_2,c_3)^{\mathsf t}=(1,1,1,1)^{\mathsf t}$ を解くと
+$(c_0,c_1,c_2,c_3)=(-19,15,-6,1)$ となり、
+\[
+ [K]=[\mathcal P]+19[\mathcal O]-15[\mathcal O(1)]
+                 +6[\mathcal O(2)]-[\mathcal O(3)]
+\]
+を得る。$\chi(\mathcal P,\mathcal P)=0$、
+$\chi(\mathcal P,\mathcal O(i))=-1$ と合わせると $\chi(K,K)=-9$ であり、
+上の全次数計算と一致する。
+この証明は、自己 Ext の計算に使った外積表示を Yoneda 積と同定していない。
+また $\mathcal P$ の自己 Ext と残余射影 $K$ の自己 Ext は異なる。
+\end{remark}
+
+
+\subsection{定常 norm とは異なる六十四個の非滑らかな係数}
+
+\begin{theorem}[Azumaya 部分の Morse 点から生じる中心商の特異性]
+\label{cmo:thm:morse-singular-sixty-four}
+例\ref{cmo:ex:sixty-four}の二因子を取る。
+命題\ref{cmo:prop:center-critical-polynomials}で定める四次多項式を $Q_1(W),Q_2(W)$ とし、
+\begin{equation}\label{cmo:eq:morse-resultant}
+ P_{64}(c)=\operatorname{pp}_+
+   \operatorname{Res}_{z}\bigl(Q_1((-c-100z)^2),Q_2(z^2)\bigr)
+       \in\mathbb Z[c]
+\end{equation}
+と置く。$\operatorname{pp}_+$ は整数係数の最大公約数を除き、
+最高係数を正とする規格化である。
+この多項式は次数六十四の平方因子を持たない偶多項式であり、
+\[
+ P_{64}(0)\ne0,\qquad \gcd(P_{64},N)=1
+\]
+を満たす。ここで $N$ は定常 character の norm である。
+
+$P_{64}(c)=0$ の各係数に対して、$A_c$ の中心 chart は
+三十六次元単純右加群 $M$ を持ち、その完備中央近傍は
+\begin{equation}\label{cmo:eq:morse-matrix-node}
+ \operatorname{Mat}_{36}\!\left(
+   \C[[v_1,\ldots,v_6]]/(v_1^2+\cdots+v_6^2)\right)
+\end{equation}
+に同型である。その coherent な延長 $\mathcal P(M)=\pi(M[u])$ は
+\begin{equation}\label{cmo:eq:morse-self-ext}
+ \sum_{j\ge0}\dim_\C\operatorname{Ext}_{\operatorname{qgr}A_c}^j
+       (\mathcal P(M),\mathcal P(M))s^j
+       =\frac{(1+s)^6}{1-s^2}
+\end{equation}
+を満たす。
+従って、これら全六十四係数で qgr の homological dimension は無限、
+$D^b(\operatorname{qgr}A_c)$ は非 proper、線束生成圏とその残余部分は非 smooth であり、全 coherent 残余圏も非 proper である。
+特に、この六十四係数は滑らかな可換 cubic への全 coherent Ku 比較が
+成立する係数には含まれない。
+\end{theorem}
+\begin{proof}
+$Q_i$ の根は零でなく相異なり、対応する $\Omega_i$ の八個の値
+\[
+ \mathcal M_i=\{\lambda\in\C:Q_i(\lambda^2)=0\}
+\]
+は、中心の正則部分における非退化臨界点の値である
+（命題\ref{cmo:prop:center-critical-polynomials}）。
+終結式の定義より、$P_{64}$ の根集合は
+$-\mathcal M_1-100\mathcal M_2$ である。
+次数、平方因子の不存在、零および norm 根との不交性は、
+二つの四次多項式から有理数体上の終結式と最大公約数を計算して確認する。
+再現コードは \texttt{verify\_mixed\_center\_geometry.py} であり、
+係数の浮動小数点近似や根の数値分離は使わない。
+次数六十四で平方因子がないため、八行八列の和の六十四値は全て相異なる。
+
+$c=-\lambda-100\mu$ に対応する二つの臨界点 $z_1,z_2$ を取る。
+定理\ref{cmo:thm:azumaya-regular}から、各 $D_{\alpha^{(i)}}$ は
+$z_i$ の近傍で次数六の Azumaya 代数である。
+その外積は、滑らかな六次元中心の $z=(z_1,z_2)$ の近傍で
+次数三十六の Azumaya 代数になる。
+$\Omega_1+100\Omega_2+c$ の Hessian は二つの非退化な三次元 Hessian の
+block 対角和であり、係数 $100\ne0$ なので非退化である。
+標数零の形式的 Morse 補題により、その方程式は形式座標変更の下で
+$v_1^2+\cdots+v_6^2$ となる。
+Azumaya 代数を剰余体 $\C$ の完備局所環上で分裂させ、中心商を取れば
+式\eqref{cmo:eq:morse-matrix-node}を得る。
+
+この行列代数の単純剰余加群は次元三十六である。
+完備化前にも、対応する中心点上の唯一の単純加群 $M$ として定義される。
+局所有限自由分解と完備化の平坦性により、$M$ の自己 Ext は完備化後と一致する。
+実際、中心の極大イデアルは Hom 複体の標的 $M$ を零化し、
+全ての自己 Ext も同じ剰余体上のベクトル空間なので、完備化で変わらない。
+
+Morita 同値の下でこれは五次元通常二重点の剰余体の自己 Ext である。
+六変数正則局所環の Koszul 分解に、極大イデアルの二乗に属する一つの二次式の
+Shamash 変数を加えた分解は極小であり、その Betti 級数は
+$(1+s)^6/(1-s^2)$ となる。
+補題\ref{cmo:lem:chart-ext}で全次数の qgr 自己 Ext へ移すと
+式\eqref{cmo:eq:morse-self-ext}を得る。
+
+\paragraph{有限中央台に対する両方向の Ext の局所性.}
+補題\ref{cmo:lem:finite-support-perfect}の有限中心模型
+$Z=\operatorname{Proj}C^{(\ell)}$、$\mathcal A=\widetilde{A^{(\ell)}}$ を使う。
+有限次元 chart 加群 $M$ の延長 $\mathcal P=\mathcal P(M)$ の中央台は、
+$U=D_+(u^\ell)$ に含まれる有限閉集合である。
+従って任意の coherent $\mathcal A$-加群 $\mathcal F$ について
+\begin{equation}\label{cmo:eq:finite-support-local-ext}
+ \operatorname{Ext}^j_{\operatorname{qgr}A}(\mathcal P,\mathcal F)
+ \simeq\operatorname{Ext}^j_D(M,j^*\mathcal F)
+ \qquad(j\ge0)
+\end{equation}
+となる。実際、各層 $\mathcal E xt^j_{\mathcal A}(\mathcal P,\mathcal F)$ は
+coherent で、その台はこの有限閉集合に含まれる。
+したがって高次層 cohomology は零であり、局所-to-大域 Ext spectral sequence は
+次数ごとに退化する。その大域切断は $U$ 上の切断に等しく、
+$U$ は affine なので右辺となる。
+この議論は $\mathcal P$ の perfect 性を仮定しない。
+有限中心模型と coherent 部分の導来完全忠実性は既存の補題と同じものを使っている。
+
+\paragraph{節点上の単純加群から coherent 残余圏の非 proper 性へ.}
+式\eqref{cmo:eq:morse-matrix-node}の単純加群 $M$ に対し、
+\[
+ R=\mathbb C[[v_1,\ldots,v_6]]/(v_1^2+\cdots+v_6^2)
+\]
+と置く。六変数正則局所環の Koszul 双対と中心正則元の Rees 同型から
+\[
+ R\operatorname{Hom}_R(\mathbb C,R)\simeq\mathbb C[-5]
+\]
+である。$\operatorname{Mat}_{36}(R)$ の右正則加群は Morita 同値で
+$R^{36}$ に対応し、その単純加群は $\mathbb C$ に対応する。
+したがって局所化・完備化の忠実平坦性により
+\[
+ \operatorname{Ext}^j_D(M,D)=
+ \begin{cases}
+  \mathbb C^{36},&j=5,\\
+  0,&j\ne5.
+ \end{cases}
+\]
+有限生成加群の有限階数自由分解を用いれば、各次数の Ext は完備化と可換である。
+またその中央台は $M$ の一点の台に含まれるため、
+この一点での局所化・完備化の計算が元の Ext を決める。
+式\eqref{cmo:eq:finite-support-local-ext}と $j^*\mathcal O(i)\simeq D$ から、
+全ての $i$ について
+\begin{equation}\label{cmo:eq:node-point-to-line}
+ \operatorname{Ext}^j(\mathcal P,\mathcal O(i))=
+ \begin{cases}
+  \mathbb C^{36},&j=5,\\
+  0,&j\ne5
+ \end{cases}
+\end{equation}
+を得る。
+逆方向は exact な chart の随伴から
+$R\operatorname{Hom}(\mathcal O(i),\mathcal P)\simeq M$ である。
+
+有限例外列
+$\mathcal E=\langle\mathcal O,\mathcal O(1),\mathcal O(2),\mathcal O(3)\rangle$
+に沿って有限 mutation を行い、
+\[
+ F\longrightarrow\mathcal P\longrightarrow K,
+ \qquad F\in\mathcal E,\quad
+ K\in\mathcal K_A^{\mathrm{coh}}=\mathcal E^\perp
+\]
+を取る。線束から coherent 対象への $R\operatorname{Hom}$ は有限なので、
+この三角は $D^b(\operatorname{qgr}A)$ の中で構成される。
+式\eqref{cmo:eq:node-point-to-line}と有限 cone・直和因子に対する閉性により
+$R\operatorname{Hom}(\mathcal P,F)$ は有界で有限次元である。
+一方 $R\operatorname{Hom}(F,K)=0$ だから、射影三角より
+\begin{equation}\label{cmo:eq:node-residual-self-ext}
+ R\operatorname{Hom}(K,K)
+ \simeq
+ \operatorname{Cone}\bigl(
+  R\operatorname{Hom}(\mathcal P,F)\longrightarrow
+  R\operatorname{Hom}(\mathcal P,\mathcal P)\bigr).
+\end{equation}
+従って十分高い全ての次数で
+\[
+ \operatorname{Ext}^j(K,K)
+ \simeq\operatorname{Ext}^j(\mathcal P,\mathcal P)
+ \simeq\mathbb C^{32}.
+\]
+最後の次元は
+$(1+s)^6/(1-s^2)=(1+s)^5/(1-s)$ の係数から従う。
+このように全 coherent 残余圏自体が非 proper である。
+また線束圏は proper なので、この $K$ は残余線束圏に属さない。
+滑らかな可換 cubic の Ku は proper なので、両者は同値にならない。
+この結論は、全 $D^b(\operatorname{qgr}A)$ の dg smoothness 単独を否定する主張ではない。
+
+\paragraph{線束圏とその残余部分について.}
+式\eqref{cmo:eq:morse-self-ext}から
+$D^b(\operatorname{qgr}A)$ が非 proper であることは直ちに従う。
+線束生成圏 $\mathcal C_A$ は常に proper であり、
+もし smooth なら定理\ref{crs:thm:coherent}により全 coherent 圏へ飽和して矛盾する。
+従って $\mathcal C_A$ は非 smooth である。
+また命題\ref{crs:prop:residual-smooth}による有限例外 gluing から、
+残余線束圏が smooth なら $\mathcal C_A$ も smooth になるので、
+残余線束圏も非 smooth である。
+
+\end{proof}
+
+\begin{remark}[二種類の六十四係数]
+定常 norm の六十四根は有理数であり、そこで生じる一次元定常点は
+命題\ref{cmo:prop:point-perfect}により全て線束 perfect である。
+これに対し $P_{64}$ の六十四根では、三十六次元単純加群が
+非有界自己 Ext を持つ。この二集合は交わらない。
+従って定常点の出現値だけでは非 smooth locus を捉えられないことが、
+同じ固定混合族の中で具体的に示された。
+これら六十四個が非 smooth 係数の全体であるとは主張しない。
+norm の六十四係数と $c=0$ の全体の smoothness は引き続き未決定であり、
+滑らかな全対象に関する主予想への反例も得ていない。
 \end{remark}
 
 \subsection{分離表示への代数的収縮と有限線束模型}

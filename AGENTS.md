@@ -1,6 +1,6 @@
 # Research instructions — nc-cubic
 
-2026-11-21 / v44。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-22 / v45。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
@@ -17,13 +17,13 @@
 - `central_split_comparison.tex` の `csc:thm:comparison` は、C上、k,m≥1、N=3k+m≥5、全a_i≠0、実楕円因子S_i/(Ω_i)=B(E_i,L_i,t_{p_i})、原点だけにcritical pointを持つ中心三次gについて、A=((⊗S_i)⊗C[U])/(Σa_iΩ_i+g)とX=V(Σf_i+g)の全coherent Ku同値を直接構成する。f_iは同じ偏極曲線E_iの任意の非零方程式でよい。点グラフの固定点なしはKu比較自体の仮定ではない。中心因子の有限MF、周期付きPicard補正、二重同変化、smoothness後のcoherent飽和の順序を保つ。Fermat中心和は `csc:cor:fermat` のA2模型だけで比較できる。
 - `central_split_points.tex` は、固定点なしの楕円点グラフを持つ分離表示の原代数の点関手を任意試験環で計算する。m=1,g=cu³,c≠0では、上の同じX上でPt(A)=Z_X(π)=⊔E_iとなる。m≥2でV(g)が滑らかなら、定常成分の完備局所環はJ[[t_1,…,t_{m−2}]]、J=⊗(S_i)_abの長さは8^kである。可換側のJ^cl=⊗Jac(f_i)との差を全スキーム比較で検査し、被約部分の一致や長さの一致を全スキーム同型としない。自然な中心射影のスキーム論的像と第零Fittingイデアルも区別する。
 - `explicit_sklyanin_input.tex` はS★のparameters (1:−3:−2)、指定中心元Ω★、点曲線E_{17/9}、中心商、AS正則な周囲環を具体的に確認する。`point_poisson_obstruction.tex` はこれと上の直接Ku比較を用い、A★=S★[u,v]/(Ω★+(u³+v³)/3)の全スキーム版反例を証明する。A★は点スキームの良い条件を満たす滑らかな楕円一ブロック型であり、そのsmoothnessと全coherent Kuは直接比較から得る。全O stackの全chart入力をh=1で独立確認したという主張にはしない。三つの定常点の局所環J_1、任意supportの局所補題、12点のHessian分類、Mayanskiyの全Poisson分類、BMMSのcategorical Torelliにより、別π/別Xも排除する。自然な対の被約部分は一致する。一ブロック零スキームのE_H⊔D_H分解と良いrank2標的への埋込み一致障害も保持する。境界中心評価εはZ(B)_3/Sym³UからJacobi次数三線への写像である。
-- `central_mixed_one_variable.tex` は、一般の一中心混合表示の有限normと、S(1,−1,−1)の定数型PBW変形を扱う。`cmo:thm:finite-center` は普遍六次中心元により全α∈C³で有限中心性を証明する。`cmo:thm:relative-smoothness` は射影的な中央台上の通常のcoherent対角・局所射影次元の持上げ・proper像を用いて収縮族の相対smoothnessを証明し、`cmo:cor:cofinite` は任意の固定係数・k≥2で有限個を除く中心cの全coherent Kuを可換実現する。有限例外集合Fは未決定であり、norm根とは同一視しない。`cmo:prop:character-pd` は有限ambient分解・Rees・周期性によりcharacterのpdを3k−1/∞と判定し、既存64点はaffine pd5である。`cmo:prop:rational-singular` のα=α′=(9,9,1),c=−1616/3ではqgr自己Extが無限で線束圏非smooth。このsourceは主予想の滑らかさ仮定を満たさない。64係数やc=0の全体のsmoothness・同じKu標的上の全Poisson比較は未決定。計算複体の外積をYoneda積と同一視しない。
+- `central_mixed_one_variable.tex` は、一般の有限normとS(1,−1,−1)の定数型PBW変形を扱う。全αで有限中心、一関係表示、PI次数6、Azumaya locus＝正則中心を証明した。指定α=(1,4,9),(16,25,49)では各中心に14通常二重点、Ωに19特異ファイバー値があり、正則中心の8Morse値ずつの和からnormと互いに素なP64の64根を得る。`cmo:thm:morse-singular-sixty-four` はそこで36次元simple、5次元節点の完備局所模型、全coherent Ku非proper、線束圏・残余線束圏非smoothを証明する。全Db(qgr)のdg smoothness単独の否定と混同しない。`cmo:prop:point-perfect` は従来64定常点の線束perfect性、`cmo:prop:projected-point-ext` はその残余射影のExtが0次1・1次10であることを示す。全2次元単純加群を半跡で分類し、abcF≠0上の普遍高次作用κ₂=−2N₆/(9F)を証明した。三次数体上には全character検査で検出できないpd∞の2次元simpleがある。一方、指定1次元/2次元因子の100tensor simplesは全てpd5で線束perfect。`cmo:cor:cofinite` の余有限可換実現を保持し、有限例外全体・normの64係数・c=0・未分類の3〜6次元加群は未解決とする。別の有理係数α=α′=(9,9,1),c=−1616/3の非smooth例も保持する。いずれの非smooth例も滑らかなsourceに関する主予想への反例ではない。計算複体の外積をYoneda積と同一視しない。
 - `geometric_realization_locus.tex` の局所開性はn≠4の実smooth proper dg族と既存Artin形式認識を用いる。全Abel族の飽和性、境界での閉性、全intrinsic成分を自動的に与えない。
 - 全O認識・全慣性・第三Veronese・全根、相対積、Picard比較、自然周期q(ω³)=−1/v_ω(p)の既存証明を保持する。全中心同変核の判定はk≥3では同種・CMを許し、k=2では幾何学的非同種を仮定する。二因子の混合核や指定中心の非正規性を無視しない。中心の無限共役軌道は同じ共役類内の無限性であり、非共役作用の無限性とは異なる。
 - compact/Perfの任意導来底変更と非正則底の全Db(coh)を区別する。smooth regular元底のcoherent飽和の証明、raw最高次syzygy線、共通関係直線と指定periodを保持する。点集合だけから全非被約point functorや族の射を結論しない。
 - 一ブロックの中心三次商線、点曲線、残余射次数9/18、点型Picard指数三・非分裂指数九、γ̄_n/[D]の問題を多ブロックへ無条件に流用しない。full class選択、gerbe中立化、period位相は別段階。
 - `notes/central_cubic_generic_smoothness.tex` の非可換Bertiniの適用には、中心chartが有限生成可換中心上有限という仮定が必要。PBW性やassociated gradedのPI性だけで代用しない。
-- `verify_mixed_pi_center.py` の普遍中心証明書、`verify_mixed_character_ext.py` の8 PASSと `verify_point_poisson_obstruction.py` の12 PASSの厳密計算を確認済み。有限語関係による中心性の証明、全次数PBWの文献による判定、smoothness・Ku比較の証明は別である。独立読解、組版、表示確認、保存の状態は `notes/validation.md` を正本とし、計算成功だけで組版や保存の完了を報告しない。
+- 新しい中心幾何と64次resultantは `verify_mixed_center_geometry.py`、二次元分類は `verify_mixed_two_dimensional.py`、二次元高次作用は `verify_mixed_two_dimensional_ext.py`（普遍式は `--universal`、characterが検出しない零例は `--zero-example`）で再現する。`verify_mixed_pi_center.py` の普遍中心証明書、`verify_mixed_character_ext.py` の8 PASSと `verify_point_poisson_obstruction.py` の12 PASSの厳密計算を確認済み。有限語関係による中心性の証明、全次数PBWの文献による判定、smoothness・Ku比較の証明は別である。独立読解、組版、表示確認、保存の状態は `notes/validation.md` を正本とし、計算成功だけで組版や保存の完了を報告しない。
 
 ## 正本・外部入力・保存
 

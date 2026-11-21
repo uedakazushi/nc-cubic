@@ -77,7 +77,7 @@
 \title{非可換三次 $n$-fold の可換復元とモジュライ\\
 \large Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}
 \author{}
-\date{2026年11月21日・研究稿 v44}
+\date{2026年11月22日・研究稿 v45}
 \hypersetup{pdftitle={非可換三次 n-fold の可換復元とモジュライ},
 pdfsubject={Kuznetsov成分・構造対象付きモジュライ・Poisson幾何}}
 \begin{document}
@@ -109,10 +109,16 @@ categorical Torelli により、主予想を満たすが第二予想の全スキ
 相対 smooth proper となることを示す。
 従って任意の固定した混合係数と非零中心和係数に対し、有限個を除く中心三乗係数で
 全 coherent Kuznetsov 成分は滑らかな可換三次 $(3k-1)$-fold の成分として実現する。
-有理係数の二ブロック例の六十四個の定常 character は全て affine 射影次元 $5$ を持つ。
-一方、別の有理係数例には全 coherent 圏で無限自己 Ext を持つ定常点があり、
-線束生成圏の非 smooth 性を示す。
-余有限比較の例外集合と、定常点の出現を表すノルムの根集合は区別する。
+さらに中心の一関係表示と PI 次数六を求め、正則中心上の Azumaya 性を証明する。
+指定した二ブロックでは、正則中心上の八個ずつの Morse 臨界値の和から
+六十四個の非 smooth な係数を、明示した四次多項式の終結式として決定する。
+そこで全 coherent Ku は非 proper であり、この六十四係数は定常ノルムの根と交わらない。
+一方、定常ノルムの六十四点は全て線束 perfect で、残余射影の自己 Ext は
+零次が一次元、一次が十次元、他の次数は零である。
+全二次元単純加群を分類し、剛的な部分の中心方程式の高次作用に普遍式を与える。
+一次元表現では検出できない無限射影次元の二次元加群を明示する一方、指定した
+一次元・二次元因子からの百個の単純加群の射影次元を五と決定する。
+これらの対象の判定と、全体の smoothness・可換 Ku 実現は区別する。
 
 次数別有限自由な中心三次非可換変形に対する完備曲率付き
 matrix factorizationの移送を構成し、任意の$n\ge3$について
@@ -355,6 +361,22 @@ Smith--Tate \cite[Lemma~3.6, Theorem~3.7]{GRSklyaninST} の斉次中心生成定
 Walton \cite[Remark~V.16]{CMOWaltonThesis} が提案した位数六の中心持上げに対して、
 ここで扱うのは斉次パラメータ $(1,-1,-1)$ と零の線形補正を持つ部分族である。
 一般の位数六変形や、後続文献を含む初出の網羅的確定を主張しない。
+Smith--Tate \cite[Theorem~4.8]{GRSklyaninST} の次数十八の一関係定理を使い、
+本稿では指定二係数の中心式を有理数上で計算し、各十四個の中心節点と
+八個の正則中心上の Morse 臨界点を分離する。
+斉次 Sklyanin 代数の Azumaya locus は
+Walton--Wang--Yakimov \cite[Theorem~1.3(1), Lemma~5.4]{CMOWaltonWangYakimov}で既知であり、
+本稿では全中心の持上げと斉次閉錐の次元を用いて余次元一の Azumaya 性を変形へ移す。
+Brown--Yakimov \cite[Corollary~5.2]{CMOBrownYakimov} の既知の判定を適用すると
+全定数変形の正則中心上の Azumaya 性を得る。
+二つの Morse 値の和は、この既知の局所理論と具体的中心計算を合わせて
+定理\ref{cmo:thm:morse-singular-sixty-four}の非 proper な全 coherent Ku を与える。
+二次元表現については Walton \cite[Proposition~4.1 and Section~5.2]{CMOWaltonRepresentations}
+の斉次例・一般変形の課題と比較し、本稿の定数型表示の全分類と高次作用を区別する。
+命題\ref{cmo:prop:two-dimensional-universal-kappa}は、剛的な部分での高次作用を
+半跡の六次式と三次式の比として与え、例\ref{cmo:ex:two-dimensional-zero-action}は
+character が存在しない中心値に無限射影次元の二次元加群を与える。
+
 
 中心の射影模型上で通常の coherent 対角加群を作り、
 射影次元の局所持上げと proper な非 perfect locus の像を用いることで、
@@ -367,7 +389,10 @@ Walton \cite[Remark~V.16]{CMOWaltonThesis} が提案した位数六の中心持�
 命題\ref{cmo:prop:character-ext}の高次作用 $\kappa(a,b,c)$ と、
 中心商の Rees 同型・周期性から、命題\ref{cmo:prop:character-pd}は
 $k$ 因子 character の射影次元を $3k-1$ または無限と完全判定する。
-例\ref{cmo:ex:sixty-four}の全六十四点では affine 射影次元は $5$ である。
+例\ref{cmo:ex:sixty-four}の全六十四点は affine 射影次元五で線束 perfect であり、
+命題\ref{cmo:prop:projected-point-ext}は残余射影の自己 Ext を零次一・一次十と決定する。
+二次元単純加群を含む百個の指定加群も、命題\ref{cmo:prop:one-two-dimensional-pd}により
+同じ有限射影次元を持つ。
 一方、命題\ref{cmo:prop:rational-singular}は有理係数の別の混合商に
 全 coherent 圏で無限自己 Ext を持つ点を与える。
 これは滑らかな source に関する主予想の反例ではない。
@@ -2150,10 +2175,13 @@ $n=3,4$ では全 full 同型類が降下し、周期の追加標識を忘れた
 中心変数を持つ分離型の可換実現は定理\ref{csc:thm:comparison}で扱い、
 定数型混合族では、有限中心性と相対対角の証明から
 系\ref{cmo:cor:cofinite}の余有限可換実現を得た。
-次はこの有限例外集合を有効に決定し、特に
-例\ref{cmo:ex:sixty-four}の六十四係数と $c=0$ を個別に検査する。
-それらの定常 character は射影次元 $5$ なので、他の有限次元表現や
-対角・中央境界の障害を調べる必要がある。
+指定二因子では、定理\ref{cmo:thm:morse-singular-sixty-four}により
+norm と交わらない六十四係数で全 coherent Ku の非 proper 性が確定した。
+次は十四個の非 Azumaya 中心点、とくに $\Omega=0$ 上の四点の局所代数と
+未分類の三次元以上の単純加群を調べ、有限例外集合の残りを決める。
+例\ref{cmo:ex:sixty-four}の norm の六十四係数と $c=0$ の全体判定も残る。
+一次元・二次元因子から得る百個の指定加群は全て線束 perfect であり、
+全体の判定には中央対角と射影境界をさらに検査する必要がある。
 本稿の有限中心族の外にある混合表示と、全 intrinsic 成分の被覆も残る。
 $\overline\gamma_n[D]^{-1}$ の他の因子での分岐と
 正準位相体上の scalar index、代数的核の coherent な中心線型性、
