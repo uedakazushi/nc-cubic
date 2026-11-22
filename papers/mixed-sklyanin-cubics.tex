@@ -5,7 +5,7 @@
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
 \large 有限中心・局所代数・楕円因子と多中心の比較核}
 \author{}
-\date{2026年11月23日・研究稿 v63}
+\date{2026年11月23日・研究稿 v64}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
 pdfsubject={有限中心・局所代数・楕円因子と多中心の比較核}}
 
@@ -95,6 +95,15 @@ Euler 混合類を全て排除する一方、Clifford 因子の中心平方に�
 四次元型の原点の残余 Kodaira--Spencer 写像は階数九であり、像は
 $\operatorname{Jac}(f_1)_1\otimes\operatorname{Jac}(f_2)_2$ に等しい。
 中心代入の full Bockstein と中心平方作用の積により、この非退化性を証明する。
+両因子が Clifford 型なら双方向の十八変数を同時に積分し、
+可換二次系の終結式によって周囲代数の正確な AS 正則域を求める。
+その域で相対 Koszul・非捩れ六次元 CY 性を得て、
+分離点近傍には実 smooth proper 残余模型と局所比較核を構成する。
+十八の混合方向に二つの因子係数を加えると、
+標識付き幾何的形式変形空間への二十次元の同型を得る。
+可換族の分類写像は三次四様体のモジュライスタックへ局所的に \'etale となる。
+Heisenberg 同変比較により混合一次式を各方向一つの scalar に絞り、
+純因子方向との比較からその積と、同一因子・同一重みでの各尺度を明示する。
 二つの軸の切断が同一でも全体の smoothness が異なる例は、混合情報の必要性を示す。
 さらに交換子パラメータの族に、零と一を含む半局所底上の
 相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
@@ -119,7 +128,8 @@ $\operatorname{Jac}(f_1)_1\otimes\operatorname{Jac}(f_2)_2$ に等しい。
 次に調べるべき具体的な対象となる。
 本稿は、中心一次変数を共有する固定楕円 Sklyanin 因子の
 固定 tensor 境界を持つ全 PBW・中心三次変形を扱う。
-さらに、二次境界自体を動かす Clifford 九変数族の原点近傍比較を扱う。
+さらに、二次境界自体を動かす Clifford 九・十八変数族と、
+因子係数も含む二十変数族の分離点近傍比較を扱う。
 因子間可換性は PBW 条件から証明する。一中心では全許容係数を比較し、
 任意個の中心では全 smooth 対象の良い中央 flag を構成して実比較を得る。
 中心と局所代数を明示できる $S(1,-1,-1)$ の定数型から記法を定め、
@@ -317,7 +327,19 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  四次元では主稿の定理\paperref{main}{ifk:thm:rotation-formal}を用いる。
  定理\ref{ift:thm:rank-nine}は四次元型の原点の残余接写像の階数を九と決定し、
  その像を $\operatorname{Jac}(f_1)_1\otimes\operatorname{Jac}(f_2)_2$ に同定する。
- 一次比較行列の数値、高次可換方程式と全 smooth 係数への延長は未確定である。
+ 定理\ref{ife:thm:projective-coefficients}は、Heisenberg 同変な原点核を選ぶと
+ 一次式が一つの非零 scalar を除いて決まることを示す。
+ 両 Clifford 因子の双方向十八変数については、
+ 定理\ref{ifb:thm:regularity}、系\ref{ifb:cor:exact-regular-locus}が
+ 終結式による正確な周囲正則域と任意底変更に両立する相対双対性を与える。
+ 系\ref{ifg:cor:local-comparison}、\ref{ifg:cor:rank-eighteen}は
+ 実局所比較と、二つの混合成分への KS 同型を与える。
+ 二つの因子係数も動かす定理\ref{ifv:thm:versal}では、
+ 標識付き幾何的形式変形空間への二十次元の同型と、
+ モジュライスタックへの局所 \'etale 分類写像を得る。
+ 命題\ref{ifv:prop:scale-calibration}は混合尺度の積と、
+ 同一因子・同一重みでの各尺度を明示する。
+ 異なる因子での二尺度の比、高次可換方程式と全 smooth 係数への延長は未確定である。
 
  \item \emph{零係数の実際の可換比較核。}
  $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
@@ -413,6 +435,15 @@ Koszul 双対の Frobenius 形式と Nakayama 自己同型による双対性の�
 \cite[Lemmas~1.1--1.2]{IFRHeVanOystaeyenZhang}に基づく既知の方法である。
 本稿ではこの九変数族の符号対称性を使って twist を消し、
 非被約底変更にも安定な相対解消を明示する。
+双方向十八変数の周囲正則性には、
+graded skew Clifford 代数と二次系の関係を扱う
+Cassidy--Vancliff\cite[Theorem~4.2]{IFBCassidyVancliff}と、その訂正
+\cite[Proposition~10, Corollary~11]{IFBCassidyVancliffCorr}が近接する。
+普通の点だけの不在を base-point 条件の代用にせず、
+本稿の二次双対を可換完全交叉の cocycle twist として記述し、
+商の有限性を六二次式の終結式で判定する。
+さらに係数環上の有限射影解消と trace を構成して相対 CY 性を証明し、
+対角 bar homology によって正則域の必要性も確認する。
 原点近傍の滑らかさには通常の coherent 対角と有限 Ext を用い、
 体上の射影核理論\cite{CMOBallardFarman}を相対解消へ接続する。
 四次元の比較は、主稿で扱う rotation 固定形式空間の認識を入力とする。
@@ -423,6 +454,12 @@ Koszul 双対の Frobenius 形式と Nakayama 自己同型による双対性の�
 Huybrechts--Rennemo\cite[Propositions~3.3, 3.5, 3.9]{NFHuybrechtsRennemo}の既知結果である。
 本稿の適用では非可換中心平方の作用をその環へ移す必要があり、
 同名の可換平方の類で代用できない。
+Heisenberg 同変な比較の選択には、theta 群の交換子と Weil pairing の既知の記述
+\cite[Definition~1.29, Lemmas~1.27, 4.8]{NFMCremonaFisherDescentAlgebra}を用いる。
+本稿ではこの選択により混合一次式の射影的な形を固定し、
+動く二捩れ因子の実相対 Picard 比較と純因子 KS から尺度を較正する。
+二十変数族の局所完全性は、この純方向と十八混合方向の計算を
+実相対核へ接続した帰結である。
 この因子分解・混合核・具体的積分族と、その近傍比較・接写像の文献上の初出は未確認である。
 
 Sklyanin 代数の斉次中心の生成は Smith--Tate
@@ -601,7 +638,8 @@ Sklyanin 曲線と標準中心元の既知の記述
 滑らかな切断からの逐次核、横断二項の全階数と判別、
 実 blow-up による全 smooth locus と一般中央旗、二制限の混合情報を扱う。
 第\ref{ifd:sec:interfactor}節では固定 tensor 境界の全 PBW 表示への拡張、
-二次境界を変える一次障害核と Clifford 中心平方による九変数族を構成する。
+二次境界を変える一次障害核、Clifford 中心平方による九・十八変数族と
+二つの因子係数を含む二十変数の局所完全性を扱う。
 第\ref{mix:sec:equivariant-window}--\ref{mix:sec:kernel-specialization}節で非可換側の Hom 指標、
 指定 $h$-候補への形式・一般点比較と相対対角・整延長を調べる。
 第\ref{mix:sec:poisson-limits}節を点・零スキームの不一致の例に充てる。
@@ -708,8 +746,11 @@ perfect 整延長が存在する。
 一方、最高次の二次境界を変える表示と全 intrinsic 対象の被覆は未完成である。
 定理\ref{ifc:thm:family}の九変数族では、周囲代数の全係数正則性・双対性と、
 四・五次元型の原点近傍の smoothness・実 Ku 比較を得た。
-次の課題は、残余 Kodaira--Spencer 写像の階数と可換方程式の具体化、
-全 smooth 係数への核の延長、および逆向き・複数の ordered pair の同時積分である。
+両 Clifford 因子の双方向十八変数族も局所的に比較でき、
+二つの因子係数を加えた二十変数族は分離点で幾何的に形式完全となる。
+次の課題は、異なる因子での二尺度の比と高次可換方程式の具体化、
+残余 smooth locus とその全体への核の延長、
+および一般の複数 ordered pair を含む混合核の同時積分である。
 全線形 PBW 族の可換 Ku 比較は得たが、その一般の中心環・PI 性の分類は別問題である。
 実 Morita 同値は積分数値 Grothendieck 群の同型も与えるが、
 表示した二対象がその積分基底となることや、核の作用の基底表示は未計算である。

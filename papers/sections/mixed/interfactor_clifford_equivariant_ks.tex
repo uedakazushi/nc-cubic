@@ -1,0 +1,202 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v64.
+\subsection{Heisenberg 対称性による残余一次式の射影的決定}
+\label{ife:subsec:equivariant-ks}
+
+定理\ref{ift:thm:rank-nine}の $L,Q$ は、一般のブロック同変比較を固定しただけでは
+数値行列まで定まらない。本小節では標準 Hesse 座標を固定し、
+比較核を各因子の Heisenberg 作用にも両立させて選ぶ。
+この選択によって $L,Q$ の射影的な形を決定し、
+九変数の残余一次式を一つの非零 scalar を除いて明示する。
+
+第一因子を $S_1=S(a,b,c)$、第二因子を $S_2=S(1,1,\tau)$ とし、
+それぞれの標準点曲線を滑らかとする。
+特に $abc\ne0$、$\tau\ne0$、$\tau^3\ne1,-8$ である。
+可換座標は非可換の標準表示と対応する Hesse 座標
+$\mathbf X=(X_1,X_2,X_3)$、$\mathbf Y=(Y_1,Y_2,Y_3)$ とする。
+点曲線の方程式 $f_1,f_2$ は、それぞれ
+\begin{equation}\label{ife:eq:hesse-equations}
+ \begin{split}
+  abc(X_1^3+X_2^3+X_3^3)-(a^3+b^3+c^3)X_1X_2X_3,\\
+  \tau(Y_1^3+Y_2^3+Y_3^3)-(2+\tau^3)Y_1Y_2Y_3
+ \end{split}
+\end{equation}
+の任意の固定した非零定数倍を取る。
+$F=a_1f_1+a_2f_2$、$a_1a_2\ne0$、$J_i=\operatorname{Jac}(f_i)$ とする。
+
+原始三乗根 $\omega$ を固定し、各因子の Heisenberg 群 $H_3$ の生成元を
+\begin{equation}\label{ife:eq:heisenberg-generators}
+ \mathsf c(x_1,x_2,x_3)=(x_2,x_3,x_1),\qquad
+ \mathsf d(x_1,x_2,x_3)=(x_1,\omega x_2,\omega^2x_3)
+\end{equation}
+とする。可換座標にも同じ作用を用いる。
+これらは各標準 Sklyanin 関係、指定中心三次および点曲線方程式を保つ。
+中心三次には既存の標準的な巡回表示を用い、
+Clifford 因子では体積元の完全交代表示を用いる。
+
+\begin{lemma}[固定した標準因子に対する Heisenberg 同変比較]
+\label{ife:lem:equivariant-kernel}
+上の二つの因子と固定した方程式について、補題\ref{ebk:lem:boundary}の
+実際の perfect 比較核 $E:\mathcal K_0\xrightarrow{\sim}\Ku(X_0)$ と
+rotation 比較射を、$H_3\times H_3$ の作用に両立させて選べる。
+rotation 比較射の三回の合成は指定周期を保つ。
+これは固定した複素因子における選択の存在であり、
+任意の既存の比較核が自動的にこの同変性を持つという主張ではない。
+\end{lemma}
+
+\begin{proof}
+補題\ref{cmo:lem:heisenberg-boundary-comparison}の一因子の構成を、
+補題\ref{ebk:lem:boundary}で扱った任意の固定因子に適用する。
+同一因子であることや位数六の点 shift は以下の一因子の議論に必要ない。
+必要な入力は、実際の Picard 補正と非零方程式による指定周期である。
+
+一因子を $(E_i,L_i,t_{p_i})$ とし、$G_i=E_i[3]$ と置く。
+標準 Hesse 作用の射影化は $G_i$ の平行移動作用であり、
+次数三の線束 $L_i$ の theta 群の有限 Heisenberg 部分が
+式\eqref{ife:eq:heisenberg-generators}の線型作用を与える。
+この作用は非可換側と可換側の楕円 window 上で同じ平行移動作用となる。
+
+実線束 $M_i$、$[M_i]=p_i$ と、Picard 補正
+\[
+ F_{M_i}=-\otimes M_i,\qquad
+ \eta_i:F_{M_i}R_{i,p_i}\xrightarrow{\sim}R_{i,0}F_{M_i}
+\]
+を取る。存在は主稿の補題\paperref{main}{mbrc:lem:factor-correction}による。
+$[3]^*:\operatorname{Pic}^0(E_i)\to\operatorname{Pic}^0(E_i)$ は全射なので、
+$[3]^*N_i\simeq M_i$ となる実線束 $N_i$ を取れる。
+この表示は $M_i$ に $G_i$ の coherent な線型化を与え、
+$F_{M_i}$ を平行移動作用と両立させる。
+
+$\eta_i$ の空間は一次元である。
+二つの rotation には Heisenberg 中心が同じ重みで作用するため、
+この一次元空間の作用は $G_i$ の文字 $\chi_i$ へ因子化する。
+標的に $q_i\in G_i$ の平行移動を合成すると、
+rotation の intertwiner の文字には theta 群の交換子
+$e_3(q_i,-)$ が掛かる。
+これは $L_i$ の theta lift の交換子を計算したものであり、
+theta 群の交換子が Weil pairing であることとその非退化性を用いる
+\cite[Section~1.6, Definition~1.29; Lemmas~1.27 and~4.8]{NFMCremonaFisherDescentAlgebra}。
+pushforward の lift の規約を逆に取る場合は $q_i$ を $-q_i$ に取り替える。
+したがって $\chi_i e_3(q_i,-)=1$ となる $q_i$ を選べば、
+\[
+             F_i=(t_{q_i})_*F_{M_i}
+\]
+とその rotation 比較射はともに Heisenberg 同変となる。
+$q_i$ は三捩れなので $t_{q_i}$ は $L_i$ の類を保ち、
+この合成は可換側の指定偏極を変更しない。
+三乗周期の差は非零 scalar であるから、その三乗根で比較射を補正する。
+scalar 倍は同変性を保つ。
+
+二因子の外積を取り、補題\ref{ebk:lem:boundary}の
+相対 rotation と二重同変化の構成を用いる。
+各 $F_i$ と rotation 比較射は Heisenberg 同変なので、
+相対 rotation $R_{1,p_1}^{-1}R_{2,p_2}$ の比較射も両群に不変である。
+その三乗の coherence は、合わせた因子周期から得られる。
+異なる因子の比較射は次数零、周期の shift は偶数であり、
+外積の交換図式も両側で一致する。
+したがって Heisenberg 作用は、指定中心群の同変化と
+双対 character に関する二重同変化の全図式を保つ。
+
+実 dg 核を得る段階も同補題と同じである。
+厳密な character 作用を持つ MF 模型の perfect 双加群圏へ戻り、
+有限群の誘導・平均化と冪等完備化を用いる
+\cite[Lemma~8.6, Theorems~8.7 and~8.9]{MEDElagin}。
+ここで比較射自体の同変性を既に確認しているため、
+残余圏へ戻した実際の核は $H_3\times H_3$ と rotation の双方を保つ。
+非線型な $A_\infty$ 構造の平均化や、任意の三角作用の dg lift は仮定していない。
+\end{proof}
+
+\begin{theorem}[一つの非零 scalar を除く九変数の一次式]
+\label{ife:thm:projective-coefficients}
+前補題の同変比較を固定する。
+定理\ref{ift:thm:rank-nine}の写像 $L,Q$ は、
+非零定数 $\ell,q\in\C^\times$ により
+\begin{equation}\label{ife:eq:projective-coefficients}
+       L(e_a)=\ell X_a,\qquad
+       Q(y_b^2)=q[Y_{b+1}Y_{b+2}]
+\end{equation}
+と書ける。添字は三を法として循環させる。
+したがって $\kappa=\ell q\ne0$ と置くと、残余 KS 写像は
+\begin{equation}\label{ife:eq:explicit-ks}
+ E_*\operatorname{KS}_{\mathcal K}(M)
+       =\kappa\sum_{a,b}M_{ab}[X_aY_{b+1}Y_{b+2}]
+\end{equation}
+であり、可換三次の原点での一次式を
+\begin{equation}\label{ife:eq:explicit-first-jet}
+  F+\kappa\sum_{a,b}\Lambda_{ab}X_aY_{b+1}Y_{b+2}
+           \pmod{(\Lambda)^2}
+\end{equation}
+と取れる。$\ell,q,\kappa$ は固定因子・重み・比較の選択に依存してよく、
+本定理は元の関係式での $\kappa$ の数値を決定しない。
+\end{theorem}
+
+\begin{proof}
+まず第一因子の定数補正 $r_{1,a}-v\alpha_a$ に対する作用の規約を固定する。
+生成元を $x\mapsto h(x)$ と送る写像が、係数点 $\alpha$ の代数から
+係数点 $h\cdot\alpha$ の代数への準同型となるようにする。
+式\eqref{ife:eq:heisenberg-generators}について、その作用は
+\begin{equation}\label{ife:eq:constant-parameter-action}
+ \mathsf c_\alpha(\alpha_1,\alpha_2,\alpha_3)
+       =(\alpha_3,\alpha_1,\alpha_2),\qquad
+ \mathsf d_\alpha(\alpha_1,\alpha_2,\alpha_3)
+       =(\alpha_1,\omega\alpha_2,\omega^2\alpha_3)
+\end{equation}
+である。例えば第二、第三関係は $\mathsf d$ によって
+$\omega^2,\omega$ 倍されるため、係数点はその逆の重みで変わる。
+普遍係数環の座標関数への作用と、この係数点の作用を混同しない。
+この規約では
+$\alpha\mapsto\alpha_1X_1+\alpha_2X_2+\alpha_3X_3$ が同変である。
+
+指定中心の持上げもこの作用に両立する。
+非二捩れの場合には、次数一次の中心が零であることによる
+定数型中心持上げの一意性を用いる。
+Clifford の場合には、完全交代の体積元と
+$\det\mathsf c=\det\mathsf d=1$ から直接分かる。
+よって、実自己交叉の Bockstein とその残余移送も同変であり、
+前補題の比較を通した $L$ は上の二つの三次元表現の intertwiner となる。
+$\mathsf d$ の三固有直線は相異なり、$\mathsf c$ はそれらを巡回するので、
+この表現は既約である。Schur の補題により $L(e_a)=\ell X_a$ であり、
+定理\ref{ift:thm:rank-nine}の単射性から $\ell\ne0$ である。
+
+第二因子の中心平方と可換交差単項式を、同じ順序で
+\[
+ (y_1^2,y_2^2,y_3^2),\qquad
+ ([Y_2Y_3],[Y_3Y_1],[Y_1Y_2])
+\]
+と並べる。両方とも $\mathsf c$ が三つの基底を巡回し、
+$\mathsf d$ の固有値は順に $1,\omega^2,\omega$ である。
+後者が全ての許容 $\tau$ で基底になることも確認する。
+$f_2$ の三つの偏微分による二次関係は
+\begin{equation}\label{ife:eq:cross-basis}
+       3\tau Y_b^2-(2+\tau^3)Y_{b+1}Y_{b+2}=0,
+                          \qquad b=1,2,3
+\end{equation}
+である。$\tau\ne0$ なので、平方の三次元空間をこの三関係によって消去でき、
+交差単項式の空間と関係空間の交わりは零である。
+従って表示した三つの class は $(J_2)_2$ の基底を与える。
+ここでは $2+\tau^3$ で割っていないので、Fermat 点 $\tau^3=-2$ も含む。
+
+中心乗法は Heisenberg 作用に自然であるから、$Q$ も表示した表現の intertwiner となる。
+同じ固有直線と巡回作用による既約性から
+$Q(y_b^2)=q[Y_{b+1}Y_{b+2}]$ であり、既存の単射性より $q\ne0$ である。
+式\eqref{ift:eq:ks-product}へ代入すれば、残りの式を得る。
+幾何的 KS と Bockstein の共通の符号は $\ell$ に含める。
+\end{proof}
+
+\begin{remark}[選択と未決定の尺度]
+\label{ife:rem:normalization-scope}
+この結果は、指定 Hesse 座標と選択した Heisenberg 同変比較について
+$\mathbb P(L)$ と $\mathbb P(Q)$ を明示する。
+一般のブロック同変比較をそのまま用いた場合に、
+同じ数値行列が得られることは主張しない。
+因子ごとの Picard 線束、三捩れ平行移動、周期の三乗根は実際に選択しており、
+因子 moduli 全体での標準的な核や scalar の一意性も得ていない。
+
+全九変数を一斉に $\widetilde\Lambda_{ab}=\kappa\Lambda_{ab}$ と取り直せば、
+式\eqref{ife:eq:explicit-first-jet}の一次係数を一にできる。
+これはパラメータの変更であり、元の非可換関係式の係数において
+$\kappa=1$ と計算したことにはならない。
+指定周期を保つ rotation 比較射の scalar 自由度だけから、
+任意の $\kappa$ を一へ規格化できるとも主張しない。
+高次の可換方程式と全 smooth 係数への核の延長は引き続き別の課題である。
+\end{remark}

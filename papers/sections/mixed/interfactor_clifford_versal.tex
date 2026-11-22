@@ -1,0 +1,342 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v64.
+\subsection{二つの因子係数を含む二十変数族の局所完全性}
+\label{ifv:subsec:versal}
+
+双方向の十八変数に二つの Clifford 係数を加えると、
+分離原点における可換三次四様体の二十方向全体を得る。
+この主張には、因子を動かす分離族の実際の相対比較が必要である。
+各ファイバーで比較核が存在することだけでは、因子方向の KS 写像を同定できない。
+以下では二捩れを許す相対一因子 window と実 Picard 線束を用いて、
+この入力を構成する。
+
+系\ref{ifb:cor:moving-factors}の係数空間を
+\[
+ T=\Spec\C\left[\tau_1,\tau_2,
+   \{\tau_i(\tau_i^3-1)(\tau_i^3+8)\}_{i=1,2}^{-1}\right],
+ \qquad P=T\times\mathbb A^{18}_{\Lambda,M}
+\]
+と書く。$a_1,a_2\in\C^\times$ は固定し、中心三次の係数は同系の
+$\alpha_i=2a_i(1-\tau_i^3)$ とする。
+可換側の方程式には、ここでは scalar 倍も固定した
+\begin{equation}\label{ifv:eq:point-equations}
+ f_t(Z_1,Z_2,Z_3)
+   =t(Z_1^3+Z_2^3+Z_3^3)-(2+t^3)Z_1Z_2Z_3,
+ \qquad F_{\boldsymbol\tau}=a_1f_{\tau_1}(\mathbf X)
+                                  +a_2f_{\tau_2}(\mathbf Y)
+\end{equation}
+を用いる。$T\subset P$ は $\Lambda=M=0$ の分離部分である。
+
+\begin{lemma}[動く二捩れ因子の分離比較]
+\label{ifv:lem:moving-split-kernel}
+任意の $t_0\in T(\C)$ に対し、その \'etale 近傍 $T'\to T$ 上に
+分離族の実際の相対 perfect 比較核
+\[
+ \mathcal K_{\mathrm{split},T'}
+     \xrightarrow{\sim}\Ku\bigl(V(F_{\boldsymbol\tau})/T'\bigr)
+\]
+が存在し、rotation、指定三乗周期とブロック作用を保つ。
+比較は任意の導来底変更に両立する compact/perfect 模型上で成立する。
+各複素ファイバーでは、これは全 coherent 残余圏の比較である。
+
+原点の比較を補題\ref{ife:lem:equivariant-kernel}の構成によって選んだ場合、
+その比較核と周期比較射を延長するように上の核を取れる。
+必要なら基底をさらに有限 \'etale に変更して、Heisenberg 同変性も保てる。
+\end{lemma}
+
+\begin{proof}
+\textbf{相対一因子 window と積。}
+各点曲線 $E_i=V(f_{\tau_i})\to T$ は滑らかであり、
+$o_i=(1:-1:0)$ と $p_i=(1:1:\tau_i)$ は実際の切断である。
+$o_i$ を原点とすると $p_i$ は非零二捩れであり、
+点 shift は $t_{p_i}$ である。
+各因子は三次元 quadratic AS-regular で、
+指定中心元 $\Omega_{\tau_i}$ は正則かつ非零、
+その商は $B(E_i,\OO_{E_i}(1),t_{p_i})$ である。
+これらは補題\ref{eco:lem:clifford-input}の点曲線と中心商の条件である。
+相対平坦性も一因子の Clifford 表示で直接確認できる。
+$S_i$ は三つの中心平方の多項式環上で階数八の自由加群であり、
+$\Omega_{\tau_i}^2=-4(1-\tau_i^3)^2\det q_i$ の
+第一平方変数の三乗係数は単元である。
+命題\ref{ifb:prop:family}の monic 多項式の議論を任意の係数加群に適用すると、
+$\Omega_{\tau_i}$ は普遍的に正則で、$S_i/(\Omega_{\tau_i})$ は基底上平坦となる。
+二因子の周囲代数と総和商には系\ref{ifb:cor:moving-factors}を用いる。
+したがって主稿の系\paperref{main}{mbrn:cor:factor-boundary}を適用できる。
+この系は非零二捩れを明示的に許し、実際の相対 window
+\[
+ \MF_T^{\mathbb Z}(S_i,a_i\Omega_{\tau_i})\simeq\Perf(E_i/T)
+\]
+と内部 shift に対応する
+$R_{i,p_i}=T_{\OO_{E_i}/T}(t_{p_i})_*(-\otimes\OO_{E_i}(1))$
+を、指定周期とともに与える。
+
+総和の積比較にも、二捩れを除く定理をそのまま引用する必要はない。
+相対 Koszul 解消と正則中心元による有限 Shamash folding を取り、
+主稿の補題\paperref{main}{mbrn:lem:finite-models}の外積行列を用いる。
+その式の仮定は、ここで確認した有限射影解消、中心正則性と周期であり、
+$2p_i\ne0$ を使っていない。
+外積の Hom 分解は複体の同型で、因子の augmentation stabilization の外積は
+総和の stabilization となる。
+一因子 window の三つの augmentation shift は各 $\Perf(E_i/T)$ を生成する。
+従って外積は、全次数格子の augmentation shift が生成する部分への
+完全忠実な実 dg 関手となり、その部分を尽くす。
+
+総和の window の仮定も基底上で満たされる。
+Clifford 表示によって周囲代数とその enveloping algebra は noetherian であり、
+有限双加群解消と $T$ の正則性は有限大域次元を与える。
+正則中心元の二項解消は、商の有限 injective dimension と
+相対 Gorenstein 双対性を与える。
+したがって主稿の補題\paperref{main}{mbrn:lem:window}の総和部分の証明、
+すなわち section、内部次数切断、有限 mutation と stabilization を適用できる。
+これは分離部分に制限した定理\ref{ifg:thm:smooth-neighborhood}の
+実相対残余模型とも同じ有限線対象から比較される。
+全次数格子と有限群の誘導を保持することにより、
+\begin{equation}\label{ifv:eq:relative-products}
+ \mathcal K_{\mathrm{split}}^{Z_0}
+        \simeq\Perf(E_1\times_T E_2/T)
+        \simeq\Ku\bigl(V(F_{\boldsymbol\tau})/T\bigr)^{Z_0}
+\end{equation}
+という相対積模型を得る。右側は主稿の
+定理\paperref{main}{mbrp:thm:relative-product}の可換構成である。
+各 Hom は係数 perfect であり、有限模型の底変更と可換側の perfect 底変更により、
+任意の導来底変更でもこの比較を保つ。
+
+\textbf{実 Picard 線束と比較射。}
+$M_i=\OO_{E_i}(p_i-o_i)$ を取る。
+これは相対 Picard 類 $p_i$ を表す実線束であり、
+Picard gerbe の点の存在を仮定する必要はない。
+因子の比較射の存在は、相対核を直接計算して確認する。
+第一座標を入力とする規約で、$R_{i,p_i},R_{i,0}$ の核は
+\[
+ K_{i,p_i}=\operatorname{pr}_1^*\OO_{E_i}(1)
+                      \otimes\OO(-\Gamma_{p_i})[1],
+ \qquad
+ K_{i,0}=\operatorname{pr}_1^*\OO_{E_i}(1)
+                      \otimes\OO(-\Delta)[1]
+\]
+である。従って $F_i=-\otimes M_i$ に対する
+$F_iR_{i,p_i}$ と $R_{i,0}F_i$ の比線束は
+\begin{equation}\label{ifv:eq:picard-ratio}
+ \OO(\Gamma_{p_i}-\Delta)\otimes
+       \operatorname{pr}_1^*M_i\otimes\operatorname{pr}_2^*M_i^{-1}
+\end{equation}
+となる。
+Poincar\'e 線束の加法性と相対 see-saw により、
+式\eqref{ifv:eq:picard-ratio}は基底上の直線束の引戻しである。
+これは相対切断 $p_i$ に対する恒等式であり、
+幾何点ごとの線束同型から非被約な底の同型を推論していない。
+同じ計算はモジュライ稿の
+命題\paperref{moduli}{prop:nfm-elliptic-intertwiner-gerbe}に含まれる。
+この命題は任意の noetherian $\mathbf Q$-基底を許し、$2p_i\ne0$ を課していない。
+
+比線束を $t_0$ の近傍で自明化すると、実際の相対比較射
+$\eta_i:F_iR_{i,p_i}\simeq R_{i,0}F_i$ を得る。
+この Hom の零次部分は基底上の直線束であり、
+非零切断を与えられた原点の比較射に一致するように取れる。
+三重合成と両側の指定周期との差は基底上の単元 $u_i$ である。
+方程式 $v_i^3u_i=1$ は有限 \'etale 被覆を定め、
+原点で指定した根を通る成分を取れば周期比較射も延長できる。
+
+原点の核に補題\ref{ife:lem:equivariant-kernel}の
+三捩れ平行移動を用いた場合は、その切断を有限 \'etale に延長して同じ構成を行う。
+$[3]^*N_i\simeq M_i$ の選択も、相対 Picard scheme の
+有限 \'etale な三倍写像を通して延長できる。
+因子 intertwiner の文字は有限群の文字なので局所一定であり、
+同じ三捩れ補正がそれを消す。周期の scalar 補正はこの同変性を保つ。
+したがって、構成により選んだ Heisenberg 同変原点核にも一致させられる。
+
+\textbf{残余圏への復帰。}
+$F_1\boxtimes F_2$ と周期を合わせた $\eta_i$ は、
+式\eqref{ifv:eq:relative-products}の双対 character 作用を intertwine する。
+交換と三乗の図式は実因子の周期図式から従う。
+厳密な character 作用を持つ MF 双加群模型へ戻り、
+有限群の平均冪等元を用いて同変 perfect 核として実現し、二重同変化する。
+この手順は補題\ref{ebk:lem:boundary}と同じ有限構成で、基底上の比較射を用いている。
+従って表示した実相対比較と、rotation・周期の比較を得る。
+その単位・余単位および perfect 性は導来底変更に保たれる。
+複素ファイバーでの coherent 飽和は、分離積比較、または
+定理\ref{ifg:thm:smooth-neighborhood}の飽和から従う。
+\end{proof}
+
+\begin{proposition}[二つの純因子方向]
+\label{ifv:prop:pure-tangents}
+$s=(t_0,0,0)\in P$ とし、前補題から得る原点核 $E_s$ を固定する。
+二十変数族の $\tau_i$ 方向の残余 KS 類をこの核で移すと、
+\begin{equation}\label{ifv:eq:pure-ks}
+ E_{s,*}\operatorname{KS}_{\mathcal K}(\partial_{\tau_i})
+   =\frac{2a_i(1-\tau_i^3)}{\tau_i}
+                   [Z_{i,1}Z_{i,2}Z_{i,3}]\in(J_i)_3
+\end{equation}
+となる。ここで $\mathbf Z_1=\mathbf X$、$\mathbf Z_2=\mathbf Y$ で、
+右辺の係数は $t_0$ で評価する。
+各係数と表示した Jacobian class は非零である。
+\end{proposition}
+
+\begin{proof}
+前補題は分離族を、式\eqref{ifv:eq:point-equations}の
+実際の可換族と原点核を保って比較する。
+従って変形の自然性により、純因子方向の KS は
+$a_i[\partial_{\tau_i}f_{\tau_i}]$ である。
+恒等式
+\[
+        \partial_t f_t=\frac{f_t}{t}
+                   +\frac{2(1-t^3)}t Z_1Z_2Z_3
+\]
+と Euler 恒等式 $3f_t=\sum_jZ_j\partial_jf_t$ から
+式\eqref{ifv:eq:pure-ks}を得る。
+
+$\lambda=(2+t^3)/(3t)$ と置けば、Jacobian 関係は
+$Z_j^2=\lambda Z_{j+1}Z_{j+2}$ である。
+$\lambda^3\ne1$ なので、繰り返す添字を持つ非立方の三次単項式は零であり、
+$Z_j^3=\lambda Z_1Z_2Z_3$ となる。
+したがって三次部分は $[Z_1Z_2Z_3]$ で生成される。
+三つの偏微分は正則な二次列で、Jacobian 環の Hilbert 級数は $(1+t)^3$ だから、
+三次部分の次元は一であり、この生成元は非零である。
+また $\tau_i\ne0$、$\tau_i^3\ne1$、$a_i\ne0$ なので係数も非零である。
+\end{proof}
+
+\begin{proposition}[Clifford 因子による混合尺度の較正]
+\label{ifv:prop:scale-calibration}
+前補題の相対分離比較を Heisenberg 同変に選び、その原点核を固定する。
+各 Clifford 因子について、定数 Bockstein と中心平方作用の係数を
+$\ell_i,q_i\in\C^\times$ と書くと、
+\begin{equation}\label{ifv:eq:block-scale}
+       \ell_iq_i=\frac{2a_i(\tau_i^3-1)}{3\tau_i}.
+\end{equation}
+二方向の混合尺度 $\kappa_{12}=\ell_1q_2$、$\kappa_{21}=\ell_2q_1$ は
+\begin{equation}\label{ifv:eq:scale-product}
+ \kappa_{12}\kappa_{21}
+   =\frac{4a_1a_2(\tau_1^3-1)(\tau_2^3-1)}{9\tau_1\tau_2}
+\end{equation}
+を満たす。
+特に $\tau_1=\tau_2=\tau$、$a_1=a_2=a$ の場合、
+同じ一因子の選択を外積してブロック交換にも両立させれば、
+両方向の混合尺度はともに
+\begin{equation}\label{ifv:eq:equal-factor-scale}
+                  \kappa=\frac{2a(\tau^3-1)}{3\tau}
+\end{equation}
+となる。これは式\eqref{ifv:eq:point-equations}の方程式と、
+元の非可換関係式の係数を固定した表示での値である。
+\end{proposition}
+
+\begin{proof}
+一つの Clifford 因子の定数型 PBW 変形では、
+三つの生成元平方は引き続き中心的である
+（命題\ref{eco:prop:clifford-center-freedom}）。
+従って補題\ref{ift:lem:central-substitution}を同じ因子の内部で適用し、
+第 $b$ 定数方向の中心パラメータに $\epsilon z_b^2$ を代入できる。
+この方向を $b=1,2,3$ について加えると、関係式は
+\[
+       \{z_{b+1},z_{b+2}\}+(\tau_i-\epsilon)z_b^2=0
+\]
+となる。中心三次には固定した完全交代の語代表を用いているので、
+標準的な $\Omega_{\tau_i-\epsilon}$ との比は
+\[
+ \frac{1-\tau_i^3}{1-(\tau_i-\epsilon)^3}
+   =1-\frac{3\tau_i^2}{1-\tau_i^3}\epsilon
+       \pmod{\epsilon^2}
+\]
+という非零 scalar の一次変化だけである。
+ブロック重み $a_i$ だけの一次変化は、生成元の共通 scalar 倍で消去できるため、
+その残余 KS は零である。
+したがってこの三方向の和の残余 KS は、
+$-\operatorname{KS}_{\mathcal K}(\partial_{\tau_i})$ に等しい。
+
+一方、中心代入の full class の積公式と同変比較により、その像は
+\[
+  \sum_{b=1}^3\ell_iZ_{i,b}\,q_i[Z_{i,b+1}Z_{i,b+2}]
+      =3\ell_iq_i[Z_{i,1}Z_{i,2}Z_{i,3}]
+\]
+である。
+この積は定理\ref{ift:thm:rank-nine}と同じ幾何的 KS の符号規約を用いる。
+前命題との比較によって式\eqref{ifv:eq:block-scale}を得る。
+二因子の式を掛けると式\eqref{ifv:eq:scale-product}となる。
+
+同一因子・同一重みでは、Picard 線束、三捩れ補正と周期比較射を
+二因子で同じものに取る。
+全次数格子上の外積と二重同変化はブロック交換を保つので、
+補題\ref{cmm:lem:boundary-parameters}の交換同変性の議論が適用される。
+従って $\ell_1=\ell_2$、$q_1=q_2$ となり、
+各混合尺度自体が式\eqref{ifv:eq:block-scale}に一致する。
+平方を取った値から符号を選んだのではない。
+\end{proof}
+
+\begin{theorem}[分離原点における二十方向の幾何的完全性]
+\label{ifv:thm:versal}
+$P$ の任意の分離点 $s=(t_0,0,0)$ に対し、
+定理\ref{ifg:thm:smooth-neighborhood}と系\ref{ifg:cor:local-comparison}を
+動く係数の族へ適用する。
+上で構成した原点比較の下で、二十変数族の残余 KS は同型
+\begin{equation}\label{ifv:eq:twenty-ks}
+       T_sP\xrightarrow{\sim}(J_{F_{t_0}})_3
+                  \subset\mathrm{HH}^2\bigl(\Ku(V(F_{t_0}))\bigr)
+\end{equation}
+を与える。
+さらに、この族が定める、原点を標識した通常 Artin 変形の形式写像は
+\begin{equation}\label{ifv:eq:formal-isomorphism}
+       \widehat P_s\xrightarrow{\sim}\operatorname{Def}_{V(F_{t_0})}
+\end{equation}
+という同型である。
+
+系\ref{ifg:cor:local-comparison}の \'etale 近傍上に得られる可換三次族の分類写像は、
+指定された原点の近傍で、滑らかな三次四様体のモジュライ\emph{スタック}への
+\'etale 写像となる。
+粗モジュライ空間への \'etale 性や大域的な一意表示は主張しない。
+\end{theorem}
+
+\begin{proof}
+系\ref{ifb:cor:moving-factors}の基底は二十次元の滑らかな空間であり、
+必要な $c\Delta$ は分離点で単元である。
+したがって、正則基底上の有限解消と実対角を用いる
+定理\ref{ifg:thm:smooth-neighborhood}の構成を適用できる。
+原点近傍に実相対 smooth proper 残余圏と rotation があり、
+系\ref{ifg:cor:local-comparison}は原点核を延長する
+\'etale 局所の可換三次族と実際の perfect 核を与える。
+
+十八の混合方向については系\ref{ifg:cor:rank-eighteen}により、
+KS は
+$(J_1)_1\otimes(J_2)_2\oplus(J_1)_2\otimes(J_2)_1$
+への同型となる。
+命題\ref{ifv:prop:pure-tangents}の二方向は
+$(J_1)_3\oplus(J_2)_3$ の基底となる。
+これら四つの部分の直和が $(J_{F_{t_0}})_3$ なので、
+式\eqref{ifv:eq:twenty-ks}を得る。
+
+主稿の定理\paperref{main}{ifk:thm:rotation-formal}は、
+実相対 rotation を持つこの圏族から、標識付きの幾何的形式変形写像を与える。
+源と標的はともに二十次元の滑らかな形式円板であり、
+その接写像は今示した同型である。
+形式逆写像定理から式\eqref{ifv:eq:formal-isomorphism}が従う。
+この議論は、一般の二十二次元の圏変形全体を幾何化しているのではない。
+
+最後に、滑らかな三次形式の開集合を $\mathcal U^{\mathrm{sm}}\subset\mathbb P^{55}$ とすると、
+対象のモジュライスタックは
+$\mathfrak M_4^{\mathrm{cub}}=[\mathcal U^{\mathrm{sm}}/\operatorname{PGL}_6]$ である。
+これは滑らかな二十次元 Deligne--Mumford スタックである。
+安定化群の無限小部分が零であることは直接確認できる。
+三次 $F$ の射影的な無限小自己同型は
+$\sum_j l_j\partial_jF=\lambda F$ で表されるが、
+Euler ベクトル場を引くと六つの正則二次式 $\partial_jF$ の
+一次係数を持つ syzygy となる。
+正則列の最初の syzygy は二次係数の Koszul syzygy なので、これは零である。
+従って射影的な Lie algebra は零となり、標数零で安定化群は有限である。
+
+\'etale atlas へ底変更すれば、分類写像は
+二十次元の滑らかな代数空間の間の射となる。
+原点の微分は式\eqref{ifv:eq:twenty-ks}の同型なので、
+Jacobian 判定によりこの射は原点で \'etale である。
+\'etale 性の降下と開性から、述べた近傍での結論を得る。
+有限自己同型を持つ点でもスタックに対するこの議論は成立するが、
+その粗空間へ同じ結論を移してはいない。
+\end{proof}
+
+\begin{remark}[局所完全性と大域問題]
+\label{ifv:rem:versal-scope}
+定理\ref{ifv:thm:versal}は、指定した分離点の近傍で、
+二十変数の非可換族が全ての幾何的形式変形方向を実際に表すことを述べる。
+これは一つのモジュライ座標の局所的な構成であり、
+全ての三次四様体の大域的な一意表示、全パラメータでの滑らかさ、
+全 smooth 係数への同じ核の延長や、全内在的非可換三次の被覆を与えない。
+また、有限 \'etale な比較と周期の選択を用いており、
+因子 moduli 全体での標準的な核の切断を構成したものではない。
+\end{remark}

@@ -1,0 +1,498 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v64.
+\subsection{両 Clifford 因子の双方向積分と相対正則性}
+\label{ifb:subsec:bidirectional}
+
+両因子が Clifford 型なら、二つの ordered pair の十八方向を
+同じ二次代数族へ積分できる。
+一方向族に用いた $x$ 次数濾過は双方向族には適用しない。
+代わりに、中心平方上の Clifford 表示と、
+可換二次完全交叉の cocycle twist となる二次双対を用いる。
+これにより、一つの resultant 開上で相対 Koszul 解消と非捩れ双対性を得る。
+
+graded skew Clifford 代数の正則性と二次系との関係は
+Cassidy--Vancliff\cite[Theorem~4.2 and its proof]{IFBCassidyVancliff}の既知理論である。
+その base-point 条件には訂正
+\cite[Proposition~10, Corollary~11]{IFBCassidyVancliffCorr}を含める必要がある。
+以下では、対応する二次系の商が有限であることを明示的に示し、
+さらに係数環上の有限射影複体と trace を構成する。
+したがって、体上の正則性を任意の非被約底へそのまま外挿していない。
+
+\subsubsection{十八変数族と正則中心商}
+
+$i=1,2$ に対して
+\[
+ S_i=S(1,1,\tau_i),\qquad
+ \tau_i\ne0,\qquad \tau_i^3\ne1,-8
+\]
+を固定する。第一因子の生成元を $x_1,x_2,x_3$、
+第二因子を $y_1,y_2,y_3$ とし、添字を巡回させる。
+$a_1,a_2\in\C^\times$ は指定中心元 $\Omega_{\tau_i}$ に掛かる重みである。
+独立な二行列 $\Lambda=(\Lambda_{ab})$、$M=(M_{ba})$ に対し
+\[
+ R_0=\C[\Lambda_{ab},M_{ba}:1\le a,b\le3]
+\]
+と置く。全生成元の内部次数は一、係数の次数は零とする。
+
+\begin{proposition}[双方向 Clifford 族と中心三次商]
+\label{ifb:prop:family}
+次の $R_0$-代数を考える：
+\begin{equation}\label{ifb:eq:family}
+ B=R_0\langle\mathbf x,\mathbf y\rangle/
+ \left(
+ \begin{array}{l}
+ \{x_{a+1},x_{a+2}\}+\tau_1x_a^2-\sum_b\Lambda_{ab}y_b^2,\\
+ \{y_{b+1},y_{b+2}\}+\tau_2y_b^2-\sum_aM_{ba}x_a^2,\\
+ {}[x_a,y_b]
+ \end{array}\right).
+\end{equation}
+六つの平方は中心であり、$X_a=x_a^2$、$Y_b=y_b^2$ によって
+\[
+ Z_0=R_0[X_1,X_2,X_3,Y_1,Y_2,Y_3]
+\]
+が中心部分環に埋まる。$\deg X_a=\deg Y_b=2$ とし、
+\[
+ p_a=\sum_b\Lambda_{ab}Y_b-\tau_1X_a,
+ \qquad s_b=\sum_aM_{ba}X_a-\tau_2Y_b
+\]
+と置けば、対称行列
+\begin{equation}\label{ifb:eq:clifford-matrices}
+ q_x=\begin{pmatrix}
+ X_1&p_3/2&p_2/2\\p_3/2&X_2&p_1/2\\p_2/2&p_1/2&X_3
+ \end{pmatrix},\qquad
+ q_y=\begin{pmatrix}
+ Y_1&s_3/2&s_2/2\\s_3/2&Y_2&s_1/2\\s_2/2&s_1/2&Y_3
+ \end{pmatrix}
+\end{equation}
+に対して
+\begin{equation}\label{ifb:eq:clifford-tensor}
+ B\simeq\mathrm{Cl}_{Z_0}(q_x)\otimes_{Z_0}\mathrm{Cl}_{Z_0}(q_y)
+\end{equation}
+となる。ここで tensor 積には符号を挿入しない。
+$B$ は $Z_0$ 上自由階数 $64$、$R_0$ 上次数別自由で、
+$H_B(t)=(1-t)^{-6}$ である。
+
+行列成分を $q^x_{ij},q^y_{ij}$ と書き、
+\begin{align*}
+ \omega_x&=x_1x_2x_3-q^x_{12}x_3+q^x_{13}x_2-q^x_{23}x_1,\\
+ \omega_y&=y_1y_2y_3-q^y_{12}y_3+q^y_{13}y_2-q^y_{23}y_1
+\end{align*}
+と置く。これらは中心三次であり、
+\[
+ \alpha_i=2a_i(1-\tau_i^3),\qquad
+ w=\alpha_1\omega_x+\alpha_2\omega_y
+\]
+は原点で $a_1\Omega_{\tau_1}+a_2\Omega_{\tau_2}$ に一致する。
+さらに
+\begin{equation}\label{ifb:eq:central-open}
+ c=\frac{\alpha_1^2\tau_1^2+
+                   \alpha_2^2M_{11}M_{21}M_{31}}4
+\end{equation}
+と置くと、$c(0)\ne0$ であり、$R_c=R_0[c^{-1}]$ 上で $w$ は左右正則となる。
+$A_c=B_{R_c}/(w)$ は $R_c$-平坦で、各内部次数部分は有限射影である。
+これらの正則性・平坦性と表示は任意の可換係数変更に保たれる。
+各体上のファイバーの Hilbert 級数は $(1-t^3)(1-t)^{-6}$ である。
+\end{proposition}
+
+\begin{proof}
+混合交換子の関係だけで、$\sum_b\Lambda_{ab}y_b^2$ は全 $x_j$ と可換する。
+従って第一因子の三関係から
+\[
+ [x_1^2,x_2]=[x_1,\{x_1,x_2\}]
+    =\tau_1[x_3^2,x_1]
+    =\tau_1^2[x_2^2,x_3]
+    =\tau_1^3[x_1^2,x_2]
+\]
+を得る。巡回置換と逆向きの組にも同じ計算を行う。
+$1-\tau_1^3\ne0$ なので全 $x_a^2$ は全 $x_j$ と可換する。
+第二因子でも、$\sum_aM_{ba}x_a^2$ と全 $y_j$ の可換性は
+最初の混合関係から分かるため、同じ計算が適用できる。
+これで六平方の中心性を得る。
+
+Clifford 代数の規約を $u_i u_j+u_j u_i=2q_{ij}$ とする。
+式\eqref{ifb:eq:clifford-tensor}の右辺から左辺への写像は
+$X_a\mapsto x_a^2$、$Y_b\mapsto y_b^2$ と生成元の恒等写像で定まる。
+逆写像は六生成元を Clifford 生成元へ送る。
+対角関係により $X_a=x_a^2$、$Y_b=y_b^2$ なので、両者は互いに逆である。
+Clifford の順序基底から $x_Iy_J$、$I,J\subset\{1,2,3\}$ が
+$Z_0$-基底となる。特に独立な中心変数の間に追加関係はなく、
+\[
+ H_B(t)=\frac{(1+t)^6}{(1-t^2)^6}=\frac1{(1-t)^6}
+\]
+である。この構成は任意の係数環へ tensor しても成立する。
+
+中心係数を持つ三次元 Clifford 関係の整列により、
+\[
+ 6\omega_x=C_+(\mathbf x)-C_-(\mathbf x),\qquad
+ \omega_x^2=-\det q_x
+\]
+および $\omega_x$ の中心性を得る。第二因子も同様である。
+従って命題\ref{eco:prop:clifford-center-freedom}と同じ規約で
+$\Omega_{\tau_i}=2(1-\tau_i^3)\omega_i$ となり、指定中心元の正規化が一致する。
+$\alpha_i$ は固定重みであり、定数型 PBW 族の変形係数とは別の記号である。
+
+$w'=\alpha_1\omega_x-\alpha_2\omega_y$ と置けば、
+\begin{equation}\label{ifb:eq:central-norm}
+ ww'=w'w=\mathcal N=-\alpha_1^2\det q_x+\alpha_2^2\det q_y\in Z_0.
+\end{equation}
+$\det q_x$ の $X_1^3$ 係数は $-\tau_1^2/4$、
+$\det q_y$ の同係数は $M_{11}M_{21}M_{31}/4$ である。
+従って $\mathcal N$ の同係数が式\eqref{ifb:eq:central-open}の $c$ となる。
+$R_c$ 上で $\mathcal N/c$ は $X_1$ に関する monic 三次式である。
+任意の $R_c$-加群 $N$ に対し、その乗法は
+$N[X_1,X_2,X_3,Y_1,Y_2,Y_3]$ 上単射である。
+実際、有限な多項式の最高 $X_1$ 係数が monic 項によってそのまま残る。
+Clifford 基底を使えば、$\mathcal N$ は $B_{R_c}\otimes_{R_c}N$ 上も単射であり、
+式\eqref{ifb:eq:central-norm}から $w$ の左右乗法も単射となる。
+
+従って
+\[
+ 0\longrightarrow B_{R_c}(-3)\xrightarrow{w}B_{R_c}
+             \longrightarrow A_c\longrightarrow0
+\]
+は任意の $N$ との tensor 後も左端で単射である。
+両方の $B_{R_c}$ は $R_c$-自由なので、
+$\operatorname{Tor}^{R_c}_1(A_c,N)=0$ となり、平坦性が従う。
+各内部次数は有限表示かつ平坦、従って有限射影である。
+同じ単射性は任意の可換係数変更に適用でき、Hilbert 級数も表示した完全列から得る。
+\end{proof}
+
+\subsubsection{二次双対と一つの resultant 開}
+
+$V=B_1$ とし、$u_a=x_a^*$、$v_b=y_b^*$ を二次双対の生成元とする。
+これらの内部双対次数とは別に、以下の表示次数を全て一とする。
+
+\begin{proposition}[可換二次完全交叉の cocycle twist]
+\label{ifb:prop:dual}
+$B$ の二次双対 $E=B^!$ は、
+同一ブロック内では可換、異なるブロック間では反可換という代数
+\[
+ S=R_0\langle\mathbf u,\mathbf v\rangle/
+       ([u_a,u_{a'}],[v_b,v_{b'}],u_av_b+v_bu_a)
+\]
+の、次の六つの中心二次式による商である：
+\begin{align}
+ g_{x,a}&=u_a^2-\tau_1u_{a+1}u_{a+2}
+                 +\sum_bM_{ba}v_{b+1}v_{b+2},\label{ifb:eq:dual-x}\\
+ g_{y,b}&=v_b^2-\tau_2v_{b+1}v_{b+2}
+                 +\sum_a\Lambda_{ab}u_{a+1}u_{a+2}.
+                 \label{ifb:eq:dual-y}
+\end{align}
+同じ六式を可換多項式環
+$P_0=R_0[\mathbf u,\mathbf v]$ の元として読み、その resultant を
+\begin{equation}\label{ifb:eq:resultant}
+       \Delta=\operatorname{Res}(g_{x,1},g_{x,2},g_{x,3},
+                                  g_{y,1},g_{y,2},g_{y,3})
+\end{equation}
+と置くと $\Delta(0)\ne0$ である。
+
+$G=(\mathbb Z/2)^2$ に関して $\deg_Gu_a=(1,0)$、$\deg_Gv_b=(0,1)$ とし、
+\[
+ \chi((r,s),(r',s'))=(-1)^{sr'}
+\]
+と置けば、$E$ は可換商 $D_0=P_0/(g_x,g_y)$ の cocycle twist $D_0^\chi$ である。
+\end{proposition}
+
+\begin{proof}
+式\eqref{ifb:eq:family}の十五関係は、純ブロックの異なる二文字と
+混合交換子の係数によって一次独立である。
+同じ係数を読む射が左逆を与えるので、その関係空間は $V^{\otimes2}$ の直和因子である。
+その直交関係を直接計算する。
+純ブロックの交換子と混合反交換子は全関係を消す。
+$u_a^2$ の第一因子関係上の値は $\tau_1$、第二因子の第 $b$ 関係上の値は $-M_{ba}$ である。
+$u_{a+1}u_{a+2}$ と $v_{b+1}v_{b+2}$ の値は対応する関係上で一となるので、
+式\eqref{ifb:eq:dual-x}を得る。もう一方も同様である。
+これら十五個の交換関係と六個の二次式は直交空間の全二十一方向を与える。
+
+可換多項式環を $a\star b=\chi(\deg_Ga,\deg_Gb)ab$ で捩ると、
+同じブロック内の積は変わらず、異なるブロックが反可換となる。
+六つの $g$ は全て $G$ 次数 $(0,0)$ であり、その表示も変わらない。
+従って各 $g$ は中心であり、商と twist が可換して $E=D_0^\chi$ を得る。
+
+原点では六式は独立な二組
+$u_a^2=\tau_1u_{a+1}u_{a+2}$、
+$v_b^2=\tau_2v_{b+1}v_{b+2}$ に分かれる。
+第一組で一座標が零なら全座標が零となり、全座標が非零なら
+三式の積から $\tau_1^3=1$ となって矛盾する。
+第二組も同様なので、六式は原点で射影共通零点を持たない。
+resultant の消滅条件により $\Delta(0)\ne0$ である。
+\end{proof}
+
+$R=R_0[\Delta^{-1}]$、$P=R[\mathbf u,\mathbf v]$、
+$D=P/(g_x,g_y)$ とし、以後この開上で考える。
+六つの可換変数を順に $z_1,\ldots,z_6$、六式を $g_1,\ldots,g_6$ とも書く。
+
+\begin{lemma}[相対完全交叉、Koszul 性と socle の向き]
+\label{ifb:lem:relative-ci}
+$D_i$ と $E_i$ は階数 $\binom6i$ の有限射影 $R$-加群であり、
+$i>6$ では零である。
+$D$ の最高次数は
+\begin{equation}\label{ifb:eq:jacobian-orientation}
+ \gamma=\frac1{2^6}
+           \det\left(\frac{\partial g_i}{\partial z_j}\right)
+                   \in D_6
+\end{equation}
+によって $D_6=R\gamma$ と自明化され、$\deg_G\gamma=(1,1)$ である。
+積の対合 $D_i\otimes_RD_{6-i}\to D_6$ は完全である。
+これらの加群・積・同型は任意の可換 $R$-代数への変更に保たれる。
+各体上のファイバーでは $D$ と $E$ は Koszul である。
+\end{lemma}
+
+\begin{proof}
+$R$ の任意の剰余体 $k$ 上で、六式は射影共通零点を持たない。
+従って $k[\mathbf z]/(\mathbf g)$ は零次元の二次完全交叉であり、
+六式は正則列、Hilbert 級数は $(1+t)^6$ となる。
+
+この体上の結論から係数環上の完全性を確認する。
+各内部次数 $n$ で $K_P(\mathbf g)_n$ は有限自由 $R$-加群の有界複体である。
+任意の剰余体上では、その homology は次数零だけにあり、
+階数は $0\le n\le6$ で $\binom6n$、それ以外で零である。
+各局所環で単元となる微分成分を順に消去すれば、可縮二項複体と
+一つの有限自由加群の直和に分解できる。
+最後に全微分が極大イデアルに入る部分では、剰余体上の homology の消滅が
+次数零以外の項そのものの消滅を意味する。
+従って $K_P(\mathbf g)$ は $D$ の解消で、各 $D_n$ は表示した階数の有限射影加群である。
+特に $D_7=0$ であり、次数一生成性から全 $D_n$、$n\ge7$ が零となる。
+この議論で内部次数ごとに異なる開を選んではいない。
+全ての剰余体で正則列となる一つの開 $D(\Delta)$ の上で結論している。
+
+体上の零次元完全交叉は Gorenstein なので、最高次数六への積は完全である。
+最高次数の向きを明示する。
+Euler の式により $\mathbf g=A\mathbf z$、
+$A_{ij}=\tfrac12\partial g_i/\partial z_j$ と書ける。
+体 $k$ 上の商の全射 $k[\mathbf z]/(\mathbf g)\to k$ に対応する
+二つの Koszul 解消の比較は、最高次で $\det A$ を与える。
+有限長 $k[\mathbf z]$-加群の Ext は次数六未満で零なので、
+この全射の双対
+\[
+ \operatorname{Ext}^6_{k[\mathbf z]}(k,k[\mathbf z])
+   \longrightarrow
+ \operatorname{Ext}^6_{k[\mathbf z]}(D_k,k[\mathbf z])
+\]
+は単射である。
+従って $\det A=\gamma$ の class は各ファイバーの socle の非零生成元となる。
+有限射影加群の射 $R\to D_6$、$1\mapsto\gamma$ は全ファイバーで同型なので、
+係数環上でも同型である。
+六つの $g_i$ の $G$ 次数は零であり、微分行列の第 $j$ 列の $G$ 次数は $z_j$ と同じである。
+従って $\deg_G\gamma=3(1,0)+3(0,1)=(1,1)$ となる。
+積の完全性も有限射影加群の射をファイバーで検査して従う。
+
+Koszul 性には、体上での線形解消を記しておく。
+$g_i=\sum_j z_j a_{ij}$、$a_{ij}=\tfrac12\partial g_i/\partial z_j$ とし、
+\[
+ T=D_k\otimes\bigwedge(e_1,\ldots,e_6)
+                \otimes\Gamma(t_1,\ldots,t_6),\qquad
+ de_j=z_j,\quad dt_i=\sum_j a_{ij}e_j
+\]
+を取る。homological 次数と内部次数は $\deg e_j=(1,1)$、$\deg t_i=(2,2)$ である。
+正則列の二つの Koszul 解消の比較により、
+$H(K_{D_k}(\mathbf z))=\operatorname{Tor}^{k[\mathbf z]}(D_k,k)$ は
+$h_i=[\sum_j a_{ij}e_j]$ の外積代数となる。
+$t$ 次数の濾過で、次の微分は $dt_i=h_i$ である。
+従って次頁は $k$ だけとなる。
+各 homological 次数で濾過は有限なので、この計算は収束し、$T$ は $k$ の解消である。
+全生成元で二つの次数が等しいため、これは線形解消であり $D_k$ は Koszul である。
+この解消は $G$-斉次に取れる。
+cocycle twist は基礎となるベクトル空間と完全性を変えず、線形自由解消を保つので、
+$E_k=D_k^\chi$ も Koszul である。
+
+$E$ と $D$ の基礎 $R$-加群は同じである。
+得られた有限射影加群、積の完全対合と $R\gamma$ の同型は任意の底変更に保たれる。
+\end{proof}
+
+\subsubsection{相対 Koszul 解消と非捩れ双対性}
+
+\begin{theorem}[十八変数の相対正則性と Calabi--Yau 双対性]
+\label{ifb:thm:regularity}
+$T$ を任意の可換 $R_0[\Delta^{-1}]$-代数とし、$B_T=B\otimes_{R_0}T$ とする。
+このとき $B_T$ は相対 Koszul であり、その Koszul 空間 $K_i$ は
+階数 $\binom6i$ の有限射影 $T$-加群、$i>6$ では零となる。
+左・右の線形解消に加えて、
+\[
+       P_i=B_T\otimes_TK_i\otimes_TB_T\quad(0\le i\le6)
+\]
+は $B_T$ の長さ六の有限射影 $B_T^{\mathrm e}$-解消を与える。
+全ての構成は任意の可換底変更と両立する。
+
+内部次数付き双対は
+\begin{align}
+ \mathbf R\underline{\operatorname{Hom}}_{B_T^{\mathrm e}}
+             (B_T,B_T^{\mathrm e})&\simeq B_T(6)[-6],
+                    \label{ifb:eq:bimodule-duality}\\
+ \mathbf R\underline{\operatorname{Hom}}_{B_T}(T,B_T)
+   &\simeq T(6)[-6],\qquad
+ \mathbf R\underline{\operatorname{Hom}}_{B_T^{\mathrm{op}}}(T,B_T)
+       \simeq T(6)[-6].\label{ifb:eq:augmentation-duality}
+\end{align}
+特に Nakayama twist はない。
+各複素ファイバーは大域次元六、AS index 六、GK 次元六の
+Koszul AS-regular 代数であり、非捩れ $6$-Calabi--Yau である。
+\end{theorem}
+
+\begin{proof}
+\textbf{有限射影 Koszul 空間と完全性。}
+まず普遍環 $R=R_0[\Delta^{-1}]$ 上で構成する。
+$E_i$ は有限射影なので、二次双対の全射
+$(V^*)^{\otimes i}\to E_i$ は分裂する。
+その双対により $K_i=\operatorname{Hom}_R(E_i,R)$ を $V^{\otimes i}$ の直和因子と見る。
+二次双対の定義から、$\mathcal R_B$ を関係空間として
+\[
+ K_i=\bigcap_{a+b=i-2}
+       V^{\otimes a}\otimes\mathcal R_B\otimes V^{\otimes b}
+                \quad(i\ge2),\qquad K_0=R,\quad K_1=V
+\]
+となる。ここで関係空間自身も直和因子であるため、
+二重直交を取る際の問題はない。
+一般の加群の交叉が底変更と可換だと仮定したのではなく、
+$E_i$ の有限射影性とその双対によって、この $K_i$ の底変更互換性を得ている。
+
+$E$ の積を双対化して切断余積を得る。
+これを用いた左右および双加群の Koszul 微分は
+式\eqref{ifr:eq:koszul-differential}と同じであり、二次関係により二乗が零となる。
+任意の剰余体 $k$ 上で $E_k$ は前補題により Koszul である。
+体上の二次 Koszul 双対性から $B_k=E_k^!$ も Koszul であり、
+これらの片側・双加群複体は解消となる。
+
+各内部次数で、普遍複体と augmentation の cone は
+有界な有限射影 $R$-加群の複体である。
+全剰余体上で acyclic なので、前補題と同じ局所消去により普遍環上でも acyclic となる。
+有界な有限射影加群の acyclic 複体は分裂可縮である。
+従って各内部次数で任意の $R\to T$ への tensor 後も完全性が保たれる。
+これが任意の非被約・非平坦底変更を含む解消を与える。
+一つの resultant 開から更に次数ごとの開を取り続ける議論ではない。
+
+\textbf{trace の捩れと Nakayama 符号。}
+$D_6=R\gamma$ として最高次数係数を取る写像を $t:D\to R$ とし、
+同じ基礎加群上の写像を $E=D^\chi$ の trace とする。
+twist の係数は単元 $\pm1$ なので、前補題の完全対合は $E$ 上でも完全である。
+$e,f$ の $G$ 次数を $(r,s),(r',s')$ とする。
+trace が非零となる場合は $(r',s')=(1-r,1-s)$ であり、
+可換な $D$ の積と twist の式から
+\[
+ t(e\star f)
+  =\frac{\chi((r,s),(1-r,1-s))}
+          {\chi((1-r,1-s),(r,s))}\,t(f\star e)
+  =(-1)^{r+s}t(f\star e)
+\]
+となる。
+$e\in E_i$ なら $r+s\equiv i\pmod2$ である。
+従って Frobenius Nakayama は $E_1$ 上で $-\operatorname{id}$、
+全 $E_i$ 上で $(-1)^i$ であり、
+\begin{equation}\label{ifb:eq:graded-trace}
+       t(ef)=(-1)^{ij}t(fe)\qquad(e\in E_i, f\in E_j)
+\end{equation}
+を得る。総次数が六でないときは両辺が零である。
+
+\textbf{双加群複体の自己双対。}
+完全対合は大域的な同型
+\[
+ \theta_i:E_i\xrightarrow{\sim}K_{6-i},\qquad
+            \theta_i(e)(f)=t(ef)
+\]
+を与える。定理\ref{ifr:thm:ambient-regularity}の
+有限複体の自己双対の計算は、切断余積、trace の完全性と
+式\eqref{ifr:eq:graded-symmetry}だけを用いていた。
+ここでは式\eqref{ifb:eq:graded-trace}が同じ条件を与える。
+有限射影加群の局所基底で同じ Hom 微分と左右切断余積を計算すると、
+\[
+ \underline{\operatorname{Hom}}_{B_R^{\mathrm e}}(P_\bullet,B_R^{\mathrm e})
+                    \simeq P_\bullet(6)[-6]
+\]
+を得る。写像は上の大域的な $\theta_i$ で定義されるので、局所基底によらず貼り合う。
+外側一因子へ augmentation を施した計算も同じである。
+従って式\eqref{ifb:eq:bimodule-duality}と
+式\eqref{ifb:eq:augmentation-duality}が従う。
+有限射影性、$\gamma$ と trace は底変更を保つため、これらは任意の $T$ 上で成立する。
+この符号は、Koszul Frobenius 双対から Nakayama を求める
+\cite[Theorem~6.3, Proposition~6.4]{IFRBergerMarconnet}および
+\cite[Lemmas~1.1--1.2]{IFRHeVanOystaeyenZhang}の規約とも一致する。
+
+体上では有限双加群解消を任意の加群へ tensor することにより大域次元は高々六となる。
+augmentation の六次 Ext が非零なので、ちょうど六である。
+両側の augmentation 双対が AS-Gorenstein 条件と index 六を与え、
+Hilbert 級数から GK 次元は六となる。
+また $B$ は中央多項式環上有限なので、体上では左右 noetherian である。
+これで AS-regular 性と表示した非捩れ CY 双対性を得る。
+\end{proof}
+
+\begin{corollary}[有限大域次元の正確な係数領域]
+\label{ifb:cor:exact-regular-locus}
+十八変数の複素係数点 $s$ について、次は同値である：
+\[
+ \Delta(s)\ne0
+ \quad\Longleftrightarrow\quad
+ \operatorname{gldim}B_s<\infty
+ \quad\Longleftrightarrow\quad
+ B_s\text{ は AS-regular}.
+\]
+このとき大域次元と AS index は六である。
+$\Delta(s)=0$ なら augmentation 加群の射影次元は無限である。
+\end{corollary}
+
+\begin{proof}
+$\Delta(s)\ne0$ の場合は前定理による。
+逆に $\Delta(s)=0$ なら六つの可換二次式は射影共通零点を持つので、
+$D_s$、従って $E_s$ は無限次元であり、任意に大きい次数に非零成分を持つ。
+任意の二次代数について、被約 bar 複体の homological 次数 $i$、内部次数 $i$ の部分では、
+入ってくる微分はなく、出ていく微分の核が二次関係の交叉 $K_i$ である。
+従って Koszul 性を仮定せず
+\[
+       \operatorname{Tor}^{B_s}_i(\C,\C)_i
+                         =K_i=(E_s)_i^*
+\]
+が成り立つ。これが任意に高い次数で非零となるので、augmentation の射影次元は無限である。
+\end{proof}
+
+\begin{corollary}[二つの Clifford 係数を動かす相対構成]
+\label{ifb:cor:moving-factors}
+固定した $\tau_1,\tau_2$ の代わりに、
+\[
+ T_0=\C\left[\tau_1,\tau_2,
+       \left\{\tau_i(\tau_i^3-1)(\tau_i^3+8)\right\}_{i=1,2}^{-1}\right],
+ \qquad R_0^{\mathrm{mov}}=T_0[\Lambda_{ab},M_{ba}]
+\]
+を係数環としても、命題\ref{ifb:prop:family}から
+定理\ref{ifb:thm:regularity}までの全ての構成と結論が成立する。
+ここで $a_1,a_2\in\C^\times$ は固定し、$\alpha_i=2a_i(1-\tau_i^3)$、
+$c$ と $\Delta$ は同じ式で定める。
+特に $D(c\Delta)$ 上に、二つの因子係数と十八の混合係数を持つ
+相対正則な周囲代数と平坦な正則中心三次商を得る。
+\end{corollary}
+
+\begin{proof}
+平方の中心性の証明で必要な $1-\tau_i^3$ は $T_0$ の単元であり、
+Clifford 基底と体積元の恒等式は係数環上で成立する。
+任意の剰余体で $\Delta\ne0$ は六つの可換二次式が正則列になる条件である。
+相対完全交叉、Tate 解消、有限射影複体の完全性と trace の証明は、
+この条件と標数零だけを用いている。
+従って同じ証明が適用され、任意の可換底変更との互換性も保たれる。
+\end{proof}
+
+\begin{example}[Hilbert 級数を保つ非正則な係数点]
+\label{ifb:ex:nonregular}
+$\tau_1=\tau_2=2$、$\Lambda=M=I_3$ と取る。
+$u_1=u_2=u_3=v_1=v_2=v_3=1$ では六つの双対二次式が全て
+$1-2+1=0$ となるので、$\Delta=0$ である。
+系\ref{ifb:cor:exact-regular-locus}により、この $B$ の大域次元は無限である。
+一方、Clifford 基底と Hilbert 級数 $(1-t)^{-6}$ はこの点でも保たれる。
+$a_1=a_2=1$ とすれば $\alpha_1=\alpha_2=-14$ であり、
+$M_{11}M_{21}M_{31}=0$ なので式\eqref{ifb:eq:central-open}は $c=196\ne0$ を与える。
+従って周囲代数が非正則なこの点でも、$w$ の正則性と中心商の平坦な族への所属は保たれる。
+\end{example}
+
+\begin{remark}[一方向族、中心商と相対的な結論]
+\label{ifb:rem:scope}
+$M=0$ および $\Lambda=0$ の表示は、中心元も含めて
+定理\ref{ifc:thm:family}の一方向族と、その因子を交換した族である。
+定理\ref{ifr:thm:ambient-regularity}はそれぞれの軸の全係数を扱う。
+双方向では、上で求めた一つの開 $D(\Delta)$ が有限大域次元の正確な領域となる。
+相対解消の項は有限射影であり、全ての項に大域的な自由基底を選べたとは主張しない。
+また、任意の係数環上の相対 smoothness と CY 双対性を、
+その係数環を含む絶対 $\C$-代数の有限大域次元と同一視しない。
+
+$D(c)\cap D(\Delta)$ は原点を含み、その上では
+相対正則な周囲代数と、任意底変更に保たれる平坦な正則中心三次商が同時に得られる。
+命題\ref{ifb:prop:family}の商の平坦性自体は $D(c)$ 全体で成立する。
+周囲代数の正則性だけから中心商の残余圏の smoothness を結論することはできない。
+その相対対角、rotation の持上げ、実比較核は別に構成する必要がある。
+\end{remark}

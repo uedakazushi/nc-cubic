@@ -1,0 +1,234 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v64.
+\subsection{双方向 Clifford 族の残余圏と十八次元の形式像}
+\label{ifg:subsec:geometry}
+
+前小節の周囲代数の正則域から、実際の smooth proper な残余族を作る。
+周囲代数の終結式条件と中心商の残余 smoothness は異なる条件である。
+本小節の可換比較は、分離点を含むさらに小さい開で構成する。
+
+まず二つの因子を固定し、命題\ref{ifb:prop:family}、
+定理\ref{ifb:thm:regularity}の記号を用いて
+\[
+ R_*=\C[\Lambda_{ab},M_{ba},\Delta^{-1},c^{-1}],
+ \qquad o=(\Lambda,M)=(0,0)
+\]
+と置く。次の二つの族を扱う：
+\begin{equation}\label{ifg:eq:families}
+ \begin{array}{c|c|c|c}
+ m&\mathcal B&\mathcal A&n\\ \hline
+ 0&B&B/(w)&4\\
+ 1&B[u]&B[u]/(w+\gamma u^3)&5
+ \end{array}
+ \qquad \gamma\in\C^\times .
+\end{equation}
+$u$ は内部次数一の中心変数であり、$\gamma$ は
+局所化に用いた $c$ とは別の固定係数である。
+$N=6+m$、$a=N-3$、$n=N-2$ と書く。
+
+\begin{lemma}[双方向族での射影積の入力]
+\label{ifg:lem:projective-inputs}
+式\eqref{ifg:eq:families}の族には、命題\ref{iff:prop:proper-model}、
+補題\ref{iff:lem:projective-product}、
+\ref{iff:lem:regular-base-compact-lift}の結論と底変更の主張が成立する。
+係数加群は有限自由の代わりに有限射影としてよい。
+同じ結論は、系\ref{ifb:cor:moving-factors}の二つの
+$\tau_i$ も動かす係数環を用い、その任意の分離した複素点を $o$ とした場合にも成り立つ。
+\end{lemma}
+
+\begin{proof}
+先行する三つの証明で用いた代数的入力を本族について確認する。
+定理\ref{ifb:thm:regularity}により、$\mathcal B$ は長さ $N$ の
+相対 Koszul 双加群解消と両側の augmentation 双対
+\[
+ R\underline{\operatorname{Hom}}_{\mathcal B}(R_*,\mathcal B)
+       \simeq R_*(N)[-N]
+\]
+を持つ。$m=1$ では $u$ の通常の長さ一の解消を tensor する。
+これらの解消と双対は任意の可換係数変更と両立する。
+命題\ref{ifb:prop:family}により $m=0$ の中心三次は普遍的に正則で、
+商の内部次数成分は有限射影である。
+$m=1$ では $\gamma$ が単元なので、$w+\gamma u^3$ は $u$ に関して
+monic とできる。任意の係数加群を tensor した後にも左右正則であり、
+商は $\mathcal B=B[u]$ の二項解消を持つ。
+従って両場合に
+\[
+ R\underline{\operatorname{Hom}}_{\mathcal A}(R_*,\mathcal A)
+       \simeq R_*(a)[-N+1]
+\]
+が両側で成立し、$\mathcal A$ の各内部次数成分は有限射影である。
+
+noetherian 性は、本族では有限中心表示から直接確認できる。
+任意の noetherian な係数変更の後も $B$ は
+$R_*[X_1,X_2,X_3,Y_1,Y_2,Y_3]$ 上有限である。
+従って $\mathcal B^{\mathrm{op}}\otimes_{R_*}\mathcal B$ は、
+左右二組の六平方と必要なら二つの $u$ を含む可換多項式環上有限であり、
+noetherian である。その中心商
+$\mathcal A^{\mathrm{op}}\otimes_{R_*}\mathcal A$ も noetherian となる。
+個別の strong noetherian 性から tensor 積の noetherian 性を推測する必要はない。
+本係数底は正則な多項式環の局所化である。
+二つの $\tau_i$ を動かしても、指定された非零条件を局所化した
+二十変数多項式環なので同じ性質を持つ。
+
+これらの入力から、命題\ref{iff:prop:proper-model}の
+augmentation 双対と二項中心解消による計算が適用でき、
+\begin{equation}\label{ifg:eq:line-hom}
+ \operatorname{Ext}^q(\mathcal O(i),\mathcal O(j))=
+ \begin{cases}
+   \mathcal A_{j-i},&q=0,\\
+   (\mathcal A_{i-j-a})^\vee,&q=n,\\
+   0,&\text{その他}
+ \end{cases}
+\end{equation}
+を得る。連続した $N$ 本の線束は全 twist を厚生成する。
+有限射影係数は有限自由係数の直和因子であり、
+この厚生成と有限 mutation の議論を保つ。
+
+射影積では、ambient truncation $\mathcal B_{<r}$ も底上有限射影である。
+相対対角解消をこれへ tensor する射影次元評価と、
+中心商の二項解消による torsion の遷移消滅はそのまま成立する。
+従って二つの導来 saturation の合成によって
+線束からの Hom の一様な cohomological bound を得る。
+正則な係数環上では ambient 包絡環の大域次元も有限であり、
+coherent 対象の有限生成解消から Ext の有限性と中心的局所化との両立を得る。
+これが補題\ref{iff:lem:projective-product}で使った全ての入力である。
+
+最後に、補題\ref{iff:lem:regular-base-compact-lift}の
+正則局所環の次元に関する帰納法を適用する。
+正則パラメータ商を取った後にも、上の解消・平坦性は任意底変更によって保たれる。
+閉ファイバーの compact 性から得た一様 Ext 消滅を
+有限 Ext 加群への Nakayama により戻し、既存の線束解消の境界類を消す。
+各有限射影係数は retract として扱えるので、自由係数である必要はない。
+本論証のどの段階も、一方向九変数族の濾過には依存しない。
+\end{proof}
+
+\begin{theorem}[双方向族の相対 smooth proper 近傍]
+\label{ifg:thm:smooth-neighborhood}
+式\eqref{ifg:eq:families}の各族に対し、分離点 $o$ を含む Zariski 開集合
+$U\subset\operatorname{Spec}R_*$ が存在し、全線束の厚生成圏と
+その残余圏は相対 smooth proper な dg 代数
+$\Sigma_U,\Gamma_U$ で表される。
+各複素ファイバーでは全 coherent 圏および全 coherent Kuznetsov 成分に一致する。
+必要なら $U$ を縮めることで、
+$\rho=L_{\mathcal O}\circ(1)$ は残余模型の相対自己同値となり、
+Artin 環への変更を含む底変更と両立する。
+二つの $\tau_i$ を動かす場合にも、任意の分離した複素点の近傍で同じ主張が成立する。
+\end{theorem}
+
+\begin{proof}
+$E=\bigoplus_{i=0}^{N-1}\mathcal O(i)$ とし、
+$G=L_{\mathcal O}\cdots L_{\mathcal O(a-1)}E$ と置く。
+前補題と式\eqref{ifg:eq:line-hom}により
+$\Sigma=R\operatorname{End}(E)$、$\Gamma=R\operatorname{End}(G)$ は
+底上 perfect である。
+通常の二重次数対角
+\[
+ (\Delta_{\mathcal A}^{+})_{i,j}=\mathcal A_{i+j}\quad(i,j\ge0),
+ \qquad \mathcal D_{\mathcal A}=\pi\Delta_{\mathcal A}^{+}
+\]
+は次数 $(0,0)$ の $1$ で生成され、coherent かつ底上 flat である。
+
+原点の正則局所環へ移る。
+両側の Gorenstein 双対は torsion を保ち、線束を反対側の双対線束へ送る。
+従って
+$F=E^\vee\boxtimes E$ による通常の tensor--Hom evaluation は、
+式\eqref{iff:eq:actual-diagonal}と同じ二つの実写像を与える。
+各辺は底上 perfect で、閉ファイバーへの底変更を保つ。
+閉ファイバーでは既存の通常射影積の対角計算により同型となるため、
+導来 Nakayama によって局所環上でも同型である。
+これは次数付き対角と線束模型の双加群対角の同定である。
+
+$m=0$ の閉ファイバーには補題\ref{ebk:lem:boundary}の
+rotation 付き実比較核がある。
+$m=1$ には主稿の定理\paperref{main}{csc:thm:comparison}を適用する。
+いずれも閉ファイバーの残余圏は smooth proper であり、
+有限例外列を戻した全線束圏も smooth proper である。
+従って $\mathcal D_{\mathcal A,o}$ は compact となる。
+前補題の compact 性の持上げを実対角に適用すると、
+局所環上で有限線束複体への retract を得る。
+
+開集合への移行には、最初から係数底上にある
+$\Delta_{\mathcal A}^{+}$ の有限生成 graded free 解消を使う。
+十分先で切った境界 Ext 類は原点の局所環で零である。
+Ext の有限性と局所化との両立により、原点で消えない一つの元を逆にすれば
+同じ境界類が零となる。
+同様に evaluation 写像の proper な cone を消す。
+この実開上で同じ有限複体への retract があり、
+$\Sigma_U$ の相対 perfect 対角が得られる。
+有限例外列の admissible な直交成分へ移して $\Gamma_U$ の対角も得る。
+
+各複素ファイバーの coherent 対象 $H$ に対する
+$R\operatorname{Hom}(E,H)$ は体上 perfect である。
+smooth な $\Sigma_s$ の perfect 対角との tensor により、
+これは $\Sigma_s$-perfect となる。
+$E$ の compact 生成性から全 coherent 圏との一致が従い、
+有限 mutation により残余成分でも一致する。
+最後に $L_{\mathcal O}\circ(1)$ の実 graph 双加群とその随伴を取り、
+原点で消える単位・余単位の proper な cone をさらに開集合上で消す。
+これで相対 rotation 自己同値を得る。
+以上は定理\ref{iff:thm:smooth-neighborhood}の証明を、
+前補題で確認した本族の入力に適用したものである。
+\end{proof}
+
+\begin{corollary}[十八変数族の局所可換比較]
+\label{ifg:cor:local-comparison}
+分離点を含むさらに小さい開集合上で、
+式\eqref{ifg:eq:families}の残余圏は \'etale 局所的に
+滑らかな可換三次 $n$-fold の Kuznetsov 成分と、
+実際の相対 perfect 核によって同値となる。
+原点の既存の比較核を指定すれば、それを原点の \'etale 近傍へ延長できる。
+四次元の場合、指定する原点核は rotation に両立するものとする。
+同じ結論は二つの $\tau_i$ も動かす族にも成立する。
+\end{corollary}
+
+\begin{proof}
+$n=4$ では前定理の実相対 rotation と
+補題\ref{ebk:lem:boundary}の原点比較を入力として、
+主稿の定理\paperref{main}{ifk:thm:rotation-neighborhood}を適用する。
+$n=5$ では主稿の定理\paperref{main}{grl:thm:open-locus}を用いる。
+いずれも底の次元を九に限定する定理ではなく、
+前定理が実相対 smooth proper 性を与えるため適用できる。
+\end{proof}
+
+\begin{corollary}[十八方向の積分と余次元二の形式像]
+\label{ifg:cor:rank-eighteen}
+二つの Clifford 因子を固定した四次元型について、
+前系の比較を通した原点の KS 写像は階数十八で、その像は
+\[
+  (J_{f_1})_1\otimes(J_{f_2})_2
+       \ \oplus\ (J_{f_1})_2\otimes(J_{f_2})_1
+      \subset (J_F)_3,\qquad F=a_1f_1+a_2f_2
+\]
+である。
+原点を標識した幾何的変形空間への形式射は
+十八次元・余次元二の正則閉埋込みとなる。
+\end{corollary}
+
+\begin{proof}
+$M=0$ と $\Lambda=0$ への制限は、指定中心三次も含めて
+二つの既存九変数族に一致する。
+従って同じ原点比較を用いる系\ref{ift:cor:two-clifford-tangents}により、
+全接写像の像は表示した互いに素な九次元部分の直和となる。
+\'etale 近傍の指定点の完備局所環は元のものと同型なので、
+比較は完備局所環の写像
+\[
+ \C[[t_1,\ldots,t_{20}]]
+          \longrightarrow\C[[\Lambda_{ab},M_{ba}]]
+\]
+を与える。余接写像は全射である。
+像が正則パラメータとなる十八個の $t_i$ を選び、
+残る二変数からその像の形式級数を引けば、核は長さ二の正則列になる。
+これは系\ref{ift:cor:first-jet}と同じ完備局所環の議論である。
+\end{proof}
+
+\begin{remark}[比較域と標識の範囲]
+\label{ifg:rem:scope}
+周囲代数の正則域 $D(\Delta)$ は正確に決定したが、
+残余圏の smooth locus 全体や、その全域への比較核を決定したわけではない。
+上で縮めた開集合の補集合、形式像を定義する二本の級数の具体係数、
+大域的な係数の識別は未計算である。
+延長核による全基底上の rotation・指定周期・中心作用の同時保存も結論していない。
+非被約底上の有限型 dg 模型と、全 coherent 圏との一致は区別し、
+後者は上で述べた複素ファイバーについて用いる。
+中心商そのものを homologically smooth な affine $5$-CY 代数と呼ぶこともない。
+\end{remark}
