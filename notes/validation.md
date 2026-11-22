@@ -22,7 +22,23 @@
 
 ### 現行組版と保存
 
-新節を混合稿へ一度だけ組み込み、主稿・序論・研究方針・README・AGENTS・ノートの範囲と再開点を整合させた。新節を含む組版・表示確認・GitHub反映は現在確認中であり、完了した検証と保存を下記へ確定する。
+新節を混合稿へ一度だけ組み込み、主稿・序論・研究方針・README・AGENTS・ノートの範囲と再開点を整合させた。IntroductionにはBGのPBW条件・EGの中心存在と、今回の対称行列条件・全係数中心式の関係を明記した。
+
+`python3 scripts/check_sources.py` は **102 TeX source・1710一意ラベル**で成功した。主稿33 source/477 labels、モジュライ稿45 source/874 labels、混合稿28 source/359 labels。入力グラフ、他稿参照、引用、著者欄、root指定を検査し、`git diff --check` も成功した。
+
+`python3 scripts/build_papers.py` で三稿をLuaLaTeX組版し、三巡で他稿参照を収束させた。Introductionの文献比較を最終調整した後に混合稿と依存する二稿を再組版し、全label・文献番号・参照頁の状態が不変となることを確認した。最終三logには未解決参照・未解決引用・重複label・Missing character・Overfull/Underfull boxがない。既存の数式フォントのサイズ代替と旧式命令に関する警告は残る。
+
+| 現行PDF | 原稿版 | 頁数 |
+| --- | --- | ---: |
+| nc-cubic.pdf | v55 | 180 |
+| cubic-moduli-descent.pdf | v50 | 454 |
+| mixed-sklyanin-cubics.pdf | v55 | 180 |
+
+最終PDFの **27頁**を130 dpiで画像化して実表示を確認した。混合稿1–7、121–134頁、主稿1、4–5、160–162頁である。新設二節全体、普遍比較定理13.4・判別式の系13.5–13.6、線形PBWと中心三次14.1–14.3、HHの式(14.6)、Introduction・目次・主稿の到達範囲を含む。文字欠落・重なり・数式や頁端の切れは見つからなかった。組版途中の画像を点検した頁についても、最終PDFの描画とpixel単位で一致することを確認した。これは全814頁の表示点検や全数学本文の再監査ではない。
+
+組版にはLuaHBTeX1.18.0・latexmk4.86・LaTeX2e2024-11-01 patch level2と整合するLuaTeX-jaを用いた。実行環境に不足していた形式ファイルは利用可能な整合済みTeX環境で補い、原稿・ビルド・VS Code設定は従来のLuaLaTeX構成を保った。依存関係と再生成コマンドはREADME、PDFとSyncTeXの出力先はbuild/である。VS Code UIの操作は今回行っていない。
+
+原稿・方針・ノート・AGENTS・README・必要な再現コードの正本はGitHub mainである。通常コミットによる保存と遠隔commit/treeの照合を行い、その結果をresearch-hubの該当項目へ反映する。PDF・TeX中間生成物・表示用画像・一時計算・外部文献PDF・一時的な組版環境はGit追跡に含めない。
 
 ## 保持する全中心係数の実核と普遍定数補正
 
@@ -71,33 +87,15 @@
 
 既知のPBW・Knörrer・球面関手・operadic obstruction・非可換射影積・相対退化自体を新規成果とは扱わない。書誌・参照箇所・識別子は論文と研究ノートに保持する。
 
-### 厳密計算とソース整合
+### 保持する厳密計算
+
+この節の計算は変更していない入力の既存確認であり、今回再実行した冒頭の二検証器とは区別する。
 
 `python3 computations/verify_mixed_central_direction.py` は **7 PASS・終了コード0**。Knörrer座標、cotwistの二行二列homotopy、6×6行列式、P64根集合の二次momentとc62係数、中央MFの閉元・二項零homotopy・三項Massey scalar、重み三の単項式を有理数と多項式の厳密計算で確認した。SHA-256は `fe9b7c2bacacde762b5dc3bede3692c882ddc22808931b31ad59b1b2c509dfd3`。全coherence、生成性、Morita同値の形式証明ではない。
 
-以下の12 PASS等は変更していない入力の既存の検算記録であり、今回の再実行ではない。
-
 `python3 computations/verify_mixed_curved_dual.py` は **12 PASS・終了コード0**。実際の非可換関係を有理数上で簡約し、rank64+64の曲率、rank40+40への有限縮約、二つのchain map、retraction・homotopyとstrict Clifford ansatzの障害を検算した。この既存検証器のSHA-256は `68efa8db3e8c3d56e1b38ed458557e6d4a4c321ae14117ef4476c75c970f4c1b`。`--export` で全有理行列を再生成できる。これらの有限恒等式の計算は、解消の完全性・生成性・球面復元・Ku同値の形式証明ではない。
 
-変更していない `verify_mixed_formal_kernel.py` の **9 PASS**、`verify_mixed_invariant_pbw_dual.py` の **5 PASS** は保持する入力であり、以下の新しい中心方向検証器の実行と区別する。前者のSHA-256は `b4c7a92f9ae4f5847fffd010accfdb409a6427e56f4232cfdf441dbbe9a5cf72`、後者は `f950608a1aec0a9e4bed4a73204f89e0b51babff925eebea37043f172dd4c979`。既存の重い中心計算や全検証suiteを今回再実行したとはしない。
-
-`python3 scripts/check_sources.py` は **100 TeX source・1683一意ラベル**で成功。主稿33 source/477 labels、モジュライ稿45 source/874 labels、混合稿26 source/332 labels。inputグラフ、他稿参照、引用、著者欄、root指定を検査する。`git diff --check` も成功した。
-
-### 組版・表示・保存の状態
-
-変更した主稿と混合稿はv54、数学的本文を変更していないモジュライ稿はv50を保持する。100 TeX・1683 labelsの静的検査と新検証器の7 PASSを確認した。三稿をLuaLaTeXで再組版し、二巡で相互参照の収束を確認した。新設節の小さい行はみ出しを修正して混合稿を再組版し、全label・文献番号・参照頁の状態が収束済みの三稿と同一であることを照合した。最終三logに未解決参照・未解決引用・重複label・Missing character・Overfull/Underfull boxはない。数式フォントのサイズ代替と旧式命令に関する既存警告は残る。
-
-| 最終PDF | 頁数 | bytes | SHA-256 |
-| --- | ---: | ---: | --- |
-| nc-cubic.pdf | 179 | 1591758 | 9d1adada9de4dfade864c17bd157a260be59b7537ebf5db86b5c44a33ff706ff |
-| cubic-moduli-descent.pdf | 454 | 3193782 | ce0b19912db0c68de306698dcff6e5dddbb48e944345b4ed0c960e92ed712a6c |
-| mixed-sklyanin-cubics.pdf | 167 | 1463435 | 27c2c2ac835ea5cbb80dff1a5efd75d327a6cbdeb7e3cad2ffbdf482584e5758 |
-
-最終PDFから120 dpiで44頁を画像化して実表示を確認した。対象は混合稿1–5、54、60、62、68、105–120、138、147–149、162–167頁、主稿1、5、159–161、178–179頁、モジュライ稿453–454頁である。新設節全体、定理12.15と系12.16–12.17、Introduction、反例と残る課題、共有文献を含む。三項Massey行列と主定理の頁は個別画像でも確認し、文字欠落・重なり・数式や頁端の切れは見つからなかった。表示確認の範囲はこの44頁であり、全800頁の再読解や数学的証明の形式検証とは区別する。
-
-組版にはLuaHBTeX1.18.0・latexmk4.86・LaTeX2e2024-11-01 patch level2と整合するLuaTeX-jaを使う。再生成に必要な依存関係と手順はREADMEに記載し、三稿のPDFとSyncTeXはbuild/へ出力する。既存の組版・VS Code設定は保持する。
-
-PDF、TeX中間生成物、全行列の再生成出力、担当別一時メモ、外部文献PDF、一時的組版環境はGit追跡に含めない。原稿・方針・ノート・AGENTS・README・必要な再現コードを通常コミットで保存し、遠隔mainのcommitとtreeを確認する。research-hubへの反映は対象repoの保存後に別に検査する。
+変更していない `verify_mixed_formal_kernel.py` の **9 PASS**、`verify_mixed_invariant_pbw_dual.py` の **5 PASS** は保持する入力であり、中心方向検証器とともに保持する。前者のSHA-256は `b4c7a92f9ae4f5847fffd010accfdb409a6427e56f4232cfdf441dbbe9a5cf72`、後者は `f950608a1aec0a9e4bed4a73204f89e0b51babff925eebea37043f172dd4c979`。既存の重い中心計算や全検証suiteを今回再実行したとはしない。
 
 ## 保持する数学的検証
 
