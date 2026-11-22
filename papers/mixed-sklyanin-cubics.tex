@@ -5,7 +5,7 @@
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
 \large 有限中心・局所代数・線形PBW族の可換比較核}
 \author{}
-\date{2026年11月22日・研究稿 v56}
+\date{2026年11月22日・研究稿 v57}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
 pdfsubject={有限中心・局所代数・線形PBW族の可換比較核}}
 
@@ -38,7 +38,8 @@ coKleisli 生成代数から、特異係数を含む残余線束圏の実 Morita
 定常 norm の全六十四根も含まれ、同じ固定二ブロックの任意の定数補正にも適用できる。
 同一の Sklyanin 因子を任意個 $k\ge2$ 用いる定数型にもこの構成を拡張し、
 全係数で $V(G-u^2L+\kappa_kcu^3)$ への残余線束圏の Morita 比較を与える。
-$\kappa_k\ne0$ は係数に依存しないが、一般の $k$ での数値は未決定である。
+$\kappa_k$ は係数に依存せず、Azumaya Morse 点と臨界値の二次 moment から
+全ての $k\ge2$ で $\kappa_k^2=27/28$ と決まる。
 可換 smooth 開では相対 perfect 核を得て、階数 $8^k$ の臨界代数の行列式で
 その開集合を判定する。
 さらに、全線形 PBW 補正の対称行列条件、平行移動正規形と普遍中心三次を明示する。
@@ -47,7 +48,16 @@ $\kappa_k\ne0$ は係数に依存しないが、一般の $k$ での数値は未
 実可換族を参照する三角な多項式係数変更から、全線形 PBW 族の残余線束圏を
 $V(G+uQ+u^2L+u^3C)$ と普遍 Morita 比較する。
 可換 smooth 開では全 coherent Ku 同値となり、階数 $8^k$ の臨界代数で判別する。
-比較係数の全数値化と、全線形族の PI 性・有限中心性は未解決である。
+Heisenberg 対称性により一次像は純ブロックの二次 Jacobian 成分の直和となり、
+比較係数は既知の $\kappa_k$ と残る六定数で記述される。
+任意に固定した線形 PBW 係数で、一般の定数補正に対して
+正確に $8^k$ 個の通常二重点ファイバーが現れる。
+全係数および各固定線形係数の判別超曲面は既約・被約で、
+その正規化は臨界点の affine 空間である。
+残る六定数の数値化と、全線形族の PI 性・有限中心性は未解決である。
+他の滑らかな Sklyanin 因子では、二捩れでなければ指定中心三次が
+全 PBW 補正に対して多項式的に持ち上がる。
+二捩れ因子では、持上げ可能な線形補正が平行移動方向に正確に限られることを示す。
 さらに交換子パラメータの族に、零と一を含む半局所底上の
 相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
 相対模型から非可換側の Hochschild 対合指標も決定する。
@@ -164,7 +174,10 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  系\ref{cmm:cor:generic-nodal-discriminant}は一般の定数補正で
  正確に $8^k$ 個の相異なる特異中心係数があり、
  各可換標的に唯一の通常二重点があることを示す。
- 特殊係数では臨界値の衝突を許し、一般の $\kappa_k$ の数値化は未完了である。
+ 系\ref{mcs:cor:universal-scale}は、一因子の八つの Azumaya Morse 点を任意個組み合わせ、
+ 全係数の比較と非零二次 moment から $\kappa_k^2=27/28$ を決定する。
+ 残る符号を選び、全ての $k$ で $\kappa_k=3\sqrt{21}/14$ とできる。
+ 特殊係数における臨界値の衝突は引き続き許される。
  指定した二ブロックについては、系\ref{cmo:cor:all-alpha-central-kernel}が、
  同じ二つの $S(1,-1,-1)$ と重み $1,100$ について
  全 $\alpha\in\C^6,c\in\C$ 上の残余線束圏の比較を与える。
@@ -192,9 +205,22 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  定理\ref{lcc:thm:universal-linear-kernel}は、非分裂 counit 上の比較群を計算し、
  全線形 PBW 族の残余線束圏を三角な多項式係数変更により可換三次へ比較する。
  可換 smooth 開では相対 perfect 核と全 coherent Ku 同値を得る。
- 系\ref{lcc:cor:linear-discriminant}は階数 $8^k$ の乗法行列式で smoothness を判定し、
- 一般の線形・定数係数では $8^k$ 個の相異なる悪い中心係数と各標的の唯一の通常二重点を与える。
+ 定理\ref{lec:thm:seven-scalar-form}は一次像を純ブロックの二次 Jacobian 成分の直和に同定し、
+ 比較多項式を既知の $\kappa_k$ と残る六定数へ制限する。
+ 系\ref{lcc:cor:linear-discriminant}は階数 $8^k$ の乗法行列式で smoothness を判定する。
+ 系\ref{ldg:cor:fixed-linear-parameters}は任意の固定線形係数に対する一般の定数補正で
+ $8^k$ 個の相異なる悪い中心係数と各標的の唯一の通常二重点を与える。
+ 定理\ref{ldg:thm:normalization}は全係数および各固定線形係数での判別超曲面の
+ 既約性・被約性、その affine 正規化と特異点の必要十分条件を与える。
  線形 Bockstein 写像の単射性は、この存在定理の仮定ではない。
+
+ \item \emph{他の楕円因子における指定中心三次の持上げ。}
+ 定理\ref{eco:thm:clifford-obstruction}は、滑らかな $S(1,1,\tau)$ に対し、
+ 指定中心三次が持ち上がる線形 PBW 補正を平行移動方向として正確に決定する。
+ 正規化後の三つの係数は零でなければならず、定数補正は任意である。
+ 一方、系\ref{eco:cor:non-clifford-lift}は二捩れでない滑らかな標準 Sklyanin 因子の
+ 全 PBW 補正に、指定中心三次の普遍多項式持上げを与える。
+ 中心元の存在と Ku 比較の存在は異なり、後者の他因子への拡張は残る。
 
  \item \emph{零係数の実際の可換比較核。}
  $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
@@ -262,8 +288,12 @@ $N(c)=0$ の smooth proper な五様体について被約孤立定常点が現�
 
 Sklyanin 代数の斉次中心の生成は Smith--Tate
 \cite[Theorems~3.7, 4.8]{GRSklyaninST}、
-potential の PBW 変形と三次中心元は Etingof--Ginzburg
-\cite[Theorem~3.3.2]{NFMEG}に基づく。
+potential の PBW 変形と次数三以下の非スカラー中心元の存在は
+Etingof--Ginzburg\cite[Theorem~3.3.2]{NFMEG}に基づく。
+同定理だけでは、指定された斉次中心三次の持上げを保証しない。
+二捩れでない因子では低次数中心の消滅を併用して、同定理を指定三次の持上げへ強める。
+二捩れで現れる三つの一次障害は直接計算し、
+PBW・CY 性だけを指定三次の持上げに置き換える推論が成り立たないことを示す。
 同論文の斉次中心商では、対応する楕円曲線の導来圏と
 次数付き行列分解の同値も既知である
 \cite[Section~3.5, Theorem~3.6.2(i)]{NFMEG}。
@@ -283,6 +313,12 @@ potential の PBW 変形と三次中心元は Etingof--Ginzburg
 非分裂 counit に対する固定 unit の障害塔を計算し、
 各段に実可換族を参照することで、全線形係数上の多項式的な比較を得る。
 この適用は一般の PI 性・有限中心性を必要としない。
+比較式の七定数表示では、既知の Heisenberg 表現論を使い、
+実参照族に対する差の自然性から係数写像の同変性を先に確認する。
+線形 morsification の既知の一般論\cite[Theorem~2.5]{CMOMaximTibarMorse}、
+双対多様体と Legendre 変換\cite[Sections~1.2 and~1.3.B]{CMOTevelevDuality}に対し、
+本稿では固定二次項での臨界値分離を直接示し、有限な norm 判別式の既約性と正規化を求める。
+これらの一般的な幾何機構自体の新規性は主張しない。
 Walton \cite[Definition~V.1, Remark~V.16]{CMOWaltonThesis}の
 位数六の中心拡大に関する持上げの方針に対し、
 本稿は斉次パラメータ $(1,-1,-1)$、線形補正が零、定数補正が任意という
@@ -375,6 +411,8 @@ Sklyanin 曲線と標準中心元の既知の記述
 第\ref{mix:sec:linear-pbw-boundary}節で線形補正の正規形と中心三次を与える。
 第\ref{mix:sec:linear-bockstein}節で一次法線変形の残余検出を証明し、
 第\ref{lcc:sec:linear-comparison}節で非分裂 comonad と全線形族の普遍比較を構成する。
+同節で比較係数の対称性と判別超曲面の正規化を扱い、
+第\ref{eco:sec:center-lifting}節で他の楕円因子の中心三次持上げを判定する。
 第\ref{mix:sec:equivariant-window}--\ref{mix:sec:equivariant-deformation}節で非可換側の Hom 指標と
 指定 $h$-候補への形式・一般点比較を調べる。
 第\ref{mix:sec:poisson-limits}節を点・零スキームの不一致の例に充てる。
@@ -400,6 +438,7 @@ Sklyanin 曲線と標準中心元の既知の記述
 \input{papers/sections/mixed/linear_pbw_boundary.tex}
 \input{papers/sections/mixed/linear_bockstein.tex}
 \input{papers/sections/mixed/linear_comonad_comparison.tex}
+\input{papers/sections/mixed/elliptic_center_obstruction.tex}
 \input{papers/sections/mixed/equivariant_window.tex}
 \input{papers/sections/mixed/equivariant_deformation.tex}
 \input{papers/sections/mixed/kernel_specialization.tex}
@@ -415,11 +454,18 @@ Sklyanin 曲線と標準中心元の既知の記述
 一般点からの特殊化の defect を別途仮定していない。
 この核の最小の行列表示と、境界制限以外の追加標識の作用を求めることが残る。
 定理\ref{cmm:thm:universal-kernel}により、同一因子の定数型では
-任意個のブロックへの比較を得た。一般の $\kappa_k$ を数値化するには、
-因子追加と rotation・三次周期・三項座標の整合性を確認する必要がある。
+任意個のブロックへの比較を得た。
+尺度は系\ref{mcs:cor:universal-scale}により全ての $k$ で決定できたが、
+比較核の因子追加に対する互換性や全 rotation・三次周期の標識の保存は別の問題である。
 線形補正の存在比較は定理\ref{lcc:thm:universal-linear-kernel}で得た。
-次は固定した境界比較における $Q,R_2,R_{1,1},R_3$ の係数を明示し、
+次は定理\ref{lec:thm:seven-scalar-form}で残った六定数を実比較核から計算し、
 法線座標の変更と rotation・三次周期の標識に対する依存を調べる。
+
+他の楕円因子へ進む際には、第\ref{eco:sec:center-lifting}節の中心持上げ条件を先に使う。
+二捩れでない因子は全 PBW 係数を対象とでき、二捩れ因子では
+線形補正を平行移動方向に制限した上で任意の定数補正を扱う。
+その各範囲で、境界の rotation 比較と定数補正の二項写像の非退化性を確認し、
+実 comonad 比較へ進む。
 
 \paragraph{零係数で構成した核の具体化と範囲.}
 定理\ref{cmo:thm:fixed-zero-commutative-kernel}により、

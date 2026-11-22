@@ -128,7 +128,9 @@ underlying comonad の分裂だけでは足りず、
 定理\paperref{mixed}{cmm:thm:universal-kernel}が
 $V(G-u^2L+\kappa_kcu^3)$ への普遍残余線束圏比較を与え、
 その可換 smooth 開で全 coherent Ku を実現する。
-$\kappa_k$ の存在・非消滅と一般の $k$ での数値化は区別する。
+尺度は系\paperref{mixed}{mcs:cor:universal-scale}により
+全ての $k\ge2$ で $\kappa_k^2=27/28$ と決まり、
+符号を選んで $\kappa_k=3\sqrt{21}/14$ とできる。
 系\paperref{mixed}{cmm:cor:determinantal-discriminant}は
 階数 $8^k$ の臨界代数から smooth 条件を判定する。
 線形補正の正規形と普遍中心三次は
@@ -145,6 +147,19 @@ $\mathbf p$ を保持する $(\mathbf p,\alpha,c)\mapsto(\mathbf p,L,C)$ は多�
 この存在定理は、線形 Bockstein 写像の単射性や比較係数の数値列挙を仮定しない。
 単射性そのものは定理\paperref{mixed}{mix:thm:linear-bockstein-injection}で別に証明し、
 各因子の三つの対角外方向が残余圏で消えないことを示す。
+さらに定理\paperref{mixed}{lec:thm:seven-scalar-form}は
+一次像が純ブロックの二次 Jacobian 成分の直和に等しいことを示し、
+比較多項式の数値化を残る六定数へ制限する。
+定理\paperref{mixed}{ldg:thm:normalization}は、全係数および任意の固定線形係数で
+判別超曲面が既約・被約で、その正規化が臨界点の affine 空間であることを示す。
+各固定線形係数に対する一般の定数補正では、
+正確に $8^k$ 個の悪い中心係数があり、各標的は唯一の通常二重点を持つ。
+他の楕円因子の指定中心三次については、
+系\paperref{mixed}{eco:cor:non-clifford-lift}が二捩れでない全ての滑らかな
+標準 Sklyanin 因子の全 PBW 補正に普遍多項式持上げを与える。
+一方、定理\paperref{mixed}{eco:thm:clifford-obstruction}は二捩れ因子に対し、
+持上げ可能な線形補正が平行移動方向に限られることを示す。
+これは指定中心三次表示の成立条件であり、主予想への反例ではない。
 また定理\paperref{mixed}{mix:thm:h-exact-candidate}は、交換子パラメータの形式近傍と
 一般係数体上で、指定された可換候補への実比較を与える。
 定理\paperref{mixed}{mix:thm:h-semilocal-smooth}と

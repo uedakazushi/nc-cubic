@@ -389,6 +389,10 @@ Gorenstein 双対によって各体値で noetherian AS-regular である。
 特異係数で全 coherent 圏の比較を結論してはいない。
 \end{proof}
 
+\input{papers/sections/mixed/multiblock_scale.tex}
+
+\subsection{有限臨界代数と判別行列}
+
 \begin{corollary}[階数 $8^k$ の厳密な判別行列]
 \label{cmm:cor:determinantal-discriminant}
 各ブロックについて
@@ -517,10 +521,11 @@ $u=0$ には特異点がなく、$u=1$ の Hessian は
 \label{cmm:rem:scope}
 本節は同じ $S(1,-1,-1)$ の任意個のブロック、固定した非零重み、
 任意の定数補正と一つの中心係数を扱う。
-比較定数 $\kappa_k$ の存在と非消滅は証明したが、
-二ブロックで求めた $\kappa_2^2=27/28$ を全ての $k$ に拡張する数値同定は行っていない。
-特に式\eqref{cmm:eq:determinant}は、この規格化定数を含む判定式である。
-他の楕円パラメータ、線形補正、複数中心変数、全 intrinsic 対象の被覆は別の課題である。
+比較定数は系\ref{mcs:cor:universal-scale}により、全ての $k\ge2$ で
+$\kappa_k^2=27/28$ と決定でき、残る符号を選んで $\kappa_k=3\sqrt{21}/14$ とする。
+この数値化は Azumaya Morse 点、全係数の実比較、非零二次 moment によるものである。
+線形補正への拡張は定理\ref{lcc:thm:universal-linear-kernel}で扱う。
+他の楕円パラメータ、複数中心変数、全 intrinsic 対象の被覆は別の課題である。
 全 coherent 比較の範囲は式\eqref{cmm:eq:determinant}の非消滅開である。
 この開で線束部分の smoothness から全 coherent 圏への飽和を証明したのであり、
 特異係数の全 coherent 圏や、別の定義で smooth と呼ばれる任意の対象について

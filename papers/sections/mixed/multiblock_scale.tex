@@ -1,0 +1,156 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v57.
+\subsection{Azumaya 臨界点による全ブロック数の尺度決定}
+\label{mcs:subsec:scale}
+
+定理\ref{cmm:thm:universal-kernel}で、尺度を未定にした全係数の実比較は
+既に構成されている。ここでは一因子の既知の Morse 点を任意個組み合わせ、
+残余線束圏の非 smoothness と可換側の判別次数を使ってその尺度を決める。
+非 Azumaya 点の全局所型や、因子追加に対する比較核の標識の互換性は必要としない。
+
+\begin{lemma}[任意個の Azumaya Morse 点による検出]
+\label{mcs:lem:azumaya-morse-detection}
+$k\ge2$、$a_i\ne0$ とする。
+各 $D_{\alpha^{(i)}}$ の中心の正則点 $z_i$ において
+$\Omega_i$ が非退化臨界点を持ち、その値を $s_i$ とする。
+$c=-\sum_i a_is_i$ に対して、式\eqref{cmm:eq:family}の中心 chart は
+次元 $6^k$ の単純加群 $M$ を持つ。その点での完備中央局所代数は
+\begin{equation}\label{mcs:eq:matrix-node}
+ \operatorname{Mat}_{6^k}\!\left(
+ \C[[v_1,\ldots,v_{3k}]]/(v_1^2+\cdots+v_{3k}^2)\right)
+\end{equation}
+である。$M$ の coherent 延長 $\mathcal P$ は
+\begin{equation}\label{mcs:eq:self-ext}
+ \sum_{j\ge0}\dim_\C\operatorname{Ext}^j(\mathcal P,\mathcal P)s^j
+       =\frac{(1+s)^{3k}}{1-s^2}
+\end{equation}
+を満たす。従って $D^b(\operatorname{qgr}A_{\alpha,c})$ は非 proper であり、
+線束生成圏とその残余圏は非 smooth である。
+\end{lemma}
+
+\begin{proof}
+定理\ref{cmo:thm:azumaya-regular}により、各因子は $z_i$ の近傍で
+次数六の Azumaya 代数である。その外積は、中心の滑らかな $3k$ 次元近傍上の
+次数 $6^k$ の Azumaya 代数となる。
+中心和 $\sum_i a_i\Omega_i+c$ の Hessian は
+$a_i\operatorname{Hess}_{z_i}(\Omega_i)$ の block 対角和なので可逆である。
+標数零の形式的 Morse 補題と完備局所環上の Azumaya 分裂から
+式\eqref{mcs:eq:matrix-node}を得る。
+
+中心点上の行列代数の単純加群は完備化前にも定義され、次元は $6^k$ である。
+各項が有限階数の自由分解と完備化の平坦性を使うと、その自己 Ext は完備化と可換する。
+これらの Ext は一つの閉中心点に台を持ち、その剰余体は $\C$ なので、
+完備化は自己 Ext を変えない。
+Morita 同値の下で、これは $3k$ 変数の通常二重点の剰余体の自己 Ext である。
+Koszul 解消へ一つの次数二の Shamash 変数を加えた極小解消の階数は
+$(1+s)^{3k}/(1-s^2)$ である。
+
+補題\ref{cmo:lem:chart-ext}と有限中心模型を用いて
+$M$ を $\mathcal P=\pi(M[u])$ へ延長する。
+その中央台は $u\ne0$ に含まれる有限閉集合であり、
+式\eqref{cmo:eq:finite-support-local-ext}の証明はブロック数を用いない。
+従って全次数の自己 Ext が chart のものと一致し、
+式\eqref{mcs:eq:self-ext}を得る。十分大きい各次数の次元は $2^{3k-1}$ である。
+
+線束生成圏は命題\ref{cmm:prop:universal-spherical}の構成により proper である。
+もしそれが smooth なら、同命題で確認した noetherian Koszul AS 正則な周囲代数、
+正則中心三次と有限 section の入力に対して
+主稿の定理\paperref{main}{crs:thm:coherent}を適用できる。
+その結果、線束圏は全 coherent 圏に飽和するが、
+式\eqref{mcs:eq:self-ext}の非有界自己 Ext と矛盾する。
+最後に、残余線束圏が smooth なら有限例外 gluing により線束圏全体も smooth になる
+（命題\paperref{main}{crs:prop:residual-smooth}）。これで残余部分の非 smoothness も従う。
+\end{proof}
+
+\begin{corollary}[ブロック数に依存しない中心係数の尺度]
+\label{mcs:cor:universal-scale}
+定理\ref{cmm:thm:universal-kernel}の二項を正規化した比較定数は、
+全ての $k\ge2$ について
+\begin{equation}\label{mcs:eq:scale}
+ \kappa_k^2=\frac{27}{28}
+\end{equation}
+を満たす。各 $k$ で残る符号を選び、同時に
+\[
+ \kappa_k=\kappa:=\frac{3\sqrt{21}}{14},\qquad
+ \lambda=\kappa^{-1}=\frac{2\sqrt{21}}9
+\]
+とできる。従って全定数型族の可換標的を
+\[
+ V\bigl(G-u^2L_\alpha+\kappa cu^3\bigr)
+   =V\bigl(\lambda(G-u^2L_\alpha)+cu^3\bigr)
+\]
+と選べる。この選択は、全線形族の命題\ref{lcc:prop:triangular-coefficients}にも使える。
+\end{corollary}
+
+\begin{proof}
+まず $a_i=1$ の規約を用いる。
+命題\ref{cmo:prop:center-critical-polynomials}の第一因子
+$\alpha_0=(1,4,9)$ を固定する。
+可換多項式 $f_0=J-\alpha_0\cdot x$ の相異なる八個の Morse 臨界値を
+$v_1,\ldots,v_8$ と書く。
+命題\ref{cmo:prop:commutative-critical-spectrum}により、
+$D_{\alpha_0}$ の正則中心上の八個の Morse 臨界値は、集合として
+$\lambda v_1,\ldots,\lambda v_8$ である。
+これは一因子の中心計算と Jacobi 環の特性多項式の一致であり、
+本系で求める $k$ ブロックの比較定数を入力としていない。
+
+$t_i\in\C^\times$ とし、$\alpha^{(i)}=t_i^2\alpha_0$ と置く。
+生成元の尺度変更 $x_i=t_ix'_i$ により
+$D_{\alpha^{(i)}}\simeq D_{\alpha_0}$ となり、中心元は $t_i^3$ 倍される。
+可換側の臨界点も $t_i$ 倍、臨界値は $t_i^3$ 倍となる。
+$b_i=t_i^3$ と書き、次の二条件を満たす $b_i$ を選ぶ。
+\begin{enumerate}
+ \item $8^k$ 個の和 $\sum_i b_iv_{j_i}$ は全て相異なる。
+ \item $\sum_i b_i^2\ne0$。
+\end{enumerate}
+第一条件の違反は有限個の真の線型超平面に含まれる。
+実際、異なる添字組の差には、少なくとも一つ非零係数
+$v_{j_i}-v_{\ell_i}$ がある。第二条件も真の二次超曲面の補集合であり、
+さらに $b_i\ne0$ を課しても非空開集合が残る。
+
+可換臨界値の負の和の集合を
+\[
+ \Sigma=\left\{-\sum_i b_iv_{j_i}\right\}_{(j_1,\ldots,j_k)}
+\]
+と置く。非可換側では、各点 $c\in\lambda\Sigma$ に対して
+前補題の Azumaya Morse 点があり、残余線束圏は非 smooth である。
+一方、既に構成した定理\ref{cmm:thm:universal-kernel}の Morita 比較により、
+この非 smooth 集合は可換標的の特異係数集合
+$\kappa_k^{-1}\Sigma$ に含まれる。
+後者は $u=1$ の臨界点から計算でき、$u=0$ の境界は滑らかなので、
+正確に $8^k$ 個の点からなる。
+両集合の濃度が $8^k$ であることから
+\[
+ \lambda\Sigma=\kappa_k^{-1}\Sigma,
+       \qquad (\kappa_k\lambda)\Sigma=\Sigma
+\]
+を得る。非 Azumaya 部分の別の特異点を分類して、この等式を仮定したのではない。
+全係数の実比較と可換側の判別次数が、包含を等号へ変えている。
+
+命題\ref{cmo:prop:commutative-critical-spectrum}の
+$h_1(T)=T^8-(88490/63)T^6+\cdots$ から
+\[
+ \sum_{j=1}^8v_j=0,\qquad
+ \sum_{j=1}^8v_j^2=\frac{176980}{63}.
+\]
+従って
+\begin{equation}\label{mcs:eq:second-moment}
+ \sum_{s\in\Sigma}s^2
+     =8^{k-1}\frac{176980}{63}\sum_i b_i^2\ne0.
+\end{equation}
+上の集合等式から $(\kappa_k\lambda)^2=1$、従って
+式\eqref{mcs:eq:scale}が従う。
+二項の正規化に用いた $J$ の平方根の符号を反転すると三項だけの符号が変わるので、
+$\kappa_k=\lambda^{-1}$ と選べる。
+
+最後に補題\ref{cmm:lem:boundary-parameters}の重み正規化を戻す。
+$a_i\ne0$ を固定して $t_i^3=a_i$ を選ぶ操作は、同じ $\kappa_k$ を保持する。
+従って任意の固定非零重みについて結論が成り立つ。
+本証明は全係数に依存しない定数を一つの係数で較正しており、
+比較核そのものを異なるブロック数の間で同一視してはいない。
+\end{proof}
+
+\texttt{computations/verify\_mixed\_multiblock.py}は、
+一因子の臨界乗法行列、$h_1$ と中心多項式 $Q_1$ の尺度恒等式、
+非零二次 moment と tensor 和の trace 恒等式を有理数上で検算する。
+全てのブロック数に対する包含・濃度比較と Morita 比較は、上の証明に依存する。

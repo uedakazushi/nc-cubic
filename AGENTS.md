@@ -1,17 +1,19 @@
 # Research instructions — nc-cubic
 
-2026-11-22 / v56。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-22 / v57。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
 - **Main conjecture:** 任意の滑らかなnc cubic 𝒳について、同じ次元の滑らかな可換cubic XとKu(𝒳)≃Ku(X)が存在する。
 - まずC上、n≥3の存在を最優先とする。「任意」をgenericや既知の良い表示へ弱めない。全intrinsic対象の定義・認識と表示被覆は未完成として明記する。point functorの表現可能性・表示独立性も必要な範囲で検証する。
-- `cmm:thm:universal-kernel` は同一S(1,−1,−1)の任意個k≥2、固定非零重み、任意α,cで残余線束圏の普遍Morita比較を与える。標的G−u²L+κ_kcu³が滑らかな開では相対perfect核・全coherent Ku比較となる。κ_k∈C×の一般kでの数値は未決定であり、κ₂²=27/28を流用しない。rank8^k判別行列は多重根・非被約臨界点を許す。固定非零重み・一般αでは8^k個の相異なる悪い係数と各可換標的の唯一ODPを証明したが、全特殊係数での相異性や非可換中心の局所型分類は主張しない。3|kでは対称rotation分裂を仮定せず全次数格子と文字遷移を保持する。指定二ブロックの全smooth c・norm全64根の明示比較を保持する。全線形族への拡張は下記lcc定理で得た。P0は異なる楕円因子・複数中心変数・全intrinsic対象と、選択済みh核の良い特殊化。比較多項式の具体化も保持する。
+- `cmm:thm:universal-kernel` は同一S(1,−1,−1)の任意個k≥2、固定非零重み、任意α,cで残余線束圏の普遍Morita比較を与える。可換smooth開で相対perfect核・全coherent Ku比較となる。`mcs:cor:universal-scale` は全kでκ_k²=27/28を証明し、符号を選んでκ_k=3√21/14とする。一因子のAzumaya Morse点から非smooth係数の包含を先に得て、構成済みの全係数比較・判別次数・非零二次momentで較正する。κの数値から因子追加に対する核の全標識互換性を結論しない。rank8^k判別行列は特殊化後の多重根・非被約臨界点を許す。3|kでは対称rotation分裂を仮定せず全次数格子と文字遷移を保持する。指定二ブロックの全smooth c・norm全64根の明示比較を保持する。全線形族は下記lcc定理で扱う。
 - 主予想の正本は主原稿の `conj:nc-main`。同じ可換Ku標的上でPt(𝒳)≃Z_X(π)も選べるという素朴な期待は一般には成り立たず、独立した予想や主予想と同格の最優先目標にしない。本文の注意 `ppz:rem:naive-expectation` と不一致の例として説明し、Introductionから参照する。既存の定理・証明・計算は保持し、修正版の予想探しを自動的にP0へ戻さない。零スキームの非被約構造を含め、point shiftの固定点とは区別する。
 
 ## 現行結果の範囲と研究上の注意
 
-- `mixed/linear_pbw_boundary.tex` のPBW対称行列条件・普遍中心・HH²₋₁≅C³を保持する。`mixed/linear_bockstein.tex` は自己交叉の双加群classをLowenのfull brace cochainへ移し、相対Koszul–Tateのunary微分を使って3k方向の単射性を証明する。対象ごとに異なるhomotopyを許し、一辺の左右primitiveが作る対角＋交代行列と対称PBW行列を比較する。augmentationの値だけから消滅や非消滅を結論しない。`mixed/linear_comonad_comparison.tex` は任意の非分裂counitでも二項Jac(G)₁・三項Cだけが残ることを両隣接群を含めて示し、全線形族の普遍残余線束Morita比較と可換smooth開の相対perfect核・全coherent Ku比較を構成する。実可換族を各段の参照点に取ってtorsor差を測る。Q(p),L=−Σaαx+R₂(p),C=κ_kc+R₁,₁(p,α)+R₃(p)は三角多項式変換であるが、全数値係数は未算出。存在比較はBockstein単射性に依存しない。一般PI性・有限中心性は未証明であり、周囲代数のuntwisted双対性には相対potential解消を使う。rank8^kの臨界代数で判別し一般(p,α)では8^k個の相異なる悪い中心係数と各標的の唯一ODPを得る。新検算器verify_mixed_linear_bockstein.pyの6 PASSは有限線型代数と全k・全arityの記号的sector証明書で、核やfull cochain同定の形式証明ではない。
+- `mixed/linear_pbw_boundary.tex` のPBW対称行列条件・普遍中心・HH²₋₁≅C³を保持する。`mixed/linear_bockstein.tex` は自己交叉の双加群classをLowenのfull brace cochainへ移し、対象ごとに異なるhomotopyを許して3k方向の単射性を証明する。augmentationの値だけでは検出しない。`mixed/linear_comonad_comparison.tex` は非分裂counitの二項Jac(G)₁・三項Cを両隣接群も含めて計算し、実可換参照族との差から全線形族の普遍残余線束Morita比較を作る。可換smooth開で相対perfect核・全coherent Kuとなり、存在比較はBockstein単射性に依存しない。`lec:thm:seven-scalar-form` は同変境界比較と標準Jac₂切断の下で一次像を純ブロック直和に同定し、七定数形を与える。κ以外の六定数は未数値化。非線型A∞構造を平均せず、実構造間の差と可縮pathの自然性で同変性を示す。`ldg:thm:normalization` は全係数・各固定pでの判別超曲面の既約被約性、affine正規化と特異点判定を与える。各固定pの一般αで8^k個の単純な悪いcを得るが、固定(p,α)特殊化の重複根は許す。一般PI性・有限中心性は未証明で、周囲代数のuntwisted双対性は相対potential解消による。有限検算と全coherenceの証明を区別する。
+
+- `mixed/elliptic_center_obstruction.tex` は、二捩れでない滑らかな標準Sklyanin因子の全PBW係数に指定中心三次の普遍多項式liftを与える。入力はEG Theorem3.3.2(ii)の全固定係数での非スカラー中心と、Z₁=Z₂=0・Z₃=CΩ。generic限定のEG Theorem3.4.5を全係数へ使わない。二捩れS(1,1,τ)、τ≠0,τ³≠1,−8では正規化p_x=m11−τm23等が全て零であることが必要十分。任意Q₂補正を消す三汎関数が−3τ(p_z,p_x,p_y)を検出する。許容線形項は平行移動方向で、定数補正は任意。PBW・CY性を指定三次のliftと同一視せず、これをKu主予想への反例とも扱わない。他因子の実境界/comonad/Ku比較は未完成であり、中心持上げの成立範囲から着手する。
 
 - `mixed/central_spherical_reconstruction.tex` は全係数のproperな残余線束圏からu=0への球面制限を作る。twistはρ_S²、cotwistはρ_A⁻¹[1]で、三乗はそれぞれ[4]と[1]。一次Bocksteinが零なのでunderlying comonadはId⊕J、J=ρ_S²[−1]となるが、余乗法は自明とは限らない。正規化A_nの選択空間は二項Jac(G)₁=C⁶・三項Jac(G)₀=Cで、四項以降の非空fiberは可縮。任意の低項データの存在障害の自動消滅は使わず、実随伴の二つの構造を比較する。特異係数で全coherent圏のproper性やperfect対角を仮定しない。
 - `mixed/central_formal_comparison.tex` は普遍係数環上の低項データを、二項Bocksteinと三項の非零scalar·cへ同定する。active濾過・相対proper模型により係数は多項式であり、重み(α,c)=(2,3)が三項をcの一次式へ制限する。法線の符号対合が三項torsorの原点を定め、中央一変数MFが係数の非零性を検出する。`mixed/central_kernel.tex` は全coherent comonadとcoKleisli生成代数から実比較を構成し、その後で全cの線束圏smoothnessとP64の非零二次momentにより尺度λ²=28/27を決める。判別式の一致から核を仮定していない。普遍線束比較、U上の相対perfect核、滑らかな複素ファイバーの全coherent比較を区別する。

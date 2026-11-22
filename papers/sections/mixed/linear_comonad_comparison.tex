@@ -373,6 +373,8 @@ underlying 射と二項構造を同定する path の可縮性により、
 なお $Q$ の線型写像の単射性は、この議論のどの段階にも必要でない。
 \end{proof}
 
+\input{papers/sections/mixed/linear_equivariant_coefficients.tex}
+
 \subsection{全 coherence と実比較核}
 
 \begin{theorem}[全線形 PBW 族の可換 Ku 実現]
@@ -496,7 +498,8 @@ smoothness の最後の同値には定理\ref{lcc:thm:universal-linear-kernel}�
 最高係数の主張は $C=\kappa_kc+C(\mathbf p,\alpha,0)$ から従う。
 重複した臨界値や非被約な臨界代数もこの行列式に含まれ、
 局所 Artin 分解で各因子の指数はその局所長である。
-従って、この式自体を被約判別式と呼んではいない。
+従って、固定した $(\mathbf p,\alpha)$ に特殊化した一変数多項式が
+常に被約であると主張してはいない。
 
 臨界値の相異性は $\mathscr D_k$ の $c$ に関する判別式の非消滅、
 臨界点の非退化性は Hessian 行列式の $\mathcal Q$ 上の norm の非消滅で検出できる。
@@ -508,20 +511,28 @@ $\mathbf p=0$ 上には系\ref{cmm:cor:generic-nodal-discriminant}の非空開�
 $\C[[v_1,\ldots,v_N]]/(v_1^2+\cdots+v_N^2)$ となる。
 \end{proof}
 
+\input{papers/sections/mixed/linear_discriminant_geometry.tex}
+
 \begin{remark}[係数の存在と明示化の区別]
 \label{lcc:rem:scope}
 上の定理は、同じ $S(1,-1,-1)$ の全 quadratic--linear--constant PBW 補正を、
 平行移動による正規化の後で扱う。
 $Q,R_2,R_{1,1},R_3$ は、固定した境界比較と実 adjunction の構造から
-普遍係数上で定まる多項式である。その全係数の数値列挙と、
+普遍係数上で定まる多項式である。
+定理\ref{lec:thm:seven-scalar-form}でそれらを七定数の形へ制限し、
+系\ref{mcs:cor:universal-scale}で $\kappa_k=3\sqrt{21}/14$ と選べることを示した。
+残る六定数 $\chi_k,A_k,B_k,C_k,D_k,E_k$ の数値決定と、
 一般の中心環と PI 性の分類は、本定理の存在証明とは別の問題として残る。
 線形補正から $V_2$ への写像の単射性と
 $\eta(\mathbf p)=0\Longleftrightarrow\mathbf p=0$ は、
 定理\ref{mix:thm:linear-bockstein-injection}で独立に証明されている。
-従ってその像は $3k$ 次元であるが、$V_2$ の指定座標での具体的表示は未算出である。
+その像は式\eqref{lec:eq:bockstein-image}の純ブロック直和であり、
+式\eqref{lec:eq:quadratic-image}によって一つの非零尺度 $\chi_k$ まで表示される。
 本節の存在比較はこの単射性を入力としていない。
-式\eqref{lcc:eq:linear-discriminant}もこの多項式係数変更と $\kappa_k$ を含む表示であり、
-それらの数値同定を済ませた明示行列という意味ではない。
+式\eqref{lcc:eq:linear-discriminant}も残る六定数を含む表示であり、
+その全数値同定を済ませた明示行列という意味ではない。
+ただし全係数および各固定 $\mathbf p$ での判別超曲面は
+定理\ref{ldg:thm:normalization}によって既約・被約であり、正規化と特異点を記述できる。
 定数型部分族における既存の明示公式と検算は引き続きそのまま使える。
 全 coherent 比較は表示した可換標的が滑らかな範囲で主張している。
 特異係数での全 coherent 圏、異なる楕円因子、複数中心変数、

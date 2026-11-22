@@ -5,8 +5,9 @@ Run with Python 3 and SymPy:
     python3 computations/verify_mixed_multiblock.py
 
 The checks construct the universal eight-dimensional critical algebra, verify
-its multiplication over QQ[a,b,c], and check the degree arithmetic used in the
-boundary-sector calculation.  They do not mechanically prove dg equivalence,
+its multiplication over QQ[a,b,c], check the one-factor scale and tensor-sum
+moment used to calibrate every block number, and check the degree arithmetic
+used in the boundary-sector calculation.  They do not mechanically prove dg equivalence,
 the obstruction tower, or the all-coherent comonad comparison.  Those arguments
 are in papers/sections/mixed/multiblock_central_kernel.tex.
 """
@@ -136,6 +137,24 @@ def main():
     assert sp.gcd(seed_spectrum, seed_spectrum.diff()).degree() == 0
     assert seed_hessian.det() != 0
     print("PASS: alpha=(1,4,9) has eight reduced Morse critical points and eight distinct critical values")
+
+    # Q_1 is the independently obtained central Morse polynomial displayed in
+    # centers.tex, Proposition cmo:prop:center-critical-polynomials.  This
+    # check compares the two exact inputs; it does not rerun the central
+    # elimination or establish the all-coherent comparison theorem.
+    center_morse = (
+        129140163 * spectral**8 - 188108856360 * spectral**6
+        + 92316693932208 * spectral**4 - 16917496764590592 * spectral**2
+        + 875501309973348352
+    )
+    lambda_squared = sp.Rational(28, 27)
+    scaled_seed = sum(
+        expected_spectrum.nth(2 * j) * spectral**(2 * j)
+        * lambda_squared**(4 - j) for j in range(5)
+    )
+    assert sp.expand(scaled_seed - center_morse / 3**17) == 0
+    assert sp.Rational(27, 28) * lambda_squared == 1
+    print("PASS: exact central/commutative Morse spectra have lambda^2=28/27; the nonzero tensor moment calibrates kappa_k^2=27/28")
 
     # Degenerate critical schemes remain part of the determinant criterion.
     nilpotent_matrices = critical_matrices((0, 0, 0))

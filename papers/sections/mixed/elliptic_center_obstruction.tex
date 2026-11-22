@@ -1,0 +1,439 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v57.
+\section{楕円因子の中心三次を持ち上げる条件と二捩れでの障害}
+\label{eco:sec:center-lifting}
+
+異なる楕円 Sklyanin 因子へ中心比較を広げるには、
+PBW 変形が存在することと、境界を定める指定中心三次が持ち上がることを
+分ける必要がある。本節ではこの区別を実際の障害によって示す。
+二捩れの因子では、平行移動を除いた非零の線形補正は、
+任意の低次補正を許しても指定中心三次を持ち上げられない。
+一方、二捩れでない滑らかな Sklyanin 因子では、
+全ての低次 cyclic potential に対して多項式的な中心持上げが存在する。
+
+PBW 性と untwisted Calabi--Yau 性には
+Berger--Taillefer \cite[Theorems~3.1, 3.6]{NFMBeTa}を、
+非スカラー中心元の存在には Etingof--Ginzburg
+\cite[Theorem~3.3.2(ii)]{NFMEG}を用いる。
+後者が全ての係数で保証するのは濾過次数 $3$ 以下の非スカラー中心元であり、
+指定した最高次成分の持上げではない。
+本節の障害はこの差を検出するもので、
+非可換三次に関する主予想への反例ではない。
+以下の明示的な障害と許容部分の記述について、
+文献上の初出の網羅的な確認は未完了である。
+
+同論文の付録に掲載された Rains の $E_6$ 型中心式
+\cite[Section~9, p.~1414]{NFMEG}でも、この区別の兆候は見える。
+関係式 $xy-qyx-tz^2+\cdots$ の規約では、その式の三次部分に $q+1$ が掛かり、
+Clifford 値 $q=-1$ で最高次部分が消える。
+ただし一つの公式の退化は、別の中心持上げの不存在を意味しない。
+以下では任意の二次・一次補正を消す三つの汎関数を構成し、
+指定三次の持上げが存在する部分を決定する。
+
+\subsection{滑らかな二捩れ因子と PBW 正規形}
+
+$\tau\in\C$ が
+\begin{equation}\label{eco:eq:clifford-open}
+ \tau\ne0,\qquad \tau^3\ne1,-8
+\end{equation}
+を満たすとし、反交換子を $\{a,b\}=ab+ba$ と書く。
+\begin{gather*}
+ S_\tau=\C\langle x,y,z\rangle/
+   (\{y,z\}+\tau x^2,\ \{z,x\}+\tau y^2,\ \{x,y\}+\tau z^2),\\
+ C_+=xyz+yzx+zxy,\qquad C_-=yxz+xzy+zyx,\qquad
+ \Omega_\tau=\frac{\tau^3-1}{3}(C_--C_+)
+\end{gather*}
+と置く。
+
+\begin{lemma}[実楕円因子と指定中心元]
+\label{eco:lem:clifford-input}
+$S_\tau=S(1,1,\tau)$ は Noetherian な Koszul AS-regular domain で、
+global dimension と Gorenstein parameter はともに $3$、
+Nakayama 自己同型は恒等である。
+点対応は滑らかな平面楕円曲線
+\[
+ E_\tau=V\bigl(\tau(x^3+y^3+z^3)-(2+\tau^3)xyz\bigr)
+\]
+上の非零二捩れ点 $p=(1:1:\tau)$ による平行移動である。
+$o=(1:-1:0)$ を原点に取る。
+$\Omega_\tau$ は非零の中心正則元であり、
+\[
+ S_\tau/(\Omega_\tau)
+   =B(E_\tau,\mathcal O_{E_\tau}(1),t_p)
+\]
+となる。
+\end{lemma}
+
+\begin{proof}
+Hesse 曲線の判別条件は
+\[
+ (2+\tau^3)^3-27\tau^3=(\tau^3-1)^2(\tau^3+8)\ne0
+\]
+である。多重線型化の行列
+\[
+ M(x,y,z)=
+ \begin{pmatrix}\tau x&z&y\\z&\tau y&x\\y&x&\tau z\end{pmatrix}
+\]
+の行列式は $E_\tau$ の表示方程式の負である。
+その滑らかさから $E_\tau$ 上の階数はちょうど $2$ であり、
+両射影は同型となる。従って多重線型化は自己同型のグラフである。
+三関係は左右対称なので、この自己同型の二乗は恒等である。
+対角線上では $\tau x^2+2yz$ とその巡回置換が零になるが、
+座標の一つが零なら全て零、全て非零なら $\tau^3=-8$ となる。
+従って固定点はない。
+楕円曲線の自己同型 $t_q\gamma$ で $\gamma(o)=o$、$\gamma\ne1$ なら
+$1-\gamma$ は全射であるから固定点を持つ。
+よってこの自己同型は平行移動であり、
+$M(o)(1,1,\tau)^{\mathsf t}=0$ から $t_p$ に等しい。
+これは $p\ne o$、$2p=o$ をも示す。
+
+この実楕円データに対する AS-regular 性、Koszul 性、domain 性、
+Noetherian 性は Tate--Van den Bergh
+\cite[Theorem~1.1, Corollary~1.3 and Section~4.1]{GRSklyaninTV}による。
+cyclic potential は
+\[
+ \Phi_3=xyz+yxz+\frac\tau3(x^3+y^3+z^3)
+\]
+なので、untwisted $3$-Calabi--Yau 性は
+\cite[Corollary~2.9]{MoriSmith}による。
+中心元と中心商の公式
+\cite[Sections~1--2]{GRSklyaninDLL}は
+$3c_3=(1-\tau^3)C_++(\tau^3-1)C_-$ を与え、
+従って指定元は $c_3$ そのものである。
+非零性は次の Clifford 表示でも直接確認できる。
+
+三関係から、例えば
+\[
+ [x^2,y]=\tau[z^2,x]=\tau^2[y^2,z]
+          =\tau^3[x^2,y]
+\]
+となり、$\tau^3\ne1$ により $x^2,y^2,z^2$ は中心である。
+$X=x^2,Y=y^2,Z=z^2$ とすると、$S_\tau$ は
+$\C[X,Y,Z]$ 上の Clifford 代数で、対角成分が $X,Y,Z$、
+非対角成分が $-\tau Z/2,-\tau Y/2,-\tau X/2$ の二次形式に対応する。
+逆向きの写像も $X=x^2,Y=y^2,Z=z^2$ によって定まり、互いに逆である。
+Clifford の順序基底より、その次数三部分の基底は
+\begin{equation}\label{eco:eq:degree-three-basis}
+ \mathscr B_3=(x^3,x^2y,x^2z,xy^2,y^3,y^2z,xz^2,yz^2,z^3,xyz)
+\end{equation}
+である。$C_+-C_-$ の $xyz$ 係数は $6$ なので
+$\Omega_\tau\ne0$ であり、domain 性から正則となる。
+\end{proof}
+
+以下の Rees 代数では $u$ を中心、$x,y,z,u$ の次数を全て一とする。
+\begin{equation}\label{eco:eq:clifford-rees}
+ \begin{split}
+ \mathcal B_{\mathbf p,\alpha}
+ =\C[u]\langle x,y,z\rangle/\bigl(&
+ \{y,z\}+\tau x^2+up_xx-u^2\alpha_x,\\
+ &\{z,x\}+\tau y^2+up_yy-u^2\alpha_y,\\
+ &\{x,y\}+\tau z^2+up_zz-u^2\alpha_z\bigr).
+ \end{split}
+\end{equation}
+これは $\Phi_3+\frac u2(p_xx^2+p_yy^2+p_zz^2)
+-u^2(\alpha_xx+\alpha_yy+\alpha_zz)$ の cyclic derivative で定まる。
+従って全ての $\mathbf p,\alpha$ で PBW であり、
+$u$ は正則、$\mathcal B/(u)=S_\tau$ である。
+この PBW 性は同じ基底を用いて普遍多項式係数環上でも成立する。
+自己双対 potential 解消も同じ係数で存在し、
+dehomogenization は untwisted $3$-Calabi--Yau である
+\cite[Theorems~3.1, 3.6]{NFMBeTa}。
+これらの事実には中心三次の持上げを仮定していない。
+
+\begin{proposition}[全 PBW 線形補正の平行移動正規形]
+\label{eco:prop:clifford-pbw}
+三つの同次関係を $r_i$ とし、一般の補正を
+$r_i+u\sum_jm_{ij}x_j-u^2\alpha_i$ と書く。
+これは PBW であることと $M=M^{\mathsf t}$ が同値である。
+対称な $M$ に対し平行移動 $x_i=X_i+s_i u$ により、
+非対角成分を零とする唯一の正規形が存在し、その係数は
+\begin{equation}\label{eco:eq:normal-parameters}
+ p_x=m_{11}-\tau m_{23},\qquad
+ p_y=m_{22}-\tau m_{13},\qquad
+ p_z=m_{33}-\tau m_{12}.
+\end{equation}
+定数補正には条件がない。
+\end{proposition}
+
+\begin{proof}
+Koszul の三次重なりは $\sum_i x_i\otimes r_i=\sum_i r_i\otimes x_i$ である。
+Braverman--Gaitsgory の第一条件
+\cite[Main Theorem~0.5, Lemma~3.3]{CMOBravermanGaitsgory}は
+$\sum_{ij}m_{ij}(x_jx_i-x_ix_j)\in R$ となる。
+$r_i$ の $x_i^2$ 係数が非零の $\tau$ なので
+$R\cap\bigwedge^2V=0$、従って条件は $M=M^{\mathsf t}$ である。
+このとき同式は自由代数で零となり、定数補正の差も零なので残る条件も成立する。
+平行移動による $M$ の変化は
+\[
+ \begin{pmatrix}
+ 2\tau s_x&2s_z&2s_y\\
+ 2s_z&2\tau s_y&2s_x\\
+ 2s_y&2s_x&2\tau s_z
+ \end{pmatrix}
+\]
+であり、$s_x=-m_{23}/2,s_y=-m_{13}/2,s_z=-m_{12}/2$ が唯一の解である。
+定数項の変化は多項式的で、各 $M$ を固定すると $\alpha$ の平行移動になる。
+\end{proof}
+
+\subsection{中心三次の一次障害と許容部分の決定}
+
+\begin{theorem}[二捩れ因子の指定中心三次は平行移動方向だけに持ち上がる]
+\label{eco:thm:clifford-obstruction}
+式\eqref{eco:eq:clifford-open}の下で、任意の $\alpha$ に対し、
+$\Omega\in Z(\mathcal B_{\mathbf p,\alpha})_3$ で
+$\Omega\bmod u=\Omega_\tau$ を満たすものが存在するための必要十分条件は
+\[
+                         \mathbf p=0
+\]
+である。従って一般の対称線形 PBW 補正 $M$ で許容されるものは、
+式\eqref{eco:eq:normal-parameters}の三式が零となる部分空間、
+すなわち平行移動から来る三次元部分空間に正確に等しい。
+\end{theorem}
+
+\begin{proof}
+任意の持上げは、固定した語代表を選べば
+\[
+ \Omega=\Omega_\tau+uQ_2+u^2Q_1+bu^3,
+ \qquad Q_2\in(S_\tau)_2,\quad Q_1\in(S_\tau)_1,\quad b\in\C
+\]
+と書ける。これは二次補正全体を許した表示である。
+関係式による $Q_2$ の代表の変更は、さらに低い補正へ吸収できる。
+$u$ の正則性により
+\[
+ \delta_g(\mathbf p)
+    =\left.u^{-1}[g,\Omega_\tau]\right|_{u=0}\in(S_\tau)_3
+\]
+を定義できる。$\delta_g$ は $\mathbf p$ に線型で、$\alpha$ に依存しない。
+中心性に必要なのは
+\begin{equation}\label{eco:eq:obstruction-equation}
+             \delta_g(\mathbf p)+[g,Q_2]=0
+             \qquad(g=x,y,z)
+\end{equation}
+であり、$Q_1,b$ はこの式に寄与しない。
+
+基底\eqref{eco:eq:degree-three-basis}について、
+$\ell_x,\ell_y,\ell_z$ をそれぞれ
+$y^2z,xz^2,x^2y$ の係数を取る汎関数とする。
+平方は中心であり、例えば
+\[
+ [y,xy]=-2xy^2-\tau yz^2,\qquad
+ [y,xz]=\tau(x^3-z^3),\qquad
+ [y,yz]=2y^2z+\tau x^2y
+\]
+なので $\ell_y([y,(S_\tau)_2])=0$ である。
+巡回して $\ell_g([g,(S_\tau)_2])=0$ を得る。
+一方、直接計算は
+\begin{equation}\label{eco:eq:three-functionals}
+ \bigl(\ell_x\delta_x(\mathbf p),\ell_y\delta_y(\mathbf p),
+       \ell_z\delta_z(\mathbf p)\bigr)
+      =-3\tau(p_z,p_x,p_y)
+\end{equation}
+を与える。$\tau\ne0$ より式\eqref{eco:eq:obstruction-equation}は
+$\mathbf p=0$ を強制する。
+
+この有限計算を明示する。$\mathbf p=(1,0,0)$ では
+\begin{equation}\label{eco:eq:first-order-table}
+ \begin{split}
+ \delta_x&=\tau^3(y^3-z^3),\\
+ \delta_y&=-2x^2y-\tau^2y^2z-3\tau xz^2,\\
+ \delta_z&=2x^2z+3\tau xy^2+\tau^2yz^2.
+ \end{split}
+\end{equation}
+全ての係数は $\C(\tau)$ 上の行列計算を前提とせずに求められる。
+実際、$d=1-\tau^3$ と置いて $u^2$ を法とすると、関係式は
+\[
+ [x^2,y]=\frac{\tau^2u}{d}[x,y],\qquad
+ [y^2,z]=\frac{u}{d}[x,y],\qquad
+ [z^2,x]=\frac{\tau u}{d}[x,y]
+\]
+と、$y,z$ を交換した三式を与える。
+$A=C_+-C_-$ に対する自由代数の恒等式
+\begin{align*}
+ [g,A]={}&[g^2,[h,k]]+[\{g,h\},\{k,g\}]\\
+         &-[\{g,h\},gk]-[gh,\{k,g\}]
+ \qquad ((g,h,k)\text{ は巡回順序})
+\end{align*}
+へ代入すると、例えば
+\[
+ [y,A]\equiv\frac{u}{d}
+      (-6x^2y-3\tau^2y^2z-9\tau xz^2)\pmod {u^2}
+\]
+となる。$\Omega_\tau=dA/3$ より表示した $\delta_y$ を得る。
+同じ恒等式で $\delta_x$ を得て、$y,z$ の交換で $\delta_z$ を得る。
+$x,y,z$ の巡回置換は $\Omega_\tau$ を保つので、
+三つの $\mathbf p$ 方向を合わせると式\eqref{eco:eq:three-functionals}になる。
+
+逆に $\mathbf p=0$ なら、定数項は全て中心なので、
+補題\ref{eco:lem:clifford-input}と同じ交換子の連鎖で
+$x^2,y^2,z^2$ が中心になる。
+従って三つの反交換子も中心であり、$A$ は三生成元 Clifford 代数の
+交代体積元として中心である。これは上の自由代数恒等式の各項を
+零とすることからも分かる。よって $\Omega_\tau$ 自体が中心持上げを与える。
+平行移動は $u=0$ の同定を保つため、最後の主張は
+命題\ref{eco:prop:clifford-pbw}から従う。
+\end{proof}
+
+\begin{example}[有理係数の PBW 変形で中心三次が失われる]
+\label{eco:ex:rational-obstruction}
+$\tau=2,\mathbf p=(1,0,0),\alpha=0,u=1$ とすると
+\[
+ D=\C\langle x,y,z\rangle/
+ (yz+zy+2x^2+x,\ zx+xz+2y^2,\ xy+yx+2z^2)
+\]
+は $S(1,1,2)$ の PBW 変形である。
+しかし $\frac73(C_--C_+)$ を最高次成分とする次数 $3$ 以下の中心元は存在しない。
+Rees 表示に戻すと、$[y,\Omega_2]$ の $u$ の一次係数における
+$xz^2$ 係数 $-6$ だけでも、定理の必要条件と矛盾する。
+一方、
+\[
+                         7x^2+4x\in Z(D)
+\]
+は非スカラーである。実際、上の交換子連鎖は
+$[x^2,y]=-\frac47[x,y]$ と $[x^2,z]=-\frac47[x,z]$ を与える。
+従って Etingof--Ginzburg の次数 $3$ 以下の中心元の存在と矛盾しない。
+Rees の中心三次 $u(7x^2+4ux)$ を採用しても、その $u=0$ での値は零であり、
+指定した楕円中心商を与えない。
+\end{example}
+
+\subsection{二捩れでない因子における普遍中心持上げ}
+
+\begin{proposition}[低次数中心がない場合の多項式持上げ]
+\label{eco:prop:universal-lift}
+$S=T(V)/(\partial\Phi_3)$ を三生成元の quadratic Koszul
+untwisted $3$-Calabi--Yau 代数とし、
+\[
+ Z(S)_1=Z(S)_2=0,\qquad Z(S)_3=\C\Omega_0\ne0
+\]
+を仮定する。
+二次 cyclic potential $P$ と一次 cyclic potential $L$ の普遍係数環を $T$ とし、
+$\Phi_3+uP+u^2L$ による Rees 代数を $\mathcal B_T$ とする。
+各 $S_d$ の語代表を固定すれば、唯一の中心元
+\begin{equation}\label{eco:eq:universal-lift}
+ \Omega_T=\Omega_0+uC_2(P)+u^2C_1(P,L)
+\end{equation}
+が存在する。ただし一意性は、選んだ PBW 表示における $u^3$ の scalar 項を
+零とする正規化の下でのものである。
+$C_2$ の係数は $P$ に一次、$C_1$ の係数は $P$ に二次および $L$ に一次の
+多項式であり、任意の係数変更に両立する。
+各固定係数で最高次成分 $\Omega_0$ を持つ他の中心三次は
+$\Omega_T+bu^3$ に限る。
+\end{proposition}
+
+\begin{proof}
+PBW 性は \cite[Theorem~3.1]{NFMBeTa}による。
+固定した $S_d$ の基底の語代表は、最高次関係で任意の語を置き換え、
+残る項の active 次数を下げる帰納法によって、普遍係数環上の全体を張る。
+これらの語は各複素係数で PBW 基底になる。
+従って語の間の普遍係数の有限線型関係を全閉点へ特殊化すると、
+各多項式係数が全閉点で零となり、関係は零である。
+よって同じ語代表は $T[u]$ 上でも基底になる。
+従って必要な有限次数の乗法は多項式係数で表せる。
+
+各複素係数で Etingof--Ginzburg
+\cite[Theorem~3.3.2(ii); proof in Section~8.3, pp.~1410--1411]{NFMEG}を適用する。
+この定理の仮定は同次 $\Phi_3$ が CY-potential であることであり、
+低次係数の一般性を要求していない。
+得られる非スカラー中心元は、$Z(S)_1=Z(S)_2=0$ によって必ず最高次数 $3$ を持つ。
+その最高次成分は非零倍の $\Omega_0$ なので、定数倍で正規化できる。
+二つの正規化された持上げの差は、次数 $2$ 以下の中心元である。
+その初項を順に取ると scalar 以外は零であり、scalar 項を消せば一意となる。
+
+この各点の存在だけを普遍係数の存在と同一視せず、実際に係数を解く。
+固定線型写像
+\[
+ a_2:S_2\longrightarrow\operatorname{Hom}_{\C}(V,S_3),\qquad
+ a_1:S_1\longrightarrow\operatorname{Hom}_{\C}(V,S_2),\qquad
+ a_j(v)(g)=[g,v]
+\]
+は低次数中心の消滅により単射である。
+それぞれの像上の逆を全空間へ線型に延長して固定する。
+$[g,\Omega_0+uC_2+u^2C_1]$ の $u$ の係数を消す式は
+$a_2(C_2)=b_2(P)$ であり、$b_2$ は $P$ に一次である。
+各点の存在によって $b_2$ は常に $a_2$ の像に入り、固定左逆は多項式的な
+$C_2(P)$ を与える。
+次の $u^2$ の係数を消す式は
+$a_1(C_1)=b_1(P,L)$ であり、右辺は $P$ に二次、$L$ に一次である。
+再び固定左逆で $C_1$ を得る。
+各閉点でこれは一意の中心持上げの二つの係数に等しいため、
+残る交換子の係数も全閉点で零となる。
+多項式環 $T$ は被約なので、交換子は普遍係数で零である。
+この構成が重み $\operatorname{wt}(P)=1,\operatorname{wt}(L)=2$ と底変更を保つことも明らかである。
+\end{proof}
+
+\begin{corollary}[二捩れでない全ての滑らかな Sklyanin 因子]
+\label{eco:cor:non-clifford-lift}
+$S(a,b,c)$ の標準的な点曲線
+\[
+ E=V\bigl(abc(x^3+y^3+z^3)-(a^3+b^3+c^3)xyz\bigr)
+\]
+が滑らかであるとする。
+その平行移動点 $p=(a:b:c)$ が $2p\ne o$ を満たすなら、
+標準中心三次 $\Omega_0$ は全ての quadratic--linear--constant PBW 変形に対して
+命題\ref{eco:prop:universal-lift}の多項式持上げを持つ。
+この主張は有限位数・無限位数の両方を含む。
+\end{corollary}
+
+\begin{proof}
+滑らかさは $abc\ne0$ を含む。
+$abc=0$ なら表示方程式は $xyz$ の倍数または零であり、滑らかな平面三次ではない。
+$E$ を $x^3+y^3+z^3-3\lambda xyz=0$ と規格化すると、
+$\lambda^3\ne1$ であり、Hessian の $E$ への制限は非零定数倍の $xyz$ である。
+従って $abc\ne0$ の点 $p$ は変曲点でない。
+$o=(1:-1:0)$ は変曲点なので、$p\ne o$ かつ $3p\ne o$ である。
+実 Sklyanin 代数、中心商、CY 性には
+補題\ref{eco:lem:clifford-input}と同じ一次資料が適用できる。
+
+中心商 $B=B(E,\mathcal O_E(1),t_p)$ に次数 $d>0$ の非零中心元 $z$ があれば
+$t_p^d=1$ となることを確認する。
+次数一の全 section $s$ に対する $zs=sz$ は、積の規約に従って
+\[
+             z\,(t_p^d)^*s=s\,t_p^*z
+\]
+である。二つの section の比を取ると、稠密開集合で
+$(t_p^d)^*(s_1/s_2)=s_1/s_2$ となる。
+$\mathcal O_E(1)$ の section は $E$ を埋め込むため、$t_p^d=1$ である。
+従って $p,2p,3p\ne o$ から $Z(B)_d=0$ $(1\le d\le3)$ を得る。
+中心商の核は $(\Omega_0)$ なので、
+$Z(S)_1=Z(S)_2=0$、$Z(S)_3=\C\Omega_0$ となる。
+これで命題\ref{eco:prop:universal-lift}を適用できる。
+
+最後に、$c\ne0$ により三つの関係空間と $\bigwedge^2V$ の交わりは零である。
+命題\ref{eco:prop:clifford-pbw}と同じ PBW 条件の計算から、
+全ての PBW 線形補正は cyclic potential の二次補正であり、
+定数補正は任意の一次 potential に対応する。
+従って結論は lower-potential の部分族だけでなく、指定表示の全 PBW 補正を覆う。
+\end{proof}
+
+\begin{remark}[滑らかな標準 Sklyanin 因子の二捩れ部分]
+\label{eco:rem:exhaustion}
+上の滑らかな Hesse 曲線では、座標交換
+$(x:y:z)\mapsto(y:x:z)$ は原点 $o$ を固定する非恒等な対合であるから、
+楕円曲線の逆元写像に等しい。
+従って $2p=o$ は $(a:b:c)=(b:a:c)$ と同値であり、
+$c\ne0$ よりこれは $a=b$ と同値である。
+$a\ne0$ なのでこの部分は $S(1,1,\tau)$ に規格化でき、
+滑らかさの条件は式\eqref{eco:eq:clifford-open}となる。
+従って定理\ref{eco:thm:clifford-obstruction}と
+系\ref{eco:cor:non-clifford-lift}は、
+滑らかな点曲線を持つ全ての標準 Sklyanin 因子を二つの場合に分けている。
+\end{remark}
+
+\subsection{比較問題への帰結と検証範囲}
+
+異なる楕円因子の比較に必要な入力のうち、
+本節は指定中心三次の持上げと全係数での PBW 性を切り分けた。
+二捩れでない因子では、中心元の存在を未知の追加仮定にする必要はない。
+二捩れ因子では、全線形 PBW 族を同じ境界の中心三次商にすること自体が不可能である。
+ただし定数補正と平行移動方向は全て許され、既存の楕円境界比較とも両立する。
+実際の多因子 Ku 比較には、さらに境界の rotation 比較、
+二項・三項の実構造の同定、coherent comonad と核の構成が必要であり、
+中心持上げだけからこれらを結論しない。
+特に本節は、全 intrinsic な滑らかな非可換三次の表示被覆を主張しない。
+
+\texttt{computations/verify\_elliptic\_center\_obstruction.py} は、
+Hesse 判別式、PBW の重なりと平行移動、
+$\mathbb Q(\tau)$ 上の自由語による一次障害、三つの消去汎関数、
+Clifford 体積元、および例\ref{eco:ex:rational-obstruction}の
+全低次補正を許した有理線型系を厳密に検算する。
+一般の持上げ命題と楕円曲線の議論は上記の証明によるもので、
+検算器や形式証明器による全証明の確認を主張しない。

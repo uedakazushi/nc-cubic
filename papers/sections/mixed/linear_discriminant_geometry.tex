@@ -1,0 +1,260 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v57.
+\subsection{固定した線形 PBW 係数と判別超曲面の正規化}
+\label{ldg:subsec:discriminant-geometry}
+
+系\ref{lcc:cor:linear-discriminant}の一般位置の結論は、
+任意に固定した $\mathbf p$ に対する一般の $\alpha$ へ強められる。
+ここで用いる可換幾何は、線形 morsification と Legendre 判別式の標準的な枠組みに属する。
+一般線形摂動による Morse 点の出現については
+\cite[Theorem~2.5 and its proof]{CMOMaximTibarMorse}、
+双対多様体・Legendre 変換との関係については
+\cite[Section~1.2, Theorem~1.7, Section~1.3.B]{CMOTevelevDuality}を参照する。
+本節では、固定二次項を保つこと、臨界値を分離すること、
+および有限判別行列そのものの既約性を、同じ臨界代数から直接証明する。
+
+以下では $N=3k$ 個の active 変数を $\mathbf x=(x_1,\ldots,x_N)$ と並べ直す。
+三次斉次式 $G$ の射影零点集合は滑らかであり、
+$\partial G$ の共通零点は原点だけである。
+$\mu=2^N=8^k$ と置く。
+固定した任意の二次斉次式 $Q$ に対して
+\[
+ H=G+Q,\qquad L_\ell=\sum_{j=1}^N\ell_jx_j,\qquad
+ f_\ell=H+L_\ell
+\]
+と書く。
+
+\begin{lemma}[固定二次項に対する一般線形摂動]
+\label{ldg:lem:fixed-quadratic-morsification}
+任意の固定した $Q$ について、$\mathbb A^N_\ell$ の非空 Zariski 開集合
+$U_Q$ が存在し、その各点で $f_\ell$ は正確に $\mu$ 個の臨界点を持つ。
+これらの Hessian は全て非退化であり、臨界値は互いに相異なる。
+\end{lemma}
+
+\begin{proof}
+普遍臨界スキームを
+\[
+ \mathscr C_Q=
+ \operatorname{Spec}
+ \frac{\C[\ell_1,\ldots,\ell_N,x_1,\ldots,x_N]}
+      {(\partial_jH+\ell_j)_{j=1}^N}
+ \xrightarrow{\ \pi_Q\ }\mathbb A^N_\ell
+\]
+と置く。$\ell_j=-\partial_jH$ によって
+$\mathscr C_Q\simeq\mathbb A^N_{\mathbf x}$ であり、$\pi_Q=-\nabla H$ である。
+一方、最高 active 部分 $\partial G$ は二次式の正則列なので、
+系\ref{lcc:cor:linear-discriminant}の filtered Koszul の証明がそのまま適用される。
+従って $\pi_Q$ は階数 $\mu$ の有限平坦射である。
+整スキーム間の有限優勢射であり、標数零なので関数体拡大は分離的である。
+分岐像を除いた非空開集合 $U_0\subset\mathbb A^N_\ell$ 上では有限 \`etale となる。
+そのファイバーは $\mu$ 個の相異なる点であり、
+$\pi_Q$ の Jacobian が $-\operatorname{Hess}H$ であることから全て Morse 点である。
+
+臨界値の相異性を別に証明する。
+$\mathscr C_0=\pi_Q^{-1}(U_0)$ とし、相異なる順序付き臨界点対のスキーム
+\[
+ P=(\mathscr C_0\times_{U_0}\mathscr C_0)\setminus\Delta
+\]
+を取る。有限 \`etale 射の対角は開かつ閉なので、$P\to U_0$ も有限 \`etale である。
+$P$ は正則であり、その各既約成分は開かつ閉である。
+従って各非空な既約成分 $P_0$ は $U_0$ を支配する。
+二つの臨界点を $\mathbf x,\mathbf y$ と書き、その臨界値の差を
+$h=f_\ell(\mathbf x)-f_\ell(\mathbf y)$ と置く。
+臨界方程式により、$P$ の K\"ahler 微分で
+\begin{equation}\label{ldg:eq:critical-value-differential}
+ dh=\sum_{j=1}^N(x_j-y_j)\,d\ell_j
+\end{equation}
+となる。$P\to U_0$ は \`etale なので、$d\ell_1,\ldots,d\ell_N$ は
+$\Omega^1_{P/\C}$ の基底である。
+もし $h$ が $P_0$ 上恒等的に零なら、式\eqref{ldg:eq:critical-value-differential}から
+$x_j=y_j$ が全ての $j$ について成り立ち、対角を除いたことに矛盾する。
+従って各成分で $V(h)$ は真の閉集合である。
+有限射の下でその像は閉であり、次元が $N$ 未満なので $U_0$ 全体にはならない。
+有限個の成分についてこれらの像を除けば、求める非空開集合 $U_Q$ を得る。
+\end{proof}
+
+次に $Q=Q(\mathbf p)$ として全線形 PBW 係数を動かす。
+$L_\ell$ と中心係数 $\gamma$ は、まず互いに独立な座標として扱う。
+\[
+ \begin{gathered}
+ R=\C[\mathbf p,\ell_1,\ldots,\ell_N],\qquad
+ H_{\mathbf p}=G+Q(\mathbf p),\qquad
+ f_{\mathbf p,\ell}=H_{\mathbf p}+L_\ell,\\
+ \mathcal Q_R=R[\mathbf x]/(\partial f_{\mathbf p,\ell}),\qquad
+ \Delta(\mathbf p,\ell,\gamma)
+   =\det\bigl(\gamma\operatorname{id}_{\mathcal Q_R}+m_f\bigr).
+ \end{gathered}
+\]
+$\mathcal Q_R$ は階数 $\mu$ の自由 $R$-加群であり、$\Delta$ は $\gamma$ に関して monic である。
+固定した $\mathbf p_0$ に対する多項式を $\Delta_{\mathbf p_0}(\ell,\gamma)$ と書く。
+
+\begin{theorem}[判別超曲面の既約性・正規化・特異点]
+\label{ldg:thm:normalization}
+$\Delta\in\C[\mathbf p,\ell,\gamma]$ は既約であり、
+任意の固定した $\mathbf p_0$ について
+$\Delta_{\mathbf p_0}\in\C[\ell,\gamma]$ も既約である。
+特に、これらが定める判別超曲面は被約である。
+
+$\mathscr D=V(\Delta)$ の正規化は affine 空間
+$\mathbb A^{3k}_{\mathbf p}\times\mathbb A^N_{\mathbf x}$ であり、正規化射は
+\begin{equation}\label{ldg:eq:normalization-map}
+ \nu(\mathbf p,\mathbf x)=
+ \left(\mathbf p,
+       -\nabla H_{\mathbf p}(\mathbf x),
+       \mathbf x\cdot\nabla H_{\mathbf p}(\mathbf x)-H_{\mathbf p}(\mathbf x)\right)
+\end{equation}
+で与えられる。固定した $\mathbf p_0$ の判別超曲面についても、
+同じ式の制限 $\mathbb A^N_{\mathbf x}\to V(\Delta_{\mathbf p_0})$ が正規化である。
+
+点 $y=(\mathbf p,\ell,\gamma)\in\mathscr D(\C)$ が特異であるための必要十分条件は、
+次のいずれかが成り立つことである。
+\begin{enumerate}
+ \item $f_{\mathbf p,\ell}$ が値 $-\gamma$ を取る相異なる臨界点を二つ以上持つ。
+ \item 値 $-\gamma$ を取る臨界点の少なくとも一つで
+       $\det\operatorname{Hess}H_{\mathbf p}=0$ となる。
+\end{enumerate}
+同じ必要十分条件は固定 $\mathbf p_0$ の判別超曲面にも成立する。
+\end{theorem}
+
+\begin{proof}
+全係数の臨界スキームは
+\[
+ \mathscr C=\operatorname{Spec}\mathcal Q_R
+    \simeq\mathbb A^{3k}_{\mathbf p}\times\mathbb A^N_{\mathbf x}
+\]
+であり、$\ell=-\nabla H_{\mathbf p}$ によって表示される。
+従って整かつ正規であり、$\operatorname{Spec}R$ 上有限平坦である。
+写像\eqref{ldg:eq:normalization-map}は、$\gamma$ を $-f$ へ送る環準同型によって定まる。
+$\mathcal Q_R$ は $R$ 上有限なので、この写像も有限である。
+各ファイバーにおいて $\gamma+f$ が非可逆であることと
+$\Delta=0$ は同値であるから、その像の台は $V(\Delta)$ である。
+
+ここで一般の norm 多項式が無条件に既約になるとは限らない。
+本例では整性と臨界値分離を併用する。
+$K=\operatorname{Frac}R$ とすると、
+$E=\mathcal Q_R\otimes_RK$ は次数 $\mu$ の体拡大である。
+元 $-f\in E$ の最小多項式を $m(T)$ とすれば、乗法作用の特性多項式は
+\[
+ \Delta(T)=m(T)^{[E:K(-f)]}
+\]
+となる。
+前補題を一つの固定した $\mathbf p$ に適用すると、
+$\Delta$ の $\gamma$ に関する判別式が非零となる係数点が存在する。
+従って一般係数体 $K$ 上の $\Delta$ は分離的であり、上の指数は一である。
+これで $K(-f)=E$ と $K[T]$ 上の既約性を得る。
+$R$ は多項式環で $\Delta$ は monic なので、Gauss の補題から
+$R[T]$ 上でも既約となる。
+前補題は全ての固定した $Q(\mathbf p_0)$ に適用できるため、
+$R=\C[\ell]$ とした同じ証明が各 $\Delta_{\mathbf p_0}$ にも通用する。
+
+さらに $K(-f)=E$ は $\nu$ が双有理であることを示す。
+$\mathcal Q_R\simeq\C[\mathbf p,\mathbf x]$ は正規であり、
+$R[\gamma]/(\Delta)$ 上有限なので、これは後者の整閉包である。
+従って $\nu$ は表示した判別超曲面の正規化射である。
+同じ議論によって固定 $\mathbf p_0$ に対する正規化も得る。
+臨界スキームから $(\mathbf p,\ell)$ への射の次数は $\mu$ であるが、
+判別超曲面への正規化射は双有理である。
+
+特異点を調べる。
+$A=\operatorname{Hess}_{\mathbf x}H_{\mathbf p}$ とし、接ベクトルを
+$(\dot{\mathbf p},v)$ と書く。
+$B=\partial_{\mathbf p}(\nabla_{\mathbf x}H_{\mathbf p})$ と置けば
+\[
+ d\nu(\dot{\mathbf p},v)=
+ \left(\dot{\mathbf p},
+       -Av-B\dot{\mathbf p},
+       \mathbf x^t(Av+B\dot{\mathbf p})
+           -(\partial_{\mathbf p}H_{\mathbf p})\dot{\mathbf p}\right).
+\]
+従って
+\begin{equation}\label{ldg:eq:normalization-differential}
+ \ker d\nu=\{(0,v):Av=0\},\qquad
+ \operatorname{rank}d\nu=3k+\operatorname{rank}A.
+\end{equation}
+固定 $\mathbf p_0$ の場合は $\operatorname{rank}d\nu=\operatorname{rank}A$ である。
+また $\nu^{-1}(y)$ の点は、値 $-\gamma$ を取る臨界点と正確に対応する。
+
+判別超曲面が $y$ で滑らかなら、その近傍は正規である。
+正規化射はその近傍で同型なので、$\nu^{-1}(y)$ は一点であり、
+式\eqref{ldg:eq:normalization-differential}からその Hessian は非退化である。
+
+逆に、$\nu^{-1}(y)=\{x\}$ で、その Hessian が非退化であるとする。
+有限正規化の局所環を $A_y=\mathcal O_{\mathscr D,y}$、
+$B_x=\mathcal O_{\mathscr C,x}$ と書く。
+ファイバーが一点なので $B_x$ は $A_y$ 上有限な局所環であり、
+両者の剰余体は $\C$ である。
+微分 $d\nu$ の単射性は余接空間の全射を与える。
+両極大イデアルを $\mathfrak m,\mathfrak n$ とすると
+\[
+ \mathfrak n=\mathfrak mB_x+\mathfrak n^2.
+\]
+$B_x$ 上の Nakayama の補題により
+$\mathfrak n=\mathfrak mB_x$ である。
+剰余体の同一性から $B_x=A_y+\mathfrak mB_x$ となり、
+今度は有限 $A_y$-加群 $B_x/A_y$ に Nakayama を適用して $B_x=A_y$ を得る。
+$B_x$ は正則局所環だから、$\mathscr D$ は $y$ で滑らかである。
+固定 $\mathbf p_0$ に対しても全く同じ局所環の議論が成立する。
+これが述べた複素点集合としての必要十分条件である。
+\end{proof}
+
+\begin{corollary}[各固定線形係数での単純な悪い中心値]
+\label{ldg:cor:fixed-linear-parameters}
+任意の固定した $\mathbf p$ に対して、$\alpha$ の非空 Zariski 開集合が存在し、
+その上で $\mathscr D_k(\mathbf p,\alpha,c)$ は $c$ に関して
+正確に $8^k$ 個の相異なる根を持つ。
+各根に対応する可換三次標的は、唯一の通常二重点を持つ。
+
+また $\mathscr D_k$ は全係数環 $\C[\mathbf p,\alpha,c]$ 上既約であり、
+任意の固定した $\mathbf p$ について $\C[\alpha,c]$ 上でも既約である。
+それらの判別超曲面の正規化と特異点は、
+定理\ref{ldg:thm:normalization}を係数変更で移したものである。
+\end{corollary}
+
+\begin{proof}
+定理\ref{lcc:thm:universal-linear-kernel}の三角多項式同型
+\[
+ \Theta:(\mathbf p,\alpha,c)\longmapsto
+      (\mathbf p,\ell=\operatorname{coeff}L(\mathbf p,\alpha),
+       \gamma=C(\mathbf p,\alpha,c))
+\]
+を用いる。各 $a_i\ne0$ なので、固定した $\mathbf p$ の下で
+$\alpha\mapsto\ell$ は affine 線型同型である。
+また $c\mapsto\gamma$ の係数は $\kappa_k\ne0$ である。
+従って前補題の $U_{Q(\mathbf p)}$ の逆像は、求める非空開集合となる。
+その上では $8^k$ 個の相異なる臨界値が、一対一に悪い中心係数へ対応する。
+$u=0$ の射影境界は滑らかなので、標的の特異点は $u=1$ の chart に尽きる。
+各悪い中心係数には一つの非退化臨界点だけが対応し、
+形式的 Morse 補題からその完備局所環は
+\[
+ \C[[v_1,\ldots,v_N]]/(v_1^2+\cdots+v_N^2)
+\]
+となる。
+最後に $\mathscr D_k=\Delta\circ\Theta$ なので、既約性と正規化、
+および特異点の必要十分条件は全て $\Theta$ によって移る。
+特に正規化空間は全係数では
+$\mathbb A^{3k}_{\mathbf p}\times\mathbb A^N_{\mathbf x}$、
+固定 $\mathbf p$ では $\mathbb A^N_{\mathbf x}$ である。
+\end{proof}
+
+\begin{remark}[双対幾何との関係と被約性の範囲]
+\label{ldg:rem:duality-and-scope}
+固定 $\mathbf p$ に対して、affine graph $z=H_{\mathbf p}(\mathbf x)$ の
+接超平面 $z+L_\ell+\gamma=0$ を求めると、
+式\eqref{ldg:eq:normalization-map}がそのまま現れる。
+従ってこれは双対多様体の affine chart、すなわち Legendre 判別式の表示である。
+実際、affine graph 上の接超平面は射影閉包の双対多様体に稠密であり、
+この chart 内では式\eqref{ldg:eq:normalization-map}の有限性によって、その像は既に閉である。
+その graph の射影閉包が無限遠で滑らかであるとは仮定しない。
+本節では有限 gradient 写像と局所環の計算によって必要な結論を得た。
+線形 morsification、双対性、臨界値衝突と Hessian 退化という一般的な機構そのものを
+本稿の新規成果とは扱わない。
+
+全係数環上の $\mathscr D_k$ の被約性と、固定した $(\mathbf p,\alpha)$ における
+一変数多項式の被約性は異なる。
+特殊化後には臨界値の衝突や非被約な臨界代数により重複根が現れ、
+系\ref{lcc:cor:linear-discriminant}の局所長を含む norm の記述は引き続き有効である。
+判別超曲面の滑らかな点は、可換標的が唯一の通常二重点を持つ係数に対応する。
+この可換判別超曲面の記述から、非可換中心の局所型や、
+特異係数における全 coherent 圏の比較を主張してはいない。
+全 coherent Ku 比較の適用範囲は、引き続き $\mathscr D_k\ne0$ の開集合である。
+\end{remark}

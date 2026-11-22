@@ -1,0 +1,251 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v57.
+\subsection{Heisenberg 対称性による比較係数の七定数表示}
+\label{lec:subsec:equivariant-coefficients}
+
+命題\ref{lcc:prop:triangular-coefficients}の多項式は、境界比較と
+Jacobian 類の代表の選択を固定すれば、有限群の表現論でさらに制限できる。
+以下では補題\ref{cmm:lem:boundary-parameters}の同変な境界比較 $E_k$ を用い、
+法線方向の定数倍も同補題および前節の規約で固定する。
+まず $a_i=1$ として議論し、最後に固定した三乗根によって一般の重みへ戻す。
+ここで得るのは、この選択に対する係数の形と一次写像の像であり、
+全ての定数の数値決定ではない。
+
+一ブロックの Heisenberg 群を $H_3$ と書き、$\omega^3=1$、$\omega\ne1$ とする。
+生成元の作用を
+\[
+ \mathsf c(x,y,z)=(y,z,x),\qquad
+ \mathsf d(x,y,z)=(x,\omega y,\omega^2z)
+\]
+と固定する。パラメータへの作用は、生成元を $x\mapsto g(x)$ と送る写像が
+\[
+ g:\mathcal B_{p,q,r,\alpha}\longrightarrow
+       \mathcal B_{g\cdot(p,q,r),\,g\cdot\alpha}
+\]
+という代数同型になる規約で定める。この規約では
+\begin{align}
+ \mathsf c_P(p,q,r)&=(r,p,q),&
+ \mathsf d_P(p,q,r)&=(\omega p,q,\omega^2r),\label{lec:eq:parameter-actions}\\
+ \mathsf c_\alpha(\alpha_1,\alpha_2,\alpha_3)
+   &=(\alpha_3,\alpha_1,\alpha_2),&
+ \mathsf d_\alpha(\alpha_1,\alpha_2,\alpha_3)
+   &=(\alpha_1,\omega\alpha_2,\omega^2\alpha_3).\notag
+\end{align}
+例えば第一関係は $\mathsf c$ によって第二関係へ移り、
+$\mathsf d$ によって第一関係へ移る。
+第二・第三関係は $\mathsf d$ によりそれぞれ $\omega^2,\omega$ 倍される。
+これは同一の環の中で新しい生成元を読み替える際の逆のパラメータ変換とは区別する。
+式\eqref{mix:eq:linear-pbw-central-cubic}の中心元についても、その表示から
+\[
+                 g(\Omega_{p,q,r,\alpha})
+                    =\Omega_{g\cdot(p,q,r),\,g\cdot\alpha}
+\]
+が厳密に成立する。従って $u,c$ を固定した普遍非可換族は
+$\mathcal H_k=H_3^k\rtimes\mathfrak S_k$ に同変である。
+
+$U_i=\C x_i\oplus\C y_i\oplus\C z_i$ とする。
+各 $a_i\ne0$ について、Jacobian 関係は
+\[
+ x_i^2=-\frac13y_iz_i,\qquad
+ y_i^2=-\frac13z_ix_i,\qquad
+ z_i^2=-\frac13x_iy_i
+\]
+であるから、次数二には自然な直和分解
+\begin{equation}\label{lec:eq:jacobian-decomposition}
+ V_2=\operatorname{Jac}(G)_2
+   =\bigoplus_i\operatorname{Jac}(J_i)_2
+      \oplus\bigoplus_{i<j}U_i\otimes U_j
+\end{equation}
+があり、各純ブロック成分の基底は $[x_iy_i],[y_iz_i],[z_ix_i]$ である。
+全ての異ブロック単項式と、各ブロックのこの三単項式をそのまま代表に取ると、
+線型切断
+\begin{equation}\label{lec:eq:standard-section}
+ \sigma:V_2\longrightarrow\operatorname{Sym}^2\!\left(\bigoplus_iU_i\right)
+\end{equation}
+を得る。これは $\mathcal H_k$ に同変である。
+実際、表示した単項式の空間は $\mathsf c,\mathsf d$ と因子置換で保たれ、
+Jacobian 関係の各平方係数を比較すると関係空間との交わりは零である。
+以後、命題\ref{lcc:prop:triangular-coefficients}ではこの切断を用いる。
+
+\begin{lemma}[実参照族から得る係数の同変性]
+\label{lec:lem:equivariant-differences}
+上の選択の下で、$a_i=1$ の三角係数写像 $Q,L,C$ は
+$\mathcal H_k$ に同変である。$Q,L$ の標的への作用は多項式への通常の作用、
+$C$ の標的 $\C$ への作用は自明である。
+\end{lemma}
+
+\begin{proof}
+普遍非可換族への群作用は中心元 $u$、自己交叉の双加群三角、
+実 adjunction、および有限 mutation を保つ。
+$E_k$ は群作用と rotation を intertwine するので、
+境界へ移した twist 射 $\eta(\mathbf p)\in V_2$ は同変である。
+従って $Q=-\sigma(\eta)$ も同変であり、
+可換実族 $G+uQ(\mathbf p)$ は同じ群作用を持つ。
+
+この可換族を二項構造の参照点に取る。
+同じ counit arrow を同定する path の空間は負次数 Hom の消滅によって可縮である。
+従って非可換側と参照側の二項の差は、その path の選択によらない
+$V_1\otimes T$ の切断として定まる。
+群要素を作用させた二つの構造の差は、元の差へ同じ群要素を作用させたものになる。
+ここで $V_1$ との同定は、
+補題\ref{lcc:lem:nonsplit-arity}の $\epsilon$ による前合成から来る自然な同定である。
+補題\ref{lcc:lem:commutative-realization}による
+$\delta L\mapsto-\delta L$ は同変な同型なので、差を打ち消す $L$ は一意であり、
+同変性を持つ。
+
+次に可換実族 $G+uQ(\mathbf p)+u^2L(\mathbf p,\alpha)$ を参照点に取る。
+これは既に同変である。二項構造を同定する path の空間も
+補題\ref{lcc:lem:nonsplit-arity}によって可縮であり、
+この同定後の三項の差は一意な $T$ の切断となる。
+従って同じ自然性の議論を適用できる。
+三項の平行移動空間は恒等 sector の定数多項式で、群作用は自明である。
+また $\delta d\mapsto s_{\mathrm{cl}}\delta d$ は非零定数倍の同型であるから、
+差を打ち消す $C$ も一意で同変となる。
+
+この議論で一意なのは、固定した実参照構造に対する差の class と、
+同じ class を同定する可縮な path の空間である。
+三項 torsor に別の原点を指定したり、非線型な $A_\infty$ 積を平均したりしていない。
+群作用に関する比較の coherence も、各 path の可縮性によって保たれる。
+また $E_k$ は全次数格子を使って構成されているので、
+$3\mid k$ の場合に対称な rotation 分裂を追加仮定する必要はない。
+\end{proof}
+
+\begin{theorem}[一次像と七定数の比較形]
+\label{lec:thm:seven-scalar-form}
+$k\ge2$ と固定した $a_i\in\C^\times$ に対し、
+上で選んだ境界比較と切断における一次 Bockstein の像は、正確に
+\begin{equation}\label{lec:eq:bockstein-image}
+             \operatorname{im}\eta
+                =\bigoplus_i\operatorname{Jac}(J_i)_2
+                \ \subset\ \operatorname{Jac}(G)_2
+\end{equation}
+である。
+ある定数 $\chi_k\in\C^\times$ と $A_k,B_k,C_k,D_k,E_k\in\C$ により、
+命題\ref{lcc:prop:triangular-coefficients}の係数を次の形に取れる：
+\begin{align}
+ Q(\mathbf p)
+   &=\chi_k\sum_i a_i
+       (p_ix_iy_i+q_iy_iz_i+r_iz_ix_i),\label{lec:eq:quadratic-image}\\
+ R_2(\mathbf p)
+   &=A_k\sum_i a_i(q_i^2x_i+r_i^2y_i+p_i^2z_i)\notag\\
+   &\hspace{9mm}+B_k\sum_i a_i
+       (p_ir_ix_i+p_iq_iy_i+q_ir_iz_i),\label{lec:eq:quadratic-correction}\\
+ R_{1,1}(\mathbf p,\alpha)
+   &=C_k\sum_i a_i
+       (q_i\alpha_1^{(i)}+r_i\alpha_2^{(i)}+p_i\alpha_3^{(i)}),
+       \label{lec:eq:mixed-correction}\\
+ R_3(\mathbf p)
+   &=D_k\sum_i a_i(p_i^3+q_i^3+r_i^3)
+       +E_k\sum_i a_ip_iq_ir_i.\label{lec:eq:cubic-correction}
+\end{align}
+ここで $L=-\sum_i a_i\alpha^{(i)}\cdot x_i+R_2$、
+$C=\kappa_kc+R_{1,1}+R_3$ である。
+系\ref{mcs:cor:universal-scale}によって $\kappa_k=3\sqrt{21}/14$ と選べるので、
+三角変換を記述する七つの定数のうち、数値が未決定なのは残る六つである。
+これらは選択した比較と $k$ に依存してよいが、
+$\mathbf p,\alpha,c$ には依存しない。
+重みを一に戻してから比較する規約では、固定重み $a_i$ にも依存しない。
+$A_k,B_k,C_k,D_k,E_k$ の非消滅は主張しない。
+\end{theorem}
+
+\begin{proof}
+まず全 $a_i=1$ とする。式\eqref{lec:eq:parameter-actions}の三次元表現を
+それぞれ $P_i$ と $E_i$ と書く。
+$H_3$ の中心の元が $U_i$ 上 $\zeta\operatorname{id}$ として作用するとき、
+$P_i$ 上では $\zeta^2\operatorname{id}$、
+$E_i$ 上では $\zeta\operatorname{id}$ として作用する。
+これは関係式の次数二・一次補正・定数補正の比較からも直接分かる。
+異なるブロックの中心は独立である。
+
+$P_i$ の中心文字は $i$ 番目だけが $\zeta^2$ である。
+式\eqref{lec:eq:jacobian-decomposition}の純 $i$ ブロックも同じ文字を持つ一方、
+$U_j\otimes U_l$ は $j,l$ 番目にそれぞれ $\zeta$ を持つ。
+従って $P_i$ の像は $\operatorname{Jac}(J_i)_2$ のみへ入る。
+この純成分への写像
+\[
+              (p,q,r)\longmapsto[pxy+qyz+rzx]
+\]
+は同変な同型である。両側は $\mathsf d$ の相異なる三固有直線を持ち、
+$\mathsf c$ がそれらを巡回するので、三次元既約表現である。
+従って Schur の補題により、$\eta$ の各ブロックはこの写像の定数倍となる。
+定理\ref{mix:thm:linear-bockstein-injection}の単射性によって各定数は非零であり、
+因子置換への同変性によって全て同じになる。
+$\eta=-[Q]$ の符号を $\chi_k$ に含めれば
+式\eqref{lec:eq:quadratic-image}と式\eqref{lec:eq:bockstein-image}を得る。
+
+残る多項式には補題\ref{lec:lem:equivariant-differences}を適用する。
+$R_2$ の単項式において $i$ ブロックの $P_i$ が $m_i$ 回現れるとき、
+その中心文字は $\zeta^{2m_i}$ であり、$\sum_i m_i=2$ である。
+$U_j$ に値を持つには
+\[
+             2m_i\equiv\begin{cases}1,&i=j,\\0,&i\ne j\end{cases}
+                        \pmod3
+\]
+が必要となる。これは $m_j=2$、その他が零の場合に限られる。
+従って $R_2$ に異ブロックの積は現れない。
+同様に $P_i\otimes E_j$ が自明な中心文字を持つのは $i=j$ の場合だけである。
+三次式では $\sum_i m_i=3$ と $2m_i\equiv0\pmod3$ が必要なので、
+一つのブロックに三因子が集中する場合だけが残る。
+これで $R_{1,1},R_3$ の異ブロック項も全て排除される。
+
+一ブロックで残る写像空間は
+\begin{align*}
+ \dim\operatorname{Hom}_{H_3}(P,\operatorname{Jac}(J)_2)&=1,\qquad
+ \dim\operatorname{Hom}_{H_3}(\operatorname{Sym}^2P,U)=2,\\
+ \dim\operatorname{Hom}_{H_3}(P\otimes E,\C)&=1,\qquad
+ \dim\operatorname{Hom}_{H_3}(\operatorname{Sym}^3P,\C)=2
+\end{align*}
+である。後ろの三つを具体的に確認する。
+$\mathsf d$ の重みを $p,q,r$ に対して $(1,0,2)$ と読むと、
+$U$ の $x$ 係数に許される二次単項式は $q^2,pr$ だけである。
+$\mathsf c$ への同変性が $y,z$ 係数を一意に決めるので、基底は
+\[
+       q^2x+r^2y+p^2z,\qquad prx+pqy+qrz
+\]
+となる。$P\otimes E$ の不変式では $q\alpha_1,r\alpha_2,p\alpha_3$ だけが
+$\mathsf d$ の重み零であり、巡回条件によってその和だけが残る。
+$\operatorname{Sym}^3P$ では重み零の単項式は
+$p^3,q^3,r^3,pqr$ である。
+従って巡回不変式の基底は $p^3+q^3+r^3,pqr$ である。
+全てのブロックを置換する作用により、各基底の係数はブロックによらない。
+これで $a_i=1$ における全ての表示式を得る。
+
+最後に $t_i^3=a_i$ を一度選び、
+\[
+ (x'_i,y'_i,z'_i)=t_i(x_i,y_i,z_i),\quad
+ (p'_i,q'_i,r'_i)=t_i(p_i,q_i,r_i),\quad
+ \alpha'^{(i)}=t_i^2\alpha^{(i)}
+\]
+とする。この生成元の変更は
+$\mathcal B_{p'_i,q'_i,r'_i,\alpha'^{(i)}}$ と
+$\mathcal B_{p_i,q_i,r_i,\alpha^{(i)}}$ を同定し、
+中心三次を $a_i$ 倍する。
+表示した全てのブロック多項式は、この置換で $t_i^3=a_i$ 倍される。
+従って重み一の比較を引き戻すと、ちょうど表示した係数 $a_i$ を得る。
+これは固定した重みにおける比較であり、重みを動かす底全体への核の降下を
+追加に結論するものではない。
+\end{proof}
+
+\begin{remark}[非可換中心の係数と比較係数の区別]
+\label{lec:rem:numerical-scope}
+式\eqref{mix:eq:linear-pbw-central-cubic}の $u$ 係数を可換化し、
+さらに $\operatorname{Jac}(J)_2$ へ写すと
+\[
+ \left[Q_{p,q,r}^{\mathrm{nc,ab}}\right]
+          =\frac{53}{54}[pxy+qyz+rzx]
+\]
+となる。これは $[z^2]=-[xy]/3$ などを用いた直接計算である。
+従ってこの可換化も同じ一次元の同変写像空間に属するが、
+$\chi_k=53/54$ を意味しない。
+前者は中心元の係数の可換化、後者は全 Bockstein を固定境界比較で移した値であり、
+その数値を同定するには実際の比較核を通した計算がさらに必要である。
+同様に、非可換中心の $u^2$ 係数に現れる $1/6,-1/18$ を、
+証明なしに $A_k,B_k$ へ代入してはいけない。
+
+有限な表現計算の再現コードは
+\texttt{computations/verify\_mixed\_equivariant\_coefficients.py} である。
+関係式と中心式の群作用、四つの同変写像空間、独立中心文字による全ブロック数の
+台の制限、重みの復帰を厳密に確認する。
+実随伴の比較や全 coherence の形式証明ではなく、
+その部分の根拠は補題\ref{lec:lem:equivariant-differences}と既存の比較定理にある。
+\end{remark}
