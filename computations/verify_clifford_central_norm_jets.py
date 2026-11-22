@@ -54,6 +54,7 @@ print('PASS 3: cubic Hesse invariant (h2 Ic + Id)/4 and no other invariants')
 I0=sum(u[a,b]**3 for a in range(3) for b in range(3))
 Ir=sum(S.prod(u[a,b] for b in range(3)) for a in range(3))
 Potential=h2*I0/S.Integer(3)+2*Ir+tau*(h2*Ic+Id)
+assert S.expand(S.diff(Potential,tau)-(h2*Ic+Id))==0
 for a in range(3):
     for b in range(3):
         rhs=h2*Q0(a,b)+2*Qc(a,b)+tau*h2*Qr(a,b)+tau*Qd(a,b)
