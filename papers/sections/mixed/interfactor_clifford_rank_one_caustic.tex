@@ -1,0 +1,261 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v66.
+\subsection{階数一スライスの残余判別曲線と三尖点}
+\label{ifq:subsec:caustic}
+
+前小節の $A_2$ 点は孤立した偶然の例ではない。本小節では階数一スライスの
+射影中心にある二変数軸を調べ、その軸上の Azumaya 特異点を与える
+明示的な判別曲線を求める。これは残余非 smooth locus の
+\emph{部分集合}の記述であり、全残余判別を決定するものではない。
+
+引き続き $\Lambda=\lambda E_{11}$、$M=\mu E_{11}$ と置き、
+$t=\tau_1$、$u=\tau_2$、$A=\alpha_1^2$、$B=\alpha_2^2$ と書く。
+許容条件から $t,u,A,B$ は非零である。
+中心 norm は $\mathcal N=-A\det q_x+B\det q_y$ である。
+平方変数の射影空間内の直線
+\[
+ \ell=\{X_2=X_3=Y_2=Y_3=0\}\subset\mathbb P^5
+\]
+において、式\eqref{ifb:eq:clifford-matrices}から
+\begin{equation}\label{ifq:eq:binary}
+ 4\mathcal N|_\ell=P(X,Y)
+ :=AX(\lambda Y-tX)^2-BY(\mu X-uY)^2,\qquad X=X_1,\ Y=Y_1
+\end{equation}
+となる。さらに $h$ は式\eqref{ifd:eq:ambient-hyperbola}とする。
+次の四次多項式を定める：
+\begin{equation}\label{ifq:eq:quartic}
+ \begin{split}
+ Q(\lambda,\mu)={}&4A^2t\lambda^3+AB\lambda^2\mu^2
+      +18ABtu\lambda\mu\\
+      &-27ABt^2u^2+4B^2u\mu^3.
+ \end{split}
+\end{equation}
+
+\begin{theorem}[Azumaya 軸に現れる残余非 smooth 曲線]
+\label{ifq:thm:axis-discriminant}
+二変数三次式の判別式は
+\begin{equation}\label{ifq:eq:disc-factor}
+ \operatorname{Disc}_X P(X,1)
+    =AB(\lambda\mu-tu)^2Q(\lambda,\mu)
+\end{equation}
+である。特に
+\begin{equation}\label{ifq:eq:bad-open}
+           Q(\lambda,\mu)=0,\qquad
+           \lambda\mu\ne tu,\qquad h(\lambda,\mu)\ne0
+\end{equation}
+を満たす任意の複素係数では、$\mathcal B$ は六次元 Koszul AS 正則で、
+$w$ は正則中心三次であるが、$\mathcal A_{\lambda,\mu}=\mathcal B/(w)$ の
+全 coherent 残余圏は非 proper、残余線束圏は非 smooth となる。
+より正確には、これらの係数では有限中心射影模型の
+Azumaya chart に特異閉点が存在する。
+
+$Q=0$ と $\lambda\mu\ne tu$ の下での軸上の特異点の存在は必要十分である。
+ただし、軸外または非 Azumaya 部分の特異点はこの主張では分類しない。
+\end{theorem}
+
+\begin{proof}
+式\eqref{ifq:eq:binary}を展開すると
+\[
+ P(X,Y)
+ =At^2X^3+(-2At\lambda-B\mu^2)X^2Y
+ +(A\lambda^2+2B\mu u)XY^2-Bu^2Y^3
+\]
+である。三次多項式の標準判別式
+$b^2c^2-4ac^3-4b^3d-27a^2d^2+18abcd$
+へ四係数を代入して因数分解すれば
+式\eqref{ifq:eq:disc-factor}を得る。
+$At^2\ne0$、$Bu^2\ne0$ なので重根は $X/Y\in\C^\times$ にある。
+
+軸上では、四つの横変数に関する $\mathcal N$ の一次項は零である。
+実際、$X_2=X_3=Y_2=Y_3=0$ で
+$\partial_{X_2}\mathcal N=\partial_{X_3}\mathcal N
+=\partial_{Y_2}\mathcal N=\partial_{Y_3}\mathcal N=0$ である。
+したがって $P$ の重根がちょうど軸上の中心 hypersurface の特異点を与える。
+軸上の二つの行列式は
+\[
+ \det q_x=-\frac{X(\lambda Y-tX)^2}{4},\qquad
+ \det q_y=-\frac{Y(\mu X-uY)^2}{4}.
+\]
+$XY\ne0$ の下でこれらがともに零となるのは
+$\lambda\mu=tu$ の場合に限る。中心 norm の零点では
+$A\det q_x=B\det q_y$ なので、一方だけが零となることもない。
+従って $\lambda\mu\ne tu$ なら、軸上の重根点は
+両Clifford形式が非退化な Azumaya 開にある。
+式\eqref{ifq:eq:disc-factor}から、同じ開では重根の存在と $Q=0$ は同値である。
+
+$h\ne0$ では命題\ref{ifd:prop:ambient-locus}により周囲代数が
+AS 正則となる。$c\ne0$ は同命題で全スライス上確認済みである。
+非退化Clifford点では、前小節の
+定理\ref{ifd:thm:residual-a2}の証明で行ったように
+$Y_1$ と $\omega_x$ を反転し、次数一の中心単元
+$\zeta=\omega_x/Y_1$ を用いて次数零の射影chartへ移る。
+$w=0$ は $\omega_y=-(\alpha_1/\alpha_2)\omega_x$ を与える。
+$Y_1=1$ の座標表示で、その中心の完備局所環は
+$P(X,1)$ と横方向の項を合わせた norm hypersurface の
+完備局所環である。上の重根ではこの環は特異である。
+この chart の代数は中心上次数四の Azumaya 代数であり、
+剰余体が $\C$ の完備局所環上で分裂して
+$\operatorname{Mat}_4$ になる。
+
+従ってその点の単純加群は、特異な中心局所環の剰余体に
+Morita 対応する。特異 noetherian 局所環の剰余体の射影次元が
+無限であることは正則局所環の特徴付け
+\href{https://stacks.math.columbia.edu/tag/00OC}{Stacks Project, Tag~00OC}
+による。極小自由解消の各非零項は極大イデアル係数の微分を持つので、
+剰余体の自己 Ext は無限に多くの次数で非零である。
+有限中心射影模型上の coherent 一点対象へ延長し、
+局所大域 Ext と有限例外 mutation を使えば、
+前小節の証明と同じく全 coherent 残余圏が非 proper である。
+一方、有限線束圏は proper であるから、smooth であれば
+主稿の定理\paperref{main}{crs:thm:coherent}により
+coherent 圏への飽和と矛盾する。有限例外 gluing に関する
+命題\paperref{main}{crs:prop:residual-smooth}を用いて
+残余線束圏の非 smooth 性も従う。
+\end{proof}
+
+\begin{remark}[一般点の局所型を検出する横 Hessian]
+\label{ifq:rem:transverse}
+横変数の次数二までの norm は
+\[
+ 4\mathcal N
+ =P(X,Y)-4A C_xX_2X_3+4B C_yY_2Y_3
+     +O\bigl((X_2,X_3,Y_2,Y_3)^3\bigr),
+\]
+ただし
+\[
+ C_x=X+\frac{t^2}{4}(\lambda Y-tX),\qquad
+ C_y=Y+\frac{u^2}{4}(\mu X-uY).
+\]
+従って $Q=0$ の Azumaya 軸点で $C_xC_y\ne0$ かつ
+$P(X,1)$ の重根が正確に二重なら、中心の局所型は
+通常二重点 $A_1$ となる。三重根なら横方向の形式的 Morse
+消去後に $A_2$ となる。この確認には
+$Q$ の重根判別を可換Ku標的の判別式と同一視する必要はない。
+\end{remark}
+
+\begin{theorem}[対称因子での三尖点有理四次曲線]
+\label{ifq:thm:tricuspidal}
+$\tau_1=\tau_2=\tau$、$a_1=a_2\ne0$ とし、
+$l=\lambda/\tau$、$m=\mu/\tau$ と置く。
+このとき $Q=0$ の被約射影閉包は
+\begin{equation}\label{ifq:eq:deltoid}
+       l^2m^2+4(l^3+m^3)+18lm-27=0
+\end{equation}
+という既約有理四次曲線で、その正規化は
+\begin{equation}\label{ifq:eq:param}
+ \mathbb P^1\longrightarrow\overline{\{Q=0\}},\qquad
+ [v:w]\longmapsto
+ [-v^4-2vw^3:-2v^3w-w^4:v^2w^2]
+\end{equation}
+である。$z=v/w\in\C^\times$ の開では
+\[
+          l=-z^2-\frac2z,\qquad
+          m=-2z-\frac1{z^2}.
+\]
+射影曲線の特異点は正確に三つの通常 cusp
+\begin{equation}\label{ifq:eq:three-cusps}
+           (l,m)=(-3\xi,-3\xi^2),\qquad \xi^3=1
+\end{equation}
+である。$z^3\ne\pm1$ の一般点で周囲正則条件が成り立てば、
+対応する Azumaya 軸点は $A_1$ となる。
+$z^3=1$ の三つの cusp では、
+\[
+            \tau^3\notin\{1,-8,1/4,-1/2\}
+\]
+なら周囲AS正則域内の $A_2$ 型 Azumaya 残余特異点を得る。
+\end{theorem}
+
+\begin{proof}
+$A=B$ なので、式\eqref{ifq:eq:quartic}から
+$Q=A^2\tau^4(l^2m^2+4l^3+4m^3+18lm-27)$ を得る。
+$f(r)=r(l-r)^2-(mr-1)^2$ と置くと、表示した有理写像上で
+\begin{equation}\label{ifq:eq:binary-factor-param}
+       f(r)=\frac{(r-z^2)^2(rz^4-1)}{z^4}
+\end{equation}
+となる。従って正規化写像の像は四次曲線上にある。
+式\eqref{ifq:eq:param}は次数四のbasepoint-freeな射であり、
+$[1:0:0]$ の逆像は $[1:0]$ の一点、その近傍で
+第二座標と第一座標の比は $2(w/v)+O((w/v)^2)$ である。
+よって像への一般次数は一となり、像の次数は四である。
+表示した四次式はその既約な像を定義する。
+同じ結論は、$z^3+lz+2$ と $mz^2-2lz-3$ の
+$z$ に関する最後の二つの subresultant が
+\[
+ (4l^2+lm^2+3m)z+(6l+2m^2),\qquad
+ l^2m^2+4l^3+4m^3+18lm-27
+\]
+となることからも確認できる。
+
+四次式を $\mathcal Q$ と書くと
+\[
+       l\,\partial_l\mathcal Q-m\,\partial_m\mathcal Q
+                           =12(l^3-m^3).
+\]
+両偏微分が零となる有限点では $l^3=m^3$ である。
+$l=m=0$ は曲線上になく、
+$l=\xi s,\ m=\xi^2s$、$\xi^3=1$ と置けば
+$\partial_l\mathcal Q=2\xi^2s(s+3)^2$ となる。
+従って有限特異点は式\eqref{ifq:eq:three-cusps}の三点だけである。
+無限遠では $[1:0:0]$ と $[0:1:0]$ しかなく、
+$\partial_w\overline{\mathcal Q}$ がそれぞれ $4$ なので滑らかである。
+パラメータ表示の一次導関数はともに $z^3-1$ 倍で、
+$z^3=1$ では二階・三階導関数が独立である。
+ゆえに三点はいずれも通常 cusp で、表示した射は正規化である。
+
+$z^3\ne\pm1$ では式\eqref{ifq:eq:binary-factor-param}の
+二重根と単根は相異なり、また
+\[
+ lm-1=\frac{2(z^3+1)^2}{z^3}\ne0.
+\]
+従って軸点は Azumaya 開にある。$C_xC_y$ と
+$h=(1-\tau^3)^2-\tau^6lm$ は $z$ の非零有理関数なので、
+その非消滅開では前注意により通常二重点となる。
+
+$z^3=1$ では軸上の三次式は $(r-z^2)^3$ となり、
+$\det q_x=\det q_y=-4\tau^2$、
+$C_x=z^2(1-\tau^3)$、$C_y=1-\tau^3$ である。
+横 Hessian は非退化であり、軸方向は正確に三次となるから
+局所型は $A_2$ である。この三点では
+$h=-(4\tau^3-1)(2\tau^3+1)$ なので、
+表示した許容条件が周囲正則性を保証する。
+\end{proof}
+
+\begin{example}[有理係数の $A_1$ 型残余特異点]
+\label{ifq:ex:rational-a1}
+$\tau_1=\tau_2=2$、$a_1=a_2=1$、
+\[
+             \lambda=\frac{15}{2},\qquad \mu=-6
+\]
+とする。式\eqref{ifq:eq:param}の $z=-1/2$ に対応する。
+$Q=0$ かつ $\lambda\mu\ne4$ であり、
+\[
+ h=769,\quad c=196,\quad
+ P(X,1)/196=\frac{(X-16)(4X-1)^2}{4}.
+\]
+重根 $X=1/4$ において
+$\det q_x=\det q_y=-49/16$、$C_x=29/4$、$C_y=-5/2$ である。
+$4(\det q_y-\det q_x)$ を五つの局所座標
+$(X,X_2,X_3,Y_2,Y_3)$ で微分した Hessian の行列式は
+$-10596600\ne0$ となる。
+従って射影Azumaya局所代数は
+\[
+ \operatorname{Mat}_4\!\left(
+       \C[[v_1,\ldots,v_5]]/(v_1^2+\cdots+v_5^2)\right)
+\]
+であり、残余線束圏は非 smooth である。
+ここで $P/196$ は重み $A=B=196$ の共通因子を除いた三次式を意味する。
+\end{example}
+
+\begin{remark}[全残余判別との区別]
+\label{ifq:rem:scope}
+$V(Q)\cap D((\lambda\mu-tu)h)$ は、
+階数一係数スライスに含まれる残余非 smooth locus の明示部分である。
+$V(\lambda\mu-tu)$ は行列式の零となる非 Azumaya 点を含み、
+また軸外にも特異点があり得る。これらの有無や全残余判別の等式、
+非可換三次と可換Ku標的の方程式の一致、全 smooth 係数への
+実比較核の延長は本定理から従わない。
+式\eqref{ifq:eq:disc-factor}、横 Hessian、三尖点の
+有理表示と有理 $A_1$ 例は
+\texttt{computations/verify\_rank\_one\_caustic.py} で
+有理係数の多項式恒等式として再検算できる。
+\end{remark}

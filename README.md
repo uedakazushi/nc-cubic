@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月23日 / v65。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月23日 / v66。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -20,7 +20,7 @@
 
 **十八変数の周囲代数の正則領域を正確に決定した。** [双方向積分と相対正則性](papers/sections/mixed/interfactor_clifford_bidirectional.tex)では、全係数で中心平方上のClifford tensor表示と自由階数64を得る。二次双対は可換六二次式商のcocycle twistである。この可換商は六二次式のresultant開D(Δ)上で完全交叉となり、Δ≠0が有限大域次元・AS-regular性の正確な領域である。ここでは次元/index6、任意底変更に保たれる有限射影Koszul双加群解消とuntwisted相対6-CYを持つ（`ifb:thm:regularity`, `ifb:cor:exact-regular-locus`）。別の明示的な主開D(c)では指定中心三次が普遍正則で、その商は平坦である。τ₁=τ₂=2、Λ=M=I₃はΔ=0で大域次元が無限となる例で、a₁=a₂=1ならc=196≠0となる。平坦性とHilbert級数だけではAS-regular性を判定できない。
 
-**周囲がAS-regularでも、残余圏が非smoothとなる具体点がある。** [rank-one sliceの境界](papers/sections/mixed/interfactor_clifford_rank_one.tex)では、Λ=λE₁₁、M=μE₁₁の正確なAS-regular域をh=(1−τ₁³)(1−τ₂³)−τ₁²τ₂²λμ≠0と決定した（`ifd:prop:ambient-locus`）。τ₁=τ₂=2、a₁=a₂=1、λ=μ=−6ではh=−527、c=196で、周囲代数はAS-regular・6-CY、中心三次も正則である。しかし射影Azumaya chartの完備局所代数はMat₄(C[[t,u,v,r,s]]/(t³+uv+rs))となり、点対象の自己Extは高次数まで非零である。全coherent残余圏は非proper、残余線束圏は非smoothとなる（`ifd:thm:residual-a2`）。従って周囲の正則開D(Δc)を残余smooth locusと同一視できない。この対象は主予想のsmooth仮定を満たさない。
+**周囲がAS-regularでも、残余圏が非smoothとなる具体点がある。** [rank-one sliceの境界](papers/sections/mixed/interfactor_clifford_rank_one.tex)では、Λ=λE₁₁、M=μE₁₁の正確なAS-regular域をh=(1−τ₁³)(1−τ₂³)−τ₁²τ₂²λμ≠0と決定した（`ifd:prop:ambient-locus`）。τ₁=τ₂=2、a₁=a₂=1、λ=μ=−6ではh=−527、c=196で、周囲代数はAS-regular・6-CY、中心三次も正則である。しかし射影Azumaya chartの完備局所代数はMat₄(C[[t,u,v,r,s]]/(t³+uv+rs))となり、点対象の自己Extは高次数まで非零である。全coherent残余圏は非proper、残余線束圏は非smoothとなる（`ifd:thm:residual-a2`）。従って周囲の正則開D(Δc)を残余smooth locusと同一視できない。この対象は主予想のsmooth仮定を満たさない。さらに[階数一残余判別曲線](papers/sections/mixed/interfactor_clifford_rank_one_caustic.tex)では、軸上の中心normの三次判別が(λμ−τ₁τ₂)²Qへ分解することを計算し、Q=0のAzumaya部分を残余非smooth locusへ含めた。等τ・等重みの場合Qは有理三尖点四次曲線となり、一般A₁点と3つのA₂ cuspを持つ。τ=2、λ=15/2、μ=−6は周囲AS正則域にある有理A₁例。全残余判別式や比較核の延長を決定したわけではない。
 
 **九・十八変数の局所Ku比較を、実相対核で構成した。** [十八変数の残余模型](papers/sections/mixed/interfactor_clifford_bidirectional_geometry.tex)により、四次元型と中心変数一つを加えた五次元型の双方に、分離点を含むsmooth proper開とétale局所perfect比較核がある。四次元型の十八方向の像はJac(f₁)₁⊗Jac(f₂)₂⊕Jac(f₁)₂⊗Jac(f₂)₁であり、幾何的形式空間への形式像は余次元2となる。各一方向の九変数族については、[全係数の周囲AS/CY定理](papers/sections/mixed/interfactor_clifford_regularity.tex)、[原点近傍のsmoothness](papers/sections/mixed/interfactor_clifford_smoothness.tex)、[階数9・余次元11の接写像](papers/sections/mixed/interfactor_clifford_tangent_product.tex)も保持する。四次元の比較には、[rotationを持ち上げる変形の形式認識](papers/sections/rotation_preserving_deformations.tex)を用いる。
 

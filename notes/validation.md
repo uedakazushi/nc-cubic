@@ -1,8 +1,11 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v65。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v66。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
+
+- **階数一残余判別曲線（v66で追加）：** `ifq:thm:axis-discriminant` と `ifq:thm:tricuspidal` の証明を原稿に記載した。局所中心の非smoothから残余圏の非smoothへの移行は既存 `ifd:thm:residual-a2` の射影Azumaya chart・有限中心・coherent飽和を入力とする。新しい `verify_rank_one_caustic.py` 相当のSymPy 1.14厳密計算で、二変数三次の判別式、横一階消滅、横Hessian、A₁有理証人、既存A₂三重根、三尖点有理正規化の6群の恒等式がPASS。数値評価ではなく有理式の厳密検証である。今回の新節の独立査読・全稿再組版・PDF表示確認は未実施（接続されたGitHubソースにはアクセスしたが、実行環境からのrepo全体のcloneはDNS失敗）。既存v65三稿の組版成功・19 PASSを今回の再実行と区別する。全残余判別や12個の高次比較係数は未解決。
+
 
 証明の正本は混合稿の `interfactor_clifford_scale.tex`（ifm）、`interfactor_clifford_rank_one.tex`（ifd）、`interfactor_clifford_jets.tex`（ifj）と、`interfactor_clifford_versal.tex` の一般係数の系である。主担当は各証明を読み、ifm・ifd・ifjとifvの一般係数の系は執筆者以外の担当者も全文読解した。これは内部の独立読解であり、外部査読・形式証明器による確認ではない。
 
