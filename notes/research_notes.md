@@ -1,12 +1,14 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v60。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v61。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
 主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現することである。一つの共有中心変数・任意の固定smooth標準Sklyanin因子の組（k≥2）について、指定境界を保つ全因子別PBW・中心持上げを可換三次と全係数でMorita比較した（`emc:prop:coverage`, `euk:thm:universal-kernel`）。非二捩れの正規化線形Pと二捩れの中心平方βを一次係数tとする。標的はG+uQ(t)+u²(𝔄α+R₂(t))+u³(κc+R₁,₁(t,α)+R₃(t))、𝔄可逆、κ≠0であり、可換smooth開では相対perfect核・全coherent Ku同値を得る。定数3k方向のBocksteinは同型、一次3k方向は単射だが、存在比較は後者を仮定しない。
 
 rank8^kの臨界代数で全係数のsmoothnessを判定する。任意固定tの一般αでは8^k個の相異なる悪いcと、各可換標的の唯一の通常二重点がある。全係数・固定tの判別超曲面は既約被約で、臨界点のaffine空間が正規化を与える。一変数特殊化の重複根は許す。同一S(1,−1,−1)では純ブロックJac₂像・七定数形・κ_k²=27/28を保持し、残る六定数は未数値化。一般因子へこのκ値を流用しない。任意中心数の全因子別表示でK_A smooth ⇔ X_pol smoothを示し、一般中央flagの存在から全smooth対象を比較した。横断二項Bは可逆で、各固定一次係数の一般二次係数では2^(3k+m−1)個の単純悪値を得る。X_polへの実核、因子moduli上の核選択・降下、全intrinsic被覆、h一般点核のdefect零特殊化は残る。指定二ブロックのP64・norm全64根・局所型も保持する。
+
+最高active二次関係が固定したtensor Sklyanin境界で、中心一次変数を厳密に可換に保つ全quadratic PBW表示は、因子間可換を事前に課さなくても元の生成元で因子別に分解する（`ifp:thm:factorization`）。従って、指定中心三次の最高項が非零重みのΣa_iΩ_iである範囲では既存の全許容表示・全smooth比較へ戻る。残る混合問題は境界二次関係自体を動かす変形にある。その次数零一次中心障害を計算し、Clifford因子の中心平方に由来する一組の九方向を、自由な二次代数族と中心正則三次商へ実積分した（`ifh:prop:central-mixed-obstruction`, `ifc:thm:family`）。この新族のAS正則性・CY性・smoothness・Ku比較は未確認であり、全intrinsic被覆を得たとはしない。
 
 C上n≥3を基本とし、generic・全固定点・全族・一般体上の降下を区別する。全intrinsic対象の認識やpoint functorの表現可能性は未完成であり、既知の局所表示だけを全対象と定義して済ませない。可換候補の方程式・判別集合・局所特異点の一致と、その候補への実際の比較核の存在も区別する。
 
@@ -18,7 +20,7 @@ point schemeとPoisson零スキームまで同一視できるという素朴な�
 | --- | --- |
 | [可換復元の主稿](../papers/nc-cubic.tex) | 一般点可換復元、楕円windowとrotationの基礎、分離型の実Ku比較、残余圏の認識・可換実現の開性、三様体の非被約不一致例。 |
 | [モジュライ・降下稿](../papers/cubic-moduli-descent.tex) | O-marked認識・全慣性・点とPoissonのモジュライ射、Picard/Brauer/Kummer障害、周期位相、点型と全型の比較次数。主要結果の詳細は `moduli_overview.tex`、証明は各主題の節。 |
-| [混合Sklyanin稿](../papers/mixed-sklyanin-cubics.tex) | 中心・局所order・単純加群、全線形PBW任意ブロック族の実Morita比較とsmooth開上の相対perfect核、普遍中心三次、残余Bocksteinの純ブロック像と七定数形、全kの中心尺度、普遍判別超曲面の正規化、零係数の球面接着・有限MF模型、指定h候補の一般点核と整延長、実Ku標的を持つ被約point/Poisson不一致例。本文は `papers/sections/mixed/`。 |
+| [混合Sklyanin稿](../papers/mixed-sklyanin-cubics.tex) | 中心・局所order・単純加群、固定tensor境界の全PBW関係の因子分解と全smooth多中心比較、境界次数零混合類の中心障害とClifford九変数族、普遍中心三次、残余Bocksteinの純ブロック像と七定数形、全kの中心尺度、普遍判別超曲面の正規化、零係数の球面接着・有限MF模型、指定h候補の一般点核と整延長、実Ku標的を持つ被約point/Poisson不一致例。本文は `papers/sections/mixed/`。 |
 
 主比較に必要な楕円windowと体上のrotation共役の正本は、主稿の `comparison_foundations.tex` である。`eq:nfm-right-thcr-shift`、`lem:nfm-twisted-elliptic-window` をここから引用し、`csc:thm:comparison` が用いる `mbrc:lem:factor-correction` と分離比較も主稿に置く。相対Picard gerbe、比較核の分類と算術的降下は、これらの実比較を入力とするモジュライ稿に置く。混合族の `cmo:cor:cofinite` は主稿の `grl:thm:open-locus` を使う。稿をまたぐ参照は、定理番号と稿名から証明の所在をたどれるようにする。
 
@@ -26,7 +28,7 @@ point/Poisson不一致は本文の補助例として扱う。三様体の例の�
 
 研究方針・研究ノート・共通preamble・書誌は三稿で共有し、数学的な本文は複製しない。三稿への整理は編集と参照の再構成であり、既存の数学全体の再証明ではない。以下の点検・計算に関する記述は各結果の既存の確認範囲であり、今回のソース保持・組版・表示確認とは区別する。実際の確認状態は [検証範囲](validation.md) を参照する。
 
-研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。任意中心数の全smooth固定因子比較を成立した範囲として使い、P0は全intrinsic被覆と因子を混ぜる関係の認識に置く。Δ≡0はsmooth二中心対象では起こらない。偏極標的への実核と全中心作用、因子moduli上のPicard/周期降下を調べる。二捩れの関係線形方向の消滅と中心平方方向の残存を区別する。比較係数の数値化は存在結果の具体化として進め、h核の良い特殊化は固定点の同値の存在と分ける。
+研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。固定tensor境界・厳密中心作用の全PBW表示は因子別に分解するので、この範囲の混合関係の分類を未解決へ戻さない。P0は全intrinsic被覆と境界二次関係を動かす表示の認識に置き、まずClifford九変数族のAS正則性・CY性・中心商のsmoothnessを調べ、Ku比較へ進める条件を切り分ける。Δ≡0は既存のsmooth二中心対象では起こらない。偏極標的への実核と全中心作用、因子moduli上のPicard/周期降下も残る。比較係数の数値化は存在結果の具体化として進め、h核の良い特殊化は固定点の同値の存在と分ける。
 
 ### 満支持型における同時存在
 
@@ -298,7 +300,7 @@ Q_ncを可換化してJac(J)₂へ写すと(53/54)(p xy+q yz+r zx)になるが�
 
 ### 任意固定楕円因子の全許容比較と二種類の一次方向
 
-正本は `mixed/elliptic_mixed_comparison.tex` と、その入力である `elliptic_boundary_kernel.tex`, `elliptic_bockstein.tex`, `elliptic_universal_kernel.tex`。滑らかな標準S(A_i,B_i,C_i)を固定し、k≥2、全a_i≠0、一つの共有中心u、因子間は可換とする。異なるj、同種・CM、二捩れ、有限位数・無限位数を許す。因子を動かすmoduli上で一つの核を選んだという主張ではない。
+正本は `mixed/elliptic_mixed_comparison.tex` と、その入力である `elliptic_boundary_kernel.tex`, `elliptic_bockstein.tex`, `elliptic_universal_kernel.tex`。滑らかな標準S(A_i,B_i,C_i)を固定し、k≥2、全a_i≠0、一つの共有中心u、因子間は可換とする。固定tensor境界と厳密中心作用を持つ全二次PBW表示では、この因子間可換性も `ifp:thm:factorization` から従う。異なるj、同種・CM、二捩れ、有限位数・無限位数を許す。因子を動かすmoduli上で一つの核を選んだという主張ではない。
 
 二捩れの定数型ambientはR=C[α,u,X,Y,Z]上階数8のClifford代数となり、X=x²,Y=y²,Z=z²が中心である。対称行列qの対角はX,Y,Z、非対角は(u²α_z−τZ)/2等。体積元v=xyz−q_xy z+q_xz y−q_yz xに対し、中心はR⊕Rv、v²=−det q、Ωτ=−2(τ³−1)vである（`eco:prop:clifford-center-freedom`）。u=0のdet qは−τ²(X³+Y³+Z³)/4+(1−τ³/4)XYZで、全α特殊化で非零最高項が残る。分数体上の中心からPBW基底の1・xyz係数を比較して分母を除く。同じ境界Ωτを持つ全中心三次はΩτ+uβ·(x²,y²,z²)+du³に限られる。多因子の低中心も各二捩れ因子の平方の直和なので、混合ブロック補正に追加自由度はない（`emc:prop:coverage`）。
 
@@ -316,7 +318,7 @@ Q_ncを可換化してJac(J)₂へ写すと(53/54)(p xy+q yz+r zx)になるが�
 
 ### 多中心の全表示、良い中央切断と反復比較
 
-正本は `mixed/multicentral_comparison.tex`。`mcp:thm:normal-form` は固定因子・因子間可換の表示について、非被約を許す任意可換C-代数R上で、一次中心形式t(U)、二次中心形式α(U)、三次中心形式c(U)を全パラメータとする。非二捩れの中心式は既に証明した普遍多項式をh=1とした後に係数代入する。二捩れでは正規化関係線形項が零、中心平方の一次係数βは残る。分類はI=(U)の随伴代数と低中心を使い、Σu_jq_jの中心性から各q_jの中心性を推論しない。自由係数数は3km+3k binom(m+1,2)+binom(m+2,3)、m=2で15k+4。`mcp:prop:free-quotient` によりAはR[U]上自由、wと中心列は任意順序で正則である。
+正本は `mixed/multicentral_comparison.tex`。`mcp:thm:normal-form` は固定因子・因子間可換の表示について、非被約を許す任意可換C-代数R上で、一次中心形式t(U)、二次中心形式α(U)、三次中心形式c(U)を全パラメータとする。`ifp:thm:factorization` により、指定中心三次を持つ固定tensor境界・厳密中心作用の全二次PBW表示をこの正規形へ戻せる。非二捩れの中心式は既に証明した普遍多項式をh=1とした後に係数代入する。二捩れでは正規化関係線形項が零、中心平方の一次係数βは残る。分類はI=(U)の随伴代数と低中心を使い、Σu_jq_jの中心性から各q_jの中心性を推論しない。自由係数数は3km+3k binom(m+1,2)+binom(m+2,3)、m=2で15k+4。`mcp:prop:free-quotient` によりAはR[U]上自由、wと中心列は任意順序で正則である。
 
 二中心では一中心のQ,L,Cへ形式を代入したW_polと、切断判別Δ=D(t(U),α(U),c(U))を定める。Δは重みから次数3·8^kの二変数形式。U_cut={Δ≢0}はsmoothな中央ray商が一本ある条件と正確に一致する。固定t(U)で一般α(U),c(U)はΔの単純根3·8^k個を持ち、W_polはsmooth、境界Zをblow-upするとLefschetz pencilになる（`mcpn:thm:lefschetz-pencil`）。証明の入力は固定tの被約判別、各点の値評価の全射性、三次形式の一次jetの自由度である。次数自体はTevelev, arXiv:math/0112028v1, §7.1 Example7.4の既知の双対次数公式と一致する。
 
@@ -383,6 +385,66 @@ Khan, *Algebraic K-theory of quasi-smooth blow-ups and cdh descent*, Ann.Henri L
 相対balancingの未完成点は本ノート後半の「graded-center balancing の有限性」と `tcr:rem:balancing-scope` に保持する。有限Koszul加群模型とassociative cofibrant相対対角の無限q_m列を区別する。逐次比較ではこの未同定towerの有限性を仮定せず、一中心の固定境界塔を用いる。
 
 有限再現資産は `verify_multicentral_pbw.py`（4 PASS）、`verify_multicentral_pencil.py`（6 PASS）、`verify_two_center_restrictions.py`（6 PASS）。pencilのFermat六変数例はb_j=2^jとして、64個の非零相異なる符号和2Σ ε_j8^jから192個の単純方向を厳密に確認する。二重制限の検算器は独立な4×4行列で混合二項・三項を確認する。これらを一般の比較定数や全Ku核の機械検証として扱わない。
+
+### 固定tensor境界の全PBW関係は因子別に分解する
+
+正本は [interfactor_pbw.tex](../papers/sections/mixed/interfactor_pbw.tex) の `ifp:thm:factorization`。固定smooth標準Sklyanin因子S_i、k≥2、任意可換C-代数R、厳密中心一次変数U=(u_1,…,u_m)を取る。最高active次数の随伴代数を(⊗S_i)⊗R[U]に固定し、全二次関係にU×全active生成元とSym²Uの補正を許す。内部関係が別因子の生成元を出力することも、因子間交換子が線形・定数補正を持つことも、初めから禁止しない。
+
+このPBW仮定だけで混合交換子の全補正と内部関係の他因子出力が零となり、元の生成元を保つR[U]-代数同型B≅⊗_{R[U]}B_iを得る。各B_iもPBWである。形式同型やgaugeを選んだ後の分解に留まらない。二つの入力はDer₋₁(S_i)=0とZ(S_i)₁=0であり、関係の平方係数C_i≠0から有限線型写像の単射性として直接示す。I=(U)のI/I²で混合線形項、次いで内部の他因子出力を消し、I²/I³で混合定数項を消す。単射はC上で分裂するため、非被約・非平坦な係数変更も許される。
+
+`ifp:cor:abstract-factorization` は同じ二条件を持つ任意のconnected二次C-代数へこの証明を拡張する。生成空間は有限次元とし、Koszul性・AS正則性・smoothnessはこの分解自体には不要である。次数−1導分を持つ多項式因子ではxy−yx=u²というPBW例があるので、低次数条件を省略できない。固定tensor境界を持たない対象や中心作用自体を動かす変形は範囲外である。
+
+指定中心三次の最高項がΣa_iΩ_i、全a_i≠0であるときは、この分解と `mcp:thm:normal-form` を続けて使い、既存の中心持上げ分類へ戻る。C上のsmoothな商には `mcb:cor:all-smooth-comparison` を適用できる。全intrinsic対象がこの表示を持つことは未証明のままである。有限検算の入口は `computations/verify_interfactor_pbw.py`（標準例と `--clifford`）であり、全因子・任意Rの定理は本文の有限線型証明に依拠する。実行状態は `validation.md` を参照する。
+
+### 境界二次関係を動かす一次混合類と中心障害
+
+正本は [interfactor_hochschild.tex](../papers/sections/mixed/interfactor_hochschild.tex)。固定境界S=⊗S_iの負内部次数ではHH²(S)₋₁とHH²(S)₋₂は純因子の直和で、ともに次元3kとなる（`ifh:lem:negative`）。有限Koszul双加群解消のtensor積でgraded Künnethを計算し、境界を保つidentity gaugeは各生成元への中心一次形式の加算だけであることも確かめる。これは上の厳密分解のcohomologicalな説明であり、有限関係式の結論は直接証明を正本とする。
+
+境界そのものを動かす次数零変形では別の混合類が現れる。二捩れ因子の集合をI₂、各因子のEuler導分をE_iとすると、`ifh:prop:central-mixed-obstruction` は
+
+\[
+\operatorname{HH}^2(S)_0=\mathcal P\oplus\mathcal E\oplus\mathcal C,
+\quad
+\mathcal P=\bigoplus_i\operatorname{HH}^2(S_i)_0,
+\quad
+\mathcal E=\bigoplus_{i<j}\mathbb C(E_i\smile E_j),
+\]
+
+\[
+\mathcal C=\bigoplus_{i\ne j,\ j\in I_2}
+ \operatorname{HH}^2(S_i)_{-2}\otimes Z(S_j)_2,
+\qquad \dim\mathcal C=9|I_2|(k-1)
+\]
+
+を与える。w₀=Σa_iΩ_iを中心へ持ち上げる障害はHH¹(S)₃に値を取り、Euler混合類には3(a_iΩ_iE_j−a_jΩ_jE_i)を与える。異なるordered成分が独立なので、この部分では単射で、純因子の障害とも相殺しない。一方、定数PBW変形の指定中心liftΩ_i+δq_iを使えば、中心平方z_jを掛けた混合類の障害はa_iq_i z_jによるinner導分となる。従って障害核は純因子の各障害核と𝒞の直和である。全因子が非二捩れなら一次中心lift可能な類は純因子に限られるが、この一次計算から形式・大域の因子分解や核の降下を結論しない。
+
+### Clifford中心平方から得る九変数混合族
+
+正本は [interfactor_clifford_family.tex](../papers/sections/mixed/interfactor_clifford_family.tex)。第一因子S₁を任意の固定smooth標準Sklyanin、第二因子を固定Clifford S₂=S(1,1,τ)、τ≠0、τ³≠1,−8とする。R=C[Λ_ab]、1≤a,b≤3に対し、
+
+\[
+\mathcal B_\Lambda
+ =R\langle x_1,x_2,x_3,y_1,y_2,y_3\rangle/
+ \bigl(r_{1,a}-\textstyle\sum_b\Lambda_{ab}y_b^2,
+       r_{2,b},[x_a,y_b]\bigr)
+\]
+
+を作る。S₂の三つの平方が中心なので、第一因子の普遍定数PBW族𝒰₁にα_a↦Σ_bΛ_ab y_b²を代入したcentral base changeとして定義できる。𝒰₁はC[α]上自由であるから、代入先のC[α]-平坦性を追加せず、二因子の語基底の積がR-基底となる（`ifc:thm:family`）。同じ代入でΩ₁,Λ=Ω₁,₀+Σ_abΛ_ab y_b²ℓ_a(x)を得て、Ω₂,₀も中心に残る。全a_i≠0のw_Λ=a₁Ω₁,Λ+a₂Ω₂,₀は両側正則で、商𝒜_ΛもR上自由である。Hilbert級数はそれぞれ(1−t)⁻⁶、(1−t³)(1−t)⁻⁶。中心変数Uと任意中心三次g(U)の追加後も商はR[U]上自由となる（`ifc:cor:central-variables`）。
+
+原点の接写像はMat₃(C)≅HH²(S₁⊗S₂)_{(−2,2)}=HH²(S₁)₋₂⊗Z(S₂)₂である（`ifc:prop:tangent`）。全代数S₁⊗S₂のHochschild cohomologyを計算するKoszul双加群複体の双次数(−2,2)では、一次cochainが零、二cocycleはHom(R₁,Z(S₂)₂)となる。従って九方向の独立性は純因子gaugeだけを割った計算ではない。この一つのordered pairの障害核を全次数へ同時積分したが、逆方向・他のordered pair・純因子次数零変形との任意の同時積分までは示していない。ここでのPBW濾過はxだけの次数であり、全active最高二次関係を固定する `ifp` の濾過とは異なる。従ってこの族は固定境界分解の反例ではない。
+
+次の着手は、まず𝒝_Λの相対Koszul解消と双対を調べ、AS正則性・untwisted CY性がどの係数で成立するかを確定することである。その後、正則中心商の線束模型・残余圏のsmoothnessと実smooth proper族の構成を調べる。自由基底と正則三次だけからこれらを済ませない。
+
+二因子・中心変数なしの𝒜_Λは三次四様体のHilbert型、n=4であり、n≠4を仮定する既存の可換実現開性 `grl:thm:open-locus` は適用できない。最初の比較対象としては `ifc:cor:central-variables` でm=1、g(u)=cu³、c≠0を加えたn=5の族を用いる。このΛ=0では既存の分離型比較がある。AS/CY・実相対smooth proper模型などの入力と開性定理の全仮定を先に確認し、原点近傍の比較から着手する。開性だけで全Λの比較を結論しない。直接の境界比較・球面制限へ接続できるかも別に検討する。固定tensor境界を越える全intrinsic被覆と、一般の次数零混合変形の分類は未完成である。
+
+近接する先行研究と今回の適用範囲は次の通りである。
+
+- Braverman–GaitsgoryのPBW条件、Etingof–Ginzburgの低次potential変形、Clifford因子の中心平方は既知入力である。中心環へ定数パラメータを代入する構成原理自体の新規性は主張しない。今回の証明は、この九方向の実族・指定中心lift・全係数自由商・全接写像を一つの表示で確かめる。
+- Walton–Witherspoon, *PBW deformations of braided products*, J.Algebra504(2018),536–567, DOI[10.1016/j.jalgebra.2018.02.028](https://doi.org/10.1016/j.jalgebra.2018.02.028), [著者PDF](https://people.tamu.edu/~sjw/pub/Walton-Witherspoon2.pdf), Hypothesis2.6・§6.2 Proposition6.2は、(S⊗Sᵒᵖ)#C C₂の定数型補正を分類する。scalar値の因子間補正は零であり、Cliffordの場合の追加九方向は非自明な群元gを値とする混合交換子である。gはactive生成元を符号反転するため厳密中心でなく、中心平方を内部関係へ代入する上の九方向とは異なる。Problem7.2の一般braided smash productの線形補正を解いたとはしない。
+- Witherspoon, *Hochschild Cohomology for Algebras*, GSM204(2019), [著者PDF](https://people.tamu.edu/~sjw/pub/gsm204.pdf), Theorem3.1.2の有限生成自由双加群解消によるKünnethを使う。Sklyaninでは有限Koszul解消のtensorにより内部多重次数も保持して適用できる。
+- Shepler–Witherspoon, *Deformation theory and Hopf actions on Koszul algebras*, Adv.Math.496(2026),110975,57pp., DOI[10.1016/j.aim.2026.110975](https://doi.org/10.1016/j.aim.2026.110975), [arXiv:2504.14397v3](https://arxiv.org/abs/2504.14397v3)のprimary abstract・Introductionは非可換係数環上のPBW/graded変形とHopf smash productを扱う。一般理論は§§2–4、Hopf–Koszulの具体条件はTheorem11.2・Corollary11.3に置かれる。本九変数族の分類や指定中心商を直接述べる箇所としては引用しない。
+
+これらの限定した一次資料確認により、構成の一般原理と本表示への適用を分けた。固定境界の厳密因子分解およびこの特定九変数族の初出・網羅的な新規性確認は未了である。本文の証明、内部の独立読解、有限計算、組版・表示確認、外部査読・形式証明器の確認はそれぞれ別の状態として `validation.md` に記す。
 
 ### 全smooth領域の相対模型と比較不変量
 

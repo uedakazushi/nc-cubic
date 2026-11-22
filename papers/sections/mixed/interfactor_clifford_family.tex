@@ -1,0 +1,251 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v61.
+\subsection{Clifford 中心平方による次数零混合類の実積分}
+\label{ifc:subsec:clifford-family}
+
+命題\ref{ifh:prop:central-mixed-obstruction}の障害核に現れる
+$\operatorname{HH}^2(S_i)_{-2}\otimes Z(S_j)_2$ のうち、
+一つの ordered pair に対応する九次元部分は、全係数上の二次代数族へ積分できる。
+その構成には、定数型 PBW 因子の普遍係数を、他因子の中心平方へ写す。
+中心三次も同じ底変更で持ち上がり、その商は係数環上自由となる。
+この族では境界代数自体の次数零変形を行う。
+定理\ref{ifp:thm:factorization}で固定した最高 active 次数の tensor 境界も変化している。
+
+\subsubsection{九変数族と中心三次商}
+
+$S_1=S(A_1,B_1,C_1)$ を任意の滑らかな標準 Sklyanin 因子とし、
+生成元を $\mathbf x=(x_1,x_2,x_3)$、三つの巡回関係を $r_{1,a}$ と書く。
+第二因子を
+\[
+ S_2=S(1,1,\tau),\qquad
+ \tau\ne0,\quad \tau^3\ne1,-8
+\]
+と固定し、その生成元を $\mathbf y=(y_1,y_2,y_3)$ とする。
+このとき
+\[
+ \{y_2,y_3\}+\tau y_1^2=0,\qquad\text{巡回式},\qquad
+ Z(S_2)_2=\langle y_1^2,y_2^2,y_3^2\rangle
+\]
+である。各因子の指定中心正則三次を $\Omega_{i,0}$ とし、
+$a_1,a_2\in\C^\times$ を固定する。
+独立な九変数 $\Lambda_{ab}$ の係数環と中心次数二の元を
+\begin{equation}\label{ifc:eq:parameters}
+ R=\C[\Lambda_{ab}:1\le a,b\le3],\qquad
+ z_a=\sum_{b=1}^3\Lambda_{ab}y_b^2\in Z(R\otimes_\C S_2)_2
+\end{equation}
+と置く。$\Lambda_{ab}$ の内部次数は零である。
+
+\begin{theorem}[中心平方を代入した二次族と自由中心商]
+\label{ifc:thm:family}
+次の次数付き $R$-代数を考える：
+\begin{equation}\label{ifc:eq:presentation}
+ \mathcal B_\Lambda
+ =R\langle\mathbf x,\mathbf y\rangle
+   \big/
+    \bigl(r_{1,a}-z_a,\ r_{2,b},\
+                   [x_a,y_b]:1\le a,b\le3\bigr).
+\end{equation}
+全生成元の内部次数を一とする。
+この族は $R$ 上自由で、$\Lambda=0$ のファイバーは $S_1\otimes_\C S_2$ である。
+各 $S_i$ の固定した斉次語基底の積が $\mathcal B_\Lambda$ の $R$-基底となる。
+
+固定した一次式 $\ell_a(\mathbf x)$ を用いて、中心三次
+\begin{equation}\label{ifc:eq:center-lift}
+ \Omega_{1,\Lambda}
+   =\Omega_{1,0}+\sum_{a,b}\Lambda_{ab}y_b^2\ell_a(\mathbf x)
+       \in Z(\mathcal B_\Lambda)_3
+\end{equation}
+を選べる。ここで $\Omega_{1,0}$ には固定した三次の語代表を用いる。
+また $\Omega_{2,0}$ も $\mathcal B_\Lambda$ の中心元である。
+従って
+\[
+ w_\Lambda=a_1\Omega_{1,\Lambda}+a_2\Omega_{2,0},
+       \qquad \mathcal A_\Lambda=\mathcal B_\Lambda/(w_\Lambda)
+\]
+が定まり、$w_\Lambda$ は左右の非零因子である。
+$\mathcal A_\Lambda$ も各内部次数で有限自由な $R$-加群であり、Hilbert 級数は
+\begin{equation}\label{ifc:eq:hilbert}
+ H_{\mathcal B_\Lambda}(t)=\frac1{(1-t)^6},\qquad
+ H_{\mathcal A_\Lambda}(t)=\frac{1-t^3}{(1-t)^6}.
+\end{equation}
+これらの基底・中心性・正則性は、任意の可換 $\C$-代数への係数変更と両立する。
+\end{theorem}
+
+\begin{proof}
+第一因子の普遍定数型 PBW 代数を
+\[
+ C_\alpha=\C[\alpha_1,\alpha_2,\alpha_3],\qquad
+ \mathcal U_1=C_\alpha\langle\mathbf x\rangle/
+                         (r_{1,a}-\alpha_a:1\le a\le3)
+\]
+とする。$\deg\alpha_a=2$ とし、$\alpha_a$ は中心とする。
+一因子の普遍 PBW 基底と中心持上げは、
+非二捩れの場合には命題\ref{eco:prop:universal-lift}と
+系\ref{eco:cor:non-clifford-lift}、二捩れの場合には
+命題\ref{eco:prop:clifford-center-freedom}による。
+前者では線形補正を零にして Rees 変数を一へ特殊化すればよい。
+従って $\mathcal U_1$ は $C_\alpha$ 上自由で、
+$S_1$ の固定した斉次語基底が基底を与える。
+また、係数重み二の $\alpha$ と生成元次数一に関する斉次性から、
+その中心持上げは
+\[
+              \Omega_1(\alpha)
+                  =\Omega_{1,0}+\sum_a\alpha_a\ell_a(\mathbf x)
+\]
+と書ける。二捩れの第一因子についても、普遍 Clifford 体積元の同じ重みを用いる。
+
+式\eqref{ifc:eq:parameters}は中心への次数付き準同型
+$C_\alpha\to Z(R\otimes S_2)$、$\alpha_a\mapsto z_a$ を与える。
+そこで
+\begin{equation}\label{ifc:eq:central-base-change}
+           \mathcal U_1\otimes_{C_\alpha}(R\otimes_\C S_2)
+\end{equation}
+を取る。第二因子は非可換だが、$C_\alpha$ は両因子の中心へ写るので
+$(p\otimes s)(q\otimes t)=pq\otimes st$ は balanced tensor 積上で定義される。
+この代数の普遍性から、式\eqref{ifc:eq:presentation}と同型である。
+$\mathcal U_1$ の $C_\alpha$-自由基底を tensor すると主張した基底を得る。
+特に $R\otimes S_2$ の $C_\alpha$ 上の平坦性を仮定する必要はない。
+
+$\Omega_1(\alpha)\otimes1$ は第一因子と可換であり、
+tensor 積の第二因子とも可換である。その像が
+式\eqref{ifc:eq:center-lift}である。
+$1\otimes\Omega_{2,0}$ も同様に中心的である。
+従って、点ごとに中心元を選び直すことなく、全係数上の中心恒等式を得る。
+
+正則性には、$\mathbf x$ のみを次数一、
+$R\otimes S_2$ を次数零とする非負濾過 $F$ を使う。
+第一因子の PBW 基底から
+\begin{equation}\label{ifc:eq:filtered-algebra}
+          \operatorname{gr}_F\mathcal B_\Lambda
+                 \simeq S_1\otimes_\C S_2\otimes_\C R
+\end{equation}
+であり、$w_\Lambda$ の最高 $F$-次数部分は
+$a_1\Omega_{1,0}\otimes1$ である。
+$\Omega_{1,0}$ は $S_1$ 上の中心正則元であるため、
+この最高次部分は式\eqref{ifc:eq:filtered-algebra}上で左右正則である。
+有限な最高次数を持つ元の積の初項を比較すれば、
+$w_\Lambda$ 自身も左右正則と分かる。
+
+さらに、主イデアルの濾過も strict である。
+実際、非零元 $b$ に対し
+$\deg_F(w_\Lambda b)=3+\deg_F b$ が成り立ち、
+中心性によって二側イデアルの全元は $w_\Lambda b$ の形に書ける。
+従って
+\begin{equation}\label{ifc:eq:filtered-quotient}
+ \operatorname{gr}_F\mathcal A_\Lambda
+        \simeq (S_1/(\Omega_{1,0}))\otimes_\C S_2\otimes_\C R.
+\end{equation}
+$S_1/(\Omega_{1,0})$ の斉次語基底を持ち上げたものと、
+$S_2$ の斉次語基底との積を取る。
+式\eqref{ifc:eq:filtered-quotient}と最高 $F$-次数に関する帰納法により、
+それらは $\mathcal A_\Lambda$ の $R$-自由基底となる。
+全ての関係と $w_\Lambda$ は通常の内部次数について斉次なので、
+この基底は内部次数別にも斉次である。
+各 Sklyanin 因子の Hilbert 級数と $\deg w_\Lambda=3$ から
+式\eqref{ifc:eq:hilbert}を得る。
+全ての基底表示と初項の単射性は $\C$ 上の自由空間を用いているため、
+非被約な係数環への変更にも同じ証明が適用できる。
+\end{proof}
+
+\subsubsection{接類と一次障害核への対応}
+
+\begin{proposition}[九つの混合方向の独立性]
+\label{ifc:prop:tangent}
+$T=S_1\otimes S_2$ とし、二因子次数を
+$\deg\mathbf x=(1,0)$、$\deg\mathbf y=(0,1)$ とする。
+族 $\mathcal B_\Lambda$ の原点における接写像は同型
+\begin{equation}\label{ifc:eq:tangent}
+ \operatorname{Mat}_3(\C)
+   \xrightarrow{\ \sim\ }
+ \operatorname{HH}^2(T)_{(-2,2)}
+   \simeq \operatorname{HH}^2(S_1)_{-2}\otimes Z(S_2)_2
+       \subset\operatorname{HH}^2(T)_0
+\end{equation}
+を与える。定数補正 $r_{1,a}-\alpha_a$ に対応する類を $\eta_a$ とすれば、
+行列 $M$ の像は $\sum_{a,b}M_{ab}\eta_a\otimes y_b^2$ である。
+従って九方向は全て非零かつ独立であり、
+命題\ref{ifh:prop:central-mixed-obstruction}の
+$\ker\operatorname{ob}_{w_0}$ に属する。
+本族はこの一つの ordered pair の九方向を同時に全次数へ積分する。
+\end{proposition}
+
+\begin{proof}
+式\eqref{ifh:eq:kunneth}の Koszul 双加群複体を二因子次数で分解する。
+$R_1$ を第一因子の関係空間とすると、次数の非負性から
+\[
+ C^1_{(-2,2)}=0,\qquad
+ C^2_{(-2,2)}=\operatorname{Hom}_\C(R_1,(S_2)_2)
+\]
+である。後者の写像を $\psi$ とする。
+第一因子だけの三次 overlap では、cocycle 条件は
+$\sum_a[x_a,\psi(r_{1,a})]=0$ であり、異なる因子の可換性から自動的に成立する。
+二次の第一因子と一次の第二因子の shuffle overlap では、
+条件は
+\[
+                [y,\psi(r)]=0
+             \qquad(y\in(S_2)_1,\ r\in R_1)
+\]
+である。他の三次成分は第一因子の出力次数が負となり寄与しない。
+従って cocycle 空間は正確に
+$\operatorname{Hom}_\C(R_1,Z(S_2)_2)$ となる。
+$C^1_{(-2,2)}=0$ により境界はなく、
+三つの関係双対と三つの独立な中心平方から次元は九である。
+これは純因子だけでなく、全 Hochschild cochain に対する計算である。
+
+独立パラメータ族を双対数へ $\Lambda_{ab}=\epsilon M_{ab}$、
+$\epsilon^2=0$ と制限する。
+定理\ref{ifc:thm:family}の自由基底で一次の乗法を取り出すと、
+Koszul 二 cochain の $r_{1,a}$ 上の値は
+$\sum_bM_{ab}y_b^2$ であり、他の関係上では零である。
+これが式\eqref{ifc:eq:tangent}の同型を与える。
+ここで接点は九変数 $\Lambda$ の原点であり、$M$ はその接ベクトルである。
+最後に、全係数上で存在する $w_\Lambda$ を同じ双対数へ制限すれば、
+$w_0=a_1\Omega_{1,0}+a_2\Omega_{2,0}$ の中心持上げを得る。
+従って一次中心障害は零であり、実際にはこの族で全次数の持上げが構成されている。
+\end{proof}
+
+\begin{corollary}[自由な中心変数の追加]
+\label{ifc:cor:central-variables}
+任意個の中心次数一変数 $\mathbf u=(u_1,\ldots,u_m)$ を自由に追加し、
+$g(\mathbf u)$ を任意の斉次三次式とする。
+このとき
+\[
+ \mathcal B_\Lambda[\mathbf u],\qquad
+ \mathcal A_{\Lambda,g}
+   =\mathcal B_\Lambda[\mathbf u]/
+       (w_\Lambda+g(\mathbf u))
+\]
+についても、表示した中心三次は左右正則であり、
+$\mathcal A_{\Lambda,g}$ は $R[\mathbf u]$ 上自由である。
+各複素係数点での内部 Hilbert 級数は
+\[
+              H_{\mathcal A_{\Lambda,g}}(t)
+                       =\frac{1-t^3}{(1-t)^{6+m}}
+\]
+である。$g$ の係数も独立な変数として加えてよい。
+\end{corollary}
+
+\begin{proof}
+前証明の $F$ に関して $\mathbf u$ の次数を零とする。
+中心三次の最高 $F$-次数部分は引き続き $a_1\Omega_{1,0}$ である。
+式\eqref{ifc:eq:filtered-quotient}の右辺に
+$\C[\mathbf u]$ と $g$ の係数環を tensor し、同じ基底の議論を適用すればよい。
+\end{proof}
+
+\begin{remark}[この積分族の範囲]
+\label{ifc:rem:scope}
+本小節で得たものは、固定 Clifford 因子の中心平方を使う、
+一方向の九変数混合族とその中心正則三次商である。
+式\eqref{ifh:eq:obstruction-kernel}の他の ordered pair、
+逆向きの混合類、純因子の次数零変形と同時に積分できるとは結論していない。
+また、この $F$ は第一因子だけの次数濾過であり、
+固定 tensor 境界の中心一次・二次補正を扱う前小節の active 濾過とは異なる。
+PBW 基底、係数環上の自由性、中心持上げとその正則性がここでの結論である。
+周囲代数の AS-regular 性・CY 性、射影中心商や残余圏の smoothness、
+および可換三次への Ku 比較核は本小節では確認していない。
+中心変数を加えない Hilbert 型は四次元三次に対応するため、
+主稿の $n\ne4$ という仮定を持つ開性定理
+（定理\paperref{main}{grl:thm:open-locus}）をそのまま用いることもできない。
+一つの中心変数と非零三乗項を加えた五次元型では、この次元上の制約はなくなるが、
+同定理に必要な実 smooth proper 圏族などの入力は別途確認しなければならない。
+\end{remark}

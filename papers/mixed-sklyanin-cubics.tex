@@ -5,7 +5,7 @@
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
 \large 有限中心・局所代数・楕円因子と多中心の比較核}
 \author{}
-\date{2026年11月22日・研究稿 v60}
+\date{2026年11月22日・研究稿 v61}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
 pdfsubject={有限中心・局所代数・楕円因子と多中心の比較核}}
 
@@ -80,6 +80,14 @@ $2^{3k+m-1}$ 個の悪い値が全て単純で、各可換標的には唯一の�
 二中心の切断判別形式は次数 $3\cdot8^k$ で、smooth 対象では恒等零にならない。
 固定一次形式に対する一般の残りの係数は同数の一節点切断を持つ Lefschetz pencil を与える。
 ただし、偏極候補と逐次構成の実標的の一致は証明していない。
+固定 tensor 境界と厳密な中心変数を持つ全二次 PBW 変形は、
+元の生成元のまま因子別に分解し、指定中心三次を持つ場合には上述の比較の範囲に入る。
+境界の二次関係自体を動かす場合には、中心三次の一次障害が
+Euler 混合類を全て排除する一方、Clifford 因子の中心平方による類は残る。
+二捩れ因子の数を $q$ とすると、この混合核の次元は $9q(k-1)$ である。
+その一つの ordered pair の九方向を全係数上の自由な二次代数族へ積分し、
+正則中心三次と自由な商を構成する。
+この二次境界変形族についての smoothness と Ku 比較は未確認である。
 二つの軸の切断が同一でも全体の smoothness が異なる例は、混合情報の必要性を示す。
 さらに交換子パラメータの族に、零と一を含む半局所底上の
 相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
@@ -103,7 +111,8 @@ $2^{3k+m-1}$ 個の悪い値が全て単純で、各可換標的には唯一の�
 二次関係に中心変数が現れる混合表示が、楕円因子の分離テンソル比較の
 次に調べるべき具体的な対象となる。
 本稿は、中心一次変数を共有する固定楕円 Sklyanin 因子の
-因子別 PBW・中心三次変形を扱う。一中心では全許容係数を比較し、
+固定 tensor 境界を持つ全 PBW・中心三次変形を扱う。
+因子間可換性は PBW 条件から証明する。一中心では全許容係数を比較し、
 任意個の中心では全 smooth 対象の良い中央 flag を構成して実比較を得る。
 中心と局所代数を明示できる $S(1,-1,-1)$ の定数型から記法を定め、
 線形補正、さらに異なる因子を許す全係数比較へ進む。
@@ -140,7 +149,7 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
 
 \subsection{中心結果と成立範囲}
 
-本稿の中心結果は次の九つに分かれる。
+本稿の中心結果は次の十項目に分かれる。
 完全な仮定と証明は各参照先に置く。
 
 \begin{enumerate}
@@ -281,6 +290,19 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  例\ref{tcr:ex:same-axes}が示すように、個別の軸の comonad だけでは全体は決まらない。
  偏極候補への実比較核、全中心作用の同時保存、全 intrinsic 表示被覆は別の問題である。
 
+ \item \emph{因子間 PBW 剛性と二次境界の混合変形。}
+ 定理\ref{ifp:thm:factorization}は、任意の可換係数環上で、
+ 固定 tensor 境界と厳密な中心変数を持つ全二次 PBW 変形を
+ 元の生成元のまま因子別に分解する。
+ 系\ref{ifp:cor:central-comparison}により、指定中心三次がある場合には
+ 全 smooth 対象の可換 Ku 比較を適用できる。
+ 二次境界を変える次数零変形では、
+ 命題\ref{ifh:prop:central-mixed-obstruction}が中心持上げ障害の混合核を
+ $\bigoplus_{i\ne j,\,j\in I_2}\operatorname{HH}^2(S_i)_{-2}\otimes Z(S_j)_2$
+ と決定する。次元は $9|I_2|(k-1)$ であり、二捩れがなければ零である。
+ 定理\ref{ifc:thm:family}は一つの ordered pair の九方向を実際の全係数族へ積分する。
+ その中心三次商の自由性を示すが、この新しい族の smoothness と Ku 比較は未確認である。
+
  \item \emph{零係数の実際の可換比較核。}
  $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
  根スタック上の十六例外対象の右直交として
@@ -357,6 +379,20 @@ Gaddis\cite[Propositions~2.7, 5.1]{CMOGaddisPBW}で扱われる。
 従って、正則な中心拡大を作ること自体を新しい比較定理とはしない。
 本稿の多中心部分では、指定中心三次の全持上げと混合偏極項を
 任意の係数環上で確認し、それを実残余制限と逐次比較に用いる。
+
+因子間 PBW 関係について近接する先行結果は、Walton--Witherspoon
+\cite[Hypothesis~2.6, Proposition~6.2]{CMOWaltonWitherspoonBraided}である。
+同命題は $(S\otimes S^{\mathrm{op}})\#\C C_2$ の定数型変形を分類し、
+scalar 値の混合補正を零とする。二捩れで残る混合補正は、
+active 生成元と反可換する群元に値を持つ。
+本稿の因子分解は、厳密な中心係数を持つ任意の固定因子の組について、
+線形補正と非被約係数環も含めて証明する。
+同文献の一般 braided smash product の線形分類問題を解いたとはしない。
+Hochschild の tensor 積公式自体は既知
+\cite[Theorem~3.1.2]{CMOWitherspoonHochschild}であり、
+本稿では内部次数と指定中心三次の障害を分離して混合核を求める。
+その Clifford 部分の一方向を、定数型普遍係数の中心平方への代入で積分する。
+この因子分解・混合核・具体的積分族の文献上の初出は未確認である。
 
 Sklyanin 代数の斉次中心の生成は Smith--Tate
 \cite[Theorems~3.7, 4.8]{GRSklyaninST}、
@@ -533,6 +569,8 @@ Sklyanin 曲線と標準中心元の既知の記述
 第\ref{mct:sec:multicentral}節では、多中心の正規形、中央 pencil の判別、
 滑らかな切断からの逐次核、横断二項の全階数と判別、
 実 blow-up による全 smooth locus と一般中央旗、二制限の混合情報を扱う。
+第\ref{ifd:sec:interfactor}節では固定 tensor 境界の全 PBW 表示への拡張、
+二次境界を変える一次障害核と Clifford 中心平方による九変数族を構成する。
 第\ref{mix:sec:equivariant-window}--\ref{mix:sec:kernel-specialization}節で非可換側の Hom 指標、
 指定 $h$-候補への形式・一般点比較と相対対角・整延長を調べる。
 第\ref{mix:sec:poisson-limits}節を点・零スキームの不一致の例に充てる。
@@ -561,6 +599,7 @@ Sklyanin 曲線と標準中心元の既知の記述
 \input{papers/sections/mixed/elliptic_center_obstruction.tex}
 \input{papers/sections/mixed/elliptic_mixed_comparison.tex}
 \input{papers/sections/mixed/multicentral_comparison.tex}
+\input{papers/sections/mixed/interfactor_deformations.tex}
 \input{papers/sections/mixed/equivariant_window.tex}
 \input{papers/sections/mixed/equivariant_deformation.tex}
 \input{papers/sections/mixed/kernel_specialization.tex}
@@ -634,8 +673,10 @@ perfect 整延長が存在する。
 一般の $\alpha$ で中心の特異点と中央切断が退化する locus を求め、
 局所 order と単純加群の分類がどのように変わるかを調べる課題は残る。
 他の位数六因子での中心・局所 order・単純加群の明示分類は残る。
-中心変数が複数ある因子別表示の実比較は得たが、
-因子間の一般混合関係を許す表示の比較は拡張課題である。
+固定 tensor 境界の全 PBW 表示は因子別に分解し、指定中心三次商の比較は得た。
+一方、最高次の二次境界を変える表示と全 intrinsic 対象の被覆は未完成である。
+まず定理\ref{ifc:thm:family}の九変数族について、周囲代数の正則性・双対性、
+中心商の smoothness と実 Ku 核を調べる必要がある。
 全線形 PBW 族の可換 Ku 比較は得たが、その一般の中心環・PI 性の分類は別問題である。
 実 Morita 同値は積分数値 Grothendieck 群の同型も与えるが、
 表示した二対象がその積分基底となることや、核の作用の基底表示は未計算である。

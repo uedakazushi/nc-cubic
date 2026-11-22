@@ -1,0 +1,299 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v61.
+\subsection{負次数 Hochschild 類と境界変形の一次中心障害}
+\label{ifh:subsec:hochschild}
+
+定理\ref{ifp:thm:factorization}の有限表示に関する結論には、
+Hochschild 複体上でも純因子性を説明できる。
+ここではその計算を記し、さらに、固定境界の PBW 変形とは別に、
+境界自体を次数零で変形するときの一次障害を調べる。
+後者は一次の主張であり、形式変形全体や大域的な表示の分類ではない。
+
+各因子を $S_i=T(V_i)/(R_i)=S(a_i',b_i',c_i')$ と書き、
+$S=\bigotimes_{i=1}^kS_i$、$V=\bigoplus_iV_i$ と置く。
+全因子の標準点曲線は滑らかとし、特に $c_i'\ne0$ である。
+中心三次の重み $a_i$ と Sklyanin 係数 $a_i'$ は区別する。
+全関係空間は
+\[
+ \mathsf R=\bigoplus_iR_i\ \oplus\!
+   \bigoplus_{i<j}\langle x\otimes y-y\otimes x:
+                    x\in V_i,\ y\in V_j\rangle
+\]
+である。Hochschild 群の下添字は active 内部次数を表す。
+以下の複体・群は affine graded 代数 $S$ のものであり、
+残余圏の自然変換空間との同一視は用いない。
+
+\begin{lemma}[負次数の純因子性と全 gauge]
+\label{ifh:lem:negative}
+二捩れ因子を含む任意の固定した因子の組に対して
+\begin{equation}\label{ifh:eq:negative-hh}
+ \begin{aligned}
+ \operatorname{HH}^2(S)_{-1}
+   &\cong\bigoplus_i
+      \bigl(\operatorname{Sym}_3(\C)/\operatorname{im}T_i\bigr),\\
+ \operatorname{HH}^2(S)_{-2}
+   &\cong\bigoplus_iR_i^\vee
+ \end{aligned}
+\end{equation}
+となる。ここで $T_i$ は式\eqref{ebc:eq:translation}の平行移動写像であり、
+右辺の各直和因子は三次元である。
+
+さらに、quadratic Koszul 双加群複体によりこれらを計算するとき、
+次数 $-1$ の二 cocycle 自体は、各 $R_i\to V_i$ の対称行列を並べたものに限る。
+次数 $-2$ の二 cocycle 自体も、各 $R_i\to\C$ を並べたものに限る。
+いずれも因子間交換関係で零であり、前者は他因子の生成元を値に取らない。
+
+中心変数 $\mathbf u$ を固定し、$\mathbf u=0$ での同定を恒等とする
+次数付き $R[\mathbf u]$-代数同型の生成元上の形は、正確に
+\begin{equation}\label{ifh:eq:graded-gauge}
+ x_{ij}\longmapsto x_{ij}+s_{ij}(\mathbf u),\qquad
+              s_{ij}\in R[\mathbf u]_1
+\end{equation}
+である。上の cochain 計算とこの gauge の記述は、
+被約性を仮定しない任意の可換 $\C$-代数 $R$ に両立する。
+\end{lemma}
+
+\begin{proof}
+一因子の Koszul 双加群解消を
+$S_i\otimes K_{i,q}\otimes S_i$ と書く。
+$K_{i,q}$ の内部次数は $q$ であり、
+$K_{i,0}=\C$、$K_{i,1}=V_i$、$K_{i,2}=R_i$ である。
+従って、Hochschild cochain は
+\[
+ C_i^q=\operatorname{Hom}_{\C}(K_{i,q},S_i),\qquad
+ (C_i^q)_d=\operatorname{Hom}_{\C}
+               (K_{i,q},(S_i)_{q+d})
+\]
+で計算できる。特に $\operatorname{HH}^2(S_i)_d=0$ for $d<-2$ である。
+この Koszul 複体と PBW 一次条件の関係は
+\cite[Sections~3.3, 3.6 and 4.3]{CMOBravermanGaitsgory}に明示されている。
+
+補題\ref{ifp:lem:low-degree}により、
+次数 $-1$ の導分と次数一の中心は零である。
+次数 $<-1$ の導分も生成元の次数から零であり、従って
+\[
+       \operatorname{HH}^1(S_i)_{<0}=0,\qquad Z(S_i)_1=0.
+\]
+
+各因子の有限自由な Koszul 双加群解消を tensor すると、
+$S$ の双加群解消になる。signed shuffle によるその次数二の同定は、
+上に表示した $\mathsf R$ の直和分解である。
+Hom 複体も因子の Hom 複体の tensor に同定されるため、
+体上の複体の K\"unneth 公式から
+\begin{equation}\label{ifh:eq:kunneth}
+ \operatorname{HH}^*(S)
+      \cong\bigotimes_i\operatorname{HH}^*(S_i)
+\end{equation}
+を cohomological 次数と内部次数の両方を保って得る。
+この有限生成自由解消の下での一般公式は
+\cite[Theorem~3.1.2]{CMOWitherspoonHochschild}にもある。
+固定した次数で現れる項は有限個である。
+cohomological 次数二に現れる分割は $(2,0,\ldots)$ と $(1,1,0,\ldots)$ だけである。
+前段の消滅と $\operatorname{HH}^0(S_i)=Z(S_i)$ を使うと、内部次数 $-1,-2$ では
+純因子以外の項はない。$-1$ の計算は補題\ref{ebc:lem:translation-gauge}である。
+$-2$ では $\operatorname{Hom}(R_i,\C)$ の全てが cocycle となる。
+唯一の次数三 overlap $\sum x_jr_j=\sum r_jx_j$ に定数を代入すると、
+左右が項ごとに相殺するためである。さらに $(C_i^1)_{-2}=0$ なので境界はない。
+これで式\eqref{ifh:eq:negative-hh}を得る。
+
+この群の計算だけで実際の関係式を同定するのではなく、境界も確認する。
+全体の $(C^1)_{-1}=\operatorname{Hom}(V,\C)$ の coboundary は、
+因子間交換関係では零であり、$R_i$ 上では $T_i$ の像となる。
+従って全ての coboundary も純因子である。
+式\eqref{ifh:eq:kunneth}における純因子類は、
+他因子では単位を取ることにより、純因子 cocycle で代表できる。
+任意の cocycle とその代表との差も純因子境界なので、
+次数 $-1$ の cocycle 自体が主張した支持を持つ。
+次数 $-2$ については $(C^1)_{-2}=0$ が同じ結論を与える。
+これが有限 PBW 因子分解の cochain 上の理由である。
+二次・高次条件を満たす有限表示の結論は、
+定理\ref{ifp:thm:factorization}の直接証明による。
+
+最後に、PBW 表示の次数一部分は $V_R\oplus R[\mathbf u]_1$ である。
+指定した中心変数を保ち、境界で恒等となる斉次同型は、
+従って式\eqref{ifh:eq:graded-gauge}以外の形を持たない。
+逆向きの生成元変更は $s_{ij}$ を引く操作である。
+これは任意の平行移動が同じ係数の代数の自己同型になるという意味ではなく、
+平行移動により変換された係数の表示との同型を記述している。
+上で使った各固定次数の複体は有限次元 $\C$-空間の複体なので、
+その核・像の計算は任意の $R$ への tensor と両立する。
+中心一次式・二次式の各係数にもこの計算を適用できる。
+\end{proof}
+
+次に、$\mathbf u=0$ の境界そのものの次数零変形を考える。
+この場合には因子間の二次関係を変える混合類が実際に存在する。
+まず、その記述に必要な次数零導分を確定する。
+
+\begin{lemma}[次数零導分は Euler 導分だけである]
+\label{ifh:lem:euler}
+滑らかな標準点曲線を持つ $S_i$ に対し
+\[
+            \operatorname{HH}^1(S_i)_0=\C E_i
+\]
+となる。ただし $E_i$ は active 次数による Euler 導分である。
+この補題では二捩れを除外しない。
+\end{lemma}
+
+\begin{proof}
+次数零導分 $D$ は $V_i$ 上の線型写像であり、
+その tensor 代数への延長は $R_i$ を保つ。
+従って $1+\epsilon D$ は $\C[\epsilon]/(\epsilon^2)$ 上で
+関係空間を保つ線型生成元変更である。
+標準 Sklyanin 関係の multilinear 行列は
+\[
+ M(x,y,z)=
+ \begin{pmatrix}
+ c_i'x&b_i'z&a_i'y\\
+ a_i'z&c_i'y&b_i'x\\
+ b_i'y&a_i'x&c_i'z
+ \end{pmatrix}.
+\]
+生成元と関係基底の可逆変更は、その determinant を座標変換と単元倍で移す。
+従って $D$ の誘導する線型ベクトル場は、
+滑らかな点曲線の方程式 $f_i=\det M$ を scalar 倍に保つ。
+ある $\lambda\in\C$ に対し $D(f_i)=\lambda f_i$ と書ける。
+
+Euler ベクトル場の $\lambda/3$ 倍を引くと、一次式 $\ell_x,\ell_y,\ell_z$ が
+\[
+             \ell_x\partial_xf_i+
+             \ell_y\partial_yf_i+
+             \ell_z\partial_zf_i=0
+\]
+を満たす。滑らかさと Euler の公式から、三つの二次式 $\partial_jf_i$ の
+共通零点は原点だけであり、これらは $\C[x,y,z]$ の正則列である。
+その一次 syzygy は Koszul syzygy で生成され、係数の最小次数は二である。
+よって上の一次係数は全て零となり、$D$ は Euler 導分の scalar 倍である。
+次数零の inner derivation は $(S_i)_0=\C$ から来るので零であり、主張を得る。
+\end{proof}
+
+\begin{proposition}[次数零混合類の中心障害とその核]
+\label{ifh:prop:central-mixed-obstruction}
+二捩れ因子の集合を $I_2$ とし、非零重み $a_i$ と指定中心
+\[
+                    w_0=\sum_i a_i\Omega_i\in Z(S)_3
+\]
+を固定する。次の三つの部分空間を置く：
+\[
+ \begin{aligned}
+ \mathcal P&=\bigoplus_i\operatorname{HH}^2(S_i)_0,\qquad
+ \mathcal E=\bigoplus_{i<j}\C(E_i\smile E_j),\\
+ \mathcal C&=\bigoplus_{\substack{i\ne j\\j\in I_2}}
+                  \operatorname{HH}^2(S_i)_{-2}\otimes Z(S_j)_2.
+ \end{aligned}
+\]
+このとき
+\begin{equation}\label{ifh:eq:degree-zero}
+ \operatorname{HH}^2(S)_0=\mathcal P\oplus\mathcal E\oplus\mathcal C,
+           \qquad \dim\mathcal C=9|I_2|(k-1).
+\end{equation}
+
+次数付き一次平坦変形 $S_\epsilon$、$\deg\epsilon=0$ に対する
+中心持上げの障害写像
+\[
+ \operatorname{ob}_{w_0}:
+      \operatorname{HH}^2(S)_0\longrightarrow\operatorname{HH}^1(S)_3
+\]
+は
+\begin{equation}\label{ifh:eq:mixed-obstruction}
+ \operatorname{ob}_{w_0}(E_i\smile E_j)
+       =3\bigl(a_i\Omega_iE_j-a_j\Omega_jE_i\bigr)
+\end{equation}
+を満たし、$\mathcal E$ 上では単射、$\mathcal C$ 上では零である。
+$\mathcal E$ の像は純因子変形の障害の像と交わらない。従って
+\begin{equation}\label{ifh:eq:obstruction-kernel}
+ \ker\operatorname{ob}_{w_0}
+   =\left[\bigoplus_i
+       \ker\bigl(\operatorname{ob}_{\Omega_i}:
+             \operatorname{HH}^2(S_i)_0
+                \longrightarrow\operatorname{HH}^1(S_i)_3\bigr)\right]
+       \oplus\mathcal C.
+\end{equation}
+ここで中心補正 $w_0+\epsilon z$ の $z\in S_3$ は因子間を混ぜてよい。
+特に全因子が二捩れでない場合、中心を持ち上げられる次数零一次変形の類は
+純因子直和 $\mathcal P$ に属する。
+\end{proposition}
+
+\begin{proof}
+系\ref{eco:cor:non-clifford-lift}と
+命題\ref{eco:prop:clifford-center-freedom}の低次数中心の計算により、
+各因子で $Z(S_i)_1=0$、$Z(S_i)_3=\C\Omega_i$ である。
+さらに $Z(S_i)_2$ は非二捩れ因子では零、二捩れ因子では三つの中心平方が張る。
+式\eqref{ifh:eq:kunneth}と補題\ref{ifh:lem:negative}、\ref{ifh:lem:euler}を使う。
+cohomological 次数二、内部次数零では、純因子の負次数と
+他因子の正次数中心の積は $\operatorname{HH}^2(S_i)_{-2}\otimes Z(S_j)_2$
+だけである。これが $\mathcal C$ を与え、各 ordered pair の次元は $3\cdot3=9$ である。
+二つの次数一 Hochschild 群を掛ける場合も、負次数がないため、
+Euler 導分二つの積だけが残る。これが式\eqref{ifh:eq:degree-zero}である。
+同様に
+\begin{equation}\label{ifh:eq:target-splitting}
+ \begin{aligned}
+ \operatorname{HH}^1(S)_3
+    ={}&\bigoplus_i\operatorname{HH}^1(S_i)_3
+       \ \oplus\!\bigoplus_{i\ne j}\C(\Omega_iE_j)\\
+     &\oplus\!\bigoplus_{\substack{i\ne j\\j\in I_2}}
+                 \operatorname{HH}^1(S_i)_1\otimes Z(S_j)_2
+ \end{aligned}
+\end{equation}
+を得る。混合項は ordered pair ごとの直和であり、
+$\Omega_iE_j$ の内部多重次数 $(3,0)$ と最後の項の $(1,2)$ は異なる。
+
+一次変形の積を $ab+\epsilon\phi(a,b)$ と書くと、結合則は
+$\phi$ が Hochschild 二 cocycle であることに等しい。
+$w_0$ の中心性から
+\[
+                  \theta_\phi(b)
+                       =\phi(w_0,b)-\phi(b,w_0)
+\]
+は次数三の導分である。$w_0+\epsilon z$ が中心である条件は
+\[
+                    \theta_\phi(b)=bz-zb
+\]
+なので、そのような $z\in S_3$ の存在は $[\theta_\phi]=0$ に等しい。
+二 cocycle を coboundary だけ変えたときも、$\theta_\phi$ は inner derivation
+だけ変わる。従って、これは変形類の上で定まる障害写像であり、
+Gerstenhaber bracket の規約では $[\phi,w_0]$ である。
+
+混合類の代表として
+$\phi(a,b)=E_i(a)E_j(b)$ を取る。
+$E_i(w_0)=3a_i\Omega_i$ と各 $\Omega_i$ の中心性から、
+式\eqref{ifh:eq:mixed-obstruction}を直接得る。
+その二項は式\eqref{ifh:eq:target-splitting}の別々の ordered summand に入る。
+異なる unordered pair は別の summand を使い、$a_i\ne0$ なので、
+従って $\mathcal E$ 上で単射となる。
+一方、純因子変形はその因子だけを変形した tensor 積で代表でき、
+その中心障害は $\operatorname{HH}^1(S_i)_3$ に入る。
+従って両者の相殺はない。
+
+最後に $\beta_i\in\operatorname{HH}^2(S_i)_{-2}$ を取り、
+定数補正の単位正規化した一次 cocycle を $\phi_i$ とする。
+非二捩れでは系\ref{eco:cor:non-clifford-lift}、二捩れでは
+命題\ref{eco:prop:clifford-center-freedom}により、
+この定数 PBW 変形には指定中心の持上げがある。
+次数二の変形変数を $\delta$ とすると、一次の持上げは
+$\Omega_i+\delta q_i$、$q_i\in(S_i)_1$ と書ける。
+従って $[\phi_i,\Omega_i]$ は $q_i$ による inner derivation であり、
+$\operatorname{HH}^1(S_i)_1$ で零である。
+
+$z_j\in Z(S_j)_2$、$j\ne i$ に対し、
+$\phi_i$ を他因子の積で延長し、その値に $z_j$ を掛ける。
+これが $\beta_i\otimes z_j\in\mathcal C$ の次数零代表である。
+その $w_0$ に対する障害は $a_i z_j[\phi_i,\Omega_i]$ であり、
+次数三元 $a_iq_i z_j$ による inner derivation となる。
+他因子の $\Omega_l$ はその代表で変形されず、この式には寄与しない。
+よって $\mathcal C$ 上の障害は零であり、
+式\eqref{ifh:eq:obstruction-kernel}が従う。
+\end{proof}
+
+\begin{remark}[固定境界の有限分類と一次障害の区別]
+\label{ifh:rem:scope}
+負次数の補題は、指定した tensor 境界を保ち、中心変数の可換性を固定した
+有限 quadratic PBW 表示に関する定理\ref{ifp:thm:factorization}を説明する。
+一方、命題\ref{ifh:prop:central-mixed-obstruction}は、境界自体を変える
+次数零一次変形と指定中心三次の持上げに関するものである。
+後者から、形式的または大域的な因子分解、全 intrinsic 対象の表示被覆、
+あるいは変形の全段階における核の降下を結論しない。
+二捩れ因子を許す場合の混合 kernel $\mathcal C$ は明示されたが、
+ここで示したのは一次変形に対する中心持上げ障害の消滅である。
+その全方向を任意に組み合わせた変形の同時積分可能性や、
+全高次の中心持上げまでを含む主張ではない。
+\end{remark}

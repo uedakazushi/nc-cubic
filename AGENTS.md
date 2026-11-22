@@ -1,6 +1,6 @@
 # Research instructions — nc-cubic
 
-2026-11-22 / v60。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-22 / v61。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
@@ -11,7 +11,10 @@
 
 ## 現行結果の範囲と研究上の注意
 
-- `multicentral_comparison.tex` が多中心の正本。`mcp:thm:normal-form` は任意可換C-代数上で因子別PBW関係と中心三次を中心一次・二次・三次形式に分類し、`mcp:prop:free-quotient` は自由基底と中心列の全順序正則性を与える。因子間は可換、固定因子であり、全intrinsic対象の被覆ではない。
+- `multicentral_comparison.tex` が多中心の正本。`mcp:thm:normal-form` は任意可換C-代数上で因子別PBW関係と中心三次を中心一次・二次・三次形式に分類し、`mcp:prop:free-quotient` は自由基底と中心列の全順序正則性を与える。固定tensor境界の全PBW表示では下記ifp定理が因子間可換性を強制する。全intrinsic対象の被覆ではない。
+- `mixed/interfactor_deformations.tex` が因子間変形の正本。`ifp:thm:factorization` は固定した滑らかな標準Sklyanin tensor境界、厳密な中心変数、全二次補正、PBW条件、任意可換C-係数環の下で、元の生成元のままcross線形・定数と内部他因子出力を零とし、厳密な因子別PBW分解を与える。有限C線型単射の分裂から非被約base changeも扱う。一般二次代数にはDer₋₁=Z₁=0だけでよい。`ifp:cor:central-comparison` は指定中心三次がある場合に既存mcp/emc/mcb結果を適用する。最高次の二次境界を動かす変形、中心の可換性を変える変形、全intrinsic認識は含まない。
+- `ifh:prop:central-mixed-obstruction` は全次数零HH²=P⊕E⊕Cを計算する。Euler混合Eの指定中心障害は単射でpure像と交わらず、Clifford混合C=⊕_{i≠j,j∈I₂}HH²(S_i)₋₂⊗Z(S_j)₂は核に入り次元9|I₂|(k−1)。任意の混合三次補正と全次数零gaugeを許す。`ifc:thm:family` は一ordered pairの九独立Λによるr₁,a=ΣΛ_ab y_b²の全係数二次族、正則中心三次、自由商を構成する。接点は独立Λの原点。全混合核の同時積分、AS正則性・CY性・smoothness・Ku比較は未確認として扱う。
+- `verify_interfactor_pbw.py` のdefaultと`--clifford`は各6 PASSの有理数上の有限証明書。全90一次・15定数係数を先に許してBG行列を作り、cross消滅を入力にしない。一般因子定理、Clifford中心持上げ、全Ku比較を計算確認したとしない。ifcの中心変数なしの型はn=4なので、n≠4の開性定理を流用しない。m=1の五次元型でも実smooth proper族の仮定は先に確認する。
 - 全中心数m≥1について `mcb:thm:smooth-locus` はK_A smooth ⇔ X_pol smoothを与える。`mbl:lem:strict-action` の厳密な中心作用、KhanのArtin stack blow-up分解、各chartの一中心普遍核、絶対対角のZariski局所性を使う。有限中心性や局所比較核の貼合せを仮定しない。一般中央flagの全中間商はsmooth（`mcb:thm:central-flags`）なので、任意mの全smooth因子別表示へ逐次実核と全coherent Ku比較を適用できる。二中心ではsmooth⇒Δ≢0でありΔの次数は3·8^k。全intrinsic対象の被覆を得たとはしない。
 - X_polは全smooth locusを判定するが、実比較の標的は逐次構成のX_itであり、その両者への同じ核や全中心作用の同時保存は未証明。`mtb:prop:transverse-iso` と `mtb:cor:many-centers` は、固定smooth境界と実核の下で横断二項Bの可逆性を与える。各固定一次係数の一般二次係数では最後の悪い値が2^(3k+m−1)個の単根で各唯一ODP、判別因子は既約被約でaffine正規化を持つ（`mtd:thm:normalization`, `mtd:cor:many-centers`）。特殊係数の多重根を許す。同一二軸でも全体のsmoothnessが異なる `tcr:ex:same-axes` を保持し、有限Koszul加群解消から全associative balancing towerの有限性を結論しない。
 
@@ -19,7 +22,7 @@
 
 - `mixed/elliptic_center_obstruction.tex` は、二捩れでない滑らかな標準Sklyanin因子の全PBW係数に指定中心三次の普遍多項式liftを与える。入力はEG Theorem3.3.2(ii)の全固定係数での非スカラー中心と、Z₁=Z₂=0・Z₃=CΩ。generic限定のEG Theorem3.4.5を全係数へ使わない。二捩れS(1,1,τ)、τ≠0,τ³≠1,−8では正規化p_x=m11−τm23等が全て零であることが必要十分。任意Q₂補正を消す三汎関数が−3τ(p_z,p_x,p_y)を検出する。許容線形項は平行移動方向で、定数補正は任意。PBW・CY性を指定三次のliftと同一視せず、これをKu主予想への反例とも扱わない。二捩れでは中心平方をu倍するβ三方向が残り、`eco:prop:clifford-center-freedom` は普遍Clifford中心と全持上げを与える。任意の固定因子の比較は次項で完成した範囲を使う。
 
-- `mixed/elliptic_mixed_comparison.tex` の `emc:prop:coverage` は指定境界を保つ全因子別PBW・中心持上げを平行移動後に尽くす。非二捩れはP、二捩れはβを一次tとし、定数α・中心cを加える。`ebk:lem:boundary` は任意固定smooth標準因子の実Picard比較・rotation・指定周期・二重同変化を構成する。厳密dg character作用を持つ双加群圏へElagin Lemma8.6を適用し、任意三角作用のdg liftを同補題から導かない。`ebc:prop:constant-iso` は定数方向の同型、`ebc:thm:first-injection` は全3k一次方向の単射を与える。βはunaryではなくbinaryで検出し、全対象依存gaugeとTate逆冪を許す。`euk:thm:universal-kernel` は全Tの実残余線束Morita核、可換smooth開の相対perfect・全coherent Ku比較を与える。係数はL=𝔄α+R₂(t)、C=κc+R₁,₁(t,α)+R₃(t)、𝔄可逆・κ非零。任意固定tの一般αで8^k個の一節点標的、全係数と固定tの判別既約性・affine正規化を得る。因子moduli上の選択、因子間の一般混合関係、全intrinsic被覆、全標識同時保存は未完了。一般因子のκへS0の27/28を流用しない。
+- `mixed/elliptic_mixed_comparison.tex` の `emc:prop:coverage` は指定境界を保つ全因子別PBW・中心持上げを平行移動後に尽くす。非二捩れはP、二捩れはβを一次tとし、定数α・中心cを加える。`ebk:lem:boundary` は任意固定smooth標準因子の実Picard比較・rotation・指定周期・二重同変化を構成する。厳密dg character作用を持つ双加群圏へElagin Lemma8.6を適用し、任意三角作用のdg liftを同補題から導かない。`ebc:prop:constant-iso` は定数方向の同型、`ebc:thm:first-injection` は全3k一次方向の単射を与える。βはunaryではなくbinaryで検出し、全対象依存gaugeとTate逆冪を許す。`euk:thm:universal-kernel` は全Tの実残余線束Morita核、可換smooth開の相対perfect・全coherent Ku比較を与える。係数はL=𝔄α+R₂(t)、C=κc+R₁,₁(t,α)+R₃(t)、𝔄可逆・κ非零。任意固定tの一般αで8^k個の一節点標的、全係数と固定tの判別既約性・affine正規化を得る。因子moduli上の選択、最高次の二次境界を動かす混合族の比較、全intrinsic被覆、全標識同時保存は未完了。一般因子のκへS0の27/28を流用しない。
 
 - `mixed/central_spherical_reconstruction.tex` は全係数のproperな残余線束圏からu=0への球面制限を作る。twistはρ_S²、cotwistはρ_A⁻¹[1]で、三乗はそれぞれ[4]と[1]。一次Bocksteinが零なのでunderlying comonadはId⊕J、J=ρ_S²[−1]となるが、余乗法は自明とは限らない。正規化A_nの選択空間は二項Jac(G)₁=C⁶・三項Jac(G)₀=Cで、四項以降の非空fiberは可縮。任意の低項データの存在障害の自動消滅は使わず、実随伴の二つの構造を比較する。特異係数で全coherent圏のproper性やperfect対角を仮定しない。
 - `mixed/central_formal_comparison.tex` は普遍係数環上の低項データを、二項Bocksteinと三項の非零scalar·cへ同定する。active濾過・相対proper模型により係数は多項式であり、重み(α,c)=(2,3)が三項をcの一次式へ制限する。法線の符号対合が三項torsorの原点を定め、中央一変数MFが係数の非零性を検出する。`mixed/central_kernel.tex` は全coherent comonadとcoKleisli生成代数から実比較を構成し、その後で全cの線束圏smoothnessとP64の非零二次momentにより尺度λ²=28/27を決める。判別式の一致から核を仮定していない。普遍線束比較、U上の相対perfect核、滑らかな複素ファイバーの全coherent比較を区別する。
@@ -54,7 +57,7 @@
 ## 正本・外部入力・保存
 
 - 正本は `uedakazushi/nc-cubic` の `main`。本文のある主原稿は必ず `papers/nc-cubic.tex`、日本語LuaLaTeX、著者欄空欄。現在の成果を理解できる順に統合し、版ごとの補遺・履歴・旧ZIPを蓄積しない。
-- 公表稿は三本。`papers/nc-cubic.tex` は可換Ku復元・基礎・分離比較・三様体不一致例、`papers/cubic-moduli-descent.tex` はO-marked認識・モジュライ・Picard/period等の精密降下、`papers/mixed-sklyanin-cubics.tex` は中心・局所代数・smooth locus・普遍中心族の実Ku比較・零係数の球面接着・有限MF模型・指定h候補の一般点核と整延長・被約不一致例を担当する。全稿とも日本語LuaLaTeX・著者欄空欄。主予想を主稿に保持し、任意の固定因子の組の全許容PBW・中心比較を用いる。全smooth因子別表示の中央flagは証明済みとし、全intrinsic対象の認識・表示被覆と因子を混ぜる関係をP0に置く。偏極標的への実核と全二重制限の混合情報を継続して調べる。因子moduli上の核の選択・降下、比較係数の具体化と選択済みh一般点核の良い特殊化を継続する。
+- 公表稿は三本。`papers/nc-cubic.tex` は可換Ku復元・基礎・分離比較・三様体不一致例、`papers/cubic-moduli-descent.tex` はO-marked認識・モジュライ・Picard/period等の精密降下、`papers/mixed-sklyanin-cubics.tex` は中心・局所代数・smooth locus・普遍中心族の実Ku比較・零係数の球面接着・有限MF模型・指定h候補の一般点核と整延長・被約不一致例を担当する。全稿とも日本語LuaLaTeX・著者欄空欄。主予想を主稿に保持し、任意の固定因子の組の全許容PBW・中心比較を用いる。全smooth因子別表示の中央flagは証明済みとし、全intrinsic対象の認識・表示被覆とClifford中心平方の九変数族の周囲代数のAS正則性・smoothness・Ku比較をP0に置く。偏極標的への実核と全二重制限の混合情報を継続して調べる。因子moduli上の核の選択・降下、比較係数の具体化と選択済みh一般点核の良い特殊化を継続する。
 - 各数学的な節は一つの稿だけが読み込む。`papers/common/preamble.tex` と `papers/references.tex` は共有し、証明本文を複製しない。楕円windowの基礎は主稿の `comparison_foundations.tex`、精密降下はモジュライ稿、混合本文は `papers/sections/mixed/` に置く。他稿を引用するときは稿名と定理番号を表示し、参照元と証明の正本を追える状態を保つ。
 - `poisson-cubic` は古典正規形とPoisson moduli、`cubic-quantization` は全Poissonの代数的中心三次量子化と同変降下、`nc-cubic-threefold` は三様体固有の全Abel変形・相対比較と独立点スキーム論文の正本。孤立零点定理の正規形入力は `poisson-cubic` commit `9f91efa3465f18219c36c31750f1e66220faeaa7` の `papers/support/papers/sections/poisson_geometry.tex`、`thm:pg-normal` に固定する。通常は読取り専用で、具体的定理・仮定・版を引用する。本稿はB=ambient、A=商、量子化稿は逆。
 - 方針・研究ノート・公表稿を中心とする自己完結した現行一式を維持する。証明済み・追加仮定付き・未完成・予想・計算的観察、原稿の証明と今回の独立読解、形式証明・新規性を区別する。誤りは依存する本文・要約・方針・hubへ反映し、有用な障害はノートに保持する。

@@ -1,0 +1,304 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v61.
+\subsection{固定 tensor 境界に対する PBW 関係の因子別分解}
+\label{ifp:subsec:factorization}
+
+本小節では、因子間の可換性を変形後の仮定から外す。
+固定した標準 Sklyanin 因子の tensor 積を最高 active 次数の境界に持ち、
+中心変数の作用を厳密に保つ二次 PBW 表示では、
+因子間の全補正と、内部関係に現れる他因子の生成元が零になる。
+結論は元の生成元による関係式の等式であり、形式的な同型類だけの主張ではない。
+
+PBW 性を三次の関係へ還元する一般原理は
+Braverman--Gaitsgory \cite[Main Theorem~0.5, Lemma~3.3]{CMOBravermanGaitsgory}
+による。以下の必要条件の証明では、その交換子恒等式を直接に次数分解する。
+Gaddis \cite[Proposition~5.1]{CMOGaddisPBW} は essentially regular な代数の
+tensor 積が再び essentially regular となることを示しているが、
+最高次が tensor 積である全 PBW 変形の分解を主張する結果ではない。
+より近い先行結果として Walton--Witherspoon
+\cite[Hypothesis~2.6, Proposition~6.2]{CMOWaltonWitherspoonBraided} は
+$(S\otimes S^{\mathrm{op}})\#\C C_2$ の定数型 PBW 変形を分類している。
+そこでは scalar 値の因子間補正は零であり、二捩れの場合に現れる追加の混合補正は
+非自明な群元に値を持つ。その群元は active 生成元と可換でない。
+本小節では任意の固定因子の組、線形補正、任意個の厳密な中心変数、
+非被約係数環も扱う。同文献の Problem~7.2 が提起する一般の braided smash product
+の線形補正を分類するものではない。この範囲の分解定理自体の初出は未確認である。
+
+\subsubsection{二つの低次数単射と PBW 係数の取り出し}
+
+$k\ge2$ とし、滑らかな標準点曲線を持つ固定因子
+$S_i=S(A_i,B_i,C_i)$ を取る。各因子の三次元生成空間を
+$V_i=\C x_i\oplus\C y_i\oplus\C z_i$ とし、関係空間を
+$\mathcal R_i\subset V_i\otimes V_i$ と書く。標準の三関係は
+\begin{equation}\label{ifp:eq:sklyanin-relations}
+\begin{aligned}
+ r_{i,x}&=A_i y_i\otimes z_i+B_i z_i\otimes y_i+C_i x_i\otimes x_i,\\
+ r_{i,y}&=A_i z_i\otimes x_i+B_i x_i\otimes z_i+C_i y_i\otimes y_i,\\
+ r_{i,z}&=A_i x_i\otimes y_i+B_i y_i\otimes x_i+C_i z_i\otimes z_i.
+\end{aligned}
+\end{equation}
+ここで $A_iB_iC_i\ne0$ である。
+以下の二つの単射には、そのうち $C_i\ne0$ だけで十分である。
+
+\begin{lemma}[負一次導分と一次中心の消滅]
+\label{ifp:lem:low-degree}
+各 $S_i$ は
+\[
+       \operatorname{Der}_{-1}(S_i)=0,
+             \qquad Z(S_i)_1=0
+\]
+を満たす。より具体的には、次の二つの有限次元 $\C$ 線型写像は単射である。
+\begin{equation}\label{ifp:eq:two-injections}
+\begin{aligned}
+ d_i&:V_i^*\longrightarrow\operatorname{Hom}_{\C}(\mathcal R_i,V_i),\\
+ d_i(\lambda)\left(\sum_a v_a\otimes v'_a\right)
+   &=\sum_a\bigl(\lambda(v_a)v'_a+\lambda(v'_a)v_a\bigr),\\
+ \zeta_i&:V_i\longrightarrow\operatorname{Hom}_{\C}(V_i,(S_i)_2),\\
+ \zeta_i(q)(v)&=[v,q].
+\end{aligned}
+\end{equation}
+従って任意の可換 $\C$-代数 $R$ で tensor した写像も単射である。
+\end{lemma}
+
+\begin{proof}
+次数 $-1$ の導分は $V_i\to\C$ で決まり、関係を保つ条件は
+$d_i(\lambda)=0$ である。例えば
+\[
+ d_i(\lambda)(r_{i,x})
+ =2C_i\lambda(x_i)x_i
+ +(A_i+B_i)\bigl(\lambda(y_i)z_i+\lambda(z_i)y_i\bigr).
+\]
+この式の $x_i$ 係数と巡回した二式の対応する係数から
+$\lambda(x_i)=\lambda(y_i)=\lambda(z_i)=0$ を得る。
+特に、これら三係数を $2C_i$ で割る写像が $d_i$ の左逆を与える。
+
+次に、式\eqref{ifp:eq:sklyanin-relations}の各関係は互いに異なる平方の
+非零係数を持つので
+\[
+                  \mathcal R_i\cap\bigwedge^2V_i=0.
+\]
+$q\in V_i$ が一次中心元なら、各 $v\in V_i$ について
+$v\otimes q-q\otimes v$ はこの共通部分に属するので零である。
+三次元空間の全ての $v$ に対してこの等式を満たす $q$ は零である。
+これで $\zeta_i$ も単射となる。
+有限次元 $\C$ 線型単射は左逆を持つため、どちらも任意の $R$ への tensor 後に単射である。
+被約性や閉点での判定は使わない。
+\end{proof}
+
+$V=\bigoplus_iV_i$、$B_0=\bigotimes_iS_i$ と置く。
+$i<j$ に対し $\mathcal R_{ij}$ を
+$v\otimes w-w\otimes v$、$v\in V_i,w\in V_j$ で張られる空間とすれば、
+\[
+ \mathcal R=\bigoplus_i\mathcal R_i
+               \oplus\bigoplus_{i<j}\mathcal R_{ij},
+             \qquad B_0=T_{\C}(V)/(\mathcal R).
+\]
+任意の可換 $\C$-代数 $R$、$m\ge1$、
+$P=R[\mathbf u]=R[u_1,\ldots,u_m]$ を取る。
+$V_R=V\otimes_{\C}R$ と書き、$P_d$ は中心変数に関する斉次次数 $d$ の部分とする。
+中心変数は最初から $P$ の係数として扱い、全生成元と厳密に可換とする。
+全二次補正とは、任意の $R$ 線型写像
+\[
+ \ell:\mathcal R\otimes R\longrightarrow P_1\otimes_RV_R,
+       \qquad b:\mathcal R\otimes R\longrightarrow P_2
+\]
+による表示
+\begin{equation}\label{ifp:eq:full-presentation}
+ B=T_P(V\otimes_{\C}P)
+        \big/\bigl(r-\ell(r)-b(r):r\in\mathcal R\bigr)
+\end{equation}
+をいう。ここでは内部関係の $\ell$ に全ての因子の生成元を許し、
+因子間の交換関係にも $\ell$ と $b$ の双方を許す。
+全生成元と $u_s$ の内部次数は一であり、$R$ の内部次数は零である。
+一方、active 濾過 $F$ では $V$ の次数を一、$P$ の次数を零とする。
+PBW という仮定は、最高 active 次数からの自然な全射が同型
+\begin{equation}\label{ifp:eq:pbw}
+                 B_0\otimes_{\C}P\xrightarrow{\ \sim\ }\operatorname{gr}_F B
+\end{equation}
+となることである。
+
+\begin{lemma}[中心次数の係数の独立性]
+\label{ifp:lem:coefficient-extraction}
+式\eqref{ifp:eq:pbw}の下で、$B_0$ の固定した斉次語基底の像は $B$ の $P$ 自由基底になる。
+$I=(u_1,\ldots,u_m)\subset P$ とすると、自然な写像は代数同型
+\begin{equation}\label{ifp:eq:center-associated-graded}
+       \operatorname{gr}_I B
+       \simeq (B_0\otimes_{\C}R)\otimes_R\operatorname{Sym}_R(R^m)
+\end{equation}
+を与える。右辺の $R^m$ の次数は中心イデアル次数一である。
+これらの同定は任意の係数変更 $R\to R'$ と両立する。
+\end{lemma}
+
+\begin{proof}
+斉次語基底の任意の元を同じ語で $B$ へ持ち上げる。
+最高 active 次数を順に消すことで、それらは $B$ を $P$ 上で張る。
+有限な一次関係があれば、その最高 active 次数を
+式\eqref{ifp:eq:pbw}へ送って最高次係数を消し、帰納的に全係数が零となる。
+従って表示した語は $P$ 自由基底である。
+各 $I^qB$ はその基底の $I^qP$ 係数部分なので、中心イデアルの随伴加群は右辺に一致する。
+積の中心最低次項は、式\eqref{ifp:eq:full-presentation}で
+$\ell,b$ を消した $B_0$ の積であるから、同定は代数同型である。
+自由基底と表示の恒等式を tensor すれば、非平坦な係数変更についても同じ結論を得る。
+\end{proof}
+
+\subsubsection{混合係数の厳密な消滅}
+
+\begin{theorem}[固定 tensor 境界の PBW 因子分解]
+\label{ifp:thm:factorization}
+式\eqref{ifp:eq:full-presentation}が PBW 条件\eqref{ifp:eq:pbw}を満たすとする。
+このとき元の生成元において
+\begin{equation}\label{ifp:eq:vanishing}
+ \ell(\mathcal R_{ij})=0,\qquad b(\mathcal R_{ij})=0\quad(i<j),
+       \qquad \ell(\mathcal R_i)\subset P_1\otimes_R(V_i\otimes R)
+\end{equation}
+である。従って各 $i$ に対し
+\[
+ B_i=T_P(V_i\otimes_{\C}P)
+       \big/\bigl(r-\ell(r)-b(r):r\in\mathcal R_i\bigr)
+\]
+と置くと、各 $B_i$ は $S_i\otimes_{\C}P$ の PBW 変形であり、
+指定した生成元を保つ $P$ 代数同型
+\begin{equation}\label{ifp:eq:tensor-factorization}
+                    B\simeq B_1\otimes_P\cdots\otimes_PB_k
+\end{equation}
+がある。逆に、各因子の PBW 変形のこの tensor 積は
+式\eqref{ifp:eq:pbw}を満たす。
+結論に平行移動や形式的な座標変更は不要であり、任意の係数変更とも両立する。
+中心変数が零個の場合は、同じ結論が $B=B_0\otimes R$ として自明に成り立つ。
+\end{theorem}
+
+\begin{proof}
+\textbf{中心一次の交換子恒等式.}
+$\ell(r)=\sum_su_s\ell_s(r)$ と書く。
+$i\ne j$、$w\in V_j$、$r=\sum_av_a\otimes v'_a\in\mathcal R_i$ を固定する。
+$B$ の中で実際の交換子を取ると
+\[
+ [w,r]=\sum_a\bigl([w,v_a]v'_a+v_a[w,v'_a]\bigr)
+                 =[w,\ell(r)],
+\]
+となる。最後の等式では $b(r)\in P$ の中心性を用いた。
+この恒等式の $I/I^2$ における $u_s$ 係数を取り、
+補題\ref{ifp:lem:coefficient-extraction}を使うと
+\begin{equation}\label{ifp:eq:first-commutator}
+ \sum_a\bigl(\ell_s([w,v_a])v'_a
+                  +v_a\ell_s([w,v'_a])\bigr)
+                  =[w,\ell_s(r)]
+          \quad\text{in }(B_0)_2\otimes R
+\end{equation}
+を得る。ここで $[w,v]$ は関係空間の元 $w\otimes v-v\otimes w$ をも表す。
+これは三次の重なりの中心一次成分である。
+
+\textbf{因子間の線形補正.}
+$h\ne i$ を取り、$\ell_s([w,v])$ の $V_h$ 成分を
+\[
+                  \sum_\nu\lambda_\nu(v)e_{h,\nu},
+           \qquad \lambda_\nu:V_i\otimes R\longrightarrow R
+\]
+と書く。ただし $e_{h,\nu}$ は $V_h$ の基底である。
+式\eqref{ifp:eq:first-commutator}を $B_0$ の因子別多重次数で分解する。
+右辺で非零となり得るのは $V_j$ 成分との交換子だけなので、その次数は $2\mathbf e_j$ である。
+一方、左辺の次数 $\mathbf e_i+\mathbf e_h$ 成分は
+\[
+                  \sum_\nu d_i(\lambda_\nu)(r)\otimes e_{h,\nu}
+                         \quad\text{in }V_i\otimes V_h\otimes R
+\]
+である。$i\ne j$、$h\ne i$ より両者の次数は異なり、この成分は零である。
+全ての $r\in\mathcal R_i$ に対して成立するので、
+補題\ref{ifp:lem:low-degree}の $d_i\otimes R$ の単射性から全ての $\lambda_\nu$ が零となる。
+従って $\ell_s([w,v])\in V_i\otimes R$ である。
+$i,j$ を交換して同じ議論を行うと、この元は $V_j\otimes R$ にも属する。
+両空間の共通部分は零なので $\ell_s(\mathcal R_{ij})=0$ を得る。
+これは全ての $s,i,j$ について成り立つ。
+
+\textbf{内部関係の他因子出力.}
+前段の結論を式\eqref{ifp:eq:first-commutator}へ戻すと
+$[w,\ell_s(r)]=0$ となる。
+$\ell_s(r)$ の $V_j$ 成分を $q_j$ とすれば、
+他の因子の成分は $w$ と可換なので $[w,q_j]=0$ である。
+$w\in V_j$ は任意であり、$\zeta_j\otimes R$ の単射性から $q_j=0$ を得る。
+全ての $j\ne i$ について適用し、$\ell_s(\mathcal R_i)\subset V_i\otimes R$ を得る。
+
+\textbf{中心二次の因子間補正.}
+ここまでで混合交換子は厳密に $[w,v]=b([w,v])\in P_2$ となった。
+同じ内部関係 $r\in\mathcal R_i$ との交換子は
+\begin{equation}\label{ifp:eq:second-commutator}
+ \sum_a\bigl(b([w,v_a])v'_a+v_ab([w,v'_a])\bigr)
+               =\sum_su_s[w,\ell_s(r)]\in I^3B
+\end{equation}
+を満たす。右辺が $I^3B$ に入るのは
+$\ell_s(r)\in V_i\otimes R$ と $[V_j,V_i]\subset P_2$ による。
+$b([w,v])=\sum_{s\le t}u_su_t\beta_{st}(v)$ と展開して
+式\eqref{ifp:eq:second-commutator}を $I^2B/I^3B$ に移すと、
+各 $u_su_t$ の係数は $d_i(\beta_{st})(r)=0$ である。
+再び $d_i\otimes R$ の単射性から $\beta_{st}=0$ となり、
+$b(\mathcal R_{ij})=0$ を得る。
+この段階でも二次の混合単項式 $u_su_t$ を個別に扱っており、
+中心方向への点別特殊化を用いていない。
+
+\textbf{表示と PBW 基底の分解.}
+式\eqref{ifp:eq:vanishing}により、$B$ の関係は各 $B_i$ の内部関係と
+異なる因子の生成元の可換関係だけになる。
+tensor 積の普遍性から式\eqref{ifp:eq:tensor-factorization}が従う。
+各 $B_i$ の PBW 性も確かめる。
+自然な写像の合成
+\[
+ S_i\otimes_{\C}P\longrightarrow\operatorname{gr}_F B_i
+          \longrightarrow\operatorname{gr}_F B
+                 \simeq B_0\otimes_{\C}P
+\]
+は $i$ 番目の因子の包含であり、単射である。
+最初の写像は最高次関係からの全射なので同型となる。
+従って $B_i$ は PBW で、$B_i\to B$ も濾過の最高次を見れば単射である。
+逆方向は各因子の $P$ 自由 PBW 基底を tensor すれば従う。
+全ての消滅は $R$ 上の等式として証明され、用いた単射は分裂した $\C$ 線型単射の
+底変更なので、非被約・非平坦な係数変更も許される。
+\end{proof}
+
+\begin{remark}[仮定と到達範囲]
+\label{ifp:rem:scope}
+必要条件の証明で使った因子側の入力は、二次表示と
+式\eqref{ifp:eq:two-injections}の二つの単射だけである。
+特に因子同士の $j$ 不変量、有限位数・無限位数、二捩れの有無に制約を加えていない。
+一方、中心作用を変形する関係や、最高 active 二次関係そのものを動かす変形は
+式\eqref{ifp:eq:full-presentation}の対象ではない。
+例えば多項式因子では次数 $-1$ の導分が存在し、
+$\C\langle x,y,u\rangle/([u,x],[u,y],xy-yx-u^2)$ は
+$\C[x]\otimes\C[y]$ を境界に持つ PBW 変形でありながら因子間補正を持つ。
+従って固定境界についての低次数単射は実質的な入力である。
+本定理は周囲代数の関係を因子別表示へ戻す。
+指定中心三次の持上げ、その商の smoothness、可換 Ku 標的の存在は、
+それぞれの定理の仮定を別に確認して適用する。
+全ての内在的非可換三次がこの固定 tensor 境界を持つとは主張していない。
+\end{remark}
+
+\begin{corollary}[一般の二次代数に対する因子分解]
+\label{ifp:cor:abstract-factorization}
+$V_i$ を有限次元 $\C$ ベクトル空間、
+$S_i=T_{\C}(V_i)/(\mathcal R_i)$ を connected な二次代数とし、各因子が
+\[
+             \operatorname{Der}_{-1}(S_i)=0,
+                         \qquad Z(S_i)_1=0
+\]
+を満たすとする。任意の可換 $\C$-代数 $R$ と任意個の厳密な中心一次変数について、
+式\eqref{ifp:eq:full-presentation}、\eqref{ifp:eq:pbw}と同じ意味で
+$\bigotimes_iS_i$ の全二次 PBW 変形を考える。
+このとき定理\ref{ifp:thm:factorization}の消滅
+\eqref{ifp:eq:vanishing}と、元の生成元を保つ tensor 分解
+\eqref{ifp:eq:tensor-factorization}が成り立つ。
+各因子は PBW 変形であり、結論は任意の係数変更と両立する。
+ここでは因子の Koszul 性、AS 正則性、滑らかさを仮定しない。
+\end{corollary}
+
+\begin{proof}
+式\eqref{ifp:eq:two-injections}で定義した $d_i$ と $\zeta_i$ の核は、
+一般の二次代数についても、それぞれ
+$\operatorname{Der}_{-1}(S_i)$ と $Z(S_i)_1$ である。
+仮定により両写像は有限次元 $\C$ 線型単射なので左逆を持ち、
+任意の $R$ への tensor 後にも単射である。
+補題\ref{ifp:lem:coefficient-extraction}は PBW 仮定と斉次語基底だけを用いる。
+従って式\eqref{ifp:eq:first-commutator}の異なる因子別次数の分離、
+内部の他因子出力への $\zeta_i$ の適用、
+式\eqref{ifp:eq:second-commutator}の $I^2/I^3$ 係数への $d_i$ の適用が、
+一般の $S_i$ についてもそのまま成立する。
+因子自身の PBW 性と tensor 表示の同定も、最後の随伴代数の包含による証明を適用できる。
+\end{proof}

@@ -1,0 +1,73 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v61.
+\section{因子間関係の PBW 剛性と二次境界の混合変形}
+\label{ifd:sec:interfactor}
+
+前節までの比較は因子別の表示を用いて構成した。
+本節では、固定 tensor 境界と厳密な中心変数を持つ全二次 PBW 表示が、
+元の生成元のままその範囲に入ることを証明する。
+その結果、指定中心三次を持つ全てのそのような表示に、
+既存の正規形、smoothness 判定と可換 Ku 比較を適用できる。
+次に、最高次の二次境界も変える次数零変形を調べる。
+中心三次の一次持上げ障害は Euler 混合類を排除するが、
+Clifford 因子の中心平方を使う混合類は残る。
+一つの ordered pair に対応する九方向については、
+全係数上の平坦な二次代数族と正則中心三次商を構成する。
+この最後の族の smoothness と Ku 比較は、本節の結論には含めない。
+
+\input{papers/sections/mixed/interfactor_pbw.tex}
+
+\begin{corollary}[固定 tensor 境界の全 PBW 中心三次商への比較の適用]
+\label{ifp:cor:central-comparison}
+定理\ref{ifp:thm:factorization}の表示 $B$ を取り、$k\ge2$、$m\ge1$ とする。
+さらに、全て非零の固定重み $a_i\in\C^\times$ に対して、
+\[
+ w\in Z(B)_3,\qquad
+ w\bmod(\mathbf u)=\sum_i a_i\Omega_{i,0}
+\]
+を満たす指定中心三次を仮定し、$A=B/(w)$ と置く。
+このとき次が成り立つ。
+\begin{enumerate}
+ \item 任意の可換係数環 $R$ 上で、因子別の中心平行移動後、
+ $(B,w)$ は命題\ref{emc:prop:coverage}および
+ 定理\ref{mcp:thm:normal-form}の全許容正規形に入る。
+ 因子間可換性を変形後の追加仮定として課す必要はない。
+ \item $R=\C$ とすると、対応する偏極三次 $X_{\mathrm{pol}}$ に対して
+ \[
+   \mathcal K_A\text{ が $\C$ 上 smooth}
+       \quad\Longleftrightarrow\quad X_{\mathrm{pol}}\text{ が滑らか}
+ \]
+ である。この条件が成り立てば、次元 $3k+m-2$ の滑らかな可換三次
+ $Y_{\mathrm{it}}$ と perfect な実比較核による同値
+ \[
+                 \Ku_{\mathrm{coh}}(A)\simeq\Ku(Y_{\mathrm{it}})
+ \]
+ が存在する。
+\end{enumerate}
+全中心作用を同時に保つ核や、$X_{\mathrm{pol}}$ 自身への比較核を結論するものではない。
+\end{corollary}
+
+\begin{proof}
+定理\ref{ifp:thm:factorization}により、元の表示で異なる因子は可換であり、
+各因子の関係の補正はその因子の生成元と厳密な中心変数だけを含む。
+従って一中心では命題\ref{emc:prop:coverage}、多中心では
+定理\ref{mcp:thm:normal-form}の入力と正確に一致する。
+これらの分類では、二捩れ因子の中心平方方向も含めて
+指定境界を持つ全ての中心三次持上げを扱っている。
+定理\ref{mcp:thm:normal-form}の小節は $m\ge2$ として記述したが、
+その証明の普遍係数代入、平行移動、中心次数ごとの分離は $m=1$ にも同じく適用できる。
+従って一中心についても任意の $R$ 上でこの分類を用いてよい。
+正規化は因子別の中心平行移動であり、係数環の被約性を要求しない。
+これで第一の主張が従う。
+
+複素係数について定理\ref{mcb:thm:smooth-locus}を適用すると、
+表示した smoothness の必要十分条件を得る。
+その開集合では定理\ref{mcb:thm:central-flags}により一般中央旗が存在し、
+系\ref{mcb:cor:all-smooth-comparison}が全 coherent Ku 同値と
+perfect 比較核を与える。一中心は定理\ref{euk:thm:universal-kernel}による。
+ここで新たに除いた仮定は変形後の因子間可換性であり、
+固定 tensor 境界、厳密な中心変数、PBW 性、指定中心三次の存在は保持している。
+\end{proof}
+
+\input{papers/sections/mixed/interfactor_hochschild.tex}
+\input{papers/sections/mixed/interfactor_clifford_family.tex}
