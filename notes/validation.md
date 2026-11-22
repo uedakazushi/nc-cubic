@@ -1,8 +1,10 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v74。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v75。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
+
+- **点楕円と中心判別の二重isogeny（v75）：** `ifj:thm:discriminant-two-isogeny` と `ifj:cor:isogeny-picard-line` に、D_τ=(τ³/8)f_{−2/τ}、核{o,p}の次数2 isogeny、Weierstrass座標式、往復[−2]、三捩れのdiag(1,−1)作用、φ*O(1)=O(2)⊗M_τ（非自明二捩れ）の証明を統合。普遍的なHesse/Cayleyan二重isogenyは既知理論と明記し、本Cliffordの係数・標識とPicard線束を照合した。`computations/verify_clifford_hesse_two_isogeny.py` の8群をPython/SymPyで検算し、GitHub mainに保存後にそのファイルを読み戻して復元した同一ソースでも **8 PASS・終了コード0** を確認した（保存ファイルGitHub blob SHA `131d67e8124c793300123fe7bbf35e9d032729ac`、再取得実行ソースSHA-256 `c5567ab615810ded9ca796ed6406358b0cbd7c841c89028b320066aa6a9a9ece`）。同内容の拡張下書きに対する単独ltjsarticle/LuaLaTeX組版は二巡実行・3頁を確認したが、**保存済みの節そのもの・混合稿全体を組版したことではない**。Picard引戻しの数学的証明は本文、8群は有限式の検算であり、形式証明器・外部査読・本三稿統合組版は未実施。Ku核の高次移送と12 scalarの数値・非消滅も未完成。
 
 - **全九変数Clifford中心normの三次jetと比較非同一性（v74）：** `ifj:prop:central-norm-jets` の全係数D=det q_x(s) のs⁰〜s³展開、固定Hesse射影の二次covariantと三次invariant、単一三次不変式𝒮によるU-gradient・τ₁微分、四probeの三次norm（C′₀,I₃だけ非零）、N₀のHesse滑らかさ条件を本文に証明記載。平方中心変数を可換Hesse座標へ文字通り同一視すると一次KSのbidegreeがC₂₁（norm）とC₁₂（実比較）で異なることを明記。ローカルの`python3 /mnt/data/verify_clifford_central_norm_jets.py`はSymPy 1.14で全7群PASS・終了コード0（一般9記号の行列式、二次射影、三次不変式、gradient、一次成分、四probe、Hesse判別因子）。`computations/verify_clifford_central_norm_jets.py`をGitHub mainに保存後、同パスをGitHub connectorで読み戻した本文をbase64に変換し、ローカルで復元・再実行してもSymPy 1.14で7群PASS・終了コード0を確認した（再取得ファイルSHA-256: `d708383bc360fe6e8633a6cda4ffb0af09ab8ca62901f96fe274ca9cf501f982`、GitHub blob SHA: `eac924ee3bea1021d1c2c7594850dd9e31848059`）。したがって今回の中心norm有限計算は保存後の同一コードでも実行確認済み。中心normのidentityは実Ku比較核・周期・46枠・12 scalarの計算ではない。全三稿の統合LuaLaTeX組版・PDF表示、Lean・外部査読・網羅的先行研究調査も今回未実施。
 - **固定Hesse四probeの46枠直接読出し：** `ifj:prop:direct-probe-readout` を混合稿へ証明として記載。G₁=κΣA_ab X_aY_{b+1}Y_{b+2}の一次標準化後に、二次逆混合・三次純X/Y係数を原式G₂,G₃の特定の14+32=46単項式係数枠から得る。純X三次には二次座標補正がなく、純Y三次にはκ/t₁と`[X_a²Y_b]G₂`の対合補正がある。四probeの逆評価行列も明示。Python 3 / SymPy 1.14で独立のローカル読出し検算を実行し、四probe×二次数×全56単項式、12係数の逆変換、対合係数と46枠算術、非零補正例の4群PASS・終了コード0。GitHubに `computations/verify_hesse_probe_readout.py` を保存。同内容の保存用ソースも互換名を付けたローカル基礎射影実装に対して実行し4群PASSしたが、GitHubからの保存後バイト列を取り直した再実行や全三稿のLuaLaTeX組版は未実施。これは比較核の出力の計算ではなく、12個の数値は未決定。
