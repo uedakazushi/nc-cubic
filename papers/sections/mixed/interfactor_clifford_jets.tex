@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v75.
+% Current result: 2026-11-23 / v76.
 \subsection{固定した三次形式の切片と高次係数の有限還元}
 \label{ifj:subsec:jets}
 
@@ -1051,6 +1051,146 @@ $2(p-o)=0$ かつ $p\ne o$ より $M_\tau$ は非自明である。
 共通基点がなければ引戻しは $\OO_{E_\tau}(2)$ となり矛盾。
 基点があれば引戻しの次数が $6$ 未満となるが、
 実際の $\varphi_\tau$ の引戻しは次数 $6$ なのでこれも不可能。
+\end{proof}
+
+\begin{proposition}[theta 中心文字の反転と二つの三次元固有空間]
+\label{ifj:prop:two-isogeny-theta-characters}
+定理\ref{ifj:thm:discriminant-two-isogeny}の
+$\varphi=\varphi_\tau:E=E_\tau\to E'=E_{\tau^\vee}$ を固定する。
+$L=\OO_E(1)=\OO_E(3o)$、
+$L'=\OO_{E'}(1)=\OO_{E'}(3o')$、
+$A=\varphi^*L'=L^{\otimes2}\otimes M_\tau$ と書く。
+theta 群の交換子を $e_B$ とする。三捩れ上で
+\begin{equation}\label{ifj:eq:two-isogeny-inverted-theta}
+ e_A(u,v)=e_{L'}(\varphi u,\varphi v)
+           =e_L(u,v)^2=e_L(u,v)^{-1}
+ \qquad(u,v\in E[3])
+\end{equation}
+が成り立つ。従って $\varphi|_{E[3]}$ によって引き戻した
+三捩れ theta 群は、元の三捩れ theta 群と比較して
+中央 $\mu_3$ の文字が逆である。
+同じ三捩れ標識と中央文字をともに恒等に保つ
+三次元の線型 intertwiner は存在しない。
+
+さらに $\varphi$ の非自明な被覆文字に対応する
+$E'$ 上の非自明二捩れ次数零線束 $N$ があり、
+deck 変換 $t_p$ の正負の固有空間として
+\begin{equation}\label{ifj:eq:two-isogeny-six-sections}
+ \begin{aligned}
+ \varphi_*\OO_E&\simeq\OO_{E'}\oplus N,
+                           &N^{\otimes2}&\simeq\OO_{E'},\\
+ H^0(E,A)&\simeq H^0(E',L')
+             \oplus H^0(E',L'\otimes N),
+                           &6&=3+3.
+ \end{aligned}
+\end{equation}
+両三次元成分は、三捩れ theta 群を
+式\eqref{ifj:eq:two-isogeny-inverted-theta}に沿って比較したとき、
+標準の三次元 Schr\"odinger 表現の双対型となる
+（線型化の文字の選択は許す）。
+最初の成分は $\varphi^*H^0(E',L')$ であり、
+元の二重 isogeny の三つの座標切断を正確に含む。
+
+一方、通常の斉次二次式が与える切断空間は
+\[
+ \operatorname{Sym}^2H^0(E,L)
+         \xrightarrow{\sim}H^0(E,L^{\otimes2}),\qquad
+ \dim H^0(E,L^{\otimes2})=6
+\]
+であり、こちらの三捩れ中心文字も $e_L^2$ である。
+従って中心文字の反転\emph{だけ}は二次式表示の障害ではない。
+決定的な障害は
+\begin{equation}\label{ifj:eq:two-isogeny-no-quadratic-transfer}
+ \operatorname{Hom}_E(L^{\otimes2},A)
+       =H^0(E,M_\tau)=0
+\end{equation}
+であって、元の通常の二次式六次元空間から
+isogeny の切断空間への、線束と両立する非零な
+転送写像は存在しない。
+\end{proposition}
+
+\begin{proof}
+theta 群の交換子と偏極の自然性は
+\cite[Definition~1.29 and Lemma~1.30]{NFMCremonaFisherDescentAlgebra}
+および\cite[\S1]{MBPLMumfordTheta}の既知理論による。
+式\eqref{ifj:eq:isogeny-picard-pullback}と
+$M_\tau$ が次数零であることから、
+$E[3]$ 上の交換子は
+$e_{L^{\otimes2}}=e_L^2$ となる。
+また $\varphi|_{E[3]}$ は同型であり、
+isogeny の次数二に対する Weil 対合の互換性も
+$e_{L'}(\varphi u,\varphi v)=e_L(u,v)^2$ を与える。
+$e_L$ は $\mu_3$ 値なので $e_L^2=e_L^{-1}$。
+非退化な交換子が逆転した二つの三次元表現を
+同じ三捩れ標識と中央 $\mu_3$ の恒等文字で intertwine
+する線型写像があれば、交換子の作用を比較して零となる。
+
+次数二の \'{e}tale 被覆 $\varphi$ の
+$\OO_E$ の直像を deck 対合の正負の冪等元
+$(1\pm t_p)/2$ により分解する。
+正の直和因子は $\OO_{E'}$、負の因子は
+次数零の線束 $N$ であり、
+被覆代数の乗法から $N^{\otimes2}\simeq\OO_{E'}$。
+$H^0(E,\OO_E)=\C$ なので $N$ は非自明である。
+射影公式と Riemann--Roch により
+式\eqref{ifj:eq:two-isogeny-six-sections}を得る。
+$E[3]$ の theta 作用と deck 対合は、
+それぞれ三捩れ・二捩れの平行移動に由来し、
+相互の交換子は位数が同時に三と二を割るので自明である。
+従って両固有空間は三捩れ作用に安定する。
+交換子が非退化な三位数 Heisenberg 群の
+既知の Stone--von Neumann 性
+\cite[\S1]{MBPLMumfordTheta}により、
+各三次元固有空間は逆中心文字の既約表現である。
+
+次に $E$ は滑らかな平面三次なので、
+$\mathbb P^2$ 上の制限列
+\[
+ 0\longrightarrow\OO_{\mathbb P^2}(-1)
+  \longrightarrow\OO_{\mathbb P^2}(2)
+  \longrightarrow L^{\otimes2}\longrightarrow0
+\]
+から二次式の制限は同型と分かる。
+この線束の三捩れ上の交換子も $e_L^2$ なので、
+表現論だけでは通常二次式を除外できない。
+しかし $A=L^{\otimes2}\otimes M_\tau$ であり、
+非自明な次数零線束 $M_\tau$ は
+非零大域切断を持たない。
+これで式\eqref{ifj:eq:two-isogeny-no-quadratic-transfer}が従う。
+\end{proof}
+
+\begin{corollary}[CM 自己 isogeny でも残る二捩れ障害]
+\label{ifj:cor:two-isogeny-cm-specialization}
+$\tau^2=-2$ と置く。このとき
+$\tau^\vee=\tau$ なので $\varphi_\tau$ は
+$E_\tau$ の次数二自己 isogeny であり、
+\[
+ \varphi_\tau^2=[-2],\qquad j(E_\tau)=8000,\qquad
+             \operatorname{End}(E_\tau)\cong\mathbb Z[\sqrt{-2}].
+\]
+この点は許容 Clifford 範囲に属する。
+しかし $M_\tau\ne\OO_{E_\tau}$ のため、
+式\eqref{ifj:eq:two-isogeny-no-quadratic-transfer}は
+この CM 特殊化でも消えない。
+同一因子を用いた高次比較のテスト点にはなるが、
+高次の $\beta,\gamma$ の値を与えるものではない。
+\end{corollary}
+
+\begin{proof}
+$\tau^\vee=-2/\tau$ と定理
+\ref{ifj:thm:discriminant-two-isogeny}の
+往復合成から $\varphi_\tau^2=[-2]$。
+従って $\operatorname{End}(E_\tau)$ は
+$\mathbb Z[\sqrt{-2}]$ を含み、これは
+$\mathbb Q(\sqrt{-2})$ の極大整環なので等号となる。
+$h_\tau=(2+\tau^3)/(3\tau)$ とした標準 Hesse 曲線の
+\[
+ j=27\,\frac{h_\tau^3(h_\tau^3+8)^3}{(h_\tau^3-1)^3}
+\]
+へ $\tau^2=-2$ を代入すると $8000$ を得る。
+$\tau^3=1$ や $-8$ とは両立しないので
+曲線は滑らかであり、$p\ne o$ だから $M_\tau$ は
+非自明なままである。
 \end{proof}
 
 \begin{remark}[文献と検算の限界]
