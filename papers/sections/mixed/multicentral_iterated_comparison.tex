@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-22 / v59.
+% Current result: 2026-11-22 / v60.
 \subsection{一つの滑らかな中央切断からの二中心比較}
 \label{mci:subsec:iterated-comparison}
 
@@ -337,7 +337,8 @@ $\mathsf B:\C^{N+1}\to\operatorname{Jac}(F_1)_1$ は定数線型写像、
 $\widetilde R_2$ は $\gamma_1$ に斉次二次で $\mathbf y$ に一次、
 $\widetilde R_{1,1}$ は双線型、$\widetilde R_3$ は斉次三次、
 $\kappa'\in\C^\times$ である。
-$\mathsf B$ の可逆性は本定理では主張しない。
+$\mathsf B$ の可逆性は命題\ref{mtb:prop:transverse-iso}で証明する。
+本定理の核の構成はその可逆性を入力としない。
 
 $X_{\mathrm{it}}=V(W_{\mathrm{it}})\subset\mathbb P^{N+1}$ とすると、
 $A_2$ と $X_{\mathrm{it}}$ の残余線束圏の間に、全 $R$ 上の実 Morita 双加群と逆双加群が存在する。
@@ -529,7 +530,8 @@ $u_j$ の一乗、二乗、三乗に付く横断係数をそれぞれ重み一�
 前定理の実可換参照族・全 comonad・coKleisli の構成を反復する。
 最上段の係数だけを動かす場合、境界核を固定してからその係数環へ tensor するので、
 同じ構成は相対核を与える。
-flag 自体が存在するという主張は、この条件付き系には含まれない。
+flag 自体の存在は定理\ref{mcb:thm:central-flags}で証明し、
+系\ref{mcb:cor:all-smooth-comparison}で全 smooth 因子別対象へ適用する。
 \end{proof}
 
 \begin{remark}[偏極候補・ray の貼合せとの区別]
@@ -540,7 +542,8 @@ flag 自体が存在するという主張は、この条件付き系には含ま
 $\widetilde Q,\mathsf B,\kappa',\widetilde R_2,
 \widetilde R_{1,1},\widetilde R_3$ は、固定した滑らかな切断とその比較核の選択に依存する。
 特に $\kappa'$ へ一中心の指定値 $\kappa_k^2=27/28$ を流用しない。
-横断の重み二写像 $\mathsf B$ の可逆性と、一般係数での臨界値の相異性は別の問題である。
+横断の重み二写像 $\mathsf B$ の可逆性は命題\ref{mtb:prop:transverse-iso}により成立し、
+系\ref{mtb:cor:triangular-coefficients}は二次・三次横断係数の自由な指定を与える。
 
 本小節は、固定した一本の smooth な中央切断を境界として、
 その補空間方向の全係数を一つの実随伴で扱った。
@@ -548,6 +551,7 @@ $\widetilde Q,\mathsf B,\kappa',\widetilde R_2,
 吹上げの例外成分と元の残余圏を核で同時に識別すること、
 二つの中心作用を coherent に balance することは、この証明の入力ではない。
 因子や flag を動かす大域核、全標識の同時保存、
-全ての中央切断が特異となる係数の可換比較、および全 intrinsic 対象の被覆は
+非 smooth 対象の全域での比較、および全 intrinsic 対象の被覆は
 引き続き本結論の外にある。
+全中央切断が特異な二中心係数は、系\ref{mcb:cor:good-ray}により smooth 領域の外にある。
 \end{remark}

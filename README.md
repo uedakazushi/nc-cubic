@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月22日 / v59。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月22日 / v60。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -8,7 +8,7 @@
 | --- | --- |
 | [nc-cubic.tex](papers/nc-cubic.tex) | 主予想、完備MF移送と一般点可換復元、楕円因子の基礎・分離型の直接Ku比較、残余圏の認識と可換実現の開性、三様体の点スキーム不一致例。 |
 | [cubic-moduli-descent.tex](papers/cubic-moduli-descent.tex) | 構造対象付きモジュライと表示認識、相対点関手・Poissonモジュライ、精密なPicard/Brauer/Kummer降下、周期位相と最小比較次数。 |
-| [mixed-sklyanin-cubics.tex](papers/mixed-sklyanin-cubics.tex) | 混合Sklyanin族の有限中心・局所代数・全smooth locus、任意固定楕円因子の全許容PBW・中心比較、滑らかな中央flagによる多中心比較、零係数の球面接着と有限MF模型、指定h候補の一般点核・整延長、被約point/Poisson不一致例。 |
+| [mixed-sklyanin-cubics.tex](papers/mixed-sklyanin-cubics.tex) | 混合Sklyanin族の有限中心・局所代数・全smooth locus、任意固定楕円因子の全許容PBW・中心比較、全smooth多中心対象の比較と中央Bertini、零係数の球面接着と有限MF模型、指定h候補の一般点核・整延長、被約point/Poisson不一致例。 |
 
 各数学的な節の本文は一つの稿を正本とし、他稿では稿名と定理番号を付けて参照する。組版設定は `papers/common/preamble.tex`、書誌は `papers/references.tex` を共有する。混合稿の本文は `papers/sections/mixed/` に置く。三稿の整理は、既存の数学全体を新たに証明・検証したという意味ではない。
 
@@ -18,13 +18,17 @@
 
 **主予想**は、任意の滑らかな非可換三次n-fold 𝒳に対し、同じ次元の滑らかな可換cubic XとKu(𝒳)≃Ku(X)が存在すること。任意に固定した滑らかな標準Sklyanin因子の組、k≥2、固定非零重み、一つの共有中心変数について、指定境界を保つ全ての因子別PBW・中心三次補正の残余線束圏を可換三次と普遍Morita比較した（`emc:prop:coverage`, `euk:thm:universal-kernel`）。異なるj、同種・CM、二捩れ、有限位数・無限位数を許す。二捩れでない因子は平行移動後の関係式の線形三方向、二捩れ因子は中心へ加えるu倍の平方三方向を一次係数tとする。標的はX=V(G+uQ(t)+u²L(t,α)+u³C(t,α,c))、L=𝔄α+R₂(t)、C=κc+R₁,₁(t,α)+R₃(t)で、𝔄は可逆、κ≠0。可換smooth開では相対perfect核と全coherent Ku同値を得る。定数Bocksteinは3k次元の同型、一次Bocksteinは3k方向で単射だが、比較の存在は単射性を前提としない。各固定tの一般αに対して8^k個の相異なる悪いcと各可換標的の唯一の通常二重点を得て、全係数・各固定tの判別超曲面は既約被約、臨界点のaffine空間が正規化となる。固定(t,α)の一変数特殊化には重複根を許す。
 
-二中心の全許容因子別表示では、中央切断の判別形式 Δ(u,v) の次数は3·8^kであり、Δが恒等零でない開集合 U_cut は「残余線束圏がsmoothな中央切断が一本存在する」条件を正確に表す（`mcpn:prop:ray-discriminant`）。その切断を固定すれば、残る全横断係数上で実Morita核を構成でき、最上段がsmoothなとき同次元の滑らかな可換三次との全coherent Ku同値を得る（`mci:thm:iterated-kernel`）。最後のv³係数の悪い値は重複度込みで2·8^k個。任意個の中心でも、途中の残余線束圏がsmoothな中央flagを仮定すれば反復できる。全smooth対象で良い切断・flagが存在することは未解決である。
+任意個の共有中心変数m≥1を持つ全許容因子別表示で、残余線束圏がsmoothであることと、一中心の係数多項式を偏極した可換三次X_polが滑らかであることを同値とした（`mcb:thm:smooth-locus`）。厳密な中心作用から作る原点blow-up圏、KhanのArtin stack上の分解、各chartへの一中心普遍核、絶対対角のZariski局所性を使い、有限中心性を仮定しない。滑らかな対象には各中間商もsmoothな一般中央flagが存在する（`mcb:thm:central-flags`）。従って、固定因子k≥2・非零重み・任意mの全smooth対象について、次元n=3k+m−2の滑らかな可換三次への全coherent Ku同値を得る（`mcb:cor:all-smooth-comparison`）。ここで実比較の標的は逐次構成のX_itであり、X_polへの実核を同定したとはしない。
 
-同一S(1,−1,−1)の既存結果では、指定規約でκ_k²=27/28、κ_k=3√21/14を保持する（`mcs:cor:universal-scale`）。Heisenberg同変な一次像は純ブロックJac₂の直和で、比較の七定数形のうち六定数χ_k,A_k,…,E_kは未数値化（`lec:thm:seven-scalar-form`）。一般の異なる因子へこの数値κを流用しない。指定二ブロックのP64・norm全64根・有限中心と局所型も保持する。残る核心は、全中央切断が特異となる部分、全smooth対象での良い中央flagの存在、因子moduli上の核選択・降下、全intrinsic対象の表示被覆である。一般の比較係数、一般PBW族のPI性・有限中心性、選択済みh一般点核のdefect零特殊化も未解決。
+二中心ではsmoothnessからΔ≢0が従い、良い中央切断の仮定は不要となる。Δは次数3·8^kである。固定した滑らかな境界からの横断二項写像Bは可逆で、二次・三次係数は三角多項式同型をなす（`mtb:prop:transverse-iso`）。各固定一次係数の一般二次係数では、最後のv³係数の悪い値は相異なる2·8^k個で、各可換標的には唯一の通常二重点がある。全横断係数および各固定一次係数の判別因子は既約被約で、臨界点のaffine空間が正規化となる（`mtd:thm:normalization`）。任意mの各比較段でも同様で、最後の悪い値の数は2^(3k+m−1)。特殊二次係数では重複根を許す。
 
-まずC上、n≥3の主予想を最優先にする。genericな表示のみへ「任意」を弱めず、全intrinsic対象の認識と被覆を課題として残す。共有中心一変数の全許容比較に加え、多中心では滑らかな中央flagを持つ範囲を比較できた。次は全smooth対象で良いflagが存在するか、全二重制限の混合情報と因子moduli上の降下を調べる。比較係数の具体化、選択済みh核のdefect零特殊化も継続する。
+同一S(1,−1,−1)の既存結果では、指定規約でκ_k²=27/28、κ_k=3√21/14を保持する（`mcs:cor:universal-scale`）。Heisenberg同変な一次像は純ブロックJac₂の直和で、比較の七定数形のうち六定数χ_k,A_k,…,E_kは未数値化（`lec:thm:seven-scalar-form`）。一般の異なる因子へこの数値κを流用しない。指定二ブロックのP64・norm全64根・有限中心と局所型も保持する。残る核心は、全intrinsic対象の認識と表示被覆、因子間を混ぜる一般PBW関係、偏極標的への実比較核、因子moduli上の核選択・降下である。一般の比較係数、一般PBW族のPI性・有限中心性、選択済みh一般点核のdefect零特殊化も未解決。
 
-- **多中心の正規形と滑らかな切断からの実核。** [多中心比較](papers/sections/mixed/multicentral_comparison.tex)が入口。[正規形](papers/sections/mixed/multicentral_pbw.tex)は任意可換C-代数とm中心で全許容因子別表示を分類し、自由基底と全順序の正則性を与える。[逐次比較](papers/sections/mixed/multicentral_iterated_comparison.tex)は一本のsmooth切断を固定し、全横断係数上の実核とv³係数に関する次数2·8^kの判別を構成する。任意mの結果はsmooth中央flagを仮定する。
+まずC上、n≥3の主予想を最優先にする。genericな表示のみへ「任意」を弱めず、全intrinsic対象の認識と被覆を課題として残す。任意個の中心を持つ全smooth因子別表示を比較できた。次は全intrinsic対象の認識・被覆、因子を混ぜる関係、偏極標的への実核と因子moduli上の降下を調べる。比較係数の具体化、選択済みh核のdefect零特殊化も継続する。
+
+- **多中心の全smooth対象と中央Bertini。** [多中心比較](papers/sections/mixed/multicentral_comparison.tex)が入口。[正規形](papers/sections/mixed/multicentral_pbw.tex)が全中心列の正則性を与え、[実blow-up](papers/sections/mixed/multicentral_blowup.tex)が射影方向の圏とOrlov分解を構成する。[smooth locusと中央flag](papers/sections/mixed/multicentral_bertini.tex)でK_A smooth ⇔ X_pol smoothを示し、一般flagから[逐次核](papers/sections/mixed/multicentral_iterated_comparison.tex)を全smooth因子別対象へ適用する。有限中心性を必要としない。
+- **横断二項の全階数と最後の中心値。** [Bockstein](papers/sections/mixed/multicentral_transverse_bockstein.tex)は定数関係の曲率と中心一次式のunary微分を分離し、Bの可逆性を証明する。[横断判別](papers/sections/mixed/multicentral_transverse_discriminant.tex)は各固定一次係数の一般二次係数に対する2^(3k+m−1)個の単純悪値、各唯一ODP、判別因子の既約被約性とaffine正規化を与える。
+
 - **中央pencilと二重制限の混合情報。** [切断の判別](papers/sections/mixed/multicentral_pencil.tex)はΔの次数3·8^kと一般係数のLefschetz性を証明する。これはW_polの幾何であり、実標的W_itとの一致は未証明。[二重制限](papers/sections/mixed/two_center_restrictions.tex)は実BC射とjoint comonadを構成し、G+u³+v³とG+(u+v)(u−v)²が同じ滑らかな二軸を持ちながら全体のsmoothnessを異にする例を与える。裸の二軸comonadだけでは全比較は決まらない。
 - **異なる楕円因子・二捩れを含む全係数核。** [全許容表示と相対線束模型](papers/sections/mixed/elliptic_mixed_comparison.tex)、[境界の実核](papers/sections/mixed/elliptic_boundary_kernel.tex)、[二つのBockstein](papers/sections/mixed/elliptic_bockstein.tex)、[普遍比較](papers/sections/mixed/elliptic_universal_kernel.tex)が正本。非二捩れの線形P三方向と二捩れの中心β三方向を共通のtとして扱い、𝔄∈GL_(3k)(C)、κ≠0の三角多項式同型で可換族を構成する。全tの一次単射はunaryとbinaryの異なる検出による。次数別自由性・untwisted相対双対を確認し、全comonadからgraph双加群を得る。判別代数の階数8^k、各固定tの一般αでの一節点性とaffine正規化も成立する。
 - **S(1,−1,−1)の任意ブロック数の比較と尺度・判別行列。** [多ブロックの中心比較](papers/sections/mixed/multiblock_central_kernel.tex)の `cmm:thm:universal-kernel` は次元3k−1=5,8,11,…を扱う。[尺度決定](papers/sections/mixed/multiblock_scale.tex)の `mcs:cor:universal-scale` は一因子の八つのAzumaya Morse点の外積、全係数の実比較、非零二次momentからκ_k²=27/28を全kで証明する。`cmm:cor:determinantal-discriminant` は普遍rank8臨界代数のtensor積とH=−(2/3)Σa_iα^(i)·x_iからdet(κcI+m_H)を与える。一般αでは8^k個の相異なる悪い中心係数と各標的の唯一ODPを得る。特殊係数の重複臨界値・非被約臨界点を含み、動く重み上の核降下と因子追加に対する標識の互換性は別課題である。

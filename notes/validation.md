@@ -1,19 +1,24 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月22日 / v59。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月22日 / v60。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
-## 多中心の正規形・中央切断・逐次核の確認範囲
+## 多中心の全smooth locus・中央flag・横断判別の確認範囲
 
-正本は `multicentral_comparison.tex` と四つの入力節 `multicentral_pbw.tex`, `multicentral_pencil.tex`, `multicentral_iterated_comparison.tex`, `two_center_restrictions.tex`。本文に証明を記載し、主担当と執筆担当以外の読解を分けて確認した。外部査読、形式証明器、新規性の網羅的確認は未実施である。
+正本は `multicentral_comparison.tex` と八つの入力節。従来の正規形・pencil・逐次比較・二重制限に、`multicentral_transverse_bockstein.tex`, `multicentral_transverse_discriminant.tex`, `multicentral_blowup.tex`, `multicentral_bertini.tex` を統合した。本文に証明を記載し、主担当と執筆担当以外の読解を分けて確認する。外部査読、形式証明器、新規性の網羅的確認は未実施である。
 
 - 多中心PBW正規形は、普遍環でh=1としてからの係数代入、非被約Rへの底変更、I-adic低中心分類、active初項による自由基底、wを含む全順序正則性を主担当と別担当が全文読解した。
 - 中央pencilは固定tの判別超曲面の特異点判定まで照合し、値評価・cの一次jetによる余次元二incidence、P¹のproper射影、ノルム局所因子によるtotal spaceのsmoothnessを独立読解した。
 - 逐次核は、実cotwistからのrotation移送、固定C点での三乗根同期、一般M≥6の両隣接sector、固定境界を全横断係数へ移した実参照族差・三項κ′≠0・coKleisli・smooth飽和を主担当と二人の別担当が全文読解した。未完成の二中心balancing towerは入力に使わない。中央座標を選ぶ一次式はC係数非零と明記した。
 - 二重制限は、負例外列によるO(−1)だけの補正、canonical右mate、共同comonadへの全構造移送、指定MFの混合積、同一smooth二軸と異なるtotal smoothnessの反例を主担当と別担当が全文読解した。bare交換射から高次構造が一意とは主張しない。
 
+- 横断二項の全階数は、ε=v²の平坦族、実自己交叉・Lowen full cochain、αのarity0評価、中心一次式のunary Bockstein、全対象primitiveの双次数消滅、実二列法線解消を主担当と別担当が全文読解した。任意q中心の境界への追加も主担当が読解し、既に存在するperiod同期済み実核を入力とすることを確認した。
+- 横断判別は、最高次gradientによる有限平坦性、標数零の一般étale性、臨界値差の微分、最小多項式の冪指数一、有限双有理正規化と局所Nakayama、各悪値の一節点性を主担当と別担当が全文読解した。一般mの差分も確認した。特殊二次係数の多重根を排除していない。
+- 実blow-upは、strict graded中心作用、qgr商との適合、free–forgetful随伴とKoszul Homによるchart同定、Khanの実随伴・projection三角のtensor、SOD順序、gluing、各chartへの普遍核の底変更を主担当が全文読解した。
+- 全smooth locusと中央旗は、絶対対角の底対角支持と有限Čechのmappingによるcompactness局所性、R-proper gluingの絶対perfect化、可換blow-up chart、基点での∂Gとdu_i、普遍incidenceとgeneric smoothnessを主担当と別担当が全文読解した。j_*がperfectを保つという仮定、比較核の全chartへの貼合せ、一般dg Bertiniは用いていない。
+
 一次資料はTevelev arXiv:math/0112028v1 §7.1 Example7.4、Rennemo–Segal–Van den Bergh arXiv:1705.01366v2 Proposition2.1とIntroduction、Beck Distributive Laws §3 Proposition・証明（TAC再版104–106頁）を確認した。双対次数と随伴形式論を新規結果として扱わず、Bertiniの有限中心仮定を一般PBWへ流用しない。
 
-追加の近接文献として、LBSV Theorem3.2.6のType A、Cassidy–Shelton Theorems1.3,1.5と証明、Gaddis Propositions2.7,5.1、Perry Remark4.23/Lemma7.18/Proposition7.19、Jiang–Leung arXiv:1811.05132v2 §1.5/Definition3.2/Theorems3.3,4.5を一次本文で確認し、既知の正則拡大・tensor積・HPD・幾何的圏のblow-upと本結果の違いをIntroductionと研究ノートへ統合した。中央pencilのsourceのblow-upは次の構成候補として記録し、証明済みの一般Bertiniとは扱わない。既知理論の新規性は主張せず、全smooth対象の良いflag存在は未解決として保持する。
+追加の近接文献として、LBSV Theorem3.2.6のType A、Cassidy–Shelton Theorems1.3,1.5と証明、Gaddis Propositions2.7,5.1、Perry Remark4.23/Lemma7.18/Proposition7.19、Jiang–Leung arXiv:1811.05132v2 §1.5/Definition3.2/Theorems3.3,4.5を一次本文で確認し、既知の正則拡大・tensor積・HPD・幾何的圏のblow-upと本結果の違いをIntroductionと研究ノートへ統合した。sourceの実blow-up、全smooth locus、一般中央flagを本文の証明へ進めた。新たな一次入力はKhan Theorem C/Proposition4.2/Theorem4.3/§4.4、Lunts Propositions3.11/3.13とLemma3.15、Antieau–Gepner Lemma6.4とTheorem6.11の証明（1222–1223頁）。主担当も一次本文を確認した。Lowen Theorems3.21/4.15と証明も再照合した。既知の一般機構の新規性は主張せず、適用対象は固定因子・因子間可換のPBW・中心三次族に限定する。
 
 ### 厳密計算
 
@@ -27,11 +32,9 @@
 
 ### 現行ソース・組版・表示
 
-主稿・混合稿はv59、モジュライ稿の本文はv50を保持する。方針・ノート・README・AGENTS・両稿の概要と序論へ多中心結果と現在の未解決点を統合した。現行版のsource checkは117ファイル・1872一意ラベルで成功した（主稿33/477、モジュライ稿45/874、混合稿43/521）。入力・他稿参照・引用・author欄・root、Markdownの実在する相対参照先を確認し、git diff --checkも成功した。
+主稿・混合稿はv60、モジュライ稿の本文はv50を保持する。方針・ノート・README・AGENTS・両稿の概要と序論へ全smooth多中心結果と現在の未解決点を統合した。現行source checkは121ファイル・1921一意ラベルで成功した（主稿33/477、モジュライ稿45/874、混合稿47/570）。入力・他稿参照・引用・author欄・rootの検査とgit diff --checkを確認した。
 
-`python3 scripts/build_papers.py` の最終ビルドは終了コード0で、二周後に三稿の相互参照と書誌番号が収束した。LuaLaTeX出力は主稿183頁、モジュライ稿456頁、混合稿255頁。三稿とも未定義参照・未定義引用・重複ラベル・missing character・overfull/underfull boxは0件。数式フォントのサイズ代替、旧式の `\rm`、混合稿の `\atop` に関する警告は残る。これらを警告なしの組版とは報告しない。
-
-最終PDFのうち、主稿1・2・6頁、混合稿1–9・186–206・237・239・252頁の計36頁を画像で実表示し、概要・序論、多中心の新節全体、追加書誌を点検した。中央切断の同値式は三行に分けて版面へ収め、修正版を再表示した。点検画像と最終安定ビルドから再生成した画像のhashは全36頁で一致した。全894頁の目視検査、全既存証明の再監査、全計算の再実行、外部査読、形式証明器の実行、網羅的な新規性確認を行ったという意味ではない。PDFと中間生成物はGitで追跡せず、mainには再生成に必要なソース・検算器・再現手順を置く。
+v60の組版・PDF表示確認は未実施。変更前に確認した三稿は183/456/255頁、未定義参照・未定義引用・重複ラベル・missing character・overfull/underfull boxは0件だったが、これをv60の確認済み状態として扱わない。数学的な新規結果は一般の証明によるもので、新たな数値検算器は追加していない。表の既存検算器はこの変更では再実行していない。PDF・中間生成物はGitで追跡しない。
 
 ## 任意固定楕円因子の全係数比較の確認範囲
 

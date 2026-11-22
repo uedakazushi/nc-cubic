@@ -1,0 +1,257 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v60.
+\subsection{横断判別超曲面の正規化と単純な最後の中心値}
+\label{mtd:subsec:transverse-discriminant}
+
+系\ref{mci:cor:finite-discriminant}の有限判別を、
+命題\ref{mtb:prop:transverse-iso}の全階数によって強める。
+境界係数 $b$ と実比較核は引き続き固定し、$Y_1=V(F_1)$ は滑らかとする。
+$N=3k$、$M=N+1$、$\mu'=2^M=2\cdot8^k$ と置く。
+本小節の臨界点は $\mathbf y=(x_1,\ldots,x_N,u)$ の全 $M$ 変数について取る。
+
+系\ref{mtb:cor:triangular-coefficients}の座標変更を
+\begin{equation}\label{mtd:eq:theta}
+ \Theta:(\gamma_1,\gamma_2,z)\longmapsto
+      (\gamma_1,\ell,C),\qquad
+ \ell=\operatorname{coeff}_{\mathbf y}\widetilde L,\quad
+ C=\widetilde C
+\end{equation}
+と書く。$\gamma_1$ の係数空間を $P=\mathbb A^{2N+1}$ とし、
+\[
+ H_{\gamma_1}=F_1+\widetilde Q(\gamma_1),\qquad
+ f_{\gamma_1,\ell}=H_{\gamma_1}+\ell\cdot\mathbf y
+\]
+と置く。独立な座標 $(\gamma_1,\ell,C)$ 上で
+\[
+ \begin{gathered}
+ R=\C[\gamma_1,\ell],\qquad
+ \widehat{\mathcal Q}=R[\mathbf y]/(\partial f_{\gamma_1,\ell}),\\
+ \widehat D(\gamma_1,\ell,C)
+       =\det(C\operatorname{id}_{\widehat{\mathcal Q}}+m_f)
+ \end{gathered}
+\]
+と定めると、系\ref{mci:cor:finite-discriminant}の判別式は
+$D_{\mathrm{it}}=\widehat D\circ\Theta$ である。
+同系により $\widehat{\mathcal Q}$ は階数 $\mu'$ の自由 $R$-加群である。
+
+以下の議論は、補題\ref{ldg:lem:fixed-quadratic-morsification}と
+定理\ref{ldg:thm:normalization}の、$M=N+1$ 変数への適用である。
+それらの証明に変数数の三による整除は不要であることを、必要な箇所で確認する。
+用いる条件は、最高次の $\partial F_1$ が原点だけを共通零点とする
+二次式の正則列であることと、基礎体が標数零であることである。
+
+\begin{lemma}[任意の固定一次係数での臨界値分離]
+\label{mtd:lem:separated-critical-values}
+任意の $\gamma_1^0\in P(\C)$ に対し、
+$\mathbb A^M_\ell$ の非空 Zariski 開集合 $U_{\gamma_1^0}$ が存在し、
+その各点で $f_{\gamma_1^0,\ell}$ は正確に $\mu'$ 個の臨界点を持つ。
+これらは全て Hessian が非退化であり、臨界値も互いに相異なる。
+\end{lemma}
+
+\begin{proof}
+$H=H_{\gamma_1^0}$ と省略する。臨界スキーム
+\[
+ \mathscr C=
+ \operatorname{Spec}\C[\ell,\mathbf y]/(\partial_jH+\ell_j)_{j=1}^M
+       \longrightarrow\mathbb A^M_\ell
+\]
+は $\ell=-\nabla H(\mathbf y)$ により $\mathbb A^M_{\mathbf y}$ と同型である。
+最高次部分は $\partial F_1$ なので、filtered Koszul 複体による
+系\ref{mci:cor:finite-discriminant}の証明は、この射が階数 $\mu'$ の有限平坦射であることを与える。
+整スキーム間の有限優勢射であり、標数零なので関数体拡大は分離的である。
+従って非空開集合 $U_0\subset\mathbb A^M_\ell$ 上で有限 \`etale となる。
+その $\mu'$ 個の点で、Jacobian 行列 $-\operatorname{Hess}H$ は可逆である。
+
+$\mathscr C_0=\mathscr C\times_{\mathbb A^M_\ell}U_0$ とし、
+相異なる順序付き臨界点対の有限 \`etale スキーム
+\[
+ T=(\mathscr C_0\times_{U_0}\mathscr C_0)\setminus\Delta
+\]
+を考える。各非空既約成分は $U_0$ を支配する。
+二つの点を $\mathbf y,\mathbf y'$ と書くと、臨界値差
+$h=f_\ell(\mathbf y)-f_\ell(\mathbf y')$ は
+\begin{equation}\label{mtd:eq:critical-value-differential}
+                  dh=\sum_{j=1}^M(y_j-y_j')\,d\ell_j
+\end{equation}
+を満たす。$\Omega^1_{T/\C}$ は $d\ell_j$ を基底に持つから、
+$h$ がある成分で恒等零ならその成分で全ての $y_j-y_j'$ が零となり、
+対角を除いたことに矛盾する。
+従って各成分の $V(h)$ は真の閉集合で、その有限像も
+$U_0$ 全体にはならない閉集合である。
+有限個のこれらの像を除いて $U_{\gamma_1^0}$ を得る。
+ここでは二次項 $\widetilde Q(\gamma_1^0)$ に一般性を課していない。
+\end{proof}
+
+\begin{theorem}[横断判別因子の既約性と affine 正規化]
+\label{mtd:thm:normalization}
+$D_{\mathrm{it}}\in\C[\gamma_1,\gamma_2,z]$ は既約であり、
+任意の固定した $\gamma_1^0$ について
+$D_{\mathrm{it}}(\gamma_1^0,\gamma_2,z)\in\C[\gamma_2,z]$ も既約である。
+従ってそれぞれが定める判別因子は被約である。
+
+全横断係数の判別超曲面の正規化は $P\times\mathbb A^M_{\mathbf y}$ であり、
+正規化射は
+\begin{equation}\label{mtd:eq:normalization}
+ (\gamma_1,\mathbf y)\longmapsto
+ \Theta^{-1}\!\left(
+ \gamma_1,-\nabla H_{\gamma_1}(\mathbf y),
+ \mathbf y\cdot\nabla H_{\gamma_1}(\mathbf y)-H_{\gamma_1}(\mathbf y)
+ \right)
+\end{equation}
+で与えられる。各固定 $\gamma_1^0$ の判別超曲面についても、
+この式の制限 $\mathbb A^M_{\mathbf y}\to V(D_{\mathrm{it}}(\gamma_1^0,-,-))$
+が正規化である。
+
+複素点として、判別超曲面の特異点は次のいずれかを満たす係数と正確に一致する。
+\begin{enumerate}
+ \item $f_{\gamma_1,\ell}$ が値 $-C$ を取る相異なる臨界点を二つ以上持つ。
+ \item 値 $-C$ を取る臨界点の少なくとも一つで Hessian が退化する。
+\end{enumerate}
+この判定は全横断係数と各固定 $\gamma_1^0$ のどちらにも成立する。
+\end{theorem}
+
+\begin{proof}
+まず座標 $(\gamma_1,\ell,C)$ で証明する。
+普遍臨界スキームは
+\[
+ \widehat{\mathscr C}=\operatorname{Spec}\widehat{\mathcal Q}
+       \simeq P\times\mathbb A^M_{\mathbf y}
+\]
+であり、整かつ正規である。
+$C$ を $-f$ へ送る環準同型は有限射
+\[
+ \nu(\gamma_1,\mathbf y)=
+ \left(\gamma_1,-\nabla H_{\gamma_1}(\mathbf y),
+  \mathbf y\cdot\nabla H_{\gamma_1}(\mathbf y)-H_{\gamma_1}(\mathbf y)\right)
+\]
+を定める。有限性は $\widehat{\mathcal Q}$ の $R$ 上の有限性から従う。
+有限臨界代数で $C+f$ が非可逆であることと $\widehat D=0$ は同値なので、
+この射の像の台は $V(\widehat D)$ である。
+
+$K=\operatorname{Frac}R$ とすると
+$L=\widehat{\mathcal Q}\otimes_RK$ は次数 $\mu'$ の体拡大となる。
+元 $-f\in L$ の最小多項式を $m(T)$ とすれば、
+その乗法作用の特性多項式は
+\[
+                 \widehat D(T)=m(T)^{[L:K(-f)]}
+\]
+である。前補題により $\widehat D$ が $C$ に関して単純根だけを持つ特殊化が存在するので、
+一般係数体上でもこの特性多項式は分離的である。
+従って指数は一で、$L=K(-f)$ となる。
+$\widehat D$ は $C$ に関して monic なので、Gauss の補題により $R[C]$ 上既約である。
+任意の固定 $\gamma_1^0$ でも前補題が使えるため、
+$R=\C[\ell]$ とした同じ証明で既約性を得る。
+一般の norm 多項式に既約性を仮定しているのではなく、
+ここでは臨界スキームの整性と臨界値分離の両方を用いている。
+
+$L=K(-f)$ は $\nu$ が双有理であることを意味する。
+その源は正規で、射は有限だから、$\nu$ は判別超曲面の正規化射である。
+固定 $\gamma_1^0$ の場合も同様である。
+臨界スキームから $(\gamma_1,\ell)$ への射の次数は $\mu'$ だが、
+判別超曲面への正規化射の次数は一である。
+
+特異点の判定も確認する。$A=\operatorname{Hess}_{\mathbf y}H_{\gamma_1}$ と置くと、
+\[
+          \ker d\nu=\{(0,\mathbf v):A\mathbf v=0\}.
+\]
+固定 $\gamma_1$ の微分も核が $\ker A$ である。
+また $\nu^{-1}(\gamma_1,\ell,C)$ の点は、
+値 $-C$ を取る臨界点と一対一に対応する。
+判別超曲面が滑らかな点では正規化が局所同型なので、
+逆像は一点で、その Hessian は非退化でなければならない。
+
+逆に逆像が一点で Hessian が非退化なら、有限な局所環の包含
+$A_0\subset B_0$ は剰余体 $\C$ を共有し、余接写像が全射である。
+両極大イデアルを $\mathfrak m,\mathfrak n$ とすると、
+$\mathfrak n=\mathfrak mB_0+\mathfrak n^2$ から
+Nakayama の補題で $\mathfrak n=\mathfrak mB_0$ を得る。
+さらに $B_0=A_0+\mathfrak mB_0$ なので、有限 $A_0$-加群 $B_0/A_0$ に
+再び Nakayama を適用して $A_0=B_0$ となる。
+源は正則だから判別超曲面もその点で滑らかである。
+これは定理\ref{ldg:thm:normalization}の局所環の議論であり、$M$ の値に依存しない。
+最後に多項式同型 $\Theta$ で戻すと、全ての結論と式\eqref{mtd:eq:normalization}を得る。
+\end{proof}
+
+\begin{corollary}[各固定一次係数に対する $2\cdot8^k$ 個の単純な悪い値]
+\label{mtd:cor:simple-values}
+任意の固定した $\gamma_1$ に対して、$\gamma_2$ の非空 Zariski 開集合が存在し、
+そこで $D_{\mathrm{it}}(\gamma_1,\gamma_2,z)$ は $z$ に関して
+正確に $2\cdot8^k$ 個の相異なる単根を持つ。
+各根に対応する可換三次標的 $X_{\mathrm{it}}$ は唯一の通常二重点を持ち、
+その他の $z$ では滑らかである。
+従ってこの一般 $\gamma_2$ の下では、同じ $2\cdot8^k$ 個の値が
+元の残余線束圏の非 smooth な係数の全体である。
+\end{corollary}
+
+\begin{proof}
+固定した $\gamma_1$ の下で
+$\gamma_2\mapsto\ell=\mathsf B\gamma_2+
+\operatorname{coeff}_{\mathbf y}\widetilde R_2(\gamma_1)$ は affine 線型同型である。
+補題\ref{mtd:lem:separated-critical-values}の開集合の逆像を取る。
+そこでは $f_{\gamma_1,\ell}$ の $\mu'$ 個の臨界点が全て Morse 点であり、
+臨界値も相異なる。
+固定 $\gamma_2$ に対する $z\mapsto C$ は係数 $\kappa'\ne0$ の affine 同型なので、
+各臨界値はちょうど一つの単純な悪い $z$ に対応する。
+
+$v=0$ の境界 $Y_1$ は滑らかだから、$X_{\mathrm{it}}$ の特異点は全て $v=1$ にある。
+そこでの方程式は $f_{\gamma_1,\ell}+C=0$ である。
+各悪い値で零となる臨界値は一つだけなので特異点は唯一であり、
+Hessian の非退化性と形式的 Morse 補題から完備局所環は
+\[
+             \C[[s_1,\ldots,s_M]]/(s_1^2+\cdots+s_M^2)
+\]
+となる。最後の非可換側の smoothness 判定は
+定理\ref{mci:thm:iterated-kernel}の実 Morita 比較による。
+\end{proof}
+
+\begin{corollary}[一般の中央段での最後の判別次数]
+\label{mtd:cor:many-centers}
+$m\ge2$ とし、系\ref{mtb:cor:many-centers}の入力を
+$q=m-1$ 個の中心を持つ固定境界に適用する。
+すなわち境界は smooth で、滑らかな可換三次への周期付き実核を固定する。
+新しい中心変数 $v$ の全重み一係数 $\gamma_1$ を任意に固定すると、
+重み二係数 $\gamma_2$ の非空 Zariski 開集合上で、
+最後の $v^3$ 係数には正確に
+\[
+                              2^{N+m-1}
+\]
+個の相異なる単純な悪い値がある。
+各可換標的は唯一の通常二重点を持ち、それ以外の値では滑らかである。
+
+固定した任意の $\gamma_1$ について、$(\gamma_2,z)$ の判別多項式は既約であり、
+その零因子は被約、正規化は $\mathbb A^{N+m-1}$ である。
+全横断係数についても判別多項式は既約であり、正規化は
+重み一係数の affine 空間と $\mathbb A^{N+m-1}$ の積である。
+\end{corollary}
+
+\begin{proof}
+$M=N+m-1$ とする。系\ref{mtb:cor:many-centers}により、
+固定 $\gamma_1$ の下で重み二係数は全 $\ell\in\C^M$ を動き、
+$z$ は全定数項 $C$ を動かす。
+滑らかな境界式 $F_q$ の $\partial F_q$ は二次正則列なので、
+臨界代数の階数は $2^M$ である。
+補題\ref{mtd:lem:separated-critical-values}の証明は、
+この有限平坦な gradient 写像と標数零だけを用いているためそのまま適用できる。
+臨界値差の式\eqref{mtd:eq:critical-value-differential}も変わらない。
+従って単純根と唯一の通常二重点を得る。
+臨界スキームは全係数では重み一係数空間と $\mathbb A^M$ の積、
+固定一次係数では $\mathbb A^M$ となる。
+定理\ref{mtd:thm:normalization}の最小多項式と有限双有理射の証明を適用すれば、
+既約性・被約性と正規化の主張も従う。
+\end{proof}
+
+\begin{remark}[特殊化と特異点対応の範囲]
+\label{mtd:rem:scope}
+全横断係数または固定 $\gamma_1$ の判別因子が既約被約であることは、
+任意に固定した $(\gamma_1,\gamma_2)$ の一変数多項式が単純根だけを持つことを意味しない。
+特殊 $\gamma_2$ では臨界値の衝突と非被約な臨界点を許し、
+系\ref{mci:cor:finite-discriminant}の局所長を含む norm の重複度が残る。
+このとき正規化射の一点上に複数の臨界点が対応する場合がある。
+判別超曲面の滑らかな点は、可換標的が唯一の通常二重点を持つ係数に対応する。
+
+ここでの通常二重点は構成された可換標的の局所型であり、
+非可換中心の局所環や特異係数の全 coherent 圏の比較を結論しない。
+全 coherent Ku 比較は従来どおり判別式が非零の開集合上の結論である。
+本小節は固定した滑らかな境界からの逐次標的を扱い、
+$W_{\mathrm{it}}$ と $W_{\mathrm{pol}}$ の同一視を用いない。
+\end{remark}

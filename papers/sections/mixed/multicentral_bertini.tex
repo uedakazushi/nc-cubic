@@ -1,0 +1,337 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v60.
+\subsection{偏極三次による全 smooth locus と良い中央旗}
+\label{mcb:subsec:central-bertini}
+
+前小節の実 blow-up と、一中心普遍核の各 chart への適用を組み合わせると、
+中央変数の個数が任意の場合も smoothness を判定できる。
+用いる局所性は、$\C$ 上の\emph{絶対対角}の perfect 性である。
+射影方向上の相対 smoothness や、異なる chart の比較核の降下は仮定しない。
+
+\subsubsection{絶対対角の Zariski 局所性と相対 gluing}
+
+\begin{lemma}[絶対 smoothness の局所判定]
+\label{mcb:lem:smooth-local}
+$S$ を滑らかな有限型分離 $\C$-スキームとし、
+$\mathcal C$ を実 $\operatorname{Perf}(S)$-線型の冪等完備 dg 圏とする。
+$S$ の有限 affine 開被覆 $S=\bigcup_i U_i$ に対し
+\[
+ \mathcal C_{U_i}
+   =\mathcal C\otimes_{\operatorname{Perf}(S)}\operatorname{Perf}(U_i)
+\]
+と置く。このとき、$\mathcal C$ が $\C$ 上 smooth であることと、
+全ての $\mathcal C_{U_i}$ が $\C$ 上 smooth であることは同値である。
+ここでは $S$ 上の相対対角の perfect 性を結論しない。
+また、両辺の圏が $\C$ 上 proper であることは必要ない。
+\end{lemma}
+
+\begin{proof}
+有限開被覆による compact 性の判定を先に記す。
+$T$ を有限型分離 $\C$-スキーム、$\mathcal Q$ を
+$\operatorname{QCoh}(T)$-線型の presentable stable dg 圏とする。
+affine 開埋込み $j:V\hookrightarrow T$ に対し、
+$j_*\OO_V$ は $\operatorname{QCoh}(T)$ の idempotent algebra である。
+その作用による局所化を $j^*:\mathcal Q\to\mathcal Q_V$ と書くと、
+忘却は完全忠実な右随伴 $j_*$ であり、
+\[
+             j_*j^*N=(j_*\OO_V)\otimes_{\OO_T}N
+\]
+となる。この右随伴は filtered colimit を保つので、$j^*$ は compact 対象を保つ。
+
+有限 affine 開被覆 $\{V_a\}_{a=1}^r$ を取る。
+分離性から全ての有限交叉 $V_I=\bigcap_{a\in I}V_a$ は affine であり、
+$j_I:V_I\hookrightarrow T$ も affine な開埋込みである。
+構造層の有界 augmented \v{C}ech 複体を $N$ に作用させると
+\begin{equation}\label{mcb:eq:cech}
+ N\simeq\operatorname{Tot}\left[
+   \bigoplus_{|I|=1}j_{I,*}j_I^*N\longrightarrow
+   \bigoplus_{|I|=2}j_{I,*}j_I^*N\longrightarrow\cdots
+   \longrightarrow j_{\{1,\ldots,r\},*}j_{\{1,\ldots,r\}}^*N
+                         \right].
+\end{equation}
+空な交叉の項は零とする。この totalization は有限である。
+各 $j_a^*M$ が compact なら交叉への制限も compact であり、随伴により
+\[
+ \operatorname{Map}_{\mathcal Q}(M,j_{I,*}j_I^*N)
+   =\operatorname{Map}_{\mathcal Q_{V_I}}(j_I^*M,j_I^*N)
+\]
+となる。filtered colimit と有限 totalization が交換するので、
+式\eqref{mcb:eq:cech}は $M$ 自身が compact であることを示す。
+これは線型圏の descent における有限 mapping pullback の議論
+\cite[Lemma~6.4 and proof of Theorem~6.11, pp.~1222--1223]{CMOAntieauGepnerDescent}
+を、ここで必要な有限開被覆について直接書いたものである。
+
+これを
+\[
+ T=S\times_\C S,\qquad
+ \mathcal Q=\operatorname{Ind}
+                (\mathcal C^{\mathrm{op}}\otimes_\C\mathcal C)
+\]
+に適用する。二つの既存の $\operatorname{Perf}(S)$ 作用は
+$\operatorname{Perf}(S\times S)$ 作用を与え、Ind 完備化後に
+$\operatorname{QCoh}(S\times S)$ へ延長される。
+$M_{\mathcal C}\in\mathcal Q$ を絶対対角双加群とする。
+恒等関手 $\operatorname{id}_{\mathcal C}$ は、元の実作用に関して
+canonically $S$-線型である。
+従ってその graph は相対 envelope 上の対角からの restriction として現れ、
+二つの底作用は $\Delta_S:S\to S\times S$ に沿って一致する。
+特に $M_{\mathcal C}$ の $S\times S\setminus\Delta_S$ への制限は零である。
+affine 底では、これは対角上の左右のスカラー作用が同一であり、
+$a\otimes1-1\otimes a$ が零作用するという通常の双加群の事実である。
+その全 coherence は、既に与えた $\operatorname{Perf}(S)$ 作用と恒等関手から来る。
+外部から与えた Morita 核に別々の中心作用を新たに整合させる問題は生じない。
+
+一方、$U_i\times U_i$ への制限は
+$\mathcal C_{U_i}$ の絶対対角である。
+実際、開制限は Morita 局所化であり、左右から誘導した対角は局所化後の対角となる。
+$\{U_i\times U_i\}_i$ と $S\times S\setminus\Delta_S$ は $S\times S$ を覆う。
+後者を有限 affine 開で覆い、全体を有限 affine 被覆にすれば、
+前段の compact 性の局所判定が使える。
+従って全 $\mathcal C_{U_i}$ が smooth なら $M_{\mathcal C}$ は compact となる。
+逆向きは、開局所化が compact 対象と対角を保つことから従う。
+\end{proof}
+
+\begin{lemma}[相対例外列を戻すときの絶対 smoothness]
+\label{mcb:lem:relative-gluing}
+$R=\C[t_1,\ldots,t_r]$ とし、$\mathcal C$ を $R$-proper な有限生成 dg 圏とする。
+実 admissible 半直交分解
+\[
+ \mathcal C=\langle\mathcal K,
+       E_1\otimes\operatorname{Perf}(R),\ldots,
+       E_a\otimes\operatorname{Perf}(R)\rangle
+\]
+を持つと仮定する。ここで $E_j$ は相対例外対象であり、
+全ての随伴は compact 対象を保つものとする。
+このとき $\mathcal C$ が $\C$ 上 smooth であることと、
+$\mathcal K$ が $\C$ 上 smooth であることは同値である。
+\end{lemma}
+
+\begin{proof}
+admissible 部分圏の絶対対角は、周囲の対角を左右随伴によって制限して得られる。
+随伴が compact 対象を保つため、$\mathcal C$ の smoothness は $\mathcal K$ へ移る。
+
+逆に $\mathcal K$ が smooth とする。
+その有限生成代数を $E$ とすると、最初の例外成分との cross Hom は
+$E$ と $R$ の双加群 $M$ であり、$R$-proper 性から underlying $R$-複体が perfect である。
+$E$ の絶対対角の有限 $E^{\mathrm{op}}\otimes_\C E$-perfect 解消を
+片側で $M$ と tensor する。
+自由な対角項は $E\otimes_\C M$ となり、これは
+$E\otimes_\C R$ 上 perfect である。
+従って $M$ は、向きを適切に取った
+$E^{\mathrm{op}}\otimes_\C R$ 上の perfect 双加群となる。
+$R$ 自身も $\C$ 上 smooth なので、三角 dg 代数の対角解消
+\cite[Proposition~3.11]{CMOLuntsResolution}により、
+最初の例外成分を戻した圏は絶対 smooth である。
+この圏は引き続き $R$-proper であるから、同じ議論を有限回反復できる。
+smooth な成分だけから gluing の perfect 性を省略しているのではなく、
+その不足を $R$-proper 性で補っている。
+\end{proof}
+
+\subsubsection{全多中心族の smoothness の必要十分条件}
+
+定理\ref{mcp:thm:normal-form}の固定複素係数に戻り、$m\ge1$ とする。
+一中心の比較で一度固定した係数多項式 $Q,L,C$ に中心形式を代入し、
+\begin{equation}\label{mcb:eq:polarized}
+ \begin{split}
+ W_{\mathrm{pol}}(\mathbf x,\mathbf u)
+  ={}&G(\mathbf x)+Q(\mathbf t(\mathbf u))(\mathbf x)\\
+    &+L(\mathbf t(\mathbf u),\alpha(\mathbf u))(\mathbf x)
+      +C(\mathbf t(\mathbf u),\alpha(\mathbf u),c(\mathbf u)),\\
+ X_{\mathrm{pol}}={}&V(W_{\mathrm{pol}})\subset\mathbb P^{N+m-1},\qquad
+ Z=V(G)\subset\{\mathbf u=0\}\simeq\mathbb P^{N-1}
+ \end{split}
+\end{equation}
+と定める。$m=1$ は定理\ref{euk:thm:universal-kernel}、
+$m=2$ は式\eqref{mcpn:eq:polarized-candidate}の三次である。
+$Z$ は滑らかであり、$Z$ の各点では $\partial G/\partial x_j$ の少なくとも一つが非零である。
+従って $X_{\mathrm{pol}}$ は係数によらず $Z$ の近傍で滑らかである。
+
+\begin{theorem}[全多中心族の smooth locus]
+\label{mcb:thm:smooth-locus}
+$k\ge2$、$N=3k$ とし、任意の固定した滑らかな標準楕円 Sklyanin 因子、
+非零重み、および定理\ref{mcp:thm:normal-form}の任意の複素係数を取る。
+$\mathcal K_A$ を $A=A_m$ の残余線束圏とすると
+\begin{equation}\label{mcb:eq:smooth-locus}
+       \mathcal K_A\text{ が $\C$ 上 smooth}
+          \quad\Longleftrightarrow\quad
+       X_{\mathrm{pol}}\text{ が滑らか}
+\end{equation}
+である。二捩れ因子と非二捩れ因子の混在、中心変数の個数、
+係数の一般性について追加条件は要らない。
+また、代数が有限型中央部分環上有限であるという条件も要らない。
+\end{theorem}
+
+\begin{proof}
+$m=1$ は既存の一中心比較である。以下 $m\ge2$ とする。
+全線束圏 $\mathcal L_A$ は proper であり、
+$\mathcal K_A$ と有限例外線束による実分解を持つ。
+従って補題\ref{mcb:lem:relative-gluing}の $R=\C$ の場合により、
+$\mathcal K_A$ と $\mathcal L_A$ の絶対 smoothness は同値である。
+固定境界の $\mathcal L_D$ は smooth proper なので、
+命題\ref{mbl:prop:orlov}と $b^*\mathcal L_A$ の admissibility から
+\[
+             \mathcal L_A\text{ smooth}
+                \quad\Longleftrightarrow\quad
+             \mathcal P_A\text{ smooth}
+\]
+を得る。
+
+可換側の blow-up を $\widetilde X=\operatorname{Bl}_Z X_{\mathrm{pol}}$ とする。
+その $\mathbb P^{m-1}$ 上の標準 chart は
+\[
+ X_i=V\bigl(W_{\mathrm{pol}}
+       (\mathbf x,s\boldsymbol\ell^{(i)}(\mathbf t))\bigr)
+                    \subset\mathbb P^N\times U_i
+\]
+である。ここで $\ell_i^{(i)}=1$ とする。
+この chart 同定は特異な係数でも有効である。
+実際、$G\ne0$ なので $(u_1,\ldots,u_m)$ は三次商上の正則列であり、
+表示した chart の $s=0$ への制限は $G=0$ である。
+従って $s$ は非零因子であり、incidence chart には例外因子にのみ支持された
+余分な成分はない。これは rational map $[\mathbf x:\mathbf u]\mapsto[\mathbf u]$
+の graph の閉包、すなわちこの ideal の blow-up を与える。
+
+系\ref{mbl:cor:chart-kernel}は、各 $R_i=\C[\mathbf t]$ 上で
+$\mathcal P_A|_{U_i}$ の残余と $X_i$ の残余線束圏との実 Morita 同値を与える。
+両側の相対線束模型は $R_i$-proper であり、相対例外列の左右随伴は compact を保つ。
+また $\operatorname{Perf}(X_i)$ は全相対線束 twist で生成される。
+これは射影スキームの ample 線束による生成であり、底 $U_i$ が affine なので
+$\operatorname{Perf}(R_i)$ の係数も有限 cone と直和因子で含まれる。
+従って全 coherent 圏が先に飽和していると仮定せず、
+補題\ref{mcb:lem:relative-gluing}を両側に適用して
+\begin{equation}\label{mcb:eq:chart-smooth}
+ \mathcal P_A|_{U_i}\text{ が $\C$ 上 smooth}
+   \quad\Longleftrightarrow\quad
+ \operatorname{Perf}(X_i)\text{ が $\C$ 上 smooth}
+   \quad\Longleftrightarrow\quad X_i\text{ が滑らか}
+\end{equation}
+を得る。最後の同値は、分離有限型スキームに対する
+\cite[Proposition~3.13]{CMOLuntsResolution}である。
+$X_i$ は $\C$ 上 proper とは限らないが、同命題に proper 性は必要ない。
+
+補題\ref{mcb:lem:smooth-local}を $S=\mathbb P^{m-1}$ と
+$\mathcal C=\mathcal P_A$ に適用する。
+式\eqref{mcb:eq:chart-smooth}と通常のスキームの smoothness の局所性により
+\[
+       \mathcal P_A\text{ smooth}
+          \quad\Longleftrightarrow\quad\widetilde X\text{ smooth}
+\]
+となる。$X_{\mathrm{pol}}$ が滑らかなら、滑らかな中心 $Z$ の blow-up も滑らかである。
+逆に $\widetilde X$ が滑らかなら、blow-up が同型である $X_{\mathrm{pol}}\setminus Z$ は滑らかである。
+$Z$ の近傍は既に $\partial G/\partial x_j$ によって滑らかと分かっている。
+これで式\eqref{mcb:eq:smooth-locus}の両方向が従う。
+\end{proof}
+
+\subsubsection{一般中央超平面、完全旗と全 coherent 比較}
+
+\begin{theorem}[滑らかな対象の一般中央旗]
+\label{mcb:thm:central-flags}
+定理\ref{mcb:thm:smooth-locus}の $A_m$ について、
+$\mathcal K_{A_m}$ が smooth であると仮定する。
+中心空間の双対射影空間には非空 Zariski 開集合があり、
+その任意の中央一次式 $\lambda$ に対して $A_m/(\lambda)$ の残余線束圏は smooth である。
+
+さらに、中心空間の完全旗のパラメータ空間には非空 Zariski 開集合があり、
+その旗に沿う全ての通常商
+\[
+ A_j=A_m/(\lambda_{j+1},\ldots,\lambda_m),\qquad 1\le j\le m,
+\]
+が smooth な残余線束圏を持つ。
+ここで $\lambda_1,\ldots,\lambda_m$ は旗に適合した中心座標であり、
+$A_0=D$ は固定された滑らかな境界である。
+\end{theorem}
+
+\begin{proof}
+$m=1$ では中央一次式による商は固定境界 $D$ であり、旗に中間段はない。
+その smoothness は既知である。以下 $m\ge2$ とする。
+定理\ref{mcb:thm:smooth-locus}により $X=X_{\mathrm{pol}}$ は滑らかである。
+中央一次式からなる線型系の基点は $Z$ である。
+以下で、この基点付き線型系に必要な古典的 Bertini の議論を直接確認する。
+
+$V=\C^m$ とし、普遍中央超平面を
+\[
+ \mathscr H=\{(x,[\lambda])\in X\times\mathbb P(V^*)
+                               \mid\lambda(\mathbf u(x))=0\}
+\]
+と置く。$X\setminus Z$ 上では係数 $\lambda$ 方向の微分により $\mathscr H$ は滑らかである。
+$Z$ 上では $Z\hookrightarrow X$ は余次元 $m$ の滑らかな正則埋込みであり、
+$du_1,\ldots,du_m$ は conormal 方向で独立である。
+従って非零の $\lambda$ について $\sum_i\lambda_i\,du_i$ は非零となり、
+そこでも $\mathscr H$ は滑らかである。
+
+射影 $\mathscr H\to\mathbb P(V^*)$ は proper である。
+その generic fiber の局所環は滑らかな全空間の局所環の局所化なので regular である。
+標数零の関数体は perfect であり、この有限型 generic fiber は smooth となる。
+非 smooth locus は閉集合で generic fiber と交わらない。
+proper 像を除けば非空開集合上の全ファイバーが smooth となる。
+これが必要な一般中央超平面の存在である。
+
+中心座標の線型変更は定理\ref{mcp:thm:normal-form}と自由性を保つ。
+また $Q,L,C$ は係数多項式への代入で定義したので、
+$A_m/(\lambda)$ に対応する偏極三次は正確に $W_{\mathrm{pol}}|_{\lambda=0}$ である。
+従って定理\ref{mcb:thm:smooth-locus}を $m-1$ 中心の商へ適用すれば、
+その残余線束圏も smooth である。$m-1=1$ では一中心の同値を用いる。
+これを帰納して良い旗を一つ得る。
+各段の普遍可換切断は、非零の固定項 $G$ を持つ相対三次超曲面として
+旗空間上 flat かつ projective であり、smooth fiber の条件は開である。
+有限個の段についてその開集合を交差すれば、表示した非空開集合を得る。
+全商が通常の商であることは、任意順序の中心正則性による。
+\end{proof}
+
+\begin{corollary}[二中心の良い ray と判別形式]
+\label{mcb:cor:good-ray}
+$m=2$ で $\mathcal K_A$ が smooth なら、
+命題\ref{mcpn:prop:ray-discriminant}の斉次形式 $\Delta$ は恒等零ではない。
+良い中央切断は正確に $\mathbb P^1\setminus V(\Delta)$ であり、
+悪い方向は有限個である。
+特に $\Delta\equiv0$ の係数には、smooth な残余線束圏を持つ対象は存在しない。
+\end{corollary}
+
+\begin{proof}
+定理\ref{mcb:thm:central-flags}が少なくとも一つの smooth な一中心商を与える。
+命題\ref{mcpn:prop:ray-discriminant}の必要十分条件を適用する。
+この結論は $\Delta$ の全ての根が単純であるとは主張しない。
+\end{proof}
+
+\begin{corollary}[全 factorwise smooth 対象の可換 Ku 比較]
+\label{mcb:cor:all-smooth-comparison}
+定理\ref{mcb:thm:smooth-locus}の因子別多中心族で、
+残余線束圏が smooth な任意の $A_m$ は、
+ある滑らかな可換三次
+\[
+                       Y_{\mathrm{it}}\subset\mathbb P^{N+m-1}
+\]
+を持ち、$\dim Y_{\mathrm{it}}=N+m-2$ で、全 coherent 残余圏について
+\[
+             \operatorname{Ku}_{\mathrm{coh}}(A_m)
+                   \simeq\operatorname{Ku}(Y_{\mathrm{it}})
+\]
+という実 Morita 同値がある。
+良い中央旗を選べば、各段ごとの実制限随伴、単位・余単位と周期を保つ逐次比較を取れる。
+比較核は対応する smooth な圏の積上 perfect である。
+\end{corollary}
+
+\begin{proof}
+$m=1$ は定理\ref{euk:thm:universal-kernel}の smooth locus における全 coherent 比較である。
+$m\ge2$ では
+定理\ref{mcb:thm:central-flags}の旗を固定し、
+系\ref{mci:cor:smooth-flag}の逐次構成を適用する。
+各境界は smooth なので、必要な実比較と同期した周期が次段の入力となる。
+最終段も smooth であり、同系の飽和論証が全 coherent 残余圏への同値と
+perfect な graph 核を与える。
+\end{proof}
+
+\begin{remark}[判定と核の適用範囲]
+\label{mcb:rem:scope}
+式\eqref{mcb:eq:smooth-locus}は、偏極三次による\emph{全 smooth locus の判定}である。
+逐次構成の三次式 $W_{\mathrm{it}}$ と $W_{\mathrm{pol}}$ の一致、
+あるいは $\mathcal K_A$ と $\operatorname{Ku}(X_{\mathrm{pol}})$ の同値を主張するものではない。
+各 chart の核は smoothness の移送に用いたが、核自体を全射影空間上へ貼り合わせてはいない。
+旗に沿う比較で保存する随伴と周期は各段ごとのものであり、
+以前の全ての中心作用の標識を最終核で同時に保存するという結論ではない。
+逐次同値が保つのは各段ごとの実制限随伴と周期であり、
+以前の段の全中心標識を一つの核で同時に保存するという意味ではない。
+また、一般の smooth proper dg 圏に対する Bertini 定理を証明したのでもない。
+本結果では、実中心作用から作った blow-up と、全係数上の一中心普遍核が、
+絶対 smoothness を通常の有限型スキームへ移すための具体的な入力を与えている。
+\end{remark}

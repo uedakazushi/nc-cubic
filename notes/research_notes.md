@@ -1,12 +1,12 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v59。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v60。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
 主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現することである。一つの共有中心変数・任意の固定smooth標準Sklyanin因子の組（k≥2）について、指定境界を保つ全因子別PBW・中心持上げを可換三次と全係数でMorita比較した（`emc:prop:coverage`, `euk:thm:universal-kernel`）。非二捩れの正規化線形Pと二捩れの中心平方βを一次係数tとする。標的はG+uQ(t)+u²(𝔄α+R₂(t))+u³(κc+R₁,₁(t,α)+R₃(t))、𝔄可逆、κ≠0であり、可換smooth開では相対perfect核・全coherent Ku同値を得る。定数3k方向のBocksteinは同型、一次3k方向は単射だが、存在比較は後者を仮定しない。
 
-rank8^kの臨界代数で全係数のsmoothnessを判定する。任意固定tの一般αでは8^k個の相異なる悪いcと、各可換標的の唯一の通常二重点がある。全係数・固定tの判別超曲面は既約被約で、臨界点のaffine空間が正規化を与える。一変数特殊化の重複根は許す。同一S(1,−1,−1)では純ブロックJac₂像・七定数形・κ_k²=27/28を保持し、残る六定数は未数値化。一般因子へこのκ値を流用しない。多中心では一本のsmooth切断／smooth中央flagを持つ範囲の実比較を得た。全smooth対象での良いflag、因子moduli上の核選択・降下、全intrinsic被覆、h一般点核のdefect零特殊化は残る。指定二ブロックのP64・norm全64根・局所型も保持する。
+rank8^kの臨界代数で全係数のsmoothnessを判定する。任意固定tの一般αでは8^k個の相異なる悪いcと、各可換標的の唯一の通常二重点がある。全係数・固定tの判別超曲面は既約被約で、臨界点のaffine空間が正規化を与える。一変数特殊化の重複根は許す。同一S(1,−1,−1)では純ブロックJac₂像・七定数形・κ_k²=27/28を保持し、残る六定数は未数値化。一般因子へこのκ値を流用しない。任意中心数の全因子別表示でK_A smooth ⇔ X_pol smoothを示し、一般中央flagの存在から全smooth対象を比較した。横断二項Bは可逆で、各固定一次係数の一般二次係数では2^(3k+m−1)個の単純悪値を得る。X_polへの実核、因子moduli上の核選択・降下、全intrinsic被覆、h一般点核のdefect零特殊化は残る。指定二ブロックのP64・norm全64根・局所型も保持する。
 
 C上n≥3を基本とし、generic・全固定点・全族・一般体上の降下を区別する。全intrinsic対象の認識やpoint functorの表現可能性は未完成であり、既知の局所表示だけを全対象と定義して済ませない。可換候補の方程式・判別集合・局所特異点の一致と、その候補への実際の比較核の存在も区別する。
 
@@ -26,7 +26,7 @@ point/Poisson不一致は本文の補助例として扱う。三様体の例の�
 
 研究方針・研究ノート・共通preamble・書誌は三稿で共有し、数学的な本文は複製しない。三稿への整理は編集と参照の再構成であり、既存の数学全体の再証明ではない。以下の点検・計算に関する記述は各結果の既存の確認範囲であり、今回のソース保持・組版・表示確認とは区別する。実際の確認状態は [検証範囲](validation.md) を参照する。
 
-研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。共有中心一変数の全許容固定因子比較は完成した範囲として使い、P0は全smooth多中心対象の良い中央flagと全intrinsic被覆に置く。二中心のΔ≡0部分と実交換構造、因子moduli上のPicard/周期降下を調べる。二捩れの関係線形方向の消滅と中心平方方向の残存を区別する。比較係数の数値化は存在結果の具体化として進め、h核の良い特殊化は固定点の同値の存在と分ける。
+研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。任意中心数の全smooth固定因子比較を成立した範囲として使い、P0は全intrinsic被覆と因子を混ぜる関係の認識に置く。Δ≡0はsmooth二中心対象では起こらない。偏極標的への実核と全中心作用、因子moduli上のPicard/周期降下を調べる。二捩れの関係線形方向の消滅と中心平方方向の残存を区別する。比較係数の数値化は存在結果の具体化として進め、h核の良い特殊化は固定点の同値の存在と分ける。
 
 ### 満支持型における同時存在
 
@@ -320,31 +320,38 @@ Q_ncを可換化してJac(J)₂へ写すと(53/54)(p xy+q yz+r zx)になるが�
 
 二中心では一中心のQ,L,Cへ形式を代入したW_polと、切断判別Δ=D(t(U),α(U),c(U))を定める。Δは重みから次数3·8^kの二変数形式。U_cut={Δ≢0}はsmoothな中央ray商が一本ある条件と正確に一致する。固定t(U)で一般α(U),c(U)はΔの単純根3·8^k個を持ち、W_polはsmooth、境界Zをblow-upするとLefschetz pencilになる（`mcpn:thm:lefschetz-pencil`）。証明の入力は固定tの被約判別、各点の値評価の全射性、三次形式の一次jetの自由度である。次数自体はTevelev, arXiv:math/0112028v1, §7.1 Example7.4の既知の双対次数公式と一致する。
 
-実核はこのW_polのsmoothnessから推論しない。一本のsmooth切断A₁=A₂/(v)を固定し、一中心の核E₁と実制限随伴を使う。cotwistはρ_A₁⁻¹[1]なので、E₁はrotation比較を与える。smooth cubic境界のHH⁰=C、HH<0=0により、C上でscalar三乗根を選べば指定三次periodを同期できる。元のu作用の標識を同時に保つとはしていない。固定境界のM=N+1変数に対し、BFKの隣接sectorの必要等式は左辺≤2<Mとなり、二項Jac(F₁)₁・三項Cだけが残る。
+実核は一本のsmooth切断A₁=A₂/(v)を固定し、一中心の核E₁と実制限随伴から作る。W_polのsmoothnessとsourceのsmoothnessは下記のblow-upで同値となるが、X_polそのものへの核はまだ同定していない。cotwistはρ_A₁⁻¹[1]なので、E₁はrotation比較を与える。smooth cubic境界のHH⁰=C、HH<0=0により、C上でscalar三乗根を選べば指定三次periodを同期できる。元のu作用の標識を同時に保つとはしていない。固定境界のM=N+1変数に対し、BFKの隣接sectorの必要等式は左辺≤2<Mとなり、二項Jac(F₁)₁・三項Cだけが残る。
 
-横断係数は重み一 γ₁=(t_v,α_uv,c_uuv) が2N+1個、重み二 γ₂=(α_vv,c_uvv) がN+1個、重み三 z=c_vvv が1個。固定E₁をこの多項式環へ移し、実可換参照族との差を二項・三項で消すと、W_it=F₁+vQ̃+v²L̃+v³C̃と実全comonad比較を得る。L̃=Bγ₂+R̃₂(γ₁)、C̃=κ′z+R̃₁,₁+R̃₃、κ′≠0。Bの可逆性は未証明だが、核の存在に不要。coKleisli生成代数から全横断係数の実Morita核・逆・制限intertwinerを構成する（`mci:thm:iterated-kernel`）。smoothnessはsource line圏と標的で同値、そこで全coherentへ飽和する。
+横断係数は重み一 γ₁=(t_v,α_uv,c_uuv) が2N+1個、重み二 γ₂=(α_vv,c_uvv) がN+1個、重み三 z=c_vvv が1個。固定E₁をこの多項式環へ移し、実可換参照族との差を二項・三項で消すと、W_it=F₁+vQ̃+v²L̃+v³C̃と実全comonad比較を得る。L̃=Bγ₂+R̃₂(γ₁)、C̃=κ′z+R̃₁,₁+R̃₃、κ′≠0。`mtb:prop:transverse-iso`でBの可逆性を証明したが、核の存在の証明はそれを入力としない。coKleisli生成代数から全横断係数の実Morita核・逆・制限intertwinerを構成する（`mci:thm:iterated-kernel`）。smoothnessはsource line圏と標的で同値、そこで全coherentへ飽和する。
 
-F₁のgradientが原点だけを零点に持つため、Q̃,L̃を固定した臨界代数は階数2^(N+1)=2·8^k。det(C̃I+m_(F₁+Q̃+L̃))のz最高係数は(κ′)^(2·8^k)であり、任意固定γ₁,γ₂で有限個のzを除いてsmooth。悪い値の個数は重複度込みであり、相異性・一節点性はこの逐次標的についてまだ結論しない。任意mへは途中のA_jの残余線束圏がsmoothな中央flagを仮定して反復できる。因子・flagを動かす大域核ではなく、固定した境界の横断係数上の相対核である。
+F₁のgradientが原点だけを零点に持つため、Q̃,L̃を固定した臨界代数は階数2^(N+1)=2·8^k。det(C̃I+m_(F₁+Q̃+L̃))のz最高係数は(κ′)^(2·8^k)であり、任意固定γ₁,γ₂で有限個のzを除いてsmoothとなる。さらにB可逆性により各固定γ₁の一般γ₂では2·8^k個の単根を持ち、各可換標的に唯一の通常二重点がある（`mtd:cor:simple-values`）。全横断係数・各固定γ₁の判別は既約被約、正規化はそれぞれA^(2N+1)×A^(N+1)、A^(N+1)である。正規化射はΘ⁻¹(γ₁,−∇H,y·∇H−H)。複数の同値臨界点またはHessian退化が判別超曲面の特異点を正確に与える。特殊γ₂の多重根は許す。
 
-次に解くべき点は、smoothnessから良い中央flagが従うか、Δ≡0の部分の実比較、W_it=W_polの可否、横断Bockstein Bの全階数である。Rennemo–Segal–Van den Berghの非可換Bertini, arXiv:1705.01366v2, Proposition2.1は可換有限型環上有限な代数を仮定し、Introductionでsmooth dg圏の層への拡張は未証明と明記する。一般PBW表示へこの結論を無条件に適用しない。
+横断Bocksteinの検出ではε=v²とし、E=B₁!のTate模型E[ϑ,ϑ⁻¹]を用いる。α_vvはδ₀(κ)=±Σαq∈E₂で検出される。これを消した後、中心式w₁+εd uの変形はaugmentationを保つが、相対Shamashの微分がδ₁(ξ_u)=±dϑを与える。primitive零項の双次数(1,−2)はj+2r=1,j+3r=2からj=−1となって存在しない。したがって全対象依存のprimitive・全高arityを許してもdは消せない。Lowen Theorems3.21/4.15のfull brace移送と実二列法線自己交叉を使い、対象上の値だけから自然変換を推測しない。任意q中心の固定smooth境界でも、d_j u_jの各方向をδ₁(ξ_{u_j})で分離できる（`mtb:cor:many-centers`）。period同期済みの実境界核を入力とする。
 
-近接する既知結果としてLBSV Theorem3.2.6はgeneric Type Aの一中心対称行列・任意定数補正、Cassidy–Shelton arXiv:math/0603375v2 Theorems1.3,1.5はPBWと正則homogenizationの同値、Gaddis arXiv:1210.0861v2 Propositions2.7,5.1は正則homogenizationとtensor積を扱う。指定中心三次の全多中心liftやKu比較をこれらだけから結論しない。Perry, Adv.Math.350(2019),877–972, arXiv:1804.00132v2 Lemma7.18/Proposition7.19は実P(V)-linear Lefschetz圏のuniversal hyperplaneの絶対smoothnessと臨界集合を扱う。本研究の基点付きpencilを線型圏へ実現し、一般切断のsmoothnessを示す段階は残る。Remark4.23の一般線型圏の臨界集合閉性は期待として述べられており、ここで無条件のBertiniとして引用しない。確認したこれらの資料では今回の固定smooth切断からの全横断Ku核と同じ主張は確認できなかったが、網羅的な新規性確認には至っていない。
+任意mの逐次核は、固定した境界核とsmooth中央flagに沿って構成する。このflagの存在は下記の中央Bertiniにより全smooth因子別対象で保証される。各段の二次係数はN+m−1方向を持ち、一般二次係数の最後の悪い値は2^(N+m−1)個で各唯一ODP、固定一次係数の判別はA^(N+m−1)を正規化に持つ。因子・flagを動かす大域核ではなく、固定した境界の横断係数上の相対核である。
 
-### 中央pencilを族にする次の構成
+### 実中央blow-up、全smooth locusと一般中央flag
 
-未解決の良い切断問題では、中央u,vの厳密な可換作用と内部次数を使う。全線束生成圏を `L_A` と書き、`Perf([A²/G_m])` 作用を具体的に構成した上で、候補
+`mbl:lem:strict-action`は、中央u_iの厳密な可換作用と内部shiftから全線束圏L_AのPerf([A^m/G_m])作用を作る。残余Kuそのものが全内部shiftで閉じるとは仮定しない。実圏
 
 \[
-\widetilde{\mathcal L}_A
-=\mathcal L_A\otimes_{\operatorname{Perf}([\mathbb A^2/\mathbb G_m])}
-\operatorname{Perf}([\operatorname{Bl}_0\mathbb A^2/\mathbb G_m])
+\mathcal P_A=\mathcal L_A\otimes_{\operatorname{Perf}([\mathbb A^m/\mathbb G_m])}
+\operatorname{Perf}([\operatorname{Bl}_0\mathbb A^m/\mathbb G_m])
 \]
 
-をP¹上の圏として調べる。これは現時点では構成方針であり、中央作用を持つgraded module模型からqgrのVerdier商への適合、compact対象、`[a:b]` のfiberと実際の `A/(bu-av)` の全線束圏の同定を証明する必要がある。内部shiftで閉じた全線束圏から始め、Ku成分がそのまま全作用で閉じているとは仮定しない。中央列の正則性と既存の二重制限BCは、この同定を検査する入力になる。
+はP^(m−1)線型であり、chart U_iではA[z_j]/(u_j−z_j u_i)の全線束圏になる。実free–forgetful随伴と中央Koszul解消のHomをqgr制限随伴のHomと比較する証明であり、Koszul加群解消をassociative cofibrant代替と取り違えない。全ray fiberは通常の一中心商で、相対proper性も全係数線束模型から従う。
 
-Jiang–Leung, *Blowing up linear categories, refinements, and homological projective duality with base locus*, [arXiv:1811.05132v2](https://arxiv.org/abs/1811.05132v2), Definition3.2/Theorem3.3は線型admissible部分圏のblow-upとOrlov型分解、Theorem4.5はrefined blow-upと線型切断のHPDを扱う。ただし§1.5はスキームの導来圏内のadmissible部分圏という幾何的枠組みに限定し、抽象dg・∞圏への拡張はその論文で実行した定理ではない。上の候補のOrlov型分解とsmooth/proper性を本模型で証明し、さらに絶対smoothなP¹族から一般fiberがsmoothとなるための定理または直接証明を確保する必要がある。
+Khan, *Algebraic K-theory of quasi-smooth blow-ups and cdh descent*, Ann.Henri Lebesgue3(2020),1091–1116, DOI[10.5802/ahl.55](https://doi.org/10.5802/ahl.55), Theorem C・Proposition4.2・§4.4はderived Artin stackにも適用できる。これをstrict作用へ実随伴・projection三角とともにtensorし、P_A=〈m−1個のL_D,L_A〉を得る（`mbl:prop:orlov`）。L_Dは既存境界比較でsmooth proper、gluingはcompact随伴を通じてC-perfect。従ってL_A smoothならP_A smooth properとなる。m2のcross HomはRHom_D(N,i*M)[−1]である。Jiang–Leung §1.5の幾何的admissible部分圏という仮定を、このsourceへ無条件に適用しているのではない。
 
-このsourceだけの構成と、非可換・可換両側の二中心作用を同時に合わせる比較核のbalancingとは別の課題である。後者の未完成の無限towerを前者の着手条件とはしない。一方、blow-up候補を書いただけでΔ≢0や全smooth対象の良いflagを結論しない。
+`mcb:lem:smooth-local`は絶対対角のperfect性を底のZariski局所で判定する。P_A^op⊗C P_AにはP^(m−1)×P^(m−1)の作用があり、恒等核は底の対角上に支持される。U_i×U_i上ではchart圏の絶対対角となる。有限affine被覆の有界ČechとMapの有限極限がfiltered colimitと交換することからcompact性を大域へ戻す。Antieau–Gepner, Geom.Topol.18(2014),1149–1244, DOI[10.2140/gt.2014.18.1149](https://doi.org/10.2140/gt.2014.18.1149), Lemma6.4・Theorem6.11の証明にも同じmapping pullbackの原理がある。これは相対smoothnessや比較核の貼合せを主張する補題ではない。
+
+各chartの残余圏には、一中心の普遍実核を多項式係数変更で適用でき、W_pol(x,sℓ(z))の残余線束圏となる（`mbl:cor:chart-kernel`）。R=C[z]上properな例外成分のgluingは、残余の絶対対角の有限解消をtensorすることで絶対perfectになる。この補題により残余の絶対smoothnessと全line/Perf圏の絶対smoothnessを行き来できる。Lunts, *Categorical resolution of singularities*, J.Algebra323(2010),2977–3003, DOI[10.1016/j.jalgebra.2009.12.023](https://doi.org/10.1016/j.jalgebra.2009.12.023), Proposition3.13はproper仮定なしに有限型schemeのPerf smoothnessとregularityを同値とする。
+
+これらの可換chartはBl_Z X_pol、Z=V(G)⊂P^(N−1)のchartである。Z上では∂_xGが消えないのでX_polは元々滑らかで、blow-upはZ外で同型になる。従ってsource smooth⇒P_A smooth⇒各可換chart smooth⇒X_pol smooth。逆にX_pol smoothならZもsmoothなのでblow-upの各chartはsmoothであり、一中心核・相対例外gluing・絶対対角の局所性からP_A smooth、さらにadmissible L_Aと残余K_Aもsmoothとなる。これが `mcb:thm:smooth-locus` のK_A smooth ⇔ X_pol smoothである。有限中心性・PI性・全chart核の降下を入力としない。
+
+可換側の中央線型系はZ外で基点を持たず、Z上では中心du_iが独立である。普遍hyperplane incidenceのsmoothnessと標数零のgeneric smoothnessから一般中央切断がsmoothとなる。制限係数の偏極は元のW_polの制限に一致するため、同じsmoothness同値を中間商へ反復して一般中央flagを得る（`mcb:thm:central-flags`）。二中心では特にsmoothness⇒Δ≢0であり、全cutが特異な対象はsmooth対象には入らない。`mcb:cor:all-smooth-comparison`はこのflagと既存逐次核から、任意mの全smooth因子別表示の全coherent Ku実現を結論する。実標的X_itと偏極候補X_polの同値核、全中心作用の同時保存、全intrinsic被覆は未証明である。
+
+近接する既知結果としてLBSV Theorem3.2.6、Cassidy–Shelton Theorems1.3/1.5、Gaddis Propositions2.7/5.1は正規形・PBW・正則homogenization・tensor積の入力であり、本Ku比較を直接与えない。Perry, arXiv:1804.00132v2 Lemma7.18/Proposition7.19のHPDは実P(V)-linear Lefschetz圏を入力とする。本稿の基点付きsourceは上のstrict中心作用とKhanの定理で構成した。Rennemo–Segal–Van den Bergh, arXiv:1705.01366v2 Proposition2.1は可換有限型環上有限な代数を仮定する。一般PBW族へその仮定を流用しない。二捩れClifford部分では中心平方から有限中心性を確かめる別経路があるが、全固定因子の結論はこの有限中心法に依存しない。網羅的な新規性確認は未了である。
 
 中央pencilの具体的な先行例として、S. P. Smith–M. Van den Bergh, *Noncommutative quadric surfaces*, [著者公開本文](https://sites.math.washington.edu/~smith/Research/pencil-nc-quadrics.pdf), DOI [10.4171/JNCG/136](https://doi.org/10.4171/JNCG/136), Theorems5.6,10.2を確認した。前者は対象とする非可換二次曲面のsmoothnessを有限次元代数C(A)の半単純性で判定し、後者は四次元Sklyanin代数の中央二次式pencilの特異memberが四つであることを示す。本三次族への一般Bertiniではないが、圏のsmoothnessを実有限模型で検出する比較例として有用である。
 

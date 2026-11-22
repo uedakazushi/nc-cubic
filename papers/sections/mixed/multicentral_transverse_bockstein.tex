@@ -1,0 +1,288 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v60.
+\subsection{横断二項 Bockstein の全階数}
+\label{mtb:subsec:transverse-bockstein}
+
+定理\ref{mci:thm:iterated-kernel}の境界係数 $b$ と、周期を同期した実境界核
+$E_1$ を固定する。本小節では、その横断二項写像 $\mathsf B$ が同型であることを示す。
+定数関係の $N$ 方向は零項の曲率で、中心式の $uv^2$ 方向は一項の微分で検出される。
+後者は対象ごとの obstruction が零であるため、零項の評価だけでは検出できない。
+
+以下で $A_1=B_1/(w_1)$、$\mathbf y=(x_1,\ldots,x_N,u)$、$M=N+1$ と置く。
+命題\ref{mci:prop:ambient-line-model}により、$B_1$ は $M$ 個の生成元を持つ
+quadratic Koszul AS-regular 代数で、$w_1$ は正則な中心三次である。
+その二次双対を $E=B_1^!$ と書く。
+$B_1$ の二次関係空間には各因子の $N$ 本の関係 $r_{ij}^{(b)}$ と、
+因子間および $u$ との交換関係が基底をなす。
+前者の双対を $q_{ij}\in E_2$、生成元 $u$ の双対を $\xi_u\in E_1$ とする。
+
+\begin{lemma}[固定した一中心境界の Tate 次数]
+\label{mtb:lem:tate-degrees}
+$\kappa$ を $A_1/(A_1)_{\ge1}=\C$ の安定化とし、
+全 $\kappa(a)$、$a\in\mathbb Z$ を対象とする full dg 部分圏を $\mathcal T_1$ とする。
+中央周期作用素 $\vartheta$ に関して
+\begin{equation}\label{mtb:eq:tate-module}
+ \underline{\operatorname{Ext}}_{A_1}^*(\C,\C)
+       =E\otimes\C[\vartheta],\qquad
+ H^*(\mathcal T_1)=E\otimes\C[\vartheta,\vartheta^{-1}],
+ \qquad \deg E_j=(j,-j),\quad\deg\vartheta=(2,-3)
+\end{equation}
+となる。後式は全内部次数付き射空間をまとめて書いたものである。
+特に双次数 $(2,-2)$ の部分は $E_2$、$(1,-2)$ の部分は零である。
+\end{lemma}
+
+\begin{proof}
+補題\ref{ebc:lem:full-tate}の Koszul--Shamash 構成を $B_1,w_1$ に適用する。
+同補題のこの部分は、周囲の quadratic Koszul 性と中心三次の正則性だけを用いる。
+第 $n$ homotopy は homological degree を $2n-1$、内部次数を $3n$ 増し、
+Koszul 自由項の間での係数次数は $n+1>0$ である。
+従って augmentation 後の微分は零となり、前式を得る。
+Shamash の divided-power shift は自己交叉双加群からの中央 cohomology operator
+を表す。中心的な derived localization
+\cite[Theorem~5.3, Corollary~5.16]{NFMBCLLocalization}と
+同補題の Tate-cut により後式を得る。
+これは高次積を自明とする主張ではない。
+
+$E_j\vartheta^m$、$m\in\mathbb Z$ の双次数が $(2,-2)$ となる条件は
+$j+2m=2$、$j+3m=2$ で、解は $(j,m)=(2,0)$ だけである。
+$(1,-2)$ の場合は $j+2m=1$、$j+3m=2$ となり、
+唯一の整数解 $(j,m)=(-1,1)$ は $E_{-1}=0$ により現れない。
+\end{proof}
+
+\begin{proposition}[横断二項写像の可逆性]
+\label{mtb:prop:transverse-iso}
+定理\ref{mci:thm:iterated-kernel}の任意の滑らかな固定境界 $b$ に対し、
+\begin{equation}\label{mtb:eq:transverse-iso}
+ \mathsf B:\C^{N+1}_{(\alpha_{02},c_{12})}
+         \xrightarrow{\ \sim\ }\operatorname{Jac}(F_1)_1
+\end{equation}
+は線型同型である。固定した因子、境界係数または周期の同期について、
+同定理以外の一般性条件は必要ない。
+\end{proposition}
+
+\begin{proof}
+まず $\gamma_1=0$、$z=0$ とし、$\epsilon=v^2$、$\deg\epsilon=2$ と置く。
+$\alpha=\alpha_{02}$、$d=c_{12}$ と省略する。
+多中心正規形の普遍恒等式から、この族は中心変数 $\epsilon$ に関する族
+\begin{equation}\label{mtb:eq:epsilon-family}
+ \mathcal A_{\alpha,d}=\mathcal B_\alpha/
+       \bigl(w_1+\epsilon(\Lambda_b(\alpha)+du)\bigr),
+ \qquad r_{ij}^{(b)}-\epsilon\alpha_{ij}=0
+\end{equation}
+からの底変更である。交換関係は変わらず、
+$\Lambda_b(\alpha)\in (B_1)_1$ は $\alpha$ に線型である。
+二捩れ因子の標準体積元にはこの補正が不要である。
+式\eqref{mtb:eq:epsilon-family}は $\C[\epsilon]$ 上自由であり、
+$\epsilon$ は中心正則元である。
+これは補題\ref{mcp:lem:polarization}と
+命題\ref{mcp:prop:free-quotient}の active 初項の証明を、
+内部次数二の係数 $\epsilon$ に適用して得られる。
+
+\emph{実自己交叉からの full class.}
+$\epsilon$ の二項自由解消の双加群自己交叉は
+\[
+ A_1(-2)[1]\longrightarrow
+ A_1\otimes_{\mathcal A_{\alpha,d}}^{\mathbf L}A_1
+ \longrightarrow A_1\xrightarrow{\eta_{\alpha,d}}A_1(-2)[2]
+\]
+を与える。補題\ref{ebc:lem:full-tate}の bar 比較により、
+$\eta_{\alpha,d}$ は $\mathcal A_{\alpha,d}/(\epsilon^2)$ の積の
+一次変形 cocycle の class である。
+自由解消の圏への移送には
+Lowen\cite[Theorems~3.21, 4.15 and proof]{CMOLowenCharacteristic}の
+full brace cochain を使い、singularity quotient、window と
+中央周期の derived localization を通す。
+従って以下の零項と一項は、実自然変換
+\[
+ \operatorname{id}_{\mathcal K_1}\longrightarrow
+       \varrho_1^{-2}[2]\simeq\varrho_1
+\]
+を $\mathcal T_1$ へ制限した full cochain の成分である。
+対象ごとの obstruction だけを自然変換と同一視していない。
+
+\emph{定数関係の $N$ 方向.}
+Koszul--Shamash 解消を式\eqref{mtb:eq:epsilon-family}へ持ち上げ、
+微分の二乗を $\epsilon$ で割って augmentation すると、二次関係成分は
+\begin{equation}\label{mtb:eq:curvature-evaluation}
+            \delta_0(\kappa)=\pm\sum_{i,j}\alpha_{ij}q_{ij}\in E_2
+\end{equation}
+となる。符号は二拡張の共通の規約による。
+中心三次の $\epsilon$ 係数は一次式なので、この評価では零になる。
+従って $d$ および $\Lambda_b(\alpha)$ は
+式\eqref{mtb:eq:curvature-evaluation}に混入しない。
+補題\ref{mtb:lem:tate-degrees}により、この双次数には周期を含む別成分がない。
+各 $q_{ij}$ は二次関係基底の双対として独立であり、
+$E[\vartheta]$ に $\vartheta$-torsion がないため安定化後も消えない。
+よって $\eta_{\alpha,d}=0$ なら $\alpha=0$ である。
+
+\emph{中心一次式 $du$ の一項検出.}
+以後 $\alpha=0$ とする。このとき周囲代数は $B_1[\epsilon]$ であり、
+$\mathbf y\mapsto0$ は
+$\mathcal A_{0,d}\to\C[\epsilon]$ という augmentation を与える。
+従って $\kappa$ とその全 twist を相対自由解消で持ち上げられ、
+full cochain の零項は零に取れる。
+
+$K_\bullet$ を $B_1$ 上の Koszul 解消とする。
+その第零項から第一項への $w_1$ の nullhomotopy は二次係数を持つ。
+$u$ の作用は augmentation 上で零であり、中央作用なので
+$K_\bullet$ 上で nullhomotopic である。
+その同次 homotopy $h_u$ の第零項は $1\mapsto e_u$ と選べる。
+従って $w_1+\epsilon du$ の最初の Shamash homotopy は
+\[
+                    s_1^{(\epsilon)}=s_1+\epsilon d h_u
+\]
+と取れる。高次 homotopy は通常の再帰で補う。
+相対解消に $\operatorname{Hom}(-,\C[\epsilon])$ を適用すると、
+$K_0\to K_1$ の追加係数 $\epsilon d e_u$ の双対が
+\begin{equation}\label{mtb:eq:unary-u}
+ \delta_1(\xi_u)=\pm d\vartheta,\qquad
+ \delta_1(\xi_{ij})=0
+\end{equation}
+を与える。
+実際、第 $n$ homotopy の係数次数は $n+1$ であり、
+$\epsilon$ 係数を取った後は $n-1$ である。
+$n\ge2$ では正次数なので augmentation 後に消え、
+式\eqref{mtb:eq:unary-u}へ別の高次項が寄与しない。
+この式は相対 Hom 複体の Bockstein が cohomology に誘導する写像である。
+中央周期作用素の局所化は full cochain と両立するため、
+同じ式を最小 Tate 模型で用いることができる。
+
+\emph{全 homotopy に対する非消滅.}
+最小模型を $m_1=0$ とし、次数二・内部次数 $-2$ の cochain
+$\delta$ が全 Hochschild 境界 $[m,h]$ であると仮定する。
+primitive の零項 $h_{0,a}$ は、各対象 $\kappa(a)$ について
+双次数 $(1,-2)$ の射である。
+補題\ref{mtb:lem:tate-degrees}によりこの射空間は零であり、
+対象ごとに別々の primitive を許しても $h_{0,a}=0$ である。
+もとの圏は uncurved で $m_0=0$ だから、境界の一項成分は
+\[
+                   [m,h]_1=[m_2,h_0]+[m_1,h_1]=0
+\]
+となる。任意の高 arity 成分と全ての $\vartheta$ の逆冪を許しても、この式は変わらない。
+式\eqref{mtb:eq:unary-u}の $\vartheta$ は非零なので $d=0$ となる。
+全 $\mathcal K_1$ 上の nullhomotopy はこの full 部分圏へ制限されるため、
+これで $\eta_{\alpha,d}$ の $N+1$ 方向の単射性が従う。
+
+\emph{横断二項との同定.}
+上の class が定理\ref{mci:thm:iterated-kernel}の二項差であることは、
+$\epsilon=v^2$ の実二列法線解消で確認できる。
+持上げ微分の二乗を $\widetilde d^{\,2}=\epsilon\widetilde\theta$ と書くと、
+$\epsilon$ の正則性から $[\widetilde d,\widetilde\theta]=0$ である。
+従って法線の exterior 生成元 $e$ に対し
+\[
+ D=\widetilde d+v(\partial_e-\widetilde\theta e),\qquad
+ \xi=\partial_e+\widetilde\theta e,\qquad
+                         \xi^2=\widetilde\theta
+\]
+となる。従って二項 comonad class は同じ $\epsilon$-Bockstein である。
+この計算は命題\ref{ebc:prop:constant-iso}と同じ実随伴の計算であり、
+固定境界に既に $u$ があることによって変わらない。
+
+$E_1$ と指定周期によりこの class を可換境界へ移すと、
+補題\ref{mci:lem:smooth-cubic-arity}が
+$\operatorname{Hom}(\operatorname{id},\varrho_1)=\operatorname{Jac}(F_1)_1$
+を与える。右辺の次元は $M=N+1$ である。
+可換参照族の二項係数の作用は $-\operatorname{id}$ なので、
+この移送の後にその逆を施した写像が $\mathsf B$ である。
+単射性と次元から式\eqref{mtb:eq:transverse-iso}が従う。
+境界核や周期同期の選択変更は自然変換空間の同型を与えるため、
+この全階数の結論に影響しない。
+
+最後に、横断二項の重みは二であり、$\gamma_1$ の重みは一、
+$\gamma_2$ の重みは二である。
+従って $\gamma_2$ の線型係数に正次数の $\gamma_1$ は現れず、
+$\gamma_1=0$ で検出した同じ $\mathsf B$ が全横断係数上で現れる。
+\end{proof}
+
+\begin{corollary}[横断係数の三角多項式同型]
+\label{mtb:cor:triangular-coefficients}
+定理\ref{mci:thm:iterated-kernel}の固定境界の下で、写像
+\[
+ (\gamma_1,\gamma_2,z)\longmapsto
+       (\gamma_1,\widetilde L,\widetilde C)
+\]
+は $\gamma_1$ の係数環上の多項式同型である。
+従って任意の固定 $\gamma_1$ について、$\widetilde L$ の全 $N+1$ 個の一次係数と
+$\widetilde C$ を独立に指定できる。
+\end{corollary}
+
+\begin{proof}
+$\mathsf B$ と $\kappa'$ はともに可逆なので、逆写像は
+\[
+ \begin{split}
+ \gamma_2&=\mathsf B^{-1}
+       \bigl(\widetilde L-\widetilde R_2(\gamma_1)\bigr),\\
+ z&=(\kappa')^{-1}
+       \bigl(\widetilde C-\widetilde R_{1,1}(\gamma_1,\gamma_2)
+                         -\widetilde R_3(\gamma_1)\bigr)
+ \end{split}
+\]
+で与えられる。
+\end{proof}
+
+\begin{corollary}[任意個の固定中心に対する横断同型]
+\label{mtb:cor:many-centers}
+$q\ge1$ とし、多中心正規形の固定した境界 $A_q=B_q/(w_q)$ を考える。
+中心変数を $\mathbf u=(u_1,\ldots,u_q)$ とし、$M=N+q$ と置く。
+その残余線束圏が smooth であり、滑らかな三次
+$Y_q=V(F_q)\subset\mathbb P^{M-1}$ への、指定周期を同期した実境界核 $E_q$ を固定する。
+この入力は、系\ref{mci:cor:smooth-flag}の滑らかな中央 flag から得られる。
+
+新しい中心変数 $v$ を加え、境界係数を固定して全許容横断係数を動かす。
+重み二の係数は
+\[
+ \gamma_2=(\alpha_{v^2},d_1,\ldots,d_q)\in\C^{N+q},
+ \qquad v^2\sum_{j=1}^q d_j u_j
+\]
+であり、後式は中心三次の当該補正を表す。
+このとき逐次比較の二項写像は線型同型
+\[
+                 \mathsf B_q:\C^{N+q}\xrightarrow{\sim}
+                                  \operatorname{Jac}(F_q)_1
+\]
+である。全重み一係数を $\gamma_1$、$v^3$ の係数を $z$ とまとめると、
+対応する $(\gamma_1,\gamma_2,z)\mapsto
+(\gamma_1,\widetilde L,\widetilde C)$ も三角多項式同型となる。
+\end{corollary}
+
+\begin{proof}
+命題\ref{mci:prop:ambient-line-model}により、$B_q$ は $N+q$ 個の次数一生成元を持つ
+quadratic Koszul AS-regular 代数である。
+従って $E=B_q^!$ として補題\ref{mtb:lem:tate-degrees}と同じ Tate 模型を持つ。
+$\gamma_1=z=0$、$\epsilon=v^2$ とした変形は
+\[
+ r_{ij}^{(b)}-\epsilon\alpha_{v^2,ij}=0,\qquad
+ w_q+\epsilon\left(\Lambda_b(\alpha_{v^2})
+                                +\sum_{j=1}^q d_j u_j\right)=0
+\]
+となる。零項の評価は $\pm\sum\alpha_{v^2,ij}q_{ij}$ であり、
+独立な $N$ 本の二次関係双対によって $\alpha_{v^2}=0$ を先に得る。
+残る場合には相対 augmentation があり、各 $u_j$ の nullhomotopy を用いて
+\[
+                    \delta_1(\xi_{u_j})=\pm d_j\vartheta
+                    \quad(1\le j\le q)
+\]
+を得る。高次 homotopy の係数次数と primitive $h_0$ の双次数の計算は
+生成元数に依存しないので、全 $d_j$ が零でなければ full class は消えない。
+自己交叉から実二項差への橋も同じ $\epsilon=v^2$ の二列解消である。
+
+固定した $E_q$ と周期で移すと、補題\ref{mci:lem:smooth-cubic-arity}の
+$\operatorname{Jac}(F_q)_1$ は次元 $M=N+q$ であり、単射性から全単射性を得る。
+全横断係数での実核と三項係数の非零性には、
+系\ref{mci:cor:smooth-flag}の証明中の、固定境界から一段進める構成を用いる。
+同じ重み $(1,2,3)$ の議論により二項の $\gamma_2$ 係数は一定であり、
+三項の $z$ 係数も非零定数である。
+従って系\ref{mtb:cor:triangular-coefficients}と同じ逆写像を持つ。
+ここでは、比較核をまだ持たない任意の smooth 境界に
+$E_q$ が自動的に存在するとは仮定していない。
+\end{proof}
+
+\begin{remark}[この検出が与えない同定]
+\label{mtb:rem:scope}
+本小節は一つの滑らかな境界と実比較核を固定して、横断二項の全階数を証明した。
+この同型の標準座標での行列を求めたわけではなく、
+$W_{\mathrm{it}}=W_{\mathrm{pol}}$ や元の二中心作用を同時に保つ核を構成したわけでもない。
+全 smooth 対象に良い中央切断と flag が存在することは、
+定理\ref{mcb:thm:central-flags}で別に証明する。
+その定理は本小節の全階数を入力としない。
+\end{remark}

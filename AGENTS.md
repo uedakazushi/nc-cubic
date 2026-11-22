@@ -1,6 +1,6 @@
 # Research instructions — nc-cubic
 
-2026-11-22 / v59。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-22 / v60。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
@@ -12,8 +12,8 @@
 ## 現行結果の範囲と研究上の注意
 
 - `multicentral_comparison.tex` が多中心の正本。`mcp:thm:normal-form` は任意可換C-代数上で因子別PBW関係と中心三次を中心一次・二次・三次形式に分類し、`mcp:prop:free-quotient` は自由基底と中心列の全順序正則性を与える。因子間は可換、固定因子であり、全intrinsic対象の被覆ではない。
-- 二中心では `mcpn:prop:ray-discriminant` のΔは次数3·8^k。U_cut={Δが恒等零でない}はsmooth中央切断が一本存在する条件と同値。`mci:thm:iterated-kernel` はその切断を固定した全横断係数の実線束Morita核を与え、smooth最上段では全coherent Ku。v³係数の悪い値は重複度込み2·8^k個で、一般単純性は未主張。任意mへの反復はsmooth中央flag付き。全smooth対象でflagが存在すると仮定しない。
-- W_polのLefschetz pencilと実標的W_itを区別する。W_pol=W_it、横断二項写像Bの可逆性は未証明。二軸同一でも全体のsmoothnessが異なる `tcr:ex:same-axes` を保持する。実BCとjoint comonadは構成済みだが、裸の交換射や有限Koszul複体から全balancing towerの有限性を結論しない。逐次核は固定smooth境界を使い、この未完成towerを入力としない。
+- 全中心数m≥1について `mcb:thm:smooth-locus` はK_A smooth ⇔ X_pol smoothを与える。`mbl:lem:strict-action` の厳密な中心作用、KhanのArtin stack blow-up分解、各chartの一中心普遍核、絶対対角のZariski局所性を使う。有限中心性や局所比較核の貼合せを仮定しない。一般中央flagの全中間商はsmooth（`mcb:thm:central-flags`）なので、任意mの全smooth因子別表示へ逐次実核と全coherent Ku比較を適用できる。二中心ではsmooth⇒Δ≢0でありΔの次数は3·8^k。全intrinsic対象の被覆を得たとはしない。
+- X_polは全smooth locusを判定するが、実比較の標的は逐次構成のX_itであり、その両者への同じ核や全中心作用の同時保存は未証明。`mtb:prop:transverse-iso` と `mtb:cor:many-centers` は、固定smooth境界と実核の下で横断二項Bの可逆性を与える。各固定一次係数の一般二次係数では最後の悪い値が2^(3k+m−1)個の単根で各唯一ODP、判別因子は既約被約でaffine正規化を持つ（`mtd:thm:normalization`, `mtd:cor:many-centers`）。特殊係数の多重根を許す。同一二軸でも全体のsmoothnessが異なる `tcr:ex:same-axes` を保持し、有限Koszul加群解消から全associative balancing towerの有限性を結論しない。
 
 - `mixed/linear_pbw_boundary.tex` のPBW対称行列条件・普遍中心・HH²₋₁≅C³を保持する。`mixed/linear_bockstein.tex` は自己交叉の双加群classをLowenのfull brace cochainへ移し、対象ごとに異なるhomotopyを許して3k方向の単射性を証明する。augmentationの値だけでは検出しない。`mixed/linear_comonad_comparison.tex` は非分裂counitの二項Jac(G)₁・三項Cを両隣接群も含めて計算し、実可換参照族との差から全線形族の普遍残余線束Morita比較を作る。可換smooth開で相対perfect核・全coherent Kuとなり、存在比較はBockstein単射性に依存しない。`lec:thm:seven-scalar-form` は同変境界比較と標準Jac₂切断の下で一次像を純ブロック直和に同定し、七定数形を与える。κ以外の六定数は未数値化。非線型A∞構造を平均せず、実構造間の差と可縮pathの自然性で同変性を示す。`ldg:thm:normalization` は全係数・各固定pでの判別超曲面の既約被約性、affine正規化と特異点判定を与える。各固定pの一般αで8^k個の単純な悪いcを得るが、固定(p,α)特殊化の重複根は許す。一般PI性・有限中心性は未証明で、周囲代数のuntwisted双対性は相対potential解消による。有限検算と全coherenceの証明を区別する。
 
@@ -54,7 +54,7 @@
 ## 正本・外部入力・保存
 
 - 正本は `uedakazushi/nc-cubic` の `main`。本文のある主原稿は必ず `papers/nc-cubic.tex`、日本語LuaLaTeX、著者欄空欄。現在の成果を理解できる順に統合し、版ごとの補遺・履歴・旧ZIPを蓄積しない。
-- 公表稿は三本。`papers/nc-cubic.tex` は可換Ku復元・基礎・分離比較・三様体不一致例、`papers/cubic-moduli-descent.tex` はO-marked認識・モジュライ・Picard/period等の精密降下、`papers/mixed-sklyanin-cubics.tex` は中心・局所代数・smooth locus・普遍中心族の実Ku比較・零係数の球面接着・有限MF模型・指定h候補の一般点核と整延長・被約不一致例を担当する。全稿とも日本語LuaLaTeX・著者欄空欄。主予想を主稿に保持し、任意の固定因子の組の全許容PBW・中心比較を用いる。全smooth対象での良い中央flagと全intrinsic対象の表示被覆をP0とし、全二重制限の混合情報を継続して調べる。因子moduli上の核の選択・降下、比較係数の具体化と選択済みh一般点核の良い特殊化を継続する。
+- 公表稿は三本。`papers/nc-cubic.tex` は可換Ku復元・基礎・分離比較・三様体不一致例、`papers/cubic-moduli-descent.tex` はO-marked認識・モジュライ・Picard/period等の精密降下、`papers/mixed-sklyanin-cubics.tex` は中心・局所代数・smooth locus・普遍中心族の実Ku比較・零係数の球面接着・有限MF模型・指定h候補の一般点核と整延長・被約不一致例を担当する。全稿とも日本語LuaLaTeX・著者欄空欄。主予想を主稿に保持し、任意の固定因子の組の全許容PBW・中心比較を用いる。全smooth因子別表示の中央flagは証明済みとし、全intrinsic対象の認識・表示被覆と因子を混ぜる関係をP0に置く。偏極標的への実核と全二重制限の混合情報を継続して調べる。因子moduli上の核の選択・降下、比較係数の具体化と選択済みh一般点核の良い特殊化を継続する。
 - 各数学的な節は一つの稿だけが読み込む。`papers/common/preamble.tex` と `papers/references.tex` は共有し、証明本文を複製しない。楕円windowの基礎は主稿の `comparison_foundations.tex`、精密降下はモジュライ稿、混合本文は `papers/sections/mixed/` に置く。他稿を引用するときは稿名と定理番号を表示し、参照元と証明の正本を追える状態を保つ。
 - `poisson-cubic` は古典正規形とPoisson moduli、`cubic-quantization` は全Poissonの代数的中心三次量子化と同変降下、`nc-cubic-threefold` は三様体固有の全Abel変形・相対比較と独立点スキーム論文の正本。孤立零点定理の正規形入力は `poisson-cubic` commit `9f91efa3465f18219c36c31750f1e66220faeaa7` の `papers/support/papers/sections/poisson_geometry.tex`、`thm:pg-normal` に固定する。通常は読取り専用で、具体的定理・仮定・版を引用する。本稿はB=ambient、A=商、量子化稿は逆。
 - 方針・研究ノート・公表稿を中心とする自己完結した現行一式を維持する。証明済み・追加仮定付き・未完成・予想・計算的観察、原稿の証明と今回の独立読解、形式証明・新規性を区別する。誤りは依存する本文・要約・方針・hubへ反映し、有用な障害はノートに保持する。

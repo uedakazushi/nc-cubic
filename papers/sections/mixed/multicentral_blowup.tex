@@ -1,0 +1,425 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v60.
+\subsection{厳密な中心作用から作る実中央 pencil と blow-up}
+\label{mbl:subsec:central-blowup}
+
+本小節では、中心方向ごとの比較核を貼り合わせる前に、source だけから
+射影空間上の実圏を構成する。
+内部 shift で閉じた全線束圏を用い、残余圏が中心次数付き環の全作用を
+保つとは仮定しない。
+構成の幾何的入力は、Artin stack に対する Khan の blow-up 分解
+\cite[Theorem~C, Proposition~4.2 and Sections~4.3--4.4]{CMOKhanBlowups}である。
+その分解を本稿の圏へ移す際は、実随伴と projection 三角を tensor する。
+\cite[Section~1.5]{CMOJiangLeungBlowup}の幾何的 admissible 部分圏の仮定を、
+本非可換代数について新たに仮定するものではない。
+
+$k\ge2$、$N=3k$、$m\ge2$ とし、
+定理\ref{mcp:thm:normal-form}の一つの複素係数を固定する。
+代数を $A=A_m$、中心変数を $\mathbf u=(u_1,\ldots,u_m)$、
+$S_m=\C[\mathbf u]$、$D=A/(\mathbf u)$ と書く。
+$A$ は $S_m$ 上自由であり、中心列は任意順序で正則である。
+$\mathcal L_A$ と $\mathcal L_D$ は、それぞれ全ての
+$\OO_A(r)=\pi A(r)$、$\OO_D(r)=\pi D(r)$ の生成する冪等完備 dg 圏とする。
+命題\ref{mci:prop:ambient-line-model}と固定境界の模型により、これらは有限生成かつ
+$\C$-proper である。
+
+\subsubsection{次数付き作用と中央商の実底変更}
+
+\begin{lemma}[全線束圏の厳密な中心作用]
+\label{mbl:lem:strict-action}
+$\mathscr X_m=[\mathbb A^m/\mathbb G_m]$ とし、
+$\mathbb G_m$ は全ての中心座標に重み一で作用する。
+$\mathcal L_A$ は実 $\operatorname{Perf}(\mathscr X_m)$-線型圏である。
+文字に対応する線束の作用は内部 shift であり、座標 $u_i$ の作用は
+指定された中心乗算そのものである。
+\end{lemma}
+
+\begin{proof}
+$\operatorname{Perf}(\mathscr X_m)$ は有限生成次数付き自由 $S_m$-加群
+$S_m(r)$ の有限複体と直和因子から生成される。
+このような複体 $P$ と次数付き右 $A$-加群 $M$ に対し、
+$M\otimes_{S_m}^{\mathbf L}P$ は中心性によって再び右 $A$-加群となる。
+$P$ を有限自由模型で表せば、これは $M$ の有限個の内部 shift と
+中心乗算から作る複体である。
+従って次数付き torsion 複体を保存し、qgr の導来商へ降りる。
+さらに $\mathcal L_A$ を保存する。
+結合子、単位、異なる $u_i$ の交換は、元の次数付き加群の tensor にある
+厳密な作用から来る。
+個別の自然変換の homotopy class から中心作用を作り直していない。
+\end{proof}
+
+以下の底変更では、有限 Koszul 複体を加群の解消として使う。
+それが associative な相対 cofibrant 代替であるという主張は用いない。
+
+\begin{lemma}[中央線型商の線束圏との同定]
+\label{mbl:lem:central-base-change}
+$R=\C[z_j\mid j\ne i]$ とし、
+\[
+ A_i^{\mathrm{ch}}
+   =A\otimes R/(u_j-z_ju_i\mid j\ne i),\qquad
+ S_i^{\mathrm{ch}}=R[u_i]
+\]
+と置く。$S_m\to S_i^{\mathrm{ch}}$ は $u_j\mapsto z_ju_i$ を送る。
+このとき実底変更関手は同値
+\begin{equation}\label{mbl:eq:chart-base-change}
+ \mathcal L_A\otimes_{\operatorname{Perf}(\mathscr X_m)}
+ \operatorname{Perf}([\operatorname{Spec}S_i^{\mathrm{ch}}/\mathbb G_m])
+       \simeq\mathcal L_{A_i^{\mathrm{ch}}}
+\end{equation}
+を与える。零点についても
+\begin{equation}\label{mbl:eq:center-base-change}
+ \mathcal L_A\otimes_{\operatorname{Perf}(\mathscr X_m)}
+             \operatorname{Perf}(B\mathbb G_m)
+       \simeq\mathcal L_D
+\end{equation}
+である。
+同じ主張は、複素数係数の独立な中央一次式で定めた任意の線型部分空間について成立する。
+これらの同値は実制限関手と、有限 Koszul 解消による inflation を保持する。
+\end{lemma}
+
+\begin{proof}
+まず $A$ の $S_m$-自由性から、$u_j-z_ju_i$ は $A\otimes R$ 上の正則列であり、
+商は $R[u_i]$ 上自由である。
+任意の複素数係数線型部分空間についても、中心座標を線型変更すれば同じである。
+中心商の導来制限は線束を線束へ送り、inflation は各線束を有限 Koszul 複体へ送る。
+これらは次数付き torsion を保存するので、実随伴が線束圏へ降りる。
+
+底変更側の Hom も同じ複体で計算できる。
+これは Ind 完備化における自由加群と忘却の実随伴から従う。
+すなわち、基底環の商 $S'$ を代数対象として作用させた圏で、自由対象同士の Hom は
+\[
+ \operatorname{RHom}(F M,F M')
+       =\operatorname{RHom}(M,M'\otimes^{\mathbf L}_{S_m}S')
+\]
+である。次数付き環上の tensor と文字の shift を保ってこの式を読む。
+例えば $m=2$、$u_1=u,u_2=v$、$t=z_2$ の chart では
+\begin{equation}\label{mbl:eq:one-koszul-hom}
+ \begin{split}
+ &\operatorname{RHom}(F\OO_A(a),F\OO_A(b))\\
+ &\quad\simeq
+ \operatorname{Cone}\bigl(
+   \operatorname{RHom}_{\mathcal L_A}(\OO_A(a),\OO_A(b-1))[t]
+    \xrightarrow{\ v-tu\ }
+   \operatorname{RHom}_{\mathcal L_A}(\OO_A(a),\OO_A(b))[t]\bigr).
+ \end{split}
+\end{equation}
+一般の chart では $m-1$ 個、零点では $m$ 個の中心射について
+この Koszul totalization を取る。
+通常の多項式拡大の部分では、線束が compact なので Hom が係数拡大と交換する。
+既に与えた厳密な可換代数作用の自由--忘却随伴を使っており、
+加群の有限解消から高次作用の有限表示を推論していない。
+
+一方、実 qgr 制限と inflation の随伴によって
+\[
+ \operatorname{RHom}_{\mathcal L_{A_i^{\mathrm{ch}}}}
+       (\OO(a),\OO(b))
+  =\operatorname{RHom}_{\mathcal L_{A\otimes R}}
+       (\OO(a),i_*\OO(b))
+\]
+であり、右辺は同じ Koszul 複体である。
+中心作用を保つ実制限から式\eqref{mbl:eq:chart-base-change}の関手が定まり、
+上の計算はその Hom 上の射が quasi-isomorphism であることを示す。
+基底 stack の perfect 圏は文字付き自由加群で生成され、
+右辺は全線束で生成されるので、この関手は Morita 同値である。
+零点と一般の線型部分空間も同じ証明による。
+比較は実関手上で行ったため、積、随伴射、高次 coherence も保持される。
+\end{proof}
+
+\subsubsection{射影空間上の実圏と各 fiber}
+
+\[
+ \mathscr Y_m=[\operatorname{Bl}_0\mathbb A^m/\mathbb G_m],\qquad
+ b:\mathscr Y_m\longrightarrow\mathscr X_m,\qquad
+ p:\mathscr Y_m\longrightarrow\mathbb P^{m-1}
+\]
+と置く。後者の射は、例外因子を含む射影方向を取る射である。
+
+\begin{theorem}[全中心 pencil の実線束圏]
+\label{mbl:thm:pencil-category}
+\begin{equation}\label{mbl:eq:pencil-category}
+ \mathcal P_A
+   =\mathcal L_A\otimes_{\operatorname{Perf}(\mathscr X_m)}
+                       \operatorname{Perf}(\mathscr Y_m)
+\end{equation}
+は実 $\mathbb P^{m-1}$-線型圏である。
+標準 chart $U_i=\{\ell_i\ne0\}$ では
+\[
+                  \mathcal P_A|_{U_i}\simeq\mathcal L_{A_i^{\mathrm{ch}}}.
+\]
+従って任意の点 $\ell=[\ell_1:\cdots:\ell_m]$ における導来 fiber は
+\begin{equation}\label{mbl:eq:ray-fiber}
+  (\mathcal P_A)_\ell
+   \simeq\mathcal L_{A_\ell},\qquad
+  A_\ell=A/(\ell_i u_j-\ell_j u_i\mid j\ne i),
+       \quad\ell_i\ne0
+\end{equation}
+である。右辺は一中心商の通常の線束圏であり、追加の導来厚みを持たない。
+$\mathcal P_A$ は $\mathbb P^{m-1}$ 上 proper である。
+\end{theorem}
+
+\begin{proof}
+$p$ に沿う引戻しにより、式\eqref{mbl:eq:pencil-category}に
+$\operatorname{Perf}(\mathbb P^{m-1})$ の作用が入る。
+blow-up の $i$ 番目の chart は
+\[
+ [\operatorname{Spec}\C[u_i,z_j\mid j\ne i]/\mathbb G_m],
+ \qquad \deg(u_i)=1,\quad\deg(z_j)=0,
+\]
+であり、$b$ は $u_j=z_ju_i$ で与えられる。
+perfect 圏のこの chart への底変更は、次数付き加群の開局所化で計算できる。
+従って tensor の結合と補題\ref{mbl:lem:central-base-change}により chart の同定を得る。
+重なりでは、例えば二中心の場合
+\[
+ A[t,t^{-1}]/(v-tu)
+       \simeq A[s,s^{-1}]/(u-sv),\qquad s=t^{-1}
+\]
+という元の $A$ 上の次数付き同型を用いる。
+一般の重なりも同じ座標比の同型であり、三重交叉上の coherence は
+元の incidence chart のものそのままである。
+個々の ray の Morita 核を選んで貼り合わせているのではない。
+
+$A_i^{\mathrm{ch}}$ は $\C[\mathbf z,u_i]$ 上自由なので、
+$\mathbf z=\boldsymbol\lambda$ への底変更後も表示した通常商が得られる。
+Hom の Koszul 模型もこの底変更と交換する。
+再び線束生成を使うと式\eqref{mbl:eq:ray-fiber}を得る。
+
+各 chart の代数は、中心形式を
+$\mathbf u=u_i(\ell_1(\mathbf z),\ldots,\ell_m(\mathbf z))$ とした一中心族である。
+命題\ref{emc:prop:line-model}の全係数模型と任意底変更を用いると、
+その線束間 Hom は $\C[\mathbf z]$ 上 perfect となる。
+これは直接にも、相対線束の有限 Koszul・局所 cohomology 模型から従う。
+$\mathcal P_A$ の任意の二対象の $\mathbb P^{m-1}$-値 Hom は、
+chart への底変更でこれらの Hom に一致する。
+mapping object のこの底変更は自由対象上の計算と有限 cone・直和因子から従い、
+\cite[Lemmas~2.7 and 2.10]{CRSPerry}の形式に一致する。
+perfect 性は底の Zariski 局所で判定できるので、相対 proper 性を得る。
+\end{proof}
+
+この chart は通常の graded qgr としても具体的に書ける。
+射影方向の斉次座標を $\ell_i$ とすると、例えば二中心では、各次数の加群は
+\[
+ \mathscr A_n
+   =\operatorname{Coker}\bigl(
+    A_{n-1}\otimes\OO_{\mathbb P^1}(-1)
+       \xrightarrow{\ \ell_1v-\ell_2u\ }
+    A_n\otimes\OO_{\mathbb P^1}\bigr).
+\]
+各点で中央一次式が正則なので、これは vector bundle である。
+中心性により次数付き代数の積が入り、二つの chart で上の通常商を与える。
+定理の tensor 定義は、こうした通常 chart と実随伴の情報を同時に保持する。
+
+\subsubsection{Orlov 分解、proper 性と絶対 smoothness}
+
+例外因子を $j:E_m\hookrightarrow\mathscr Y_m$、その射を
+$q:E_m\to B\mathbb G_m$ と書く。
+$E_m\simeq\mathbb P^{m-1}\times B\mathbb G_m$ だが、
+線束 $\OO_{E_m}(-1)=\OO_{\mathscr Y_m}(E_m)|_{E_m}$ には元の文字を保持する。
+内部次数を忘れた $\mathbb P^{m-1}$ の線束へ置き換えない。
+
+\begin{proposition}[中心 blow-up の実半直交分解]
+\label{mbl:prop:orlov}
+実完全忠実関手 $b^*:\mathcal L_A\to\mathcal P_A$ と
+$\Phi_r:\mathcal L_D\to\mathcal P_A$ $(1\le r\le m-1)$ があり、
+\begin{equation}\label{mbl:eq:orlov}
+ \mathcal P_A
+   =\left\langle
+      \Phi_{m-1}\mathcal L_D,\ldots,\Phi_1\mathcal L_D,
+      b^*\mathcal L_A
+     \right\rangle
+\end{equation}
+となる。各関手は compact 対象を保つ左右随伴を持つ。
+幾何側の $\Phi_r$ は $j_*(q^*(-)\otimes\OO_{E_m}(-r))$ である。
+特に $\mathcal P_A$ は $\C$ 上 proper かつ有限生成であり、
+$\mathcal L_A,\mathcal L_D$ がともに smooth なら $\mathcal P_A$ も smooth である。
+
+二中心の場合、$i^*:\mathcal L_A\to\mathcal L_D$ を中心列全体への制限とすると、
+gluing は実同型
+\begin{equation}\label{mbl:eq:gluing}
+ \begin{split}
+ \operatorname{RHom}_{\mathcal P_A}(b^*M,\Phi_1 N)&=0,\\
+ \operatorname{RHom}_{\mathcal P_A}(\Phi_1 N,b^*M)
+      &\simeq\operatorname{RHom}_{\mathcal L_D}(N,i^*M)[-1]
+ \end{split}
+\end{equation}
+で与えられる。
+\end{proposition}
+
+\begin{proof}
+$B\mathbb G_m\to\mathscr X_m$ は正則な余次元 $m$ の閉埋込みである。
+Khan の定理\cite[Theorem~C]{CMOKhanBlowups}は、これらの Artin stack の
+perfect 圏に式\eqref{mbl:eq:orlov}の形の分解を与える。
+同文献の表示順序は本稿の半直交分解の規約と逆なので、ここでは
+$\operatorname{RHom}(b^*(-),j_*(q^*(-)\otimes\OO(-r)))=0$
+となる順序を採用した。
+
+この分解は $\operatorname{Perf}(\mathscr X_m)$-線型である。
+引戻し、proper pushforward、$j^!$、および必要な線束 twist は perfect 対象を保つ。
+右随伴は、例えば
+\[
+ b_*,\qquad q_*(j^!(-)\otimes\OO_{E_m}(r))
+\]
+であり、左随伴も relative dualizing line bundle による双対から得られる。
+これらは実随伴の単位・余単位と projection 三角を持つ。
+それを $\mathcal L_A$ と相対 tensor すれば、単位の同型、直交性、
+有限 projection 三角が保たれる。
+これは\cite[Lemma~3.15]{CRSPerry}の証明と同じ形式論であるが、
+ここで必要なのは底の perfect 圏が rigid symmetric monoidal であることと
+上の実線型随伴であり、底をスキームとする仮定ではない。
+従って scheme 版の文言を stack へ無条件に読み替えていない。
+補題\ref{mbl:lem:central-base-change}によって零点成分が $\mathcal L_D$ となり、
+式\eqref{mbl:eq:orlov}と実随伴を得る。
+
+gluing の有限性を確認する。
+Cartier 双対\cite[Proposition~4.2]{CMOKhanBlowups}は
+\[
+ j^!b^*M=q^*i^*M\otimes\OO_{E_m}(-1)[-1]
+\]
+を与える。$m=2$ では $Rq_*\OO_{E_2}=\OO$、
+$Rq_*\OO_{E_2}(-1)=0$ なので式\eqref{mbl:eq:gluing}を得る。
+特に gluing は $\C$ 上 perfect である。
+一般 $m$ でも、$\Phi_r$ の compact 右随伴を用いると全 cross Hom は
+\[
+ \operatorname{RHom}_{\mathcal L_D}(N,\Phi_r^R\Phi_sN')
+ \quad\text{または}\quad
+ \operatorname{RHom}_{\mathcal L_D}(N,\Phi_r^Rb^*M)
+\]
+となり、$\mathcal L_D$ の proper 性から perfect である。
+$\mathcal L_A,\mathcal L_D$ の有限生成対象の像を合わせれば $\mathcal P_A$ を生成するので、
+絶対 proper 性と有限生成性が従う。
+相対 proper 性と $\mathbb P^{m-1}$ の proper 性からも同じ結論が得られる。
+
+最後に二つの成分が smooth であるとする。
+その有限生成代数を用いると、gluing 双加群は $\C$ 上 perfect であり、
+両側の smooth 対角の有限解消を tensor することで双加群としても perfect になる。
+有限三角 dg 代数の対角は各成分の対角とこの gluing から有限 cone で作られる。
+従って $\mathcal P_A$ は smooth である。
+この最後の段階は単に数値不変量が加法的であるという議論ではない。
+\end{proof}
+
+\begin{corollary}[滑らかな source の実 pencil]
+\label{mbl:cor:smooth-source}
+本稿の固定楕円境界では $\mathcal L_D$ は smooth proper である。
+従って $\mathcal L_A$ が smooth なら $\mathcal P_A$ は絶対的に smooth proper である。
+特に $A$ の残余線束圏が smooth ならこの結論が成立する。
+この段階では、全ての fiber が smooth、あるいは一般 fiber が smooth であるとはまだ結論しない。
+\end{corollary}
+
+\begin{proof}
+補題\ref{ebk:lem:boundary}により $D$ の残余線束圏は滑らかな可換三次の Ku と同値である。
+有限例外線束を戻す gluing は proper であり、前証明と同じ有限対角の議論から
+$\mathcal L_D$ が smooth となる。
+同じ理由で、$A$ の残余線束圏が smooth なら $\mathcal L_A$ も smooth である。
+命題\ref{mbl:prop:orlov}を適用する。
+\end{proof}
+
+\subsubsection{中央線型切断との適合と実 chart 比較}
+
+\begin{lemma}[中心 hyperplane への制限]
+\label{mbl:lem:linear-section}
+$m\ge3$ とし、中心線型形式 $\lambda$ に対応する超平面
+$H=\mathbb P(\ker\lambda)\subset\mathbb P^{m-1}$ を取る。
+$A'=A/(\lambda)$ とすると、実同値
+\begin{equation}\label{mbl:eq:linear-section}
+        \mathcal P_A\otimes_{\operatorname{Perf}(\mathbb P^{m-1})}
+                       \operatorname{Perf}(H)
+              \simeq\mathcal P_{A'}
+\end{equation}
+がある。
+右辺は $m-1$ 中心の同じ構成であり、
+$m-2$ 個の $\mathcal L_D$ と $\mathcal L_{A'}$ による実分解を持つ。
+$m=2$ では左辺は式\eqref{mbl:eq:ray-fiber}の一中心商の線束圏である。
+\end{lemma}
+
+\begin{proof}
+中心座標を変えて $\lambda=u_m$ としてよい。
+$\mathscr X_H=[\ker\lambda/\mathbb G_m]$ と置くと、
+\[
+ \mathscr Y_m|_H=[\operatorname{Tot}\OO_H(-1)/\mathbb G_m]
+               =\operatorname{Bl}_{B\mathbb G_m}\mathscr X_H.
+\]
+$\mathscr Y_m\to\mathbb P^{m-1}$ は線束の全空間の商として平坦であり、
+この base change は通常のものと一致する。
+その $\mathscr X_m$ への射は $\mathscr X_H$ を通る。
+従って tensor の結合と補題\ref{mbl:lem:central-base-change}から
+\[
+ \begin{split}
+ \mathcal P_A|_H
+  &\simeq
+  \bigl(\mathcal L_A\otimes_{\operatorname{Perf}(\mathscr X_m)}
+                      \operatorname{Perf}(\mathscr X_H)\bigr)
+          \otimes_{\operatorname{Perf}(\mathscr X_H)}
+                      \operatorname{Perf}(\mathscr Y_m|_H)\\
+  &\simeq\mathcal P_{A'}
+ \end{split}
+\]
+となる。ここで $\lambda$ は正則なので、$A'$ は導来商でなく通常の商である。
+chart では $z_m=0$ とするだけであり、実 restriction と随伴もこの同定を保つ。
+\end{proof}
+
+\begin{corollary}[一中心普遍核の各 chart への実適用]
+\label{mbl:cor:chart-kernel}
+$\mathcal P_A$ には $\mathbb P^{m-1}$-線型な実分解
+\[
+ \mathcal P_A
+  =\left\langle\mathcal K_{\mathrm{pen}},
+     \OO\otimes\operatorname{Perf}(\mathbb P^{m-1}),\ldots,
+     \OO(N-3)\otimes\operatorname{Perf}(\mathbb P^{m-1})\right\rangle
+\]
+がある。$\mathcal K_{\mathrm{pen}}|_{U_i}$ は $A_i^{\mathrm{ch}}$ の残余線束圏である。
+
+一中心の定理\ref{euk:thm:universal-kernel}で係数多項式 $Q,L,C$ と実核を固定する。
+中心形式を代入した
+\[
+ \begin{split}
+ W_{\mathrm{pol}}(\mathbf x,\mathbf u)
+   ={}&G(\mathbf x)+Q(\mathbf t(\mathbf u);\mathbf x)\\
+     &+L(\mathbf t(\mathbf u),\alpha(\mathbf u);\mathbf x)
+      +C(\mathbf t(\mathbf u),\alpha(\mathbf u),c(\mathbf u))
+ \end{split}
+\]
+を用い、$\ell_i(\mathbf z)=1$ とする chart の方向ベクトルを
+$\boldsymbol\ell^{(i)}(\mathbf z)$ と書く。
+このとき $\mathcal K_{\mathrm{pen}}|_{U_i}$ は、全 chart 係数環 $\C[\mathbf z]$ 上で
+\[
+       V\bigl(W_{\mathrm{pol}}(\mathbf x,s\boldsymbol\ell^{(i)}(\mathbf z))\bigr)
+            \subset\mathbb P^N\times U_i
+\]
+の残余線束圏と実 Morita 同値である。
+この同値は任意の導来底変更と両立する。
+\end{corollary}
+
+\begin{proof}
+$\OO(r)=b^*\OO_A(r)$ と書く。
+chart の相対線束 Hom により、$\OO,\ldots,\OO(N-3)$ は
+$\mathbb P^{m-1}$ 上の相対例外列である。
+相対 proper 性から、その左右随伴はそれぞれ相対 Hom とその双対で与えられ、
+perfect 対象を保つ。
+有限 mutation で残余 $\mathcal K_{\mathrm{pen}}$ を定めれば、この構成は各 chart と
+底変更に両立する。
+元の $\mathcal K_A$ が内部 shift に閉じているとは仮定していない。
+
+$A_i^{\mathrm{ch}}$ は、一中心の全係数環から
+\[
+ \mathbf t\longmapsto\mathbf t(\boldsymbol\ell^{(i)}),\qquad
+ \alpha\longmapsto\alpha(\boldsymbol\ell^{(i)}),\qquad
+ c\longmapsto c(\boldsymbol\ell^{(i)})
+\]
+という多項式係数変更で得られる。
+中心持上げも補題\ref{mcp:lem:polarization}によってこの代入を保つ。
+重み $(1,2,3)$ から、可換側の三次は正確に
+$W_{\mathrm{pol}}(\mathbf x,s\boldsymbol\ell^{(i)})$ となる。
+従って一中心の実普遍核をこの係数環へ導来底変更すればよい。
+双方の次数別自由性により、ここでの代数は通常の係数変更と一致する。
+\end{proof}
+
+\begin{remark}[構成した範囲]
+\label{mbl:rem:scope}
+本小節で得たのは、厳密な source 中心作用から作る実射影 pencil、その各通常 chart、
+実 blow-up 分解、および source が smooth な場合の全 pencil 圏の絶対 smoothness である。
+さらに各 chart の残余比較は、既存の一中心普遍核の実底変更として存在する。
+異なる chart の非可換・可換比較核が重なりで同時に降下するとは主張しない。
+個別の比較核に二つ以上の中心作用を coherent に同時保存させる問題とも区別する。
+一般 fiber の smoothness と良い中央 flag の存在は、
+次の定理\ref{mcb:thm:smooth-locus}と定理\ref{mcb:thm:central-flags}で
+この実構成に続いて証明する。
+\end{remark}

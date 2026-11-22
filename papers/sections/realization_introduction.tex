@@ -174,19 +174,25 @@ $\mathbf p$ を保持する $(\mathbf p,\alpha,c)\mapsto(\mathbf p,L,C)$ は多�
 因子自体を動かす族での核選択と全内在的対象の表示被覆は未解決である。
 複数の共有中心変数を持つ場合、
 定理\paperref{mixed}{mcp:thm:normal-form}が全許容因子別表示を中心形式で分類する。
-二中心では次数 $3\cdot8^k$ の判別形式 $\Delta$ により、
-一本でも滑らかな中央切断が存在する開集合を判定できる
-（命題\paperref{mixed}{mcpn:prop:ray-discriminant}）。
-その一切断を固定すると、定理\paperref{mixed}{mci:thm:iterated-kernel}により
-残りの全横断係数上で実残余線束 Morita 核を得る。
-source が smooth なら、同次元の滑らかな可換三次との全 coherent Ku 比較となる。
-最後の中心三次係数の非 smooth 値は、重複度込みで $2\cdot8^k$ 個である。
-任意個の中心でも、滑らかな中央 flag を仮定すればこの構成を反復できる
-（系\paperref{mixed}{mci:cor:smooth-flag}）。
-これは全ての中央 ray の核を貼り合わせる議論ではなく、
-固定された一境界の実随伴から次の全 comonad を比較するものである。
-全 smooth 対象で良い flag が存在することや、
-単純な偏極候補と実際の逐次標的の一致は結論していない。
+任意の中心数 $m$ について、定理\paperref{mixed}{mcb:thm:smooth-locus}は
+残余線束圏の smoothness と偏極候補 $X_{\mathrm{pol}}$ の滑らかさを同値とする。
+厳密な中心作用から作る実 blow-up の各 chart へ一中心普遍核を適用し、
+絶対対角の perfect 性を Zariski 局所で判定する証明である。
+有限中心性や、異なる chart の比較核の貼合せを入力としない。
+定理\paperref{mixed}{mcb:thm:central-flags}による一般中央 flag と
+系\paperref{mixed}{mcb:cor:all-smooth-comparison}により、
+全 smooth 因子別対象で同次元の滑らかな可換三次への全 coherent Ku 比較を得る。
+二中心では特に smoothness から次数 $3\cdot8^k$ の判別形式 $\Delta\not\equiv0$ が従う。
+
+固定した滑らかな境界の横断二項写像は
+命題\paperref{mixed}{mtb:prop:transverse-iso}と
+系\paperref{mixed}{mtb:cor:many-centers}により可逆である。
+各固定一次係数の一般二次係数では、最後の中心三次係数に
+$2^{3k+m-1}$ 個の単純な悪い値と各可換標的の唯一の通常二重点が現れ、
+判別因子は既約被約で affine 空間を正規化に持つ
+（定理\paperref{mixed}{mtd:thm:normalization}、系\paperref{mixed}{mtd:cor:many-centers}）。
+実核の標的は逐次構成の $X_{\mathrm{it}}$ であり、
+これと偏極候補の同一視や全中心標識を同時に保つ核は結論していない。
 また定理\paperref{mixed}{mix:thm:h-exact-candidate}は、交換子パラメータの形式近傍と
 一般係数体上で、指定された可換候補への実比較を与える。
 定理\paperref{mixed}{mix:thm:h-semilocal-smooth}と
@@ -198,7 +204,7 @@ source が smooth なら、同次元の滑らかな可換三次との全 coheren
 この有限な計算は Hochschild homology の指標とは区別し、
 後者の固有次元 $(5,16)$ は
 命題\paperref{mixed}{mix:prop:h-involution-character}の相対模型から求める。
-滑らかな中央 flag を持たない多中心表示、因子 moduli 上の核の降下、
+因子を混ぜる一般 PBW 表示、因子 moduli 上の核の降下、
 全 intrinsic 成分への拡張は残る。
 
 \PaperReferenceGuide
