@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v73.
+% Current result: 2026-11-23 / v74.
 \subsection{固定した三次形式の切片と高次係数の有限還元}
 \label{ifj:subsec:jets}
 
@@ -765,6 +765,149 @@ Clifford の整列恒等式である。
 $L_1L_3$ が非零なのは表示した二方向だけであり、
 それぞれの式を得る。
 \end{proof}
+
+\subsubsection{Clifford 中心 norm の三次 jet と実比較係数の区別}
+\label{ifj:subsubsec:central-norm-jets}
+
+上の曲率の原点摂動とは別に、中心体積元の平方を
+全ての係数にわたって展開できる。これは実際の
+Clifford 代数の中心恒等式を与える一方、
+可換 Ku 比較の高次方程式ではない。
+その相違を固定した Hesse 射影で具体化する。
+ここでは引き続き添字を $0,1,2$ に戻す。
+$U=(U_{ab})$、$L_a=\sum_bU_{ab}Y_b$、
+$q_{a+1,a+2}(s)=(sL_a-\tau_1X_a)/2$ とし、
+$\omega_x(s)^2=-N(s)$、$N(s)=\det q_x(s)$ と置く。
+$\Pi$ は命題\ref{ifj:prop:explicit-jacobian-projector}の
+固定 Hesse 切片への射影とする。
+
+\begin{proposition}[中心 norm の全三次展開と不変式の gradient]
+\label{ifj:prop:central-norm-jets}
+$N(s)=N_0+sN_1+s^2N_2+s^3N_3$ とすると
+\begin{equation}\label{ifj:eq:central-norm-polynomial}
+ \begin{aligned}
+ N_0&=\left(1-\frac{\tau_1^3}{4}\right)P_X
+                        -\frac{\tau_1^2}{4}\sum_aX_a^3,\\
+ N_1&=\frac{\tau_1^2}{4}\sum_a X_{a+1}X_{a+2}L_a
+                        +\frac{\tau_1}{2}\sum_aX_a^2L_a,\\
+ N_2&=-\frac14\sum_a X_a
+                 (L_a^2+\tau_1L_{a+1}L_{a+2}),\\
+ N_3&=\frac14L_0L_1L_2.
+ \end{aligned}
+\end{equation}
+さらに $I_d=I_++I_-$、$Q_d=Q_++Q_-$ と置き、
+式\eqref{ifj:eq:cubic-basis}の不変式で
+\begin{equation}\label{ifj:eq:central-norm-invariant-potential}
+ \mathscr S(U)=\frac{h_2}{3}I_0+2I_r+
+                     \tau_1(h_2I_c+I_d)
+\end{equation}
+と定めると、
+\begin{equation}\label{ifj:eq:central-norm-projected-jets}
+ \begin{aligned}
+ \Pi(N_1)&=\left(\frac{\tau_1^2}{4}
+                    +\frac{\tau_1h_1}{2}\right)
+               \sum_{a,b}U_{ab}X_{a+1}X_{a+2}Y_b,\\
+ \Pi(N_2)&=-\frac14\sum_{a,b}
+           \frac{\partial\mathscr S}{\partial U_{ab}}\,
+                       X_aY_{b+1}Y_{b+2},\\
+ \Pi(N_3)&=\frac14(h_2I_c+I_d)P_Y.
+ \end{aligned}
+\end{equation}
+従って $\Pi(N_2)$ の二次同変写像は、
+一つの明示的な三次 Heisenberg 不変式の
+gradient であり、そのうち
+$\tau_1(h_2I_c+I_d)$ は三次純因子項にも現れる。
+
+$N_0$ は $\tau_1\ne0$ のとき Hesse 三次であり、
+$\tau_1^3\ne1,-8$ と同値に滑らかである。
+\end{proposition}
+
+\begin{proof}
+三次対称行列の行列式を展開すると、
+\[
+ N(s)=P_X+\frac14\prod_a(sL_a-\tau_1X_a)
+                  -\frac14\sum_aX_a(sL_a-\tau_1X_a)^2
+\]
+であり、$s$ の四つの係数を集めれば
+式\eqref{ifj:eq:central-norm-polynomial}を得る。
+
+$N_1$ には命題\ref{ifj:prop:explicit-jacobian-projector}の
+$X_a^2Y_b\mapsto h_1X_{a+1}X_{a+2}Y_b$ を使う。
+$N_2$ には
+$Y_b^2\mapsto h_2Y_{b+1}Y_{b+2}$ を使うと、
+$X_aY_{b+1}Y_{b+2}$ の係数は
+\[
+ -\frac14\bigl[
+ h_2(Q_0)_{ab}+2(Q_c)_{ab}
+  +\tau_1h_2(Q_r)_{ab}+\tau_1(Q_d)_{ab}\bigr].
+\]
+命題\ref{ifj:prop:heisenberg-bases}の gradient 等式
+$\nabla I_0=3Q_0$、$\nabla I_r=Q_c$、
+$\nabla I_c=Q_r$、$\nabla I_d=Q_d$ を使えば
+式\eqref{ifj:eq:central-norm-invariant-potential}の微分に一致する。
+$N_3$ の $L_0L_1L_2$ では、
+三列が全て等しい項は $I_c$ となり $Y_b^3$ へ、
+三列が相異なる項は $I_d$ となり $P_Y$ へ寄与する。
+二列だけが等しい項は Jacobian 射影で消える。
+従って最後の等式も得る。
+
+最後に $N_0=a\sum X_a^3+bP_X$ について
+$a=-\tau_1^2/4\ne0$、$b=1-\tau_1^3/4$ である。
+三変数 Hesse 三次の特異条件は $b^3+27a^3=0$ であり、
+\[
+ b^3+27a^3
+  =-\frac{(\tau_1^3-1)(\tau_1^3+8)^2}{64}.
+\]
+これで滑らかさの同値が従う。
+\end{proof}
+
+\begin{corollary}[四つの probe の三次 norm と一次の不一致]
+\label{ifj:cor:central-norm-probes}
+命題\ref{ifj:prop:minimal-probes}の四方向
+$E_{00},R_0,C'_0,D_0=I_3$ に制限すると、
+\[
+ \left.N_3\right|_{E_{00}}
+   =\left.N_3\right|_{R_0}=0,\qquad
+ \left.N_3\right|_{C'_0}=\frac14Y_0^3,\qquad
+ \left.N_3\right|_{D_0}=\frac14P_Y.
+\]
+従って厳密な $s^3$ 中心 norm は、
+順序 PBW の二次摂動が必要だった二方向にのみ現れる。
+$h_2=0$ の場合、$\Pi(Y_0^3)=0$ であっても
+中心恒等式そのものの三次項は消えない。
+
+ただし、中心平方の変数 $X,Y$ を文字どおり
+可換 Hesse 座標と同一視した射影では、
+$\Pi(N_1)\in C_{21}$ である。
+係数 $\tau_1^2/4+\tau_1h_1/2$ は一般には非零
+（$\tau_1=2$ で $8/3$）である。
+一方、実比較核の九方向の Kodaira--Spencer 像は
+定理\ref{ift:thm:rank-nine}により $C_{12}$ である。
+したがってこの素朴な中心座標同一視は、
+一次 jet の時点で実 Ku 比較と一致しない。
+とくに式\eqref{ifj:eq:central-norm-projected-jets}の
+二次・三次係数を、未計算の $\beta,\gamma$ に流用しない。
+\end{corollary}
+
+\begin{proof}
+四方向での $(L_0,L_1,L_2)$ は順に
+$(Y_0,0,0)$、$(Y_0+Y_1+Y_2,0,0)$、
+$(Y_0,Y_0,Y_0)$、$(Y_0,Y_1,Y_2)$ である。
+$N_3=L_0L_1L_2/4$ へ代入すれば表示式を得る。
+残りは式\eqref{ifj:eq:central-norm-projected-jets}と
+既知の一次 KS 像との比較である。
+ここで比較するのは、指定した座標の文字どおりの同一視であり、
+非自明な Picard--rotation 比較核の存在を否定するものではない。
+\end{proof}
+
+\begin{remark}[検算と適用範囲]
+\label{ifj:rem:central-norm-scope}
+\texttt{computations/verify\_clifford\_central\_norm\_jets.py} は
+一般 $3\times3$ 混合行列の行列式、各次数の Hesse 射影、
+gradient、不変式、四 probe、Hesse 特異条件を有限検算する。
+中心 norm と実 Ku 比較を同定する命題ではない。
+原点比較核の収縮・指定周期・十二係数の実数値も検証しない。
+\end{remark}
 
 上の命題は、原点からの曲がった代数
 $(B_s,w_s)$ が、PBW 基底上で
