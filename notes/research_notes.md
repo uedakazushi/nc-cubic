@@ -431,7 +431,7 @@ Khan, *Algebraic K-theory of quasi-smooth blow-ups and cdh descent*, Ann.Henri L
 
 を作る。S₂の三つの平方が中心なので、第一因子の普遍定数PBW族𝒰₁にα_a↦Σ_bΛ_ab y_b²を代入したcentral base changeとして定義できる。𝒰₁はC[α]上自由であるから、代入先のC[α]-平坦性を追加せず、二因子の語基底の積がR-基底となる（`ifc:thm:family`）。同じ代入でΩ₁,Λ=Ω₁,₀+Σ_abΛ_ab y_b²ℓ_a(x)を得て、Ω₂,₀も中心に残る。全a_i≠0のw_Λ=a₁Ω₁,Λ+a₂Ω₂,₀は両側正則で、商𝒜_ΛもR上自由である。Hilbert級数はそれぞれ(1−t)⁻⁶、(1−t³)(1−t)⁻⁶。中心変数Uと任意中心三次g(U)の追加後も商はR[U]上自由となる（`ifc:cor:central-variables`）。
 
-原点の接写像はMat₃(C)≅HH²(S₁⊗S₂)_{(−2,2)}=HH²(S₁)₋₂⊗Z(S₂)₂である（`ifc:prop:tangent`）。全代数S₁⊗S₂のHochschild cohomologyを計算するKoszul双加群複体の双次数(−2,2)では、一次cochainが零、二cocycleはHom(R₁,Z(S₂)₂)となる。従って九方向の独立性は純因子gaugeだけを割った計算ではない。この一つのordered pairの障害核を全次数へ同時積分したが、逆方向・他のordered pair・純因子次数零変形との任意の同時積分までは示していない。ここでのPBW濾過はxだけの次数であり、全active最高二次関係を固定する `ifp` の濾過とは異なる。従ってこの族は固定境界分解の反例ではない。
+原点の接写像はMat₃(C)≅HH²(S₁⊗S₂)_{(−2,2)}=HH²(S₁)₋₂⊗Z(S₂)₂である（`ifc:prop:tangent`）。全代数S₁⊗S₂のHochschild cohomologyを計算するKoszul双加群複体の双次数(−2,2)では、一次cochainが零、二cocycleはHom(R₁,Z(S₂)₂)となる。従って九方向の独立性は純因子gaugeだけを割った計算ではない。この一つのordered pairの障害核を全次数へ同時積分した。両因子がCliffordの場合の双方向十八変数の代数的積分は下記に保持するが、その全次数の残余圏比較、および一般の複数ordered pair・純因子次数零変形との任意の同時積分までは示していない。ここでのPBW濾過はxだけの次数であり、全active最高二次関係を固定する `ifp` の濾過とは異なる。従ってこの族は固定境界分解の反例ではない。
 
 ### 九変数族の全係数でのKoszul・Calabi–Yau性
 
@@ -461,7 +461,7 @@ Khan, *Algebraic K-theory of quasi-smooth blow-ups and cdh descent*, Ann.Henri L
 
 Clifford族への適用は [interfactor_clifford_kodaira_spencer.tex](../papers/sections/mixed/interfactor_clifford_kodaira_spencer.tex)。原点の `ebk:lem:boundary` は任意固定因子、二捩れを含めてrotation付き実核を与える。従ってm=0にも原点を含む可換Ku実現開とétale局所perfect核がある（`ifk:cor:clifford-fourfold-neighborhood`）。m=1はn≠4の既存開性を使う `iff:cor:cubic-fivefold-open` による。いずれも原点開の存在であり、全smooth係数への比較ではない。
 
-九方向の残余KSは幾何的20次元部分へ入り、二つの非恒等sectorへの射影は零である。さらに次項のfull Bocksteinの積により階数9と像を決定する。全smooth係数への核延長、逆向き・複数ordered pairの同時積分、全intrinsic被覆は未完成である。既知の形式変形・有限群・核スタックの機構と、この族への適用の新規性を区別し、文献上の初出は未確認とする。
+九方向の残余KSは幾何的20次元部分へ入り、二つの非恒等sectorへの射影は零である。さらに次項のfull Bocksteinの積により階数9と像を決定する。全smooth係数への核延長、双方向十八変数族の残余smoothnessと実比較、一般の複数ordered pairの同時積分、全intrinsic被覆は未完成である。既知の形式変形・有限群・核スタックの機構と、この族への適用の新規性を区別し、文献上の初出は未確認とする。
 
 ### 中心作用の積と残余KSの全階数
 
@@ -473,7 +473,7 @@ Clifford族への適用は [interfactor_clifford_kodaira_spencer.tex](../papers/
 
 \[ E_*\operatorname{KS}(M)=\sum_{a,b}M_{ab}L_aQ_b,\qquad \operatorname{im}\operatorname{KS}=(J_{f_1})_1\otimes(J_{f_2})_2,\qquad \operatorname{rank}=9 \]
 
-を得る。L,Qは固定核に依存する可逆写像で、数値行列を計算したとはしない。`ift:cor:first-jet` は原点を標識した三次の20次元形式変形空間への余次元11の正則閉埋込みを与える。大域的な係数の識別や閉像は主張しない。両因子がCliffordなら同じ比較Eに因子を交換した計算を適用でき、逆向きの像はJac(f₁)₂⊗Jac(f₂)₁となる。従って二つの接写像の直和の階数は18であるが、両方向の同時全次数積分は未証明（`ift:cor:two-clifford-tangents`）。
+を得る。L,Qは固定核に依存する可逆写像で、数値行列を計算したとはしない。`ift:cor:first-jet` は原点を標識した三次の20次元形式変形空間への余次元11の正則閉埋込みを与える。大域的な係数の識別や閉像は主張しない。両因子がCliffordなら同じ比較Eに因子を交換した計算を適用でき、逆向きの像はJac(f₁)₂⊗Jac(f₂)₁となる。従って二つの接写像の直和の階数は18である（`ift:cor:two-clifford-tangents`）。双方向の代数的積分は下記で構成するが、十八変数全体のsmooth properな残余族と可換Ku比較は未証明である。
 
 **可換化の障害。** 許容値τ³=−2ではf₂はFermat三次で、文字通りの可換平方Y_b²はJac(f₂)₂で全て零となる。しかしQ(y_b²)は三つの独立な非零類である。したがって非可換中心の係数を同名座標で可換化してKSを計算できない。Picard補正と指定周期を含む実核を通す必要がある（`ift:rem:fermat-warning`）。
 
@@ -489,6 +489,119 @@ Clifford族への適用は [interfactor_clifford_kodaira_spencer.tex](../papers/
 - Shepler–Witherspoon, *Deformation theory and Hopf actions on Koszul algebras*, Adv.Math.496(2026),110975,57pp., DOI[10.1016/j.aim.2026.110975](https://doi.org/10.1016/j.aim.2026.110975), [arXiv:2504.14397v3](https://arxiv.org/abs/2504.14397v3)のprimary abstract・Introductionは非可換係数環上のPBW/graded変形とHopf smash productを扱う。一般理論は§§2–4、Hopf–Koszulの具体条件はTheorem11.2・Corollary11.3に置かれる。本九変数族の分類や指定中心商を直接述べる箇所としては引用しない。
 
 これらの限定した一次資料確認により、構成の一般原理と本表示への適用を分けた。固定境界の厳密因子分解およびこの特定九変数族の初出・網羅的な新規性確認は未了である。本文の証明、内部の独立読解、有限計算、組版・表示確認、外部査読・形式証明器の確認はそれぞれ別の状態として `validation.md` に記す。
+
+### 両Clifford因子の双方向十八変数族：代数的積分
+
+**状態。** 以下は、全十八変数上の自由な二次代数と、原点を含む明示的な開上の平坦な正則中心三次商の構成・証明である。公表稿の九変数族のKoszul・AS-regular・CY定理を十八変数へ拡張した結果ではない。残余圏の十八接類の独立性は `ift:cor:two-clifford-tangents` によるが、この族全体の残余smoothness・実可換比較は別に証明する必要がある。
+
+**表示とClifford基底。** $i=1,2$ に対し $\tau_i\ne0$、$\tau_i^3\ne1,-8$ を固定し、$S_i=S(1,1,\tau_i)$ とする。$a_i\in\mathbf C^\times$ は指定中心元 $\Omega_{\tau_i}$ に掛かる元の重みとする。独立行列 $\Lambda=(\Lambda_{ab})$、$M=(M_{ba})$ の十八変数環 $R=\mathbf C[\Lambda_{ab},M_{ba}]$ 上で
+
+\[
+ B=R\langle\mathbf x,\mathbf y\rangle/
+ \left(
+ \{x_{a+1},x_{a+2}\}+\tau_1x_a^2-\sum_b\Lambda_{ab}y_b^2,
+ \{y_{b+1},y_{b+2}\}+\tau_2y_b^2-\sum_aM_{ba}x_a^2,
+ [x_a,y_b]
+ \right)
+\]
+
+と置く。添字は $1,2,3$ を巡回し、全 $x_a,y_b$ の内部次数は一、係数の次数は零である。
+
+まず $\sum_b\Lambda_{ab}y_b^2$ は、混合交換子の関係だけで全ての $x_c$ と可換である。従って第一因子の三関係から
+
+\[
+ [x_1^2,x_2]=[x_1,\{x_1,x_2\}]
+ =\tau_1[x_3^2,x_1]
+ =\tau_1^2[x_2^2,x_3]
+ =\tau_1^3[x_1^2,x_2]
+\]
+
+を得る。巡回置換と逆向きの組にも同じ計算が適用できるので、$1-\tau_1^3\ne0$ より全 $x_a^2$ は全 $x_c$ と可換する。第二因子にも同じ計算を行う。この際、$\sum_aM_{ba}x_a^2$ と全 $y_c$ の可換性は初めから混合交換子により成り立つ。従って六つの平方は全て中心であり、平方の中心性を互いに仮定する循環はない。
+
+独立な中心変数 $X_a,Y_b$ の内部次数を二とし、
+
+\[
+ Z=R[X_1,X_2,X_3,Y_1,Y_2,Y_3],\qquad
+ p_a=\sum_b\Lambda_{ab}Y_b-\tau_1X_a,\qquad
+ s_b=\sum_aM_{ba}X_a-\tau_2Y_b,
+\]
+
+\[
+ q_x=\begin{pmatrix}
+ X_1&p_3/2&p_2/2\\
+ p_3/2&X_2&p_1/2\\
+ p_2/2&p_1/2&X_3
+ \end{pmatrix},\qquad
+ q_y=\begin{pmatrix}
+ Y_1&s_3/2&s_2/2\\
+ s_3/2&Y_2&s_1/2\\
+ s_2/2&s_1/2&Y_3
+ \end{pmatrix}
+\]
+
+と置く。Clifford代数は $u_i u_j+u_j u_i=2q_{ij}$ という規約を用いる。通常の、符号を挿入しないtensor積により
+
+\[
+                 B\simeq\mathrm{Cl}_Z(q_x)\otimes_Z\mathrm{Cl}_Z(q_y)
+\]
+
+を得る。右辺から左辺への写像は $X_a\mapsto x_a^2$、$Y_b\mapsto y_b^2$ と生成元の恒等写像で定まり、上の中心性がその定義を保証する。逆写像は左辺の六生成元をClifford生成元へ送る。Cliffordの対角関係で $X_a=x_a^2$、$Y_b=y_b^2$ となるため、両写像は互いに逆である。Cliffordの順序基底から、$x_Iy_J$（$I,J\subset\{1,2,3\}$、各積は昇順）が $Z$-基底となる。従って $Z$ は実際に中心部分環へ埋まり、$B$ は $Z$ 上自由階数 $64$、$R$ 上次数別自由で
+
+\[
+ H_B(t)=\frac{(1+t)^6}{(1-t^2)^6}=\frac1{(1-t)^6}
+\]
+
+となる。この表示と基底は $R$ の任意の可換係数変更にも保たれる。
+
+**中心三次と正規化。** $q^x_{ij},q^y_{ij}$ を上の行列成分とし、
+
+\[
+ \omega_x=x_1x_2x_3-q^x_{12}x_3+q^x_{13}x_2-q^x_{23}x_1,
+ \qquad
+ \omega_y=y_1y_2y_3-q^y_{12}y_3+q^y_{13}y_2-q^y_{23}y_1
+\]
+
+と置く。中心係数を持つ三次元Clifford関係の整列により、各体積元は中心で、$\omega_x^2=-\det q_x$、$\omega_y^2=-\det q_y$ となる。また $6\omega_x=C_+(\mathbf x)-C_-(\mathbf x)$、同様に $6\omega_y=C_+(\mathbf y)-C_-(\mathbf y)$ である。従って [elliptic_center_obstruction.tex](../papers/sections/mixed/elliptic_center_obstruction.tex) の `eco:prop:clifford-center-freedom` と同じ符号規約で
+
+\[
+ \Omega_{\tau_i}=2(1-\tau_i^3)\omega_i,\qquad
+ \alpha_i=2a_i(1-\tau_i^3),\qquad
+ w=\alpha_1\omega_x+\alpha_2\omega_y
+\]
+
+とすれば、原点で $w=a_1\Omega_{\tau_1}+a_2\Omega_{\tau_2}$ に一致する。ここで $\alpha_i$ は固定した非零重みであり、定数型PBW族の変形パラメータ $\alpha_{ij}$ とは別である。体積元は交代語によって全係数で同じ中心持上げを与えるので、$M=0$ の表示は既存の $x$ 側へ $\Lambda Y$ を代入する九変数族、$\Lambda=0$ の表示は因子を交換した九変数族に、指定中心元も含めて一致する。
+
+**明示的開上の普遍正則性と平坦性。** $w'=\alpha_1\omega_x-\alpha_2\omega_y$ と置くと、
+
+\[
+ ww'=w'w=D=-\alpha_1^2\det q_x+\alpha_2^2\det q_y\in Z.
+\]
+
+$\det q_x=X_1X_2X_3+2q^x_{12}q^x_{13}q^x_{23}-X_1(q^x_{23})^2-X_2(q^x_{13})^2-X_3(q^x_{12})^2$ から、その $X_1^3$ 係数は $-\tau_1^2/4$ である。$\det q_y$ の同係数は $M_{11}M_{21}M_{31}/4$ である。従って $D$ の $X_1^3$ 係数は
+
+\[
+ c=\frac{\alpha_1^2\tau_1^2+\alpha_2^2M_{11}M_{21}M_{31}}4,
+ \qquad c(0)=\frac{\alpha_1^2\tau_1^2}4\ne0.
+\]
+
+$R'=R[c^{-1}]$、$Z'=R'[X_1,X_2,X_3,Y_1,Y_2,Y_3]$ と置く。$D/c$ は $R'[X_2,X_3,Y_1,Y_2,Y_3][X_1]$ 上で $X_1$ に関するmonic三次式である。任意の $R'$-加群 $N$ に対し、その乗法は $N[X_1,X_2,X_3,Y_1,Y_2,Y_3]$ 上単射である。実際、有限な多項式の最高 $X_1$ 係数はmonic項によってそのまま残る。$B_{R'}$ は $Z'$ 上自由なので、$D$ の乗法は $B_{R'}\otimes_{R'}N$ 上も単射である。$D=w'w=ww'$ より、$w$ の左右乗法も同様に単射となる。
+
+従って $A=B_{R'}/(w)$ に対する列
+
+\[
+ 0\longrightarrow B_{R'}(-3)\xrightarrow{\ w\ }B_{R'}
+       \longrightarrow A\longrightarrow0
+\]
+
+は任意の $N$ とのtensor後も左端で単射である。両方の $B_{R'}$ は $R'$-自由なので、$\operatorname{Tor}_1^{R'}(A,N)=0$ となり、$A$ は $R'$-平坦である。各内部次数では有限表示かつ平坦なので有限射影であり、大域的に自由とはここでは主張しない。任意の可換 $R'$-代数への変更後も $w$ は左右正則で、商の平坦性・次数別有限射影性は保たれる。各体上のfiberでは
+
+\[
+                       H_A(t)=\frac{1-t^3}{(1-t)^6}
+\]
+
+となる。$M=0$ 軸全体はこの明示的開に含まれる。もう一方の軸の全係数での正則性と自由性は、因子を交換した既存九変数定理によって別に確保されている。
+
+**次の課題。** これは十八方向を同時に積分する実二次代数族と、その明示的原点開上の平坦な中心商を与える。有限Clifford基底やHilbert級数だけから、十八変数族のKoszul・AS-regular・untwisted CY性を結論しない。次は原点近傍の有限Koszul双加群解消または相対coherent対角を構成し、実相対smooth proper残余模型・rotation・比較核へ進む。公表稿の十八接類の独立性と、このノートの代数的積分の証明、未完成の全次数の圏論的比較を区別する。Clifford基底と体積元の恒等式は既知の代数機構であり、この双方向表示の網羅的新規性は未確認である。
 
 ### 全smooth領域の相対模型と比較不変量
 
