@@ -1,8 +1,10 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v76。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v77。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
+
+- **基点付き三次式によるisogeny有限座標模型（v77）：** `ifj:prop:two-isogeny-cubic-sextet`でW,T,Sの厳密なWeierstrass変換、共通基点因子D=2o+pを持つ6三次式、実際のdeck作用行列と±3+3固有基底、負固有線束N=M_{τ∨}、標的Hesseを構成する正固有三次式と次数9の多項式恒等式、反転同変性を証明として記載。`computations/verify_clifford_isogeny_cubics.py` をPython 3/SymPy 1.14でローカル8群PASS・終了コード0と確認し、保存済みGitHub blob SHA `8801f997328505750b95ce0a81d46bd6bfaa8251` とローカル実行ファイルの `git hash-object` が一致した（SHA-256 `73f94d20792a49cb04f5b4e8d246926062f7c2252c5788cf5e8edad225f53f2b`）。記号的な全係数のdegree-9恒等式と具体的τ=2,−1のHesse多項式除算を検算したが、曲線上の基点因子・線束同型・双対isogenyの数学的証明は本文による。実Ku核の比較や46原式係数・βγ12値には何も計算していない。保存済み節/三稿全体のLuaLaTeX組版・Lean・外部査読も今回未実施。
 
 - **二重isogenyのtheta文字・±3次元空間・CM点（v76）：** `ifj:prop:two-isogeny-theta-characters` に引戻し偏極A=L²⊗Mのtheta交換子e_A=e_L²=e_L⁻¹、二重被覆の直像O⊕N、H⁰(E,A)のdeck±固有空間3+3と逆Heisenberg文字、Hom(L²,A)=H⁰(M)=0を証明として記載。中心文字の反転`だけ`では普通二次式を排除しないことを明示。CM特殊化τ²=−2でφ²=[−2]、j=8000、End(E)=Z[√−2]（`ifj:cor:two-isogeny-cm-specialization`）。SymPy 1.14のローカル`python3 /mnt/data/nc_cubic_v76/verify_clifford_hesse_theta.py`で修正版6群PASS・終了コード0を確認（SHA-256 `c998ae132435f375e94dfc3a572672effc32421e1afa28c6623fd27ac47882e5`）。初版検算では`factor`で整形されたSymPy式の構造的等値比較が失敗したため、`cancel`で差を零判定するよう修正してから6 PASS。有限行列・j恒等式の検算でありtheta群・Picard・Kuの圏論証や12係数を形式検証したものではない。GitHub保存後の同一ファイルの再読・再実行は別に報告する。全三稿LuaLaTeX組版・外部査読も今回未実施。
 

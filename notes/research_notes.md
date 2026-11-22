@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月23日 / v76。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月23日 / v77。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -696,6 +696,8 @@ Heisenberg対称性だけでは二次写像Sym²V→V*が五次元、三次不�
 **Clifford中心判別と点曲線の二重isogeny（証明・検算済み、一般機構は既知）：** 点曲線E_τ=V(f_τ)、o=(1:−1:0)、p=(1:1:τ)∈E_τ[2]に対し、分離中心判別D_τ=(1−τ³/4)P_X−(τ²/4)ΣX_a³=(τ³/8)f_{−2/τ}となる。E_τ→E_{−2/τ}への次数2 isogeny φ_τ をWeierstrass座標で構成し、ker φ_τ={o,p}、双方向合成[−2]、三捩れ基底(P,Q)上のdiag(1,−1)を示した（`ifj:thm:discriminant-two-isogeny`）。一般にはj(E_τ)≠j(E_{−2/τ})で、τ=2が有理数の具体例。φ_τ*O(1)=O(2)⊗M_τ、M_τ=O(p−o)非自明二捩れ（`ifj:cor:isogeny-picard-line`）。これは既存の分離 Picard–rotation 比較核に現れるMと同じ。通常の二次斉次座標式だけでは不足する理由を偏極の引戻しで説明するが、この幾何的isogenyは実Ku比較核・指定周期の高次移送ではなく、46原式係数・12個のβγは未計算。一般のHesse/Cayleyan二重isogenyはOudompheng Proposition2.5とMoodyらの既知理論として扱い、本稿はClifford中心係数と固定三捩れ標識への特殊化・明示計算を保持する。再現は `../computations/verify_clifford_hesse_two_isogeny.py`、GitHubで保存した同一ソースを独立に再取得して8群PASSを確認。
 
 **theta交換子と線束の二重障害（証明済み）：** 二重isogeny φ:E_τ→E_{−2/τ}、L=O_E(3o)、M=O_E(p−o)、A=φ*O(1)=L²⊗Mに対して、E[3]上のtheta交換子はe_A=e_L²=e_L⁻¹。標識付き三捩れを恒等とみなし中心μ₃も恒等に保つ三次元intertwinerは零となる。二重被覆の直像はφ_*O_E=O_{E'}⊕N（Nは標的の非自明二捩れ線束）で、H⁰(E,A)=H⁰(E',O(1))⊕H⁰(E',O(1)⊗N)の3+3。deck±固有空間はいずれも逆中心文字のSchrödinger型。注意すべきは、通常二次式Sym²H⁰(E,L)≅H⁰(E,L²)も中心文字はe_L²なので、反転`だけ`は二次表示を排除しないこと。決定的なのはHom(L²,A)=H⁰(M)=0という線束の障害（`ifj:prop:two-isogeny-theta-characters`）。τ²=−2のCM点ではφ²=[−2]、j=8000、End(E)=Z[√−2]。これは自己isogenyとして使える厳密な試験点だが、Mは非自明のままで、高次比較係数の数値は出ない。保存済み`verify_clifford_hesse_theta.py`は三捩れ行列・intertwinerのrank9・6=3+3・二次文字・CM条件・j=8000を6群で検算。実核のdeck作用と比較周期を併せて計算するのが次の課題。
+
+**isogenyの基点付き三次模型（証明・検算済み）：** 点曲線E_τを線型座標W=3τ(Z0+Z1)+(2+τ³)Z2、T=cτ(Z2−rτW)、S=cτ(Z0−Z1)で厳密にWS²=T³+aWT²+bW²Tへ移す（a,bは既存Weierstrass係数、b≠0）。接線Wの零因子は3o、T/Wの零因子は2pで極は2o。三次式W²T,W²S,WT²,WTS,T³,T²Sの共通基点因子はD=2o+pで、これを除いた六切断はφ*O(1)のH⁰(E,A)。deck対合は(u,v)=(T/W,S/W)について(u,v)↦(b/u,−bv/u²)、線束の正規化作用D(g)=u⁴g(b/u,−bv/u²)/b²である。±の三次元固有基底は本文`ifj:eq:cubic-sextet-eigenspaces`、正側のG0=WT²,G1=T³+aWT²+bW²T,G2=S(T²−bW²)から標的Weierstrass・Hesse座標を得る。次数9の全多項式恒等式`ifj:eq:cubic-sextet-nine-identity`により三次式が標的を定めることを検証し、反転Z0↔Z1とも両立する。負固有線束Nはdual isogenyの核p∨からO(p∨−o∨)=M_{τ∨}と特定できる。これらは前段の楕円線型系の有限入力であり、まだ実MF/window比較核・period/homotopyの高次転送も46原式係数も得ていない。再現コード`../computations/verify_clifford_isogeny_cubics.py`は一般記号での座標式・6×6行列・次数9恒等式と、τ=2,−1での標的Hesseへの厳密割算など8群PASS。
 
 任意の標的形式座標変更なら全高次項を消して(κΛ,0,0)へ移せるが、これは固定した多項式切片の係数を計算したことにはならない（`ifj:prop:formal-straightening`）。一方、一次部分が恒等の同変な源座標変更の最初の補正は四次なので、上の二次・三次係数は変わらない。形式座標に関するこの区別を計算時にも維持する。
 

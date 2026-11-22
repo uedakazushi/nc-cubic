@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月23日 / v76。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月23日 / v77。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -42,6 +42,8 @@
 **中心判別楕円は点楕円の二重 isogeny 商である。** [Clifford中心と点楕円の二重 isogeny](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:thm:discriminant-two-isogeny`）では、分離判別のD_τ=(τ³/8)f_{−2/τ}と、点曲線E_τからE_{−2/τ}への次数2 isogenyを元のClifford規約で明示した。核は標準原点oと非零二捩れ点p=(1:1:τ)。往復[−2]、三捩れ標識への作用diag(1,−1)を得る。偏極の引戻しφ*O(1)=O(2)⊗M_τ（M_τ=O(p−o)）なので、元のHesse射影座標の通常二次式三本による表示ではない（`ifj:cor:isogeny-picard-line`）。M_τは分離原点の実Picard–rotation比較で使う線束と同じ。一般のCayleyan二重isogenyは既知理論として引用し、本研究の具体的な係数照合と分ける。[厳密検算](computations/verify_clifford_hesse_two_isogeny.py)は8群PASS（GitHub保存ソースの再取得・実行確認）。ただし二重isogenyから実Ku比較核・12高次係数を求めたわけではない。
 
 **二重isogenyのtheta表現を有限次元で分離した。** [theta文字・Picard障害の命題](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:prop:two-isogeny-theta-characters`）により、引戻し偏極A=φ*O(1)=L²⊗Mに対して三捩れtheta交換子はe_A=e_L²=e_L⁻¹と反転する。H⁰(E,A)はdeck対合の±固有空間に各3次元（6=3+3）で分解し、双方は標準3次元Heisenberg表現の双対型となる。一方、普通の二次式も中心文字は反転するので、表現論だけでは二次座標表示を否定できない。**本当の障害はHom_E(L²,A)=H⁰(E,M)=0** という非自明二捩れ線束の消滅である。τ²=−2では自己二重isogenyの平方は[−2]、j=8000、End(E)=Z[√−2]となるが線束障害は残る（`ifj:cor:two-isogeny-cm-specialization`）。[有限厳密検算](computations/verify_clifford_hesse_theta.py)6群PASS、ただしKu核移送や12係数の実値ではない。
+
+**二重 isogeny の6次元線型系を元の平面上の三次式で表示した。** [三次式とdeck行列の命題](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:prop:two-isogeny-cubic-sextet`）では、適切な線型座標W,T,Sにより点曲線をWS²=T³+aWT²+bW²Tと書き、六つの三次式W²T,W²S,WT²,WTS,T³,T²Sが共通基点因子2o+pを持ち、これを除くとφ*O(1)=O(2)⊗Mの切断空間を与えることを証明した。deck変換はU=T/W,V=S/W上で`D(g)=U⁴g(b/U,−bV/U²)/b²`となり、正負3次元の明示固有基底を得る。正の三次式から標的のHesse座標を再構成し、次数9の多項式恒等式と反転同変性を確認した。二重被覆の負固有線束は標的のM_{τ∨}に一致する。[8群厳密検算コード](computations/verify_clifford_isogeny_cubics.py)をGitHub保存後にblob同一性を確認済み。これは**実Ku比較核や46個の原式係数を求めたことではない**。
 
 **固定tensor境界の全PBW表示まで、因子別比較の適用範囲が広がった。** [因子間変形の節](papers/sections/mixed/interfactor_deformations.tex)では、任意の可換係数環と厳密な中心変数の下で、因子間の一次・定数補正と内部関係の他因子出力が全て零になることを証明した（`ifp:thm:factorization`）。因子別分解は元の生成元で成立し、形式的gaugeや被約性を要しない。指定中心三次があれば全許容正規形へ入り、smoothness判定・一般中央flag・全coherent Ku比較を適用できる（`ifp:cor:central-comparison`）。固定した最高次境界とPBW性は仮定として残る。
 
