@@ -328,6 +328,26 @@ F₁のgradientが原点だけを零点に持つため、Q̃,L̃を固定した�
 
 次に解くべき点は、smoothnessから良い中央flagが従うか、Δ≡0の部分の実比較、W_it=W_polの可否、横断Bockstein Bの全階数である。Rennemo–Segal–Van den Berghの非可換Bertini, arXiv:1705.01366v2, Proposition2.1は可換有限型環上有限な代数を仮定し、Introductionでsmooth dg圏の層への拡張は未証明と明記する。一般PBW表示へこの結論を無条件に適用しない。
 
+近接する既知結果としてLBSV Theorem3.2.6はgeneric Type Aの一中心対称行列・任意定数補正、Cassidy–Shelton arXiv:math/0603375v2 Theorems1.3,1.5はPBWと正則homogenizationの同値、Gaddis arXiv:1210.0861v2 Propositions2.7,5.1は正則homogenizationとtensor積を扱う。指定中心三次の全多中心liftやKu比較をこれらだけから結論しない。Perry, Adv.Math.350(2019),877–972, arXiv:1804.00132v2 Lemma7.18/Proposition7.19は実P(V)-linear Lefschetz圏のuniversal hyperplaneの絶対smoothnessと臨界集合を扱う。本研究の基点付きpencilを線型圏へ実現し、一般切断のsmoothnessを示す段階は残る。Remark4.23の一般線型圏の臨界集合閉性は期待として述べられており、ここで無条件のBertiniとして引用しない。確認したこれらの資料では今回の固定smooth切断からの全横断Ku核と同じ主張は確認できなかったが、網羅的な新規性確認には至っていない。
+
+### 中央pencilを族にする次の構成
+
+未解決の良い切断問題では、中央u,vの厳密な可換作用と内部次数を使う。全線束生成圏を `L_A` と書き、`Perf([A²/G_m])` 作用を具体的に構成した上で、候補
+
+\[
+\widetilde{\mathcal L}_A
+=\mathcal L_A\otimes_{\operatorname{Perf}([\mathbb A^2/\mathbb G_m])}
+\operatorname{Perf}([\operatorname{Bl}_0\mathbb A^2/\mathbb G_m])
+\]
+
+をP¹上の圏として調べる。これは現時点では構成方針であり、中央作用を持つgraded module模型からqgrのVerdier商への適合、compact対象、`[a:b]` のfiberと実際の `A/(bu-av)` の全線束圏の同定を証明する必要がある。内部shiftで閉じた全線束圏から始め、Ku成分がそのまま全作用で閉じているとは仮定しない。中央列の正則性と既存の二重制限BCは、この同定を検査する入力になる。
+
+Jiang–Leung, *Blowing up linear categories, refinements, and homological projective duality with base locus*, [arXiv:1811.05132v2](https://arxiv.org/abs/1811.05132v2), Definition3.2/Theorem3.3は線型admissible部分圏のblow-upとOrlov型分解、Theorem4.5はrefined blow-upと線型切断のHPDを扱う。ただし§1.5はスキームの導来圏内のadmissible部分圏という幾何的枠組みに限定し、抽象dg・∞圏への拡張はその論文で実行した定理ではない。上の候補のOrlov型分解とsmooth/proper性を本模型で証明し、さらに絶対smoothなP¹族から一般fiberがsmoothとなるための定理または直接証明を確保する必要がある。
+
+このsourceだけの構成と、非可換・可換両側の二中心作用を同時に合わせる比較核のbalancingとは別の課題である。後者の未完成の無限towerを前者の着手条件とはしない。一方、blow-up候補を書いただけでΔ≢0や全smooth対象の良いflagを結論しない。
+
+中央pencilの具体的な先行例として、S. P. Smith–M. Van den Bergh, *Noncommutative quadric surfaces*, [著者公開本文](https://sites.math.washington.edu/~smith/Research/pencil-nc-quadrics.pdf), DOI [10.4171/JNCG/136](https://doi.org/10.4171/JNCG/136), Theorems5.6,10.2を確認した。前者は対象とする非可換二次曲面のsmoothnessを有限次元代数C(A)の半単純性で判定し、後者は四次元Sklyanin代数の中央二次式pencilの特異memberが四つであることを示す。本三次族への一般Bertiniではないが、圏のsmoothnessを実有限模型で検出する比較例として有用である。
+
 ### 二重制限で保持する混合情報と失われる軸データ
 
 `tcr:prop:beck-chevalley` はA,A/(u),A/(v),Sの実残余制限正方形のcanonical右mateが同型であることを証明する。inflationの右projectionのcorrectionはO_A(−1)だけに入り、他方の制限後のprojectionがこれを消すことが要点。単なるambientのTor-independenceだけで残余BCを済ませない。`tcr:prop:joint-comonad` のjoint HH^Rはunderlying kernelとして軸comonadの積に同型となり、実HH^Rの全構造を移したcoherent分配データを持つ。これはBeck, Distributive Laws, LNM80(1969),119–140, DOI10.1007/BFb0083084, §3 Propositionの形式論と両立する。裸の交換射による高次一意性は未主張。

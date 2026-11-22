@@ -84,7 +84,7 @@
 
 ### P0：主予想の存在領域を全対象へ広げる
 
-1. **滑らかな多中心対象で良い中央切断・flagが存在するかを決める。** 二中心では `mcpn:prop:ray-discriminant` の全係数消滅 Δ≡0 と、元の残余線束圏のsmoothnessとの関係を調べる。良い切断が一本あれば `mci:thm:iterated-kernel` が全横断係数を比較するので、切断を持たない部分が次の核心となる。まず分離端点と既知の有限中心部分でBertiniの仮定を確認し、一般PBW族では実proper線束模型のどの追加条件が必要かを切り分ける。Rennemo–Segal–Van den Bergh Proposition2.1の有限中心仮定やsmooth dg圏への未証明の拡張を暗黙に使わない。
+1. **滑らかな多中心対象で良い中央切断・flagが存在するかを決める。** 二中心では `mcpn:prop:ray-discriminant` の全係数消滅 Δ≡0 と、元の残余線束圏のsmoothnessとの関係を調べる。良い切断が一本あれば `mci:thm:iterated-kernel` が全横断係数を比較するので、切断を持たない部分が次の核心となる。まず厳密な中央u,v作用と内部次数から、全線束圏の `[A²/G_m]` 上の作用・原点blow-upによるP¹族を構成し、そのfiberが実中央切断と一致するかを検証する（研究ノート「中央pencilを族にする次の構成」）。Orlov型分解、compact模型、smooth/proper性、一般fiberのsmoothnessを別々に証明する。Jiang–Leung §1.5の幾何的admissible部分圏の仮定や、Rennemo–Segal–Van den Bergh Proposition2.1の有限中心仮定を無条件に流用しない。分離端点と既知の有限中心部分はこれらの入力の検査例にする。
 2. **必要な混合情報を実模型で同定する。** `tcr:prop:beck-chevalley` と `tcr:prop:joint-comonad` は実二重制限・joint comonadを与えるが、全coherent分配データの有限な比較塔はまだ同定していない。同一の二軸から全体のsmoothnessが異なる `tcr:ex:same-axes` を基本検査例とし、uv・u²v・uv²項の指定MF上の計算から、全残余gaugeを許す比較へ進む。単純な偏極候補 W_pol と逐次標的 W_it の一致、横断二項写像Bの可逆性も未解決である。
 3. **全intrinsic対象の認識と表示被覆を進める。** 任意個の中心の因子別PBW正規形は `mcp:thm:normal-form` で得たが、因子を混ぜる関係や全内在的成分の被覆を与えない。全対象という主予想をこの表示族やU_cutへ限定しない。
 

@@ -41,12 +41,14 @@ $\ell=[a:b]\in\mathbb P^1$ に対し
 \]
 と書くと、
 \[
- \Delta(a,b)\ne0
- \quad\Longleftrightarrow\quad
- A_\ell\text{ の残余線束圏が smooth}
- \quad\Longleftrightarrow\quad
+ \begin{aligned}
+ &\Delta(a,b)\ne0\\
+ &\quad\Longleftrightarrow\quad
+ A_\ell\text{ の残余線束圏が smooth}\\
+ &\quad\Longleftrightarrow\quad
  V\bigl(W_{\mathrm{pol}}(\mathbf x,as,bs)\bigr)
        \subset\mathbb P^N\text{ が滑らか}
+ \end{aligned}
 \]
 である。従って全二中心係数空間の開集合
 \[
@@ -177,4 +179,12 @@ $\Delta\equiv0$ の部分に滑らかな非可換対象が存在しないこと�
 例えば\cite[Proposition~2.1]{CMORSVBertini}は可換有限型環上の有限性を仮定し、
 同論文の Introduction は smooth dg 圏の層への拡張を証明していないと明記する。
 一般の多中心 PBW 族にその有限中心仮定を無条件で加えることはしない。
+また、\cite[Lemma~7.18, Proposition~7.19]{CRSPerry}は
+射影空間上の Lefschetz 圏の universal hyperplane と臨界集合を扱う。
+基点付きの本中央 pencil をその線型圏へ実際に移すことと、
+総圏の絶対 smoothness から一般切断の smoothness を得ることは別に必要である。
+同論文の Remark~4.23 も、一般の線型圏の臨界集合について
+必要な仮定の下での閉性を期待として記し、証明したとはしていない。
+基点解消に近い\cite[Theorems~3.3, 4.5]{CMOJiangLeungBlowup}も、
+同論文 Section~1.5 の幾何的 admissible 部分圏という枠組みを確認して適用する必要がある。
 \end{remark}
