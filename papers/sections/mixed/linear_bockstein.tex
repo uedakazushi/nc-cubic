@@ -1,0 +1,364 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22.
+\section{線形 PBW 補正の残余 Bockstein}
+\label{mix:sec:linear-bockstein}
+
+本節では線形補正の一次類を、境界残余圏上の高次自然変換として検出する。
+剰余体の安定化における射の値は零であるが、その射を零とする homotopy を
+隣接する内部 shift の間の全ての射と両立させることはできない。
+この両立条件の一次部分が、各ブロックの三つの対角外係数を検出する。
+通常の残余圏で許される、対象ごとに異なる homotopy も全て含めて議論する。
+
+$k\ge2$、$a_i\in\C^\times$ を固定し、
+系\ref{mix:cor:linear-pbw-multiblock-family}の代数を $A$ と書く。
+以下の境界とその二次 Koszul 双対は係数に依存しない：
+\[
+ S_0=S(1,-1,-1),\qquad B_0=S_0^{\otimes k},\qquad
+ w_0=\sum_i a_i\Omega_{0,i},\qquad D=B_0/(w_0),\qquad
+ F=B_0^!=(S_0^!)^{\widehat\otimes k}.
+\]
+$\mathcal K_D$ を境界の残余 dg 圏、$\rho$ をその rotation とする。
+window で graded singularity category と比較する規約では
+$\rho=(1)$、指定された三次周期は $\rho^3\simeq[2]$ である。
+中心正則元 $u$ の自己交叉三角をこの window に移した射を
+\[
+ \nu_A:\operatorname{id}_{\mathcal K_D}\longrightarrow
+          \rho^{-1}[2]\simeq\rho^2
+\]
+とする。この定義は球面性の判定に先立って意味を持ち、
+中心超平面制限の余単位三角と比較すると、その第三射を与える。
+
+\begin{theorem}[線形三方向の残余検出]
+\label{mix:thm:linear-bockstein-injection}
+上の固定した境界について、$\nu_A$ は
+$\alpha^{(i)},c$ に依存せず、線形写像
+\begin{equation}\label{mix:eq:linear-bockstein-map}
+ \mathfrak b_1:\C^{3k}\longrightarrow
+ H^0\operatorname{RHom}_{\operatorname{Fun}(\mathcal K_D,\mathcal K_D)}
+       (\operatorname{id},\rho^2),\qquad
+ (p_i,q_i,r_i)_i\longmapsto\nu_A
+\end{equation}
+を定める。この写像は単射である。従って
+\[
+              \nu_A=0\quad\Longleftrightarrow\quad
+                   p_i=q_i=r_i=0\quad(1\le i\le k).
+\]
+ここで自然変換と homotopy は dg enhancement における全てのものを用い、
+rotation との可換性を homotopy に追加していない。
+\end{theorem}
+
+\subsection{自己交叉の類と全 Hochschild cochain}
+
+まず、実際の Bockstein と一次変形 cochain の対応を固定する。
+$R_\epsilon=\C[u]/(u^2)$、$\deg u=1$、$D_\epsilon=A/(u^2)$ と置く。
+次数別自由性により、$D_\epsilon$ は $D$ の平坦な一次変形である。
+単位を保つ斉次な $\C$-線型切断 $s:D\to D_\epsilon$ を選ぶと
+\[
+ s(a)s(b)-s(ab)=u\,s\bigl(\phi(a,b)\bigr)
+\]
+によって内部次数 $-1$ の Hochschild 二 cocycle $\phi$ が定まる。
+切断の変更は coboundary を加える。
+
+\begin{lemma}[二項自己交叉から full cocycle への比較]
+\label{mix:lem:linear-bockstein-characteristic}
+中心正則元 $u$ の双加群自己交叉三角
+\begin{equation}\label{mix:eq:linear-bockstein-self-intersection}
+ D(-1)[1]\longrightarrow D\otimes_A^{\mathbf L}D
+ \longrightarrow D\xrightarrow{\eta}D(-1)[2]
+\end{equation}
+の connecting class は、共通の二拡張の符号を除いて
+$[\phi]\in\operatorname{HH}^2(D)_{-1}$ である。
+この双加群射を加群へ作用させ、dg singularity quotient と window に通した
+全 coherent 自然変換が $\nu_A$ である。
+
+$D$-自由解消を $D_\epsilon$ 上の複体へ持ち上げられる対象の部分圏では、
+$\nu_A$ の制限は、その持上げ複体の dg Hom 圏の一次変形 cochain で表せる。
+この代表の arity zero 成分は零であり、arity one 成分は Hom 複体の
+一次微分、arity two 成分は積の一次補正である。
+最小 $A_\infty$ 模型へ移した後も同じ full cohomology class を表す。
+\end{lemma}
+
+\begin{proof}
+右 $A$-加群としての二項解消
+$[A(-1)\xrightarrow{u}A]$ に $D$ の左作用を持ち上げる。
+$s(a)$ をさらに $A$ の元 $\widetilde s(a)$ へ持ち上げて左作用を表す。
+二つの作用の合成と $ab$ の作用との差を $u\psi(a,b)$ と書くと、
+$\psi(a,b)\bmod u=\phi(a,b)$ である。この差を二項解消上で埋める homotopy を
+$D$ との tensor の後に還元すると、正規化した二側 bar 解消の二項
+$[a|b]$ を $\phi(a,b)$ へ送る cochain を得る。
+これは二段階の Postnikov 三角
+\eqref{mix:eq:linear-bockstein-self-intersection}の connecting morphism の
+bar 表示である。従って、加群ごとの値だけでなく双加群の class が一致する。
+
+この bar class の自由複体への移送は brace 写像で記述できる。
+元の積を $m$、自由複体の微分を $d$、その持上げを $d+ub$ と書くと、
+一次構造の arity zero, one, two 成分は、それぞれ
+\[
+ \phi\{d,d\}+m\{d,b\}+m\{b,d\},\qquad
+ \phi\{d\}+m\{b\},\qquad \phi
+\]
+である。これは $\operatorname{embr}_d(\phi)$ に Hochschild coboundary を
+加えたものに等しい。持上げが複体なら最初の成分は零であり、
+第二成分は持ち上げた Hom 複体の微分の $u$ 係数にほかならない。
+この全 cochain の比較は
+Lowen\cite[Theorems~3.21, 4.15]{CMOLowenCharacteristic}の構成である。
+同文献 Theorem~4.8 の対象ごとの obstruction は、その arity zero 成分である。
+ここではこの零成分への射影だけを使ってはいない。
+内部次数付きの主張は全ての brace 演算の斉次部分を取れば従い、
+cohomological degree zero の $u$ に内部重み一を与えても同じ式である。
+
+通常の自由解消を $A$ 上へ持ち上げて
+$\widetilde d^{\,2}=u\theta$ と書けば、上の零成分は
+$\theta\bmod u$ を表す。従って
+補題\ref{cmo:lem:spherical-bockstein}の次数一版と同じ Bockstein である。
+完全加群は内部 shift で保たれるので、双加群の射による自然変換は
+dg quotient の普遍性によって singularity category に降下する。
+この普遍性は自然変換の mapping complex とその homotopy も含む。
+window への移送も実 dg 関手によるため、全 coherent class を保持する。
+
+最後に、複体の contraction を $\C$ 上で選んで一次変形へ延長する。
+$u^2=0$ なので perturbation の展開は一次で止まり、
+最小模型への移送は同じ cohomology class を運ぶ。
+無曲率の持上げ複体を使っているので、移した arity zero 成分も零に取れる。
+\end{proof}
+
+\subsection{相対 Koszul--Tate 解消の一次微分}
+
+$\kappa$ を $\C=D/D_{\ge1}$ の安定化とし、
+$\mathcal T$ を全ての $\kappa(a)$、$a\in\Z$ を対象とする full dg 部分圏とする。
+この部分圏の射は window を通して $\mathcal K_D$ 内の射と一致する。
+非零性を示すには、$\mathcal K_D$ 上の nullhomotopy が $\mathcal T$ に
+制限されることだけを用い、生成対象上での検査を無条件に全圏の同値へ拡大しない。
+
+中央三次商の Tate 計算
+（\paperref{moduli}{lem:nfm-cubic-tate-cut}）によって、積を含めて
+\begin{equation}\label{mix:eq:linear-bockstein-tate}
+ E=\underline{\operatorname{Ext}}_D^*(\C,\C)
+        =F\otimes\C[t],\qquad
+ H^*(\mathcal T)=F\otimes\C[t,t^{-1}]
+\end{equation}
+となる。後式は内部 shift による orbit 表示である。
+双次数は標的の内部 shift の規約で
+\[
+ E^{p,q}=\operatorname{Ext}^p_{\operatorname{Gr}D}(\C,\C(q)),\qquad
+ \deg\xi_{ij}=(1,-1),\qquad \deg t=(2,-3).
+\]
+$t$ は $w_0$ に由来する中央の周期 class であり、安定化は
+単に cohomology の局所化に一致するだけでなく、dg derived localization を与える。
+
+ここで使う自然変換の複体も明示しておく。
+$\rho^{-1}$ の graph 双加群を係数とする bar cochain の第 $N$ 項は
+\[
+ \begin{aligned}
+ V_{\boldsymbol a}
+   &=\mathcal T(a_{n-1},a_n)\otimes\cdots\otimes\mathcal T(a_0,a_1),\\
+ \mathcal C_\rho^N
+   &=\prod_{n\ge0}\prod_{a_0,\ldots,a_n\in\Z}
+      \operatorname{Hom}^{N-n}
+       \bigl(V_{\boldsymbol a},\mathcal T(a_0,a_n-1)\bigr)
+ \end{aligned}
+\]
+である。零項も含む正規化 bar 解消によって
+\[
+ H^2(\mathcal C_\rho^\bullet)=
+ H^0\operatorname{RHom}_{\operatorname{Fun}(\mathcal T,\mathcal T)}
+       (\operatorname{id},\rho^{-1}[2])
+\]
+と同定する。
+各 cochain は対象列に独立に依存してよく、shift による不変性は要求しない。
+入力の内部 shift の総和に比べ出力が一つ下がることが、内部次数 $-1$ の意味である。
+これは次数付き代数 $D$ の $\operatorname{HH}^2_{-1}$ 全体と
+残余圏の自然変換空間が同型だという主張ではなく、
+補題\ref{mix:lem:linear-bockstein-characteristic}がその間の実際の class を運ぶ写像を与える。
+
+\begin{lemma}[実際の一次 cochain の unary 成分]
+\label{mix:lem:linear-bockstein-unary}
+$\mathcal T$ の strictly unital な最小 $A_\infty$ 模型を、
+内部次数付き Tate 模型から対象 $\kappa(a)$ ごとに展開して取れる。
+この模型上で $\nu_A|_{\mathcal T}$ を表す Hochschild cocycle を
+$\delta=(\delta_0,\delta_1,\ldots)$ とすると、$\delta_0=0$ に取れて、
+各ブロックの次数一生成元について
+\begin{equation}\label{mix:eq:linear-bockstein-unary}
+ \delta_1(\xi_{ij})=-\sum_{l=1}^3m^{(i)}_{lj}\xi_{il}^{\,2},
+ \qquad
+ M_i=\begin{pmatrix}0&p_i&r_i\\p_i&0&q_i\\r_i&q_i&0\end{pmatrix}
+\end{equation}
+となる。ここでは二拡張の共通の全体符号をこの式で固定した。
+反対の Bockstein 符号では右辺全体が反転し、以下の単射性は変わらない。
+$\delta_n$ の cohomological degree は $2-n$、内部次数は $-1$ である。
+中心三次の $uQ$ は、この unary 成分へ寄与しない。
+\end{lemma}
+
+\begin{proof}
+$D_\epsilon$ の関係式は
+\[
+ r_{il}-u\sum_jm^{(i)}_{lj}x_{ij}=0,
+ \qquad w_0+u\sum_i a_iQ_{p_i,q_i,r_i}=0,
+\]
+および異なるブロックの可換関係である。
+全ての $x_{ij}$ を零へ送る augmentation
+$D_\epsilon\to R_\epsilon$ が存在する。
+従って $\kappa(a)$ の通常の自由解消は、全て同時にこの相対剰余体の解消へ持ち上げられる。
+
+具体的には、周囲 PBW 代数の相対非斉次 Koszul 解消を使う。
+その自由項は $F_j^*$ を基底とし、微分は通常の Koszul 微分に
+$u\ell^*$ の双対項を加えたものである。
+PBW 条件はその二乗の零性を与え、active 濾過の随伴複体が通常の
+Koszul 解消であることから完全性を得る。
+これは augmented な非斉次二次双対の構成
+\cite[\S\S2.1--2.5]{CMOPositselskiQL}を $R_\epsilon$ 上で行ったものである。
+二次関係の双対基底を $r_{il}^*$ とすれば
+\[
+       r_{il}^*=-\xi_{il}^{\,2},\qquad
+       \ell^*(\xi_{ij})=\sum_lm^{(i)}_{lj}r_{il}^*.
+\]
+従って augmentation 後の微分の一次項は、共通符号を除いて
+式\eqref{mix:eq:linear-bockstein-unary}である。
+
+この相対解消に正則中心三次 $w_0+u\sum_i a_iQ_i$ に対する
+Shamash 構成を施し、得られる相対自由解消を $P_\epsilon$ と書く。
+高次 homotopy $s_n$ は homological degree を $2n-1$ 増し、
+内部 shift が $3n$ なので、その行列係数の総内部次数は
+$3n-(2n-1)=n+1$ である。
+$n\ge1$ ではこれは二以上であり、$u^2=0$ の下では
+全ての係数が augmentation によって零になる。
+特に $uQ$ の寄与も $u$ と少なくとも一つの active 変数を含み、零になる。
+よって相対剰余体への Hom 複体は
+\begin{equation}\label{mix:eq:linear-bockstein-relative-hom}
+       \bigl(F\otimes R_\epsilon[t],\ \pm u\ell^*\bigr)
+\end{equation}
+である。
+augmentation $P_\epsilon\to R_\epsilon$ は複体の擬同型
+\[
+ \underline{\operatorname{End}}_{D_\epsilon}(P_\epsilon)
+       \longrightarrow
+ \underline{\operatorname{Hom}}_{D_\epsilon}(P_\epsilon,R_\epsilon)
+\]
+を誘導する。これは $P_\epsilon$ が上に有界な自由 cochain 解消だからである。
+積と高次構造は dg End から移送し、上の Hom 表示は unary 微分の計算に用いる。
+Shamash 構成の完全性と周期作用素には
+\cite[Constructions~4.1.1, 4.3.1, Proposition~4.3.2]{CMOEisenbudPeeva}を用いる。
+この構成と証明は、ここでは中心元の可換性、正則性と自由解消だけを使うので
+相対非可換代数にも同じ形で適用できる。
+
+周期作用素 $t$ は、相対周囲代数 $B_\epsilon$ から $D_\epsilon$ への
+中央三次商の双加群自己交叉から来る cohomology operator である。
+従って全相対 Ext 上の中央自然変換であり、
+Shamash 解消の分割冪の shift がこの同じ class を表す。
+これは持上げ後も実際の閉じた chain map なので、
+相対 dg End をこの作用素で derived localization できる。
+上の augmentation による擬同型は、周期 chain map の前合成とも両立する。
+中央性と一元局所化の計算
+\cite[Theorem~5.3, Corollary~5.16]{NFMBCLLocalization}を使うと、
+射複体の局所化は式\eqref{mix:eq:linear-bockstein-relative-hom}の
+$t$-telescope で計算でき、一次微分は $F[t,t^{-1}]$ へ同じ式で延びる。
+零ファイバーは式\eqref{mix:eq:linear-bockstein-tate}の実 Tate dg 模型である。
+さらに derived localization の普遍性
+\cite[Proposition~3.17, Theorem~3.18]{NFMBCLLocalization}が
+この持上げと全自然変換の移送を与える。
+従って、通常 Ext の一点で得た数値を安定圏へ推測しているのではない。
+補題\ref{mix:lem:linear-bockstein-characteristic}の full cocycle を
+同じ局所化と最小模型への移送に通している。
+
+最小模型の unary 一次項は、Hom 複体の一次変形の connecting differential である。
+その $F^1\to F^2$ 成分は式\eqref{mix:eq:linear-bockstein-relative-hom}で計算したものなので、
+式\eqref{mix:eq:linear-bockstein-unary}を得る。
+低次の中心補正は高い arity の成分を変え得るが、この成分を変えない。
+\end{proof}
+
+\subsection{対象ごとに異なる gauge を許した単射性}
+
+\begin{proof}[定理\ref{mix:thm:linear-bockstein-injection}の証明]
+$D_\epsilon$ の表示は $(p_i,q_i,r_i)_i$ に線形で、
+$\alpha^{(i)},c$ は $u^2$ 以上にしか現れない。
+従って補題\ref{mix:lem:linear-bockstein-characteristic}は
+式\eqref{mix:eq:linear-bockstein-map}の線形性と係数非依存性を与える。
+
+$\nu_A=0$ と仮定する。
+その nullhomotopy を $\mathcal T$ に制限し、最小模型へ移すと、
+全 Hochschild cochain $h=(h_0,h_1,\ldots)$ について
+\[
+                           \delta=[m,h]
+\]
+と書ける。$m_0=m_1=0$ なので、右辺の arity one には
+$[m_2,h_0]$ だけが寄与する。
+無限個の高次成分を許しているが、固定 arity one のこの式には
+それらのいずれも入らない。
+従って bar 長を有限で切ったり、総次数からその切断を仮定したりしていない。
+
+各対象における零項は
+\[
+ h_0(a)\in
+ \operatorname{Hom}(\kappa(a),\kappa(a-1)[1])
+             =(F[t,t^{-1}])^{1,-1}.
+\]
+$F_d t^e$ の双次数は $(d+2e,-d-3e)$ であり、
+\[
+ d+2e=1,\qquad -d-3e=-1
+               \quad\Longrightarrow\quad(d,e)=(1,0).
+\]
+従って $h_0(a)\in F^1$ である。
+これは負の $t$ 冪も含めた計算であり、普通の圏で許される homotopy を
+内部 shift 同変なものへ狭めてはいない。
+
+一つの隣接する組
+$\kappa(a)\to\kappa(a-1)$ を固定し、
+$h_L=h_0(a-1)$、$h_R=h_0(a)$ と置く。
+これら二つの元は独立でよい。
+次数一の射 $\xi_{ij}$ について arity one の式は
+\begin{equation}\label{mix:eq:linear-bockstein-independent-gauge}
+       \delta_1(\xi_{ij})=h_L\xi_{ij}+\xi_{ij}h_R
+\end{equation}
+となる。ここでは $\rho^{-1}(\xi_{ij})$ と $\xi_{ij}$ を
+内部次数付き orbit 模型で同じ元として表している。
+
+第 $i$ ブロックの三元を $\xi_x,\xi_y,\xi_z$ と省略し、
+$h_L$、$h_R$ のそのブロックの成分をそれぞれ
+$L_x\xi_x+L_y\xi_y+L_z\xi_z$、
+$R_x\xi_x+R_y\xi_y+R_z\xi_z$ と書く。
+二次双対の積は
+\[
+ \xi_y\xi_z=-\xi_x^2,\qquad
+ \xi_z\xi_x=-\xi_y^2,\qquad
+ \xi_x\xi_y=-\xi_z^2,
+ \qquad \xi_j\xi_l=-\xi_l\xi_j\quad(j\ne l)
+\]
+である。
+式\eqref{mix:eq:linear-bockstein-independent-gauge}を
+当該ブロックの $F_i^2=\langle\xi_x^2,\xi_y^2,\xi_z^2\rangle$ へ射影する。
+行を出力の平方、列を入力の生成元で並べた行列は
+\begin{equation}\label{mix:eq:linear-bockstein-gauge-matrix}
+ \begin{pmatrix}
+ L_x+R_x&L_z-R_z&R_y-L_y\\
+ R_z-L_z&L_y+R_y&L_x-R_x\\
+ L_y-R_y&R_x-L_x&L_z+R_z
+ \end{pmatrix}.
+\end{equation}
+異なるブロックに属する $h_L,h_R$ の成分は混合次数の項に入り、
+この射影では零となる。
+上の行列の対角外部分は交代的である。
+一方、左辺の行列は式\eqref{mix:eq:linear-bockstein-unary}により
+$-M_i$ であり、対称かつ対角零である。
+標数零なので両者が等しければ $M_i=0$ である。
+全ブロックで同じ議論を行って $(p_i,q_i,r_i)_i=0$ を得る。
+逆にこれらが零なら $D_\epsilon=D[u]/(u^2)$ であり、
+自己交叉 class と $\nu_A$ は零である。
+\end{proof}
+
+\begin{remark}[計算証明書と残る比較]
+\label{mix:rem:linear-bockstein-scope}
+\texttt{computations/verify\_mixed\_linear\_bockstein.py} は、
+元の二次関係から上の双対積を作り、独立な $h_L,h_R$ の gauge 行列の階数六と、
+三つの対称対角外列を加えた九行九列行列の非零行列式を有理数上で確認する。
+これは単射性の最後の線型代数と双次数の確認であり、
+full Bockstein の同定と Tate への移送の証明は上の二補題による。
+
+今回の結論は $3k$ 次元の部分空間の単射性である。
+全線形族の存在比較核は、定理\ref{lcc:thm:universal-linear-kernel}で
+この単射性とは独立に構成する。
+可換境界との指定比較での $\operatorname{Jac}(G)_2$ 内の具体的な数値係数と、
+そこから得られる候補式の完全な数値表示は、本節の単射性だけでは決まらない。
+また、各 $\kappa(a)$ における $\nu_A$ の値が零であることと、
+高次自然変換 $\nu_A$ 自体が零であることは異なる。
+本節の unary 検出はまさにこの差を利用している。
+\end{remark}

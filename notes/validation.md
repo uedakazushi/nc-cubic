@@ -1,44 +1,34 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月22日 / v55。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月22日 / v56。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
-## 任意ブロック数の比較と線形PBW補正の確認範囲
+## 全線形PBW族の比較と残余Bocksteinの確認範囲
 
-対象は `mixed/multiblock_central_kernel.tex` と `mixed/linear_pbw_boundary.tex`。前者は同一S(1,−1,−1)、任意k≥2、固定非零重み、全α,cの残余線束圏の実Morita比較と可換smooth開の相対perfect核を証明する。一般κ_kの数値は未決定で、判別行列はこの定数を含む。後者は全線形PBW補正のM対称条件、平行移動正規形、普遍中心三次、任意kの正則中心商・自由性とHH²₋₁(S)≅C³の全計算を扱う。Ku上の一次Bockstein・全線形族の核・一般PI性は未証明である。
+対象は `mixed/linear_bockstein.tex` と `mixed/linear_comonad_comparison.tex`。同一S(1,−1,−1)の任意個k≥2、固定非零重み、中心変数一つの全線形・定数補正を扱う。前者は3k方向の残余Bockstein単射性、後者は非分裂counitの三項までの比較と三角多項式係数変更、全係数上の実残余線束Morita比較を証明する。可換smooth開で相対perfect核・各複素ファイバーの全coherent Ku同値となる。rank8^k臨界代数による判別式と、一般(p,α)での8^k個の唯一ODPも含む。全数値係数・一般κ_k、一般PI・有限中心性、全intrinsic対象は未解決である。
 
 ### 証明と一次資料の読解
 
-任意N=3kの境界に対しBFK Theorem5.39の恒等sectorと非恒等sectorのparity・内部次数を独立照合した。r≥2,i≥0で必要な非恒等sector条件の左辺は高々2、右辺N≥6となる。球面制限の例外列長、proper性と周期による生成性、普遍係数上の二項・三項の多項式性、coKleisli積、相対perfect性とcoherent飽和を読解した。Willumsgaard Theorem3.3/Lemma3.11の固定unit・unit-insertion cubeの一次資料も確認した。3|kでは対称rotation分裂を仮定せず、全次数格子と基準変更の文字遷移を比較する。一般αでの8^k個の相異なる特異中心係数と各可換標的の唯一ODPについて、scalingによる非空性・判別式とHessian normによる開性・形式的Morse補題の適用を独立読解した。非可換中心の局所型を分類した結果ではない。
+自己交叉の二拡張を正規化barの乗法cocycleと同定する橋渡し、Lowenのfull brace mapと対象ごとのobstructionの区別、相対Koszul–Shamash模型のunary微分、中央自然変換tによるderived localization、対象ごとに独立なhomotopyのarity one検出を読解した。Tate逆冪を許す双次数と、他ブロックの成分を除く射影も確認した。通常Extのcohomology algebraだけからの移送や、objectwise vanishingから自然変換の零性を結論する議論ではない。
 
-線形PBWでは唯一の三次重なりとR∩Λ²V=0、BG Main Theorem0.5/Lemma3.3の三条件、平行移動の符号と一意性、中心元の低次数一意性、全kの中心和の正則性、Koszul複体からのHH²₋₁(S)=Sym₃(C)/Diag₃(C)の計算を読解した。EG Theorem3.3.2の一般中心存在と、本節の係数を明示した普遍恒等式の役割を区別した。新しい二節は執筆担当以外の担当でも読解した。全既存本文の再監査、形式証明器による確認、外部査読、網羅的新規性確認ではない。
+非分裂K_ηの比較では、長完全列の両隣接群を含めたBFK sector計算、全ηの係数上の自然な自由加群同定、固定counitのWillumsgaard towerの適用を確認した。実可換族を各段の参照点とする順序、二項を同定した後のpath空間の可縮性、重み1,2,3から得る三角多項式変換を独立読解した。Bockstein単射性は存在比較の前提ではない。
+
+周囲代数の相対potential解消、共有u差を一度だけ加えるchange of rings、untwisted双対、proper線束模型と周期による生成、coKleisli積、可換smooth開でのperfect核とcoherent飽和を確認した。主稿のcrsの入力に有限中心・PIがないことも確認した。普遍臨界代数のfiltered Koszulによる自由性、Euler恒等式、determinantの重複度、定数型Morse seedから一般(p,α)の非空開へ進む議論を確認した。
+
+新設二節は執筆担当以外でも全文を読解した。一次資料としてLowen Theorems3.21,4.8,4.15と4.15の証明、Berger–Taillefer Theorem3.6/Lemma3.7と自己双対解消の証明を確認し、引用・書誌へ反映した。BCLの普遍性とcentral localizationのcohomology計算は区別して使用する。BFK Theorem5.39、Willumsgaard Theorem3.3/Lemma3.11、BG条件、既存中心恒等式と定数型比較は、前提となる既存確認範囲を保持する。全既存本文の再監査、網羅的新規性確認、外部査読、形式証明器での確認ではない。
 
 ### 今回の厳密計算
 
-- `python3 computations/verify_mixed_multiblock.py`：8 PASS。普遍8×8乗法行列、平方自由基底、Euler恒等式、二次moment、重み付きtensor spectrum、非被約原点、全kのsector不等式、seed α=(1,4,9)の特性多項式の平方因子不在とHessian normの非消滅。
-- `python3 computations/verify_mixed_linear_pbw.py`：6 PASS。普遍PBW重なり、QQ上の162×339関係行列（階数144）による全中心交換子、Z(S)₁=Z(S)₂=0、平行移動則、三方向の一次類と既存中心元への特殊化。
-- 別実装の独立計算では普遍三変数臨界代数のGröbner基底から8×8乗法行列を別に作り、平方自由基底への変換行列式−9、Tr(H)=0、Tr(H²)=2(109(α₁³+α₂³+α₃³)+54α₁α₂α₃)/63を照合した。この一時計算は重複実装として収録せず、再現正本は上の検証器に統合する。
+`python3 computations/verify_mixed_linear_bockstein.py`：**6 PASS**。元の三つの二次関係からdual積を導出。独立な左右primitiveの9×6 gauge行列の階数6、対称対角外の3列を加えた9×9行列の行列式−64、対称gaugeとの交わりが対角3次元であることを有理数上で確認した。双次数(1,−1)のprimitiveはtの負冪を許してもF₁t⁰のみとなる。非負変数k=2+K,r=2+R,i=Iを使い、非分裂towerの三群の非恒等sectorが全k・全arityで消えることと、恒等sectorが二項Jac₁・三項Jac₀だけになることを記号的に確認した。
 
-全次数PBWは有限次数のHilbert関数による推測ではなく、原稿のBG条件確認と同定理による。普遍中心の三交換子は実関係倍の行空間所属なので有限だが全係数に有効な恒等式である。核の全coherenceと圏同値は本文の証明に依存する。
+既存の `verify_mixed_multiblock.py` の8 PASS、`verify_mixed_linear_pbw.py` の6 PASSとその普遍中心関係行列162×339/rank144は保持する。今回それらを新たな再実行結果として数えない。全次数PBWはBG条件と定理、full Bockstein・全coherence・実Morita比較は本文の証明に依存する。
 
 ### 現行組版と保存
 
-新節を混合稿へ一度だけ組み込み、主稿・序論・研究方針・README・AGENTS・ノートの範囲と再開点を整合させた。IntroductionにはBGのPBW条件・EGの中心存在と、今回の対称行列条件・全係数中心式の関係を明記した。
+新設二節を混合稿へ一度だけ組み込み、主稿・Introduction・研究方針・README・AGENTS・ノートの範囲と再開先を更新した。主稿と混合稿はv56、モジュライ稿本文はv50を保持する。
 
-`python3 scripts/check_sources.py` は **102 TeX source・1710一意ラベル**で成功した。主稿33 source/477 labels、モジュライ稿45 source/874 labels、混合稿28 source/359 labels。入力グラフ、他稿参照、引用、著者欄、root指定を検査し、`git diff --check` も成功した。
+`python3 scripts/check_sources.py` は104 TeX source・1733一意ラベルで成功した。主稿33 source/477 labels、モジュライ稿45 source/874 labels、混合稿30 source/382 labels。input・他稿参照・引用・著者欄・root指定を検査し、`git diff --check` も成功した。三稿のLuaLaTeX組版と表示確認は進行中で、完了後にこの段落を更新する。既存v55の三稿180・454・180頁の組版結果を、新設節を含むv56の組版確認と読み替えない。
 
-`python3 scripts/build_papers.py` で三稿をLuaLaTeX組版し、三巡で他稿参照を収束させた。Introductionの文献比較を最終調整した後に混合稿と依存する二稿を再組版し、全label・文献番号・参照頁の状態が不変となることを確認した。最終三logには未解決参照・未解決引用・重複label・Missing character・Overfull/Underfull boxがない。既存の数式フォントのサイズ代替と旧式命令に関する警告は残る。
-
-| 現行PDF | 原稿版 | 頁数 |
-| --- | --- | ---: |
-| nc-cubic.pdf | v55 | 180 |
-| cubic-moduli-descent.pdf | v50 | 454 |
-| mixed-sklyanin-cubics.pdf | v55 | 180 |
-
-最終PDFの **27頁**を130 dpiで画像化して実表示を確認した。混合稿1–7、121–134頁、主稿1、4–5、160–162頁である。新設二節全体、普遍比較定理13.4・判別式の系13.5–13.6、線形PBWと中心三次14.1–14.3、HHの式(14.6)、Introduction・目次・主稿の到達範囲を含む。文字欠落・重なり・数式や頁端の切れは見つからなかった。組版途中の画像を点検した頁についても、最終PDFの描画とpixel単位で一致することを確認した。これは全814頁の表示点検や全数学本文の再監査ではない。
-
-組版にはLuaHBTeX1.18.0・latexmk4.86・LaTeX2e2024-11-01 patch level2と整合するLuaTeX-jaを用いた。実行環境に不足していた形式ファイルは利用可能な整合済みTeX環境で補い、原稿・ビルド・VS Code設定は従来のLuaLaTeX構成を保った。依存関係と再生成コマンドはREADME、PDFとSyncTeXの出力先はbuild/である。VS Code UIの操作は今回行っていない。
-
-原稿・方針・ノート・AGENTS・README・必要な再現コードの正本はGitHub mainである。通常コミットによる保存と遠隔commit/treeの照合を行い、その結果をresearch-hubの該当項目へ反映する。PDF・TeX中間生成物・表示用画像・一時計算・外部文献PDF・一時的な組版環境はGit追跡に含めない。
+再生成は `python3 scripts/check_sources.py` と `python3 scripts/build_papers.py`。LuaLaTeX・latexmkを使い、PDFとSyncTeXの出力先はbuild/。正本はmainのソース・入力・再現コードであり、PDF・中間生成物・表示用画像・一時計算・外部文献PDF・一時的な組版環境はGit追跡に含めない。対象repo保存とresearch-hub更新を別々に確認する。
 
 ## 保持する全中心係数の実核と普遍定数補正
 

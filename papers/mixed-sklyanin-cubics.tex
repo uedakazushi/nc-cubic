@@ -3,11 +3,11 @@
 \SetPaper{mixed}
 
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
-\large 有限中心・局所代数・全中心係数の可換比較核}
+\large 有限中心・局所代数・線形PBW族の可換比較核}
 \author{}
-\date{2026年11月22日・研究稿 v55}
+\date{2026年11月22日・研究稿 v56}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
-pdfsubject={有限中心・局所代数・全中心係数の可換比較核}}
+pdfsubject={有限中心・局所代数・線形PBW族の可換比較核}}
 
 \begin{document}
 \maketitle
@@ -42,7 +42,12 @@ $\kappa_k\ne0$ は係数に依存しないが、一般の $k$ での数値は未
 可換 smooth 開では相対 perfect 核を得て、階数 $8^k$ の臨界代数の行列式で
 その開集合を判定する。
 さらに、全線形 PBW 補正の対称行列条件、平行移動正規形と普遍中心三次を明示する。
-線形補正の残余 Bockstein と可換 Ku 比較は未解決である。
+その $3k$ 個の対角外方向は、full Bockstein の unary 成分によって残余圏で検出される。
+非分裂 counit 上でも二項・三項以外の比較の自由度が消えることを示し、
+実可換族を参照する三角な多項式係数変更から、全線形 PBW 族の残余線束圏を
+$V(G+uQ+u^2L+u^3C)$ と普遍 Morita 比較する。
+可換 smooth 開では全 coherent Ku 同値となり、階数 $8^k$ の臨界代数で判別する。
+比較係数の全数値化と、全線形族の PI 性・有限中心性は未解決である。
 さらに交換子パラメータの族に、零と一を含む半局所底上の
 相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
 相対模型から非可換側の Hochschild 対合指標も決定する。
@@ -170,7 +175,7 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  補題\ref{cmo:lem:cotwist-normal-quadric}は同じ類を
  rank 一 Kn\"orrer 核上の明示 homotopy で計算する。
 
- \item \emph{線形 PBW 補正の正規形と中心三次。}
+ \item \emph{全線形 PBW 補正の正規形と可換比較。}
  命題\ref{mix:prop:linear-pbw-normal-form}は一次補正行列が対称であることを
  PBW 性の必要十分条件とし、平行移動で対角成分を取り除く。
  定理\ref{mix:thm:linear-pbw-central-cubic}は残る三つの線形係数と
@@ -180,8 +185,15 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  式\eqref{mix:eq:linear-pbw-hochschild}では
  $\operatorname{HH}^2_{-1}(S)\simeq\C^3$ を計算し、
  三つの対角外方向がこの空間全体を与える。
- 一次代数変形の非零性と、残余圏上の Bockstein の非零性は区別し、
- 後者からの全 Ku 比較は未解決として明記する。
+ 定理\ref{mix:thm:linear-bockstein-injection}は、実際の自己交叉 class を
+ 相対 Koszul--Tate 模型へ移し、対象ごとに異なる homotopy を許しても
+ これら $3k$ 方向が残余 Bockstein として消えないことを証明する。
+ 定理\ref{lcc:thm:universal-linear-kernel}は、非分裂 counit 上の比較群を計算し、
+ 全線形 PBW 族の残余線束圏を三角な多項式係数変更により可換三次へ比較する。
+ 可換 smooth 開では相対 perfect 核と全 coherent Ku 同値を得る。
+ 系\ref{lcc:cor:linear-discriminant}は階数 $8^k$ の乗法行列式で smoothness を判定し、
+ 一般の線形・定数係数では $8^k$ 個の相異なる悪い中心係数と各標的の唯一の通常二重点を与える。
+ 線形 Bockstein 写像の単射性は、この存在定理の仮定ではない。
 
  \item \emph{零係数の実際の可換比較核。}
  $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
@@ -254,7 +266,17 @@ potential の PBW 変形と三次中心元は Etingof--Ginzburg
 線形補正では Braverman--Gaitsgory
 \cite[Main Theorem~0.5, Lemma~3.3]{CMOBravermanGaitsgory}の PBW 条件を
 本因子で対称行列条件へ還元し、既知の中心存在を全係数の明示三次式へ具体化する。
-その三つの一次変形類を計算する一方、残余圏への Bockstein の移送は未完了である。
+その三つの一次変形類を計算し、線形係数を含む全族の比較へ進む。
+残余 Bockstein の検出では、Lowen
+\cite[Theorems~3.21, 4.8, 4.15]{CMOLowenCharacteristic}の
+全 brace cochain の移送と対象ごとの obstruction への射影を区別する。
+相対 Koszul--Tate 模型の unary 成分を計算し、独立な左右の homotopy が与える
+交代行列と対称な PBW 係数を比較することで単射性を得る。
+周囲代数の untwisted な双対性には Berger--Taillefer
+\cite[Theorem~3.6, Lemma~3.7]{NFMBeTa}の自己双対 potential 解消を使う。
+非分裂 counit に対する固定 unit の障害塔を計算し、
+各段に実可換族を参照することで、全線形係数上の多項式的な比較を得る。
+この適用は一般の PI 性・有限中心性を必要としない。
 Walton \cite[Definition~V.1, Remark~V.16]{CMOWaltonThesis}の
 位数六の中心拡大に関する持上げの方針に対し、
 本稿は斉次パラメータ $(1,-1,-1)$、線形補正が零、定数補正が任意という
@@ -339,6 +361,8 @@ Sklyanin 曲線と標準中心元の既知の記述
 普遍制限、低 arity 比較、相対核と尺度を構成する。
 第\ref{cmm:sec:multiblock-central}節で任意個の同一ブロックへ比較を拡張し、
 第\ref{mix:sec:linear-pbw-boundary}節で線形補正の正規形と中心三次を与える。
+第\ref{mix:sec:linear-bockstein}節で一次法線変形の残余検出を証明し、
+第\ref{lcc:sec:linear-comparison}節で非分裂 comonad と全線形族の普遍比較を構成する。
 第\ref{mix:sec:equivariant-window}--\ref{mix:sec:equivariant-deformation}節で非可換側の Hom 指標と
 指定 $h$-候補への形式・一般点比較を調べる。
 第\ref{mix:sec:poisson-limits}節を点・零スキームの不一致の例に充てる。
@@ -362,6 +386,8 @@ Sklyanin 曲線と標準中心元の既知の記述
 \input{papers/sections/mixed/central_kernel.tex}
 \input{papers/sections/mixed/multiblock_central_kernel.tex}
 \input{papers/sections/mixed/linear_pbw_boundary.tex}
+\input{papers/sections/mixed/linear_bockstein.tex}
+\input{papers/sections/mixed/linear_comonad_comparison.tex}
 \input{papers/sections/mixed/equivariant_window.tex}
 \input{papers/sections/mixed/equivariant_deformation.tex}
 \input{papers/sections/mixed/kernel_specialization.tex}
@@ -379,8 +405,9 @@ Sklyanin 曲線と標準中心元の既知の記述
 定理\ref{cmm:thm:universal-kernel}により、同一因子の定数型では
 任意個のブロックへの比較を得た。一般の $\kappa_k$ を数値化するには、
 因子追加と rotation・三次周期・三項座標の整合性を確認する必要がある。
-線形補正については第\ref{mix:sec:linear-pbw-boundary}節の実中心商から始め、
-非自明な一次法線変形の残余 Bockstein を計算する。
+線形補正の存在比較は定理\ref{lcc:thm:universal-linear-kernel}で得た。
+次は固定した境界比較における $Q,R_2,R_{1,1},R_3$ の係数を明示し、
+法線座標の変更と rotation・三次周期の標識に対する依存を調べる。
 
 \paragraph{零係数で構成した核の具体化と範囲.}
 定理\ref{cmo:thm:fixed-zero-commutative-kernel}により、
@@ -419,8 +446,8 @@ perfect 整延長が存在する。
 指定した二組の係数に対する結果である。
 一般の $\alpha$ で中心の特異点と中央切断が退化する locus を求め、
 局所 order と単純加群の分類がどのように変わるかを調べる課題は残る。
-位数六の他の Sklyanin パラメータや線形補正を含む変形、
-および中心変数が複数ある混合表示への拡張も別の問題として残る。
+位数六の他の Sklyanin パラメータ、および中心変数が複数ある混合表示への拡張は残る。
+全線形 PBW 族の可換 Ku 比較は得たが、その一般の中心環・PI 性の分類は別問題である。
 実 Morita 同値は積分数値 Grothendieck 群の同型も与えるが、
 表示した二対象がその積分基底となることや、核の作用の基底表示は未計算である。
 
