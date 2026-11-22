@@ -72,9 +72,6 @@ print('PASS 2: normalized volume is central with square minus determinant')
 Y1,Y2,Y3,z=s.symbols('Y1 Y2 Y3 z')
 rows={
     'E00':{0:Y1},
-    'E10+E20':{1:Y1,2:Y1},
-    'E01+E02':{0:Y2+Y3},
-    'E11+E22':{1:Y2,2:Y3},
     'R0':{0:Y1+Y2+Y3},
     'C0':{0:Y1,1:Y1,2:Y1},
     'I3':{0:Y1,1:Y2,2:Y3},
@@ -88,7 +85,7 @@ for name,mixing in rows.items():
     expected=2 if name in ('C0','I3') else 1
     assert maxdeg==expected,(name,maxdeg)
     print('  ',name,'PBW degree',maxdeg)
-print('PASS 3: five affine probes and two quadratic probes')
+print('PASS 3: minimal four probes: two affine and two quadratic')
 
 ix={k:i for i,k in enumerate(B)}
 first={}

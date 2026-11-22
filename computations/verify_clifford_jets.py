@@ -8,7 +8,7 @@ Run with Python 3 and SymPy:
 
 The checks enumerate the complete monomial spaces, not random samples.
 They verify the Heisenberg covariants/invariants, the additional factor
-reflections, their gradients, the seven one-parameter coefficient probes,
+reflections, their gradients, the four simultaneous and minimal one-parameter coefficient probes,
 and symbolic Hesse Jacobian complements.  Free-word calculations distinguish
 the noncommutative lift -P from the commutative lift P.
 
@@ -160,25 +160,43 @@ def evaluate(m, values):
 
 
 def check_probes():
-    qprobes = [probe((0, 0)), probe((1, 0), (2, 0)),
-               probe((0, 1), (0, 2)), probe((1, 1), (2, 2))]
+    # Simultaneously recover beta and both gamma rows from the same four lines.
+    probes = [
+        probe((0, 0)),
+        probe((0, 0), (0, 1), (0, 2)),
+        probe((0, 0), (1, 0), (2, 0)),
+        probe((0, 0), (1, 1), (2, 2)),
+    ]
     qmatrix = []
-    for values in qprobes:
-        row = [evaluate(quadratic(j, 0, 0), values) for j in range(3)]
-        row.append(sum(evaluate(quadratic(j, 0, 0), values) for j in (3, 4)))
-        qmatrix.append(row)
-    assert sp.Matrix(qmatrix) == sp.eye(4)
-    iprobes = [probe((0, 0)), probe((0, 0), (0, 1), (0, 2)),
-               probe((0, 0), (1, 0), (2, 0)), probe((0, 0), (1, 1), (2, 2))]
     imatrix = []
-    for values in iprobes:
-        row = [sum(evaluate(m, values) for m in INVARIANTS[j]) for j in range(3)]
-        row.append(sum(evaluate(m, values) for j in (3, 4) for m in INVARIANTS[j]))
-        imatrix.append(row)
-    assert imatrix == [[1, 0, 0, 0], [3, 1, 0, 0],
-                       [3, 0, 1, 0], [3, 0, 0, 1]]
-    assert len({tuple(v) for v in qprobes + iprobes}) == 7
-    print("PASS: seven one-parameter probes recover the four plus eight coefficients")
+    for values in probes:
+        qrow = [evaluate(quadratic(j, 0, 0), values) for j in range(3)]
+        qrow.append(sum(evaluate(quadratic(j, 0, 0), values) for j in (3, 4)))
+        qmatrix.append(qrow)
+        irow = [sum(evaluate(m, values) for m in INVARIANTS[j]) for j in range(3)]
+        irow.append(sum(evaluate(m, values) for j in (3, 4)
+                        for m in INVARIANTS[j]))
+        imatrix.append(irow)
+    Q = sp.Matrix(qmatrix)
+    I = sp.Matrix(imatrix)
+    assert Q == sp.Matrix([[1, 0, 0, 0], [1, 0, 1, 0],
+                           [1, 1, 0, 0], [1, 0, 0, 1]])
+    assert I == sp.Matrix([[1, 0, 0, 0], [3, 1, 0, 0],
+                           [3, 0, 1, 0], [3, 0, 0, 1]])
+    assert (Q.det(), I.det()) == (-1, 1)
+    assert len({tuple(v) for v in probes}) == 4
+
+    # If PBW has no quadratic term, first or third row vanishes.
+    # Every column-product and permutation cubic then vanishes.
+    symbols = sp.symbols("l00 l01 l02 l10 l11 l12 l20 l21 l22")
+    for zero_row in (0, 2):
+        v = list(symbols)
+        for b in range(3):
+            v[index(zero_row, b)] = 0
+        for j in (2, 3, 4):
+            assert sp.expand(sum(evaluate(m, v) for m in INVARIANTS[j])) == 0
+    print("PASS: four probes recover 4+8; minimum four lines and two nonlinear PBW probes")
+
 
 
 def check_hesse_complements():

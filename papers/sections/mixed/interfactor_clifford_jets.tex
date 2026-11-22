@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v70.
+% Current result: 2026-11-23 / v71.
 \subsection{固定した三次形式の切片と高次係数の有限還元}
 \label{ifj:subsec:jets}
 
@@ -313,27 +313,89 @@ $\mathfrak m=(\lambda_{ab})$ に関して
 二次と三次には系\ref{ifj:cor:reflection-bases}を適用する。
 \end{proof}
 
-有限個の一変数制限だけで、これらの係数を回収できる。
+有限個の一変数制限だけでこれらの係数を回収できる。
 $E_{ab}$ を行列単位とし、
-$R_0=\sum_bE_{0b}$、$C_0'=\sum_aE_{a0}$、$D_0=I_3$ と置く。
-固定切片へ正規化した式について、次の表の値は対応する係数になる：
+$R_0=\sum_b E_{0b}$、$C'_0=\sum_a E_{a0}$、$D_0=I_3$ と置く。
+
+\begin{proposition}[四つの一変数 probe による最小の係数回収]
+\label{ifj:prop:minimal-probes}
+補題\ref{ifj:lem:reflection-kernel}の原点比較と固定切片を用いる。
+$A=E_{00},R_0,C'_0,D_0$ の四方向について、
 \begin{equation}\label{ifj:eq:probe-table}
- \begin{array}{c|c@{\qquad}c|c}
-  A &[t^2]v_{00}(tA)& A &[t^3]z_i(tA)\\ \hline
-  E_{00}&\beta_0&E_{00}&\gamma_{i0}\\
-  E_{10}+E_{20}&\beta_r&R_0&3\gamma_{i0}+\gamma_{ir}\\
-  E_{01}+E_{02}&\beta_c&C_0'&3\gamma_{i0}+\gamma_{ic}\\
-  E_{11}+E_{22}&\beta_d&D_0&3\gamma_{i0}+\gamma_{id}
+ \begin{array}{c|c|c}
+ A &[t^2]v_{00}(tA)&[t^3]z_i(tA)\\ \hline
+ E_{00}&\beta_0&\gamma_{i0}\\
+ R_0&\beta_0+\beta_c&3\gamma_{i0}+\gamma_{ir}\\
+ C'_0&\beta_0+\beta_r&3\gamma_{i0}+\gamma_{ic}\\
+ D_0&\beta_0+\beta_d&3\gamma_{i0}+\gamma_{id}
  \end{array}
 \end{equation}
-従って、重複する $E_{00}$ を含めて七つの一変数族の三次までの実比較が計算できれば、
-十二係数を全て決定できる。
-ここで要求するのは、元の非可換係数を保ち、
-補題\ref{ifj:lem:linear-slice}の切片へ正規化した比較である。
-点曲線の係数や非可換生成元の平方を文字通り可換化する操作では代用できない。
+が成り立つ。従って、この四つの三次までの実比較だけで
+定理\ref{ifj:thm:twelve-coefficients}の十二 scalar を全て回収できる。
+対称性から得た四つの独立な三次不変式の係数を、
+各一変数族の $[t^3]z_i(tA)$ のみから回収する方式では、
+四方向は最小数である。
 
+さらに、命題\ref{ifj:prop:pbw-jet-degree}の
+固定した順序 PBW 自明化では、四方向のうち
+$E_{00},R_0$ は積が厳密に $t$ に一次、
+$C'_0,D_0$ は厳密に二次となる。
+三次不変式の四次元評価行列を可逆にする四方向の選び方では、
+二次の PBW 摂動を要する方向が少なくとも二つ必要である。
+従って、この四方向はその意味でも最小の複雑度を持つ。
+\end{proposition}
 
-\subsubsection{七つの probe に対する curved PBW 摂動の次数}
+\begin{proof}
+$Q_d=Q_++Q_-$、$I_d=I_++I_-$ と書く。
+式\eqref{ifj:eq:quadratic-basis}の $(0,0)$ 成分を評価すると、
+$Q_0,Q_r,Q_c,Q_d$ の四列に対する行列は
+\[
+ \begin{pmatrix}
+ 1&0&0&0\\
+ 1&0&1&0\\
+ 1&1&0&0\\
+ 1&0&0&1
+ \end{pmatrix},
+ \qquad \det=-1.
+\]
+式\eqref{ifj:eq:cubic-basis}の $I_0,I_r,I_c,I_d$ に対する
+四方向の値は
+\[
+ \begin{pmatrix}
+ 1&0&0&0\\
+ 3&1&0&0\\
+ 3&0&1&0\\
+ 3&0&0&1
+ \end{pmatrix},
+ \qquad \det=1.
+\]
+従って式\eqref{ifj:eq:probe-table}が成り立ち、
+両評価行列は可逆である。
+各 $i$ について $[t^3]z_i(tA)$ は四次元不変式空間への
+一つの線型汎関数であるから、その全係数を追加の関係なしに
+決定するには少なくとも四方向が必要である。
+
+最後に、命題\ref{ifj:prop:pbw-jet-degree}の四つの二次
+構造定数は $-L_1L_3$ を係数に持つ。
+$\C[\mathbf Y]$ は整域なので、その二次摂動が消えるのは、
+行列 $A$ の第零行または第二行が零のとき、かつそのときに限る。
+そのような行列上では、三つの行を全て使う
+$I_c$ と $I_d$ はともに零であり、三次評価汎関数の像は
+$I_0,I_r$ に関する高々二次元の部分空間に入る。
+四つの評価汎関数が独立になるには、
+この部分空間の外から少なくとも二方向が必要である。
+選んだ四方向の $L_1L_3$ は順に
+$0,0,Y_1^2,Y_1Y_3$ なので下限を達成する。
+この最小性は指定の順序 PBW 自明化と
+四次元三次不変式の係数回収に関するものであり、
+未知の幾何学的関係から十二係数が減る可能性まで否定しない。
+\end{proof}
+
+ここで求めるのは、元の非可換係数と原点比較を保ち、
+補題\ref{ifj:lem:linear-slice}の切片へ正規化した実比較である。
+非可換生成元の平方の形式的可換化や、自由な標的座標変更では代用できない。
+
+\subsubsection{四つの最小 probe に対する curved PBW 摂動の次数}
 \label{ifj:subsubsec:pbw-transfer}
 
 定理\ref{ifj:thm:twelve-coefficients}の十二係数を
@@ -352,7 +414,7 @@ $L_a=\sum_bU_{ab}Y_b$ と書けば
 \end{equation}
 第二因子の Clifford 形式は $s$ に依存しない。
 
-\begin{proposition}[全 PBW 積の二次部分と probe の五対二分解]
+\begin{proposition}[全 PBW 積の二次部分と四 probe の二対二分解]
 \label{ifj:prop:pbw-jet-degree}
 第一因子の順序付き $Z$-基底を
 \[
@@ -391,16 +453,14 @@ $-L_1L_3e_\varnothing,-L_1L_3e_3,
 \end{equation}
 と厳密に一次である。
 
-式\eqref{ifj:eq:probe-table}の七方向について、
-積の $s$-次数は、$E_{00}$、
-$E_{10}+E_{20}$、$E_{01}+E_{02}$、
-$E_{11}+E_{22}$、$R_0$ の五方向で一、
-$C'_0$ と $D_0=I_3$ の二方向で二となる。
-最後の二方向の $m_2$ はそれぞれ
-$L_1L_3=Y_1^2$、$L_1L_3=Y_1Y_3$ によって
-上の四組から完全に記述される。
+式\eqref{ifj:eq:probe-table}の四方向について、
+積の $s$-次数は、$E_{00},R_0$ の二方向で一次、
+$C'_0,D_0$ の二方向で二次となる。
+後二方向の $m_2$ はそれぞれ
+$L_1L_3=Y_1^2$、$L_1L_3=Y_1Y_3$ を上の四組に
+代入したものだけである。
 この次数分類は固定した PBW 自明化に関するもので、
-高次の可換比較係数の消滅を主張しない。
+可換比較の高次係数の消滅を主張しない。
 \end{proposition}
 
 \begin{proof}
@@ -437,7 +497,7 @@ $w_s=\alpha_1\omega_x(s)+\alpha_2\omega_y$ から
 式\eqref{ifj:eq:curvature-linear}が従う。
 体積元の中心性と $\omega_x^2=-\det q_x$ は
 Clifford の整列恒等式である。
-七行列の $L_a$ を代入すると、
+四行列の $L_a$ を代入すると、
 $L_1L_3$ が非零なのは表示した二方向だけであり、
 それぞれの式を得る。
 \end{proof}
@@ -445,7 +505,7 @@ $L_1L_3$ が非零なのは表示した二方向だけであり、
 上の命題は、原点からの曲がった代数
 $(B_s,w_s)$ が、PBW 基底上で
 高々二次の構造演算を持つことを意味する。
-一方向の五つの probe では、s-adic な
+上の二つの線形 probe では、$s$-進の
 curved bar coderivation を $d_s=d_0+s\,d_1$ と取れる。
 この場合、$d_s^2=0$ を $s$ の次数ごとに比較すれば
 \[
@@ -477,7 +537,7 @@ $(C[[s]],d_0+s\,d_1+s^2d_2)$ を考える。
      +O(s^4).
 \end{aligned}
 \end{equation}
-特に上の五つの affine probe では $d_2=0$ としてよい。
+特に上の二つの affine probe では $d_2=0$ としてよい。
 \end{lemma}
 
 \begin{proof}
@@ -507,7 +567,7 @@ $s^3$ まで展開すれば
 式\eqref{ifj:eq:probe-table}に射影する必要がある。
 従って十二係数の数値・非消滅は依然として未計算である。
 一方、必要な非可換側の入力が
-五つの線形摂動と二つの二次摂動だけになり、
+二つの線形摂動と二つの二次摂動だけになり、
 二次摂動の四つの構造定数も明示された。
 これは固定した比較の高次計算を開始するための有限な手順である。
 \end{remark}
