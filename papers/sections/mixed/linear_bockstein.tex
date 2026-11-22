@@ -12,11 +12,12 @@
 $k\ge2$、$a_i\in\C^\times$ を固定し、
 系\ref{mix:cor:linear-pbw-multiblock-family}の代数を $A$ と書く。
 以下の境界とその二次 Koszul 双対は係数に依存しない：
-\[
+\begin{gather*}
  S_0=S(1,-1,-1),\qquad B_0=S_0^{\otimes k},\qquad
- w_0=\sum_i a_i\Omega_{0,i},\qquad D=B_0/(w_0),\qquad
+ w_0=\sum_i a_i\Omega_{0,i},\\
+ D=B_0/(w_0),\qquad
  F=B_0^!=(S_0^!)^{\widehat\otimes k}.
-\]
+\end{gather*}
 $\mathcal K_D$ を境界の残余 dg 圏、$\rho$ をその rotation とする。
 window で graded singularity category と比較する規約では
 $\rho=(1)$、指定された三次周期は $\rho^3\simeq[2]$ である。
@@ -125,7 +126,7 @@ $u^2=0$ なので perturbation の展開は一次で止まり、
 \subsection{相対 Koszul--Tate 解消の一次微分}
 
 $\kappa$ を $\C=D/D_{\ge1}$ の安定化とし、
-$\mathcal T$ を全ての $\kappa(a)$、$a\in\Z$ を対象とする full dg 部分圏とする。
+$\mathcal T$ を全ての $\kappa(a)$、$a\in\mathbb Z$ を対象とする full dg 部分圏とする。
 この部分圏の射は window を通して $\mathcal K_D$ 内の射と一致する。
 非零性を示すには、$\mathcal K_D$ 上の nullhomotopy が $\mathcal T$ に
 制限されることだけを用い、生成対象上での検査を無条件に全圏の同値へ拡大しない。
@@ -153,7 +154,7 @@ $\rho^{-1}$ の graph 双加群を係数とする bar cochain の第 $N$ 項は
  V_{\boldsymbol a}
    &=\mathcal T(a_{n-1},a_n)\otimes\cdots\otimes\mathcal T(a_0,a_1),\\
  \mathcal C_\rho^N
-   &=\prod_{n\ge0}\prod_{a_0,\ldots,a_n\in\Z}
+   &=\prod_{n\ge0}\prod_{a_0,\ldots,a_n\in\mathbb Z}
       \operatorname{Hom}^{N-n}
        \bigl(V_{\boldsymbol a},\mathcal T(a_0,a_n-1)\bigr)
  \end{aligned}

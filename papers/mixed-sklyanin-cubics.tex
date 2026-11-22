@@ -70,7 +70,8 @@ $V(G+uQ+u^2L+u^3C)$ と普遍 Morita 比較する。
 二次関係に中心変数が現れる混合表示が、楕円因子の分離テンソル比較の
 次に調べるべき具体的な対象となる。
 本稿は、そのうち一つの中心一次変数を共有する
-$S(1,-1,-1)$ の定数型変形を扱う。
+$S(1,-1,-1)$ の全線形・定数型 PBW 変形を扱う。
+まず線形項が零の部分族から記法を定める。
 基礎体は $\C$ とし、$\alpha=(\alpha_1,\alpha_2,\alpha_3)\in\C^3$ に対して
 \[
  \mathcal B_\alpha
@@ -263,6 +264,11 @@ Sklyanin 代数の斉次中心の生成は Smith--Tate
 \cite[Theorems~3.7, 4.8]{GRSklyaninST}、
 potential の PBW 変形と三次中心元は Etingof--Ginzburg
 \cite[Theorem~3.3.2]{NFMEG}に基づく。
+同論文の斉次中心商では、対応する楕円曲線の導来圏と
+次数付き行列分解の同値も既知である
+\cite[Section~3.5, Theorem~3.6.2(i)]{NFMEG}。
+本稿では、この一因子の斉次比較を背景に、共有する中心変数を持つ
+多ブロックの全線形 PBW 族について制限の全 comonad を比較する。
 線形補正では Braverman--Gaitsgory
 \cite[Main Theorem~0.5, Lemma~3.3]{CMOBravermanGaitsgory}の PBW 条件を
 本因子で対称行列条件へ還元し、既知の中心存在を全係数の明示三次式へ具体化する。
@@ -304,6 +310,12 @@ twist とその射から球面関手を復元する着想は
 Segal \cite[Section~3.2]{CMOSegalSphericalTwists}に現れるが、
 一般には underlying functor と unit だけでは高次構造を復元できない
 \cite[Example~4.10]{CMOChristSphericalMonadic}。
+enhanced adjunction から全 comonad を作る一般論と、
+perfect 対象から作る free comodule の perfect 性を仮定した
+coKleisli 模型による復元は、Anno--Arkhipov--Logvinenko
+\cite[Theorems~6.1, 8.4]{CMOAnnoArkhipovLogvinenko}で扱われている。
+本稿では随伴像の生成性を直接証明し、この一般論に加えて
+指定境界における比較の自由度を計算する。
 本例では、Ballard--Favero--Katzarkov
 \cite[Theorem~5.39]{NFBFKKernels}の対角 sector 公式から、
 次数二の制限では全 arity の一意性、
