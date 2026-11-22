@@ -34,10 +34,12 @@ $\alpha^{(i)}=(\alpha_{i,x},\alpha_{i,y},\alpha_{i,z})$ を置く。
 \begin{itemize}
 \item $2p_i\ne0$ の場合は $\mathbf t_i=(p_i',q_i',r_i')$ と書き、
 \[
- \Phi_i=A_i x_i y_i z_i+B_i y_i x_i z_i
+ \begin{aligned}
+ \Phi_i&=A_i x_i y_i z_i+B_i y_i x_i z_i
        +\frac{C_i}{3}(x_i^3+y_i^3+z_i^3)
-       +uP_i-u^2(\alpha^{(i)}\cdot\mathbf x_i),\qquad
- P_i=p_i'x_i y_i+q_i'y_i z_i+r_i'z_i x_i
+       +uP_i-u^2(\alpha^{(i)}\cdot\mathbf x_i),\\
+ P_i&=p_i'x_i y_i+q_i'y_i z_i+r_i'z_i x_i.
+ \end{aligned}
 \]
 の cyclic 微分で周囲因子 $\mathcal B_i$ を定める。
 $\Omega_i$ は命題\ref{eco:prop:universal-lift}と
@@ -45,10 +47,12 @@ $\Omega_i$ は命題\ref{eco:prop:universal-lift}と
 純 $u^3$ 係数を零に固定して一意化する。
 \item $2p_i=0$ の場合は $\mathbf t_i=(\beta_{i,x},\beta_{i,y},\beta_{i,z})$ とし、
 \[
- \mathcal B_i=T[u]\langle x_i,y_i,z_i\rangle/
- (\{y_i,z_i\}+\tau_i x_i^2-u^2\alpha_{i,x},\text{巡回式}),\qquad
- \Omega_i=\Omega_{\tau_i}
-        +u(\beta_{i,x}x_i^2+\beta_{i,y}y_i^2+\beta_{i,z}z_i^2)
+ \begin{aligned}
+ \mathcal B_i&=T[u]\langle x_i,y_i,z_i\rangle/
+ (\{y_i,z_i\}+\tau_i x_i^2-u^2\alpha_{i,x},\text{巡回式}),\\
+ \Omega_i&=\Omega_{\tau_i}
+        +u(\beta_{i,x}x_i^2+\beta_{i,y}y_i^2+\beta_{i,z}z_i^2).
+ \end{aligned}
 \]
 と置く。これは命題\ref{eco:prop:clifford-center-freedom}の全持上げを含む。
 \end{itemize}

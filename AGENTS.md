@@ -50,7 +50,7 @@
 ## 正本・外部入力・保存
 
 - 正本は `uedakazushi/nc-cubic` の `main`。本文のある主原稿は必ず `papers/nc-cubic.tex`、日本語LuaLaTeX、著者欄空欄。現在の成果を理解できる順に統合し、版ごとの補遺・履歴・旧ZIPを蓄積しない。
-- 公表稿は三本。`papers/nc-cubic.tex` は可換Ku復元・基礎・分離比較・三様体不一致例、`papers/cubic-moduli-descent.tex` はO-marked認識・モジュライ・Picard/period等の精密降下、`papers/mixed-sklyanin-cubics.tex` は中心・局所代数・smooth locus・普遍中心族の実Ku比較・零係数の球面接着・有限MF模型・指定h候補の一般点核と整延長・被約不一致例を担当する。全稿とも日本語LuaLaTeX・著者欄空欄。主予想を主稿に保持し、同一因子の任意ブロック数の比較を保持する。他のSklyaninパラメータ・複数中心変数への拡張、線形族の比較係数の具体化と、選択済みh一般点核の良い特殊化をP0とする。
+- 公表稿は三本。`papers/nc-cubic.tex` は可換Ku復元・基礎・分離比較・三様体不一致例、`papers/cubic-moduli-descent.tex` はO-marked認識・モジュライ・Picard/period等の精密降下、`papers/mixed-sklyanin-cubics.tex` は中心・局所代数・smooth locus・普遍中心族の実Ku比較・零係数の球面接着・有限MF模型・指定h候補の一般点核と整延長・被約不一致例を担当する。全稿とも日本語LuaLaTeX・著者欄空欄。主予想を主稿に保持し、任意の固定因子の組の全許容PBW・中心比較を用いる。複数中心変数の制限間coherenceと全intrinsic対象の表示被覆をP0とする。因子moduli上の核の選択・降下、比較係数の具体化と選択済みh一般点核の良い特殊化を継続する。
 - 各数学的な節は一つの稿だけが読み込む。`papers/common/preamble.tex` と `papers/references.tex` は共有し、証明本文を複製しない。楕円windowの基礎は主稿の `comparison_foundations.tex`、精密降下はモジュライ稿、混合本文は `papers/sections/mixed/` に置く。他稿を引用するときは稿名と定理番号を表示し、参照元と証明の正本を追える状態を保つ。
 - `poisson-cubic` は古典正規形とPoisson moduli、`cubic-quantization` は全Poissonの代数的中心三次量子化と同変降下、`nc-cubic-threefold` は三様体固有の全Abel変形・相対比較と独立点スキーム論文の正本。孤立零点定理の正規形入力は `poisson-cubic` commit `9f91efa3465f18219c36c31750f1e66220faeaa7` の `papers/support/papers/sections/poisson_geometry.tex`、`thm:pg-normal` に固定する。通常は読取り専用で、具体的定理・仮定・版を引用する。本稿はB=ambient、A=商、量子化稿は逆。
 - 方針・研究ノート・公表稿を中心とする自己完結した現行一式を維持する。証明済み・追加仮定付き・未完成・予想・計算的観察、原稿の証明と今回の独立読解、形式証明・新規性を区別する。誤りは依存する本文・要約・方針・hubへ反映し、有用な障害はノートに保持する。
