@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v71.
+% Current result: 2026-11-23 / v72.
 \subsection{固定した三次形式の切片と高次係数の有限還元}
 \label{ifj:subsec:jets}
 
@@ -89,6 +89,155 @@ $F+C$ の三次族の接写像は上の同型なので、その形式分類写�
 定理\ref{ift:thm:rank-nine}による一方向族の形式写像を代入する。
 これで式\eqref{ifj:eq:normalized-family}の存在と一意性を得る。
 \end{proof}
+
+\subsubsection{Jacobian 射影と三次までの座標正規化の明示公式}
+
+前節の線型切片を形式的に選ぶだけでなく、三次までの座標正規化を
+有理演算で実行できる形にする。この操作は、比較核から得た
+三次式の族を固定切片に移す後段の処理であり、比較核そのものを構成しない。
+二つの因子の座標を $Z_{1,a}=X_a$、$Z_{2,a}=Y_a$ と書き、
+\[
+ h_i=\frac{2+\tau_i^3}{3\tau_i},\qquad
+ t_i=3a_i\tau_i,\qquad
+ r_{i,a}=Z_{i,a}^2-h_iZ_{i,a+1}Z_{i,a+2}
+ \quad(a\in\mathbb Z/3)
+\]
+と置く。このとき $\partial_{Z_{i,a}}F=t_ir_{i,a}$ であり、
+$t_i(1-h_i^3)\ne0$ である。
+
+\begin{proposition}[全三次単項式の具体的 Jacobian 分解]
+\label{ifj:prop:explicit-jacobian-projector}
+$R_3=\C[\mathbf X,\mathbf Y]_3$ とし、
+$\mathcal D_F:\mathfrak{gl}_6\to R_3$ を
+\[
+ \mathcal D_F(A)=\sum_{i,a}(AZ)_{i,a}\partial_{Z_{i,a}}F
+\]
+で定める。
+次の規則と $C$ の単項式基底上で恒等という規則は、
+$C$ への線型射影 $\Pi:R_3\to C$ を定める：
+\begin{align}
+ \Pi(Z_{i,a}^3)&=h_iP_i,\qquad
+ \Pi(Z_{i,a}^2Z_{i,b})=0\quad(b\ne a),\label{ifj:eq:projector-pure}\\
+ \Pi(Z_{i,a}^2Z_{j,b})
+   &=h_i Z_{i,a+1}Z_{i,a+2}Z_{j,b}\quad(j\ne i).
+   \label{ifj:eq:projector-mixed}
+\end{align}
+ここで $P_i=Z_{i,0}Z_{i,1}Z_{i,2}$。
+さらに各単項式 $M$ に対し、次の非零成分だけを持つ
+$\mathcal J(M)\in\mathfrak{gl}_6$ を線型に定める：
+\begin{enumerate}
+ \item $M=Z_{i,a}^3$ では
+ $(\mathcal J(M)Z)_{i,a}=Z_{i,a}/t_i$。
+ \item $M=Z_{i,a}^2Z_{i,b}$、$b\ne a$、$c$ が残りの添字なら
+ \[
+ \begin{split}
+ (\mathcal J(M)Z)_{i,a}&=\frac{Z_{i,b}}{t_i(1-h_i^3)},\\
+ (\mathcal J(M)Z)_{i,b}&=\frac{h_iZ_{i,c}}{t_i(1-h_i^3)},\\
+ (\mathcal J(M)Z)_{i,c}&=\frac{h_i^2Z_{i,a}}{t_i(1-h_i^3)}.
+ \end{split}
+ \]
+ \item $M=Z_{i,a}^2Z_{j,b}$、$j\ne i$ では
+ $(\mathcal J(M)Z)_{i,a}=Z_{j,b}/t_i$。
+ \item $M\in C$ の単項式基底では $\mathcal J(M)=0$。
+\end{enumerate}
+この二つの作用素は
+\begin{equation}\label{ifj:eq:explicit-splitting}
+ \Pi+\mathcal D_F\mathcal J=\mathrm{id}_{R_3},
+ \qquad
+ \mathcal J\mathcal D_F=\mathrm{id}_{\mathfrak{gl}_6},
+ \qquad \Pi^2=\Pi
+\end{equation}
+を満たす。
+\end{proposition}
+
+\begin{proof}
+混合単項式 $Z_{i,a}^2Z_{j,b}$ では
+$Z_{i,a}^2Z_{j,b}
+ =h_iZ_{i,a+1}Z_{i,a+2}Z_{j,b}+r_{i,a}Z_{j,b}$
+を使う。純三乗では
+$Z_{i,a}^3=h_iP_i+Z_{i,a}r_{i,a}$ である。
+純単項式 $Z_{i,a}^2Z_{i,b}$ に対し、$c$ を残る添字とすると
+\[
+ (1-h_i^3)Z_{i,a}^2Z_{i,b}
+ =Z_{i,b}r_{i,a}+h_iZ_{i,c}r_{i,b}
+                         +h_i^2Z_{i,a}r_{i,c}.
+\]
+これらと $C$ の二十単項式を合わせると、全五十六単項式を尽くし、
+表示した $\Pi+\mathcal D_F\mathcal J=\mathrm{id}$ が成立する。
+$\Pi$ は $C$ に恒等で $(\partial F)_3$ を消すから
+$\Pi^2=\Pi$ である。
+補題\ref{ifj:lem:linear-slice}による $\mathcal D_F$ の単射性と
+$\mathcal D_F\mathcal J\mathcal D_F=\mathcal D_F$ から
+$\mathcal J\mathcal D_F=\mathrm{id}$ が従う。
+\end{proof}
+
+\begin{proposition}[三次 jet の構成的な正規化]
+\label{ifj:prop:explicit-third-normalization}
+$G(s,Z)=F(Z)+sG_1(Z)+s^2G_2(Z)+s^3G_3(Z)+O(s^4)$
+を三次形式の族とする。$D_AG=(AZ)\cdot\nabla G$ と書き、
+$G^{(k)}$ を $k$ 階偏微分の対称多重線型形式とする。
+次の順序で $R_j,A_j,H_j$ を定める：
+\begin{align*}
+ R_1&=G_1,& A_1&=-\mathcal J(R_1),&H_1&=\Pi(R_1),\\
+ R_2&=G_2+D_{A_1}G_1
+             +\tfrac12F^{(2)}[A_1Z,A_1Z],
+       & A_2&=-\mathcal J(R_2),&H_2&=\Pi(R_2),\\
+ R_3&=G_3+D_{A_1}G_2+D_{A_2}G_1
+             +\tfrac12G_1^{(2)}[A_1Z,A_1Z]\\
+    &\hspace{15mm}
+       +F^{(2)}[A_1Z,A_2Z]
+             +\tfrac16F^{(3)}[A_1Z,A_1Z,A_1Z],
+       & A_3&=-\mathcal J(R_3),&H_3&=\Pi(R_3).
+\end{align*}
+すると $T(s)=I+sA_1+s^2A_2+s^3A_3$ に対して
+\begin{equation}\label{ifj:eq:third-normalized}
+ G(s,T(s)Z)=F(Z)+sH_1(Z)+s^2H_2(Z)+s^3H_3(Z)+O(s^4),
+ \qquad H_j\in C.
+\end{equation}
+さらに $G_1\in C$ の場合には $A_1=0$ であり、
+\begin{equation}\label{ifj:eq:third-gauge-correction}
+ H_2=\Pi(G_2),\qquad
+ H_3=\Pi\bigl(G_3-D_{\mathcal J(G_2)}G_1\bigr).
+\end{equation}
+従って一次 jet が既に正規化されていても、二次の
+Jacobian 方向を無視して三次係数を計算することはできない。
+\end{proposition}
+
+\begin{proof}
+$F,G_1,G_2,G_3$ に $Z\mapsto T(s)Z$ を代入して
+Taylor 展開する。$s^j$ で新たに選べる未知成分は
+$\mathcal D_F(A_j)$ だけであり、
+それ以外の項は上記の $R_j$ となる。
+式\eqref{ifj:eq:explicit-splitting}より、
+$A_j=-\mathcal J(R_j)$ とすれば
+$R_j+\mathcal D_F(A_j)=\Pi(R_j)=H_j$ を得る。
+$G_1\in C$ なら $\mathcal J(G_1)=0$ を代入して
+式\eqref{ifj:eq:third-gauge-correction}を得る。
+\end{proof}
+
+\begin{example}[二次座標補正から現れる非零三次項]
+\label{ifj:ex:third-coordinate-artifact}
+$G_1=X_0Y_1Y_2$、$G_2=X_0^2Y_0$、$G_3=0$
+という純代数的な例を考える。このとき $G_1\in C$ だが、
+$\mathcal J(G_2)Z$ の非零成分は
+$(\mathcal J(G_2)Z)_{X_0}=Y_0/t_1$ なので
+\[
+ H_2=h_1X_1X_2Y_0,\qquad
+ H_3=-\frac1{t_1}Y_0Y_1Y_2\ne0.
+\]
+元の三次 jet が零でも、固定切片への正規化後には
+非零な純因子三次係数が現れる。
+これは比較核から導いた非可換族の値ではなく、
+正規化の不可避な補正を示す例である。
+\end{example}
+
+この手続きの有限検算は
+\texttt{computations/verify\_hesse\_slice\_transfer.py} に置く。
+一般 $h_i,t_i$ 上の五十六単項式、二十基底、
+具体的な三次までの座標代入、および
+例\ref{ifj:ex:third-coordinate-artifact}を厳密に確認する。
+これによって原点実核・指定周期・曲率移送からの
+入力 $G_1,G_2,G_3$ 自体が求まるわけではない。
 
 この切片は標準 Heisenberg 群 $H=H_3\times H_3$ に保たれる。
 補題\ref{ife:lem:equivariant-kernel}の原点比較を固定すれば、
