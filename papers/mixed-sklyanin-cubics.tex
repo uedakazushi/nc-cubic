@@ -5,7 +5,7 @@
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
 \large 有限中心・局所代数・楕円因子と多中心の比較核}
 \author{}
-\date{2026年11月22日・研究稿 v62}
+\date{2026年11月23日・研究稿 v63}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
 pdfsubject={有限中心・局所代数・楕円因子と多中心の比較核}}
 
@@ -92,6 +92,9 @@ Euler 混合類を全て排除する一方、Clifford 因子の中心平方に�
 中心変数なしの四次元型と、中心変数および非零三乗項を一つ加えた五次元型について、
 原点を含む実相対 smooth proper 開と \'etale 局所 perfect 比較核を構成する。
 四次元の比較には、主稿の rotation を持ち上げる変形の全次数形式認識を用いる。
+四次元型の原点の残余 Kodaira--Spencer 写像は階数九であり、像は
+$\operatorname{Jac}(f_1)_1\otimes\operatorname{Jac}(f_2)_2$ に等しい。
+中心代入の full Bockstein と中心平方作用の積により、この非退化性を証明する。
 二つの軸の切断が同一でも全体の smoothness が異なる例は、混合情報の必要性を示す。
 さらに交換子パラメータの族に、零と一を含む半局所底上の
 相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
@@ -312,7 +315,9 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  系\ref{iff:cor:cubic-fivefold-open}、\ref{ifk:cor:clifford-fourfold-neighborhood}は
  五次元型と四次元型に \'etale 局所的な可換三次族と実比較核を与える。
  四次元では主稿の定理\paperref{main}{ifk:thm:rotation-formal}を用いる。
- 全 smooth 係数への延長と、残余 Kodaira--Spencer 写像の階数は未確定である。
+ 定理\ref{ift:thm:rank-nine}は四次元型の原点の残余接写像の階数を九と決定し、
+ その像を $\operatorname{Jac}(f_1)_1\otimes\operatorname{Jac}(f_2)_2$ に同定する。
+ 一次比較行列の数値、高次可換方程式と全 smooth 係数への延長は未確定である。
 
  \item \emph{零係数の実際の可換比較核。}
  $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
@@ -411,7 +416,14 @@ Koszul 双対の Frobenius 形式と Nakayama 自己同型による双対性の�
 原点近傍の滑らかさには通常の coherent 対角と有限 Ext を用い、
 体上の射影核理論\cite{CMOBallardFarman}を相対解消へ接続する。
 四次元の比較は、主稿で扱う rotation 固定形式空間の認識を入力とする。
-この因子分解・混合核・具体的積分族とその近傍比較の文献上の初出は未確認である。
+その接写像については、中心係数の平方零代入を full Hochschild class の積として記述する。
+既存の二つの Bockstein の単射性と、周期付き境界核による積の保存を使うと、
+残余圏でも九方向が独立となり、像を二因子の Jacobian 次数 $(1,2)$ 部分に同定できる。
+可換側の Jacobian 環から内部 shift の自然変換環への単射な環準同型は
+Huybrechts--Rennemo\cite[Propositions~3.3, 3.5, 3.9]{NFHuybrechtsRennemo}の既知結果である。
+本稿の適用では非可換中心平方の作用をその環へ移す必要があり、
+同名の可換平方の類で代用できない。
+この因子分解・混合核・具体的積分族と、その近傍比較・接写像の文献上の初出は未確認である。
 
 Sklyanin 代数の斉次中心の生成は Smith--Tate
 \cite[Theorems~3.7, 4.8]{GRSklyaninST}、

@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月22日 / v62。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月23日 / v63。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -20,7 +20,7 @@
 
 **境界の二次関係を動かすClifford九変数族にも、原点近傍の可換Ku実現がある。** 次数零HH²の混合中心障害核は⊕_{i≠j,j∈I₂}HH²(S_i)₋₂⊗Z(S_j)₂、次元9|I₂|(k−1)である。一組の因子の九方向をr₁,a=Σ_bΛ_ab y_b²という自由な実二次族へ積分し、左右正則中心三次と自由な商を構成した（`ifc:thm:family`, `ifc:prop:tangent`）。[周囲代数の定理](papers/sections/mixed/interfactor_clifford_regularity.tex)は全Λ・任意可換係数環で相対Koszul・untwisted相対6-CYを与え、複素fiberはAS-regular dimension/index6となる。[実対角の構成](papers/sections/mixed/interfactor_clifford_smoothness.tex)により、四次元型と中心変数一つを加えた五次元型の双方に原点を含むsmooth proper開を得る。
 
-四次元では、[rotationを持ち上げる変形の形式認識](papers/sections/rotation_preserving_deformations.tex)を使う。HH²の22次元中、rotation固定部分は幾何的な20次元であり、通常Artinの全次数で固定形式空間と幾何的変形空間を同定する。その結果、[四次元Clifford族](papers/sections/mixed/interfactor_clifford_kodaira_spencer.tex)と五次元型の双方で、原点を含む開のétale局所的な滑らかな可換三次族・実perfect核を得る。全smooth係数への延長、可換方程式の明示、残余KS写像のrank9、逆向き等を含む全混合核の同時積分は未解決である。
+四次元では、[rotationを持ち上げる変形の形式認識](papers/sections/rotation_preserving_deformations.tex)を使う。HH²の22次元中、rotation固定部分は幾何的な20次元であり、通常Artinの全次数で固定形式空間と幾何的変形空間を同定する。その結果、[四次元Clifford族](papers/sections/mixed/interfactor_clifford_kodaira_spencer.tex)と五次元型の双方で、原点を含む開のétale局所的な滑らかな可換三次族・実perfect核を得る。さらに[中心作用の積による接写像の計算](papers/sections/mixed/interfactor_clifford_tangent_product.tex)により、四次元型の原点の残余KSは階数9で、その像はJac(f₁)₁⊗Jac(f₂)₂と分かった（`ift:thm:rank-nine`）。一次式はF+ΣΛ_ab L_a(X)Q_b(Y)で、L,Qは可逆な線型写像である。原点を標識した20次元の幾何的形式変形空間への射は余次元11の正則閉埋込みとなる。一次比較行列の数値、高次方程式、全smooth係数への延長、逆向き等を含む全混合核の同時積分は未解決である。
 
 **主予想**は、任意の滑らかな非可換三次n-fold 𝒳に対し、同じ次元の滑らかな可換cubic XとKu(𝒳)≃Ku(X)が存在すること。任意に固定した滑らかな標準Sklyanin因子の組、k≥2、固定非零重み、一つの共有中心変数について、指定境界を保つ全ての因子別PBW・中心三次補正の残余線束圏を可換三次と普遍Morita比較した（`emc:prop:coverage`, `euk:thm:universal-kernel`）。異なるj、同種・CM、二捩れ、有限位数・無限位数を許す。二捩れでない因子は平行移動後の関係式の線形三方向、二捩れ因子は中心へ加えるu倍の平方三方向を一次係数tとする。標的はX=V(G+uQ(t)+u²L(t,α)+u³C(t,α,c))、L=𝔄α+R₂(t)、C=κc+R₁,₁(t,α)+R₃(t)で、𝔄は可逆、κ≠0。可換smooth開では相対perfect核と全coherent Ku同値を得る。定数Bocksteinは3k次元の同型、一次Bocksteinは3k方向で単射だが、比較の存在は単射性を前提としない。各固定tの一般αに対して8^k個の相異なる悪いcと各可換標的の唯一の通常二重点を得て、全係数・各固定tの判別超曲面は既約被約、臨界点のaffine空間が正規化となる。固定(t,α)の一変数特殊化には重複根を許す。
 
@@ -32,7 +32,7 @@
 
 同一S(1,−1,−1)の既存結果では、指定規約でκ_k²=27/28、κ_k=3√21/14を保持する（`mcs:cor:universal-scale`）。Heisenberg同変な一次像は純ブロックJac₂の直和で、比較の七定数形のうち六定数χ_k,A_k,…,E_kは未数値化（`lec:thm:seven-scalar-form`）。一般の異なる因子へこの数値κを流用しない。指定二ブロックのP64・norm全64根・有限中心と局所型も保持する。残る核心は、全intrinsic対象の認識と表示被覆、最高次の二次境界を変える混合族の比較、偏極標的への実比較核、因子moduli上の核選択・降下である。一般の比較係数、一般PBW族のPI性・有限中心性、選択済みh一般点核のdefect零特殊化も未解決。
 
-まずC上、n≥3の主予想を最優先にする。genericな表示のみへ「任意」を弱めず、全intrinsic対象の認識と被覆を課題として残す。固定tensor境界の全smooth PBW中心三次商に続き、二次境界を動かすClifford九変数族の原点近傍でも四・五次元の可換Ku実現を得た。次は残余KS写像と可換方程式の具体化、近傍比較の全smooth係数への延長、逆向きの混合方向の同時積分を調べる。偏極標的への実核、因子moduli上の降下、選択済みh核のdefect零特殊化も継続する。
+まずC上、n≥3の主予想を最優先にする。genericな表示のみへ「任意」を弱めず、全intrinsic対象の認識と被覆を課題として残す。固定tensor境界の全smooth PBW中心三次商に続き、二次境界を動かすClifford九変数族の原点近傍でも四・五次元の可換Ku実現を得た。次は一次比較行列L,Qと高次可換方程式の具体化、近傍比較の全smooth係数への延長、逆向きの混合方向の同時積分を調べる。偏極標的への実核、因子moduli上の降下、選択済みh核のdefect零特殊化も継続する。
 
 - **多中心の全smooth対象と中央Bertini。** [多中心比較](papers/sections/mixed/multicentral_comparison.tex)が入口。[正規形](papers/sections/mixed/multicentral_pbw.tex)が全中心列の正則性を与え、[実blow-up](papers/sections/mixed/multicentral_blowup.tex)が射影方向の圏とOrlov分解を構成する。[smooth locusと中央flag](papers/sections/mixed/multicentral_bertini.tex)でK_A smooth ⇔ X_pol smoothを示し、一般flagから[逐次核](papers/sections/mixed/multicentral_iterated_comparison.tex)を全smooth因子別対象へ適用する。有限中心性を必要としない。
 - **横断二項の全階数と最後の中心値。** [Bockstein](papers/sections/mixed/multicentral_transverse_bockstein.tex)は定数関係の曲率と中心一次式のunary微分を分離し、Bの可逆性を証明する。[横断判別](papers/sections/mixed/multicentral_transverse_discriminant.tex)は各固定一次係数の一般二次係数に対する2^(3k+m−1)個の単純悪値、各唯一ODP、判別因子の既約被約性とaffine正規化を与える。
@@ -80,6 +80,8 @@
 **被約化しても一致しない五様体の例。** 証明の正本は混合稿の [孤立零点と不一致の節](papers/sections/mixed/poisson_limits.tex)。全Poisson正規形から、滑らかな三次n-foldのPoisson零集合に孤立点があるならn=3k、一般階数2kであり、各孤立零点は零次元局所完全交叉であることを証明した（ppz:thm:isolated-zero-dimension）。従って五次元では孤立零点はない。一方、指定混合族の定常ノルムの全64根ではPt(A_c)=E₁⊔E₂⊔{p_c}が被約で、A_cはsmooth properである（ppz:cor:reduced-point-poisson-counterexample）。例えばc=−44828を取れる。これはどの滑らかな可換三次五様体上のどのPoisson構造でも、被約零集合と同型にはならない。不一致の証明には可換Ku比較やTorelliを仮定しない。一方、`cmo:cor:norm-commutative-kernel` は全64根に実Ku標的X_cを与えるので、これらは主予想の存在結論を満たしながら被約point/Poisson一致が失敗する具体例である。正規形はpoisson-cubicの固定された未公表入力であり、一般性やブロックの楕円性は仮定しない。この次元制約の文献上の新規性は未確認である。
 
 ### 主要計算の再現
+
+[残余KSのJacobian証明書](computations/verify_interfactor_residual_ks.py)は `python3 computations/verify_interfactor_residual_ks.py`（**7 PASS、終了コード0**）。全Hesse smooth fiberに対する次数三の56単項式・全36関係・20基底、九次元の(1,2)成分、ブロック指標、tensor行列式、τ³=−2のFermat特殊化を厳密確認する。Fermatでは文字通りの可換平方が全て零になることも検出する。実比較核とfull Bocksteinの積の同定は本文の証明であり、この有限計算の結論とは区別する。依存する一般因子Bockstein検算の8 PASSも再実行した。
 
 [因子間PBW検算](computations/verify_interfactor_pbw.py)は `python3 computations/verify_interfactor_pbw.py` と `python3 computations/verify_interfactor_pbw.py --clifford`（それぞれ **6 PASS、終了コード0**）。S(1,−1,−1)二因子とS(1,1,2)二因子について全90一次係数・全15定数係数から条件を組み立て、一次行列の階数78、定数行列の階数9、全12+6残存パラメータのBG恒等式を有理数上で確認する。一般因子の分解定理、中心持上げ、Ku同値の形式証明ではない。
 

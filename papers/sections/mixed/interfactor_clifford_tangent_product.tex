@@ -1,0 +1,359 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v63.
+\subsection{中心作用の積による残余接写像の階数九}
+\label{ift:subsec:residual-rank}
+
+前小節の原点比較を固定する。
+この比較における九方向の具体的な数値係数を求めなくても、
+定数型 Bockstein と第二因子の中心作用の積から、
+残余 Kodaira--Spencer 写像の像と単射性を決定できる。
+以下では可換座標を $\mathbf X,\mathbf Y$ と書き、
+\[
+ F=a_1f_1(\mathbf X)+a_2f_2(\mathbf Y),\qquad
+ J_i=\operatorname{Jac}(f_i),\qquad
+ J_F=J_1\otimes J_2
+\]
+と置く。非零定数 $a_i$ は Jacobian イデアルを変えない。
+
+\subsubsection{中心元の代入と full characteristic class}
+
+\begin{lemma}[平方零の中心代入]
+\label{ift:lem:central-substitution}
+$\widetilde A$ を $\C[v]/(v^2)$ 上平坦な次数付き代数とし、
+$\deg v=d$、$\widetilde A/(v)=A$ とする。
+$\widetilde z\in Z(\widetilde A)_e$ の還元を $z\in Z(A)_e$ と書く。
+$t$ を中心変数、$\deg t=d-e$ として
+\[
+ D=\widetilde A[t]/(t^2,v-t\widetilde z)
+\]
+と置くと、$D$ は $\C[t]/(t^2)$ 上平坦であり、$D/(t)=A$ である。
+$\widetilde A$ の一次変形 class を
+$\theta\in\mathrm{HH}^2(A,A(-d))$ とすると、$D$ の class は
+\begin{equation}\label{ift:eq:substitution-class}
+       [D]=z\theta\in\mathrm{HH}^2(A,A(e-d))
+\end{equation}
+である。右辺は中心乗法による cup 積であり、
+全 Hochschild cochain における等式である。
+
+これらの class と中心乗法を singularity quotient と window へ移せる場合、
+式\eqref{ift:eq:substitution-class}は残余圏の full 自然変換についても成立する。
+\end{lemma}
+
+\begin{proof}
+単位を保つ斉次線型切断 $s:A\to\widetilde A$ を選ぶ。
+平坦性より $\widetilde A=s(A)\oplus v s(A)$ であり、
+\[
+ s(a)s(b)=s(ab)+v s(\phi(a,b))
+\]
+と書ける。$\phi$ は $\theta$ の二 cochain 代表である。
+$\widetilde z=s(z)+v s(z_1)$ と書くと、商 $D$ では
+$tv=t^2\widetilde z=0$ かつ $v=t s(z)$ となる。
+従って $v s(A)$ を消去することにより、$D=s(A)\oplus t s(A)$ を得る。
+この消去では $t v s(A)$ が零となるだけで、$t s(A)$ に追加関係は生じない。
+従って $D$ は主張する係数環上平坦であり、その積は
+\[
+       a*_t b=ab+t\,z\phi(a,b)
+\]
+となる。切断の変更は $\phi$ に Hochschild 境界を加える。
+$z$ は中心なので、その乗法は Hochschild 微分と可換し、
+式\eqref{ift:eq:substitution-class}は切断によらない。
+
+補題\ref{ebc:lem:full-tate}の bar 比較は、この cochain を
+双加群自己交叉の connecting class と同定する。
+その証明は任意の $d$ に対して同じである。
+加群への characteristic 作用は双加群射との導来 tensor 積であり、
+射の合成と中心乗法を保つ。
+さらに dg quotient と window への移送もこの合成を保つ。
+従って得られるのは各対象上の値だけの等式ではなく、
+対象依存の全 homotopy を許した自然変換の等式である。
+\end{proof}
+
+\begin{lemma}[Clifford 平方の実中心作用]
+\label{ift:lem:center-action}
+$B_0=S_1\otimes S_2$、$w_0=a_1\Omega_{1,0}+a_2\Omega_{2,0}$ とする。
+各 $z\in Z(S_2)_2$ の乗法は、$\mathcal K_0$ 上の自然変換
+\[
+             q_z:\operatorname{id}\longrightarrow\rho_0^2
+\]
+を与える。この写像は $z$ について単射である。
+\end{lemma}
+
+\begin{proof}
+$\widetilde A=B_0/(w_0^2)$、$v=w_0$ と置く。
+$w_0$ の正則性により、これは $\deg v=3$ の平方零平坦変形である。
+その自己交叉 class
+\[
+ \vartheta_{w_0}:\operatorname{id}
+                  \longrightarrow\rho_0^{-3}[2]
+\]
+は、実際の $w_0$ による Shamash 作用素であり、
+MF と window 上では指定三乗周期の同型となる。
+これは補題\ref{ebc:lem:full-tate}で用いた中央周期作用素そのものである。
+
+前補題に $\widetilde z=z$、$\deg t=1$ を適用すると、
+\[
+ D=B_0[t]/(w_0-tz,t^2)
+\]
+の Bockstein は $z\vartheta_{w_0}$ となる。
+指定周期で $\rho_0^{-1}[2]\simeq\rho_0^2$ と同定すれば、
+これは中心乗法 $q_z$ に一致する。
+connecting class の共通の符号規約を変更しても、
+両辺の同定を同時に変更するだけである。
+
+一方、この $D$ は定理\ref{ebc:thm:first-injection}の
+第二 Clifford 因子の中心平方方向に属する。
+同定は $u=t$、$a_2\sum_b\beta_{2b}y_b^2=-z$ である。
+$a_2\ne0$ であり、同定理は全自然変換に対する三方向の単射性を与える。
+従って $z\mapsto q_z$ も単射である。
+この結論では、augmentation 上の評価だけで中心作用を検出してはいない。
+\end{proof}
+
+\subsubsection{ブロック指標と Jacobian 積}
+
+\begin{theorem}[残余接写像の階数と像]
+\label{ift:thm:rank-nine}
+補題\ref{ebk:lem:boundary}のブロック作用・rotation・指定周期を保つ
+原点比較 $E:\mathcal K_0\simeq\Ku(X_0)$ を固定する。
+このとき線型同型
+\[
+ L:\C^3\xrightarrow{\sim}(J_1)_1,\qquad
+ Q:Z(S_2)_2\xrightarrow{\sim}(J_2)_2
+\]
+が存在し、$L_a=L(e_a)$、$Q_b=Q(y_b^2)$ と書けば、
+九変数族の残余 Kodaira--Spencer 写像は
+\begin{equation}\label{ift:eq:ks-product}
+ E_*\operatorname{KS}_{\mathcal K}(M)
+       =\sum_{a,b}M_{ab}L_aQ_b\in(J_F)_3
+       \subset\mathrm{HH}^2(\Ku(X_0))
+\end{equation}
+となる。従ってこれは単射で、階数は九、像は正確に
+\begin{equation}\label{ift:eq:ks-image}
+                 (J_1)_1\otimes(J_2)_2\subset(J_F)_3
+\end{equation}
+である。$L,Q$ は固定した実比較に依存し、
+この主張はそれらの数値行列や標準座標での対角性を要求しない。
+\end{theorem}
+
+\begin{proof}
+第一因子だけの定数方向 $e_a$ に対し、中心次数二の変数 $v$ を用いて
+\[
+ r_{1,c}-v\delta_{ac},\qquad r_{2,b},\qquad[x_c,y_b],\qquad
+ w_0+a_1v\ell_a(\mathbf x)
+\]
+で定まる中心商を取る。
+命題\ref{ebc:prop:constant-iso}の実 Bockstein と指定周期により、
+自然変換 $\ell_a^\natural:\operatorname{id}\to\rho_0$ を得る。
+六つの定数方向全体は同命題の同型を与えるため、
+この第一因子の三方向は独立である。
+一方、前補題の $q_b=q_{y_b^2}$ も三つ独立である。
+
+補題\ref{ift:lem:central-substitution}を、今度は $d=e=2$ としてこの定数型変形へ適用し、
+$v=\epsilon y_b^2$、$\deg\epsilon=0$ と置く。
+得られる商は、関係式だけでなく指定中心三次も含めて、
+$\Lambda_{ab}=\epsilon$、他の $\Lambda$ は零とした族に一致する。
+従って、$\pi:\rho_0^3\xrightarrow{\sim}[2]$ を指定周期とすると、
+\begin{equation}\label{ift:eq:categorical-product}
+ \operatorname{KS}_{\mathcal K}(e_{ab})
+       =\pi\circ\rho_0(q_b)\circ\ell_a^\natural.
+\end{equation}
+これは前補題の full class の等式を実相対残余模型へ移したものである。
+具体的には、実相対 Koszul--Shamash 解消、dg quotient と window の
+平方零底変更により、乗法の一次補正から得る characteristic class は、
+定理\ref{iff:thm:smooth-neighborhood}の残余模型の変形 class と一致する。
+この構成は中心乗法との合成を保ち、単独の対象の持上げ可能性を要求しない。
+周囲代数の Hochschild class の独立性から残余の独立性を推測していない。
+
+次に、原始三乗根 $\zeta$ とブロック作用
+$g(\mathbf x,\mathbf y)=(\zeta\mathbf x,\mathbf y)$ を取る。
+これは $Z_0=(\mu_3^2)/\Delta\mu_3$ の生成元の一つの持上げであり、
+内部 shift との標準的な可換性を用いる。
+定数型 Bockstein の二 cochain は、第一因子の二次関係を定数へ送るので、
+$g$ は $\ell_a^\natural$ に $\zeta^{-2}=\zeta$ で作用する。
+第二因子の中心元 $y_b^2$ は $g$ に固定され、$q_b$ も固定される。
+補題\ref{ebk:lem:boundary}の比較と rotation 比較射はこの作用と両立する。
+
+可換側で
+\[
+ \mathcal L_j=
+ H^0\operatorname{RHom}_{\operatorname{Fun}(\Ku(X_0),\Ku(X_0))}
+             (\operatorname{id},\rho_{X_0}^j)
+\]
+と置く。次数一、二では対角 MF の恒等 sector だけが寄与し、
+$\mathcal L_1=(J_F)_1$、$\mathcal L_2=(J_F)_2$ である
+\cite[Theorem~5.39 and proof]{NFBFKKernels}。
+これらの同定はブロック作用と可換である。
+$\mathcal L_1$ の $\zeta$ 固有空間は $(J_1)_1$ であり、
+$\mathcal L_2$ の固定部分は $(J_2)_2$ である。
+実際、次数二の他の部分 $(J_1)_2$ と $(J_1)_1\otimes(J_2)_1$ の
+固有値は、それぞれ $\zeta^2$ と $\zeta$ である。
+各 $f_i$ は滑らかな平面三次なので、$(J_i)_1$ と $(J_i)_2$ はともに三次元である。
+先に得た二つの三次元単射から、表示した $L,Q$ の同型を得る。
+
+最後に、$\bigoplus_j\mathcal L_j$ の積は自然変換の合成である。
+Jacobian 環からこの環への写像は環準同型で、三次四様体では単射であり、
+実核と rotation 比較による移送も積を保つ
+\cite[Propositions~3.3, 3.5 and~3.9]{NFHuybrechtsRennemo}。
+指定周期を保つ $E$ で式\eqref{ift:eq:categorical-product}を移せば、
+式\eqref{ift:eq:ks-product}を得る。
+幾何的変形と connecting class の共通符号規約に差がある場合は、
+その一つの符号を $L$ に吸収する。
+$J_F=J_1\otimes J_2$ の二重次数 $(1,2)$ の部分での積は、
+$(J_1)_1\otimes(J_2)_2$ との恒等的な tensor 同型である。
+$L_a$ と $Q_b$ はそれぞれ基底なので、その九つの積も独立である。
+\end{proof}
+
+\begin{corollary}[二つの Clifford 因子の十八一次方向]
+\label{ift:cor:two-clifford-tangents}
+第一因子も滑らかな標準 Clifford 因子であるとする。
+同じ原点比較 $E$ の下で、二つの ordered pair に対応する接写像の直和は
+\[
+ \bigl(\mathrm{HH}^2(S_1)_{-2}\otimes Z(S_2)_2\bigr)
+ \oplus
+ \bigl(Z(S_1)_2\otimes\mathrm{HH}^2(S_2)_{-2}\bigr)
+ \longrightarrow\mathrm{HH}^2(\Ku(X_0))
+\]
+という十八次元の単射を与え、その像は
+\[
+     (J_1)_1\otimes(J_2)_2
+       \ \oplus\ (J_1)_2\otimes(J_2)_1
+\]
+である。この結論は二つの族の原点における一次写像についてのものであり、
+両方向を同時に積分する十八変数族の存在を主張しない。
+\end{corollary}
+
+\begin{proof}
+原点比較 $E$ は両方のブロックスカラーと rotation・指定周期を保つ。
+従って因子を交換しても同じ $E$ に前定理を適用できる。
+二つの像は $J_F=J_1\otimes J_2$ の異なる二重次数に属し、直和をなす。
+それぞれの階数が九であるから主張が従う。
+\end{proof}
+
+\begin{corollary}[可換三次の一次式と形式的な九次元部分]
+\label{ift:cor:first-jet}
+定理の $L_a$ を一次式、$Q_b$ を二次式の代表で書く。
+九変数族が定める可換三次変形の一次式は
+\begin{equation}\label{ift:eq:first-jet}
+            F+\sum_{a,b}\Lambda_{ab}L_a(\mathbf X)Q_b(\mathbf Y)
+                \pmod{(\Lambda)^2}
+\end{equation}
+で表せる。ここで一次式とは、原点を標識した三次超曲面の変形の同型類をいう。
+二次式の代表の違いは Jacobian イデアルに入り、同じ一次変形を表す。
+
+さらに、系\ref{ifk:cor:clifford-fourfold-neighborhood}の可換族が誘導する
+原点の形式変形空間への射は、二十次元の滑らかな形式空間への閉埋込みである。
+その像は九次元の滑らかな形式部分であり、定義イデアルは長さ十一の正則列で生成される。
+従ってこの族は、残余圏の幾何的変形の中で余次元十一の形式的正則埋込みを与える。
+\end{corollary}
+
+\begin{proof}
+三次超曲面の接空間は $(J_F)_3$ であり、
+主稿の命題\paperref{main}{ifk:prop:geometric-fixed-part}で用いた
+幾何的 Kodaira--Spencer 写像と前定理を比較すれば、一次式を得る。
+
+主稿の定理\paperref{main}{ifk:thm:rotation-formal}と
+系\ref{ifk:cor:clifford-fourfold-neighborhood}により、
+原点の標識を固定した形式変形空間の射が存在する。
+その局所環の射は
+\[
+ \C[[t_1,\ldots,t_{20}]]\longrightarrow
+             \C[[\Lambda_{11},\ldots,\Lambda_{33}]]
+\]
+であり、前定理により余接空間への写像は全射である。
+完備局所環の形式的逆写像定理、または次数ごとの持上げにより、
+局所環の射自身も全射となる。
+従って形式空間の射は閉埋込みである。
+より具体的には、源の二十個の形式座標のうち九つを、
+像が標的の正則パラメータ系となるように選べる。
+残りの十一座標から、同じ像を持つ最初の九座標の形式冪級数を引けば、
+これら十一座標は零へ写る。
+この座標変更の一次部分は可逆であり、核はこの十一座標で生成される。
+従って核は長さ十一の正則列で生成され、表示した余次元を得る。
+この主張は大域的なパラメータの識別や、全 smooth 係数での比較を含まない。
+\end{proof}
+
+\begin{proposition}[ブロック作用が制限する高次 jet]
+\label{ift:prop:block-jets}
+原点比較 $E$ を前定理のように固定し、九変数族から得られる
+原点を標識した可換三次の形式変形写像を $\Phi$ とする。
+三次四様体の形式変形空間には、接空間との同定を保つ形式座標を選び、
+\[
+ T^{(1)}=(J_1)_1\otimes(J_2)_2,\qquad
+ T^{(2)}=(J_1)_2\otimes(J_2)_1,\qquad
+ T^{(0)}=(J_1)_3\oplus(J_2)_3
+\]
+に対応する成分 $\Phi^{(1)},\Phi^{(2)},\Phi^{(0)}$ を取れる。
+これらの空間の次元は、それぞれ九、九、二である。
+この座標をブロック作用について同変に取れば、各成分は
+\begin{equation}\label{ift:eq:jet-weights}
+ \Phi^{(r)}(\Lambda)
+   =\sum_{\substack{d\ge1\\d\equiv r\ (\mathrm{mod}\ 3)}}
+          \Phi^{(r)}_d(\Lambda),\qquad r=0,1,2,
+\end{equation}
+と展開される。ここで $\Phi^{(r)}_d$ は $\Lambda$ の斉次次数 $d$ の写像である。
+$\Phi^{(1)}_1$ は式\eqref{ift:eq:ks-product}の同型である。
+従って、逆向きの混合部分 $T^{(2)}$ が最初に現れ得るのは二次、
+純ブロック部分 $T^{(0)}$ が最初に現れ得るのは三次である。
+
+さらに源の形式座標を $\lambda=\Phi^{(1)}(\Lambda)\in T^{(1)}$ と取り直せば、
+像は $T^{(1)}$ 上の形式的グラフとなり、
+残る成分の次数はそれぞれ $2$、$0$ modulo $3$ に限られる。
+ここで高次の係数は形式座標の選択に依存し、その非消滅は主張しない。
+\end{proposition}
+
+\begin{proof}
+前定理のブロック作用を $g(\mathbf x,\mathbf y)=(\zeta\mathbf x,\mathbf y)$ とする。
+族の表示式から、これは実際の同型
+\[
+     g:\mathcal A_\Lambda\xrightarrow{\sim}\mathcal A_{\zeta\Lambda}
+\]
+を与える。実際、第一因子の二次関係には $\zeta^2$ が掛かり、
+$\zeta^{-2}\Lambda=\zeta\Lambda$ となる。
+中心元についても
+$g(\Omega_{1,\Lambda})=\Omega_{1,\zeta\Lambda}$ であり、
+第二因子の中心元は不変である。
+この作用は三乗で恒等となり、内部 shift と可換する。
+
+補題\ref{ebk:lem:boundary}の原点比較は、このブロック作用と rotation を保つ。
+従って主稿の定理\paperref{main}{ifk:thm:rotation-formal}を各 Artin 厚化に適用すると、
+特殊ファイバーの標識変更についての自然性と完全忠実性から、
+$\Phi$ はブロック巡回群に同変となる。
+この議論では、系\ref{ifk:cor:clifford-fourfold-neighborhood}の
+\'etale 基底上の比較核に、全基底でのブロック同変構造を要求していない。
+原点で標識した形式変形の同型類関手上の自然性だけを用いている。
+また、ここでの巡回群はブロック作用から来るものであり、
+主稿の形式認識に用いた rotation の巡回作用とは異なる。
+
+幾何的接空間 $(J_F)_3$ 上のブロック作用の固有値は、
+$T^{(1)},T^{(2)},T^{(0)}$ 上で、それぞれ $\zeta,\zeta^2,1$ である。
+形式変形空間は滑らかであるから、その余接空間から極大イデアルへの
+線型切断を巡回群について平均し、同変な形式パラメータを取れる。
+形式逆写像定理により、これらは接空間を線型化する同変な形式座標となる。
+源では $g$ が $\Lambda\mapsto\zeta\Lambda$ と作用するため、
+同変性は
+\[
+       \Phi^{(r)}(\zeta\Lambda)=\zeta^r\Phi^{(r)}(\Lambda)
+\]
+を意味する。
+斉次次数ごとに比較すれば式\eqref{ift:eq:jet-weights}を得る。
+定理\ref{ift:thm:rank-nine}により $\Phi^{(1)}$ の一次部分は同型なので、
+これは同変な形式座標変更を定める。その逆写像も同変であり、
+新しい座標におけるグラフの次数にも同じ合同条件が残る。
+\end{proof}
+
+\begin{remark}[中心平方と可換座標平方の区別]
+\label{ift:rem:fermat-warning}
+$Q_b$ を文字通り $Y_b^2$ の Jacobian class としてはならない。
+例えば $\tau^3=-2$ は本族の許容範囲にあり、第二因子の点曲線は
+\[
+ \tau(Y_1^3+Y_2^3+Y_3^3)-(2+\tau^3)Y_1Y_2Y_3=0
+\]
+という Fermat 三次である。このとき $(J_2)_2$ では全ての $Y_b^2$ が零となり、
+三つの交差単項式が基底となる。
+それでも、前定理の $Q(y_b^2)$ は三つの独立な非零 class である。
+実際の Picard 補正と指定周期を含む比較による中心作用の移送が必要であり、
+非可換生成元の平方を同名の可換座標平方へ置き換える計算では階数を判定できない。
+
+前定理と系は残余接写像の階数・像と一次変形式を確定する。
+$L,Q$ の数値行列、可換方程式の二次以上の係数、
+全 smooth 係数への実核の延長、および全標識の同時保存は別の問題である。
+\end{remark}

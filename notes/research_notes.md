@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v62。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月23日 / v63。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -28,7 +28,7 @@ point/Poisson不一致は本文の補助例として扱う。三様体の例の�
 
 研究方針・研究ノート・共通preamble・書誌は三稿で共有し、数学的な本文は複製しない。三稿への整理は編集と参照の再構成であり、既存の数学全体の再証明ではない。以下の点検・計算に関する記述は各結果の既存の確認範囲であり、今回のソース保持・組版・表示確認とは区別する。実際の確認状態は [検証範囲](validation.md) を参照する。
 
-研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。固定tensor境界・厳密中心作用の全PBW表示は因子別に分解するので、この範囲の混合関係の分類を未解決へ戻さない。P0は全intrinsic被覆と境界二次関係を動かす表示の認識に置く。Clifford九変数族では原点近傍の四・五次元Ku比較まで得たので、残余KS写像の階数・像、可換方程式の具体化、全smooth係数への核の延長を次の具体課題とする。Δ≡0は既存のsmooth二中心対象では起こらない。偏極標的への実核と全中心作用、因子moduli上のPicard/周期降下も残る。比較係数の数値化は存在結果の具体化として進め、h核の良い特殊化は固定点の同値の存在と分ける。
+研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。固定tensor境界・厳密中心作用の全PBW表示は因子別に分解するので、この範囲の混合関係の分類を未解決へ戻さない。P0は全intrinsic被覆と境界二次関係を動かす表示の認識に置く。Clifford九変数族では原点近傍の四・五次元Ku比較を得て、四次元型の残余KSは階数9、像Jac(f₁)₁⊗Jac(f₂)₂と確定した。一次比較行列L,Qの数値化、高次可換方程式の具体化、全smooth係数への核の延長を次の具体課題とする。Δ≡0は既存のsmooth二中心対象では起こらない。偏極標的への実核と全中心作用、因子moduli上のPicard/周期降下も残る。比較係数の数値化は存在結果の具体化として進め、h核の良い特殊化は固定点の同値の存在と分ける。
 
 ### 満支持型における同時存在
 
@@ -461,7 +461,25 @@ Khan, *Algebraic K-theory of quasi-smooth blow-ups and cdh descent*, Ann.Henri L
 
 Clifford族への適用は [interfactor_clifford_kodaira_spencer.tex](../papers/sections/mixed/interfactor_clifford_kodaira_spencer.tex)。原点の `ebk:lem:boundary` は任意固定因子、二捩れを含めてrotation付き実核を与える。従ってm=0にも原点を含む可換Ku実現開とétale局所perfect核がある（`ifk:cor:clifford-fourfold-neighborhood`）。m=1はn≠4の既存開性を使う `iff:cor:cubic-fivefold-open` による。いずれも原点開の存在であり、全smooth係数への比較ではない。
 
-九方向の残余KSは幾何的20次元部分へ入り、二つの非恒等sectorへの射影は零である。ただしambient HH²での独立性から残余KSのrank9は従わない。次の具体的な着手は、原点の周期付き因子核とKoszul–Shamash模型を用いてMat₃(C)→Jac(a₁f₁+a₂f₂)₃を計算し、そのrank・像と可換方程式の一次項を決めることである。その後に高次方程式、開の補集合、境界核のdefectを調べる。逆向き・複数ordered pairの同時積分、全intrinsic被覆も未完成である。既知の形式変形・有限群・核スタックの機構と、この族への適用の新規性を区別し、文献上の初出は未確認とする。
+九方向の残余KSは幾何的20次元部分へ入り、二つの非恒等sectorへの射影は零である。さらに次項のfull Bocksteinの積により階数9と像を決定する。全smooth係数への核延長、逆向き・複数ordered pairの同時積分、全intrinsic被覆は未完成である。既知の形式変形・有限群・核スタックの機構と、この族への適用の新規性を区別し、文献上の初出は未確認とする。
+
+### 中心作用の積と残余KSの全階数
+
+証明の正本は [interfactor_clifford_tangent_product.tex](../papers/sections/mixed/interfactor_clifford_tangent_product.tex)。`ift:lem:central-substitution` は、C[v]/(v²)上の平坦代数の積をm+vφと書き、厳密中心元zを用いてv=tzへ代入した族のfull Hochschild classがzφとなることを示す。d=deg vとe=deg zが同じ場合のdeg t=0も含む。双加群characteristic作用、dg quotient、windowが合成を保つため、対象ごとの評価だけでなく全自然変換で積を同定する。
+
+これをB₀/(w₀²)、v=w₀、z∈Z(S₂)₂へ適用すると、w₀のBocksteinは実Shamash周期であり、w₀−tzのBocksteinは中心乗法q_zそのものになる。既存 `ebc:thm:first-injection` のClifford β三方向の単射性から、中心作用Z(S₂)₂→Hom(id,ρ²)は単射である。一方、`ebc:prop:constant-iso` の第一因子定数BocksteinはHom(id,ρ)に独立な三方向を与える。同じ中心代入v=εy_b²が関係式と中心三次補正をともに正しく移すため、九変数族のKSはこの二つの自然変換の積となる。
+
+原点の比較核Eはブロック作用g:(x,y)↦(ζx,y)とrotation・指定周期を保つ。定数Bocksteinのg指標はζ、第二因子中心作用の指標は1なので、可換側ではそれぞれJac(f₁)₁とJac(f₂)₂に同型として入る。Huybrechts–Rennemo, Algebraic Geometry6(2019),76–99, DOI10.14231/AG-2019-005のPropositions3.3/3.5/3.9（一次本文確認2026-11-23）は、Jacobian環から内部shift自然変換環への環準同型・単射性と核による積の保存を与える。従って `ift:thm:rank-nine` は
+
+\[ E_*\operatorname{KS}(M)=\sum_{a,b}M_{ab}L_aQ_b,\qquad \operatorname{im}\operatorname{KS}=(J_{f_1})_1\otimes(J_{f_2})_2,\qquad \operatorname{rank}=9 \]
+
+を得る。L,Qは固定核に依存する可逆写像で、数値行列を計算したとはしない。`ift:cor:first-jet` は原点を標識した三次の20次元形式変形空間への余次元11の正則閉埋込みを与える。大域的な係数の識別や閉像は主張しない。両因子がCliffordなら同じ比較Eに因子を交換した計算を適用でき、逆向きの像はJac(f₁)₂⊗Jac(f₂)₁となる。従って二つの接写像の直和の階数は18であるが、両方向の同時全次数積分は未証明（`ift:cor:two-clifford-tangents`）。
+
+**可換化の障害。** 許容値τ³=−2ではf₂はFermat三次で、文字通りの可換平方Y_b²はJac(f₂)₂で全て零となる。しかしQ(y_b²)は三つの独立な非零類である。したがって非可換中心の係数を同名座標で可換化してKSを計算できない。Picard補正と指定周期を含む実核を通す必要がある（`ift:rem:fermat-warning`）。
+
+**次の計算。** まずL,Qの行列を実核から数値化する。ブロックμ₃に同変な形式座標を選ぶと、20次元接空間の指標は(1,ζ,ζ²)に対して(2,9,9)であり、Λはζで変換する。像の(1,2)成分は総次数1 mod3、逆向き(2,1)成分は2 mod3、二つの純三次成分は0 mod3のTaylor項だけを持つ。最初の未計算項は逆向き成分を値に取る二次形式と、純成分を値に取る三次形式である。これはrotationのC₃固定部分を取る操作とは異なるブロック作用であり、係数の非消滅・座標独立性・収束は主張しない。
+
+`verify_interfactor_residual_ks.py` の7 PASSは全Hesse smooth fiberのJacobian次数三の全56単項式・36関係・20基底、九次元(1,2)部分、指標分解、tensor行列式と上のFermat例を厳密確認する。既存 `verify_elliptic_bockstein.py` の8 PASSも再実行した。full class移送と実核の証明、有限計算、独立読解、組版は別々に `validation.md` へ記す。
 
 近接する先行研究と今回の適用範囲は次の通りである。
 
