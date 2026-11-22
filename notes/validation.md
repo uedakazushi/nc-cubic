@@ -1,8 +1,11 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v69。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v70。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
+
+- **七つのprobeのPBW・高次移送（v70）：** `ifj:prop:pbw-jet-degree` に全8×8 PBW積の唯一のq12q23二次型と四構造定数、源積の5つの一次/2つの二次probe、中心三次の一次性を証明として記載。`ifj:lem:pbw-hpl` は原点収縮を与えたときの既知のhomological perturbation lemmaの三次公式であり、新定理として主張しない。SymPyで記号Clifford積の全64組、中心体積元の中心性・平方=−det、probe次数、第一微分の8^3=512組の自己合成消滅、曲率一次性、非可換演算順序を保つ三次HPL公式を6群全てPASS。検算器 `computations/verify_clifford_jet_transfer.py`。実際のperfect原点核に適合する(i,p,h)の実構成・高次比較射・Hesse切片への正規化、12 scalarの数値は未完成。既存のv65-v69記録と今回の再実行は分ける。新説を含む三稿全体のLuaLaTeX再組版・PDF表示確認は未実施。
+
 
 - **一方向rank-oneの一般因子の判別とMilnor型：** 新節 `interfactor_clifford_oneway_discriminant.tex`（ifod）の三定理・命題に、任意の許容τ_iと非零重みの四つの正確な三乗特異値、全特異点のAzumaya性、一般条件τ₁³≠−2・τ₂³≠4でのノード数1/3/3/9と通常discriminantのs次数48、特殊t³=−2/u³=4でのD₄とMilnor数16の合流を証明記載。証明は既存 `ifd:prop:ambient-locus`、`ifn:thm:four-discriminants` と射影Azumaya内のcoherent飽和を入力とする。今ターンのSymbolic検算 `python3 computations/verify_clifford_general_oneway.py` はSymPy 1.14で6群PASS（一般四binary cubic判別恒等式、二因子の臨界根と値、∂s横断性、Clifford行列式、t=3/u=2の四枝の厳密非零Hessian、特殊分岐の三次jet）。新節単体をltjsarticleの独立LuaLaTeX wrapperで4頁として組版し、未定義の外部参照を除きTeXエラー・overfull/underfullなし、全4頁のPNG montageを確認した。**三稿の統合LuaLaTeX組版や全参照の収束は今回未実施**。有限計算は圏同値・coherent飽和・全残余smooth判別・固定Hesse切片の高次12係数を検証するものではない。特殊D₄の形式同値は書いた形式Morseと有限決定性の数学的論証による。外部査読・Lean・新規性網羅確認は未実施。
 - **階数一の全二方向判別・対称特別値の保持:** `ifn:thm:four-discriminants` には任意λ,μの中心norm全特異条件を四binary cubic判別式で記述する証明、`ifn:thm:symmetric-probe` にはτ₁=τ₂=2の四判別因数分解、非Azumaya二乗因子、12特異係数とAzumayaノード数を記載。これらの厳密計算6群（v67）、6群（v68）は以前の実行記録で、今回再実行ではない。今回の新一般式はv68に正確に特殊化することをSymbolic検算でも確認した。

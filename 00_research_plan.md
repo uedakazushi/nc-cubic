@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：可換 Ku 実現を中心とする研究方針
 
-2026年11月23日 / v69。再開時は本書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。正本は `uedakazushi/nc-cubic` の `main`、主公表原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)（日本語LuaLaTeX、著者欄空欄）。
+2026年11月23日 / v70。再開時は本書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。正本は `uedakazushi/nc-cubic` の `main`、主公表原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)（日本語LuaLaTeX、著者欄空欄）。
 
 ## 公表用原稿と証明の正本
 
@@ -38,7 +38,7 @@ rank-one slice Λ=λE₁₁、M=μE₁₁では、h=(1−τ₁³)(1−τ₂³)�
 
 Heisenberg同変核を選ぶと、残余一次式の写像はL(e_a)=ℓX_a、Q(y_b²)=q[Y_{b+1}Y_{b+2}]となる（`ife:thm:projective-coefficients`）。両Cliffordの標準方程式f_τ=τΣZ³−(2+τ³)Z₁Z₂Z₃と元の関係係数を固定し、d_i=τ_i³−1と置く。各因子ℓ_iq_i=2a_id_i/(3τ_i)、κ₁₂κ₂₁=4a₁a₂d₁d₂/(9τ₁τ₂)に加え、一般因子でκ₁₂³=8a₁³d₁²d₂/(27τ₂³)、κ₂₁³=8a₂³d₂²d₁/(27τ₁³)を得る（`ifm:thm:scale-cubes`）。θ=(a₂τ₂/a₁τ₁)(κ₁₂/κ₂₁)はθ³=d₁/d₂を満たし、動く因子係数上の非自明な有限étale μ₃-torsorを定める（`ifm:cor:kummer-scale`）。三枝は指定周期付きの実比較の選択で実現され、固定核には一つの枝が対応する。同一因子・同一重みの交換同変核では両κ=2a(τ³−1)/(3τ)である。この尺度torsorを全比較核のgerbeと同定したとはしない。
 
-両Cliffordの標準Hesse方程式・原点核・周期と明示的なJacobian線型補空間を固定すると、形式可換方程式は一意に正規化される（`ifj:lem:linear-slice`）。一方向九変数に対するH₃×H₃の二次covariantと三次不変式は各五本で、実核を周期と両立する反転まで同変化すると各四本に減る。逆向き混合二次項の四係数と純二因子三次項の八係数、計十二係数は七つの一変数probeで決定できるが、その数値は未計算である（`ifj:thm:twelve-coefficients`）。自由な標的形式座標による高次graphの消去は、固定した多項式切片でこれらの値を求めることとは異なる（`ifj:prop:formal-straightening`）。
+両Cliffordの標準Hesse方程式・原点核・周期と明示的なJacobian線型補空間を固定すると、形式可換方程式は一意に正規化される（`ifj:lem:linear-slice`）。一方向九変数に対するH₃×H₃の二次covariantと三次不変式は各五本で、実核を周期と両立する反転まで同変化すると各四本に減る。逆向き混合二次項の四係数と純二因子三次項の八係数、計十二係数は七つの一変数probeで決定できるが、その数値は未計算である（`ifj:thm:twelve-coefficients`）。この七probeに対する非可換側のcurved PBW積は五方向で係数一次、二方向（列和と対角行列）で二次止まりであり、二次の積は順序付き8基底上の四つの構造定数−L₁L₃に限る。中心三次は全probeで一次である（`ifj:prop:pbw-jet-degree`）。s進bar模型の三次までの移送は `ifj:lem:pbw-hpl` によりd₁,d₂と原点収縮hの有限演算へ還元される。高次Hesse係数の数値を得るには原点実核・周期に沿った収縮と固定線型切片への射影が必要であり、移送微分そのものを12係数と同一視しない。自由な標的形式座標による高次graphの消去は、固定した多項式切片でこれらの値を求めることとは異なる（`ifj:prop:formal-straightening`）。
 
 同一S(1,−1,−1)の既存結果では、指定規約でκ_k²=27/28、κ_k=3√21/14を保持する（`mcs:cor:universal-scale`）。Heisenberg同変な一次像は純ブロックJac₂の直和で、比較の七定数形のうち六定数χ_k,A_k,…,E_kは未数値化（`lec:thm:seven-scalar-form`）。一般の異なる因子へこの数値κを流用しない。指定二ブロックのP64・norm全64根・有限中心と局所型も保持する。残る核心は、全intrinsic対象の認識と表示被覆、最高次の二次境界を変える混合族の比較の具体化・全smooth係数への延長、偏極標的への実比較核、因子moduli上の核選択・降下である。一般の比較係数、一般PBW族のPI性・有限中心性、選択済みh一般点核のdefect零特殊化も未解決。
 
@@ -116,7 +116,7 @@ Heisenberg同変核を選ぶと、残余一次式の写像はL(e_a)=ℓX_a、Q(y
 
 ### P0：主予想の存在領域を全対象へ広げる
 
-1. **固定切片の十二係数から、最初の非零値を実計算する。** `ifj:thm:twelve-coefficients` の標準Hesse方程式・Jacobian線型切片・反転同変原点核・指定周期を固定する。`ifj:eq:probe-table` の七つの一変数probeに沿って、逆向き混合成分の二次四係数と純因子成分の三次八係数を、実Bockstein移送または比較核の高次縮約から求める。一般一次尺度には `ifm:thm:scale-cubes` と選択したKummer枝を使い、同一因子・同一重みでは交換同変尺度を固定できる。自由な標的形式座標で高次を消して数値計算の代用とせず、非零値を得たら核・周期・座標依存を明記する。十八・二十変数の方程式の具体化はこの固定切片で進める。
+1. **固定切片の十二係数から、最初の非零値を実計算する。** `ifj:thm:twelve-coefficients` の標準Hesse方程式・Jacobian線型切片・反転同変原点核・指定周期を固定する。`ifj:eq:probe-table` の七つの一変数probeに沿って、逆向き混合成分の二次四係数と純因子成分の三次八係数を求める。まず `ifj:prop:pbw-jet-degree` の5つの厳密線形源変形と2つの二次源変形に対して、分離原点の有限Koszul--Shamash比較核から実際の収縮(i,p,h)を固定し、`ifj:eq:pbw-hpl` の二次・三次の演算と必要な高次積・unit/counitを評価する。その後同じrotation・周期を保ってJacobian切片へ正規化し、七probeの値を取得する。一般一次尺度には `ifm:thm:scale-cubes` と選択したKummer枝を使い、同一因子・同一重みでは交換同変尺度を固定できる。自由な標的形式座標で高次を消して数値計算の代用とせず、非零値を得たら核・周期・座標依存を明記する。十八・二十変数の方程式の具体化はこの固定切片で進める。
 2. **比較核のKummer三枝を選び、因子moduli上の降下を調べる。** θ³=(τ₁³−1)/(τ₂³−1)の有限étale三重被覆は非自明であり、有理的な大域sectionはない。`ifv:lem:moving-split-kernel` の実相対核におけるPicard線束、三捩れ補正、周期の三乗根と、`ifm:cor:kummer-scale` の各枝を対応させる。尺度torsorだけから全標識付き核のgerbeや、その中立化・最小比較次数は結論しない。一般係数の有限étale比較は構成済みだが、比較三次族と核の元の係数空間への大域降下は残る。
 3. **残余smooth locusの境界と核延長を調べ、全intrinsic対象へ進む。** 九変数の全係数AS/CY、十八変数の正確な周囲正則域D(Δ)、二十変数の形式完全性・モジュライの稠密開・一般係数の有限étale比較は既知の入力とする。rank-oneの一般一方向判別はD(Δc)内部にも残余非smooth点があることと、その特異値・節点重複度・D₄合流を明示した。まず `ifd:thm:residual-a2` の中心chartとunit/counit defectを使い、実際のsmooth域・境界での核延長を調べる。一般の複数ordered pairの高次障害、既存O-marked認識と表示被覆を調べ、全smooth係数の比較や主予想の「任意」を現在の稠密開・表示族へ限定しない。
 4. **偏極標的への実核と中心作用の比較を調べる。** `mcb:thm:smooth-locus` はX_polによる全smooth locusの判定を与えるが、実Ku核の標的は逐次構成のX_itである。次は `mbl:cor:chart-kernel` の局所核を重なりへ制限し、差となる自己同値・周期位相とČech coherenceを計算する。対角の局所完全性は比較核の貼合せではない。`tcr:prop:joint-comonad` の混合情報と `tcr:ex:same-axes` を保ち、単純な軸データから全比較を決定しない。

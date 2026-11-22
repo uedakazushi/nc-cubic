@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v65.
+% Current result: 2026-11-23 / v70.
 \subsection{固定した三次形式の切片と高次係数の有限還元}
 \label{ifj:subsec:jets}
 
@@ -331,6 +331,186 @@ $R_0=\sum_bE_{0b}$、$C_0'=\sum_aE_{a0}$、$D_0=I_3$ と置く。
 ここで要求するのは、元の非可換係数を保ち、
 補題\ref{ifj:lem:linear-slice}の切片へ正規化した比較である。
 点曲線の係数や非可換生成元の平方を文字通り可換化する操作では代用できない。
+
+
+\subsubsection{七つの probe に対する curved PBW 摂動の次数}
+\label{ifj:subsubsec:pbw-transfer}
+
+定理\ref{ifj:thm:twelve-coefficients}の十二係数を
+実際の比較核から求めるため、非可換側に必要な
+摂動演算を次数三まで具体化する。
+以下の Clifford 基底の番号だけは $1,2,3$ に戻し、
+式\eqref{ifj:eq:probe-table}では $0,1,2$ に読み替える。
+中心平方の環を $Z=\C[X_1,X_2,X_3,Y_1,Y_2,Y_3]$ とし、
+$U=(U_{ab})$ を固定した行列として
+$\Lambda=sU$、逆方向係数 $M=0$ とする。
+$L_a=\sum_bU_{ab}Y_b$ と書けば
+\begin{equation}\label{ifj:eq:pbw-varying-q}
+ q_{23}(s)=-\frac{\tau_1X_1}{2}+\frac{sL_1}{2},\quad
+ q_{13}(s)=-\frac{\tau_1X_2}{2}+\frac{sL_2}{2},\quad
+ q_{12}(s)=-\frac{\tau_1X_3}{2}+\frac{sL_3}{2}.
+\end{equation}
+第二因子の Clifford 形式は $s$ に依存しない。
+
+\begin{proposition}[全 PBW 積の二次部分と probe の五対二分解]
+\label{ifj:prop:pbw-jet-degree}
+第一因子の順序付き $Z$-基底を
+\[
+ e_\varnothing=1,\quad e_i=x_i,\quad
+ e_{ij}=x_ix_j\ (i<j),\quad e_{123}=x_1x_2x_3
+\]
+とする。全 $8\times8$ 組の積の構造定数は
+$q_{12},q_{13},q_{23}$ に関して高々二次であり、
+二次項は $-4q_{12}q_{23}$ に由来する次の四組だけである：
+\begin{equation}\label{ifj:eq:quadratic-pbw-four}
+\begin{array}{c|cccc}
+(a,b)&(e_{23},e_{12})&(e_{23},e_{123})
+       &(e_{123},e_{12})&(e_{123},e_{123})\\\hline
+\text{二次項の出力}&-4q_{12}q_{23}e_\varnothing&
+ -4q_{12}q_{23}e_3&-4q_{12}q_{23}e_1&
+ -4q_{12}q_{23}e_{13}
+\end{array}
+\end{equation}
+従って $B_{sM}$ の通常の $Z$-線型積は
+\[
+                 m_s=m_0+s\,m_1+s^2m_2
+\]
+と書け、$m_2$ の非零成分は
+式\eqref{ifj:eq:quadratic-pbw-four}の四組の出力を
+$-L_1L_3e_\varnothing,-L_1L_3e_3,
+-L_1L_3e_1,-L_1L_3e_{13}$ に置き換えたものだけである。
+特に $L_1L_3=0$ なら $m_2=0$ となる。
+
+指定した中心三次は全行列 $U$ について
+\begin{equation}\label{ifj:eq:curvature-linear}
+ \begin{split}
+ w_s&=w_0+s\,w_1,\qquad
+ w_1=\frac{\alpha_1}{2}(-L_3x_3+L_2x_2-L_1x_1),\\
+ \alpha_1&=2a_1(1-\tau_1^3)
+ \end{split}
+\end{equation}
+と厳密に一次である。
+
+式\eqref{ifj:eq:probe-table}の七方向について、
+積の $s$-次数は、$E_{00}$、
+$E_{10}+E_{20}$、$E_{01}+E_{02}$、
+$E_{11}+E_{22}$、$R_0$ の五方向で一、
+$C'_0$ と $D_0=I_3$ の二方向で二となる。
+最後の二方向の $m_2$ はそれぞれ
+$L_1L_3=Y_1^2$、$L_1L_3=Y_1Y_3$ によって
+上の四組から完全に記述される。
+この次数分類は固定した PBW 自明化に関するもので、
+高次の可換比較係数の消滅を主張しない。
+\end{proposition}
+
+\begin{proof}
+Clifford 関係を
+\[
+ x_i^2=X_i,\qquad x_jx_i=-x_ix_j+2q_{ij}\quad(j>i)
+\]
+として左から順序基底に整列する。
+例えば
+\[
+ e_{23}e_{12}
+  =-X_2e_{13}+2q_{23}e_{12}
+    +2q_{12}e_{23}
+    +(2X_2q_{13}-4q_{12}q_{23})e_\varnothing.
+\]
+残る $63$ 組も同じ三つの整列規則から従い、
+二次の出現箇所は正確に
+式\eqref{ifj:eq:quadratic-pbw-four}の四組である。
+この有限恒等式の全表を
+\texttt{verify\_clifford\_jet\_transfer.py} が記号係数のまま検査する。
+第二因子と第一因子の生成元は可換で、第二因子の積は変形しないため、
+同じ次数評価が $64$ 元の tensor Clifford 基底へ伝わる。
+式\eqref{ifj:eq:pbw-varying-q}を代入すると
+$(-4)(sL_3/2)(sL_1/2)=-s^2L_1L_3$ であり、
+$m_2$ の表示を得る。
+
+体積元は
+\[
+ \omega_x(s)=e_{123}-q_{12}(s)e_3
+                   +q_{13}(s)e_2-q_{23}(s)e_1
+\]
+であり、第二因子の $\omega_y$ は変形しない。
+$w_s=\alpha_1\omega_x(s)+\alpha_2\omega_y$ から
+式\eqref{ifj:eq:curvature-linear}が従う。
+体積元の中心性と $\omega_x^2=-\det q_x$ は
+Clifford の整列恒等式である。
+七行列の $L_a$ を代入すると、
+$L_1L_3$ が非零なのは表示した二方向だけであり、
+それぞれの式を得る。
+\end{proof}
+
+上の命題は、原点からの曲がった代数
+$(B_s,w_s)$ が、PBW 基底上で
+高々二次の構造演算を持つことを意味する。
+一方向の五つの probe では、s-adic な
+curved bar coderivation を $d_s=d_0+s\,d_1$ と取れる。
+この場合、$d_s^2=0$ を $s$ の次数ごとに比較すれば
+\[
+ d_0d_1+d_1d_0=0,\qquad d_1^2=0
+\]
+となる。従って非可換側に独立な二次・三次
+Maurer--Cartan 補正は必要ない。
+残り二つでも $d_s=d_0+s\,d_1+s^2d_2$ で
+$s^3$ 以上の新しい構造演算は必要ない。
+
+\begin{lemma}[固定収縮による三次までの摂動移送]
+\label{ifj:lem:pbw-hpl}
+$s$-進完備な任意の cochain 模型
+$(C[[s]],d_0+s\,d_1+s^2d_2)$ を考える。
+原点に special deformation retract
+\[
+ (H,d_H)\underset{p}{\overset{i}{\rightleftarrows}}
+ (C,d_0),\qquad
+ pi=1,\qquad d_0h+hd_0=1-ip,\qquad
+ hi=ph=h^2=0
+\]
+を固定する。この規約での移送微分の $s^3$ までの増分は
+\begin{equation}\label{ifj:eq:pbw-hpl}
+\begin{aligned}
+ d_H(s)-d_H
+  ={}&s\,p d_1i\\
+   &+s^2\,p(d_2-d_1hd_1)i\\
+   &+s^3\,p(-d_1hd_2-d_2hd_1+d_1hd_1hd_1)i
+     +O(s^4).
+\end{aligned}
+\end{equation}
+特に上の五つの affine probe では $d_2=0$ としてよい。
+\end{lemma}
+
+\begin{proof}
+基本摂動補題の規約を
+$d_0h+hd_0=1-ip$ と取ると
+\[
+ \delta=s\,d_1+s^2d_2,\qquad
+ d_H(s)=d_H+p\delta(1+h\delta)^{-1}i.
+\]
+$s$-進位相で逆元は幾何級数
+$1-h\delta+(h\delta)^2-\cdots$ として存在する。
+$s^3$ まで展開すれば
+式\eqref{ifj:eq:pbw-hpl}を得る。
+この公式は一般の homological perturbation lemma
+\cite{IFJGLS1991}の特殊化である。
+非可換演算の順序を入れ替えてはいない。
+\end{proof}
+
+\begin{remark}[計算が完了した範囲と次の入力]
+\label{ifj:rem:pbw-transfer-scope}
+式\eqref{ifj:eq:pbw-hpl}は選んだ複体の
+移送微分の公式であり、その係数をそのまま
+固定多項式切片の $\beta,\gamma$ と同定するものではない。
+実比較核の有限 Koszul--Shamash 模型から
+原点収縮 $i,p,h$ と相対 rotation・指定周期を固定し、
+移送された高次積と比較射を正規化してから
+式\eqref{ifj:eq:probe-table}に射影する必要がある。
+従って十二係数の数値・非消滅は依然として未計算である。
+一方、必要な非可換側の入力が
+五つの線形摂動と二つの二次摂動だけになり、
+二次摂動の四つの構造定数も明示された。
+これは固定した比較の高次計算を開始するための有限な手順である。
+\end{remark}
 
 \subsubsection{任意の形式座標変更による消去との違い}
 

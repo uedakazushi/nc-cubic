@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月23日 / v69。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月23日 / v70。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -651,6 +651,12 @@ t³≠−2,u³≠4なら特異点は全て通常二重点、各枝の節点数�
 #### τ₁=τ₂=2 の正確な12値と全局所証人
 
 正本は[階数一normの判別定理](../papers/sections/mixed/interfactor_clifford_rank_one_fullnorm.tex)の`ifn:thm:symmetric-probe`。τ₁=τ₂=2、a_i=1で、四つのbinary cubicの判別はそれぞれ(λμ−4)²Q₀₀、−(λμ−8)²Q₀₁/27、−(λμ−8)²Q₁₀/27、−(λμ−16)²Q₁₁/19683に分解する。二乗因子は非Azumayaの臨界点、四つの残余Q因子にはそれぞれAzumaya通常二重点の証人がある。Λ=sE₁₁、M=0では全sでh=49,c=196。中心normが特異となるのは(s³−54)(s³−56)(s³+196)(27s³+5488)=0の12係数で、その各fiberのノード数は1・3・3・9。全てAzumaya。原点から離れたこの判別式だけでは、原点の固定Hesse多項式切片での12個の高次比較係数は決定できない。必要なのは実Bockstein・比較核の高次移送。検算入口は[verify_clifford_symmetric_discriminants.py](../computations/verify_clifford_symmetric_discriminants.py)。
+
+### 七probeのcurved PBW摂動と三次HPLへの有限還元
+
+正本は [interfactor_clifford_jets.tex](../papers/sections/mixed/interfactor_clifford_jets.tex) の `ifj:prop:pbw-jet-degree`、`ifj:lem:pbw-hpl`。1〜3添字のCliffordで q23=−τ₁X₁/2+sL₁/2, q13=−τ₁X₂/2+sL₂/2, q12=−τ₁X₃/2+sL₃/2（L_a=Σ_b U_abY_b）。8つの順序PBW基底の全64組の積の非線形項は q12 q23 に由来する4つだけで、源m_s=m0+s m1+s² m2のm2はこの4出力に−L₁L₃を掛けたもの。ω_x=e123−q12e3+q13e2−q23e1なので中心w_s=w0+s w1は全probeで厳密に一次。7方向のうち E00,E10+E20,E01+E02,E11+E22,R0 の5つはm2=0、C0,I3の2つのみm2≠0（順序PBWでの計算上の性質）。
+
+原点s進curved bar模型 d_s=d0+s d1+s²d2 と原点収縮 (i,p,h), d0h+hd0=1−ip を選ぶと、三次移送の増分は s p d1 i+s²p(d2−d1hd1)i+s³p(−d1hd2−d2hd1+d1hd1hd1)i+O(s⁴)。従って必要な源摂動演算はd1,d2のみで、五つの線形probeではd2=0かつd1²=0。これは移送「微分」の演算式であり、Hesse切片のβ・γを直接与えるものではない。現行の次の実計算は、既存の原点perfect核・Shamash縮約・Picard/rotation周期から(i,p,h)を実際に取り、同じJacobian切片へ高次積まで移すこと。自由な標的再座標化でβ・γを消す操作は採用しない。再現は [verify_clifford_jet_transfer.py](../computations/verify_clifford_jet_transfer.py)。既知のHPLはGugenheim--Lambe--Stasheff (1991)と区別する。
 
 ### 固定した三次切片と高次項の十二係数
 
