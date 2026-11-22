@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：可換 Ku 実現を中心とする研究方針
 
-2026年11月23日 / v66。再開時は本書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。正本は `uedakazushi/nc-cubic` の `main`、主公表原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)（日本語LuaLaTeX、著者欄空欄）。
+2026年11月23日 / v67。再開時は本書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。正本は `uedakazushi/nc-cubic` の `main`、主公表原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)（日本語LuaLaTeX、著者欄空欄）。
 
 ## 公表用原稿と証明の正本
 
@@ -32,7 +32,7 @@
 
 両因子がCliffordの場合には双方向十八変数を積分し、全係数で中心平方上の自由階数64の二次代数を得る。二次双対は可換六二次式商のcocycle twistである。この可換商は六二次式のresultant開D(Δ)上で完全交叉となり、この開が周囲代数の有限大域次元・AS-regular領域と正確に一致する。ここで次元/index6、任意底変更に保たれる有限射影Koszul解消とuntwisted相対6-CYを持つ（`ifb:thm:regularity`, `ifb:cor:exact-regular-locus`）。別の明示的主開D(c)上で中心三次は普遍正則、商は平坦となる。τ₁=τ₂=2、Λ=M=I₃ではΔ=0・大域次元無限で、a₁=a₂=1ならc=196≠0である。この例により、平坦性・Hilbert級数・中心三次正則性だけで周囲のAS-regular性を結論しない。
 
-rank-one slice Λ=λE₁₁、M=μE₁₁では、h=(1−τ₁³)(1−τ₂³)−τ₁²τ₂²λμ≠0が正確なAS-regular域である（`ifd:prop:ambient-locus`）。τ₁=τ₂=2、a₁=a₂=1、λ=μ=−6はh=−527、c=196で、この正則域の内部にある。しかし射影Azumaya chartの完備局所代数はMat₄(C[[t,u,v,r,s]]/(t³+uv+rs))となり、点対象の自己Extが非有界なので全coherent残余圏は非proper、残余線束圏は非smoothとなる（`ifd:thm:residual-a2`）。従ってD(Δc)全体を残余smooth域とみなすことはできない。これは主予想のsmooth仮定の外にある障害である。さらに軸上の中心normを二変数三次Pへ制限すると、判別式はα₁²α₂²(λμ−τ₁τ₂)²Qに因数分解する（`ifq:thm:axis-discriminant`）。Q=0かつλμ≠τ₁τ₂、h≠0は残余非smooth locusに含まれる。等τ・等重みではQは三尖点有理四次曲線で、一般のA₁点、3つのA₂ cusp、有理数係数のA₁例(τ=2,λ=15/2,μ=−6)を得た（`ifq:thm:tricuspidal`, `ifq:ex:rational-a1`）。Qは全残余判別ではなく、非Azumaya軸・軸外点は未分類である。
+rank-one slice Λ=λE₁₁、M=μE₁₁では、h=(1−τ₁³)(1−τ₂³)−τ₁²τ₂²λμ≠0が正確なAS-regular域である（`ifd:prop:ambient-locus`）。τ₁=τ₂=2、a₁=a₂=1、λ=μ=−6はh=−527、c=196で、この正則域の内部にある。しかし射影Azumaya chartの完備局所代数はMat₄(C[[t,u,v,r,s]]/(t³+uv+rs))となり、点対象の自己Extが非有界なので全coherent残余圏は非proper、残余線束圏は非smoothとなる（`ifd:thm:residual-a2`）。従ってD(Δc)全体を残余smooth域とみなすことはできない。これは主予想のsmooth仮定の外にある障害である。さらに軸上の中心normを二変数三次Pへ制限すると、判別式はα₁²α₂²(λμ−τ₁τ₂)²Qに因数分解する（`ifq:thm:axis-discriminant`）。Q=0かつλμ≠τ₁τ₂、h≠0は残余非smooth locusに含まれる。等τ・等重みではQは三尖点有理四次曲線で、一般のA₁点、3つのA₂ cusp、有理数係数のA₁例(τ=2,λ=15/2,μ=−6)を得た（`ifq:thm:tricuspidal`, `ifq:ex:rational-a1`）。Qは軸上判別の一因子である。さらに norm を二つの横Hesse三次組に分け、四つの二変数三次 F_{ε,δ}=P−εα₁²τ₁²k_x³+δα₂²τ₂²k_y³ の判別式の積が零であることと、射影中心 norm 超曲面が特異であることが同値である（`ifn:thm:four-discriminants`）。τ₁=τ₂=2、λ=0、μ³=−196、a_i=1ではh=49、c=196、前のQ≠0だが軸外のAzumaya通常二重点を持ち、残余非smoothとなる（`ifn:cor:off-axis-azumaya`）。これはnorm超曲面の全特異判別であり、残余圏の全smooth判別と同一視しない。非Azumaya部分の圏模型や全smooth係数の核延長は未解決である。
 
 十八変数の四・五次元型には、分離原点近傍の実相対smooth proper残余模型とétale局所perfect Ku核がある。四次元のKSは階数18、二つの混合Jacobian成分への同型で、形式像は余次元2である（`ifg:thm:smooth-neighborhood`, `ifg:cor:local-comparison`, `ifg:cor:rank-eighteen`）。さらにτ₁,τ₂を動かす二十変数族は、任意の許容分離点の完備化で幾何的変形空間と同型になり、局所分類写像は滑らかな三次四様体のモジュライスタックへétaleとなる（`ifv:thm:versal`）。実相対二捩れwindowとPicard比較から純因子の二方向を計算した結論である。係数空間の非空稠密開Uの有限étale全射V→U上に実相対perfect核が存在し、Vからモジュライスタックへのétale像も稠密開である。一般係数体の有限分離拡大上にも全coherent Ku比較を得る（`ifv:cor:generic-comparison`）。Uは選んだ分離点を含むとは限らない。一般の非標識圏変形は22次元のままであり、全三次四様体・全intrinsic対象・全smooth係数の被覆は結論しない。
 

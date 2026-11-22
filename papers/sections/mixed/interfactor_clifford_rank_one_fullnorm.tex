@@ -1,0 +1,210 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v67.
+\subsection{階数一の中心 norm の全特異判別と軸外の Azumaya 二重点}
+\label{ifn:subsec:full-norm}
+
+階数一の係数スライスでは、前小節の軸上の四次判別に加えて
+横二変数組の非零臨界枝がある。この四種類の枝を全て用いれば、
+中心 norm が定義する \emph{可換}三次超曲面の特異条件を
+必要十分条件として記述できる。この結果を残余圏の全 smooth
+判別との同一視には用いない。
+
+命題\ref{ifd:prop:ambient-locus}の記号を用い、
+$\Lambda=\lambda E_{11},\,M=\mu E_{11}$、
+$t=\tau_1,\,u=\tau_2$、$a=\alpha_1^2,\,b=\alpha_2^2$ とする。
+$t,u,a,b$ は非零であり、$X=X_1$、$Y=Y_1$ と略記する。
+四つの線型式と二変数三次式を
+\begin{equation}\label{ifn:eq:branch-functions}
+ \begin{split}
+ P(X,Y)&=aX(\lambda Y-tX)^2-bY(\mu X-uY)^2,\\
+ k_x(X,Y)&=\frac{(4-t^3)X+t^2\lambda Y}{3t^2},\qquad
+ k_y(X,Y)=\frac{(4-u^3)Y+u^2\mu X}{3u^2},\\
+ F_{\epsilon,\delta}(X,Y)
+   &=P(X,Y)-\epsilon\,at^2k_x(X,Y)^3
+               +\delta\,bu^2k_y(X,Y)^3,
+ \qquad (\epsilon,\delta)\in\{0,1\}^2
+ \end{split}
+\end{equation}
+と置く。$F_{\epsilon,\delta}$ は斉次三次式である。
+$\operatorname{Disc}(F)$ は binary cubic の通常の判別式とする。
+ここではその零集合だけを扱い、判別式の重複度は主張しない。
+
+\begin{theorem}[中心 norm 超曲面の全特異判別]
+\label{ifn:thm:four-discriminants}
+六平方座標の射影空間 $\mathbb P^5$ 内の
+\[
+  H_{\lambda,\mu}=V(\mathcal N)\subset\mathbb P^5,
+  \qquad
+  \mathcal N=-a\det q_x+b\det q_y
+\]
+について、複素係数の点ごとに
+\begin{equation}\label{ifn:eq:exact-discriminant}
+ H_{\lambda,\mu}\ \text{が特異}
+ \quad\Longleftrightarrow\quad
+ \prod_{\epsilon,\delta\in\{0,1\}}
+   \operatorname{Disc}(F_{\epsilon,\delta})=0
+\end{equation}
+が成立する。
+
+より正確に、特異点の横座標は全て
+\begin{equation}\label{ifn:eq:critical-branches}
+ (X_2,X_3)=
+ \begin{cases}
+ (0,0),&\epsilon=0,\\
+ (k_x\xi,k_x\xi^2),\ \xi^3=1,&\epsilon=1,
+ \end{cases}
+ \qquad
+ (Y_2,Y_3)=
+ \begin{cases}
+ (0,0),&\delta=0,\\
+ (k_y\eta,k_y\eta^2),\ \eta^3=1,&\delta=1
+ \end{cases}
+\end{equation}
+であり、対応する $[X:Y]\in\mathbb P^1$ は
+$F_{\epsilon,\delta}$ の重根である。
+$k_x=0$ または $k_y=0$ の場合には二つの枝が合流してもよい。
+この必要十分条件は $\mathcal N$ が定義する中心 hypersurface の
+特異性についてのもので、中心の非 Azumaya 層の構造、
+非可換残余圏の全 smooth locus または可換 Ku 標的の判別を
+決めたという主張ではない。
+\end{theorem}
+
+\begin{proof}
+式\eqref{ifb:eq:clifford-matrices}の二つの行列式を展開すると、
+六変数三次式は厳密に
+\begin{equation}\label{ifn:eq:complete-norm}
+ \begin{split}
+ 4\mathcal N={}&P(X,Y)
+ +at^2\bigl(X_2^3+X_3^3-3k_xX_2X_3\bigr)\\
+ &-bu^2\bigl(Y_2^3+Y_3^3-3k_yY_2Y_3\bigr)
+ \end{split}
+\end{equation}
+となる。横偏微分を零に置くと
+\[
+ X_2^2=k_xX_3,\quad X_3^2=k_xX_2,\qquad
+ Y_2^2=k_yY_3,\quad Y_3^2=k_yY_2
+\]
+である。$t,u,a,b$ は非零なので、解は式
+\eqref{ifn:eq:critical-branches}に尽きる。
+特に $X=Y=0$ なら $k_x=k_y=0$ であり、
+全横座標も零となるから、射影的な臨界点は存在しない。
+
+式\eqref{ifn:eq:critical-branches}のいずれかの枝に
+$4\mathcal N$ を代入すると
+\[
+ 4\mathcal N|_{\epsilon,\delta}
+ =P-\epsilon at^2k_x^3+\delta bu^2k_y^3
+ =F_{\epsilon,\delta}
+\]
+となる。
+この枝に沿う横偏微分はすでに零なので、chain rule により
+$\partial_X(4\mathcal N)|_{\epsilon,\delta}
+ =\partial_XF_{\epsilon,\delta}$ および
+$\partial_Y(4\mathcal N)|_{\epsilon,\delta}
+ =\partial_YF_{\epsilon,\delta}$
+である。従って六変数の全偏微分が零となる条件は、
+ある枝で $\partial_XF_{\epsilon,\delta}
+ =\partial_YF_{\epsilon,\delta}=0$ となる条件と等価である。
+斉次三次式の Euler 等式により、これらが零なら
+$F_{\epsilon,\delta}=0$ でもある。
+標数零の二変数斉次三次式について、これは
+$\mathbb P^1$ に重根があること、
+すなわち判別式が零であることと同値である。
+$\xi,\eta$ の三つの選択は $k_x^3,k_y^3$ と横一次微分に
+同じ値を与えるため、判別式の積の零集合が
+全六変数中心 hypersurface の特異係数集合と一致する。
+\end{proof}
+
+最初の枝 $(\epsilon,\delta)=(0,0)$ だけを取ると
+$F_{0,0}=P$ であり、前小節の
+式\eqref{ifq:eq:disc-factor}を回収する。
+残る三枝は軸外の特異点を検出する。
+
+\begin{corollary}[軸上四次曲線で検出できない Azumaya 特異点]
+\label{ifn:cor:off-axis-azumaya}
+$\tau_1=\tau_2=2$、$a_1=a_2=1$、$\lambda=0$ とし、
+$\mu\in\mathbb C$ は $\mu^3=-196$ の任意の根とする。
+周囲代数は $h=49\ne0$ のため六次元 AS 正則であり、
+中心三次の普遍正則係数は $c=196\ne0$ である。
+一方、$H_{0,\mu}$ には
+\begin{equation}\label{ifn:eq:off-axis-point}
+ [X_1:X_2:X_3:Y_1:Y_2:Y_3]
+ =
+ [28/(13\mu):0:0:1:5/13:5/13]
+\end{equation}
+という通常二重点がある。この点では
+$\det q_x=\det q_y=-(28/(13\mu))^3\ne0$ であるから、
+射影中心の Azumaya 開に位置する。
+この点において、規格化した $4\mathcal N/196$ の
+$Y_1=1$ chart での五変数 Hessian 行列式は
+\begin{equation}\label{ifn:eq:off-axis-hessian}
+                 \det(\operatorname{Hess})=\frac{12902400}{2197}\ne0
+\end{equation}
+である。前小節の軸上四次因子 $Q$ は
+$Q/\alpha_1^4=-2000\ne0$ なので、
+この点は前小節の $V(Q)$ では検出されない。
+
+従って、前小節の $V(Q)$ に含まれない
+AS 正則かつ正則中心三次の係数でも、
+残余線束圏が非 smooth になる。
+\end{corollary}
+
+\begin{proof}
+両因子の規格化 $\alpha_1^2=\alpha_2^2=196$ を
+共通因子として除く。$\lambda=0$、
+$\mu^3=-196$ では $h=49$ と $c=196$ は
+命題\ref{ifd:prop:ambient-locus}から従う。
+$Y=1$ とおき $z=\mu X$ とすると
+\[
+ \frac{F_{0,1}(X,1)}{196}
+ =\frac{(z-7)(13z-28)^2}{1323}.
+\]
+従って $X=28/(13\mu)$ は二重根で、
+$k_y=(z-1)/3=5/13$ であり、$X_2=X_3=0$ は第零枝を選んだものである。
+定理\ref{ifn:thm:four-discriminants}により
+式\eqref{ifn:eq:off-axis-point}が特異点となる。
+両行列式は表示した同じ非零数であり、
+Hessian は式\eqref{ifn:eq:complete-norm}から直接計算すると
+式\eqref{ifn:eq:off-axis-hessian}となる。
+
+$Q$ は前小節の式\eqref{ifq:eq:quartic}であり、
+$\alpha_1^2=\alpha_2^2=196$ を代入して共通因子
+$\alpha_1^4$ で割れば
+$Q/\alpha_1^4=8\mu^3-432=-2000$ となる。
+非退化Clifford点の射影Azumaya chart では、
+完備局所代数がこの通常二重点の完備中心環上の
+四次行列代数となる。前小節の
+定理\ref{ifq:thm:axis-discriminant}と同じ
+無限自己Ext、coherent 非 proper と
+smooth 線束残余の飽和矛盾が適用できる。
+\end{proof}
+
+\begin{remark}[判別因子の数と残る境界]
+\label{ifn:rem:scope}
+$t=u=2$、$a=b=1$ の規格化で、第二の枝の判別式は
+\[
+ \begin{split}
+ \operatorname{Disc}(F_{0,1})=
+ -\frac{(\lambda\mu-8)^2}{27}
+ \bigl(&16\lambda^4\mu-56\lambda^3
+ +157\lambda^2\mu^2-1456\lambda\mu\\
+ &+16\mu^3+3136\bigr)
+ \end{split}
+\]
+である。$\lambda=0,\mu^3=-196$ は後者の因子上にあり、
+$\lambda\mu=8$ という非 Azumaya 二重因子上にはない。
+四つの binary cubic の判別式を用いれば、
+中心 norm の射影 hypersurface の全特異係数集合を記述できるが、
+この四つの因子の全てについて
+非 Azumaya 中心の実圏模型を構成したわけではない。
+また、残余smoothnessが中心normの正則性と同値であること、
+全係数の可換 Ku 比較、固定Hesse切片の十二の高次係数の値は
+未証明・未計算のままである。
+
+\texttt{computations/verify\_clifford\_fullnorm.py} は、
+式\eqref{ifn:eq:complete-norm}の六変数恒等式、
+四臨界枝の偏微分、四判別式の定義、
+新しい Azumaya 二重点の値と Hessian を
+有理数・代数的数の厳密計算として検査する。
+有限計算だけで残余圏の非 smooth 性を証明したとはしない。
+\end{remark}

@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月23日 / v66。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月23日 / v67。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -635,6 +635,12 @@ Clifford族への適用は [interfactor_clifford_kodaira_spencer.tex](../papers/
 正本は [interfactor_clifford_rank_one_caustic.tex](../papers/sections/mixed/interfactor_clifford_rank_one_caustic.tex) の ifq 定理群。rank-one の周囲AS正則域は h=(1−τ₁³)(1−τ₂³)−τ₁²τ₂²λμ≠0、中心三次は全切片で正則という既存結果を使う。中心 norm の平方座標軸への制限は P=α₁² X(λY−τ₁X)²−α₂²Y(μX−τ₂Y)² で、Disc(P(X,1))=α₁²α₂²(λμ−τ₁τ₂)²Q。Q=4α₁⁴τ₁λ³+α₁²α₂²(λ²μ²+18τ₁τ₂λμ−27τ₁²τ₂²)+4α₂⁴τ₂μ³。Q=0、λμ≠τ₁τ₂、h≠0ではAzumaya軸上に特異中心局所環があり、点対象の無限自己Ext、全coherent残余非proper、線束残余非smoothが従う。これは全判別の必要十分条件ではない。
 
 等τ・等重みでは l=λ/τ,m=μ/τ として Qの正規化は l=−z²−2/z, m=−2z−1/z²。三つの通常 cusp は (l,m)=(-3ξ,-3ξ²), ξ³=1。z³≠±1の一般点ではA₁、z³=1では横Hessian非退化のA₂（τ³≠1,-8,1/4,-1/2を仮定）。z³=-1は非Azumaya境界との交点なので本結論から除外する。有理A₁証人 τ=2, λ=15/2, μ=−6, a_i=1 では h=769,c=196、軸点 [X₁:Y₁]=[1:4]、両行列式−49/16、五変数の規格化Hessian行列式−10596600。計算証明書は [verify_rank_one_caustic.py](../computations/verify_rank_one_caustic.py)。この中心normを可換Ku標的の三次方程式と無条件に同一視しない。
+
+### 階数一の中心 norm の全特異判別
+
+正本は [interfactor_clifford_rank_one_fullnorm.tex](../papers/sections/mixed/interfactor_clifford_rank_one_fullnorm.tex) の `ifn:thm:four-discriminants` と `ifn:cor:off-axis-azumaya`。既存 rank-one の二つの Clifford 行列式から、6平方変数の norm は P(X,Y)+α₁²τ₁²(X₂³+X₃³−3k_xX₂X₃)−α₂²τ₂²(Y₂³+Y₃³−3k_yY₂Y₃) に分解する。横方程式の解は各組で零か (kζ,kζ²)（ζ³=1）なので、四つの binary cubic F_{ε,δ}=P−εα₁²τ₁²k_x³+δα₂²τ₂²k_y³ の判別式の積が零という条件が、射影中心 norm hypersurface が特異であるための必要十分条件となる。元の `ifq` の三尖点四次曲線は (ε,δ)=(0,0) の軸枝だけを検出する。
+
+τ₁=τ₂=2、a₁=a₂=1、λ=0、μ³=−196 では h=49・c=196・Q/α₁⁴=−2000、点 [X₁:X₂:X₃;Y₁:Y₂:Y₃]=[28/(13μ):0:0;1:5/13:5/13] は軸外の特異点で、det(q_x)=det(q_y)=−(28/(13μ))³≠0。Y₁=1 での規格化 4N/196 の 5変数 Hessian determinant は12902400/2197≠0、従って通常二重点。Azumaya chart の既存非proper・非smooth移送を適用できる。再現コード [verify_clifford_fullnorm.py](../computations/verify_clifford_fullnorm.py)。**確定範囲は中心 norm の全特異係数集合であり、残余dg smooth locusの全判別ではない。** 非Azumaya層・各因子間の交叉、全smooth係数への核比較は残る。
 
 ### 固定した三次切片と高次項の十二係数
 
