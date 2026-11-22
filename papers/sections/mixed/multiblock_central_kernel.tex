@@ -1,0 +1,530 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22. Fixed S(1,-1,-1); arbitrary block number.
+\section{任意個の同一 Sklyanin ブロックに対する中心比較}
+\label{cmm:sec:multiblock-central}
+
+本節では中心変数を一つに保ち、定数型混合表示のブロック数を任意にする。
+境界の Calabi--Yau 次元は変わるが、中心超平面制限の twist と cotwist は変わらない。
+高次比較に必要な対角 sector を全ブロック数で計算し、
+二項の $3k$ 個の係数と三項の一係数から実比較を構成する。
+本節の境界同値・線束模型・正規化 comonad の扱いは、
+主稿の分離比較と本稿の中心比較を入力とする。
+特に一般の球面関手が twist 射だけで決まるという主張は用いない。
+
+\subsection{表示と任意ブロック数の線束模型}
+
+$k\ge2$ とし、$a_i\in\C^\times$ を固定する。
+$\alpha=(\alpha^{(1)},\ldots,\alpha^{(k)})\in\C^{3k}$ と $c\in\C$ に対し、
+\begin{equation}\label{cmm:eq:family}
+ A_{\alpha,c}=
+ \left(\bigotimes_{\C[u],\,i=1}^k\mathcal B_{\alpha^{(i)}}\right)
+ \bigg/\left(\sum_{i=1}^k a_i\Omega_{\alpha^{(i)}}+cu^3\right)
+\end{equation}
+と置く。ここで各 $\mathcal B_{\alpha^{(i)}}$ は
+$[y_i,z_i]=x_i^2-\alpha^{(i)}_1u^2$ とその巡回式、および $u$ の中央性で定める。
+$\Omega_\alpha$ は定理\ref{cmo:thm:finite-center}の規格化した中心三次である。
+以下では
+\[
+ N=3k,\qquad
+ G=\sum_i a_iJ(x_i,y_i,z_i),\qquad
+ L_\alpha=\sum_i a_i(\alpha^{(i)}_1x_i+
+                         \alpha^{(i)}_2y_i+\alpha^{(i)}_3z_i),
+ \qquad J(x,y,z)=\frac{x^3+y^3+z^3+xyz}{3}
+\]
+と書く。境界は $S=A_{\alpha,c}/(u)$ であり、$\alpha,c$ に依存しない。
+分離比較により
+\[
+ \mathcal B=\mathcal K_S\simeq\Ku(Z),\qquad
+ Z=V(G)\subset\mathbb P^{N-1}
+\]
+となる。$Z$ は滑らかな $(3k-2)$-fold である。
+$\mathcal C_{\alpha,c}$ を全 twist の線束が厚生成する圏、
+\[
+ \mathcal A_{\alpha,c}=\mathcal C_{\alpha,c}\cap
+ \langle\OO,\OO(1),\ldots,\OO(N-3)\rangle^\perp
+\]
+を残余線束圏とする。例外対象は $N-2$ 個である。
+
+\begin{proposition}[全係数での中心超平面制限]
+\label{cmm:prop:universal-spherical}
+$T_k=\C[\alpha^{(i)}_j,c]$ 上で式\eqref{cmm:eq:family}を作ると、
+代数の各内部次数は有限自由である。
+線束圏と残余線束圏は $T_k$-proper な有限生成 dg 模型を持ち、
+その線束模型・有限 mutation・制限随伴は係数変更と両立する。
+中心超平面への制限
+\[
+ F_{\alpha,c}:\mathcal A_{\alpha,c}\longrightarrow\mathcal B
+\]
+は spherical であり、unshifted cotwist と twist は
+\[
+ \mathsf C_F=\varrho_A^{-1}[1],\qquad
+ \mathsf T_F=\varrho_S^2,
+ \qquad \mathsf C_F^3=[1],\quad\mathsf T_F^3=[4]
+\]
+である。さらに
+\[
+ \mathcal A_{\alpha,c}=\operatorname{thick}(F^R\mathcal B),\qquad
+ \mathcal B=\operatorname{thick}(F\mathcal A_{\alpha,c}).
+\]
+これらは可換族 $G-u^2L_\alpha+du^3$ の残余線束圏にも成立する。
+\end{proposition}
+
+\begin{proof}
+active 次数で濾過すると、周囲代数の随伴代数は
+$S(1,-1,-1)^{\otimes k}\otimes T_k[u]$ となり、
+中心式の初項は $w_0=\sum_i a_i\Omega_0$ である。
+$w_0$ は正則であり、商の随伴代数は
+$S\otimes T_k[u]$ となる。
+固定内部次数では濾過が有限で各商が有限自由なので、
+元の商も有限自由である。中心元 $u$ の正則性もこの随伴代数から従う。
+PBW 判定は独立な全 $\alpha^{(i)}_j$ 上の多項式恒等式であり、
+特殊な係数や一変数の PID 性を使っていない。
+
+各因子の相対三次元 potential 解消を $T_k[u]$ 上で tensor し、
+共有する中心差 $u_L-u_R$ の長さ一の解消を一度加える。
+これで長さ $N+1$ の相対双加群解消と、その Gorenstein 双対を得る。
+命題\ref{cmo:prop:proper-contraction}の局所コホモロジー計算は
+この解消と次数別有限自由性によって適用でき、
+\[
+ \operatorname{Ext}^p(\OO(i),\OO(j))=
+ \begin{cases}
+  (A_{\alpha,c})_{j-i},&p=0,\\
+  (A_{\alpha,c})_{i-j-(N-2)}^\vee,&p=N-1,\\
+  0,&\text{その他}
+ \end{cases}
+\]
+を与える。$N+1$ 本の連続した線束が全 twist を厚生成し、
+$N-2$ 本の例外線束を有限 mutation で除けば残余の生成対象を得る。
+この構成の自己 Hom は $T_k$-perfect である。
+境界は固定した smooth proper 圏なので、制限・左右随伴を
+境界核として表したものも相対 perfect となる。
+相対核による任意の導来係数変更と、各体値の線束模型を区別して用いる。
+
+球面性で用いる線束圏の Serre 関手は $(-(N-2))[N-1]$ である。
+中心元 $u$ の二項解消から $F^R=p_Ri_*$、
+$F^L=p_Li_*(1)[-1]$ を得る。
+$M$ の制限が境界の残余圏に入ることは、
+$0\le r\le N-4$ に対する
+$\operatorname{RHom}(\OO_A(r),M)$ と
+$\operatorname{RHom}(\OO_A(r+1),M)$ の消滅で分かる。
+単位三角を $p_R$ へ移すと
+$\mathsf C_F=p_R\circ(-1)[1]=\varrho_A^{-1}[1]$ となる。
+
+標準の随伴比較射を計算する際には、
+$Y=i_*N'(1)[-1]$、$N'\in\mathcal B$ に対して
+$\operatorname{RHom}(\OO_A(r),Y)=0$ が
+$1\le r\le N-3$ で成立する。
+従って左射影の correction は $\langle\OO_A\rangle$ に入り、
+$(-1)[1]$ を施した後に $p_R$ がこれを消す。
+これにより $F^R\to\mathsf C_FF^L$ は同型となる。
+右射影の計算では、負の例外線束のうち
+$r=-(N-2),\ldots,-2$ の項は
+\[
+ \operatorname{RHom}(i_*N',\OO_A(r))
+   =\operatorname{RHom}(N',\OO_S(r+1))[-1]=0
+\]
+によって消え、$\OO_A(-1)$ の correction だけが残る。
+余単位三角はその right mutation により
+$\mathsf T_F=\varrho_S^{-1}[2]=\varrho_S^2$ となる。
+これは命題\ref{cmo:prop:central-linear-spherical}の随伴射の計算を、
+例外列の長さを明示して任意の $N$ で行ったものである。
+三次周期 $\varrho^3=[2]$ は有限 window mutation 上の自然同型として保たれる。
+
+最後に、$\mathsf H=\mathsf C_F[-1]$ に対し $\mathsf H^3=[-2]$ である。
+単位と余単位の反復による射
+$\mathsf H^{3m}M=M[-2m]\to M$ および
+$N'\to\mathsf T_F^{3m}N'=N'[4m]$ は、
+properness により $m\gg0$ で零となる。
+それらの cone はそれぞれ $F^R\mathcal B$、$F\mathcal A_{\alpha,c}$ の厚生成圏に属す。
+零射の cone の直和因子を取れば二つの生成性を得る。
+$T_k$ 上でも Hom の perfect 性により同じ消滅が成立する。
+源の smoothness はここでは使っていない。
+\end{proof}
+
+\subsection{ブロック数に依存しない三項までの判定}
+
+\begin{lemma}[任意次元の境界 sector と正規化比較群]
+\label{cmm:lem:all-block-sectors}
+$Z=V(G)\subset\mathbb P^{N-1}$、$N=3k$ とし、$\mathcal B=\Ku(Z)$ とする。
+$H^a\operatorname{RHom}(\mathbf1,\varrho^b)$ の恒等 sector は
+$a$ が偶数なら $\operatorname{Jac}(G)_{b+3a/2}$、奇数なら零である。
+非恒等 sector が寄与する必要十分条件は
+\begin{equation}\label{cmm:eq:narrow-sector}
+ a\equiv N\pmod2,\qquad 2b+3a=N
+\end{equation}
+であり、この場合は二つの一次元 sector がある。
+
+中心超平面の underlying counit arrow は一意的に
+$K=\mathbf1\oplus J$、$J=\varrho^2[-1]$ と分裂する。
+この arrow を固定した正規化 $A_r$-comonad 塔の非空 fiber は離散であり、
+その平行移動空間は
+\begin{equation}\label{cmm:eq:arity-table}
+ \begin{array}{c|c}
+ r&\text{平行移動空間}\\ \hline
+ 2&\operatorname{Jac}(G)_1=\C^{3k}\\
+ 3&\operatorname{Jac}(G)_0=\C\\
+ r\ge4&0
+ \end{array}
+\end{equation}
+となる。実際に存在する二つの全構造は、$A_3$ までの比較があれば
+全 coherence を保って比較できる。
+\end{lemma}
+
+\begin{proof}
+対角 MF の sector 公式
+\cite[Theorem~5.39 and its proof, pp.~82--84]{NFBFKKernels}
+を、$N$ 個の次数一変数と次数三の potential に適用する。
+恒等 sector は $G$ の Jacobian 環であり、表示した内部次数を持つ。
+$\mu_3$ の二つの非自明元は原点だけを固定する。
+その移動方向は $N$ 次元なので、cohomological parity は $N$、
+determinant character と三次周期の不変条件は
+式\eqref{cmm:eq:narrow-sector}となる。
+特に境界の Calabi--Yau 次元は $k$ であり、
+二ブロックの偶数 parity を奇数 $k$ に流用してはいない。
+
+$A_{\alpha,c}/(u^2)=S[u]/(u^2)$ なので一次 Bockstein は零である。
+分裂の選択空間を測る群は
+$H^{-1-i}\operatorname{RHom}(\mathbf1,\varrho^2)$、$i\ge0$ である。
+恒等 sector の次数は、現れる parity では負になる。
+非恒等 sector の条件は $1-3i=N$ となり不可能である。
+従って指定した余単位三角の分裂は可縮な選択で定まる。
+
+命題\ref{cmo:prop:central-comonad-three-arity}と同じ
+固定 counit の正規化塔を用いる。
+$N_r=\operatorname{RHom}(K,J^r)$ と置くと、
+非空 fiber の $i$ 次 homotopy 群は $H^{2-r-i}N_r$ である。
+$q=2-r-i$ を代入したとき、二つの恒等 sector はそれぞれ
+\[
+ \operatorname{Jac}(G)_{3-r-3i/2}\quad(i\text{ 偶数}),\qquad
+ \operatorname{Jac}(G)_{(5-2r-3i)/2}\quad(i\text{ 奇数})
+\]
+となる。$r\ge2$ では第二項は常に零であり、
+第一項も $i=0,r=2,3$ 以外では負次数となる。
+非恒等 sector の必要条件はそれぞれ
+\[
+ 6-2r-3i=N,\qquad 5-2r-3i=N
+\]
+である。左辺は高々二または一、右辺は $N\ge6$ なので寄与しない。
+これで式\eqref{cmm:eq:arity-table}と全高次 homotopy 群の消滅を得る。
+四項以降の非空 fiber は可縮なので、実全構造の間の比較は
+各段で持ち上がり、その逆極限が全 comonad の比較を与える。
+任意の低項データに対する存在障害の自動消滅は主張していない。
+\end{proof}
+
+\subsection{全ブロックの境界類と係数の正規化}
+
+\begin{lemma}[同一因子の対称性を保つ境界比較]
+\label{cmm:lem:boundary-parameters}
+係数 $a_i$ を固定し、必要な三乗根を $\C$ 上で一度選ぶ。
+境界の分離比較を、各ブロックの Heisenberg 作用と rotation に両立させ、
+$a_i=1$ に正規化した表示では全因子置換にも両立させて選べる。
+この選択の下で、普遍族の二項・三項データの可換側への像は
+\[
+ (\beta_k L_\alpha,\gamma_k c),\qquad
+       \beta_k,\gamma_k\in\C^\times
+\]
+と書ける。これらの定数は $\alpha,c$ に依存しない。
+したがって法線直和因子 $J$ の一つの非零 scalar 倍によって、
+\begin{equation}\label{cmm:eq:kappa}
+ (L_\alpha,\kappa_k c),\qquad\kappa_k\in\C^\times
+\end{equation}
+へ正規化できる。全ての $a_i$ を一へ戻す規約を用いれば、
+$\kappa_k$ は固定重み $a_i$ にも依存しないように選べる。
+\end{lemma}
+
+\begin{proof}
+まず $a_i=1$ とする。
+補題\ref{cmo:lem:heisenberg-boundary-comparison}の一因子の構成で得た
+同じ Picard 線束、同じ三捩れ平行移動、および同じ周期補正を全因子に用いる。
+これらの外積は $H_3^k$ と因子置換群 $\mathfrak S_k$ に両立する。
+外積の交換同型には通常の Koszul 符号を用い、比較射は次数零、
+周期の shift は偶数であるため、両側の交換図式は一致する。
+ここで固定した同一因子への分離比較の存在には
+主稿の定理\paperref{main}{pps:thm:elliptic-existence}を用いる。
+基本楕円開や自然な方程式直線同型の非消滅を追加仮定としてはいない。
+その全 coherence は定理\paperref{main}{mbrc:thm:finite-point-comparison}の
+外積・周期・二重同変化の構成により保たれる。
+相対 rotation の作用は
+$\Lambda_k=\mathbb Z^k/\langle3e_i-3e_j\rangle$ の次数付き MF 模型から来る。
+この格子への置換作用は外積と周期を保つので、
+中心群 $(\mu_3^k)/\Delta\mu_3$ による同変化と二重同変化にも作用が降りる。
+各因子の Heisenberg 同変 intertwiner は相対 rotation と可換するため、
+得られる境界比較 $E_k$ も所要の全対称性を保つ。
+
+この構成では $\Lambda_k$ を整数次数と有限文字群へ対称に分裂していない。
+特に $3\mid k$ では、系\paperref{main}{mbrd:cor:symmetric-rotation}の
+対称分裂は使えない。
+積表示を基準因子 $b$ による分裂で記述する場合には、
+全ての基準因子と、その間の文字 twist による遷移同型を保持する。
+因子比較射は全ての $R_i$ を intertwine するので、
+$R_i^{-1}R_j$ の比較と基準変更の文字 twist にも両立する。
+置換は $b$ を別の基準へ移し、必要ならこの遷移同型で戻す。
+遷移の cocycle と周期は元の $\Gamma_k$ の character 恒等式から来るため、
+同一の因子比較射の外積はこれらの図式を全て保つ。
+このようにして通常の境界圏上の置換作用と rotation の両方を比較するのであり、
+$\mathfrak S_k$-不変な rotation 線型化の分裂の存在を仮定していない。
+
+二項パラメータの非消滅を全ブロック数で確認する。
+中心 $v=u^2$ 変形の Bockstein は線型写像
+\[
+ b_k:\C^{3k}\longrightarrow
+        H^0\operatorname{RHom}(\mathbf1,\varrho)
+\]
+を与える。$F_k=(S(1,-1,-1)^!)^{\widehat\otimes k}$ とすると、
+最小 Shamash 解消上の剰余体の Ext は、周期作用素 $t$ の加群として
+$F_k\otimes\C[t]$ である。
+二次関係を持ち上げた Bockstein の内部次数二の成分は
+$\sum_{i,j}\alpha^{(i)}_j\xi_{ij}^2$ である。
+中心三次の補正は augmentation で消える一次式なので、この成分に寄与しない。
+各因子の三つの平方はその二次双対の次数二で独立であり、
+異なる因子の平方も $F_k^2$ の異なる直和成分に属する。
+高次 homotopy の係数は正の内部次数を持つため Shamash 解消は最小で、
+$t$-torsion はない。従って周期的な尾部へ移してもこの類は消えない。
+これにより $b_k$ は単射である。
+補題\ref{cmm:lem:all-block-sectors}により標的は
+$\operatorname{Jac}(G)_1=\C^{3k}$ なので、$b_k$ は同型となる。
+
+パラメータ空間と $\operatorname{Jac}(G)_1$ は、$H_3^k$ に関して
+各ブロックに属する互いに非同型な三次元既約表現の直和である。
+$E_k$ の同変性からパラメータ写像の比較は各ブロック上 scalar となり、
+$\mathfrak S_k$ への両立性がそれらを一つの $\beta_k$ に揃える。
+単射性により $\beta_k\ne0$ である。
+
+命題\ref{cmm:prop:universal-spherical}は実 comonad を全 $T_k$ 上で与える。
+固定した境界核の mapping 複体の関連群は
+$\operatorname{Jac}(G)_1\otimes T_k$ と $T_k$ であり、いずれも自由である。
+従って二項のクラスと、二項を固定した三項 torsor の切断の差は、
+開部分の有理関数でなく $T_k$ 上の多項式である。
+法線 $u$ の符号反転は二項に恒等、三項の平行移動空間に $-1$ として作用する。
+従って三項 torsor の唯一の固定点を原点に取れる。
+$c=0$ の実族はこの固定点を与える。
+$u\mapsto tu$ の作用に関する重みは
+$\operatorname{wt}(\alpha)=2$、$\operatorname{wt}(c)=3$ なので、
+三項の座標は $s_k c$ という定数倍に限られる。
+$\alpha=0$ で中央一変数の MF
+\[
+ \begin{pmatrix}0&u\\cu^2&0\end{pmatrix}
+\]
+を用いる補題\ref{cmo:lem:central-ternary-nonzero}の計算は、
+境界対象へ tensor するだけなのでブロック数によらない。
+その三項積は $\pm c\operatorname{id}$ であり、両側で $s_k\ne0$ である。
+これにより比較後の定数 $\gamma_k$ も非零となる。
+
+$r_k^2\beta_k=1$ となる $r_k$ を選び、
+$K=\mathbf1\oplus J$ を $\operatorname{id}\oplus r_k\operatorname{id}_J$ で共役する。
+二項は $r_k^2$ 倍、三項は $r_k^3$ 倍となるので、
+$\kappa_k=r_k^3\gamma_k$ とすれば式\eqref{cmm:eq:kappa}を得る。
+
+最後に $t_i^3=a_i$ を選び、
+$x'_i=t_ix_i$、$y'_i=t_iy_i$、$z'_i=t_iz_i$、
+$\alpha'^{(i)}=t_i^2\alpha^{(i)}$ とする。
+この次数付き代数同型は
+$\Omega_{\alpha'^{(i)}}(x'_i)=a_i\Omega_{\alpha^{(i)}}(x_i)$ を満たす。
+可換側でも $J(x'_i)=a_iJ(x_i)$ と
+$\alpha'^{(i)}\cdot x'_i=a_i\alpha^{(i)}\cdot x_i$ である。
+従って重み一の比較を引き戻せばよい。
+この操作は固定した複素数の三乗根を使っており、
+重みを動かす底全体への降下を主張していない。
+\end{proof}
+
+\subsection{全係数の比較核と有限行列による smooth locus}
+
+\begin{theorem}[任意個の同一ブロックの普遍中心比較]
+\label{cmm:thm:universal-kernel}
+$k\ge2$ と固定した $a_i\in\C^\times$ に対し、
+ある $\kappa_k\in\C^\times$ と、全係数環 $T_k$ 上の実 Morita 双加群が存在する。
+この双加群は式\eqref{cmm:eq:family}と
+\begin{equation}\label{cmm:eq:target}
+ X_{\alpha,c}=V(G-u^2L_\alpha+\kappa_kcu^3)\subset\mathbb P^{3k}
+\end{equation}
+の残余線束圏を比較し、固定境界比較に関して中心超平面への制限を intertwine する。
+逆双加群と単位・余単位も $T_k$ 上で存在し、任意の導来底変更に保たれる。
+
+可換族 $X_{\alpha,c}$ が滑らかな開集合上では、これは相対積上 perfect な核である。
+各複素ファイバーで非可換側も全 coherent 圏へ飽和し、
+\[
+ \Ku_{\mathrm{coh}}(A_{\alpha,c})\simeq\Ku(X_{\alpha,c})
+\]
+となる。また、残余線束圏の smoothness は $X_{\alpha,c}$ の滑らかさと同値である。
+\end{theorem}
+
+\begin{proof}
+補題\ref{cmm:lem:boundary-parameters}は二つの実 comonad の $A_3$ データを
+全 $T_k$ 上で同定する。
+補題\ref{cmm:lem:all-block-sectors}の必要な群は自由、他の比較群は零なので、
+この同定は相対的にも全 coherence へ延びる。
+境界の生成対象 $G_S$ の右随伴像は、
+命題\ref{cmm:prop:universal-spherical}により源の生成対象である。
+従って
+\[
+ \operatorname{REnd}(F^RG_S)
+  \simeq\operatorname{RHom}(KG_S,G_S),\qquad
+  g\star f=gK(f)\Delta_{G_S}
+\]
+という実 coKleisli 模型を使える。
+全 comonad 比較はこの代数の全積を同定するので、
+その graph 双加群と生成対象との tensor が所要の相対 Morita 双加群になる。
+生成対象上の比較は制限関手の作用にも両立し、
+有限 cone と直和因子へ延ばして制限 intertwiner と単位・余単位を得る。
+
+滑らかな可換開上では標的が相対 smooth proper である。
+Morita 同値によって源の残余線束模型も相対 smooth proper となる。
+graph の underlying $T_k$-複体は perfect であり、
+両側の相対対角を用いれば双加群自体が相対積上 perfect である。
+非可換側の周囲代数は、上の PBW・Koszul 双加群解消と
+Gorenstein 双対によって各体値で noetherian AS-regular である。
+したがって残余線束圏に $N-2$ 個の例外対象を戻してから、
+主稿の命題\paperref{main}{crs:prop:residual-smooth}と
+定理\paperref{main}{crs:thm:coherent}を適用できる。
+これで全 coherent 圏への飽和を得る。
+
+可換側では全 twist の線束圏は $\operatorname{Perf}(X_{\alpha,c})$ である。
+その残余圏が smooth なら例外対象を戻した全体も smooth となり、
+同じ飽和判定から全 coherent 対象が perfect となる。
+特異点の剰余体が perfect ではないことにより、これは $X_{\alpha,c}$ が滑らかな場合に限る。
+逆向きは滑らかな可換超曲面の標準分解から従う。
+全係数の Morita 比較が smoothness を保つので、最後の同値を得る。
+特異係数で全 coherent 圏の比較を結論してはいない。
+\end{proof}
+
+\begin{corollary}[階数 $8^k$ の厳密な判別行列]
+\label{cmm:cor:determinantal-discriminant}
+各ブロックについて
+\[
+ Q_i=\C[\alpha^{(i)}][x_i,y_i,z_i]/
+ (x_i^2+y_iz_i/3-\alpha^{(i)}_1,
+  y_i^2+x_iz_i/3-\alpha^{(i)}_2,
+  z_i^2+x_iy_i/3-\alpha^{(i)}_3)
+\]
+と置く。$Q_i$ は係数環上階数八の有限自由加群であり、
+基底を $1,x_i,y_i,z_i,x_iy_i,x_iz_i,y_iz_i,x_iy_iz_i$ と取れる。
+$Q=\bigotimes_i Q_i$、$H=-\frac23\sum_i a_i\alpha^{(i)}\cdot x_i\in Q$ とし、
+$m_H$ をその乗法行列とすると、
+\begin{equation}\label{cmm:eq:determinant}
+ D_k(\alpha,c)=\det(\kappa_kc\operatorname{id}_Q+m_H)
+\end{equation}
+は $c$ の次数 $8^k$、最高係数 $\kappa_k^{8^k}$ の多項式である。
+任意の複素係数で
+\[
+ X_{\alpha,c}\text{ が滑らか}
+ \quad\Longleftrightarrow\quad D_k(\alpha,c)\ne0
+ \quad\Longleftrightarrow\quad
+ \mathcal K^{\mathrm{line}}_{A_{\alpha,c}}\text{ が smooth}
+\]
+となる。重複した臨界値や非被約な臨界スキームもこの判定に含む。
+より正確には、固定した $\alpha$ で $Q_\alpha$ の局所 Artin 分解を取ると
+\begin{equation}\label{cmm:eq:determinant-multiplicities}
+ D_k(\alpha,c)=
+ \prod_{p\in\operatorname{Spec}Q_\alpha}
+       \bigl(\kappa_kc+H(p)\bigr)^{\operatorname{length}(Q_{\alpha,p})}.
+\end{equation}
+特に $\alpha=0$ では $D_k(0,c)=(\kappa_kc)^{8^k}$ である。
+従ってこの多項式自体を被約判別式と呼んではいない。
+\end{corollary}
+
+\begin{proof}
+各三つの最高次二次式の共通零点は原点だけなので、
+それらは正則列であり、斉次 Jacobian 環の Hilbert 級数は $(1+t)^3$ である。
+定数変形の active 濾過を用いると、商は係数環上有限自由、階数八となる。
+表示した基底を直接見るには、$a,b,c$ を一ブロックの係数と書き、
+\[
+ x^2=a-yz/3,\qquad
+ x^2y=(27ay-9bz+3cx)/28,\qquad
+ x^2yz=(27ayz-9bc+3bxy+3cxz)/28
+\]
+およびその置換を使えばよい。
+これらによって表示した八単項式の張る加群は $x,y,z$ の乗法で保たれ、
+従って商全体を張る。最高部の八次元 Jacobian 環での独立性から自由基底となる。
+特に係数に依存する分母は現れない。
+
+$u=0$ の点で target の active 偏微分が全て消えることは、
+$G$ の滑らかさから不可能である。
+$u=1$ の chart では、特異点の active 方程式は各ブロックで
+$\nabla J=\alpha^{(i)}$ であり、これは $\operatorname{Spec}Q$ である。
+Euler の恒等式はこの商上で
+\[
+ 3\sum_i a_iJ_i=L_\alpha,\qquad
+ G-L_\alpha=-\frac23L_\alpha=H
+\]
+を与える。従って残る方程式は $H+\kappa_kc=0$ である。
+有限次元可換代数で一つの元が可逆であることは、その乗法行列の行列式の非消滅と同値である。
+代数閉体上では非可逆な元はある極大イデアルに含まれるので、
+行列式の零性は臨界スキーム上の実際の点の存在を正確に検出する。
+これで最初の同値を得る。最後の同値は前定理による。
+行列の大きさと $c$ の係数から多項式の次数と最高係数も従う。
+局所 Artin 代数 $Q_{\alpha,p}$ 上では、$m_H$ は
+$H(p)\operatorname{id}$ と冪零行列の和である。
+その特性多項式から式\eqref{cmm:eq:determinant-multiplicities}を得る。
+$\alpha=0$ では唯一の台が原点、長さが $8^k$ であり、$H=0$ である。
+\end{proof}
+
+\begin{corollary}[一般係数における $8^k$ 個の節点ファイバー]
+\label{cmm:cor:generic-nodal-discriminant}
+$k\ge2$ と非零重み $a_1,\ldots,a_k$ を固定する。
+$\alpha\in\mathbb A^{3k}$ のある非空 Zariski 開集合上で、
+$D_k(\alpha,c)$ は $8^k$ 個の相異なる根を持つ。
+各根に対応する $X_{\alpha,c}$ はただ一つの特異点を持ち、
+その完備局所環は
+\[
+ \C[[v_1,\ldots,v_{3k}]]/(v_1^2+\cdots+v_{3k}^2)
+\]
+である。従って一般の定数補正について、残余線束圏が smooth でない中心係数は
+正確に $8^k$ 個である。特に三ブロックの八様体ではその個数は $512$ となる。
+これは可換標的の局所節点性を述べるものであり、
+非可換側の中心局所代数の型を全 $k$ で分類したという主張ではない。
+\end{corollary}
+
+\begin{proof}
+まず非空性を構成的に確認する。
+$\alpha_0=(1,4,9)$ に対して、命題\ref{cmo:prop:commutative-critical-spectrum}は
+$f_0=J-\alpha_0\cdot x$ が八個の非退化臨界点と、
+相異なる八個の臨界値 $v_1,\ldots,v_8$ を持つことを示している。
+この入力は本節の再現コードでも独立に検算する。
+具体的には、八次元臨界代数での $m_{f_0}$ の特性多項式とその微分が互いに素であり、
+Hessian 行列式の乗法行列も可逆である。
+
+$t_i\in\C^\times$ を選び、$\alpha^{(i)}=t_i^2\alpha_0$ とする。
+$\nabla J$ は二次なので、第 $i$ ブロックの臨界点は元の臨界点の $t_i$ 倍である。
+その臨界値は $t_i^3v_j$、Hessian は $t_i$ 倍となる。
+従って全ブロックの臨界点は $8^k$ 個で、いずれも非退化であり、
+重み付きの臨界値は
+\[
+ \sum_{i=1}^k a_it_i^3v_{j_i},\qquad
+                   (j_1,\ldots,j_k)\in\{1,\ldots,8\}^k
+\]
+である。異なる二つの添字組について、その差
+$\sum_i a_i(v_{j_i}-v_{\ell_i})t_i^3$ は非零多項式である。
+実際、少なくとも一つの添字が異なり、その係数は
+$a_i\ne0$ と臨界値の相異性によって非零となる。
+有限個のこれらの零集合を避ければ、全ての和が相異なる。
+これで $D_k$ が平方因子を持たない一つの係数を得る。
+
+$D_k$ の最高係数は固定した非零定数であり、
+その $c$ に関する判別式の非消滅は $\alpha$ の Zariski 開条件である。
+さらに各ブロックの Hessian 行列式の norm の非消滅も開条件で、
+上で構成した点は両方を満たす。従って両条件を満たす非空開集合が存在する。
+この開集合上では臨界スキームは被約、全臨界値は相異なるので、
+各特異係数にはただ一つの特異点が対応する。
+$u=0$ には特異点がなく、$u=1$ の Hessian は
+非零重みを掛けた各ブロックの可逆な Hessian の直和である。
+標数零の形式的 Morse 補題により、表示した完備局所環を得る。
+最後に系\ref{cmm:cor:determinantal-discriminant}を適用する。
+\end{proof}
+
+\begin{remark}[本節で決定した範囲]
+\label{cmm:rem:scope}
+本節は同じ $S(1,-1,-1)$ の任意個のブロック、固定した非零重み、
+任意の定数補正と一つの中心係数を扱う。
+比較定数 $\kappa_k$ の存在と非消滅は証明したが、
+二ブロックで求めた $\kappa_2^2=27/28$ を全ての $k$ に拡張する数値同定は行っていない。
+特に式\eqref{cmm:eq:determinant}は、この規格化定数を含む判定式である。
+他の楕円パラメータ、線形補正、複数中心変数、全 intrinsic 対象の被覆は別の課題である。
+全 coherent 比較の範囲は式\eqref{cmm:eq:determinant}の非消滅開である。
+この開で線束部分の smoothness から全 coherent 圏への飽和を証明したのであり、
+特異係数の全 coherent 圏や、別の定義で smooth と呼ばれる任意の対象について
+逆向きの認識を暗黙に仮定してはいない。
+重みを動かす底全体や有理数体への核降下、全 rotation・周期・中心作用の
+標識の同時保存もここでの結論に含めない。
+一般の対角 sector と障害塔・Morita 理論は引用した既知入力であり、
+本族への適用の網羅的な新規性確認は未完了である。
+\end{remark}

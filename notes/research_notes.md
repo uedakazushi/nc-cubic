@@ -1,10 +1,10 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v54。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v55。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
-主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現することである。固定した二つのS(1,−1,−1)因子と重み1,100の定数補正族では、任意のα,cの残余線束圏を明示可換族へ実際のdg Morita双加群で比較した（`cmo:thm:all-central-commutative-kernel`、`cmo:cor:all-alpha-central-kernel`）。可換側が滑らかな開上では相対積上perfectな核となり、各複素ファイバーで全coherent Ku同値を与える。指定α¹=(1,4,9)、α²=(16,25,49)ではこの開は正確にP64(c)≠0で、norm全64根も含む。中心超平面u=0への実随伴の二項・三項データを比較し、全coherenceの復元とcoKleisli生成代数から核を構成する。交換子h族の選択済み一般点核を、h=1の核へ可逆な整族として接続する問題は残る。次のP0は他のSklyaninパラメータ、線形補正、複数中心変数・より多くのブロックと全intrinsic対象へ比較の成立範囲を広げることである。
+主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現することである。同一S(1,−1,−1)の任意個k≥2、固定非零重み、任意の定数補正α,cについて、残余線束圏の普遍Morita比較を構成した（`cmm:thm:universal-kernel`）。標的G−u²L+κ_kcu³が滑らかな開では相対perfect核・各複素ファイバーの全coherent Ku比較となる。κ_kの一般kの数値は未決定。指定二ブロックではκ₂²=27/28とP64を決定済みで、norm全64根も比較する。線形補正のPBW条件・正規形・普遍中心と3kの一次代数変形方向も確定した。次の核心は、その残余Bocksteinの像と非分裂comonadであり、他の楕円パラメータ・複数中心変数・全intrinsic対象、および選択済みh核の良い特殊化も残る。
 
 C上n≥3を基本とし、generic・全固定点・全族・一般体上の降下を区別する。全intrinsic対象の認識やpoint functorの表現可能性は未完成であり、既知の局所表示だけを全対象と定義して済ませない。可換候補の方程式・判別集合・局所特異点の一致と、その候補への実際の比較核の存在も区別する。
 
@@ -16,7 +16,7 @@ point schemeとPoisson零スキームまで同一視できるという素朴な�
 | --- | --- |
 | [可換復元の主稿](../papers/nc-cubic.tex) | 一般点可換復元、楕円windowとrotationの基礎、分離型の実Ku比較、残余圏の認識・可換実現の開性、三様体の非被約不一致例。 |
 | [モジュライ・降下稿](../papers/cubic-moduli-descent.tex) | O-marked認識・全慣性・点とPoissonのモジュライ射、Picard/Brauer/Kummer障害、周期位相、点型と全型の比較次数。主要結果の詳細は `moduli_overview.tex`、証明は各主題の節。 |
-| [混合Sklyanin稿](../papers/mixed-sklyanin-cubics.tex) | 中心・局所order・単純加群、全smooth locus、定数型二ブロック族の全α,cの実Morita比較とsmooth開上の相対perfect核、零係数の球面接着・有限MF模型、指定h候補の一般点核と整延長、実Ku標的を持つ被約point/Poisson不一致例。本文は `papers/sections/mixed/`。 |
+| [混合Sklyanin稿](../papers/mixed-sklyanin-cubics.tex) | 中心・局所order・単純加群、全smooth locus、定数型任意ブロック族の全α,cの実Morita比較とsmooth開上の相対perfect核、線形PBW補正と普遍中心三次、零係数の球面接着・有限MF模型、指定h候補の一般点核と整延長、実Ku標的を持つ被約point/Poisson不一致例。本文は `papers/sections/mixed/`。 |
 
 主比較に必要な楕円windowと体上のrotation共役の正本は、主稿の `comparison_foundations.tex` である。`eq:nfm-right-thcr-shift`、`lem:nfm-twisted-elliptic-window` をここから引用し、`csc:thm:comparison` が用いる `mbrc:lem:factor-correction` と分離比較も主稿に置く。相対Picard gerbe、比較核の分類と算術的降下は、これらの実比較を入力とするモジュライ稿に置く。混合族の `cmo:cor:cofinite` は主稿の `grl:thm:open-locus` を使う。稿をまたぐ参照は、定理番号と稿名から証明の所在をたどれるようにする。
 
@@ -24,7 +24,7 @@ point/Poisson不一致は本文の補助例として扱う。三様体の例の�
 
 研究方針・研究ノート・共通preamble・書誌は三稿で共有し、数学的な本文は複製しない。三稿への整理は編集と参照の再構成であり、既存の数学全体の再証明ではない。以下の点検・計算に関する記述は各結果の既存の確認範囲であり、今回のソース保持・組版・表示確認とは区別する。実際の確認状態は [検証範囲](validation.md) を参照する。
 
-研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。現在のP0は、境界比較を保つ他のSklyanin因子への拡張、線形補正で残る一次Bockstein、複数中心変数・多ブロックの障害群、および全intrinsic対象の被覆である。指定二ブロックの元c族は全smooth係数で比較済みであり、一般点同定やnorm根への特殊化を未解決条件として残さない。一方、h族の選択済み一般点核・整核とh=1の核の互換性は未証明。対合HH指標(+5,−16)は実相対模型から得た補助不変量として保持する。
+研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。同一因子の定数型・中心変数一つでは全kのline比較と可換smooth開の全coherent比較を得た。P0は線形補正の一次Bocksteinと他の境界データへ広げること。一般κ_kの数値化と臨界値の重複構造は存在定理の具体化として扱う。h族の選択済み核の良い特殊化は固定h=1の同値の存在と区別する。
 
 ### 満支持型における同時存在
 
@@ -190,6 +190,24 @@ Jのr倍によって二項・三項はr²,r³倍される。r²β=1とし、κ=r
 幾何的な一次変形の再開データは `central_geometry.tex` に置く。X₀の対合負固有のHH²は十次元であり、対合だけではcu³の像を一つの直線へ絞れない。L=ℓ、G=g+ℓQ、t=v−Qとすると、Knörrer核の明示homotopyによりcotwistの単位fiber射の乗法vはQ|_(ℓ=0)へ移る。この同じ二次式は(Jac(G−u²L)₃)⁻≃Jac(g)₂の下で[u³]に対応し、指定係数で非零である。これらの接空間計算は全核の証明を代用せず、その具体的な作用と今後の変形比較に使う。
 
 `python3 computations/verify_mixed_central_direction.py` は、Knörrer座標式とhomotopy、非零Jacobian類の6×6小行列式、P64根の二次モーメントとmonic係数、中央MFの三項Massey恒等式、重み三の単項式を厳密に再現する（7 PASS）。計算成功は全圏同値・生成性・全障害塔の形式証明ではない。新しい核の証明は本文と独立読解によるもので、組版・表示・保存の確認状態は `validation.md` を正本とする。
+
+### 任意ブロック数の中心比較と判別行列
+
+正本は `mixed/multiblock_central_kernel.tex`。境界の変数数N=3kに対し、中心超平面制限のtwistはρ²、cotwistはρ_A⁻¹[1]のままである。非恒等μ₃ sectorの条件はa≡N mod2, 2b+3a=N。正規化A_r塔へ代入すると6−2r−3i=Nまたは5−2r−3i=Nが必要になり、r≥2,i≥0,N≥6で不可能となる。従って二項Jac(G)₁=C^(3k)、三項C以外の比較の自由度は消える。既存の実全構造の比較を延長するのであり、任意の低項データの存在障害を消してはいない（`cmm:lem:all-block-sectors`）。
+
+同一のPicard補正・Heisenberg線型化・周期補正を全因子に用い、全Λ_k次数とsplitting変更の文字twistを保つ。特に3|kで因子置換不変なrotation分裂を仮定しない。各ブロックのBocksteinの独立性と因子置換から二項はβ_k L、重みと法線符号対合から三項はγ_k cとなる。双方非零なのでJの尺度を正規化して(L,κ_k c)を得る。全α,cでcoKleisli代数を比較し、可換smooth開では相対perfect対角とcoherent飽和へ移る。固定重みはt_i³=a_i, x'_i=t_i x_i, α'^(i)=t_i²α^(i)で処理する。動く重み上の核降下は別問題である。
+
+κ_kの非消滅と係数からの独立性を証明したが、一般kでκ_k²=27/28を示したわけではない。二ブロックの通常同値を追加因子へ無条件にtensorする方法は、rotation・指定周期を同時に保つ比較がまだ指定されていないため使えない。因子追加に対する全周期と三項座標の互換性が数値化の具体的な再開点である。
+
+各因子の臨界代数Q_i=C[α][x,y,z]/(x²+yz/3−α₁,…)は平方自由基底のrank8自由加群である。Q=⊗Q_i, H=−(2/3)Σa_iα^(i)·x_iとすれば、det(κ_k c I+m_H)の非消滅が可換smoothnessと残余線束圏のsmoothnessの必要十分条件となる。零点の重複度は局所臨界代数の長さを含む。α=0では(κ_k c)^(8^k)となり、悪い係数は一つしかない。元c座標での数値判別式を完全に指定するにはκ_kの決定が必要である。一般αでは正確に8^k個の相異なる悪い係数があり、各可換標的は唯一の通常二重点を持つ（`cmm:cor:generic-nodal-discriminant`）。証明は各α^(i)=t_i²(1,4,9)の臨界値がt_i³倍されることと有限個の衝突の回避による。三ブロックの八様体では512個となる。`verify_mixed_multiblock.py` の8 PASSは普遍乗法・有限恒等式と、種となる八臨界値の相異性およびHessianの非退化性を確認する。
+
+### 線形補正の正規形、中心元と最初の未解決点
+
+正本は `mixed/linear_pbw_boundary.tex`。関係式[y,z]=x²+Σm₁ⱼxⱼ−α₁と巡回式に対して、唯一のKoszul重なりとR∩Λ²V=0からPBW性はM=Mᵗと同値である。X_i=x_i+t_iへの変更はM'=M−2diag(t), α'=α+Mt−t²となり、t_i=m_ii/2が唯一の対角零正規形を与える。この一意性は指定された斉次Sを保つ平行移動に関するもので、全自己同型による分類ではない。
+
+正規形の三つの線形係数p,q,rと三つの定数αに対し、Ω=Ω₀+uQ+u²Lを明示した（`mix:thm:linear-pbw-central-cubic`）。Q=p(sym₂(xy)+z²/18)+q(sym₂(yz)+x²/18)+r(sym₂(zx)+y²/18)、Lのx係数はq²/6−pr/18−α₁で、y,z係数は巡回する。中心性は普遍係数を保持する162×339の有理関係行列、階数144で三交換子の厳密な零剰余として証明する。Z(S)₁=Z(S)₂=0により、最高部Ω₀を持つ中心三次の自由度はscalar·u³だけである。任意kの中心和は正則で、商は全係数で次数別自由、Hilbert級数(1−t³)/(1−t)^(3k+1)となる。
+
+Koszul複体の内部次数−1成分はC³→Mat₃(C)→S₂であり、二番目の微分の核は対称行列、最初の像は対角行列となる。従ってHH²₋₁(S)=Sym₃(C)/Diag₃(C)≅C³で、三つの対角外方向が一次変形空間全体を与える（`mix:eq:linear-pbw-hochschild`）。これらの方向は多ブロックの中心商でも消えない。この結果からKuのBocksteinの非消滅は従わない。定数補正の検出に用いたaugmentationでは、今回の一次関係係数とQの全係数がactive原点で消えるため、同じ議論は使えない。次は境界比較を通した高次自然変換まで含む像をJac(G)₂へ計算し、その後に非分裂counit arrowの正規化塔を扱う。全線形族のKu比較・PI性・有限中心性は未証明。中心元の一般存在とPBW理論はEG/BGの既知入力であり、本表示の明示式の網羅的新規性は未確認である。
 
 ### 全smooth領域の相対模型と比較不変量
 

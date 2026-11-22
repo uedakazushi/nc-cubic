@@ -5,7 +5,7 @@
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
 \large 有限中心・局所代数・全中心係数の可換比較核}
 \author{}
-\date{2026年11月22日・研究稿 v54}
+\date{2026年11月22日・研究稿 v55}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
 pdfsubject={有限中心・局所代数・全中心係数の可換比較核}}
 
@@ -36,6 +36,13 @@ coKleisli 生成代数から、特異係数を含む残余線束圏の実 Morita
 その後に既知の特異係数集合を用いて尺度 $\lambda^2=28/27$ を決め、
 全 smooth 中心係数で $V(\lambda(G-u^2L)+cu^3)$ への相対 perfect 核を得る。
 定常 norm の全六十四根も含まれ、同じ固定二ブロックの任意の定数補正にも適用できる。
+同一の Sklyanin 因子を任意個 $k\ge2$ 用いる定数型にもこの構成を拡張し、
+全係数で $V(G-u^2L+\kappa_kcu^3)$ への残余線束圏の Morita 比較を与える。
+$\kappa_k\ne0$ は係数に依存しないが、一般の $k$ での数値は未決定である。
+可換 smooth 開では相対 perfect 核を得て、階数 $8^k$ の臨界代数の行列式で
+その開集合を判定する。
+さらに、全線形 PBW 補正の対称行列条件、平行移動正規形と普遍中心三次を明示する。
+線形補正の残余 Bockstein と可換 Ku 比較は未解決である。
 さらに交換子パラメータの族に、零と一を含む半局所底上の
 相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
 相対模型から非可換側の Hochschild 対合指標も決定する。
@@ -92,7 +99,7 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
 
 \subsection{中心結果と成立範囲}
 
-本稿の中心結果は次の六つに分かれる。
+本稿の中心結果は次の七つに分かれる。
 完全な仮定と証明は各参照先に置く。
 
 \begin{enumerate}
@@ -140,8 +147,19 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  従って、判別集合の一致から同値の存在を推論する論法ではない。
  系\ref{cmo:cor:norm-commutative-kernel}は定常 norm の全六十四根に適用される。
 
- \item \emph{任意の定数補正と中心方向の具体化。}
- 系\ref{cmo:cor:all-alpha-central-kernel}は、
+ \item \emph{任意ブロック数の普遍比較と判別行列。}
+ 定理\ref{cmm:thm:universal-kernel}は同一 $S(1,-1,-1)$ の任意個 $k\ge2$、
+ 固定した非零重み、全定数補正と中心係数を扱い、
+ $V(G-u^2L+\kappa_kcu^3)$ への残余線束圏の普遍 Morita 比較を構成する。
+ 二項の $3k$ 個の係数と三項の一係数以外には高次比較の自由度が残らない。
+ 可換 smooth 開では相対 perfect 核と各複素ファイバーの全 coherent Ku 比較を得る。
+ 系\ref{cmm:cor:determinantal-discriminant}は、その開を階数 $8^k$ の
+ 普遍臨界代数の乗法行列式で判定する。
+ 系\ref{cmm:cor:generic-nodal-discriminant}は一般の定数補正で
+ 正確に $8^k$ 個の相異なる特異中心係数があり、
+ 各可換標的に唯一の通常二重点があることを示す。
+ 特殊係数では臨界値の衝突を許し、一般の $\kappa_k$ の数値化は未完了である。
+ 指定した二ブロックについては、系\ref{cmo:cor:all-alpha-central-kernel}が、
  同じ二つの $S(1,-1,-1)$ と重み $1,100$ について
  全 $\alpha\in\C^6,c\in\C$ 上の残余線束圏の比較を与える。
  可換三次が滑らかな開上では相対 perfect 核となり、
@@ -151,6 +169,19 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  $[u^3]$ を法方向の二次類として記述する。
  補題\ref{cmo:lem:cotwist-normal-quadric}は同じ類を
  rank 一 Kn\"orrer 核上の明示 homotopy で計算する。
+
+ \item \emph{線形 PBW 補正の正規形と中心三次。}
+ 命題\ref{mix:prop:linear-pbw-normal-form}は一次補正行列が対称であることを
+ PBW 性の必要十分条件とし、平行移動で対角成分を取り除く。
+ 定理\ref{mix:thm:linear-pbw-central-cubic}は残る三つの線形係数と
+ 任意の定数補正に対して、中心三次を全係数で明示する。
+ 系\ref{mix:cor:linear-pbw-multiblock-family}は任意ブロック数の
+ 正則中心商と次数別自由性を与える。
+ 式\eqref{mix:eq:linear-pbw-hochschild}では
+ $\operatorname{HH}^2_{-1}(S)\simeq\C^3$ を計算し、
+ 三つの対角外方向がこの空間全体を与える。
+ 一次代数変形の非零性と、残余圏上の Bockstein の非零性は区別し、
+ 後者からの全 Ku 比較は未解決として明記する。
 
  \item \emph{零係数の実際の可換比較核。}
  $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
@@ -302,6 +333,8 @@ Sklyanin 曲線と標準中心元の既知の記述
 第\ref{mix:sec:root-order}節で全 coherent 分解と実残余核を構成し、
 第\ref{mix:sec:central-spherical-reconstruction}節で全中心係数の
 普遍制限、低 arity 比較、相対核と尺度を構成する。
+第\ref{cmm:sec:multiblock-central}節で任意個の同一ブロックへ比較を拡張し、
+第\ref{mix:sec:linear-pbw-boundary}節で線形補正の正規形と中心三次を与える。
 第\ref{mix:sec:equivariant-window}--\ref{mix:sec:equivariant-deformation}節で非可換側の Hom 指標と
 指定 $h$-候補への形式・一般点比較を調べる。
 第\ref{mix:sec:poisson-limits}節を点・零スキームの不一致の例に充てる。
@@ -323,6 +356,8 @@ Sklyanin 曲線と標準中心元の既知の記述
 \input{papers/sections/mixed/central_formal_comparison.tex}
 \input{papers/sections/mixed/central_geometry.tex}
 \input{papers/sections/mixed/central_kernel.tex}
+\input{papers/sections/mixed/multiblock_central_kernel.tex}
+\input{papers/sections/mixed/linear_pbw_boundary.tex}
 \input{papers/sections/mixed/equivariant_window.tex}
 \input{papers/sections/mixed/equivariant_deformation.tex}
 \input{papers/sections/mixed/kernel_specialization.tex}
@@ -337,8 +372,11 @@ Sklyanin 曲線と標準中心元の既知の記述
 定常 norm の全六十四根はこの同じ核のファイバーであり、
 一般点からの特殊化の defect を別途仮定していない。
 この核の最小の行列表示と、境界制限以外の追加標識の作用を求めることが残る。
-より広い表示へ進むには、境界比較の Heisenberg 選択と
-二項・三項の構造係数を改めて計算する。
+定理\ref{cmm:thm:universal-kernel}により、同一因子の定数型では
+任意個のブロックへの比較を得た。一般の $\kappa_k$ を数値化するには、
+因子追加と rotation・三次周期・三項座標の整合性を確認する必要がある。
+線形補正については第\ref{mix:sec:linear-pbw-boundary}節の実中心商から始め、
+非自明な一次法線変形の残余 Bockstein を計算する。
 
 \paragraph{零係数で構成した核の具体化と範囲.}
 定理\ref{cmo:thm:fixed-zero-commutative-kernel}により、

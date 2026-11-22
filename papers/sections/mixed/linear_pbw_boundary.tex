@@ -1,0 +1,265 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22.
+\section{線形 PBW 補正の正規形と普遍中心三次}
+\label{mix:sec:linear-pbw-boundary}
+
+定数補正に関する比較を線形補正へ広げる際には、
+まず実際の周囲代数と中心三次を固定する必要がある。
+この節では $S=S(1,-1,-1)$ の全ての quadratic--linear--constant
+PBW 補正を記述し、平行移動を除いた六パラメータ族の中心三次を明示する。
+中心元の存在自体は、低次の cyclic potential を加える
+Etingof--Ginzburg の定理\cite[Theorem~3.3.2]{NFMEG}の範囲にある。
+以下の内容は、この特定の有限位数 Sklyanin 代数における
+係数を全て明示した正規化と、中心超平面の一次変形が残ることの確認である。
+中心全体の生成、一般の有限中心性、可換 Ku 比較はここでは結論しない。
+式の文献上の初出を網羅的に確認したという意味でもない。
+
+\subsection{PBW 条件と平行移動}
+
+$V=\C x\oplus\C y\oplus\C z$、$(x_1,x_2,x_3)=(x,y,z)$ とし、
+巡回順序 $(i,j,k)=(1,2,3),(2,3,1),(3,1,2)$ に対して
+\[
+ r_i=[x_j,x_k]-x_i^2,\qquad R=\langle r_1,r_2,r_3\rangle
+\]
+と置く。既に確認した通り、$S=T(V)/(R)$ は quadratic Koszul
+AS-regular な三次元整域である。
+$M=(m_{ij})\in\operatorname{Mat}_3(\C)$ と
+$\alpha=(\alpha_1,\alpha_2,\alpha_3)$ に対し
+\begin{equation}\label{mix:eq:linear-pbw-general}
+ D_{M,\alpha}
+ =\C\langle x_1,x_2,x_3\rangle/
+       \left(r_i-\sum_jm_{ij}x_j+\alpha_i\right)_{i=1}^3
+\end{equation}
+を active 語長で濾過する。
+
+\begin{proposition}[全線形補正の PBW 条件]
+\label{mix:prop:linear-pbw-normal-form}
+$D_{M,\alpha}$ の随伴代数が指定した写像 $S\to\operatorname{gr}D_{M,\alpha}$
+によって $S$ と同型になるための必要十分条件は
+\[
+                         M=M^{\mathsf t}
+\]
+である。$\alpha$ には条件がない。
+対称な $M$ に対し $X_i=x_i+t_i$ と置くと、係数は
+\begin{equation}\label{mix:eq:linear-pbw-translation}
+ M'=M-2\operatorname{diag}(t_1,t_2,t_3),\qquad
+ \alpha'_i=\alpha_i+\sum_jm_{ij}t_j-t_i^2
+\end{equation}
+となる。従って $t_i=m_{ii}/2$ により、唯一の対角零の正規形に移る。
+ここでの一意性は、指定した次数付き $S$ への同定を保つ平行移動に関するものであり、
+$S$ の全線形自己同型による同型分類を主張しない。
+\end{proposition}
+
+\begin{proof}
+唯一の三次 Koszul 重なりは
+\[
+       \sum_i x_i\otimes r_i=\sum_i r_i\otimes x_i
+\]
+で生成される。
+Braverman--Gaitsgory の記法で一次補正を $\ell(r_i)=\sum_jm_{ij}x_j$、
+定数補正を $b(r_i)=-\alpha_i$ とすると、最初の条件は
+\[
+ (\ell\otimes1-1\otimes\ell)
+       \left(\sum_i r_i\otimes x_i\right)
+ =\sum_{i,j}m_{ij}(x_jx_i-x_ix_j)\in R
+\]
+である\cite[Main Theorem~0.5, Lemma~3.3]{CMOBravermanGaitsgory}。
+$R\cap\bigwedge^2V=0$ である。実際、$\sum_i c_ir_i$ が交代的なら、
+その $x_i^2$ 係数 $-c_i$ は全て零になる。
+従って最初の条件は上の式が零になること、すなわち $M=M^{\mathsf t}$ と同値である。
+この場合は同式が自由テンソル代数の中で既に零であり、
+$(b\otimes1-1\otimes b)$ も定数の可換性から零である。
+残る二つの PBW 条件も零となる。
+Koszul 性と同定理により、これで全次数の PBW 性を得る。
+式\eqref{mix:eq:linear-pbw-translation}は
+$x_i=X_i-t_i$ を関係式へ代入して係数を比較すれば従う。
+\end{proof}
+
+対角零の正規形を
+\begin{equation}\label{mix:eq:linear-pbw-normal-relations}
+ \begin{split}
+ [y,z]&=x^2+py+rz-\alpha_1,\\
+ [z,x]&=y^2+px+qz-\alpha_2,\\
+ [x,y]&=z^2+rx+qy-\alpha_3
+ \end{split}
+\end{equation}
+と書く。これは cyclic potential
+\begin{equation}\label{mix:eq:linear-pbw-potential}
+ \Phi=xyz-yxz-\frac{x^3+y^3+z^3}{3}
+       -pxy-qyz-rzx+\alpha_1x+\alpha_2y+\alpha_3z
+\end{equation}
+の三つの cyclic derivative による代数である。
+一般の対称行列の対角項は、この potential の $-m_{ii}x_i^2/2$ に対応する。
+
+$\mathcal B_{p,q,r,\alpha}$ を式\eqref{mix:eq:linear-pbw-normal-relations}の
+Rees 代数とする。すなわち $u$ は中心、全生成元 $x,y,z,u$ の内部次数は一で、
+関係の $p,q,r$ 項には $u$、$\alpha$ 項には $u^2$ を掛ける。
+係数環 $T=\C[p,q,r,\alpha_1,\alpha_2,\alpha_3]$ 上でも、
+$\mathcal B$ は $T[u]$ 上自由であり、任意の係数変更と両立する。
+これを確認するには $S$ の各斉次部分の $\C$-基底を固定し、その語代表を持ち上げる。
+$\mathcal B/(u)=S\otimes T$ と次数についての帰納法から、
+これらの語と $u$ の冪は $\mathcal B$ を生成する。
+各複素係数で PBW 定理が同じ語を基底にするため、
+普遍係数の有限関係式の各多項式係数は全複素点で零となり、従って零である。
+よってこれらは普遍係数上でも基底である。
+
+\subsection{六パラメータ上の厳密な中心式}
+
+$\operatorname{sym}_2(ab)=(ab+ba)/2$ とし、
+$\sym(xyz)$ は従来通り六語の平均とする。
+\begin{align*}
+ \Omega_0&=\frac{x^3+y^3+z^3}{3}-\frac23\sym(xyz),\\
+ Q_{p,q,r}&=p\left(\operatorname{sym}_2(xy)+\frac{z^2}{18}\right)
+      +q\left(\operatorname{sym}_2(yz)+\frac{x^2}{18}\right)
+      +r\left(\operatorname{sym}_2(zx)+\frac{y^2}{18}\right),\\
+ L_{p,q,r,\alpha}
+   &=\left(\frac{q^2}{6}-\frac{pr}{18}-\alpha_1\right)x
+     +\left(\frac{r^2}{6}-\frac{pq}{18}-\alpha_2\right)y
+     +\left(\frac{p^2}{6}-\frac{qr}{18}-\alpha_3\right)z.
+\end{align*}
+
+\begin{theorem}[普遍中心三次]
+\label{mix:thm:linear-pbw-central-cubic}
+任意の $p,q,r,\alpha$ に対して
+\begin{equation}\label{mix:eq:linear-pbw-central-cubic}
+        \Omega_{p,q,r,\alpha}
+              =\Omega_0+uQ_{p,q,r}+u^2L_{p,q,r,\alpha}
+\end{equation}
+は $\mathcal B_{p,q,r,\alpha}$ の中心三次であり、$\Omega\bmod u=\Omega_0$ である。
+この恒等式は $T$ 上で成立し、任意の係数変更と両立する。
+最高 active 部分を $\Omega_0$ とする中心三次は、これに
+$T$ の元を係数とする $u^3$ を加えたものに限る。
+$p=q=r=0$ では式\eqref{cmo:eq:mixed-center}を回復する。
+\end{theorem}
+
+\begin{proof}
+中心性は普遍係数を保持する有限な有理係数の恒等式で確認できる。
+再現コードは \texttt{computations/verify\_mixed\_linear\_pbw.py} である。
+この計算では $u=1$ とし、補助重みを
+\[
+ \operatorname{wt}(x,y,z,p,q,r)=1,\qquad
+ \operatorname{wt}(\alpha_1,\alpha_2,\alpha_3)=2
+\]
+とする。重み四の自由代数の基底は
+\[
+ p^{e_1}q^{e_2}r^{e_3}\alpha_1^{f_1}\alpha_2^{f_2}\alpha_3^{f_3}w,
+ \qquad \sum e_i+2\sum f_i+|w|=4
+\]
+という339個の単項式である。
+三つの重み二の関係を、重み二を補う全パラメータ単項式と左右の語で挟むと、
+162行339列の有理係数関係行列を得る。その階数は144である。
+式\eqref{mix:eq:linear-pbw-central-cubic}を $u=1$ とした元の
+$x,y,z$ との三つの交換子は、いずれもこの行空間に属する。
+スクリプトは、実際の関係倍だけから作る有理数の逐次消去によって、
+三つの剰余が厳密に零であることを証明する。
+係数の特殊化、補間、有限体からの外挿は使わない。
+重みの各単項式を内部次数四へ再斉次化すれば、$T[u]$ 上の交換子恒等式を得る。
+$u$ との交換子は定義から零である。
+
+一意性には $Z(S)_1=Z(S)_2=0$ を使う。
+次数一では $[x,ax+by+cz]=bz^2-cy^2$ と巡回式から直ちに従う。
+次数二では、$S_2$ の六基底に対する
+\[
+ S_2\longrightarrow S_3^{\oplus3},\qquad
+ h\longmapsto([x,h],[y,h],[z,h])
+\]
+の有理行列の階数が六である。
+同じコードは次数三の全関係倍からこの行列を作り、単射性を厳密に確認する。
+二つの持上げの差 $\delta$ は $u$ で零になるので $\delta=uf$ と書ける。
+$u$ の正則性から $f$ も中心であり、$f\bmod u$ は
+$Z(S\otimes T)_2=0$ に属する。同様に次数一まで下降すると、
+差は $T\cdot u^3$ に属する。
+最後の特殊化は表示式から従う。
+\end{proof}
+
+\begin{corollary}[多ブロックの実際の中心商]
+\label{mix:cor:linear-pbw-multiblock-family}
+任意の $k\ge1$ と固定した $a_i\in\C^\times$ に対し、
+$k$ 個の独立な正規形を共通の中心 $u$ 上でテンソル積して
+\[
+ B=\bigotimes_{\C[u],\,i=1}^k\mathcal B_{p_i,q_i,r_i,\alpha^{(i)}},
+ \qquad w=\sum_i a_i\Omega_{p_i,q_i,r_i,\alpha^{(i)}}+cu^3,
+ \qquad A=B/(w)
+\]
+と置く。$w$ は正則中心三次、$u$ は $A$ 上正則であり、
+\[
+ A/(u)\simeq S^{\otimes k}/\left(\sum_i a_i\Omega_{0,i}\right),
+ \qquad H_A(t)=\frac{1-t^3}{(1-t)^{3k+1}}.
+\]
+全係数 $p_i,q_i,r_i,\alpha^{(i)},c$ に関し、各内部次数は有限自由である。
+\end{corollary}
+
+\begin{proof}
+$B$ の $u$ に関する自由性と $B/(u)=S^{\otimes k}$ は普遍 PBW 基底から従う。
+$w_0=\sum_i a_i\Omega_{0,i}$ の正則性は、例えば第一ブロックの active 次数の
+最高部を取って示せる。その最高部 $a_1\Omega_{0,1}$ は、第一因子での
+$\Omega_0$ の正則性と体上のテンソル積の完全性によって非零因子である。
+$w_0$ の正則性から、$wa=0$ を $u$ で還元して $a$ を $u$ で割る議論を
+内部次数について反復すれば $a=0$ となる。
+また $ua=wb$ なら $b\bmod u=0$ なので $b=ub'$ と書け、
+$u$ を消去して $a=wb'$ を得る。従って $u$ は $A$ 上も正則である。
+これらの議論は普遍係数環でも成立する。
+$A/(u)$ の固定した斉次基底の持上げと $u$ の冪から $A$ の基底を得るので、
+自由性と表示した Hilbert 級数が従う。
+\end{proof}
+
+\subsection{一次法線変形と残る圏論的比較}
+
+\begin{proposition}[平行移動では消えない三方向]
+\label{mix:prop:linear-pbw-first-normal-class}
+$\deg u=1$ とする一次変形 $\mathcal B_{p,q,r,\alpha}/(u^2)$ が、
+$S$ 上の指定同定を保つ次数付き $\C[u]/(u^2)$-代数として
+$S[u]/(u^2)$ と同型になるための必要十分条件は $p=q=r=0$ である。
+より正確には、$S$ の graded Hochschild 一次変形空間は
+\begin{equation}\label{mix:eq:linear-pbw-hochschild}
+ \operatorname{HH}^2_{-1}(S)
+ \simeq \operatorname{Sym}_3(\C)/\operatorname{Diag}_3(\C)
+ \simeq\C^3
+\end{equation}
+であり、三つの対角外係数がその基底を与える。
+系\ref{mix:cor:linear-pbw-multiblock-family}の中心商でも、
+境界を恒等に固定する次数付き代数の一次変形として、これらの $3k$ 方向は消えない。
+\end{proposition}
+
+\begin{proof}
+そのような同型は次数一の生成元を $x_i\mapsto x_i+t_i u$ と移す。
+式\eqref{mix:eq:linear-pbw-translation}から、この変更は
+一次補正行列の対角成分だけを変える。
+従って正規形の $p,q,r$ を零にできるのは元から全て零の場合に限る。
+Hochschild 一次変形との対応は
+\cite[Proposition~1.5(a)]{CMOBravermanGaitsgory}による。
+空間全体は $S$ の双加群 Koszul 解消で計算できる。
+内部次数 $-1$ の cochain の次数一、二、三の項はそれぞれ
+\[
+ \operatorname{Hom}(V,S_0)=\C^3,\qquad
+ \operatorname{Hom}(R,S_1)=\operatorname{Mat}_3(\C),\qquad
+ \operatorname{Hom}((V\otimes R)\cap(R\otimes V),S_2)=S_2
+\]
+である。第二微分は符号を除いて
+$M\mapsto\sum_{i,j}m_{ij}(x_jx_i-x_ix_j)$ であり、
+$R\cap\bigwedge^2V=0$ からその核は対称行列である。
+第一微分は $t\mapsto-2\operatorname{diag}(t)$ なので、
+その像は対角行列の全体である。
+従って式\eqref{mix:eq:linear-pbw-hochschild}を得る。
+中心商の追加関係は次数三なので次数二の関係空間を変えず、
+多ブロックでも全ての次数一生成元の変更はそれぞれ $t_i u$ の加算に限られる。
+従って同じ議論が各ブロックに適用できる。
+\end{proof}
+
+\begin{remark}[代数の一次変形と Ku の Bockstein は別の段階]
+\label{mix:rem:linear-pbw-bockstein-limit}
+命題\ref{mix:prop:linear-pbw-first-normal-class}は、線形補正のある族に
+補題\ref{cmo:lem:central-linear-split-comonad}の証明で使った
+$A/(u^2)=S[u]/(u^2)$ をそのまま適用できないことを示す。
+ただし、代数の一次変形類が非零であることから、残余圏上の twist 射や
+categorical Bockstein の非零性を直ちに推論してはいけない。
+定数補正の証明で使った augmentation による検出も、そのままでは働かない。
+関係式の一次法線係数は active 一次式で、中心三次の一次法線係数は
+$Q_{p,q,r}$ という active 二次式だから、いずれも
+$x=y=z=0$ への係数の代入では零になる。
+必要なのは、実境界比較を通じた高次自然変換まで含む変形類の移送と、
+可換側の次数二の Jacobian 類との対応の計算である。
+この対応、非分裂 counit arrow 上の余乗法の比較、および全 Ku 核の構成は未解決である。
+また、この節の中心三次の存在を、次数六の中心生成元の持上げや
+全係数での PI 性・有限中心性の証明と読み替えない。
+\end{remark}
