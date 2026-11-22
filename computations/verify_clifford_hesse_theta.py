@@ -40,7 +40,7 @@ print("PASS 4: inverse central character alone does not obstruct quadrics")
 # Special self-isogeny tau^2=-2 and j=8000.
 tau=s.symbols('tau')
 tv=-2/tau
-assert s.factor(tv-tau)==-(tau**2+2)/tau
+assert s.cancel(tv-tau+(tau**2+2)/tau)==0
 assert s.simplify(-2/tv-tau)==0
 print("PASS 5: self-isogeny exactly at tau^2=-2, with composition [-2]")
 

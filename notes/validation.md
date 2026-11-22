@@ -1,8 +1,10 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v75。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v76。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
+
+- **二重isogenyのtheta文字・±3次元空間・CM点（v76）：** `ifj:prop:two-isogeny-theta-characters` に引戻し偏極A=L²⊗Mのtheta交換子e_A=e_L²=e_L⁻¹、二重被覆の直像O⊕N、H⁰(E,A)のdeck±固有空間3+3と逆Heisenberg文字、Hom(L²,A)=H⁰(M)=0を証明として記載。中心文字の反転`だけ`では普通二次式を排除しないことを明示。CM特殊化τ²=−2でφ²=[−2]、j=8000、End(E)=Z[√−2]（`ifj:cor:two-isogeny-cm-specialization`）。SymPy 1.14のローカル`python3 /mnt/data/nc_cubic_v76/verify_clifford_hesse_theta.py`で修正版6群PASS・終了コード0を確認（SHA-256 `c998ae132435f375e94dfc3a572672effc32421e1afa28c6623fd27ac47882e5`）。初版検算では`factor`で整形されたSymPy式の構造的等値比較が失敗したため、`cancel`で差を零判定するよう修正してから6 PASS。有限行列・j恒等式の検算でありtheta群・Picard・Kuの圏論証や12係数を形式検証したものではない。GitHub保存後の同一ファイルの再読・再実行は別に報告する。全三稿LuaLaTeX組版・外部査読も今回未実施。
 
 - **点楕円と中心判別の二重isogeny（v75）：** `ifj:thm:discriminant-two-isogeny` と `ifj:cor:isogeny-picard-line` に、D_τ=(τ³/8)f_{−2/τ}、核{o,p}の次数2 isogeny、Weierstrass座標式、往復[−2]、三捩れのdiag(1,−1)作用、φ*O(1)=O(2)⊗M_τ（非自明二捩れ）の証明を統合。普遍的なHesse/Cayleyan二重isogenyは既知理論と明記し、本Cliffordの係数・標識とPicard線束を照合した。`computations/verify_clifford_hesse_two_isogeny.py` の8群をPython/SymPyで検算し、GitHub mainに保存後にそのファイルを読み戻して復元した同一ソースでも **8 PASS・終了コード0** を確認した（保存ファイルGitHub blob SHA `131d67e8124c793300123fe7bbf35e9d032729ac`、再取得実行ソースSHA-256 `c5567ab615810ded9ca796ed6406358b0cbd7c841c89028b320066aa6a9a9ece`）。同内容の拡張下書きに対する単独ltjsarticle/LuaLaTeX組版は二巡実行・3頁を確認したが、**保存済みの節そのもの・混合稿全体を組版したことではない**。Picard引戻しの数学的証明は本文、8群は有限式の検算であり、形式証明器・外部査読・本三稿統合組版は未実施。Ku核の高次移送と12 scalarの数値・非消滅も未完成。
 
