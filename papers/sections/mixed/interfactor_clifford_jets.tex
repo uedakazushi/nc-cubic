@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v76.
+% Current result: 2026-11-23 / v77.
 \subsection{固定した三次形式の切片と高次係数の有限還元}
 \label{ifj:subsec:jets}
 
@@ -1158,6 +1158,206 @@ $\mathbb P^2$ 上の制限列
 非零大域切断を持たない。
 これで式\eqref{ifj:eq:two-isogeny-no-quadratic-transfer}が従う。
 \end{proof}
+
+\begin{proposition}[三次式で構成した isogeny の六次元模型と deck 行列]
+\label{ifj:prop:two-isogeny-cubic-sextet}
+定理\ref{ifj:thm:discriminant-two-isogeny}の規約を用いる。
+$E=E_\tau$、$E'=E_{\tau^\vee}$、$\tau^\vee=-2/\tau$、
+$o=(1:-1:0)$、$p=(1:1:\tau)$、
+$L=\OO_E(1)$、$A=\varphi_\tau^*\OO_{E'}(1)$ とする。
+式\eqref{ifj:eq:clifford-two-isogeny-weierstrass}の
+$a=A_\tau,b=B_\tau\ne0$ と
+\[
+ c=\frac{4(\tau^3-1)^2(\tau^3+8)}{27\tau^2},
+ \quad r=\frac{1}{\tau^3+8},
+ \quad W=3\tau(Z_0+Z_1)+(2+\tau^3)Z_2,
+ \quad T=c(Z_2-rW),\quad S=c(Z_0-Z_1)
+\]
+を固定する。$W,T,S$ は一次独立な一次形式であり、
+\begin{equation}\label{ifj:eq:cubic-sextet-weierstrass}
+ W S^2-T^3-aWT^2-bW^2T=4c^2f_\tau(Z_0,Z_1,Z_2)
+\end{equation}
+が厳密に成立する。
+
+$E$ 上で基点因子 $D=2o+p$ を持つ三次式の制限を考える。
+この六次元線型系は、共通因子 $D$ を除くと
+$A=L^{\otimes2}\otimes M_\tau$ の完全線型系となる。
+具体的には
+\begin{equation}\label{ifj:eq:cubic-sextet-basis}
+ \begin{gathered}
+ H^0(E,L^{\otimes3}(-D))\simeq H^0(E,A),\\
+ W^2T,\quad W^2S,\quad WT^2,\quad WTS,\quad T^3,\quad T^2S
+ \end{gathered}
+\end{equation}
+の制限が基底をなし、三次式の共通零因子は正確に $D$ である。
+
+$u=T/W,\ v=S/W$ と置き、関数の基底を
+$u,v,u^2,uv,u^3,u^2v$ とする。
+$\varphi_\tau$ の deck 変換 $t_p$ の canonical な線型化は
+\begin{equation}\label{ifj:eq:cubic-sextet-deck-matrix}
+ \begin{gathered}
+ t_p(u,v)=\left(\frac b u,-\frac{b v}{u^2}\right),\qquad
+ \mathcal D(g)(u,v)=\frac{u^4}{b^2}
+       g\left(\frac b u,-\frac{b v}{u^2}\right),\\
+ \begin{array}{c|cccccc}
+ g&u&v&u^2&uv&u^3&u^2v\\ \hline
+ \mathcal D(g)&u^3/b&-u^2v/b&u^2&-uv&bu&-bv
+ \end{array}
+ \end{gathered}
+\end{equation}
+で与えられる。その正負固有空間の斉次三次式の基底は
+\begin{equation}\label{ifj:eq:cubic-sextet-eigenspaces}
+ \begin{array}{c|ccc}
+ +1&WT^2&T^3+bW^2T&S(T^2-bW^2)\\
+ -1&WTS&T^3-bW^2T&S(T^2+bW^2)
+ \end{array}
+\end{equation}
+となる。命題\ref{ifj:prop:two-isogeny-theta-characters}の
+負固有線束 $N$ は、標的の非零二捩れ点
+$p^\vee=(1:1:\tau^\vee)$ により
+\[
+ N\simeq M_{\tau^\vee}
+ =\OO_{E_{\tau^\vee}}(p^\vee-o^\vee)
+\]
+と同定できる。
+
+さらに、三つの正固有三次式
+\begin{equation}\label{ifj:eq:cubic-sextet-isogeny-triple}
+ G_0=WT^2,\quad
+ G_1=T^3+aWT^2+bW^2T,\quad
+ G_2=S(T^2-bW^2)
+\end{equation}
+を使い、標的の斉次 Weierstrass 座標を
+\[
+ Z^\vee_{\mathrm W}=G_0,\qquad
+ X^\vee_{\mathrm W}=G_1/\tau^2,\qquad
+ Y^\vee_{\mathrm W}=G_2/\tau^3
+\]
+と定めると、全平面上の多項式恒等式
+\begin{equation}\label{ifj:eq:cubic-sextet-nine-identity}
+ \begin{split}
+ \tau^6\bigl(
+ (Y^\vee_{\mathrm W})^2Z^\vee_{\mathrm W}
+ -(X^\vee_{\mathrm W})^3
+ -A_{\tau^\vee}(X^\vee_{\mathrm W})^2Z^\vee_{\mathrm W}
+ -B_{\tau^\vee}X^\vee_{\mathrm W}(Z^\vee_{\mathrm W})^2
+ \bigr)\\
+ =T^2(T^2-bW^2)^2
+       (WS^2-T^3-aWT^2-bW^2T)
+ \end{split}
+\end{equation}
+が成り立つ。
+標的で $\tau^\vee$ の逆 Weierstrass--Hesse 座標変換
+\[
+ \begin{split}
+ H&=X^\vee_{\mathrm W}/c_{\tau^\vee}
+                      +r_{\tau^\vee}Z^\vee_{\mathrm W},\\
+ J&=Y^\vee_{\mathrm W}/c_{\tau^\vee},\qquad
+ K=\frac{Z^\vee_{\mathrm W}
+               -(2+(\tau^\vee)^3)H}{3\tau^\vee}
+ \end{split}
+\]
+を施した三次式
+\begin{equation}\label{ifj:eq:cubic-sextet-hesse-triple}
+ \left(\frac{K+J}{2}:\frac{K-J}{2}:H\right)
+\end{equation}
+は、$E$ 上の共通基点因子 $2o+p$ を除いて
+$\varphi_\tau:E_\tau\to E_{\tau^\vee}$ を実現する。
+因子反転 $(Z_0:Z_1:Z_2)\mapsto(Z_1:Z_0:Z_2)$
+にも両立する。
+\end{proposition}
+
+\begin{proof}
+一因子の接線座標の計算
+（定理\ref{ifj:thm:discriminant-two-isogeny}の証明）を
+分母を払って書き直すと
+式\eqref{ifj:eq:cubic-sextet-weierstrass}を得る。
+$W=0$ は変曲点 $o$ で三重に接し、
+$u=T/W$ と $v=S/W$ はそれぞれ $o$ に二位・三位の
+極を持つ。$p$ は $(u,v)=(0,0)$ であり、
+$b\ne0$ による Weierstrass 方程式から、
+$u$ は $p$ で二重、$v$ は一重の零点を持つ。
+従って
+\[
+ u,\ v,\ u^2,\ uv,\ u^3,\ u^2v
+\]
+は $H^0(E,\OO_E(7o-p))$ に属し、
+$o$ での極位数が $2,3,4,5,6,7$ と異なるため独立である。
+Riemann--Roch によりこの空間は六次元なので基底となる。
+$W^3$ を掛けたものが式\eqref{ifj:eq:cubic-sextet-basis}の
+三次式である。共通零因子の $o$ での重複度は
+$u^2v$ の極位数七から二、$p$ での重複度は
+$v$ の零位数一から一である。
+$W\ne0$ で全六式が同時に零となるのは
+$u=v=0$ の点 $p$ だけで、
+$W=0$ の $E$ 上の点は $o$ のみである。
+従って共通因子は正確に $2o+p$。
+また
+\[
+ \OO_E(9o-2o-p)\simeq\OO_E(3o+3p)
+                     =\varphi_\tau^*\OO_{E'}(3o')
+\]
+であり、同型は $u^2$ の因子
+$\operatorname{div}(u^2)=4p-4o$ を用いて固定できる。
+
+Weierstrass の群法則で $(0,0)$ を加えると
+$t_p(u,v)=(b/u,-bv/u^2)$ となる。
+$\varphi_\tau^*$ の切断は deck 変換で不変であり、
+上の $\OO_E(7o-p)$ の関数モデルでは
+その正規化作用が
+$\mathcal D(g)=u^4g(t_p(u,v))/b^2$ となる。
+式\eqref{ifj:eq:cubic-sextet-deck-matrix}は直接代入で、
+$\mathcal D^2=1$。正負固有ベクトルを取れば
+式\eqref{ifj:eq:cubic-sextet-eigenspaces}を得る。
+二重被覆の負固有線束は、dual isogeny の核に当たる
+非零二捩れ線束である。ここで
+$\varphi_{\tau^\vee}\varphi_\tau=[-2]$ より、
+dual isogeny は $-\varphi_{\tau^\vee}$ なので
+その核は $p^\vee$。従って $N=M_{\tau^\vee}$ となる。
+
+式\eqref{ifj:eq:cubic-sextet-isogeny-triple}の
+$G_1$ は曲線 $E$ 上で $WS^2$ と一致する。
+$u,v$ の関数モデルで三つの比を取ると
+\[
+ \frac{X^\vee_{\mathrm W}}{Z^\vee_{\mathrm W}}
+   =\frac{u+a+b/u}{\tau^2},\qquad
+ \frac{Y^\vee_{\mathrm W}}{Z^\vee_{\mathrm W}}
+   =\frac{v(1-b/u^2)}{\tau^3}
+\]
+であり、式\eqref{ifj:eq:clifford-two-isogeny-formula}と一致する。
+さらに
+$\tau^2A_{\tau^\vee}=-2a$、
+$\tau^4B_{\tau^\vee}=a^2-4b$ を代入して
+三次式の左辺を展開すると
+式\eqref{ifj:eq:cubic-sextet-nine-identity}を得る。
+従って、この三次式は
+$E$ 上で標的 Weierstrass 曲線を定める。
+共通基点因子を除いた三つの正固有切断は
+$\varphi_\tau^*\OO_{E'}(1)$ を生成するので
+全域の isogeny となる。
+表示した Hesse 座標は既存の逆線型変換そのものである。
+最後に $(Z_0,Z_1)$ の交換では $W,T$ が不変、
+$S$ は負号を受ける。従って $G_0,G_1$ は偶、
+$G_2$ は奇であり、
+式\eqref{ifj:eq:cubic-sextet-hesse-triple}は
+標的側の第一・第二座標の交換に一致する。
+\end{proof}
+
+\begin{remark}[高次比較への有限入力とその限界]
+\label{ifj:rem:cubic-sextet-scope}
+式\eqref{ifj:eq:cubic-sextet-deck-matrix}は二捩れ
+Picard 線束を捨てずに、$6=3+3$ の deck 分解を
+有限行列で扱う具体的な入力を与える。
+普通の斉次二次式三本で isogeny を構成したわけではなく、
+三次式の基点因子 $2o+p$ を除く必要がある。
+本模型は楕円曲線上の線束・切断空間の計算であり、
+実 Koszul--Shamash 比較核や指定 rotation・三乗周期を
+自動的に与えるものではない。
+四 probe の四十六原式係数と十二比較 scalar の値は未計算。
+有限証明書は
+\texttt{computations/verify\_clifford\_isogeny\_cubics.py}
+に置く。
+\end{remark}
 
 \begin{corollary}[CM 自己 isogeny でも残る二捩れ障害]
 \label{ifj:cor:two-isogeny-cm-specialization}
