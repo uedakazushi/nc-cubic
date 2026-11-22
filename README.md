@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月22日 / v51。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月22日 / v52。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -10,7 +10,7 @@
 | [cubic-moduli-descent.tex](papers/cubic-moduli-descent.tex) | 構造対象付きモジュライと表示認識、相対点関手・Poissonモジュライ、精密なPicard/Brauer/Kummer降下、周期位相と最小比較次数。 |
 | [mixed-sklyanin-cubics.tex](papers/mixed-sklyanin-cubics.tex) | 混合Sklyanin族の有限中心・局所代数・単純加群、全smooth locusと不変量、明示可換候補とEckardt模型、被約point/Poisson不一致例。 |
 
-各数学的な節の本文は一つの稿を正本とし、他稿では稿名と定理番号を付けて参照する。組版設定は `papers/common/preamble.tex`、書誌は `papers/references.tex` を共有する。混合稿の本文は `papers/sections/mixed/` の10節に分けている。三稿の整理は、既存の数学全体を新たに証明・検証したという意味ではない。
+各数学的な節の本文は一つの稿を正本とし、他稿では稿名と定理番号を付けて参照する。組版設定は `papers/common/preamble.tex`、書誌は `papers/references.tex` を共有する。混合稿の本文は `papers/sections/mixed/` に置く。三稿の整理は、既存の数学全体を新たに証明・検証したという意味ではない。
 
 全次元・全ブロックの代数的量子化は [cubic-quantization](https://github.com/uedakazushi/cubic-quantization)、古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
 
@@ -29,14 +29,16 @@
 - **指定混合族のsmooth locusを完全決定。** α=(1,4,9),(16,25,49)、中心和係数1,100を固定すると、全coherent圏がsmooth properであることは64次終結式P64(c)≠0と同値である（`cmo:thm:exact-sixty-four`）。各中心の14節点のNCCR局所形、全節点での非等方なΩ切断、相対対角の合成、射影境界u=0の検査を用いる。従って **c=0と定常normの全64根はsmooth proper**。P64の64根では36次元simpleの局所模型がMat36上の5次元通常二重点となり、全coherent Kuは非proper、線束圏と残余線束圏は非smoothである。P64と定常normは互いに素であり、pointの出現とsmoothnessを区別する。全smooth係数での可換Ku比較はなお未解決。
 - **同じ判別式を持つ明示的な可換候補。** G_α=(x³+y³+z³+xyz)/3−u²(α₁x+α₂y+α₃z)、λ²=28/27として、X_c=V(λ(G_{(1,4,9)}+100G_{(16,25,49)})+cu³)⊂P⁶を得た。各Jacobi環の正則表現を厳密計算し、X_cもP64(c)≠0と同値に滑らかで、各悪い係数では唯一の通常五次元二重点を持つと示した。c=0にはEckardt点があり、そのblow-upは超平面と滑らかな三次四様体に分岐する二重被覆のクレパント解消となる（cmo:thm:commutative-discriminant-candidate、cmo:prop:zero-eckardt-resolution）。この具体的候補とのKu同値は一般点も含めて未証明であり、既存の余有限な「ある可換標的」の存在とは区別する。
 - **全smooth係数のHochschild群と有理Euler形式。** 指定c族をU=A¹∖V(P64)全体で相対smooth properとする有限中心・平坦対角の模型を構成した（`cmo:prop:full-relative-hh`）。Mathewの相対退化定理から全cでHH₀=C²、HH±₁=C²¹、他次数零となる。pr(O(4)),pr(O(5))は両側の有理数値Grothendieck群の基底であり、共通Euler行列は[[-27,−189],[−162,−1161]]、行列式729（`cmo:cor:rational-euler-comparison`）。明示候補への同値を仮定せず得る不変量の一致であり、積分格子の同型は未証明。
-- **零係数の可換標的の実際の残余模型。** 対合u↦−uによるBl_p(X₀)の商はT=Bl_Y(P⁵)である。分離分岐H′⊔Z′の根スタックℛ上で、16個の明示例外対象の右直交KがKu(X₀)^μ₂となり、有限mutationの畳込みがperfect射影核を与える。指標線束Nの指定されたN²≃Oを使う再同変化で通常Kuを回復する（`cmo:thm:eckardt-root-residual`）。可換側のHH±₁の対合固有次元は(5,16)、同変KuのHHは次数−2,…,2で(1,5,24,5,1)。Ku(Y)⊕Ku(Z)のHHとは一致するが、その圏分解は結論しない。A₀からの比較核は未構成。
+- **零係数の可換標的の実際の残余模型。** 根スタックℛの16例外対象の右直交K≃Ku(X₀)^μ₂とperfect射影核、指標線束NとN²≃Oを保持する。これに加え、中心二重根orderの8例外mutationとKnörrer核により、Ku(Z),Ku(Y)による実SODを構成した。HHの直和一致からSODを相殺したものではない。非可換A₀との全比較にはK_Rと球面接着の同定が残る。
 - **全固定値のaffine MF比較と次数情報の必要性。** 内部次数を忘れた有限射影Z/2-MFを冪等完備すると、一因子の全sと混合族の全cで可換候補と実Morita比較できる。Morse値ではCl₃・Cl₆の局所模型、smooth値では双方零となる（`cmo:prop:pointwise-affine-mf-comparison`）。全smooth cで射影Kuは非零なので、このaffine圏を介するKu同値は得られない。錐の原点・内部shift・三次周期を保つ比較が必要である。
 - **低次元単純加群と残余射影。** 二次元単純加群は半跡(a,b,c)∈(C×)³と(a²−bc,b²−ca,c²−ab)=αで完全分類し、退化係数も扱う。abcF≠0上で高次作用の普遍式κ₂=−2N₆/(9F)を得て、三次数体の例では全characterの有限射影次元検査を通りながら、characterを持たない中心値に無限射影次元の二次元simpleが存在する。指定二因子の各8 charactersと各2二次元simpleから得る100tensor simplesは全て射影次元5で、coherent延長は線束perfect。従来の64定常点の残余射影Kには Ext⁰(K,K)=C、Ext¹(K,K)=C¹⁰、他次数0を得た。これら対象のperfect性から全体のsmoothnessは結論しない。別の有理係数α=α′=(9,9,1),c=−1616/3での無限自己Ext例も保持する。 指定二因子ではさらに全simpleを分類し、非Azumaya中心上には各28類、次元1〜5の個数は8,2,8,2,8、正則中心の各点には6次元simpleが一つある（`cmo:thm:fourteen-node-orders`）。
 - **主予想の局所開性。** [可換実現locus](papers/sections/geometric_realization_locus.tex)の `grl:thm:open-locus` はn≠4の実smooth proper dg族で可換Ku実現領域がZariski開であり、étale局所に実際のcubic族と比較核があると示す。既存のArtin形式認識と核モジュライの代数性を用いる。全点での存在には境界延長と未被覆成分が残る。
 
-**非可換零係数の対合に関する有限計算。** [三対象windowのHom指標](papers/sections/mixed/equivariant_window.tex)では、G=K⊕K(1)⊕K(2)の全stable Homを同変minimal Shamash分解から計算した。次数−1,0,1,2,3の次元は7,80,162,112,23で総計384、対合固有分解と二種類のEuler行列も明示する。これはHHの指標計算ではなく、高次積とHochschild微分の計算が残る。[対合を保つ変形](papers/sections/mixed/equivariant_deformation.tex)では、h=0の滑らかなFermat型Eckardt五様体とh=1のA₀を結ぶ中心三次式を与える。一般hで非PIとなることを証明したため、既存の有限中心法はこの族へ流用できない。相対smooth proper模型を追加仮定とすればHH±₁の指標(+5,−16)が従うが、その仮定は未証明である。
+**零係数の実関手と同変残余分解。** [中心二重根の比較](papers/sections/mixed/root_order.tex)は、全coherent圏へ降りるtensor/inflationと随伴を構成し、Ku(A₀)^μ₂=⟨ΦKu(Z),ΨK_R⟩ を実perfect核で与える。第一成分Zは分離型可換三次四様体である。第二成分K_Rは五本の例外線束を除いた重み付き不変環の残余圏で、接着は球面関手 −⊗_R^L S。可換側ではrank一のKnörrer核により第二成分を三次三様体YのKuと同定する。K_RとこのKu(Y)、および接着の比較は未構成である。通常の線型二側商R/(L)は有限次元なので、その商による比較はできない。
 
-次の優先課題は、384次元同変模型の高次積と正当化されたHochschild縮約、または曲率・三次周期を保持した固定sector比較から、非可換側のHH±₁指標を確定することである。通常affine twisted HHの中心変数消去と二重根orderのPerf分解は研究ノートに証明を置くが、graded MF・qgrへの必要な比較を済ませたとはしない。その後、根スタックの16直交条件と指標作用を標的として実際の比較核を構成し、c=0とnormの64根を含む全smooth locusへのDVR延長を検査する。対合保存は主予想の追加条件である。smooth proper性、判別式・通常HH・有理Euler形式の一致だけからKu同値は従わず、一般α・より一般の混合型・未被覆intrinsic成分も残る。
+**指定h候補への形式・一般点比較。** [交換子族の実核](papers/sections/mixed/equivariant_deformation.tex)ではh⁶+27≠0上の全次数平坦性、h=0の局所環上のproper線束模型、実際の形式MF関手と逆関手を構成する。普遍係数のHeisenberg対称性、二ブロックの積、楕円中心商を用いて、復元potentialを W_h^cand=Σ_i q_i[(x_i³+y_i³+z_i³+h²x_iy_iz_i)/3−u²α^(i)·x^(i)] へ全形式次数で同定し、C(h)の有限拡大上でこの指定候補への実perfectKu核を得た。次はh=1でのperfect整核とunit/counitを検査する。これは元の中心係数cを動かす族の一般点同定とは異なり、固定A₀とX₀の同値は未完成である。非PI性は有限中心法の制約として保持する。
+
+[三対象window](papers/sections/mixed/equivariant_window.tex)の384次元stable Homと対合指標は確定しているが、HH±₁の対合指標は未計算である。この補助検査の完了を実核構成の前提にしない。通常affine twisted HHの中心変数消去は曲率付き比較と区別し、smoothness・HH・Eulerの一致だけから圏同値を結論しない。
 
 ### 補助的な例：point/Poisson一致への素朴な期待の限界
 
@@ -47,6 +49,10 @@
 **被約化しても一致しない五様体の例。** 証明の正本は混合稿の [孤立零点と不一致の節](papers/sections/mixed/poisson_limits.tex)。全Poisson正規形から、滑らかな三次n-foldのPoisson零集合に孤立点があるならn=3k、一般階数2kであり、各孤立零点は零次元局所完全交叉であることを証明した（ppz:thm:isolated-zero-dimension）。従って五次元では孤立零点はない。一方、指定混合族の定常ノルムの全64根ではPt(A_c)=E₁⊔E₂⊔{p_c}が被約で、A_cはsmooth properである（ppz:cor:reduced-point-poisson-counterexample）。例えばc=−44828を取れる。これはどの滑らかな可換三次五様体上のどのPoisson構造でも、被約零集合と同型にはならない。可換Ku比較やTorelliを仮定せず、全可換標的を排除するため、主予想の真偽は決めない。正規形はpoisson-cubicの固定された未公表入力であり、一般性やブロックの楕円性は仮定しない。この次元制約の文献上の新規性は未確認である。
 
 ### 主要計算の再現
+
+[形式比較の有限恒等式](computations/verify_mixed_formal_kernel.py)はPython 3とSymPyで、普遍PBW重なり、一次bar homotopy、二次eye補正、Jacobian classの非消滅、普遍不変空間とHesse jの局所逆を再現する（**9 PASS**）。`python3 computations/verify_mixed_formal_kernel.py` で実行する。全形式次数の同値と一般点の核の降下は本文の証明であり、h=1での同値は未証明である。
+
+[不変環の非斉次Koszul双対](computations/verify_mixed_invariant_pbw_dual.py)は元の関係式から双対積を作り、128次元dg代数、微分のrank24、cohomology次元80と双次数を検算する（**5 PASS**）。`python3 computations/verify_mixed_invariant_pbw_dual.py` で実行する。曲率を加えた移送と三次三様体への比較核は次の課題である。
 
 [三対象windowの同変指標検算](computations/verify_mixed_window_involution.py)はPython標準ライブラリの整数演算だけで、Koszul指標、全13行のstable Hom表、384次元の集約表、通常・対合付き・不変部分のEuler行列を再現する。七線束のHilbert多項式と四例外対象の射影から通常Euler形式を別に計算し、windowの基底変換とも照合する。`python3 computations/verify_mixed_window_involution.py` で実行し、HHの未証明の値は検算対象に含めない。
 

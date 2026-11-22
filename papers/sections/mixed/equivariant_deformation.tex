@@ -1,13 +1,18 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-\section{対合を保つ変形と Hochschild 指標の条件付き比較}
+\section{対合を保つ変形と明示可換候補への実際の比較核}
 \label{mix:sec:equivariant-deformation}
 
 命題\ref{cmo:prop:full-relative-hh}の $c$-族では、対合 $u\mapsto-u$ が
 $c$ と $-c$ のファイバーを交換する。
 ここでは別のパラメータ $h$ を導入し、対合が各ファイバーを保つ代数族を与える。
-中心三次式、滑らかな可換端点、および一般ファイバーの非 PI 性を証明する。
-この代数族の相対 smooth proper な残余 dg 模型はまだ構成されておらず、
-非可換端点の Hochschild 指標への帰結は、その構成を追加仮定とする。
+中心三次式と全次数の平坦性を証明し、可換点の局所環上の proper な残余模型と、
+その完備化上の実際の graded MF 同値を構成する。
+三対象への制限は逆を持つ Morita 双加群を与え、一次の関手成分と可換標的の二次項を明示できる。
+一般ファイバーは非 PI だが、普遍係数での同変性と楕円中心商の比較によって、
+可換標的を全形式次数で明示し、その同じ代数的候補への一般点の実際の Ku 核を得る。
+$h=1$ への核の延長は未解決である。
+$0,1$ を同時に含む相対 smooth proper 模型による Hochschild 指標の比較も、
+最後に独立した条件付きの帰結として述べる。
 
 \subsection{交換子を縮小する族と中心三次式}
 
@@ -113,6 +118,120 @@ $u$ は中心なので、これで全生成元との可換性が従う。
  \iota(x_j)=x_j,\quad\iota(y_j)=y_j,\quad\iota(z_j)=z_j
 \]
 は全ての関係式と $w_h$ を保つので、各 $Q_\lambda$ に作用する。
+
+\subsection{全次数の平坦性と可換点での proper 模型}
+
+\begin{proposition}[交換子族の全次数の自由性]
+\label{mix:prop:h-flat}
+$D=\C[h,(h^6+27)^{-1}]$ と置く。
+任意の固定した $\alpha\in\C^3$ について、
+$\mathscr B_{\alpha,D}=\mathscr B_\alpha\otimes_{\C[h]}D$ は
+$D[u]$ 上自由で、各内部次数は有限自由 $D$-加群である。
+式\eqref{mix:eq:h-mixed-family}の混合 ambient $\mathscr B_D$ と
+商 $\mathscr Q_D$ も次数別有限自由であり、各ファイバーの Hilbert 級数は
+\begin{equation}\label{mix:eq:h-hilbert}
+ \operatorname{Hilb}(\mathscr B_\lambda,s)=(1-s)^{-7},\qquad
+ \operatorname{Hilb}(Q_\lambda,s)=\frac{1-s^3}{(1-s)^7}.
+\end{equation}
+$u$ は $\mathscr B_D$ と $\mathscr Q_D$ 上正則であり、
+$w_h$ は $\mathscr B_D$ 上の正則中心元である。
+これらの正則性と商の形成は $D$ の体値ファイバーでも成立する。
+\end{proposition}
+
+\begin{proof}
+まず $S_D=\mathscr B_{\alpha,D}/(u)$ とする。
+$\lambda\ne0$、$\lambda^6+27\ne0$ のファイバーは
+Sklyanin parameters $(1,-1,-\lambda)$ を持つ滑らかな楕円型であり、
+三次元 Koszul AS 正則代数で、Hilbert 級数は $(1-s)^{-3}$ である
+\cite[Section~1]{GRSklyaninST}\cite[Theorem~1.1, Corollary~1.3]{GRSklyaninTV}。
+$\lambda=0$ では三変数多項式環であり、同じ Hilbert 級数を持つ。
+一般点も楕円型なので同じ結論となる。
+
+固定した体値 $h=\lambda$ で $u=1$ とした代数を考える。
+斉次関係を
+\[
+ r_x=yz-zy-\lambda x^2,\qquad r_y=zx-xz-\lambda y^2,
+ \qquad r_z=xy-yx-\lambda z^2
+\]
+と書くと、三次 Koszul 空間は
+\[
+ x\otimes r_x+y\otimes r_y+z\otimes r_z
+ =r_x\otimes x+r_y\otimes y+r_z\otimes z
+\]
+で生成される。これは $\lambda=0$ でも同じである。
+非斉次補正の一次部分は零、定数部分は
+$\beta(r_x)=-\lambda\alpha_1$ とその巡回置換である。
+表示した重なり上では
+$\beta\otimes1-1\otimes\beta=0$ なので、
+Braverman--Gaitsgory の PBW 判定
+\cite[Main Theorem~0.5, Lemma~3.3]{CMOBravermanGaitsgory}が適用できる。
+従って $\mathscr B_{\alpha,\lambda}$ はこの filtered 代数の Rees 環であり、
+$u$ は正則、Hilbert 級数は $(1-s)^{-4}$ である。
+
+$S_D$ と $\mathscr B_{\alpha,D}$ の各次数は有限生成 $D$-加群である。
+$D$ は PID で、一般点と全閉点の次元が同じであるから、構造定理により
+各次数の torsion は零となり、有限自由である。
+$S_D$ の各次数の基底を $\mathscr B_{\alpha,D}$ へ斉次に持ち上げる。
+これらと $u$ の冪による写像
+\[
+ D[u]\otimes_D\bigoplus_{j\ge0}(S_D)_j
+ \longrightarrow\mathscr B_{\alpha,D}
+\]
+は次数を保つ。$u$ による次数降下から全射であり、各体値では PBW 基底による同型である。
+各次数は同階数の有限自由 $D$-加群の間の写像なので、元の写像も同型である。
+これで $D[u]$ 上の自由性を得る。
+
+二つの因子を $D[u]$ 上で tensor すると、$\mathscr B_D$ は再び $D[u]$ 上自由であり、
+\[
+ \mathscr B_D/(u)\simeq S_D\otimes_D S_D
+\]
+となる。これより式\eqref{mix:eq:h-hilbert}の第一式が従う。
+各体値で $\overline\Omega_\lambda\in S_\lambda$ は非零の正則中心元である。
+$\lambda\ne0$ では式\eqref{mix:eq:h-standard-central-scalar}と標準三次中心元の正則性、
+$\lambda=0$ では多項式環中の Fermat 三次式による。
+$S_\lambda\otimes S_\lambda$ の二つの内部次数のうち第二次数を見ると、
+$\overline w_\lambda=\overline\Omega_\lambda\otimes1+
+100(1\otimes\overline\Omega_\lambda)$ による積の最高第二次数項は、
+第二因子の正則元 $100\overline\Omega_\lambda$ による積である。
+従って $\overline w_\lambda$ は左右正則である。
+この議論に、tensor 積そのものが整域であるという仮定は不要である。
+
+$u$ は正則で内部次数一だから、$u$ に関する有限回の次数降下により
+$w_\lambda$ も $\mathscr B_\lambda$ 上左右正則となる。
+また $u b=w_\lambda c$ を $u$ を法として見ると
+$\overline w_\lambda\overline c=0$、従って $c=uc_1$ となるので、
+$b=w_\lambda c_1$ である。これにより $Q_\lambda$ 上の $u$ の正則性も得る。
+中心商の二項完全列から第二の Hilbert 級数が従う。
+最後に $\mathscr Q_D$ の各次数も一般点と全閉点で同じ次元を持つため有限自由であり、
+$w_h$ および $u$ による次数別の写像は一般点で単射かつ源が $D$-torsion-free
+なので $D$ 上でも単射である。
+\end{proof}
+
+\begin{corollary}[可換点の局所環上の実際の残余模型]
+\label{mix:cor:h-local-window}
+$R=\C[h]_{(h)}$、$\widehat R=\C[[h]]$ とする。
+命題\ref{mix:prop:fermat-eckardt-endpoint}の可換端点が滑らかであるため、
+対 $(\mathscr B_R,w_h)$ は定理\paperref{main}{lp:thm:main}と
+定理\paperref{main}{tw:thm:window}の仮定を満たす。
+従って相対 Koszul--Gorenstein 解消、有限線束による proper dg 残余模型、
+$\C$、$\widehat R$、$\C(h)$ への通常の底変更が得られる。
+残余線束部分の三対象模型は、augmentation $R$ の stabilization を $K_h$ として
+\[
+ G_h=K_h\oplus K_h(1)\oplus K_h(2),\qquad
+ \Gamma_R=R\operatorname{End}(G_h)\in\operatorname{Perf}(R)
+\]
+で与えられる。ここでこの段階の残余圏は
+$\mathcal K^{\mathrm{lin}}$ であり、任意の底上の全 coherent 圏との一致は主張しない。
+\end{corollary}
+
+\begin{proof}
+$R$ は有限生成複素代数の局所化である正則局所環で、
+命題\ref{mix:prop:h-flat}より ambient の全次数は有限自由、
+剰余は七変数多項式環、中心元の剰余は式\eqref{mix:eq:fermat-endpoint}の $F$ である。
+従って引用した二定理の入力がすべて満たされる。
+augmentation の三つの shift と線束残余生成子の対応は、
+同じ window の三角比較であり、ここで生成対象を新たに推測しているのではない。
+\end{proof}
 
 \subsection{滑らかな Fermat 型の可換端点}
 
@@ -321,6 +440,452 @@ $w_h$ は第一ブロックの $\overline\Omega_h$ になる。
 命題の最後の主張も従う。
 \end{proof}
 
+\subsection{実際の形式 MF 関手と三対象上の比較双加群}
+
+\begin{theorem}[交換子族の形式比較と一般点の可換 Ku 核]
+\label{mix:thm:h-formal-kernel}
+$\widehat R=\C[[h]]$、$K=\C(h)$ とする。
+次の性質を持つ斉次三次式
+$W\in\widehat R[x_1,y_1,z_1,x_2,y_2,z_2,u]_3$ と実際の関手が存在する。
+\begin{enumerate}[label=\textnormal{(\roman*)}]
+\item $W\bmod h=F$ であり、有限 rank graded MF の間に互いに逆な
+      unital $\widehat R$-線形 $A_\infty$ 関手
+\begin{equation}\label{mix:eq:h-formal-mf}
+ \Phi_h:\operatorname{MF}^{\mathbb Z}(\mathscr B_{\widehat R},w_h)
+ \rightleftarrows
+ \operatorname{MF}^{\mathbb Z}(\widehat R[x_1,y_1,z_1,x_2,y_2,z_2,u],W):\Psi_h
+\end{equation}
+      がある。これらは有限自由加群の二つの rank、内部 shift、
+      指定された $(3)\simeq[2]$ と $h$ の全 Artin 切断を保つ。
+\item $G_h$ を系\ref{mix:cor:h-local-window}の三対象の直和とし、
+      $G'_h=\Phi_hG_h$、
+\[
+ \Gamma=R\operatorname{End}(G_h),\qquad
+ \Lambda=R\operatorname{End}(G'_h)
+\]
+      と置くと、関手の Taylor 成分による実際の可逆 Morita 双加群
+      $\mathcal P$、$\mathcal Q$ があり、
+\begin{equation}\label{mix:eq:h-graph-unit-counit}
+ \mathcal P\otimes_\Gamma^{\mathbf L}\mathcal Q\simeq\Lambda,
+ \qquad
+ \mathcal Q\otimes_\Lambda^{\mathbf L}\mathcal P\simeq\Gamma
+\end{equation}
+      となる。これらの単位・余単位は、式\eqref{mix:eq:h-formal-mf}の
+      互いに逆な関手の合成から得られる。
+\item $K$ 上に幾何学的に滑らかな三次五様体 $Y_\eta$ が存在し、
+      ある有限拡大 $K'/K$ 上に、全 coherent 残余圏について
+\begin{equation}\label{mix:eq:h-generic-ku}
+  \operatorname{Ku}_{\mathrm{coh}}(Q_\eta\otimes_KK')
+       \simeq\operatorname{Ku}(Y_\eta\otimes_KK')
+\end{equation}
+      を与える実際の perfect 比較核が存在する。
+      この同値も rotation と指定された三次周期を保つ。
+\end{enumerate}
+有限 cone と冪等完備化を含めて解釈する。
+この段階では $Y_\eta$ の方程式をまだ同定していない。
+以下で二次項を計算し、さらに定理\ref{mix:thm:h-exact-candidate}で全次数の候補を決定する。
+\end{theorem}
+
+\begin{proof}
+命題\ref{mix:prop:h-flat}と可換端点の滑らかさにより、
+定理\paperref{main}{cft:thm:complete}を $(\mathscr B_{\widehat R},w_h)$ に適用できる。
+その構成をここで用いる対象に即して記す。
+次数別の Weyl 対称化を経由し、次数を保つ厳密同型 $\phi$ によって積を
+Kontsevich の星積 $*_\pi$ へ移す。
+中心写像 $C_\pi$ の逆像 $W=C_\pi^{-1}\phi(w_h)$ を取り、
+$\pi=[\Xi,W]$ を満たす定数三重 vector $\Xi$ を求める。
+周期変数 $t$ の二重次数を $(2,-3)$ とすると、
+\[
+ \alpha_s=-tW+(1-s)\pi,\qquad
+ \gamma_s=\mathcal U^{\alpha_s}(\Xi/t)
+\]
+に対する順序付き flow が bar 写像 $\mathcal F$ とその逆 $\mathcal H$ を与える。
+これらは各 Artin 商で有限和であり、Taylor 成分は
+\[
+ \mathcal F_0=\mathcal H_0=0,\quad
+ \mathcal F_1,\mathcal H_1=1+O(h),\quad
+ \mathcal F_{2r}=\mathcal H_{2r}=0,\quad
+ \mathcal F_{2r+1},\mathcal H_{2r+1}\in h^r\quad(r\ge1)
+\]
+を満たす。
+MF 行列 $Q$ への像は
+$Q'=\sum_{r\ge0}\mathcal F_{2r+1}(Q,\ldots,Q)$、
+射への像は同じ Taylor 成分へ前後の MF 行列を挿入する式である。
+各固定内部次数は有限自由 $\widehat R$-加群内の収束なので、
+内部次数の無限級数や $h=1$ での評価を行っていない。
+逆 flow の挿入公式はこの式の逆であり、(i) が従う。
+
+三つの対象とその像に制限した $A_\infty$ 写像を
+$\varphi:\Gamma\to\Lambda$、$\psi:\Lambda\to\Gamma$ と書く。
+対象上で $\Psi_h\Phi_hG_h=G_h$ と同定し、
+正則加群の片側作用をこれらの全 Taylor 成分で制限した graph 双加群
+\[
+ \mathcal P={}_{\Lambda}\Lambda_{\varphi},\qquad
+ \mathcal Q={}_{\Gamma}\Gamma_{\psi}
+\]
+を取る。この表示は高次作用を捨てた通常の環準同型を意味しない。
+挿入公式が bar 写像の合成と両立するため、関手の合成は恒等であり、
+graph 双加群の導来 tensor 積が式\eqref{mix:eq:h-graph-unit-counit}を与える。
+特に各側で perfect な実際の Morita 双加群を得る。
+この時点では線束模型の対角の相対 perfect 性を別に仮定していないので、
+積代数上の perfect 性までこの議論だけで追加しない。
+
+最後に $(\mathscr B_R,w_h)$ は
+定理\paperref{main}{gdr:thm:generic}のすべての入力を満たす。
+同定理の通常の一般点への局所化、有限定義体への降下、全 coherent 圏への飽和を
+この順序で適用することで (iii) を得る。
+得られる一般点の両圏は smooth proper なので、同値を表す双加群は
+積 dg 代数上でも perfect である。
+これは任意の Laurent 係数 MF に形式級数を直接代入する操作ではない。
+\end{proof}
+
+\subsection{一次の比較関手と可換標的の二次項}
+
+\[
+ P_1=x_1y_1z_1,\qquad P_2=x_2y_2z_2,\qquad P=P_1+100P_2
+\]
+と置く。harmonic-angle formality と、次数一の七生成元を固定する厳密同型
+$\phi$ を用いる規約をここで固定する。
+
+\begin{proposition}[実関手の一次成分と候補式に一致する二次項]
+\label{mix:prop:h-kernel-jet}
+上の規約で、定理\ref{mix:thm:h-formal-kernel}の可換標的は
+\begin{equation}\label{mix:eq:h-recovered-jet}
+ W=F+\frac{h^2}{3}P+O(h^3).
+\end{equation}
+特に一次の変形は消える。
+$\Xi_0=\partial_{x_1}\wedge\partial_{y_1}\wedge\partial_{z_1}
++100^{-1}\partial_{x_2}\wedge\partial_{y_2}\wedge\partial_{z_2}$ とすれば、
+modulo $h^2$ で曲率付き bar 写像の非零成分は
+\begin{equation}\label{mix:eq:h-first-functor}
+ \mathcal F_1=1,\qquad
+ \mathcal F_3=\frac h t\operatorname{HKR}(\Xi_0),\qquad
+ \mathcal H_1=1,\qquad
+ \mathcal H_3=-\frac h t\operatorname{HKR}(\Xi_0)
+\end{equation}
+だけに取れる。MF 関手はこの式への行列挿入で与えられるので、
+挿入後の射の Taylor 成分が三次だけだという意味ではない。
+
+式\eqref{mix:eq:h-recovered-jet}は、明示的な可換候補族
+\begin{equation}\label{mix:eq:h-commutative-candidate}
+ \begin{gathered}
+ W_h^{\mathrm{cand}}=G_{h,\alpha^{(1)}}+100G_{h,\alpha^{(2)}},\\
+ G_{h,\alpha}
+ =\frac{x^3+y^3+z^3+h^2xyz}{3}
+       -u^2(\alpha_1x+\alpha_2y+\alpha_3z)
+ \end{gathered}
+\end{equation}
+と modulo $h^3$ で一致する。
+$h=1$ の候補は $X_0$ と同じ零点集合を定める。
+ここでの計算は二次項までであり、全次数の同定には次の小節の追加の議論を用いる。
+
+また $[P]\ne0$ in $\operatorname{Jac}(F)_3$ である。
+従って $Y_F$ を固定した定数残余圏への、特殊ファイバー上恒等な同値は、
+modulo $h^2$ では構成できるが modulo $h^3$ までは延長できない。
+この否定は動く可換標的への比較を妨げない。
+\end{proposition}
+
+\begin{proof}
+次数別の Weyl 対称化を $\varsigma$ と書く。
+$h\mapsto-h$ と語の逆順は反対代数への同型を与えるので、
+戻した積の一次項は反対称であり、
+\[
+ m_h(f,g)=fg+\frac h2\{f,g\}_0+O(h^2),\qquad
+ \{y_j,z_j\}_0=x_j^2-\alpha^{(j)}_1u^2
+\]
+とその巡回置換である。ブロック間の括弧と $u$ との括弧は零である。
+この Poisson tensor を $\pi_0$ とすると、
+重み $100$ を含めて直接
+\[
+ \pi_0=[\Xi_0,F]
+\]
+となる。$\phi\varsigma=1+O(h^2)$ に取り、生成元も固定できるので、
+$\Xi=h\Xi_0+O(h^2)$ である。
+modulo $h^2$ の flow の三入力成分は
+$h\operatorname{HKR}(\Xi_0)/t$ である。
+一入力成分に寄与し得るグラフは、三重 vector 頂点、関数 $F$ の頂点、
+一つの boundary 頂点を持つが、三本の辺を互いに異なる行き先へ向けられない。
+従ってその成分は零であり、式\eqref{mix:eq:h-first-functor}を得る。
+例えば通常の偶数係数に対して
+\[
+ \operatorname{HKR}(\partial_x\wedge\partial_y\wedge\partial_z)(a,b,c)
+ =\frac16\sum_{\tau\in\mathfrak S_3}\operatorname{sgn}(\tau)
+       (\partial_{\tau(x)}a)(\partial_{\tau(y)}b)(\partial_{\tau(z)}c).
+\]
+行列への延長では合成可能な添字と suspension の符号を用いる。
+逆の符号を持つ flow との合成は恒等であり、一次で実際に比較関手と逆関手を得ている。
+
+二次の星積と中心写像には、命題\paperref{main}{gre:prop:jet}と同じ
+harmonic-angle の規約を用いる。
+七変数を $z^1,\ldots,z^7$ とし、$P_0^{ij}=\{z^i,z^j\}_0$、
+\[
+ \Theta^{ik}=(\partial_lP_0^{ij})(\partial_jP_0^{kl})
+\]
+と置く。$u$ 方向に出る Poisson 成分は零なので、$u$ を微分する項は寄与せず、
+$\alpha$ の項もこの縮約から消える。二つのブロックを並べた行列は
+\begin{equation}\label{mix:eq:h-theta}
+ \Theta=-8\operatorname{diag}
+  (y_1z_1,z_1x_1,x_1y_1,y_2z_2,z_2x_2,x_2y_2,0).
+\end{equation}
+二次星積の eye 項
+\cite[Section~2, equation~(3)]{GRDito}を含めると、
+生成元を固定する対称化比較は
+\begin{equation}\label{mix:eq:h-weyl-gauge}
+ \phi\varsigma=1+h^2\rho_2+O(h^3),\qquad
+ \rho_2=-\frac1{48}\Theta^{ik}\partial_i\partial_k,
+ \qquad \rho_2F=P
+\end{equation}
+となる。関係式に二次の交換子項がないので formal Poisson tensor は
+$\pi=h\pi_0+O(h^3)$ に取れる。
+中心写像の一次項は多重辺の反対称性から零、二次項は関数へ spoke を向ける
+inner 二輪だけであり、その harmonic-angle 重みは零である
+\cite[Section~1.3, Theorem]{GRShoikhet}。
+従って $C_\pi=1+O(h^3)$ である。
+\[
+ \varsigma^{-1}(w_h)=F-\frac{2h^2}{3}P
+\]
+に式\eqref{mix:eq:h-weyl-gauge}を適用すると
+$W=C_\pi^{-1}\phi(w_h)=F+h^2P/3+O(h^3)$ が従う。
+eye 項を省いて中心写像だけ同じ規約のままにする計算は用いていない。
+
+最後に、$F$ の七つの偏微分の active 成分は
+非零スカラー倍の $x_j^2-\alpha^{(j)}_1u^2$ とその巡回置換、
+$u$ 成分は $-2uL_F$ である。
+これらに任意の一次式を掛けても、平方因子も $u$ も持たない三次単項式
+$x_1y_1z_1$ の係数は零である。一方、$P$ のその係数は一なので
+$[P]\ne0$ in $\operatorname{Jac}(F)_3$ である。
+恒等を剰余とする射影座標変換と方程式の単元倍による二次の変化は
+この Jacobian イデアルに属する。
+また $n=5$ の幾何的 Kodaira--Spencer 写像は
+命題\paperref{main}{prop:nf-hh}により
+$\operatorname{Jac}(F)_3\xrightarrow{\sim}HH^2(\operatorname{Ku}(Y_F))$
+であり、$HH^1=0$ である。
+従って消えた一次項の次の class $[P]/3$ は非零の圏変形であり、
+特殊ファイバー上の恒等を固定した定数圏への比較は modulo $h^3$ へ延長できない。
+\end{proof}
+
+\subsection{普遍係数の対称性による全次数の候補同定}
+
+\begin{theorem}[同じ明示候補への全形式比較と一般点の核]
+\label{mix:thm:h-exact-candidate}
+式\eqref{mix:eq:h-commutative-candidate}の $W_h^{\mathrm{cand}}$ について、
+定理\ref{mix:thm:h-formal-kernel}の実際の形式比較を
+\begin{equation}\label{mix:eq:h-exact-formal-mf}
+ \operatorname{MF}^{\mathbb Z}(\mathscr B_{\widehat R},w_h)
+ \simeq
+ \operatorname{MF}^{\mathbb Z}
+       (\widehat R[x_1,y_1,z_1,x_2,y_2,z_2,u],W_h^{\mathrm{cand}})
+\end{equation}
+と選べる。同値は対合 $u\mapsto-u$、内部 shift と
+$w_h,W_h^{\mathrm{cand}}$ が指定する三次周期を保つ。
+
+$X_h^{\mathrm{cand}}=V(W_h^{\mathrm{cand}})$ と置くと、これは
+$R=\C[h]_{(h)}$ 上の滑らかな三次五様体であり、
+ある有限拡大 $K'/\C(h)$ 上に、この指定された候補を標的とする実際の perfect 核
+\begin{equation}\label{mix:eq:h-exact-generic-ku}
+ \operatorname{Ku}_{\mathrm{coh}}(Q_\eta\otimes_KK')
+ \simeq\operatorname{Ku}(X_\eta^{\mathrm{cand}}\otimes_KK')
+\end{equation}
+が存在する。一般点の同値は rotation と指定三次周期を保つ。
+ここでは有限定義体の次数、核の全行列、および $h=1$ での延長は決定していない。
+一般点の対合付き降下も、通常の比較核とは区別する。
+\end{theorem}
+
+\begin{proof}
+\emph{普遍係数での通常の積と中心逆像。}
+一ブロックの $\alpha_1,\alpha_2,\alpha_3$ を独立変数とする。
+$\C[h,\alpha_1,\alpha_2,\alpha_3,(h^6+27)^{-1}]$ 上の各次数成分は有限表示で、
+命題\ref{mix:prop:h-flat}の体上の PBW 論証により、全閉点で同じ Hilbert 次元を持つ。
+この底は被約な Jacobson 環である。
+表示行列の階数は全閉点で一定なので、次の大きさの小行列式は零であり、
+各点の近傍では最大階数の小行列式が単元となる。
+行列の消去により、各次数成分は有限局所自由である。
+$h$ 進完備化後は、$h=0$ の通常の単項式を Weyl 対称化で持ち上げることで
+\[
+ \C[\alpha_1,\alpha_2,\alpha_3][[h]][x,y,z,u]
+ \simeq\widehat{\mathscr B}_{\alpha}
+\]
+という次数別加群同型を得る。
+これは内部次数の直和であり、$\alpha$ の係数は各 $h$ 次で多項式のままである。
+
+この段階では普遍な $F_\alpha$ の滑らかさを仮定せず、
+補題\paperref{main}{cft:lem:model}と補題\paperref{main}{cft:lem:center}の
+\emph{通常の} formality と中心逆像の部分だけを使う。
+それらを $\C[\alpha,u]$ に相対的な三変数多項式環に適用する。
+相対対角の Koszul 分解により相対 HKR の準同型が成り立ち、
+Kontsevich のグラフは active な三方向だけを微分するので、
+同じ公式と $h$ の次数ごとの持上げがこの係数環上でも定義される。
+各段階は $\C[\alpha,u]$-線形 cochain の dg Lie 代数を固定し、
+$\C[[h]]/(h^{q+1})$ 上の冪零問題として解く。
+従って $\C[\alpha,u]$ 自体を局所 Artin 環と見なす必要はない。
+必要な有限性は各内部次数の有限自由性であり、
+ここに曲率付き MF 圏や普遍な射影超曲面の smoothness は用いていない。
+
+原始三乗根を $\omega$ とし、位数 $27$ の Heisenberg 群を
+\[
+ \begin{aligned}
+ c:(x,y,z;\alpha_1,\alpha_2,\alpha_3)
+   &\longmapsto(y,z,x;\alpha_2,\alpha_3,\alpha_1),\\
+ d:(x,y,z;\alpha_1,\alpha_2,\alpha_3)
+   &\longmapsto(x,\omega y,\omega^2z;
+                 \alpha_1,\omega^2\alpha_2,\omega\alpha_3)
+ \end{aligned}
+\]
+で作用させる。さらに補助 $\mathbb G_m$ 作用を
+\[
+ u\longmapsto s u,\qquad \alpha_i\longmapsto s^{-2}\alpha_i,
+ \qquad x,y,z,h\longmapsto x,y,z,h
+\]
+とする。これらはいずれも関係式、中心元、Weyl 対称化を保つ。
+内部次数と補助 weight を保つ Koszul--bar 比較を使い、
+有限群の各線形持上げ段階で Reynolds 平均を取れば、
+星積模型、厳密同型 $\phi$、中心逆像を両作用に同変に選べる。
+既に選んだ低次 jet を固定して、その次の線形補正だけを選ぶ方法であり、
+非線形解そのものを平均してはいない。
+生成元を固定する線形規格化も両作用と両立する。
+
+内部次数三、補助 weight 零の多項式では、
+$\alpha$ の次数が $r$ なら $u$ の次数は $2r$ であり、$r\le1$ である。
+$r=0$ の Heisenberg 不変三次式は $S=x^3+y^3+z^3$ と $xyz$ で張られ、
+$r=1$ の不変式は $u^2(\alpha_1x+\alpha_2y+\alpha_3z)$ のみである。
+従って普遍な中心逆像は
+\begin{equation}\label{mix:eq:h-universal-three-coefficients}
+ W_\alpha=a(h)\frac S3+b(h)xyz
+           -c(h)u^2(\alpha_1x+\alpha_2y+\alpha_3z),
+ \qquad a(0)=c(0)=1,\quad b(0)=0
+\end{equation}
+となる。三つの係数は $\alpha$ に依存しない同じ $\C[[h]]$ の元である。
+命題\ref{mix:prop:h-kernel-jet}の普遍な計算によれば
+$a=1+O(h^3)$、$b=h^2/3+O(h^3)$、$c=1+O(h^3)$ である。
+
+\emph{二ブロックへの積と中心写像の両立。}
+両ブロックに上の同じ普遍的構成を適用する。
+Poisson tensor $\pi_1,\pi_2$ は active な各三方向だけを微分し、
+共有する $u$ を微分しないので $[\pi_1,\pi_2]=0$ である。
+Kontsevich の積において、異なるブロックの内部頂点間に辺を持つ項は零となる。
+残るグラフの積分は二つの頂点集合ごとに分離し、頂点の振り分けと階乗を含めた和は
+二つの星積の tensor 積になる。
+これは配置空間から異ブロックの頂点同士の一致集合を除いても積分が変わらないことと、
+各因子の角度形式が他方の頂点に依存しないことによる
+\cite[Sections~6.2--6.4]{PKontsevich}。
+従って $\phi_1\otimes\phi_2$ は $\mathscr B_{\widehat R}$ を
+$*_{\pi_1+\pi_2}$ へ移す実際の厳密同型である。
+
+中心写像に第一ブロックの関数を入れたとき、第二ブロックの頂点を持つ項では、
+その頂点から出る辺は全て同じ第二ブロックの内部頂点へ入る必要がある。
+$m$ 個のこの頂点について $2m$ 本の角度形式が現れる一方、
+それらは共通の実平行移動と正の実拡大縮小に不変であるため、
+独立な微分の数は高々 $2m-2$ であり、その積は零である。
+従って中心写像も一ブロックの中心逆像に制限され、
+混合中心元の逆像は厳密に
+\begin{equation}\label{mix:eq:h-mixed-universal-potential}
+ W_{\alpha^{(1)}}+100W_{\alpha^{(2)}}
+   =aG_F+bP-c u^2L_F
+\end{equation}
+となる。以後 $\alpha$ を指定値へ特殊化する。
+その剰余は滑らかな $F$ なので、ここで初めて
+定理\paperref{main}{cft:thm:complete}の曲率付き flow を適用する。
+これにより式\eqref{mix:eq:h-mixed-universal-potential}を標的とする実際の MF 同値を得る。
+
+\emph{楕円中心商による $b/a$ の決定。}
+$u=0$ に制限した一ブロックについて
+$\nu=b/a\in h^2\C[[h]]$ と置く。
+$x,y,z$ を $a^{-1/3}$ 倍すれば、復元する active potential は $S/3+\nu xyz$ となる。
+ここではまず通常の積と中心逆像の普遍模型を $u=0$ へ制限し、
+剰余の Fermat 三次式が滑らかな三変数の入力に
+定理\paperref{main}{cft:thm:complete}を改めて適用する。
+これによって、同じ $a,b$ から得た $\nu$ を用いる実際の同値
+\[
+ \operatorname{MF}^{\mathbb Z}(S_{\widehat R},\overline\Omega_h)
+ \simeq
+ \operatorname{MF}^{\mathbb Z}(\widehat R[x,y,z],S/3+\nu xyz)
+\]
+を得る。七変数の MF 同値を非平坦な $u=0$ へ底変更する議論ではない。
+一方、$S_h/(\overline\Omega_h)$ の相対点曲線は
+\[
+ E_h=V(S+h^2xyz),\qquad
+ e=(1:-1:0),\quad p_h=(1:-1:-h),\quad\tau_h=t_{p_h}
+\]
+である。この中心商は $R$ 上でも
+\[
+ S_R/(\overline\Omega_h)
+ \cong\bigoplus_{n\ge0}H^0(E_R,\mathcal L_n),\qquad
+ \mathcal L_n=\bigotimes_{j=0}^{n-1}\tau_h^{j*}\mathcal O_{E_R}(1)
+\]
+となる。実際、一般点では式\eqref{mix:eq:h-thcr-quotient}の写像であり、
+右辺の各次数は $n>0$ で階数 $3n$ の自由加群である。
+座標切断からの写像における関係式と中心元の消滅は、この torsion-free 性で $R$ へ降りる。
+左辺の各次数も剰余 $S/3$ の正則性から同じ階数で自由であり、
+$h=0$ では通常の斉次座標環同型なので、Nakayama により元の写像も同型である。
+相対 $\tau_h$-ampleness と射影商の同定は、
+命題\paperref{main}{gre:prop:elliptic-quotient}の証明の
+$\mathcal L_n\bmod h=\mathcal O_{E_0}(n)$ による議論がそのまま適用できる。
+
+補題\paperref{main}{gre:lem:elliptic-mf}の $a=0$ の比較を両側へ適用すると、
+$\operatorname{Perf}(E_{h,\widehat R})$ と
+$\operatorname{Perf}(V(S+3\nu xyz))$ の実際の相対同値を得る。
+曲線側で $\C((h))$ へ底変更し、両曲線が有理点 $e$ を持つことを使うと、
+Antieau--Krashen--Ward\cite[Theorem~2.2]{GRAKW}により両楕円曲線は同型である。
+従って式\papereqref{main}{gre:eq:hesse-j}の Hesse $j$ 不変量を用いて
+\[
+ g(\nu^3)=g\bigl((h^2/3)^3\bigr),\qquad
+ g(s)=\frac{27s(8-s)^3}{(1+s)^3}
+\]
+となる。$g'(0)=13824\ne0$ なので $\nu^3=(h^2/3)^3$ である。
+二次 jet により $\nu/(h^2/3)\equiv1\pmod h$ だから、その三乗根の分枝は一に固定され、
+\begin{equation}\label{mix:eq:h-exact-hesse-ratio}
+ b/a=h^2/3
+\end{equation}
+を全形式次数で得る。
+
+\emph{共有する中心変数も含めた正規化と一般点への降下。}
+$a,c$ は両ブロックに共通する単元である。
+各 active 変数を $a^{-1/3}$ 倍し、共有する $u$ を
+\[
+ d(h)u,\qquad d(h)=(c(h)a(h)^{-1/3})^{-1/2}
+\]
+に取り替える。分数冪は全て剰余一の一意な形式冪を選ぶ。
+この座標変換により式\eqref{mix:eq:h-mixed-universal-potential}は厳密に
+$G_F+(h^2/3)P-u^2L_F=W_h^{\mathrm{cand}}$ へ移る。
+方程式の単元倍や $h$ の取り替えは用いていないので、
+周期変数 $t$ と指定された三次周期は保たれる。
+また補助 $\mathbb G_m$ の $s=-1$ が元の対合であり、
+通常の比較、中心逆像、定数三重 vector の一意性、flow と最後の座標変換は
+全てこの対合と両立する。
+これで式\eqref{mix:eq:h-exact-formal-mf}を得る。
+
+$X_h^{\mathrm{cand}}$ は $R$ 上射影的であり、閉ファイバー $Y_F$ は滑らかである。
+相対特異点集合の底への像は閉なので、局所底 $\operatorname{Spec}R$ 全体で滑らかとなる。
+一般点への比較には、命題\paperref{main}{gre:cor:rational-model}の証明と同じく、
+固定三対象への制限、通常の Hom 複体の局所化、
+非零 Euler class と生成性を使う。
+これにより $\overline{\C((h))}$ 上で指定された
+$\operatorname{Ku}(X_\eta^{\mathrm{cand}})$ との同値を得る。
+標的は既に $K=\C(h)$ 上定義されているため、
+補題\paperref{main}{rog:lem:descent}により標的を変えずに有限拡大 $K'/K$ へ核を降下できる。
+smoothness の降下と coherent 飽和を施せば、
+式\eqref{mix:eq:h-exact-generic-ku}の全 coherent 圏の実際の perfect 核となる。
+\end{proof}
+
+\begin{remark}[形式核から $h=1$ への残る延長問題]
+\label{mix:rem:h-special-kernel}
+式\eqref{mix:eq:h-exact-formal-mf}は全次数の候補を決定し、
+式\eqref{mix:eq:h-exact-generic-ku}はその同じ代数的候補への一般点の核を与える。
+しかし $\C[[h]]$ では $1-h$ が単元なので、形式関手を $h=1$ に評価することはできない。
+一般点の核を $h=1$ 上の DVR まで延長し、単位・余単位の cone がそこで零であることを
+命題\paperref{main}{grl:prop:trait-kernel-test}に沿って確認する必要がある。
+$Q_1=A_0$ と $X_1^{\mathrm{cand}}=X_0$ がともに smooth proper であることだけでは、
+この最後の確認は省けない。
+この節は $c=0$ の交換子族を扱い、元の全 $c$ 族での指定候補への一般点同定は
+別の問題として残る。
+\end{remark}
+
+\texttt{computations/verify\_mixed\_formal\_kernel.py} は、
+普遍 PBW 重なり、Poisson 恒等式、一次の曲率付き bar homotopy、
+二次の eye 補正、Jacobian class の非消滅、普遍不変空間および正規化を
+有理数と独立な $\alpha_i$ 上で検算する。
+この有限計算は全次数の formality、圏の降下、$h=1$ での核の延長の証明とは区別する。
+
 \subsection{相対 smooth proper 性を仮定した指標一定性}
 
 \begin{proposition}[相対模型の存在を仮定した非可換端点の指標]
@@ -370,11 +935,13 @@ $2-(-11)-(-11)=24$ から従う。
 \label{mix:rem:h-relative-gap}
 命題\ref{mix:prop:h-conditional-character}の相対模型の存在は、
 この節で証明した代数的事実には含まれない。
-必要な入力は、$h$-族についての次数別平坦性と相対 Koszul--Gorenstein 計算、
-有限線束による proper dg 模型およびその底変更、
-さらに $0,1$ を含む開集合上での対角双加群の相対 perfect 性である。
-命題\ref{cmo:prop:full-relative-hh}の proper 模型に至る部分を移すことは
-これらを調べる具体的な方法だが、その移行をここでは完了したとは扱わない。
+次数別平坦性は命題\ref{mix:prop:h-flat}で全ての $h^6+27\ne0$ に対して得られ、
+$h=0$ の局所環上の相対 Koszul--Gorenstein 計算、proper 模型と底変更も
+系\ref{mix:cor:h-local-window}で得られた。
+ただし残る入力は、$0,1$ を同時に含む開集合上の全 coherent 残余圏と一致する模型、
+その対角双加群の相対 perfect 性、および対合を保つ同定である。
+定理\ref{mix:thm:h-formal-kernel}の形式比較・一般点の核を、
+これらの相対入力や $h=1$ での実際の比較核の代わりに用いることはできない。
 
 両端点の smooth proper 性だけから、同じパラメータ空間上での
 相対 smooth proper 性や指標一定性を結論することはできない。

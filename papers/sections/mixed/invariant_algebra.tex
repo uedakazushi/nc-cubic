@@ -1,0 +1,157 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\subsection{不変環の重み付き周囲代数と五本の例外線束}
+
+以下では指定した二ブロックの $c=0$ を扱い、
+$w=\Omega_1+100\Omega_2$、$A_0=B/(w)$ とする。
+六つの active 変数を固定し $u$ を $-u$ に送る対合を $\sigma$ と書く。
+\[
+ D=B^\sigma,\qquad v=u^2,\qquad
+ R=A_0^\sigma=D/(w),\qquad S=R/(v)=A_0/(u)
+\]
+と置く。$v$ の内部次数は二である。
+不変環の議論では、次数一の生成元の個数から global dimension を推定しない。
+実際、$v$ は表示上は次数二の中心生成元だが、
+$\alpha_j^{(i)}\ne0$ の関係式から六つの次数一生成元の二次式としても書ける。
+
+\begin{proposition}[不変環の正則周囲代数と残余圏]
+\label{cmo:prop:invariant-weighted-algebra}
+$D$ は両側 noetherian な graded Calabi--Yau 代数であり、
+global dimension は七、Gorenstein parameter は八である。
+その Nakayama 自己同型は恒等であり、
+\begin{equation}\label{cmo:eq:invariant-hilbert}
+ H_D(t)=\frac{1}{(1-t)^6(1-t^2)},\qquad
+ H_R(t)=\frac{1-t^3}{(1-t)^6(1-t^2)}
+\end{equation}
+である。$w\in D_3$ は正則中心元で、$R$ は左右 injective dimension 六、
+Gorenstein parameter 五の AS-Gorenstein 代数となる。
+その canonical 双加群は $\omega_R=R(-5)$ である。
+
+$C=A_0\rtimes\langle\sigma\rangle$、$\chi$ を非自明な指標とすると、
+全 coherent 導来圏の Serre 関手は
+\begin{equation}\label{cmo:eq:invariant-serre}
+ \mathsf S_{D^b(\operatorname{qgr}C)}=(-4)\otimes\chi[5],
+ \qquad
+ \mathsf S_{D^b(\operatorname{qgr}R)}=(-5)[5]
+\end{equation}
+である。$D^b_{\mathrm{dg}}(\operatorname{qgr}R)$ は smooth proper で、
+\begin{equation}\label{cmo:eq:invariant-residual}
+ D^b_{\mathrm{dg}}(\operatorname{qgr}R)
+ =\langle\mathcal K_R,\OO_R,\OO_R(1),\ldots,\OO_R(4)\rangle,
+ \qquad
+ \mathcal K_R\simeq\MF^{\mathbb Z}(D,w)
+\end{equation}
+という実際の dg 分解・同値を持つ。
+有限射影行列分解の右辺は冪等完備化して読む。
+内部 shift に対応する $\rho_R$ と Serre 関手は
+\begin{equation}\label{cmo:eq:invariant-fractional-serre}
+ \rho_R^3\simeq[2],\qquad
+ \mathsf S_{\mathcal K_R}\simeq\rho_R^{-5}[5],\qquad
+ \mathsf S_{\mathcal K_R}^{3}\simeq[5]
+\end{equation}
+を満たす。最後の式は三次三様体の Ku と同じ fractional Serre 関係だが、
+可換三次三様体への同値をそれだけから結論しない。
+\end{proposition}
+
+\begin{proof}
+$u$ は $B$ 上正則で、$B/(u)$ 上の対合は恒等である。
+反不変元 $b$ は $u$ で割り切れ、$b=ur$ と書いたとき $r$ は不変となる。
+従って、左右 $D$-加群として
+\[
+ B=D\oplus uD,\qquad D/(v)\cong B/(u)
+     \cong S(1,-1,-1)\otimes S(1,-1,-1)
+\]
+である。$D$ は六つの次数一生成元と $v$ で生成され、$v$ は中心正則元である。
+$B$ は $D$ 上両側自由なので、$D$ の左イデアル $I$ について
+$BI=I\oplus uI$、特に $BI\cap D=I$ である。
+$B$ の noetherian 性から左イデアルの上昇列は停止し、右側も同様である。
+商の表示と $v$ の正則性から式\eqref{cmo:eq:invariant-hilbert}の第一式を得る。
+
+一因子 $S(1,-1,-1)$ の関係式は cyclic potential
+\[
+ xyz-xzy-\frac{x^3+y^3+z^3}{3}
+\]
+の三つの cyclic derivative である。
+既知の長さ三の Koszul 双加群分解は、この cyclic 表示によって
+その双対と内部次数三・長さ三の shift を除いて一致する。
+具体的には外側の二写像は生成元の左右差で、中央の写像は potential の
+二階 cyclic derivative であり、転置と左右交換により互いに移る。
+AS-regular 性によるこの Koszul 分解の完全性と合わせて、
+一因子は Nakayama twist のない graded Calabi--Yau 三次元代数である。
+二つの分解を tensor すると $D/(v)$ は graded Calabi--Yau 六次元となる。
+
+正次数の正規拡大に関する
+\cite[Theorem~3.1 and Remark~2.2]{CMOZhouShenLu}を $v$ に適用する。
+$D$ は連結局所有限、$\deg v=2>0$ なので同定理の正次数条件を満たし、
+$D$ は skew Calabi--Yau 七次元、parameter $6+2=8$ となる。
+その Nakayama 自己同型 $\mu_D$ は $v$ を法として恒等である。
+$(v)$ に次数一の元はないため、$\mu_D$ は六つの次数一生成元を固定する。
+さらに \cite[Proposition~2.3]{CMOZhouShenLu}により中心元 $v$ 自身も固定する。
+従って $\mu_D=1$ である。
+
+$w$ は $B$ 上の正則中心元であり $D$ に属するから、$D$ 上も正則である。
+不変部分を取る関手の完全性により $A_0^\sigma=D/(w)$ である。
+中心元の二項解消と Rees の補題
+\cite[Lemma~3.4]{CMOZhouShenLu}は、$R$ の左右有限 injective dimension 六、
+\[
+ R\underline{\operatorname{Hom}}_R(\C,R)\simeq\C(5)[-6]
+\]
+および canonical 双加群 $R(-8+3)=R(-5)$ を与える。
+同じ中心商により Hilbert 級数の第二式を得る。
+noetherian な正則中心商なので、導来 section の $\chi$ 条件と有限
+cohomological dimension も満たす
+\cite[Proposition~4.18 and Lemmas~6.1--6.2]{LP-BS}。
+
+Serre 関手の指標も確認する。まず $B/(u)$ の上記 Calabi--Yau 分解と
+正規拡大定理から、$B$ は parameter 七の skew Calabi--Yau 代数である。
+その Nakayama 自己同型は $u$ を固定し、$u$ を法として恒等である。
+連結次数付き代数の Nakayama 自己同型は次数付き自己同型群の中心に属する
+\cite[Proposition~2.3]{CMOZhouShenLu}ので、$\sigma$ と可換する。
+従って不変な次数一生成元に反不変な $u$ の倍を足すことはできず、
+この Nakayama 自己同型も恒等である。
+命題\ref{cmo:prop:equivariant-window-hom}の最高次 Koszul 項は
+内部次数七の一次元空間で、$\sigma$ の指標は $-1$ である。
+$w$ は不変であるから、二項中心商の双対を取ってもこの指標は変わらない。
+従って $A_0$ の同変 canonical 双加群は $A_0(-4)\otimes\chi$ である。
+既知の全 coherent smooth proper 性と局所双対性により、
+$C$ の Serre 関手は式\eqref{cmo:eq:invariant-serre}の第一式となる。
+
+命題\ref{cmo:prop:graded-root-order}の完全忠実関手
+\[
+ j(M)=M\otimes_R e_+C,\qquad j^*(N)=Ne_+
+\]
+とその両随伴により、$D^b(\operatorname{qgr}R)$ は
+$D^b(\operatorname{qgr}C)$ の admissible 成分である。
+従ってこれも smooth proper であり、その Serre 関手は
+$j^*\mathsf S_Cj$ で計算できる。
+指標 twist は $e_+C$ と $e_-C$ を交換し、
+$e_-Ce_+=uR\cong R(-1)$ なので、得られる関手は
+$M\mapsto M(-5)[5]$ である。
+これにより第二式を、coherent 対象を取り落とさずに得た。
+
+AS-Gorenstein の局所 cohomology から
+\[
+ \operatorname{Ext}^q_{\operatorname{qgr}R}
+       (\OO_R,\OO_R(d))=
+ \begin{cases}
+ R_d,&q=0,\\
+ R_{-d-5}^{\vee},&q=5,\\
+ 0,&q\ne0,5
+ \end{cases}
+\]
+である。負の添字の次数成分は零と読む。
+従って $\OO_R,\ldots,\OO_R(4)$ は例外列となる。
+Burke--Stevenson の Orlov 分解
+\cite[Theorem~6.4]{LP-BS}を parameter 五で適用し、
+有限大域次元の $D$ と正則中心元 $w$ の余核比較を用いると、
+式\eqref{cmo:eq:invariant-residual}を得る。
+この余核比較は、行列分解の二つの写像の合成が指定元 $w$ であることから
+内部 shift の周期 $(3)\simeq[2]$ を保つ。
+
+最後に、この同じ window 比較で一段の内部 shift を $\rho_R$ と書く。
+Serre 関手 $(-5)[5]$ を残余に射影するとき、五本の例外線束を横切る
+五回の window 変更が内部 shift $(-5)$ に対応する。
+従って残余 Serre 関手は $\rho_R^{-5}[5]$ となる。
+これは各一段の変更を評価三角による mutation で実現した式であり、
+残余の外部 twist $(-5)$ への安定性を仮定していない。
+三乗して $(3)\simeq[2]$ を使えば $[-10+15]=[5]$ を得る。
+\end{proof}

@@ -1,0 +1,699 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v52.
+\section{中心二重根の全 coherent 分解と実残余関手}
+\label{mix:sec:root-order}
+
+零係数の対合を取ると、混合代数は中心元の二乗根として記述できる。
+本節ではその記述から tensor と inflation の関手を作り、
+全 coherent 射影圏と残余圏まで分解を降ろす。
+得られるのは可換四様体の Kuznetsov 成分から
+$\operatorname{Ku}_{\mathrm{coh}}(A_0)^{\mu_2}$ への実際の完全忠実関手と、
+その補成分・貼合せの具体的な記述である。
+通常の $\operatorname{Ku}_{\mathrm{coh}}(A_0)$ と可換候補の同値は、
+この段階ではまだ得られていない。
+
+可換な根スタックの半直交分解と、分岐因子の残余圏を mutation して
+同変残余圏へ移す方法は既知である
+\cite[Sections~4 and~6]{CMOKuznetsovPerryCovers}。
+以下では本研究の非可換不変環にも適用できるよう、
+idempotent と長さ一の解消から必要な関手を直接構成する。
+一般的な根構成そのものの新規性は主張しない。
+
+\subsection{次数付き order の核と全 coherent 射影圏}
+
+本節では右加群を用い、内部 shift は $M(a)_q=M_{q+a}$ とする。
+$R$ を標数が二でない体 $k$ 上の、左右 noetherian な
+非負次数付き locally finite 代数とし、$R_0=k$ とする。
+$v\in Z(R)_2$ は左右の非零因子と仮定する。
+中心変数 $u$ の次数を一として
+\[
+ A=R[u]/(u^2-v),\qquad
+ \sigma|_R=1,\quad \sigma(u)=-u,\qquad
+ C=A\rtimes\langle\sigma\rangle,\qquad S=R/(v)
+\]
+と置く。$e_\pm=(1\pm\sigma)/2$、
+$\mathcal T_Q=D^b(\operatorname{qgr}Q)$ と書く。
+$\rho$ は $S$ 加群を $R$ 加群と見る inflation、
+$\mathcal L=-\otimes_R^{\mathbf L}S$ は導来制限とする。
+
+\begin{proposition}[次数付き order の全 coherent 分解]
+\label{cmo:prop:graded-root-order}
+次の関手は次数付き有限生成加群の有界導来圏上で定義され、
+有限次元 cohomology を持つ複体を保存する。
+従って同じ式により $\mathcal T_Q$ 上へ降りる。
+\[
+ \begin{aligned}
+ i(N)&=N \quad\text{($C\twoheadrightarrow S$ による inflation)},\\
+ i^*(Y)&=Y\otimes_C^{\mathbf L}S,
+ &i^!(Y)&=\underline{R\operatorname{Hom}}_C(S,Y),\\
+ j(M)&=M\otimes_R e_+C,
+ &j^*(Y)&=Ye_+,\\
+ j_*(M)&=\underline{\operatorname{Hom}}_R(Ce_+,M)
+       \cong M(1)\otimes_R e_-C,
+ &j^L(Y)&=(Ye_-)(1).
+ \end{aligned}
+\]
+ここで underline は内部次数も保持する Hom を表す。
+随伴は
+\[
+ i^*\dashv i\dashv i^!,\qquad
+ j^L\dashv j\dashv j^*\dashv j_*
+\]
+である。$i,j,j_*$ は完全忠実であり、
+\begin{equation}
+\label{cmo:eq:root-order-coherent-sod}
+ \mathcal T_C=\langle i\mathcal T_S,j\mathcal T_R\rangle.
+\end{equation}
+同じ分解は次数付き有界導来圏、および通常の環の perfect 圏でも成立する。
+貼合せは自然な dg 同型
+\begin{equation}
+\label{cmo:eq:root-order-gluing}
+ R\operatorname{Hom}_{\mathcal T_C}(iN,jM)
+ \simeq R\operatorname{Hom}_{\mathcal T_R}(\rho N(1),M)
+ \simeq R\operatorname{Hom}_{\mathcal T_S}
+             (N,\mathcal L M(1))[-1]
+\end{equation}
+で与えられる。
+\end{proposition}
+
+\begin{proof}
+次数を忘れた $R$ 加群 $A=R\oplus uR$ 上の作用により
+\[
+ C\cong\begin{pmatrix}R&vR\\R&R\end{pmatrix},\qquad
+ Ce_+C\cong\begin{pmatrix}R&vR\\R&vR\end{pmatrix},
+ \qquad e_+Ce_+\cong R,\quad C/Ce_+C\cong S.
+\]
+次数付きの計算では両 off-diagonal 成分を $uR\cong R(-1)$ として扱う。
+行列表示の $vR$ を次数を保たずに $R$ と同一視しない。
+$v$ の正則性により積写像
+$Ce_+\otimes_R e_+C\to Ce_+C$ は同型であり、
+左右の $R$ 加群は有限自由なので導来 Tor はない。
+従って次数付き双加群の完全列
+\begin{equation}
+\label{cmo:eq:root-order-bimodule-sequence}
+ 0\longrightarrow Ce_+\otimes_R e_+C
+  \longrightarrow C\longrightarrow S\longrightarrow0
+\end{equation}
+を得る。
+
+右 $C$ 加群 $S$ の解消は
+\begin{equation}
+\label{cmo:eq:root-order-resolution}
+ 0\longrightarrow e_+C(-1)
+  \xrightarrow{\ (e_-ue_+)\cdot\ }e_-C
+  \longrightarrow S\longrightarrow0
+\end{equation}
+である。二つの idempotent 成分では、写像はそれぞれ
+$R(-1)\to uR$ の同型と $uR(-1)\to R$ の像 $vR$ を与える。
+左加群にも対応する解消がある。
+この解消を $S$ と tensor すると $S\otimes_C^{\mathbf L}S\simeq S$ となるので、
+$i^*i\simeq\operatorname{id}$ である。
+また $j^*j\simeq\operatorname{id}$、$j^*i=0$ は idempotent の計算である。
+従って $i,j$ は完全忠実で、後者から前者への全 Hom が消える。
+\eqref{cmo:eq:root-order-bimodule-sequence} を右 $C$ 複体 $Y$ と tensor した三角
+\begin{equation}
+\label{cmo:eq:root-order-projection-triangle}
+ j j^*Y\longrightarrow Y\longrightarrow i i^*Y
+\end{equation}
+が生成性を与える。ここで二つの射は、それぞれ積と商写像から来る実際の随伴射である。
+
+$e_+C$ と $Ce_+$ は対応する $R$ 側で
+$R\oplus R(-1)$ である。従って $j,j^*,j_*$ は exact である。
+$j_*M$ の二つの成分は $(M,M(1))$ であり、
+$M(1)\otimes_R e_-C$ と同じ $u$ 作用を持つ。
+この同型と符号指標による $e_+,e_-$ の交換から
+$j^L(Y)=(Ye_-)(1)$ を得る。
+解消\eqref{cmo:eq:root-order-resolution} とその左版により、
+$i^*$ と $i^!$ の cohomological amplitude はそれぞれ
+$[-1,0]$ と $[0,1]$ に含まれる。
+以上の全関手は、有限個の idempotent 成分、内部 shift、
+有限生成加群の核・余核だけで cohomology を計算できるため、
+有限生成性と有限次元 cohomology を保存する。
+
+ここで使う有界導来 Serre 商の同一視も確認する。
+本仮定の次数付き有限生成加群では torsion は有限次元加群である。
+$\operatorname{qgr}Q$ の射は、十分高い次数で切った加群の間の次数零写像で表せる。
+有限個の対象・射・等式からなる diagram は、一つの共通の高次数で切れば
+$\operatorname{gr}Q$ の diagram に持ち上がる。
+実際、射の表示に現れる有限次元の核・余核をまず除き、
+等式の差の有限次元像をさらに高次数で除けばよい。
+この操作は noetherian 性により有限生成性を保つ。
+有界複体、roof、および有界な homotopy はいずれも有限 diagram なので、
+これを適用すると
+\[
+ D^b(\operatorname{gr}Q)/D^b_{\mathrm{fd}}(\operatorname{gr}Q)
+ \xrightarrow{\sim}D^b(\operatorname{qgr}Q)
+\]
+を得る。従って上の関手・随伴射・三角は全てこの商へ降り、
+\eqref{cmo:eq:root-order-coherent-sod} が全 coherent 圏で成立する。
+perfect 圏への制限は、$S$ が左右の $C$ 加群として perfect であることと
+$e_+C,Ce_+$ の有限自由性から従う。
+
+最後に $j^L iN=\rho N(1)$ である。
+$0\to R(-2)\xrightarrow{v}R\to S\to0$ の双対により、
+inflation $\rho$ の右随伴は
+\[
+ \underline{R\operatorname{Hom}}_R(S,M)
+ \simeq (M\otimes_R^{\mathbf L}S)(2)[-1]
+\]
+となる。これら二つの随伴を合成すれば
+\eqref{cmo:eq:root-order-gluing} を得る。
+これは内部次数を忘れた Hom の数値的一致ではなく、貼合せ双加群の自然な同定である。
+\end{proof}
+
+\begin{remark}[全 coherent 圏と perfect 核の区別]
+一般の $R$ に対する上の命題は、全 coherent 圏の分解を主張するが、
+各圏の smoothness は仮定していない。
+一方、以下の指定混合族では $\mathcal T_C$ は smooth proper である。
+$j$ は左右の随伴を持つので、$\mathcal T_R$ もその admissible な dg 部分圏として
+smooth proper となる。$\mathcal T_S$ にも同じことがいえる。
+この場合、以下の tensor、inflation、有限 mutation の関手は
+smooth proper dg 圏間の perfect 双加群核で与えられる。
+一般の環に対する片側 perfect 性だけを、双加群核の perfect 性と取り違えない。
+\end{remark}
+
+\input{papers/sections/mixed/invariant_algebra.tex}
+
+\subsection{八つの例外対象を除く実際の mutation}
+
+以下は指定された $A_0$、$R=A_0^\sigma$、$S=A_0/(u)$ に戻る。
+$\mathcal O_R(r)=\pi R(r)$、$\mathcal O_S(r)=\pi S(r)$ と書き、
+\[
+ \mathcal K_S=\langle\mathcal O_S,\mathcal O_S(1),\mathcal O_S(2)\rangle^\perp,
+ \qquad
+ \mathcal K_R=\langle\mathcal O_R,\ldots,\mathcal O_R(4)\rangle^\perp
+\]
+と置く。これらは全 coherent 圏の残余部分圏である。
+$C$ 側の二種類の線束を
+\[
+ E_r^+=\pi e_+C(r)=j\mathcal O_R(r),\qquad
+ E_r^-=\pi e_-C(r)
+\]
+と書く。$C$ 加群と $\sigma$ 同変 $A_0$ 加群の対応の下で、
+これらは $\mathcal O_{A_0}(r)$ の自明・符号 linearization に対応する。
+有限群の位数が可逆なので、同変化は torsion 商と有界導来圏に両立する
+\cite[Section~8]{MEDElagin}。従って
+\[
+ \mathcal K_C:=
+ \langle E_0^+,E_0^-,E_1^+,E_1^-,E_2^+,E_2^-,E_3^+,E_3^-\rangle^\perp
+ \simeq\operatorname{Ku}_{\mathrm{coh}}(A_0)^{\mu_2}.
+\]
+
+\begin{theorem}[同変残余圏の実二成分分解]
+\label{cmo:thm:root-order-residual}
+関手
+\begin{equation}
+\label{cmo:eq:root-order-boundary-kernel}
+ \begin{split}
+ \Phi(F)&=L_{E_0^-}\bigl(i(F(1))\bigr)\\
+ &=\operatorname{Cone}\bigl(
+   R\operatorname{Hom}_{\mathcal T_S}(\mathcal O_S,F(1))
+      \otimes_k E_0^-
+    \longrightarrow i(F(1))\bigr),\qquad
+ \Psi(M)=jM
+ \end{split}
+\end{equation}
+はそれぞれ $\mathcal K_S,\mathcal K_R$ から $\mathcal K_C$ への
+perfect 核を持つ完全忠実 dg 関手であり、
+\begin{equation}
+\label{cmo:eq:root-order-residual-sod}
+ \operatorname{Ku}_{\mathrm{coh}}(A_0)^{\mu_2}
+ \simeq\mathcal K_C
+ =\langle\Phi\mathcal K_S,\Psi\mathcal K_R\rangle.
+\end{equation}
+さらに $\mathcal L=-\otimes_R^{\mathbf L}S$ は
+$\mathcal K_R\to\mathcal K_S$ を与え、貼合せは
+\begin{equation}
+\label{cmo:eq:root-order-residual-gluing}
+ R\operatorname{Hom}_{\mathcal K_C}(\Phi F,\Psi M)
+ \simeq R\operatorname{Hom}_{\mathcal K_S}(F,\mathcal L M)[-1].
+\end{equation}
+特に $\Phi^R\Psi\simeq\mathcal L[-1]$ である。
+\end{theorem}
+
+\begin{proof}
+命題\ref{cmo:prop:invariant-weighted-algebra}により $R$ の parameter は五であり、
+$S$ の parameter は三である。従って
+\[
+ \mathcal T_S=
+ \langle\mathcal K_S(1),\mathcal O_S(1),\mathcal O_S(2),\mathcal O_S(3)\rangle,
+ \quad
+ \mathcal T_R=\langle\mathcal K_R,\mathcal O_R,\ldots,\mathcal O_R(4)\rangle.
+\]
+まず $1\le r\le3$ と $M\in\mathcal K_R$ に対して
+\[
+ R\operatorname{Hom}_{\mathcal T_C}(i\mathcal O_S(r),jM)
+ \simeq R\operatorname{Hom}_{\mathcal T_R}(\rho\mathcal O_S(r+1),M)=0
+\]
+である。実際、$\rho\mathcal O_S(r+1)$ の解消は
+$[\mathcal O_R(r-1)\xrightarrow{v}\mathcal O_R(r+1)]$ であり、
+二つの index はともに $0,\ldots,4$ に入る。
+逆方向の Hom は\eqref{cmo:eq:root-order-coherent-sod}により零である。
+従って三つの $i\mathcal O_S(r)$ は $j\mathcal K_R$ と交換でき、
+\[
+ \mathcal T_C=
+ \langle i\mathcal K_S(1),j\mathcal K_R,
+   i\mathcal O_S(1),i\mathcal O_S(2),i\mathcal O_S(3),
+   j\mathcal O_R,\ldots,j\mathcal O_R(4)\rangle.
+\]
+
+$\mathcal T_C$ の Serre 関手を $\mathbb S_C$ とする。
+左右の随伴の一意性により
+$\mathbb S_Cj\simeq j_*\mathbb S_R$ である。
+$\mathbb S_R=(-5)[5]$ と命題\ref{cmo:prop:graded-root-order}の $j_*$ の式から
+\[
+ \mathbb S_C(j\mathcal O_R(4))
+ \simeq j_*\mathcal O_R(-1)[5]
+ \simeq E_0^-[5].
+\]
+最後の例外対象を Serre 関手により先頭へ回すと
+\begin{equation}
+\label{cmo:eq:root-order-rotated-sod}
+ \mathcal T_C=
+ \langle E_0^-,i\mathcal K_S(1),j\mathcal K_R,
+    i\mathcal O_S(1),i\mathcal O_S(2),i\mathcal O_S(3),
+    E_0^+,E_1^+,E_2^+,E_3^+\rangle.
+\end{equation}
+cohomological shift は生成する部分圏に影響しない。
+
+次に
+\[
+ R\operatorname{Hom}_{\mathcal T_C}(E_0^-,jM)
+ \simeq R\operatorname{Hom}_{\mathcal T_R}(\mathcal O_R(1),M)=0
+ \quad(M\in\mathcal K_R)
+\]
+なので、先頭の $E_0^-$ を二つの残余成分の右へ移す left mutation は
+$j\mathcal K_R$ には作用せず、$i\mathcal K_S(1)$ には
+\eqref{cmo:eq:root-order-boundary-kernel}として作用する。
+ここで
+$R\operatorname{Hom}_{\mathcal T_C}(iN,E_0^-)=0$ は、
+$E_0^-=j_*\mathcal O_R(-1)$ と $j^*i=0$ から全ての $N$ について成立する。
+従ってこの mutation は $i\mathcal K_S(1)$ 上で完全忠実である。
+明示的には、evaluation triangle と
+$R\operatorname{Hom}(iN,E_0^-)=R\operatorname{Hom}(E_0^-,L_{E_0^-}iN)=0$
+を二度用いれば、mutation 前後の全 Hom が同型になる。
+
+この操作で右に残る八つの例外対象は
+\begin{equation}
+\label{cmo:eq:root-order-eight-mutated-exceptionals}
+ E_0^-,i\mathcal O_S(1),i\mathcal O_S(2),i\mathcal O_S(3),
+ E_0^+,E_1^+,E_2^+,E_3^+
+\end{equation}
+である。解消\eqref{cmo:eq:root-order-resolution}の shift は三角
+\[
+ E_{r-1}^+\xrightarrow{u}E_r^-
+ \longrightarrow i\mathcal O_S(r),\qquad r=1,2,3
+\]
+を与えるので、\eqref{cmo:eq:root-order-eight-mutated-exceptionals}の生成部分圏は
+元の八つの $E_r^\pm$、$0\le r\le3$ のものに等しい。
+これで全八条件への直交性、生成性、
+\eqref{cmo:eq:root-order-residual-sod} が証明された。
+半直交分解の数値的な相殺は用いていない。
+
+$M\in\mathcal K_R$ と $0\le r\le2$ に対し、
+$\rho\mathcal L M$ は
+$[M(-2)\xrightarrow{v}M]$ で表される。
+この制限は構造対象からの導来 Hom に両立するため、
+$R\operatorname{Hom}_{\mathcal T_S}(\mathcal O_S(r),\mathcal L M)$ は
+\[
+ R\operatorname{Hom}_{\mathcal T_R}
+     (\mathcal O_R(r),[M(-2)\xrightarrow{v}M])
+\]
+と同型である。両項は $\mathcal O_R(r+2),\mathcal O_R(r)$ から $M$ への Hom なので零である。
+従って $\mathcal L M\in\mathcal K_S$ となる。
+最後に\eqref{cmo:eq:root-order-boundary-kernel}の triangle に
+$R\operatorname{Hom}(-,jM)$ を適用する。
+$R\operatorname{Hom}(E_0^-,jM)=0$ なので correction term が消え、
+\eqref{cmo:eq:root-order-gluing}の二つの内部 shift $(1)$ が相殺して
+\eqref{cmo:eq:root-order-residual-gluing} を得る。
+\end{proof}
+
+\begin{corollary}[可換四様体成分からの実関手]
+\label{cmo:cor:commutative-boundary-embedding}
+$Z=V(G)\subset\mathbb P^5$ を命題\ref{cmo:prop:zero-eckardt-resolution}の
+分離型三次四様体とする。既存の分離比較と
+\eqref{cmo:eq:root-order-boundary-kernel}の合成は、
+perfect 核を持つ完全忠実関手
+\[
+ \operatorname{Ku}(Z)\longrightarrow
+       \operatorname{Ku}_{\mathrm{coh}}(A_0)^{\mu_2}
+\]
+を与える。
+\end{corollary}
+\begin{proof}
+$S=(S(1,-1,-1)\otimes S(1,-1,-1))/(\Omega_1+100\Omega_2)$ である。
+二つの楕円因子の偏極点曲線は
+$x^3+y^3+z^3+xyz=0$ であるから、
+主稿の実因子に対する分離比較\paperref{main}{pps:thm:elliptic-existence}により
+$\mathcal K_S\simeq\operatorname{Ku}(Z)$ を得る。
+これを定理\ref{cmo:thm:root-order-residual}の $\Phi$ と合成すればよい。
+これは同変圏への埋込みであり、通常の五様体残余圏への完全忠実埋込みを主張しない。
+\end{proof}
+
+\subsection{残余制限関手の spherical 性}
+
+貼合せに現れた導来制限は、任意の exact functor ではない。
+次の命題では cotwist の shift 規約も固定する。
+
+\begin{proposition}[導来制限の cotwist と随伴射]
+\label{cmo:prop:invariant-restriction-spherical}
+定理\ref{cmo:thm:root-order-residual}の
+$F=\mathcal L|_{\mathcal K_R}:\mathcal K_R\to\mathcal K_S$ は
+perfect 核を持つ spherical dg functor である。
+$\varrho_R=L_{\mathcal O_R}\circ(1)|_{\mathcal K_R}$ を rotation とすると、
+\begin{equation}
+\label{cmo:eq:invariant-restriction-cotwist}
+ \mathsf C_F:=\operatorname{Cone}(\operatorname{id}\longrightarrow F^RF)
+ \simeq\varrho_R^{-2}[1]
+ \simeq\mathbb S_{\mathcal K_R}[-2].
+\end{equation}
+特に $\operatorname{Cone}(FF^R\to\operatorname{id}_{\mathcal K_S})$ は自己同値である。
+\end{proposition}
+
+\begin{proof}
+包含を $a:\mathcal K_R\hookrightarrow\mathcal T_R$、
+その随伴を $p_L\dashv a\dashv p_R$ と書く。
+$\rho:\mathcal T_S\to\mathcal T_R$ は先に定めた inflation である。
+全圏の制限 $\mathcal L$ の右随伴は $\rho$、左随伴は $\rho(2)[-1]$ なので、
+\[
+ F^R=p_R\rho|_{\mathcal K_S},\qquad
+ F^L=p_L\rho(2)[-1]|_{\mathcal K_S}.
+\]
+中心元 $v$ の解消を tensor した随伴三角
+\[
+ M(-2)\xrightarrow{v}M\longrightarrow\rho\mathcal L M
+\]
+へ $p_R$ を適用すれば、
+$\mathsf C_F(M)\simeq p_R(M(-2))[1]$ を得る。
+
+inverse rotation の実 mutation 式は
+\[
+ \varrho_R^{-1}=R_{\mathcal O_R(-1)}\circ(-1)|_{\mathcal K_R}.
+\]
+二回適用すると、自然射
+$a\varrho_R^{-2}M\to M(-2)$ の cone は
+$\langle\mathcal O_R(-2),\mathcal O_R(-1)\rangle$ に属する。
+この二対象は $\mathcal K_R^\perp$ に属する。
+実際、$\mathbb S_{\mathcal T_R}=(-5)[5]$ による Serre 双対で、
+それぞれ $\mathcal O_R(3),\mathcal O_R(4)$ から $\mathcal K_R$ への消滅に帰着する。
+従って $p_R$ はその cone を殺し、
+$p_R(M(-2))\simeq\varrho_R^{-2}M$ となる。
+これで\eqref{cmo:eq:invariant-restriction-cotwist}の第一の同型と
+$\mathsf C_F$ の可逆性を得た。
+第二の同型は\eqref{cmo:eq:invariant-fractional-serre}の
+$\varrho_R^3\simeq[2]$ と
+$\mathbb S_{\mathcal K_R}=\varrho_R^{-5}[5]$ による。
+
+spherical 性には、随伴を同定する標準射そのものを確認する。
+$N\in\mathcal K_S$ に対して $Y=\rho N(2)[-1]$ と置く。
+全圏の中心 Cartier 制限について、長さ一の解消とその双対が与える標準射
+\[
+ \rho N\longrightarrow ((-2)[1])\bigl(\rho N(2)[-1]\bigr)
+\]
+は同型である。これは解消の生成元とその双対による評価であり、
+同一視後は $\rho N$ の恒等写像となる。
+制限関手 $F$ の単位を合成すると、標準射
+$F^R N\to\mathsf C_F F^L N$ は
+\begin{equation}
+\label{cmo:eq:invariant-restriction-adjoint-map}
+ p_R\bigl(Y(-2)[1]\bigr)
+ \longrightarrow p_R\bigl((a p_LY)(-2)[1]\bigr)
+\end{equation}
+となる。右の射は $p_L\dashv a$ の単位 $Y\to a p_LY$ から誘導される。
+この記述は中心元の解消から作った単位・余単位を合成したものであり、
+二つの随伴の抽象的な Serre 同型を代入したものではない。
+
+$2\le r\le4$ について
+\[
+ R\operatorname{Hom}_{\mathcal T_R}(\mathcal O_R(r),Y)
+ \simeq R\operatorname{Hom}_{\mathcal T_S}(\mathcal O_S(r-2),N)[-1]=0.
+\]
+従って $Y\to a p_LY$ を五つの線束の left mutation で計算すると、
+非零の correction term は $\mathcal O_R(0),\mathcal O_R(1)$ だけからなる。
+その cone に $(-2)[1]$ を施すと
+$\langle\mathcal O_R(-2),\mathcal O_R(-1)\rangle$ に入り、
+$p_R$ により零になる。
+従って\eqref{cmo:eq:invariant-restriction-adjoint-map}は同型である。
+
+以上により可逆な cotwist と標準随伴射の同型を確認したので、
+\cite[Theorem~5.1, conditions~(2) and~(4)]{CMOAnnoLogvinenkoSpherical}
+を適用できる。同文献の cotwist は本稿の $\mathsf C_F[-1]$ であり、
+標準随伴射はそこで $F^R\to(\mathsf C_F[-1])F^L[1]$ と書かれる。
+全ての cone は既に構成した dg 双加群核の cone である。
+従って $F$ は spherical であり、記した twist は自己同値となる。
+\end{proof}
+
+\subsection{指標作用と核を比較するための残りの入力}
+
+指標 $\chi$ による作用は、次数付き代数自己同型
+\[
+ \varphi(r)=r,\qquad\varphi(u)=u,\qquad
+ \varphi(\sigma)=-\sigma
+\]
+で右作用を twist する関手である。
+その核は ${}_CC_\varphi$ であり、$\varphi^2=1$ により
+$\chi^2\simeq\operatorname{id}$ の coherence も指定される。
+この関手は $e_+$ と $e_-$ を交換し、内部 shift と可換で、
+八つの $E_r^\pm$ の集合を保存する。従って $\mathcal K_C$ 上に作用する。
+この作用を残余分解の二成分ごとの恒等作用とみなしてはいけない。
+実際、$j_-(M)=M\otimes_R e_-C$ と書くと
+\begin{equation}
+\label{cmo:eq:root-order-character-triangles}
+ \begin{gathered}
+ \chi jM=j_-M=j_*M(-1),\\
+ jM(-1)\xrightarrow{u}j_-M\longrightarrow i\mathcal L M,\\
+ iN(-1)\longrightarrow j\rho N\longrightarrow\chi iN
+ \end{gathered}
+\end{equation}
+は実際の tensor 三角である。
+最後の三角は、$vN=0$ のときの $j\rho N$ の二つの成分
+$(N,N(-1))$ を調べれば得られる。
+従って特に
+\[
+ \chi\Phi(F)=L_{E_0^+}\bigl(\chi i(F(1))\bigr),\qquad
+ \chi\Psi(M)=j_-M
+\]
+であり、\eqref{cmo:eq:root-order-character-triangles}は
+これらの対象を元の order の核から再構成する。
+
+忘却関手 $\operatorname{For}$ については
+\[
+ R\operatorname{Hom}_{\mathcal T_{A_0}}
+    (\operatorname{For}X,\operatorname{For}Y)
+ \simeq R\operatorname{Hom}_{\mathcal T_C}(X,Y)
+       \oplus R\operatorname{Hom}_{\mathcal T_C}(X,\chi Y)
+\]
+となる。従って上の完全忠実性から、忘却後の完全忠実性は従わない。
+通常の $\operatorname{Ku}$ を回復するには、$\chi$ とその二乗の coherence を保った
+比較を作り、二重同変化\cite[Theorem~4.2 and Section~8]{MEDElagin}を用いる。
+本例では、この coherence は同変残余圏の dg 同値が得られた後に補正できる。
+
+\begin{proposition}[指標作用の Serre 関手による回復]
+\label{cmo:prop:root-order-intrinsic-character}
+$\mathcal K_C$ の Serre 関手を $\mathbb S_{\mathcal K_C}$ とすると、
+\begin{equation}
+\label{cmo:eq:root-order-intrinsic-character}
+ \chi\simeq\mathbb S_{\mathcal K_C}^{3}[-7].
+\end{equation}
+可換候補の $\operatorname{Ku}(X_0)^{\mu_2}$ にも同じ式が成立する。
+従って両者の dg 同値は、指標作用を自然同型の範囲で必ず保つ。
+\end{proposition}
+
+\begin{proof}
+同変な Orlov/window 比較で、内部 shift に対応する残余 rotation を
+\[
+ \varrho_C=L_{\langle E_0^+,E_0^-\rangle}\circ(1)|_{\mathcal K_C}
+\]
+と書く。指定した三次中心元 $w$ は対合で不変であるため、
+同変行列分解の周期は $\varrho_C^3\simeq[2]$ であり、
+この同型に追加の符号指標は入らない。
+指標 twist は二本の例外対象を交換するので $\varrho_C$ と可換する。
+式\eqref{cmo:eq:invariant-serre}の同変 canonical 双加群を
+四段の window 変更に通すと
+\[
+ \mathbb S_{\mathcal K_C}\simeq\varrho_C^{-4}\chi[5]
+\]
+を得る。これは $\mathcal K_R$ の Serre 式と同じ評価三角による計算で、
+各段に二つの指標の例外対象がある点だけが異なる。
+従って
+\[
+ \mathbb S_{\mathcal K_C}^{3}
+ \simeq\varrho_C^{-12}\chi^3[15]
+ \simeq\chi[7].
+\]
+可換側でも周囲の七変数に対する最高次指標は $-1$、
+三次方程式の指標は $+1$ なので、全く同じ計算が適用される。
+同値は Serre 双対性を保ち、Serre 関手を自然同型の範囲で同定するため、
+最後の主張が従う。
+\end{proof}
+
+\begin{lemma}[二乗の coherence の平方根補正]
+\label{cmo:lem:root-order-coherence-square-root}
+$\mathcal U,\mathcal V$ を $\C$ 上の smooth proper dg 圏とし、
+それぞれに二乗の coherence を指定した対合 $\tau,\tau'$ が作用するとする。
+両作用には strict な dg Morita 模型が取れると仮定する。
+perfect 核 $P$ による dg 同値 $H:\mathcal U\to\mathcal V$ と、
+核の導来圏における同型から来る自然同型 $H\tau\simeq\tau'H$ が与えられれば、
+この自然同型を補正し、perfect 核を実際に同変化することで、
+$\mu_2$ 同変圏の dg Morita 同値を構成できる。
+\end{lemma}
+
+\begin{proof}
+核 $P$ の次数零自己準同型代数を $Z$ とする。
+$P$ は可逆な Morita 核なので
+$Z\cong HH^0(\mathcal U)$ であり、これは有限次元可換 $\C$ 代数である。
+与えた自然同型を二回合成し、指定された二乗の同型と比較した不整合は
+ある $d\in Z^\times$ で表される。
+より具体的には、核の圏上の対合
+$Q\mapsto\tau'Q\tau^{-1}$ と $P$ 上の同型を用いて
+$Z$ 上に自己同型 $\gamma$ を定めると、
+二回の合成は $d$ による共役となり、三回の合成の結合則は
+$\gamma(d)=d$ を与える。
+$Z$ が可換なので $\gamma^2=1$ である。
+
+有限次元可換 $\C$ 代数の単元 $d$ には、$d$ の多項式で表される
+平方根 $b=d^{-1/2}$ がある。
+実際、$d$ の相異なる非零固有値で局所分解し、各固有値の平方根を選ぶ。
+各成分の冪零部分では binomial 展開は有限和となり、
+中国剰余定理で一つの多項式にまとめられる。
+従って $\gamma(b)=b$ であり、$b\gamma(b)d=b^2d=1$ となる。
+元の自然同型を $b$ で補正すれば二乗の不整合が消える。
+
+これは自然変換の間の等式として、
+\cite[Definition~3.1]{MEDElagin}の群作用の coherence を満たす。
+従って equivariant object の構造写像へ補正後の同型を合成することで
+同変圏の関手が実際に得られる。逆同値にも対応する構造を移せるため同値である。
+元の関手は exact であり、同変圏の distinguished triangle は忘却後に検出される
+\cite[Definition~6.1 and Corollary~6.10]{MEDElagin}ので、この同値も exact である。
+
+次に核を dg 圏上で同変化する。
+strict な作用を持つ生成子の dg 自己準同型代数を
+$\Gamma_{\mathcal U},\Gamma_{\mathcal V}$ とし、
+$\mathscr E=\Gamma_{\mathcal U}^{\mathrm{op}}\otimes\Gamma_{\mathcal V}$ と置く。
+$G=\mu_2$ の対角作用は $\mathscr E$ 上 strict であり、
+補正後の核は $D(\mathscr E)$ 内で
+$\theta:P\xrightarrow{\sim}gP$、$g(\theta)\theta=1$ を持つ。
+strict な同変 dg 加群については
+\[
+ R\operatorname{Hom}_{\mathscr E\rtimes G}(Q,Q')
+ \simeq R\operatorname{Hom}_{\mathscr E}(Q,Q')^G
+\]
+である。実際、$\mathscr E\rtimes G$ は $\mathscr E$ 上自由なので
+cofibrant 解消の制限も cofibrant であり、Hom 複体の等式をその解消上で計算できる。
+不変部分を取る関手は平均作用素により exact なので、
+\[
+ D(\mathscr E\rtimes G)\longrightarrow D(\mathscr E)^G
+\]
+は完全忠実である。
+
+$\operatorname{Ind}(P)=P\oplus gP$ には成分を交換する実際の strict 同変構造がある。
+これは誘導加群であるから $\mathscr E\rtimes G$ 上 perfect である。
+その導来自己準同型
+\begin{equation}
+\label{cmo:eq:root-order-equivariant-kernel-projector}
+ e=\frac12
+ \begin{pmatrix}1&\theta^{-1}\\\theta&1\end{pmatrix}
+ \in\operatorname{End}_{D(\mathscr E)}(P\oplus gP)
+\end{equation}
+は $G$ 不変な idempotent で、その像は弱同変対象 $(P,\theta)$ である。
+上の完全忠実性によって $e$ を
+$\operatorname{Perf}(\mathscr E\rtimes G)$ の idempotent へ持ち上げ、
+この冪等完備な圏で分裂させれば、実際の strict 同変 perfect 核 $\widetilde P$ を得る。
+この構成は有限群同変 enhancement の
+\cite[Theorems~8.7 and~8.9]{MEDElagin}を、核の dg 加群圏で直接実現したものである。
+個々の高次 homotopy を選び足す必要はない。
+
+$\widetilde P$ を対角部分群 $G\subset G\times G$ から誘導すれば、
+$\Gamma_{\mathcal U}\rtimes G$ と $\Gamma_{\mathcal V}\rtimes G$ の間の
+perfect 双加群核を得る。
+これは同変加群を $P$ と tensor し、対角の同変構造を入れる関手そのものである。
+右随伴は双対核に誘導される同変構造で与えられる。
+その単位・余単位を忘却すると元の Morita 同値の単位・余単位となり、いずれも同型である。
+同変 dg 加群の忘却は conservative なので、これらは同変圏でも同型となる。
+従って構成した核は dg Morita 同値を与える。
+\end{proof}
+
+本例の $\chi$ は元の skew group 代数の自己同型 $\varphi$ による twist であり、
+torsion の dg 商と八つの例外対象の直交部分圏を保存する。
+従って補題の strict 模型の仮定を満たす。
+具体的には生成対象を $G_0\oplus\chi G_0$ に置き換え、成分交換を用いれば、
+自己準同型 dg 代数上に二乗が恒等の strict な作用を得られる。
+
+\begin{proposition}[貼合せ核からの構成的比較]
+\label{cmo:prop:root-order-comparison-criterion}
+可換候補の不変環と境界環を
+\[
+ R^{\mathrm{cl}}=
+  \C[x_1,\ldots,x_6,v]/(G-vL),\qquad
+ \deg x_i=1,\quad\deg v=2,\qquad
+ S^{\mathrm{cl}}=R^{\mathrm{cl}}/(v)
+\]
+とする。上と同じ残余部分圏と関手を上付き $\mathrm{cl}$ で表す。
+perfect 核を持つ dg 同値
+\[
+ F_S:\mathcal K_S\xrightarrow{\sim}\mathcal K_{S^{\mathrm{cl}}},
+ \qquad
+ F_R:\mathcal K_R\xrightarrow{\sim}\mathcal K_{R^{\mathrm{cl}}}
+\]
+と、各成分が quasi-isomorphism である dg 自然変換
+\begin{equation}
+\label{cmo:eq:root-order-restriction-intertwiner}
+ F_S\mathcal L\xrightarrow{\sim}\mathcal L^{\mathrm{cl}}F_R
+\end{equation}
+が与えられれば、これらの核を貼り合わせることで
+\[
+ \widehat F:\operatorname{Ku}_{\mathrm{coh}}(A_0)^{\mu_2}
+       \xrightarrow{\sim}\operatorname{Ku}(X_0)^{\mu_2}
+\]
+を実際に構成できる。
+指標への両立を別の入力として課さずに、
+$\widehat F$ の核を平方根補正・同変化して二重同変化すれば、
+通常の残余圏の perfect 核を持つ dg Morita 同値
+$\operatorname{Ku}_{\mathrm{coh}}(A_0)\simeq\operatorname{Ku}(X_0)$ を得る。
+\end{proposition}
+
+\begin{proof}
+二成分分解\eqref{cmo:eq:root-order-residual-sod}は、
+対角成分が $\mathcal K_S,\mathcal K_R$、一方向の Hom が零、
+他方向の Hom が\eqref{cmo:eq:root-order-residual-gluing}である dg 貼合せである。
+その二つの対角上でそれぞれ
+\[
+ \Phi F\longmapsto\Phi^{\mathrm{cl}}F_SF,
+ \qquad
+ \Psi M\longmapsto\Psi^{\mathrm{cl}}F_RM
+\]
+と定め、他方向の Hom を
+\eqref{cmo:eq:root-order-restriction-intertwiner}によって写す。
+dg 自然性は対角との合成を保つので、これは dg 貼合せの関手を与える。
+有限 twisted complex と冪等完備化へ延長すると $\widehat F$ が得られる。
+対角の全 Hom と貼合せ双加群上で quasi-isomorphism であり、両成分を生成するため同値である。
+同じ構成は、二つの対角核と貼合せ写像を持つ三角行列の双加群核として表せる。
+従って単に同値の存在を要求する判定ではなく、入力核から比較核を構成している。
+単位と余単位は両成分の生成対象上で同型であり、cone と直和因子を取って全圏で同型になる。
+命題\ref{cmo:prop:root-order-intrinsic-character}により
+$\widehat F\chi\simeq\chi^{\mathrm{cl}}\widehat F$ がある。
+補題\ref{cmo:lem:root-order-coherence-square-root}で二乗の coherence を合わせ、
+指定された $\mu_2$ 作用について二重同変化
+\cite[Theorem~4.2]{MEDElagin}を適用する。
+この最後の操作も dg Morita 同値であることは、strict な dg 代数模型 $\Gamma$ に対する
+\[
+ (\Gamma\rtimes\mu_2)\rtimes\mu_2^\vee
+ \cong\operatorname{Mat}_2(\Gamma)
+\]
+から直接確認できる。実際、$a\in\Gamma$ を
+$\operatorname{diag}(a,\sigma(a))$、最初の群の生成元を成分交換行列、
+双対群の生成元を $\operatorname{diag}(1,-1)$ に送ると、
+積と微分を保つ上記の同型になる。
+従って通常の残余圏の間にも実際の perfect 比較核が得られる。
+\end{proof}
+
+この命題の $F_S$ は既存の分離比較から得られるが、
+$F_R$ と\eqref{cmo:eq:root-order-restriction-intertwiner}は未構成である。
+指標への両立とその二乗の coherence は、これらの入力核から同値を得た後に
+上の方法で補正・同変化でき、通常残余圏の dg 比較に対する追加の未解決入力ではない。
+二つの残余成分の Hochschild 群が一致することや、
+境界の $F_S$ だけから貼合せ写像を決定することはできない。
+定理\ref{cmo:thm:root-order-residual}は、この残りの問題を
+不変環の残余圏と一つの具体的な導来制限関手に集約したものである。
+
+\input{papers/sections/mixed/invariant_comparison.tex}

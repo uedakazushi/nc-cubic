@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：可換 Ku 実現を中心とする研究方針
 
-2026年11月22日 / v51。再開時は本書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。正本は `uedakazushi/nc-cubic` の `main`、主公表原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)（日本語LuaLaTeX、著者欄空欄）。
+2026年11月22日 / v52。再開時は本書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。正本は `uedakazushi/nc-cubic` の `main`、主公表原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)（日本語LuaLaTeX、著者欄空欄）。
 
 ## 公表用原稿と証明の正本
 
@@ -16,7 +16,7 @@
 
 **Main conjecture（主予想）**：任意の滑らかな非可換三次 n-fold 𝒳 に対して、同じ次元の滑らかな可換三次超曲面 X が存在し、Ku(𝒳)≃Ku(X) となる。
 
-まず基礎体をC、次元をn≥3とし、通常のC線型dg Morita同値の存在を最優先にする。指定混合族について、明示可換候補への実際の次数付き比較核は一般点でも未構成である。c=0では三対象生成子の384次元のstable Homと対合指標を確定したが、Hochschild群の指標は未決定である。次の着手先は、この同変模型の高次積と正当化されたHochschild縮約、または曲率・内部次数を保つ固定sector比較である。対合を保つ可換端点へのh族も得たが、一般点は非PIとなるため既存の有限中心法による相対smoothnessは使えない。内部次数・三次周期を保つ実比較核を得た後、全smooth係数へのDVR延長を検討する。
+まず基礎体をC、次元をn≥3とし、通常のC線型dg Morita同値の存在を最優先にする。零係数では、中心二重根の全coherent分解から Ku(A₀)^μ₂=⟨ΦKu(Z),ΨK_R⟩ を実際の核で構成し、接着を球面導来制限 −⊗_R^L S と同定した。可換側の第二成分はKnörrer核により三次三様体YのKuとなる。さらに交換子パラメータhの形式近傍では、指定候補 W_h^cand への全次数MF同値と、一般係数体C(h)の有限拡大上の実perfectKu核を得た。次はこの核のh=1へのDVR延長と、固定A₀のK_Rおよび接着の直接比較を進める。元の中心係数cの族における指定候補への一般点同定と全smooth係数での同値は未解決である。HHの対合指標は補助検査とし、その完成を実核の構成の前提にしない。
 
 **「任意」をgenericへ置き換えない。** 全対象の内在的な定義・認識、全O-marked moduliの代数性と表示による被覆は未完成である。少なくとも既存のAS正則周囲代数Bの中心三次商A=B/(w)は、良い開の外も研究対象とする。既知の一ブロック局所型stackの対象を全nc cubicと定義し直して主予想を解いたとはしない。point functorの表現可能性・表示独立性も必要な範囲で解く。主予想の定式化の正本は主原稿の `conj:nc-main` である。
 
@@ -53,7 +53,8 @@
 | 全Poisson構造の孤立零点制約と混合五様体 | Ku比較を入力としない。norm根での主予想は未解決 | 孤立零点にはn=3k・一般階数2kが必要で、局所零環は0次元CI。normの全64根では被約point/Poisson一致への期待も成立しない。c=−44828を明示 | 混合稿の `mixed/poisson_limits.tex`。`ppz:thm:isolated-zero-dimension`, `ppz:cor:reduced-point-poisson-counterexample`。固定版の全次元正規形を入力 |
 | 指定混合族の明示可換候補 | λ²=28/27で臨界値・P64・局所五次元節点が一致。c=0にはEckardt点からの四次二重被覆とcrepant解消模型。候補へのKu同値は一般点でも未証明 | 自然なPoisson零スキームは滑らかな各cでE₁⊔E₂。norm根では全ての別標的・別πも上の定理で排除 | 混合稿の `mixed/commutative_candidate.tex`, `mixed/eckardt.tex`。`cmo:thm:commutative-discriminant-candidate`, `cmo:prop:zero-eckardt-resolution` |
 | 指定族の全smooth領域の不変量 | U=A¹∖V(P64)上の実相対smooth proper模型を構成。全cでHH₀の次元2、HH±₁は各21。有理数値Euler形式も可換候補と一致 | 圏同値・積分数値格子・point比較は導かない。c=0の非可換対合のHH±₁指標は未計算 | `cmo:prop:full-relative-hh`, `cmo:cor:rational-euler-comparison` |
-| c=0の可換標的の実残余模型 | T=Bl_Y P⁵の分離分岐H′⊔Z′に沿う根スタック上で、16明示例外対象の右直交K≃Ku(X₀)^μ₂とperfect射影核を構成。指標線束Nによる再同変化で通常Kuを回復 | Ku(Y)とKu(Z)のHHの直和とは一致するが、両圏の半直交分解を得たとはしない。A₀からの比較核は未構成 | `cmo:thm:eckardt-root-residual`, `cmo:cor:eckardt-equivariant-hh`, `cmo:prop:zero-involution-hh` |
+| c=0の実二成分分解と球面接着 | Ku(A₀)^μ₂=⟨ΦKu(Z),ΨK_R⟩ を全coherent圏上の実perfect核で構成。接着は球面導来制限。可換側K_Rcl≃Ku(Y)はrank一Knörrer核で同定 | 非可換K_R≃Ku(Y)と制限関手のintertwinerは未構成。通常のL二側商は有限次元で使えない | `cmo:thm:root-order-residual`, `cmo:prop:invariant-restriction-spherical`, `cmo:prop:commutative-invariant-knorrer` |
+| 交換子h族の指定候補への実核 | h⁶+27≠0上の全次数平坦性、h=0局所模型、指定W_h^candへの全次数形式MF同値、C(h)の有限拡大上のperfectKu核 | 核の全行列・拡大次数・h=1の整核とunit/counitは未決定。元c族の一般点同定とは別 | `mix:prop:h-flat`, `mix:thm:h-formal-kernel`, `mix:thm:h-exact-candidate` |
 | 固定曲率の非次数付きaffine MF | 一因子の全sと混合族の全cで、冪等完備後の実dg Morita比較。悪い値はCl₃・Cl₆、良い値は双方零 | 全smooth cで射影Kuは非零なので、このaffine圏を介する同値は不可能。内部次数・錐の原点・周期を保持する比較が必要 | `cmo:lem:isolated-azumaya-mf-completion`, `cmo:prop:pointwise-affine-mf-comparison` |
 | n≠4の通常Artin変形・開性とtrait核判定 | 実smooth proper dg族で可換Ku実現locusがZariski開。generic同値を与える実perfect核の特殊化は二つのunit/counit coneの長さd_R=0と同値 | 開性・連結性や両側のsmooth proper性から閉性は従わない。核の存在自体とπ・point functorの延長は別問題 | `residual_categories.tex` の `thm:nf-residual-formal`、`geometric_realization_locus.tex` の `grl:thm:open-locus`, `grl:prop:trait-kernel-test` |
 
@@ -63,13 +64,13 @@
 
 **零係数の比較に使える新たな入力と限界。** 混合稿 `mixed/equivariant_window.tex` の `cmo:prop:equivariant-window-hom` は、同変minimal Shamash分解からG=K⊕K(1)⊕K(2)の全stable Homを計算する。次数−1,0,1,2,3の総次元は7,80,162,112,23、対合の正固有次元は6,48,84,48,6、負固有次元は1,32,78,64,17である。これはHHではない。H¹Hom(K,K)から次数零のbar文字が生じるので、有限bar長の打切りには別の縮約の証明が必要である。
 
-混合稿 `mixed/equivariant_deformation.tex` の `mix:prop:h-central` は、関係式[y,z]=h(x²−α₁u²)等に対する中心元Ω_h=(x³+y³+z³)/3−(2h²/3)sym(xyz)−u²α·xを全hで与える。h=0のFermat型Eckardt五様体Y_Fは滑らかで、HH±₁の固有次元は(5,16)。h=1が指定非可換A₀である。`mix:prop:h-generic-nonpi` は一般点での非PI性を形式群とTHCR切断の補間から証明する。`mix:prop:h-conditional-character` の指標一致には、0,1を含む連結な底上で対合付き相対smooth proper残余模型が存在するという未証明の追加仮定がある。Y_Fと既存の明示候補X₀は同じ方程式ではなく、いずれへのKu比較核も未構成である。
+混合稿 `mixed/equivariant_deformation.tex` は、h=0の滑らかなFermat型端点とh=1のA₀を結ぶ中心三次族について、`mix:prop:h-flat` で全次数自由性を証明する。可換点の局所環上のproper模型、実形式MF関手・逆関手とgraph核を構成し、`mix:thm:h-exact-candidate` で指定可換h候補へ全形式次数で同定した。普遍αのHeisenberg対称性はpotentialを三係数a,b,cへ制限し、u=0の楕円中心商と二次jetがb/a=h²/3を決める。共通の形式単元a,cの座標補正で両ブロックを同時に正規化できる。C(h)の有限拡大上の指定候補への実perfectKu核は得られたが、その全行列・有限拡大次数・h=1延長は未決定。一般点非PIと、0,1両点を含む相対perfect対角の未完成は保持し、HH指標(5,16)は追加仮定付きとする。
 
 ### P0：主予想の存在領域を全対象へ広げる
 
 1. **明示可換候補への実際の比較核を構成する。** 検査例は `cmo:ex:sixty-four` のk=2,m=1,n=5、α¹=(1,4,9)、α²=(16,25,49)、重み1,100。G_α=(x³+y³+z³+xyz)/3−u²(α₁x+α₂y+α₃z)、λ=2√21/9として、候補はX_c=V(λ(G_α¹+100G_α²)+cu³)である。λ²=28/27によって臨界値が一致し、両側のsmooth locusは正確にP64(c)≠0、特異点の完備局所型も一致する。しかし既存の余有限可換実現はこの指定候補への一般点同定を含まない。まず中心三次を保持するcurved/MF比較、または全次数付き残余圏の実perfect核を作り、随伴・unit・counitを具体化する。通常のambient derived Morita同値でD_αを多項式環へ置き換える方法は、HH⁰である中心の特異性が異なるため使えない。C[[h]]では1−hが単元なのでh↦1の評価準同型は存在せず、h進形式比較から進むには代数化と当該係数での定義を別に証明する。
-2. **c=0の対合指標を確定し、根スタック模型へ比較核を構成する。** 最初の有限計算は `cmo:prop:equivariant-window-hom` の384次元同変模型で完了している。次は同変higher homotopiesから必要な高次積を取り出し、対角の有限解消または正当化されたbar縮約を作る。別経路の通常affine twisted HHには、研究ノートの中心変数消去補題によりHH(A₀,(A₀)_σ)≃HH(A₀/u)があるが、曲率・三次周期・μ₃の全sectorを保つgraded MFへの比較は未証明である。既知のMukai双対とHH次元から、目標の(+5,−16)はHH全体のsupertrace24と同値である。h族を使うなら、次数別平坦性・properな有限線束模型・底変更を確認した後、一般点の非PI性に対応できる相対対角を構成する。両端のsmoothnessだけでは足りない。指標を確認した後の標的は、`cmo:thm:eckardt-root-residual` のT=Bl_Y P⁵、根スタックℛ、16例外対象の右直交K、指標線束NとN²≃Oである。Ku(A₀)^μ₂からKへの実核について16直交条件と単位・余単位、N作用との両立を検査し、再同変化で通常Kuを比較する。対合保存は主予想の追加条件であり、その障害を通常の主予想への反例としない。Ku(Y),Ku(Z)のHH一致から圏を相殺しない。
-3. **実kernelを得た後、全smooth係数へDVRで延長する。** 一般点での同値、perfect整核の存在、特殊点での同値性を三つの段階として扱う。`grl:prop:trait-kernel-test` により、最後の条件は生成対象上のunit/counit coneの有限長総和d_R=0で判定できる。正のd_Rは分岐指数eの底変更でe倍となり、固定核の不良特殊化は有限分岐だけでは消えない。c=0とnormの全64根は両側smoothであることが既知なので、そこで具体的な行列と必要な核の整格子を構成する。開性と連結性だけで全係数へ延ばさず、両側smooth proper・generic同値でもspecial同値が失われるF₂/F₀の障害例を踏まえる。
+2. **c=0の実二成分分解を可換側と比較する。** `cmo:thm:root-order-residual` はR=A₀^σ、S=R/(u²)に対し Ku(A₀)^μ₂=⟨ΦK_S,ΨK_R⟩ を与える。Φ(F)=L_{O_A⊗χ}i(F(1))、Ψ(M)=M⊗_R e_+Cは実perfect核を持ち、接着はRHom_S(F,M⊗_R^L S)[−1]である。既存分離比較でK_S≃Ku(Z)、可換側は `cmo:prop:commutative-invariant-knorrer` のrank一核でK_Rcl≃Ku(Y)。次はK_R≃Ku(Y)を与える核と、二つの球面制限関手の自然な比較を構成する。`cmo:prop:root-order-comparison-criterion` はこの入力を五様体の核へ貼り合わせる。R/(L)はv³³で消える有限次元環なので通常の超平面切断は使えず、128次元PBW双対に曲率を加えて導来的消去を検査する。対合指標・384次元windowの高次積は補助的な検査に置き、先に完了すべき必須条件とはしない。
+3. **指定h候補への一般点核をh=1へ延長する。** `mix:thm:h-exact-candidate` により W_h^cand=Σ_i q_i[(x_i³+y_i³+z_i³+h²x_iy_iz_i)/3−u²α^(i)·x^(i)] への実perfectKu核がC(h)の有限拡大上で存在する。この固定された標的を用い、h=1のtrait上で核のperfect整格子を作る。`grl:prop:trait-kernel-test` の生成対象上のunit/counit coneの有限長総和d_Rが零となることを検査する。正のd_Rは分岐指数eでe倍となり、有限分岐だけでは消えない。形式座標のh=1への代入は行わない。このh族での一般点同定は、元のc族の一般点同定とは別である。c族全smooth領域への延長とnorm全64根での比較も引き続き目標に保つ。
 4. **指定族の外へ広げる。** 一般αの例外判定は中心の節点性とΩ切断の非等方性が失われるlocusから着手する。指定族で得た全14節点のEnd_R(R^{⊕a}⊕I^{⊕b})模型、全simple分類、二次元の普遍高次作用、character非検出のpd∞例、100simpleのpd5、64定常点の残余Extを保持する。より一般の混合表示と全intrinsic対象の被覆は引き続き未解決である。
 
 ### P1：主予想に必要な認識・降下

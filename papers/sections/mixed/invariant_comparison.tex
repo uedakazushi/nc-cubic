@@ -1,0 +1,176 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\subsection{可換側の実 Kn\"orrer 核と単純な超平面切断の障害}
+
+不変環の残余 $\mathcal K_R$ を可換三次三様体と比較することは、
+元の同変五様体の比較核を構成するための具体的な部分問題となる。
+まず可換側では、この三様体成分を実際の核で取り出せる。
+
+\begin{proposition}[可換不変環の次数付き Kn\"orrer 核]
+\label{cmo:prop:commutative-invariant-knorrer}
+\S\ref{cmo:subsec:eckardt-root-model}の $G,L,Y$ に対し、
+\[
+ D_{\mathrm{cl}}=\C[x_1,\ldots,x_6,v],\qquad
+ \deg x_j=1,\quad\deg v=2,\qquad
+ R_{\mathrm{cl}}=D_{\mathrm{cl}}/(G-vL)
+\]
+と置く。$Y=V(G,L)\subset\mathbb P^5$ が滑らかであるとする。
+五本の例外線束の残余を $\mathcal K_{R_{\mathrm{cl}}}$ とすると、
+\begin{equation}\label{cmo:eq:commutative-invariant-knorrer}
+ \Ku(Y)\simeq\MF^{\mathbb Z}(\C[y_1,\ldots,y_5],g)
+ \xrightarrow{\ \sim\ }
+ \MF^{\mathbb Z}(D_{\mathrm{cl}},G-vL)
+ \simeq\mathcal K_{R_{\mathrm{cl}}}
+\end{equation}
+という実 dg Morita 同値がある。
+ここで $\ell=L$ を第六の線型座標に取り
+\[
+ G(y,\ell)=g(y)+\ell Q(y,\ell),\qquad t=v-Q(y,\ell)
+\]
+と置くと、中央の関手は $g-\ell t$ に対する rank 一の二変数核
+\begin{equation}\label{cmo:eq:commutative-knorrer-kernel}
+ \mathsf Q=\left(
+  \C[\ell,t](-1)\xrightarrow{\ell}\C[\ell,t]
+       \xrightarrow{-t}\C[\ell,t](2)\right),
+ \qquad (\deg\ell,\deg t)=(1,2)
+\end{equation}
+との外積で与えられる。内部次数と指定された三次周期を保つ。
+\end{proposition}
+
+\begin{proof}
+$\ell=L$ は非零線型形式なので座標に含められる。
+多項式の除法により $Q$ は重み二で、$v\mapsto t=v-Q$ は
+次数付き多項式環の自己同型である。この変更後の potential は
+$G-vL=g-\ell t$ となる。
+式\eqref{cmo:eq:commutative-knorrer-kernel}の二つの合成は
+$-\ell t$ の乗法であり、両写像は表示した内部 shift に関して次数零である。
+外積の微分を $d_E\otimes1+(-1)^{\deg} \otimes d_{\mathsf Q}$ と取れば、
+その二乗は $g-\ell t$ となる。
+
+同変 Kn\"orrer 周期性 \cite[Theorem~1.2]{CMOHiranoKnorrer}を用いる。
+底を $\mathbb A^5_y\times\mathbb A^1_\ell$、群を $\mathbb G_m$、
+potential の指標を重み三、正則切断を $\ell$ とし、
+その双対変数 $t$ に重み二を与える。
+切断の零集合は $\mathbb A^5_y$、制限 potential は $g$ である。
+$Y$ の滑らかさから $g$ は非零であり、
+$\C[z]\to\C[y]$、$z\mapsto g$ は単射で、その上の加群は torsion-free、
+従って平坦である。このため同定理の制限 potential の平坦性条件も満たす。
+同定理の関手は零切断への pullback と pushforward で与えられ、
+その二項 Koszul 解消を取ると上の外積核になる。
+ambient は正則なので coherent factorization は有限局所自由模型で計算でき、
+この比較は有限射影行列分解の冪等完備後の全圏に及ぶ。
+
+最後に $\C[y]/(g)$ の Gorenstein parameter は $5-3=2$、
+$R_{\mathrm{cl}}$ の parameter は $(6+2)-3=5$ である。
+それぞれに Orlov 分解を適用して両端の同値を得る。
+重み付き環 $R_{\mathrm{cl}}$ の qgr は対応する重み付き射影スタックの
+coherent 圏であり、粗空間へ置き換えて stacky な点を捨てていない。
+外積と座標変更は potential を厳密に保つので、三次周期も保存される。
+\end{proof}
+
+非可換側で同じ線型形式を零とする操作は、上の比較に代わらない。
+この点は点集合だけでなく、二側商全体について証明できる。
+
+\begin{proposition}[指定混合不変環の線型二側商]
+\label{cmo:prop:invariant-linear-quotient-finite}
+$\alpha^{(1)}=(1,4,9)$、$\alpha^{(2)}=(16,25,49)$、$q_1=1$、$q_2=100$ とし、
+\[
+ L=\sum_{i=1}^2q_i\bigl(
+   \alpha^{(i)}_1x_i+\alpha^{(i)}_2y_i+\alpha^{(i)}_3z_i\bigr)\in D_1
+\]
+と置く。$(L)$ は $L$ が生成する二側イデアルを表す。
+このとき $D/(L)$ と $R/(L)$ は有限次元であり、いずれも $v^{33}$ で消される。
+特に
+\begin{equation}\label{cmo:eq:invariant-linear-empty-qgr}
+ \operatorname{qgr}(R/(L))=0.
+\end{equation}
+従って $R$ 内の $L$ は normal 元ではなく、
+この二側商を可換三様体 $Y$ の代わりに使うことはできない。
+\end{proposition}
+
+\begin{proof}
+$Q=D/(L)$ と置く。異なるブロックの生成元は可換である。
+$[L,x_i]=[L,y_i]=[L,z_i]=0$ と元の関係式から
+\[
+ \alpha^{(i)}_3y_i^2=\alpha^{(i)}_2z_i^2,\quad
+ \alpha^{(i)}_1z_i^2=\alpha^{(i)}_3x_i^2,\quad
+ \alpha^{(i)}_2x_i^2=\alpha^{(i)}_1y_i^2
+\]
+を得る。全ての $\alpha^{(i)}_j$ が非零なので
+\[
+ T_i=\frac{x_i^2}{\alpha^{(i)}_1}
+     =\frac{y_i^2}{\alpha^{(i)}_2}
+     =\frac{z_i^2}{\alpha^{(i)}_3},\qquad c_i=T_i-v
+\]
+を定められる。$T_i$ は各生成元との可換性をその平方表示から確認できるため中心であり、
+\begin{equation}\label{cmo:eq:linear-quotient-relations}
+ [y_i,z_i]=\alpha^{(i)}_1c_i,\quad
+ [z_i,x_i]=\alpha^{(i)}_2c_i,\quad
+ [x_i,y_i]=\alpha^{(i)}_3c_i
+\end{equation}
+である。例えば $[x_i^2,y_i]=2\alpha^{(i)}_3c_ix_i=0$ を使い、
+他の二変数にも同じ計算をすると
+\[
+ c_ix_i=c_iy_i=c_iz_i=0,\qquad
+ c_iT_i=0,\qquad T_i^2=vT_i
+\]
+となる。さらに $c_i[x_i,y_i]=\alpha^{(i)}_3c_i^2=0$ より $c_i^2=0$、
+$c_i^2=(T_i-v)c_i=-vc_i$ より $vc_i=0$ である。
+
+式\eqref{cmo:eq:linear-quotient-relations}の右辺は中心元である。
+従って語を並べ替え、平方を $\alpha^{(i)}_jT_i$ で置き換え、
+$T_i^2=vT_i$ を使うことにより、$Q$ は $\C[v]$-加群として
+\[
+ T_1^{a_1}T_2^{a_2}
+ x_1^{b_1}y_1^{b_2}z_1^{b_3}
+ x_2^{b_4}y_2^{b_5}z_2^{b_6},
+ \qquad a_i,b_j\in\{0,1\}
+\]
+という $256$ 個の元で生成される。
+
+$I=(c_1,c_2)\subset Q$ とすると $vI=0$ である。
+$Q/I$ では全生成元が可換で、それぞれの平方は $\alpha^{(i)}_jv$ となる。
+まず $L$ の関係を課す前の可換環
+\[
+ H=\C[x_1,y_1,z_1,x_2,y_2,z_2,v]/
+ (x_i^2-\alpha^{(i)}_1v,\ y_i^2-\alpha^{(i)}_2v,\ z_i^2-\alpha^{(i)}_3v)_{i=1,2}
+\]
+を取る。$H$ は $\C[v]$ 上自由で階数 $64$ であり、$L$ の乗法の行列式は
+\begin{equation}\label{cmo:eq:linear-quotient-norm}
+ \det(m_L)=v^{32}
+ \prod_{\epsilon\in\{\pm1\}^6}
+ \bigl(\epsilon_1+8\epsilon_2+27\epsilon_3
+       +100(64\epsilon_4+125\epsilon_5+343\epsilon_6)\bigr).
+\end{equation}
+実際、$v$ を可逆化して $s^2=v$ を添加すれば、$H$ は符号選択による
+$64$ 個の一次元成分へ分かれ、各固有値は括弧内の数の $s$ 倍となる。
+忠実平坦なこの拡大で得た行列式の式は元の $\C[v]$ 上にも成立する。
+括弧内の最初の三項の絶対値は高々 $36$、
+残りの和の絶対値は $100(343-125-64)=15400$ 以上である。
+従って全ての因子は非零である。
+乗法行列の adjugate 恒等式、または Cayley--Hamilton により、
+$H/(L)$ はこの非零定数倍の $v^{32}$ で消される。
+$Q/I$ は $H/(L)$ の商なので $v^{32}Q\subset I$、従って $v^{33}Q=0$ である。
+$256$ 個の生成元による有限性と合わせて $Q$ は有限次元となる。
+$R/(L)$ はその商なので同じ結論を満たす。
+
+最後に、もし $L$ が $R$ の normal 元なら、
+$R(-1)\xrightarrow{\cdot L}R\to R/(L)\to0$ から
+\[
+ \dim(R/(L))_n\geq\dim R_n-\dim R_{n-1}
+\]
+となる。式\eqref{cmo:eq:invariant-hilbert}により右辺は十分大きい $n$ で正であり、
+有限次元性に矛盾する。
+\end{proof}
+
+\paragraph{実核の構成に残る課題.}
+可換側の命題\ref{cmo:prop:commutative-invariant-knorrer}は実際の比較核を与える。
+非可換側の命題\ref{cmo:prop:invariant-linear-quotient-finite}が排除するのは、
+同じ $L$ の通常の二側商による置換である。
+$-vL$ の非退化な重み $(2,1)$ の対を curved Koszul 双対や
+$A_\infty$ 模型で導来的に消去する可能性までは排除しない。
+この経路では、元の交換関係が作る微分・高次積と曲率 $w$ を含めて
+実際の双加群を構成し、内部次数と三次周期を保つ必要がある。
+係数が単元であることだけから homological perturbation が有限回で停止するとは限らない。
+停止性または必要な逆行列の可逆性、随伴、unit と counit を確認した後に初めて
+$\mathcal K_R\simeq\Ku(Y)$、さらに元の五様体の比較へ進める。
+この非可換 Kn\"orrer 核と、二成分を結ぶ制限関手の比較は未構成である。
