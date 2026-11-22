@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v67.
+% Current result: 2026-11-23 / v68.
 \subsection{階数一の中心 norm の全特異判別と軸外の Azumaya 二重点}
 \label{ifn:subsec:full-norm}
 
@@ -178,6 +178,169 @@ $Q/\alpha_1^4=8\mu^3-432=-2000$ となる。
 無限自己Ext、coherent 非 proper と
 smooth 線束残余の飽和矛盾が適用できる。
 \end{proof}
+
+
+\begin{theorem}[対称係数の四判別式と一変数probeの十二特異値]
+\label{ifn:thm:symmetric-probe}
+$\tau_1=\tau_2=2$、$a_1=a_2=1$ とする。
+$\alpha_1^2=\alpha_2^2=196$ を除いた
+二変数三次 $\widehat F_{\epsilon,\delta}=F_{\epsilon,\delta}/196$ とその判別式
+$D_{\epsilon,\delta}=\operatorname{Disc}_X\widehat F_{\epsilon,\delta}(X,1)$ を考える。
+$q=\lambda\mu$ と置くと、
+\begin{equation}\label{ifn:eq:symmetric-discriminants}
+\begin{aligned}
+ D_{00}&=(q-4)^2Q_{00},&
+ D_{01}&=-\frac{(q-8)^2}{27}Q_{01},\\
+ D_{10}&=-\frac{(q-8)^2}{27}Q_{10},&
+ D_{11}&=-\frac{(q-16)^2}{19683}Q_{11},
+\end{aligned}
+\end{equation}
+ただし
+\begin{equation}\label{ifn:eq:symmetric-residuals}
+\begin{aligned}
+ Q_{00}={}&q^2+8(\lambda^3+\mu^3)+72q-432,\\
+ Q_{01}={}&16\lambda^4\mu-56\lambda^3+157q^2-1456q
+                   +16\mu^3+3136,\\
+ Q_{10}={}&16\lambda^3+157q^2+16\lambda\mu^4
+                   -1456q-56\mu^3+3136,\\
+ Q_{11}={}&256q^4-8032q^3+87117q^2-393568q+614656\\
+          &+(3024-432q)(\lambda^3+\mu^3)
+\end{aligned}
+\end{equation}
+である。ここでは各 $Q_{\epsilon,\delta}$ の絶対既約性は主張しない。
+
+二乗因子 $q=4,8,16$ は、二つの Clifford 行列式がともに零となる
+特異中心点を持つ。これらの因子と別に、四つの
+$Q_{\epsilon,\delta}$ のそれぞれに、Azumaya 開での通常二重点を
+持つ係数が存在する。
+
+特に一方向の行列単位probe
+\begin{equation}\label{ifn:eq:probe-line}
+                 \Lambda=sE_{11},\qquad M=0
+\end{equation}
+上では、周囲代数は全 $s\in\C$ で六次元 AS 正則かつ非捩れ
+Calabi--Yau であり、指定中心三次は全 $s$ で正則である。
+中心 norm 超曲面 $H_s=V(\mathcal N_s)\subset\mathbb P^5$ は
+\begin{equation}\label{ifn:eq:probe-bad}
+ (s^3-54)(s^3-56)(s^3+196)(27s^3+5488)\ne0
+\end{equation}
+のとき、かつそのときに限り滑らかである。
+零となる十二の係数点では、$H_s$ の特異点は全て
+Azumaya 開の通常二重点であり、各fiberでの個数は
+\begin{equation}\label{ifn:eq:probe-node-counts}
+\begin{array}{c|cccc}
+ s^3&54&56&-196&-5488/27\\\hline
+ \text{通常二重点数}&1&3&3&9
+\end{array}
+\end{equation}
+である。
+したがって、これら十二の係数では全 coherent 残余圏は非 proper、
+残余線束圏は非 smooth となる。
+条件\eqref{ifn:eq:probe-bad}で残余圏が smooth とまでは主張しない。
+\end{theorem}
+
+\begin{proof}
+式\eqref{ifn:eq:branch-functions}の $t=u=2$ と $a=b=1$ の特殊化を
+$\widehat F_{\epsilon,\delta}$ として、binary cubic の判別式
+\[
+  \operatorname{Disc}(aX^3+bX^2+cX+d)
+  =b^2c^2-4ac^3-4b^3d-27a^2d^2+18abcd
+\]
+を展開すれば、式\eqref{ifn:eq:symmetric-discriminants}と
+\eqref{ifn:eq:symmetric-residuals}が得られる。
+
+二乗因子の幾何学的意味も直接確認できる。
+$Y_1=1$、$\lambda\ne0$ の chart において
+四臨界枝に次の点を取る：
+\[
+\begin{array}{c|c|c|c}
+(\epsilon,\delta)&\lambda\mu&X_1&
+ (X_2,X_3;\,Y_2,Y_3)\\\hline
+(0,0)&4&\lambda/2&(0,0;\,0,0)\\
+(0,1)&8&\lambda/2&(0,0;\,1,1)\\
+(1,0)&8&\lambda/4&(\lambda/4,\lambda/4;\,0,0)\\
+(1,1)&16&\lambda/4&(\lambda/4,\lambda/4;\,1,1)
+\end{array}
+\]
+これらを式\eqref{ifb:eq:clifford-matrices}に代入すると、
+$\mathcal N$ と全偏微分が零であり、
+$\det q_x=\det q_y=0$ である。従って表示した二乗因子は
+非 Azumaya の臨界枝を持つ。
+
+四つの $Q_{\epsilon,\delta}$ に現れる独立の Azumaya
+特異点を示すため、逆向きの一方向probe
+$\lambda=0,\ \mu=m$ に制限する。
+式\eqref{ifn:eq:symmetric-discriminants}は
+\begin{equation}\label{ifn:eq:probe-four-discriminants}
+\begin{aligned}
+ D_{00}&=128(m^3-54),&
+ D_{01}&=-\frac{1024}{27}(m^3+196),\\
+ D_{10}&=\frac{3584}{27}(m^3-56),&
+ D_{11}&=-\frac{28672}{19683}(27m^3+5488)
+\end{aligned}
+\end{equation}
+となる。四つの三乗値は相異なり、どれも零でない。
+$Y_1=1$、$z=mX_1$ と置くと、各場合の binary cubic は
+ただ一つの二重根を持つ。重根と、横座標の
+位相 $(\xi,\eta)=(1,1)$ での
+Clifford 行列式、規格化した $4\mathcal N/196$ の
+五変数 Hessian 行列式は次の通りである：
+\begin{equation}\label{ifn:eq:probe-witnesses}
+\begin{array}{c|c|c|c|c}
+(\epsilon,\delta)&m^3&z&
+ \det q_x=\det q_y&\det\operatorname{Hess}\\\hline
+(0,0)&54&6&-4&153600\\
+(0,1)&-196&28/13&112/2197&12902400/2197\\
+(1,0)&56&6&-4&-460800\\
+(1,1)&-5488/27&28/13&112/2197&-38707200/2197
+\end{array}
+\end{equation}
+横座標は式\eqref{ifn:eq:critical-branches}で、
+$k_x=-z/(3m)$、$k_y=(z-1)/3$ とすることにより復元できる。
+表の値は行列式を展開し、$m^3$ を各値に置き換えた
+有理数恒等式である。Hessian は全て非零であり、二つの
+Clifford 行列式も非零なので、これらは Azumaya 開の
+通常二重点である。
+
+$\epsilon=1$ の場合の $\xi^3=1$ の三択と、
+$\delta=1$ の場合の $\eta^3=1$ の三択は、
+それぞれ別々の射影点を与える。
+これらの座標変換は $\mathcal N$ を保ち、Jacobian の行列式が一
+なので、Hessian の非退化性も保持する。
+したがって各特異fiberの点数は $1,3,3,9$ となる。
+他の臨界枝の判別式はその係数では零とならず、
+重根も一つだけなので、これ以外に特異点はない。
+
+$\lambda=s$、$\mu=0$ の族は、二因子を交換すれば
+$\lambda=0$、$\mu=s$ の族に一致する。
+中心重みも等しいため、二つの norm の全体の符号が変わるだけで
+零集合・局所型・点数は一致する。
+また命題\ref{ifd:prop:ambient-locus}により
+$h=49$、$c=196$ は全probe上で非零である。
+これで中心normの滑らかさの必要十分条件と点数を得る。
+各通常二重点が Azumaya chart にあることから、
+系\ref{ifn:cor:off-axis-azumaya}および
+定理\ref{ifq:thm:axis-discriminant}と同じ点対象・coherent
+飽和の論法により残余圏の非smooth性が従う。
+\end{proof}
+
+\begin{remark}[一変数probeと高次比較係数]
+\label{ifn:rem:probe-vs-jets}
+式\eqref{ifn:eq:probe-line}は
+定理\ref{ifj:thm:twelve-coefficients}の七つの
+probe のうちの行列単位方向である。
+本定理はその中心normの特異係数と各fiberの局所型を
+\emph{全係数}で決定するが、分離原点の固定した
+Hesse多項式切片への実Ku比較の二次・三次Taylor係数を
+決定していない。原点の形式変形空間では
+判別因子が原点を通らないので、その方程式だけで
+未計算の十二係数を復元することはできない。
+原点の比較核、Picard補正と指定周期を保つ
+実Bockstein移送の高次計算が必要である。
+本定理の多項式・Hessian・位相点数は
+\texttt{computations/verify\_clifford\_symmetric\_discriminants.py}
+で再現できる。
+\end{remark}
 
 \begin{remark}[判別因子の数と残る境界]
 \label{ifn:rem:scope}

@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月23日 / v67。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月23日 / v68。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -32,6 +32,8 @@
 \]
 
 を与える（`ifm:thm:scale-cubes`）。既存の較正ℓ_iq_i=2a_id_i/(3τ_i)、κ₁₂κ₂₁=4a₁a₂d₁d₂/(9τ₁τ₂)と合わせると、θ=(a₂τ₂/a₁τ₁)(κ₁₂/κ₂₁)はθ³=d₁/d₂を満たす。この非自明なμ₃-torsorは因子係数空間上の有限étale三重被覆で、有理的な大域sectionを持たず、三枝は周期付き比較の選択で実現する（`ifm:cor:kummer-scale`）。固定した実核と周期には一つの枝が対応し、尺度を任意に正規化し直せるわけではない。同一因子・同一重みの交換同変核では両κ=2a(τ³−1)/(3τ)を保持する。尺度torsorを全比較核のgerbeと同定したとはしない。
+
+**対称な一変数probeの中心norm特異係数を全列挙した。** [階数一normの四判別式](papers/sections/mixed/interfactor_clifford_rank_one_fullnorm.tex)の`ifn:thm:symmetric-probe`は、τ₁=τ₂=2、a_i=1、Λ=sE₁₁、M=0に対し、全sの周囲AS正則性・中心三次正則性を保持したまま、中心normの特異係数12点が(s³−54)(s³−56)(s³+196)(27s³+5488)=0で与えられることを示す。各fiberの通常二重点は1・3・3・9個で、全てAzumaya。二乗判別因子には非Azumaya臨界枝がある。この計算だけで残りのfiberの残余smoothnessや固定切片の12高次係数は求まらない。検算は[対称判別コード](computations/verify_clifford_symmetric_discriminants.py)。
 
 **固定した可換方程式の高次項は、まず十二係数の実計算へ帰着する。** [固定切片と同変jet](papers/sections/mixed/interfactor_clifford_jets.tex)は、両Cliffordの標準Hesse方程式、Jacobian補空間による線型切片、原点の実核・指定周期を固定すると、形式可換方程式が一意になることを示す（`ifj:lem:linear-slice`）。Heisenberg群の二因子作用に対する二次covariantと三次不変式は各五本であり、周期と両立する反転同変実核を選ぶと各四本に減る。一方向九変数族の逆向き混合二次項は四係数、二つの純因子三次項は八係数で尽くされ、七つの一変数probeで回収できる（`ifj:thm:twelve-coefficients`）。**この4+8=12個の数値は未計算**である。自由な標的形式座標で高次項を消せることと、固定した多項式切片で数値を求めることは別である。
 

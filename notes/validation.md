@@ -1,8 +1,11 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v67。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v68。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
+
+- **対称rank-oneの全因数分解と一変数probe：** 混合稿の`ifn:thm:symmetric-probe`へ、四binary判別式、非Azumaya二乗因子、四Azumaya通常二重点の独立証人、12特異係数とノード数1/3/3/9を記載。今回SymPy 1.14による有理式の独立計算で、全判別式の因数分解、六変数norm、非Azumaya臨界点、四つの非退化Hessian、12特異係数の正確性について6群PASS。再現コードは`computations/verify_clifford_symmetric_discriminants.py`。有限計算は射影Azumaya点からcoherent残余非properへ移る圏論的証明を検証するものではない。その段階は既存ifd/ifq/ifnの証明を入力とする。今回の更新分のLuaLaTeX組版、PDF実表示、外部独立査読、形式証明は未実施。v65の三稿組版は保持結果であり今回の再実行ではない。固定Hesse切片の12高次係数は未計算。
+
 
 - **中心 norm の全特異判別（v67）：** 新規 `interfactor_clifford_rank_one_fullnorm.tex` の `ifn` 定理群に証明を記載。Clifford 6平方 norm の分解、4枝の横方程式の完全性、各 binary cubic の重根と全6変数のJacobian条件の同値を本文で示した。τ_i≠0、α_i≠0、C上のrank-oneスライスに限定する。`verify_clifford_fullnorm.py` のSymPy 1.14による有理式・代数的数計算の6群がPASS：全六変数展開、横臨界枝、エンベロープ偏微分、4判別式、独立な軸外因子、Azumaya通常二重点の非退化5変数Hessianを確認。実際の高次Ku比較核、非Azumaya層、残余圏全smooth locusは証明していない。原稿への証明記載と有限計算による検証を区別し、外部査読・形式証明・全稿LuaLaTeX組版・新節PDF表示確認は未実施。GitHubのcloneはDNS解決不能で、従来の全稿v65組版記録をv67の再組版とは扱わない。
 

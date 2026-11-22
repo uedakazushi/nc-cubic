@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月23日 / v67。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月23日 / v68。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -641,6 +641,10 @@ Clifford族への適用は [interfactor_clifford_kodaira_spencer.tex](../papers/
 正本は [interfactor_clifford_rank_one_fullnorm.tex](../papers/sections/mixed/interfactor_clifford_rank_one_fullnorm.tex) の `ifn:thm:four-discriminants` と `ifn:cor:off-axis-azumaya`。既存 rank-one の二つの Clifford 行列式から、6平方変数の norm は P(X,Y)+α₁²τ₁²(X₂³+X₃³−3k_xX₂X₃)−α₂²τ₂²(Y₂³+Y₃³−3k_yY₂Y₃) に分解する。横方程式の解は各組で零か (kζ,kζ²)（ζ³=1）なので、四つの binary cubic F_{ε,δ}=P−εα₁²τ₁²k_x³+δα₂²τ₂²k_y³ の判別式の積が零という条件が、射影中心 norm hypersurface が特異であるための必要十分条件となる。元の `ifq` の三尖点四次曲線は (ε,δ)=(0,0) の軸枝だけを検出する。
 
 τ₁=τ₂=2、a₁=a₂=1、λ=0、μ³=−196 では h=49・c=196・Q/α₁⁴=−2000、点 [X₁:X₂:X₃;Y₁:Y₂:Y₃]=[28/(13μ):0:0;1:5/13:5/13] は軸外の特異点で、det(q_x)=det(q_y)=−(28/(13μ))³≠0。Y₁=1 での規格化 4N/196 の 5変数 Hessian determinant は12902400/2197≠0、従って通常二重点。Azumaya chart の既存非proper・非smooth移送を適用できる。再現コード [verify_clifford_fullnorm.py](../computations/verify_clifford_fullnorm.py)。**確定範囲は中心 norm の全特異係数集合であり、残余dg smooth locusの全判別ではない。** 非Azumaya層・各因子間の交叉、全smooth係数への核比較は残る。
+
+### 対称rank-oneの一変数probeと中心normの12特異係数
+
+正本は[階数一normの判別定理](../papers/sections/mixed/interfactor_clifford_rank_one_fullnorm.tex)の`ifn:thm:symmetric-probe`。τ₁=τ₂=2、a_i=1で、四つのbinary cubicの判別はそれぞれ(λμ−4)²Q₀₀、−(λμ−8)²Q₀₁/27、−(λμ−8)²Q₁₀/27、−(λμ−16)²Q₁₁/19683に分解する。二乗因子は非Azumayaの臨界点、四つの残余Q因子にはそれぞれAzumaya通常二重点の証人がある。Λ=sE₁₁、M=0では全sでh=49,c=196。中心normが特異となるのは(s³−54)(s³−56)(s³+196)(27s³+5488)=0の12係数で、その各fiberのノード数は1・3・3・9。全てAzumaya。原点から離れたこの判別式だけでは、原点の固定Hesse多項式切片での12個の高次比較係数は決定できない。必要なのは実Bockstein・比較核の高次移送。検算入口は[verify_clifford_symmetric_discriminants.py](../computations/verify_clifford_symmetric_discriminants.py)。
 
 ### 固定した三次切片と高次項の十二係数
 
