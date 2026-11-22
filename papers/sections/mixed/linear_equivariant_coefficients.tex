@@ -120,8 +120,7 @@ $k\ge2$ と固定した $a_i\in\C^\times$ に対し、
                 \ \subset\ \operatorname{Jac}(G)_2
 \end{equation}
 である。
-ある定数 $\chi_k\in\C^\times$ と $A_k,B_k,C_k,D_k,E_k\in\C$ により、
-命題\ref{lcc:prop:triangular-coefficients}の係数を次の形に取れる：
+係数は、定数 $\chi_k\in\C^\times$, $A_k,\ldots,E_k\in\C$ により次の形に取れる：
 \begin{align}
  Q(\mathbf p)
    &=\chi_k\sum_i a_i
@@ -242,8 +241,8 @@ $\chi_k=53/54$ を意味しない。
 同様に、非可換中心の $u^2$ 係数に現れる $1/6,-1/18$ を、
 証明なしに $A_k,B_k$ へ代入してはいけない。
 
-有限な表現計算の再現コードは
-\texttt{computations/verify\_mixed\_equivariant\_coefficients.py} である。
+有限な表現計算の検算器は
+\path{computations/verify_mixed_equivariant_coefficients.py} である。
 関係式と中心式の群作用、四つの同変写像空間、独立中心文字による全ブロック数の
 台の制限、重みの復帰を厳密に確認する。
 実随伴の比較や全 coherence の形式証明ではなく、
