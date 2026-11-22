@@ -1,0 +1,553 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v59.
+\subsection{一つの滑らかな中央切断からの二中心比較}
+\label{mci:subsec:iterated-comparison}
+
+中心変数が二つある場合でも、その一つの中央切断が滑らかな残余圏を持てば、
+一中心の比較を境界としてもう一度用いることができる。
+この逐次構成は、中心平面の各 ray 上で選んだ核の貼合せではない。
+一つの実境界核を固定した後、残る全横断係数の多項式環上で
+実随伴の comonad を比較する。
+以下では $k\ge2$、$N=3k$ とし、因子・生成元・非零重みを固定する。
+
+\subsubsection{多中心の周囲解消と中央超平面制限}
+
+\begin{proposition}[共有中心差を用いる相対線束模型]
+\label{mci:prop:ambient-line-model}
+中心変数の個数を $m\ge1$ とする。
+$m=1$ では式\eqref{emc:eq:family}、$m\ge2$ では定理\ref{mcp:thm:normal-form}の
+普遍係数環、または一部の係数を複素定数に固定した多項式係数環を $R$ とし、
+その族を $A_m=B_m/(w)$ と書く。
+$B_m,A_m$ は左右 noetherian で、各内部次数は有限自由 $R$-加群である。
+$B_m$ は相対 Koszul であり、各複素ファイバーは
+global dimension と Gorenstein parameter がともに $N+m$ の AS-regular 代数となる。
+相対 augmentation 双対は
+\begin{equation}\label{mci:eq:augmentation-duals}
+ \begin{split}
+ R\underline{\operatorname{Hom}}_{B_m}(R,B_m)
+     &\simeq R(N+m)[-N-m],\\
+ R\underline{\operatorname{Hom}}_{A_m}(R,A_m)
+     &\simeq R(N+m-3)[-(N+m-1)]
+ \end{split}
+\end{equation}
+であり、Nakayama twist はない。
+
+全 twist の線束圏 $\mathcal C_m$ と、$a_m=N+m-3$ 本の例外線束を除いた
+残余線束圏 $\mathcal K_m$ は、$R$-proper な有限生成 dg 模型を持つ。
+複素数係数の任意の非零中央一次式を座標 $u_m$ として取り、
+$A_{m-1}=A_m/(u_m)$ とすると、
+制限は実 dg 関手
+\[
+ F_m:\mathcal K_m\longrightarrow\mathcal K_{m-1}
+\]
+とその左右随伴を与える。その twist と unshifted cotwist は
+\begin{equation}\label{mci:eq:spherical-periods}
+ T_{F_m}\simeq\varrho_{m-1}^2,\qquad
+ C_{F_m}\simeq\varrho_m^{-1}[1],\qquad
+ T_{F_m}^3\simeq[4],\qquad C_{F_m}^3\simeq[1]
+\end{equation}
+であり、標準随伴比較射も同型である。また
+\begin{equation}\label{mci:eq:generation}
+ \mathcal K_m=\operatorname{thick}(F_m^R\mathcal K_{m-1}),\qquad
+ \mathcal K_{m-1}=\operatorname{thick}(F_m\mathcal K_m)
+\end{equation}
+となる。これらの実関手、随伴、周期と有限生成の構成は任意の導来底変更に保たれる。
+同じ主張は、原点だけに affine 臨界点を持つ固定三次式を中央境界とする
+可換三次族にも成立する。
+\end{proposition}
+
+\begin{proof}
+一中心では命題\ref{emc:prop:line-model}、多中心では命題\ref{mcp:prop:free-quotient}が
+$R[\mathbf u]$ 上の PBW 基底、商の基底、
+$w$ と中心列の全順序の正則性を与える。
+中心変数の線型変更後も同じ主張を適用できる。
+$B_m/(\mathbf u)=B_0\otimes R$ は、主稿の補題
+\paperref{main}{mbnp:lem:noetherian}と中央多項式拡大により左右 noetherian である。
+正次数の中心元に沿う初項の持上げは内部次数ごとに有限回で止まるので、
+中心変数を順に戻すと $B_m$ とその商 $A_m$ の noetherian 性を得る。
+
+相対自己双対を明示する。$Q_0=R[u_1,\ldots,u_m]$ と置く。
+各因子は $Q_0$ 上の cyclic potential の三微分で定まり、
+cyclic Hessian による長さ三の自由双加群複体を持つ。
+二捩れ因子の中心平方係数は商の中心元だけを変え、周囲の解消には現れない。
+この複体の左右因子交換を伴う転置は $(3)[-3]$ 自己双対を与える。
+active 濾過の随伴は固定した $S_i$ の Koszul 双加群解消であり、
+各総内部次数の濾過が有限なので元の複体も exact である。
+用いている自己双対複体は
+\cite[Theorem~3.6, Lemma~3.7 and proof]{NFMBeTa}の potential 解消であり、
+斉次標準因子の untwisted 性には\cite[Corollary~2.9]{MoriSmith}を用いる。
+$Q_0$ 上の自由性から、各因子を tensor した長さ $N$ の複体も exact となる。
+
+ここで
+\[
+ C=B_m\otimes_R B_m^{\mathrm{op}},\qquad
+ D=B_m\otimes_{Q_0}B_m^{\mathrm{op}}
+\]
+とする。$C$ は $R[\mathbf u_L,\mathbf u_R]$ 上自由であり、
+$z_s=u_{s,L}-u_{s,R}$ $(1\le s\le m)$ は中心正則列である。
+従って $D=C/(z_1,\ldots,z_m)$ は長さ $m$ の Koszul 解消を持ち、
+\[
+ R\underline{\operatorname{Hom}}_C(D,C)\simeq D(m)[-m].
+\]
+相対 potential 解消の双対と change of rings により
+\[
+ R\underline{\operatorname{Hom}}_C(B_m,C)
+          \simeq B_m(N+m)[-N-m]
+\]
+を得る。共有する各中心差を一度ずつ加えており、因子ごとに重複させていない。
+各 $D$-自由項を上の有限 $C$-自由解消で置き換えると、
+$B_m$ の $C$-perfect 性も得られる。
+
+体値の内部次数別 bar 複体に active 濾過を入れると、随伴代数
+$B_0\otimes\C[\mathbf u]$ の Tor は対角次数に集中する。
+従って $B_m$ は Koszul であり、Hilbert 級数 $(1-z)^{-N-m}$ から
+Koszul 空間の階数は $\binom{N+m}{j}$ となる。
+普遍係数上では有限次数の行列の階数が全複素点で一定なので、
+Koszul 空間は有限射影であり、その解消は底変更と両立する。
+自己双対を片側へ augmentation し、正則中心三次の二項解消を用いると
+式\eqref{mci:eq:augmentation-duals}を得る。
+体値での有限双加群解消は global dimension の上界 $N+m$ を与え、
+最上 Ext の非零性が等号を与える。
+
+線束模型への入力も次数を追って確認する。
+射影次元は $n_m=N+m-2=a_m+1$ であり、線束間の Ext は
+\[
+ \operatorname{Ext}^j(\OO(i),\OO(l))=
+ \begin{cases}
+  (A_m)_{l-i},&j=0,\\
+  ((A_m)_{i-l-a_m})^\vee,&j=n_m,\\
+  0,&\text{その他}
+ \end{cases}
+\]
+となる。局所 cohomology と有限線束生成の証明は
+命題\ref{emc:prop:line-model}の自己双対解消によるものを用い、
+ここでは $N+m$ 本の連続する線束が全 twist を生成する。
+各 Hom は $R$-perfect であり、有限例外列による mutation も底変更に両立する。
+
+随伴射の計算が中心変数の個数に依存しないことを記す。
+$a=a_m$、$i_*:\mathcal C_{m-1}\to\mathcal C_m$ を inflation とし、
+残余包含の左右随伴を $p_L,p_R$ とする。
+$i_*\OO(j)$ は $[\OO(j-1)\xrightarrow{u_m}\OO(j)]$ で解消される。
+従って
+\[
+ F_m^R=p_Ri_*,\qquad F_m^L=p_Li_*(1)[-1].
+\]
+$M\in\mathcal K_m$ の制限に対して、$0\le r\le a-2$ の Hom 消滅は
+$\operatorname{RHom}(\OO(r),M)$ と
+$\operatorname{RHom}(\OO(r+1),M)$ の消滅から従う。
+単位三角の残余射影は
+\[
+ C_{F_m}M=p_R(M(-1))[1]=\varrho_m^{-1}M[1]
+\]
+である。Serre 関手 $(-a)[a+1]$ により $\OO(-1)\in\mathcal K_m^\perp$ であり、
+inverse rotation は $R_{\OO(-1)}\circ(-1)$ となる。
+Orlov window の実周期 $(3)\simeq[2]$ はこの mutation 模型にも保たれる。
+
+$Y=i_*N(1)[-1]$、$N\in\mathcal K_{m-1}$ とすると、
+$1\le r\le a-1$ に対する
+$\operatorname{RHom}(\OO(r),Y)
+=\operatorname{RHom}(\OO(r-1),N)[-1]$ は零である。
+従って $Y\to p_LY$ の correction は $\OO$ の生成圏に入り、
+$(-1)[1]$ の後で $p_R$ がこれを殺す。
+中心元の二項解消とその双対は、標準射
+$F_m^R\to C_{F_m}F_m^L$ を同型にする。
+また、$-a\le r\le-2$ に対して
+\[
+ \operatorname{RHom}(i_*N,\OO(r))
+        =\operatorname{RHom}(N,\OO(r+1))[-1]=0
+\]
+なので、$p_Ri_*N\to i_*N$ の correction は $\OO(-1)$ だけである。
+余単位の octahedron は $N(-1)[2]$ の right mutation を与え、
+$T_{F_m}=\varrho_{m-1}^{-1}[2]=\varrho_{m-1}^2$ となる。
+\cite[Theorem~5.1]{CMOAnnoLogvinenkoSpherical}の判定により spherical 性を得る。
+
+最後に、proper 性から十分高い shift への射は零になる。
+余単位三角を反復した $N\to T_{F_m}^{3q}N=N[4q]$、
+および単位の fiber を反復した $M[-2q]\to M$ の cone を用いると、
+式\eqref{mci:eq:generation}を得る。
+この証明は全 coherent 圏の proper 性や source の smoothness を用いない。
+有限生成対象についてこの有限構成を一度選べば、そのまま導来底変更できる。
+可換側では周囲を多項式環として同じ解消と mutation を用いる。
+\end{proof}
+
+\subsubsection{実随伴からの rotation と一般変数数の arity}
+
+\begin{lemma}[固定した滑らかな切断への周期付き rotation 移送]
+\label{mci:lem:rotation-transfer}
+一中心代数 $A_1$ と滑らかな可換三次 $Y_1$ の間に、
+定理\ref{euk:thm:universal-kernel}の実 Morita 比較
+$E_1:\mathcal K_1\simeq\Ku(Y_1)$ を選ぶ。
+この比較から
+\[
+             \eta:E_1\varrho_1\xrightarrow{\sim}\varrho_{Y_1}E_1
+\]
+を構成でき、その三回の合成が両側の指定周期 $\varrho^3\simeq[2]$ を保つように取れる。
+因子とこの複素係数点を固定すれば、$E_1,\eta$ は任意の横断係数環へ定数族として移せる。
+\end{lemma}
+
+\begin{proof}
+最初の中央制限を $F_u$ と書く。
+上記の実比較は、固定された二側の境界同値 $E_0$ とともに
+$E_0F_u\simeq F_u^{\mathrm{cl}}E_1$ および実随伴の単位・余単位を保つ。
+右随伴を取り、単位三角を移すと
+\[
+ E_1C_{F_u}\simeq C_{F_u^{\mathrm{cl}}}E_1
+\]
+を得る。式\eqref{mci:eq:spherical-periods}からこれは
+$E_1\varrho_1^{-1}\simeq\varrho_{Y_1}^{-1}E_1$ を与え、逆を取って所要の
+rotation 比較 $\eta_0$ を得る。
+
+二つの指定三乗周期と $\eta_0$ の三重合成の差は、可逆核 $E_1[2]$ の自己同型である。
+BFK の対角公式\cite[Theorem~5.39]{NFBFKKernels}から
+$\operatorname{HH}^0(\Ku(Y_1))=\C$、$\operatorname{HH}^{<0}(\Ku(Y_1))=0$ となる。
+実際、恒等 sector の次数零は Jacobian 環の次数零であり、
+非恒等 sector がこの次数へ寄与する条件は変数の個数が零であることになる。
+負次数も両 sector で消える。
+従って周期の差は一つの $b\in\C^\times$ であり、
+$\eta_0$ を $d$ 倍すると差は $d^3b$ となる。
+$d^3=b^{-1}$ と取れば周期が一致する。
+二つの周期比較射はこれで $H^0$ において一致する。
+その同定 path の $i$ 次 homotopy 群は
+$H^{-i-1}\operatorname{RHom}(E_1[2],E_1[2])$ $(i\ge0)$ であり、全て零である。
+従って同定の空間は可縮で、周期関係の合成に必要な高次 homotopy にも
+追加の選択障害はない。実 dg 核上の周期付き比較として使える。
+
+この scalar 補正後に、元の $u$ 作用の標識も同時に保つとは結論しない。
+ここで必要なのは固定境界の圏、rotation、および三次周期の比較である。
+全てを複素数体上で一度選んだ後、その核と射を係数環へ tensor する。
+因子や切断を動かす底で三乗根を一斉に選ぶ議論ではない。
+\end{proof}
+
+\begin{lemma}[変数数を三の倍数に限らない比較群]
+\label{mci:lem:smooth-cubic-arity}
+$M\ge6$ とし、$F\in\C[y_1,\ldots,y_M]_3$ の射影零点集合 $Y$ を滑らかとする。
+$V_d=\operatorname{Jac}(F)_d$、$\mathcal B=\Ku(Y)$ と書く。
+任意の係数環 $R$ と $\eta\in V_2\otimes R$ に対して
+\[
+ K_\eta=\operatorname{fib}(\mathbf1\xrightarrow{\eta}\varrho^2),\qquad
+ J=\varrho^2[-1]
+\]
+と置くと、$r\ge2$、$i\ge0$ について
+\begin{equation}\label{mci:eq:arity}
+ H^{2-r-i}\operatorname{RHom}(K_\eta,J^r)=
+ \begin{cases}
+  V_1\otimes R,&(r,i)=(2,0),\\
+  R,&(r,i)=(3,0),\\
+  0,&\text{その他}
+ \end{cases}
+\end{equation}
+となる。この同定は $\eta$ と底変更に自然である。
+固定 counit の正規化 comonad 塔の非空 fiber は離散であり、四項以降は可縮である。
+また $H^{-j}\operatorname{RHom}(\mathbf1,\varrho^2)=0$ $(j\ge1)$ である。
+\end{lemma}
+
+\begin{proof}
+BFK 公式\cite[Theorem~5.39 and proof, pp.~82--84]{NFBFKKernels}は
+変数数の三による整除を仮定しない。
+$H^a\operatorname{RHom}(\mathbf1,\varrho^b)$ の恒等 sector は
+$a$ が偶数なら $V_{b+3a/2}$、奇数なら零である。
+二つの非恒等 sector の必要十分条件は
+\[
+                  a\equiv M\pmod2,\qquad 2b+3a=M
+\]
+である。$U_r=\operatorname{RHom}(\mathbf1,J^r)$、
+$W_r=\operatorname{RHom}(J,J^r)$ と書き、余単位三角を用いると、
+$d=2-r-i$ に対して
+\[
+ H^{d-1}W_r\longrightarrow H^dU_r\longrightarrow
+ H^d\operatorname{RHom}(K_\eta,J^r)\longrightarrow H^dW_r
+\]
+を得る。三つの既知項の恒等 sector の次数は順に
+\[
+ 1-r-3i/2\quad(i\text{ 偶数}),\qquad
+ 3-r-3i/2\quad(i\text{ 偶数}),\qquad
+ (5-2r-3i)/2\quad(i\text{ 奇数})
+\]
+であり、該当 parity 以外では零となる。
+両端は負次数で、中項は式\eqref{mci:eq:arity}の二場合に限られる。
+非恒等 sector の条件は順に
+\[
+ 2-2r-3i=M,\qquad 6-2r-3i=M,\qquad 5-2r-3i=M
+\]
+であり、左辺が高々二なので不可能である。
+両隣接群の消滅が $H^dU_r$ との自然な同型を与える。
+最後の負次数消滅も $b=2,a=-j$ の同じ公式から従う。
+
+$U_r,W_r$ は固定した複素数体上の複体の底変更であり、
+関連 cohomology は自由である。非分裂の mapping complex 全体を一定とする必要はない。
+正規化 unit-insertion cube の total fiber は $J^r$ であるから、
+補題\ref{cmo:lem:normalized-comonad-uniqueness}で確認した opposite と Ind 完備化を通して
+\cite[Theorem~3.3, Lemma~3.11]{CMOWillumsgaardAssociativity}を適用する。
+その $i$ 次 homotopy 群が式\eqref{mci:eq:arity}であり、塔についての結論を得る。
+\end{proof}
+
+\subsubsection{固定した滑らかな ray と全横断係数}
+
+二中心の正規形を $\mathbf U=(u,v)$ で書く。
+非二捩れ因子の二次 potential 係数と、二捩れ因子の中心平方係数を
+共通に $\mathbf t$ と書き、次の係数を用いる。
+\begin{equation}\label{mci:eq:two-center-parameters}
+ \begin{split}
+ \mathbf t(u,v)&=u\mathbf t_u+v\mathbf t_v,\\
+ \alpha(u,v)&=u^2\alpha_{20}+uv\alpha_{11}+v^2\alpha_{02},\\
+ c(u,v)&=c_{30}u^3+c_{21}u^2v+c_{12}uv^2+c_{03}v^3.
+ \end{split}
+\end{equation}
+まず $b=(\mathbf t_u,\alpha_{20},c_{30})$ を一つの複素係数として固定し、
+$A_1=A_2/(v)$ に対応する定理\ref{euk:thm:universal-kernel}の標的
+\begin{equation}\label{mci:eq:fixed-boundary}
+ Y_1=V(F_1)\subset\mathbb P^N,\qquad
+ F_1=G+uQ(\mathbf t_u)+u^2L(\mathbf t_u,\alpha_{20})
+                  +u^3C(\mathbf t_u,\alpha_{20},c_{30})
+\end{equation}
+が滑らかであると仮定する。
+これは系\ref{euk:cor:discriminant}の有限判別行列で判定できる明示的な条件である。
+特に $\mathcal K_1$ は smooth proper であり、全 coherent 残余圏に一致する。
+
+残る横断係数とその重みを
+\begin{equation}\label{mci:eq:transverse-weights}
+ \begin{gathered}
+ \gamma_1=(\mathbf t_v,\alpha_{11},c_{21})\in\C^{2N+1},\qquad
+ \gamma_2=(\alpha_{02},c_{12})\in\C^{N+1},\qquad z=c_{03},\\
+ R=\C[\gamma_1,\gamma_2,z],\qquad
+ \operatorname{wt}(\gamma_1)=1,\quad
+ \operatorname{wt}(\gamma_2)=2,\quad\operatorname{wt}(z)=3
+ \end{gathered}
+\end{equation}
+とする。この重みは $u$ を固定して $v$ を rescale するものに対応する。
+$M=N+1$ とし、境界変数を $\mathbf y=(x_1,\ldots,x_N,u)$ と並べる。
+
+\begin{theorem}[滑らかな一中央切断を持つ二中心族の実核]
+\label{mci:thm:iterated-kernel}
+式\eqref{mci:eq:fixed-boundary}が滑らかとなる $b$ を固定する。
+全横断係数環 $R$ 上に
+\begin{equation}\label{mci:eq:target}
+ \begin{split}
+ W_{\mathrm{it}}={}&F_1(\mathbf y)+v\widetilde Q(\gamma_1;\mathbf y)
+       +v^2\widetilde L(\gamma_1,\gamma_2;\mathbf y)
+       +v^3\widetilde C(\gamma_1,\gamma_2,z),\\
+ \widetilde L={}&\mathsf B\gamma_2+\widetilde R_2(\gamma_1),\\
+ \widetilde C={}&\kappa' z+\widetilde R_{1,1}(\gamma_1,\gamma_2)
+                              +\widetilde R_3(\gamma_1)
+ \end{split}
+\end{equation}
+という可換三次式が存在する。
+ここで $\widetilde Q$ は $\gamma_1$ に線型、$\mathbf y$ に二次、
+$\mathsf B:\C^{N+1}\to\operatorname{Jac}(F_1)_1$ は定数線型写像、
+$\widetilde R_2$ は $\gamma_1$ に斉次二次で $\mathbf y$ に一次、
+$\widetilde R_{1,1}$ は双線型、$\widetilde R_3$ は斉次三次、
+$\kappa'\in\C^\times$ である。
+$\mathsf B$ の可逆性は本定理では主張しない。
+
+$X_{\mathrm{it}}=V(W_{\mathrm{it}})\subset\mathbb P^{N+1}$ とすると、
+$A_2$ と $X_{\mathrm{it}}$ の残余線束圏の間に、全 $R$ 上の実 Morita 双加群と逆双加群が存在する。
+これらは $v=0$ への実制限を、補題\ref{mci:lem:rotation-transfer}で選んだ $E_1$ を通して
+単位・余単位とともに intertwine し、任意の導来底変更に保たれる。
+各複素係数で
+\[
+ \mathcal K_2\text{ が smooth}\quad\Longleftrightarrow\quad
+ X_{\mathrm{it}}\text{ が滑らか}
+\]
+である。この smooth 開上では核は相対積上 perfect となり、
+各複素ファイバーで全 coherent 残余圏の同値
+\[
+          \Ku_{\mathrm{coh}}(A_2)\simeq\Ku(X_{\mathrm{it}})
+\]
+を得る。
+\end{theorem}
+
+\begin{proof}
+境界 $A_1$ は横断係数に依存しない。
+補題\ref{mci:lem:rotation-transfer}で周期付きの実核 $E_1$ を一度選び、$R$ へ tensor する。
+命題\ref{mci:prop:ambient-line-model}は $v$ 制限の実随伴を全 $R$ 上で与える。
+その twist 射を $E_1$ により
+\[
+       \eta\in\operatorname{Jac}(F_1)_2\otimes R
+\]
+へ移す。$v$ 一次の Bockstein は $A_2/(v^2)$ によって決まり、
+式\eqref{mci:eq:transverse-weights}の重み一から $\gamma_1$ に線型となる。
+固定線型切断
+$\operatorname{Jac}(F_1)_2\to\C[\mathbf y]_2$ を選び、
+実可換族 $F_1+v\widetilde Q$ の twist 射が $\eta$ となるように取る。
+その可換 twist 射は $-[\widetilde Q]$ である。
+これは境界 MF の微分 $d^2=F_1$ を持ち上げ、
+$W=0$ 上で $d^2=-v(\widetilde Q+v\widetilde L+v^2\widetilde C)$ とする
+補題\ref{euk:lem:commutative-reference}の二項解消そのものである。
+同じ cohomology 類を表す二射の homotopy は、固定 mapping 複体の
+重みを保つ $\C$-線型縮約を $R$ へ tensor して多項式的に選べる。
+負次数 Hom の消滅により、その path の空間は可縮である。
+
+次に、この実可換族を二項構造の参照点にする。
+補題\ref{mci:lem:smooth-cubic-arity}の自然な同定により、二項差は
+$\operatorname{Jac}(F_1)_1\otimes R$ の大域切断である。
+可換側で $\widetilde L$ を加える作用は $-\operatorname{id}$ であり、
+これは $v^2$ に対する法線二列解消の平方作用素から得られる。
+そのため、この差を消す線型式 $\widetilde L$ を全 $R$ 上で選べる。
+重み二から $\widetilde L=\mathsf B\gamma_2+\widetilde R_2(\gamma_1)$ となる。
+ここでは $\mathsf B$ の全階数を仮定も結論もしていない。
+
+二項を同定する path の空間は可縮である。
+そこで実可換族 $F_1+v\widetilde Q+v^2\widetilde L$ を三項の参照点に取ると、
+三項差は $R$ の大域切断となる。
+可換側の $v^3$ 係数による作用は非零定数倍なので、これを消す
+$\widetilde C$ を多項式的に選べる。
+重み三の単項式は $z$、$\gamma_1\gamma_2$、$\gamma_1^3$ に限られるため、
+式\eqref{mci:eq:target}の形を得る。
+
+$\kappa'\ne0$ は $\gamma_1=\gamma_2=0$ で直接確認できる。
+このとき source の周囲代数は固定した一中心の周囲代数の中央多項式拡大であり、
+曲率は $w_1+zv^3$ である。
+restriction--inflation の実解消の法線因子は
+\[
+ d_0=\begin{pmatrix}0&v\\zv^2&0\end{pmatrix},\qquad
+ \theta=\begin{pmatrix}0&1\\-zv&0\end{pmatrix},\qquad
+ h=\begin{pmatrix}0&0\\-z&0\end{pmatrix}
+\]
+となる。$\theta^2=d_0h+hd_0=-zv\operatorname{id}$、
+$\theta h+h\theta=-z\operatorname{id}$ なので三項は $\pm z$ である。
+この法線因子は実随伴核を解消したものであり、
+境界の非零単位へ tensor すると
+$\operatorname{Jac}(F_1)_0=\C$ の非零 class を与える。
+固定された $E_1$ と周期比較はこの一次元空間の同型だから、
+可換側との比 $\kappa'$ は非零である。
+
+全係数上の二つの実構造の差を使ったので、閉点ごとの minimal model の貼合せは不要である。
+四項以降は、補題\ref{mci:lem:smooth-cubic-arity}により非空比較 fiber が可縮となる。
+両側に実随伴の全構造が存在するため、三項までの比較 path を全高次へ延ばせる。
+これで全 homotopy-coherent comonad の実同値を得る。
+
+境界の生成対象を $G_1$ とする。
+式\eqref{mci:eq:generation}により $F_2^RG_1$ は source の生成対象であり、
+その自己準同型代数は
+\[
+ \operatorname{REnd}(F_2^RG_1)
+       \simeq\operatorname{RHom}(K_\eta G_1,G_1),\qquad
+       g\star f=gK_\eta(f)\Delta_{G_1}
+\]
+という実 coKleisli 模型である。
+可換側も同じ生成性を持ち、全 comonad 比較が積と全高次構造を保つので、
+graph 双加群とその逆を得る。
+生成対象上の制限 intertwiner と単位・余単位は、有限 cone と直和因子へ延びる。
+全ての構成を $R$ 上で行ったため、任意の導来底変更にも保たれる。
+
+可換 smooth 開では、その残余圏と source の有限線束模型は相対 smooth proper となる。
+graph は $R$-perfect であり、両側の smooth 対角の有限解消を用いると
+相対積上も perfect となる。
+命題\ref{mci:prop:ambient-line-model}の noetherian AS-regular 周囲代数と
+正則中心三次を用い、主稿の命題\paperref{main}{crs:prop:residual-smooth}と
+定理\paperref{main}{crs:thm:coherent}によって各複素ファイバーの全 coherent 残余圏へ飽和する。
+逆に、可換残余線束圏が smooth なら有限例外列を戻した
+$\operatorname{Perf}(X_{\mathrm{it}})$ も smooth である。
+同じ飽和判定は全 coherent 対象を perfect にするから、
+特異 hypersurface 局所環の剰余体の無限射影次元により特異点は存在できない。
+これで smoothness の必要十分条件を得る。
+\end{proof}
+
+\begin{corollary}[最後の中心三次係数に関する有限判別]
+\label{mci:cor:finite-discriminant}
+前定理の $b$ を固定し、$R_0=\C[\gamma_1,\gamma_2]$ と置く。
+\[
+ f=F_1+\widetilde Q+\widetilde L,\qquad
+ \mathcal Q=R_0[\mathbf y]/(\partial f),\qquad
+ D_{\mathrm{it}}=\det(\widetilde C\operatorname{id}_{\mathcal Q}+m_f)
+\]
+とすると、$\mathcal Q$ は階数
+\[
+                     \mu'=2^{N+1}=2\cdot8^k
+\]
+の有限自由 $R_0$-加群であり、$[f]=[(\widetilde Q+2\widetilde L)/3]$ となる。
+$D_{\mathrm{it}}$ は $z=c_{03}$ に関して次数 $\mu'$、最高係数 $(\kappa')^{\mu'}$ を持ち、
+\[
+ D_{\mathrm{it}}\ne0\quad\Longleftrightarrow\quad
+ X_{\mathrm{it}}\text{ が滑らか}
+ \quad\Longleftrightarrow\quad\mathcal K_2\text{ が smooth}
+\]
+となる。従って任意の固定した全横断係数 $\gamma_1,\gamma_2$ に対し、
+高々 $2\cdot8^k$ 個の $c_{03}$ を除いて全 coherent Ku 比較を得る。
+悪い係数は重複度を込めれば正確に $\mu'$ 個である。
+\end{corollary}
+
+\begin{proof}
+$Y_1$ の滑らかさにより $\partial F_1$ は原点だけを共通零点とする二次正則列である。
+active 変数をここでは $\mathbf y$ 全体として filtered Koszul 複体を用いると、
+\[
+            \operatorname{gr}\mathcal Q=\operatorname{Jac}(F_1)\otimes R_0
+\]
+を得る。固定 Jacobian 基底の持上げが $R_0$-基底となり、
+Hilbert 級数 $(1+t)^{N+1}$ から階数を得る。
+Euler の式 $3F_1+2\widetilde Q+\widetilde L=0$ が表示した $[f]$ を与える。
+境界 $v=0$ は滑らかなので、全特異点は $v=1$ の chart にある。
+そこでの条件は $\partial f=0$ と $f+\widetilde C=0$ であり、
+有限代数の単元条件から行列式による判定を得る。
+$\widetilde C$ の $z$ 係数は非零定数 $\kappa'$ だから、
+全ての $\gamma_1,\gamma_2$ の特殊化後も最高係数は消えない。
+これは多重臨界点・衝突した臨界値を含む norm であり、
+相異なる根や一般の通常二重点性をこの段階では主張しない。
+\end{proof}
+
+\begin{corollary}[少なくとも一本の滑らかな中央切断]
+\label{mci:cor:smooth-ray}
+定理\ref{mcp:thm:normal-form}の任意の複素係数二中心代数を考える。
+中心平面の一次元部分空間 $\ell$ に沿う一中心商について、
+系\ref{euk:cor:discriminant}の判別値が非零となる $\ell$ が少なくとも一つ存在すれば、
+元の二中心代数の残余線束圏は、同じ次元のある可換三次の残余線束圏と実 Morita 同値である。
+その残余線束圏が smooth な場合、標的は滑らかとなり全 coherent Ku 比較を得る。
+\end{corollary}
+
+\begin{proof}
+その $\ell$ を $v=0$ とする中心変数の線型座標を一度選ぶ。
+命題\ref{mcp:prop:free-quotient}と正規形はこの変更後にも成立する。
+$u$ 方向の係数を固定すれば式\eqref{mci:eq:fixed-boundary}が滑らかであるから、
+前定理の全横断係数族に元の代数が一つのファイバーとして含まれる。
+このファイバーへ構成した核を底変更すればよい。
+\end{proof}
+
+\begin{corollary}[滑らかな中央 flag を仮定する反復]
+\label{mci:cor:smooth-flag}
+任意の $m\ge2$ について、定理\ref{mcp:thm:normal-form}の複素係数代数に
+中央 flag
+\[
+ A_m\longrightarrow A_{m-1}\longrightarrow\cdots
+       \longrightarrow A_1\longrightarrow D,
+ \qquad A_{j-1}=A_j/(u_j)
+\]
+を固定する。$1\le j<m$ の各 $A_j$ の残余線束圏が smooth であると仮定する。
+このとき $A_m$ の残余線束圏は、同じ次元のある可換三次の残余線束圏と
+実 Morita 同値である。最上段も smooth なら全 coherent Ku 同値を得る。
+さらに、固定した $A_{m-1}$ を保つ横断係数の多項式環上では相対的な実核を構成できる。
+\end{corollary}
+
+\begin{proof}
+初段は定理\ref{euk:thm:universal-kernel}とその smoothness 判定による。
+各段の実制限 intertwiner と随伴から次の境界の cotwist を移し、
+補題\ref{mci:lem:rotation-transfer}の scalar 三乗根で指定周期を同期する。
+$j$ 段目の可換境界の変数数は $N+j-1\ge7$ であるから、
+補題\ref{mci:lem:smooth-cubic-arity}をそのまま適用できる。
+$u_j$ の一乗、二乗、三乗に付く横断係数をそれぞれ重み一、二、三としてまとめれば、
+実可換参照族の二次・一次・定数補正が各段で全ての比較群を実現する。
+その前段が smooth という仮定と、命題\ref{mci:prop:ambient-line-model}の実随伴を用い、
+前定理の実可換参照族・全 comonad・coKleisli の構成を反復する。
+最上段の係数だけを動かす場合、境界核を固定してからその係数環へ tensor するので、
+同じ構成は相対核を与える。
+flag 自体が存在するという主張は、この条件付き系には含まれない。
+\end{proof}
+
+\begin{remark}[偏極候補・ray の貼合せとの区別]
+\label{mci:rem:scope}
+一中心の係数多項式に $\mathbf t(u,v),\alpha(u,v),c(u,v)$ を代入した
+素朴な偏極候補を $W_{\mathrm{pol}}$ と書くと、
+本小節で構成した $W_{\mathrm{it}}$ がそれに一致することは証明していない。
+$\widetilde Q,\mathsf B,\kappa',\widetilde R_2,
+\widetilde R_{1,1},\widetilde R_3$ は、固定した滑らかな切断とその比較核の選択に依存する。
+特に $\kappa'$ へ一中心の指定値 $\kappa_k^2=27/28$ を流用しない。
+横断の重み二写像 $\mathsf B$ の可逆性と、一般係数での臨界値の相異性は別の問題である。
+
+本小節は、固定した一本の smooth な中央切断を境界として、
+その補空間方向の全係数を一つの実随伴で扱った。
+全ての中央 ray の比較を $\mathbb P^1$ 上へ降下すること、
+吹上げの例外成分と元の残余圏を核で同時に識別すること、
+二つの中心作用を coherent に balance することは、この証明の入力ではない。
+因子や flag を動かす大域核、全標識の同時保存、
+全ての中央切断が特異となる係数の可換比較、および全 intrinsic 対象の被覆は
+引き続き本結論の外にある。
+\end{remark}

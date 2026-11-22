@@ -3,11 +3,11 @@
 \SetPaper{mixed}
 
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
-\large 有限中心・局所代数・楕円因子の全PBW比較核}
+\large 有限中心・局所代数・楕円因子と多中心の比較核}
 \author{}
-\date{2026年11月22日・研究稿 v58}
+\date{2026年11月22日・研究稿 v59}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
-pdfsubject={有限中心・局所代数・楕円因子の全PBW比較核}}
+pdfsubject={有限中心・局所代数・楕円因子と多中心の比較核}}
 
 \begin{document}
 \maketitle
@@ -65,6 +65,17 @@ Heisenberg 対称性により一次像は純ブロックの二次 Jacobian 成�
 係数変更は三角な多項式同型となる。
 可換 smooth 開では全 coherent Ku 比較を得て、
 各固定一次係数の一般定数補正には $8^k$ 個の相異なる一節点ファイバーが現れる。
+共有中心変数が任意個の場合も、因子別 PBW 関係と指定中心三次の全許容族を
+中心一次・二次・三次形式で記述し、中心列の任意順序の正則性を証明する。
+二中心では、少なくとも一本の滑らかな中央切断を持つ係数について、
+その切断を固定した全横断係数上の実残余線束 Morita 核を構成する。
+最上段が smooth なら、同次元の滑らかな可換三次との全 coherent Ku 同値となる。
+最後の中心三次係数の悪い値は重複度込みで $2\cdot8^k$ 個である。
+滑らかな中央 flag を仮定すれば、任意個の中心へこの構成を反復できる。
+切断の判別形式は次数 $3\cdot8^k$ で、固定一次形式に対する一般の残りの係数は
+この個数の一節点切断を持つ可換 Lefschetz pencil を与える。
+ただし、この偏極候補と逐次構成の標的の一致は証明していない。
+二つの軸の切断が同一でも全体の smoothness が異なる例は、混合情報の必要性を示す。
 さらに交換子パラメータの族に、零と一を含む半局所底上の
 相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
 相対模型から非可換側の Hochschild 対合指標も決定する。
@@ -86,8 +97,9 @@ Heisenberg 対称性により一次像は純ブロックの二次 Jacobian 成�
 非可換三次の Kuznetsov 成分を可換三次の成分として実現する問題では、
 二次関係に中心変数が現れる混合表示が、楕円因子の分離テンソル比較の
 次に調べるべき具体的な対象となる。
-本稿は、一つの中心一次変数を共有する固定楕円 Sklyanin 因子の
-全許容 PBW・中心三次変形を扱う。
+本稿は、中心一次変数を共有する固定楕円 Sklyanin 因子の
+因子別 PBW・中心三次変形を扱う。一中心では全許容係数を比較し、
+多中心では滑らかな中央 flag を持つ範囲で実比較を構成する。
 中心と局所代数を明示できる $S(1,-1,-1)$ の定数型から記法を定め、
 線形補正、さらに異なる因子を許す全係数比較へ進む。
 基礎体は $\C$ とし、$\alpha=(\alpha_1,\alpha_2,\alpha_3)\in\C^3$ に対して
@@ -302,6 +314,16 @@ $N(c)=0$ の smooth proper な五様体について被約孤立定常点が現�
 
 \subsection{先行研究と本稿で加える具体化}
 
+多中心の比較で用いる追加条件は、途中の中央切断の smoothness である。
+定理\ref{mci:thm:iterated-kernel}は固定した滑らかな一切断上で
+全横断係数の核を構成し、系\ref{mci:cor:smooth-flag}はこれを反復する。
+一切断の判別形式 $\Delta$ が恒等零でないことは、
+命題\ref{mcpn:prop:ray-discriminant}で実際の一中心商の smoothness と同値になる。
+従って二中心では明示的な開集合 $\mathcal U_{\mathrm{cut}}$ を比較できる。
+任意の smooth な多中心対象がそのような flag を持つことは、別の未解決問題である。
+本稿が加えるのはこの表示族での実相対核、切断判別と混合情報の具体的な確認であり、
+以下の一般理論自体の新規性は主張しない。
+
 Sklyanin 代数の斉次中心の生成は Smith--Tate
 \cite[Theorems~3.7, 4.8]{GRSklyaninST}、
 potential の PBW 変形と次数三以下の非スカラー中心元の存在は
@@ -347,6 +369,16 @@ Elagin\cite[Lemma~8.6, Theorems~4.2, 8.7, 8.9]{MEDElagin}の同変化を適用�
 双対多様体と Legendre 変換\cite[Sections~1.2 and~1.3.B]{CMOTevelevDuality}に対し、
 本稿では固定二次項での臨界値分離を直接示し、有限な norm 判別式の既約性と正規化を求める。
 これらの一般的な幾何機構自体の新規性は主張しない。
+中央 pencil の臨界方向数 $3\cdot2^{3k}$ は、滑らかな三次超曲面の
+双対次数の既知公式\cite[Section~7.1, Example~7.4]{CMOTevelevDuality}と一致する。
+定理\ref{mcpn:thm:lefschetz-pencil}では、固定した境界と一次係数の下で、
+残る二次・三次形式の値と一次 jet を動かすだけで一般位置を得ることを証明する。
+非可換 Bertini\cite[Proposition~2.1]{CMORSVBertini}は
+有限型可換環上で有限な代数を対象とするため、一般の PBW 族へ無条件に適用しない。
+また、随伴四角から distributive law を得る形式論は
+Beck\cite[Section~3, Proposition]{CMOBeckDistributiveLaws}にある。
+本稿では中央二項解消と残余 mutation の correction を追い、
+その入力となる実 Beck--Chevalley 射を確認する。
 Walton \cite[Definition~V.1, Remark~V.16]{CMOWaltonThesis}の
 位数六の中心拡大に関する持上げの方針に対し、
 本稿は斉次パラメータ $(1,-1,-1)$、線形補正が零、定数補正が任意という
@@ -443,6 +475,8 @@ Sklyanin 曲線と標準中心元の既知の記述
 第\ref{eco:sec:center-lifting}節で他の楕円因子の中心三次持上げを判定する。
 第\ref{emc:sec:elliptic-comparison}節では、任意の固定因子の組について
 境界・一次変形・非分裂 comonad を比較し、全許容係数の実核を構成する。
+第\ref{mct:sec:multicentral}節では、多中心の正規形、中央 pencil の判別、
+滑らかな切断からの逐次核、二制限の交換と混合情報を扱う。
 第\ref{mix:sec:equivariant-window}--\ref{mix:sec:kernel-specialization}節で非可換側の Hom 指標、
 指定 $h$-候補への形式・一般点比較と相対対角・整延長を調べる。
 第\ref{mix:sec:poisson-limits}節を点・零スキームの不一致の例に充てる。
@@ -470,6 +504,7 @@ Sklyanin 曲線と標準中心元の既知の記述
 \input{papers/sections/mixed/linear_comonad_comparison.tex}
 \input{papers/sections/mixed/elliptic_center_obstruction.tex}
 \input{papers/sections/mixed/elliptic_mixed_comparison.tex}
+\input{papers/sections/mixed/multicentral_comparison.tex}
 \input{papers/sections/mixed/equivariant_window.tex}
 \input{papers/sections/mixed/equivariant_deformation.tex}
 \input{papers/sections/mixed/kernel_specialization.tex}
@@ -494,8 +529,12 @@ Sklyanin 曲線と標準中心元の既知の記述
 
 異なる楕円因子を固定した場合の全許容係数比較は
 定理\ref{euk:thm:universal-kernel}で得た。
-次は、複数中心変数に沿う制限の間の coherence と、
-因子の楕円 moduli 上で Picard 補正・指定周期の三乗根を選ぶ降下を調べる。
+多中心では定理\ref{mci:thm:iterated-kernel}と系\ref{mci:cor:smooth-flag}により、
+滑らかな中央切断を反復できる範囲を比較した。
+次は smoothness から良い中央 flag が従うか、
+$\Delta\equiv0$ の部分をどの実随伴模型で扱うかを調べる。
+二軸の制限だけでは混合情報が決まらないため、全交換構造の比較も残る。
+因子の楕円 moduli 上で Picard 補正・指定周期の三乗根を選ぶ降下も別に必要である。
 一般因子での $Q,\mathsf A,\kappa,R_2,R_{1,1},R_3$ の数値化、
 全 intrinsic 対象の表示による被覆は別に残る。
 

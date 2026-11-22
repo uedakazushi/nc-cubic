@@ -1,12 +1,12 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v58。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v59。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
 主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現することである。一つの共有中心変数・任意の固定smooth標準Sklyanin因子の組（k≥2）について、指定境界を保つ全因子別PBW・中心持上げを可換三次と全係数でMorita比較した（`emc:prop:coverage`, `euk:thm:universal-kernel`）。非二捩れの正規化線形Pと二捩れの中心平方βを一次係数tとする。標的はG+uQ(t)+u²(𝔄α+R₂(t))+u³(κc+R₁,₁(t,α)+R₃(t))、𝔄可逆、κ≠0であり、可換smooth開では相対perfect核・全coherent Ku同値を得る。定数3k方向のBocksteinは同型、一次3k方向は単射だが、存在比較は後者を仮定しない。
 
-rank8^kの臨界代数で全係数のsmoothnessを判定する。任意固定tの一般αでは8^k個の相異なる悪いcと、各可換標的の唯一の通常二重点がある。全係数・固定tの判別超曲面は既約被約で、臨界点のaffine空間が正規化を与える。一変数特殊化の重複根は許す。同一S(1,−1,−1)では純ブロックJac₂像・七定数形・κ_k²=27/28を保持し、残る六定数は未数値化。一般因子へこのκ値を流用しない。複数中心、因子moduli上の核選択・降下、全intrinsic被覆、h一般点核のdefect零特殊化は残る。指定二ブロックのP64・norm全64根・局所型も保持する。
+rank8^kの臨界代数で全係数のsmoothnessを判定する。任意固定tの一般αでは8^k個の相異なる悪いcと、各可換標的の唯一の通常二重点がある。全係数・固定tの判別超曲面は既約被約で、臨界点のaffine空間が正規化を与える。一変数特殊化の重複根は許す。同一S(1,−1,−1)では純ブロックJac₂像・七定数形・κ_k²=27/28を保持し、残る六定数は未数値化。一般因子へこのκ値を流用しない。多中心では一本のsmooth切断／smooth中央flagを持つ範囲の実比較を得た。全smooth対象での良いflag、因子moduli上の核選択・降下、全intrinsic被覆、h一般点核のdefect零特殊化は残る。指定二ブロックのP64・norm全64根・局所型も保持する。
 
 C上n≥3を基本とし、generic・全固定点・全族・一般体上の降下を区別する。全intrinsic対象の認識やpoint functorの表現可能性は未完成であり、既知の局所表示だけを全対象と定義して済ませない。可換候補の方程式・判別集合・局所特異点の一致と、その候補への実際の比較核の存在も区別する。
 
@@ -26,7 +26,7 @@ point/Poisson不一致は本文の補助例として扱う。三様体の例の�
 
 研究方針・研究ノート・共通preamble・書誌は三稿で共有し、数学的な本文は複製しない。三稿への整理は編集と参照の再構成であり、既存の数学全体の再証明ではない。以下の点検・計算に関する記述は各結果の既存の確認範囲であり、今回のソース保持・組版・表示確認とは区別する。実際の確認状態は [検証範囲](validation.md) を参照する。
 
-研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。共有中心一変数の全許容固定因子比較は完成した範囲として使い、P0は複数中心の実制限の交換射・二重交叉と全coherence、因子moduli上のPicard/周期降下、全intrinsic被覆に置く。二捩れの関係線形方向の消滅と中心平方方向の残存を区別する。比較係数の数値化は存在結果の具体化として進め、h核の良い特殊化は固定点の同値の存在と分ける。
+研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。共有中心一変数の全許容固定因子比較は完成した範囲として使い、P0は全smooth多中心対象の良い中央flagと全intrinsic被覆に置く。二中心のΔ≡0部分と実交換構造、因子moduli上のPicard/周期降下を調べる。二捩れの関係線形方向の消滅と中心平方方向の残存を区別する。比較係数の数値化は存在結果の具体化として進め、h核の良い特殊化は固定点の同値の存在と分ける。
 
 ### 満支持型における同時存在
 
@@ -312,7 +312,33 @@ Q_ncを可換化してJac(J)₂へ写すと(53/54)(p xy+q yz+r zx)になるが�
 
 有限証明書 `verify_elliptic_bockstein.py` は8 PASS。一般左右gaugeの恒等式、det=−8c³(a−b)³、Clifford binary補行列det=8、Tate双次数と三つの独立挿入を検算する。文献の一次入力は Reich–Walton, Involve11(2018),585–608, DOI10.2140/involve.2018.11.585, Theorem7.1(a)（斉次二捩れ中心）、Lu–Palmieri–Wu–Zhang, JPAA213(2009),2017–2037, DOI10.1016/j.jpaa.2009.02.006, TheoremA/CorollaryB/§5（体上の関係とExt高次積）、Elagin arXiv:1403.7027v2 Lemma8.6/Theorems4.2,8.7,8.9である。これら既知理論と本表示への適用を区別し、後者の網羅的な新規性調査は未完了とする。
 
-次は共有中心二変数で、実制限・二重交叉・comonad間の交換射を同じ有限模型へ載せ、混合項の障害群を計算する。因子moduli上のPicard線束と周期三乗根の降下、一般因子の数値Q・𝔄・κ、全intrinsic表示被覆も残る。一般因子の一次像の具体的Jac₂座標は未決定で、同一S0のHeisenberg純ブロック像を無断に流用しない。
+多中心の比較は次項の良い切断／flag付き結果へ進む。因子moduli上のPicard線束と周期三乗根の降下、一般因子の数値Q・𝔄・κ、全intrinsic表示被覆も残る。一般因子の一次像の具体的Jac₂座標は未決定で、同一S0のHeisenberg純ブロック像を無断に流用しない。
+
+### 多中心の全表示、良い中央切断と反復比較
+
+正本は `mixed/multicentral_comparison.tex`。`mcp:thm:normal-form` は固定因子・因子間可換の表示について、非被約を許す任意可換C-代数R上で、一次中心形式t(U)、二次中心形式α(U)、三次中心形式c(U)を全パラメータとする。非二捩れの中心式は既に証明した普遍多項式をh=1とした後に係数代入する。二捩れでは正規化関係線形項が零、中心平方の一次係数βは残る。分類はI=(U)の随伴代数と低中心を使い、Σu_jq_jの中心性から各q_jの中心性を推論しない。自由係数数は3km+3k binom(m+1,2)+binom(m+2,3)、m=2で15k+4。`mcp:prop:free-quotient` によりAはR[U]上自由、wと中心列は任意順序で正則である。
+
+二中心では一中心のQ,L,Cへ形式を代入したW_polと、切断判別Δ=D(t(U),α(U),c(U))を定める。Δは重みから次数3·8^kの二変数形式。U_cut={Δ≢0}はsmoothな中央ray商が一本ある条件と正確に一致する。固定t(U)で一般α(U),c(U)はΔの単純根3·8^k個を持ち、W_polはsmooth、境界Zをblow-upするとLefschetz pencilになる（`mcpn:thm:lefschetz-pencil`）。証明の入力は固定tの被約判別、各点の値評価の全射性、三次形式の一次jetの自由度である。次数自体はTevelev, arXiv:math/0112028v1, §7.1 Example7.4の既知の双対次数公式と一致する。
+
+実核はこのW_polのsmoothnessから推論しない。一本のsmooth切断A₁=A₂/(v)を固定し、一中心の核E₁と実制限随伴を使う。cotwistはρ_A₁⁻¹[1]なので、E₁はrotation比較を与える。smooth cubic境界のHH⁰=C、HH<0=0により、C上でscalar三乗根を選べば指定三次periodを同期できる。元のu作用の標識を同時に保つとはしていない。固定境界のM=N+1変数に対し、BFKの隣接sectorの必要等式は左辺≤2<Mとなり、二項Jac(F₁)₁・三項Cだけが残る。
+
+横断係数は重み一 γ₁=(t_v,α_uv,c_uuv) が2N+1個、重み二 γ₂=(α_vv,c_uvv) がN+1個、重み三 z=c_vvv が1個。固定E₁をこの多項式環へ移し、実可換参照族との差を二項・三項で消すと、W_it=F₁+vQ̃+v²L̃+v³C̃と実全comonad比較を得る。L̃=Bγ₂+R̃₂(γ₁)、C̃=κ′z+R̃₁,₁+R̃₃、κ′≠0。Bの可逆性は未証明だが、核の存在に不要。coKleisli生成代数から全横断係数の実Morita核・逆・制限intertwinerを構成する（`mci:thm:iterated-kernel`）。smoothnessはsource line圏と標的で同値、そこで全coherentへ飽和する。
+
+F₁のgradientが原点だけを零点に持つため、Q̃,L̃を固定した臨界代数は階数2^(N+1)=2·8^k。det(C̃I+m_(F₁+Q̃+L̃))のz最高係数は(κ′)^(2·8^k)であり、任意固定γ₁,γ₂で有限個のzを除いてsmooth。悪い値の個数は重複度込みであり、相異性・一節点性はこの逐次標的についてまだ結論しない。任意mへは途中のA_jの残余線束圏がsmoothな中央flagを仮定して反復できる。因子・flagを動かす大域核ではなく、固定した境界の横断係数上の相対核である。
+
+次に解くべき点は、smoothnessから良い中央flagが従うか、Δ≡0の部分の実比較、W_it=W_polの可否、横断Bockstein Bの全階数である。Rennemo–Segal–Van den Berghの非可換Bertini, arXiv:1705.01366v2, Proposition2.1は可換有限型環上有限な代数を仮定し、Introductionでsmooth dg圏の層への拡張は未証明と明記する。一般PBW表示へこの結論を無条件に適用しない。
+
+### 二重制限で保持する混合情報と失われる軸データ
+
+`tcr:prop:beck-chevalley` はA,A/(u),A/(v),Sの実残余制限正方形のcanonical右mateが同型であることを証明する。inflationの右projectionのcorrectionはO_A(−1)だけに入り、他方の制限後のprojectionがこれを消すことが要点。単なるambientのTor-independenceだけで残余BCを済ませない。`tcr:prop:joint-comonad` のjoint HH^Rはunderlying kernelとして軸comonadの積に同型となり、実HH^Rの全構造を移したcoherent分配データを持つ。これはBeck, Distributive Laws, LNM80(1969),119–140, DOI10.1007/BFb0083084, §3 Propositionの形式論と両立する。裸の交換射による高次一意性は未主張。
+
+指定Koszul法線MFでq=u²A₂+uvB₂+v²C₂+du³+eu²v+fuv²+hv³を扱うと、二つのodd classの二項積はClifford形−t(A₂,B₂,C₂)、同一odd線に沿う三項積は±t(dr³+er²s+frs²+hs³)となる（`tcr:lem:mixed-normal-products`）。これは選んだ模型での混合係数検出であり、全active gaugeを割ったmoduliの単射性ではない。非分裂一次項uQ_u+vQ_vを消したという意味でもない。
+
+`tcr:ex:same-axes` のW₀=G+u³+v³とW₁=G+(u+v)(u−v)²は、二つの滑らかな軸切断、交叉Z、軸からZへの実随伴と全軸comonadを共有する。しかし前者の残余線束圏はsmooth、後者はp=[0:…:0:1:1]の非正則局所環によりsmoothでない。この反例は、二つの一中心比較を個別に固定しても全体の比較にならないことを示す。一方、逐次核は一本のsmooth境界から元の全横断変形を使うので、この反例と矛盾しない。
+
+相対balancingの未完成点は本ノート後半の「graded-center balancing の有限性」と `tcr:rem:balancing-scope` に保持する。有限Koszul加群模型とassociative cofibrant相対対角の無限q_m列を区別する。逐次比較ではこの未同定towerの有限性を仮定せず、一中心の固定境界塔を用いる。
+
+有限再現資産は `verify_multicentral_pbw.py`（4 PASS）、`verify_multicentral_pencil.py`（6 PASS）、`verify_two_center_restrictions.py`（6 PASS）。pencilのFermat六変数例はb_j=2^jとして、64個の非零相異なる符号和2Σ ε_j8^jから192個の単純方向を厳密に確認する。二重制限の検算器は独立な4×4行列で混合二項・三項を確認する。これらを一般の比較定数や全Ku核の機械検証として扱わない。
 
 ### 全smooth領域の相対模型と比較不変量
 

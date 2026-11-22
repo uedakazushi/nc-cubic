@@ -1,0 +1,295 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v59.
+\subsection{複数の共有中心変数に対する PBW 表示と全中心持上げ}
+\label{mcp:subsec:pbw}
+
+中心変数を増やす際、一次・二次係数を別々の一変数族に分けるだけでは、
+中心三次の混合係数は決まらない。
+ここでは既存の普遍中心恒等式を係数環の準同型で移し、混合項も含む全表示を得る。
+また、複数の中心変数の線型結合が中心的であることから、各係数の中心性を
+個別に結論することはしない。中心イデアルの随伴次数を使って全持上げを分類する。
+
+本小節の代数的主張では $k\ge1$、$m\ge2$ とし、
+滑らかな標準点曲線を持つ $S_i=S(A_i,B_i,C_i)$ と
+$a_i\in\C^\times$ を固定する。
+記号 $I_{\mathrm n},I_2$ はそれぞれ非二捩れ・二捩れ因子の集合とし、
+$i\in I_2$ では $S_i=S(1,1,\tau_i)$ と規格化する。
+各因子の生成元と標準中心三次 $\Omega_{i,0}$ も固定し、
+\[
+ B_0=\bigotimes_iS_i,\qquad
+ w_0=\sum_i a_i\Omega_{i,0},\qquad D=B_0/(w_0)
+\]
+と置く。係数環 $R$ は任意の可換 $\C$-代数でよく、被約性は仮定しない。
+共有中心変数を $\mathbf u=(u_1,\ldots,u_m)$、$\deg u_s=1$ とし、
+係数 $R$ の内部次数は零とする。
+以下の $R[\mathbf u]_d$ は中心変数について斉次次数 $d$ の部分を表す。
+
+\begin{lemma}[普遍中心恒等式の多中心への代入]
+\label{mcp:lem:polarization}
+$i\in I_{\mathrm n}$ に対し、命題\ref{eco:prop:universal-lift}の語代表を固定し、
+その普遍中心を補助 homogenizing 変数 $h$ で
+\[
+ \Omega_{i,0}+hC_{i,2}(P)+h^2C_{i,1}(P,L)
+\]
+と書く。$P$ は二次 cyclic potential、$L$ は一次 cyclic potential である。
+$P(\mathbf u)$ の係数を $R[\mathbf u]_1$、
+$L(\mathbf u)$ の係数を $R[\mathbf u]_2$ に取ると、
+\begin{equation}\label{mcp:eq:substituted-center}
+ \Omega_i(\mathbf u)=\Omega_{i,0}
+       +C_{i,2}\bigl(P(\mathbf u)\bigr)
+       +C_{i,1}\bigl(P(\mathbf u),L(\mathbf u)\bigr)
+\end{equation}
+は potential $\Phi_{i,3}+P(\mathbf u)+L(\mathbf u)$ の代数における
+中心三次である。この代数は $R[\mathbf u]$ 上に固定した $S_i$ の PBW 基底を持つ。
+この構成と基底は、非被約環への変更を含む任意の係数変更に両立する。
+\end{lemma}
+
+\begin{proof}
+まず普遍係数環 $T_i=\C[P,L]$ 上で命題\ref{eco:prop:universal-lift}を用いる。
+そこでの代数は $T_i[h]$ 上自由で、中心性はこの代数内の多項式恒等式である。
+引用命題の証明では多項式環 $T_i$ の被約性を使ってこの恒等式を確定している。
+以下ではその証明済みの恒等式を底変更し、$R$ の閉点での消滅から零性を推論しない。
+$h=1$ として、$T_i$ 上自由な filtered 代数と中心元
+\[
+       \Omega_{i,0}+C_{i,2}(P)+C_{i,1}(P,L)
+\]
+を得る。次に $T_i\to R[\mathbf u]$ を、各 potential 係数に
+指定した一次式・二次式を代入する準同型とする。
+代数の表示、自由基底、中心恒等式をこの準同型で tensor するだけで、所要の主張を得る。
+同命題では $C_{i,2}$ は $P$ に一次で active 次数二、
+$C_{i,1}$ は係数重み二で active 次数一である。
+従って式\eqref{mcp:eq:substituted-center}は総内部次数三である。
+この段階では方向ごとの特殊化から中心性を推論しておらず、
+$R$ の被約性や $u_s$ の可逆性は必要ない。
+\end{proof}
+
+混合係数を明示するため $C_{i,1}(P,L)=Q_i(P)+J_i(L)$ と書く。
+$Q_i$ は二次写像、$J_i$ は線型写像であり、
+$H_i(P,P')=(Q_i(P+P')-Q_i(P)-Q_i(P'))/2$ をその対称双線型偏極とする。
+$m=2$ の場合
+\[
+ P(u,v)=uP_u+vP_v,\qquad
+ L(u,v)=u^2L_{20}+uvL_{11}+v^2L_{02}
+\]
+なら式\eqref{mcp:eq:substituted-center}は
+\begin{equation}\label{mcp:eq:two-variable-polarization}
+ \begin{aligned}
+ \Omega_i(u,v)={}&\Omega_{i,0}
+   +uC_{i,2}(P_u)+vC_{i,2}(P_v)\\
+ &+u^2\bigl(Q_i(P_u)+J_i(L_{20})\bigr)\\
+ &+uv\bigl(2H_i(P_u,P_v)+J_i(L_{11})\bigr)\\
+ &+v^2\bigl(Q_i(P_v)+J_i(L_{02})\bigr).
+ \end{aligned}
+\end{equation}
+特に $uv$ 項には二つの一次 potential の偏極項が必要である。
+任意個の変数でも、各 $u_su_t$ の係数を同じ双線型式で与える。
+
+\begin{theorem}[指定境界を持つ全因子別 PBW・中心三次の正規形]
+\label{mcp:thm:normal-form}
+各因子の三関係に、その因子の生成元だけを使った
+\begin{equation}\label{mcp:eq:general-relations}
+       r_{i,j}+\sum_l M_{i,jl}(\mathbf u)x_{i,l}
+                         -\alpha_{i,j}(\mathbf u)
+\end{equation}
+を許す。ただし $M_{i,jl}\in R[\mathbf u]_1$、
+$\alpha_{i,j}\in R[\mathbf u]_2$ とし、異なる因子は可換とする。
+この表示は、active 濾過の随伴代数が
+$B_0\otimes_{\C}R[\mathbf u]$ となる意味で PBW であると仮定する。
+
+この代数に $w\bmod(\mathbf u)=w_0$ を満たす中心三次 $w$ が存在するための
+必要十分条件と、その全ての中心三次は、平行移動
+$x_{i,j}=X_{i,j}+s_{i,j}(\mathbf u)$、$s_{i,j}\in R[\mathbf u]_1$ の後に、
+次のように記述される。
+\begin{enumerate}
+ \item $i\in I_{\mathrm n}$ では $M_i$ は任意の対角零対称行列である。
+ その三つの対角外成分を $p_i(\mathbf u),q_i(\mathbf u),r_i(\mathbf u)$ とし、
+ \[
+ P_i(\mathbf u)=p_i(\mathbf u)x_iy_i+q_i(\mathbf u)y_iz_i
+                  +r_i(\mathbf u)z_ix_i,\qquad
+ L_i(\mathbf u)=-\sum_j\alpha_{i,j}(\mathbf u)x_{i,j}
+ \]
+ と置く。中心元 $\Omega_i(\mathbf u)$ は
+ 式\eqref{mcp:eq:substituted-center}で与える。
+ \item $i\in I_2$ では $M_i=0$ であり、定数補正 $\alpha_{i,j}(\mathbf u)$ は任意である。
+ 三つの平方はこの全係数上で中心的であり、中心三次として
+ \[
+          \Omega_{\tau_i}+\sum_j\beta_{i,j}(\mathbf u)x_{i,j}^2,
+             \qquad \beta_{i,j}(\mathbf u)\in R[\mathbf u]_1
+ \]
+ を取る。
+ \item 全体の中心三次は正確に
+ \begin{equation}\label{mcp:eq:all-centers}
+  \begin{aligned}
+  w={}&\sum_{i\in I_{\mathrm n}}a_i\Omega_i(\mathbf u)\\
+    &+\sum_{i\in I_2}a_i
+      \left(\Omega_{\tau_i}+\sum_j\beta_{i,j}(\mathbf u)x_{i,j}^2\right)
+    +c(\mathbf u),\qquad c(\mathbf u)\in R[\mathbf u]_3.
+  \end{aligned}
+ \end{equation}
+ で尽くされる。
+\end{enumerate}
+対角零とする平行移動は一意であり、その後の上記全係数も一意である。
+従って、固定した因子・生成元・中心境界を保つ表示をこの平行移動で割った族は、
+\begin{equation}\label{mcp:eq:parameter-count}
+          3km+3k\binom{m+1}{2}+\binom{m+2}{3}
+\end{equation}
+個の自由な係数を持つ affine 空間で表される。
+$m=2$ ではその次元は $15k+4$ である。
+この分類は任意の可換 $\C$-代数 $R$ に自然である。
+\end{theorem}
+
+\begin{proof}
+補題\ref{ebc:lem:translation-gauge}の Koszul overlap を
+$R[\mathbf u]$ 上で計算する。
+PBW 条件は $M_i(\mathbf u)=M_i(\mathbf u)^{\mathsf t}$ を与える。
+各 $C_i\ne0$ なので、その証明で使った
+$R_i\cap\bigwedge^2V_i=0$ の線型恒等式は任意の係数環への変更でも成立する。
+逆に対称行列は二次 cyclic potential の微分であり、
+普遍 lower-potential 代数の PBW 基底を底変更すれば全係数で PBW となる。
+
+平行移動は係数ごとに同補題の式\eqref{ebc:eq:translation}を与える。
+その対角は $2C_i s_{i,j}(\mathbf u)$ だから、
+$s_{i,j}=-M_{i,jj}/(2C_i)$ が対角を消す唯一の一次式である。
+定数補正はこの代入で二次式に変わるが、依然として任意に許した範囲に入る。
+
+次に、二捩れ因子の必要条件を中心イデアル $I=(u_1,\ldots,u_m)$ の一次層で検出する。
+$M_i(\mathbf u)=\sum_s u_s M_i^{(s)}$ と書く。
+中心性 $[x_{i,j},w]=0$ を $I^2$ を法として取り、
+各 $u_s$ の係数と、他因子の active 次数が全て零となる純 $i$ ブロックへ射影する。
+その式は
+\[
+       a_i\delta_{i,j}(M_i^{(s)})+[x_{i,j},Q_{i,s}]=0
+                  \quad\text{in }S_{i,3}\otimes R
+\]
+となる。$w$ に含まれる混合ブロックの二次補正は、この純ブロック成分へ寄与しない。
+定理\ref{eco:thm:clifford-obstruction}の平行移動による三つの線型な正規係数へ移し、
+同定理の汎関数\eqref{eco:eq:three-functionals}を適用すると、
+各 $M_i^{(s)}$ は平行移動の像に属さなければならない。
+これは $\C$ 上の線型恒等式に $R$ を tensor したものであり、
+閉点だけの判定ではない。$a_i\tau_i\ne0$ は $R$ 内でも単元なので、
+非被約な係数は新しい解を与えない。
+対角零の正規化後は各 $M_i^{(s)}=0$ である。
+
+十分性について、非二捩れ因子には補題\ref{mcp:lem:polarization}を用いる。
+二捩れ因子については、命題\ref{eco:prop:clifford-center-freedom}を
+まず補助変数 $h=1$ とし、$\alpha_{i,j}\mapsto\alpha_{i,j}(\mathbf u)$ と底変更する。
+その普遍 Clifford 表示は、平方と体積元の中心性を全 $R[\mathbf u]$ 上で与える。
+従って式\eqref{mcp:eq:all-centers}の全ての元が中心的である。
+
+最後に、これ以外の中心三次がないことを確認する。
+正規化後の周囲代数を $B$ とし、$\beta=c=0$ で構成した中心元を $w^{\mathrm{can}}$ と書く。
+$z=w-w^{\mathrm{can}}$ は総次数三の中心元で $z\in IB$ である。
+PBW 基底により、中心イデアルについての随伴代数は
+\begin{equation}\label{mcp:eq:i-associated}
+       \operatorname{gr}_I B
+             =B_0\otimes_{\C}R[\bar u_1,\ldots,\bar u_m]
+\end{equation}
+である。これは中心変数の次数による随伴代数であり、active 濾過とは区別する。
+$z\in I^qB$ の初項は中心性により
+\[
+    R[\bar{\mathbf u}]_q\otimes_{\C}Z(B_0)_{3-q}
+\]
+の中に入る。
+有限次数の中心条件は、生成元との交換子による有限個の $\C$-線型写像の核なので、
+この核の計算は任意の $R$ への tensor と両立する。
+
+体上の tensor 積の中心は各中心の tensor 積であり、
+全因子で $Z(S_i)_1=0$、非二捩れでは $Z(S_i)_2=0$、
+二捩れでは $Z(S_i)_2=\langle x_i^2,y_i^2,z_i^2\rangle$ である。
+従って $q=1$ の初項は、二捩れ因子の平方に中心一次式を掛けたものだけである。
+それらの平方は変形後の $B$ でも正確に中心的なので、その持上げを引けば
+$z\in I^2B$ となる。
+次に $Z(B_0)_1=0$ より $q=2$ の初項は零で、$z\in I^3B$ となる。
+総次数三なので、残りは $R[\mathbf u]_3$ だけである。
+ここで $I^4B$ の総次数三部分は零である。
+以上により全ての自由度が式\eqref{mcp:eq:all-centers}に含まれる。
+各次数層の基底独立性は、表示した係数の一意性も与える。
+因子あたり三つの一次式と三つの二次式、最後の一つの三次式の係数を数えると
+式\eqref{mcp:eq:parameter-count}を得る。
+\end{proof}
+
+\begin{proposition}[商の自由性と任意順序の中心正則列]
+\label{mcp:prop:free-quotient}
+定理\ref{mcp:thm:normal-form}の全係数族について、$A=B/(w)$ と置く。
+$B,A$ は、次数付き加群としてそれぞれ
+\begin{equation}\label{mcp:eq:free-bases}
+       B\simeq R[\mathbf u]\otimes_{\C}B_0,\qquad
+       A\simeq R[\mathbf u]\otimes_{\C}D
+\end{equation}
+という自由基底を持つ。この表示は代数同型を主張するものではない。
+$w$ は $B$ の左右の非零因子であり、中心列 $u_1,\ldots,u_m$ は
+$B,A$ の双方で任意の順序の正則列となる。
+さらに $w,u_1,\ldots,u_m$ は $B$ 上で任意の順序の正則列である。
+中心変数の可逆な $R$-線型変更を行っても同じ結論が成立する。
+従って任意の部分集合 $J\subset\{1,\ldots,m\}$ に対し
+\[
+ A/(u_j:j\in J)
+\]
+は残りの中心多項式環上自由であり、全ての係数変更とこれらの商が可換する。
+特に $A/(\mathbf u)=D\otimes_{\C}R$ である。
+
+普遍係数環を $T_m$ とすれば各内部次数は有限自由 $T_m$-加群で、
+その階数 Hilbert 級数は
+\begin{equation}\label{mcp:eq:hilbert}
+       H_B(z)=\frac1{(1-z)^{3k+m}},\qquad
+       H_A(z)=\frac{1-z^3}{(1-z)^{3k+m}}
+\end{equation}
+となる。
+\end{proposition}
+
+\begin{proof}
+$B$ の自由基底は普遍 PBW 基底の底変更から得られる。
+まず $w_0$ が $B_0$ 上正則であることを確認する。
+各 $S_i$ は $\C[\Omega_{i,0}]$ 上自由である。
+実際、$S_i/(\Omega_{i,0})$ の斉次基底を持ち上げると、
+次数に関する帰納法と $\Omega_{i,0}$ の正則性によりその基底を得る。
+従って $B_0$ は $\C[\Omega_{1,0},\ldots,\Omega_{k,0}]$ 上自由であり、
+非零線型式 $w_0=\sum_i a_i\Omega_{i,0}$ は左右正則である。
+同じことは任意の $R$ を tensor しても成立する。
+
+active 次数による濾過では
+\[
+      \operatorname{gr}_{\mathrm{act}}B=B_0\otimes R[\mathbf u],
+         \qquad \operatorname{in}_{\mathrm{act}}(w)=w_0
+\]
+である。初項が非零因子なので $w$ も左右の非零因子である。
+また $w$ の中心性により、その二側イデアルの全ての元は $wb$ の形であり、
+$\operatorname{in}(wb)=w_0\operatorname{in}(b)$ となる。
+従って商の濾過は厳密で、
+\begin{equation}\label{mcp:eq:active-quotient}
+           \operatorname{gr}_{\mathrm{act}}A
+                 =D\otimes_{\C}R[\mathbf u]
+\end{equation}
+を得る。
+
+$D$ の固定した斉次 $\C$-基底を語の線型結合で代表し、同じ語を $A$ へ持ち上げる。
+式\eqref{mcp:eq:active-quotient}による active 次数の帰納法から、これらは
+$R[\mathbf u]$ 上で $A$ を生成する。
+有限な線型関係があれば、その最高 active 次数を取ると $D$ の基底間の関係になる。
+係数は零なので、次数を下げて全ての係数が零であると分かる。
+これが式\eqref{mcp:eq:free-bases}の第二式である。
+この基底とその証明は普遍係数上で固定でき、その後の任意の底変更にも保たれる。
+
+自由な $R[\mathbf u]$-加群上で、変数を任意の順序で消していく列は正則である。
+また、任意の中心変数の部分集合を先に零とした $B$ 上でも、
+$w$ の最高 active 部分は同じ $w_0$ である。
+従って $w$ はその商でも正則であり、これで $w$ を途中に置く全ての順序も扱える。
+可逆な中心座標変更は $R[\mathbf u]$ の自己同型であり、
+係数一次式・二次式・三次式の形を保つので、同じ自由基底の証明を適用できる。
+固定された graded 基底の個数から式\eqref{mcp:eq:hilbert}を得る。
+\end{proof}
+
+\begin{remark}[被覆の範囲と検算]
+\label{mcp:rem:scope}
+定理\ref{mcp:thm:normal-form}が分類するのは、因子間の可換性を保ち、
+各因子の関係にその因子の active 一次項と中心二次項を加える指定表示である。
+因子を混ぜる一般の PBW 関係や、任意の内在的非可換三次の表示被覆は含まない。
+中心方向の多項式恒等式と全順序の正則性も、それだけでは残余圏の比較核や
+複数の制限間の全 coherence を与えない。
+
+\path{computations/verify_multicentral_pbw.py} は二中心変数について、
+平行移動後の混合二次係数、既存の $S(1,-1,-1)$ 普遍中心公式の重み付き代入と
+偏極による $uv$ 成分を厳密に確認する。
+任意個の中心変数、任意の非被約係数環、全次数の自由基底と全中心持上げの分類は
+上の証明によるものであり、この有限計算の確認範囲と区別する。
+\end{remark}

@@ -1,0 +1,180 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v59.
+\subsection{中央切断の判別形式と比較を始められる開集合}
+\label{mcpn:subsec:pencil}
+
+以下は $k\ge2$、$N=3k$、中心変数二つ $U=(u,v)$ の場合である。
+前節で一度固定した境界比較と Jacobian 切断から、
+式\eqref{euk:eq:coefficients}の多項式 $Q,L,C$ を固定する。
+定理\ref{mcp:thm:normal-form}の係数を
+\[
+ \mathbf t(U)\in\C^N\otimes\C[u,v]_1,\quad
+ \alpha(U)\in\C^N\otimes\C[u,v]_2,\quad c(U)\in\C[u,v]_3
+\]
+と書く。これらを重み斉次式へ代入して得る三次式を
+\begin{equation}\label{mcpn:eq:polarized-candidate}
+ \begin{split}
+ W_{\mathrm{pol}}(\mathbf x,U)
+  ={}&G(\mathbf x)+Q(\mathbf t(U))(\mathbf x)\\
+    &+L(\mathbf t(U),\alpha(U))(\mathbf x)
+      +C(\mathbf t(U),\alpha(U),c(U)),\\
+ X_{\mathrm{pol}}={}&V(W_{\mathrm{pol}})\subset\mathbb P^{N+1}
+ \end{split}
+\end{equation}
+と定める。$Q,L,C$ の active 次数はそれぞれ二、一、零であり、
+中心変数に関する次数は一、二、三である。
+本小節はこの\emph{偏極した可換候補}の幾何を扱う。
+多項式を偏極しただけで二中心の Morita 核が得られたとはしない。
+
+一中心の判別多項式を系\ref{euk:cor:discriminant}の $D$ とし、
+$\mu=2^N=8^k$ と置く。
+
+\begin{proposition}[中央切断を判定する次数 $3\cdot8^k$ の形式]
+\label{mcpn:prop:ray-discriminant}
+\[
+ \Delta(u,v)=D(\mathbf t(u,v),\alpha(u,v),c(u,v))
+\]
+は次数 $3\mu$ の二変数斉次形式である。恒等零となる特殊係数も許す。
+$\ell=[a:b]\in\mathbb P^1$ に対し
+\[
+ A_\ell=A/(bu-av)
+\]
+と書くと、
+\[
+ \Delta(a,b)\ne0
+ \quad\Longleftrightarrow\quad
+ A_\ell\text{ の残余線束圏が smooth}
+ \quad\Longleftrightarrow\quad
+ V\bigl(W_{\mathrm{pol}}(\mathbf x,as,bs)\bigr)
+       \subset\mathbb P^N\text{ が滑らか}
+\]
+である。従って全二中心係数空間の開集合
+\[
+ \mathcal U_{\mathrm{cut}}
+   =\{\Delta\not\equiv0\}
+\]
+は、少なくとも一つの滑らかな中央切断を持つ係数を正確に表す。
+その補集合は $\Delta$ の全 $3\mu+1$ 個の係数の消滅で定義される。
+\end{proposition}
+
+\begin{proof}
+一中心側で active 変数を $\mathbf x\mapsto z\mathbf x$ と変えると、
+係数の重み $(1,2,3)$ により臨界値も定数項も $z^3$ 倍される。
+従って $z\ne0$ について
+\[
+ D(z\mathbf t,z^2\alpha,z^3c)=z^{3\mu}D(\mathbf t,\alpha,c).
+\]
+これは全係数の多項式恒等式なので $z=0$ にも成立する。
+代入した $\Delta$ の斉次性が従う。
+正規形の中心持上げは普遍多項式の底変更であるから、
+$(u,v)=(as,bs)$ の代入は、一中心族の係数
+$(\mathbf t(a,b),\alpha(a,b),c(a,b))$ と正確に一致する。
+系\ref{euk:cor:discriminant}が表示した同値を与える。
+非零斉次形式は $\mathbb P^1$ 全体では消えないので、最後の主張も従う。
+\end{proof}
+
+\begin{theorem}[一次形式を固定した一般係数の中央 pencil]
+\label{mcpn:thm:lefschetz-pencil}
+任意の $\mathbf t(U)$ を固定する。
+二次形式 $\alpha(U)$ と三次形式 $c(U)$ の係数空間には非空 Zariski 開集合があり、
+そこで $\Delta$ は正確に $3\mu$ 個の相異なる零点を持つ。
+各零点の可換切断は唯一の通常二重点を持つ。
+この開集合では $X_{\mathrm{pol}}$ は滑らかで、
+\[
+ \operatorname{Bl}_{Z}X_{\mathrm{pol}}\longrightarrow\mathbb P^1,
+ \qquad Z=V(G)\subset\{u=v=0\},
+\]
+は $3\mu$ 個の一節点ファイバーを持つ Lefschetz pencil の解消である。
+\end{theorem}
+
+\begin{proof}
+係数空間を
+$\mathcal P=(\C^N\otimes H^0(\mathbb P^1,\OO(2)))
+\times H^0(\mathbb P^1,\OO(3))$ とする。
+各 $\ell\in\mathbb P^1$ で、値の評価
+$(\alpha(U),c(U))\mapsto(\alpha(\ell),c(\ell))$ は全射である。
+さらに $c$ の値と一次 jet は独立に指定できる。
+
+固定した $\mathbf t(\ell)$ に対する $D=0$ は、
+系\ref{euk:cor:normalization}により既約被約超曲面である。
+その特異部分は $(\alpha,c)$ 空間で余次元二以上である。
+値の評価の全射性から、$\mathbb P^1\times\mathcal P$ 上で
+この特異部分へ入る incidence も余次元二以上となる。
+従ってその $\mathcal P$ への像は真の閉部分集合である。
+閉性には $\mathbb P^1$ の proper 性を使う。
+
+この部分を除いた $D=0$ の点では、対応する臨界点が唯一で、
+Hessian が非退化である。臨界代数をその長さ一の因子と残りに分けると、
+norm の微分は
+\[
+                   \frac{\partial D}{\partial c}\ne0
+\]
+となる。ここでは $c\mapsto C$ の係数 $\kappa\ne0$ を使う。
+$\Delta(\ell)=0$ を固定したまま $c$ の一次 jet を変えれば、
+$d\Delta(\ell)$ を任意に変えられる。
+従って $\Delta=d\Delta=0$ の incidence も、この領域では余次元二である。
+前の特異部分を含めた閉集合の全次元は高々 $\dim\mathcal P-1$ なので、
+その像を除いた非空開集合では全ての零点が単純となる。
+次数 $3\mu$ から零点数を得る。
+
+$Z$ 上では $G$ の偏微分が同時に消えないため、
+$X_{\mathrm{pol}}$ と全ての切断は滑らかである。
+$Z$ の外では中心方向の局所座標を $z$ とし、三次式を
+$F(\mathbf x,z)=0$ と書く。切断が滑らかなら total space も滑らかである。
+切断の唯一の Morse 点 $p$ では、上の長さ一因子による norm の局所表示から
+\[
+ d\Delta/dz\ne0\quad\Longrightarrow\quad
+                       \partial F/\partial z(p)\ne0.
+\]
+従ってそこでも total space は滑らかである。
+陰関数定理で $z$ を解くと、その Hessian は非退化なので
+射影の臨界点は通常の Lefschetz 型となる。
+
+$(u,v)$ は $X_{\mathrm{pol}}$ 上の正則列であり、
+その零集合は滑らかな余次元二の $Z$ である。
+従って pencil の graph はこの ideal の blow-up に一致する。
+方向 $[a:b]$ のファイバーは
+$V(W_{\mathrm{pol}}(\mathbf x,as,bs))$ 自身である。
+各切断内では $Z$ は Cartier 因子なので余分な blow-up は生じない。
+\end{proof}
+
+次数 $3\cdot2^N$ 自体は、滑らかな $N$ 次元三次の双対次数という既知の数である
+\cite[Section~7.1, Example~7.4]{CMOTevelevDuality}。
+上の証明で確認したのは、$G$ と任意の $\mathbf t(U)$ を固定し、
+制限された $Q$ の族の中でも、$\alpha(U),c(U)$ の変化だけで
+この一般位置が得られることである。
+
+\begin{example}[六 active 変数における $192$ 個の単純臨界方向]
+\label{mcpn:ex:fermat-pencil}
+$G=\sum_{j=0}^{5}x_j^3$、$b_j=2^j$ として
+\[
+ W=\sum_{j=0}^{5}x_j^3-3u^2\sum_{j=0}^{5}b_j^2x_j+v^3
+\]
+を取る。$u\ne0$ の臨界点は $x_j=\epsilon_jb_ju$、$\epsilon_j\in\{\pm1\}$ であり、
+中央切断の判別形式は
+\[
+ \Delta(u,v)=\prod_{\epsilon\in\{\pm1\}^6}
+          \left(v^3-2\sum_{j=0}^{5}\epsilon_j8^j\,u^3\right)
+\]
+である。符号付き和は互いに異なり、どれも零ではない。
+従って $64$ 個の三次因子は互いに素で、各因子の三根は相異なる。
+全 $192$ 方向が単純である。Hessian は
+$\operatorname{diag}(6\epsilon_jb_ju)$ なので全臨界点が Morse であり、
+$u=0$ のファイバーも滑らかである。
+この有限の恒等式と jet の評価は
+\texttt{computations/verify\_multicentral\_pencil.py}で再現する。
+これは一般の比較係数の数値計算や、二中心核の検算ではない。
+\end{example}
+
+\begin{remark}[切断の判別と全対象の比較の区別]
+\label{mcpn:rem:scope}
+$\mathcal U_{\mathrm{cut}}$ 上で選んだ良い切断は、次の逐次比較の出発点になる。
+そこで構成する標的と $X_{\mathrm{pol}}$ が同じであることは未証明である。
+特に $X_{\mathrm{pol}}$ の smoothness を、そのまま二中心の非可換対象の
+smoothness と同一視しない。
+$\Delta\equiv0$ の部分に滑らかな非可換対象が存在しないことも、ここでは証明していない。
+一般の非可換 Bertini を適用するには追加の確認が要る。
+例えば\cite[Proposition~2.1]{CMORSVBertini}は可換有限型環上の有限性を仮定し、
+同論文の Introduction は smooth dg 圏の層への拡張を証明していないと明記する。
+一般の多中心 PBW 族にその有限中心仮定を無条件で加えることはしない。
+\end{remark}

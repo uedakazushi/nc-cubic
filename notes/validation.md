@@ -1,10 +1,35 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月22日 / v58。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月22日 / v59。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+
+## 多中心の正規形・中央切断・逐次核の確認範囲
+
+正本は `multicentral_comparison.tex` と四つの入力節 `multicentral_pbw.tex`, `multicentral_pencil.tex`, `multicentral_iterated_comparison.tex`, `two_center_restrictions.tex`。本文に証明を記載し、主担当と執筆担当以外の読解を分けて確認した。外部査読、形式証明器、新規性の網羅的確認は未実施である。
+
+- 多中心PBW正規形は、普遍環でh=1としてからの係数代入、非被約Rへの底変更、I-adic低中心分類、active初項による自由基底、wを含む全順序正則性を主担当と別担当が全文読解した。
+- 中央pencilは固定tの判別超曲面の特異点判定まで照合し、値評価・cの一次jetによる余次元二incidence、P¹のproper射影、ノルム局所因子によるtotal spaceのsmoothnessを独立読解した。
+- 逐次核は、実cotwistからのrotation移送、固定C点での三乗根同期、一般M≥6の両隣接sector、固定境界を全横断係数へ移した実参照族差・三項κ′≠0・coKleisli・smooth飽和を主担当と二人の別担当が全文読解した。未完成の二中心balancing towerは入力に使わない。中央座標を選ぶ一次式はC係数非零と明記した。
+- 二重制限は、負例外列によるO(−1)だけの補正、canonical右mate、共同comonadへの全構造移送、指定MFの混合積、同一smooth二軸と異なるtotal smoothnessの反例を主担当と別担当が全文読解した。bare交換射から高次構造が一意とは主張しない。
+
+一次資料はTevelev arXiv:math/0112028v1 §7.1 Example7.4、Rennemo–Segal–Van den Bergh arXiv:1705.01366v2 Proposition2.1とIntroduction、Beck Distributive Laws §3 Proposition・証明（TAC再版104–106頁）を確認した。双対次数と随伴形式論を新規結果として扱わず、Bertiniの有限中心仮定を一般PBWへ流用しない。
+
+### 厳密計算
+
+| 検算器 | 実行結果 | 確認範囲 |
+| --- | --- | --- |
+| `verify_multicentral_pbw.py` | 4 PASS、終了コード0 | 中心形式による平行移動、Clifford一次障害、既存普遍中心証明書の代入、uv偏極。執筆担当と主担当が実行。 |
+| `verify_multicentral_pencil.py` | 6 PASS、終了コード0 | 六変数Fermat例の64臨界値と192方向、Hessian、平方因子なし、一次jet、斉次次数。主担当と別担当が実行。 |
+| `verify_two_center_restrictions.py` | 6 PASS、終了コード0 | 独立な4×4行列の曲率・閉元・混合二項・homotopy・三項偏極、同軸反例。執筆担当・別担当・主担当が実行。 |
+
+有限恒等式の検算と、全係数核・高次coherence・一般係数の証明を区別する。
+
+### 現行組版と保存
+
+主稿・混合稿はv59、モジュライ稿の本文はv50を保持する。方針・ノート・README・AGENTS・両稿の概要と序論へ多中心結果と現在の未解決点を統合した。現行版のsource checkは117ファイル・1872一意ラベルで成功した（主稿33/477、モジュライ稿45/874、混合稿43/521）。入力・他稿参照・引用・author欄・rootを確認し、git diff --checkも成功した。LuaLaTeX組版は進行中で、表示点検と外部保存は実行後にここを更新する。前版のPDFや頁数を現行版の確認として扱わない。
 
 ## 任意固定楕円因子の全係数比較の確認範囲
 
-対象は新節 `elliptic_mixed_comparison.tex`, `elliptic_boundary_kernel.tex`, `elliptic_bockstein.tex`, `elliptic_universal_kernel.tex` と、中心障害節に統合した普遍Clifford中心である。執筆と独立読解、有限検算、組版・表示、保存を別々に扱う。新規性の網羅的確認、外部査読、形式証明器による検証は未完了である。
+対象は `elliptic_mixed_comparison.tex`, `elliptic_boundary_kernel.tex`, `elliptic_bockstein.tex`, `elliptic_universal_kernel.tex` と、中心障害節に統合した普遍Clifford中心である。執筆と独立読解、有限検算、組版・表示、保存を別々に扱う。新規性の網羅的確認、外部査読、形式証明器による検証は未完了である。
 
 ### 証明と一次資料
 
@@ -16,7 +41,7 @@
 
 Reich–Walton Theorem7.1(a)と公刊書誌、Lu–Palmieri–Wu–Zhang TheoremA/CorollaryB/§5と公刊書誌、Elagin Lemma8.6/Theorems8.7,8.9、Berger–Taillefer Theorem3.6/Lemma3.7の自己双対解消、Mori–Smith Corollary2.9を一次資料で確認した。LPWZは体上のbaseline m₃に用い、非被約係数環のYoneda m₂は相対barから別に証明した。
 
-### 今回の厳密計算
+### 保持する厳密計算
 
 | 検算器 | 実行結果 | 確認範囲 |
 | --- | --- | --- |
@@ -24,16 +49,6 @@ Reich–Walton Theorem7.1(a)と公刊書誌、Lu–Palmieri–Wu–Zhang Theorem
 | `verify_elliptic_bockstein.py` | 8 PASS、終了コード0 | 一般dual積・独立左右gaugeと平行移動、非二捩れdet、Clifford binary det=8、全Tate双次数、対象依存m₃挿入の交代性。 |
 
 両検算器は主担当でも再実行した。有限記号恒等式の証明書であり、実境界核・full cochain移送・全coherence・Morita同値の形式証明ではない。
-
-### 現行組版と保存
-
-主稿・混合稿はv58、モジュライ稿の本文はv50を保持する。現行TeXのsource checkは112ファイル・1819一意ラベルで成功した。主稿33 sources/477 labels、モジュライ稿45/874、混合稿38/468。input・他稿参照・引用・author欄・rootを確認した。数学本文の追加・編集を主稿概要・序論と混合稿の論理的な位置へ統合し、方針・README・AGENTS・ノートを更新した。
-
-LuaLaTeX・latexmkによる三稿組版を二巡し、相互参照・引用が収束した。主稿181頁、モジュライ稿455頁、混合稿232頁（計868頁）。全三稿で未定義参照・引用、重複定義、missing character、overfull/underfull boxは0件。既存の数式フォントのサイズ代替警告は主稿・混合稿に各7件と集約警告各1件が残るが、下記表示対象に字欠け・数式重なり・余白逸脱はない。LPWZの重複書誌は既存項目へ統合した。
-
-更新節・序論・文献など49頁を画像として確認した。内訳は主稿1・4–7・174・177・181頁の8頁、モジュライ稿437・438・448・451・455頁の5頁、混合稿1–9・164–184・212–214・225・228・232頁の36頁。最終版の変更頁を実表示し、変更のない一部の新節は既に実表示したPNGとの完全一致も照合した。混合稿167–168頁の証明冒頭の短い孤立行を修正し、最終表示で解消を確認した。全868頁の実表示点検をしたという意味ではない。
-
-方針・AGENTS・README・研究ノート・本書の相対リンク182件に欠落はなく、`git diff --check`も成功した。数学本文のmain保存を確認した上で、組版後の整合修正と本記録も通常commitで保存する。GitHub反映とhub更新は数学的検証とは別に確認する。PDF・中間生成物・一時計算・表示点検画像・外部文献PDF・一時TeX環境は追跡しない。
 
 ## 保持する尺度・七定数形・中心障害の確認範囲
 

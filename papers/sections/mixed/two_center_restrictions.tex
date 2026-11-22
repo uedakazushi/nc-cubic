@@ -1,0 +1,366 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v59.
+\subsection{二重制限の実随伴正方形と混合構造の必要性}
+\label{tcr:subsec:restriction-square}
+
+二つの中心方向の制限は、残余圏上でも随伴に適合して交換する。
+しかし、二つの軸の spherical comonad をそれぞれ同定しても、
+全対象の圏は決まらない。本小節では、この二つを区別する。
+前半は正則列と mutation による実 Beck--Chevalley 射の計算であり、
+後半は混合項の有限行列計算と、軸が同一でも全圏の smoothness が異なる例である。
+
+$k\ge2$、$N=3k$ とし、定理\ref{mcp:thm:normal-form}の
+固定した複素係数、二つの中心変数 $u,v$ を持つ代数を $A$ と書く。
+\[
+ A_u=A/(u),\qquad A_v=A/(v),\qquad S=A/(u,v)
+\]
+と置く。可換三次の場合も同じ記号を用いる。
+各代数 $R$ の全線束 twist の生成圏を $\mathcal C_R$、
+標準例外線束列の右直交を $\mathcal K_R$ とする。
+例外線束列の長さはそれぞれ
+\[
+ r_A=N-1,\qquad r_{A_u}=r_{A_v}=N-2,\qquad r_S=N-3
+\]
+である。包含とその右随伴を
+$a_R:\mathcal K_R\hookrightarrow\mathcal C_R$、$p_R$ と書く。
+以下で使うのは、これらの proper な線束模型、線束上の Serre 双対、
+および cubic rotation の指定周期 $\varrho_R^3\simeq[2]$ である。
+これらは命題\ref{mci:prop:ambient-line-model}の $m=2,1$ の模型と、
+補題\ref{ebk:lem:boundary}の固定境界模型である。
+共有中心上の相対 potential 解消と中心方向の Koszul 解消、
+命題\ref{mcp:prop:free-quotient}の自由基底と正則性により、
+この模型は四つの代数とその制限について両立する。
+全 coherent 圏が proper であるという仮定は置かない。
+
+\begin{proposition}[残余圏上の Beck--Chevalley 同型]
+\label{tcr:prop:beck-chevalley}
+実導来制限は関手
+\[
+ \begin{array}{ccc}
+ \mathcal K_A&\xrightarrow{F_u}&\mathcal K_{A_u}\\
+ {\scriptstyle F_v}\downarrow&&\downarrow{\scriptstyle G_v}\\
+ \mathcal K_{A_v}&\xrightarrow{G_u}&\mathcal K_S
+ \end{array}
+\]
+を与え、導来 tensor の結合子による指定同型
+\begin{equation}\label{tcr:eq:left-square}
+                  G_vF_u\simeq G_uF_v=:H
+\end{equation}
+を持つ。四つの関手は左右の随伴を持つ。
+式\eqref{tcr:eq:left-square}の二つの右 mate
+\begin{equation}\label{tcr:eq:bc}
+       F_vF_u^R\longrightarrow G_u^RG_v,
+       \qquad F_uF_v^R\longrightarrow G_v^RG_u
+\end{equation}
+は同型である。これらは任意に選んだ関手同型ではなく、
+実随伴の単位・余単位で定まる射である。
+一次の自己交叉が非分裂でも成立する。
+\end{proposition}
+
+\begin{proof}
+各中心変数は、もう一方を零とした後にも正則である。
+線束の二項解消から、制限・inflation とその随伴は全線束生成圏を保存する。
+$M\in\mathcal K_A$ の $u$ 制限は $[M(-1)\xrightarrow{u}M]$ で計算できる。
+$0\le j\le r_A-2$ に対して、その $\OO(j)$ からの Hom は
+$\OO_A(j+1),\OO_A(j)$ から $M$ への Hom であり、共に零である。
+従って制限は、さらに projection を施さずに $\mathcal K_{A_u}$ へ入る。
+他の三辺も同じである。
+二つの順序の制限は $-\otimes_A^{\mathbf L}S$ そのものであり、
+式\eqref{tcr:eq:left-square}とその結合 coherence を得る。
+
+$i_u:A_u\to A$、$i_v:A_v\to A$ は inflation の記号を兼ね、
+$j_u:S\to A_v$、$j_v:S\to A_u$ とする。
+例えば $F_u^R=p_Ai_{u*}$、$G_u^R=p_{A_v}j_{u*}$ である。
+$M\in\mathcal K_{A_u}$ に対し、右 projection の三角を
+\begin{equation}\label{tcr:eq:mutation-correction}
+     a_Ap_Ai_{u*}M\longrightarrow i_{u*}M\longrightarrow E_M
+\end{equation}
+と書くと、
+\begin{equation}\label{tcr:eq:single-correction}
+                         E_M\in\langle\OO_A(-1)\rangle
+\end{equation}
+である。実際、Serre 双対による負の例外列は
+$\OO_A(-r_A),\ldots,\OO_A(-1)$ であり、
+\[
+ R\operatorname{Hom}_A(i_{u*}M,\OO_A(j))
+   =R\operatorname{Hom}_{A_u}(M,\OO_{A_u}(j+1))[-1]
+\]
+は $-r_A\le j\le-2$ で零である。
+これは $\mathcal K_{A_u}$ が
+$\OO_{A_u}(-(r_A-1)),\ldots,\OO_{A_u}(-1)$ の左直交にあるためである。
+従って右 mutation の補正には最後の一線束だけが残る。
+
+正則列の二項解消は Tor-independent な基底変更同型
+\begin{equation}\label{tcr:eq:ambient-bc}
+                i_v^*i_{u*}M\simeq j_{u*}j_v^*M
+\end{equation}
+を与える。ここで star は導来制限を表す。
+式\eqref{tcr:eq:mutation-correction}へ $p_{A_v}i_v^*$ を施す。
+補正は $p_{A_v}\OO_{A_v}(-1)=0$ によって消えるので、
+\[
+ F_vF_u^RM
+   \xrightarrow{\ \sim\ }p_{A_v}i_v^*i_{u*}M
+   \xrightarrow{\ \sim\ }p_{A_v}j_{u*}j_v^*M
+   =G_u^RG_vM
+\]
+を得る。最初の射は projection の余単位、次の射は
+式\eqref{tcr:eq:ambient-bc}そのものである。
+この合成を $G_u\dashv G_u^R$ で transpose すると
+\[
+ G_uF_vF_u^R\simeq G_vF_uF_u^R
+                   \xrightarrow{G_v\epsilon_{F_u}}G_v
+\]
+となる。従って、これは式\eqref{tcr:eq:bc}の指定 mate である。
+$u,v$ を交換すればもう一方も同型になる。
+この証明は自己交叉の分裂を使っていない。
+\end{proof}
+
+\begin{proposition}[共同 comonad と復元に必要な追加データ]
+\label{tcr:prop:joint-comonad}
+境界 $\mathcal K_S$ 上の軸 comonad を
+\[
+             K_u=G_uG_u^R,\qquad K_v=G_vG_v^R
+\]
+と書く。実随伴正方形は、全 coherence を持つ共同 comonad
+$K_{uv}=HH^R$ と、その underlying kernel の同型
+\begin{equation}\label{tcr:eq:joint-factorization}
+                    K_{uv}\simeq K_vK_u\simeq K_uK_v
+\end{equation}
+を与える。この同型によって得る交換射と、その余単位・余乗法との
+高次互換性を含むデータを、ここでは\emph{coherent な分配データ}と呼ぶ。
+それを保持すれば、$K_{uv}$ の coKleisli 圏の thick 冪等完備化から
+$\mathcal K_A$ を復元できる。
+二つの comonad $K_u,K_v$ の個別の同型だけでは、この追加データは指定されない。
+\end{proposition}
+
+\begin{proof}
+右随伴の合成と式\eqref{tcr:eq:bc}から
+\[
+ \begin{aligned}
+ HH^R
+   &=G_uF_vF_u^RG_v^R
+     \simeq G_uG_u^RG_vG_v^R=K_uK_v,\\
+ HH^R
+   &=G_vF_uF_v^RG_u^R
+     \simeq G_vG_v^RG_uG_u^R=K_vK_u
+ \end{aligned}
+\]
+を得る。ここで合成の同型は、左随伴の式\eqref{tcr:eq:left-square}と
+その右随伴への mate を同時に使ったものである。
+交換射は、これら二つの同型を $HH^R$ を介して合成して得る。
+余単位 $HH^R\to\mathbf1$ と余乗法 $HH^R\to HH^RHH^R$ も移す。
+例えば $K_{uv}\to K_v$ は
+$G_vF_uF_u^RG_v^R\xrightarrow{G_v\epsilon_{F_u}G_v^R}G_vG_v^R$
+である。もう一方も同様である。
+
+通常の随伴正方形から分配則と合成 comonad を得る形式論は
+\cite[Section~3, Proposition]{CMOBeckDistributiveLaws}にある。
+本稿では実 dg 核、導来 tensor の結合子、projection の随伴を固定しているため、
+移されるのは homotopy category 上の二つの等式だけではなく、
+$HH^R$ が元から持つ全 comonad 構造である。
+裸の交換射からその高次構造が一意に定まるとは主張しない。
+
+最後に生成性を確かめる。
+命題\ref{cmo:prop:central-linear-spherical}の二項解消・mutation の証明は、
+例外線束列の長さを上記の値に替えると四辺に適用できる。
+特に各辺 $F$ の単位の fiber は $\varrho^{-1}$、その三乗は $[-2]$ である。
+proper 性により $M[-2q]\to M$ は $q\gg0$ で零になり、
+反復した単位三角から
+$\mathcal K_{\mathrm{source}}=\operatorname{thick}(F^R\mathcal K_{\mathrm{target}})$
+を得る。二回適用して
+\[
+                  \mathcal K_A=\operatorname{thick}(H^R\mathcal K_S)
+\]
+となる。境界の対象 $E,F$ について
+\[
+ R\operatorname{Hom}_{\mathcal K_A}(H^RE,H^RF)
+    =R\operatorname{Hom}_{\mathcal K_S}(K_{uv}E,F)
+\]
+であり、積は実余乗法で与えられる。これが主張した coKleisli 復元である。
+全 coherent 圏への拡張や、源の smoothness はこの復元の仮定ではない。
+\end{proof}
+
+\begin{lemma}[二つの法線の Koszul 行列因子分解に現れる混合積]
+\label{tcr:lem:mixed-normal-products}
+$R$ を可換次数付き $\C$-代数とし、$A_2,B_2,C_2\in R_1$、
+$d,e,f,h\in R_0$ とする。
+\begin{equation}\label{tcr:eq:normal-potential}
+ q=u^2A_2+uvB_2+v^2C_2+du^3+eu^2v+fuv^2+hv^3
+\end{equation}
+に対して、$q$ の Koszul 行列因子分解の dg End は
+$R[t,t^{-1}]$ 上自由階数四の cohomology を持つ。
+ここで $|t|=(2,-3)$ は cohomological/internal 双次数である。
+二つの閉元の class を $\theta_u,\theta_v$、$|\theta_i|=(1,-1)$ とすると、
+二項積は
+\begin{equation}\label{tcr:eq:normal-clifford}
+ \theta_u^2=-tA_2,\qquad
+ \theta_u\theta_v+\theta_v\theta_u=-tB_2,\qquad
+ \theta_v^2=-tC_2
+\end{equation}
+となる。以下の Koszul contraction から得る minimal 模型では、
+$\theta=r\theta_u+s\theta_v$ に対し、共通の $A_\infty$ 符号規約を除いて
+\begin{equation}\label{tcr:eq:normal-cubic}
+       m_3(\theta,\theta,\theta)
+              =\pm t(dr^3+er^2s+frs^2+hs^3)
+\end{equation}
+である。従って、軸への制限で消える $uv$ と $u^2v,uv^2$ の係数は、
+この指定した実 dg 模型の二項積と三項積にそれぞれ現れる。
+\end{lemma}
+
+\begin{proof}
+外積演算子 $\varepsilon_u,\varepsilon_v$ と縮約演算子 $\iota_u,\iota_v$ を
+二変数外積加群上に取り、
+$|\varepsilon_i|=(-1,1)$、$|\iota_i|=(1,-1)$ とする。
+それぞれの反交換子は零、$\{\iota_i,\varepsilon_j\}=\delta_{ij}$ である。
+対称行列
+\[
+ (h_{ij})=
+ \begin{pmatrix}
+ A_2+du+ev/3&B_2/2+eu/3+fv/3\\
+ B_2/2+eu/3+fv/3&C_2+fu/3+hv
+ \end{pmatrix}
+\]
+を置き、$a=uh_{uu}+vh_{uv}$、$b=uh_{uv}+vh_{vv}$ とする。
+\[
+       D=u\iota_u+v\iota_v+t(a\varepsilon_u+b\varepsilon_v)
+\]
+は次数 $(1,0)$ で $D^2=tq$ を満たす。
+従って $[D,-]$ はその End 上の微分になる。
+\[
+             \Theta_i=\iota_i-t\sum_jh_{ij}\varepsilon_j
+\]
+と置くと、直接計算で
+\[
+ [D,\varepsilon_u]=u,\quad [D,\varepsilon_v]=v,
+ \quad [D,\Theta_i]=0,
+ \quad \Theta_i^2=-th_{ii},\quad
+ \Theta_u\Theta_v+\Theta_v\Theta_u=-2th_{uv}
+\]
+を得る。角括弧は次数付き交換子である。
+End の加群基底を $\varepsilon_u,\varepsilon_v,\Theta_u,\Theta_v$ の
+順序付き積へ替えると、その複体は $u,v$ の Koszul 複体と
+$1,\Theta_u,\Theta_v,\Theta_u\Theta_v$ の自由加群の tensor になる。
+多項式環上で $u,v$ は $R$ によらず正則列なので、
+cohomology の自由性と式\eqref{tcr:eq:normal-clifford}が従う。
+
+次数を保つ通常の Euler contraction をこの Koszul 複体に取る。
+特に $\gamma u+\eta v$ の contraction は
+$\gamma\varepsilon_u+\eta\varepsilon_v$ とする。
+$\Theta=r\Theta_u+s\Theta_v$ と置き、
+\[
+ \begin{aligned}
+ T_{r,s}=-t\bigl(&
+ (dr^2+2ers/3+fs^2/3)\varepsilon_u\\
+ &+(er^2/3+2frs/3+hs^2)\varepsilon_v\bigr)
+ \end{aligned}
+\]
+とすると、
+\[
+ \begin{aligned}
+ [D,T_{r,s}]&=\Theta^2+t(A_2r^2+B_2rs+C_2s^2),\\
+ \Theta T_{r,s}+T_{r,s}\Theta
+       &=-t(dr^3+er^2s+frs^2+hs^3).
+ \end{aligned}
+\]
+第一式は二項積の代表とその cohomology class の差の homotopy、
+第二式はその三項移送そのものである。
+strict unit の contraction は零に取れるため、二項積の scalar 部分は
+この三項式へ追加項を与えない。
+これで式\eqref{tcr:eq:normal-cubic}を得る。
+\end{proof}
+
+\begin{remark}[有限計算と全分配データの区別]
+\label{tcr:rem:balancing-scope}
+補題\ref{tcr:lem:mixed-normal-products}は、例えば可換式 $W=G+q$ における
+法線方向の実 Koszul 行列因子分解を計算している。
+全 active 方向を含む残余圏の任意の gauge を割った moduli で、
+表示した混合係数が全て独立であることまで証明したものではない。
+また、$uQ_u+vQ_v$ を持つ非分裂の一次自己交叉をこの計算から除去することもしない。
+命題\ref{tcr:prop:beck-chevalley}と\ref{tcr:prop:joint-comonad}は
+そのような非分裂の場合にも成立する。
+
+二重 Koszul 解消が加群として有限自由であることから、
+共同 comonad の比較に必要な balancing tower が有限表示であるとは結論できない。
+既に一変数の相対対角 $z=u_L-u_R$ の associative cofibrant 解消には、
+\[
+ |q_m|=(1-2m,m),\qquad dq_1=z,\qquad
+ dq_m=\sum_{i+j=m}q_iq_j\quad(m\ge2)
+\]
+という無限列が現れる。
+内部次数と三次周期から高 arity の消滅を評価するには、
+その評価対象が実際の coherent 分配データの tower であるという模型同定が別に必要である。
+本小節はその同定や全高次 fiber の可縮性を主張しない。
+
+\path{computations/verify_two_center_restrictions.py}は、
+$4\times4$ 行列による上の法線恒等式と、次の例の二変数部分を六項目で再現する。
+残余 mutation、Beck--Chevalley coherence、smoothness の主張は本文の証明による。
+\end{remark}
+
+\begin{example}[同一の滑らかな軸と異なる全残余圏]
+\label{tcr:ex:same-axes}
+$G(x_1,\ldots,x_N)$ を滑らかな射影三次の方程式とし、
+\[
+ \begin{aligned}
+ W_0&=G+u^3+v^3,\\
+ W_1&=G+u^3+v^3-u^2v-uv^2
+      =G+(u+v)(u-v)^2
+ \end{aligned}
+\]
+と置く。$X_i=V(W_i)\subset\mathbb P^{N+1}$ とすると、
+両者の $u=0$、$v=0$ の軸超平面切断と、それらから
+$Z=V(G)$ への実制限随伴は同一である。
+二つの軸切断はともに滑らかである。
+従って境界上の二つの軸 spherical comonad は、各々の全構造を含めて同一に取れる。
+しかし $\mathcal K_{X_0}$ は smooth で、残余線束圏 $\mathcal K_{X_1}$ は smooth でない。
+特に個別の軸 comonad の同定から、共同 comonad の coherent 分配データは決まらない。
+\end{example}
+
+\begin{proof}
+斉次性と Euler 公式から、$\partial G=0$ の affine 解は原点だけである。
+$W_0$ の全偏微分は $\partial G,3u^2,3v^2$ なので、
+それらは射影空間で同時に消えず、$X_0$ は滑らかである。
+同じ計算で $V(G+u^3)$、$V(G+v^3)$ も滑らかである。
+一方、
+\[
+ \partial_u\bigl((u+v)(u-v)^2\bigr)=(u-v)(3u+v),\qquad
+ \partial_v\bigl((u+v)(u-v)^2\bigr)=-(u-v)(u+3v)
+\]
+である。従って $p=[0:\cdots:0:1:1]\in X_1$ では全射影偏微分が消え、
+$p$ は特異点である。$v=1$、$u=1+s$ の局所方程式は
+\[
+                          G(\mathbf x)+(2+s)s^2=0.
+\]
+これは極大イデアルの二乗に入り、局所環の embedding dimension は $N+1$、
+Krull dimension は $N$ なので、局所環は正則でない。
+
+$u=0$ または $v=0$ とすると二つの式の混合項は全て消える。
+従って軸の次数付き代数だけでなく、$S=\C[\mathbf x]/(G)$ への二つの商写像も同じである。
+線束列、projection、導来制限、inflation を同一の dg 模型で取れば、
+実随伴の単位・余単位と、それらから作る軸 comonad も全て同一になる。
+
+最後に残余線束圏の smoothness を比較する。
+射影 hypersurface では全線束 twist は $\operatorname{Perf}(X_i)$ を生成し、
+標準例外列は
+\[
+ \operatorname{Perf}(X_i)
+   =\langle\mathcal K_{X_i},\OO_{X_i},\ldots,\OO_{X_i}(N-2)\rangle
+\]
+を与える。$X_0$ は滑らかなので、その admissible 成分
+$\mathcal K_{X_0}$ は smooth である。
+もし $\mathcal K_{X_1}$ が smooth なら、この proper な成分と有限例外列の
+gluing 双加群は perfect であり、$\operatorname{Perf}(X_1)$ も smooth になる。
+ここで proper な加群が smooth な圏上で perfect となることは、
+有限な対角解消をその加群と tensor すれば分かる。
+有限例外列との gluing にも同じ対角解消を用いる。
+
+この帰結は点 $p$ で矛盾する。
+実際、$\operatorname{Perf}(X_1)$ の有限生成対象 $T$ に対し、
+$R\operatorname{Hom}(T,\OO_p)$ は $\C$ 上 perfect である。
+$\operatorname{Perf}(X_1)$ が smooth なら、この加群は
+$R\operatorname{End}(T)$ 上も perfect となり、$\OO_p$ は perfect complex で表される。
+全線束 twist の生成性により、その表現は実際に $\OO_p$ と同型である。
+しかし局所環が正則でないため、その residue field は有限 projective dimension を持たない。
+これは $\OO_p$ の perfect 性に反する。
+よって $\mathcal K_{X_1}$ は smooth でない。
+この議論は特異な全 coherent 残余圏の比較を必要としない。
+\end{proof}
