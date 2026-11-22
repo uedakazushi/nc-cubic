@@ -348,9 +348,9 @@ $$
 
 証明の正本は `mixed/spherical_comparison.tex` と `mixed/spherical_boundary_class.tex`。指定α¹=(1,4,9)、α²=(16,25,49)、重み1,100、h=1,c=0で、`cmo:thm:fixed-zero-commutative-kernel` はC線型dg Morita同値 Ku_coh(A₀)≃Ku(X₀)を実perfect核で構成する。固定した一つの対象の存在に留まらず、第二成分の核P_R:K_R≃Ku(Y)と球面制限を保つ自然同型を同時に得る。
 
-`cmo:lem:spherical-bockstein` は球面関手の単位から得るν:Id→ρ_Sを、中心vによる一階変形R/(v²)のBocksteinと同定する。`cmo:lem:boundary-parameter-injection` はα↦νが単射であることを、境界代数Sのminimal Shamash Extで検出する。そこではExtがF[t]としてt-torsionfreeで、変形の像はq_α=−Σα_jξ_j²となり、periodを反転しても消えない。可換側の境界類は線型式Lの乗算である。境界の分離比較をHeisenberg作用とrotationに両立させ、ブロック交換で二ブロックの共通scalarを揃えると、適切なrotation同型の規格化によりνが一致する。
+`cmo:lem:spherical-bockstein` は球面制限の余単位三角から得るtwist射ν:Id→ρ_Sを、中心vによる一階変形R/(v²)のBocksteinと同定する。`cmo:lem:boundary-parameter-injection` はα↦νが単射であることを、境界代数Sのminimal Shamash Extで検出する。そこではExtがF[t]としてt-torsionfreeで、変形の像はq_α=−Σα_jξ_j²となり、periodを反転しても消えない。可換側の境界類は線型式Lの乗算である。境界の分離比較をHeisenberg作用とrotationに両立させ、ブロック交換で二ブロックの共通scalarを揃えると、適切なrotation同型の規格化によりνが一致する。
 
-単位の一致だけで全高次構造の一致を宣言しない。`cmo:prop:cubic-boundary-comonad-vanishing` は三次四様体境界のsector計算によって、正規化された全arityの障害群と比較群を消し、counit付きのcomonad比較を復元する。高次随伴・comonadの既知入力はWillumsgaardの一次資料に置く。球面twist/cotwistの周期から右随伴の像が生成することを示し、coKleisli模型をpretriangulated・冪等完備化してP_Rと制限intertwinerを構成する。最後に二成分を接着し、χ≃Serre³[−7]、有限次元HH⁰内の平方根による二乗coherenceの補正、perfect核上の二重同変化を用いて通常Ku同値を得る。χ-coherenceは独立の未解決仮定ではない。
+twist射の一致だけで全高次構造の一致を宣言しない。`cmo:prop:cubic-boundary-comonad-vanishing` は三次四様体境界のsector計算によって、正規化された全arityの障害群と比較群を消し、counit付きのcomonad比較を復元する。高次随伴・comonadの既知入力はWillumsgaardの一次資料に置く。球面twist/cotwistの周期から右随伴の像が生成することを示し、coKleisli模型をpretriangulated・冪等完備化してP_Rと制限intertwinerを構成する。最後に二成分を接着し、χ≃Serre³[−7]、有限次元HH⁰内の平方根による二乗coherenceの補正、perfect核上の二重同変化を用いて通常Ku同値を得る。χ-coherenceは独立の未解決仮定ではない。
 
 この定理はC上の通常dg Morita同値を主張する。全行列の列挙、Qへの降下、全rotation・指定周期・元の中心作用の標識を同時に保つ比較、選択済みh一般点核と互換な同値族は未構成。元c族のc≠0・norm全64根・全smooth係数の比較や、全intrinsic対象への拡張もこの固定点定理に含めない。主張の新規性の網羅的確認、外部査読、形式証明器による検証は未完了であり、本文の証明と今回の読解・有限検算の範囲は `validation.md` に分ける。
 
