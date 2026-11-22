@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月23日 / v68。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月23日 / v69。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -642,7 +642,13 @@ Clifford族への適用は [interfactor_clifford_kodaira_spencer.tex](../papers/
 
 τ₁=τ₂=2、a₁=a₂=1、λ=0、μ³=−196 では h=49・c=196・Q/α₁⁴=−2000、点 [X₁:X₂:X₃;Y₁:Y₂:Y₃]=[28/(13μ):0:0;1:5/13:5/13] は軸外の特異点で、det(q_x)=det(q_y)=−(28/(13μ))³≠0。Y₁=1 での規格化 4N/196 の 5変数 Hessian determinant は12902400/2197≠0、従って通常二重点。Azumaya chart の既存非proper・非smooth移送を適用できる。再現コード [verify_clifford_fullnorm.py](../computations/verify_clifford_fullnorm.py)。**確定範囲は中心 norm の全特異係数集合であり、残余dg smooth locusの全判別ではない。** 非Azumaya層・各因子間の交叉、全smooth係数への核比較は残る。
 
-### 対称rank-oneの一変数probeと中心normの12特異係数
+### 一方向rank-oneの一般二因子判別と特別なMilnor型
+
+正本は[一般一方向判別の定理](../papers/sections/mixed/interfactor_clifford_oneway_discriminant.tex)（`ifod:thm:general-values`, `ifod:thm:generic-nodes`, `ifod:prop:collision-types`）。Λ=sE₁₁、M=0、t=τ₁、u=τ₂、a=α₁²、b=α₂²、g=(u³−1)(u³+8)²/(27u⁶)とおくと、ρ₀δ=27btu²g^δ/(4a)、ρ₁δ=−bu²(t³−1)²(t³+8)g^δ/(4at²)。中心norm超曲面の特異係数は正確に ∏(s³−ρ_{εδ})=0。周囲AS正則性h=(1−t³)(1−u³)≠0、中心三次普遍正則性c=at²/4≠0は全sで成立し、特異点ではdet q_y=−u²g^δ/4≠0・det q_x=(b/a)det q_y≠0ゆえ射影Azumaya。既存ifqの点対象・coherent飽和の論法から残余非smoothが従う。逆向きの全残余smooth判定ではない。
+
+t³≠−2,u³≠4なら特異点は全て通常二重点、各枝の節点数は3^{ε+δ}。通常の六変数cubic判別多項式をsへ制限すると、非零定数倍を除き∏(s³−ρ_{εδ})^{3^{ε+δ}}（次数48）。ρの交差一致時は異なる節点が同じfiberに入るが点は合流しない。t³=−2（標準HesseのFermat）またはu³=4（中心normの横Hesseの三次特殊化）ではD₄（Milnor数4）へ合流。両特殊値では四変数Fermat三次のsuspension（Milnor数16）であり、通常節点1+3+3+9の保存を説明する。いずれも指定比較核の高次Hesse係数とは別。有限計算の正本は[verify_clifford_general_oneway.py](../computations/verify_clifford_general_oneway.py)。
+
+#### τ₁=τ₂=2 の正確な12値と全局所証人
 
 正本は[階数一normの判別定理](../papers/sections/mixed/interfactor_clifford_rank_one_fullnorm.tex)の`ifn:thm:symmetric-probe`。τ₁=τ₂=2、a_i=1で、四つのbinary cubicの判別はそれぞれ(λμ−4)²Q₀₀、−(λμ−8)²Q₀₁/27、−(λμ−8)²Q₁₀/27、−(λμ−16)²Q₁₁/19683に分解する。二乗因子は非Azumayaの臨界点、四つの残余Q因子にはそれぞれAzumaya通常二重点の証人がある。Λ=sE₁₁、M=0では全sでh=49,c=196。中心normが特異となるのは(s³−54)(s³−56)(s³+196)(27s³+5488)=0の12係数で、その各fiberのノード数は1・3・3・9。全てAzumaya。原点から離れたこの判別式だけでは、原点の固定Hesse多項式切片での12個の高次比較係数は決定できない。必要なのは実Bockstein・比較核の高次移送。検算入口は[verify_clifford_symmetric_discriminants.py](../computations/verify_clifford_symmetric_discriminants.py)。
 

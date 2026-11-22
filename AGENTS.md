@@ -1,6 +1,6 @@
 # Research instructions — nc-cubic
 
-2026-11-23 / v68。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-23 / v69。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
@@ -17,6 +17,7 @@
 - `mixed/interfactor_clifford_bidirectional.tex` が双方向十八変数の正本。`ifb:prop:family` は全係数で中心平方上のClifford tensor表示・自由階数64と原点主開D(c)上の普遍正則中心三次・平坦商を与える。`ifb:prop:dual` の二次双対は可換六二次式商のcocycle twistである。この可換商は六二次式のresultant開D(Δ)上で完全交叉となり、`ifb:thm:regularity` はこの開上、任意可換底変更で有限射影Koszul双加群解消・untwisted相対6-CYを与える。`ifb:cor:exact-regular-locus` は複素fiberの有限大域次元・AS-regular領域が正確にΔ≠0で、次元/index6であることを示す。全十八変数でAS-regularとはしない。τ₁=τ₂=2、Λ=M=I₃ではΔ=0・大域次元無限だが、a₁=a₂=1ならc=196≠0で中心三次は正則である。有限射影と大域的自由、周囲代数の正則性と残余smoothnessを区別する。
 - `mixed/interfactor_clifford_rank_one.tex` の `ifd:prop:ambient-locus` はΛ=λE₁₁、M=μE₁₁の正確なAS-regular域をh=(1−τ₁³)(1−τ₂³)−τ₁²τ₂²λμ≠0と決める。τ₁=τ₂=2、a₁=a₂=1、λ=μ=−6ではh=−527、c=196で周囲AS-regular・6-CY、中心三次正則だが、射影Azumaya chartの完備局所型はMat₄(C[[t,u,v,r,s]]/(t³+uv+rs))である。点対象の自己Extは非有界、全coherent残余圏は非proper、残余線束圏は非smoothとなる（`ifd:thm:residual-a2`）。周囲のD(Δc)を残余smooth域と同一視しない。この例は主予想のsmooth仮定の外にある。
 - `mixed/interfactor_clifford_rank_one_fullnorm.tex`（ifn）はrank-one中心normの全特異係数集合を4 binary cubic の判別式の積として必要十分に表す。軸上 ifq の Q に検出されない Azumaya 通常二重点を τ=2、λ=0、μ³=−196、a_i=1 で確認した（h=49,c=196）。この計算が決定するのは可換中心 norm hypersurface の singular locus の非空性であり、非Azumaya層を含む全残余 smooth 判別・全Ku比較ではない。新しい厳密検算は `verify_clifford_fullnorm.py` の6 PASS。12の固定Hesse切片高次係数の数値は未解決。
+- `mixed/interfactor_clifford_oneway_discriminant.tex` の `ifod:thm:general-values` はΛ=sE₁₁、M=0、任意の許容τ₁,τ₂・非零重みで、四つの正確なρ_{εδ}の三乗根が中心norm全特異係数となることを証明。全特異点はAzumaya・残余非smooth、周囲AS正則と中心正則は全sで成立。τ₁³≠−2・τ₂³≠4では全ノード・重複度1/3/3/9の通常判別多項式のs次数48。τ₁³=−2またはτ₂³=4ではD₄・両方ではMilnor数16の四変数Fermat三次suspension。全残余smooth locusの逆判定と固定Hesse切片の12高次係数は未解決。検算 `verify_clifford_general_oneway.py` 6 PASS、単体LuaLaTeX4頁のみ確認。
 - `ifn:thm:symmetric-probe` はτ₁=τ₂=2・等重みのrank-oneで四binary cubic判別式を全因数分解し、二乗因子上の非Azumaya臨界点と残余因子上の四つのAzumaya通常二重点を与える。一方向Λ=sE₁₁、M=0では中心normの特異係数は12点でノード数1/3/3/9。周囲AS正則性と中心三次正則性は全sで成立するが、残余smoothnessの逆方向と固定Hesse切片の高次12係数は未解決。再現`verify_clifford_symmetric_discriminants.py`。
 - `ifr:thm:ambient-regularity` は全Λ・任意可換C-係数環で相対Koszul、長さ6の有限自由双加群解消とuntwisted相対6-CYを証明する。複素fiberはAS-regular dimension/index6。有限内部次数bar縮約と反転双対濾過を使い、xの符号反転からNakayama shearを消す。任意底の相対smoothnessを絶対C-smoothnessや有限大域次元と同一視しない。`iff:thm:smooth-neighborhood` はm=0とm=1,g=cu³,c≠0について、原点開上の実相対perfect対角、全複素fiberのcoherent飽和、rotationの持上げを与える。全Λの中心商smoothnessは主張しない。
 - 主稿 `rotation_preserving_deformations.tex` の `ifk:thm:rotation-formal` は、三次四様体のrotationを自己同値として持ち上げられる通常Artin変形を幾何的変形と認識する。hullのC₃固定点部分を用い、不変環による商空間や持上げ自体を標識する高次群oidとは区別する。`ifk:thm:rotation-neighborhood` は実相対rotationと原点のrotation付き核を入力とする。九変数の四・五次元型の原点開の比較は `ifk:cor:clifford-fourfold-neighborhood`, `iff:cor:cubic-fivefold-open` に保持する。`ift:thm:rank-nine` は四次元型の残余KSをJac(f₁)₁⊗Jac(f₂)₂への同型として計算し、原点を標識した幾何的形式変形空間への余次元11の正則閉埋込みを与える。

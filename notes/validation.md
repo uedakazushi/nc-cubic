@@ -1,17 +1,11 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v68。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v69。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
 
-- **対称rank-oneの全因数分解と一変数probe：** 混合稿の`ifn:thm:symmetric-probe`へ、四binary判別式、非Azumaya二乗因子、四Azumaya通常二重点の独立証人、12特異係数とノード数1/3/3/9を記載。今回SymPy 1.14による有理式の独立計算で、全判別式の因数分解、六変数norm、非Azumaya臨界点、四つの非退化Hessian、12特異係数の正確性について6群PASS。再現コードは`computations/verify_clifford_symmetric_discriminants.py`。有限計算は射影Azumaya点からcoherent残余非properへ移る圏論的証明を検証するものではない。その段階は既存ifd/ifq/ifnの証明を入力とする。今回の更新分のLuaLaTeX組版、PDF実表示、外部独立査読、形式証明は未実施。v65の三稿組版は保持結果であり今回の再実行ではない。固定Hesse切片の12高次係数は未計算。
-
-
-- **中心 norm の全特異判別（v67）：** 新規 `interfactor_clifford_rank_one_fullnorm.tex` の `ifn` 定理群に証明を記載。Clifford 6平方 norm の分解、4枝の横方程式の完全性、各 binary cubic の重根と全6変数のJacobian条件の同値を本文で示した。τ_i≠0、α_i≠0、C上のrank-oneスライスに限定する。`verify_clifford_fullnorm.py` のSymPy 1.14による有理式・代数的数計算の6群がPASS：全六変数展開、横臨界枝、エンベロープ偏微分、4判別式、独立な軸外因子、Azumaya通常二重点の非退化5変数Hessianを確認。実際の高次Ku比較核、非Azumaya層、残余圏全smooth locusは証明していない。原稿への証明記載と有限計算による検証を区別し、外部査読・形式証明・全稿LuaLaTeX組版・新節PDF表示確認は未実施。GitHubのcloneはDNS解決不能で、従来の全稿v65組版記録をv67の再組版とは扱わない。
-
-
-- **階数一残余判別曲線（v66で追加）：** `ifq:thm:axis-discriminant` と `ifq:thm:tricuspidal` の証明を原稿に記載した。局所中心の非smoothから残余圏の非smoothへの移行は既存 `ifd:thm:residual-a2` の射影Azumaya chart・有限中心・coherent飽和を入力とする。新しい `verify_rank_one_caustic.py` 相当のSymPy 1.14厳密計算で、二変数三次の判別式、横一階消滅、横Hessian、A₁有理証人、既存A₂三重根、三尖点有理正規化の6群の恒等式がPASS。数値評価ではなく有理式の厳密検証である。今回の新節の独立査読・全稿再組版・PDF表示確認は未実施（接続されたGitHubソースにはアクセスしたが、実行環境からのrepo全体のcloneはDNS失敗）。既存v65三稿の組版成功・19 PASSを今回の再実行と区別する。全残余判別や12個の高次比較係数は未解決。
-
+- **一方向rank-oneの一般因子の判別とMilnor型：** 新節 `interfactor_clifford_oneway_discriminant.tex`（ifod）の三定理・命題に、任意の許容τ_iと非零重みの四つの正確な三乗特異値、全特異点のAzumaya性、一般条件τ₁³≠−2・τ₂³≠4でのノード数1/3/3/9と通常discriminantのs次数48、特殊t³=−2/u³=4でのD₄とMilnor数16の合流を証明記載。証明は既存 `ifd:prop:ambient-locus`、`ifn:thm:four-discriminants` と射影Azumaya内のcoherent飽和を入力とする。今ターンのSymbolic検算 `python3 computations/verify_clifford_general_oneway.py` はSymPy 1.14で6群PASS（一般四binary cubic判別恒等式、二因子の臨界根と値、∂s横断性、Clifford行列式、t=3/u=2の四枝の厳密非零Hessian、特殊分岐の三次jet）。新節単体をltjsarticleの独立LuaLaTeX wrapperで4頁として組版し、未定義の外部参照を除きTeXエラー・overfull/underfullなし、全4頁のPNG montageを確認した。**三稿の統合LuaLaTeX組版や全参照の収束は今回未実施**。有限計算は圏同値・coherent飽和・全残余smooth判別・固定Hesse切片の高次12係数を検証するものではない。特殊D₄の形式同値は書いた形式Morseと有限決定性の数学的論証による。外部査読・Lean・新規性網羅確認は未実施。
+- **階数一の全二方向判別・対称特別値の保持:** `ifn:thm:four-discriminants` には任意λ,μの中心norm全特異条件を四binary cubic判別式で記述する証明、`ifn:thm:symmetric-probe` にはτ₁=τ₂=2の四判別因数分解、非Azumaya二乗因子、12特異係数とAzumayaノード数を記載。これらの厳密計算6群（v67）、6群（v68）は以前の実行記録で、今回再実行ではない。今回の新一般式はv68に正確に特殊化することをSymbolic検算でも確認した。
 
 証明の正本は混合稿の `interfactor_clifford_scale.tex`（ifm）、`interfactor_clifford_rank_one.tex`（ifd）、`interfactor_clifford_jets.tex`（ifj）と、`interfactor_clifford_versal.tex` の一般係数の系である。主担当は各証明を読み、ifm・ifd・ifjとifvの一般係数の系は執筆者以外の担当者も全文読解した。これは内部の独立読解であり、外部査読・形式証明器による確認ではない。
 

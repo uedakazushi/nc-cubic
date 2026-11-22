@@ -1,0 +1,270 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v69.
+\subsubsection{任意の二因子に対する一方向階数一の特異値と局所型}
+\label{ifod:subsubsec:oneway}
+
+前定理の対称特殊化を任意の許容 Clifford 二因子へ拡張する。
+係数を一方向の $\Lambda=sE_{11},M=0$ に制限すると、
+周囲の AS 正則性と中心元の正則性は全 $s$ で保たれる。
+一方、中心 norm 超曲面の特異係数は、四つの三次方程式で正確に求まる。
+本小節の判別は可換中心 norm の判別であり、固定 Hesse 切片の
+高次 Ku 比較係数と同一視しない。
+
+命題\ref{ifd:prop:ambient-locus}と定理\ref{ifn:thm:four-discriminants}の記法を用い、
+\[
+ \Lambda=sE_{11},\quad M=0,\qquad
+ t=\tau_1,\quad u=\tau_2,\quad
+ a=\alpha_1^2,\quad b=\alpha_2^2
+\]
+と置く。$t,u\ne0$、$t^3,u^3\notin\{1,-8\}$、$a,b\ne0$ とする。
+\begin{equation}\label{ifod:eq:g}
+ g=\frac{(u^3-1)(u^3+8)^2}{27u^6}
+   =1-\frac{(4-u^3)^3}{27u^6},\qquad
+ g_0=1,\quad g_1=g.
+\end{equation}
+従って $g\ne0$ である。四つの非零数を
+\begin{equation}\label{ifod:eq:critical-cubes}
+ \begin{aligned}
+ \rho_{0\delta}&=\frac{27btu^2}{4a}g_\delta,\\
+ \rho_{1\delta}&=-\frac{bu^2(t^3-1)^2(t^3+8)}{4at^2}g_\delta,
+       \qquad \delta\in\{0,1\}
+ \end{aligned}
+\end{equation}
+で定める。
+
+\begin{theorem}[一方向階数一の全中心 norm 特異係数]
+\label{ifod:thm:general-values}
+上の任意の許容因子と非零重みに対し、中心 norm の射影超曲面
+$H_s=V(\mathcal N_s)\subset\mathbb P^5$ は
+\begin{equation}\label{ifod:eq:general-discriminant-set}
+ H_s\text{ が特異}\quad\Longleftrightarrow\quad
+       \prod_{\epsilon,\delta\in\{0,1\}}
+          (s^3-\rho_{\epsilon\delta})=0
+\end{equation}
+を満たす。全 $s$ で $h=(1-t^3)(1-u^3)\ne0$、
+$c=at^2/4\ne0$ なので、周囲代数は六次元 Koszul AS 正則・非捩れ
+Calabi--Yau であり、指定中心三次も普遍的に正則である。
+
+式\eqref{ifod:eq:general-discriminant-set}の全ての特異点は
+$Y_1\ne0$ の chart 上にあり、両 Clifford 行列式が非零の
+Azumaya 開に属する。従ってその係数における
+全 coherent 残余圏は非 proper、残余線束圏は非 smooth である。
+この逆向き、すなわち $H_s$ が滑らかなときの残余圏の
+smoothness は本定理では主張しない。
+\end{theorem}
+
+\begin{proof}
+$Y_1=1$ とし、$X=X_1$ と書く。
+四臨界枝\eqref{ifn:eq:critical-branches}のうち
+$\epsilon$ が第一因子、$\delta$ が第二因子の非零横臨界枝を表す。
+$M=0$ では
+\[
+ k_y=\frac{4-u^3}{3u^2},\qquad
+ k_x=\frac{(4-t^3)X+t^2s}{3t^2}.
+\]
+第二因子の横臨界値は $-bu^2g_\delta$ なので、
+式\eqref{ifn:eq:branch-functions}の四つの二変数三次は
+\begin{equation}\label{ifod:eq:reduced-cubics}
+ F_{\epsilon\delta}(X,1)=a\phi_\epsilon(X)-bu^2g_\delta,
+\quad
+ \phi_0=X(s-tX)^2,\qquad
+ \phi_1=\phi_0-\frac{((4-t^3)X+t^2s)^3}{27t^4}.
+\end{equation}
+$F_{0\delta}$ の $X^3$ 係数は $at^2$、
+$F_{1\delta}$ のそれは
+$at^2(t^3-1)(t^3+8)^2/(27t^6)$ で、いずれも非零である。
+従って全ての射影特異点は $Y_1\ne0$ であり、
+二変数三次の判別に有限 chart の三次多項式を使える。
+
+$\phi_0'=(s-tX)(s-3tX)$ であり、値が零でない臨界点と
+その臨界値は
+\[
+ X_0=\frac{s}{3t},\qquad
+ \phi_0(X_0)=\frac{4s^3}{27t}.
+\]
+さらに直接微分すると
+\begin{equation}\label{ifod:eq:phi-one-derivative}
+ \phi_1'(X)=
+ \frac{((t^3+8)X-t^2s)
+   ((t^3+8)(t^3-1)X-t^2(t^3+5)s)}{9t^4}.
+\end{equation}
+第一の臨界点 $X=t^2s/(t^3+8)$ での値は零である。
+値が零でない第二の臨界点とその値は
+\begin{equation}\label{ifod:eq:second-value}
+ X_1=\frac{st^2(t^3+5)}{(t^3-1)(t^3+8)},\qquad
+ \phi_1(X_1)=-\frac{4s^3t^2}{(t^3-1)^2(t^3+8)}.
+\end{equation}
+$b u^2g_\delta/a\ne0$ なので、式\eqref{ifod:eq:reduced-cubics}の
+重根は $\phi_\epsilon(X_\epsilon)=bu^2g_\delta/a$ と同値である。
+これは正確に式\eqref{ifod:eq:critical-cubes}となる。
+別法として、二変数三次の標準判別式を展開すれば
+\begin{equation}\label{ifod:eq:factor-four-discriminants}
+ \begin{aligned}
+ \operatorname{Disc}(F_{0\delta})
+   &=4a^3bt^3u^2g_\delta(s^3-\rho_{0\delta}),\\
+ \operatorname{Disc}(F_{1\delta})
+   &=-\frac{4a^3bu^2g_\delta(t^3+8)^3}{27t^6}
+                       (s^3-\rho_{1\delta})
+ \end{aligned}
+\end{equation}
+を得る。前定理\ref{ifn:thm:four-discriminants}を適用すれば
+必要十分条件\eqref{ifod:eq:general-discriminant-set}が従う。
+$h,c$ の主張は命題\ref{ifd:prop:ambient-locus}による。
+
+Azumaya 性も全係数に対して直接確認できる。
+$Y_1=1$ の第二因子の臨界枝で、
+\begin{equation}\label{ifod:eq:nonzero-determinants}
+              \det q_y=-\frac{u^2g_\delta}{4}\ne0.
+\end{equation}
+$\mathcal N=-a\det q_x+b\det q_y=0$ だから
+$\det q_x=(b/a)\det q_y\ne0$ である。
+従って両 Clifford 行列は非退化であり、
+定理\ref{ifq:thm:axis-discriminant}の射影Azumaya chartを適用できる。
+中心 norm の特異局所環の剰余体は有限射影次元を持たず、
+その点対象の無限自己Ext、全 coherent 残余非proper、
+有限線束残余の非smooth性は同定理の証明と同じである。
+\end{proof}
+
+\begin{theorem}[一般因子での節点数と判別式の重複度]
+\label{ifod:thm:generic-nodes}
+さらに
+\begin{equation}\label{ifod:eq:node-open}
+                t^3\ne-2,\qquad u^3\ne4
+\end{equation}
+を仮定する。このとき $s^3=\rho_{\epsilon\delta}$ に現れる特異点は
+すべて通常二重点である。
+四つの $\rho_{\epsilon\delta}$ が相異なれば、
+特異係数はちょうど十二個で、各ファイバーの節点数は
+\[
+             3^{\epsilon+\delta}=1,3,3,9
+\]
+となる。異なる $\rho$ が一致する場合でも、異なる臨界枝の点は
+合流せず、同じファイバー内の節点数を足し合わせればよい。
+
+六変数三次超曲面の通常の判別多項式を
+$s$ に制限したものは、非零 scalar を除き
+\begin{equation}\label{ifod:eq:scheme-disc}
+ \boxed{\quad
+ \mathfrak D_{t,u,a,b}(s)
+   \doteq \prod_{\epsilon,\delta\in\{0,1\}}
+            (s^3-\rho_{\epsilon\delta})^{3^{\epsilon+\delta}}
+ \quad}
+\end{equation}
+である。ここで $\doteq$ は $\C^\times$ の倍を除いた等号である。
+この多項式の $s$ に関する次数は $48$ であり、
+零集合だけでなく通常の hypersurface discriminant の
+スキーム的重複度を記述する。
+\end{theorem}
+
+\begin{proof}
+第一因子の二つの非零臨界値に対応する $X$ の二階微分は
+\[
+ \phi_0''(X_0)=-2ts,\qquad
+ \phi_1''(X_1)=\frac{2s(t^3+8)}{3t^2},
+\]
+であり非零である。さらに横臨界枝での $k_x$ の値は
+\begin{equation}\label{ifod:eq:transverse-k}
+ k_x(X_0)=\frac{2s(t^3+2)}{9t^3},\qquad
+ k_x(X_1)=\frac{2s(t^3+2)}{(t^3-1)(t^3+8)},\qquad
+ k_y=\frac{4-u^3}{3u^2}.
+\end{equation}
+式\eqref{ifod:eq:node-open}では、これらは全て非零である。
+横二変数組 $z_2^3+z_3^3-3kz_2z_3$ の Hessian は
+原点の枝で行列式 $-9k^2$、非零枝 $(k\xi,k\xi^2)$ で
+$27k^2$ を持つ。横変数の臨界切断に沿う Schur complement は
+$a\phi_\epsilon''(X_\epsilon)$ なので、
+五変数の全 Hessian は非退化である。
+$\epsilon=1$ には三つの独立した $\xi^3=1$ の選択、
+$\delta=1$ には三つの独立した $\eta^3=1$ の選択がある。
+式\eqref{ifod:eq:node-open}では非零枝は零枝と一致しない。
+よって節点数は $3^{\epsilon+\delta}$ となる。
+
+各節点が $s$ に関して一次で平滑化されることも必要である。
+全六変数の式を微分し、臨界切断に制限すれば
+\begin{equation}\label{ifod:eq:parameter-transversality}
+ \left.\partial_s(4\mathcal N)\right|_{\epsilon=0}
+      =\frac{4as^2}{9t}\ne0,\qquad
+ \left.\partial_s(4\mathcal N)\right|_{\epsilon=1}
+      =-\frac{12as^2t^2}{(t^3-1)^2(t^3+8)}\ne0.
+\end{equation}
+四つの $\rho$ は非零なので $s\ne0$ である。
+標数零の形式 Morse 補題により、各節点の一パラメータ完備局所族は
+$\sum_{i=1}^5z_i^2+v(s)=0$ と書け、
+$v'(s_0)\ne0$ である。従って通常の hypersurface discriminant の
+局所方程式は各節点で $v(s)$ の一次因子を一つ持つ。
+同じファイバーに複数の独立な節点があれば、その局所因子の積である。
+定理\ref{ifod:thm:general-values}は他の特異係数がないことを示すので、
+$s$ に関する非零多項式としての判別式は表示した積の定数倍に等しい。
+次数は $3(1+3+3+9)=48$ である。
+\end{proof}
+
+\begin{proposition}[許容範囲内の枝の衝突と $D_4$ 特異点]
+\label{ifod:prop:collision-types}
+式\eqref{ifod:eq:critical-cubes}の二つの行が一致する条件は
+$t^3=-2$、二つの列が一致する条件は $u^3=4$ である。
+これらはいずれも許容される Clifford 因子の特殊値である。
+
+$t^3=-2$、$u^3\ne4$ なら、各 $s^3=\rho_{0\delta}=\rho_{1\delta}$ の
+Azumaya 特異点は、$\delta=0$ では一つ、$\delta=1$ では三つで、
+それぞれ非退化二次形式を三変数分と
+$x_2^3+x_3^3$ を持つ $D_4$ 型である（Milnor 数 $4$）。
+$u^3=4$、$t^3\ne-2$ なら、各 $s^3=\rho_{\epsilon0}=\rho_{\epsilon1}$ の
+Azumaya 特異点は $\epsilon=0$ で一つ、$\epsilon=1$ で三つであり、
+同様に $D_4$ 型である。
+両条件が成立すると四つの $\rho$ は全て一致し、
+各 $s^3=\rho$ に一つの Azumaya 特異点があり、
+その局所関数は非退化一変数二次式と四変数の
+$x_2^3+x_3^3+y_2^3+y_3^3$ の和に形式的に同値で、
+Milnor 数は $16$ である。
+この命題は中心normの局所型を述べるものであり、
+可換 Ku 比較の特殊化や全 residual smoothness を主張しない。
+\end{proposition}
+
+\begin{proof}
+$t^3=-2$ では恒等式
+\[
+ 27t^3+(t^3-1)^2(t^3+8)=(t^3+2)^3
+\]
+により二つの非零臨界値は一致し、式\eqref{ifod:eq:transverse-k}の
+二つの $k_x$ は零になる。このとき $X_0=X_1=s/(3t)$ であり、
+$X=s/(3t)+v$ とおくと $Y_1=1$ chart の第一因子の関数は
+\[
+ a\left(\mathrm{const}-tsv^2+t^2v^3
+       +t^2(x_2^3+x_3^3)-6vx_2x_3\right).
+\]
+$v$ の二次係数は非零なので、形式 Morse 消去後の
+$x_2,x_3$ の最低次は非退化な三次 $x_2^3+x_3^3$ である。
+四次以上の補正はその偏微分 $(x_2^2,x_3^2)$ を用いる
+次数ごとの座標変更で除去できる。
+これは $D_4$ 型で、Jacobian 局所環の長さは $4$。
+$u^3\ne4$ なら第二因子の横二変数は Morse 型なので、
+$\delta=0$ で一点、$\delta=1$ で三点となる。
+
+$u^3=4$ では $k_y=0$ かつ $g=1$ で、
+第二因子の横関数は正確に $-bu^2(y_2^3+y_3^3)$ となる。
+$t^3\ne-2$ では第一因子は非退化な三変数二次形式へ消去できる。
+従って $\epsilon=0$ の一つ、$\epsilon=1$ の三つが
+同様の $D_4$ 型となる。
+
+両方の条件が成り立てば、二つの二変数三次型が残り、
+一次変数 $v$ を消去する際の四次補正は
+$(x_2^2x_3^2)$ に属する。この補正は上記の三次の偏微分
+$(x_2^2,x_3^2,y_2^2,y_3^2)$ を使って除去できる。
+従って表示した四変数 Fermat 三次型の suspension となり、
+Jacobian 局所環の長さは $2^4=16$ である。
+\end{proof}
+
+\begin{remark}[規約と高次比較の残存問題]
+\label{ifod:rem:scope}
+$\tau_1^3=-2$ は標準 Hesse の Fermat 因子であり、
+$\tau_2^3=4$ は中心 norm の第二横Hesse関数で二次結合係数が
+消える特殊点である。この二つを混同しない。
+また二組の $\rho$ が交差して一致することは一般にもあり得るが、
+式\eqref{ifod:eq:node-open}の下では節点は別々の点に留まる。
+中心 norm の特異係数・scheme 的重複度・Milnor 型の記述から
+原点の固定 Hesse 切片の十二の高次比較係数は決定できない。
+必要なのは指定した実核・Picard・周期を含む高次変形の移送である。
+本小節の恒等式と一般例の Hessian は
+\texttt{computations/verify\_clifford\_general\_oneway.py}
+で厳密に検算できる。
+\end{remark}
