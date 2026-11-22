@@ -1,0 +1,193 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v58.
+\section{異なる楕円因子を許す全係数の可換比較}
+\label{emc:sec:elliptic-comparison}
+
+前節で決定した中心持上げの許容部分に対し、実際の可換比較核を構成する。
+各因子の楕円曲線を固定すれば、因子間の $j$ 不変量の一致・相異、
+非同種性、非 CM 性、移動点の非捩れ性は必要ない。
+二捩れ因子では関係式の線形補正を平行移動で除き、
+中心三次自体の三つの一次方向を含める。
+本節の主張は、一つの中心変数を共有する因子別 PBW 表示についてのものである。
+任意の内在的非可換三次がこの表示を持つことや、楕円因子の moduli 上での
+比較の大域的な選択を主張するものではない。
+
+\subsection{固定因子と中心持上げの普遍係数}
+
+$k\ge2$、$N=3k$ とし、各 $i$ について滑らかな点曲線を持つ
+標準 Sklyanin 代数
+\[
+ S_i=S(A_i,B_i,C_i),\qquad
+ r_{i,x}=A_i y_i z_i+B_i z_i y_i+C_i x_i^2
+\]
+とその巡回二関係を固定する。ここで $A_iB_iC_i\ne0$ である。
+前節と同じ実楕円データ
+$S_i/(\Omega_{i,0})=B(E_i,\mathcal O_{E_i}(1),t_{p_i})$ を取り、
+各 $E_i$ を定める非零の平面三次式 $f_i$ を一つ選ぶ。
+中心元 $\Omega_{i,0}$ の生成元と重み $a_i\in\C^\times$ も固定する。
+二捩れ因子は $(A_i,B_i,C_i)=(1,1,\tau_i)$ に規格化し、
+$\Omega_{i,0}$ は前節の $\Omega_{\tau_i}|_{u=0}$ とする。
+他の生成元の選択は $a_i$ の変更に吸収できる。
+
+各因子に三つの重み一の係数 $\mathbf t_i$ と、三つの重み二の係数
+$\alpha^{(i)}=(\alpha_{i,x},\alpha_{i,y},\alpha_{i,z})$ を置く。
+\begin{itemize}
+\item $2p_i\ne0$ の場合は $\mathbf t_i=(p_i',q_i',r_i')$ と書き、
+\[
+ \Phi_i=A_i x_i y_i z_i+B_i y_i x_i z_i
+       +\frac{C_i}{3}(x_i^3+y_i^3+z_i^3)
+       +uP_i-u^2(\alpha^{(i)}\cdot\mathbf x_i),\qquad
+ P_i=p_i'x_i y_i+q_i'y_i z_i+r_i'z_i x_i
+\]
+の cyclic 微分で周囲因子 $\mathcal B_i$ を定める。
+$\Omega_i$ は命題\ref{eco:prop:universal-lift}と
+系\ref{eco:cor:non-clifford-lift}の普遍中心持上げである。
+純 $u^3$ 係数を零に固定して一意化する。
+\item $2p_i=0$ の場合は $\mathbf t_i=(\beta_{i,x},\beta_{i,y},\beta_{i,z})$ とし、
+\[
+ \mathcal B_i=T[u]\langle x_i,y_i,z_i\rangle/
+ (\{y_i,z_i\}+\tau_i x_i^2-u^2\alpha_{i,x},\text{巡回式}),\qquad
+ \Omega_i=\Omega_{\tau_i}
+        +u(\beta_{i,x}x_i^2+\beta_{i,y}y_i^2+\beta_{i,z}z_i^2)
+\]
+と置く。これは命題\ref{eco:prop:clifford-center-freedom}の全持上げを含む。
+\end{itemize}
+係数環と中心商を
+\begin{equation}\label{emc:eq:family}
+ \begin{gathered}
+ T=\C[\mathbf t,\alpha,c],\qquad
+ \operatorname{wt}(\mathbf t)=1,\quad
+ \operatorname{wt}(\alpha)=2,\quad\operatorname{wt}(c)=3,\\
+ B=\bigotimes_{T[u],\,i=1}^k\mathcal B_i,\qquad
+ w=\sum_i a_i\Omega_i+cu^3,\qquad A=B/(w),\\
+ S=A/(u)=\left(\bigotimes_i S_i\right)/(\sum_i a_i\Omega_{i,0}),
+ \qquad G=\sum_i a_i f_i
+ \end{gathered}
+\end{equation}
+とする。係数の内部次数は零であり、表示した重みは法線 $u$ の rescaling に対応する。
+
+\begin{proposition}[指定境界を保つ因子別 PBW 表示の全許容部分]
+\label{emc:prop:coverage}
+因子間は可換、$u$ は中心とし、各 $S_i$ の関係にその因子の生成元に関する $u$ 倍の線形項と
+$u^2$ 倍の定数項を加える全ての PBW 表示を考える。
+その中で最高次 active 部分が $\sum_i a_i\Omega_{i,0}$ となる
+中心三次が存在するものは、生成元の平行移動
+$\mathbf x_i\mapsto\mathbf x_i+u\mathbf s_i$ の後に
+式\eqref{emc:eq:family}で表される。
+\end{proposition}
+
+\begin{proof}
+前節の PBW 条件により線形補正行列は対称である。
+平行移動の対角係数は $2C_i\mathbf s_i$ なので、
+$C_i\ne0$ により対角を一意に消し、非二捩れの場合は上の $P_i$ を得る。
+二捩れの場合、中心性方程式の $u$ 一次・純 $i$ ブロック部分へ射影すると、
+定理\ref{eco:thm:clifford-obstruction}と同じ三つの障害を得る。
+異なるブロックを含む補正の交換子はこの純ブロック成分へ寄与しない。
+従って二捩れの残余線形補正は零でなければならない。
+逆にこの条件の下で全ての $\Omega_i$ が存在する。
+
+任意の中心三次 $w'$ から $\sum_i a_i\Omega_i$ を引くと $u q_2$ となる。
+PBW により $u$ は正則なので、$q_2$ も中心的である。
+その $u=0$ の像は $Z(\bigotimes_iS_i)_2$ に属する。
+体上の tensor 積の中心は中心の tensor 積であり、
+各因子の $Z(S_i)_1$ は零である。
+非二捩れ因子では $Z(S_i)_2=0$、二捩れ因子では
+$Z(S_i)_2=\langle x_i^2,y_i^2,z_i^2\rangle$ である。
+従って $u\beta$ 倍の平方を引けば差は $u^2q_1$ になる。
+再び中心性と $Z(\bigotimes_iS_i)_1=0$ を用いると、残りは $cu^3$ に限られる。
+非零の $a_i$ へ係数を吸収すれば表示した族を得る。
+\end{proof}
+
+\input{papers/sections/mixed/elliptic_boundary_kernel.tex}
+
+\subsection{任意の固定因子に対する相対線束模型}
+
+\begin{proposition}[全係数上の周囲正則性と実球面随伴]
+\label{emc:prop:line-model}
+式\eqref{emc:eq:family}の $B,A$ は左右 noetherian で、各内部次数は有限自由
+$T$-加群である。$u$ は $B,A$ 上、$w$ は $B$ 上で中心正則元である。
+$B$ は相対的に Koszul で、各複素ファイバーは global dimension と
+Gorenstein parameter がともに $N+1$ の AS-regular 代数である。
+相対 augmentation 双対は
+\[
+ R\underline{\operatorname{Hom}}_B(T,B)=T(N+1)[-N-1],\qquad
+ R\underline{\operatorname{Hom}}_A(T,A)=T(N-2)[-N]
+\]
+である。全 twist の線束 dg 圏 $\mathcal C_A$ と、$N-2$ 本の例外線束を
+除いた残余 $\mathcal A_A$ は $T$-proper な有限生成模型を持つ。
+中心超平面制限 $F:\mathcal A_A\to\mathcal B_T$ とその左右随伴は
+全 $T$ 上に存在し、その実随伴の全構造が任意の導来底変更に両立する。
+ここで $\mathcal B=\mathcal K_S\simeq\Ku(V(G))$ である。
+twist と unshifted cotwist、および生成性は
+\[
+ \begin{gathered}
+ T_F\simeq\varrho^2,\quad C_F\simeq\varrho_A^{-1}[1],\quad
+ T_F^3\simeq[4],\quad C_F^3\simeq[1],\\
+ \mathcal A_A=\operatorname{thick}(F^R\mathcal B_T),\qquad
+ \mathcal B_T=\operatorname{thick}(F\mathcal A_A)
+ \end{gathered}
+\]
+となる。同じ結論は可換族 $G+uQ+u^2L+u^3d$ の全ての係数について成立する。
+\end{proposition}
+
+\begin{proof}
+命題\ref{lcc:prop:universal-line-model}の証明で因子の特定の係数を使う箇所を
+順に確認する。active 次数による PBW 濾過の随伴代数は
+$\operatorname{gr}B=(\bigotimes_iS_i)\otimes T[u]$ である。
+各固定複素係数での PBW 性は前節で確認済みであり、関係の持上げと
+固定した各斉次 $S_i$ の基底により普遍係数上の基底が得られる。
+実際、基底の線型関係があれば全複素点で係数が零となり、
+多項式環 $T$ の被約性から関係は零である。
+各 $S_i$ は中心正則元 $\Omega_{i,0}$ の多項式環上自由である。
+これは $S_i/(\Omega_{i,0})$ の斉次基底を持ち上げ、次数に関する帰納法を
+使えばよい。従って $\sum_i a_i\Omega_{i,0}$ は tensor 積上正則であり、
+\[
+ \operatorname{gr}A=S\otimes T[u]
+\]
+となる。これで次数別自由性と $u,w$ の正則性が従う。
+主稿の補題\paperref{main}{mbnp:lem:noetherian}は同一性を仮定しない
+楕円 Sklyanin 因子の tensor 積に適用される。
+$B/(u)$ の noetherian 性から正次数中心元の持上げで $B,A$ の noetherian 性を得る。
+
+各 $\mathcal B_i$ は $Q_0=T[u]$ 上で cyclic potential の三微分により定義される。
+二捩れ因子の $\beta$ は中心元だけを変え、周囲代数の potential には現れない。
+cyclic Hessian による長さ三の potential 双加群複体は $Q_0$ 上で定義され、
+左右因子交換を伴う転置によって $(3)[-3]$ 自己双対を持つ。
+随伴複体は固定した $S_i$ の exact な Koszul 双加群複体であるから、
+内部次数ごとに有限な濾過により元の複体も exact である。
+ここで標準 $S_i$ の untwisted 性は cyclic potential と
+\cite[Corollary~2.9]{MoriSmith}、低次補正後の自己双対性は
+\cite[Theorem~3.6, Lemma~3.7 and proof]{NFMBeTa}の同じ明示複体による。
+$Q_0$ 上で tensor した長さ $N$ の複体も exact である。
+
+$C=B\otimes_TB^{\mathrm{op}}$ と置く。
+共有中心差 $u_L-u_R$ は $C$ 上正則であり、
+$D=C/(u_L-u_R)=B\otimes_{Q_0}B^{\mathrm{op}}$ は $C$-perfect である。
+$R\underline{\operatorname{Hom}}_C(D,C)=D(1)[-1]$ と上の自己双対から
+\[
+ R\underline{\operatorname{Hom}}_C(B,C)=B(N+1)[-N-1]
+\]
+を得る。中心差を因子の個数だけ重複して加えてはいない。
+体値の有限濾過 bar 複体の spectral sequence により Koszul 性を得る。
+Hilbert 級数は $(1-t)^{-N-1}$ なので Koszul 空間の階数は
+$\binom{N+1}{j}$ である。普遍係数上でも各内部次数の行列の階数は
+全複素点で一定であり、有限射影の Koszul 空間と底変更に両立する解消を得る。
+上の自己双対を片側へ augmentation し、正則中心三次で change of rings
+を行えば表示した双対式を得る。最上 Ext の非消滅は global dimension が
+正確に $N+1$ であることも示す。
+
+これで命題\ref{lcc:prop:universal-line-model}の局所 cohomology、
+線束の Ext 双対、有限 mutation の証明を全て適用できる。
+具体的には零次の $A_{l-i}$ と $(N-1)$ 次の
+$(A_{i-l-(N-2)})^\vee$ 以外の線束間 Ext は零であり、
+$N+1$ 本の連続する線束が全 twist を生成する。
+双対に Nakayama twist はなく、制限の二項解消と例外列の長さから
+命題\ref{cmm:prop:universal-spherical}と同じ随伴射・周期を得る。
+proper 性による高い shift 間の射の消滅が両側の生成性を与える。
+全て有限 perfect 模型の構成なので、導来底変更に両立する。
+可換側は周囲の多項式環で同じ議論を行える。
+非正則な底での全 coherent 圏との同一視はこの段階では主張しない。
+\end{proof}
+
+\input{papers/sections/mixed/elliptic_bockstein.tex}
+\input{papers/sections/mixed/elliptic_universal_kernel.tex}

@@ -1,0 +1,485 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v58.
+\subsection{一般楕円因子の二つの Bockstein と係数の検出}
+\label{ebc:subsec:bockstein}
+
+本小節では、定数補正の二項類と、線形補正または中心平方補正の一次類を検出する。
+因子間の同型や Heisenberg 同変な境界比較は仮定しない。
+以下で固定する境界は
+\[
+ B_0=\bigotimes_{i=1}^kS_i,\qquad
+ w_0=\sum_i a_i\Omega_{i,0},\qquad
+ S=B_0/(w_0),\qquad F=B_0^!
+\]
+である。中心重み $a_i\ne0$ と区別するため、各因子の Sklyanin パラメータを
+$S_i=S(A_i,B_i,C_i)$ と書く。
+滑らかな標準点曲線という仮定は $A_iB_iC_i\ne0$ を含む。
+$I_{\mathrm{n}}$ を二捩れでない因子の集合、$I_2$ を二捩れ因子の集合とし、
+後者は $S_i=S(1,1,\tau_i)$ に規格化する。
+前者の一次パラメータは対角零の対称 PBW 行列 $M_i$、
+後者の一次パラメータは中心持上げの
+$u\sum_j\beta_{ij}x_{ij}^2$ である。
+これらをまとめた $\mathbf t$ は $3k$ 次元である。
+定数項は potential の $-u^2\sum_{i,j}\alpha_{ij}x_{ij}$ という規約を用いる。
+
+\subsubsection{二次双対と平行移動による商}
+
+\begin{lemma}[一般 Sklyanin 因子の平行移動と独立な左右 gauge]
+\label{ebc:lem:translation-gauge}
+一因子を $S(a,b,c)$ と省略し、巡回的に
+\[
+ r_x=ayz+bzy+cx^2,\qquad
+ q_x=r_x^*\in (S^!)_2
+\]
+と置く。二次双対の積は
+\begin{equation}\label{ebc:eq:dual-products}
+ \xi_x^2=cq_x,\qquad \xi_y\xi_z=aq_x,\qquad
+ \xi_z\xi_y=bq_x
+\end{equation}
+およびその巡回置換である。特に三つの平方は一次独立である。
+
+関係 $r_i+u\sum_jM_{ij}x_j-u^2\alpha_i$ が PBW となる条件は
+$M=M^{\mathsf t}$ であり、$\alpha$ は任意である。
+$x_i=X_i+s_i u$ とすると線形係数は $M+T(s)$ となる。ただし
+\begin{equation}\label{ebc:eq:translation}
+ T(s)=
+ \begin{pmatrix}
+ 2cs_x&(a+b)s_z&(a+b)s_y\\
+ (a+b)s_z&2cs_y&(a+b)s_x\\
+ (a+b)s_y&(a+b)s_x&2cs_z
+ \end{pmatrix}.
+\end{equation}
+従って $\operatorname{Sym}_3/\operatorname{im}T$ は三次元で、
+各類は唯一の対角零代表を持つ。
+
+一方、$h_L=\sum L_i\xi_i$、$h_R=\sum R_i\xi_i$ を独立に選び、
+$\xi_j\mapsto h_L\xi_j+\xi_jh_R$ の行列を
+行が $(q_x,q_y,q_z)$、列が $(\xi_x,\xi_y,\xi_z)$ となるように書くと
+\begin{equation}\label{ebc:eq:independent-gauge}
+ D(L,R)=
+ \begin{pmatrix}
+ c(L_x+R_x)&bL_z+aR_z&aL_y+bR_y\\
+ aL_z+bR_z&c(L_y+R_y)&bL_x+aR_x\\
+ bL_y+aR_y&aL_x+bR_x&c(L_z+R_z)
+ \end{pmatrix}.
+\end{equation}
+この行列は恒等式
+\begin{equation}\label{ebc:eq:symmetric-gauge}
+ \frac{D(L,R)+D(L,R)^{\mathsf t}}2=T\bigl((L+R)/2\bigr)
+\end{equation}
+を満たす。従って、独立な左右 gauge の像と対称行列空間の交わりは
+正確に $\operatorname{im}T$ である。この結論は $a=b$ でも成立する。
+\end{lemma}
+
+\begin{proof}
+$(S^!)_2$ は関係空間 $R=\langle r_x,r_y,r_z\rangle$ の双対であり、
+$\xi_i\xi_j$ は語 $x_ix_j$ の係数を評価する。
+これが式\eqref{ebc:eq:dual-products}を与える。
+平方と関係の pairing の行列は $cI_3$ なので、$c\ne0$ の下で独立である。
+
+次数三の唯一の Koszul overlap は
+$\sum_i x_ir_i=\sum_i r_ix_i$ である。
+その線形補正から得る次数二の式は
+$\sum_{i,j}M_{ij}(x_jx_i-x_ix_j)$ である。
+これは $\bigwedge^2V$ に属し、一方、各 $r_i$ の平方係数が $c\ne0$ なので
+$R\cap\bigwedge^2V=0$ である。
+従ってこの式が $R$ に入るためには零でなければならず、これは $M$ の対称性に等しい。
+この条件下では低次の PBW 条件も成立する。
+実際、線形・定数補正はそれぞれ二次・一次の cyclic potential の微分であり、
+\cite[Theorem~3.1]{NFMBeTa}を適用できる。
+平行移動の式は三つの二次関係への代入から従う。
+対角を消す唯一の値は $s_i=-M_{ii}/(2c)$ である。
+同じ Koszul 双加群複体を使えば、これは次数付き代数としての
+$\operatorname{HH}^2(S)_{-1}=\operatorname{Sym}_3/\operatorname{im}T$ の計算でもある。
+この affine Hochschild 群と残余圏の自然変換空間は、ここでは同一視していない。
+
+式\eqref{ebc:eq:independent-gauge}は双対積から直接得られる。
+その対称部分は式\eqref{ebc:eq:symmetric-gauge}である。
+対称な $D(L,R)$ は従って平行移動の像に入り、逆に $D(s,s)=T(s)$ である。
+\end{proof}
+
+\subsubsection{実自己交叉の類と Tate 模型}
+
+$\kappa$ を $S/S_{\ge1}=\C$ の安定化とし、
+$\mathcal T$ を全ての $\kappa(b)$、$b\in\mathbb Z$ を対象とする
+$\mathcal K_S$ の full dg 部分圏とする。
+rotation はこの模型では $(1)$ であり、指定周期は $(3)\simeq[2]$ である。
+非零性の証明には、全 $\mathcal K_S$ 上の nullhomotopy が
+$\mathcal T$ へ制限されることだけを用いる。
+
+\begin{lemma}[次数一・二の法線に対する full Bockstein]
+\label{ebc:lem:full-tate}
+次数 $d\in\{1,2\}$ の中心正則元 $z$ を持つ平坦な持上げ
+$\mathcal R$、$\mathcal R/(z)=S$ を考える。
+双加群自己交叉三角の connecting class
+\begin{equation}\label{ebc:eq:self-intersection}
+ S(-d)[1]\longrightarrow S\otimes_{\mathcal R}^{\mathbf L}S
+ \longrightarrow S\xrightarrow{\eta_z}S(-d)[2]
+\end{equation}
+は、$\mathcal R/(z^2)$ の積の一次変形 cocycle の class に等しい。
+その加群への作用を singularity quotient と window に通すと、
+実自然変換 $\operatorname{id}\to\varrho_S^{-d}[2]$ を得る。
+
+境界の内部次数付き Ext と安定 Hom は、中央周期作用素 $\vartheta$ の加群として
+\begin{equation}\label{ebc:eq:tate-module}
+ \underline{\operatorname{Ext}}_S^*(\C,\C)
+     =F\otimes\C[\vartheta],\qquad
+ H^*(\mathcal T)=F\otimes\C[\vartheta,\vartheta^{-1}].
+\end{equation}
+ここで $F_j$ の双次数は $(j,-j)$、$\deg\vartheta=(2,-3)$ とする。
+実自己交叉の full cochain も、この Tate 局所化へ移送される。
+\end{lemma}
+
+\begin{proof}
+補題\ref{mix:lem:linear-bockstein-characteristic}の bar 比較は
+因子の係数を使っていない。その比較を次数 $d$ を明示して記す。
+単位を保つ斉次線型切断 $s:S\to\mathcal R/(z^2)$ を選び、
+$s(a)s(b)-s(ab)=z\phi(a,b)$ と書く。
+$s(a)$ をさらに $\mathcal R$ へ持ち上げ、右 $\mathcal R$-自由解消
+$[\mathcal R(-d)\xrightarrow{z}\mathcal R]$ の左作用を表す。
+作用の合成と積の作用との差を $z$ で割った homotopy を $S$ へ還元すると、
+二側 bar の $[a|b]$ を $\phi(a,b)$ へ送る cochain になる。
+これが式\eqref{ebc:eq:self-intersection}の二拡張の代表である。
+従って対象ごとの obstruction の値だけでなく、双加群 class 自体が一致する。
+
+自由複体の圏への移送は
+Lowen\cite[Theorems~3.21, 4.15]{CMOLowenCharacteristic}の
+full brace cochain で行う。
+対象が持上げ複体を持つ場合、零項を零に取り、一項は dg Hom の微分の一次補正、
+二項は積の一次補正となる。
+持上げ複体がない場合も、零項は自由解消の
+$\widetilde d^{\,2}/z\bmod z$ であり、同じ class の評価である。
+双加群射による自然変換とその homotopy は dg quotient に降下し、
+window へ移送される。ここで $\operatorname{HH}^2(S)_{-d}$ 全体が
+残余の自然変換空間と同型であるとは主張しない。
+
+$B_0$ は quadratic Koszul AS-regular である。
+その Koszul 解消に正則中心三次 $w_0$ の Shamash 構成を施す。
+ここでは中心性、正則性と自由解消だけを使う
+\cite[Constructions~4.1.1, 4.3.1, Proposition~4.3.2]{CMOEisenbudPeeva}の構成を用いる。
+第 $n$ homotopy は homological degree を $2n-1$ 増し、内部 shift が $3n$ なので、
+係数の次数は $3n-(2n-1)=n+1>0$ である。
+従って augmentation 後の微分は零であり、
+周期作用素の加群として式\eqref{ebc:eq:tate-module}の前式を得る。
+これは全高次積が自明という主張ではない。
+
+Shamash の divided-power shift は、$B_0\to S$ の
+双加群自己交叉から得る中央 cohomology operator $\vartheta$ を表す。
+同じ構成を augmented な一次持上げ上で行う場合も、
+$\vartheta$ は全相対 Ext 上の中央自然変換である。
+augmentation による dg End から Hom 解消への擬同型はその作用と両立する。
+従って中央元の derived localization
+\cite[Theorem~5.3, Corollary~5.16]{NFMBCLLocalization}を使うと、
+射複体は $\vartheta$-telescope で計算できる。
+その零ファイバーは中央三次商の Tate 模型
+\paperref{moduli}{lem:nfm-cubic-tate-cut}であり、後式を得る。
+同じ derived localization の普遍性
+\cite[Proposition~3.17, Theorem~3.18]{NFMBCLLocalization}は
+持上げた dg 圏と full cochain を同時に運ぶ。
+従って局所化した cohomology の次元だけから自然変換を推測しているのではない。
+\end{proof}
+
+\begin{proposition}[定数三方向ずつの二項同型]
+\label{ebc:prop:constant-iso}
+$\mathbf t=0$ での定数補正は線型同型
+\begin{equation}\label{ebc:eq:constant-iso}
+ \mathfrak b_2:\C^{3k}_{\alpha}\xrightarrow{\ \sim\ }
+ H^0\operatorname{RHom}_{\operatorname{Fun}(\mathcal K_S,\mathcal K_S)}
+       (\operatorname{id},\varrho_S)
+ \xrightarrow{\ \sim\ }\operatorname{Jac}(G)_1
+\end{equation}
+を与える。最後の同型には補題\ref{ebk:lem:boundary}の固定した境界比較を用いる。
+この class は中心 $u$ 制限の正規化二項 comonad データの $\alpha$ による差である。
+全 $\mathbf t$ 上でも、二項データの $\alpha$ に関する線型係数は
+同じ可逆な線型写像である。
+\end{proposition}
+
+\begin{proof}
+$\mathbf t=0$、中央 scalar 項 $c=0$ として $v=u^2$、$\deg v=2$ と置く。
+各関係は $r_{ij}-v\alpha_{ij}$ となる。
+二捩れでない因子の指定中心持上げは
+$\Omega_{i,0}+vC_{i,1}(\alpha_i)$ であり、$C_{i,1}$ は active 一次式である。
+二捩れ因子では標準 Clifford 体積元をそのまま使える。
+これらの中心元の重み付き和で商を取り、$v$ を中心正則元とする $\mathcal R_\alpha$ を得る。
+PBW 性と中心元の最高次正則性が、$\C[v]$ 上の次数別自由性を与える。
+関係と中心元の $v$ 係数は $\alpha$ に線形なので、前補題は線型写像
+$\mathfrak b_2$ を与える。
+
+この射を $\kappa$ 上で評価する。
+Koszul--Shamash 解消の最初の二段を $\mathcal R_\alpha$ へ持ち上げると、
+微分の二乗を $v$ で割ったものの二次関係成分は
+\begin{equation}\label{ebc:eq:constant-evaluation}
+ \pm\sum_{i,j}\alpha_{ij}q_{ij}
+   =\pm\sum_{i,j}C_i^{-1}\alpha_{ij}\xi_{ij}^2
+       \in F_2.
+\end{equation}
+ここで符号は二拡張の共通の規約だけによる。
+中心三次の $v$ 係数は active 一次式なので augmentation 後には零となり、
+この成分には寄与しない。
+双次数 $(2,-2)$ に $F_j\vartheta^m$ が現れる条件は
+$j+2m=2$、$j+3m=2$ であり、唯一の解は $(j,m)=(2,0)$ である。
+従って周期成分との混同もない。
+各 $q_{ij}$ は独立で、異なる因子は $F_2$ の異なる直和成分に入る。
+式\eqref{ebc:eq:tate-module}には $\vartheta$-torsion がないため、
+この非零の評価は安定化後も消えない。
+全自然変換が零ならその評価も零なので、$\mathfrak b_2$ は単射である。
+
+補題\ref{ebk:lem:boundary}で可換境界へ移す。
+対角 MF の sector 公式
+\cite[Theorem~5.39 and proof, pp.~82--84]{NFBFKKernels}において、
+$\operatorname{Hom}(\operatorname{id},\varrho)$ の恒等 sector は
+$\operatorname{Jac}(G)_1$ である。
+非恒等 sector の必要条件は $2=N$ であり、$N=3k\ge6$ では成立しない。
+Jacobian イデアルは二次式で生成されるので、標的の次元は $3k$ である。
+これで式\eqref{ebc:eq:constant-iso}の全単射性が従う。
+
+二項 comonad データとの同定も実解消上で確認できる。
+$\widetilde d^{\,2}=v\widetilde\theta$ と書き、$v=u^2$ へ底変更する。
+中心法線の二列解消で
+\[
+ D=\widetilde d+u(\partial_e-\widetilde\theta e),\qquad
+ \xi=\partial_e+\widetilde\theta e
+\]
+と取ると、法線生成元は $\xi^2=\widetilde\theta$ を満たす。
+従ってその二項作用は同じ $v$-Bockstein である。
+これは補題\ref{cmo:lem:central-universal-parameters}の実随伴の計算であり、
+因子固有の係数を使っていない。
+
+命題\ref{emc:prop:line-model}の全係数上の実構造と、
+後の補題\ref{euk:lem:arity}の自由な二項比較群を用いると、比較 class は多項式となる。
+二項 class の重みは二で、$\operatorname{wt}(\mathbf t)=1$、
+$\operatorname{wt}(\alpha)=2$ である。
+従って $\alpha$ に関する係数に正次数の $\mathbf t$ は現れず、
+全 $\mathbf t$ 上で同じ線型写像となる。
+ここで因子間の共通 scalar や標準座標での対角性は結論していない。
+\end{proof}
+
+\subsubsection{一次類の一項成分と Clifford 中心の二項成分}
+
+\begin{lemma}[一般線形 PBW の一項成分]
+\label{ebc:lem:unary}
+$\epsilon^2=0$、$\deg\epsilon=1$ とし、中心 $u$ 変形を一次で切った
+$S_\epsilon$ を考える。$\mathcal T$ 上の実 Bockstein を表す full cocycle
+$\delta=(\delta_0,\delta_1,\ldots)$ は、$\delta_0=0$ と取れて、
+各因子の次数一生成元上で
+\begin{equation}\label{ebc:eq:unary}
+                 \delta_1(\xi_{ij})=\pm\sum_l M^{(i)}_{lj}q_{il}
+\end{equation}
+となる。中心持上げの $uC_2$ および二捩れ因子の $u\beta x^2$ は、
+この一項成分へ寄与しない。
+\end{lemma}
+
+\begin{proof}
+全 active 変数を零へ送る $S_\epsilon\to\C[\epsilon]/(\epsilon^2)$ が存在する。
+周囲 PBW 代数の相対 augmented Koszul 解消は、通常の Koszul 微分に
+$\epsilon$ と線形補正の双対の積を加えたものである。
+その完全性は active 濾過の随伴複体から従う。
+これは非斉次二次双対の構成
+\cite[\S\S2.1--2.5]{CMOPositselskiQL}を、係数環上で行ったものである。
+augmentation 後の微分の $\epsilon$ 係数は、関係の双対基底では
+式\eqref{ebc:eq:unary}となる。
+
+中心三次の Shamash homotopy の係数は、前補題と同じく総内部次数 $n+1$ である。
+$\epsilon^2=0$ なので、その $\epsilon$ 係数も少なくとも $n\ge1$ 個の
+active 変数を持ち、augmentation 後に消える。
+従って相対 Hom 解消の微分は $\pm\epsilon\ell^*$ で、
+$\ell^*$ の $F_1\to F_2$ 成分が表示式である。
+補題\ref{ebc:lem:full-tate}の full cochain と中央周期の局所化を使い、
+最小 Tate 模型へ移送する。
+一項成分は Hom 複体の一次微分が cohomology に誘導する写像なので、
+この計算は移送後も同じである。
+\end{proof}
+
+\begin{lemma}[Clifford 中心平方の二項成分]
+\label{ebc:lem:clifford-binary}
+全ての PBW 線形補正と定数補正を零とし、二捩れ因子の中心だけを
+\[
+       w_\epsilon=w_0+
+             \epsilon\sum_{i\in I_2}a_i\sum_j\beta_{ij}x_{ij}^2
+\]
+へ変形する。$\mathcal T$ の最小模型と full cocycle を選んで
+$\delta_0=\delta_1=0$ とでき、その二項成分は同じ Clifford ブロック内で
+\begin{equation}\label{ebc:eq:clifford-binary}
+        \delta_2(\xi_{ij},\xi_{il})
+                 =\pm a_i\beta_{ij}\delta_{jl}\vartheta
+\end{equation}
+となる。
+さらに零ファイバーの $m_3:F_1^{\otimes3}\to\C\vartheta$ は、
+当該ブロックに制限すると完全交代であり、
+三つの入力が同じブロックに属さなければ零となる。
+\end{lemma}
+
+\begin{proof}
+この場合、周囲代数の相対 Koszul 解消は一定である。
+前補題の次数計算によって、相対 Shamash 解消 $P_\epsilon$ には
+augmentation 後の微分が全く残らない。
+従って相対 Ext は係数環上自由で、その次数一基底は $\xi_{ij}$、
+次数二基底は二次関係の双対と中心関係の双対 $\vartheta$ である。
+dg End から相対 Hom への augmentation 擬同型を使って最小模型を取る。
+零ファイバーの contraction を延長する perturbation は
+$\epsilon^2=0$ により一次で止まる。
+相対 cohomology が上の自由加群であるため、移送した微分も零である。
+実際の持上げ複体を使っているので曲率も零であり、$\delta_0=\delta_1=0$ となる。
+
+二項成分は相対 Yoneda 積の低次 bar 計算だけで求められる。
+自由な最小関係基底を、周囲の二次関係と $w_\epsilon$ で取る。
+次数一の二つの Ext class の積とこの関係基底との pairing は、
+各関係の active 語長二の係数である。
+具体的には、長さ $n$ の語に対応する bar 比較を
+$[x_{j_1}\mid x_{j_2}\cdots x_{j_n}]$ で始めると、
+二つの一次 cochain の積は $n=2$ だけを残す。
+長さ三以上の項の第二因子は augmentation ideal の平方に属し、一次 cochain が消す。
+この計算は自由な関係基底と係数環上の線型 splitting だけを使い、
+係数環が体であることを必要としない。
+$w_\epsilon$ の語長二成分は
+$\epsilon\sum a_i\beta_{ij}x_{ij}^2$ なので、
+相対積の $\epsilon$ 係数が式\eqref{ebc:eq:clifford-binary}となる。
+
+零ファイバーの三項だけには、体上の関係と高次積の定理
+\cite[Theorem~A, Corollary~B]{CMOLPWZExt}を用いる。
+Clifford ブロックでは二次関係が対称であり、$S_{i,2}$ の語代表を
+$\bigwedge^2V_i$ と三つの平方の和に取れる。
+従って
+\[
+ \Omega_{i,0}=\frac{\tau_i^3-1}{3}
+ (yxz+xzy+zyx-xyz-yzx-zxy)
+\]
+そのものが $V_i\otimes S_{i,2}\subset V_i^{\otimes3}$ 内の関係代表となる。
+他因子でも純ブロックの代表を取れば、$w_0$ はそのような三次関係の和である。
+同定した $\operatorname{Ext}^1$、$\operatorname{Ext}^2$ の下で
+$m_3$ はこの三次関係の双対に取れるため、主張する完全交代性と混合入力の消滅を得る。
+この最小模型の選択は Yoneda 積を変えない。
+零ファイバーで必要な高次の模型変更を相対模型へ延長しても、
+$m_1=0$ なので先に計算した $\delta_2$ は変わらない。
+ここでは同文献の体上の定理を、非被約係数環上の定理として無条件に適用してはいない。
+
+最後に中央 cohomology operator による局所化を
+補題\ref{ebc:lem:full-tate}と同じ dg 圏上で行う。
+通常 Ext を Tate 模型の非負周期部分として回復する補題
+\paperref{moduli}{lem:nfm-ordinary-ext-intrinsic-cut}を用いる。
+その次数計算では、$m_n$ の出力の周期指数は入力の指数の和に $n-2$ を加えたもの、
+一次補正 $\delta_n$ では $n-1$ を加えたものである。
+$m_0=m_1=\delta_0=\delta_1=0$ なので、この部分は相対的にも保たれる。
+stabilization の最小模型間の射はこの部分で一次成分が同型である。
+より具体的には、相対 Ext と Tate はともに微分零の自由模型であり、
+局所化射の一次成分は係数環上の分裂単射
+$F[\vartheta]\hookrightarrow F[\vartheta,\vartheta^{-1}]$ である。
+この $A_\infty$ 射の高成分を、arity ごとにその像上から全体へ斉次線型に延長し、
+一次成分が恒等の target の座標変更で順に消す。
+bar coalgebra の長さについてのこの再帰により、
+選んだ通常 Ext 模型を Tate 模型へ厳密に包含できる。
+微分が零なので、この座標変更は二項 Yoneda 積とその一次補正を変えない。
+従ってこれらは通常 Ext だけの式ではなく、$\mathcal T$ 上で実際の
+自己交叉自然変換を表す cochain の式である。
+\end{proof}
+
+\begin{theorem}[持上げ可能な一次パラメータ全体の単射性]
+\label{ebc:thm:first-injection}
+本節の $3k$ 個の一次パラメータは線型単射
+\begin{equation}\label{ebc:eq:first-injection}
+ \mathfrak b_1:\C^{3k}_{\mathbf t}\lhook\joinrel\longrightarrow
+ H^0\operatorname{RHom}_{\operatorname{Fun}(\mathcal K_S,\mathcal K_S)}
+       (\operatorname{id},\varrho_S^2)
+       \simeq\operatorname{Jac}(G)_2
+\end{equation}
+を与える。定数補正 $\alpha$ と中央 scalar 項 $c$ はこの写像に現れない。
+特に中心超平面の一次 counit class が零であることは
+$\mathbf t=0$ と同値である。
+ここで自然変換の homotopy に rotation 不変性や周期不変性を追加していない。
+\end{theorem}
+
+\begin{proof}
+$u^2=0$ の関係式と中心式は $\mathbf t$ に線形で、
+$\alpha,c$ は含まない。従って補題\ref{ebc:lem:full-tate}が線型写像を与える。
+可換境界の対角 MF の公式では、次数二の自然変換の恒等 sector は
+$\operatorname{Jac}(G)_2$ であり、非恒等 sector の必要条件 $4=N$ は成立しない。
+これが表示した標的の同定である。
+
+この class が零と仮定する。全自然変換の nullhomotopy を
+$\mathcal T$ に制限し、全 bar cochain $h=(h_0,h_1,\ldots)$ を使って
+$\delta=[m,h]$ と書く。
+ここで係数は $\varrho_S^{-1}$ の graph 双加群であり、
+各 $h_n$ は各対象列に独立に依存してよい。
+その cohomological degree は $1-n$、出力の内部 shift は入力の和より一つ小さい。
+全 arity の直積を使っており、bar 長を有限に切っていない。
+
+$F_j\vartheta^m$ の双次数は $(j+2m,-j-3m)$ である。
+零項 $h_0$ の条件は
+\[
+ j+2m=1,\qquad j+3m=1,
+\]
+従って $(j,m)=(1,0)$ であり、$h_0(b)\in F_1$ である。
+負の $m$ を排除してから解いたのではなく、全整数 $m$ に対する唯一の解である。
+$m_0=m_1=0$ なので、arity one の境界は $[m_2,h_0]$ だけである。
+一つの隣接する対象対で左右の $h_0$ を独立な $h_L,h_R$ とし、
+第 $i$ ブロックの $F_{i,2}$ へ射影する。
+補題\ref{ebc:lem:unary}の左辺は対称行列 $\pm M_i$、
+右辺は式\eqref{ebc:eq:independent-gauge}である。
+他ブロックの $h_0$ はこの射影では消える。
+補題\ref{ebc:lem:translation-gauge}より $M_i\in\operatorname{im}T_i$ であるが、
+対角零の正規化と $C_i\ne0$ によって $M_i=0$ となる。
+これで全ての $i\in I_{\mathrm n}$ の一次パラメータが消える。
+
+残る変形は補題\ref{ebc:lem:clifford-binary}の中心平方変形である。
+同じ full nullhomotopy の arity two を取ると、可能な項は
+$[m_2,h_1]+[m_3,h_0]$ だけである。
+$h_1(F_1)$ の双次数条件と $h_1(F_2)$ の条件はそれぞれ
+\[
+ \begin{array}{c|c|c}
+ & (j+2m,j+3m)&(j,m)\\\hline
+ h_1(F_1)&(1,2)&(-1,1)\\
+ h_1(F_2)&(2,3)&(0,1)
+ \end{array}
+\]
+である。従って $h_1(F_1)=0$、$h_1(F_2)\subset\C\vartheta$ であり、
+$[m_2,h_1]$ から残るのは $h_1\circ m_2$ だけである。
+
+一つの Clifford ブロック $S(1,1,\tau)$ と、二つの連続する次数一の射を固定する。
+出力の $\C\vartheta$ 成分を見ると、$h_1\circ m_2$ の行列は、共通の符号を吸収して
+\begin{equation}\label{ebc:eq:clifford-binary-gauge}
+ \begin{pmatrix}
+ \tau\lambda_x&\lambda_z&\lambda_y\\
+ \lambda_z&\tau\lambda_y&\lambda_x\\
+ \lambda_y&\lambda_x&\tau\lambda_z
+ \end{pmatrix}
+\end{equation}
+となる。ここで $\lambda_i$ は $h_1(q_i)$ の係数で、対象対ごとに任意でよい。
+一方、$[m_3,h_0]$ の三つの挿入は、完全交代な三次 tensor へ
+それぞれ $h_0(b)$、$h_0(b-1)$、$h_0(b-2)$ を挿入するものである。
+三つの $h_0$ は互いに異なってよいが、各挿入は残る二入力について交代的である。
+入力の生成元を交換しても対象列は同じなので、対象依存性はこの交代性を壊さない。
+他ブロックからの挿入は、純ブロックの $m_3$ によって零となる。
+
+従って arity two の式の対称部分は
+\[
+ \pm a_i\operatorname{diag}(\beta_{ix},\beta_{iy},\beta_{iz})
+   =
+ \begin{pmatrix}
+ \tau_i\lambda_x&\lambda_z&\lambda_y\\
+ \lambda_z&\tau_i\lambda_y&\lambda_x\\
+ \lambda_y&\lambda_x&\tau_i\lambda_z
+ \end{pmatrix}.
+\]
+対角外成分から全ての $\lambda$ が零となり、$a_i\ne0$ より全ての $\beta_{ij}$ も零となる。
+各 Clifford ブロックで同じ議論を行えば $\mathbf t=0$ を得る。
+逆に $\mathbf t=0$ なら $S_\epsilon=S[\epsilon]/(\epsilon^2)$ なので一次 class は零である。
+\end{proof}
+
+\begin{remark}[検算と結論の範囲]
+\label{ebc:rem:scope}
+\path{computations/verify_elliptic_bockstein.py} は、
+元の関係から双対積を作り、式\eqref{ebc:eq:symmetric-gauge}を多項式恒等式として確認する。
+一般の独立左右 gauge 六列に対角外対称三列を加えた行列式は
+$-8c^3(a-b)^3$ であり、$a=b$ では gauge の階数が三へ下がる。
+対称 gauge と平行移動像の一致自体は、この特殊化でも成立する。
+Clifford の二項検査では、関係三列・交代三列・中心対角三列の行列式が $8$ となる。
+また、全ての Tate 逆冪を許した双次数連立と、対象ごとの独立な三挿入の交代性を確認する。
+これらは有限線型代数の証明書であり、実自己交叉から full cochain への比較、
+Tate 局所化、残余圏への移送は本文の証明による。
+
+式\eqref{ebc:eq:first-injection}は像の $3k$ 次元性を与えるが、
+選んだ一般境界比較での $\operatorname{Jac}(G)_2$ 内の具体的座標までは決定しない。
+同様に式\eqref{ebc:eq:constant-iso}は可逆な線型写像を与え、
+異なる因子の共通 scalar や因子モジュライ上の標準的な正規化を与えるものではない。
+後続の実比較の存在そのものと、これらのパラメータ非退化性を区別する。
+\end{remark}

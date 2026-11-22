@@ -1,6 +1,6 @@
 # Research instructions — nc-cubic
 
-2026-11-22 / v57。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-22 / v58。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
@@ -13,7 +13,9 @@
 
 - `mixed/linear_pbw_boundary.tex` のPBW対称行列条件・普遍中心・HH²₋₁≅C³を保持する。`mixed/linear_bockstein.tex` は自己交叉の双加群classをLowenのfull brace cochainへ移し、対象ごとに異なるhomotopyを許して3k方向の単射性を証明する。augmentationの値だけでは検出しない。`mixed/linear_comonad_comparison.tex` は非分裂counitの二項Jac(G)₁・三項Cを両隣接群も含めて計算し、実可換参照族との差から全線形族の普遍残余線束Morita比較を作る。可換smooth開で相対perfect核・全coherent Kuとなり、存在比較はBockstein単射性に依存しない。`lec:thm:seven-scalar-form` は同変境界比較と標準Jac₂切断の下で一次像を純ブロック直和に同定し、七定数形を与える。κ以外の六定数は未数値化。非線型A∞構造を平均せず、実構造間の差と可縮pathの自然性で同変性を示す。`ldg:thm:normalization` は全係数・各固定pでの判別超曲面の既約被約性、affine正規化と特異点判定を与える。各固定pの一般αで8^k個の単純な悪いcを得るが、固定(p,α)特殊化の重複根は許す。一般PI性・有限中心性は未証明で、周囲代数のuntwisted双対性は相対potential解消による。有限検算と全coherenceの証明を区別する。
 
-- `mixed/elliptic_center_obstruction.tex` は、二捩れでない滑らかな標準Sklyanin因子の全PBW係数に指定中心三次の普遍多項式liftを与える。入力はEG Theorem3.3.2(ii)の全固定係数での非スカラー中心と、Z₁=Z₂=0・Z₃=CΩ。generic限定のEG Theorem3.4.5を全係数へ使わない。二捩れS(1,1,τ)、τ≠0,τ³≠1,−8では正規化p_x=m11−τm23等が全て零であることが必要十分。任意Q₂補正を消す三汎関数が−3τ(p_z,p_x,p_y)を検出する。許容線形項は平行移動方向で、定数補正は任意。PBW・CY性を指定三次のliftと同一視せず、これをKu主予想への反例とも扱わない。他因子の実境界/comonad/Ku比較は未完成であり、中心持上げの成立範囲から着手する。
+- `mixed/elliptic_center_obstruction.tex` は、二捩れでない滑らかな標準Sklyanin因子の全PBW係数に指定中心三次の普遍多項式liftを与える。入力はEG Theorem3.3.2(ii)の全固定係数での非スカラー中心と、Z₁=Z₂=0・Z₃=CΩ。generic限定のEG Theorem3.4.5を全係数へ使わない。二捩れS(1,1,τ)、τ≠0,τ³≠1,−8では正規化p_x=m11−τm23等が全て零であることが必要十分。任意Q₂補正を消す三汎関数が−3τ(p_z,p_x,p_y)を検出する。許容線形項は平行移動方向で、定数補正は任意。PBW・CY性を指定三次のliftと同一視せず、これをKu主予想への反例とも扱わない。二捩れでは中心平方をu倍するβ三方向が残り、`eco:prop:clifford-center-freedom` は普遍Clifford中心と全持上げを与える。任意の固定因子の比較は次項で完成した範囲を使う。
+
+- `mixed/elliptic_mixed_comparison.tex` の `emc:prop:coverage` は指定境界を保つ全因子別PBW・中心持上げを平行移動後に尽くす。非二捩れはP、二捩れはβを一次tとし、定数α・中心cを加える。`ebk:lem:boundary` は任意固定smooth標準因子の実Picard比較・rotation・指定周期・二重同変化を構成する。厳密dg character作用を持つ双加群圏へElagin Lemma8.6を適用し、任意三角作用のdg liftを同補題から導かない。`ebc:prop:constant-iso` は定数方向の同型、`ebc:thm:first-injection` は全3k一次方向の単射を与える。βはunaryではなくbinaryで検出し、全対象依存gaugeとTate逆冪を許す。`euk:thm:universal-kernel` は全Tの実残余線束Morita核、可換smooth開の相対perfect・全coherent Ku比較を与える。係数はL=𝔄α+R₂(t)、C=κc+R₁,₁(t,α)+R₃(t)、𝔄可逆・κ非零。任意固定tの一般αで8^k個の一節点標的、全係数と固定tの判別既約性・affine正規化を得る。因子moduli上の選択、複数中心、全intrinsic被覆、全標識同時保存は未完了。一般因子のκへS0の27/28を流用しない。
 
 - `mixed/central_spherical_reconstruction.tex` は全係数のproperな残余線束圏からu=0への球面制限を作る。twistはρ_S²、cotwistはρ_A⁻¹[1]で、三乗はそれぞれ[4]と[1]。一次Bocksteinが零なのでunderlying comonadはId⊕J、J=ρ_S²[−1]となるが、余乗法は自明とは限らない。正規化A_nの選択空間は二項Jac(G)₁=C⁶・三項Jac(G)₀=Cで、四項以降の非空fiberは可縮。任意の低項データの存在障害の自動消滅は使わず、実随伴の二つの構造を比較する。特異係数で全coherent圏のproper性やperfect対角を仮定しない。
 - `mixed/central_formal_comparison.tex` は普遍係数環上の低項データを、二項Bocksteinと三項の非零scalar·cへ同定する。active濾過・相対proper模型により係数は多項式であり、重み(α,c)=(2,3)が三項をcの一次式へ制限する。法線の符号対合が三項torsorの原点を定め、中央一変数MFが係数の非零性を検出する。`mixed/central_kernel.tex` は全coherent comonadとcoKleisli生成代数から実比較を構成し、その後で全cの線束圏smoothnessとP64の非零二次momentにより尺度λ²=28/27を決める。判別式の一致から核を仮定していない。普遍線束比較、U上の相対perfect核、滑らかな複素ファイバーの全coherent比較を区別する。

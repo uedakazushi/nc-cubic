@@ -3,7 +3,7 @@
 
 The mathematical statements and all-parameter proofs are in
 papers/sections/mixed/elliptic_center_obstruction.tex.  This program checks
-six finite certificates over QQ and QQ(tau); it does not formally verify
+seven finite certificates over QQ and QQ(tau); it does not formally verify
 the cited PBW/CY theorems, elliptic geometry, or any categorical comparison.
 
 Run: python3 computations/verify_elliptic_center_obstruction.py
@@ -211,6 +211,27 @@ def check_clifford_volume():
         assert_zero(sp.Matrix(list(normal.values())))
     print("PASS 5: odd Clifford volume is central for arbitrary central quadratic coefficients")
 
+    # This same ordering model certifies the universal center presentation.
+    # Generic center equality and its behavior at every alpha are proved in the text.
+    volume = {(0, 1, 2): 1, (2,): -b01, (1,): b02, (0,): -b12}
+    normal_omega, square = {}, {}
+    for word, coefficient in omega(TAU).items():
+        normal_omega = add(normal_omega, reduce_word(word), coefficient)
+    assert_zero(sp.Matrix(list(add(normal_omega, volume, 2*(TAU**3 - 1)).values())))
+    for left, lc in volume.items():
+        for right, rc in volume.items():
+            square = add(square, reduce_word(left + right), lc*rc)
+    q = sp.Matrix([[q0, b01, b02], [b01, q1, b12], [b02, b12, q2]])
+    assert_zero(sp.Matrix(list(add(square, {(): q.det()}).values())))
+    u, ax, ay, az = sp.symbols("u alpha_x alpha_y alpha_z")
+    specialized = q.subs({b01: (u**2*az - TAU*q2)/2,
+                          b02: (u**2*ay - TAU*q1)/2,
+                          b12: (u**2*ax - TAU*q0)/2})
+    leading = -TAU**2*(q0**3 + q1**3 + q2**3)/4 + (1 - TAU**3/4)*q0*q1*q2
+    assert sp.expand(specialized.det().subs(u, 0) - leading) == 0
+    assert sp.Poly(leading, q0, q1, q2).coeff_monomial(q0**3) == -TAU**2/4
+    print("PASS 6: universal Clifford volume-square, center normalization, and nonzero determinant")
+
 
 def check_rational_counterexample():
     words = [word for degree in range(5) for word in product(LETTERS, repeat=degree)]
@@ -239,7 +260,7 @@ def check_rational_counterexample():
     assert coefficients.row_join(rhs).rank() == 9
     for g in LETTERS:
         assert_zero(projection*vector(commutator({(0, 0): 7, (0,): 4}, g), words))
-    print("PASS 6: rational PBW example, no lift with any lower corrections, and quadratic center")
+    print("PASS 7: rational PBW example, no lift with any lower corrections, and quadratic center")
 
 
 def main():
@@ -249,7 +270,7 @@ def main():
     check_first_order(model)
     check_clifford_volume()
     check_rational_counterexample()
-    print("All 6 exact certificates passed.")
+    print("All 7 exact certificates passed.")
 
 
 if __name__ == "__main__":

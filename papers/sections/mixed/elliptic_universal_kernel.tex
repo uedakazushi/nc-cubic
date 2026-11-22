@@ -1,0 +1,430 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v58.
+\subsection{任意の固定楕円因子の普遍 comonad 比較と実核}
+\label{euk:subsec:universal-kernel}
+
+以下では本節の因子、中心元、非零重みと係数環
+$T=\C[\mathbf t,\alpha,c]$ を固定し、
+補題\ref{ebk:lem:boundary}の周期付き実境界比較を一度選ぶ。
+二捩れ因子の $\mathbf t$ は関係の線形補正ではなく、
+中心持上げへ加える $u$ 倍の中心平方の係数である。
+どちらの場合も重みは
+\[
+ \operatorname{wt}(\mathbf t)=1,\qquad
+ \operatorname{wt}(\alpha)=2,\qquad \operatorname{wt}(c)=3
+\]
+となる。$N=3k$ 個の active 変数を $\mathbf x=(x_1,\ldots,x_N)$ と並べ直し、
+\[
+ G=\sum_i a_if_i,\qquad Z=V(G)\subset\mathbb P^{N-1},\qquad
+ \mathcal B=\Ku(Z),\qquad V_j=\operatorname{Jac}(G)_j
+\]
+と書く。各 $f_i$ の平面三次が滑らかであるから、
+$\partial G$ の共通零点は原点だけであり、$Z$ は滑らかである。
+特に $V_1=\C[\mathbf x]_1$、$V_0=\C$ である。
+
+これから構成する Morita 比較には、一次 counit の係数写像の単射性を用いない。
+また二項の定数方向が同型であることは、比較の存在を構成した後、
+係数変更が多項式同型であることと判別幾何の帰結に使う。
+共通の Heisenberg 表現や、全因子を交換する対称性は要求しない。
+
+\subsubsection{一般の滑らかな三次境界における非分裂比較群}
+
+\begin{lemma}[因子の方程式に依存しない正規化塔]
+\label{euk:lem:arity}
+$\varrho$ を $\mathcal B$ の rotation とし、$\varrho^3\simeq[2]$ の周期を固定する。
+任意の可換 $\C$-代数 $R$ と $\eta\in V_2\otimes R$ に対して
+\[
+ K_\eta=\operatorname{fib}(\mathbf1\xrightarrow{\eta}\varrho^2),
+ \qquad \epsilon:K_\eta\to\mathbf1,
+ \qquad J=\operatorname{fib}(\epsilon)=\varrho^2[-1]
+\]
+と置く。$r\ge2$、$i\ge0$ に対して、自然に
+\begin{equation}\label{euk:eq:arity}
+ H^{2-r-i}\operatorname{RHom}(K_\eta,J^r)=
+ \begin{cases}
+  V_1\otimes R,&(r,i)=(2,0),\\
+  R,&(r,i)=(3,0),\\
+  0,&\text{その他}
+ \end{cases}
+\end{equation}
+となる。これらの同定は任意の係数変更と両立する。
+固定 counit 上の正規化 $A_r$-comonad 塔の非空 fiber は離散であり、
+$r\ge4$ では可縮である。
+また $H^{-j}\operatorname{RHom}(\mathbf1,\varrho^2)=0$ $(j\ge1)$ である。
+\end{lemma}
+
+\begin{proof}
+BFK の対角 MF 公式
+\cite[Theorem~5.39 and proof, pp.~82--84]{NFBFKKernels}の入力は、
+$N$ 個の次数一変数、次数三の potential、および孤立臨界点という条件である。
+本節の一般の $G$ はこれらを満たす。
+$H^a\operatorname{RHom}(\mathbf1,\varrho^b)$ の恒等 sector は、
+$a$ が偶数のとき $V_{b+3a/2}$、奇数のとき零である。
+二つの非恒等 $\mu_3$ sector は原点だけを固定し、
+それぞれが寄与する条件は
+\[
+                  a\equiv N\pmod2,\qquad 2b+3a=N
+\]
+である。特に境界の Calabi--Yau 次元は $k$ であり、
+偶数 $k$ の parity を奇数 $k$ へ流用してはいない。
+$b=2,a=-j<0$ とすると、恒等 sector は奇数 cohomological 次数では零、
+偶数 cohomological 次数では負の Jacobian 次数となり、
+非恒等 sector の必要条件は $4-3j=N\ge6$ となり不可能である。
+これが最後の消滅を与える。
+
+$U_r=\operatorname{RHom}(\mathbf1,J^r)$、
+$W_r=\operatorname{RHom}(J,J^r)$、
+$M_r=\operatorname{RHom}(K_\eta,J^r)$ と置く。
+余単位三角から $U_r\to M_r\to W_r\to U_r[1]$ を得る。
+$d=2-r-i$ に対する完全列の必要部分は
+\[
+ H^{d-1}W_r\longrightarrow H^dU_r\longrightarrow H^dM_r
+       \longrightarrow H^dW_r
+\]
+である。その三つの既知項の恒等 sector は順に
+\[
+ \begin{array}{c|c|c}
+ &\text{現れる parity}&\text{Jacobian 次数}\\\hline
+ H^{d-1}W_r&i\text{ 偶数}&1-r-3i/2\\
+ H^dU_r&i\text{ 偶数}&3-r-3i/2\\
+ H^dW_r&i\text{ 奇数}&(5-2r-3i)/2
+ \end{array}
+\]
+となる。両端は常に零であり、中項は $(r,i)=(2,0),(3,0)$ だけに残る。
+非恒等 sector の必要条件はそれぞれ
+\[
+ 2-2r-3i=N,\qquad 6-2r-3i=N,\qquad 5-2r-3i=N
+\]
+である。左辺は高々二なので全て不可能である。
+従って $H^dU_r\to H^dM_r$ は同型となり、式\eqref{euk:eq:arity}を得る。
+
+$U_r,W_r$ は固定境界の複体の底変更であり、cohomology は $R$ 上自由である。
+同じ三角と両隣接群の消滅が全 $\eta$ について成立するため、
+ここでは $M_r$ 自体を一定複体と同一視していない。
+得た cohomology の同定は $\epsilon$ による前合成から来ており、底変更に自然である。
+固定 counit の unit-insertion cube の total fiber は、
+分裂を仮定せず $J^r$ となる。
+補題\ref{cmo:lem:normalized-comonad-uniqueness}の opposite と Ind 完備化による適用確認を用い、
+\cite[Theorem~3.3, Lemma~3.11]{CMOWillumsgaardAssociativity}の
+正規化塔の非空 fiber の $i$ 次 homotopy 群を
+$H^{2-r-i}M_r$ と同定すれば、残る主張が従う。
+\end{proof}
+
+\begin{lemma}[可換実族は必要な三段の差を実現する]
+\label{euk:lem:commutative-reference}
+一般の $G$ に対する可換三次族
+\[
+                    W=G+uQ+u^2L+u^3d
+\]
+の中心超平面制限を考える。固定した符号規約で、その twist 射は
+$\eta^{\mathrm{cl}}=-[Q]\in V_2$ である。
+従って二次式から $V_2$ への固定線型切断を選べば、任意の counit arrow を実現できる。
+同じ $Q$ の下で $L\mapsto L+\delta L$ が与える二項の差は
+$-\delta L\in V_1$ であり、同じ $Q,L$ の下で
+$d\mapsto d+\delta d$ が与える三項の差は
+$s_{\mathrm{cl}}\delta d$、$s_{\mathrm{cl}}\in\C^\times$ である。
+これらは全係数上で成立する。
+\end{lemma}
+
+\begin{proof}
+境界 MF の微分 $d_M$ は $d_M^2=G\operatorname{id}$ を満たす。
+$W=0$ の環上では
+\[
+              d_M^2=-u(Q+uL+u^2d)\operatorname{id}
+\]
+なので、一次 Bockstein は $-Q$ の乗法である。
+中心元の二項解消を有限 mutation へ通す
+補題\ref{cmo:lem:spherical-bockstein}の比較により、これは残余の twist 射に等しい。
+$\partial_jG$ の乗法は $\partial_jd_M$ によって自然に nullhomotopic であり、
+BFK の恒等 sector 公式はその商を正確に $V_2$ と同定する。
+したがって固定切断 $\sigma:V_2\to\C[\mathbf x]_2$ によって
+$Q=-\sigma(\eta)$ を取れる。
+
+$Q=0$ での二項の差は、$v=u^2$ に対する法線二列解消から計算できる。
+補題\ref{cmo:lem:central-universal-parameters}の式
+$D=\widetilde d+u(\partial_e-\widetilde\theta e)$、
+$\xi=\partial_e+\widetilde\theta e$、$\xi^2=\widetilde\theta$ において、
+可換側の $v$-Bockstein は $-\delta L$ の乗法である。
+この解消は $G$ の特定の係数を使っておらず、
+$J^2\simeq\varrho$ の周期を通して二項の差を与える。
+
+$Q=L=0$ の三項の差は、中央一変数の rank 一 MF
+\[
+ d_0=\begin{pmatrix}0&u\\du^2&0\end{pmatrix},\qquad
+ \theta=\begin{pmatrix}0&1\\-du&0\end{pmatrix},\qquad
+ h=\begin{pmatrix}0&0\\-d&0\end{pmatrix}
+\]
+で計算する。
+$\theta^2=d_0h+hd_0=-du\operatorname{id}$、
+$\theta h+h\theta=-d\operatorname{id}$ なので、
+正規化三項は $\pm d$ となる。
+この法線因子を境界の非零単位へ tensor すれば、
+補題\ref{cmo:lem:central-ternary-nonzero}と同じ実随伴の計算として
+$V_0=\C$ の非零元を得る。
+
+全係数への延長には重みを使う。
+可換実随伴の構造は全多項式係数上にあり、前補題によって二項・三項の差は
+$V_1$ と $\C$ に値を持つ大域多項式である。
+重み $(Q,L,d)=(1,2,3)$ の下で、二項の差は重み二であり、
+$\delta L=0$ で消えるので $\delta L$ の定数線型写像に限られる。
+既に $Q=0$ でその写像は $-\operatorname{id}$ と分かった。
+三項の差も $\delta d$ の非零定数倍に限られる。
+三項を比較する前に二項を同定する path の空間は、
+前補題の高次 homotopy 群の消滅により可縮である。
+従って三項差の大域的定義に、局所的な原点選択や非多項式的な gauge は残らない。
+\end{proof}
+
+\subsubsection{全係数の三角変換と Morita 核}
+
+\begin{proposition}[定数可逆行列による三角多項式変換]
+\label{euk:prop:coefficients}
+ある線型写像 $Q:\C^{3k}_{\mathbf t}\to\C[\mathbf x]_2$ と、
+多項式
+\begin{equation}\label{euk:eq:coefficients}
+ \begin{split}
+ L(\mathbf t,\alpha)&=\mathsf A\alpha+R_2(\mathbf t),\\
+ C(\mathbf t,\alpha,c)&=\kappa c+R_{1,1}(\mathbf t,\alpha)+R_3(\mathbf t)
+ \end{split}
+\end{equation}
+が存在する。ここで $\mathsf A:\C^{3k}_\alpha\to V_1$ は定数線型同型、
+$\kappa\in\C^\times$、$R_2$ は $V_1$ に値を持つ斉次二次式、
+$R_{1,1}$ は双線型式、$R_3$ は斉次三次式である。
+非可換族と可換族 $G+uQ+u^2L+u^3C$ の実制限 comonad は、
+同じ underlying counit arrow の上で同じ $A_3$ 成分に属する。
+さらに
+\[
+ \Theta:(\mathbf t,\alpha,c)\longmapsto
+     (\mathbf t,\ell=\operatorname{coeff}L,\gamma=C)
+\]
+は多項式同型である。
+\end{proposition}
+
+\begin{proof}
+命題\ref{emc:prop:line-model}は全 $T$ 上の実随伴とその全構造を与え、
+補題\ref{ebk:lem:boundary}は固定境界と rotation を可換側へ移す。
+その twist 射の像を $\eta(\mathbf t)\in V_2\otimes T$ とする。
+一次 Bockstein は $A/(u^2)$ のみから決まるため、$\alpha,c$ に依存しない。
+法線の rescaling の重み一から、これは $\mathbf t$ に線型である。
+ここでは二捩れ因子の中心平方の補正も $A/(u^2)$ に含めている。
+前補題により $Q(\mathbf t)=-\sigma(\eta(\mathbf t))$ を取る。
+二射の同じ cohomology 類を同定する homotopy は、
+固定境界の mapping complex の $\C$-線型縮約を $T$ へ tensor して選べる。
+法線の $\mathbf G_m$-作用による重み分解を使い、この縮約を重みを保つものとして取る。
+負次数 Hom の消滅により、その path の選択空間は可縮である。
+これで underlying counit arrow が全 $T$ 上で同定される。
+
+まず実可換族 $G+uQ(\mathbf t)$ を二項構造の参照点に取る。
+非可換側の実構造との差は、式\eqref{euk:eq:arity}の
+自由加群 $V_1\otimes T$ の大域切断である。
+可換側で $L$ を変える作用は全 $V_1$ を覆うため、
+この差を消す $L(\mathbf t,\alpha)$ が多項式的に定まる。
+重み二の単項式は $\alpha$ と $\mathbf t$ の二次積だけなので、
+$L=\mathsf A\alpha+R_2(\mathbf t)$ という形になる。
+$\mathbf t=0$ の二項は中心 $v=u^2$ 変形の Bockstein であり、
+命題\ref{ebc:prop:constant-iso}により、その境界比較後の写像は同型である。
+可換側の符号を合わせたものが $\mathsf A$ である。
+共通の scalar であることを仮定せず、定数可逆行列として扱っている。
+
+次に実可換族 $G+uQ(\mathbf t)+u^2L(\mathbf t,\alpha)$ を参照する。
+二項構造は既に同定され、その同定の path の空間は可縮である。
+従って三項構造の差は、自由な階数一加群 $T$ の大域切断として定まる。
+可換側の $d$ による作用が非零定数倍なので、これを消す $C$ を多項式的に選べる。
+重み三により $C$ は式\eqref{euk:eq:coefficients}の形になる。
+$\kappa$ の非零性は $\mathbf t=\alpha=0$ で確認できる。
+このとき source の曲率は $w_0+cu^3$ の分離和であり、
+restriction--inflation の実解消の法線因子は前補題の rank 一 MF である。
+従って source でも三項の $c$ 係数は非零の単位 class となる。
+境界同値と指定周期の同定はこの一次元空間の同型なので、
+可換側との比 $\kappa$ は非零である。
+この検出は因子の同一性、PI 性、判別式の一致を用いない。
+
+以上の構成では全係数上の二つの実構造の差を取っている。
+各閉点で選んだ minimal model の貼合せや、三項 torsor の仮想的な原点は使っていない。
+両隣接群の消滅による自然な同定が、各段の差と法線 rescaling の重みを保つ。
+従って係数は全 $T$ 上の斉次多項式であり、局所化した有理関数ではない。
+
+Morita 比較の存在に至る構成には、ここまで $\mathsf A$ の可逆性を必要としなかった。
+可逆性と $\kappa\ne0$ を用いると、表示式から $\alpha$、続いて $c$ を
+定数だけで割って多項式的に回復できる。これが $\Theta$ の同型性を示す。
+$\mathbf t\mapsto\eta(\mathbf t)$ の単射性は、この結論にも不要である。
+\end{proof}
+
+\begin{theorem}[任意の固定楕円因子の全係数比較]
+\label{euk:thm:universal-kernel}
+式\eqref{euk:eq:coefficients}により
+\[
+ X_{\mathbf t,\alpha,c}
+  =V\bigl(G+uQ(\mathbf t)+u^2L(\mathbf t,\alpha)
+                    +u^3C(\mathbf t,\alpha,c)\bigr)\subset\mathbb P^N
+\]
+と定める。全係数環 $T$ 上で、非可換族とこの可換族の残余線束圏の間に
+実 dg Morita 双加群と逆双加群が存在する。
+それらは中心超平面制限を intertwine し、単位・余単位とともに任意の導来底変更に保たれる。
+各複素係数で
+\[
+ \mathcal A_A\text{ が smooth}
+       \quad\Longleftrightarrow\quad
+ X_{\mathbf t,\alpha,c}\text{ が滑らか}
+\]
+である。可換族が滑らかな開集合上では比較核は相対積上 perfect となり、
+各複素ファイバーの全 coherent 残余圏について
+\[
+          \Ku_{\mathrm{coh}}(A_{\mathbf t,\alpha,c})
+             \simeq\Ku(X_{\mathbf t,\alpha,c})
+\]
+を得る。
+\end{theorem}
+
+\begin{proof}
+前命題は、全 $T$ 上で counit arrow と実 $A_3$ 構造を同定する。
+補題\ref{euk:lem:arity}により四項以降の非空 fiber は可縮である。
+両側には最初から実随伴の全構造が存在するため、
+比較 path は各段で持ち上がり、これらの可縮な選択の逆極限が
+全 homotopy-coherent comonad の同値を与える。
+二項・三項の $\pi_0$ の一致だけで止めているのではない。
+また任意の仮想的な低項データに対する存在障害の消滅を仮定していない。
+
+固定境界の生成対象を $G_{\mathcal B}$ とする。
+命題\ref{emc:prop:line-model}の生成性により、$F^RG_{\mathcal B}$ は source の生成対象である。
+実随伴の coKleisli 模型は
+\[
+ \operatorname{REnd}(F^RG_{\mathcal B})
+   \simeq\operatorname{RHom}(K_\eta G_{\mathcal B},G_{\mathcal B}),
+ \qquad g\star f=gK_\eta(f)\Delta_{G_{\mathcal B}}
+\]
+である。全 comonad 同値はこの積と高次構造を同定する。
+その graph 双加群を両側の生成対象と tensor すれば、
+全 $T$ 上の実 Morita 双加群と逆双加群を得る。
+生成対象上の制限作用との互換性は全 comonad 比較から来ており、
+有限 cone と直和因子へ延ばせば制限の intertwiner、単位・余単位を得る。
+必要な核は固定 smooth proper 境界の相対 perfect 核であり、
+mapping 複体、有限 mutation と選んだ homotopy は導来底変更に両立する。
+従って構成全体が任意の導来係数変更に保たれる。
+
+可換 smooth 開では、その残余線束圏は相対 smooth proper であり、
+Morita 同値によって source の有限線束模型も同じ性質を持つ。
+graph の underlying $T$-複体は perfect である。
+両側の smooth な対角の有限解消を tensor すると、
+graph は二側の相対積上も perfect となる。
+周囲代数の noetherian Koszul AS-regular 性と正則中心三次は
+命題\ref{emc:prop:line-model}の入力である。
+有限例外列を戻し、主稿の命題\paperref{main}{crs:prop:residual-smooth}と
+定理\paperref{main}{crs:thm:coherent}を適用すれば、全 coherent 圏への飽和を得る。
+
+可換側の全 twist の線束圏は $\operatorname{Perf}(X_{\mathbf t,\alpha,c})$ である。
+その残余が smooth なら有限例外列との貼合せで全線束圏も smooth となり、
+同じ飽和判定により全 coherent 対象が perfect となる。
+特異点があればその剰余体は hypersurface 局所環上で無限射影次元を持つので矛盾する。
+逆向きは滑らかな超曲面の標準分解による。
+全係数の Morita 同値が smoothness を保つことにより、表示した必要十分条件を得る。
+特異係数の全 coherent 圏や、非正則な底上の全 coherent 圏の比較は結論していない。
+\end{proof}
+
+\subsubsection{判別行列と正規化の帰結}
+
+\begin{corollary}[一般の楕円因子でも階数 $8^k$ の判別]
+\label{euk:cor:discriminant}
+$R=\C[\mathbf t,\alpha]$、$f=G+Q(\mathbf t)+L(\mathbf t,\alpha)$ と置く。
+臨界代数と判別多項式を
+\[
+ \mathcal Q=R[\mathbf x]/(\partial f),\qquad
+ D(\mathbf t,\alpha,c)
+   =\det\bigl(C(\mathbf t,\alpha,c)\operatorname{id}_{\mathcal Q}+m_f\bigr)
+\]
+と定める。$\mathcal Q$ は階数 $\mu=2^N=8^k$ の有限自由 $R$-加群であり、
+\[
+                    [f]=\left[\frac{Q+2L}{3}\right]\in\mathcal Q
+\]
+である。$D$ の $c$ に関する次数は $\mu$、最高係数は $\kappa^\mu$ であり、
+\[
+ X_{\mathbf t,\alpha,c}\text{ が滑らか}
+    \quad\Longleftrightarrow\quad D(\mathbf t,\alpha,c)\ne0
+    \quad\Longleftrightarrow\quad\mathcal A_A\text{ が smooth}
+\]
+となる。任意の固定した $\mathbf t$ について、一般の $\alpha$ では
+正確に $8^k$ 個の相異なる悪い中心係数があり、各可換標的は唯一の通常二重点を持つ。
+\end{corollary}
+
+\begin{proof}
+$\partial G$ は原点だけを共通零点とする二次式の正則列である。
+active 濾過の Koszul 複体の随伴はこの正則列の複体なので、
+$\operatorname{gr}\mathcal Q=\operatorname{Jac}(G)\otimes R$ となる。
+固定した Jacobian 基底の持上げは $R$-基底を与える。
+Hilbert 級数 $(1+t)^N$ より階数は $2^N$ である。
+Euler の式 $3G+2Q+L=0$ を臨界代数で使えば表示した $[f]$ を得る。
+$u=0$ には特異点がないので、特異点の存在は $u=1$ で
+$\partial f=0$、$C+f=0$ を満たす点の存在と同値である。
+有限代数の元が可逆であることと乗法行列式の非零性は同値だから、判別条件が従う。
+特殊化した臨界代数を $\mathcal Q_{\mathbf t,\alpha}=\mathcal Q\otimes_R\C$ とすると、
+より正確に
+\[
+ D=\prod_{p\in(\operatorname{Spec}\mathcal Q_{\mathbf t,\alpha})(\C)}
+                  (C+f(p))^{\operatorname{length}(\mathcal Q_{\mathbf t,\alpha})_p}
+\]
+と読む。ここで多重臨界値と非被約な臨界点を除いていない。
+
+固定した $\mathbf t$ では $Q$ は固定され、$\alpha\mapsto L$ は
+命題\ref{euk:prop:coefficients}により affine 線型同型である。
+補題\ref{ldg:lem:fixed-quadratic-morsification}の証明は、
+最高次の $\partial G$ が正則列であることだけを用いるので、この $G$ に適用できる。
+具体的には $-\nabla(G+Q)$ は次数 $\mu$ の有限平坦射であり、
+標数零により一般のファイバーは \`etale である。
+相異なる臨界点対での臨界値差 $h$ は
+$dh=\sum_j(x_j-y_j)d\ell_j$ を満たすので、どの成分でも恒等零にはならない。
+その零集合の有限像を除けば全臨界値が相異なる。
+$c\mapsto C$ の係数は非零の $\kappa$ なので、各値は一つの悪い $c$ に対応する。
+非退化 Hessian と形式的 Morse 補題が、そこでの唯一の通常二重点を与える。
+\end{proof}
+
+\begin{corollary}[判別超曲面の既約性と affine 正規化]
+\label{euk:cor:normalization}
+$D$ は全係数環 $\C[\mathbf t,\alpha,c]$ 上で既約であり、
+任意の固定した $\mathbf t$ について $\C[\alpha,c]$ 上でも既約である。
+全係数の判別超曲面の正規化空間は
+$\mathbb A^{3k}_{\mathbf t}\times\mathbb A^N_{\mathbf x}$ であり、
+固定した $\mathbf t$ では $\mathbb A^N_{\mathbf x}$ である。
+
+$\Theta$ の座標 $(\mathbf t,\ell,\gamma)$ を使い、
+$H_{\mathbf t}=G+Q(\mathbf t)$ と書けば、正規化射は
+\[
+ (\mathbf t,\mathbf x)\longmapsto
+ \bigl(\mathbf t,-\nabla H_{\mathbf t}(\mathbf x),
+       \mathbf x\cdot\nabla H_{\mathbf t}(\mathbf x)-H_{\mathbf t}(\mathbf x)\bigr)
+\]
+である。複素点として、判別超曲面の特異点は、
+値 $-C$ を取る異なる臨界点がある係数、または値 $-C$ の臨界点で Hessian が退化する係数に
+正確に対応する。これらは固定 $\mathbf t$ の判別超曲面にも成立する。
+\end{corollary}
+
+\begin{proof}
+三角多項式同型 $\Theta$ へ移すと、臨界スキームは
+$\ell=-\nabla H_{\mathbf t}$ によって affine 空間
+$\mathbb A^{3k}_{\mathbf t}\times\mathbb A^N_{\mathbf x}$ に等しい。
+これは整かつ正規であり、$(\mathbf t,\ell)$ 上有限平坦である。
+一般係数体での norm 多項式は $-f$ の最小多項式の冪であるが、
+前系の臨界値の相異性がその指数を一にする。
+monic 性と Gauss の補題から既約性を得て、
+有限・双有理な表示射が正規化となる。
+この議論は各固定 $\mathbf t$ にも成立する。
+微分の核は $\{(0,v):\operatorname{Hess}H_{\mathbf t}\,v=0\}$ である。
+従って定理\ref{ldg:thm:normalization}の局所環の証明、すなわち
+一点ファイバーかつ余接写像が全射であるときの二段の Nakayama の議論を適用でき、
+特異点の必要十分条件を得る。
+\end{proof}
+
+\begin{remark}[固定因子の比較の範囲]
+\label{euk:rem:scope}
+本節の $\kappa$ と係数行列は、固定した因子、方程式と境界比較の規約に依存する。
+全因子を $S(1,-1,-1)$ とし、前節の方程式と二項の正規化を用いる場合には、
+系\ref{mcs:cor:universal-scale}の $\kappa_k^2=27/28$ を回復する。
+一般の異なる楕円因子について、この数値を流用してはいない。
+$Q,R_2,R_{1,1},R_3$ の全数値係数も本節では求めていない。
+
+全係数と各固定 $\mathbf t$ での判別超曲面の被約性は、
+固定した $(\mathbf t,\alpha)$ での一変数多項式の被約性を意味しない。
+特殊化後には臨界値の衝突と臨界代数の非被約性を許す。
+また factor の楕円点自体を動かす相対族、全 intrinsic 対象の表示被覆、
+核による全中心作用・rotation・周期標識の同時保存は結論していない。
+本節が与えるのは、指定した全中心持上げ係数に対する残余線束圏の実比較と、
+その可換 smooth 開における相対 perfect 核および全 coherent Ku 比較である。
+\end{remark}

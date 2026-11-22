@@ -1,0 +1,167 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v58.
+\subsection{固定した楕円因子の周期付き境界比較}
+\label{ebk:subsec:boundary}
+
+上で固定した実因子 $S_i$ とその点データ
+$(E_i,L_i,t_{p_i})$ を用いる。
+各 $f_i$ は同じ偏極曲線 $(E_i,L_i)$ の任意の非零方程式であり、
+非可換側の $w_i=a_i\Omega_{i,0}$ と可換側の $a_if_i$ を
+それぞれ実際の因子方程式として固定する。
+以下の指定周期とは、これらの方程式を用いた
+graded MF と Orlov window から移した三乗周期をいう。
+
+\begin{lemma}[任意の固定楕円因子に対する実境界核]
+\label{ebk:lem:boundary}
+$Z=V(G)\subset\mathbb P^{N-1}$ は滑らかであり、
+境界の残余線束圏 $\mathcal K_S$ は全 coherent 残余圏に一致する。
+両者は smooth proper で、$\C$ 上に実際の dg Morita 核
+\[
+ E:\mathcal K_S\xrightarrow{\sim}\Ku(Z)
+\]
+と rotation の比較射
+\[
+ \eta:E\varrho_S\xrightarrow{\sim}\varrho_ZE
+\]
+が存在する。$\eta$ を三回合成した同型は、
+$\varrho_S^3\simeq[2]$ と $\varrho_Z^3\simeq[2]$ の
+上で指定した周期を保つように取れる。
+また、ブロック別スカラーから来る
+$Z_0=(\mu_3^k)/\Delta\mu_3$ の指定作用も coherent に保つ。
+
+因子ごとの二捩れ、異なる $j$ 不変量、同種関係や CM を許し、
+$3\mid k$ の場合も含む。
+\end{lemma}
+
+\begin{proof}
+各 $f_i$ の三つの偏微分は、対応する affine 三次元空間で原点以外に
+共通零点を持たない。全 $a_i$ が非零で変数ブロックが独立なので、
+$G$ の affine critical locus も原点だけであり、$Z$ は滑らかである。
+
+各 $S_i$ は二次 Koszul AS-regular 三次元代数であり、
+実際の正則中心元 $\Omega_{i,0}$ による商は
+$B(E_i,L_i,t_{p_i})$ である。
+主稿の定理\paperref{main}{mbnp:thm:product}の有限 MF 外積と
+系\paperref{main}{mbnp:cor:coherent}の飽和を適用できる。
+その仮定はこれらの実因子の性質であり、
+$j$ の相異性や $2p_i\ne0$ を要求しない。
+具体的には、まず三つの augmentation shift が生成する残余線束圏について
+有限外積と Shamash 分解により積表示を得る。
+積の smooth proper 性と有限群の同変化から残余線束圏の
+smooth proper 性を得た後に、同系の coherent 飽和を適用する。
+従って全 coherent 圏の生成性を外積比較の前提にしていない。
+可換側にも同じ外積と window を適用すると、$Y=\prod_iE_i$ に対し
+\begin{equation}\label{ebk:eq:equivariant-products}
+ \mathcal K_S^{Z_0}\simeq\Perf(Y)
+       \simeq\Ku(Z)^{Z_0}
+\end{equation}
+という実 dg Morita 比較を得る。
+可換側は主稿の系\paperref{main}{mbrp:cor:comparison-field}の比較である。
+
+ここで $Z_0$ は指定されたブロック別スカラー作用である。
+その作用は
+\[
+ \Gamma_k=\{(\lambda_i)\in\mathbf G_m^k:
+                    \lambda_i^3=\lambda_j^3\text{ for all }i,j\}
+\]
+による graded MF と、共通 grading scalar の自明化から得られる。
+この構成は実因子の全自己同値群の分類を使わない。
+以下の証明は、任意の実因子を扱う主稿の
+定理\paperref{main}{pps:thm:elliptic-existence}の証明と、
+定理\paperref{main}{csc:thm:comparison}の同変双加群の構成を、
+この境界に適用したものである。
+
+右加群の規約では、因子ごとの内部 shift はそれぞれ
+\[
+ R_{i,p_i}=T_{\OO_{E_i}}\circ(t_{p_i})_*\circ(-\otimes L_i),
+ \qquad
+ R_{i,0}=T_{\OO_{E_i}}\circ(-\otimes L_i)
+\]
+である。主稿の楕円 window の補題
+\paperref{main}{lem:nfm-twisted-elliptic-window}と
+命題\paperref{main}{mbnp:prop:rotations}は、これらを
+実方程式からの指定三乗周期とともに同定する。
+$\C$ 上では $p_i$ を表す実際の次数零線束 $M_i$ が存在し、
+主稿の定理\paperref{main}{thm:nfm-elliptic-normalized-intertwiners}により
+\[
+ F_i=-\otimes M_i,\qquad
+ \eta_i:F_iR_{i,p_i}\xrightarrow{\sim}R_{i,0}F_i
+\]
+を取れる。
+両辺は可逆な perfect Fourier--Mukai 核なので、その自己準同型環は
+$\mathrm{HH}^0(E_i)=\C$ である。
+$\eta_i$ の三回の合成と両側の指定周期との差は
+$u_i\in\C^\times$ であり、$\eta_i$ を $v_i$ 倍すると
+差は $v_i^3u_i$ になる。
+$v_i^3=u_i^{-1}$ と選んで指定周期を合わせる。
+これは主稿の補題\paperref{main}{mbrc:lem:factor-correction}の実構成であり、
+自然な方程式直線比較の非消滅を仮定しない。
+特に二捩れでその自然な比較が零になる場合にも、
+ここで選んだ非零方程式 $f_i$ をそのまま使える。
+
+基準因子 $b$ を一つ選ぶと、式\eqref{ebk:eq:equivariant-products}の
+双対指標作用は
+\[
+ Q_{i,p}=R_{i,p_i}^{-1}R_{b,p_b},\qquad
+ Q_{i,0}=R_{i,0}^{-1}R_{b,0}\qquad(i\ne b)
+\]
+で与えられる。
+$F=\boxtimes_iF_i$ と上の $\eta_i$ は
+$FQ_{i,p}\simeq Q_{i,0}F$ を定める。
+異なる因子の交換は外積の交換則によって保たれ、
+$Q_i^3\simeq[-2][2]\simeq\mathrm{id}$ の図式は
+合わせた指定周期によって保たれる。
+比較射の次数は零で、周期の shift は偶数なので、交換の符号も一致する。
+双対群の元を $\prod_{i\ne b}Q_i^{d_i}$、$0\le d_i<3$ の正規形で書けば、
+その積は交換と三乗の消去で定まる。
+元の MF の中心周期の coherence によりこれらの操作の順序は結果を変えず、
+$F$ は全群法則の coherence を intertwine する。
+ここで使うのは全次数格子
+\[
+ \Lambda_k=\mathbb Z^k/\langle3e_i-3e_j\rangle
+\]
+であり、対称な rotation 分裂を選ばない。
+従って $3\mid k$ の場合も同じ証明が成立する。
+
+この導来同変核を実 dg 核として実現する際は、
+元の $Z_0$-同変 graded MF 模型へ戻る。
+両模型上の $\widehat Z_0$-作用は線型化の character twist による
+厳密な dg 作用であり、その間の perfect 双加群の dg 圏にも
+両側の twist による厳密な作用がある。
+式\eqref{ebk:eq:equivariant-products}で Morita 移送した $F$ は
+この双加群圏の対象で、上で確認した図式が
+その導来圏での同変構造を与える。
+従って\cite[Lemma~8.6]{MEDElagin}を
+この\emph{既に厳密な dg 作用を持つ双加群圏}に適用できる。
+有限群の誘導、平均化と冪等完備化により、同変構造を
+実際の同変 perfect 双加群として取れる。
+同補題だけから任意の三角圏作用の dg lift を導いているのではない。
+忘却した核は Morita 同値なので、得られた同変核も同値を与える。
+\cite[Theorem~4.2, Theorems~8.7 and~8.9]{MEDElagin}の
+二重同変化とその dg 実現により、$Z_0$-作用を保つ
+$E:\mathcal K_S\simeq\Ku(Z)$ を得る。
+
+最後に、基準因子の $R_{b,p_b}$ と $R_{b,0}$ は、
+元の rotation の線型化を積表示へ移したものである。
+$FR_{b,p_b}\simeq R_{b,0}F$ の射は、同じ因子比較と外積交換から作られ、
+各 $Q_i$ の同変図式と可換する。
+従ってこの射も同変双加群圏の射として持ち上がり、
+二重同変化後に $\eta$ を与える。
+三回の合成の図式は既に合わせた周期の図式であるため、
+指定周期も保たれる。
+\end{proof}
+
+\begin{remark}[後続の comonad 比較への適用範囲]
+\label{ebk:rem:scope}
+補題\ref{ebk:lem:boundary}は固定した複素数体値の実因子についての存在結果である。
+一度選んだ $E$ は、これらの因子を固定して変形係数だけを動かす
+任意の係数環へ定数族として底変更できる。
+この $E$ による $K\mapsto EKE^{-1}$ は endofunctor の合成を保つ
+Morita 移送なので、実随伴の counit、余乗法と全高次 coherence を運ぶ。
+rotation 比較により $\varrho_S^2[-1]$ も
+$\varrho_Z^2[-1]$ へ同定される。
+これが後続の固定 counit の arity 計算に必要な境界入力であり、
+Heisenberg 同変性や異なる因子間で共通な scalar 正規化は不要である。
+因子自体を動かす楕円モジュライ上では、実 Picard 線束と周期の三乗根を
+族として選ぶ問題が別に残る。
+\end{remark}

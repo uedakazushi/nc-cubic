@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-22 / v57.
+% Current result: 2026-11-22 / v58.
 \section{楕円因子の中心三次を持ち上げる条件と二捩れでの障害}
 \label{eco:sec:center-lifting}
 
@@ -418,6 +418,105 @@ $a\ne0$ なのでこの部分は $S(1,1,\tau)$ に規格化でき、
 滑らかな点曲線を持つ全標準 Sklyanin 因子を覆う。
 \end{remark}
 
+\subsection{二捩れで残る中心二次方向}
+
+定理\ref{eco:thm:clifford-obstruction}は関係式の線形補正を制限するが、
+中心三次の持上げそのものを一意にはしない。
+斉次二捩れ Sklyanin 代数の中心は既知である
+\cite[Theorem~7.1(a)]{CMOReichWaltonOrderTwo}。
+ここでは定数補正の普遍係数上でも使える Clifford 表示を確認し、
+比較族へ加える必要のある中心方向を取り出す。
+
+\begin{proposition}[Clifford 中心と全ての三次持上げ]
+\label{eco:prop:clifford-center-freedom}
+$T_\alpha=\C[\alpha_x,\alpha_y,\alpha_z]$、
+\[
+ B_{\tau,\alpha}
+ =T_\alpha[u]\langle x,y,z\rangle/
+ (\{y,z\}+\tau x^2-u^2\alpha_x,\text{巡回式})
+\]
+とし、$u$ は中心元とする。
+$R=T_\alpha[u,X,Y,Z]$ と置き、$X,Y,Z$ の内部次数を二とする。
+このとき $X=x^2,Y=y^2,Z=z^2$ によって $R$ は $B_{\tau,\alpha}$ の
+中心部分環に埋まり、$B_{\tau,\alpha}$ は $R$ 上階数八の Clifford 代数である。
+その対称行列は
+\begin{equation}\label{eco:eq:clifford-matrix}
+ q=\begin{pmatrix}
+ X&(u^2\alpha_z-\tau Z)/2&(u^2\alpha_y-\tau Y)/2\\
+ (u^2\alpha_z-\tau Z)/2&Y&(u^2\alpha_x-\tau X)/2\\
+ (u^2\alpha_y-\tau Y)/2&(u^2\alpha_x-\tau X)/2&Z
+ \end{pmatrix}.
+\end{equation}
+添字を $x,y,z$ とし、
+\[
+ v=xyz-q_{xy}z+q_{xz}y-q_{yz}x
+\]
+と置くと
+\begin{equation}\label{eco:eq:clifford-full-center}
+ Z(B_{\tau,\alpha})=R\oplus Rv
+       \simeq R[v]/(v^2+\det q),\qquad
+ \Omega_\tau=-2(\tau^3-1)v.
+\end{equation}
+従って $u=0$ で $\Omega_\tau$ に一致する全ての中心三次は、正確に
+\begin{equation}\label{eco:eq:all-clifford-lifts}
+ \Omega_\tau+u(\beta_xx^2+\beta_yy^2+\beta_zz^2)+du^3
+\end{equation}
+の形である。$\beta_x,\beta_y,\beta_z,d$ は任意である。
+これらの表示は $\alpha$ の任意の複素係数への特殊化にも成立する。
+\end{proposition}
+
+\begin{proof}
+定理\ref{eco:thm:clifford-obstruction}の十分性の証明により、
+$x^2,y^2,z^2$ と三つの反交換子は中心的である。
+抽象的な多項式環 $R$ 上で行列\eqref{eco:eq:clifford-matrix}の
+Clifford 代数を作ると、通常の Clifford PBW によって
+\[
+ 1,\ x,\ y,\ z,\ xy,\ xz,\ yz,\ xyz
+\]
+が $R$-基底である。
+その表示から $X,Y,Z$ を $x^2,y^2,z^2$ で消去すると、
+$B_{\tau,\alpha}$ の関係式に戻る。
+逆向きの写像は上の中心性によって定義され、両者は逆になる。
+これで $R$ の埋込みと階数八の主張を得る。
+
+反交換子を使った整列によって
+$6v=C_+-C_-$、$[v,x]=[v,y]=[v,z]=0$、$v^2=-\det q$ を得る。
+また $u=0$ で
+\[
+ \det q=-\frac{\tau^2}{4}(X^3+Y^3+Z^3)
+              +\left(1-\frac{\tau^3}{4}\right)XYZ
+\]
+であるから、$\tau\ne0$ により $\det q$ は零多項式ではない。
+$R$ の分数体 $K$ 上で $q$ は非退化であり、
+奇数三次元の Clifford 代数の中心は $K\oplus Kv$ である。
+これは代数閉包上で対角化し、Clifford 単項式と三生成元の交換子を比較しても分かる。
+中心元を $a+bv$ $(a,b\in K)$ と書くと、表示した PBW 基底における
+$xyz$ の係数は $b$、$1$ の係数は $a$ である。
+従って元が $B_{\tau,\alpha}$ に属するなら $a,b\in R$ であり、
+式\eqref{eco:eq:clifford-full-center}が従う。
+同じ非零最高次項が全ての $\alpha$ で残るため、特殊化後もこの証明が使える。
+
+$\deg u=1$、$\deg X=\deg Y=\deg Z=2$、$\deg v=3$ なので、
+中心の内部次数三の部分は
+\[
+ T_\alpha u^3\oplus T_\alpha uX\oplus T_\alpha uY
+                 \oplus T_\alpha uZ\oplus T_\alpha v
+\]
+である。$\tau^3\ne1$ と境界の規格化から $v$ の係数が定まり、
+式\eqref{eco:eq:all-clifford-lifts}を得る。
+\end{proof}
+
+\begin{remark}[関係式と中心式の一次方向]
+\label{eco:rem:two-first-order-sources}
+二捩れで平行移動を除いた関係式の線形方向は零になるが、
+式\eqref{eco:eq:all-clifford-lifts}の三つの $\beta$ 方向は残る。
+非二捩れでは $Z(S)_2=0$ のためこの追加自由度はなく、
+代わりに平行移動を除いた線形 PBW 方向が三次元である。
+両場合の変形を扱うときは、前者の $\beta$ と後者の二次 potential 係数を
+ともに重み一、定数補正を重み二、$u^3$ の係数を重み三とする。
+中心式の変更を除いて二捩れの一次変形が全て消えるとは主張しない。
+\end{remark}
+
 \subsection{比較問題への帰結と検証範囲}
 
 異なる楕円因子の比較に必要な入力のうち、
@@ -426,14 +525,15 @@ $a\ne0$ なのでこの部分は $S(1,1,\tau)$ に規格化でき、
 二捩れ因子では、全線形 PBW 族を同じ境界の中心三次商にすること自体が不可能である。
 ただし定数補正と平行移動方向は全て許され、既存の楕円境界比較とも両立する。
 実際の多因子 Ku 比較には、さらに境界の rotation 比較、
-二項・三項の実構造の同定、coherent comonad と核の構成が必要であり、
-中心持上げだけからこれらを結論しない。
+二項・三項の実構造の同定、coherent comonad と核の構成が必要である。
+これらは次節の定理\ref{euk:thm:universal-kernel}で構成し、
+中心持上げの結果だけから結論しない。
 特に本節は、全 intrinsic な滑らかな非可換三次の表示被覆を主張しない。
 
 \texttt{computations/verify\_elliptic\_center\_obstruction.py} は、
 Hesse 判別式、PBW の重なりと平行移動、
 $\mathbb Q(\tau)$ 上の自由語による一次障害、三つの消去汎関数、
-Clifford 体積元、および例\ref{eco:ex:rational-obstruction}の
+Clifford 体積元・その平方と中心行列式、および例\ref{eco:ex:rational-obstruction}の
 全低次補正を許した有理線型系を厳密に検算する。
 一般の持上げ命題と楕円曲線の議論は上記の証明によるもので、
 検算器や形式証明器による全証明の確認を主張しない。

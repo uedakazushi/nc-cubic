@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-22 / v57.
+% Current result: 2026-11-22 / v58.
 \subsection{固定した線形 PBW 係数と判別超曲面の正規化}
 \label{ldg:subsec:discriminant-geometry}
 
@@ -13,9 +13,13 @@
 本節では、固定二次項を保つこと、臨界値を分離すること、
 および有限判別行列そのものの既約性を、同じ臨界代数から直接証明する。
 
-以下では $N=3k$ 個の active 変数を $\mathbf x=(x_1,\ldots,x_N)$ と並べ直す。
-三次斉次式 $G$ の射影零点集合は滑らかであり、
-$\partial G$ の共通零点は原点だけである。
+以下の補題\ref{ldg:lem:fixed-quadratic-morsification}と
+定理\ref{ldg:thm:normalization}では、$N=3k\ge6$ 個の変数
+$\mathbf x=(x_1,\ldots,x_N)$ の任意の三次斉次式 $G$ で、
+射影零点集合が滑らかなものを固定する。
+従って $\partial G$ の共通零点は原点だけである。
+これらの可換幾何の結果はこの一般性で証明し、
+末尾の系\ref{ldg:cor:fixed-linear-parameters}で元の線形 PBW 族へ適用する。
 $\mu=2^N=8^k$ と置く。
 固定した任意の二次斉次式 $Q$ に対して
 \[
@@ -73,7 +77,9 @@ $x_j=y_j$ が全ての $j$ について成り立ち、対角を除いたこと�
 有限個の成分についてこれらの像を除けば、求める非空開集合 $U_Q$ を得る。
 \end{proof}
 
-次に $Q=Q(\mathbf p)$ として全線形 PBW 係数を動かす。
+次に $\mathbf p\in\mathbb A^{3k}$ を補助係数とし、
+$Q=Q(\mathbf p)$ はその多項式係数を持つ任意の二次斉次式とする。
+元の線形 PBW 族への適用では、既に構成した $Q(\mathbf p)$ を用いる。
 $L_\ell$ と中心係数 $\gamma$ は、まず互いに独立な座標として扱う。
 \[
  \begin{gathered}

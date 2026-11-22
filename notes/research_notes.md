@@ -1,12 +1,12 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v57。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v58。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
-主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現することである。同一S(1,−1,−1)の任意個k≥2、固定非零重み、中心変数一つの全線形・定数PBW補正について、残余線束圏の普遍Morita比較を構成した（`lcc:thm:universal-linear-kernel`）。可換標的はG+uQ(p)+u²L(p,α)+u³C(p,α,c)で、可換smooth開では相対perfect核・全coherent Ku同値を得る。3k方向の残余Bocksteinは単射で、選んだHeisenberg同変境界比較の下で像は各ブロックJac(J_i)₂の直和ちょうどになる。比較係数は七定数形に限られ、中心尺度は全kでκ_k²=27/28と決まる。残る六定数の数値は未決定であり、存在比較は一次写像の単射性にもこの数値化にも依存しない。
+主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現することである。一つの共有中心変数・任意の固定smooth標準Sklyanin因子の組（k≥2）について、指定境界を保つ全因子別PBW・中心持上げを可換三次と全係数でMorita比較した（`emc:prop:coverage`, `euk:thm:universal-kernel`）。非二捩れの正規化線形Pと二捩れの中心平方βを一次係数tとする。標的はG+uQ(t)+u²(𝔄α+R₂(t))+u³(κc+R₁,₁(t,α)+R₃(t))、𝔄可逆、κ≠0であり、可換smooth開では相対perfect核・全coherent Ku同値を得る。定数3k方向のBocksteinは同型、一次3k方向は単射だが、存在比較は後者を仮定しない。
 
-rank8^kの臨界代数で全係数のsmoothnessを判定する。任意に固定したpに対する一般αでは、8^k個の相異なる悪い中心係数があり、各可換標的は唯一の通常二重点を持つ。普遍判別超曲面と各固定pの判別超曲面は既約・被約で、その正規化と特異点を臨界点から記述できる。これは固定(p,α)の一変数判別式に重複根が生じないという主張ではない。他の楕円因子・複数中心変数・全intrinsic対象への拡張、選択済みh核の良い特殊化は残る。指定二ブロックのP64・norm全64根および既存の中心・局所型の明示計算も保持する。
+rank8^kの臨界代数で全係数のsmoothnessを判定する。任意固定tの一般αでは8^k個の相異なる悪いcと、各可換標的の唯一の通常二重点がある。全係数・固定tの判別超曲面は既約被約で、臨界点のaffine空間が正規化を与える。一変数特殊化の重複根は許す。同一S(1,−1,−1)では純ブロックJac₂像・七定数形・κ_k²=27/28を保持し、残る六定数は未数値化。一般因子へこのκ値を流用しない。複数中心、因子moduli上の核選択・降下、全intrinsic被覆、h一般点核のdefect零特殊化は残る。指定二ブロックのP64・norm全64根・局所型も保持する。
 
 C上n≥3を基本とし、generic・全固定点・全族・一般体上の降下を区別する。全intrinsic対象の認識やpoint functorの表現可能性は未完成であり、既知の局所表示だけを全対象と定義して済ませない。可換候補の方程式・判別集合・局所特異点の一致と、その候補への実際の比較核の存在も区別する。
 
@@ -26,7 +26,7 @@ point/Poisson不一致は本文の補助例として扱う。三様体の例の�
 
 研究方針・研究ノート・共通preamble・書誌は三稿で共有し、数学的な本文は複製しない。三稿への整理は編集と参照の再構成であり、既存の数学全体の再証明ではない。以下の点検・計算に関する記述は各結果の既存の確認範囲であり、今回のソース保持・組版・表示確認とは区別する。実際の確認状態は [検証範囲](validation.md) を参照する。
 
-研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。同一因子・中心変数一つでは全線形族のline比較と可換smooth開の全coherent比較を得た。P0は他の楕円因子の実境界比較と二項写像の非退化性、複数中心変数の制限間coherence、全intrinsic対象への拡張である。他因子の中心持上げは、二捩れでない滑らかなSklyaninでは全PBW補正について存在し、二捩れのClifford因子では平行移動を除いた非零線形方向に障害がある。この許容範囲を先に固定し、PBW性だけで全線形族の中心三次商を仮定しない。比較多項式に残る六定数の数値化は存在定理の具体化として扱い、h族の選択済み核の良い特殊化は固定h=1の同値の存在と区別する。
+研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。共有中心一変数の全許容固定因子比較は完成した範囲として使い、P0は複数中心の実制限の交換射・二重交叉と全coherence、因子moduli上のPicard/周期降下、全intrinsic被覆に置く。二捩れの関係線形方向の消滅と中心平方方向の残存を区別する。比較係数の数値化は存在結果の具体化として進め、h核の良い特殊化は固定点の同値の存在と分ける。
 
 ### 満支持型における同時存在
 
@@ -292,9 +292,27 @@ Q_ncを可換化してJac(J)₂へ写すと(53/54)(p xy+q yz+r zx)になるが�
 
 滑らかな標準Sklyanin S(a,b,c)で平行移動点が二捩れでなければ、これらの中心条件が成立し、全quadratic–linear–constant PBW補正を覆う（`eco:cor:non-clifford-lift`）。有限位数・無限位数を含み、滑らかなHesse表示ではabc≠0により平行移動点は変曲点でなく、三捩れも除かれる。中心商のsection比から、次数dの非零中心元があればdp=0となることを使う。二捩れ条件は座標交換が逆元写像であることからa=bと同値で、S(1,1,τ)へ規格化できる。従って上の二場合は、滑らかな点曲線を持つ全標準Sklyanin因子を覆う（`eco:rem:exhaustion`）。二捩れでない範囲では中心元の存在自体を未知の追加入力にする必要はない。
 
-`verify_elliptic_center_obstruction.py` の6 PASSは、Hesse条件、PBW重なり・平行移動、次数三基底、ℚ(τ)上の一次中心障害と三つの消去汎関数、Clifford体積元、有理係数例の全低次補正を許した線型系と二次中心元を厳密確認する。非二捩れの一般持上げと楕円曲線の論証は本文に依拠し、この計算を全比較核の証明と同一視しない。
+`verify_elliptic_center_obstruction.py` の7 PASSは、Hesse条件、PBW重なり・平行移動、次数三基底、ℚ(τ)上の一次中心障害と三つの消去汎関数、Clifford体積元の中心性・平方・行列式、有理係数例の全低次補正を許した線型系と二次中心元を厳密確認する。非二捩れの一般持上げと楕円曲線の論証は本文に依拠し、この計算を全比較核の証明と同一視しない。
 
-次は二捩れでない因子、または二捩れ因子の定数補正・平行移動部分について、実境界比較とrotation、二項・三項の実クラス、全comonadと核を同定する。中心持上げだけから残余Bocksteinの単射性やKu比較を結論せず、全intrinsic対象の表示被覆も別に保持する。指定中心持上げの存在と、周期を含む比較核の構成を分けた再開点である。
+中心持上げの成立範囲を入力として、次の全係数比較を構成した。PBW・中心存在、残余Bockstein検出、実comonadと核は異なる証明段階であり、全intrinsic対象の表示被覆はなお別の問題である。
+
+### 任意固定楕円因子の全許容比較と二種類の一次方向
+
+正本は `mixed/elliptic_mixed_comparison.tex` と、その入力である `elliptic_boundary_kernel.tex`, `elliptic_bockstein.tex`, `elliptic_universal_kernel.tex`。滑らかな標準S(A_i,B_i,C_i)を固定し、k≥2、全a_i≠0、一つの共有中心u、因子間は可換とする。異なるj、同種・CM、二捩れ、有限位数・無限位数を許す。因子を動かすmoduli上で一つの核を選んだという主張ではない。
+
+二捩れの定数型ambientはR=C[α,u,X,Y,Z]上階数8のClifford代数となり、X=x²,Y=y²,Z=z²が中心である。対称行列qの対角はX,Y,Z、非対角は(u²α_z−τZ)/2等。体積元v=xyz−q_xy z+q_xz y−q_yz xに対し、中心はR⊕Rv、v²=−det q、Ωτ=−2(τ³−1)vである（`eco:prop:clifford-center-freedom`）。u=0のdet qは−τ²(X³+Y³+Z³)/4+(1−τ³/4)XYZで、全α特殊化で非零最高項が残る。分数体上の中心からPBW基底の1・xyz係数を比較して分母を除く。同じ境界Ωτを持つ全中心三次はΩτ+uβ·(x²,y²,z²)+du³に限られる。多因子の低中心も各二捩れ因子の平方の直和なので、混合ブロック補正に追加自由度はない（`emc:prop:coverage`）。
+
+固定境界は、実MF外積・windowで中心群同変圏をPerf(∏E_i)へ比較し、因子別Picard線束とscalar三乗根でrotationと指定周期を合わせる（`ebk:lem:boundary`）。全次数格子と基準因子を使うため3|kでもよい。双対character作用は元の同変MF模型では厳密dg作用であり、perfect双加群圏上でElagin Lemma8.6を適用して実同変核へ戻す。任意の三角作用からのdg liftを仮定していない。
+
+二つの法線Bocksteinを区別する。定数方向はt=0でv=u²と置き、剰余体評価にΣα_ij r_ij*が残る。二次双対ではξ_ij²=C_i r_ij*であり、Shamash周期にtorsionがないのでTate局所化後も独立である。可換境界のJac(G)₁の次元は3kなので、定数方向の写像は同型となる（`ebc:prop:constant-iso`）。一次方向では自己交叉のfull cochainを使う。非二捩れのPはunaryで検出され、独立な左右gauge行列Dの対称部分が平行移動T((L+R)/2)となることから対角零Pは消せない。二捩れのβはunaryでは見えず、relative barのYoneda積にδ₂=±a_i diagβ·ϑが現れる。baseline m₃はClifford体積元の交代三tensorである。全対象依存h₀の挿入は交代、h₁m₂はClifford三関係の対称spanとなり、純対角βと交わらない。全整数周期冪を許した双次数計算を併用し、全3k一次方向の単射を得る（`ebc:thm:first-injection`）。普通のExtの低積だけからTate移送を推測せず、中央局所化と非負周期部分の同定を本文で確認する。
+
+全係数T=C[t,α,c]上の相対potential解消と共有中心差一回のchange of ringsにより、untwisted双対・proper線束模型・実球面随伴を構成する（`emc:prop:line-model`）。固定counitの正規化塔は二項Jac₁・三項Cだけを残し、非分裂の両隣接群も消える。各段に実可換族を参照し、全Tの差を重み(1,2,3)で整理することでL=𝔄α+R₂、C=κc+R₁,₁+R₃を得る。𝔄は上の同型、κ≠0は中央一変数MFの三項による。全comonadとcoKleisli生成代数から実graph双加群を作る（`euk:thm:universal-kernel`）。比較の存在は一次Bockstein単射にも𝔄の可逆性にも依存せず、後者は係数変更と判別幾何で使う。
+
+Θ:(t,α,c)→(t,ℓ=coeff L,γ=C)は三角多項式同型。各固定tでは任意の線形ℓを動かせるため、rank8^kの有限平坦gradient写像の一般fiberは単純で臨界値も相異なる。判別はdet(CI+m_(G+Q+L))、その正規化は(t,x)↦(t,−∇(G+Q),x·∇(G+Q)−G−Q)である（`euk:cor:discriminant`, `euk:cor:normalization`）。特異判別点は値−Cを共有する異なる臨界点、またはその値を持つ退化Hessian点に正確に対応する。特異係数の比較は残余線束圏であり、全coherent比較や非可換中心の局所分類へ広げない。
+
+有限証明書 `verify_elliptic_bockstein.py` は8 PASS。一般左右gaugeの恒等式、det=−8c³(a−b)³、Clifford binary補行列det=8、Tate双次数と三つの独立挿入を検算する。文献の一次入力は Reich–Walton, Involve11(2018),585–608, DOI10.2140/involve.2018.11.585, Theorem7.1(a)（斉次二捩れ中心）、Lu–Palmieri–Wu–Zhang, JPAA213(2009),2017–2037, DOI10.1016/j.jpaa.2009.02.006, TheoremA/CorollaryB/§5（体上の関係とExt高次積）、Elagin arXiv:1403.7027v2 Lemma8.6/Theorems4.2,8.7,8.9である。これら既知理論と本表示への適用を区別し、後者の網羅的な新規性調査は未完了とする。
+
+次は共有中心二変数で、実制限・二重交叉・comonad間の交換射を同じ有限模型へ載せ、混合項の障害群を計算する。因子moduli上のPicard線束と周期三乗根の降下、一般因子の数値Q・𝔄・κ、全intrinsic表示被覆も残る。一般因子の一次像の具体的Jac₂座標は未決定で、同一S0のHeisenberg純ブロック像を無断に流用しない。
 
 ### 全smooth領域の相対模型と比較不変量
 

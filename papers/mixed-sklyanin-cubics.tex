@@ -3,11 +3,11 @@
 \SetPaper{mixed}
 
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
-\large 有限中心・局所代数・線形PBW族の可換比較核}
+\large 有限中心・局所代数・楕円因子の全PBW比較核}
 \author{}
-\date{2026年11月22日・研究稿 v57}
+\date{2026年11月22日・研究稿 v58}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
-pdfsubject={有限中心・局所代数・線形PBW族の可換比較核}}
+pdfsubject={有限中心・局所代数・楕円因子の全PBW比較核}}
 
 \begin{document}
 \maketitle
@@ -58,6 +58,13 @@ Heisenberg 対称性により一次像は純ブロックの二次 Jacobian 成�
 他の滑らかな Sklyanin 因子では、二捩れでなければ指定中心三次が
 全 PBW 補正に対して多項式的に持ち上がる。
 二捩れ因子では、持上げ可能な線形補正が平行移動方向に正確に限られることを示す。
+この場合も中心三次へ $u x_i^2,u y_i^2,u z_i^2$ を加える三方向が残る。
+これらを含む全許容中心持上げに対し、異なる楕円曲線・二捩れ・同種・CM を許す
+任意の固定因子の組で、全係数の残余線束 Morita 比較を構成する。
+定数補正の二項写像は可逆で、中心係数の三項写像は非零であるため、
+係数変更は三角な多項式同型となる。
+可換 smooth 開では全 coherent Ku 比較を得て、
+各固定一次係数の一般定数補正には $8^k$ 個の相異なる一節点ファイバーが現れる。
 さらに交換子パラメータの族に、零と一を含む半局所底上の
 相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
 相対模型から非可換側の Hochschild 対合指標も決定する。
@@ -79,9 +86,10 @@ Heisenberg 対称性により一次像は純ブロックの二次 Jacobian 成�
 非可換三次の Kuznetsov 成分を可換三次の成分として実現する問題では、
 二次関係に中心変数が現れる混合表示が、楕円因子の分離テンソル比較の
 次に調べるべき具体的な対象となる。
-本稿は、そのうち一つの中心一次変数を共有する
-$S(1,-1,-1)$ の全線形・定数型 PBW 変形を扱う。
-まず線形項が零の部分族から記法を定める。
+本稿は、一つの中心一次変数を共有する固定楕円 Sklyanin 因子の
+全許容 PBW・中心三次変形を扱う。
+中心と局所代数を明示できる $S(1,-1,-1)$ の定数型から記法を定め、
+線形補正、さらに異なる因子を許す全係数比較へ進む。
 基礎体は $\C$ とし、$\alpha=(\alpha_1,\alpha_2,\alpha_3)\in\C^3$ に対して
 \[
  \mathcal B_\alpha
@@ -214,13 +222,21 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  既約性・被約性、その affine 正規化と特異点の必要十分条件を与える。
  線形 Bockstein 写像の単射性は、この存在定理の仮定ではない。
 
- \item \emph{他の楕円因子における指定中心三次の持上げ。}
+ \item \emph{任意の固定楕円因子の全許容 PBW・中心比較。}
  定理\ref{eco:thm:clifford-obstruction}は、滑らかな $S(1,1,\tau)$ に対し、
  指定中心三次が持ち上がる線形 PBW 補正を平行移動方向として正確に決定する。
  正規化後の三つの係数は零でなければならず、定数補正は任意である。
  一方、系\ref{eco:cor:non-clifford-lift}は二捩れでない滑らかな標準 Sklyanin 因子の
  全 PBW 補正に、指定中心三次の普遍多項式持上げを与える。
- 中心元の存在と Ku 比較の存在は異なり、後者の他因子への拡張は残る。
+ 命題\ref{eco:prop:clifford-center-freedom}により、二捩れの場合は
+ 中心平方を $u$ 倍する三方向も全て含める。
+ 定理\ref{euk:thm:universal-kernel}は任意の固定因子の組について
+ 全係数の残余線束 Morita 比較、可換 smooth 開の相対 perfect 核と
+ 全 coherent Ku 比較を与える。
+ 定数補正の Bockstein の可逆性により係数変更は多項式同型であり、
+ 系\ref{euk:cor:discriminant}、\ref{euk:cor:normalization}の
+ 一般一節点ファイバーと既約判別・affine 正規化を得る。
+ これは因子自体を動かす moduli 上の核選択や全 intrinsic 表示被覆ではない。
 
  \item \emph{零係数の実際の可換比較核。}
  $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
@@ -294,6 +310,10 @@ Etingof--Ginzburg\cite[Theorem~3.3.2]{NFMEG}に基づく。
 二捩れでない因子では低次数中心の消滅を併用して、同定理を指定三次の持上げへ強める。
 二捩れで現れる三つの一次障害は直接計算し、
 PBW・CY 性だけを指定三次の持上げに置き換える推論が成り立たないことを示す。
+二捩れの斉次中心の記述は Reich--Walton
+\cite[Theorem~7.1(a)]{CMOReichWaltonOrderTwo}に既にある。
+本稿では定数補正の普遍 Clifford 中心を確認し、
+同じ指定境界を持つ中心三次の自由度を全係数比較へ組み込む。
 同論文の斉次中心商では、対応する楕円曲線の導来圏と
 次数付き行列分解の同値も既知である
 \cite[Section~3.5, Theorem~3.6.2(i)]{NFMEG}。
@@ -308,6 +328,14 @@ PBW・CY 性だけを指定三次の持上げに置き換える推論が成り�
 全 brace cochain の移送と対象ごとの obstruction への射影を区別する。
 相対 Koszul--Tate 模型の unary 成分を計算し、独立な左右の homotopy が与える
 交代行列と対称な PBW 係数を比較することで単射性を得る。
+二捩れの中心平方方向では unary 成分が零になるため、
+相対 bar の Yoneda 積と、Lu--Palmieri--Wu--Zhang
+\cite[Theorem~A, Corollary~B]{CMOLPWZExt}の体上の高次積公式を用いる。
+中心平方の対角行列が、関係の対称成分と三次体積元の交代成分で消えないことから、
+この場合も full cochain の非零性を検出する。
+任意の固定因子の境界比較は、実 Picard 補正・周期の同期・厳密な character 作用を使い、
+Elagin\cite[Lemma~8.6, Theorems~4.2, 8.7, 8.9]{MEDElagin}の同変化を適用する。
+これら既知の理論と、本稿で構成する全係数の三角変換・比較核を区別する。
 周囲代数の untwisted な双対性には Berger--Taillefer
 \cite[Theorem~3.6, Lemma~3.7]{NFMBeTa}の自己双対 potential 解消を使う。
 非分裂 counit に対する固定 unit の障害塔を計算し、
@@ -413,6 +441,8 @@ Sklyanin 曲線と標準中心元の既知の記述
 第\ref{lcc:sec:linear-comparison}節で非分裂 comonad と全線形族の普遍比較を構成する。
 同節で比較係数の対称性と判別超曲面の正規化を扱い、
 第\ref{eco:sec:center-lifting}節で他の楕円因子の中心三次持上げを判定する。
+第\ref{emc:sec:elliptic-comparison}節では、任意の固定因子の組について
+境界・一次変形・非分裂 comonad を比較し、全許容係数の実核を構成する。
 第\ref{mix:sec:equivariant-window}--\ref{mix:sec:kernel-specialization}節で非可換側の Hom 指標、
 指定 $h$-候補への形式・一般点比較と相対対角・整延長を調べる。
 第\ref{mix:sec:poisson-limits}節を点・零スキームの不一致の例に充てる。
@@ -439,6 +469,7 @@ Sklyanin 曲線と標準中心元の既知の記述
 \input{papers/sections/mixed/linear_bockstein.tex}
 \input{papers/sections/mixed/linear_comonad_comparison.tex}
 \input{papers/sections/mixed/elliptic_center_obstruction.tex}
+\input{papers/sections/mixed/elliptic_mixed_comparison.tex}
 \input{papers/sections/mixed/equivariant_window.tex}
 \input{papers/sections/mixed/equivariant_deformation.tex}
 \input{papers/sections/mixed/kernel_specialization.tex}
@@ -461,11 +492,12 @@ Sklyanin 曲線と標準中心元の既知の記述
 次は定理\ref{lec:thm:seven-scalar-form}で残った六定数を実比較核から計算し、
 法線座標の変更と rotation・三次周期の標識に対する依存を調べる。
 
-他の楕円因子へ進む際には、第\ref{eco:sec:center-lifting}節の中心持上げ条件を先に使う。
-二捩れでない因子は全 PBW 係数を対象とでき、二捩れ因子では
-線形補正を平行移動方向に制限した上で任意の定数補正を扱う。
-その各範囲で、境界の rotation 比較と定数補正の二項写像の非退化性を確認し、
-実 comonad 比較へ進む。
+異なる楕円因子を固定した場合の全許容係数比較は
+定理\ref{euk:thm:universal-kernel}で得た。
+次は、複数中心変数に沿う制限の間の coherence と、
+因子の楕円 moduli 上で Picard 補正・指定周期の三乗根を選ぶ降下を調べる。
+一般因子での $Q,\mathsf A,\kappa,R_2,R_{1,1},R_3$ の数値化、
+全 intrinsic 対象の表示による被覆は別に残る。
 
 \paragraph{零係数で構成した核の具体化と範囲.}
 定理\ref{cmo:thm:fixed-zero-commutative-kernel}により、
