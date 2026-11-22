@@ -78,14 +78,43 @@ $\Ku_{\mathrm{coh}}(A_0)\simeq\Ku(V(G-u^2L))$ の実 perfect 核を得る。
 既知の判別集合はその後の尺度決定に用いる。
 系\paperref{mixed}{cmo:cor:all-alpha-central-kernel}は
 固定した二つの Sklyanin 因子の任意の定数補正も扱う。
-定理\paperref{mixed}{cmm:thm:universal-kernel}は同じ因子の任意個 $k\ge2$ と
+定理\paperref{mixed}{cmm:thm:universal-kernel}は同じ $S_0=S(1,-1,-1)$ 因子の任意個 $k\ge2$ と
 固定非零重みに対し、この比較を全係数環へ拡張する。
 可換側の smooth 条件は
 系\paperref{mixed}{cmm:cor:determinantal-discriminant}の
 $\det(\kappa_kcI+m_H)\ne0$ であり、
-$\kappa_k$ の一般の数値化はなお必要である。
-線形補正では対称行列条件・平行移動正規形・普遍中心三次を確定したが、
-一次代数変形から残余圏の Bockstein への移送は未完了である。
+系\paperref{mixed}{mcs:cor:universal-scale}により全ての $k$ で
+$\kappa_k^2=27/28$、指定規約で $\kappa_k=3\sqrt{21}/14$ と選べる。
+線形補正の対称行列条件・平行移動正規形・普遍中心三次に加え、
+定理\paperref{mixed}{mix:thm:linear-bockstein-injection}は
+一次代数変形を実自己交叉の full cochain として残余圏へ移し、
+全対象依存の homotopy を許して $3k$ 方向の単射性を示す。
+非分裂 comonad の比較から、
+定理\paperref{mixed}{lcc:thm:universal-linear-kernel}の全線形係数上の
+残余線束 Morita 比較と、可換 smooth 開上の全 coherent Ku 同値を得る。
+定理\paperref{mixed}{lec:thm:seven-scalar-form}の七定数形のうち、
+残る六定数 $\chi_k,A_k,\ldots,E_k$ の数値化は未完了である。
+
+さらに命題\paperref{mixed}{emc:prop:coverage}と
+定理\paperref{mixed}{euk:thm:universal-kernel}は、
+異なる楕円曲線と二捩れを許す任意の固定した滑らかな標準 Sklyanin 因子について、
+指定境界を保つ全許容因子別 PBW・中心三次補正を扱う。
+二捩れ因子の中心平方方向を含む一次 Bockstein の単射性と、
+定数方向の同型は、それぞれ定理\paperref{mixed}{ebc:thm:first-injection}と
+命題\paperref{mixed}{ebc:prop:constant-iso}で得られる。
+一般因子の比較係数の数値は上記の $S_0$ の値とは区別する。
+任意個 $m\ge1$ の共有中心を持つ因子別表示では、
+定理\paperref{mixed}{mcb:thm:smooth-locus}が
+残余線束圏の smoothness と偏極三次 $X_{\mathrm{pol}}$ の滑らかさを同値とする。
+定理\paperref{mixed}{mcb:thm:central-flags}による一般中央旗に沿い、
+系\paperref{mixed}{mcb:cor:all-smooth-comparison}は全 smooth 因子別対象に対して、
+同次元の滑らかな可換三次 $X_{\mathrm{it}}$ への全 coherent Ku 比較を与える。
+各段の実随伴と周期を用いる構成であり、
+$X_{\mathrm{pol}}$ 自体への実核や全中心標識の同時保存を結論してはいない。
+固定した滑らかな境界からの横断二項写像も、
+命題\paperref{mixed}{mtb:prop:transverse-iso}と
+系\paperref{mixed}{mtb:cor:many-centers}により可逆である。
+
 交換子パラメータ $h$ については、定理\paperref{mixed}{mix:thm:h-exact-candidate}により
 指定した可換候補への全形式次数の MF 同値と一般点の実 perfect 核を得た。
 $h=0,1$ を含む相対 smooth proper 模型と、
@@ -103,8 +132,9 @@ $h=1$ の DVR 上の perfect 整延長は
 通常の周囲代数の derived Morita 比較と、形式的な $h$ 進核の
 $h=1$ への無条件な代入は、この手順の代わりにならない。
 可換実現 locus の開性だけでは全 smooth locus への拡張は従わない。
-次の中心課題は、他の Sklyanin パラメータや線形補正、
-複数の中心変数を含む混合表示への実比較の拡張と、全 intrinsic 成分の被覆である。
+次の中心課題は、全 intrinsic 成分の認識と表示被覆、
+因子間を混ぜる一般の二次関係、偏極標的 $X_{\mathrm{pol}}$ への実比較核、
+および因子自体を動かす族での核の選択と降下である。
 
 精密な降下の側には、周期位相の他の境界での分岐、正準位相体上の scalar index、
 代数的核の coherent な中心線型性、高次元の任意の full class と非分裂軌道が残る。

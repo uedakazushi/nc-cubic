@@ -94,7 +94,7 @@ $\{U_i\times U_i\}_i$ と $S\times S\setminus\Delta_S$ は $S\times S$ を覆う
 \begin{lemma}[相対例外列を戻すときの絶対 smoothness]
 \label{mcb:lem:relative-gluing}
 $R=\C[t_1,\ldots,t_r]$ とし、$\mathcal C$ を $R$-proper な有限生成 dg 圏とする。
-実 admissible 半直交分解
+実 $R$-線型 admissible 半直交分解
 \[
  \mathcal C=\langle\mathcal K,
        E_1\otimes\operatorname{Perf}(R),\ldots,
@@ -222,6 +222,121 @@ $Z$ の近傍は既に $\partial G/\partial x_j$ によって滑らかと分か�
 これで式\eqref{mcb:eq:smooth-locus}の両方向が従う。
 \end{proof}
 
+\begin{corollary}[全係数判別式とその重み]
+\label{mcb:cor:global-discriminant}
+定理\ref{mcb:thm:smooth-locus}の因子と境界比較を固定し、$m\ge1$ とする。
+中心形式 $\mathbf t(\mathbf u),\alpha(\mathbf u),c(\mathbf u)$ の全係数を
+独立な変数とする複素多項式環を、本系では $P_m$ と書き、$M=N+m$ と置く。
+二次式の homogeneous resultant は
+\[
+ \operatorname{Res}_{z_1,\ldots,z_r}(z_1^2,\ldots,z_r^2)=1
+\]
+で正規化し、一変数の場合も
+$\operatorname{Res}_{z}(az^2)=a$ とする。
+この規約で
+\begin{equation}\label{mcb:eq:global-discriminant}
+ \mathfrak D_m
+  =\operatorname{Res}_{\mathbf x,\mathbf u}
+        \bigl(\partial_{x_1}W_{\mathrm{pol}},\ldots,
+              \partial_{x_N}W_{\mathrm{pol}},
+              \partial_{u_1}W_{\mathrm{pol}},\ldots,
+              \partial_{u_m}W_{\mathrm{pol}}\bigr)\in P_m
+\end{equation}
+は非零かつ非定数であり、各複素係数点 $s$ について
+\[
+ \mathfrak D_m(s)=0
+ \quad\Longleftrightarrow\quad
+ \mathcal K_{A_s}\text{ が $\C$ 上 smooth でない}.
+\]
+各中心形式の係数に
+$\mathrm{wt}(\mathbf t)=1,\ \mathrm{wt}(\alpha)=2,\ \mathrm{wt}(c)=3$
+を与えると、$\mathfrak D_m$ は重み付き斉次で
+\begin{equation}\label{mcb:eq:global-discriminant-weight}
+                  \deg_{\mathrm{wt}}\mathfrak D_m
+                         =3m\,2^{N+m-1}
+\end{equation}
+となる。
+
+さらに、$\mathbf t=\alpha=0$ という分離 slice では
+$W_{\mathrm{pol}}=G+\kappa c(\mathbf u)$ であり、
+\begin{equation}\label{mcb:eq:separated-discriminant}
+ \left.\mathfrak D_m\right|_{\mathbf t=\alpha=0}
+  =\operatorname{Res}_{\mathbf x}(\partial G)^{2^m}
+     \kappa^{\,m2^{N+m-1}}
+     \operatorname{Res}_{\mathbf u}(\partial c)^{2^N}.
+\end{equation}
+従ってこれは、非零定数と
+$\operatorname{Res}_{\mathbf u}(\partial c)^{2^N}$ の積である。
+本系の非 smooth locus との同定は零集合についてのものであり、
+全係数上の $\mathfrak D_m$ 自身の既約性・被約性は主張に含めない。
+\end{corollary}
+
+\begin{proof}
+resultant の普遍多項式を係数環 $P_m$ へ特殊化すれば
+式\eqref{mcb:eq:global-discriminant}が定まる。
+specialization 後も、その零集合は入力斉次式の射影共通零点の存在条件と一致する
+\cite[Proposition~2.4]{CMOBuseJouanolouDiscriminant}。
+標数零の Euler の公式
+\[
+ 3W_{\mathrm{pol}}
+   =\sum_i x_i\partial_{x_i}W_{\mathrm{pol}}
+        +\sum_j u_j\partial_{u_j}W_{\mathrm{pol}}
+\]
+により、全偏微分の射影共通零点はちょうど $X_{\mathrm{pol}}$ の特異点である。
+定理\ref{mcb:thm:smooth-locus}を適用すると、主張した零集合の一致を得る。
+
+$\mathbf t=\alpha=0,\ c=\sum_j u_j^3$ と取る。
+$G$ が滑らかな射影三次を定めるため、$\partial G$ の affine 共通零点は原点のみである。
+$\kappa\ne0$ なので、$\partial(G+\kappa\sum_j u_j^3)$ も原点以外に共通零点を持たず、
+この係数点で $\mathfrak D_m\ne0$ となる。
+一方、全係数が零の点では $W_{\mathrm{pol}}=G$ は $\mathbf u$ に依存せず、
+$[\mathbf0:\mathbf u]$ に射影共通零点を持つ。従って $\mathfrak D_m$ は非定数でもある。
+
+一般の $M$ 変数三次 $F$ と $T\in\operatorname{GL}_M$ に対する標準変換則は
+\begin{equation}\label{mcb:eq:gradient-resultant-transform}
+ \operatorname{Res}\partial(F\circ T)
+     =\det(T)^{\,3\cdot2^{M-1}}\operatorname{Res}\partial F
+\end{equation}
+である\cite[Proposition~4.13 and its proof]{CMOBuseJouanolouDiscriminant}。
+実際、$\nabla(F\circ T)=T^{\mathsf t}(\nabla F)\circ T$ において、
+$M$ 個の二次式の線型結合は resultant を $\det(T)^{2^{M-1}}$ 倍し、
+変数の線型変換は $\det(T)^{2^M}$ 倍する。
+これらの指数の和が $3\cdot2^{M-1}$ である。
+既存の係数多項式 $Q,L,C$ の重み斉次性から
+\[
+ W_{\mathrm{pol}}(\lambda\mathbf t,\lambda^2\alpha,\lambda^3c;
+                         \mathbf x,\mathbf u)
+   =W_{\mathrm{pol}}(\mathbf t,\alpha,c;\mathbf x,\lambda\mathbf u)
+\]
+となる。式\eqref{mcb:eq:gradient-resultant-transform}に
+$T=\operatorname{diag}(I_N,\lambda I_m)$ を代入すると
+式\eqref{mcb:eq:global-discriminant-weight}を得る。
+
+最後に、分離した二組の独立な普遍二次式
+$q_1(\mathbf x),\ldots,q_N(\mathbf x)$ と
+$r_1(\mathbf u),\ldots,r_m(\mathbf u)$ を考える。
+全 resultant の零集合は二つのブロックの resultant の零集合の和集合である。
+各ブロックの普遍 resultant は既約なので、全 resultant はそれらの冪の積に
+非零定数を掛けたものとなる。
+$q_i$ の係数に関する次数は、全 resultant で $2^{N+m-1}$、
+$\mathbf x$-ブロックで $2^{N-1}$ だから、後者の冪指数は $2^m$ である。
+同様に $\mathbf u$-ブロックの冪指数は $2^N$ となる。
+全ての入力を対応する変数の平方へ特殊化すると、正規化から定数は $1$ である。
+この普遍恒等式を $q_i=\partial_{x_i}G,\ r_j=\kappa\partial_{u_j}c$ へ特殊化し、
+各 $r_j$ に関する resultant の次数 $2^{N+m-1}$ を用いると
+式\eqref{mcb:eq:separated-discriminant}が従う。
+この議論は $m=1$ の規約にもそのまま適用できる。
+\end{proof}
+
+例えば $k=2,m=2$ では、ray の同次座標に関する
+$\Delta$ の次数は $3\cdot8^2=192$、
+固定した滑らかな境界からの横断判別式の最後の係数 $z$ に関する次数は
+$2\cdot8^2=128$、全係数判別式 $\mathfrak D_2$ の重み付き次数は
+$3\cdot2\cdot2^7=768$ である。
+これらはそれぞれ異なる変数・重みに関する次数である。
+また、式\eqref{mcb:eq:separated-discriminant}の slice 上の冪から、
+全係数多項式自体の被約性について結論することはできない。
+
 \subsubsection{一般中央超平面、完全旗と全 coherent 比較}
 
 \begin{theorem}[滑らかな対象の一般中央旗]
@@ -329,8 +444,6 @@ perfect な graph 核を与える。
 各 chart の核は smoothness の移送に用いたが、核自体を全射影空間上へ貼り合わせてはいない。
 旗に沿う比較で保存する随伴と周期は各段ごとのものであり、
 以前の全ての中心作用の標識を最終核で同時に保存するという結論ではない。
-逐次同値が保つのは各段ごとの実制限随伴と周期であり、
-以前の段の全中心標識を一つの核で同時に保存するという意味ではない。
 また、一般の smooth proper dg 圏に対する Bertini 定理を証明したのでもない。
 本結果では、実中心作用から作った blow-up と、全係数上の一中心普遍核が、
 絶対 smoothness を通常の有限型スキームへ移すための具体的な入力を与えている。

@@ -349,6 +349,23 @@ Khan, *Algebraic K-theory of quasi-smooth blow-ups and cdh descent*, Ann.Henri L
 
 これらの可換chartはBl_Z X_pol、Z=V(G)⊂P^(N−1)のchartである。Z上では∂_xGが消えないのでX_polは元々滑らかで、blow-upはZ外で同型になる。従ってsource smooth⇒P_A smooth⇒各可換chart smooth⇒X_pol smooth。逆にX_pol smoothならZもsmoothなのでblow-upの各chartはsmoothであり、一中心核・相対例外gluing・絶対対角の局所性からP_A smooth、さらにadmissible L_Aと残余K_Aもsmoothとなる。これが `mcb:thm:smooth-locus` のK_A smooth ⇔ X_pol smoothである。有限中心性・PI性・全chart核の降下を入力としない。
 
+全係数の非smooth locusは一つの非零・非定数多項式で定まる。普遍正規形の係数環をP_m、N=3kとして、
+
+\[
+\mathfrak D_m=\operatorname{Res}_{x,U}
+ (\partial_{x_1}W_{\mathrm{pol}},\ldots,\partial_{U_m}W_{\mathrm{pol}})
+\]
+
+と置く。`mcb:cor:global-discriminant`は係数の重みwt(t,α,c)=(1,2,3)に関してdeg_wt 𝔇_m=3m·2^(N+m−1)を与える。中心座標Uだけをλ倍することと係数を重みで拡大することが等しく、Busé–Jouanolou, *On the discriminant scheme of homogeneous polynomials*, Math.Comput.Sci.8(2014),175–234, DOI[10.1007/s11786-014-0188-7](https://doi.org/10.1007/s11786-014-0188-7), [arXiv:1210.4697v1](https://arxiv.org/abs/1210.4697v1) Proposition4.13の勾配resultant座標変換則を適用する。零集合の判定は同Proposition2.4とEuler公式による。分離slice t=α=0では非零定数倍のRes(∂c)^(2^N)となる。全𝔇_mの既約性・被約性はここからは結論しない。Q,L,Cの未算出定数があるので、全係数の展開を計算したという意味でもない。
+
+二因子・二中心（N=6,m=2）の三つの次数は、対象と変数を分けて使う。
+
+| 判別式 | 次数を測る変数 | 次数 |
+| --- | --- | ---: |
+| 切断方向Δ(a,b) | rayの同次座標a,b | 192 |
+| 固定smooth境界の横断判別D_it | 最後のv³係数z | 128 |
+| 全係数判別𝔇_2 | t,α,cの重み1,2,3 | 768 |
+
 可換側の中央線型系はZ外で基点を持たず、Z上では中心du_iが独立である。普遍hyperplane incidenceのsmoothnessと標数零のgeneric smoothnessから一般中央切断がsmoothとなる。制限係数の偏極は元のW_polの制限に一致するため、同じsmoothness同値を中間商へ反復して一般中央flagを得る（`mcb:thm:central-flags`）。二中心では特にsmoothness⇒Δ≢0であり、全cutが特異な対象はsmooth対象には入らない。`mcb:cor:all-smooth-comparison`はこのflagと既存逐次核から、任意mの全smooth因子別表示の全coherent Ku実現を結論する。実標的X_itと偏極候補X_polの同値核、全中心作用の同時保存、全intrinsic被覆は未証明である。
 
 近接する既知結果としてLBSV Theorem3.2.6、Cassidy–Shelton Theorems1.3/1.5、Gaddis Propositions2.7/5.1は正規形・PBW・正則homogenization・tensor積の入力であり、本Ku比較を直接与えない。Perry, arXiv:1804.00132v2 Lemma7.18/Proposition7.19のHPDは実P(V)-linear Lefschetz圏を入力とする。本稿の基点付きsourceは上のstrict中心作用とKhanの定理で構成した。Rennemo–Segal–Van den Bergh, arXiv:1705.01366v2 Proposition2.1は可換有限型環上有限な代数を仮定する。一般PBW族へその仮定を流用しない。二捩れClifford部分では中心平方から有限中心性を確かめる別経路があるが、全固定因子の結論はこの有限中心法に依存しない。網羅的な新規性確認は未了である。
