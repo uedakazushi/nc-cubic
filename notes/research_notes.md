@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月23日 / v73。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月23日 / v74。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -690,6 +690,8 @@ Heisenberg対称性だけでは二次写像Sym²V→V*が五次元、三次不�
 `ifj:prop:explicit-third-normalization` は原式 F+sG₁+s²G₂+s³G₃ について座標補正 T=I+sA₁+s²A₂+s³A₃ を三次まで再帰的に構成する。各段階のJacobian 成分を A_j=−𝒥(R_j) で消し、切片係数を H_j=Π(R_j) とする。一次項が既に C にある場合でも H₃=Π(G₃−D_{𝒥(G₂)}G₁) であり、G₃ を単独で射影してはいけない。実際、純代数的な例 G₁=X₀Y₁Y₂,G₂=X₀²Y₀,G₃=0 は、正規化後 H₃=−P_Y/t₁ を与える（`ifj:ex:third-coordinate-artifact`）。これは未計算の γ の実値ではない。局所計算では全56単項式の一般記号分解、20単項式基底、τ₁=2,τ₂=3での三次座標代入、非零三次補正の4群を厳密確認した。`computations/verify_hesse_slice_transfer.py` はその再現器である。実際の比較核と周期から原式 G₁,G₂,G₃ を計算する部分が残る。
 
 **四probeの直接読出しと必要な原式係数の縮小（有限代数の証明済み）：** `ifj:prop:direct-probe-readout` は、一次項を `G_{1,A}=κΣA_{ab}X_aY_{b+1}Y_{b+2}` に固定した任意の三次式族から、二次・三次の固定Hesse係数を特定の単項式係数だけで回収する。二次`v00`は`[X1X2Y0]G₂+h₁[X0²Y0]G₂`、純X三次は`[P_X]G₃+h₁Σ[X_a³]G₃`、純Y三次は`[P_Y]G₃+h₂Σ[Y_b³]G₃−κ/t₁ΣA_ab[X_a²Y_b]G₂`（`t₁=3a₁τ₁`）である。四方向に要する原式の単項式係数枠は、二次14、三次32、計46。純X三次の二次座標補正はbidegreeで消え、純Y三次には明示的な対合補正がある。従来の四probe評価行列を逆に解けば12係数となる。全56単項式×4方向について一次項が指定の状態でこの読出しを厳密に確認した（4群PASS、検算器`verify_hesse_probe_readout.py`）。原点核から必要な46枠の実値を求めたわけではなく、未知の12係数の消滅・非消滅も未解決である。
+
+**中心 norm からの数値代入が失敗する具体的理由：** Clifford の中心体積元は `ω_x(s)²=−N(s)`、`N(s)=det q_x(s)` を満たす。混合行列Uに対し `L_a=Σ_bU_abY_b` とすると、`N₂=−(1/4)Σ_a X_a(L_a²+τ₁L_{a+1}L_{a+2})`、`N₃=L₀L₁L₂/4` が全係数で正確に成り立つ。固定Hesse射影では `Π(N₂)=−(1/4)Σ_ab(∂𝒮/∂U_ab) X_aY_{b+1}Y_{b+2}`、`Π(N₃)=(1/4)(∂𝒮/∂τ₁)P_Y` で、`𝒮=(h₂/3)I₀+2I_r+τ₁(h₂I_c+I_d)`、`I_d=I_++I_-`。これらは中心normの**同じ三次不変式に由来するgradientの整合条件**であり、`β,γ`への等式ではない。四probeでは三次normが E₀₀,R₀で零、C′₀でY₀³/4、I₃でP_Y/4。Fermatの場合h₂=0ならC′₀のHesse射影が零でも中心normの三次恒等式は非零。さらに平方中心変数を文字どおり可換座標とすると `Π(N₁)` はC₂₁、実比較のKSはC₁₂で二重次数が異なるため、この素朴な座標同定は一次で失敗する。N₀の滑らかさも `(τ₁³−1)(τ₁³+8)²` によって確認できる。証明は `ifj:prop:central-norm-jets`, `ifj:cor:central-norm-probes`。有限検算器は `../computations/verify_clifford_central_norm_jets.py`（SymPy 7群PASS）。原点perfect核・Picard/rotation周期の実高次移送と46枠の数値化が引き続き必要。
 
 任意の標的形式座標変更なら全高次項を消して(κΛ,0,0)へ移せるが、これは固定した多項式切片の係数を計算したことにはならない（`ifj:prop:formal-straightening`）。一方、一次部分が恒等の同変な源座標変更の最初の補正は四次なので、上の二次・三次係数は変わらない。形式座標に関するこの区別を計算時にも維持する。
 

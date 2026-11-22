@@ -1,9 +1,10 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v73。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v74。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
 
+- **全九変数Clifford中心normの三次jetと比較非同一性（v74）：** `ifj:prop:central-norm-jets` の全係数D=det q_x(s) のs⁰〜s³展開、固定Hesse射影の二次covariantと三次invariant、単一三次不変式𝒮によるU-gradient・τ₁微分、四probeの三次norm（C′₀,I₃だけ非零）、N₀のHesse滑らかさ条件を本文に証明記載。平方中心変数を可換Hesse座標へ文字通り同一視すると一次KSのbidegreeがC₂₁（norm）とC₁₂（実比較）で異なることを明記。ローカルの`python3 /mnt/data/verify_clifford_central_norm_jets.py`はSymPy 1.14で全7群PASS・終了コード0（一般9記号の行列式、二次射影、三次不変式、gradient、一次成分、四probe、Hesse判別因子）。再現用の同内容コードを`computations/verify_clifford_central_norm_jets.py`にGitHub保存したが、保存されたバイト列での独立再実行は未実施。中心normのidentityは実Ku比較核・周期・46枠・12 scalarの計算ではない。全三稿の統合LuaLaTeX組版・PDF表示、Lean・外部査読・網羅的先行研究調査も今回未実施。
 - **固定Hesse四probeの46枠直接読出し：** `ifj:prop:direct-probe-readout` を混合稿へ証明として記載。G₁=κΣA_ab X_aY_{b+1}Y_{b+2}の一次標準化後に、二次逆混合・三次純X/Y係数を原式G₂,G₃の特定の14+32=46単項式係数枠から得る。純X三次には二次座標補正がなく、純Y三次にはκ/t₁と`[X_a²Y_b]G₂`の対合補正がある。四probeの逆評価行列も明示。Python 3 / SymPy 1.14で独立のローカル読出し検算を実行し、四probe×二次数×全56単項式、12係数の逆変換、対合係数と46枠算術、非零補正例の4群PASS・終了コード0。GitHubに `computations/verify_hesse_probe_readout.py` を保存。同内容の保存用ソースも互換名を付けたローカル基礎射影実装に対して実行し4群PASSしたが、GitHubからの保存後バイト列を取り直した再実行や全三稿のLuaLaTeX組版は未実施。これは比較核の出力の計算ではなく、12個の数値は未決定。
 - **固定 Hesse 切片の明示 Jacobian 分解と三次正規化（v72）：** `ifj:prop:explicit-jacobian-projector` と `ifj:prop:explicit-third-normalization` の証明を混合稿へ統合。一般パラメータ h_i,t_i の下で Π+𝒟_F𝒥=1、𝒥𝒟_F=1 を全56単項式の三種類の簡約公式から導く。三次Taylorの順序を固定し、G₁∈Cでも二次座標補正が純三次項を非零にできる例 `ifj:ex:third-coordinate-artifact` を構成。SymPy 1.14を使ったローカルの厳密スクリプトで4群PASS・終了コード0（一般記号56単項式、20次元切片と36次元Jacobian方向、τ₁=2/τ₂=3・重み1/2の三次座標代入、非零三次補正）。同じ公式の再現用コード `computations/verify_hesse_slice_transfer.py` をGitHubへ保存したが、**保存後のコードそのものの独立再実行は未実施**。原点比較核・周期収縮の構成とその出力G₁,G₂,G₃、12係数の実数値は未完成。今回、全三稿の統合LuaLaTeX組版・PDF表示、外部査読、形式証明器は未実施。
 - **四つの最小probeによる高次係数回収：** `ifj:prop:minimal-probes` に四方向 `E00,R0,C0,I3` の二次・三次評価行列と行列式 −1,1 を証明として記載。独立した三次不変式が四つあるため最低四方向を要し、二次PBW摂動が零なら第一または第三行が零で `I_c,I_d` も消えるため最低二方向の非線形PBW摂動を要する。四方向は双方の下限を達成する。この評価行列と零行の多項式恒等式をSymPyで厳密確認した。全12 scalarの数値・非消滅は未計算。

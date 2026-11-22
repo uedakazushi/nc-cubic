@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月23日 / v73。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月23日 / v74。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -36,6 +36,8 @@
 **任意のClifford二因子の一方向probeで中心norm判別を完全決定した。** [一般一方向の四臨界値](papers/sections/mixed/interfactor_clifford_oneway_discriminant.tex) の`ifod:thm:general-values`は、Λ=sE₁₁、M=0、任意の許容τ_iと非零重みについて、四つの明示非零ρ_{εδ}の三乗根が全特異係数であることを示す。全sで周囲AS正則・中心三次正則、中心norm特異点は全てAzumayaで残余非smooth。τ₁³≠−2、τ₂³≠4ならノード数1/3/3/9、schematicな判別は∏(s³−ρ_{εδ})^{3^{ε+δ}}でs次数48。特殊値ではD₄（Milnor数4）または四変数Fermat三次のsuspension（Milnor数16）へ合流する。対称τ₁=τ₂=2の既存12値は特殊化として保持する（`ifn:thm:symmetric-probe`）。全残余smooth locusと固定Hesse切片の12高次係数の実計算を決定したものではない。[再現コード](computations/verify_clifford_general_oneway.py)。
 
 **固定した可換方程式の高次項は、まず十二係数の実計算へ帰着する。** [固定切片と同変jet](papers/sections/mixed/interfactor_clifford_jets.tex)は、両Cliffordの標準Hesse方程式、Jacobian補空間による線型切片、原点の実核・指定周期を固定すると、形式可換方程式が一意になることを示す（`ifj:lem:linear-slice`）。Heisenberg群の二因子作用に対する二次covariantと三次不変式は各五本であり、周期と両立する反転同変実核を選ぶと各四本に減る。一方向九変数族の逆向き混合二次項は四係数、二つの純因子三次項は八係数で尽くされ、最小四つの一変数probeで回収できる（`ifj:thm:twelve-coefficients`）。**この4+8=12個の数値は未計算**である。ただし[PBW摂動と三次移送](papers/sections/mixed/interfactor_clifford_jets.tex)で、四つのprobeの源curved代数演算が単位行列・行和の二方向は厳密に一次、残る列和・対角の二方向は二次に止まると証明した。非零な二次演算は四つのPBW構造定数だけで、中心三次は全方向で一次。原点に選んだ収縮(i,p,h)のもと、HPLによる二・三次の移送を有限式へ還元した（`ifj:prop:pbw-jet-degree`, `ifj:lem:pbw-hpl`）。必要な原点核・周期に沿った収縮と高次三次式G₁,G₂,G₃の算出は未完成。一方、得られた三次式を固定Hesse切片に移す**後段の正規化は構成済み**である。全56単項式のJacobian射影Πと逆補正𝒥、三次Taylor係数の再帰公式を [明示的正規化命題](papers/sections/mixed/interfactor_clifford_jets.tex) に証明し、[有限計算器](computations/verify_hesse_slice_transfer.py)を追加した。一次項が切片内でも、二次のJacobian座標補正が三次の純因子項を非零にできるため、三次式の直接射影だけでは一般に誤る（`ifj:ex:third-coordinate-artifact`）。 さらに[46係数の直接読出し命題](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:prop:direct-probe-readout`）により、四probeについて二次14枠と三次32枠の原式単項式係数だけで固定Hesseの4+8係数を回収できる。純Xの三次係数には二次gauge補正がなく、純Y側にはκ/(3a₁τ₁)とG₂の平方混合係数の対合補正が必要である。[厳密検算器](computations/verify_hesse_probe_readout.py)を保存した。[厳密PBW検算](computations/verify_clifford_jet_transfer.py)も保持する。自由な標的形式座標で高次項を消せることと、固定した多項式切片で数値を求めることは別である。
+
+**Clifford 中心normは明示できるが、可換Ku標的そのものではない。** [全九変数の中心norm三次展開](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:prop:central-norm-jets`）では、体積元の平方`ω_x(s)²=−det q_x(s)`を三次まで厳密に計算した。Hesse射影の二次同変係数は一つの三次Heisenberg不変式𝒮のgradient、三次純Y係数は(∂𝒮/∂τ₁)/4で、最小四probeのうち列和と対角の二つにだけ非零の三次normがある。一方、平方中心変数を可換Hesse座標と文字どおり同定すると一次像はC₂₁であり、実Ku比較の一次像C₁₂と一致しない（`ifj:cor:central-norm-probes`）。従ってこの計算は未決定のβ・γの値ではなく、実核・周期付き移送を省略できないことの具体的な証拠である。[厳密記号検算](computations/verify_clifford_central_norm_jets.py)は7群PASSをローカルで確認したが、GitHub上の保存コードを独立に再実行したとはしない。
 
 **固定tensor境界の全PBW表示まで、因子別比較の適用範囲が広がった。** [因子間変形の節](papers/sections/mixed/interfactor_deformations.tex)では、任意の可換係数環と厳密な中心変数の下で、因子間の一次・定数補正と内部関係の他因子出力が全て零になることを証明した（`ifp:thm:factorization`）。因子別分解は元の生成元で成立し、形式的gaugeや被約性を要しない。指定中心三次があれば全許容正規形へ入り、smoothness判定・一般中央flag・全coherent Ku比較を適用できる（`ifp:cor:central-comparison`）。固定した最高次境界とPBW性は仮定として残る。
 
