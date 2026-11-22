@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v77.
+% Current result: 2026-11-23 / v78.
 \subsection{固定した三次形式の切片と高次係数の有限還元}
 \label{ifj:subsec:jets}
 
@@ -1366,6 +1366,248 @@ Clifford 代数の生成元には $-P$ が作用し、
 \texttt{computations/verify\_clifford\_isogeny\_cubics.py}
 に置く。
 \end{remark}
+
+\subsubsection{二重被覆の整閉包と二捩れ Picard 線束の二階行列分解}
+\label{ifj:subsubsec:double-cover-mf}
+
+前小節の六次元切断空間を、相対的な有限被覆代数と
+二捩れ Picard 線束の二階行列分解に置き換える。
+この模型は、実 MF/window 比較に必要な線束を
+中心平方の安易な置換なしに指定するための有限入力である。
+以下の $A_\tau,B_\tau$ は
+式\eqref{ifj:eq:clifford-two-isogeny-weierstrass}の
+Weierstrass 係数であって、非可換側の代数ではない。
+
+\begin{proposition}[相対二重被覆の有限代数と符号固有加群]
+\label{ifj:prop:double-cover-algebra}
+係数環を
+\[
+ K=\C[\tau,\tau^{-1},(\tau^3-1)^{-1},(\tau^3+8)^{-1}]
+\]
+とし、$a=A_\tau,\ b=B_\tau$、
+\[
+ \delta=a^2-4b=\frac{(\tau^3+8)^3}{81\tau}\in K^\times,
+ \qquad
+ g(X)=X^2-2aX+\delta
+\]
+と置く。$b,\delta$ は $K$ の単元である。
+標的 $E_{\tau^\vee}$ の
+Weierstrass 座標を $(X,Y)=(\tau^2U^\vee,\tau^3V^\vee)$
+へ尺度変更すると、$o^\vee$ を除くアフィン曲線の環は
+\[
+ R=K[X,Y]/(Y^2-Xg(X))
+\]
+となる。$I=(X,Y)\subset R$ と置く。
+
+源 $E_\tau$ の $o,p$ を除くアフィン曲線の環は
+\begin{equation}\label{ifj:eq:normalized-two-cover}
+ B=K[\xi,\eta]/\bigl(\eta^2-g(\xi^2)\bigr),\qquad
+ X=\xi^2,\quad Y=\xi\eta
+\end{equation}
+であり、deck 対合は
+$(\xi,\eta)\mapsto(-\xi,-\eta)$ である。
+$B^{\langle t_p\rangle}=R$ であり、
+$B/R$ は相対有限 \'{e}tale 次数二である。
+
+$R$-加群として
+\begin{equation}\label{ifj:eq:double-cover-ideal-algebra}
+ B=R\oplus B^{-},\qquad
+ B^{-}\simeq I,\quad
+ X\longmapsto\xi,\quad Y\longmapsto\eta,\qquad
+ I^2=(X)
+\end{equation}
+が成立する。符号固有加群 $I$ は可逆な階数一加群で、
+この同定での代数積は
+\[
+ (r,i)(r',i')
+  =\left(rr'+\frac{ii'}{X},\;ri'+r'i\right),
+ \qquad i,i'\in I .
+\]
+分子 $ii'$ は常に $(X)$ に属し、
+$ii'/X\in R$ は一意である。これらの表示は
+$K$ の任意の可換代数への係数変更とも両立する。
+
+さらに $R[\xi]/(\xi^2-X)$ という
+\emph{単純な平方根の追加}は、$p^\vee=(X,Y)=(0,0)$
+の上に通常二重点を持つ。
+その整閉包が式\eqref{ifj:eq:normalized-two-cover}の $B$
+であり、$\eta=Y/\xi$ が欠けていた生成元となる。
+\end{proposition}
+
+\begin{proof}
+$\tau^\vee=-2/\tau$ に対し
+$\tau^2A_{\tau^\vee}=-2a$、
+$\tau^4B_{\tau^\vee}=a^2-4b=\delta$ なので、
+標的の方程式は表示した $R$ となる。
+係数の式を直接展開すると
+$b=-16(\tau^3-1)^3/(81\tau^4)$ と
+$\delta=(\tau^3+8)^3/(81\tau)$ であり、
+両者は $K$ の単元である。
+
+源の Weierstrass 座標を $(u,v)$ とし、
+$v^2=u^3+au^2+bu$、$p=(0,0)$ とする。
+\[
+ \xi=\frac vu,\qquad
+ \eta=u-\frac bu
+\]
+は $E_\tau\setminus\{o,p\}$ 上で正則であり、
+\[
+ \xi^2=u+a+\frac bu,\qquad
+ \eta^2=(\xi^2-a)^2-4b=g(\xi^2),\qquad
+ X=\xi^2,\quad Y=\xi\eta
+\]
+を満たす。逆に
+$u=(\xi^2-a+\eta)/2$、$v=\xi u$ と復元できる。
+$u(\xi^2-a-\eta)/2=b\in K^\times$ なので
+逆写像はアフィン曲線全体に正則である。
+既知の $p$ による平行移動は
+$(u,v)\mapsto(b/u,-bv/u^2)$ であり、
+これは $(\xi,\eta)\mapsto(-\xi,-\eta)$ となる。
+
+偶次数の単項式は
+$\xi^2,\xi\eta,\eta^2=g(\xi^2)$ から生成されるので
+不変環は $R$ である。
+奇次数の単項式は $R\xi+R\eta$ に属し、
+二つの関係
+\[
+ Y\xi-X\eta=0,\qquad
+ -g(X)\xi+Y\eta=0
+\]
+を満たす。$I=(X,Y)$ の関係にも同じ二本があり、
+$I\to B^-$、$X\mapsto\xi,Y\mapsto\eta$ は同型である。
+$Y^2=Xg(X)$ を用いると
+\[
+ \delta X=Y^2-(X-2a)X^2,
+\]
+従って $I^2=(X)$ で、表示した代数積を得る。
+曲線 $R$ は平滑で、$I$ は切断 $p^\vee$ の
+可逆イデアルである。
+
+符号対合の固定点は $\xi=\eta=0$ でなければならないが、
+$\eta^2=g(\xi^2)$ と $\delta\in K^\times$ に反する。
+従って相対次数二の自由作用による商は
+有限 \'{e}tale である。任意の係数変更後も
+$b,\delta$ は単元であり、同じ恒等式が成立する。
+最後に単純平方根の環は $X=\xi^2$ を消去すると
+\[
+ K[\xi,Y]/\bigl(Y^2-\xi^2g(\xi^2)\bigr)
+\]
+となる。その $(\xi,Y)=(0,0)$ の二次部分は
+$Y^2-\delta\xi^2$ で非退化であり、通常二重点を持つ。
+$\eta=Y/\xi$ は $\eta^2=g(\xi^2)$ を満たして整である。
+$B$ は滑らかなアフィン曲線の環なので正規であり、
+同じ関数体を持つ有限拡大として整閉包となる。
+\end{proof}
+
+\begin{proposition}[源と標的の二捩れ Picard 線束の明示的な二階行列分解]
+\label{ifj:prop:two-torsion-matrix-factorization}
+任意の $\alpha,\beta$ に対して
+\[
+ G_{\alpha,\beta}=X^2+\alpha XZ+\beta Z^2,\quad
+ F_{\alpha,\beta}=Y^2Z-XG_{\alpha,\beta}
+\]
+と置く。次の斉次行列は
+\begin{equation}\label{ifj:eq:two-torsion-matrix-factorization}
+ \mathsf A_{\alpha,\beta}
+ =\begin{pmatrix}Y&-G_{\alpha,\beta}\\-X&YZ\end{pmatrix},
+ \qquad
+ \mathsf B_{\alpha,\beta}
+ =\begin{pmatrix}YZ&G_{\alpha,\beta}\\X&Y\end{pmatrix},
+ \qquad
+ \mathsf A_{\alpha,\beta}\mathsf B_{\alpha,\beta}
+ =\mathsf B_{\alpha,\beta}\mathsf A_{\alpha,\beta}
+ =F_{\alpha,\beta}\mathbf1_2
+\end{equation}
+を満たす。
+$S=K[X,Y,Z]$、$R_h=S/(F_{\alpha,\beta})$ とすると、
+\[
+ \mathsf A_{\alpha,\beta}:
+ S(-2)\oplus S(-3)\longrightarrow S(-1)^2,\qquad
+ \mathsf B_{\alpha,\beta}:S(-4)^2
+         \longrightarrow S(-2)\oplus S(-3)
+\]
+は、次数三の斉次行列分解である。
+$R_h$ 上の余核は次数付きイデアル $(X,Y)$ と同型で、
+楕円曲線 $V(F_{\alpha,\beta})$ 上では
+\[
+ \widetilde{\operatorname{coker}\mathsf A_{\alpha,\beta}}
+   \simeq\OO(-p_{\alpha,\beta}),\quad
+ p_{\alpha,\beta}=(0:0:1),\quad
+ \OO(-p_{\alpha,\beta})\otimes\OO(o_{\alpha,\beta})
+   \simeq\OO(p_{\alpha,\beta}-o_{\alpha,\beta}).
+\]
+特に $(\alpha,\beta)=(a,b)$ と
+$(\alpha,\beta)=(-2a,\delta)$ への代入は、
+それぞれ源の $M_\tau$ と標的の
+$N=M_{\tau^\vee}$ に対する有限行列分解を与える。
+
+ただし余核の層そのものは次数 $-1$ であり、
+二捩れの次数零線束を得るには
+\emph{一点の捩れ} $\OO(o)$ が必要である。
+この行列分解の通常の整数次数 shift のみでは
+$\OO(o)$ を代用できない。
+\end{proposition}
+
+\begin{proof}
+式\eqref{ifj:eq:two-torsion-matrix-factorization}は
+二行二列の積を直接計算すれば得られる。
+$S(-1)^2\to(X,Y)$ を
+$(f,g)\mapsto Xf+Yg$ で定める。
+関係の持上げ
+\[
+ Xu+Yv=h(Y^2Z-XG_{\alpha,\beta})
+\]
+に対し、$S$ 上で
+$X(u+hG_{\alpha,\beta})+Y(v-hYZ)=0$ となる。
+$X,Y$ の通常の Koszul 関係から
+\[
+ (u,v)=t(Y,-X)+h(-G_{\alpha,\beta},YZ)
+\]
+である。従って余核は $(X,Y)$ であり、
+表示した二つの次数差も正確である。
+射影曲線上の $(X,Y)$ は $p_{\alpha,\beta}$ の
+イデアル層である。
+また $o_{\alpha,\beta}=(0:1:0)$ とし、
+$X/Z$ の因子は $2p_{\alpha,\beta}-2o_{\alpha,\beta}$。
+従って $\OO(o-p)\simeq\OO(p-o)$ を用いて
+最後の Picard 同型を得る。
+$\OO(1)=\OO(3o)$ なので次数付き shift の
+次数増分は三の倍数であり、
+次数 $-1$ から次数零への補正 $\OO(o)$ は
+整数 shift では実現できない。
+\end{proof}
+
+\begin{corollary}[標的符号線束の自明化と残る降下文字]
+\label{ifj:cor:double-cover-sign-descent}
+命題\ref{ifj:prop:double-cover-algebra}の標的
+二捩れ線束 $N=M_{\tau^\vee}$ は
+$\varphi_\tau^*N\simeq\OO_{E_\tau}$ を満たす。
+アフィン環では $I\otimes_RB\to B$、
+$X\mapsto\xi,\ Y\mapsto\eta$ がその明示的な自明化である。
+実際、$B$ の中で
+\[
+ 1=\frac{\eta^2-\xi^2(\xi^2-2a)}{\delta}
+\]
+が成立するため、$\xi,\eta$ は単位イデアルを生成する。
+ただしこの同型は deck 対合に対して符号文字を持つため、
+標的上で $N$ が自明であることは意味しない。
+
+上の相対有限代数・二階行列分解は
+Koszul--Shamash 比較核を構成するための入力である。
+それ自体は、非可換 Clifford の
+曲率付き核、rotation 比較射、三乗周期、
+四 probe の原式四十六係数、十二比較係数を
+計算したものではない。
+\end{corollary}
+
+\begin{proof}
+符号固有加群は $I=(X,Y)$ であり、
+$B$ への引戻しは $\xi,\eta$ で生成される。
+表示した恒等式からその全体が単位イデアルとなり、
+引戻しは階数一自由である。
+deck は $\xi,\eta$ に負号を掛けるので、
+この自明化は自明文字の線型化ではない。
+\end{proof}
 
 \begin{corollary}[CM 自己 isogeny でも残る二捩れ障害]
 \label{ifj:cor:two-isogeny-cm-specialization}
