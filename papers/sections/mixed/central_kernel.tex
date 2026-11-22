@@ -1,0 +1,184 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\subsection{全中心係数での実比較核と尺度の決定}
+\label{cmo:subsec:all-central-kernel}
+
+三項までの比較から、まず尺度を未定にした実際の同値族を構成する。
+その後に、特異係数を含む残余線束圏の smoothness を使って尺度を決める。
+判別集合の一致を同値核の存在の代用にはしない。
+
+\begin{theorem}[指定中心族の全 smooth 係数への比較核]
+\label{cmo:thm:all-central-commutative-kernel}
+$\alpha^{(1)}=(1,4,9)$、$\alpha^{(2)}=(16,25,49)$ と重み $1,100$ を固定し、
+\[
+ G=J(x^{(1)})+100J(x^{(2)}),\qquad
+ L=\alpha^{(1)}\cdot x^{(1)}+100\alpha^{(2)}\cdot x^{(2)},\qquad
+ \lambda=\frac{2\sqrt{21}}9
+\]
+と置く。ここで $J(x,y,z)=(x^3+y^3+z^3+xyz)/3$ である。
+可換族を
+\begin{equation}\label{cmo:eq:all-central-target}
+ X_c=V\bigl(\lambda(G-u^2L)+cu^3\bigr)\subset\mathbb P^6
+\end{equation}
+とする。このとき次が成立する。
+\begin{enumerate}
+ \item 全ての $c\in\C$ に対し、残余線束圏の $\C$-線型 dg Morita 同値
+ \[
+ \mathcal K^{\mathrm{line}}_{A_c}\simeq
+ \mathcal K^{\mathrm{line}}_{X_c}
+ \]
+ を構成できる。これらは $\C[c]$ 上の一つの Morita 双加群と、
+ その逆双加群・単位・余単位から得られる。
+ \item $U=\mathbb A^1\setminus V(P_{64})$ 上では、この双加群は相対積上 perfect であり、
+ 全ての $c\in U(\C)$ で実際の同値
+ \begin{equation}\label{cmo:eq:all-central-coherent-equivalence}
+ \Ku_{\mathrm{coh}}(A_c)\xrightarrow{\ \sim\ }\Ku(X_c)
+ \end{equation}
+ を与える。この相対 perfect 核と逆核の同値は任意の導来底変更に保たれる。
+ \item 境界 $u=0$ の固定した比較核 $E$ に関して、上の同値は
+ 中心超平面への残余制限と intertwine する。
+\end{enumerate}
+これは通常の $\C$-線型 dg Morita 比較である。
+全 rotation・指定周期・中心作用の標識の同時保存や、
+有理数体への核降下は主張しない。
+\end{theorem}
+
+\begin{proof}
+\paragraph{尺度を未定にした核の構成.}
+命題\ref{cmo:prop:central-parameter-comparison}により、
+普遍係数上の二項・三項データを、ある定数 $\kappa\ne0$ を用いて
+可換族
+\[
+ \widetilde X_c=V(G-u^2L+\kappa cu^3)
+\]
+のデータに一致させられる。
+この操作は実際の両側の comonad に対して行うので、
+任意の二項・三項データが全構造へ延長するという仮定を置かない。
+命題\ref{cmo:prop:central-comonad-three-arity}はその比較を全 arity へ延ばし、
+系\ref{cmo:cor:central-three-arity-kernel}は coKleisli 代数の比較から
+実際の $\C[c]$-線型 Morita 双加群を構成する。
+境界制限との intertwiner も同じ構成から得る。
+この段階の比較は、特異係数を除かず、proper な残余線束圏上で成立する。
+
+\paragraph{特異係数を含む smoothness の比較.}
+非可換側の残余線束圏が smooth でない係数は正確に
+$\Sigma=V(P_{64})$ である。
+良い係数では定理\ref{cmo:thm:exact-sixty-four}、
+悪い係数では定理\ref{cmo:thm:morse-singular-sixty-four}を使う。
+
+可換三次 $X$ では、全 twist が生成する圏は $\operatorname{Perf}(X)$ である。
+実際、$\OO_X(1)$ は ample であり、全 twist は $D_{\mathrm{qc}}(X)$ を
+compact に生成する。座標の Koszul 列により七つの連続した twist で十分である。
+その残余部分が smooth なら、四つの例外線束との有限 gluing も smooth になる。
+この場合は coherent 飽和の証明
+（主稿の定理\paperref{main}{crs:thm:coherent}）を適用でき、
+$\operatorname{Perf}(X)=D^b(\operatorname{coh}X)$ となる。
+特異閉点の剰余体は perfect でないので、これは $X$ が滑らかな場合に限る。
+逆に $X$ が滑らかなら、その残余圏は smooth proper である。
+従って可換側の残余線束圏の非 smooth 集合も、方程式の特異係数集合に等しい。
+
+既に構成した全 $c$ の Morita 同値は smoothness を保存する。
+定理\ref{cmo:thm:commutative-discriminant-candidate}により、
+$V(G-u^2L+du^3)$ の特異係数集合は $\lambda^{-1}\Sigma$ だから、
+\[
+ \Sigma=\kappa^{-1}\lambda^{-1}\Sigma,\qquad
+ (\kappa\lambda)\Sigma=\Sigma
+\]
+となる。補題\ref{cmo:lem:critical-spectrum-scaling}は
+$\kappa\lambda=\pm1$ を与える。
+必要なら $J$ の正規化に用いた平方根の符号を反転する。
+これは二項データを保って三項データの符号を反転するので、
+$\kappa=\lambda^{-1}$ と選べる。
+同じことは可換側で $u\mapsto-u$ を施しても実現できる。
+従って $\widetilde X_c$ は式\eqref{cmo:eq:all-central-target}の $X_c$ に等しい。
+
+\paragraph{smooth locus 上の perfect 性と coherent 飽和.}
+$U$ 上の可換三次族は smooth projective であり、
+その残余圏は相対 smooth proper である。
+Morita 同値によって非可換側の相対残余線束圏にもこの性質が移る。
+coKleisli の graph 双加群は底上 perfect であり、
+両側の相対対角が perfect であるため、相対積上でも perfect となる。
+これは系\ref{cmo:cor:central-three-arity-kernel}の相対版で構成した核である。
+既存の全 smooth locus の相対模型
+（命題\ref{cmo:prop:full-relative-hh}）とも同じ線束生成対象で同定される。
+
+各複素ファイバーでは、定理\ref{cmo:thm:exact-sixty-four}によって
+非可換側の線束圏が全 coherent 圏に一致する。
+可換側も滑らかなので $\operatorname{Perf}=D^b(\operatorname{coh})$ であり、
+式\eqref{cmo:eq:all-central-coherent-equivalence}を得る。
+相対 Morita 双加群と逆双加群の単位・余単位は同型として構成されているから、
+導来 tensor による任意の底変更後も同型である。
+非正則基底上の全 $D^b(\operatorname{coh})$ まで同一視しているわけではない。
+\end{proof}
+
+\begin{corollary}[定常 norm の全六十四根の可換 Ku 標的]
+\label{cmo:cor:norm-commutative-kernel}
+定常 norm $N(c)$ の全六十四根において、
+式\eqref{cmo:eq:all-central-coherent-equivalence}の perfect 比較核が存在する。
+特に $c=-44828$ について明示可換標的は
+\[
+ X_{-44828}
+   =V\bigl(\lambda(G-u^2L)-44828u^3\bigr)\subset\mathbb P^6
+\]
+である。この同値を持つ非可換五様体の点スキームは
+$E_1\sqcup E_2\sqcup\{p_c\}$ であり、
+全ての滑らかな可換三次五様体上の Poisson 零スキームと被約化後にも一致しない。
+\end{corollary}
+\begin{proof}
+$\gcd(N,P_{64})=1$ と系\ref{cmo:cor:fixed-zero-norm-smooth}から全ての norm 根は $U$ に属する。
+前定理を適用し、点スキームと Poisson 零集合については
+系\ref{ppz:cor:reduced-point-poisson-counterexample}を用いる。
+後者の不一致の証明自体は Ku 比較を前提にしていない。
+ここでは同じ例に実際の可換 Ku 標的を与えた。
+\end{proof}
+
+\begin{corollary}[同じ二ブロックの任意の定数補正]
+\label{cmo:cor:all-alpha-central-kernel}
+二つの Sklyanin 因子 $S(1,-1,-1)$ と重み $1,100$ を固定する。
+任意の $\alpha^{(1)},\alpha^{(2)}\in\C^3$ と $c\in\C$ に対して、
+\[
+ X_{\alpha,c}
+ =V\bigl(\lambda(G-u^2L_\alpha)+cu^3\bigr),\qquad
+ L_\alpha=\alpha^{(1)}\cdot x^{(1)}
+                  +100\alpha^{(2)}\cdot x^{(2)}
+\]
+と $A_{\alpha,c}$ の残余線束圏は、実際の dg Morita 同値を持つ。
+比較は普遍多項式環 $T$ 上で構成できる。
+可換族が滑らかな開集合上では相対 perfect 核となり、
+各複素ファイバーで
+\[
+ \Ku_{\mathrm{coh}}(A_{\alpha,c})\simeq\Ku(X_{\alpha,c})
+\]
+を与える。この族では残余線束圏の smoothness は
+$X_{\alpha,c}$ の滑らかさと同値である。
+\end{corollary}
+\begin{proof}
+二項・三項の比較と $\beta,\gamma,\kappa$ は全 $\operatorname{Spec}T$ 上で構成され、
+$\alpha,c$ に依存しない。前定理で一つの指定 $\alpha$ における
+全 $c$ の smoothness を使って定めた $\kappa=\lambda^{-1}$ は、
+従って普遍族にも同じ値で適用される。
+相対版の系\ref{cmo:cor:central-three-arity-kernel}が全 $T$ 上の比較を与える。
+滑らかな可換開上での相対 perfect 性は前定理と同じである。
+非可換側の各ファイバーは、PBW/AS 正則な周囲代数の正則中心三次商であり、
+有限中心性、proper な線束模型と有限生成性の仮定を全 $\alpha$ で満たす。
+そこで smooth な残余線束圏に有限例外部分を戻し、
+主稿の定理\paperref{main}{crs:thm:coherent}を適用すると、
+全 coherent 圏への飽和を得る。
+\end{proof}
+
+\begin{remark}[比較の範囲と残る課題]
+\label{cmo:rem:all-central-kernel-scope}
+本節の核は $c$ の形式近傍だけでなく、普遍係数上の実際の随伴から作っている。
+従って、指定族の一般点同定や norm 根への DVR 特殊化を別に仮定する必要はない。
+特異係数で比較するのは proper な残余線束圏であり、
+全 coherent 残余圏や perfect な対角をそこへ無条件に持ち込まない。
+
+一方、交換子パラメータ $h$ の選択済み一般点核と
+本節の固定 $h=1$ の核を一つの可逆な $h$-族へ接続する問題は残る。
+他の Sklyanin パラメータ、線形補正、複数の中心変数、
+全 intrinsic 非可換三次への拡張も本定理に含まれない。
+全行列係数を列挙した一つの最小核や、指定された全標識を保存する核は求めていない。
+主張した核の正本は、制限随伴、正規化した全 comonad 比較、
+coKleisli 生成代数とその graph 双加群による構成である。
+一般的な球面関手・Morita・障害理論は既知の入力であり、
+本族へのこの適用の網羅的な新規性確認は未了である。
+\end{remark}

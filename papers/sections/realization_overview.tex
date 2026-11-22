@@ -58,7 +58,9 @@ norm と交わらない六十四係数で全 coherent Ku の非 proper 性が確
 中央切断・相対対角・射影境界の証明を合わせて
 定理\paperref{mixed}{cmo:thm:exact-sixty-four}の正確な非 smooth 集合 $V(P_{64})$ を得た。
 例\paperref{mixed}{cmo:ex:sixty-four}の norm の全六十四係数と $c=0$ は smooth proper である。
-零係数の指定可換候補への比較は構成でき、次は既知の smooth locus 全体への拡張を目指す。
+定理\paperref{mixed}{cmo:thm:all-central-commutative-kernel}は、
+この指定族の全 smooth locus 上に、明示可換三次族への相対 perfect 核を構成する。
+norm の全六十四根にも同じ核が適用される。
 具体的な比較先として、定理\paperref{mixed}{cmo:thm:commutative-discriminant-candidate}の
 可換三次族と、零係数での命題\paperref{mixed}{cmo:prop:zero-eckardt-resolution}の模型を使う。
 零係数では定理\paperref{mixed}{cmo:thm:eckardt-root-residual}の根スタック上の十六直交条件と
@@ -69,25 +71,32 @@ norm と交わらない六十四係数で全 coherent Ku の非 proper 性が確
 $\Ku_{\mathrm{coh}}(A_0)\simeq\Ku(V(G-u^2L))$ の実 perfect 核を得る。
 その構成は $\C$ 上の通常の dg Morita 同値であり、
 全標識の同時保存や有理数体への核降下までは主張しない。
+全中心係数の構成では、次数一の中心超平面制限を使う。
+その comonad の二項・三項の構造を混合係数と中心係数へ同定し、
+四項以降の比較の一意性から実際の Morita 同値族を得る。
+特異係数を含む残余線束圏の比較が先にあり、
+既知の判別集合はその後の尺度決定に用いる。
+系\paperref{mixed}{cmo:cor:all-alpha-central-kernel}は
+固定した二つの Sklyanin 因子の任意の定数補正も扱う。
 交換子パラメータ $h$ については、定理\paperref{mixed}{mix:thm:h-exact-candidate}により
 指定した可換候補への全形式次数の MF 同値と一般点の実 perfect 核を得た。
 $h=0,1$ を含む相対 smooth proper 模型と、
 $h=1$ の DVR 上の perfect 整延長は
 定理\paperref{mixed}{mix:thm:h-semilocal-smooth}と
 \paperref{mixed}{mix:thm:h-integral-kernel}で構成できる。
-選択済み一般点核を特殊点でも可逆に延長することと、
-中心係数 $c$ を動かす族の一般点同定は、それぞれ残る別の課題である。
+選択済み $h$ 一般点核を特殊点でも可逆に延長し、
+固定 $h=1$ の核と相対的に整合させることは残る。
 通常の Hochschild 群と有理 Euler 形式は全 smooth 係数で一致するが、
 それだけで比較核は得られない。
 非次数付き affine MF 比較は同領域で零となるため、
-原点・内部 shift・三次周期を保持した MF または射影残余圏の実際の核を構成し、
-中心係数 $c$ の一般点でも、この具体的候補への同値を確認する必要がある。
-その後、命題\ref{grl:prop:trait-kernel-test}の単位・余単位の
-有限長判定を使って各 DVR への延長を調べる。
+本稿の実比較は、内部次数と実随伴を持つ射影残余圏から構成している。
+他の族や選択済み一般点核に対しては、
+命題\ref{grl:prop:trait-kernel-test}の単位・余単位の有限長判定が引き続き必要となる。
 通常の周囲代数の derived Morita 比較と、形式的な $h$ 進核の
 $h=1$ への無条件な代入は、この手順の代わりにならない。
 可換実現 locus の開性だけでは全 smooth locus への拡張は従わない。
-混合族稿の有限中心族の外にある混合表示と、全 intrinsic 成分の被覆も残る。
+次の中心課題は、他の Sklyanin パラメータや線形補正、
+複数の中心変数を含む混合表示への実比較の拡張と、全 intrinsic 成分の被覆である。
 
 精密な降下の側には、周期位相の他の境界での分岐、正準位相体上の scalar index、
 代数的核の coherent な中心線型性、高次元の任意の full class と非分裂軌道が残る。

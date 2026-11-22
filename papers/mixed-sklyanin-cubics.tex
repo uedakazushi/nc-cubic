@@ -3,11 +3,11 @@
 \SetPaper{mixed}
 
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
-\large 有限中心・局所代数・零係数の可換比較核}
+\large 有限中心・局所代数・全中心係数の可換比較核}
 \author{}
-\date{2026年11月22日・研究稿 v53}
+\date{2026年11月22日・研究稿 v54}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
-pdfsubject={有限中心・局所代数・零係数の可換比較核}}
+pdfsubject={有限中心・局所代数・全中心係数の可換比較核}}
 
 \begin{document}
 \maketitle
@@ -28,11 +28,18 @@ comonad の一意性を用いて、第二成分と接着の実比較核を構成
 二成分の貼合せと二重同変化により、指定した零係数模型について
 $\Ku_{\mathrm{coh}}(A_0)\simeq\Ku(V(G-u^2L))$ を得る。
 これは $\C$ 上の通常の dg Morita 同値である。
+さらに中心超平面 $u=0$ の制限を全中心係数で用い、
+分裂した comonad の二項の六係数と三項の一係数を比較する。
+普遍係数上の法線の尺度作用と符号反転により、
+これらを混合係数と中心係数へ同定し、四項以降の比較を一意に延長する。
+coKleisli 生成代数から、特異係数を含む残余線束圏の実 Morita 同値族を構成する。
+その後に既知の特異係数集合を用いて尺度 $\lambda^2=28/27$ を決め、
+全 smooth 中心係数で $V(\lambda(G-u^2L)+cu^3)$ への相対 perfect 核を得る。
+定常 norm の全六十四根も含まれ、同じ固定二ブロックの任意の定数補正にも適用できる。
 さらに交換子パラメータの族に、零と一を含む半局所底上の
 相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
 相対模型から非可換側の Hochschild 対合指標も決定する。
-固定値の核と選択済み一般点核を可逆な族で結ぶこと、
-および元の $c$-族の全 smooth 係数で指定候補へ比較することは未解決である。
+交換子族の選択済み一般点核を固定値の核へ可逆な族で結ぶことは未解決である。
 一方、分離型比較と可換実現 locus の開性を用いれば、
 任意の固定した定数型混合係数に対する余有限の可換 Ku 実現は得られる。
 点スキームと Poisson 零スキームの一致を一般に期待できないことも、
@@ -85,7 +92,7 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
 
 \subsection{中心結果と成立範囲}
 
-本稿の中心結果は次の五つに分かれる。
+本稿の中心結果は次の六つに分かれる。
 完全な仮定と証明は各参照先に置く。
 
 \begin{enumerate}
@@ -111,19 +118,44 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  他次数零を与える。系\ref{cmo:cor:rational-euler-comparison}の
  有理数値 Euler 形式も、後述の可換候補と一致する。
 
- \item \emph{可換実現の存在と、指定候補への比較の区別。}
+ \item \emph{全中心係数の実比較核。}
  系\ref{cmo:cor:cofinite}は任意の固定した
  $k\ge2$、$\alpha^{(i)}\in\C^3$、$a_i\ne0$ に対し、
  有限個を除く $c$ で何らかの滑らかな可換三次への Ku 同値を与える。
  他方、定理\ref{cmo:thm:commutative-discriminant-candidate}は指定五様体族について
  同じ $P_{64}$ と局所通常二重点を持つ明示的な可換族 $X_c$ を構成する。
- この特定の $X_c$ への同値は $c=0$ で以下のように構成するが、
- $c$-族の一般点と全 smooth locus への拡張は残る。
+ 定理\ref{cmo:thm:all-central-commutative-kernel}は、この指定族の
+ $U=\mathbb A^1\setminus V(P_{64})$ 全体に相対 perfect 核を構成し、
+ \[
+   \Ku_{\mathrm{coh}}(A_c)\simeq
+   \Ku\bigl(V(\lambda(G-u^2L)+cu^3)\bigr)
+       \qquad(c\in U)
+ \]
+ を与える。中心超平面制限の twist は $\varrho_S^2$ であり、
+ underlying comonad は $\mathbf1\oplus\varrho_S^2[-1]$ に分裂する。
+ 二項のクラスは六つの混合係数、三項のクラスは非零定数倍の $c$ に等しい。
+ それらを普遍係数上で比較した後の全高次比較は一意である。
+ 特異係数では proper な残余線束圏の同値を先に構成し、
+ その smoothness の保存から尺度を決める。
+ 従って、判別集合の一致から同値の存在を推論する論法ではない。
+ 系\ref{cmo:cor:norm-commutative-kernel}は定常 norm の全六十四根に適用される。
+
+ \item \emph{任意の定数補正と中心方向の具体化。}
+ 系\ref{cmo:cor:all-alpha-central-kernel}は、
+ 同じ二つの $S(1,-1,-1)$ と重み $1,100$ について
+ 全 $\alpha\in\C^6,c\in\C$ 上の残余線束圏の比較を与える。
+ 可換三次が滑らかな開上では相対 perfect 核となり、
+ 各複素ファイバーの全 coherent Ku へ移る。
+ また補題\ref{cmo:lem:odd-normal-quadric}は
+ 零係数の反変接空間を三次三様体の二次 Jacobian 成分に同定し、
+ $[u^3]$ を法方向の二次類として記述する。
+ 補題\ref{cmo:lem:cotwist-normal-quadric}は同じ類を
+ rank 一 Kn\"orrer 核上の明示 homotopy で計算する。
+
+ \item \emph{零係数の実際の可換比較核。}
  $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
  根スタック上の十六例外対象の右直交として
  $\Ku(X_0)^{\mu_2}$ を記述する。
-
- \item \emph{零係数の実際の可換比較核。}
  定理\ref{cmo:thm:root-order-residual}は、$R=A_0^\sigma$、$S=A_0/(u)$ に対し
  \[
   \Ku_{\mathrm{coh}}(A_0)^{\mu_2}
@@ -177,6 +209,8 @@ $N(c)=0$ の smooth proper な五様体について被約孤立定常点が現�
 全ての滑らかな可換三次五様体の Poisson 零スキームと一致しないことを示す。
 これは点スキームの一致という素朴な期待の限界を示す補助例であり、
 可換 Ku 実現そのものを否定する例ではない。
+系\ref{cmo:cor:norm-commutative-kernel}によって、
+これら全六十四例にも実際の可換 Ku 標的が存在する。
 全 Poisson 構造への排除は、未公表入力\cite{NCCubicA}の
 全次元正規形に依存する。
 
@@ -214,11 +248,18 @@ Segal \cite[Section~3.2]{CMOSegalSphericalTwists}に現れるが、
 一般には underlying functor と unit だけでは高次構造を復元できない
 \cite[Example~4.10]{CMOChristSphericalMonadic}。
 本例では、Ballard--Favero--Katzarkov
-\cite[Theorem~5.39]{NFBFKKernels}の対角 sector 公式から全 arity の消滅を示し、
+\cite[Theorem~5.39]{NFBFKKernels}の対角 sector 公式から、
+次数二の制限では全 arity の一意性、
+次数一の制限では二項・三項だけが残ることを示し、
 Willumsgaard \cite[Theorem~3.3, Lemma~3.11]{CMOWillumsgaardAssociativity}の
 単位を固定した結合構造の obstruction tower を適用する。
-この追加の消滅と Heisenberg 作用による Bockstein の比較が、
-指定した固定値の実核を得るための本稿の具体的な入力である。
+一変数の三項積は Dyckerhoff
+\cite[Section~5.6, Theorem~5.8]{ROGDyckerhoff}の既知の公式に対応し、
+本稿では二行二列の行列で直接検算する。
+これらの低 arity の比較、Heisenberg 作用、普遍係数上の尺度作用を合わせることが、
+全中心係数の実核を得るための本稿の具体的な入力である。
+四項の存在障害群が零であるとは主張せず、
+既存の実構造の間の比較を一意に延ばす。
 これらの一般理論自体を本稿の成果とはしない。
 本稿での内容は、指定族に対する中心・局所切断・対角・残余模型の具体的な組合せと、
 その適用範囲の決定である。個々の具体化について後続文献まで含む
@@ -259,6 +300,8 @@ Sklyanin 曲線と標準中心元の既知の記述
 第\ref{mix:sec:commutative-candidate}--\ref{mix:sec:eckardt}節で
 明示可換候補と Eckardt 模型を構成し、
 第\ref{mix:sec:root-order}節で全 coherent 分解と実残余核を構成し、
+第\ref{mix:sec:central-spherical-reconstruction}節で全中心係数の
+普遍制限、低 arity 比較、相対核と尺度を構成する。
 第\ref{mix:sec:equivariant-window}--\ref{mix:sec:equivariant-deformation}節で非可換側の Hom 指標と
 指定 $h$-候補への形式・一般点比較を調べる。
 第\ref{mix:sec:poisson-limits}節を点・零スキームの不一致の例に充てる。
@@ -276,6 +319,10 @@ Sklyanin 曲線と標準中心元の既知の記述
 \input{papers/sections/mixed/commutative_candidate.tex}
 \input{papers/sections/mixed/eckardt.tex}
 \input{papers/sections/mixed/root_order.tex}
+\input{papers/sections/mixed/central_spherical_reconstruction.tex}
+\input{papers/sections/mixed/central_formal_comparison.tex}
+\input{papers/sections/mixed/central_geometry.tex}
+\input{papers/sections/mixed/central_kernel.tex}
 \input{papers/sections/mixed/equivariant_window.tex}
 \input{papers/sections/mixed/equivariant_deformation.tex}
 \input{papers/sections/mixed/kernel_specialization.tex}
@@ -284,18 +331,14 @@ Sklyanin 曲線と標準中心元の既知の記述
 \section{残る比較問題}
 \label{mix:sec:questions}
 
-\paragraph{指定可換候補への次数付き比較核.}
-$P_{64}(c)\ne0$ の全係数について、明示候補 $X_c$ への
-$\Ku_{\mathrm{coh}}(A_c)\simeq\Ku(X_c)$ を構成できるか。
-最初に必要なのは、一般点での実際の比較核である。
-定理\ref{cmo:thm:commutative-discriminant-candidate}の判別集合の一致、
-有理 Euler 形式、Hochschild 群の一致だけではこれを与えない。
-命題\ref{cmo:prop:pointwise-affine-mf-comparison}の非次数付き affine MF 圏は
-smooth な係数で零なので、非零の射影 Ku の比較をそこから得ることもできない。
-内部次数、錐の原点、三次周期を保つ核を構成する必要がある。
-その後に perfect 整核と特殊ファイバーの同値性を分けて調べる。
-特殊化の unit/counit cone による判定は、主稿の
-命題\paperref{main}{grl:prop:trait-kernel-test}に従う。
+\paragraph{全中心係数の核の具体化と他の表示への拡張.}
+定理\ref{cmo:thm:all-central-commutative-kernel}は、
+指定可換族への相対 perfect 核を全 smooth 中心係数で構成する。
+定常 norm の全六十四根はこの同じ核のファイバーであり、
+一般点からの特殊化の defect を別途仮定していない。
+この核の最小の行列表示と、境界制限以外の追加標識の作用を求めることが残る。
+より広い表示へ進むには、境界比較の Heisenberg 選択と
+二項・三項の構造係数を改めて計算する。
 
 \paragraph{零係数で構成した核の具体化と範囲.}
 定理\ref{cmo:thm:fixed-zero-commutative-kernel}により、
@@ -324,17 +367,20 @@ perfect 整延長が存在する。
 固定ファイバーに同値が存在することだけでは、
 選択済みの一般点核に対するこの相対整合性を保証しない。
 形式座標変換を $h=1$ へ直接代入することはできない。
-この $h$-族の一般点同定は、元の中心係数 $c$ を動かす族の一般点同定とは異なる。
+この $h$-族の相対整合性は、元の中心係数 $c$ の実比較族が得られても自動的には従わない。
 
 \paragraph{指定係数の外への拡張.}
-全 $\alpha$ に対する有限中心性と Azumaya locus は得られたが、
-十四節点と非等方な中央切断に基づく smooth locus の完全決定は
+系\ref{cmo:cor:all-alpha-central-kernel}は、
+固定二ブロックの任意の $\alpha$ について可換方程式の滑らかさを
+残余線束圏の smoothness と同値にする。
+一方、十四節点と非等方な中央切断という局所 order の完全記述は
 指定した二組の係数に対する結果である。
 一般の $\alpha$ で中心の特異点と中央切断が退化する locus を求め、
-その外で同じ対角の議論が成立するかを調べる必要がある。
+局所 order と単純加群の分類がどのように変わるかを調べる課題は残る。
 位数六の他の Sklyanin パラメータや線形補正を含む変形、
 および中心変数が複数ある混合表示への拡張も別の問題として残る。
-また有理数値 Euler 形式の一致は積分数値格子の同型を含まない。
+実 Morita 同値は積分数値 Grothendieck 群の同型も与えるが、
+表示した二対象がその積分基底となることや、核の作用の基底表示は未計算である。
 
 \input{papers/references.tex}
 \end{document}

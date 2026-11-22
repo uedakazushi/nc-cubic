@@ -1,0 +1,272 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v54.
+\subsection{二項・三項の境界データと中心係数の比較}
+\label{cmo:subsec:central-parameter-comparison}
+
+前節の三項までの復元に、元の表示の係数を対応させる。
+この対応は $c=0$ の形式近傍に限定されず、係数の多項式環上で構成する。
+以下では $S=B_0/(w_0)$ とその境界圏 $\mathcal K_S$ を固定し、
+\[
+ T=\C[\alpha^{(1)}_1,\alpha^{(1)}_2,\alpha^{(1)}_3,
+       \alpha^{(2)}_1,\alpha^{(2)}_2,\alpha^{(2)}_3,c]
+\]
+上の普遍族を用いる。二ブロックの中心三次の重みは $1,100$ のままである。
+余単位を保つ分裂 comonad の固定した underlying object を
+\[
+ K=\operatorname{id}\oplus J,\qquad
+ J=\varrho_S^2[-1],\qquad
+ \epsilon:K\longrightarrow\operatorname{id}
+\]
+と書く。命題\ref{cmo:prop:central-comonad-three-arity}の
+二項の選択空間と、その上の三項の選択 torsor はそれぞれ
+\begin{equation}\label{cmo:eq:central-two-three-parameters}
+ \operatorname{Jac}(G)_1,\qquad \operatorname{Jac}(G)_0=\C
+\end{equation}
+である。ここで三項については、まず原点を指定する必要がある。
+二項 bar と Bockstein の全体の符号は、
+$J^2\simeq\varrho_S$ の同定を用いて一致するように固定する。
+
+\begin{lemma}[普遍係数上の境界データ]\label{cmo:lem:central-universal-parameters}
+普遍族の制限随伴が定める二項のクラスは、
+補題\ref{cmo:lem:boundary-parameter-injection}の $b(\alpha)$ である。
+三項の選択 torsor には法線 $u$ の符号反転によって定まる原点があり、
+この原点から測った三項のクラスは
+\begin{equation}\label{cmo:eq:central-ternary-linear}
+ s\,c\in \operatorname{Jac}(G)_0\otimes T
+\end{equation}
+と書ける。$s\in\C$ は $\alpha,c$ に依存しない定数である。
+同じ記述は可換族 $G-u^2L+cu^3$ にも成立する。
+\end{lemma}
+
+\begin{proof}
+補題\ref{cmo:lem:central-universal-line-model}は全 $\operatorname{Spec}T$ 上で
+次数別平坦な族、proper な線束模型、制限とその随伴を与える。
+境界圏は $\mathcal K_S\otimes T$ という一定の smooth proper 圏である。
+従って境界上の随伴・余単位・comonad とその coherence は、
+$T$-線型な perfect 境界核とその射として定義される。
+補題\ref{cmo:lem:central-linear-split-comonad}の分裂も底変更と両立する。
+
+ここで「係数に多項式的」という主張に、各閉点で別々に選んだ
+minimal model を使う必要はない。
+正規化した二項・三項の障害塔を、この一定の境界核の $T$-線型圏で取る。
+その mapping complex は固定した複素数体上の複体の $T$ への底変更であり、
+関連するコホモロジーは式\eqref{cmo:eq:central-two-three-parameters}の
+有限自由 $T$-加群となる。全族の実 comonad はこの塔の実際の切断を与える。
+その二項のクラス、および三項の二つの切断の差は、したがってこれらの加群の
+大域切断である。分母を導入した開集合上の有理関数ではない。
+正規化 bar の三項までで計算しても同じであり、有限段階の比較射の係数は $T$ に属する。
+
+二項のクラスを同定する。二項までの積は $A_{\alpha,c}/(u^3)$ だけに依存するので、
+この計算では $c=0$ としてよい。
+$R_\alpha=A_{\alpha,0}^{\mu_2}$、$v=u^2$ と置き、
+$S$ の自由解消の微分を $R_\alpha$ へ持ち上げて $\widetilde d$ とする。
+$v$ は中心非零因子なので
+\[
+ \widetilde d^{\,2}=v\widetilde\theta,\qquad
+ \widetilde d\,\widetilde\theta
+       =\widetilde\theta\,\widetilde d
+\]
+と書ける。第二式は第一式と $v$ の正則性から従う。
+これを $v=u^2$ によって $A_{\alpha,0}$ へ引き戻す。
+その二列の法線 Koszul 持上げを、外積作用 $e$ と収縮 $\partial_e$ によって
+\[
+ D=\widetilde d+u(\partial_e-\widetilde\theta e),\qquad
+ e^2=\partial_e^2=0,\quad
+ e\partial_e+\partial_e e=1
+\]
+と書ける。$e$ の cohomological 次数は $-1$、内部次数は $1$ であり、
+$\widetilde\theta$ はそれぞれ $2,-2$ の次数を持つ。
+表示した恒等式から $D^2=0$ となる。
+$u$ で濾過すると、元の自由解消のコホモロジーを取った次の頁は
+法線の二項 Koszul 解消である。
+各内部次数では濾過が有限なので、これは inflation の実自由解消を与える。
+法線の双対クラスを表す閉じた奇数作用素は
+\[
+ \xi=\partial_e+\widetilde\theta e,\qquad
+ D\xi+\xi D=0,\qquad \xi^2=\widetilde\theta
+\]
+である。従ってこの二列解消の正規化した二項積を境界へ還元すると
+$\theta_0=\widetilde\theta\bmod u$ となる。
+これは随伴の coKleisli 積を解消上で計算したものであり、
+二項 bar の非自明な $\operatorname{id}\to J^2$ 成分を与える。
+一次係数が零なので、この段階には二つの一次係数の積による別の補正はない。
+持上げを $u^2a$ だけ変えたときの差は $da+ad$ となり、
+クラスは解消と比較射の選択に依存しない。
+これは $v=u^2$ と置いた中心 $v$ 変形の一次 Bockstein と同じ計算である。
+同じ解消と比較射を qgr と Orlov window に通し、
+残余射影に伴う自由な window 項を除いているので、
+個々の対象の Ext 積だけでなく境界上の自然変換を計算している。
+三次周期による
+$J^2=\varrho_S^4[-2]\simeq\varrho_S$
+を通すと、二項のクラスは $b(\alpha)$ となる。
+可換側では補題\ref{cmo:lem:spherical-bockstein}により $L$ である。
+
+法線の符号反転は $J$ に $-1$ として作用する。
+したがって二項のクラスには恒等、三項 torsor の平行移動空間
+\[
+ H^{-1}\operatorname{RHom}(K,J^3)
+   =H^{-1}\operatorname{RHom}(\operatorname{id},J^3)
+   =\C
+\]
+には $-1$ として作用する。
+標数零の一次元 affine torsor において、線型部分が $-1$ の対合は
+ただ一つの固定点を持つ。実際、任意の点 $z$ に対して
+$\frac12(z+\iota z)$ がその固定点であり、この記述は原点の選択によらない。
+これを三項の原点とする。この原点は係数変更と境界同値に自然である。
+$c=0$ の実族は法線の符号反転を持つので、その三項の点はこの原点となる。
+
+さらに $u\mapsto t u$ による表示の同型はパラメータを
+\[
+ \alpha\longmapsto t^2\alpha,\qquad c\longmapsto t^3c
+\]
+へ移す。境界の underlying 圏は変わらず、法線項 $J$ は $t$ 倍されるので、
+二項・三項の平行移動空間の重みはそれぞれ二・三である。
+上で構成した原点はこの作用にも自然である。
+従って三項の座標は、重み
+$\operatorname{wt}(\alpha_j^{(i)})=2$、$\operatorname{wt}(c)=3$
+の次数三の多項式である。
+この重みを持つ単項式は $c$ だけなので、
+式\eqref{cmo:eq:central-ternary-linear}を得る。
+特に $\alpha$ の比に依存する係数や、$c$ の高次項は現れない。
+\end{proof}
+
+\begin{lemma}[三項の中心係数は非零]\label{cmo:lem:central-ternary-nonzero}
+補題\ref{cmo:lem:central-universal-parameters}の定数 $s$ は、
+非可換側・可換側ともに非零である。
+指定した三次周期と bar の符号規約を用いれば、中央一変数の寄与は $\pm c$ である。
+\end{lemma}
+
+\begin{proof}
+前補題により、$\alpha=0$ で三項の係数を一度計算すれば十分である。
+このとき ambient は $B_0\otimes\C[u]$、
+曲率は $w_0+cu^3$ という分離和となる。
+境界対象の $u=0$ による押出しの stabilization は、
+その対象と中央一変数の rank 一の行列分解との tensor で与えられる。
+実際、境界対象の自由 $B_0$-解消と
+$\C[u](-1)\xrightarrow{u}\C[u]$ を tensor して inflation の解消を作り、
+残る曲率 $cu^3$ の homotopy として反対向きの $cu^2$ を加える。
+これは同じ二項解消による restriction--inflation の随伴核である。
+Orlov window へ移す際の右残余射影は自由な window 項の有限 cone を除く。
+従ってその像は $F^R$ であり、別に選んだ tensor 対象に置き換えてはいない。
+この比較は自由解消の unit・counit およびそれらの合成を保つ。
+従って境界対象の自己準同型はそのまま保たれ、法線方向の計算は
+\[
+ d=\begin{pmatrix}0&u\\cu^2&0\end{pmatrix},
+ \qquad d^2=cu^3\operatorname{id}
+\]
+に帰着する。ここでは基底を偶数、奇数の順に並べており、
+奇数から偶数への成分 $u$ の余核が $u=0$ の inflation を表す。
+内部次数と $(3)=[2]$ は保持し、
+以下の行列では表示を簡単にするため偶奇だけを書いている。
+
+その自己準同型 dg 代数で
+\[
+ \theta=\begin{pmatrix}0&1\\-cu&0\end{pmatrix},
+ \qquad h=\begin{pmatrix}0&0\\-c&0\end{pmatrix}
+\]
+と置くと、直接計算により
+\begin{equation}\label{cmo:eq:central-massey-certificate}
+ d\theta+\theta d=0,\qquad
+ \theta^2=dh+hd=-cu\,\operatorname{id},\qquad
+ \theta h+h\theta=-c\,\operatorname{id}
+\end{equation}
+となる。偶数の閉元は scalar 行列であり、その境界は $u$ の倍数である。
+奇数の閉元は $\theta$ の倍数であり、その境界も $u\theta$ の倍数である。
+従って単位と $[\theta]$ は、この dg 代数のコホモロジーの
+$\C[c]$ 上の自由基底を与える。
+二項の被約積は零であり、その零 homotopy を $h$ と取った三項の積は、
+式\eqref{cmo:eq:central-massey-certificate}により
+$\pm c\operatorname{id}$ である。
+二項の被約積が零であるから、この三項 Massey 積の不定性も零である。
+$E_0=\C[u]$、$E_1=\C[u](-1)$ とした内部次数では、
+$\theta,h$ の $(\mathrm{coh},\mathrm{int})$ 次数はそれぞれ
+$(1,-1),(1,-2)$ であり、$\theta h+h\theta$ は $(2,-3)$ の次数を持つ。
+従って指定周期 $(3)=[2]$ により、この出力は
+$\operatorname{Jac}(G)_0$ の scalar と正確に同じ次数となる。
+これは一変数の minimal $A_\infty$ 模型における
+\cite[Section~5.6, Theorem~5.8]{ROGDyckerhoff}の公式を
+三次単項式について直接確認した計算でもある。
+同文献の一般定理を非可換 ambient へ拡張して用いてはいない。
+
+この rank 一の法線解消は、制限随伴の bar 解消の法線因子でもある。
+その正規化した二項・三項の積を境界対象へ tensor すると、
+coKleisli の積と高次積が得られる。
+従って上の三項積は式\eqref{cmo:eq:central-two-three-parameters}の
+$\operatorname{Jac}(G)_0$ における $\pm c$ を表す。
+境界対象の単位は非零であるから、このクラスは非零である。
+同じ中央因子を可換側にも用いるため、両側で結論を得る。
+\end{proof}
+
+\begin{remark}[滑らかさによる二つの係数の独立な検出]
+\label{cmo:rem:central-nonzero-smooth-test}
+二項・三項の非零性は、上の解消計算とは別に確認できる。
+普遍係数上の正則性、重み二・三、Heisenberg 作用とブロック交換だけでも、
+二項・三項の像はそれぞれ $\beta L,\gamma c$ と書ける
+（この段階では係数の非零性を仮定しない）。
+$\alpha=c=0$ では双方の二項データは零で、三項は符号対合の固定原点である。
+従って系\ref{cmo:cor:central-three-arity-kernel}は非可換側のこの残余線束圏を
+可換射影錐 $V(G)\subset\mathbb P^6$ の残余線束圏と同定する。
+この圏は smooth ではない。実際、射影錐の頂点の剰余体は
+特異な hypersurface 局所環上で射影次元が無限である。
+もし残余線束圏が smooth なら、有限例外対象を貼り合わせる
+命題\paperref{main}{crs:prop:residual-smooth}と
+定理\paperref{main}{crs:thm:coherent}によって全 coherent 対象が perfect となり、
+この剰余体に矛盾する。
+
+非可換側の二項係数が零なら、全ての $\alpha,c=0$ で三項までのデータが
+この射影錐と同じになり、系\ref{cmo:cor:fixed-zero-norm-smooth}の
+指定した滑らかな $\alpha,c=0$ のファイバーに矛盾する。
+三項係数が零なら $\alpha=0,c=1$ でも同じ矛盾を得る。
+後者のファイバーの smoothness は、独立な分離比較
+定理\paperref{main}{csc:thm:comparison}による。
+可換側にも同じ議論を用い、二項については
+命題\ref{cmo:prop:zero-eckardt-resolution}の滑らかなファイバー、
+三項については滑らかな $V(G+u^3)$ を使える。
+したがって双方の二つの倍率は非零である。
+この検出は候補族の判別式や、以下で求める $\kappa$ の数値を用いない。
+\end{remark}
+
+\begin{proposition}[中心族の全三項データの比較]
+\label{cmo:prop:central-parameter-comparison}
+補題\ref{cmo:lem:heisenberg-boundary-comparison}の固定した境界同値 $E$ を取る。
+二つの三項 torsor の原点と座標を上の規約で選ぶと、
+ある定数 $\beta,\gamma\in\C^\times$ によって、
+非可換側の普遍族の二項・三項データの像は
+\begin{equation}\label{cmo:eq:central-parameter-scalars}
+       \bigl(\beta L,\ \gamma c\bigr)
+\end{equation}
+と書ける。$\beta,\gamma$ は $\alpha,c$ に依存しない。
+さらに $r\in\C^\times$ を $r^2\beta=1$ となるように選ぶと、
+余単位を保つ $K=\operatorname{id}\oplus J$ の自己同型
+$\operatorname{id}\oplus r\operatorname{id}_J$ によって
+これを
+\begin{equation}\label{cmo:eq:central-kappa}
+             (L,\kappa c),\qquad \kappa=r^3\gamma\ne0
+\end{equation}
+へ正規化できる。
+\end{proposition}
+
+\begin{proof}
+二項のクラスは $b(\alpha)$ である。
+命題\ref{cmo:prop:spherical-boundary-unit-match}の証明と同じ
+Heisenberg 既約性・二ブロック交換・重み $1,100$ の復元により、
+その $E$ による像は共通の定数 $\beta$ を用いた $\beta L$ となる。
+$b$ の単射性により $\beta\ne0$ である。
+ここではまだ twist の比較を $\beta^{-1}$ 倍していない。
+
+三項 torsor の原点は法線の符号反転によって定まり、
+$E$ はこの符号作用を保つ。
+従ってその比較は、三項の平行移動空間である一次元空間の線型同型である。
+$E$ と rotation の比較は係数に依存しないので、この同型の倍率も定数である。
+補題\ref{cmo:lem:central-ternary-nonzero}を両側に適用すると、
+それらの三項座標の比はある $\gamma\ne0$ によって $\gamma c$ と書ける。
+
+最後に、正規化した二項の非自明成分は
+$\operatorname{id}\to J^2$、三項の非自明成分は
+$\operatorname{id}\to J^3[-1]$ である。
+$J$ の $r$ 倍による共役は、それぞれを $r^2,r^3$ 倍する。
+これが式\eqref{cmo:eq:central-kappa}を与える。
+この段階では $\kappa$ の数値は定めていない。
+また、ここで使う平方根の選択は $\C$ 上の比較であり、
+有理数体への降下や指定周期を同時に固定する追加条件は課していない。
+\end{proof}

@@ -1,0 +1,163 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\subsection{中心係数の接方向と cotwist の二次類}
+\label{cmo:subsec:central-geometry}
+
+$F=G-u^2L$、$X_0=V(F)$、$H=\ker L\subset\C^6$ と置く。
+本節では $X_0$ と $Y=V(G|_H)\subset\mathbb P(H)$ が滑らかであるとする。
+中心係数を動かすときの反変な接方向を、三様体 $Y$ の二次 Jacobian 成分に書き直す。
+これは同値核を変形するための接方向の記述であり、
+接方向の一致だけから全次数の核を結論するものではない。
+
+\begin{lemma}[反変な三次類と法方向の二次類]
+\label{cmo:lem:odd-normal-quadric}
+$e\in\C^6$ を $L(e)=1$ と選び、$x=y+\ell e$、$y\in H$、$\ell=L(x)$ と書く。
+\[
+ G(y+\ell e)=g(y)+\ell Q(y,\ell),\qquad
+ Q_0(y)=Q(y,0)=\partial_eG|_H
+\]
+と置く。$\iota(u)=-u$ に関する反変部分には自然な同型
+\begin{equation}\label{cmo:eq:odd-jacobian-normal-quadric}
+ (J_F)_3^-\xrightarrow{\sim}(J_g)_2,\qquad
+ [u q(x)+a u^3]\longmapsto[q|_H+aQ_0]
+\end{equation}
+がある。この同型で $[u^3]$ は $[Q_0]$ に移る。
+右辺の次元は十であり、$[Q_0]$ は $e$ の選択によらない。
+\end{lemma}
+\begin{proof}
+反変な三次式は $u\operatorname{Sym}^2(\C^6)^*\oplus\C u^3$ である。
+その中の Jacobian 関係は、$a\in\C^6$ と一次式 $b$ に対する
+\[
+ u\partial_aG-L(a)u^3,\qquad uLb
+\]
+で生成される。第二の関係で二次式を $H$ へ制限し、
+$a=e$ の第一の関係で $u^3$ を $uQ_0$ に置き換える。
+残る第一の関係は $a\in H$ に対する $u\partial_ag$ である。
+これが表示した商の同型を与える。
+$e$ を $e+a$、$a\in H$ に変えても $Q_0$ は $\partial_ag$ だけ変わる。
+$g$ の五つの二次偏微分は正則列なので
+$\dim(J_g)_2=\binom62-5=10$ である。
+\end{proof}
+
+\begin{lemma}[可換側の cotwist 射の実代表]
+\label{cmo:lem:cotwist-normal-quadric}
+可換不変環の球面制限を $F_{\mathrm{res}}$ と書き、
+$\mathsf H=\mathsf C_{F_{\mathrm{res}}}[-1]$ とする。
+命題\ref{cmo:prop:commutative-invariant-knorrer}の実核の下で、
+随伴の単位 fiber 三角の射
+\[
+ \mathsf H=\varrho_Y^{-2}\longrightarrow\operatorname{id}
+\]
+は、内部次数二の $Q_0$ の乗法に移る。
+この同定は、抽象的な cotwist の同型だけでなく、指定した自然変換について成り立つ。
+\end{lemma}
+\begin{proof}
+命題\ref{cmo:prop:invariant-restriction-spherical}の証明では、
+全圏の三角
+$M(-2)\xrightarrow{v}M\to\rho\mathcal L M$
+へ残余射影を施している。
+従って単位 fiber の射は $v$ の乗法の残余射である。
+Kn\"orrer 座標では
+\[
+ t=v-Q(y,\ell),\qquad G-v\ell=g-\ell t.
+\]
+rank 一核の微分を、基底の順序を固定して
+\[
+ d_{\mathsf Q}=\begin{pmatrix}0&\ell\\-t&0\end{pmatrix},
+ \qquad d_{\mathsf Q}^{\,2}=-\ell t
+\]
+と書く。微分した恒等式から
+\[
+ d_{\mathsf Q}(-\partial_\ell d_{\mathsf Q})
+       +(-\partial_\ell d_{\mathsf Q})d_{\mathsf Q}=t,\qquad
+ d_{\mathsf Q}(-\partial_t d_{\mathsf Q})
+       +(-\partial_t d_{\mathsf Q})d_{\mathsf Q}=\ell.
+\]
+$Q-Q_0=\ell Q_1$ と書けば、
+$-\partial_\ell d_{\mathsf Q}-Q_1\partial_t d_{\mathsf Q}$
+が $v-Q_0=t+\ell Q_1$ の乗法の homotopy である。
+任意の $g$-行列分解との外積に通常の Koszul 符号を付ければ、
+同じ式は対象と射に自然な homotopy となる。
+Kn\"orrer 核は内部 shift と三次周期を保つので、これが主張した自然変換の比較である。
+\end{proof}
+
+\begin{proposition}[指定族の非零な中心接方向]
+\label{cmo:prop:central-direction-nonzero}
+本稿の $G=J(x^{(1)})+100J(x^{(2)})$、
+$J(x,y,z)=(x^3+y^3+z^3+xyz)/3$ と
+指定した $L$ に対して $[u^3]\ne0$ in $(J_F)_3$ である。
+従って $X_c=V(\lambda F+cu^3)$ の $c=0$ における
+幾何的 Kodaira--Spencer 類、および残余圏の類は非零である。
+後者は主稿の命題\paperref{main}{prop:nf-hh}の実接写像を用いる。
+\end{proposition}
+\begin{proof}
+より一般に、$L=L_1+L_2$ の両ブロック成分が非零なら $[u^3]\ne0$ となる。
+実際、$[u^3]=0$ なら、補題\ref{cmo:lem:odd-normal-quadric}の関係表示により、
+ある $a$ と一次式 $b=b_1+b_2$ について
+\[
+ L(a)=-1,\qquad \partial_aG=Lb
+\]
+となる。異なるブロックの積の係数は
+$L_1b_2+L_2b_1=0$ を与えるので、
+ある $s\in\C$ に対して $b_1=sL_1$、$b_2=-sL_2$ である。
+
+ところが三つの二次式
+$x^2+yz/3,y^2+zx/3,z^2+xy/3$ の張る空間には、
+非零の一次式の平方が含まれない。
+平方 $(Ax+By+Cz)^2$ が含まれるなら
+$A^2=6BC,B^2=6CA,C^2=6AB$ となる。
+一つが零なら全て零であり、全て非零なら三式の積が $1=216$ を強制する。
+従って $\partial_aG=sL_1^2-sL_2^2$ から $s=0$ を得る。
+六つの active 偏微分は一次独立だから $a=0$ となり、$L(a)=-1$ に矛盾する。
+
+指定係数では次の小さい有理数証明書も使える。
+$y=(a,b,r,s,t)=(y_1,z_1,x_2,y_2,z_2)$、
+\[
+ A=4a+9b+1600r+2500s+4900t,\qquad x_1=\ell-A
+\]
+と置くと、
+\[
+ g=\frac{-A^3+a^3+b^3-Aab}{3}+100J(r,s,t),\qquad
+ Q_0=A^2+\frac{ab}{3}.
+\]
+列を $(g_a,g_b,g_r,g_s,g_t,Q_0)$、
+行を $(a^2,ab,ar,r^2,rs,rt)$ とする係数行列の行列式は
+$-11200000000/9$ である。
+従って $Q_0$ は五つの偏微分の線型結合ではない。
+この証明書と上の二行二列 homotopy は
+\texttt{computations/verify\_mixed\_central\_direction.py} で厳密に再生成できる。
+\end{proof}
+
+\begin{lemma}[六十四個の臨界値の scalar 安定化群]
+\label{cmo:lem:critical-spectrum-scaling}
+$P_{64}$ の根集合を $\Sigma$ とすると、
+$s\Sigma=\Sigma$ を満たす $s\in\C^\times$ は正確に $s=\pm1$ である。
+\end{lemma}
+\begin{proof}
+命題\ref{cmo:prop:commutative-critical-spectrum}の未規格化の八次多項式を
+$h_i(T)=T^8-a_iT^6+\cdots$ と書けば、
+\[
+ a_1=\frac{88490}{63},\qquad a_2=\frac{5343910}{21}.
+\]
+各根集合の一次冪和は零、二次冪和は $2a_i$ である。
+$\Sigma$ は $-\lambda(s_i+100t_j)$ の六十四個の相異なる値からなるので、
+\[
+ \sum_{r\in\Sigma}r^2
+   =16\lambda^2(a_1+10000a_2)
+   =\frac{10260312863360}{243}\ne0.
+\]
+従って $s\Sigma=\Sigma$ は $s^2=1$ を強制する。
+各八次多項式は偶なので $\Sigma=-\Sigma$ でもあり、逆も成立する。
+同じ計算は monic な $P_{64}$ の $c^{62}$ 係数が
+$-5130156431680/243$ であることを与える。
+これは判別集合から比較核の存在を導く議論ではない。
+\end{proof}
+
+\begin{remark}[対合対称性だけでは中心方向を指定しない]
+\label{cmo:rem:central-parity-insufficient}
+対合付き変形の接空間の反変部分は十次元である。
+従って $c\mapsto-c$ と $u\mapsto-u$ の両立だけでは、
+移送された非可換変形が $\C[u^3]$ の方向へ入るとは結論できない。
+その同定には、実際の随伴射または高次積の比較が必要である。
+また補題\ref{cmo:lem:critical-spectrum-scaling}を比較の尺度決定へ使うには、
+先に同じ族の実核を構成し、その定義範囲と特異係数の対応を証明する必要がある。
+\end{remark}

@@ -1,0 +1,384 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v54.
+\section{中心一次元による制限と三次までの余乗法}
+\label{mix:sec:central-spherical-reconstruction}
+
+$u$ の符号対合は $c\ne0$ の一つのファイバーを保たない。
+ここでは対合を取らず、全ての $c$ に存在する中心超平面 $u=0$ への制限を使う。
+この制限の twist は $\varrho_S^2$ であり、次数二の中心元 $v$ による
+制限の twist $\varrho_S$ とは異なる。
+その結果、余乗法の二次・三次の構造が残る。
+以下は、この構造を比較すれば実際の残余圏を復元できることと、
+四次以降には独立な比較条件が残らないことを証明する。
+
+\subsection{特異係数でも使える proper な残余線束圏}
+
+二ブロックの係数 $\alpha=(\alpha^{(1)},\alpha^{(2)})$ と $c\in\C$ に対し、
+\[
+ A_{\alpha,c}
+ =\left(\mathcal B_{\alpha^{(1)}}\otimes_{\C[u]}
+                   \mathcal B_{\alpha^{(2)}}\right)
+       /(\Omega_1+100\Omega_2+cu^3),\qquad
+ S=A_{\alpha,c}/(u)=B_0/(w_0)
+\]
+と置く。境界 $S$ と $\mathcal B=\mathcal K_S$ は $\alpha,c$ に依存しない。
+$\mathcal C_{\alpha,c}$ を全ての $\OO_{A_{\alpha,c}}(j)$ が厚生成する dg 圏、
+\[
+ \mathcal A_{\alpha,c}
+ =\langle\OO_{A_{\alpha,c}},\OO_{A_{\alpha,c}}(1),
+                   \OO_{A_{\alpha,c}}(2),\OO_{A_{\alpha,c}}(3)\rangle^\perp
+       \cap\mathcal C_{\alpha,c}
+\]
+をその残余部分とする。
+これらは proper な冪等完備圏であり、
+全 coherent 圏への一致は smooth 係数でのみ用いる。
+可換側でも $G-u^2L+du^3$ に対し、同じ定義で残余線束圏を取る。
+以下の $\varrho_A$ は
+$L_{\OO_A}\circ(1)|_{\mathcal A_{\alpha,c}}$、
+$\varrho_S$ は境界の同じ window 規約による rotation である。
+
+\begin{lemma}[全係数環上の proper な線束模型]
+\label{cmo:lem:central-universal-line-model}
+$T=\C[\alpha^{(1)}_1,\ldots,\alpha^{(2)}_3,c]$ 上で上記の代数を作ると、
+各内部次数は有限自由である。
+線束圏と残余線束圏には $T$-proper な有限生成対象による dg 模型があり、
+任意の係数変更と両立する。
+境界は固定圏 $\mathcal B$ の $T$ への底変更である。
+中心超平面制限、その左右随伴、およびその adjunction の全構造は
+$T$ 上で定義される。
+特に境界上の comonad は相対 perfect 核を持ち、
+その低 arity の構造を境界の自由な mapping 群で表示した係数は $T$ の元である。
+これは源の相対 smoothness を主張しない。
+\end{lemma}
+
+\begin{proof}
+active 変数の次数を一、$u$ の次数を零とする濾過を使う。
+二次関係の PBW 判定は係数に関する多項式恒等式であり、
+命題\ref{cmo:prop:contraction}で用いた
+$\beta\otimes1-1\otimes\beta=0$ は独立な全 $\alpha$ 上でも成立する。
+従って周囲代数の随伴代数は $B_0\otimes_\C T[u]$ である。
+中心三次の初項は $w_0$ であり、これは $B_0$ 上の非零因子なので、
+商の随伴代数は $S\otimes_\C T[u]$ となる。
+固定内部次数ではこの濾過は有限であり、その各商は有限自由 $T$-加群である。
+従って商代数の各内部次数も有限自由で、同じ議論は任意の係数変更と両立する。
+随伴代数の noetherian 性と有限な内部次数の濾過により
+元の代数も左右 noetherian である。
+
+命題\ref{cmo:prop:proper-contraction}の potential 双加群解消と
+共有する中心差の解消は、同じ多項式係数で $T$ 上に存在する。
+相対 Koszul 解消と Gorenstein 双対を使う同命題の証明は
+PID 上の自由加群の判定を除いてそのまま適用でき、
+その判定は上の有限自由性で置き換えられる。
+従って線束間の Hom は
+\[
+ R\operatorname{Hom}(\OO(i),\OO(j))
+ \simeq A_{j-i}\oplus(A_{i-j-4})^\vee[-5]
+\]
+という cohomology と任意底変更を持ち、$T$ 上 perfect である。
+七本の線束 $\OO,\ldots,\OO(6)$ は ambient Koszul 解消から
+全 twist を厚生成し、四本の例外線束に沿う有限 mutation が
+残余の有限生成対象を与える。
+その自己 Hom は $T$ 上 perfect である。
+
+境界の線束は $u$ による長さ一の解消を持つため、
+制限と inflation はこれらの相対線束模型間の関手である。
+有限 mutation による $p_L,p_R$ と合成すれば左右の随伴を $T$ 上で構成できる。
+単位・余単位およびその全 coherence はこの実 adjunction から取る。
+境界は固定した smooth proper 圏の底変更であり、
+得られた $FF^R$ は境界の有限生成対象を $T$-perfect な対象へ送る。
+従って相対 smooth な境界の二側の対角を使えば、
+その双加群は境界の積上も perfect である。
+以下の分裂と正規化した $A_n$-tower は同じ相対核に適用できる。
+そこで使う境界の mapping 複体は $\C$ 上のものの $T$ への底変更なので、
+その自由 cohomology 群で測った構造係数は多項式であり、
+開部分への局所化で生じる有理関数ではない。
+\end{proof}
+
+\begin{proposition}[中心超平面制限の球面性と生成]
+\label{cmo:prop:central-linear-spherical}
+全ての固定係数 $\alpha,c$ において、
+中心超平面制限は dg 関手
+\[
+ F_{\alpha,c}
+   =-\otimes_{A_{\alpha,c}}^{\mathbf L}S:
+       \mathcal A_{\alpha,c}\longrightarrow\mathcal B
+\]
+を与え、左右の随伴を持つ。
+その unshifted cotwist と twist は
+\begin{equation}\label{cmo:eq:central-linear-periods}
+ \mathsf C_F=\operatorname{Cone}(\operatorname{id}\to F^RF)
+          \simeq\varrho_A^{-1}[1],\qquad
+ \mathsf T_F=\operatorname{Cone}(FF^R\to\operatorname{id})
+          \simeq\varrho_S^2.
+\end{equation}
+従って
+\[
+ \mathsf C_F^3\simeq[1],\qquad
+ \mathsf T_F^3\simeq[4].
+\]
+標準の随伴比較射 $F^R\to\mathsf C_FF^L$ は同型であり、$F$ は spherical である。
+さらに $F$ は conservative で、
+\begin{equation}\label{cmo:eq:central-linear-generation}
+ \mathcal B=\operatorname{thick}(F\mathcal A_{\alpha,c}),\qquad
+ \mathcal A_{\alpha,c}=\operatorname{thick}(F^R\mathcal B)
+\end{equation}
+となる。特に、境界の split-generator $G_S$ に対して
+$F^RG_S$ は $\mathcal A_{\alpha,c}$ の split-generator である。
+以上は可換側の残余線束圏にも成立する。
+\end{proposition}
+
+\begin{proof}
+$u$ は $A_{\alpha,c}$ 上正則である。
+実際、周囲代数では $u$ が正則であり、
+$w_{\alpha,c}\bmod u=w_0$ は $B_0$ 上正則である。
+$ua=w_{\alpha,c}b$ を $u$ で還元すると $b=ub'$ となり、
+$u$ を消去して $a=w_{\alpha,c}b'$ を得る。
+
+包含を $a:\mathcal A_{\alpha,c}\hookrightarrow\mathcal C_{\alpha,c}$、
+その随伴を $p_L\dashv a\dashv p_R$、
+$S$ からの inflation を $i_*$ と書く。
+境界は smooth で線束により生成される。
+各 $i_*\OO_S(j)$ は
+\[
+ 0\longrightarrow\OO_A(j-1)\xrightarrow{u}\OO_A(j)
+       \longrightarrow i_*\OO_S(j)\longrightarrow0
+\]
+で解消されるので、$i_*$ は境界の全対象を $\mathcal C_{\alpha,c}$ へ送る。
+制限・inflation の左右随伴も線束圏に制限でき、
+\[
+ F^R=p_Ri_*|_{\mathcal B},\qquad
+ F^L=p_Li_*(1)[-1]|_{\mathcal B}
+\]
+となる。$M\in\mathcal A_{\alpha,c}$ の制限は
+$[M(-1)\xrightarrow{u}M]$ で計算される。
+$0\le r\le2$ について、この両項の $\OO_A(r)$ からの Hom は、
+$\OO_A(r+1),\OO_A(r)$ から $M$ への Hom であり零である。
+従って $FM\in\mathcal B$ である。
+
+補題\ref{cmo:lem:mixed-line-serre}の線束圏上の Serre 関手は $(-4)[5]$ である。
+単位三角へ $p_R$ を適用すると
+\[
+ \mathsf C_F M=p_R(M(-1))[1]\simeq\varrho_A^{-1}M[1].
+\]
+ここで inverse rotation は
+$R_{\OO_A(-1)}\circ(-1)$ であり、
+$\OO_A(-1)$ は Serre 双対によって $\mathcal A_{\alpha,c}^{\perp}$ に属する。
+三次中心商の Orlov/window 比較における $(3)\simeq[2]$ は、
+有限 mutation で定義した rotation 上の自然同型である。
+両方向の rotation は全 twist の線束圏を保存するので、この周期も
+$\mathcal A_{\alpha,c}$ に制限される。
+これは源の smoothness を必要としない。
+
+次に $Y=i_*N(1)[-1]$、$N\in\mathcal B$ とする。
+$r=1,2,3$ では
+$R\operatorname{Hom}(\OO_A(r),Y)
+ =R\operatorname{Hom}(\OO_S(r-1),N)[-1]=0$ である。
+従って $Y\to ap_LY$ の correction は $\OO_A$ の生成圏に入る。
+$(-1)[1]$ を施すと $p_R$ がこの correction を殺す。
+中心元の二項解消とその双対の評価により、全圏の随伴比較射は
+$i_*N\to(({-1})[1])(i_*N(1)[-1])$ の恒等写像である。
+従って残余側の標準射 $F^R\to\mathsf C_FF^L$ も同型になる。
+これは命題\ref{cmo:prop:invariant-restriction-spherical}と同じ随伴射の計算で、
+中心元の次数を一にしたものである。
+\cite[Theorem~5.1]{CMOAnnoLogvinenkoSpherical}の判定が適用できる。
+
+twist も随伴射を保って計算する。
+四本の負の線束に関する right mutation を使い、
+\[
+ R\operatorname{Hom}(i_*N,\OO_A(r))
+   =R\operatorname{Hom}(N,\OO_S(r+1))[-1]
+\]
+を適用すると、$r=-4,-3,-2$ では零である。
+従って $ap_Ri_*N\to i_*N$ の correction は $\OO_A(-1)$ だけである。
+全圏の余単位の cone は $N(-1)[2]$ なので、octahedron は
+\[
+ \mathsf T_FN\longrightarrow N(-1)[2]\longrightarrow E_N,\qquad
+       E_N\in\langle\OO_S(-1)\rangle
+\]
+を与える。$\mathcal B$ は $\OO_S(-1)$ の左直交に属するため、
+これは right mutation の三角である。従って
+$\mathsf T_F=\varrho_S^{-1}[2]=\varrho_S^2$ となり、
+式\eqref{cmo:eq:central-linear-periods}とその周期を得る。
+
+最後に proper 性を使う。
+$FM=0$ なら $\mathsf C_FM=M[1]$、従って $M[1]\simeq M[3]$ となり、
+有界な自己 Hom により $M=0$ である。
+余単位三角を反復した射 $N\to\mathsf T_F^{3m}N=N[4m]$ は
+$m\gg0$ で零であり、その cone は $\operatorname{thick}(F\mathcal A_{\alpha,c})$
+に属する。ゆえにその直和因子 $N$ も属する。
+単位の fiber を $\mathsf H=\mathsf C_F[-1]=\varrho_A^{-1}$ とすると
+$\mathsf H^3=[-2]$ である。同様に
+$\mathsf H^{3m}M=M[-2m]\to M$ の cone を用いれば
+第二の生成性を得る。
+この証明は proper な線束圏だけで行っており、
+特異係数での全 coherent 圏の proper 性は仮定していない。
+\end{proof}
+
+\subsection{分裂した underlying comonad と有限 arity 判定}
+
+\begin{lemma}[一次 Bockstein の消滅]
+\label{cmo:lem:central-linear-split-comonad}
+命題\ref{cmo:prop:central-linear-spherical}の余単位三角で
+$\nu:\operatorname{id}_{\mathcal B}\to\varrho_S^2$ は零であり、
+その nullhomotopy の空間は可縮である。
+従って、余単位を含む underlying kernel は
+\begin{equation}\label{cmo:eq:central-linear-split-comonad}
+ K=FF^R\simeq\mathbf1\oplus J,\qquad
+ J=\varrho_S^2[-1],\qquad
+ \epsilon:K\longrightarrow\mathbf1
+\end{equation}
+と一意的に分裂する。ここで一意性は
+指定した $\varrho_S^2$ と三角に両立する分裂について述べている。
+この分裂だけで余乗法が決まるとは主張しない。
+\end{lemma}
+
+\begin{proof}
+全ての $\alpha,c$ について、次数付き代数として
+$A_{\alpha,c}/(u^2)=S[u]/(u^2)$ である。
+従って $S$-自由解消は同じ係数のまま $u^2=0$ 上の複体へ持ち上がる。
+中心元 $u$ の Bockstein は零である。
+補題\ref{cmo:lem:spherical-bockstein}の証明を次数一で行うと、
+残余の $\nu$ はこの Bockstein の一意的な持上げである。
+correction は $\OO_S(-1)$ の生成圏に入り、
+$\mathcal B$ がその左直交であることによって、
+各対象上の消滅だけでなく dg 自然変換の零性を得る。
+
+分離比較により $\mathcal B\simeq\Ku(Z)$ とし、$Z=V(G)\subset\mathbb P^5$ とする。
+diagonal sector 公式
+\cite[Theorem~5.39]{NFBFKKernels}では、
+$H^aR\operatorname{Hom}(\mathbf1,\varrho_S^b)$ の恒等 sector は
+$a$ が偶数のとき $\operatorname{Jac}(G)_{b+3a/2}$ であり、
+奇数のときは零である。
+非恒等 sector の必要条件は $a$ が偶数かつ $2b+3a=6$ である。
+従って $i\ge0$ に対して
+$H^{-1-i}R\operatorname{Hom}(\mathbf1,\varrho_S^2)=0$ となる。
+この消滅は nullhomotopy の空間の全 homotopy 群を消し、
+指定した三角の分裂の一意性を与える。
+\end{proof}
+
+\begin{proposition}[二次と三次の構造で決まる全余乗法]
+\label{cmo:prop:central-comonad-three-arity}
+$\mathcal B=\Ku(Z)$、$Z=V(G)\subset\mathbb P^5$ を滑らかな三次四様体とし、
+式\eqref{cmo:eq:central-linear-split-comonad}の counit arrow を固定する。
+$\mathcal S_n$ をその上の counital $A_n$-comonad 構造の空間とする。
+$n\ge2$ に対して
+$\mathcal S_n\to\mathcal S_{n-1}$ の非空 fiber は離散空間であり、
+既存の lift を原点に選んだその平行移動空間は
+\begin{equation}\label{cmo:eq:central-comonad-finite-parameters}
+ \begin{array}{c|c}
+  n&\text{平行移動空間}\\ \hline
+  2&\operatorname{Jac}(G)_1\simeq\C^6\\
+  3&\operatorname{Jac}(G)_0\simeq\C\\
+  n\ge4&0
+ \end{array}
+\end{equation}
+である。特に、実際の二つの全 coherent comonad 構造が
+$A_3$ 構造まで同じ連結成分に属するなら、
+その比較は全 coherence を保つ同値へ一意的に延びる。
+任意の二次・三次データの存在障害が消える、という主張はしていない。
+\end{proposition}
+
+\begin{proof}
+補題\ref{cmo:lem:normalized-comonad-uniqueness}で確認した
+固定 counit に関する $A_n$-tower
+\cite[Theorem~3.3 and Lemma~3.11]{CMOWillumsgaardAssociativity}を使う。
+正規化複体は
+\[
+ N_n=R\operatorname{Hom}(K,J^n)
+     =R\operatorname{Hom}(\mathbf1,J^n)
+           \oplus R\operatorname{Hom}(J,J^n)
+\]
+であり、非空 fiber の $i$ 次 homotopy 群は
+$H^{2-n-i}N_n$、$i\ge0$ である。
+ここで $J^n=\varrho_S^{2n}[-n]$ なので、
+$H^qN_n$ の二つの恒等 sector の Jacobian 次数はそれぞれ
+\[
+ \frac{n+3q}{2},\qquad
+ \frac{n-1+3q}{2}.
+\]
+第一項は $q-n$ が偶数のとき、第二項は $q-n+1$ が偶数のときだけ現れる。
+$q=2-n-i$ を代入すると、第一項は $i$ が偶数のとき
+$\operatorname{Jac}(G)_{3-n-3i/2}$、
+第二項は $i$ が奇数のとき
+$\operatorname{Jac}(G)_{(5-2n-3i)/2}$ である。
+$n\ge2$ では、後者は全て零であり、
+前者も $i=0,n=2,3$ 以外は零になる。
+非恒等 sector の必要条件は
+\[
+ n+3q=6\quad\text{または}\quad n-1+3q=6
+\]
+であり、同じ代入によっていずれも不可能となる。
+従って非空 fiber は離散で、式\eqref{cmo:eq:central-comonad-finite-parameters}を得る。
+
+二次構造には分裂 kernel の primitive な余乗法を原点として選べる。
+その正規化した差は
+$\mathbf1\to J^2=\varrho_S^4[-2]\simeq\varrho_S$ で表される。
+三次構造では、二次構造を同定した後の差が
+$\mathbf1\to J^3[-1]=\varrho_S^6[-4]\simeq\mathbf1$ で表される。
+これは零次 Jacobian 成分の scalar である。
+ただし三次の原点は、同じ二次構造を持つ一つの実 lift を選んで定める。
+
+$n\ge4$ の非空 fiber は可縮である。
+実全構造から来る $A_3$ 構造の連結成分上では各段に lift が存在し、
+path の持上げによりその成分の全ての点にも lift がある。
+従って同じ $A_3$ 成分にある二つの実構造の比較は、各段で可縮な選択を持って延びる。
+極限を取れば全 homotopy-coherent comonad の比較となる。
+ここでは四次の存在障害の自動消滅を主張する必要はない。
+\end{proof}
+
+\begin{corollary}[三次までの比較からの実 Morita 核]
+\label{cmo:cor:central-three-arity-kernel}
+非可換側と可換側の中心超平面制限について、
+境界の実 dg 同値 $E$ と rotation の同型を固定する。
+これによって式\eqref{cmo:eq:central-linear-split-comonad}の underlying counit arrow を
+同定した後、二次・三次の comonad 構造が同じ $A_3$ 成分に属すれば、
+全ての固定係数で残余線束圏の dg Morita 同値と制限の intertwiner を構成できる。
+両側の残余圏が smooth proper なら、その同値は実 perfect 双加群核で与えられる。
+さらに補題\ref{cmo:lem:central-universal-line-model}の係数環上で
+二次・三次のデータを大域的に同定すれば、
+この構成は係数環に線型な相対 Morita 同値を与え、係数変更と両立する。
+両側が相対 smooth proper である開部分上では、
+相対比較核も二側の積上 perfect となる。
+\end{corollary}
+
+\begin{proof}
+命題\ref{cmo:prop:central-comonad-three-arity}によって全 comonad 同型を構成する。
+境界の生成対象 $G_S$ に対し、
+命題\ref{cmo:prop:central-linear-spherical}から $F^RG_S$ は源の生成対象である。
+従って実際の随伴による coKleisli 積を持つ代数
+\[
+ \Gamma_{\alpha,c}
+ =R\operatorname{End}(F^RG_S)
+ \simeq R\operatorname{Hom}(KG_S,G_S),\qquad
+ g\star f=g\,K(f)\,\Delta_{G_S}
+\]
+は源の dg Morita 模型となる。
+命題\ref{cmo:prop:spherical-comonad-model}の証明のうち、
+生成対象と積を同定する部分は smoothness を用いていない。
+全 comonad 比較はこの代数を積と高次構造を保って比較し、
+graph 双加群と生成対象との tensor が実 Morita 同値を与える。
+同じ比較は生成対象上の $F$ の作用にも両立するので、
+有限 cone と直和因子へ延長して制限の intertwiner を得る。
+smooth proper の場合には graph が体上 perfect であることと
+両側の対角の smoothness によって双加群自体が perfect となる。
+特異係数ではこの最後の perfect 性を主張せず、
+残余線束圏の Morita 同値と、その帰結である smoothness の同値だけを用いる。
+
+相対版については、境界の mapping 複体を係数環へ tensor すればよい。
+式\eqref{cmo:eq:central-comonad-finite-parameters}の非零な二つの群は自由であり、
+他の必要な群は零なので、二次・三次の大域的な同定は全 comonad の
+大域的な同定へ同じ tower によって延びる。
+また $T$-proper 性により
+$R\operatorname{Hom}_T(M,M)$ は有界である。
+従って $\mathsf H^{3m}M=M[-2m]\to M$ が大きい $m$ で零となる
+生成性の証明は、$\C$ 上の有限次元性を
+$T$ 上の perfect 性に置き換えてそのまま成立する。
+境界の相対生成対象の右随伴像が相対源の生成対象となり、
+coKleisli 代数の相対 graph 双加群から $T$-線型の実 Morita 同値を得る。
+unit と counit はこの生成対象上の同型から全圏へ延びる。
+以上の構成は相対 kernel の合成、有限 cone、直和因子および
+一定の mapping 複体の係数変更で行われるため、任意の係数変更と両立する。
+相対 smooth proper な開部分では graph の underlying $T$-複体は perfect であり、
+二側の相対 smooth な対角を tensor して
+相対 enveloping 代数上の perfect 性を得る。
+\end{proof}
