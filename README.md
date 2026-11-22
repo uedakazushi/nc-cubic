@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月23日 / v64。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月23日 / v65。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -16,13 +16,24 @@
 
 ## 最優先目標と現在の到達点
 
-**二十変数のClifford族は、分離点で全ての幾何的形式変形を与える。** 両Clifford因子の十八の混合係数に、二つの因子係数τ₁,τ₂を加えた族を構成した。[二十変数族の局所完全性](papers/sections/mixed/interfactor_clifford_versal.tex)は、任意の許容分離点で残余KSが三次四様体の幾何的20次元接空間への同型となり、原点を標識した形式変形空間そのものが同型になることを証明する（`ifv:thm:versal`）。実際の局所可換族の分類写像も、滑らかな三次四様体のモジュライスタックへétaleである。全22次元の非標識圏変形、粗モジュライへのétale性、全パラメータや全intrinsic対象の表示を主張する結果ではない。
+**二十変数のClifford族は、幾何的形式変形の全体とモジュライの稠密開を実現する。** 両Clifford因子の十八の混合係数に、二つの因子係数τ₁,τ₂を加えた族を構成した。[二十変数族の局所完全性](papers/sections/mixed/interfactor_clifford_versal.tex)は、任意の許容分離点で残余KSが三次四様体の幾何的20次元接空間への同型となり、原点を標識した形式変形空間そのものが同型になることを証明する（`ifv:thm:versal`）。さらに係数空間の非空稠密開Uの有限étale全射V→U上に、滑らかな可換三次族と実相対perfect比較核を得る。分類写像V→𝔐₄^cubはétaleで、像はモジュライスタックの稠密開となる（`ifv:cor:generic-comparison`）。一般係数体でも有限分離拡大上に全coherent Ku比較がある。有限化したUが指定分離点を含むとは限らず、全22次元の非標識圏変形、粗モジュライへのétale性、全三次四様体・全smooth係数・全intrinsic対象の被覆は結論しない。
 
 **十八変数の周囲代数の正則領域を正確に決定した。** [双方向積分と相対正則性](papers/sections/mixed/interfactor_clifford_bidirectional.tex)では、全係数で中心平方上のClifford tensor表示と自由階数64を得る。二次双対は可換六二次式商のcocycle twistである。この可換商は六二次式のresultant開D(Δ)上で完全交叉となり、Δ≠0が有限大域次元・AS-regular性の正確な領域である。ここでは次元/index6、任意底変更に保たれる有限射影Koszul双加群解消とuntwisted相対6-CYを持つ（`ifb:thm:regularity`, `ifb:cor:exact-regular-locus`）。別の明示的な主開D(c)では指定中心三次が普遍正則で、その商は平坦である。τ₁=τ₂=2、Λ=M=I₃はΔ=0で大域次元が無限となる例で、a₁=a₂=1ならc=196≠0となる。平坦性とHilbert級数だけではAS-regular性を判定できない。
 
+**周囲がAS-regularでも、残余圏が非smoothとなる具体点がある。** [rank-one sliceの境界](papers/sections/mixed/interfactor_clifford_rank_one.tex)では、Λ=λE₁₁、M=μE₁₁の正確なAS-regular域をh=(1−τ₁³)(1−τ₂³)−τ₁²τ₂²λμ≠0と決定した（`ifd:prop:ambient-locus`）。τ₁=τ₂=2、a₁=a₂=1、λ=μ=−6ではh=−527、c=196で、周囲代数はAS-regular・6-CY、中心三次も正則である。しかし射影Azumaya chartの完備局所代数はMat₄(C[[t,u,v,r,s]]/(t³+uv+rs))となり、点対象の自己Extは高次数まで非零である。全coherent残余圏は非proper、残余線束圏は非smoothとなる（`ifd:thm:residual-a2`）。従って周囲の正則開D(Δc)を残余smooth locusと同一視できない。この対象は主予想のsmooth仮定を満たさない。
+
 **九・十八変数の局所Ku比較を、実相対核で構成した。** [十八変数の残余模型](papers/sections/mixed/interfactor_clifford_bidirectional_geometry.tex)により、四次元型と中心変数一つを加えた五次元型の双方に、分離点を含むsmooth proper開とétale局所perfect比較核がある。四次元型の十八方向の像はJac(f₁)₁⊗Jac(f₂)₂⊕Jac(f₁)₂⊗Jac(f₂)₁であり、幾何的形式空間への形式像は余次元2となる。各一方向の九変数族については、[全係数の周囲AS/CY定理](papers/sections/mixed/interfactor_clifford_regularity.tex)、[原点近傍のsmoothness](papers/sections/mixed/interfactor_clifford_smoothness.tex)、[階数9・余次元11の接写像](papers/sections/mixed/interfactor_clifford_tangent_product.tex)も保持する。四次元の比較には、[rotationを持ち上げる変形の形式認識](papers/sections/rotation_preserving_deformations.tex)を用いる。
 
-**混合一次式は対称性と純因子変形によって較正した。** [Heisenberg同変比較](papers/sections/mixed/interfactor_clifford_equivariant_ks.tex)を選ぶと、L(e_a)=ℓX_a、Q(y_b²)=q[Y_{b+1}Y_{b+2}]となり、一方向の一次式はF+κΣΛ_ab X_aY_{b+1}Y_{b+2}である。両Cliffordでは標準方程式f_τ=τΣZ³−(2+τ³)Z₁Z₂Z₃を固定したとき、各因子ℓ_iq_i=2a_i(τ_i³−1)/(3τ_i)と二方向の尺度積κ₁₂κ₂₁=4a₁a₂(τ₁³−1)(τ₂³−1)/(9τ₁τ₂)が決まる。同一因子・同一重みで交換同変核を選べば、元の関係係数で両κ=2a(τ³−1)/(3τ)となる（`ifv:prop:scale-calibration`）。一般の異なる因子での尺度の比、高次可換方程式、全smooth係数への核延長は未解決である。
+**一般の混合一次尺度は、指定周期に対応する三枝まで決定した。** [Heisenberg同変比較](papers/sections/mixed/interfactor_clifford_equivariant_ks.tex)を選ぶと、L(e_a)=ℓX_a、Q(y_b²)=q[Y_{b+1}Y_{b+2}]となり、一方向の一次式はF+κ₁₂ΣΛ_ab X_aY_{b+1}Y_{b+2}である。標準方程式f_τ=τΣZ³−(2+τ³)Z₁Z₂Z₃と元の関係係数を固定し、d_i=τ_i³−1と置く。[Morse比較による尺度決定](papers/sections/mixed/interfactor_clifford_scale.tex)は
+
+\[
+\kappa_{12}^{3}=\frac{8a_1^3d_1^2d_2}{27\tau_2^3},\qquad
+\kappa_{21}^{3}=\frac{8a_2^3d_2^2d_1}{27\tau_1^3}
+\]
+
+を与える（`ifm:thm:scale-cubes`）。既存の較正ℓ_iq_i=2a_id_i/(3τ_i)、κ₁₂κ₂₁=4a₁a₂d₁d₂/(9τ₁τ₂)と合わせると、θ=(a₂τ₂/a₁τ₁)(κ₁₂/κ₂₁)はθ³=d₁/d₂を満たす。この非自明なμ₃-torsorは因子係数空間上の有限étale三重被覆で、有理的な大域sectionを持たず、三枝は周期付き比較の選択で実現する（`ifm:cor:kummer-scale`）。固定した実核と周期には一つの枝が対応し、尺度を任意に正規化し直せるわけではない。同一因子・同一重みの交換同変核では両κ=2a(τ³−1)/(3τ)を保持する。尺度torsorを全比較核のgerbeと同定したとはしない。
+
+**固定した可換方程式の高次項は、まず十二係数の実計算へ帰着する。** [固定切片と同変jet](papers/sections/mixed/interfactor_clifford_jets.tex)は、両Cliffordの標準Hesse方程式、Jacobian補空間による線型切片、原点の実核・指定周期を固定すると、形式可換方程式が一意になることを示す（`ifj:lem:linear-slice`）。Heisenberg群の二因子作用に対する二次covariantと三次不変式は各五本であり、周期と両立する反転同変実核を選ぶと各四本に減る。一方向九変数族の逆向き混合二次項は四係数、二つの純因子三次項は八係数で尽くされ、七つの一変数probeで回収できる（`ifj:thm:twelve-coefficients`）。**この4+8=12個の数値は未計算**である。自由な標的形式座標で高次項を消せることと、固定した多項式切片で数値を求めることは別である。
 
 **固定tensor境界の全PBW表示まで、因子別比較の適用範囲が広がった。** [因子間変形の節](papers/sections/mixed/interfactor_deformations.tex)では、任意の可換係数環と厳密な中心変数の下で、因子間の一次・定数補正と内部関係の他因子出力が全て零になることを証明した（`ifp:thm:factorization`）。因子別分解は元の生成元で成立し、形式的gaugeや被約性を要しない。指定中心三次があれば全許容正規形へ入り、smoothness判定・一般中央flag・全coherent Ku比較を適用できる（`ifp:cor:central-comparison`）。固定した最高次境界とPBW性は仮定として残る。
 
@@ -34,11 +45,11 @@
 
 二中心ではsmoothnessからΔ≢0が従い、良い中央切断の仮定は不要となる。Δは次数3·8^kである。固定した滑らかな境界からの横断二項写像Bは可逆で、二次・三次係数は三角多項式同型をなす（`mtb:prop:transverse-iso`）。各固定一次係数の一般二次係数では、最後のv³係数の悪い値は相異なる2·8^k個で、各可換標的には唯一の通常二重点がある。全横断係数および各固定一次係数の判別因子は既約被約で、臨界点のaffine空間が正規化となる（`mtd:thm:normalization`）。任意mの各比較段でも同様で、最後の悪い値の数は2^(3k+m−1)。特殊二次係数では重複根を許す。
 
-同一S(1,−1,−1)の既存結果では、指定規約でκ_k²=27/28、κ_k=3√21/14を保持する（`mcs:cor:universal-scale`）。Heisenberg同変な一次像は純ブロックJac₂の直和で、比較の七定数形のうち六定数χ_k,A_k,…,E_kは未数値化（`lec:thm:seven-scalar-form`）。一般の異なる因子へこの数値κを流用しない。指定二ブロックのP64・norm全64根・有限中心と局所型も保持する。残る核心は、全intrinsic対象の認識と表示被覆、最高次の二次境界を変える混合族の比較、偏極標的への実比較核、因子moduli上の核選択・降下である。一般の比較係数、一般PBW族のPI性・有限中心性、選択済みh一般点核のdefect零特殊化も未解決。
+同一S(1,−1,−1)の既存結果では、指定規約でκ_k²=27/28、κ_k=3√21/14を保持する（`mcs:cor:universal-scale`）。Heisenberg同変な一次像は純ブロックJac₂の直和で、比較の七定数形のうち六定数χ_k,A_k,…,E_kは未数値化（`lec:thm:seven-scalar-form`）。一般の異なる因子へこの数値κを流用しない。指定二ブロックのP64・norm全64根・有限中心と局所型も保持する。残る核心は、全intrinsic対象の認識と表示被覆、最高次の二次境界を変える混合族の固定切片での具体化と全smooth係数への比較拡張、偏極標的への実比較核、因子moduli上の核選択・降下である。一般の比較係数、一般PBW族のPI性・有限中心性、選択済みh一般点核のdefect零特殊化も未解決。
 
-周囲のresultant開D(Δ)、中心三次の正則性を保証するD(c)、残余圏のsmooth proper開は別の領域である。局所比較核を得た開の補集合や、残余smooth locusの全体はまだ明示していない。十八・二十変数族の証明の正本は上記の混合稿の各節に置き、研究ノートには再開に必要な要点と残る障害を保持する。
+周囲のresultant開D(Δ)、中心三次の正則性を保証するD(c)、残余圏のsmooth proper開は別の領域である。上記A₂例はD(Δc)内部にも残余非smooth点があることを示すが、残余smooth locusの全境界はまだ明示していない。一般係数の有限étale比較を全smooth係数への比較へ拡張したとはしない。十八・二十変数族と尺度・jet・境界の証明の正本は上記の混合稿の各節に置き、研究ノートには再開に必要な要点と残る障害を保持する。
 
-まずC上、n≥3の主予想を最優先にする。genericな表示のみへ「任意」を弱めず、全intrinsic対象の認識と被覆を課題として残す。両Cliffordの二十変数族の分離点における局所完全性は証明済みとし、次は高次可換方程式と一般の混合尺度の比、実際の残余smooth locus、近傍比較の全smooth係数への延長を調べる。偏極標的への実核、因子moduli上の大域降下、選択済みh核のdefect零特殊化も継続する。原稿・独立読解・計算・組版・保存の確認状態は [検証範囲](notes/validation.md) を参照する。
+まずC上、n≥3の主予想を最優先にする。genericな表示のみへ「任意」を弱めず、全intrinsic対象の認識と被覆を課題として残す。両Cliffordの二十変数族の形式完全性・モジュライの稠密開・一般係数の有限étale比較、および一般混合尺度の三乗は証明済みの入力とする。次は固定切片の十二係数の最初の非零値を実計算し、比較核のKummer三枝の選択と降下、残余smooth locusの境界と核延長を調べる。偏極標的への実核、全比較核のgerbe、全smooth係数への比較、選択済みh核のdefect零特殊化も継続する。原稿・独立読解・計算・組版・保存の確認状態は [検証範囲](notes/validation.md) を参照する。
 
 - **多中心の全smooth対象と中央Bertini。** [多中心比較](papers/sections/mixed/multicentral_comparison.tex)が入口。[正規形](papers/sections/mixed/multicentral_pbw.tex)が全中心列の正則性を与え、[実blow-up](papers/sections/mixed/multicentral_blowup.tex)が射影方向の圏とOrlov分解を構成する。[smooth locusと中央flag](papers/sections/mixed/multicentral_bertini.tex)でK_A smooth ⇔ X_pol smoothを示し、一般flagから[逐次核](papers/sections/mixed/multicentral_iterated_comparison.tex)を全smooth因子別対象へ適用する。有限中心性を必要としない。
 - **横断二項の全階数と最後の中心値。** [Bockstein](papers/sections/mixed/multicentral_transverse_bockstein.tex)は定数関係の曲率と中心一次式のunary微分を分離し、Bの可逆性を証明する。[横断判別](papers/sections/mixed/multicentral_transverse_discriminant.tex)は各固定一次係数の一般二次係数に対する2^(3k+m−1)個の単純悪値、各唯一ODP、判別因子の既約被約性とaffine正規化を与える。
@@ -86,6 +97,12 @@
 **被約化しても一致しない五様体の例。** 証明の正本は混合稿の [孤立零点と不一致の節](papers/sections/mixed/poisson_limits.tex)。全Poisson正規形から、滑らかな三次n-foldのPoisson零集合に孤立点があるならn=3k、一般階数2kであり、各孤立零点は零次元局所完全交叉であることを証明した（ppz:thm:isolated-zero-dimension）。従って五次元では孤立零点はない。一方、指定混合族の定常ノルムの全64根ではPt(A_c)=E₁⊔E₂⊔{p_c}が被約で、A_cはsmooth properである（ppz:cor:reduced-point-poisson-counterexample）。例えばc=−44828を取れる。これはどの滑らかな可換三次五様体上のどのPoisson構造でも、被約零集合と同型にはならない。不一致の証明には可換Ku比較やTorelliを仮定しない。一方、`cmo:cor:norm-commutative-kernel` は全64根に実Ku標的X_cを与えるので、これらは主予想の存在結論を満たしながら被約point/Poisson一致が失敗する具体例である。正規形はpoisson-cubicの固定された未公表入力であり、一般性やブロックの楕円性は仮定しない。この次元制約の文献上の新規性は未確認である。
 
 ### 主要計算の再現
+
+[一般Clifford尺度の検算](computations/verify_clifford_morse_scale.py)は `python3 computations/verify_clifford_morse_scale.py`（**8 PASS、終了コード0**）。adjugate恒等式、臨界値の不変二次moment、非退化な具体例と二つの混合尺度の三乗を厳密に確認する。
+
+[rank-one境界の検算](computations/verify_clifford_rank_one.py)は `python3 computations/verify_clifford_rank_one.py`（**4 PASS、終了コード0**）。正則域のh、中心normのA₂展開、横断Hessianと明示的有理点を検算する。
+
+[固定切片・同変jetの検算](computations/verify_clifford_jets.py)は `python3 computations/verify_clifford_jets.py`（**7 PASS、終了コード0**）。Heisenbergの五つの二次covariant・五つの三次不変式、反転後の四次元部分、gradient関係、七probe、全smooth Hesse fiberの補空間、反転と体積線の符号を確認する。この三検算器はPython 3とSymPyを使い、いずれも実行確認済みである。実核・周期coherence・Azumaya降下・形式切片の存在と一意性は本文の証明に依り、十二係数の数値や組版・保存の成否をこれらの有限計算から結論しない。
 
 [双方向Clifford族の検算](computations/verify_bidirectional_clifford.py)は `python3 computations/verify_bidirectional_clifford.py`（**9 PASS、終了コード0**）。全係数の二次双対の直交・単元小行列式、cocycleとtraceの符号、原点の完全交叉恒等式、中心normの最高係数、非正則な具体点、Heisenberg作用、純因子微分と中心規格化の一次比を厳密に確認する。相対Koszul解消・CY双対性、実核、二十変数の形式完全性は本文の証明による。Python 3とSymPyを使う。
 
@@ -208,7 +225,7 @@
 
 基礎となる[点対応](papers/sections/two_block_points.tex)、[中心と自己同型](papers/sections/two_block_algebra.tex)、[表示stack](papers/sections/multiblock_presentations.tex)、[完備比較](papers/sections/two_block_recovery.tex)も保持する。任意の抽象圏変形や全境界を覆う主張ではない。表示gerbeとSerreの基底直線も保持する。
 
-**現在のP0**は、Clifford九変数族の残余Kodaira–Spencer写像と可換方程式の具体化、原点近傍の比較の全smooth係数への延長、および全intrinsic対象の認識・表示被覆である。固定tensor境界の全PBW表示は因子別に分解し、その全smooth中心三次商には中央flagと可換Ku実現がある。偏極標的X_polへの実核については、chart核の重なりでの自己同値・周期位相とČech coherenceを調べる。二軸の同定だけでは混合情報が消えるため、実BC・joint comonadを入力とする。因子moduli上のPicard補正と周期三乗根の降下、横断係数の具体化、選択済みh一般点核のdefect零特殊化も保持する。具体的な着手は[研究方針](00_research_plan.md)を参照する。
+**現在のP0**は、固定Hesse切片に残る十二係数の最初の非零値の実計算、比較核のKummer三枝の選択・降下、AS-regular域内部も含む残余smooth locusの境界と核延長である。九・十八方向のKS、二十変数の形式完全性・モジュライの稠密開と一般係数の有限étale比較、一般尺度の三乗は証明済みの入力として用いる。全比較核のgerbeと尺度torsorの同定、全smooth係数の比較、全intrinsic対象の認識・表示被覆は未完成である。固定tensor境界の全PBW表示は因子別に分解し、その全smooth中心三次商には中央flagと可換Ku実現がある。偏極標的X_polへの実核については、chart核の重なりでの自己同値・周期位相とČech coherenceを調べる。二軸の同定だけでは混合情報が消えるため、実BC・joint comonadを入力とする。因子moduli上のPicard補正、横断係数の具体化、選択済みh一般点核のdefect零特殊化も保持する。具体的な着手は[研究方針](00_research_plan.md)を参照する。
 
 一般次元のO-marked moduli、point scheme、Poisson対への射、比較核は、可換Ku実現の構成と対象範囲の認識に役立つ限りで優先する。各成分の一般点での結果、全固定点での結果、全族の構成を区別し、一般点の結果だけで最終目標を達成したとはしない。
 

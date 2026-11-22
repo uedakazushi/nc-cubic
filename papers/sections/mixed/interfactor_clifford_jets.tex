@@ -1,0 +1,377 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v65.
+\subsection{固定した三次形式の切片と高次係数の有限還元}
+\label{ifj:subsec:jets}
+
+高次の可換方程式を数値化するには、幾何的変形空間の形式座標も固定する必要がある。
+本小節では具体的な二十単項式の切片を指定し、その中での係数の一意性を示す。
+さらに、Heisenberg 対称性と Clifford 因子の反転を保つ実比較を用いて、
+一方向九変数族の二次・三次の未計算部分を十二の scalar に還元する。
+これらの値を計算したとは主張しない。
+
+二つの因子を $S(1,1,\tau_i)$ とし、
+$\tau_i(\tau_i^3-1)(\tau_i^3+8)\ne0$、$a_i\ne0$ を固定する。
+可換方程式は式\eqref{ifv:eq:point-equations}の正確な scalar、すなわち
+\[
+ f_{\tau_i}(\mathbf Z)=\tau_i\sum_a Z_a^3-(2+\tau_i^3)Z_0Z_1Z_2,
+ \qquad F=a_1f_{\tau_1}(\mathbf X)+a_2f_{\tau_2}(\mathbf Y)
+\]
+を用いる。本小節の添字は $\mathbb Z/3=\{0,1,2\}$ であり、
+従来の添字 $1,2,3$ をこの順に読み替える。
+元の一方向関係係数を $\Lambda=(\lambda_{ab})$ と書く。
+
+\subsubsection{Jacobian 補空間を固定した形式的一意性}
+
+$R_3=\C[\mathbf X,\mathbf Y]_3$ とし、次の二十次元部分空間を取る：
+\begin{equation}\label{ifj:eq:slice}
+ \begin{split}
+ C&=C_{12}\oplus C_{21}\oplus C_0,\\
+ C_{12}&=\left\langle X_aY_{b+1}Y_{b+2}\right\rangle_{a,b},\qquad
+ C_{21}=\left\langle X_{a+1}X_{a+2}Y_b\right\rangle_{a,b},\\
+ C_0&=\langle P_X,P_Y\rangle,\qquad
+ P_X=X_0X_1X_2,\quad P_Y=Y_0Y_1Y_2.
+ \end{split}
+\end{equation}
+以下で $C_{21}$ の係数行列の添字も $(a,b)$ とする。
+双方向非可換族の逆向き係数 $M_{ba}$ とは添字の順序が逆である。
+
+\begin{lemma}[具体的な線型切片による標識付き変形の座標]
+\label{ifj:lem:linear-slice}
+$C\to(J_F)_3$ は同型であり、$F+C$ の原点での形式完備化は、
+原点を標識した $X_0=V(F)$ の通常 Artin 変形空間と同型である。
+従って、rotation に両立する原点の比較核を固定した一方向九変数族には一意な形式方程式
+\begin{equation}\label{ifj:eq:normalized-family}
+ \begin{split}
+ &F+\sum_{a,b}u_{ab}(\Lambda)X_aY_{b+1}Y_{b+2}
+   +\sum_{a,b}v_{ab}(\Lambda)X_{a+1}X_{a+2}Y_b\\
+ &\hspace{30mm}+z_1(\Lambda)P_X+z_2(\Lambda)P_Y
+ \end{split}
+\end{equation}
+が対応する。ここで各係数は原点で零となる。
+この一意性は、指定した $F$、補空間 $C$、非可換係数 $\Lambda$、
+原点比較および特殊ファイバーの標識に対するものである。
+\end{lemma}
+
+\begin{proof}
+一因子の Hesse 係数を $h=(2+\tau^3)/(3\tau)$ と置く。
+Jacobian 関係は $Z_a^2=hZ_{a+1}Z_{a+2}$ であり、$h^3\ne1$ である。
+二次の交差単項式三つは定理\ref{ife:thm:projective-coefficients}の証明と同様に基底となる。
+三次では、異なる二添字を持つ $Z_a^2Z_b$ は三回の置換によって
+$h^3Z_a^2Z_b$ に等しいため零であり、$Z_a^3=hP_Z$ となる。
+偏微分は正則列で、その Jacobian 環の三次部分は一次元なので、$[P_Z]\ne0$ である。
+分離した二因子の tensor 分解から、式\eqref{ifj:eq:slice}が $(J_F)_3$ の基底を与える。
+
+形式的な射影座標の自由度も明示できる。
+六変数をまとめて $Z_1,\ldots,Z_6$ と書くと、
+\[
+ \mathfrak{gl}_6\longrightarrow (\partial F)_3,
+ \qquad A\longmapsto D_AF=\sum_{i,j}A_{ij}Z_j\partial_iF
+\]
+は同型である。実際、六つの偏微分は正則二次式の列なので、
+一次係数の syzygy は零であり、この写像は単射となる。
+従って $R_3=(\partial F)_3\oplus C$、次元は $36+20=56$ である。
+射
+\[
+       \operatorname{GL}_6\times(F+C)\longrightarrow R_3,
+                   \qquad(g,F+c)\longmapsto g\cdot(F+c)
+\]
+の $(1,F)$ における微分は同型である。
+形式逆写像定理により、$F$ を持ち上げる任意の形式三次式は、
+恒等に還元される一意な $g$ と $F+C$ の一意な元へ分解される。
+方程式自体の単元倍は、定数項一の三乗根を持つ scalar 行列へ吸収できる。
+特殊ファイバーの非自明な有限自己同型は、恒等に還元するこの枝に含まれない。
+
+幾何的変形空間が滑らかな二十次元形式円板であることと、
+その接空間が $(J_F)_3$ であることは、主稿の
+定理\paperref{main}{ifk:thm:rotation-formal}で用いた幾何的変形の記述による。
+$F+C$ の三次族の接写像は上の同型なので、その形式分類写像も同型となる。
+最後に同定した幾何的形式変形へ、同主定理と
+定理\ref{ift:thm:rank-nine}による一方向族の形式写像を代入する。
+これで式\eqref{ifj:eq:normalized-family}の存在と一意性を得る。
+\end{proof}
+
+この切片は標準 Heisenberg 群 $H=H_3\times H_3$ に保たれる。
+補題\ref{ife:lem:equivariant-kernel}の原点比較を固定すれば、
+命題\ref{ift:prop:block-jets}と同じ、標識変更についての自然性と形式認識の完全忠実性により、
+式\eqref{ifj:eq:normalized-family}の形式写像は $H$ 同変となる。
+全混合基底上の比較核に追加の同変構造を仮定しているのではない。
+
+\subsubsection{五つの二次 covariant と五つの三次不変式}
+
+$V=C_{12}$、$W=C_{21}$ と書き、$\zeta$ を一の原始三乗根とする。
+係数点の作用は、各添字を三を法として
+\begin{equation}\label{ifj:eq:parameter-actions}
+ \begin{array}{ll}
+ (c_1\Lambda)_{ab}=\lambda_{a-1,b},&
+ (d_1\Lambda)_{ab}=\zeta^a\lambda_{ab},\\
+ (c_2\Lambda)_{ab}=\lambda_{a,b-1},&
+ (d_2\Lambda)_{ab}=\zeta^{-b}\lambda_{ab}
+ \end{array}
+\end{equation}
+である。これは関係式の係数を移す反変規約を含む。
+$W$ では巡回作用は同じであり、二つの対角固有値はそれぞれ $\zeta^{-a},\zeta^b$ である。
+従って $W\simeq V^*$ で、対応する係数の積和が不変対合を与える。
+$C_0$ の二つの基底は $H$ に不変である。
+
+次の五つの二次行列値写像を定める：
+\begin{equation}\label{ifj:eq:quadratic-basis}
+ \begin{array}{ll}
+ (Q_0)_{ab}=\lambda_{ab}^2,&
+ (Q_r)_{ab}=\lambda_{a+1,b}\lambda_{a+2,b},\\
+ (Q_c)_{ab}=\lambda_{a,b+1}\lambda_{a,b+2},&
+ (Q_+)_{ab}=\lambda_{a+1,b+1}\lambda_{a+2,b+2},\\
+ (Q_-)_{ab}=\lambda_{a+1,b+2}\lambda_{a+2,b+1}.&
+ \end{array}
+\end{equation}
+また、$A_3\subset S_3$ を偶置換群として
+\begin{equation}\label{ifj:eq:cubic-basis}
+ \begin{split}
+ I_0&=\sum_{a,b}\lambda_{ab}^3,\qquad
+ I_r=\sum_a\lambda_{a0}\lambda_{a1}\lambda_{a2},\qquad
+ I_c=\sum_b\lambda_{0b}\lambda_{1b}\lambda_{2b},\\
+ I_+&=\sum_{\pi\in A_3}\prod_a\lambda_{a,\pi(a)},\qquad
+ I_- =\sum_{\pi\in S_3\setminus A_3}\prod_a\lambda_{a,\pi(a)}
+ \end{split}
+\end{equation}
+と置く。
+
+\begin{proposition}[Heisenberg 同変な低次項の全空間]
+\label{ifj:prop:heisenberg-bases}
+式\eqref{ifj:eq:quadratic-basis}は
+$\operatorname{Hom}_H(\operatorname{Sym}^2V,W)$ の基底であり、その次元は五である。
+式\eqref{ifj:eq:cubic-basis}は $\operatorname{Sym}^3(V^*)^H$ の基底であり、
+従って $\operatorname{Hom}_H(\operatorname{Sym}^3V,C_0)$ の次元は十である。
+さらに、不変対合で $W=V^*$ と同定すると
+\[
+ \nabla I_0=3Q_0,\qquad \nabla I_r=Q_c,\qquad
+ \nabla I_c=Q_r,\qquad \nabla I_+=Q_+,\qquad \nabla I_-=Q_-
+\]
+となり、三次不変式の gradient は二次同変写像の全空間を与える。
+\end{proposition}
+
+\begin{proof}
+巡回作用により、二次同変写像はその $(0,0)$ 成分で決まる。
+対角作用についてその成分の重みが $(0,0)$ となる二次単項式は、
+\[
+ \lambda_{00}^2,\quad\lambda_{10}\lambda_{20},\quad
+ \lambda_{01}\lambda_{02},\quad\lambda_{11}\lambda_{22},\quad
+ \lambda_{12}\lambda_{21}
+\]
+の五つだけである。各単項式を行と列に巡回させると、
+式\eqref{ifj:eq:quadratic-basis}の五つの同変写像を得る。
+その $(0,0)$ 成分が独立なので、これが全空間の基底となる。
+
+三次単項式が二つの対角作用に不変となる条件は、
+三つの行添字と三つの列添字の和が、それぞれ三の倍数になることである。
+三つの行添字は全て同じか全て異なり、列添字も同様である。
+両方とも同じなら九つの立方が一つの巡回軌道をなす。
+行だけ同じなら三つの行積、列だけ同じなら三つの列積がそれぞれ一軌道となる。
+両方とも異なる六つの置換単項式は、行と列の三巡回によって
+偶置換・奇置換の二つの軌道に分かれる。
+従って軌道和は正確に式\eqref{ifj:eq:cubic-basis}の五つである。
+最後の gradient 恒等式は直接微分による。
+\end{proof}
+
+不変三次式と二次の既約 Heisenberg 部分表現を gradient で対応させる一般機構は、
+Beauville\cite[Section~1, Proposition~1]{IFJBeauvilleCoble}の既知結果である。
+ここでは中心の共通核を除いた九次元 Heisenberg 表現に当たり、
+一般の次元公式も $\binom{10}{2}/9=5$ を与える。
+上の直接計算は、その既知機構を本族の元の係数・添字の規約で具体化したものである。
+
+\subsubsection{Clifford 反転と指定周期を保つ比較}
+
+$P$ を最初の二座標を交換する行列とする。
+一因子の非可換側では $\iota_{\mathrm{nc}}=-P$、可換側では
+$\iota_{\mathrm{com}}=P$ を作用させる。
+前者は Clifford 関係を置換し、完全交代表示の $\Omega_\tau$ を保つ。
+後者は対称な $f_\tau$ を保つ。
+どちらも点曲線上では、原点 $o=(1:-1:0)$ と
+$p=(1:1:\tau)$ を固定する反転 $[-1]$ である。
+特に、二つの作用を同じ生成元行列と見なしてはならない。
+
+\begin{lemma}[反転と Heisenberg 作用に両立する実原点核]
+\label{ifj:lem:reflection-kernel}
+二つの Clifford 因子の原点比較核は、
+補題\ref{ife:lem:equivariant-kernel}の構造に加え、
+各因子の上の反転にも両立させて選べる。
+この比較は rotation と指定された三乗周期を保つ。
+この追加構造を選んだ原点比較について、
+式\eqref{ifj:eq:normalized-family}の形式写像は行・列の反転にも同変となる。
+任意の既存の Heisenberg 同変核がこの追加構造を持つとは主張しない。
+\end{lemma}
+
+\begin{proof}
+一因子で構成する。$M=\OO_E(p-o)$ は二捩れの次数零線束である。
+原点のファイバーを一度自明化すると、
+\[
+                  [3]^*M\simeq M,\qquad [-1]^*M\simeq M
+\]
+を原点の自明化を保つように一意に取れる。
+存在は $3p=p$、$-p=p$ により、
+一意性は $H^0(E,\OO_E)=\C$ による。
+これらの同型の全ての整合図式も、原点で恒等となる同じ線束間の同型なので可換する。
+従って $M=[3]^*M$ からの $E[3]$ 降下線型化は $[-1]$ と両立し、
+$E[3]\rtimes\langle[-1]\rangle$ の coherent な線型化となる。
+これにより $F_M=-\otimes M$ が両作用に同変となる。
+
+ここで rotation の線型化を別に確認する。
+非可換側の $-P$ と可換側の $P$ は、それぞれの実曲率
+$a\Omega_\tau$、$af_\tau$ を固定する。
+従って MF 模型上で内部 shift と実周期に厳密に両立する。
+主稿の系\paperref{main}{mbrn:cor:factor-boundary}の window を作る
+augmentation、次数切断、Koszul--Shamash 複体、評価と mutation は、
+これらの次数付き自己同型に自然である。
+この構成を有限群の作用とともに移すことで、
+$R_p,R_0$ と指定された $R_p^3\simeq[2]$、$R_0^3\simeq[2]$ の
+同変構造を得る。
+一因子 window の top syzygy 線は、そのまま保持する。
+実際、Clifford の cyclic potential は $-P$ で符号を変え、
+可換多項式環の最上 Koszul 線も $\det P=-1$ で符号を変える一方、
+両方の指定曲率線は不変である。
+この区別により、楕円曲線上の作用が同じだからといって
+$\OO_E(1)$ や rotation の線型化まで同一とする省略を避ける。
+
+主稿の補題\paperref{main}{mbrc:lem:factor-correction}により、
+$F_MR_p\simeq R_0F_M$ の同型は存在し、その Hom 線は一次元である。
+Heisenberg 中心の重みは両側で一致するので、
+この線の作用は $E[3]\rtimes\langle[-1]\rangle$ の文字 $\chi$ へ因子化する。
+$[-1]$ は $E[3]$ を反転するため、
+一次元表現では $\chi(g)=\chi(g^{-1})$ となる。
+$g^3=1$ と合わせると、$\chi|_{E[3]}=1$ である。
+従って、この選択では Heisenberg 同変性のために追加の三捩れ平行移動を要しない。
+
+残る反転の文字を $\epsilon=\chi([-1])$ と書くと、$\epsilon^2=1$ である。
+非零の比較射 $\eta$ を三回合成し、両側の指定周期を用いると、
+$F_M[2]$ の非零 scalar 自己同型となる。
+周期は上で同変に構成済みなので、この scalar 線は自明表現である。
+三回の合成は $\eta$ に関して三次であるから $\epsilon^3=1$ を得る。
+よって $\epsilon=1$ であり、$\eta$ 自体が反転にも不変となる。
+最後に非零 scalar の三乗根で $\eta$ を補正すれば、指定周期に正確に一致し、
+この補正も同変性を保つ。
+
+二因子の外積、全次数格子上の相対 rotation、実 dg character 双加群による
+有限群の二重同変化は、補題\ref{ife:lem:equivariant-kernel}と
+補題\ref{ebk:lem:boundary}の構成を用いる。
+反転は Heisenberg 群を正規化し、ブロックスカラーおよび指定周期と可換するので、
+これらの構成の全整合図式を保つ。
+従って反転も保つ実際の perfect 核を得る。
+
+非可換係数点では、$-P$ の二乗による符号消去から、
+第一因子の反転は $\Lambda\mapsto P\Lambda$、第二因子では
+$\Lambda\mapsto\Lambda P$ である。
+可換切片の対応作用も、基底単項式の符号なしの行・列置換となる。
+形式認識の自然性を適用すれば、最後の同変性が従う。
+\end{proof}
+
+\begin{corollary}[四つの二次写像と四つの三次不変式への減少]
+\label{ifj:cor:reflection-bases}
+反転を加えた群を $\widetilde H$ と書く。
+$\operatorname{Hom}_{\widetilde H}(\operatorname{Sym}^2V,W)$ の基底は
+$Q_0,Q_r,Q_c,Q_++Q_-$、
+$\operatorname{Sym}^3(V^*)^{\widetilde H}$ の基底は
+$I_0,I_r,I_c,I_++I_-$ である。
+従って二つの純因子方向を値に取る三次写像の次元は八である。
+\end{corollary}
+
+\begin{proof}
+行の反転も列の反転も、最初の三つの基底を固定し、
+$Q_+,Q_-$ および $I_+,I_-$ をそれぞれ交換する。
+従って固定部分は表示した四次元部分となる。
+$I_+-I_-=\det\Lambda$ とその gradient は、この追加の対称性では許されない。
+二つの純因子基底 $P_X,P_Y$ は反転にも不変なので、最後の次元は $2\cdot4=8$ である。
+\end{proof}
+
+\subsubsection{固定切片の十二係数と計算の入口}
+
+\begin{theorem}[二次・三次係数の有限還元]
+\label{ifj:thm:twelve-coefficients}
+補題\ref{ifj:lem:reflection-kernel}の原点核を固定する。
+式\eqref{ifj:eq:normalized-family}の係数には一意な scalar
+$\beta_0,\beta_r,\beta_c,\beta_d$、
+$\gamma_{i0},\gamma_{ir},\gamma_{ic},\gamma_{id}$（$i=1,2$）があり、
+$\mathfrak m=(\lambda_{ab})$ に関して
+\begin{equation}\label{ifj:eq:twelve-coefficients}
+ \begin{split}
+ u(\Lambda)&=\kappa\Lambda+O(\mathfrak m^4),\\
+ v(\Lambda)&=\beta_0Q_0+\beta_rQ_r+\beta_cQ_c
+                         +\beta_d(Q_++Q_-)+O(\mathfrak m^5),\\
+ z_i(\Lambda)&=\gamma_{i0}I_0+\gamma_{ir}I_r+\gamma_{ic}I_c
+                         +\gamma_{id}(I_++I_-)+O(\mathfrak m^6).
+ \end{split}
+\end{equation}
+ここで $\kappa\ne0$ は定理\ref{ife:thm:projective-coefficients}の、
+選択した原点比較による一次尺度である。
+十二の scalar は固定した因子・重み・原点比較に付随する係数であり、
+十二個の新たな変形パラメータを主張するものではない。
+\end{theorem}
+
+\begin{proof}
+補題\ref{ifj:lem:linear-slice}が係数の一意性を与える。
+ブロックスカラーの指標は $u,v,z_i$ について $\zeta,\zeta^2,1$ なので、
+命題\ref{ift:prop:block-jets}から各成分の次数はそれぞれ $1,2,0$ modulo $3$ である。
+一次項は定理\ref{ife:thm:projective-coefficients}による。
+二次と三次には系\ref{ifj:cor:reflection-bases}を適用する。
+\end{proof}
+
+有限個の一変数制限だけで、これらの係数を回収できる。
+$E_{ab}$ を行列単位とし、
+$R_0=\sum_bE_{0b}$、$C_0'=\sum_aE_{a0}$、$D_0=I_3$ と置く。
+固定切片へ正規化した式について、次の表の値は対応する係数になる：
+\begin{equation}\label{ifj:eq:probe-table}
+ \begin{array}{c|c@{\qquad}c|c}
+  A &[t^2]v_{00}(tA)& A &[t^3]z_i(tA)\\ \hline
+  E_{00}&\beta_0&E_{00}&\gamma_{i0}\\
+  E_{10}+E_{20}&\beta_r&R_0&3\gamma_{i0}+\gamma_{ir}\\
+  E_{01}+E_{02}&\beta_c&C_0'&3\gamma_{i0}+\gamma_{ic}\\
+  E_{11}+E_{22}&\beta_d&D_0&3\gamma_{i0}+\gamma_{id}
+ \end{array}
+\end{equation}
+従って、重複する $E_{00}$ を含めて七つの一変数族の三次までの実比較が計算できれば、
+十二係数を全て決定できる。
+ここで要求するのは、元の非可換係数を保ち、
+補題\ref{ifj:lem:linear-slice}の切片へ正規化した比較である。
+点曲線の係数や非可換生成元の平方を文字通り可換化する操作では代用できない。
+
+\subsubsection{任意の形式座標変更による消去との違い}
+
+\begin{proposition}[自由な標的座標では全ての高次項を消去できる]
+\label{ifj:prop:formal-straightening}
+標的の二十次元形式空間に、一次部分が恒等の同変な形式座標変更を許せば、
+式\eqref{ifj:eq:normalized-family}の写像を
+$\Lambda\mapsto(\kappa\Lambda,0,0)$ へ移せる。
+このことから、固定した切片における $\beta,\gamma$ の値や消滅は従わない。
+一方、源だけの同変な形式座標変更で一次部分を固定した場合、
+式\eqref{ifj:eq:twelve-coefficients}の二次・三次係数は変わらない。
+\end{proposition}
+
+\begin{proof}
+形式写像を $\Phi=(p,q,r)$ と書く。
+$p(\Lambda)=\kappa\Lambda+O(\mathfrak m^4)$ は形式同型であり、
+その逆写像 $\psi$ も同変である。
+標的で
+\[
+ (u,v,z)\longmapsto
+       \bigl(\kappa\psi(u),\ v-q(\psi(u)),\ z-r(\psi(u))\bigr)
+\]
+と取り直せば、一次部分は恒等で、$\Phi$ は表示した線型写像となる。
+この変更は $u=0$ の部分さえ点ごとに固定するので、
+純因子の族を既に固定していることだけでも、この形式座標の自由度は排除できない。
+しかし、変更後の座標は、固定した多項式切片 $F+C$ の係数ではない。
+補題\ref{ifj:lem:linear-slice}により、恒等に還元される射影座標の変更で
+二つの異なる正規形を同一視する余地はない。
+
+最後に、源の同変な形式座標変更の各成分は、ブロックスカラーにより次数
+$1$ modulo $3$ である。
+一次部分を恒等にすれば最初の補正は四次であり、二次の $v$、三次の $z_i$ に影響しない。
+従ってこれらの係数は、固定切片の下では源のこの種の取り直しにも不変である。
+\end{proof}
+
+\begin{remark}[証明・有限検算・未計算値の区別]
+\label{ifj:rem:scope}
+\texttt{verify\_clifford\_jets.py} は、単項式の重みと巡回軌道、反転の置換、
+gradient、式\eqref{ifj:eq:probe-table}および Hesse Jacobian 補空間を厳密に検算する。
+反転の中心三次に対する符号も確認する。
+実 Picard 核、指定周期と形式認識は上の数学的証明によるものであり、
+この有限計算で核の同値や十二係数の数値を確認したとはしない。
+任意の形式座標による高次項の消去も、元の非可換関係係数に対する比較方程式の計算ではない。
+\end{remark}

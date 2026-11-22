@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v64.
+% Current result: 2026-11-23 / v65.
 \section{因子間関係の PBW 剛性と二次境界の混合変形}
 \label{ifd:sec:interfactor}
 
@@ -25,10 +25,16 @@ Heisenberg 同変な原点核を選ぶと、その一次式は一つの非零 sc
 その域で相対 Koszul・非捩れ CY 性を証明し、
 分離点近傍の実残余圏と可換比較、十八次元・余次元二の形式像を構成する。
 さらに二つの Clifford 係数を動かすと、幾何的な二十変形方向の全てを表す。
+階数一スライスでは周囲正則域を二変数の式で決め、
+その内部に $A_2$ 型の射影的残余特異点を構成する。
 相対分離比較から純因子方向と混合尺度の積を求め、
-同一因子・同一重みでは混合尺度そのものも明示する。
+Clifford 中心と Hesse 三次の臨界スキーム同型から、異なる因子でも両尺度の三乗を決める。
+残る選択は明示的な三次 Kummer 被覆であり、同一因子・同一重みでは各尺度を明示する。
 二十変数族の標識付き形式写像は同型となり、
 可換族の分類写像は三次四様体のモジュライスタックへ局所的に \'etale となる。
+これを有限型 chart に制限し、一般係数の有限 \'etale 比較とモジュライの稠密開への実現を得る。
+最後に具体的な二十単項式の切片と反転を保つ核を固定し、
+一方向族の二次・三次の未計算部分を十二の scalar に還元する。
 
 \input{papers/sections/mixed/interfactor_pbw.tex}
 
@@ -93,4 +99,7 @@ perfect 比較核を与える。一中心は定理\ref{euk:thm:universal-kernel}
 \input{papers/sections/mixed/interfactor_clifford_equivariant_ks.tex}
 \input{papers/sections/mixed/interfactor_clifford_bidirectional.tex}
 \input{papers/sections/mixed/interfactor_clifford_bidirectional_geometry.tex}
+\input{papers/sections/mixed/interfactor_clifford_rank_one.tex}
 \input{papers/sections/mixed/interfactor_clifford_versal.tex}
+\input{papers/sections/mixed/interfactor_clifford_scale.tex}
+\input{papers/sections/mixed/interfactor_clifford_jets.tex}

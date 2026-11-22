@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v64.
+% Current result: 2026-11-23 / v65.
 \subsection{二つの因子係数を含む二十変数族の局所完全性}
 \label{ifv:subsec:versal}
 
@@ -329,6 +329,84 @@ Jacobian 判定によりこの射は原点で \'etale である。
 有限自己同型を持つ点でもスタックに対するこの議論は成立するが、
 その粗空間へ同じ結論を移してはいない。
 \end{proof}
+
+\begin{corollary}[稠密開の可換実現と一般係数での有限比較]
+\label{ifv:cor:generic-comparison}
+定理\ref{ifv:thm:versal}の二十変数係数空間を $P$ とする。
+非空な Zariski 開集合 $U\subset P$ と、整なスキーム $V$ からの
+有限 \'etale 全射 $\pi:V\to U$ が存在し、$V$ 上の滑らかな可換三次四様体族
+$\mathcal X\to V$ と相対 perfect な実比較核によって
+\[
+        \mathcal K_{A_{\pi(-)}}\simeq\Ku(\mathcal X/V)
+\]
+を得る。その分類写像
+\[
+        q:V\longrightarrow\mathfrak M_4^{\mathrm{cub}}
+\]
+は \'etale であり、像は非空な稠密開部分スタック $W$ である。
+従って $W$ の任意の複素点を表す滑らかな三次四様体は、
+二十変数 Clifford 族のある複素ファイバーと全 coherent Ku 比較を持つ。
+
+特に $K=\C(P)$ に対し、有限分離拡大 $L/K$ と
+滑らかな可換三次四様体 $X_L\subset\mathbb P^5_L$ が存在し、
+一般係数の中心商について
+\[
+       \Ku(A_K)\otimes_K L\simeq\Ku(X_L)
+\]
+を実際の perfect 核で得る。左辺は dg 底変更と冪等完備を意味し、
+一般点でも線束残余部分は全 coherent 残余圏に一致する。
+\end{corollary}
+
+\begin{proof}
+任意の許容分離点を一つ固定する。
+定理\ref{ifv:thm:versal}の実比較 chart $P'\to P$ をその点の近傍へ縮め、
+分類写像 $q':P'\to\mathfrak M_4^{\mathrm{cub}}$ が \'etale となるようにする。
+必要ならさらに \'etale 近傍へ変更して、比較三次族の射影空間束を自明化する。
+これはその $\operatorname{PGL}_6$-torsor の局所切断を取る操作であり、
+分離点上の指定した射影座標を持ち上げられる。
+方程式の線束も Zariski 局所的に自明化する。
+この操作後も二つの写像は \'etale であり、実際の比較核はそのまま底変更される。
+
+$P'$ は滑らかなので、指定点を含む一つの整な affine 開に縮められる。
+以後この開を再び $P'$ と書く。
+$P$ も整であり、$P'\to P$ の非空な像は開であるから、この射は dominant である。
+また $P'$ と $P$ はともに二十次元で、射は有限型かつ \'etale なので、
+一般ファイバーは有限である。
+準コンパクトかつ準分離な射の一般ファイバーを有限とする補題
+\cite[Tag~02NW]{IFVStacksGeneric}により、
+$P$ の非空な開 $U$ 上で
+$V=(P')\times_P U\to U$ は有限となる。
+もとの射が \'etale なのでこれは有限 \'etale であり、
+整な $U$ 上で一般階数が正であるため全射である。
+必要なら $U$ を周囲正則域と実 smooth proper 近傍に含めておく。
+
+比較三次族と実相対核を $V$ へ制限すれば最初の同値を得る。
+$q=q'|_V$ は \'etale なので、その像 $W$ は開部分スタックである。
+この開性は \'etale atlas での代数空間の開性とその降下による
+\cite[Tags~03FQ, 04XB]{IFVStacksGeneric}。
+スタック $[\mathcal U^{\mathrm{sm}}/\operatorname{PGL}_6]$ は整な
+$\mathcal U^{\mathrm{sm}}\subset\mathbb P^{55}$ の全射像なので既約である。
+従って非空な $W$ は稠密である。
+$W$ の複素点の $V$ への幾何的持上げは有限型の非空な複素スキーム上にあるため、
+複素閉点を選べる。そのファイバーで、実核と coherent 飽和を用いれば述べた比較を得る。
+
+最後に $L=\C(V)$ と置く。
+有限 \'etale 全射の一般ファイバーから $L/K$ は有限分離拡大であり、
+$\mathcal X$ と比較核の一般ファイバーが最後の主張を与える。
+相対 perfect 対角、augmentation 双対と正則中心解消は体への底変更でも保たれる。
+従って主稿の定理\paperref{main}{crs:thm:coherent}の飽和論証を $K$ と $L$ に適用でき、
+一般点でも全 coherent 残余圏についての比較となる。
+\end{proof}
+
+\begin{remark}[一般係数への移行の範囲]
+\label{ifv:rem:generic-scope}
+この系では接空間の次元から核を推定していない。
+定理\ref{ifv:thm:versal}の実際の比較族と実核を、一つの有限型 chart 上で制限している。
+有限化のために取る $U$ は、最初に選んだ分離点を含むとは限らない。
+また比較三次族や核の $P$ への大域降下、$D(\Delta c)$ 全体あるいは
+全 residual smooth 係数での比較、表示の一意性、有限被覆の最小次数は結論しない。
+モジュライ側の像が稠密開であることも、全ての滑らかな三次四様体の被覆を意味しない。
+\end{remark}
 
 \begin{remark}[局所完全性と大域問題]
 \label{ifv:rem:versal-scope}

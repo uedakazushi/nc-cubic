@@ -1,0 +1,332 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v65.
+\subsection{階数一の混合係数と正則域内の残余特異点}
+\label{ifd:subsec:rank-one}
+
+周囲代数の AS 正則域と中心商の残余 smooth locus は一致しない。
+本小節では、双方向係数を二変数へ制限すると周囲の終結式の零集合を
+明示でき、その正則域内に $A_2$ 型の射影的な特異点が生じることを示す。
+局所化の際にも内部次数を保持する。
+
+命題\ref{ifb:prop:family}の記号を用い、$E_{11}$ を行列単位として
+\begin{equation}\label{ifd:eq:rank-one-slice}
+       \Lambda=\lambda E_{11},\qquad M=\mu E_{11}
+\end{equation}
+と置く。ここではまず二つの許容因子 $\tau_1,\tau_2$ と
+非零重み $a_1,a_2$ を固定する。
+
+\begin{proposition}[階数一スライスの厳密な周囲正則域]
+\label{ifd:prop:ambient-locus}
+式\eqref{ifd:eq:rank-one-slice}上で
+\begin{equation}\label{ifd:eq:ambient-hyperbola}
+ h(\lambda,\mu)=(1-\tau_1^3)(1-\tau_2^3)
+                         -\tau_1^2\tau_2^2\lambda\mu
+\end{equation}
+と置くと、複素点の集合として
+\[
+       V(\Delta)=V(h).
+\]
+従って $B_{\lambda,\mu}$ が有限大域次元を持つ領域、および
+AS 正則な領域は、いずれも正確に $D(h)$ である。
+この領域では大域次元と Gorenstein index は六である。
+一方、中心三次の正則性に用いる係数は全スライス上で
+\begin{equation}\label{ifd:eq:central-unit}
+       c=\frac{\alpha_1^2\tau_1^2}{4}\ne0,
+       \qquad \alpha_i=2a_i(1-\tau_i^3)
+\end{equation}
+であり、中心三次商は全 $(\lambda,\mu)$ で次数別平坦である。
+この主張は終結式の零集合を決めるもので、$\Delta$ の因子の重複度は用いない。
+\end{proposition}
+
+\begin{proof}
+命題\ref{ifb:prop:dual}の可換六二次式は
+\begin{align*}
+ g_{x,1}&=u_1^2-\tau_1u_2u_3+\mu v_2v_3,&
+ g_{y,1}&=v_1^2-\tau_2v_2v_3+\lambda u_2u_3,\\
+ g_{x,2}&=u_2^2-\tau_1u_3u_1,&
+ g_{y,2}&=v_2^2-\tau_2v_3v_1,\\
+ g_{x,3}&=u_3^2-\tau_1u_1u_2,&
+ g_{y,3}&=v_3^2-\tau_2v_1v_2
+\end{align*}
+となる。その射影的な共通零点を考える。
+$u_1=0$ なら後二式から $\mathbf u=0$ となり、
+残る $\mathbf v$ の三式は原点の完全交叉なので $\mathbf v=0$ となる。
+また $u_2u_3=0$ なら $u_2=u_3=0$ であり、
+再び $\mathbf v$ の三式から $\mathbf v=0$、第一式から $u_1=0$ となる。
+従って全 $u_a$ は非零である。同様に全 $v_b$ も非零である。
+
+後二式を解くと、ある $\rho^3=\sigma^3=1$ に対して
+\[
+ (u_2,u_3)=(\tau_1\rho u_1,\tau_1\rho^2u_1),\qquad
+ (v_2,v_3)=(\tau_2\sigma v_1,\tau_2\sigma^2v_1)
+\]
+となる。第一式はしたがって
+\begin{equation}\label{ifd:eq:two-square-equations}
+ \begin{pmatrix}
+  1-\tau_1^3&\mu\tau_2^2\\
+  \lambda\tau_1^2&1-\tau_2^3
+ \end{pmatrix}
+ \begin{pmatrix}u_1^2\\v_1^2\end{pmatrix}=0
+\end{equation}
+である。両対角成分が非零なので、非零解が存在するための必要十分条件は
+$h=0$ である。その場合は $\lambda\mu\ne0$ であり、核の両成分は非零となる。
+複素数体上でそれぞれの平方根を選べば、元の六式の共通零点が得られる。
+これで終結式の零集合の主張を得る。
+AS 正則性の同値は系\ref{ifb:cor:exact-regular-locus}による。
+
+最後に $M_{21}=M_{31}=0$ なので、
+式\eqref{ifb:eq:central-open}は式\eqref{ifd:eq:central-unit}となる。
+命題\ref{ifb:prop:family}の普遍正則性と平坦性が全スライスに適用できる。
+\end{proof}
+
+\begin{theorem}[周囲 AS 正則域内の $A_2$ 型残余特異点]
+\label{ifd:thm:residual-a2}
+\[
+ \tau_1=\tau_2=\tau,\qquad a_1=a_2=1,\qquad
+ \Lambda=M=-3\tau E_{11},\qquad
+ \tau\ne0,\quad \tau^3\notin\{1,-8,1/4,-1/2\}
+\]
+とし、$A=B/(w)$ と置く。
+$B$ は六次元 Koszul AS 正則な非捩れ CY 代数であり、$w$ は正則中心三次である。
+それにもかかわらず、$A$ の有限中心射影模型には、完備局所代数が
+\begin{equation}\label{ifd:eq:completed-matrix-a2}
+ \operatorname{Mat}_{4}\!\left(
+       \C[[t,u,v,r,s]]/(t^3+uv+rs)\right)
+\end{equation}
+となる閉点がある。
+
+この点上の単純加群を延長した coherent 対象 $\mathcal P$ は
+\begin{equation}\label{ifd:eq:point-poincare}
+ \sum_{j\ge0}\dim_\C
+       \operatorname{Ext}_{\operatorname{qgr}A}^j
+             (\mathcal P,\mathcal P)z^j
+       =\frac{(1+z)^5}{1-z^2}
+\end{equation}
+を満たす。
+従って $D^b(\operatorname{qgr}A)$ と全 coherent 残余圏は非 proper であり、
+proper な全線束生成圏とその残余線束圏は非 smooth である。
+\end{theorem}
+
+\begin{proof}
+\paragraph{周囲正則性と中心 norm.}
+$\vartheta=\tau^3$ と略記する。前命題から
+\begin{equation}\label{ifd:eq:symmetric-good-locus}
+ h=(1-\vartheta)^2-9\vartheta^2
+      =-(4\vartheta-1)(2\vartheta+1)\ne0,
+ \qquad c=\tau^2(1-\vartheta)^2\ne0.
+\end{equation}
+従って周囲正則性と非捩れ双対性は定理\ref{ifb:thm:regularity}、
+中心三次の正則性は命題\ref{ifb:prop:family}から従う。
+$\alpha=2(1-\vartheta)$ とすると
+\[
+       w=\alpha(\omega_x+\omega_y),\qquad
+       \mathcal N=\alpha^2 D,\qquad D=\det q_y-\det q_x.
+\]
+平方変数の比が
+\begin{equation}\label{ifd:eq:central-point}
+        [X_1,X_2,X_3;Y_1,Y_2,Y_3]=[1,0,0;1,0,0]
+\end{equation}
+となる点を調べる。ここでは両行列式は $-4\tau^2\ne0$ である。
+
+計算を明示するため、いったん対称係数 $\lambda=\mu$ を自由にする。
+$X_2=X_3=Y_2=Y_3=0$ 上では
+\begin{equation}\label{ifd:eq:binary-norm}
+ D=\frac{X_1-Y_1}{4}
+       \bigl(\tau^2(X_1-Y_1)^2
+                    -(\lambda-\tau)(\lambda+3\tau)X_1Y_1\bigr).
+\end{equation}
+$\lambda=-3\tau$ に戻し、$Y_1=1$、$X_1=1+t$ と書くと、
+全 norm の chart 方程式は
+\begin{align}
+ d={}&\frac{\tau^2}{4}
+       (t^3+X_2^3+X_3^3-Y_2^3-Y_3^3)\notag\\
+ &+\left(\vartheta-1+
+                  \left(\frac{\vartheta}{4}-1\right)t\right)X_2X_3
+   -\left(\vartheta-1+\frac{3\vartheta}{4}t\right)Y_2Y_3.
+       \label{ifd:eq:local-norm}
+\end{align}
+式\eqref{ifd:eq:binary-norm}と\eqref{ifd:eq:local-norm}は、
+式\eqref{ifb:eq:clifford-matrices}の二つの行列式を展開すれば得られる。
+以後この式の $X_2,X_3,Y_2,Y_3$ は $Y_1$ による比座標を表す。
+
+横四変数の Hessian の行列式は原点で $(\vartheta-1)^4\ne0$ であり、
+その臨界切断は $X_2=X_3=Y_2=Y_3=0$、切断上の関数は $\tau^2t^3/4$ である。
+係数環 $\C[[t]]$ 上で横二次部分を標準化し、横次数三以上を順に消去する。
+実際、非退化二次形式の偏微分は横変数の一次式の基底なので、
+横次数 $d\ge3$ の項を、その偏微分と次数 $d-1$ の座標補正の積で表せる。
+各次数でこの補正を施し、横変数に関する完備化で極限を取ればよい。
+この操作は $t$ を動かさず、臨界切断上の関数も変えない。
+非零係数 $\tau^2/4$ と二つの横積の単元を吸収して
+\begin{equation}\label{ifd:eq:center-a2}
+       \widehat{\mathcal O}_{V(d),0}
+          \simeq\C[[t,u,v,r,s]]/(t^3+uv+rs)
+\end{equation}
+を得る。
+
+\paragraph{次数一の中心単元と射影 chart.}
+ここで affine な中心商の特異性から射影圏へ直接移ってはならない。
+$A$ の次数付き中心的局所化
+\[
+        A^\circ=A[Y_1^{-1},\omega_x^{-1}]
+\]
+を取り、$\zeta=\omega_x/Y_1$ と置く。
+$\zeta$ は内部次数一の中心単元であり、$\omega_y=-\omega_x$ である。
+従って
+\begin{equation}\label{ifd:eq:graded-chart}
+        A^\circ\simeq D_0[\zeta,\zeta^{-1}],
+        \qquad D_0=(A^\circ)_0,
+\end{equation}
+は次数付き代数の同型である。
+
+中心の零成分も具体的に求まる。
+$\xi_a=X_a/Y_1$、$\eta_b=Y_b/Y_1$、$\eta_1=1$、
+$d_x=(\det q_x)/Y_1^3$、$d_y=(\det q_y)/Y_1^3$ と置く。
+非退化な三次元 Clifford 代数の中心は、平方環に体積元を加えた二重被覆である。
+これは二次形式を \'etale 局所的に対角化して、三生成元の Clifford 基底から確認できる。
+この記述を二因子へ適用して $w=0$ とすると、
+本 chart の中心には $\omega_x^2=-\det q_x$ と $d_y=d_x$ という関係が残る。
+さらに
+\[
+       \zeta^2=-Y_1d_x,\qquad
+       Y_1=-\frac{\zeta^2}{d_x},\qquad
+       \omega_x=-\frac{\zeta^3}{d_x}.
+\]
+従って $D_0$ の中心は正確に
+\begin{equation}\label{ifd:eq:center-chart}
+ C_0=\C[\xi_1,\xi_2,\xi_3,\eta_2,\eta_3,d_x^{-1}]/(d_y-d_x)
+\end{equation}
+となる。式\eqref{ifd:eq:central-point}はこの中心の閉点 $p$ を定め、
+その完備局所環は式\eqref{ifd:eq:center-a2}である。
+体積元の二つの符号は次数付き scalar $-1$ の作用で交換されるので、
+この計算で二つの射影的な点を数えているわけではない。
+
+\paragraph{Clifford 局所化の行列表示.}
+両行列式が単元である領域では、各三次元 Clifford 代数は
+その二重中心上で次数二の Azumaya 代数である。
+この事実も本例では直接確認できる。
+非退化二次形式を局所的に単元対角成分へ対角化し、
+それらの平方根を \'etale 局所的に加えると、Clifford 代数は
+標準三次元 Clifford 代数になる。
+指定した体積元の値に対応する中心の一成分では、それは
+$\operatorname{Mat}_2$ である。
+二因子の符号なし tensor はしたがって $\operatorname{Mat}_4$ となる。
+これは Azumaya 代数の \'etale 局所的な行列表示である
+\cite[Tag~0A2J]{CMOStacksNode}。
+
+式\eqref{ifd:eq:graded-chart}によって零成分へ降りても、
+この性質は保たれる。
+実際 $x_a/\zeta,y_b/\zeta$ が $D_0$ を生成し、その Clifford 行列は
+$q_x/\zeta^2,q_y/\zeta^2$ である。
+これらは $C_0$ 上の非退化形式であり、正規化された両体積元の値も
+$C_0$ の単元である。
+従って $D_0$ は $C_0$ 上次数四の Azumaya 代数である。
+完備局所環 $\widehat{(C_0)_p}$ は剰余体 $\C$ を持つため、
+上で必要な単元の平方根を Hensel の方法でこの環自体の中に取れる。
+従って完備化は実際に分裂し、式\eqref{ifd:eq:completed-matrix-a2}を得る。
+
+\paragraph{coherent な一点対象と無限自己 Ext.}
+六平方と体積元の像が生成する有限型次数付き中心部分環を $C\subset A$ とする。
+$A$ は $C$ 上有限である。
+十分割り切れる $\ell>0$ を取り、
+\[
+        Z=\operatorname{Proj}C^{(\ell)},\qquad
+        \mathcal A=\widetilde{A^{(\ell)}}
+\]
+と置けば、$\operatorname{qgr}A\simeq\operatorname{coh}(Z,\mathcal A)$ である。
+この有限中心模型の構成は補題\ref{cmo:lem:finite-support-perfect}の証明と同じであり、
+smoothness を仮定しない。
+式\eqref{ifd:eq:graded-chart}の開 chart 上では、$\mathcal A$ は $D_0$ に対応する。
+閉点 $p$ の上の行列代数 $\operatorname{Mat}_4(\C)$ の単純右加群を $M$ とし、
+有限な閉台を持つ $\mathcal A$-加群として延長して $\mathcal P$ を得る。
+これは四次元の単純 chart 加群である。
+
+全ての層 $\mathcal E xt^j(\mathcal P,\mathcal P)$ は $p$ 上に台を持つので、
+局所から大域への spectral sequence は次数ごとに退化する。
+有限生成自由解消と完備化の平坦性により、各自己 Ext は完備化前後で変わらない。
+従って式\eqref{ifd:eq:completed-matrix-a2}の Morita 同値から
+\[
+ \operatorname{Ext}_{\operatorname{qgr}A}^j(\mathcal P,\mathcal P)
+    \simeq \operatorname{Ext}_{R}^j(\C,\C),\qquad
+ R=\C[[t,u,v,r,s]]/(t^3+uv+rs)
+\]
+を得る。
+
+右辺は具体的な極小 Tate 分解で計算できる。
+五変数の Koszul 分解に次数二の divided-power 変数 $\theta$ を加え、
+\[
+ d\theta=t^2e_t+v e_u+s e_r
+\]
+と置く。正則局所環上では右辺の微分は $t^3+uv+rs$ であり、
+その外積による homotopy の二乗は零である。
+従って Shamash 構成は $R$ 上の剰余体の自由分解を与える
+\cite[Construction~4.1.3, Proposition~4.1.4, Remark~4.1.5]{CMOEisenbudPeeva}。
+全微分係数は極大イデアルに属するので、この分解は極小である。
+外積五変数と divided-power 一変数の階数を数えれば
+式\eqref{ifd:eq:point-poincare}を得る。
+特に十分高い全ての次数で自己 Ext の次元は $16$ である。
+
+\paragraph{残余圏への移行.}
+同じ局所性を両方向の線束 Hom に適用する。
+$\zeta$ が単元なので、全 $\mathcal O(i)$ の chart 制限は自由な $D_0$-加群である。
+また $R$ は四次元 Gorenstein hypersurface であるから、
+五変数正則局所環の Koszul 双対と中心正則元の Rees 同型により
+$R\operatorname{Hom}_R(\C,R)\simeq\C[-4]$ である。
+従って
+\[
+ R\operatorname{Hom}(\mathcal O(i),\mathcal P)\simeq\C^4,
+ \qquad
+ R\operatorname{Hom}(\mathcal P,\mathcal O(i))\simeq\C^4[-4].
+\]
+有限例外列 $\mathcal E=\langle\mathcal O,\mathcal O(1),\mathcal O(2)\rangle$
+に沿う mutation により
+\[
+        F\longrightarrow\mathcal P\longrightarrow K,
+        \qquad F\in\mathcal E,\quad K\in\mathcal E^\perp
+\]
+を得る。ここで $R\operatorname{Hom}(\mathcal P,F)$ は有界有限次元であり、
+$R\operatorname{Hom}(F,K)=0$ なので
+\[
+ R\operatorname{Hom}(K,K)\simeq
+   \operatorname{Cone}\bigl(R\operatorname{Hom}(\mathcal P,F)
+               \longrightarrow R\operatorname{Hom}(\mathcal P,\mathcal P)\bigr).
+\]
+従って十分高い次数で $\operatorname{Ext}^j(K,K)\simeq\C^{16}$ となり、
+全 coherent 残余圏も非 proper である。
+
+一方、補題\ref{ifg:lem:projective-inputs}の有限線束 Hom は
+$D(\Delta c)$ 上の本係数でも成立するので、全線束生成圏 $\mathcal C_A$ は proper である。
+もしこれが smooth なら、主稿の定理\paperref{main}{crs:thm:coherent}により
+全 coherent 圏へ飽和し、式\eqref{ifd:eq:point-poincare}と矛盾する。
+従って $\mathcal C_A$ は非 smooth である。
+残余線束圏が smooth なら、有限例外 gluing に関する
+命題\paperref{main}{crs:prop:residual-smooth}が $\mathcal C_A$ の smoothness を与えるので、
+残余線束圏も非 smooth である。
+\end{proof}
+
+\begin{example}[有理数係数の特異点]
+\label{ifd:ex:rational-a2}
+$\tau=2$、$a_1=a_2=1$、$\Lambda=M=-6E_{11}$ と取れば
+\[
+       h=-527,\qquad c=196,\qquad
+       \det q_x(p)=\det q_y(p)=-16.
+\]
+このとき式\eqref{ifd:eq:local-norm}は
+\[
+ t^3+X_2^3+X_3^3+(7+t)X_2X_3
+       -Y_2^3-Y_3^3-(7+6t)Y_2Y_3
+\]
+であり、横 Hessian の行列式は $2401$ である。
+中心三次が正則で周囲も AS 正則なまま、射影的な残余特異点が生じている。
+\end{example}
+
+\begin{remark}[判定の範囲]
+\label{ifd:rem:scope}
+命題\ref{ifd:prop:ambient-locus}は周囲の正則域を完全に決める。
+定理\ref{ifd:thm:residual-a2}はその内部に残余の非 smooth 係数を与えるので、
+$D(\Delta c)$ 全体を残余 smooth locus とすることはできない。
+ここでは非退化な Clifford 部分の norm 特異点を使った。
+二次形式が退化する部分まで含む残余 smooth locus の完全な方程式や、
+norm 三次自体を可換比較の標的とする主張は含まない。
+また、本例の非可換射影対象は滑らかでないため、
+滑らかな非可換 cubic に関する主予想の反例ではない。
+\end{remark}

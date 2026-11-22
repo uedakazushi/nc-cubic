@@ -5,7 +5,7 @@
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
 \large 有限中心・局所代数・楕円因子と多中心の比較核}
 \author{}
-\date{2026年11月23日・研究稿 v64}
+\date{2026年11月23日・研究稿 v65}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
 pdfsubject={有限中心・局所代数・楕円因子と多中心の比較核}}
 
@@ -101,9 +101,13 @@ $\operatorname{Jac}(f_1)_1\otimes\operatorname{Jac}(f_2)_2$ に等しい。
 分離点近傍には実 smooth proper 残余模型と局所比較核を構成する。
 十八の混合方向に二つの因子係数を加えると、
 標識付き幾何的形式変形空間への二十次元の同型を得る。
-可換族の分類写像は三次四様体のモジュライスタックへ局所的に \'etale となる。
-Heisenberg 同変比較により混合一次式を各方向一つの scalar に絞り、
-純因子方向との比較からその積と、同一因子・同一重みでの各尺度を明示する。
+可換族の分類写像は三次四様体のモジュライスタックへ局所的に \'etale となり、
+その稠密開を実現し、一般係数には有限分離拡大上の実比較核を与える。
+Clifford 中心と Hesse 三次の臨界スキームを adjugate で同定して、
+異なる因子でも混合一次尺度の三乗を計算し、残る選択を三次 Kummer 被覆で記述する。
+階数一スライスの正確な周囲正則域と、その内部の $A_2$ 型残余特異点を構成する。
+固定した二十単項式の切片と反転を保つ核により、
+一方向族の二次・三次の未計算係数を四個と八個の scalar へ還元する。
 二つの軸の切断が同一でも全体の smoothness が異なる例は、混合情報の必要性を示す。
 さらに交換子パラメータの族に、零と一を含む半局所底上の
 相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
@@ -337,9 +341,16 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  二つの因子係数も動かす定理\ref{ifv:thm:versal}では、
  標識付き幾何的形式変形空間への二十次元の同型と、
  モジュライスタックへの局所 \'etale 分類写像を得る。
- 命題\ref{ifv:prop:scale-calibration}は混合尺度の積と、
- 同一因子・同一重みでの各尺度を明示する。
- 異なる因子での二尺度の比、高次可換方程式と全 smooth 係数への延長は未確定である。
+ 系\ref{ifv:cor:generic-comparison}は、一般係数の有限 \'etale 比較と
+ 三次四様体モジュライの稠密開への実現を与える。
+ 命題\ref{ifv:prop:scale-calibration}と定理\ref{ifm:thm:scale-cubes}は、
+ 混合尺度の積と各三乗を明示し、系\ref{ifm:cor:kummer-scale}が
+ 残る三枝と非自明な三次 Kummer 被覆を記述する。
+ 命題\ref{ifd:prop:ambient-locus}は階数一スライスの周囲正則域を決め、
+ 定理\ref{ifd:thm:residual-a2}はその内部に非 smooth な残余圏を与える。
+ 定理\ref{ifj:thm:twelve-coefficients}は固定した多項式切片と反転を保つ核について、
+ 一方向族の二次・三次の未計算部分を十二係数へ絞る。
+ その値、比較核の大域降下と全 residual smooth 係数への比較は未解決である。
 
  \item \emph{零係数の実際の可換比較核。}
  $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
@@ -463,8 +474,21 @@ Heisenberg 同変な比較の選択には、theta 群の交換子と Weil pairin
 \cite[Definition~1.29, Lemmas~1.27, 4.8]{NFMCremonaFisherDescentAlgebra}を用いる。
 本稿ではこの選択により混合一次式の射影的な形を固定し、
 動く二捩れ因子の実相対 Picard 比較と純因子 KS から尺度を較正する。
-二十変数族の局所完全性は、この純方向と十八混合方向の計算を
+二十変数族の局所完全性とモジュライ稠密開の実現は、この純方向と十八混合方向の計算を
 実相対核へ接続した帰結である。
+尺度の三乗の計算には、Moore 行列の Hesse 行列式表示
+\cite[Sections~2.1, 2.6]{IFMBuchweitzPavlov}を使う。
+その既知の行列式表示と、本稿の affine Clifford 臨界スキーム同型、
+全係数比較による尺度の較正は区別する。
+また Heisenberg 不変三次式の gradient による二次 covariant の記述は
+Beauville\cite[Section~1, Proposition~1]{IFJBeauvilleCoble}の既知機構である。
+本稿では元の九係数でその基底を記述し、指定周期を保つ反転同変な実核を構成して、
+固定多項式切片の二次・三次項を十二係数へ還元する。
+階数一の $A_2$ 型例では、次数一の中心単元による射影 chart と
+その行列代数表示を直接計算する。
+その後の無限自己 Ext には既知の Tate--Shamash 解消
+\cite[Construction~4.1.3, Proposition~4.1.4, Remark~4.1.5]{CMOEisenbudPeeva}を用いる。
+これらの一般理論自体や、今回の具体的適用の初出確認を主張するものではない。
 Clifford 代数と三次四様体の残余圏を結ぶ先行例として、
 Kuznetsov\cite[Section~4, Lemma~4.2, Theorem~4.3]{NFKuznetsovCubicFourfolds}は、
 平面を含む三次四様体の quadric fibration を用い、
@@ -762,9 +786,13 @@ perfect 整延長が存在する。
 四・五次元型の原点近傍の smoothness・実 Ku 比較を得た。
 両 Clifford 因子の双方向十八変数族も局所的に比較でき、
 二つの因子係数を加えた二十変数族は分離点で幾何的に形式完全となる。
-次の課題は、異なる因子での二尺度の比と高次可換方程式の具体化、
-残余 smooth locus とその全体への核の延長、
-および一般の複数 ordered pair を含む混合核の同時積分である。
+定理\ref{ifm:thm:scale-cubes}によって尺度の連続的な不定性は解消し、
+残る三枝は系\ref{ifm:cor:kummer-scale}の Kummer 被覆で記述された。
+次の具体計算は、式\eqref{ifj:eq:probe-table}の七つの一変数族を三次まで実比較し、
+固定切片の十二係数の値と非消滅を決めることである。
+また、定理\ref{ifd:thm:residual-a2}の特異例を含む残余判別を求め、
+退化 Clifford 部分を含む smooth locus とその全体への核の延長、
+比較核の三枝選択・大域降下、一般の複数 ordered pair の同時積分を調べる。
 全線形 PBW 族の可換 Ku 比較は得たが、その一般の中心環・PI 性の分類は別問題である。
 実 Morita 同値は積分数値 Grothendieck 群の同型も与えるが、
 表示した二対象がその積分基底となることや、核の作用の基底表示は未計算である。

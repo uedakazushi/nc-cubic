@@ -1,0 +1,473 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v65.
+\subsection{Clifford 臨界点の随伴行列と一般二因子の混合尺度}
+\label{ifm:subsec:scale}
+
+命題\ref{ifv:prop:scale-calibration}は二方向の混合尺度の積を決定した。
+本小節では、定数 PBW 族の正則中心上の臨界点を、
+点曲線の方程式の臨界点へ明示的に移す。
+既に構成された全係数の実比較にこの計算を適用すると、
+一般の異なる二因子についても各混合尺度の三乗が決まる。
+残る三乗根は指定周期を保つ実比較の選択であり、
+因子係数の全体上では非自明な Kummer 被覆をなす。
+
+以下では $\tau\ne0$、$\tau^3\ne1,-8$ とし、
+方程式と中心元の規約を
+\[
+ f_\tau(\mathbf z)=\tau(z_1^3+z_2^3+z_3^3)
+                   -(2+\tau^3)z_1z_2z_3,
+ \qquad \Omega_\tau=2(1-\tau^3)\omega
+\]
+に固定する。添字は三を法として循環させる。
+
+\subsubsection{一因子の二つの臨界点模型}
+
+定数補正 $\boldsymbol\alpha=(\alpha_1,\alpha_2,\alpha_3)$ に対し
+\[
+ D_{\tau,\alpha}
+  =\C\langle x_1,x_2,x_3\rangle/
+       (\{x_{a+1},x_{a+2}\}+\tau x_a^2-\alpha_a)_{a=1}^3
+\]
+と置く。$X_a=x_a^2$ は中心的であり、これは
+$\C[\mathbf X]$ 上の三次元 Clifford 代数である。
+その対称行列、行列式および体積元は
+\begin{equation}\label{ifm:eq:clifford-data}
+ q_{aa}=X_a,\qquad
+ q_{a+1,a+2}=\frac{\alpha_a-\tau X_a}{2},\qquad
+ D=\det q,\qquad \omega^2=-D
+\end{equation}
+を満たす。
+$\omega\ne0$ の開では中心は
+\[
+ Z_{\tau,\alpha}^{\times}
+   =\Spec\C[\mathbf X,\omega,\omega^{-1}]/(\omega^2+D)
+\]
+であり、$D_{\tau,\alpha}$ はこの滑らかな三次元空間上の
+次数二の Azumaya 代数となる。
+実際、$\det q$ は単元であり、\'etale 局所で $q$ を対角化すると、
+三次元 Clifford 代数の中心は $1,\omega$ で張られ、
+中心への底変更後には二次行列代数となる。
+$\omega$ 方向の偏微分 $2\omega$ が単元なので、表示した中心も滑らかである。
+
+次の行列を用いる：
+\begin{equation}\label{ifm:eq:hesse-matrix}
+ H_\tau(\mathbf z)=
+ \begin{pmatrix}
+ \tau z_1&z_3&z_2\\
+ z_3&\tau z_2&z_1\\
+ z_2&z_1&\tau z_3
+ \end{pmatrix},\qquad
+                 \det H_\tau(\mathbf z)=-f_\tau(\mathbf z).
+\end{equation}
+これは Buchweitz--Pavlov\cite[Section~2.1]{IFMBuchweitzPavlov}の
+Moore 行列 $M_{(\tau,1,1),\mathbf z}$ の第二・第三行を交換したものであり、
+行列式表示とその随伴行列は既知の Hesse 幾何の構成である。
+同文献の Section~2.6 は曲線上の随伴行列を反転の graph として解釈する。
+以下ではこの行列を affine Clifford 中心の臨界条件へ適用し、
+元の定数 PBW 係数を保った臨界点と臨界値の対応を直接証明する。
+
+\begin{lemma}[非零中心値における臨界点の明示同型]
+\label{ifm:lem:adjugate-critical}
+$Z_{\tau,\alpha}^{\times}$ 上の $\Omega_\tau$ の臨界点族は、
+\begin{equation}\label{ifm:eq:comm-critical}
+        \nabla f_\tau(\mathbf z)=\boldsymbol\alpha,
+                    \qquad f_\tau(\mathbf z)\ne0
+\end{equation}
+という可換臨界点族と、$\boldsymbol\alpha$ の基底上で同型である。
+可換側からの写像は
+\begin{equation}\label{ifm:eq:adjugate-map}
+ q=-\operatorname{adj}H_\tau(\mathbf z),\qquad
+ X_a=z_a^2-\tau^2z_{a+1}z_{a+2},\qquad
+ \omega=-f_\tau(\mathbf z),
+\end{equation}
+逆写像は
+\begin{equation}\label{ifm:eq:adjugate-inverse}
+              z_a=\frac{\operatorname{adj}(q)_{a+1,a+2}}{\omega}
+\end{equation}
+で与えられる。臨界値の間には
+\begin{equation}\label{ifm:eq:critical-values}
+   \Omega_\tau=(1-\tau^3)
+           \bigl(f_\tau(\mathbf z)-\boldsymbol\alpha\cdot\mathbf z\bigr)
+\end{equation}
+が成り立つ。
+\end{lemma}
+
+\begin{proof}
+$\omega$ が単元なので、中心上での臨界点条件は
+$\partial D/\partial X_a=0$ である。
+$A=\operatorname{adj}(q)$ と書くと、この三式は
+\begin{equation}\label{ifm:eq:critical-adjugate}
+                         A_{aa}=\tau A_{a+1,a+2}
+\end{equation}
+となる。従って $z_a=A_{a+1,a+2}/\omega$ と置けば
+$A=\omega H_\tau(\mathbf z)$ である。
+随伴行列の恒等式と $D=-\omega^2$ より
+\[
+ \omega^3\det H_\tau(\mathbf z)=\det A=D^2=\omega^4,
+ \qquad
+ \operatorname{adj}(A)=Dq
+\]
+を得る。これから $f_\tau(\mathbf z)=-\omega$ と
+$q=-\operatorname{adj}H_\tau(\mathbf z)$ が従う。
+その対角成分と対角外成分はそれぞれ
+\[
+ X_a=z_a^2-\tau^2z_{a+1}z_{a+2},\qquad
+ q_{a+1,a+2}=\tau z_a^2-z_{a+1}z_{a+2}.
+\]
+従って式\eqref{ifm:eq:clifford-data}から
+\[
+ \alpha_a=\tau X_a+2q_{a+1,a+2}
+           =3\tau z_a^2-(2+\tau^3)z_{a+1}z_{a+2}
+           =\partial_a f_\tau(\mathbf z)
+\]
+となる。
+
+逆に式\eqref{ifm:eq:comm-critical}から式\eqref{ifm:eq:adjugate-map}を定めると、
+$\det q=-f_\tau^2=-\omega^2$ であり、
+\[
+ \operatorname{adj}(q)
+   =\operatorname{adj}(\operatorname{adj}H_\tau)
+   =(\det H_\tau)H_\tau=\omega H_\tau
+\]
+となる。これは式\eqref{ifm:eq:critical-adjugate}を満たし、
+表示した二つの写像が互いに逆であることも示す。
+以上は $\omega$ を反転した環での恒等式なので、
+閉点だけでなく臨界点のスキームについての同型である。
+最後に Euler 恒等式から
+$\boldsymbol\alpha\cdot\mathbf z=3f_\tau(\mathbf z)$ であり、
+可換臨界値は $-2f_\tau(\mathbf z)=2\omega$ となる。
+これが式\eqref{ifm:eq:critical-values}を与える。
+\end{proof}
+
+\begin{corollary}[八個の Azumaya Morse 点]
+\label{ifm:cor:eight-morse}
+各許容 $\tau$ について、$\boldsymbol\alpha$ の非空 Zariski 開上で、
+$\Omega_\tau$ は $Z_{\tau,\alpha}^{\times}$ に相異なる非零値を持つ
+八個の非退化臨界点を持つ。
+それらの値は、集合として、
+$f_\tau-\boldsymbol\alpha\cdot\mathbf z$ の八個の臨界値の
+$(1-\tau^3)$ 倍である。
+\end{corollary}
+
+\begin{proof}
+$f_\tau$ は滑らかな平面三次の方程式なので、
+$\nabla f_\tau:\mathbb A^3\to\mathbb A^3$ は有限平坦で次数八である。
+例えば最高次の三つの偏微分は正則二次列であり、
+その Koszul 複体の濾過から、全 $\boldsymbol\alpha$ の臨界代数の
+自由階数が八であることが分かる。
+標数零の有限優勢写像であるため一般点で \'etale であり、
+一般の fiber の Hessian は非退化である。
+$f_\tau=0$ の像は有限写像による真の閉集合なので、
+これを除くと全臨界値は非零となる。
+
+値の相異性も有限 \'etale 被覆上で確認できる。
+臨界値 $v=f_\tau-\boldsymbol\alpha\cdot\mathbf z$ は
+$dv=-\sum_a z_a\,d\alpha_a$ を満たす。
+対角外の二つの臨界点の値が一つの成分上で恒等的に一致すれば、
+その微分も一致して全座標 $z_a$ が等しくなるため矛盾する。
+有限被覆上の各差の零集合の像を除けば全八値が相異なる。
+前補題の基底上の同型は臨界点族の \'etale 性も保つので、
+非可換側の中心関数の Hessian も非退化である。
+\end{proof}
+
+\begin{remark}[非 Azumaya 点の扱い]
+\label{ifm:rem:nonazumaya}
+補題\ref{ifm:lem:adjugate-critical}は $\omega\ne0$ の開を扱い、
+$\det q=0$ の点を同じ局所型と見なしていない。
+特に随伴行列が零となる rank 一の行列は、
+$D$ の臨界点であっても上の中心の滑らかな開には含まれない。
+後の尺度決定では、八個の Azumaya 点から得る非 smooth 係数の包含と、
+既存の全係数 Morita 比較を併用する。
+非 Azumaya 部分の分類を仮定して悪い係数集合を決めることはしない。
+\end{remark}
+
+\subsubsection{臨界値の二次 moment}
+
+可換臨界代数と臨界関数を
+\[
+ C_{\tau,\alpha}
+   =\C[\mathbf z]/(\partial_af_\tau-\alpha_a)_{a=1}^3,
+ \qquad v=f_\tau-\boldsymbol\alpha\cdot\mathbf z
+\]
+とし、$\operatorname{Tr}_{C_{\tau,\alpha}}(v^2)$ を
+$m_\tau(\boldsymbol\alpha)$ と書く。
+これは非被約な fiber も含めて定義される乗法の trace である。
+
+\begin{lemma}[非零な二次 moment 多項式]
+\label{ifm:lem:moment}
+$d_\tau=\tau^3-1$ と置くと、
+\begin{equation}\label{ifm:eq:moment}
+ d_\tau^2m_\tau(\boldsymbol\alpha)
+     =A_\tau\sum_a\alpha_a^3+B_\tau\alpha_1\alpha_2\alpha_3,
+\end{equation}
+ただし
+\[
+ A_\tau=\frac{8(\tau^9+6\tau^6-96\tau^3+8)}{27\tau(\tau^3+8)},
+ \qquad
+ B_\tau=-\frac{16(\tau^3+2)^2}{\tau^3+8}.
+\]
+各許容 $\tau$ について $m_\tau$ は零多項式ではない。
+一般の $\boldsymbol\alpha$ における八個の非可換臨界値の二次 moment は、
+$d_\tau^2m_\tau(\boldsymbol\alpha)$ に等しい。
+\end{lemma}
+
+\begin{proof}
+$h=(\tau^3+2)/(3\tau)$、$b_a=\alpha_a/(3\tau)$ と置くと、
+臨界代数の関係式は $z_a^2=h z_{a+1}z_{a+2}+b_a$ である。
+ここで
+\[
+ 1-h^3=-\frac{(\tau^3-1)^2(\tau^3+8)}{27\tau^3}\ne0.
+\]
+この代数は
+$1,z_1,z_2,z_3,z_1z_2,z_2z_3,z_3z_1,z_1z_2z_3$
+を基底に持つ。関係式から、例えば
+\[
+ (1-h^3)z_1^2z_2
+       =h^2b_3z_1+b_1z_2+hb_2z_3
+\]
+を得る。この式と巡回置換を用いて八基底上の乗法の対角成分を取ると、
+\[
+ \operatorname{Tr}(z_az_b)
+       =\frac{6h^2b_c}{1-h^3}\quad(\{a,b,c\}=\{1,2,3\}),
+ \qquad
+ \operatorname{Tr}(z_a^2)
+       =\frac{2(4-h^3)b_a}{1-h^3}
+\]
+となる。第一式では六つの対角成分が $h^2b_c/(1-h^3)$、
+残る二つが零であり、第二式は二次関係の trace からも得られる。
+
+臨界代数内で $v=-\frac23\boldsymbol\alpha\cdot\mathbf z$ だから、
+\[
+ m_\tau
+  =\frac{8(4-h^3)}{27\tau(1-h^3)}\sum_a\alpha_a^3
+       +\frac{16h^2}{3\tau(1-h^3)}\alpha_1\alpha_2\alpha_3.
+\]
+$h$ を戻せば式\eqref{ifm:eq:moment}となる。
+$B_\tau=0$ となるのは $\tau^3=-2$ の場合だけであり、
+このとき $A_\tau$ の括弧内の分子は $216$ である。
+従って二つの係数は同時に零にならない。
+最後の主張は式\eqref{ifm:eq:critical-values}による。
+\end{proof}
+
+\subsubsection{同じ境界核による二項比較と尺度の較正}
+
+二因子を固定し、$d_i=\tau_i^3-1$、$a_i\ne0$ と置く。
+補題\ref{ife:lem:equivariant-kernel}と
+補題\ref{ifv:lem:moving-split-kernel}の規約による
+Heisenberg 同変な原点核・rotation 比較射・指定周期を固定する。
+定数 Bockstein と中心平方作用の尺度を $\ell_i,q_i$ と書く。
+これらは前小節と同じ写像であり、
+\begin{equation}\label{ifm:eq:known-products}
+ \gamma_i:=\ell_iq_i=\frac{2a_id_i}{3\tau_i},\qquad
+ \kappa_{12}=\ell_1q_2,\qquad \kappa_{21}=\ell_2q_1
+\end{equation}
+を満たす。
+
+\begin{lemma}[全係数比較で用いる二項尺度]
+\label{ifm:lem:same-bockstein}
+同じ原点核を入力として定理\ref{euk:thm:universal-kernel}を適用し、
+一次中心補正を零とする。
+得られる可換三次族は
+\begin{equation}\label{ifm:eq:comparison-family}
+ W=a_1f_{\tau_1}(\mathbf z_1)+a_2f_{\tau_2}(\mathbf z_2)
+       -u^2\sum_{i=1}^2 b_i\boldsymbol\alpha_i\cdot\mathbf z_i
+       +\kappa_c c u^3,
+ \qquad b_i,\kappa_c\ne0
+\end{equation}
+と書け、その二項係数は
+\begin{equation}\label{ifm:eq:same-ratio}
+                          \frac{b_1}{b_2}=\frac{\ell_1}{\ell_2}
+\end{equation}
+を満たす。
+\end{lemma}
+
+\begin{proof}
+命題\ref{euk:prop:coefficients}の重みから、一次補正が零のとき
+$L=\mathsf A\alpha$、$C=\kappa_c c$ である。
+命題\ref{ebc:prop:constant-iso}は、$v=u^2$ の full Bockstein を
+実中心超平面制限の二項 comonad データの差と同定する。
+定理\ref{ift:thm:rank-nine}の $L_i$ も、同じ定数 PBW 変形、
+同じ指定三乗周期、同じ原点核を用いてこの自然変換を移したものである。
+従って別の境界核による係数を比較しているのではない。
+
+可換参照族における二項の差は $-\delta L$ である
+（補題\ref{euk:lem:commutative-reference}）。
+Heisenberg 同変性から各ブロックの係数は scalar であり、
+上の二つの同定の間に残り得る connecting class の符号は全ブロックで共通である。
+共通の法線対象の同定を scalar 倍する規約を用いても、
+その作用は同じ二項比較空間全体への一つの scalar 倍である。
+従って $(b_1,b_2)$ と $(\ell_1,\ell_2)$ は共通非零 scalar を除いて一致し、
+式\eqref{ifm:eq:same-ratio}が従う。
+ここでは $\kappa_c$ の絶対値やこの共通 scalar を計算する必要はない。
+\end{proof}
+
+\begin{theorem}[異なる二因子の混合尺度の三乗]
+\label{ifm:thm:scale-cubes}
+上の固定した比較に対し、
+\begin{equation}\label{ifm:eq:ell-ratio}
+ \frac{\ell_1^3}{\ell_2^3}
+       =\frac{a_1^3d_1^2}{a_2^3d_2^2}.
+\end{equation}
+従って元の非可換関係係数と標準方程式の規約で
+\begin{equation}\label{ifm:eq:mixed-cubes}
+ \boxed{\quad
+ \kappa_{12}^3=\frac{8a_1^3d_1^2d_2}{27\tau_2^3},\qquad
+ \kappa_{21}^3=\frac{8a_2^3d_2^2d_1}{27\tau_1^3}.
+ \quad}
+\end{equation}
+これらの式は全ての許容 $\tau_1,\tau_2$ で成立する。
+\end{theorem}
+
+\begin{proof}
+非可換側の定数族を $u=1$ の chart で見ると、
+\[
+ (D_{\tau_1,\alpha_1}\otimes D_{\tau_2,\alpha_2})/
+                  (a_1\Omega_1+a_2\Omega_2+c)
+\]
+である。系\ref{ifm:cor:eight-morse}の八値を各因子で取り、
+その和が全て相異なるよう一般の $\boldsymbol\alpha_1,\boldsymbol\alpha_2$ を選ぶ。
+この条件は非空である。実際、各因子の係数を $t_i^2$ 倍すると
+八値は $t_i^3$ 倍され、異なる添字の和の一致は
+$(t_1^3,t_2^3)$ に対する有限個の真の線型超平面だけを除く条件となる。
+
+その各 $c=-a_1s_1-a_2s_2$ では、二つの次数二 Azumaya 代数の tensor 積と
+非退化 Hessian により、完備中央局所代数は
+\[
+ \operatorname{Mat}_{4}\left(
+       \C[[v_1,\ldots,v_6]]/(v_1^2+\cdots+v_6^2)\right)
+\]
+となる。その単純加群の自己 Ext の級数は
+$(1+s)^6/(1-s^2)$ であり、全次数に非零成分を持つ。
+補題\ref{mcs:lem:azumaya-morse-detection}の証明を適用する。
+ここで行列の次数を $6^2$ から $2^2$ に替える以外の入力は同じである。
+実際、Clifford 表示は斉次化後も有限中心性を与え、
+この閉点の単純加群は中心 chart に有限台を持つ coherent 対象へ延長する。
+その全自己 Ext は chart のものに等しい。
+また命題\ref{emc:prop:line-model}の正則周囲代数・正則中心元・有限 line 模型の入力を持つ。
+線束圏が smooth なら coherent 飽和が成立して上の非有界 Ext と矛盾するので、
+残余線束圏は非 smooth である。
+
+従って相異なる $64$ 個の上記の係数は全て悪い $c$ である。
+既に存在する定理\ref{euk:thm:universal-kernel}の全係数 Morita 比較により、
+これらは式\eqref{ifm:eq:comparison-family}の可換特異係数集合に含まれる。
+$u=0$ の境界は滑らかであり、$u=1$ の gradient 代数の階数は $8^2=64$ だから、
+後者の相異なる点の数は高々 $64$ である。
+よって二つの集合は等しい。
+これは非 Azumaya 点の別の局所型を排除してから推論した等式ではない。
+
+各一因子の臨界値の和は零である。
+可換側では $\mathbf z\mapsto-\mathbf z$ が臨界点を対にして値を反転させ、
+非可換側では式\eqref{ifm:eq:critical-values}を使えばよい。
+従って $64$ 個の和の二次 moment には異なる因子の交差項が現れない。
+前補題の $b_i$ を用いると、可換多項式
+$a_if_{\tau_i}-b_i\boldsymbol\alpha_i\cdot\mathbf z_i$ の二次 moment は
+\[
+                \frac{b_i^3}{a_i}m_{\tau_i}(\boldsymbol\alpha_i)
+\]
+である。これは $m_{\tau_i}$ が $\boldsymbol\alpha_i$ の斉次三次式であることから従う。
+非可換側では、重み $a_i$ を含めると
+$a_i^2d_i^2m_{\tau_i}(\boldsymbol\alpha_i)$ となる。
+二つの $64$ 点集合の等式から、共通因子八を除いて
+\[
+ \kappa_c^2\sum_{i=1}^2 a_i^2d_i^2m_{\tau_i}(\boldsymbol\alpha_i)
+       =\sum_{i=1}^2\frac{b_i^3}{a_i}m_{\tau_i}(\boldsymbol\alpha_i)
+\]
+を得る。両辺は係数の多項式なので、一般係数で得た等式は恒等式である。
+各 $m_{\tau_i}$ は零多項式ではなく、二つのブロックの変数は独立だから、
+\[
+                     b_i^3=\kappa_c^2a_i^3d_i^2
+                     \qquad(i=1,2)
+\]
+となる。この二式の比を取り、式\eqref{ifm:eq:same-ratio}を使うと
+未定の共通中心尺度 $\kappa_c$ が消えて式\eqref{ifm:eq:ell-ratio}を得る。
+個別の $\ell_i^3$ を絶対的に決定したとはしていない。
+
+最後に式\eqref{ifm:eq:known-products}を用いれば
+\[
+ \kappa_{12}^3=\frac{\ell_1^3}{\ell_2^3}\gamma_2^3,
+ \qquad
+ \kappa_{21}^3=\frac{\ell_2^3}{\ell_1^3}\gamma_1^3
+\]
+となり、式\eqref{ifm:eq:mixed-cubes}が従う。
+moment の非消滅は各許容 $\tau_i$ で確認したので、
+特別な $j$ 値を一般点からの推測で補ってはいない。
+\end{proof}
+
+\subsubsection{三乗根の選択とその大域的な障害}
+
+\begin{corollary}[混合尺度の Kummer torsor]
+\label{ifm:cor:kummer-scale}
+次の正規化した比を置く：
+\begin{equation}\label{ifm:eq:theta}
+ \theta=\frac{a_2\tau_2}{a_1\tau_1}\frac{\kappa_{12}}{\kappa_{21}}.
+\end{equation}
+すると
+\begin{equation}\label{ifm:eq:kummer}
+ \theta^3=\frac{d_1}{d_2},\qquad
+ \kappa_{12}=\frac{2a_1d_1}{3\tau_2\theta},\qquad
+ \kappa_{21}=\frac{2a_2d_2\theta}{3\tau_1}.
+\end{equation}
+指定周期を保つ実比較の選択を変えることにより、
+$\theta$ の三つの値は全て実現される。
+一方、$\tau_1,\tau_2$ を動かす開 $T$ 上で
+$\theta^3=d_1/d_2$ が定める次数三の有限 \'etale 被覆は非自明であり、
+大域的な有理切断を持たない。
+\end{corollary}
+
+\begin{proof}
+前定理から式\eqref{ifm:eq:kummer}の最初の式を得る。
+残る二式は、命題\ref{ifv:prop:scale-calibration}の積
+$\kappa_{12}\kappa_{21}=\gamma_1\gamma_2$ と
+前定理の三乗を用いて確定する。
+具体的には右辺の候補は各尺度と同じ二乗・三乗を持つので一致する。
+
+三つの選択は、可換境界の実際のブロックスカラー自己同型
+\[
+ g_{\zeta_1,\zeta_2}:
+       (\mathbf z_1,\mathbf z_2)\longmapsto
+                 (\zeta_1\mathbf z_1,\zeta_2\mathbf z_2),
+                    \qquad \zeta_i\in\mu_3,
+\]
+を原点核の標的へ後合成することで実現できる。
+この自己同型は $F$ を正確に保ち、Heisenberg 作用と可換する。
+MF 模型の内部 shift と $F$ による実周期にも両立するため、
+その graph の perfect 核との合成は rotation と指定周期を保つ実比較を与える。
+座標の移送を上の表示の向きに取れば、一次・二次の自然変換への作用は
+それぞれ $\zeta_i,\zeta_i^2$ であり、
+\[
+ \ell_i\longmapsto\zeta_i\ell_i,\qquad
+ q_i\longmapsto\zeta_i^2q_i,
+\]
+\[
+ \kappa_{12}\longmapsto\zeta_1\zeta_2^2\kappa_{12},\qquad
+ \kappa_{21}\longmapsto\zeta_2\zeta_1^2\kappa_{21},\qquad
+ \theta\longmapsto(\zeta_2/\zeta_1)\theta.
+\]
+移送の向きを逆に定義する規約では全指数が同時に反転するが、
+得られる三つの選択は同じである。
+対角の $\zeta_1=\zeta_2$ は比を変えず、商の $\mu_3$ が三つの値に単純推移的に作用する。
+この構成は実際の全体核を与えるため、因子ごとの rotation 比較射の三乗根と
+全体の一つの rotation 比較射の scalar 自由度を同一視する必要がない。
+前定理の三乗の固定と合わせ、混合尺度の選択は表示した $\mu_3$-torsor となる。
+
+$T$ 上で $d_1/d_2$ は単元なので、この被覆は有限 \'etale である。
+しかし関数体 $\C(\tau_1,\tau_2)$ で $d_1/d_2$ は三乗ではない。
+実際、境界因子 $\tau_1=1$ に沿う付値は一である。
+従って $\theta^3-d_1/d_2$ はこの関数体上既約であり、有理切断は存在しない。
+除外境界の付値は、開 $T$ の関数体における三乗性の判定に使用している。
+\end{proof}
+
+\begin{remark}[固定した選択と未決定の対象]
+\label{ifm:rem:scope}
+実際の原点核と rotation 比較射を全て固定した場合、
+$\theta$ は既に一つの値を持ち、自由な正規化変数ではない。
+系\ref{ifm:cor:kummer-scale}はその値の満たす式と、選択を変更したときの作用を示す。
+同一 $\tau$・同一重みで同じ一因子の選択を外積し、交換同変にした場合は
+命題\ref{ifv:prop:scale-calibration}の
+$\kappa_{12}=\kappa_{21}=2a(\tau^3-1)/(3\tau)$ と一致する。
+また上の次数三被覆は混合尺度のための被覆であり、
+実核全体の最小定義体や Picard・Heisenberg・周期の全標識の降下次数を
+同定したものではない。
+高次可換方程式、全 smooth 係数への同じ核の延長、
+全内在的非可換三次の被覆は引き続き別の問題である。
+\end{remark}
