@@ -1,16 +1,19 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-22 / v52.
+% Current result: 2026-11-22 / v53.
 \section{中心二重根の全 coherent 分解と実残余関手}
 \label{mix:sec:root-order}
 
 零係数の対合を取ると、混合代数は中心元の二乗根として記述できる。
 本節ではその記述から tensor と inflation の関手を作り、
 全 coherent 射影圏と残余圏まで分解を降ろす。
-得られるのは可換四様体の Kuznetsov 成分から
+まず可換四様体の Kuznetsov 成分から
 $\operatorname{Ku}_{\mathrm{coh}}(A_0)^{\mu_2}$ への実際の完全忠実関手と、
-その補成分・貼合せの具体的な記述である。
-通常の $\operatorname{Ku}_{\mathrm{coh}}(A_0)$ と可換候補の同値は、
-この段階ではまだ得られていない。
+その補成分・貼合せの具体的な記述を得る。
+次に貼合せに現れる球面制限を境界上の twist 射から比較し、
+定理\ref{cmo:thm:fixed-zero-commutative-kernel}で
+通常の $\operatorname{Ku}_{\mathrm{coh}}(A_0)$ と指定可換候補の
+$\C$-線型 dg Morita 同値の perfect 核を構成する。
+この固定値の構成は、交換子パラメータの一般点核の特殊化を用いない。
 
 可換な根スタックの半直交分解と、分岐因子の残余圏を mutation して
 同変残余圏へ移す方法は既知である
@@ -687,13 +690,17 @@ $\operatorname{diag}(a,\sigma(a))$、最初の群の生成元を成分交換行�
 従って通常の残余圏の間にも実際の perfect 比較核が得られる。
 \end{proof}
 
-この命題の $F_S$ は既存の分離比較から得られるが、
-$F_R$ と\eqref{cmo:eq:root-order-restriction-intertwiner}は未構成である。
-指標への両立とその二乗の coherence は、これらの入力核から同値を得た後に
-上の方法で補正・同変化でき、通常残余圏の dg 比較に対する追加の未解決入力ではない。
-二つの残余成分の Hochschild 群が一致することや、
-境界の $F_S$ だけから貼合せ写像を決定することはできない。
-定理\ref{cmo:thm:root-order-residual}は、この残りの問題を
-不変環の残余圏と一つの具体的な導来制限関手に集約したものである。
+この命題の境界核 $F_S$ は既存の分離比較から得られる。
+後続の球面制限の比較では、その rotation と twist 射への両立を確認し、
+全 coherence を持つ comonad の同型から $F_R$ と
+\eqref{cmo:eq:root-order-restriction-intertwiner}を構成する。
+指標への両立とその二乗の coherence は、この命題の補正・同変化で処理する。
+従って定理\ref{cmo:thm:fixed-zero-commutative-kernel}では、
+二つの対角成分の実核と貼合せ双加群の比較を経て通常の残余圏の同値を得る。
+定理\ref{cmo:thm:root-order-residual}は、その構成を
+不変環の残余圏と一つの具体的な導来制限関手へ還元する段階である。
 
 \input{papers/sections/mixed/invariant_comparison.tex}
+\input{papers/sections/mixed/curved_invariant_model.tex}
+\input{papers/sections/mixed/spherical_comparison.tex}
+\input{papers/sections/mixed/spherical_boundary_class.tex}

@@ -1,0 +1,501 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\section{非 PI 変形の相対対角と一般点核の整延長}
+\label{mix:sec:kernel-specialization}
+
+定理\ref{mix:thm:h-exact-candidate}の一般点核を $h=1$ で調べるためには、
+形式的な係数の代入ではなく、同じ代数族の上に proper な圏と perfect な核を置く必要がある。
+本節では、次数付き ambient の有限 Koszul 解消と、射影積上の通常の coherent 対角を使う。
+族全体が有限中心を持つことは仮定しない。
+得られるのは、$h=1$ を含む実際の相対 smooth proper 模型と、
+指定された一般点核を延長する perfect 整核である。
+$h=1$ の通常の Ku 同値の存在は、
+定理\ref{cmo:thm:fixed-zero-commutative-kernel}の直接構成で得られる。
+本節の整核について残るのは、選択済みの一般点核との整合性を保ったまま、
+特殊ファイバーでも unit/counit が同型となる延長を選べるかという問題である。
+
+\subsection{局所および半局所の七線束模型}
+
+\[
+ R_1=\C[h]_{(h-1)},\qquad
+ R_{01}=S^{-1}\C[h],\qquad
+ S=\{f\in\C[h]\mid f(0)f(1)\ne0\}
+\]
+と置く。以下で $R$ はこのいずれかとする。
+その Jacobson radical の生成元を
+\[
+ \varpi=h-1\quad(R=R_1),\qquad
+ \varpi=h(h-1)\quad(R=R_{01})
+\]
+と書く。$R_{01}/(\varpi)=\C\times\C$ の二因子は $h=0,1$ に対応する。
+$R$ は正則な半局所 PID で、$h^6+27$ は単元である。
+式\eqref{mix:eq:h-mixed-family}の base change を
+\[
+ B=\mathscr B\otimes_{\C[h]}R,\qquad A=B/(w_h)
+\]
+と書く。
+
+\begin{proposition}[非 PI 族の proper な七線束模型]
+\label{mix:prop:h-semilocal-model}
+$B,A$ および $B^{\mathrm{op}}\otimes_RB$、
+$A^{\mathrm{op}}\otimes_RA$ は左右 noetherian である。
+$B$ は $R$ に相対的な長さ七の augmentation Koszul 解消と
+長さ七の双加群解消を持ち、その各項の階数は $\binom7j$ である。
+これらは次数別に $R$-分裂し、通常の底変更を保つ。
+相対 Gorenstein 型は
+\[
+ R\underline{\operatorname{Hom}}_B(R,B)\simeq R(7)[-7],
+ \qquad
+ R\underline{\operatorname{Hom}}_A(R,A)\simeq R(4)[-6]
+\]
+である。
+
+$\mathcal O(i)=\pi A(i)$ とし、
+\[
+ E=\bigoplus_{i=0}^{6}\mathcal O(i),\qquad
+ \Sigma_R=R\operatorname{End}(E)
+\]
+と置く。$\Sigma_R$ は $R$-proper であり、
+\begin{equation}\label{mix:eq:h-local-line-hom}
+ \operatorname{Ext}^p(\mathcal O(i),\mathcal O(j))=
+ \begin{cases}
+ A_{j-i},&p=0,\\
+ (A_{i-j-4})^\vee,&p=5,\\
+ 0,&\text{その他}
+ \end{cases}
+\end{equation}
+となる。各群は有限自由 $R$-加群である。
+この dg 模型と例外列
+$\langle\mathcal O,\mathcal O(1),\mathcal O(2),\mathcal O(3)\rangle$
+による射影 $\operatorname{pr}$ に対し、
+\[
+ G_R=\operatorname{pr}\mathcal O(4)\oplus
+     \operatorname{pr}\mathcal O(5)\oplus
+     \operatorname{pr}\mathcal O(6),\qquad
+ \Gamma_R=R\operatorname{End}(G_R)
+\]
+を残余模型とする。
+両模型は剰余体および一般点への導来底変更と両立する。
+両模型には $u\mapsto-u$ の相対作用がある。
+\end{proposition}
+
+\begin{proof}
+命題\ref{mix:prop:h-flat}により、全代数は次数別有限自由である。
+$h=0$ の ambient は七変数多項式環であり、
+$h=1$ の ambient の Koszul 性と自己双対性は
+命題\ref{cmo:prop:proper-contraction}の証明を $t=1$ で特殊化して得られる。
+後者とその商は、系\ref{cmo:cor:relative-finite-center}によって有限中心上有限である。
+従って $B/(\varpi)$ とその包絡環、および対応する $A$ の商は左右 noetherian である。
+
+補題\paperref{main}{lp:lem:noetherian}の証明を $(\varpi)$ に適用する。
+同補題で使う条件は、係数環の局所性そのものではなく、
+$(\varpi)\subset\operatorname{Jac}(R)$ と、各内部次数での Krull 交叉である。
+実際、
+\[
+ (B/(\varpi))[T]\twoheadrightarrow\operatorname{gr}_{(\varpi)}B
+\]
+があり、斉次イデアルの初項の有限生成元を持ち上げる。
+固定内部次数で商は有限 $R$-加群なので、
+$\bigcap_q\varpi^qM=0$ と Nakayama による同じ証明が働く。
+包絡環には二つの内部次数の和を使う。
+この方法は、一般ファイバーの PI 性を必要としない。
+
+補題\paperref{main}{lp:lem:resolution}も同様に半局所環上で使える。
+二つの剰余ファイバーの Koszul 空間は同じ階数と shift を持ち、
+$R$ 上の有限射影加群は自由である。
+augmentation と対角の有限自由解消を次数別に持ち上げると、
+各段階の核は次数別有限自由で、底変更後の核も正しく計算される。
+最後の核は剰余が零なので零である。
+双対解消の単元成分を消去すれば上の ambient Gorenstein 式を得る。
+正則中心三次 $w_h$ の二項解消から商の式が従う。
+
+以上は命題\ref{cmo:prop:proper-contraction}の線束 Hom の計算と同じ入力である。
+特に、補題\paperref{main}{lp:lem:local-cohomology}の次数 filtration の証明と
+命題\paperref{main}{lp:prop:basechange}の底変更の証明が適用でき、
+式\eqref{mix:eq:h-local-line-hom}を得る。
+例外射影は有限個の evaluation cone であり、その Hom は $R$-perfect なので、
+残余模型も proper で底変更を保つ。
+対合は元の代数、線束、evaluation を保つ。
+\end{proof}
+
+\subsection{射影積における有限性}
+
+通常の coherent 対角を使うため、射影積の模型を明記する。
+$A$ と、同じ条件を満たすもう一つの中心三次商 $A'$ に対し、
+\[
+ C=A^{\mathrm{op}}\otimes_RA'
+\]
+を二重次数付き代数とする。
+$\operatorname{QGr}^{(2)}C$ は、
+各元が $C_{\ge n,\ge n}$ で消える加群を除いた商であり、
+$\operatorname{qgr}^{(2)}C$ はその noetherian 対象の部分圏とする。
+この積と二重次数対角は
+Ballard--Farman \cite[Definitions~3.16, 3.18, Section~3.4]{CMOBallardFarman}
+のものを使う。
+本節では体上の結果をそのまま係数環 $R$ に適用せず、
+以下の相対有限性を確認する。
+必要な $A'$ は $A$ 自身、または
+$R[X_1,\ldots,X_7]/(W_h^{\mathrm{cand}})$ である。
+後者の $h=0,1$ のファイバーは滑らかである。
+
+\begin{lemma}[ambient 解消による射影積の制御]
+\label{mix:lem:h-projective-product}
+上の二重次数射影圏では、次が成立する。
+\begin{enumerate}
+ \item 全ての線束
+ $\mathcal O(i,j)=\pi(A^{\mathrm{op}}(i)\otimes_RA'(j))$
+ は compact であり、それらは非有界導来圏を生成する。
+ 任意の abelian 圏の対象 $N\in\operatorname{QGr}^{(2)}C$ に対して
+ $\operatorname{Ext}^q(\mathcal O(i,j),N)=0$ は $q>12$ で成立する。
+ \item coherent な $N$ に対し
+ $R\operatorname{Hom}(\mathcal O(i,j),N)$ は $R$-perfect である。
+ $N$ が次数別 $R$-flat な加群で表示される場合、この計算は剰余体と一般点への底変更を保つ。
+ \item coherent な $M,N$ に対し、各
+ $\operatorname{Ext}^q(M,N)$ は有限 $R$-加群である。
+\end{enumerate}
+一変数の射影圏にも同じ結論が成立し、第一項の上界は六でよい。
+\end{lemma}
+
+\begin{proof}
+まず中心三次商 $A=B/(w)$ の torsion を ambient $B$ で計算できることを確認する。
+この一段の Tor--Hom 計算は左加群で記し、右加群には反対環で同じ計算を適用する。
+$B_{<n}=B/B_{\ge n}$ とすると、$A$ の二項 $B$-自由解消より
+\[
+ \operatorname{Tor}_i^B(A,B_{<n})=0\quad(i>1).
+\]
+$\operatorname{Tor}_1$ は
+$w:B_{<n}(-3)\to B_{<n}$ の核である。
+$w$ の正則性により、この核の内部次数は $n,n+1,n+2$ に限られる。
+従って $n'\ge n+3$ の遷移
+\[
+ \operatorname{Tor}_1^B(A,B_{<n'})
+ \longrightarrow\operatorname{Tor}_1^B(A,B_{<n})
+\]
+は零である。
+$I$ を graded $A$-injective とし、導来随伴を用いれば
+\[
+ \operatorname{Ext}_B^q(B_{<n},I)
+ =\operatorname{Hom}_A
+       \bigl(\operatorname{Tor}_q^B(A,B_{<n}),I\bigr).
+\]
+右辺の正次数部分は $n$ に関する直極限で零になる。
+従って $I$ は $B$-torsion functor に関して acyclic であり、
+$A$-加群上で
+\begin{equation}\label{mix:eq:h-torsion-independence}
+ R\tau_A=R\tau_B,\qquad RQ_A=RQ_B
+\end{equation}
+が成立する。ここで $RQ$ は導来 saturation functor である。
+
+$B$ の相対対角解消は長さ七であり、$B_{<n}$ は $R$-free なので
+$\operatorname{pd}_B B_{<n}\le7$ である。
+noetherian 性から、この加群には有限階数の項を持つ有限自由解消を選べる。
+従って $R\tau_B$ の cohomological dimension は高々七で、
+coproduct と可換である。$RQ_B$ の正次数は六以下になる。
+式\eqref{mix:eq:h-torsion-independence}により同じことが $A$ に成立する。
+
+二重次数の場合、二つの saturation の合成が積の saturation を計算する。
+これは \cite[Proposition~3.41]{CMOBallardFarman} の truncation による計算である。
+相対の場合も、各因子が $R$-flat なので加群の restriction は injective を保ち、
+必要な truncation の有限自由解消と coproduct の可換性は直前に確認した。
+tensor を導来 tensor として同じ計算を行うと
+\[
+ RQ_C\simeq RQ_A\,RQ_{A'}
+           \simeq RQ_B\,RQ_{B'}
+\]
+を得る。上界は $6+6=12$ で、coproduct とも可換である。
+内部次数 $(i,j)$ の評価は線束からの導来 Hom だから、これらの線束は compact である。
+全線束からの Hom が零なら導来 saturation の全次数が零となるので、生成性も従う。
+
+次に $D=B^{\mathrm{op}}\otimes_RB'$ と置く。
+その相対対角解消は長さ十四であり、
+$\operatorname{gldim}R=1$ から $\operatorname{gldim}D\le15$ である。
+$D$ は noetherian で、coherent な二重次数 $C$-加群は有限生成 $D$-加群でもある。
+従って有限階数の二重次数自由加群による有限解消を持つ。
+最後の有限射影加群が自由であることは、
+正次数イデアルで割った有限射影 $R$-加群の基底を持ち上げれば分かる。
+この解消を tails へ移す。
+ambient 線束の cohomology は相対 Gorenstein 計算により各因子で次数零と六にのみあり、
+各群は有限自由 $R$-加群である。
+二つの有限解消を tensor した K\"unneth 計算も同様である。
+従って $N$ の線束からの Hom は有界で有限 $R$-cohomology を持つ。
+$R$ が正則なのでこれは $R$-perfect である。
+$N$ が次数別 $R$-flat なら、解消の各 syzygy も次数別 $R$-flat であり、
+各内部次数で分裂した解消を選べる。
+ambient 線束の底変更と合わせると第二項の底変更も従う。
+
+最後に、$M$ を有限線束和による上に有界な解消で計算する。
+$C$ の noetherian 性により各項を有限和にできる。
+その hyper-Ext spectral sequence では、
+固定した全次数に寄与する項は有限個であり、
+第二項により各項が有限 $R$-加群である。
+これで第三項を得る。
+\end{proof}
+
+\subsection{coherent な平坦対象の compact 性の持上げ}
+
+次の補題は、射影積上の通常の加群を使う箇所である。
+proper な dg 代数のファイバーが smooth であるという条件だけからの推論ではない。
+
+\begin{lemma}[有限 Ext と普通の平坦対象による持上げ]
+\label{mix:lem:coherent-compact-lift}
+補題\ref{mix:lem:h-projective-product}の一変数または二変数射影圏を $\mathcal C_R$ とする。
+coherent な $M\in\mathcal C_R$ に対して
+$\varpi:M\to M$ が単射であり、
+各閉ファイバー $M_s$ が $D(\mathcal C_s)$ で compact であるとする。
+このとき $M$ は $D(\mathcal C_R)$ で compact である。
+\end{lemma}
+
+\begin{proof}
+閉ファイバーの線束は compact generator の集合なので、
+$M_s$ は有限個の線束の有限な cone、shift、直和、直和因子から得られる。
+線束の cohomological dimension の一様な上界を使うと、
+ある $d$ があり、全ての coherent な $N_s$ について
+\begin{equation}\label{mix:eq:h-special-ext-bound}
+ \operatorname{Ext}^q_{\mathcal C_s}(M_s,N_s)=0
+ \qquad(q>d)
+\end{equation}
+となる。閉点は一つまたは二つしかないので、$d$ はその最大値に取れる。
+
+まず $\varpi:N\to N$ も単射とする。
+特殊ファイバーの包含を $i$ と書く。
+$M$ の $R$-flatness による導来随伴から
+\[
+ R\operatorname{Hom}_{\mathcal C_R}(M,i_*N_0)
+ \simeq R\operatorname{Hom}_{\mathcal C_{R/(\varpi)}}(M_0,N_0)
+\]
+を得る。ここでは $R_{01}/(\varpi)=\C\times\C$ の場合は二つの Hom の直積である。
+短完全列
+$0\to N\xrightarrow{\varpi}N\to i_*N_0\to0$
+と式\eqref{mix:eq:h-special-ext-bound}より、$q>d$ で
+\[
+ \varpi:\operatorname{Ext}^q(M,N)\longrightarrow
+                   \operatorname{Ext}^q(M,N)
+\]
+は全射となる。
+補題\ref{mix:lem:h-projective-product}の有限性と
+$(\varpi)\subset\operatorname{Jac}(R)$ による Nakayama から、
+この Ext 群は零である。
+
+一般の coherent な $N$ に対しては、有限線束和からの全射
+$P\twoheadrightarrow N$ を取り、核を $K$ とする。
+$K\subset P$ なので $\varpi$ は $K$ 上単射である。
+直前の消滅を $P,K$ に適用し、長完全列を使えば、
+同じ $q>d$ で $\operatorname{Ext}^q(M,N)=0$ を得る。
+従ってこの議論は、$N[\varpi]\ne0$ の対象も含む。
+
+$M$ に有限線束和から順に全射を取り、$n>d$ に対して
+\[
+ 0\longrightarrow K_n\longrightarrow P_{n-1}\longrightarrow\cdots
+ \longrightarrow P_0\longrightarrow M\longrightarrow0
+\]
+を作る。各 syzygy は coherent である。
+この列の境界射 $M\to K_n[n]$ は
+$\operatorname{Ext}^n(M,K_n)=0$ により零である。
+従って $M$ は有限複体
+$[P_{n-1}\to\cdots\to P_0]$ の直和因子である。
+各 $P_i$ は compact なので、$M$ も compact である。
+この証明は coherent 圏に projective object があることを仮定しない。
+\end{proof}
+
+\begin{theorem}[零点と一点を含む実際の相対 perfect 対角]
+\label{mix:thm:h-semilocal-smooth}
+命題\ref{mix:prop:h-semilocal-model}の $\Sigma_R,\Gamma_R$ は相対 smooth proper である。
+また
+\[
+ D^b(\operatorname{qgr}A)=\operatorname{Perf}(\Sigma_R)
+\]
+であり、全 coherent Kuznetsov 成分は $\operatorname{Perf}(\Gamma_R)$ である。
+これらの等式は dg Morita 同値を意味する。
+特に $R=R_{01}$ は $h=0,1$ を同じ相対 smooth proper 模型に含め、
+その模型は対合を保つ。
+\end{theorem}
+
+\begin{proof}
+ambient augmentation 解消を $A$ へ tensor した複体の cohomology は
+$R,R(-3)$ だけであり、どちらも torsion である。
+従って tails でこの長さ七の複体は完全となる。
+両端の線束を順に解けば、七つの連続した線束が全 twist を厚生成する。
+補題\ref{mix:lem:h-projective-product}の一変数版により、
+$E$ は $D(\operatorname{QGr}A)$ の compact generator である。
+
+二重次数の対角を
+\[
+ (\Delta_A)_{i,j}=A_{i+j}\qquad(i,j\in\mathbb Z)
+\]
+とする。射影圏では $i,j\ge0$ の部分 $\Delta_A^+$ で表示できる。
+商 $\Delta_A/\Delta_A^+$ の各元は十分大きい二重次数で消えるからである。
+$A$ は次数一で生成されるので、$\Delta_A^+$ は $(0,0)$ の元 $1$ で生成される。
+従って
+\[
+ \mathcal D_A=\pi\Delta_A^+
+\]
+は普通の coherent 対象であり、次数別に $R$-free である。
+この具体的な対象の compact 性を証明する。
+
+相対 Gorenstein 双対は線束 $\mathcal O(i)$ を左線束 $\mathcal O(-i)$ に移す。
+torsion 対象の双対も torsion なので、この双対は線束の厚生成圏へ降りる。
+$E^\vee=\bigoplus_{i=0}^{6}\mathcal O_{A^{\mathrm{op}}}(-i)$、
+$F=E^\vee\boxtimes_RE$ と置くと、$F$ は積の compact generator である。
+線束の K\"unneth と対角の評価により
+\begin{equation}\label{mix:eq:h-projective-diagonal}
+ \begin{split}
+ R\operatorname{End}(F)&\simeq
+       \Sigma_R^{\mathrm{op}}\otimes_R^{\mathbf L}\Sigma_R,\\
+ R\operatorname{Hom}(F,\mathcal D_A)&\simeq\Sigma_R
+ \end{split}
+\end{equation}
+を得る。第二式は左右作用を持つ式である。
+
+この相対計算に使う条件を補足する。
+graded 加群上の tensor--Hom evaluation を二つの saturation に通す計算は、
+\cite[Propositions~3.42, 4.14, Theorem~4.15, Remark~4.17]{CMOBallardFarman}
+の対角と外積の計算である。
+ここでは、左右の相対 Gorenstein 型から得られる $\chi$、
+式\eqref{mix:eq:h-torsion-independence}による有限 cohomological dimension、
+次数別自由性を使って同じ導来 tensor 計算を行う。
+各 truncation には有限階数自由解消を使い、基底環上の tensor は導来 tensor とする。
+従って体上の tensor の完全性を暗黙に使う必要はない。
+また、得られる evaluation と K\"unneth の写像は、
+補題\ref{mix:lem:h-projective-product}によって両辺 $R$-perfect で底変更を保つ。
+閉ファイバーでは上記文献の恒等式であり、
+その cone の剰余が零であることと半局所 Nakayama からも
+式\eqref{mix:eq:h-projective-diagonal}を確認できる。
+
+$h=0$ の全 coherent 圏は滑らかな可換三次五様体の圏である。
+$h=1$ の全 coherent 圏の smooth proper 性は
+定理\ref{cmo:thm:exact-sixty-four}と $P_{64}(0)\ne0$ による。
+従って式\eqref{mix:eq:h-projective-diagonal}の閉ファイバーで、
+$\mathcal D_{A_s}$ は compact である。
+補題\ref{mix:lem:coherent-compact-lift}を普通の平坦対象 $\mathcal D_A$ に適用すると、
+$\mathcal D_A$ は compact となる。
+compact generator による dg Morita 理論
+\cite[Theorem~3.8(c)]{NFMKellerDg}と式\eqref{mix:eq:h-projective-diagonal}から
+\[
+ \Sigma_R\in\operatorname{Perf}
+       (\Sigma_R^{\mathrm{op}}\otimes_R^{\mathbf L}\Sigma_R)
+\]
+を得る。有限例外列の admissible な直交成分にも smooth proper 性が移るので、
+$\Gamma_R$ についても同じ結論となる。
+
+全 coherent 圏との一致も確認する。
+coherent な平坦対象 $M$ の閉ファイバーは、既知の smooth proper な全 coherent 圏の対象なので compact である。
+従って同じ持上げ補題により $M$ は compact である。
+一般の coherent 対象は有限線束和 $P$ の商として表示し、
+平坦な核 $K\subset P$ を使えば compact となる。
+逆に、有限線束複体とその直和因子は有界 coherent cohomology を持つ。
+これで全 coherent 圏と compact 圏の一致を得る。
+全構成の上で $u\mapsto-u$ は定義され、対角の同変構造も保たれる。
+\end{proof}
+
+同じ証明は、$R_1$ の有限体拡大における半局所整閉包 $\widetilde R$ と、
+その各閉点での DVR $R'$ にも成立する。
+$\widetilde R$ は有限平坦な半局所 Dedekind 環であり、
+その Jacobson radical も単項で、剰余環は有限個の $\C$ の直積である。
+各次数の自由性、特殊ファイバーの Koszul 型、
+特殊ファイバーでの smooth proper 性が変わらないので、
+上の $(\varpi)$ による議論をそのまま適用できる。
+また $A$ と可換候補の混合射影積にも適用できる。
+その閉ファイバーの積 dg 代数は smooth proper であり、
+任意の coherent 対象は、線束からの Hom が proper であることから compact となる。
+補題\ref{mix:lem:coherent-compact-lift}により、
+相対混合積でも全ての coherent 対象が compact である。
+
+\subsection{指定された一般点核を延長する}
+
+\begin{theorem}[指定候補への perfect 整核の存在]
+\label{mix:thm:h-integral-kernel}
+$K=\C(h)$ とし、定理\ref{mix:thm:h-exact-candidate}で得た有限拡大 $K'/K$ と
+指定候補への一般点比較核 $P_{K'}$ を固定する。
+$R_1$ の $K'$ における整閉包を $\widetilde R$ とする。
+これは $R_1$ 上有限平坦な半局所 Dedekind 環である。
+その各閉点での局所化を $R'$ とする。
+非可換側の残余模型を $\Gamma_{\widetilde R}$、
+可換候補の残余模型を $\Lambda_{\widetilde R}$ とすると、
+\[
+ P_{\widetilde R}\in\operatorname{Perf}
+  (\Gamma_{\widetilde R}^{\mathrm{op}}
+       \otimes_{\widetilde R}^{\mathbf L}\Lambda_{\widetilde R}),
+ \qquad P_{\widetilde R}\otimes_{\widetilde R}K'\simeq P_{K'}
+\]
+を満たす核が存在する。特に各 $R'$ 上で
+\begin{equation}\label{mix:eq:h-integral-kernel}
+ P_{R'}\in\operatorname{Perf}
+       (\Gamma_{R'}^{\mathrm{op}}\otimes_{R'}^{\mathbf L}\Lambda_{R'}),
+ \qquad
+ P_{R'}\otimes_{R'}K'\simeq P_{K'}
+\end{equation}
+を満たす核が存在する。
+従って両側に随伴を持つ実際の関手
+\[
+ \Phi_{P_{R'}}:\operatorname{Perf}(\Gamma_{R'})
+       \longrightarrow\operatorname{Perf}(\Lambda_{R'})
+\]
+を構成でき、その一般ファイバーは指定された Ku 同値である。
+この主張は $\Phi_{P_{R'}}$ の特殊ファイバーが同値であることを含まない。
+\end{theorem}
+
+\begin{proof}
+可換候補の $h=1$ の方程式は
+$G_{\alpha^{(1)}}+100G_{\alpha^{(2)}}$ であり、
+定理\ref{cmo:thm:commutative-discriminant-candidate}の $c=0$ の滑らかな五様体を定める。
+射影族の滑らかさの開性により、$R_1$ 上の候補は smooth proper である。
+非可換側は定理\ref{mix:thm:h-semilocal-smooth}による。
+これらの性質は $\widetilde R$ および $R'$ への底変更後も成立する。
+
+まず、一般点の核を残余圏の inclusion と projection に合成し、
+全 coherent 圏の間の核とする。
+体 $K'$ 上での非可換射影積の核の定理
+\cite[Theorem~4.15]{CMOBallardFarman}により、
+これは混合二重次数射影積の perfect 対象である。
+smooth proper 性により有界 coherent 複体で表示できる。
+さらに、有限個の射と $d^2=0$ の関係を十分高い二重次数で持ち上げれば、
+有限生成二重次数加群の有界複体で表示できる。
+ここでは商圏の射が高次数の切断上の射として表示されることと、
+有限生成 torsion 加群の十分高い二重次数が零であることを使う。
+
+この有界複体の各項の有限個の斉次生成元を選ぶ。
+最小の複体次数から順に、それらと前項の微分の像が生成する
+$\widetilde R$ 上の graded lattice を取る。
+各 lattice は一般点の項の部分加群なので $\widetilde R$-torsionfree であり、
+各内部次数は有限自由である。
+微分の像を加えたので lattice は有界複体をなし、$d^2=0$ はそのまま保たれる。
+各項の一般ファイバーは元の項全体である。
+これにより、一般点核を延長する通常の coherent 複体
+$\widetilde P_{\widetilde R}$ を得る。
+
+相対混合積では、各 coherent lattice の特殊ファイバーは compact である。
+補題\ref{mix:lem:coherent-compact-lift}により各項が compact となるから、
+有界複体 $\widetilde P_{\widetilde R}$ も perfect である。
+両側の四つの例外線束による残余射影を合成する。
+それらの射影核は有限個の evaluation cone からなる perfect 核である。
+得られる残余双加群を $P_{\widetilde R}$ とすれば、
+一般点では既に残余圏に属する核を射影しているので、
+主張した一般点との同定を満たす。
+各閉点で局所化すれば式\eqref{mix:eq:h-integral-kernel}を得る。
+非 henselian な $R_1$ 上では $R'$ 自体が有限 $R_1$-加群とは限らないため、
+有限性は局所化する前の $\widetilde R/R_1$ に対して主張している。
+相対 smooth proper 性からこの核の左右随伴も perfect 核で表される。
+\end{proof}
+
+\begin{remark}[選択済み一般点核との相対整合性]
+\label{mix:rem:h-integral-defect}
+定理\ref{mix:thm:h-integral-kernel}は整核の存在を与えるが、その選択は一意ではない。
+核から構成した随伴の unit と counit の cone は、
+$R'$-perfect で、一般ファイバーが零なので、有限長の cohomology を持つ。
+命題\paperref{main}{grl:prop:trait-kernel-test}の非負整数
+$d_{R'}(P_{R'})$ をこの二つの cone の cohomology の長さの総和とすると、
+\[
+ \Phi_{P_{R'}\otimes_{R'}\C}\text{ が同値}
+ \quad\Longleftrightarrow\quad d_{R'}(P_{R'})=0
+\]
+である。
+有限 DVR 拡大ではこの defect は分岐指数倍となるので、
+既に正の defect を持つ延長を底変更するだけでは消えない。
+$h=1$ で何らかの比較核が存在することは、
+定理\ref{cmo:thm:fixed-zero-commutative-kernel}により別に証明されている。
+その直接構成の核が、ここで固定した $P_{K'}$ の特殊化として得られることは
+まだ主張していない。
+残る相対問題は、指定した一般点核を延長する整核の中から
+$d_{R'}(P_{R'})=0$ となるものを構成することである。
+固定ファイバーでの同値の存在、相対 smooth proper 模型の存在、
+選択済み一般点核の可逆な整延長は、以上のように異なる主張である。
+\end{remark}

@@ -1,0 +1,277 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\subsection{固定係数での有限行列分解と曲率を保つ縮約}
+\label{cmo:subsec:curved-invariant-model}
+
+本節では $h=1$ において $\mathcal K_R$ の生成対象を具体化する。
+前節の通常の二側商 $R/(L)$ を用いず、中心三次元 $w$ の高次 homotopy を
+有限自由解消に入れる。この構成には形式パラメータの特殊化を必要としない。
+得られるのは $D$ 上の有限階数の行列分解とその実際の縮約である。
+その全自己準同型 dg 代数が有限次元ベクトル空間である、あるいは
+既に可換三次三様体の代数と同定された、という主張ではない。
+
+\paragraph{有限の非斉次 Koszul 解消.}
+$S_0=S(1,-1,-1)$ とし、$E_0=S_0^!$ を二次双対とする。
+$E_0$ は次数一の $a,b,c$ により生成され、
+\[
+ ab+ba=bc+cb=ca+ac=0,\qquad
+ a^2+bc=b^2+ca=c^2+ab=0
+\]
+を関係とする。次数別次元は $(1,3,3,1)$ であり、
+$1,a,b,c,a^2,b^2,c^2,T=abc$ が基底になる。
+$a^3=b^3=c^3=-T$、$E_0^{\ge4}=0$ で、二次部分は中心である。
+
+$F=E_0\mathbin{\widehat\otimes}E_0$ を符号付き tensor 積とし、
+\begin{equation}\label{cmo:eq:curved-ambient-dual}
+ E=F\mathbin{\widehat\otimes}\Lambda(\epsilon),\qquad
+ d_E|_F=0,\qquad
+ d_E\epsilon=q=-\sum_{i=1}^2\sum_{j=1}^3
+        \alpha_j^{(i)}\xi_{ij}^2
+\end{equation}
+と置く。ここで $\epsilon$ の cohomological 次数は一、内部重みは二で、
+$\xi_{ij}$ の二つの次数はいずれも一である。
+$q$ は中心なので $d_E^2=0$ となる。
+これは、七生成元の補助語長を一とした $D$ の quadratic--linear 双対である。
+関係式 $r+\varphi(r)=0$ に対して $d_E=\varphi^*$ とする規約は
+\cite[\S\S2.1--2.5]{CMOPositselskiQL}に従う。
+
+計算の行列は左 $D$-加群で表示する。$K_i=D\otimes(E^i)^\vee$ とし、
+$\eta\in(E^i)^\vee$ に対して
+\begin{equation}\label{cmo:eq:curved-koszul-differential}
+ d_K(1\otimes\eta)=
+ \sum_{i,j}x_{ij}\otimes L_{\xi_{ij}}^\vee\eta
+   +v\otimes L_\epsilon^\vee\eta+1\otimes d_E^\vee\eta
+\end{equation}
+を左 $D$-線型に延長する。例えば $a_i^2$ に双対な成分では、
+二次積が $x_i^2-y_iz_i+z_iy_i=\alpha_1^{(i)}v$ を与え、
+$d_E^\vee$ の $-\alpha_1^{(i)}\epsilon^\vee$ がこれを相殺する。
+一般にも式\eqref{cmo:eq:curved-ambient-dual}の Leibniz 則により $d_K^2=0$ となる。
+PBW filtration に関する associated graded は
+$S_0\otimes S_0\otimes\C[v]$ の通常の Koszul 解消である。
+各内部次数では filtration が有限なので、この比較から $K\to\C$ は
+長さ七の自由解消となる。総階数は $128$ である。
+
+本稿の右加群規約へ戻すときは、
+\begin{equation}\label{cmo:eq:curved-right-dual}
+ K_i^{\mathrm r}=\underline{\operatorname{Hom}}_D(K_{7-i},D)(-8)
+\end{equation}
+を用いる。命題\ref{cmo:prop:invariant-weighted-algebra}の
+Calabi--Yau 次元七・parameter 八から、これは右剰余体の自由解消である。
+以下の行列を転置し、この添字と内部 shift を用いれば、右加群の構成を得る。
+非可換係数の積の順序を変えずに通常の転置を同じ左加群上で行う操作とは区別する。
+
+\begin{theorem}[固定値の実行列分解と有限曲率縮約]
+\label{cmo:thm:finite-curved-invariant-model}
+指定係数 $\alpha^{(1)}=(1,4,9)$、$\alpha^{(2)}=(16,25,49)$、
+$w=\Omega_1+100\Omega_2$ に対し、次の構成がある。
+\begin{enumerate}
+ \item $K_i\to K_{i+2n-1}$、内部次数 $3n$ の有理係数行列
+ $\sigma_n$、$0\le n\le4$ を有限個の線型方程式から構成できる。
+ $\sigma_0=d_K$ として
+ \begin{equation}\label{cmo:eq:curved-shamash-identities}
+  \sum_{a+b=n}\sigma_a\sigma_b=
+  \begin{cases}w\operatorname{id}_K&n=1,\\0&n\ne1\end{cases}
+ \end{equation}
+ を満たす。これらを周期化すると、階数 $64+64$ の次数付き行列分解
+ $Q_{128}$ を得る。これは剰余体 $\C$ の安定化を表す。
+ \item 定数部分 $\partial=d_E^\vee$ の可縮成分を、曲率を保って有限式で除ける。
+ 得られる行列分解を $Q_{80}$、その微分を $d_{80}$ とすると、階数は $40+40$ であり、
+ 実際の行列 $I,P,H$ が
+ \begin{equation}\label{cmo:eq:curved-contraction-identities}
+ \begin{gathered}
+ d_{80}^2=w\operatorname{id},\qquad d_{128}I=I\,d_{80},\qquad
+ Pd_{128}=d_{80}P,\\
+ PI=\operatorname{id},\qquad
+ IP=\operatorname{id}-d_{128}H-Hd_{128}
+ \end{gathered}
+ を満たす。従って $Q_{128}\simeq Q_{80}$ は行列分解の実 homotopy 同値である。
+ \item 右加群版の $Q_{80}$ を $\kappa_R$ と書けば、
+ \begin{equation}\label{cmo:eq:curved-invariant-generator}
+  G_R=\kappa_R\oplus\kappa_R(1)\oplus\kappa_R(2)
+ \end{equation}
+ は $\mathcal K_R$ を thick 生成する。
+ \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+まず高次 homotopy を構成する。
+中心元 $w$ は $H_0(K)=\C$ を零とするので、$w\operatorname{id}_K$ は null-homotopic である。
+したがって $d_K\sigma_1+\sigma_1d_K=w\operatorname{id}$ を満たす
+$\sigma_1$ がある。一般に、既に低次の $\sigma_a$ を構成したとして
+\[
+ d_K\sigma_n+\sigma_nd_K=-\sum_{a=1}^{n-1}\sigma_a\sigma_{n-a}
+ \qquad(n\ge2)
+\]
+を順に解く。右辺は既知の恒等式と $w$ の中心性により cycle となり、
+$K$ の正の次数での完全性から、基底列ごとの境界持上げで解ける。
+この際、既に構成した低い homological 次数の列を固定して進む。
+内部次数 $3n$ の部分だけで解けば、全ての行列は内部次数を保つ。
+$K_i=0$、$i\notin[0,7]$ なので $n\ge5$ の行列も残る恒等式も自動的に零となる。
+これは既知の Shamash 構成
+\cite[Definition~3.4.1, Proposition~3.4.2]{CMOEisenbudPeeva}の中心元の場合である。
+上の持上げは中心元の乗法以外の可換性を用いず、非可換 $D$ 上で成立する。
+
+各 $K_i$ の基底元の内部重みを $\operatorname{wt}(e)$ とすると、
+$\sigma_n$ の $(e,f)$ 成分の係数は
+$D_{3n+\operatorname{wt}(e)-\operatorname{wt}(f)}$ に属する。
+この有限次元空間は、同じ内部次数の語関係の有理行列から得られる。
+従って上の帰納法は、有限個の有理行列の消去として実行可能である。
+
+周期化は
+\[
+ Q_0=\bigoplus_{p=0}^3K_{2p}(3p),\qquad
+ Q_1=\bigoplus_{p=0}^3K_{2p+1}(3p)
+\]
+とし、$\sum_n\sigma_n$ を $Q_1\to Q_0\to Q_1(3)$ の二つの写像に分ける。
+式\eqref{cmo:eq:curved-shamash-identities}が両合成 $w$ を与える。
+さらに $R=D/(w)$ 上の Shamash 複体
+\[
+ T_m=\bigoplus_{j\ge0}(R\otimes_D K_{m-2j})(-3j)
+\]
+を、$\sigma_a$ が $j$ を $j-a$ へ送る規約で作る。
+内部次数の shift により、これらの写像は次数零になる。
+$R\otimes_D K$ の homology は $\C$ と $\C(-3)[1]$ であり、
+この二つの列を結ぶ $\sigma_1$ の誘導写像は
+$d_K\sigma_1+\sigma_1d_K=w$ による connecting isomorphism である。
+したがって $j$ の filtration の spectral sequence は正の homological 次数で消え、
+$T$ は $\C$ の自由解消となる。
+この議論も $w$ の中心正則性だけを用いる。
+$T_9=Q_1(-12)$、$T_8=Q_0(-12)$ なので、
+$\operatorname{coker}(Q_1\to Q_0)\simeq\Omega_R^8\C(12)$ である。
+特異圏の指定周期 $(3)\simeq[2]$ により、これは $\C$ の安定化を表す。
+
+次に定数微分 $\partial$ を縮約する。
+一ブロックで $q_i=-\sum_j\alpha_j^{(i)}\xi_{ij}^2$ を掛ける写像は、
+次数 $0\to2$ と $1\to3$ のそれぞれで階数一であり、他は零である。
+従って、$q_i$ の作用を持つ $E_0$ は、始点の次数が零と一の長さ二の鎖を各一本、
+次数一と二の長さ一の鎖を各二本持つ。
+$q=q_1\otimes1+1\otimes q_2$ について、二本の長さ二の鎖の tensor 積は
+長さ三と一の鎖に分かれる。長さ二と一の tensor 積も合わせると、
+\begin{equation}\label{cmo:eq:curved-q-ranks}
+ \operatorname{rank}(q:F_r\to F_{r+2})=(1,6,10,6,1)
+ \quad (r=0,\ldots,4)
+\end{equation}
+となる。従って $\partial$ の階数は $24$ で、
+$H=H(\C\otimes_D K,\partial)$ の次元は $80$ である。
+その homological 次数別次元は $(1,6,14,19,19,14,6,1)$ となり、
+偶数部分と奇数部分は各四十次元である。
+
+有限次元の有理線型代数により、両次数を保つ contraction
+\[
+ (H,0)\xrightarrow{i}(E^\vee,\partial)
+ \xrightarrow{p}(H,0),\quad
+ pi=1,\quad\partial h_0+h_0\partial=1-ip,
+ \quad h_0^2=ph_0=h_0i=0
+\]
+を取る。$\partial$ は $F^\vee$ から $(F\epsilon)^\vee$ へ移すので、
+$h_0$ は $\epsilon$ 成分を一から零へ減らし、元の homological 次数を一上げるように選べる。
+さらに $h_0$ の非零な始点の homological 次数は一から五までである。
+
+$\Delta=d_{128}-\partial$ と置く。
+$d_K-\partial$ の項を $h_0$ の後で使うと、$\epsilon$ 成分は零のままとなり、
+それより左に現れる次の $h_0$ は零になる。
+一方、$\sigma_nh_0$、$n\ge1$ は元の homological 次数を $2n$ 上げる。
+従って $(\Delta h_0)^4$ が非零なら、右から三つの段階でこの次数が少なくとも六増え、
+第四の $h_0$ の始点が七以上になる。しかしその始点は高々五なので矛盾する。
+こうして
+\begin{equation}\label{cmo:eq:curved-finite-inverse}
+ (\Delta h_0)^4=0,\qquad
+ B=(1+\Delta h_0)^{-1}
+   =1-\Delta h_0+(\Delta h_0)^2-(\Delta h_0)^3
+\end{equation}
+を得る。この逆行列は $D$ 上の有限式であり、形式級数の収束を仮定しない。
+
+$A=B\Delta$ と置き、
+\begin{equation}\label{cmo:eq:curved-transfer-formulas}
+ d_{80}=pAi,\quad I=i-h_0Ai,\quad P=p-pAh_0,\quad
+ H=h_0-h_0Ah_0
+\end{equation}
+と定める。これらは全て実際の有理係数行列である。
+恒等式 $\partial h_0+h_0\partial=1-ip$ を使うと
+\[
+ (1+\Delta h_0)
+ (\partial A+A\partial+AipA)
+ (1+h_0\Delta)=w\operatorname{id}
+\]
+となる。$w$ が中心で $h_0^2=ph_0=h_0i=0$ であることから、
+この式と $A+\Delta h_0A=\Delta=A+Ah_0\Delta$ を代入して
+式\eqref{cmo:eq:curved-contraction-identities}を得る。
+特に転送後も曲率は厳密に $w$ であり、単に曲率を忘れた複体の縮約ではない。
+式\eqref{cmo:eq:curved-right-dual}を取ると、転置した $P,I,H$ が右加群版の
+包含・射影・homotopy を与える。
+
+最後に生成性を示す。$C=A_0\rtimes\mu_2$ とし、
+次数付き特異圏上の関手
+\[
+ j_{\mathrm{sg}}=(-)\otimes_R e_+C,\qquad
+ j_{\mathrm{sg}}^*=(-)e_+
+\]
+を取る。$e_+C$ は左 $R$-自由・右 $C$-射影、$Ce_+$ は右 $R$-自由なので、
+両関手は perfect 複体を保ち、特異圏へ降りる。
+また $j_{\mathrm{sg}}^*j_{\mathrm{sg}}=\operatorname{id}$ である。
+\S\ref{mix:sec:equivariant-window}の三対象 window と有限群同変化により、
+$D_{\mathrm{sg}}^{\mathbb Z}(C)$ は
+$\C_C^\pm(r)$、$r=0,1,2$ により thick 生成される。
+ここで $j_{\mathrm{sg}}^*\C_C^+(r)=\C_R(r)$、
+$j_{\mathrm{sg}}^*\C_C^-(r)=0$ である。
+従って $D_{\mathrm{sg}}^{\mathbb Z}(R)$ は三つの $\C_R(r)$ で生成され、
+命題\ref{cmo:prop:invariant-weighted-algebra}の MF 比較が
+式\eqref{cmo:eq:curved-invariant-generator}を与える。
+この議論は、異なる qgr window での $j$ の同定を追加の仮定として用いない。
+\end{proof}
+
+\paragraph{行列の再現と接着への入力.}
+\texttt{computations/verify\_mixed\_curved\_dual.py} は、二次関係の直交空間から
+$E_0$ を作り、各内部次数の語関係の有理消去で係数環を計算する。
+境界持上げの行列は、基底と pivot の順序を固定して生成する。
+指定入力で得た $\sigma_1,\sigma_2$ の係数単項式数はそれぞれ $1312,624$ で、
+この選択では $\sigma_3=\sigma_4=0$ となる。
+また $(\Delta h_0)^3=0$ も検算されるが、定理の有限性には四乗零の一般評価を用いた。
+転送微分の係数単項式数は $8228$ である。
+検算器は全ての Shamash 恒等式、内部次数、転送後の曲率、
+$I,P,H$ の五つの比較恒等式を有理数上で直接確認する。
+\texttt{--export} を指定すれば、後続の比較に用いる全行列を出力できる。
+これらの有限恒等式の実行確認と、解消の完全性・生成性の上の証明を区別する。
+
+\begin{corollary}[実 dg 模型と制限核]
+\label{cmo:cor:curved-invariant-end-model}
+$\Gamma_R=\operatorname{End}_{\mathrm{MF}^{\mathbb Z}(D,w)}(G_R)$ と置くと、
+\[
+ \mathcal K_R\xrightarrow{\ \operatorname{RHom}(G_R,-)\ }
+ \operatorname{Perf}(\Gamma_R)
+\]
+は実 dg Morita 同値であり、逆関手は $-\otimes_{\Gamma_R}^{\mathbb L}G_R$ である。
+$\Gamma_R$ の微分と積は、それぞれ行列分解の supercommutator と行列合成で与えられる。
+その各固定 cohomological 次数・内部次数の係数計算は有限である。
+また球面制限 $\mathcal L:\mathcal K_R\to\mathcal K_S$ に対する
+$\mathcal L(G_R)$ は、上の行列の係数を $v=0$ とすることで表される。
+\end{corollary}
+
+\begin{proof}
+前定理の thick 生成性から dg Yoneda--Morita の定理を適用する。
+微分の二乗は $wf-fw=0$ であり、全行列に内部 shift を付けて Hom 複体を作れる。
+$D/(v)$ 上への制限は有限自由行列分解の係数の底変更で計算でき、
+$I,P,H$ の恒等式も底変更後に成立する。
+従ってこの表示は、既存の球面制限の実核に対する生成対象上の具体的な表示を与える。
+\end{proof}
+
+\paragraph{可換三様体との比較に残る積の問題.}
+この有限縮約は、$(v,L)$ による Kn\"orrer 同値ではない。
+特に $F$ の積を変えずに $\epsilon$ と各次数一生成元の反交換子だけを
+可逆な中心周期変数 $t$ の定数倍に置き換える方法は使えない。
+実際、結合的なそのような拡大で
+$\epsilon a+a\epsilon=t\ell_a$、
+$\epsilon b+b\epsilon=t\ell_b$、
+$\epsilon c+c\epsilon=t\ell_c$ とすれば、
+$t^{-1}[\epsilon,-]_{\mathrm{super}}$ は $E_0$ 上の奇導分になる。
+関係 $bc+a^2=0$ の像は $\ell_b c-\ell_c b$ だから
+$\ell_b=\ell_c=0$ であり、巡回的に $\ell_a=0$ も従う。
+指定 $L$ の係数は非零なので、この厳密結合的な ansatz は成立しない。
+実際の $A_\infty$ 模型では、積の変更または高次積による補正が必要である。
+
+可換三様体 $Y$ との実比較と制限の intertwiner は、
+定理\ref{cmo:thm:fixed-zero-commutative-kernel}で球面境界の方法により構成する。
+その核をこの $\Gamma_R$ と可換側の実生成代数 $\Gamma_Y$ の間の
+行列双加群としてさらに具体化することは、別の計算課題である。
+系\ref{cmo:cor:curved-invariant-end-model}はその source と制限を
+固定値で計算できる形にする。曲率付き高次積の全式や直接の Morita 消去を、
+総階数八十という数値だけから結論しない。

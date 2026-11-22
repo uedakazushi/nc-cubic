@@ -1,67 +1,57 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月22日 / v52。正本はGitHub main。証明記載、読解点検、厳密計算、組版、表示確認、保存を区別する。
+2026年11月22日 / v53。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
-## 可換候補への実核と同変残余分解の検証
+## 指定した零係数模型の実核と相対模型
 
-公表用三稿の役割を保ち、混合稿に二重根order・不変環・比較核の本文を統合した。交換子族の節には平坦性、実際の形式MF関手、指定候補の全次数同定と一般点のperfect核を加えた。主稿の序論・概要、研究方針・ノート・READMEもこれらを参照する。point/Poisson不一致は補助例であり、独立の予想には戻していない。
+主結果は混合稿の `cmo:thm:fixed-zero-commutative-kernel` である。指定係数 α¹=(1,4,9), α²=(16,25,49)、重み1,100、固定 h=1,c=0 に対し、Ku_coh(A₀)≃Ku(V(G−u²L)) の通常のC線型dg Morita同値を実perfect核で構成する。主稿の序論・概要、研究方針・ノート・READMEもこの結果を参照する。全標識の同時保存、Q上への降下、選択済み一般点核との相対整合性、元c族の全smooth係数への拡張は結論しない。point/Poisson不一致は補助例として保持する。
 
-### 数学的読解と適用範囲
+### 数学的読解と成立範囲
 
-- **二重根orderと全coherent残余分解：** 中心正則元vを持つRに対するA=R[u]/(u²−v)、C=A⋊μ₂を扱い、冪等ideal、左右の長さ一の解消、全随伴、有限生成性とtorsion保存を確認した。有限図式の共通truncationでqgrへ降ろし、八つの例外対象のmutationを実行した。実際の核Φ、ΨによるKu(A₀)^μ₂=〈ΦKu(Z),ΨK_R〉と、gluingのRHom(F,L M)[−1]を証明本文で点検した。忘却後にΦが完全忠実とは主張しない。
-- **不変環の残余圏と可換側Knörrer核：** D=B^σ、R=D/(w)のCY・AS-Gorenstein入力、parameter8・5、Serre式を中央正則元の定理と照合した。可換不変環ではg−ℓtへの座標変換とrank一のgraded Knörrer核を明示し、K_R^cl≃Ku(Y)を得る。単に同じHHを持つことから分解を推論してはいない。
-- **spherical制限と通常Kuへの降下：** Lの左右随伴、cotwist=ρ_R^(−2)[1]=Serre_KR[−2]、標準随伴射のconeを例外対象へ帰着する計算を確認した。χ≃Serre³[−7]、HH⁰の単元の平方根による二乗coherence補正、Ind(P)上の明示的idempotentを使うstrict同変perfect核、double crossed product≃Mat₂(Γ)を読解した。未構成のF_Rとdg intertwinerがあれば通常Kuのactual perfect核を得るという条件付き判定であり、その二入力を構成済みとはしない。
-- **単純な線型切断の障害：** D/(L)での中心元T_iとc_i、C[v]上の256生成元、v³²Q⊂(c₁,c₂)、v³³Q=0を点検した。従ってR/(L)のqgrは零で、通常の二側商は三次三様体の代用にならない。導来Knörrer比較そのものを否定する結果ではない。
-- **h族の平坦性とproper模型：** h⁶+27≠0上のSklyanin・PBW入力、普遍syzygyの定数項消去、次数別自由性、uとwの正則性を確認した。h=0の局所環上で七線束のproper模型と三対象windowを構成し、C、C[[h]]、C(h)への底変更を得る。0と1を含む開集合全体の相対perfect対角までは未構成である。
-- **実際の形式MF核：** 完備曲率付きbar flowと逆flowを固定三対象へ適用し、両方向のgraph双加群と単位・余単位を記した。全内部shiftと指定三次周期を保つ。有限次数のHom表だけから関手や同値を推論せず、既存の完備MF比較定理の仮定を照合した。
-- **指定potentialの全形式次数同定：** 普遍αに対する補助重みとHeisenberg作用、不変空間の三基底、二ブロック間のgraph edgeの消滅と中心逆像の加法性を点検した。u=0では通常の積・中心逆像を制限した後、三変数の曲率付きflowを別に適用する。七変数MFを非平坦に底変更する論法は使わない。相対THCR、楕円曲線の導来同値からのj一致、jの局所逆、二次jetによる三乗根分枝の固定からb/a=h²/3を得る。共有するuを含む座標正規化で指定候補W_h^candへ厳密に移り、元のパラメータhと三次周期は変えない。
-- **一般点と特殊値の区別：** 固定三対象の局所化、有限体拡大への核の降下、coherent飽和により、C(h)の有限拡大上で指定されたX_h^candへの実perfect核を得る。全行列係数や最小体拡大次数を列挙したという意味ではない。形式核をh=1に評価することはできず、h=1でのperfect整核とunit/counitの消滅は未証明。元の中心係数cを動かす族の指定候補への一般点同定も別の未解決課題である。
+- **実二成分分解と球面周期：** 中心二重根のorderによる全coherent分解、実inflation/tensor/mutation核、gluing=RHom(F,L M)[−1]を保持する。実余単位三角と二本のright mutationからT_L=ρ_S、T_L³=[2]、C_L³=[−1]を確認した。proper性と有限回の三角からLのconservativity、L像とLᴿ像のsplit生成を証明した。Verdier商のproper性やInd上のconservativityは仮定しない。
+- **高次comonadの一意性：** K=Cone(id→ρ)[−1]、J=ρ[−1]について、全n≥2,q≤0でH^q RHom(K,Jⁿ)=0をdiagonal MFの恒等・二つの非恒等sectorから確認した。opposite monoidal stable圏のInd完備化に、unitを固定したA_n構造のtowerを適用する。各非空fiberはΩ∞RHom(K,Jⁿ)[2−n]で可縮、既存の構造によりtowerは非空であり、全高次構造が一意となる。単純なchain-level splittingや一般的な「twistだけから復元」を仮定しない。このtowerとshiftは執筆以外の担当でも一次資料を照合した。
+- **BocksteinとHeisenberg比較：** 自由解消の持上げの二乗をvで割ったoperatorを実twist射と同定した。最小Shamash解消のExtは周期tについてF⊗C[t]として自由であり、六つの二次双対の平方の独立性からパラメータ写像は単射。可換境界のJac(G)₁が六次元なので同型となる。Picard補正をE[3]で線型化し、rotation intertwinerのcharacterをWeil pairingで消去する。両因子を同じ選択にすることでSchurの二scalarが一致し、重み100へ戻してνをLに共通scalarまで同定する。最後にtwist比較をrescaleするので全周期標識の保存は要求しない。
+- **実核の構成：** 境界生成子Gの右随伴像が源を生成し、End(LᴿG)はRHom(KG,G)のcoKleisli積で記述される。全coherenceを保つcomonad比較からgraph双加群を作り、smooth proper性からperfect核P_Rと実制限intertwinerを得る。既存の可換rank一Knörrer核、二成分の貼合せ、χ=Serre³[−7]と二乗coherenceの平方根補正、平均冪等元と二重crossed productを合成し、通常五様体の同値を構成する。単一の全係数行列を列挙したという意味ではない。
+- **固定値での有限行列分解：** 非斉次Koszul双対E=F⊗Λε、dε=−Σαξ²から長さ七の解消を作り、中心wに対する高次homotopyを有限境界持上げで構成する。rank64+64のMFを定数微分の縮約でrank40+40へ移し、d₈₀²=w、二つのchain map、PI=1、IP=1−dH−Hdを確認した。三つの内部shiftがK_Rを生成し、v=0で実制限が得られる。これは総階数80のMFであって80次元A∞自己準同型代数の完成や直接Knörrer消去ではない。Fの積を固定したstrict Clifford ansatzは二次関係と両立しない。
+- **非PI族の相対perfect対角：** R₀₁=C[h]を0,1で半局所化した環上で、次数別自由性、noetherian性、相対Koszul解消、七線束のproper模型と底変更を確認した。bigraded射影積上の通常coherent対角を用いる。torsionのTor遷移の消滅、有限cohomological dimension、coherent Extの有限性と底変更を証明し、特殊ファイバーのcompact性からExt有限性・Nakayama・有限line解消によるretractを通じて相対compact性を持ち上げる。一般のfiberwise smoothからの形式的推論や有限中心性の一般点への流用はしない。
+- **整核と対合指標：** 選択済みgeneric核をcoherentなbigraded複体へ戻し、R-flat格子と上のcompact持上げからperfect整核を得る。有限拡大の整数閉包の有限flat性と、その局所DVRの有限性は区別した。特殊化のunit/counit defect零は未証明で、固定値の別構成の存在だけでは保証しない。相対smooth proper模型にMathew Theorem1.3を適用し、連結性と対合冪等元からHH±₁の正負固有次元(5,16)、HH₀の(2,0)を無条件に得た。
+- **保持する形式・一般点比較：** 普遍PBWの平坦性、曲率付きbar flowと逆flow、Heisenberg不変空間・blocktensor性・楕円中心商による指定potentialの全形式次数同定を入力とする。七変数MFをu=0へ非平坦に底変更する論法は使わない。固定三対象と一般点への降下は保持し、形式h級数をh=1に代入しない。
 
-新規本文について執筆以外の担当による読解を行い、全次数候補同定も独立に点検した。外部査読・形式証明器による検証・文献上の新規性の網羅的確認ではない。HH±₁の非可換対合指標は未決定であり、今回の核構成の前提には置かない。
+新規証明は執筆以外の担当による読解も行った。相対compact持上げと射影積、球面復元のsector・tower・graph、Bockstein・Heisenberg選択を別担当で照合した。これは外部査読、形式証明器による確認、文献上の新規性の網羅的確認ではない。
 
 ### 一次資料の確認箇所
 
 | 一次資料 | 確認箇所と使用範囲 |
 | --- | --- |
-| Kuznetsov–Perry, arXiv:1411.1799v3 | Theorems4.1,6.4、Section7。分岐被覆の残余分解とspherical gluingとの比較。具体的な非可換orderとmutationは本稿で証明する。 |
-| Zhou–Shen–Lu, arXiv:1709.09292v1 | Theorem3.1、Proposition2.3、Remark2.2、Lemma3.4。中心正則元によるskew CY拡大とNakayama自己同型。 |
-| Hirano, arXiv:1602.04769v3 | Theorem1.2。同変Knörrer周期性。重み、文字、正則切断と実rank一核を指定して適用する。 |
-| Anno–Logvinenko, JEMS19(2017),2577–2656 | Definition5.1、Theorem5.1。cotwistのshift規約と標準随伴射の条件(2),(4)。 |
-| Elagin, arXiv:1403.7027v2 | Theorem4.2、Section8。既存の二重同変化・dg enhancement入力。今回は核上の平均idempotentとcrossed productでも直接構成する。 |
-| Braverman–Gaitsgory, arXiv:hep-th/9411113 | PBW判定。h族の唯一の三次syzygyにおける定数項の相殺を直接計算する。 |
-| Smith–Tate, The center of the 3-dimensional and 4-dimensional Sklyanin algebras | Section1。中心三次商のTHCR表示と、特殊パラメータを含む適用範囲。局所底への延長は本文で別に示す。 |
-| Dito, arXiv:math/9905080; Shoikhet, arXiv:math/0007080 | Weyl–Kontsevich比較の二次eye項と内向きwheelの消滅。係数と符号は有限記号計算でも照合する。 |
-| Antieau–Krashen–Ward, arXiv:1409.2580 | Theorem2.2。有理点を持つ楕円曲線の導来同値から同型を得る。h=0の形式近傍でのjの分枝は本文で固定する。 |
+| Willumsgaard, arXiv:2605.11390v1 | Theorem3.3・Lemma3.11。固定unitのA_n構造のtowerとcofiberによる正規化。公刊定理と同一視せず一次preprintに依存する。 |
+| Segal, IMRN2018,3137–3154 | Section3.2、Remarks3.8–3.9とProposition3.10。twist/sectionによる復元案とcoherence上の留保。 |
+| Christ, arXiv:2010.05294v3 | Proposition1.11、Theorem4.1、Section4.1・Example4.10。stable Kleisli、一般的な復元への反例。 |
+| Ballard–Favero–Katzarkov, Publ.IHÉS120(2014),1–111 | Theorem5.39。六変数三次のdiagonal sector公式からHom(id,ρ^b[a])を計算。 |
+| Cremona–Fisher–O’Neil–Simon–Stoll, J.reine angew.Math.615(2008),121–155 | Sections1.3,1.6・Definition1.29。theta群と非退化なWeil交換子。 |
+| Ballard–Farman, JNCG15(2021),1129–1180 | 公刊版Definitions3.16,3.18、Propositions3.41–3.42,4.14、Theorem4.15・Remark4.17・Corollary4.18。bigraded射影積と核。半局所底への有限性は本文で別証明。 |
+| Positselski, arXiv:1411.1982v2 | Sections2.1–2.5,3.3。非斉次二次双対と曲率。 |
+| Eisenbud–Peeva, LNM2152(2016) | Definition3.4.1、Proposition3.4.2、Constructions4.1.1,4.3.1、Proposition4.3.2。Shamashの高次homotopy。非可換中心元での恒等式と完全性は本文で確認。 |
+| Burke, JPAA222(2018),4099–4125 | Definition4.1・Lemma4.4。split unitの正規化されたA∞操作。非分裂unitでのtowerの代用にはしない。 |
+| Negron–Volkov–Witherspoon, JNCG14(2020),531–565 | Sections2.1,2.3,3.1。双加群の高次cooperationと完成tensor。shift規約は本文で明記。 |
+| Mathew, Geom.Topol.24(2020),2675–2708 | Theorem1.3。可換Q代数上の実smooth proper dg圏のHH有限射影性。相対smoothnessを先に証明して適用する。 |
 
-既知のPBW・Knörrer・spherical functor・formality・楕円曲線の導来比較・同変化理論を新規成果として数えない。書誌情報とリンクは共通参考文献に置く。
+既知のPBW・Knörrer・球面関手・operadic obstruction・非可換射影積・相対退化自体を新規成果とは扱わない。書誌・参照箇所・識別子は論文と研究ノートに保持する。
 
 ### 厳密計算とソース整合
 
-`python3 computations/verify_mixed_formal_kernel.py` は **9 PASS・終了コード0**。普遍PBW重なり、Poisson Jacobi/Casimir、一次の曲率付きbar homotopy、七変数の二次eye行列、Weyl補正、候補jetと対合、Jacobian classの非消滅、普遍不変空間の次元3、Hesse jの局所逆と共有正規化を厳密演算で確認した。検証器SHA-256は `b4c7a92f9ae4f5847fffd010accfdb409a6427e56f4232cfdf441dbbe9a5cf72`。
+`python3 computations/verify_mixed_curved_dual.py` は **12 PASS・終了コード0**。実際の非可換関係を有理数上で簡約し、rank64+64の曲率、rank40+40への有限縮約、二つのchain map、retraction・homotopyとstrict Clifford ansatzの障害を検算した。新検証器SHA-256は `68efa8db3e8c3d56e1b38ed458557e6d4a4c321ae14117ef4476c75c970f4c1b`。`--export` で全有理行列を再生成できる。これらの有限恒等式の計算は、解消の完全性・生成性・球面復元・Ku同値の形式証明ではない。
 
-`python3 computations/verify_mixed_invariant_pbw_dual.py` は **5 PASS・終了コード0**。元の関係の直交空間からKoszul双対を構成し、積の結合律、128次元の非斉次Koszul双対のd²=0、qのrank24、cohomology次元80と双次数、Euler級数を確認した。検証器SHA-256は `f950608a1aec0a9e4bed4a73204f89e0b51babff925eebea37043f172dd4c979`。曲率wを加えたA∞移送や比較核をこの計算で構成したとはしない。
+変更していない `verify_mixed_formal_kernel.py` の **9 PASS**、`verify_mixed_invariant_pbw_dual.py` の **5 PASS** は保持する入力であり、今回の新検証器の実行と区別する。前者のSHA-256は `b4c7a92f9ae4f5847fffd010accfdb409a6427e56f4232cfdf441dbbe9a5cf72`、後者は `f950608a1aec0a9e4bed4a73204f89e0b51babff925eebea37043f172dd4c979`。既存の重い中心計算や全検証suiteを今回再実行したとはしない。
 
-二つともPython 3・SymPyによる有限の厳密検算であり、全次数の関手構成・一般点への降下・h=1への特殊化の形式証明ではない。重い全中心計算や既存の全計算suiteを今回再実行したとはしない。
-
-`python3 scripts/check_sources.py` は **92 TeX source・1586一意ラベル**で成功。主稿33 source/477 labels、モジュライ稿45 source/874 labels、混合稿18 source/235 labels。稿ごとのinputグラフ、他稿参照、引用、著者欄、root指定を検査する。`git diff --check` も成功した。
+`python3 scripts/check_sources.py` は **96 TeX source・1649一意ラベル**で成功。主稿33 source/477 labels、モジュライ稿45 source/874 labels、混合稿22 source/298 labels。inputグラフ、他稿参照、引用、著者欄、root指定を検査する。`git diff --check` も成功した。
 
 ### 組版・表示・保存の状態
 
-LuaHBTeX 1.18.0・latexmk 4.86・LaTeX2e 2024-11-01 patch level 2で `python3 scripts/build_papers.py` を実行し、二巡で三稿の相互参照が収束して終了コード0となった。最終のソース検査も92 TeX source・1586ラベルで成功した。
+現行ソースのLuaLaTeX組版を実行中である。新しいPDFの頁数・全ログ・表示はまだ最終確認していないため、完了後にこの段落を実測値へ置き換える。
 
-| 最終PDF | 頁数 | bytes | SHA-256 |
-| --- | ---: | ---: | --- |
-| `nc-cubic.pdf` | 178 | 1,559,365 | `afbc9e9b1d89186c72f43985d233eb287284ac459a73c212bac83336bba42d12` |
-| `cubic-moduli-descent.pdf` | 453 | 3,189,623 | `060b8b5d9e770c7d1766b4c53cd109ff41f3366f8637aeaa5a8c9f6ea33a4a0c` |
-| `mixed-sklyanin-cubics.pdf` | 126 | 1,209,669 | `ba67eddf2f1e57fb78f5c92ed9b445ab85e7c2969a259f8801b9e10869bd6946` |
+組版にはLuaHBTeX1.18.0・latexmk4.86・LaTeX2e2024-11-01 patch level2と整合するLuaTeX-jaを用いる。再生成に必要な依存関係と手順はREADMEに記載し、主三稿のPDFとSyncTeXはbuild/へ出力する。既存の組版・VS Code設定は保持する。
 
-三稿の最終ログについて、未定義参照・引用・制御綴、Missing character、LaTeX Error、multiply defined、Overfull/Underfullは0。数式フォントのサイズ代替、既存の旧書体命令と `\\atop` に関する警告は残るため、全警告0とはしていない。
-
-Popplerで主稿の1・5・159–160頁、混合稿の1–4・73–87・92–105頁、計37頁を画像化し、一覧表示で配置を確認した。混合稿の78・83・85・101・103–104頁と主稿160頁は拡大し、二成分分解とgluing式、同変核のidempotent、Knörrer核、全形式比較の定理、Hesse係数の決定、h=1への未解決の延長問題を確認した。欠字・重なり・切れ・式番号の衝突は認めなかった。三稿全757頁を今回目視したわけではなく、未変更のモジュライ本文や補助ノートの全頁を改めて表示確認したともしていない。
-
-この環境では既存kernelと整合するLuaTeX-jaと和文フォントを用いた。再生成に必要なLuaLaTeX・latexmk・LuaTeX-ja・AMS等・etoolbox・xr-hyper・和文フォントはREADMEの手順に従う。主三稿のPDFとSyncTeXはbuild/へ出力する。組版設定は変更せず、VS CodeのUI操作は行っていない。
-
-PDF、TeX中間生成物、担当別の一時メモ、外部文献PDF、一時的な組版環境はGit追跡に含めない。原稿・研究方針・ノート・AGENTS・README・必要な再現コードを通常コミットで保存し、遠隔mainのcommitとtreeを確認する。research-hubへの反映は対象repoの保存後に別に検査する。
+PDF、TeX中間生成物、全行列の再生成出力、担当別一時メモ、外部文献PDF、一時的組版環境はGit追跡に含めない。原稿・方針・ノート・AGENTS・README・必要な再現コードを通常コミットで保存し、遠隔mainのcommitとtreeを確認する。research-hubへの反映は対象repoの保存後に別に検査する。
 
 ## 保持する数学的検証
 
@@ -70,7 +60,7 @@ PDF、TeX中間生成物、担当別の一時メモ、外部文献PDF、一時�
 ### 相対模型・根スタック・MF比較
 
 - **全領域の相対模型：** cmo:prop:full-relative-hhを執筆担当以外の二名が点検した。固定ambientの有限解消、全閉ファイバーでの中心三次の正則性、次数別自由性、有限中心像の平坦性、射影中央模型、全twistの局所射影性、有限生成対象と底変更を確認。通常のcoherent代数Λと対角Mの底上flatnessと中央台のpropernessを確認してからproper-perfect-spreadを各c₀へ適用し、U全体へ拡張する。一般のproper dg族のfiberwise smoothからの推論は使わない。
-- **通常HHと有理Euler形式：** 実相対smooth proper模型へMathew Theorem1.3を適用し、HHの底変更と連結性、余有限可換実現から全UのHHを求める論理を点検した。pr O(4),pr O(5)の射影係数、Euler行列、det729、基底変換を有理計算でも確認。ShklyarovのHRRとdim HH₀=2から有理Knum基底を得る証明を点検した。積分格子や候補への同値は結論していない。c=0の非可換HH₀上の対合は恒等、HH±₁指標は未決定。
+- **通常HHと有理Euler形式：** 実相対smooth proper模型へMathew Theorem1.3を適用し、HHの底変更と連結性、余有限可換実現から全UのHHを求める論理を点検した。pr O(4),pr O(5)の射影係数、Euler行列、det729、基底変換を有理計算でも確認。ShklyarovのHRRとdim HH₀=2から有理Knum基底を得る証明を点検した。積分格子や候補への同値は結論していない。c=0の非可換HH₀上の対合は恒等であり、HH±₁指標は上記の相対h模型から各(5,16)と決定した。
 - **根スタックの幾何と実圏模型：** cmo:prop:eckardt-smooth-quotientとcmo:thm:eckardt-root-residualの二乗商、Bl_Y P⁵のRees表示、分岐の分離、線束M、根スタック同型を執筆担当とは別に点検した。N²≃Oの指定coherence、Bの線形化、ω_ℛの指標N、同変point blow-upの8対象をSerre逆で末尾へ回す操作、残る8線束、右直交の向き、再同変化、左mutation核の適用順序を確認した。これは可換標的内の実射影核であり、A₀からの比較核ではない。
 - **対合付きHochschild群：** 通常HH±₁の固有次元(+5,−16)は、Jacobian次数二(+16,−5)とresidueのdeterminant符号−1から得る。固定集合Z⊔{p}のLefschetz数28でも照合した。同変HHの(1,5,24,5,1)は根スタック・blow-up SODとorbifold HKRの二通りで確認した。後者にはage shiftを入れず、4例外線束の2指標で8対象を除く。加法的不変量の相殺を圏のSODの相殺と混同しない。
 - **非可換MFの完備化：** cmo:lem:isolated-azumaya-mf-completionを執筆担当以外の二名が点検した。有限射影MFのstable Hom、唯一の圏的特異点に台を持つ有限長Hom、平坦完備化、global simpleの高次syzygyのambient射影次元≤1、実MFへの持上げ、完成先の剰余体stabilizationの生成性を確認した。中心自体に他の特異点がないとは仮定していない。
@@ -89,7 +79,7 @@ PDF、TeX中間生成物、担当別の一時メモ、外部文献PDF、一時�
 | Huybrechts, The Geometry of Cubic Hypersurfaces, 著者版 | Chapter1, Theorem4.21。Jacobian環とprimitive Hodge群のresidue比較。体積形式のdeterminantは本文で直接計算した。 |
 | Dyckerhoff, arXiv:0904.4713v5 | Theorems4.1,5.2・§5.5。可換孤立超曲面の剰余体stabilization、2周期dg Morita、二次形式のClifford模型。非可換orderの完備化自体は本稿で直接証明。 |
 
-書誌・識別子・URLは参考文献と研究ノートに記載する。一般のblow-up・根スタック・二重同変化・相対退化・HRR・MF生成理論を新規結果とは扱わない。具体的模型と適用の文献上の新規性の網羅的確認、外部査読・形式証明器による確認は未了。固定A₀と元c族の指定候補への次数付き比較核、非可換HH±₁の対合指標、積分数値格子、一般αの全非smooth集合は未解決である。
+書誌・識別子・URLは参考文献と研究ノートに記載する。一般のblow-up・根スタック・二重同変化・相対退化・HRR・MF生成理論を新規結果とは扱わない。具体的模型と適用の文献上の新規性の網羅的確認、外部査読・形式証明器による確認は未了。固定A₀の通常の実比較核と非可換HH±₁の対合指標は上記で構成・決定した。元c族の全smooth係数での指定候補比較、全標識付きの核、積分数値格子、一般αの全非smooth集合は未解決である。
 
 ### 比較不変量の厳密計算
 

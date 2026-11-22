@@ -3,11 +3,11 @@
 \SetPaper{mixed}
 
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
-\large 有限中心・局所代数・可換比較の候補}
+\large 有限中心・局所代数・零係数の可換比較核}
 \author{}
-\date{2026年11月22日・研究稿 v52}
+\date{2026年11月22日・研究稿 v53}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
-pdfsubject={有限中心・局所代数・可換比較の候補}}
+pdfsubject={有限中心・局所代数・零係数の可換比較核}}
 
 \begin{document}
 \maketitle
@@ -22,12 +22,17 @@ $S(1,-1,-1)$ の全定数型変形について普遍中心元を明示し、
 また同じ判別集合を持つ可換三次族と、零係数における Eckardt 根スタック模型を与える。
 零係数では中心二重根の order から全 coherent 圏の実関手を構成し、
 同変残余圏を分離型四様体の Ku と不変環の残余圏に分解する。
-接着は具体的な導来制限で与えられ、その球面関手構造も決定する。
-可換側の第二成分は次数付き Kn\"orrer 核により三次三様体の Ku と同定する。
-さらに交換子パラメータの族について全次数の平坦性を証明し、
-指定した可換候補への形式 MF 関手と一般係数体上の実 Ku 核を得る。
-この一般点は交換子パラメータに関するものであり、元の零係数への特殊化、
-元の $c$-族の指定候補への比較、および非可換側の Hochschild 対合指標は未解決である。
+接着は球面導来制限であり、その twist 射を中心変形の Bockstein と同定する。
+Heisenberg 作用による境界類の比較と、高次 coherence を含む
+comonad の一意性を用いて、第二成分と接着の実比較核を構成する。
+二成分の貼合せと二重同変化により、指定した零係数模型について
+$\Ku_{\mathrm{coh}}(A_0)\simeq\Ku(V(G-u^2L))$ を得る。
+これは $\C$ 上の通常の dg Morita 同値である。
+さらに交換子パラメータの族に、零と一を含む半局所底上の
+相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
+相対模型から非可換側の Hochschild 対合指標も決定する。
+固定値の核と選択済み一般点核を可逆な族で結ぶこと、
+および元の $c$-族の全 smooth 係数で指定候補へ比較することは未解決である。
 一方、分離型比較と可換実現 locus の開性を用いれば、
 任意の固定した定数型混合係数に対する余有限の可換 Ku 実現は得られる。
 点スキームと Poisson 零スキームの一致を一般に期待できないことも、
@@ -111,13 +116,14 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  $k\ge2$、$\alpha^{(i)}\in\C^3$、$a_i\ne0$ に対し、
  有限個を除く $c$ で何らかの滑らかな可換三次への Ku 同値を与える。
  他方、定理\ref{cmo:thm:commutative-discriminant-candidate}は指定五様体族について
- 同じ $P_{64}$ と局所通常二重点を持つ明示的な可換族 $X_c$ を構成するが、
- この特定の $X_c$ への同値は一般点でも証明していない。
+ 同じ $P_{64}$ と局所通常二重点を持つ明示的な可換族 $X_c$ を構成する。
+ この特定の $X_c$ への同値は $c=0$ で以下のように構成するが、
+ $c$-族の一般点と全 smooth locus への拡張は残る。
  $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
  根スタック上の十六例外対象の右直交として
  $\Ku(X_0)^{\mu_2}$ を記述する。
 
- \item \emph{零係数の実残余関手と接着への縮約。}
+ \item \emph{零係数の実際の可換比較核。}
  定理\ref{cmo:thm:root-order-residual}は、$R=A_0^\sigma$、$S=A_0/(u)$ に対し
  \[
   \Ku_{\mathrm{coh}}(A_0)^{\mu_2}
@@ -129,26 +135,40 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  命題\ref{cmo:prop:invariant-restriction-spherical}はこの関手の球面性を証明する。
  可換側では命題\ref{cmo:prop:commutative-invariant-knorrer}の実 Kn\"orrer 核により
  $\mathcal K_{R^{\mathrm{cl}}}\simeq\Ku(Y)$ となる。
- 残る比較入力は非可換 $\mathcal K_R$ とこの三様体成分、および接着関手の同定である。
- 二成分の記述から通常の五様体 Ku 同値を得たとはしない。
+ 球面 twist 射を中心変形の Bockstein と同定し、
+ Heisenberg 作用を保つ境界比較で可換側の一次式 $L$ に一致させる。
+ 境界の全 arity の消滅は comonad の高次構造を一意に定めるため、
+ coKleisli 代数から $\mathcal K_R$ の実比較核と制限の intertwiner を構成できる。
+ 定理\ref{cmo:thm:fixed-zero-commutative-kernel}は、貼合せと二重同変化により
+ \[
+  \Ku_{\mathrm{coh}}(A_0)\simeq\Ku(X_0),\qquad X_0=V(G-u^2L)
+ \]
+ を与える。全ての標識を同時に保つことや、核の $\mathbb Q$ 上への降下は結論しない。
 
- \item \emph{同変有限模型と指定候補への形式比較核。}
+ \item \emph{有限行列模型と交換子族の相対比較。}
  命題\ref{cmo:prop:equivariant-window-hom}は augmentation の stabilization
  $K$ と $G=K\oplus K(1)\oplus K(2)$ に対し、
  $H^*R\operatorname{End}(G)$ の全 $384$ 次元と対合の固有分解を求める。
  同変な minimal Shamash 分解と指定三次周期から計算するもので、
- 高次積や Hochschild 微分を計算済みとはしない。
+ 高次積や Hochschild 微分の全式をこの Hom 表から得たとはしない。
+ 定理\ref{cmo:thm:finite-curved-invariant-model}は、
+ 不変環の生成対象を総階数 $80$ の有限行列分解で与え、
+ その微分・制限と縮約写像を厳密に計算できる形にする。
  命題\ref{mix:prop:h-central}と\ref{mix:prop:h-flat}は、対合が底を固定する
  明示変形と $h^6+27\ne0$ 上の次数別平坦性を与える。
  定理\ref{mix:thm:h-formal-kernel}は、可換端点の局所環上の実模型から
  形式 MF 関手、逆関手、三対象上の可逆双加群を構成する。
  定理\ref{mix:thm:h-exact-candidate}は、復元された potential を
  指定した $h$-候補へ全形式次数で同定し、一般係数体の有限拡大上の実 Ku 核を与える。
- $h=1$ の $A_0$ への延長は未証明である。
- 命題\ref{mix:prop:h-generic-nonpi}により一般点では中心上有限性が失われるため、既存の有限中心による
- 相対 smoothness の証明をこの変形へ流用できない。
- 指標一致の帰結は、相対模型を追加仮定とする
- 命題\ref{mix:prop:h-conditional-character}として述べる。
+ 一般点は命題\ref{mix:prop:h-generic-nonpi}により非 PI であるが、
+ 定理\ref{mix:thm:h-semilocal-smooth}は coherent 対角の compact 性を持ち上げ、
+ $h=0,1$ を含む半局所底で相対 smooth proper 模型を構成する。
+ 命題\ref{mix:prop:h-involution-character}はこれから
+ $HH_{\pm1}$ の対合の固有次元 $(5,16)$ を無条件に求める。
+ 定理\ref{mix:thm:h-integral-kernel}は選択済み一般点核を
+ $h=1$ 上の perfect 整核へ延長する。
+ その unit/counit の欠陥が消えるかという問題は、
+ 上の固定値での核の存在とは区別する。
 \end{enumerate}
 
 点スキームは可換 Ku 実現に付随する零点不変量として無条件には使えない。
@@ -189,6 +209,16 @@ Eckardt 模型の残余圏は Orlov の blow-up 公式
 不変環の正則性には正規拡大の定理\cite{CMOZhouShenLu}、
 可換三様体成分の核には同変 Kn\"orrer 周期性\cite{CMOHiranoKnorrer}、
 接着関手の球面性には dg 随伴射の判定\cite{CMOAnnoLogvinenkoSpherical}を使う。
+twist とその射から球面関手を復元する着想は
+Segal \cite[Section~3.2]{CMOSegalSphericalTwists}に現れるが、
+一般には underlying functor と unit だけでは高次構造を復元できない
+\cite[Example~4.10]{CMOChristSphericalMonadic}。
+本例では、Ballard--Favero--Katzarkov
+\cite[Theorem~5.39]{NFBFKKernels}の対角 sector 公式から全 arity の消滅を示し、
+Willumsgaard \cite[Theorem~3.3, Lemma~3.11]{CMOWillumsgaardAssociativity}の
+単位を固定した結合構造の obstruction tower を適用する。
+この追加の消滅と Heisenberg 作用による Bockstein の比較が、
+指定した固定値の実核を得るための本稿の具体的な入力である。
 これらの一般理論自体を本稿の成果とはしない。
 本稿での内容は、指定族に対する中心・局所切断・対角・残余模型の具体的な組合せと、
 その適用範囲の決定である。個々の具体化について後続文献まで含む
@@ -200,8 +230,14 @@ Eckardt 模型の残余圏は Orlov の blow-up 公式
 Sklyanin 曲線と標準中心元の既知の記述
 \cite[Sections~1--2]{GRSklyaninDLL}を使い、
 平行移動点の非捩れ性と THCR の非 PI 性を直接証明する。
-Mathew の定理は既に相対 smooth proper な圏を仮定するため、
-それ自体で本変形の相対 smoothness を補うことはできない。
+相対 smoothness は Mathew の定理の仮定であり、
+本稿では bigraded coherent 対角を用いて先に証明する。
+その際、Ballard--Farman
+\cite[Theorem~4.15, Remark~4.17]{CMOBallardFarman}の非可換射影積を用い、
+半局所底への compact 性の持上げは本文で示す。
+有限行列模型には非斉次 Koszul 双対\cite{CMOPositselskiQL}と
+中心元の高次 homotopy の構成\cite[Sections~3.4 and~4.3]{CMOEisenbudPeeva}を使う。
+後者の非可換中心元への適用に必要な恒等式と有限性は本文で確認する。
 
 余有限可換実現には、可換復元を扱う主稿の分離型比較
 （定理\paperref{main}{csc:thm:comparison}）、coherent 飽和
@@ -242,6 +278,7 @@ Mathew の定理は既に相対 smooth proper な圏を仮定するため、
 \input{papers/sections/mixed/root_order.tex}
 \input{papers/sections/mixed/equivariant_window.tex}
 \input{papers/sections/mixed/equivariant_deformation.tex}
+\input{papers/sections/mixed/kernel_specialization.tex}
 \input{papers/sections/mixed/poisson_limits.tex}
 
 \section{残る比較問題}
@@ -260,33 +297,32 @@ smooth な係数で零なので、非零の射影 Ku の比較をそこから得
 特殊化の unit/counit cone による判定は、主稿の
 命題\paperref{main}{grl:prop:trait-kernel-test}に従う。
 
-\paragraph{零係数の対合付き模型.}
-$c=0$ では、定理\ref{cmo:thm:root-order-residual}の二成分分解から進み、
-$\mathcal K_R$ を可換三様体 $Y$ の Ku と結ぶ実核と、
-球面制限関手の比較を構成することが核心である。
-命題\ref{cmo:prop:root-order-comparison-criterion}は、その入力から
-同変五様体の比較核を貼り合わせる手順を与える。
-通常の線型二側商 $R/(L)$ は有限次元であるため、
-可換側の超平面切断と同じ操作で代用できない。
+\paragraph{零係数で構成した核の具体化と範囲.}
+定理\ref{cmo:thm:fixed-zero-commutative-kernel}により、
+指定した $c=0$ の通常の可換 Kuznetsov 同値は構成できた。
+定理\ref{cmo:thm:finite-curved-invariant-model}の有限行列模型から
+この核を行列係数でさらに具体化することは有用だが、同値の存在の証明とは別の課題である。
+通常の線型二側商 $R/(L)$ は有限次元であり、
+直接の非可換 Kn\"orrer 消去を可換側と同じ式で置き換えることはできない。
+また、全 rotation・指定三次周期・中心作用の標識を同時に保つ比較や
+有理数体上への核降下は、今回の通常の $\C$-線型比較には含まれない。
 
-補助的な検査として、非可換側の $u\mapsto-u$ が $HH_{\pm1}$ に及ぼす作用を求め、
-可換側の固有次元 $(5,16)$ と比較する問題が残る。
-命題\ref{cmo:prop:equivariant-window-hom}の有限 Hom 表から進むには、
-対合を保つ高次積と正当化された bar 縮約、または有限な対角解消が必要である。
-同じ総次数に任意長の bar 語が現れるため、次数範囲だけで
-Hochschild 複体を有限長に切ることはできない。
-可換端点へつなぐ変形については、両端を含む連結な底上の
-相対 smooth proper 模型を構成できれば固有階数を比較できるが、
-その相対対角の perfect 性は未証明である。
-この指標計算を、実核の構成に先立つ必須の段階とはしない。
-ただし通常の可換 Ku 実現は対合の保存を要求しないため、
-対合付き比較の障害を通常の可換実現への反例としない。
+非可換側の対合の Hochschild 指標は
+命題\ref{mix:prop:h-involution-character}で $(5,16)$ と決定した。
+これは相対 smooth proper 模型を用いる独立の確認であり、
+有限 Hom 表をそのまま Hochschild 複体とみなす計算ではない。
+有限の bar 模型を直接構成する場合には、
+任意長の語が同じ総次数に現れることを扱う正当な縮約がなお必要となる。
 
 \paragraph{交換子族の一般点核を固定係数へ延ばす.}
 定理\ref{mix:thm:h-exact-candidate}により、交換子パラメータ $h$ の一般点では
 指定した可換方程式への実比較核が得られる。
-次は $h=1$ の DVR 上でその核の perfect 整格子を作り、
-単位・余単位の cone の消滅を確認することである。
+$h=1$ の DVR 上には、定理\ref{mix:thm:h-integral-kernel}の
+perfect 整延長が存在する。
+残る問題は、その単位・余単位の cone をともに零にできるか、
+また固定値で直接構成した核と同じ可逆な族の中で結べるかである。
+固定ファイバーに同値が存在することだけでは、
+選択済みの一般点核に対するこの相対整合性を保証しない。
 形式座標変換を $h=1$ へ直接代入することはできない。
 この $h$-族の一般点同定は、元の中心係数 $c$ を動かす族の一般点同定とは異なる。
 

@@ -10,9 +10,11 @@ $c$ と $-c$ のファイバーを交換する。
 三対象への制限は逆を持つ Morita 双加群を与え、一次の関手成分と可換標的の二次項を明示できる。
 一般ファイバーは非 PI だが、普遍係数での同変性と楕円中心商の比較によって、
 可換標的を全形式次数で明示し、その同じ代数的候補への一般点の実際の Ku 核を得る。
-$h=1$ への核の延長は未解決である。
-$0,1$ を同時に含む相対 smooth proper 模型による Hochschild 指標の比較も、
-最後に独立した条件付きの帰結として述べる。
+第\ref{mix:sec:kernel-specialization}節の相対 perfect 対角は
+$0,1$ を同時に含む模型を与え、Hochschild 対合指標を無条件に比較できる。
+同節では一般点核の perfect 整延長も構成する。
+$h=1$ での同値の存在は定理\ref{cmo:thm:fixed-zero-commutative-kernel}の直接構成により得られ、
+選択済み一般点核を可逆なまま延長する相対整合性は別の問題として残る。
 
 \subsection{交換子を縮小する族と中心三次式}
 
@@ -867,15 +869,20 @@ smoothness の降下と coherent 飽和を施せば、
 式\eqref{mix:eq:h-exact-generic-ku}の全 coherent 圏の実際の perfect 核となる。
 \end{proof}
 
-\begin{remark}[形式核から $h=1$ への残る延長問題]
+\begin{remark}[形式核と固定値の核の相対整合性]
 \label{mix:rem:h-special-kernel}
 式\eqref{mix:eq:h-exact-formal-mf}は全次数の候補を決定し、
 式\eqref{mix:eq:h-exact-generic-ku}はその同じ代数的候補への一般点の核を与える。
 しかし $\C[[h]]$ では $1-h$ が単元なので、形式関手を $h=1$ に評価することはできない。
-一般点の核を $h=1$ 上の DVR まで延長し、単位・余単位の cone がそこで零であることを
-命題\paperref{main}{grl:prop:trait-kernel-test}に沿って確認する必要がある。
+定理\ref{mix:thm:h-integral-kernel}は、この一般点核を $h=1$ 上の DVR まで
+perfect 核として延長する。
+その延長が特殊ファイバーでも同値を与えるかどうかは、
+命題\paperref{main}{grl:prop:trait-kernel-test}に沿って
+単位・余単位の cone の消滅を確認する問題である。
 $Q_1=A_0$ と $X_1^{\mathrm{cand}}=X_0$ がともに smooth proper であることだけでは、
 この最後の確認は省けない。
+固定値での同値自体は定理\ref{cmo:thm:fixed-zero-commutative-kernel}により存在するが、
+その核と上の選択済み一般点核を同じ族の上で結ぶことは追加の課題である。
 この節は $c=0$ の交換子族を扱い、元の全 $c$ 族での指定候補への一般点同定は
 別の問題として残る。
 \end{remark}
@@ -884,76 +891,69 @@ $Q_1=A_0$ と $X_1^{\mathrm{cand}}=X_0$ がともに smooth proper であるこ�
 普遍 PBW 重なり、Poisson 恒等式、一次の曲率付き bar homotopy、
 二次の eye 補正、Jacobian class の非消滅、普遍不変空間および正規化を
 有理数と独立な $\alpha_i$ 上で検算する。
-この有限計算は全次数の formality、圏の降下、$h=1$ での核の延長の証明とは区別する。
+この有限計算は、全次数の formality、圏の降下、
+相対対角と整核の存在、および固定値での同値の証明とは区別する。
 
-\subsection{相対 smooth proper 性を仮定した指標一定性}
+\subsection{半局所の相対模型による対合指標の一定性}
 
-\begin{proposition}[相対模型の存在を仮定した非可換端点の指標]
-\label{mix:prop:h-conditional-character}
-$R=\C[h,(h^6+27)^{-1}]$ と置く。
-$h=0,1$ を含む連結な affine 開集合 $V\subset\operatorname{Spec}R$ 上で、
-式\eqref{mix:eq:h-mixed-family}の族に対する残余 dg 模型 $\mathcal C_V$ が
-次の性質を満たすと仮定する。
-\begin{enumerate}[label=\textnormal{(\roman*)}]
-\item $\mathcal C_V$ は $V$ 上相対 smooth proper である。
-\item $\mathcal C_V$ は底を固定する $\mu_2$ 作用を持ち、
-      二つの端点のファイバーについて
-\[
- \mathcal C_0\simeq\operatorname{Ku}(Y_F),\qquad
- \mathcal C_1\simeq\operatorname{Ku}_{\mathrm{coh}}(A_0)
-\]
-      という $\iota$ と両立する Morita 同値がある。
-\end{enumerate}
-このとき非可換側 $\operatorname{Ku}_{\mathrm{coh}}(A_0)$ の対合指標も
+\begin{proposition}[非可換端点の Hochschild 対合指標]
+\label{mix:prop:h-involution-character}
+非可換側 $\operatorname{Ku}_{\mathrm{coh}}(A_0)$ の対合 $u\mapsto-u$ による指標は
 式\eqref{mix:eq:fermat-hh-character}に一致する。
+すなわち $HH_{\pm1}$ の正・負固有空間次元はそれぞれ $(5,16)$、
+$HH_0$ では $(2,0)$ であり、その他の次数は零である。
 特に $HH_{\pm1}$ 上の trace はそれぞれ $-11$、
 Hochschild homology 全体の交代 trace は $24$ である。
 \end{proposition}
 
 \begin{proof}
-$V=\operatorname{Spec}R_V$ とする。
+$R_{01}=S^{-1}\C[h]$、$S=\{f\mid f(0)f(1)\ne0\}$ とする。
+定理\ref{mix:thm:h-semilocal-smooth}により、
+\[
+ \mathcal C_{01}=\operatorname{Perf}(\Gamma_{R_{01}})
+\]
+は $R_{01}$ 上相対 smooth proper であり、
+底を固定する対合 $u\mapsto-u$ を持つ。
+命題\ref{mix:prop:h-semilocal-model}の底変更と coherent 飽和により、
+二つの閉ファイバーには対合と両立する Morita 同値
+\[
+ \mathcal C_0\simeq\operatorname{Ku}(Y_F),\qquad
+ \mathcal C_1\simeq\operatorname{Ku}_{\mathrm{coh}}(A_0)
+\]
+がある。
 Mathew の相対退化定理
 \cite[Theorem~1.3]{CMOMathewDegeneration}は、
 可換 $\mathbb Q$-代数上の smooth proper dg 圏に適用される。
-仮定 (i) により、各 $HH_i(\mathcal C_V/R_V)$ は
-有限射影 $R_V$-加群である。
+従って、各 $HH_i(\mathcal C_{01}/R_{01})$ は
+有限射影 $R_{01}$-加群である。
 Hochschild 複体の導来底変更とこの射影性から、
 各ファイバーは $HH_i(\mathcal C_t)$ に一致する。
-仮定 (ii) の作用に対する冪等元
+対合の作用に対する冪等元
 \[
  e_\pm=\frac{1\pm\iota}{2}
 \]
 は、これらを二つの有限射影直和因子に分ける。
-$V$ は連結なので、その階数はそれぞれ一定である。
+$\operatorname{Spec}R_{01}$ は整であり、特に連結なので、
+各直和因子の階数は一定である。
 $h=0$ での階数は命題\ref{mix:prop:fermat-eckardt-endpoint}で計算済みだから、
 $h=1$ でも同じである。
 trace と交代 trace は、それぞれ $5-16=-11$ と
 $2-(-11)-(-11)=24$ から従う。
 \end{proof}
 
-\begin{remark}[未解決の相対入力と結論の範囲]
+\begin{remark}[指標比較と核の構成の役割]
 \label{mix:rem:h-relative-gap}
-命題\ref{mix:prop:h-conditional-character}の相対模型の存在は、
-この節で証明した代数的事実には含まれない。
-次数別平坦性は命題\ref{mix:prop:h-flat}で全ての $h^6+27\ne0$ に対して得られ、
-$h=0$ の局所環上の相対 Koszul--Gorenstein 計算、proper 模型と底変更も
-系\ref{mix:cor:h-local-window}で得られた。
-ただし残る入力は、$0,1$ を同時に含む開集合上の全 coherent 残余圏と一致する模型、
-その対角双加群の相対 perfect 性、および対合を保つ同定である。
-定理\ref{mix:thm:h-formal-kernel}の形式比較・一般点の核を、
-これらの相対入力や $h=1$ での実際の比較核の代わりに用いることはできない。
+命題\ref{mix:prop:h-involution-character}の入力は、
+相対 Koszul 解消、有限 cohomological dimension を持つ射影積、
+および通常の coherent 対角の compact 性から構成した相対模型である。
+一般点での非 PI 性はこの構成を妨げない。
+両端点が smooth proper であるという事実だけから
+相対 smoothness を推論しているのではなく、
+定理\ref{mix:thm:h-semilocal-smooth}で具体的な対角の perfect 性を証明している。
 
-両端点の smooth proper 性だけから、同じパラメータ空間上での
-相対 smooth proper 性や指標一定性を結論することはできない。
-現行の $c$-族では中心上有限な代数を proper な中央スキーム上へ移し、
-通常の coherent な対角加群に
-命題\ref{cmo:prop:proper-perfect-spread}を適用した。
-$h$-族では命題\ref{mix:prop:h-generic-nonpi}によりこの有限中心性が失われる。
-従って別の相対対角の構成、またはその perfect 性を保証する入力が必要である。
-この障害は $h$-族の相対 smoothness 自体を否定するものではない。
-
-相対模型を構成して指標一致が得られたとしても、それだけでは
-$\operatorname{Ku}_{\mathrm{coh}}(A_0)$ と $\operatorname{Ku}(Y_F)$、
-あるいは指定候補 $\operatorname{Ku}(X_0)$ との同値は従わない。
-その同値には独立に実際の比較核を構成する必要がある。
+この指標一致は、二つの端点の圏の同値を意味しない。
+指定候補 $X_0$ への通常の Ku 同値は
+定理\ref{cmo:thm:fixed-zero-commutative-kernel}の球面制限と貼合せによる直接構成から得られる。
+その固定値の核を、定理\ref{mix:thm:h-exact-candidate}で選んだ一般点核と
+同じ族の上で可逆に結ぶ問題は、注意\ref{mix:rem:h-integral-defect}の defect 消滅として残る。
 \end{remark}

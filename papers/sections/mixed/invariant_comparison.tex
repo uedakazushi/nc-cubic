@@ -162,15 +162,22 @@ $R(-1)\xrightarrow{\cdot L}R\to R/(L)\to0$ から
 有限次元性に矛盾する。
 \end{proof}
 
-\paragraph{実核の構成に残る課題.}
+\paragraph{有限曲率模型と球面制限による比較.}
 可換側の命題\ref{cmo:prop:commutative-invariant-knorrer}は実際の比較核を与える。
 非可換側の命題\ref{cmo:prop:invariant-linear-quotient-finite}が排除するのは、
 同じ $L$ の通常の二側商による置換である。
 $-vL$ の非退化な重み $(2,1)$ の対を curved Koszul 双対や
 $A_\infty$ 模型で導来的に消去する可能性までは排除しない。
-この経路では、元の交換関係が作る微分・高次積と曲率 $w$ を含めて
-実際の双加群を構成し、内部次数と三次周期を保つ必要がある。
-係数が単元であることだけから homological perturbation が有限回で停止するとは限らない。
-停止性または必要な逆行列の可逆性、随伴、unit と counit を確認した後に初めて
-$\mathcal K_R\simeq\Ku(Y)$、さらに元の五様体の比較へ進める。
-この非可換 Kn\"orrer 核と、二成分を結ぶ制限関手の比較は未構成である。
+実際、定理\ref{cmo:thm:finite-curved-invariant-model}では、
+元の交換関係と曲率 $w$ を保つ生成行列分解と、
+停止性を証明した総階数八十への有限縮約を構成する。
+この行列模型を可換三次三様体の模型へ直接移す非可換 Kn\"orrer 双加群は、
+別途、全微分・高次積・随伴と unit、counit を含めて構成すべき課題である。
+
+一方、圏の比較そのものは
+定理\ref{cmo:thm:fixed-zero-commutative-kernel}の球面制限の方法により得られる。
+そこでは境界の実同値と twist 射の比較から
+$\mathcal K_R\simeq\Ku(Y)$ および二成分を結ぶ制限 intertwiner を同時に構成し、
+通常の五様体の perfect 比較核へ貼り合わせる。
+従って残る行列模型の直接比較は、この核をさらに具体的な係数で記述するための課題であり、
+指定された固定値での $\C$-線型 dg Morita 同値の未証明箇所ではない。

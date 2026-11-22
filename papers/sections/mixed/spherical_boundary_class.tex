@@ -1,0 +1,324 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+\subsection{境界の変形類と Heisenberg 作用}
+\label{cmo:subsec:spherical-boundary-class}
+
+球面制限の twist 射を、中心変数による変形の具体的な類として記述する。
+この射の比較は、一般点の核を特殊化する方法とは独立の問題である。
+ここでは $h=1$、$c=0$ を固定する。
+$B_0=S(1,-1,-1)\otimes S(1,-1,-1)$、
+$w_0=\Omega_1+100\Omega_2$、$S=B_0/(w_0)$ と置く。
+$S$ とその残余圏は係数 $\alpha$ に依存しない。
+
+\begin{lemma}[中心変数の Bockstein と twist 射]
+\label{cmo:lem:spherical-bockstein}
+中心正則元 $v$、$\deg v=2$ を持つ $R$ と $S=R/(v)$ に対して、
+導来制限の余単位三角の射
+\[
+ \nu_N:N\longrightarrow N(-2)[2]
+\]
+は、$R/(v^2)$ 上への持上げの Bockstein である。
+$S$-自由解消の微分 $d$ を $R$ 上へ持ち上げ、
+$\widetilde d^{\,2}=v\theta$ と書けば、$\theta\bmod v$ がこの射を表す。
+残余圏への射影と三次周期によって、この射は
+命題\ref{cmo:prop:spherical-restriction-twist}の
+$\nu:\operatorname{id}\to\varrho_S$ に移る。
+
+可換側 $R^{\mathrm{cl}}=\C[x_1,\ldots,x_6,v]/(G-vL)$ では、
+この射は
+\begin{equation}\label{cmo:eq:commutative-twist-linear-class}
+ \nu^{\mathrm{cl}}=L:
+ \operatorname{id}_{\MF^{\mathbb Z}(\C[x],G)}
+       \longrightarrow (1)
+\end{equation}
+である。ここでは三次周期 $(3)\simeq[2]$ の規約を固定している。
+\end{lemma}
+
+\begin{proof}
+$R(-2)\xrightarrow{v}R$ による $S$ の解消を使い、
+$S$-自由解消の各項を自由 $R$-加群へ持ち上げる。
+微分の二乗の零性を $R$ 上で測ると、それは $v$ の倍数である。
+三項部分の二つの短完全列を貼り合わせると、
+余単位の cone に現れる二拡張の代表は $\widetilde d^{\,2}/v$ となる。
+持上げを $\widetilde d+vb$ に変えると、剰余での代表の差は
+$db+bd$ である。従ってその類は選択に依存せず、解消の比較射とも両立する。
+これは中心元に対する cohomology operator の構成でもある
+\cite[Construction~4.1.1]{CMOEisenbudPeeva}。
+中心性と自由解消だけを用いるので、この記述は非可換 $R$ にも成立する。
+
+残余圏では全圏の余単位三角へ例外射影を施す。
+式\eqref{cmo:eq:spherical-twist-mutation-triangle}はこの同じ三角であるから、
+その射は上記 Bockstein の射影である。
+同じ次数付き自由解消と比較射を qgr 商と Orlov window に通しているので、
+ここで別の自然変換へ取り替えていない。
+MF 表示で内部 shift を使うと $(-2)[2]=(1)$ となる。
+可換側の有限自由行列分解の微分を $d_N$ とすれば、
+多項式環上で $d_N^2=G\operatorname{id}$、$R^{\mathrm{cl}}$ 上で
+$d_N^2=vL\operatorname{id}$ である。
+従って cohomology operator は $L\operatorname{id}$ であり、
+式\eqref{cmo:eq:commutative-twist-linear-class}を得る。
+\end{proof}
+\begin{lemma}[六つの係数の非零な境界類]
+\label{cmo:lem:boundary-parameter-injection}
+$\alpha=(\alpha^{(1)},\alpha^{(2)})\in\C^6$ による中心 $v$ 変形は線形写像
+\begin{equation}\label{cmo:eq:boundary-parameter-map}
+ b:\C^6\longrightarrow
+ H^0\operatorname{RHom}_{\operatorname{Fun}(\mathcal K_S,\mathcal K_S)}
+       (\operatorname{id},\varrho_S)
+\end{equation}
+を定める。この写像は単射であり、実際には同型である。
+固定係数での $b(\alpha)$ は上の twist 射 $\nu$ である。
+\end{lemma}
+
+\begin{proof}
+$R/(v^2)$ の関係式と中心三次の $v$ 係数は $\alpha$ に線形である。
+補題\ref{cmo:lem:spherical-bockstein}による変形類の構成もこの一次係数に線形なので、
+写像 $b$ を得る。
+
+単射性は剰余体の安定化上で検査できる。
+$F=(S(1,-1,-1)^!)^{\widehat\otimes2}$ とし、
+$\xi_{ij}$ を二次双対の六つの生成元とする。
+$B_0$ の Koszul 解消は内部次数と homological 次数が等しい。
+$w_0$ に対する Shamash 解消では、$n$ 番目の高次 homotopy の係数の次数は
+$3n-(2n-1)=n+1>0$ である。
+従ってこの解消は最小であり、その自己 Ext は、周期作用素 $t$ に関する加群として
+\[
+ \underline{\operatorname{Ext}}^*_S(\C,\C)
+       \simeq F\otimes\C[t],\qquad
+       \deg_{\mathrm{coh}}t=2,\quad \deg_{\mathrm{int}}t=3
+\]
+となる。この式は積全体の同型を仮定せず、最小解消と周期作用素の作用の記述である。
+特に $t$ による torsion はない。
+
+次数二の関係を $R$ へ持ち上げると、各ブロックについて
+\[
+ x_i^2-y_iz_i+z_iy_i=\alpha^{(i)}_1v
+\]
+および巡回した二式を得る。
+従って Bockstein の剰余体上の類は、全体の符号の取り方を除いて
+\begin{equation}\label{cmo:eq:boundary-bockstein-dual-class}
+ \sum_{i,j}\alpha_j^{(i)}\xi_{ij}^{\,2}
+ \in F^2\subset
+ \underline{\operatorname{Ext}}^2_S(\C,\C(-2))
+\end{equation}
+である。中心三次の $v$ 係数は一次式なので、剰余体への augmentation 後には
+この内部次数二の成分へ寄与しない。
+六つの $\xi_{ij}^2$ は $F^2$ で一次独立である。
+安定 Hom はこの Shamash 解消の周期的な尾部、すなわち $t$ の可逆化で計算される。
+$t$-torsion がないので、非零の上の類は安定化後にも非零である。
+具体的には、$t$ を十分多く掛けて $S$ の injective dimension 五を超える
+解消の尾部へ移しても、この類は零にならない。
+従って $b(\alpha)=0$ なら $\alpha=0$ となる。
+
+既存の rotation を保つ分離比較で
+$\mathcal K_S\simeq\Ku(V(G))$ と同定する。
+滑らかな三次四様体の対角 MF の恒等 sector では、
+$\operatorname{Hom}(\operatorname{id},(1))=\operatorname{Jac}(G)_1$ である。
+非恒等 sector の条件はここでは満たされない
+（命題\ref{cmo:prop:cubic-boundary-comonad-vanishing}の計算を参照）。
+Jacobian イデアルは次数二で生成されるので、この空間は六次元である。
+従って単射 $b$ は同型である。
+\end{proof}
+
+\paragraph{対称性と比較核の選択.}
+境界の二ブロックには、各々位数二十七の Heisenberg 群が作用する。
+その生成元は
+\[
+ c(x,y,z)=(y,z,x),\qquad d(x,y,z)=(x,\omega y,\omega^2z)
+\]
+である。普遍環の係数座標には双対作用を用いるが、
+固定ファイバーのパラメータ点にはその逆変換が作用する。
+例えばパラメータ点上では
+\[
+ c_\alpha(\alpha_1,\alpha_2,\alpha_3)
+       =(\alpha_3,\alpha_1,\alpha_2),\qquad
+ d_\alpha(\alpha_1,\alpha_2,\alpha_3)
+       =(\alpha_1,\omega\alpha_2,\omega^2\alpha_3).
+\]
+中心 $x\mapsto\zeta x$ はパラメータ点を
+$\alpha\mapsto\zeta^{-2}\alpha=\zeta\alpha$ へ移す。
+この固定ファイバー間の pullback による規約を両側で共通に用いる。
+写像\eqref{cmo:eq:boundary-parameter-map}と
+$\alpha\mapsto\alpha_1x+\alpha_2y+\alpha_3z$ はともにこの作用に自然である。
+境界比較を、この作用と rotation の双方に両立するように選ぶ点が必要となる。
+
+\begin{lemma}[Heisenberg 作用と両立する楕円因子の比較]
+\label{cmo:lem:heisenberg-boundary-comparison}
+本例の二つの同一楕円因子について、分離比較
+$E:\mathcal K_S\xrightarrow{\sim}\mathcal K_{S^{\mathrm{cl}}}$ を、
+両ブロックの Heisenberg 作用と rotation に両立する実 perfect 核として選べる。
+二つの中心三次の係数を等しく正規化した表示では、この選択はブロック交換にも両立する。
+\end{lemma}
+
+\begin{proof}
+一つの楕円因子を $(E_0,L_0,t_p)$ とし、$G_3=E_0[3]$ と書く。
+次数三の線束 $L_0$ の theta 群の有限 Heisenberg 部分が、上の線型作用を与える。
+楕円 window 上の二つの rotation は
+\[
+ R_p=T_{\OO_{E_0}}(t_p)_*(-\otimes L_0),\qquad
+ R_0=T_{\OO_{E_0}}(-\otimes L_0)
+\]
+である。既存の Picard 補正
+\paperref{main}{mbrc:lem:factor-correction}を用い、
+$[M]=p$ の実次数零線束と $F_M=-\otimes M$、
+$F_MR_p\simeq R_0F_M$ を取る。
+
+$[3]^*:\operatorname{Pic}^0(E_0)\to\operatorname{Pic}^0(E_0)$ は全射なので、
+$[3]^*N\simeq M$ となる $N$ を選べる。
+この表示によって $M$ に $G_3$ の線型化を与え、$F_M$ を $G_3$-同変にする。
+二つの rotation の Heisenberg 中心は同じ重みで作用するため、
+その間の intertwiner の一次元空間には $G_3$ の文字 $\chi$ が作用する。
+ここで同型の空間が一次元であることは $HH^0(E_0)=\C$ による。
+
+$q\in G_3$ による標的の平行移動 $(t_q)_*$ を合成する。
+theta 群の lift を用いる
+$(t_q)_*R_0\simeq R_0(t_q)_*$ の $G_3$ に関する文字は、
+theta 群の交換子 $e_3(q,-)$ である。
+ここでは pushforward $(t_q)_*$ の lift の交換子を $e_3(q,-)$ とする規約を用い、
+逆の lift の規約では以下の $q$ を $-q$ に置き換える。
+theta 群とその非退化な交換子については
+\cite[Sections~1.3 and~1.6, Definition~1.29]{NFMCremonaFisherDescentAlgebra}を参照する。
+Weil pairing $e_3$ の非退化性により、$\chi e_3(q,-)=1$ となる $q$ を選べる。
+従って $F_i=(t_q)_*F_M$ と rotation の intertwiner はともに
+Heisenberg 作用と両立する。
+三乗周期の差は scalar なので、intertwiner にその三乗根を掛けて同期できる。
+この変更は同変性を壊さない。
+
+二つの同一因子には同じ $M,N,q$ と同じ周期補正を用いる。
+外積、指定中心群に関する同変化、二重同変化を用いる
+主稿の分離比較の構成は、これらの同変自然変換を保つ。
+実際、相対 rotation $Q=\varrho_1\varrho_2^{-1}$ の intertwiner は
+二つの因子の intertwiner の積であり、両 Heisenberg 作用に不変である。
+先に同期した三乗周期によって $Q^3$ の coherence も一致する。
+因子交換は $Q$ を $Q^{-1}$ へ移すので、相対中心群の同変化と
+二重同変化の平均冪等元にも作用が降りる。
+従って得られる境界比較は両 Heisenberg 作用、全体の rotation、
+および因子交換に両立する。
+中心三次の係数 $1,100$ は、第二ブロックの生成元を $100^{1/3}$ 倍して
+係数 $1,1$ へ移してからこの構成を行い、元へ戻せばよい。
+全ての選択は $\C$ 上で行い、有理数体上の核降下は主張しない。
+\end{proof}
+
+\begin{proposition}[twist 射の比較]
+\label{cmo:prop:spherical-boundary-unit-match}
+補題\ref{cmo:lem:heisenberg-boundary-comparison}の境界比較と
+rotation の同型を適切に選ぶと、
+\begin{equation}\label{cmo:eq:spherical-boundary-unit-match}
+ E\nu=\nu^{\mathrm{cl}}E
+\end{equation}
+が成立する。ここでは比較対象の二つの twist をその rotation と同定している。
+\end{proposition}
+
+\begin{proof}
+まず中心三次の係数を $1,1$ に正規化する。
+六次元空間 $\operatorname{Hom}(\operatorname{id},\varrho)$ は、
+二つの Heisenberg 群に関して、各ブロックの共通の三次元既約表現の直和である。
+この二表現は互いに非同型で、各々既約である。
+補題\ref{cmo:lem:boundary-parameter-injection}と前補題の同変性から、
+二つのパラメータ写像の比較は各ブロック上で scalar となる。
+因子交換との両立性により二つの scalar は同じ $c\in\C$ である。
+パラメータ写像の単射性により $c\ne0$ である。
+元の係数へ戻すと、第二ブロックの $\alpha$ は $100^{2/3}$ 倍となるので、
+得られる一次式は $cL$、
+$L=\alpha^{(1)}\cdot x^{(1)}+100\alpha^{(2)}\cdot x^{(2)}$ である。
+
+従って境界比較による $\nu$ の像は $c\nu^{\mathrm{cl}}$ となる。
+twist を比較する自然同型を $c^{-1}$ 倍すれば
+式\eqref{cmo:eq:spherical-boundary-unit-match}を得る。
+この最後の調整は、三乗周期まで標識した境界比較という追加条件を課すものではない。
+本稿でここから構成するのは通常の $\C$-線型 dg Morita 同値である。
+\end{proof}
+
+\subsection{零係数の混合五様体に対する実比較核}
+\label{cmo:subsec:fixed-zero-kernel}
+
+これまでの比較を合成すると、固定値での結論を得る。
+その構成では、形式的な $h$ 級数に $h=1$ を代入しない。
+
+\begin{theorem}[指定された零係数模型の可換 Kuznetsov 同値]
+\label{cmo:thm:fixed-zero-commutative-kernel}
+$\alpha^{(1)}=(1,4,9)$、$\alpha^{(2)}=(16,25,49)$ とし、
+$A_0$ を本稿の指定混合五様体の零係数模型とする。
+命題\ref{cmo:prop:zero-eckardt-resolution}の滑らかな可換三次五様体
+\[
+ X_0=V(G-u^2L)\subset\mathbb P^6
+\]
+に対し、実際の perfect 核を持つ $\C$-線型 dg Morita 同値
+\begin{equation}\label{cmo:eq:fixed-zero-commutative-kernel}
+ \operatorname{Ku}_{\mathrm{coh}}(A_0)
+      \xrightarrow{\ \sim\ }\operatorname{Ku}(X_0)
+\end{equation}
+を構成できる。
+
+その中間段階として、第二成分の実比較
+\[
+ P_R:\mathcal K_R\xrightarrow{\sim}\mathcal K_{R^{\mathrm{cl}}}
+       \simeq\operatorname{Ku}(Y),\qquad Y=V(G,L),
+\]
+および境界の分離比較 $E$ に対する dg 自然同型
+\begin{equation}\label{cmo:eq:fixed-zero-restriction-square}
+ E\mathcal L\xrightarrow{\ \sim\ }\mathcal L^{\mathrm{cl}}P_R
+\end{equation}
+を同時に構成できる。
+これは通常の dg Morita 同値についての主張であり、
+全ての内部 rotation・指定周期・元の中心作用の標識を同時に保存するという
+追加条件は課していない。
+\end{theorem}
+
+\begin{proof}
+源の全 coherent 残余圏の smooth proper 性は
+系\ref{cmo:cor:fixed-zero-norm-smooth}による。
+$X_0,Z,Y$ の滑らかさは命題\ref{cmo:prop:zero-eckardt-resolution}で確認済みである。
+従って両側の球面制限と、その随伴の perfect 核が存在する。
+命題\ref{cmo:prop:spherical-restriction-twist}により、両側の twist は境界の rotation、
+cotwist の三乗は $[-1]$ である。
+
+補題\ref{cmo:lem:heisenberg-boundary-comparison}の実境界核を選び、
+命題\ref{cmo:prop:spherical-boundary-unit-match}により二つの twist 射を同定する。
+系\ref{cmo:cor:spherical-unit-reconstruction}を適用して
+$P_R$ と式\eqref{cmo:eq:fixed-zero-restriction-square}を得る。
+この段階の核を具体的に記述すると、境界の生成対象 $G_S$ に対して
+\[
+ G_R^{\mathrm{adj}}=\mathcal L^RG_S,\qquad
+ G_{\mathrm{cl}}^{\mathrm{adj}}
+      =(\mathcal L^{\mathrm{cl}})^R E G_S
+\]
+を取る。これらは補題\ref{cmo:lem:periodic-spherical-generation}により生成対象である。
+全 coherence を含む comonad 比較は
+\[
+ R\operatorname{End}(G_R^{\mathrm{adj}})
+       \simeq R\operatorname{End}(G_{\mathrm{cl}}^{\mathrm{adj}})
+\]
+を積と高次構造を保つ準同型として与える。
+その graph 双加群と二つの生成対象の Morita 核を tensor したものが $P_R$ である。
+graph は体上 perfect で、両自己準同型代数は smooth proper なので、
+この双加群も perfect である。準同型の逆と生成性から unit と counit は同型になる。
+可換側の $\operatorname{Ku}(Y)$ への同定には
+命題\ref{cmo:prop:commutative-invariant-knorrer}の実 rank 一核を使う。
+
+最後に命題\ref{cmo:prop:root-order-comparison-criterion}を適用する。
+二つの対角核 $E,P_R$ と制限の intertwiner を三角行列の双加群として貼り合わせ、
+\[
+ \widehat P:\operatorname{Ku}_{\mathrm{coh}}(A_0)^{\mu_2}
+       \xrightarrow{\sim}\operatorname{Ku}(X_0)^{\mu_2}
+\]
+を得る。指標作用は Serre 関手から内在的に回復される。
+その比較の二乗を単元の平方根で補正し、
+明示的な平均冪等元によって同変 perfect 核を作る。
+二重 crossed product の行列代数との Morita 同値を合成すれば、
+式\eqref{cmo:eq:fixed-zero-commutative-kernel}の核が得られる。
+これらの操作の unit と counit は、両成分の生成対象上で同型であり、
+有限 cone と直和因子を通じて全残余圏で同型となる。
+\end{proof}
+
+\begin{remark}[構成の範囲]
+\label{cmo:rem:fixed-zero-kernel-scope}
+定理の核は、楕円曲線上の線束・平行移動核、coKleisli 代数の graph、
+有限の貼合せと同変冪等元から構成した perfect 導来核である。
+全行列係数を単一の有限行列として列挙したという意味ではない。
+構成は $\C$ 上で線束と根を選んでおり、$\mathbb Q$ 上への核降下を結論しない。
+また、この固定値の核が
+定理\ref{mix:thm:h-exact-candidate}の選択済み一般点核の特殊化に一致することも
+主張しない。
+中心係数 $c\ne0$ の指定候補への比較、定常 norm の全六十四根を含む
+全 smooth locus の比較、一般の混合表示と全 intrinsic 対象への拡張は残る。
+\end{remark}

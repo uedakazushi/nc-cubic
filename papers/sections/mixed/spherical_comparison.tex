@@ -1,0 +1,608 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v53.
+\subsection{球面制限の twist と有限生成}
+\label{cmo:subsec:spherical-comparison}
+
+命題\ref{cmo:prop:root-order-comparison-criterion}では、
+不変環の残余圏の比較を、最初から同値として構成することを仮定した。
+ここでは制限関手の周期を利用して、この要求を弱める。
+実際の候補関手と制限の intertwiner が与えられたとき、
+その完全忠実性と本質的全射性を球面随伴の三角から検査できる。
+以下の cone と自然変換は全て perfect 双加群核の導来圏で取る。
+単に各対象に同型が存在するという条件ではなく、
+合成と両立する dg 自然変換を用いる。
+
+\begin{proposition}[制限の twist と二つの周期]
+\label{cmo:prop:spherical-restriction-twist}
+命題\ref{cmo:prop:invariant-restriction-spherical}の
+$F=\mathcal L|_{\mathcal K_R}:\mathcal K_R\to\mathcal K_S$ に対して
+\[
+ \mathsf T_F=\operatorname{Cone}
+   (FF^R\xrightarrow{\epsilon}\operatorname{id}_{\mathcal K_S}),
+ \qquad
+ \mathsf C_F=\operatorname{Cone}
+   (\operatorname{id}_{\mathcal K_R}\xrightarrow{\eta}F^RF)
+\]
+と置く。このとき、内部 shift に対応する境界の rotation $\varrho_S$ を用いて
+\begin{equation}
+\label{cmo:eq:spherical-restriction-periods}
+ \mathsf T_F\simeq\varrho_S,\qquad
+ \mathsf T_F^3\simeq[2],\qquad
+ \mathsf C_F^3\simeq[-1]
+\end{equation}
+である。同じ結論は可換不変環 $R^{\mathrm{cl}}$ とその境界にも成立する。
+\end{proposition}
+
+\begin{proof}
+前と同じく $a:\mathcal K_R\hookrightarrow\mathcal T_R$、
+$a\dashv p_R$、$\rho:\mathcal T_S\to\mathcal T_R$ と書く。
+$\mathcal T_R$ の Serre 関手が $(-5)[5]$ なので、
+五本の例外線束を巡回移動すると
+\[
+ \mathcal T_R=
+ \langle\OO_R(-5),\OO_R(-4),\OO_R(-3),
+                  \OO_R(-2),\OO_R(-1),\mathcal K_R\rangle
+\]
+となる。従って $a p_R$ は、この負の五本の線束に関する right mutation である。
+$N\in\mathcal K_S$ に対して、中心元 $v$ の長さ一の解消とその双対から
+\begin{equation}
+\label{cmo:eq:spherical-twist-line-vanishing}
+ R\operatorname{Hom}_{\mathcal T_R}(\rho N,\OO_R(r))
+ \simeq
+ R\operatorname{Hom}_{\mathcal T_S}(N,\OO_S(r+2))[-1]
+\end{equation}
+を得る。$r=-5,-4,-3$ では右辺は零である。
+実際、$\mathcal T_S$ の Serre 関手は $(-3)[4]$ なので、
+この消滅は $\OO_S(0),\OO_S(1),\OO_S(2)$ から $N$ への消滅と同値である。
+right mutation を表示した順に行うと、残る correction は最後の二本だけである。
+従って自然な三角
+\[
+ a p_R\rho N\longrightarrow\rho N\longrightarrow E_N,
+ \qquad E_N\in\langle\OO_R(-2),\OO_R(-1)\rangle
+\]
+が得られる。
+
+全圏の制限の余単位 $\mathcal L\rho N\to N$ は、
+$v$ の二項解消によって
+\[
+ \operatorname{Cone}(\mathcal L\rho N\to N)=N(-2)[2]
+\]
+を満たす。上の三角へ $\mathcal L$ を適用し、この余単位と合成する。
+得られる $F F^R N\to N$ は残余関手の余単位そのものであり、
+octahedron により
+\begin{equation}
+\label{cmo:eq:spherical-twist-mutation-triangle}
+ \mathsf T_F N\longrightarrow N(-2)[2]
+                  \longrightarrow\mathcal L E_N[1]
+\end{equation}
+を得る。
+第一項は $\mathcal K_S$ に属し、第三項は
+$\langle\OO_S(-2),\OO_S(-1)\rangle$ に属する。
+Serre 双対性により $\mathcal K_S$ はこの二本の線束の左直交に含まれる。
+従って\eqref{cmo:eq:spherical-twist-mutation-triangle}は
+right mutation を特徴づける三角であり、
+\[
+ \mathsf T_F\simeq
+ R_{\langle\OO_S(-2),\OO_S(-1)\rangle}\circ(-2)[2]
+ \simeq\varrho_S^{-2}[2]\simeq\varrho_S.
+\]
+最後の同型は三次行列分解の周期 $\varrho_S^3\simeq[2]$ による。
+同じ周期と\eqref{cmo:eq:invariant-restriction-cotwist}から
+\[
+ \mathsf C_F^3\simeq\varrho_R^{-6}[3]\simeq[-1]
+\]
+を得る。
+この証明に用いたのは parameter 五と三、中心正則元の次数二、三次周期、
+および表示した解消・随伴だけなので、可換側にも同じ証明が適用できる。
+\end{proof}
+
+\begin{lemma}[周期による conservativity と split-generation]
+\label{cmo:lem:periodic-spherical-generation}
+$\mathcal A,\mathcal B$ を体 $k$ 上の proper な冪等完備 dg 圏とし、
+$F:\mathcal A\to\mathcal B$ を右随伴 $R_F$ を持つ dg 関手とする。
+単位と余単位の cone が自己同値 $\mathsf C,\mathsf T$ であり、
+\[
+ \mathsf C^3\simeq[-1],\qquad\mathsf T^3\simeq[2]
+\]
+を満たすと仮定する。このとき $F$ は conservative であり、
+\begin{equation}
+\label{cmo:eq:spherical-two-generations}
+ \mathcal B=\operatorname{thick}(F\mathcal A),
+ \qquad
+ \mathcal A=\operatorname{thick}(R_F\mathcal B)
+\end{equation}
+である。特に $G$ が $\mathcal B$ の split-generator なら、
+$R_FG$ は $\mathcal A$ の split-generator である。
+\end{lemma}
+
+\begin{proof}
+$FM=0$ なら単位三角から $\mathsf C M\simeq M[1]$ となる。
+三回適用すると $M[-1]\simeq M[3]$、従って $M\simeq M[4]$ である。
+proper 性により $R\operatorname{Hom}(M,M)$ は有界な有限次元複体である。
+非零の恒等写像が任意に大きい次数へ移ることはできないため $M=0$ となる。
+
+次に、余単位三角を $N,\mathsf T N,\ldots,\mathsf T^{n-1}N$ に適用する。
+それぞれの射 $\mathsf T^jN\to\mathsf T^{j+1}N$ の cone は
+$F R_F(\mathsf T^jN)[1]$ である。
+従って有限回の octahedron により、合成
+\[
+ N\longrightarrow\mathsf T^nN
+\]
+の cone は $\operatorname{thick}(F\mathcal A)$ に入る。
+$n=3m$ とし $m$ を十分大きく取れば、proper 性から
+$\operatorname{Hom}(N,N[2m])=0$ であり、この合成は零になる。
+その cone は $N[2m]\oplus N[1]$ なので、$N$ は同じ thick 部分圏に属する。
+
+最後に $\mathsf H=\mathsf C[-1]$ と置く。
+単位の fiber 三角は
+\[
+ \mathsf H M\longrightarrow M\longrightarrow R_F FM
+\]
+であり、$\mathsf H^3\simeq[-4]$ である。
+この三角を $\mathsf H^jM$ に反復すると、
+合成 $\mathsf H^nM\to M$ の cone は
+$\operatorname{thick}(R_F\mathcal B)$ に入る。
+$n=3m$、$m$ 十分大では
+$\operatorname{Hom}(M[-4m],M)=0$ なので合成は零であり、
+その cone の直和因子 $M$ も同じ thick 部分圏に属する。
+$R_F$ は exact で直和因子を保つため、最後の生成対象についての主張も従う。
+\end{proof}
+
+この補題は有限個の対象の Hom の有界性を用いる。
+Verdier 商の proper 性や $\operatorname{Ind}(F)$ の conservativity を仮定せず、
+それらを結論してもいない。
+
+\subsection{候補核の完全忠実性を強制する周期}
+
+比較射を正確に固定するため、次の一般の記号を用いる。
+$F:\mathcal A\to\mathcal B$、$F':\mathcal A'\to\mathcal B'$ の右随伴を
+$R_F,R_{F'}$ とし、単位・余単位を $\eta,\epsilon$ と $\eta',\epsilon'$、
+unshifted cotwist と twist を $\mathsf C,\mathsf T$ と
+$\mathsf C',\mathsf T'$ と書く。
+perfect 核を持つ関手
+\[
+ P:\mathcal A\longrightarrow\mathcal A',\qquad
+ E:\mathcal B\xrightarrow{\sim}\mathcal B',\qquad
+ \psi:EF\xrightarrow{\sim}F'P
+\]
+が与えられたとする。ここで $P$ はまだ同値と仮定しない。
+$\psi$ の随伴 mate を
+\begin{equation}
+\label{cmo:eq:spherical-canonical-mate}
+ \alpha:P R_F\longrightarrow R_{F'}E
+\end{equation}
+とする。具体的にはこれは
+\[
+ F'P R_F\xrightarrow{\psi_{R_F}^{-1}}EF R_F
+                   \xrightarrow{E\epsilon}E
+\]
+を $F'\dashv R_{F'}$ により transpose した射である。
+随伴の単位の自然性から、
+\[
+ P\eta:P\longrightarrow P R_F F,\qquad
+ \eta'P:P\longrightarrow R_{F'}F'P
+\]
+の間には、第一項が恒等、第二項が
+$R_{F'}\psi\circ\alpha_F$ である可換な射がある。
+この射の cone を
+\begin{equation}
+\label{cmo:eq:spherical-canonical-cotwist-map}
+ c_P:P\mathsf C\longrightarrow\mathsf C'P
+\end{equation}
+と定める。
+以下で必要なのはこの標準射であり、二つの関手の抽象的な同型だけではない。
+
+\begin{theorem}[cotwist と Hom の欠陥による比較基準]
+\label{cmo:thm:spherical-cotwist-comparison}
+$\mathcal A,\mathcal A',\mathcal B,\mathcal B'$ は smooth proper dg 圏で、
+$F,F'$ は perfect 核を持つ spherical 関手とする。
+さらに
+\begin{equation}
+\label{cmo:eq:spherical-comparison-period-input}
+ \mathsf C^3\simeq[-1],\qquad
+ (\mathsf C')^3\simeq[-1],\qquad
+ \mathsf T^3\simeq[2]
+\end{equation}
+と仮定する。上記の $P,E,\psi$ に対して
+標準射 $c_P$ が同型なら、$P$ は dg Morita 同値である。
+\end{theorem}
+
+\begin{proof}
+$M,N\in\mathcal A$ に対し、完全忠実性の欠陥を
+\[
+ D(M,N)=\operatorname{Cone}\left(
+ R\operatorname{Hom}_{\mathcal A}(M,N)
+   \longrightarrow R\operatorname{Hom}_{\mathcal A'}(PM,PN)\right)
+\]
+と置く。両圏が proper なので、これは $k$ 上の perfect 複体である。
+単位三角へ $R\operatorname{Hom}(M,-)$ を適用し、随伴を用いると
+\[
+ R\operatorname{Hom}_{\mathcal A}(M,N)
+ \longrightarrow R\operatorname{Hom}_{\mathcal B}(FM,FN)
+ \longrightarrow R\operatorname{Hom}_{\mathcal A}(M,\mathsf C N)
+\]
+という三角を得る。$F'$ の三角にも同じ操作を行う。
+これらの三角の間の第一の射は $P$ による射、
+第二の射は $E$ と $\psi$ による同型、
+第三の射は $P$ と標準射 $c_P$ による射である。
+cone の三角と $c_P$ の可逆性から
+\begin{equation}
+\label{cmo:eq:spherical-hom-defect-period}
+ D(M,\mathsf C N)\simeq D(M,N)[1]
+\end{equation}
+となる。これを三回適用し、$\mathsf C^3\simeq[-1]$ を使うと
+\[
+ D(M,N)[-1]\simeq D(M,N)[3]
+\]
+を得る。有界な有限次元複体は、非零ならこの四周期性を持てない。
+従って $D(M,N)=0$ であり、$P$ は完全忠実である。
+
+perfect 核の関手は smooth proper 圏の間で左右随伴を持つので、
+像 $\mathcal I=P\mathcal A$ は admissible である。
+$c_P$ と $\mathsf C$ の可逆性から
+$\mathsf C'\mathcal I=\mathcal I$ である。
+$N'\in\mathcal I^\perp$ とすると、任意の $M\in\mathcal A$ について
+\[
+ R\operatorname{Hom}_{\mathcal A'}(PM,N')=0,
+ \qquad
+ R\operatorname{Hom}_{\mathcal A'}(PM,\mathsf C'N')=0.
+\]
+第二の消滅では $(\mathsf C')^{-1}\mathcal I=\mathcal I$ を用いた。
+$F'$ の単位三角により
+\[
+ R\operatorname{Hom}_{\mathcal B'}(F'PM,F'N')=0
+\]
+となる。補題\ref{cmo:lem:periodic-spherical-generation}の生成性と
+$F'P\simeq EF$ により、$F'P\mathcal A$ は $\mathcal B'$ を split-generate する。
+従って $F'N'=0$ である。
+同補題の conservativity の証明を $F'$ と $\mathsf C'$ に適用すると $N'=0$ を得る。
+従って $\mathcal I^\perp=0$、つまり $P$ は本質的全射でもある。
+最初から perfect dg 核を用いているので、得られた同値は dg Morita 同値である。
+\end{proof}
+
+この証明は Hochschild homology の一致や数値格子の相殺を用いない。
+完全忠実性に失敗する Hom 複体自体に四周期性を課し、proper 性でそれを排除している。
+
+\subsection{twist の標準射による比較と可換境界}
+
+式\eqref{cmo:eq:spherical-canonical-mate}を余単位と組み合わせると、
+\[
+ \epsilon' E\circ F'\alpha\circ\psi_{R_F}=E\epsilon
+\]
+である。従って余単位の cone の間に標準射
+\begin{equation}
+\label{cmo:eq:spherical-canonical-twist-map}
+ t_P:E\mathsf T\longrightarrow\mathsf T'E
+\end{equation}
+が定まり、twist 三角の射 $\nu:\operatorname{id}\to\mathsf T$、
+$\nu':\operatorname{id}\to\mathsf T'$ について
+\begin{equation}
+\label{cmo:eq:spherical-twist-unit-compatibility}
+ t_P\circ E\nu=\nu'E
+\end{equation}
+が成立する。
+
+\begin{corollary}[twist mate による比較基準]
+\label{cmo:cor:spherical-twist-comparison}
+定理\ref{cmo:thm:spherical-cotwist-comparison}の周期の仮定の下で、
+標準射 $t_P$ が同型なら $P$ は dg Morita 同値である。
+さらに $k=\C$、$HH^0(\mathcal B)=\C$ とし、
+何らかの dg 自然同型
+\[
+ \beta:E\mathsf T\xrightarrow{\sim}\mathsf T'E
+\]
+が存在すると仮定する。$\nu'\ne0$ なら $t_P$ は自動的に同型である。
+この場合、候補 $P$ に対して要求する比較データは
+実際の制限 intertwiner $\psi$ だけでよい。
+\end{corollary}
+
+\begin{proof}
+$t_P$ が同型なら、余単位三角の間の射において
+第二項 $E\to E$ と第三項 $t_P$ が同型である。
+従って第一項の射 $F'\alpha\circ\psi_{R_F}$、従って $F'\alpha$ も同型である。
+$F'$ は補題\ref{cmo:lem:periodic-spherical-generation}の証明により conservative なので、
+$\alpha$ は同型である。
+単位三角の間の射に戻ると、第一項と第二項が同型であるため
+$c_P$ も同型となり、定理を適用できる。
+
+追加の仮定の下では、$E\mathsf T$ は同値なので
+\[
+ H^0\operatorname{RHom}(E\mathsf T,\mathsf T'E)
+ \xrightarrow[\ \beta^{-1}\circ(-)\ ]{\ \sim\ }
+ H^0\operatorname{REnd}(E\mathsf T)
+ \simeq HH^0(\mathcal B)=\C.
+\]
+従って $t_P$ は $\beta$ の定数倍である。
+式\eqref{cmo:eq:spherical-twist-unit-compatibility}と $\nu'\ne0$ により
+この定数は零でないので、$t_P$ は同型である。
+\end{proof}
+
+本例に適用すると
+\[
+ (\mathcal A,\mathcal B,F)=(\mathcal K_R,\mathcal K_S,\mathcal L),
+ \qquad
+ (\mathcal A',\mathcal B',F')=
+ (\mathcal K_{R^{\mathrm{cl}}},\mathcal K_{S^{\mathrm{cl}}},\mathcal L^{\mathrm{cl}})
+\]
+であり、周期の仮定は命題\ref{cmo:prop:spherical-restriction-twist}により満たされる。
+可換境界 $\mathcal B'=\Ku(Z)$ は滑らかな三次四様体の残余圏で、
+$HH^0(\mathcal B')=\C$ である
+\paperref{main}{prop:nf-hh}。
+従って境界比較 $E$ が rotation を保ち、可換側の twist 射 $\nu'$ が非零なら、
+任意の perfect 候補 $P$ と実際の
+\[
+ E\mathcal L\xrightarrow{\sim}\mathcal L^{\mathrm{cl}}P
+\]
+から $P$ の同値性が従う。
+これを命題\ref{cmo:prop:root-order-comparison-criterion}へ代入すれば、
+同変五様体の貼合せ核と通常の五様体の比較核を構成できる。
+この最後の簡略版では、境界比較の rotation 両立と $\nu'\ne0$ を明示的な入力とする。
+これらは補題\ref{cmo:lem:heisenberg-boundary-comparison}と
+補題\ref{cmo:lem:spherical-bockstein}で確認する。
+この判定は候補 $P$ を入力に取る。
+次に、twist 射の比較から $P$ と制限 intertwiner 自体を構成する。
+
+\subsection{実 comonad からの有限 Morita 模型}
+
+次の記述は、候補関手を構成する別の具体的な目標を与える。
+twist の同型類だけから源の圏が決まるという主張ではない。
+twist とその section から Kleisli 圏を用いて球面関手を復元する考え方は
+Segal \cite[Section~3.2]{CMOSegalSphericalTwists}で論じられている。
+同節では dg coherence の問題も明示されている。
+さらに Christ \cite[Section~4.1, Example~4.10]{CMOChristSphericalMonadic}は、
+underlying functor と unit が同じでも乗法の異なる monad を用いて、
+一般には twist と section だけから復元できないことを示した。
+以下では、右随伴像の有限生成を周期から確認した上で、
+三次四様体に固有の全 arity の消滅を別に証明して比較する。
+
+\begin{proposition}[右随伴の生成対象と coKleisli 代数]
+\label{cmo:prop:spherical-comonad-model}
+補題\ref{cmo:lem:periodic-spherical-generation}の仮定の下で、
+$\mathcal A,\mathcal B$ は smooth proper であるとする。
+$G$ を $\mathcal B$ の split-generator とし、
+随伴から来る実 comonad を
+\[
+ K=F R_F,\qquad
+ \epsilon:K\longrightarrow\operatorname{id}_{\mathcal B},\qquad
+ \Delta=F\eta R_F:K\longrightarrow K^2
+\]
+と書く。このとき
+\begin{equation}
+\label{cmo:eq:spherical-comonad-morita-model}
+ \mathcal A\simeq\operatorname{Perf}(\Gamma),\qquad
+ \Gamma=R\operatorname{End}_{\mathcal A}(R_FG)
+       \simeq R\operatorname{Hom}_{\mathcal B}(KG,G).
+\end{equation}
+右辺の積は、coKleisli 表示では
+\begin{equation}
+\label{cmo:eq:spherical-comonad-product}
+ g\star f=g\circ K(f)\circ\Delta_G,\qquad 1=\epsilon_G
+\end{equation}
+である。dg 模型に高次の構造写像が必要な場合には、
+実 adjunction の homotopy-coherent comonad 構造を含めて読む。
+
+特に $E:\mathcal B\simeq\mathcal B'$ が、余単位・余乗法と
+その全 coherence を含む comonad 同型 $EK\simeq K'E$ を与えるなら、
+式\eqref{cmo:eq:spherical-comonad-morita-model}の代数の比較から
+実際の perfect 核 $P:\mathcal A\simeq\mathcal A'$ と
+$EF\simeq F'P$ を構成できる。
+\end{proposition}
+
+\begin{proof}
+補題\ref{cmo:lem:periodic-spherical-generation}により $R_FG$ は生成対象である。
+従って $R\operatorname{Hom}_{\mathcal A}(R_FG,-)$ と
+生成対象との導来 tensor は dg Morita 同値を与える。
+これは stable Kleisli 構成
+\cite[Proposition~1.11]{CMOChristSphericalMonadic}の双対と冪等完備化を、
+一つの生成対象の自己準同型代数で書いたものである。
+随伴の同型
+\[
+ R\operatorname{Hom}_{\mathcal A}(R_FN,R_FN')
+ \simeq R\operatorname{Hom}_{\mathcal B}(F R_FN,N')
+\]
+へ単位・余単位の恒等式を適用すると、合成は
+\eqref{cmo:eq:spherical-comonad-product}となる。
+これは coKleisli 圏の合成そのものであり、
+実際の随伴の構造を使うので合成の結合則も保持する。
+具体的には $f:KG\to G$ に対応する自己準同型は
+$R_F(f)\circ\eta_{R_FG}$ であり、その $F$ による像は
+\[
+ F\bigl(R_F(f)\circ\eta_{R_FG}\bigr)
+   =K(f)\circ\Delta_G
+\]
+である。この式は生成対象上の $F$ の作用も comonad の構造から決まることを示す。
+
+comonad 同型が与えられれば、$G'=EG$ として
+\[
+ R\operatorname{End}_{\mathcal A}(R_FG)
+ \simeq R\operatorname{End}_{\mathcal A'}(R_{F'}G')
+\]
+を積と高次構造を含めて得る。
+この代数の比較と二つの生成対象を tensor すれば $P$ の perfect 核が得られる。
+より具体的には、$\Gamma'$ を右辺の代数とし、その $A_\infty$ 比較の graph 双加群を
+bar 解消により dg 双加群にすると、$\Gamma'$ を underlying right module とする
+Morita 核を得る。二つの生成対象の Morita 核と合成して $P$ とする。
+両自己準同型代数は smooth proper であり、graph 双加群は underlying
+$k$-複体として perfect なので、$\Gamma^{\mathrm{op}}\otimes\Gamma'$ 上も perfect である。
+実際、smooth な対角の有限解消を tensor すれば、任意の $k$-perfect 加群は perfect になる。
+従って bar 模型が無限であることは、得られた導来核の perfect 性を妨げない。
+生成対象上の同型
+\[
+ EF(R_FG)=EKG\simeq K'EG=F'(R_{F'}G')
+\]
+は、comonad の比較により生成対象の自己準同型代数の作用と両立する。
+従って twisted complex と直和因子へ延長して $EF\simeq F'P$ を得る。
+\end{proof}
+
+ここで $K$ の underlying functor は
+\[
+ K\simeq\operatorname{Cone}
+     (\operatorname{id}_{\mathcal K_S}\xrightarrow{\nu}\varrho_S)[-1]
+\]
+と書ける。一般には、この三角だけから余乗法と全 coherence の一致は従わない。
+三次四様体の境界では、次の消滅がその追加構造を制御する。
+
+\begin{lemma}[正規化した余乗法の一意性]
+\label{cmo:lem:normalized-comonad-uniqueness}
+合成 tensor が各変数について exact な dg 核の monoidal 圏で、
+余単位の射 $\epsilon:K\to\mathbf1$ を固定し、
+$J=\operatorname{fib}(\epsilon)$ と置く。
+各 $n\ge2$ と $q\le0$ について
+\begin{equation}
+\label{cmo:eq:normalized-comonad-vanishing}
+ H^qR\operatorname{Hom}(K,J^{\otimes n})=0
+\end{equation}
+と仮定する。
+この $(K,\epsilon)$ 上に二つの実 counital homotopy-coherent comonad 構造があるなら、
+underlying kernel 上で恒等となる同値により両者を同定できる。
+より正確には、underlying counit arrow を固定したこの構造の空間は、
+非空なら可縮である。
+\end{lemma}
+
+\begin{proof}
+核の monoidal stable $\infty$-category を $\mathscr M$ とする。
+必要なら対象を含む小さい stable tensor 閉部分圏に制限する。
+opposite category $\mathscr M^{\mathrm{op}}$ では、
+$\epsilon$ は unit $\mathbf1\to K$、$J$ はその cofiber となる。
+この小さい stable monoidal 圏を Ind 完備化すれば、
+tensor を各変数の colimit と可換に延長できる。
+得られる presentably monoidal stable 圏への包含は完全忠実かつ monoidal であり、
+元の対象の有限 tensor と mapping spectrum は変わらない。
+従って、固定 unit を持つ unital $A_n$-構造の空間を扱う
+\cite[Theorem~3.3 and Lemma~3.11]{CMOWillumsgaardAssociativity}を適用できる。
+
+同文献の記述で正規化の意味を確認する。
+$n$ 個の出力のそれぞれへ $\epsilon$ を施す全ての射を集めた $n$-cube の
+初項は $K^{\otimes n}$ であり、非空部分集合の出力へ $\epsilon$ を施した項は
+残る $K$ の tensor である。
+exact 性により、この cube の total fiber は $J^{\otimes n}$ である。
+従って全ての counit reduction とその homotopy を固定した後の複体は
+\begin{equation}
+\label{cmo:eq:normalized-comonad-complex}
+ N_n=R\operatorname{Hom}(K,J^{\otimes n})
+\end{equation}
+である。これは unit や counit の chain-level splitting を必要としない。
+
+$(K,\epsilon)$ 上の counital $A_n$-構造の空間を $\mathcal S_n$ と書く。
+opposite category での unit を固定した空間を取るため、$\mathcal S_1$ は一点である。
+$n$ 番目の associahedron の次元は $n-2$ であり、
+上記の定理により $\mathcal S_n\to\mathcal S_{n-1}$ の各非空 fiber は、
+既存の lift を基点に選ぶと
+\begin{equation}
+\label{cmo:eq:normalized-comonad-structure-fiber}
+ \Omega^\infty N_n[2-n]
+\end{equation}
+と同値である。ここで $\mathscr M^{\mathrm{op}}$ の suspension は
+$\mathscr M$ の $[-1]$ なので、shift は確かに $[2-n]$ となる。
+この空間の $i$ 番目の homotopy group は、$i\ge0$ について
+\[
+ H^{2-n-i}N_n=0
+\]
+である。従って全ての非空 fiber は可縮である。
+仮定により少なくとも一つの全 comonad 構造が存在するので、
+各 $\mathcal S_n$ は非空である。
+$\mathcal S_1$ から帰納すると、基底が可縮で一つの非空 fiber が可縮であるため、
+各 $\mathcal S_n$ も可縮になる。
+全 coherent associative 構造の空間は $\varprojlim_n\mathcal S_n$ であるから、
+この極限も可縮である。
+その二点を結ぶ path が、underlying counit arrow を固定した comonad 同値を与える。
+
+cofibrant dg 模型でこの path を表示すると、比較の第 $n$ 項は次数 $1-n$、
+その未消去部分は $N_n$ の次数 $2-n$ の cocycle となる。
+仮定は各段でその cocycle の primitive を選べることを意味する。
+この表示は正規化した $A_\infty$ 操作と一致する
+\cite[Definition~4.1 and Lemma~4.4]{CMOBurkeStrictUnit}。
+双加群の完成 tensor による表示
+\cite[Sections~2.1 and~2.3]{CMONegronVolkovWitherspoon}では各 arity は有限和であり、
+解析的な収束は要求しない。
+ただし全 coherence が得られる根拠は、その形式表示だけでなく、
+上で検証した unital structure space の tower である。
+\end{proof}
+
+\begin{proposition}[三次四様体境界における全 arity 消滅]
+\label{cmo:prop:cubic-boundary-comonad-vanishing}
+$Z\subset\mathbb P^5$ を滑らかな三次四様体、
+$\mathcal B=\Ku(Z)$、$\varrho$ をその rotation とする。
+任意の dg 自然変換 $\nu:\operatorname{id}\to\varrho$ に対して
+\[
+ K=\operatorname{Cone}(\nu)[-1],\qquad
+ \epsilon:K\to\operatorname{id},\qquad
+ J=\operatorname{fib}(\epsilon)=\varrho[-1]
+\]
+と置く。この $(K,\epsilon)$ は
+\eqref{cmo:eq:normalized-comonad-vanishing}を満たす。
+従って、これに実 counital comonad 構造が存在すれば、
+その全高次構造は補題\ref{cmo:lem:normalized-comonad-uniqueness}の意味で一意である。
+\end{proposition}
+
+\begin{proof}
+方程式を $G$ とする。次数付き行列分解の diagonal sector 公式
+\cite[Theorem~5.39]{NFBFKKernels}、
+\cite[Theorem~3.5 and Remark~3.6]{NFLZSerre}を用いる。
+$H^aR\operatorname{Hom}(\operatorname{id},\varrho^b)$ の恒等 sector は、
+$a$ が偶数なら $\operatorname{Jac}(G)_{b+3a/2}$ であり、
+$a$ が奇数なら零である。
+非恒等な二つの $\mu_3$ sector は六変数全てを動かす。
+従ってこの部分が現れるためには
+\[
+ a\equiv6\pmod2,\qquad 2b+3a=6
+\]
+が必要である。
+この条件は、主稿の\paperref{main}{prop:nf-hh}の計算に内部 shift $b$ を加えたものである。
+
+$J^n=\varrho^n[-n]$ であるから、三角 $K\to\operatorname{id}\to\varrho$ により、
+$H^qR\operatorname{Hom}(K,J^n)$ の消滅には
+\[
+ H^qR\operatorname{Hom}(\operatorname{id},J^n)=0,\qquad
+ H^qR\operatorname{Hom}(\varrho[-1],J^n)=0
+\]
+を示せばよい。
+前者の恒等 sector の Jacobian 次数は $(3q-n)/2$、
+後者では $(3q+1-n)/2$ である。
+$n\ge2$、$q\le0$ のときはいずれも負なので零になる。
+非恒等 sector の必要条件も、それぞれ
+\[
+ 3q-n=6,\qquad 3q+1-n=6
+\]
+となり、この範囲では満たされない。従って必要な全ての次数が消える。
+\end{proof}
+
+\begin{corollary}[twist 射を同定した後の実比較核]
+\label{cmo:cor:spherical-unit-reconstruction}
+本例の二つの球面制限 $F:\mathcal K_R\to\mathcal K_S$、
+$F':\mathcal K_{R^{\mathrm{cl}}}\to\mathcal K_{S^{\mathrm{cl}}}$ に対して、
+perfect 核を持つ境界同値と rotation の同型
+\[
+ E:\mathcal K_S\xrightarrow{\sim}\mathcal K_{S^{\mathrm{cl}}},
+ \qquad \beta:E\varrho_S\xrightarrow{\sim}\varrho_{S^{\mathrm{cl}}}E
+\]
+を与える。この同型の下で
+\begin{equation}
+\label{cmo:eq:spherical-unit-matching}
+ \beta\circ E\nu=\nu' E
+\end{equation}
+が核の導来圏の射として成立すれば、
+不変環の比較核 $P:\mathcal K_R\simeq\mathcal K_{R^{\mathrm{cl}}}$ と
+$EF\simeq F'P$ を実際に構成できる。
+従って、命題\ref{cmo:prop:root-order-comparison-criterion}により
+通常の五様体残余圏の dg Morita 同値も構成できる。
+\end{corollary}
+
+\begin{proof}
+式\eqref{cmo:eq:spherical-unit-matching}の homotopy を選んで fiber を取ると、
+underlying kernel と counit の同型 $E K\simeq K'E$ を得る。
+両辺には元の随伴から実際の comonad 構造がある。
+命題\ref{cmo:prop:cubic-boundary-comonad-vanishing}と
+補題\ref{cmo:lem:normalized-comonad-uniqueness}により、
+この同型を全高次構造を保つ comonad 同値へ持ち上げることができる。
+命題\ref{cmo:prop:spherical-comonad-model}の有限生成対象と coKleisli 代数により、
+主張した $P$ と制限 intertwiner が得られる。
+\end{proof}
+
+この系は実際の比較核の構成を、境界上の一つの自然変換の比較へ還元する。
+同じ rotation を持つことだけでは
+\eqref{cmo:eq:spherical-unit-matching}を満たしたことにはならない。
+次の小節では非可換側の $\nu$ を中心変数の Bockstein と同定し、
+Heisenberg 作用と両立する実境界核によってその像を計算する。
+これにより必要な射の一致を証明し、
+定理\ref{cmo:thm:fixed-zero-commutative-kernel}で指定固定値の比較を完成する。
