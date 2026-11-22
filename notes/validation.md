@@ -47,7 +47,19 @@
 
 ### 組版・表示・保存の状態
 
-v52の三稿の再組版と新規頁の表示確認は、数学的本文と再現コードの保存後に行う。以前のPDFを今回の最終稿として扱わない。最終組版の頁数・hash・ログ・表示確認範囲は、確認後にこの節を現状へ置き換える。
+LuaHBTeX 1.18.0・latexmk 4.86・LaTeX2e 2024-11-01 patch level 2で `python3 scripts/build_papers.py` を実行し、二巡で三稿の相互参照が収束して終了コード0となった。最終のソース検査も92 TeX source・1586ラベルで成功した。
+
+| 最終PDF | 頁数 | bytes | SHA-256 |
+| --- | ---: | ---: | --- |
+| `nc-cubic.pdf` | 178 | 1,559,365 | `afbc9e9b1d89186c72f43985d233eb287284ac459a73c212bac83336bba42d12` |
+| `cubic-moduli-descent.pdf` | 453 | 3,189,623 | `060b8b5d9e770c7d1766b4c53cd109ff41f3366f8637aeaa5a8c9f6ea33a4a0c` |
+| `mixed-sklyanin-cubics.pdf` | 126 | 1,209,669 | `ba67eddf2f1e57fb78f5c92ed9b445ab85e7c2969a259f8801b9e10869bd6946` |
+
+三稿の最終ログについて、未定義参照・引用・制御綴、Missing character、LaTeX Error、multiply defined、Overfull/Underfullは0。数式フォントのサイズ代替、既存の旧書体命令と `\\atop` に関する警告は残るため、全警告0とはしていない。
+
+Popplerで主稿の1・5・159–160頁、混合稿の1–4・73–87・92–105頁、計37頁を画像化し、一覧表示で配置を確認した。混合稿の78・83・85・101・103–104頁と主稿160頁は拡大し、二成分分解とgluing式、同変核のidempotent、Knörrer核、全形式比較の定理、Hesse係数の決定、h=1への未解決の延長問題を確認した。欠字・重なり・切れ・式番号の衝突は認めなかった。三稿全757頁を今回目視したわけではなく、未変更のモジュライ本文や補助ノートの全頁を改めて表示確認したともしていない。
+
+この環境では既存kernelと整合するLuaTeX-jaと和文フォントを用いた。再生成に必要なLuaLaTeX・latexmk・LuaTeX-ja・AMS等・etoolbox・xr-hyper・和文フォントはREADMEの手順に従う。主三稿のPDFとSyncTeXはbuild/へ出力する。組版設定は変更せず、VS CodeのUI操作は行っていない。
 
 PDF、TeX中間生成物、担当別の一時メモ、外部文献PDF、一時的な組版環境はGit追跡に含めない。原稿・研究方針・ノート・AGENTS・README・必要な再現コードを通常コミットで保存し、遠隔mainのcommitとtreeを確認する。research-hubへの反映は対象repoの保存後に別に検査する。
 
@@ -77,7 +89,7 @@ PDF、TeX中間生成物、担当別の一時メモ、外部文献PDF、一時�
 | Huybrechts, The Geometry of Cubic Hypersurfaces, 著者版 | Chapter1, Theorem4.21。Jacobian環とprimitive Hodge群のresidue比較。体積形式のdeterminantは本文で直接計算した。 |
 | Dyckerhoff, arXiv:0904.4713v5 | Theorems4.1,5.2・§5.5。可換孤立超曲面の剰余体stabilization、2周期dg Morita、二次形式のClifford模型。非可換orderの完備化自体は本稿で直接証明。 |
 
-書誌・識別子・URLは参考文献と研究ノートに記載する。一般のblow-up・根スタック・二重同変化・相対退化・HRR・MF生成理論を新規結果とは扱わない。具体的模型と適用の文献上の新規性の網羅的確認、外部査読・形式証明器による確認は未了。指定候補への次数付き比較核、非可換HH±₁の対合指標、積分数値格子、一般αの全非smooth集合は未解決である。
+書誌・識別子・URLは参考文献と研究ノートに記載する。一般のblow-up・根スタック・二重同変化・相対退化・HRR・MF生成理論を新規結果とは扱わない。具体的模型と適用の文献上の新規性の網羅的確認、外部査読・形式証明器による確認は未了。固定A₀と元c族の指定候補への次数付き比較核、非可換HH±₁の対合指標、積分数値格子、一般αの全非smooth集合は未解決である。
 
 ### 比較不変量の厳密計算
 

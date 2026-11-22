@@ -26,7 +26,7 @@
 
 主予想の肯定結果の達成基準は、対象範囲と仮定を明記し、実際のKu同値を構成することである。point/Poisson一致を併せて述べる場合は、同じXについてpoint schemeと零スキームの同型まで証明する。不一致の例では全候補を排除できる範囲とその入力を明記し、可換Ku比較を必要とする三様体の論法と、全可換五様体を一括排除する論法を区別する。楕円成分のjの一致、点集合の一致、有限jet、幾何学的一般点だけの同値を全主予想の解決と扱わない。一般体上の核降下や全族の大域核sectionは、C上の存在とは別の強化として扱う。
 
-一般点可換復元・一ブロックモジュライ・満支持型比較は有効な部分結果として保持する。中心変数を加えた分離テンソル型では全固定複素点の可換Ku実現まで進み、定数型混合族にも余有限可換実現を得た。指定二因子では非smooth集合を正確にV(P64)と決定し、同じ判別集合と局所節点を持つ明示可換候補も得た。c=0と定常normの全64根では両側が滑らかであるが、この候補へのKu同値は一般点でも未証明である。主予想の核心は中心三次を保つ実際のcurved/MF比較・次数付き核の構成と、そのDVR延長にある。より一般の混合型、実楕円因子仮定の外の境界、全intrinsic成分の被覆も残る。point/Poisson一致は全対象に期待できないため、その修正版を別の最優先予想として立てず、既存の一致例・不一致例と必要な検証を保持する。
+一般点可換復元・一ブロックモジュライ・満支持型比較は有効な部分結果として保持する。中心変数を加えた分離テンソル型では全固定複素点の可換Ku実現まで進み、定数型混合族にも余有限可換実現を得た。指定二因子では非smooth集合を正確にV(P64)と決定し、同じ判別集合と局所節点を持つ明示可換候補も得た。c=0と定常normの全64根では両側が滑らかであるが、元の中心係数cを動かす族のこの候補へのKu同値は一般点でも未証明である。主予想の核心は中心三次を保つ実際のcurved/MF比較・次数付き核の構成と、そのDVR延長にある。より一般の混合型、実楕円因子仮定の外の境界、全intrinsic成分の被覆も残る。point/Poisson一致は全対象に期待できないため、その修正版を別の最優先予想として立てず、既存の一致例・不一致例と必要な検証を保持する。
 
 ## 補助的な例：point/Poisson一致への素朴な期待の限界
 
@@ -51,7 +51,7 @@
 | 固定有理係数の一ブロック三様体 A★ | h=1,λ=17/9。指定Ω・THCR商を直接確認し、楕円因子＋二つのA₂因子で全coherent Ku比較 | 局所環J_1とJ_17/9の厳密j不一致、任意supportの局所補題、12点のHessian分類により全πを排除。BMMSで全Ku標的も排除 | `explicit_sklyanin_input.tex`, `point_poisson_obstruction.tex` の `ppz:cor:complex-counterexample`。Mayanskiy・BMMS等の既知入力を明記 |
 | S(1,−1,−1)の定数型混合kブロック | 全αで有限中心・PI6・正則中心上Azumaya、任意固定係数で余有限全coherent Ku可換実現。指定二因子は全14節点のNCCR局所形・全simpleを決定し、非smooth集合を正確にV(P64)と証明 | c=0と定常normの全64係数はsmooth proper。全smooth係数での可換Ku比較は未解決。norm点の残余Extは0次1・1次10、既存100simpleのpd5も保持 | 混合稿の `mixed/local_orders.tex`, `mixed/smooth_locus.tex`, `mixed/relative_smoothness.tex`。`cmo:thm:fourteen-node-orders`, `cmo:thm:exact-sixty-four`, `cmo:cor:fixed-zero-norm-smooth`, `cmo:cor:cofinite` |
 | 全Poisson構造の孤立零点制約と混合五様体 | Ku比較を入力としない。norm根での主予想は未解決 | 孤立零点にはn=3k・一般階数2kが必要で、局所零環は0次元CI。normの全64根では被約point/Poisson一致への期待も成立しない。c=−44828を明示 | 混合稿の `mixed/poisson_limits.tex`。`ppz:thm:isolated-zero-dimension`, `ppz:cor:reduced-point-poisson-counterexample`。固定版の全次元正規形を入力 |
-| 指定混合族の明示可換候補 | λ²=28/27で臨界値・P64・局所五次元節点が一致。c=0にはEckardt点からの四次二重被覆とcrepant解消模型。候補へのKu同値は一般点でも未証明 | 自然なPoisson零スキームは滑らかな各cでE₁⊔E₂。norm根では全ての別標的・別πも上の定理で排除 | 混合稿の `mixed/commutative_candidate.tex`, `mixed/eckardt.tex`。`cmo:thm:commutative-discriminant-candidate`, `cmo:prop:zero-eckardt-resolution` |
+| 元の中心係数cを動かす混合族の明示可換候補 | λ²=28/27で臨界値・P64・局所五次元節点が一致。c=0にはEckardt点からの四次二重被覆とcrepant解消模型。候補へのKu同値は一般点でも未証明 | 自然なPoisson零スキームは滑らかな各cでE₁⊔E₂。norm根では全ての別標的・別πも上の定理で排除 | 混合稿の `mixed/commutative_candidate.tex`, `mixed/eckardt.tex`。`cmo:thm:commutative-discriminant-candidate`, `cmo:prop:zero-eckardt-resolution` |
 | 指定族の全smooth領域の不変量 | U=A¹∖V(P64)上の実相対smooth proper模型を構成。全cでHH₀の次元2、HH±₁は各21。有理数値Euler形式も可換候補と一致 | 圏同値・積分数値格子・point比較は導かない。c=0の非可換対合のHH±₁指標は未計算 | `cmo:prop:full-relative-hh`, `cmo:cor:rational-euler-comparison` |
 | c=0の実二成分分解と球面接着 | Ku(A₀)^μ₂=⟨ΦKu(Z),ΨK_R⟩ を全coherent圏上の実perfect核で構成。接着は球面導来制限。可換側K_Rcl≃Ku(Y)はrank一Knörrer核で同定 | 非可換K_R≃Ku(Y)と制限関手のintertwinerは未構成。通常のL二側商は有限次元で使えない | `cmo:thm:root-order-residual`, `cmo:prop:invariant-restriction-spherical`, `cmo:prop:commutative-invariant-knorrer` |
 | 交換子h族の指定候補への実核 | h⁶+27≠0上の全次数平坦性、h=0局所模型、指定W_h^candへの全次数形式MF同値、C(h)の有限拡大上のperfectKu核 | 核の全行列・拡大次数・h=1の整核とunit/counitは未決定。元c族の一般点同定とは別 | `mix:prop:h-flat`, `mix:thm:h-formal-kernel`, `mix:thm:h-exact-candidate` |

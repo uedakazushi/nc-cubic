@@ -150,7 +150,7 @@ N_6=a^6+b^6+c^6+66((ab)^3+(bc)^3+(ca)^3)
 
 以上とMorse点の局所計算から、`cmo:thm:exact-sixty-four` は指定族について P64(c)≠0 ⇔ affine対角perfect ⇔ 線束圏smooth ⇔ 全coherent圏smooth proper ⇔ coherent Ku smooth proper を与える。qgrのhomological dimensionはこの場合5、P64の根では∞。`cmo:cor:fixed-zero-norm-smooth` によりc=0とnorm全64根はsmooth properである。
 
-一般のαの非smooth集合と、指定族の全smooth係数での可換Ku比較は未解決。開性と基底の連結性だけでは比較locusの全体性は従わない。指定族には下記の明示可換候補があり、smooth locusと節点の完備局所模型は一致する。次の核心は、この候補への一般点での実同値、c=0・norm根を含むDVR上のperfect核の整延長、単位・余単位の特殊化での消滅である。norm根の全Poisson supportの排除は圏比較と独立に解決済み。一般的なBrauer純性・NCCR分類は既知結果であり、本例の具体的結論の新規性の網羅的確認は未了。一次文献・定理番号・識別子は混合稿Introductionと共有書誌 `papers/references.tex` に置く。
+一般のαの非smooth集合と、指定族の全smooth係数での可換Ku比較は未解決。開性と基底の連結性だけでは比較locusの全体性は従わない。指定族には下記の明示可換候補があり、smooth locusと節点の完備局所模型は一致する。次の核心は、元の中心係数cを動かす族のこの候補への一般点での実同値、c=0・norm根を含むDVR上のperfect核の整延長、単位・余単位の特殊化での消滅である。norm根の全Poisson supportの排除は圏比較と独立に解決済み。一般的なBrauer純性・NCCR分類は既知結果であり、本例の具体的結論の新規性の網羅的確認は未了。一次文献・定理番号・識別子は混合稿Introductionと共有書誌 `papers/references.tex` に置く。
 
 ### 同じ判別集合を持つ明示可換三次族
 
@@ -429,7 +429,7 @@ d_R(P;A,B)=\sum_j\bigl(\operatorname{length}_R H^j(C_A)
 
 は有限な非負整数で、同値性はd_R=0と同値。分岐指数eの有限平坦局所DVR拡大R→R′ではd_(R′)=e d_Rとなるので、固定した延長核の不良特殊化は有限分岐だけでは消えない。有界有限自由複体のSmith標準形で、一般点でacyclicな各二項因子[R→^(t^m) R]のmを加えればこの長さを計算できる（`grl:rem:trait-smith`）。この数値は選んだ生成模型・延長核に依存し、圏だけの内在的不変量とはしない。
 
-perfect延長の存在だけでは不十分である。A=B=R、P=R⊕R/(t)は一般点で恒等核だが、特殊化はk²⊕k[1]となり同値を与えない（`grl:ex:perfect-kernel-not-equivalence`）。この例には良い別の格子Rがあるため、必要なのは適切な核の整格子の選択である。指定混合族で残る三段階は、候補X_cへの一般点の実同値、perfect双加群の整延長、二つのconeの特殊化での零性である（`grl:rem:mixed-trait-inputs`）。c=0・norm根でこれらの行列を計算済みとはしない。
+perfect延長の存在だけでは不十分である。A=B=R、P=R⊕R/(t)は一般点で恒等核だが、特殊化はk²⊕k[1]となり同値を与えない（`grl:ex:perfect-kernel-not-equivalence`）。この例には良い別の格子Rがあるため、必要なのは適切な核の整格子の選択である。元の中心係数cを動かす指定混合族で残る三段階は、候補X_cへの一般点の実同値、perfect双加群の整延長、二つのconeの特殊化での零性である（`grl:rem:mixed-trait-inputs`）。c=0・norm根でこれらの行列を計算済みとはしない。
 
 ### smooth properな両側からは特殊同値を導けない
 
