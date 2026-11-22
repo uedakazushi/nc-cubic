@@ -1,11 +1,11 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v70。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v71。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
 
-- **七つのprobeのPBW・高次移送（v70）：** `ifj:prop:pbw-jet-degree` に全8×8 PBW積の唯一のq12q23二次型と四構造定数、源積の5つの一次/2つの二次probe、中心三次の一次性を証明として記載。`ifj:lem:pbw-hpl` は原点収縮を与えたときの既知のhomological perturbation lemmaの三次公式であり、新定理として主張しない。SymPyで記号Clifford積の全64組、中心体積元の中心性・平方=−det、probe次数、第一微分の8^3=512組の自己合成消滅、曲率一次性、非可換演算順序を保つ三次HPL公式を6群全てPASS。検算器 `computations/verify_clifford_jet_transfer.py`。実際のperfect原点核に適合する(i,p,h)の実構成・高次比較射・Hesse切片への正規化、12 scalarの数値は未完成。既存のv65-v69記録と今回の再実行は分ける。新説を含む三稿全体のLuaLaTeX再組版・PDF表示確認は未実施。
-
+- **四つの最小probeによる高次係数回収：** `ifj:prop:minimal-probes` に四方向 `E00,R0,C0,I3` の二次・三次評価行列と行列式 −1,1 を証明として記載。独立した三次不変式が四つあるため最低四方向を要し、二次PBW摂動が零なら第一または第三行が零で `I_c,I_d` も消えるため最低二方向の非線形PBW摂動を要する。四方向は双方の下限を達成する。この評価行列と零行の多項式恒等式をSymPyで厳密確認した。全12 scalarの数値・非消滅は未計算。
+- **PBW・高次移送の有効範囲：** `ifj:prop:pbw-jet-degree` の全8×8 PBW積の四つの二次構造定数と `ifj:lem:pbw-hpl` の既知三次HPL式を維持。選んだ最小四probeでは積の二つは厳密一次、二つは二次、中心三次は全方向で一次。旧七probe版の `verify_clifford_jet_transfer.py` は全64積、中心性、512 triple、曲率、非可換順序の移送を6群PASSした実行記録がある。今回変更した両検算スクリプトの全体再実行、三稿のLuaLaTeX組版・PDF表示確認、実核の収縮 `(i,p,h)`・高次比較の数値化は未実施。
 
 - **一方向rank-oneの一般因子の判別とMilnor型：** 新節 `interfactor_clifford_oneway_discriminant.tex`（ifod）の三定理・命題に、任意の許容τ_iと非零重みの四つの正確な三乗特異値、全特異点のAzumaya性、一般条件τ₁³≠−2・τ₂³≠4でのノード数1/3/3/9と通常discriminantのs次数48、特殊t³=−2/u³=4でのD₄とMilnor数16の合流を証明記載。証明は既存 `ifd:prop:ambient-locus`、`ifn:thm:four-discriminants` と射影Azumaya内のcoherent飽和を入力とする。今ターンのSymbolic検算 `python3 computations/verify_clifford_general_oneway.py` はSymPy 1.14で6群PASS（一般四binary cubic判別恒等式、二因子の臨界根と値、∂s横断性、Clifford行列式、t=3/u=2の四枝の厳密非零Hessian、特殊分岐の三次jet）。新節単体をltjsarticleの独立LuaLaTeX wrapperで4頁として組版し、未定義の外部参照を除きTeXエラー・overfull/underfullなし、全4頁のPNG montageを確認した。**三稿の統合LuaLaTeX組版や全参照の収束は今回未実施**。有限計算は圏同値・coherent飽和・全残余smooth判別・固定Hesse切片の高次12係数を検証するものではない。特殊D₄の形式同値は書いた形式Morseと有限決定性の数学的論証による。外部査読・Lean・新規性網羅確認は未実施。
 - **階数一の全二方向判別・対称特別値の保持:** `ifn:thm:four-discriminants` には任意λ,μの中心norm全特異条件を四binary cubic判別式で記述する証明、`ifn:thm:symmetric-probe` にはτ₁=τ₂=2の四判別因数分解、非Azumaya二乗因子、12特異係数とAzumayaノード数を記載。これらの厳密計算6群（v67）、6群（v68）は以前の実行記録で、今回再実行ではない。今回の新一般式はv68に正確に特殊化することをSymbolic検算でも確認した。
@@ -14,7 +14,7 @@
 
 - **一般尺度の三乗：** `q=−adj(Hτ(z))`、`ω=−fτ(z)` と逆写像 `zₐ=adj(q)ᵦ𝚌/ω` を用いる、非零体積上の臨界スキーム同型を確認した。全許容τの有限平坦階数8のgradient写像、一般Morse臨界値の分離、第二momentの非零性を本文で証明する。AZ Morse値の検出と既存eukの全係数核から64値の集合の等号を得て、同じ `v=u²` のfull Bocksteinに属する `b₁/b₂=ℓ₁/ℓ₂` と純因子 `ℓᵢqᵢ` により両κの三乗を決定した。共通中心三次尺度は比で消しており、個々のℓの絶対値は主張しない。三枝は可換側の実ブロックスカラーのgraph核を後合成して実現する。`θ³=(τ₁³−1)/(τ₂³−1)` の非自明性は境界τ₁=1の付値1による。これを全比較核のgerbeや全降下障害の同定へ広げていない。
 - **周囲正則域内のA₂：** 階数一の双方向係数における六二次式の全射影共通零点を分類し、`V(Δ)=V(h)` の必要十分性を確認した。中心正則性の係数cは全スライスで非零である。`Λ=M=−3τ E₁₁` のnorm局所式、非退化横Hessian、横臨界切断上の三次関数を用い、一般許容τのA₂型を示す。`ζ=ωₓ/Y₁` の次数一中心単元を用いて次数零の射影chartを作り、その中心と次数4 Azumaya代数を直接同定する。完備局所Mat₄表示、Tate–Shamashの極小解消、有限台の局所大域比較、有限例外mutation後に残る高次Ext、coherent飽和の反対命題まで読解した。非次数付きaffine MFの特異性だけを射影Kuへ移す推論は使わない。この例は非smoothなので、滑らかな非可換三次に関する主予想の反例ではない。
-- **固定切片と十二係数：** `gl₆→(∂F)₃` の単射性と20単項式の補空間、恒等枝の形式逆写像、sourceの−PとtargetのPの区別、二捩れPicard束の[3]降下と反転の両立、比較射の文字 `ε²=ε³=1`、指定周期との整合を確認した。Heisenbergだけの5二次・10純三次から、反転も保つ核では4二次・8純三次へ減る。七つの一変数probeが十二値を回収することは有限計算でも確認した。十二値の数値・非消滅は未計算。自由な標的形式座標で高次項を消せることと、固定した多項式切片での値を区別する。
+- **固定切片と十二係数：** `gl₆→(∂F)₃` の単射性と20単項式の補空間、恒等枝の形式逆写像、sourceの−PとtargetのPの区別、二捩れPicard束の[3]降下と反転の両立、比較射の文字 `ε²=ε³=1`、指定周期との整合を確認した。Heisenbergだけの5二次・10純三次から、反転も保つ核では4二次・8純三次へ減る。四つの最小一変数probeが十二値を回収し、二つの非線形PBW方向も最小であることを有限計算で確認した。十二値の数値・非消滅は未計算。自由な標的形式座標で高次項を消せることと、固定した多項式切片での値を区別する。
 - **一般係数とモジュライ稠密開：** 実比較核を持つ有限型étale chartを出発点とし、射影空間束をさらにétale局所自明化してから一般有限射を縮小する。係数の非空開への有限étale全射、実三次族・実核、モジュライへのétale分類写像とその稠密開像を得る。有限化後の開が最初の分離点を含むこと、元の係数体への核の降下、全smooth係数の比較は主張しない。
 
 一次資料では、Buchweitz–Pavlovの刊行版§§2.1,2.6、Beauvilleの *The Coble hypersurfaces* §1 Proposition1、Eisenbud–Peevaの著者版Construction4.1.3・Proposition4.1.4・Remark4.1.5、Stacks Tags02NW,03FQ,04XBの該当本文を確認した。Moore行列のHesse表示、Heisenbergのgradient機構、Tate–Shamash解消、一般有限射の縮小は既知結果として引用する。今回の具体的臨界スキーム同型・尺度較正・残余特異例・核の反転構造の網羅的な初出確認は未完了である。
@@ -25,9 +25,9 @@
 | --- | --- | --- |
 | `python3 computations/verify_clifford_morse_scale.py` | 8 PASS、終了コード0。主担当と別担当が実行 | Q(τ)上のadjugate恒等式、二つの完全gradient商による第二moment、τ=2の臨界多項式と8非零単根、尺度三乗・Kummer式 |
 | `python3 computations/verify_clifford_rank_one.py` | 4 PASS、終了コード0。主担当と別担当二名が実行 | 全分枝の2×2行列式h、一般τのnorm特異点・局所式・横Hessian、τ=2の有理数係数例 |
-| `python3 computations/verify_clifford_jets.py` | 7 PASS、終了コード0。作成担当・主担当・別担当が実行 | 全単項式重み・巡回軌道、反転固定部分、gradient、七probe、Hesse補空間、中心三次と最上線の符号 |
+| `python3 computations/verify_clifford_jets.py` | 旧七probe版は7 PASS・終了コード0。四probe改訂版の全体再実行は未実施 | 全単項式重み・巡回軌道、反転固定部分、gradient、四probe、Hesse補空間、中心三次と最上線の符号 |
 
-SHA-256は順に `e131936417216eeea7f8dd8b62be989487bc43e63d1c476967936c55044fe774`、`2e78aa09b287f8e08ac475efbab4d22c40ab06db4f051d8e00c8ab320b919acb`、`b557e569597222af153bf0cba33522c649858b98a5a55c3e0dd7d056e251370e`。これらは有限代数恒等式の検算であり、実核・dg同値・形式認識の形式証明ではない。
+旧版の有限検算器のSHA-256は資料確認時の値として保持されるが、変更した `verify_clifford_jets.py` に旧ハッシュを流用しない。今回確認したのは四probeの評価行列・零行恒等式のSymPy厳密計算であり、全スクリプトの再実行やdg核の形式証明ではない。
 
 ## Clifford族の正則性・実smooth近傍・四様体のrotation形式認識
 

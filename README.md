@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月23日 / v70。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月23日 / v71。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -35,7 +35,7 @@
 
 **任意のClifford二因子の一方向probeで中心norm判別を完全決定した。** [一般一方向の四臨界値](papers/sections/mixed/interfactor_clifford_oneway_discriminant.tex) の`ifod:thm:general-values`は、Λ=sE₁₁、M=0、任意の許容τ_iと非零重みについて、四つの明示非零ρ_{εδ}の三乗根が全特異係数であることを示す。全sで周囲AS正則・中心三次正則、中心norm特異点は全てAzumayaで残余非smooth。τ₁³≠−2、τ₂³≠4ならノード数1/3/3/9、schematicな判別は∏(s³−ρ_{εδ})^{3^{ε+δ}}でs次数48。特殊値ではD₄（Milnor数4）または四変数Fermat三次のsuspension（Milnor数16）へ合流する。対称τ₁=τ₂=2の既存12値は特殊化として保持する（`ifn:thm:symmetric-probe`）。全残余smooth locusと固定Hesse切片の12高次係数の実計算を決定したものではない。[再現コード](computations/verify_clifford_general_oneway.py)。
 
-**固定した可換方程式の高次項は、まず十二係数の実計算へ帰着する。** [固定切片と同変jet](papers/sections/mixed/interfactor_clifford_jets.tex)は、両Cliffordの標準Hesse方程式、Jacobian補空間による線型切片、原点の実核・指定周期を固定すると、形式可換方程式が一意になることを示す（`ifj:lem:linear-slice`）。Heisenberg群の二因子作用に対する二次covariantと三次不変式は各五本であり、周期と両立する反転同変実核を選ぶと各四本に減る。一方向九変数族の逆向き混合二次項は四係数、二つの純因子三次項は八係数で尽くされ、七つの一変数probeで回収できる（`ifj:thm:twelve-coefficients`）。**この4+8=12個の数値は未計算**である。ただし[PBW摂動と三次移送](papers/sections/mixed/interfactor_clifford_jets.tex)で、七つのprobeの源curved代数演算が五方向は厳密に一次、残る列和・対角の二方向は二次に止まると証明した。非零な二次演算は四つのPBW構造定数だけで、中心三次は全方向で一次。原点に選んだ収縮(i,p,h)のもと、HPLによる二・三次の移送を有限式へ還元した（`ifj:prop:pbw-jet-degree`, `ifj:lem:pbw-hpl`）。必要な原点核・周期の収縮とHesse切片への実射影は未実装であり、移送式を高次係数の数値と取り違えない。[厳密PBW検算](computations/verify_clifford_jet_transfer.py)を追加した。自由な標的形式座標で高次項を消せることと、固定した多項式切片で数値を求めることは別である。
+**固定した可換方程式の高次項は、まず十二係数の実計算へ帰着する。** [固定切片と同変jet](papers/sections/mixed/interfactor_clifford_jets.tex)は、両Cliffordの標準Hesse方程式、Jacobian補空間による線型切片、原点の実核・指定周期を固定すると、形式可換方程式が一意になることを示す（`ifj:lem:linear-slice`）。Heisenberg群の二因子作用に対する二次covariantと三次不変式は各五本であり、周期と両立する反転同変実核を選ぶと各四本に減る。一方向九変数族の逆向き混合二次項は四係数、二つの純因子三次項は八係数で尽くされ、最小四つの一変数probeで回収できる（`ifj:thm:twelve-coefficients`）。**この4+8=12個の数値は未計算**である。ただし[PBW摂動と三次移送](papers/sections/mixed/interfactor_clifford_jets.tex)で、四つのprobeの源curved代数演算が単位行列・行和の二方向は厳密に一次、残る列和・対角の二方向は二次に止まると証明した。非零な二次演算は四つのPBW構造定数だけで、中心三次は全方向で一次。原点に選んだ収縮(i,p,h)のもと、HPLによる二・三次の移送を有限式へ還元した（`ifj:prop:pbw-jet-degree`, `ifj:lem:pbw-hpl`）。必要な原点核・周期の収縮とHesse切片への実射影は未実装であり、移送式を高次係数の数値と取り違えない。[厳密PBW検算](computations/verify_clifford_jet_transfer.py)を追加した。自由な標的形式座標で高次項を消せることと、固定した多項式切片で数値を求めることは別である。
 
 **固定tensor境界の全PBW表示まで、因子別比較の適用範囲が広がった。** [因子間変形の節](papers/sections/mixed/interfactor_deformations.tex)では、任意の可換係数環と厳密な中心変数の下で、因子間の一次・定数補正と内部関係の他因子出力が全て零になることを証明した（`ifp:thm:factorization`）。因子別分解は元の生成元で成立し、形式的gaugeや被約性を要しない。指定中心三次があれば全許容正規形へ入り、smoothness判定・一般中央flag・全coherent Ku比較を適用できる（`ifp:cor:central-comparison`）。固定した最高次境界とPBW性は仮定として残る。
 
@@ -104,7 +104,7 @@
 
 [rank-one境界の検算](computations/verify_clifford_rank_one.py)は `python3 computations/verify_clifford_rank_one.py`（**4 PASS、終了コード0**）。正則域のh、中心normのA₂展開、横断Hessianと明示的有理点を検算する。
 
-[固定切片・同変jetの検算](computations/verify_clifford_jets.py)は `python3 computations/verify_clifford_jets.py`（**7 PASS、終了コード0**）。Heisenbergの五つの二次covariant・五つの三次不変式、反転後の四次元部分、gradient関係、七probe、全smooth Hesse fiberの補空間、反転と体積線の符号を確認する。この三検算器はPython 3とSymPyを使い、いずれも実行確認済みである。実核・周期coherence・Azumaya降下・形式切片の存在と一意性は本文の証明に依り、十二係数の数値や組版・保存の成否をこれらの有限計算から結論しない。
+[固定切片・同変jetの検算](computations/verify_clifford_jets.py)は `python3 computations/verify_clifford_jets.py`（**7 PASS、終了コード0**）。Heisenbergの五つの二次covariant・五つの三次不変式、反転後の四次元部分、gradient関係、最小四probe、全smooth Hesse fiberの補空間、反転と体積線の符号を検算する。旧版の7 PASSは実行確認済みだが、この四probe改訂版全体の再実行は未実施。四probeの評価行列と最小性は別途SymPyで厳密確認した。実核・周期coherence・Azumaya降下・形式切片の存在と一意性は本文の証明に依り、十二係数の数値や組版・保存の成否をこれらの有限計算から結論しない。
 
 [双方向Clifford族の検算](computations/verify_bidirectional_clifford.py)は `python3 computations/verify_bidirectional_clifford.py`（**9 PASS、終了コード0**）。全係数の二次双対の直交・単元小行列式、cocycleとtraceの符号、原点の完全交叉恒等式、中心normの最高係数、非正則な具体点、Heisenberg作用、純因子微分と中心規格化の一次比を厳密に確認する。相対Koszul解消・CY双対性、実核、二十変数の形式完全性は本文の証明による。Python 3とSymPyを使う。
 

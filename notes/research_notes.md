@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月23日 / v70。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月23日 / v71。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -652,11 +652,11 @@ t³≠−2,u³≠4なら特異点は全て通常二重点、各枝の節点数�
 
 正本は[階数一normの判別定理](../papers/sections/mixed/interfactor_clifford_rank_one_fullnorm.tex)の`ifn:thm:symmetric-probe`。τ₁=τ₂=2、a_i=1で、四つのbinary cubicの判別はそれぞれ(λμ−4)²Q₀₀、−(λμ−8)²Q₀₁/27、−(λμ−8)²Q₁₀/27、−(λμ−16)²Q₁₁/19683に分解する。二乗因子は非Azumayaの臨界点、四つの残余Q因子にはそれぞれAzumaya通常二重点の証人がある。Λ=sE₁₁、M=0では全sでh=49,c=196。中心normが特異となるのは(s³−54)(s³−56)(s³+196)(27s³+5488)=0の12係数で、その各fiberのノード数は1・3・3・9。全てAzumaya。原点から離れたこの判別式だけでは、原点の固定Hesse多項式切片での12個の高次比較係数は決定できない。必要なのは実Bockstein・比較核の高次移送。検算入口は[verify_clifford_symmetric_discriminants.py](../computations/verify_clifford_symmetric_discriminants.py)。
 
-### 七probeのcurved PBW摂動と三次HPLへの有限還元
+### 最小四probeのcurved PBW摂動と三次HPLへの有限還元
 
-正本は [interfactor_clifford_jets.tex](../papers/sections/mixed/interfactor_clifford_jets.tex) の `ifj:prop:pbw-jet-degree`、`ifj:lem:pbw-hpl`。1〜3添字のCliffordで q23=−τ₁X₁/2+sL₁/2, q13=−τ₁X₂/2+sL₂/2, q12=−τ₁X₃/2+sL₃/2（L_a=Σ_b U_abY_b）。8つの順序PBW基底の全64組の積の非線形項は q12 q23 に由来する4つだけで、源m_s=m0+s m1+s² m2のm2はこの4出力に−L₁L₃を掛けたもの。ω_x=e123−q12e3+q13e2−q23e1なので中心w_s=w0+s w1は全probeで厳密に一次。7方向のうち E00,E10+E20,E01+E02,E11+E22,R0 の5つはm2=0、C0,I3の2つのみm2≠0（順序PBWでの計算上の性質）。
+正本は [interfactor_clifford_jets.tex](../papers/sections/mixed/interfactor_clifford_jets.tex) の `ifj:prop:pbw-jet-degree`、`ifj:lem:pbw-hpl`。1〜3添字のCliffordで q23=−τ₁X₁/2+sL₁/2, q13=−τ₁X₂/2+sL₂/2, q12=−τ₁X₃/2+sL₃/2（L_a=Σ_b U_abY_b）。8つの順序PBW基底の全64組の積の非線形項は q12 q23 に由来する4つだけで、源m_s=m0+s m1+s² m2のm2はこの4出力に−L₁L₃を掛けたもの。ω_x=e123−q12e3+q13e2−q23e1なので中心w_s=w0+s w1は全probeで厳密に一次。最小四方向 E00,R0,C0,I3 のうち E00,R0 の2つはm2=0、C0,I3の2つはm2≠0（固定した順序PBWでの性質）。
 
-原点s進curved bar模型 d_s=d0+s d1+s²d2 と原点収縮 (i,p,h), d0h+hd0=1−ip を選ぶと、三次移送の増分は s p d1 i+s²p(d2−d1hd1)i+s³p(−d1hd2−d2hd1+d1hd1hd1)i+O(s⁴)。従って必要な源摂動演算はd1,d2のみで、五つの線形probeではd2=0かつd1²=0。これは移送「微分」の演算式であり、Hesse切片のβ・γを直接与えるものではない。現行の次の実計算は、既存の原点perfect核・Shamash縮約・Picard/rotation周期から(i,p,h)を実際に取り、同じJacobian切片へ高次積まで移すこと。自由な標的再座標化でβ・γを消す操作は採用しない。再現は [verify_clifford_jet_transfer.py](../computations/verify_clifford_jet_transfer.py)。既知のHPLはGugenheim--Lambe--Stasheff (1991)と区別する。
+原点s進curved bar模型 d_s=d0+s d1+s²d2 と原点収縮 (i,p,h), d0h+hd0=1−ip を選ぶと、三次移送の増分は s p d1 i+s²p(d2−d1hd1)i+s³p(−d1hd2−d2hd1+d1hd1hd1)i+O(s⁴)。従って必要な源摂動演算はd1,d2のみで、二つの線形probeではd2=0かつd1²=0。これは移送「微分」の演算式であり、Hesse切片のβ・γを直接与えるものではない。現行の次の実計算は、既存の原点perfect核・Shamash縮約・Picard/rotation周期から(i,p,h)を実際に取り、同じJacobian切片へ高次積まで移すこと。自由な標的再座標化でβ・γを消す操作は採用しない。再現は [verify_clifford_jet_transfer.py](../computations/verify_clifford_jet_transfer.py)。既知のHPLはGugenheim--Lambe--Stasheff (1991)と区別する。
 
 ### 固定した三次切片と高次項の十二係数
 
@@ -683,13 +683,13 @@ Heisenberg対称性だけでは二次写像Sym²V→V*が五次元、三次不�
 
 となる（`ifj:thm:twelve-coefficients`）。βの四個とγの八個は固定した因子・重み・原点比較の係数であり、新しい十二変形パラメータではない。**その数値、消滅・非消滅は未計算である。**
 
-計算の最短の入口は、E₀₀、E₁₀+E₂₀、E₀₁+E₀₂、E₁₁+E₂₂、第一行和、第一列和、I₃という七つの一変数族Λ=tAである。固定切片への正規化後の[t²]v₀₀と[t³]z_iから、`ifj:eq:probe-table`に従って十二係数を回収できる。各制限では中心持上げ・実核・Jacobian補空間への射影を三次まで追う必要があり、normや点曲線の形式だけを可換方程式と見なすことはできない。
+最小の計算入口は、E₀₀、第一行和R₀、第一列和C₀、I₃という四つの一変数族Λ=tAである。[t²]v₀₀の評価行列式は−1、[t³]z_iの不変式評価行列式は1で、`ifj:prop:minimal-probes`と`ifj:eq:probe-table`から十二係数を回収できる。四つの三次不変式の係数回収には最低四方向、さらにPBWの二次摂動を持つ方向が最低二つ必要なので、選択は両下限を達成する。各制限では中心持上げ・実核・Jacobian補空間への射影を三次まで追う必要があり、normや点曲線の形式だけを可換方程式と見なすことはできない。
 
 任意の標的形式座標変更なら全高次項を消して(κΛ,0,0)へ移せるが、これは固定した多項式切片の係数を計算したことにはならない（`ifj:prop:formal-straightening`）。一方、一次部分が恒等の同変な源座標変更の最初の補正は四次なので、上の二次・三次係数は変わらない。形式座標に関するこの区別を計算時にも維持する。
 
-**残る具体課題と到達基準。** 第一に七制限の実比較を三次まで計算し、固定切片の十二係数を求める。第二に階数一のD(h)内で、Azumaya norm特異点と二次形式退化部分を分けて残余smooth locusの方程式を調べる。A₂例は除外すべき係数を既に与えるが、全判別式ではない。第三に、構成済みの有限étale比較被覆がどの残余smooth係数まで延長できるかを実核のperfect性と同値性で判定する。尺度θの三次被覆だけから全核の降下を結論しない。一般の非Clifford第一因子の尺度、任意の複数ordered pairの同時積分、全intrinsic表示被覆も残る。
+**残る具体課題と到達基準。** 第一に四制限の実比較を三次まで計算し、固定切片の十二係数を求める。第二に階数一のD(h)内で、Azumaya norm特異点と二次形式退化部分を分けて残余smooth locusの方程式を調べる。A₂例は除外すべき係数を既に与えるが、全判別式ではない。第三に、構成済みの有限étale比較被覆がどの残余smooth係数まで延長できるかを実核のperfect性と同値性で判定する。尺度θの三次被覆だけから全核の降下を結論しない。一般の非Clifford第一因子の尺度、任意の複数ordered pairの同時積分、全intrinsic表示被覆も残る。
 
-有限計算の入口は `verify_clifford_morse_scale.py`（随伴行列・moment・三乗尺度）、`verify_clifford_rank_one.py`（h・norm局所式・Hessian・有理係数例）、`verify_clifford_jets.py`（全低次同変空間・反転・七制限・Hesse補空間）である。いずれも厳密な有限代数計算であり、実核・coherent飽和・指定周期・高次十二係数の数値を機械検証したとはしない。実行と組版・保存の状態は `validation.md` を正本とする。
+有限計算の入口は `verify_clifford_morse_scale.py`（随伴行列・moment・三乗尺度）、`verify_clifford_rank_one.py`（h・norm局所式・Hessian・有理係数例）、`verify_clifford_jets.py`（全低次同変空間・反転・最小四制限・Hesse補空間）である。いずれも厳密な有限代数計算であり、実核・coherent飽和・指定周期・高次十二係数の数値を機械検証したとはしない。実行と組版・保存の状態は `validation.md` を正本とする。
 
 ### Clifford族・尺度・局所比較に使う一次文献
 

@@ -1,6 +1,6 @@
 # Research instructions — nc-cubic
 
-2026-11-23 / v70。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-23 / v71。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
@@ -62,7 +62,7 @@
 - 一ブロックの中心三次商線、点曲線、残余射次数9/18、点型Picard指数三・非分裂指数九、γ̄_n/[D]の問題を多ブロックへ無条件に流用しない。full class選択、gerbe中立化、period位相は別段階。
 - `notes/central_cubic_generic_smoothness.tex` の非可換Bertiniの適用には、中心chartが有限生成可換中心上有限という仮定が必要。PBW性やassociated gradedのPI性だけで代用しない。
 - `verify_mixed_central_direction.py` の7 PASSは、可換Knörrer座標と法線二次式のhomotopy・Jacobian非零小行列式、P64根の二次moment、中央三次MFのMassey係数、重み三の単項式を厳密検算する。実comonadの全coherenceや核同値そのものの形式証明ではない。
-- `verify_clifford_morse_scale.py` の8 PASS、`verify_clifford_rank_one.py` の4 PASS、`verify_clifford_jets.py` の7 PASSを終了コード0で確認済み。順にadjugate・臨界二次moment・一般尺度の三乗、hとA₂展開・有理点、五/四次元同変空間・七probe・Hesse補空間・反転符号を有限検算する。実核、周期coherence、Azumaya降下、形式一意性・モジュライ像の証明や十二係数の数値計算をこの検算で代用しない。組版・保存の確認状態は別に報告する。
+- `verify_clifford_morse_scale.py` の8 PASS、`verify_clifford_rank_one.py` の4 PASS、`verify_clifford_jets.py` の7 PASSを終了コード0で確認済み。順にadjugate・臨界二次moment・一般尺度の三乗、hとA₂展開・有理点、五/四次元同変空間・最小四probe・Hesse補空間・反転符号を有限検算する（7 PASSは改訂前の検証記録で、改訂版全体の再実行は未実施）。実核、周期coherence、Azumaya降下、形式一意性・モジュライ像の証明や十二係数の数値計算をこの検算で代用しない。組版・保存の確認状態は別に報告する。
 - 中心幾何・全節点の横断Hessian・64次resultantは `verify_mixed_center_geometry.py`（14 PASS）、明示可換候補のJacobi環・臨界値・共通P64は `verify_mixed_commutative_candidate.py`（9 PASS）、二次元分類は `verify_mixed_two_dimensional.py`、二次元高次作用は `verify_mixed_two_dimensional_ext.py`（普遍式は `--universal`、characterが検出しない零例は `--zero-example`）で再現する。`verify_mixed_pi_center.py` の普遍中心証明書、`verify_mixed_character_ext.py` の8 PASSと `verify_point_poisson_obstruction.py` の12 PASSの厳密計算を確認済み。候補の9 PASSはKu比較や全Poisson分類の検証ではない。有限語関係による中心性の証明、全次数PBWの文献による判定、smoothness・Ku比較の証明は別である。独立読解、組版、表示確認、保存の状態は `notes/validation.md` を正本とし、計算成功だけで組版や保存の完了を報告しない。
 
 ## 正本・外部入力・保存
