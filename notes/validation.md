@@ -1,8 +1,10 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v77。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v78。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
+
+- **相対二重被覆の正規化とPicard斉次2×2行列分解（v78）：** 混合稿`ifj:prop:double-cover-algebra`に、K上のB=R⊕I、I=(X,Y)、I²=(X)、deck同時符号、積ij/X、任意底変更への互換と粗い平方根被覆の偽の通常二重点を証明。`ifj:prop:two-torsion-matrix-factorization`に源と標的の2×2行列積AB=BA=F1、余核=(X,Y)、層O(−p)、一点捩れO(o)の必要性を証明。`ifj:cor:double-cover-sign-descent`に標的符号線束の源への引戻し自明化と残るdeck符号を記載。Python3/SymPy1.14で11群PASS・終了コード0（許容τの非零式、四次式被覆、deck、イデアル積、アフィン/斉次MF、粗い節点、τ=2/−1の滑らかさ、両側MF、Bezout）。ローカル実行ソースSHA-256 `6143d5813f4bb4ca580faa6f060fda855074c998b0961d5060111abd29180091`、GitHub保存blob SHA `e5be2c4fa7d07cd0b1f2b503b462a049445a3b40` は一致検証済み。保存後の独立した再実行ではなく同一ソースのGit blob照合である。相対的線束・正規性・cokerの数学的証明は本文にある。Ku比較核・指定周期・46原式係数・12 scalar未計算。最新3稿LuaLaTeX組版、形式証明、外部査読は今回未実施。
 
 - **基点付き三次式によるisogeny有限座標模型（v77）：** `ifj:prop:two-isogeny-cubic-sextet`でW,T,Sの厳密なWeierstrass変換、共通基点因子D=2o+pを持つ6三次式、実際のdeck作用行列と±3+3固有基底、負固有線束N=M_{τ∨}、標的Hesseを構成する正固有三次式と次数9の多項式恒等式、反転同変性を証明として記載。`computations/verify_clifford_isogeny_cubics.py` をPython 3/SymPy 1.14でローカル8群PASS・終了コード0と確認し、保存済みGitHub blob SHA `8801f997328505750b95ce0a81d46bd6bfaa8251` とローカル実行ファイルの `git hash-object` が一致した（SHA-256 `73f94d20792a49cb04f5b4e8d246926062f7c2252c5788cf5e8edad225f53f2b`）。記号的な全係数のdegree-9恒等式と具体的τ=2,−1のHesse多項式除算を検算したが、曲線上の基点因子・線束同型・双対isogenyの数学的証明は本文による。実Ku核の比較や46原式係数・βγ12値には何も計算していない。保存済み節/三稿全体のLuaLaTeX組版・Lean・外部査読も今回未実施。
 

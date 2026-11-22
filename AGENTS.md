@@ -1,6 +1,6 @@
 # Research instructions — nc-cubic
 
-2026-11-23 / v77。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-23 / v78。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
@@ -27,6 +27,7 @@
 - `ifj:thm:discriminant-two-isogeny` はClifford中心判別D_τ=(τ³/8)f_{−2/τ}を与え、点曲線E_τ→E_{−2/τ}の核{o,p}の次数2 isogeny、往復[−2]、三捩れのdiag(1,−1)を明示する。`ifj:cor:isogeny-picard-line` はφ*O(1)=O(2)⊗M_τ、M_τ=O(p−o)非自明二捩れを証明し、普通の二次座標表示の障害と、既存Picard–rotation比較での同じ線束を特定する。一般のCayleyan二重isogenyは既知であり、本Clifford規約での計算・係数照合と区別する。`verify_clifford_hesse_two_isogeny.py` は保存済みソースを読み戻した8群PASSまで確認済み。これから実Ku比較核や12高次係数を得たとは主張しない。
 - `ifj:prop:two-isogeny-theta-characters` は、点楕円から中心判別楕円への二重isogenyのpullback偏極A=L²⊗Mで、三捩れtheta交換子をe_A=e_L²=e_L⁻¹へ反転させ、H⁰(E,A)のdeck±固有空間が各3次元の双対Schrödinger表現であることを示す。**通常の二次式も逆中心文字を持つため、これだけで二次表示を排除しない。** 本当の線束障害はHom(L²,A)=H⁰(M)=0。`ifj:cor:two-isogeny-cm-specialization` のτ²=−2は自己isogeny平方[−2]、j=8000のCM点だがMは非自明。`verify_clifford_hesse_theta.py`（6群の有限行列計算）は核や周期を確認しない。次は実核の有限Koszul–Shamashモデルでdeck対合・三捩れの逆中心文字・Picardと指定周期を追う。
 - `ifj:prop:two-isogeny-cubic-sextet` は同じphiの引戻し偏極に対し、共通基点因子2o+pを持つ6本の三次式W²T,W²S,WT²,WTS,T³,T²Sを明示し、除去後のH⁰(E,A)と一致させる。deck対合はU=T/W,V=S/WでD(g)=U⁴g(b/U,−bV/U²)/b²。±3次元の固有基底、target Weierstrass/Hesseへの3本の三次式、元曲線×明示六次式に分解する次数9恒等式、反転両立を本文で証明する。負固有線束Nは標的の二捩れM_{τ∨}。`computations/verify_clifford_isogeny_cubics.py`の8群は厳密有限代数であって、MF/window実核・周期・46原式係数・12数値を検証しない。次は六次元の座標模型をKoszul–Shamash比較核の有限Hom/rotationへ接続すること。ただし点曲線の交換PとClifford生成元の−Pではgraded線型化の符号が異なり、deck平行移動t_pも残余rotationとは別作用である。核へ移すときは最上Koszul線・指定三乗周期の整合を別に検証する。
+- `ifj:prop:double-cover-algebra` はK上の相対有限étale二重被覆B=K[ξ,η]/(η²−g(ξ²))、標的R=K[X,Y]/(Y²−Xg(X))をB=R⊕I（I=(X,Y)、I²=(X)）、deck符号、積ij/Xまで明示し、素朴なR[√X]に偽の節点が現れることを証明する。`ifj:prop:two-torsion-matrix-factorization` は源Mτと標的Mτ∨の二捩れ線束を斉次2×2 MFから有限表示するが、余核O(−p)に一点捩れO(o)を施して初めて次数零Picard Mとなる。**通常の整数次数shiftでは代用不可**。`ifj:cor:double-cover-sign-descent` の源への引戻し自明化にもdeck符号が残る。`verify_clifford_double_cover_mf.py`は11群PASS・保存コードblob SHA照合済み。次に実核のgraded Koszul–Shamash/Homへ線束・deck・rotation・三乗周期を同時に入れる。現段階でKu比較核や12係数の数値を得たとは主張しない。
 - `verify_interfactor_pbw.py` のdefaultと`--clifford`は各6 PASSの有理数上の有限証明書。全90一次・15定数係数を先に許してBG行列を作り、cross消滅を入力にしない。一般因子定理、Clifford中心持上げ、相対対角やKu比較を計算確認したとしない。n=4の近傍比較は上のrotation付き認識によるもので、n≠4の開性定理の仮定を外したものではない。
 - 全中心数m≥1について `mcb:thm:smooth-locus` はK_A smooth ⇔ X_pol smoothを与える。`mbl:lem:strict-action` の厳密な中心作用、KhanのArtin stack blow-up分解、各chartの一中心普遍核、絶対対角のZariski局所性を使う。有限中心性や局所比較核の貼合せを仮定しない。一般中央flagの全中間商はsmooth（`mcb:thm:central-flags`）なので、任意mの全smooth因子別表示へ逐次実核と全coherent Ku比較を適用できる。二中心ではsmooth⇒Δ≢0でありΔの次数は3·8^k。全intrinsic対象の被覆を得たとはしない。
 - X_polは全smooth locusを判定するが、実比較の標的は逐次構成のX_itであり、その両者への同じ核や全中心作用の同時保存は未証明。`mtb:prop:transverse-iso` と `mtb:cor:many-centers` は、固定smooth境界と実核の下で横断二項Bの可逆性を与える。各固定一次係数の一般二次係数では最後の悪い値が2^(3k+m−1)個の単根で各唯一ODP、判別因子は既約被約でaffine正規化を持つ（`mtd:thm:normalization`, `mtd:cor:many-centers`）。特殊係数の多重根を許す。同一二軸でも全体のsmoothnessが異なる `tcr:ex:same-axes` を保持し、有限Koszul加群解消から全associative balancing towerの有限性を結論しない。
