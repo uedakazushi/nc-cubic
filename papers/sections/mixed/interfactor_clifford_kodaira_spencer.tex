@@ -1,0 +1,103 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v62.
+\subsection{Clifford 九変数族の幾何的接類と局所比較}
+\label{ifk:subsec:clifford-application}
+
+中心変数を加えない九変数族は三次四様体の次元に属する。
+本節では実相対模型と原点の rotation 付き核を用い、
+主稿の rotation を持つ変形の形式認識を適用する。
+まず残余圏の九つの接方向に非幾何的成分がないことを確認し、
+次に原点近傍の実際の可換比較へ進む。
+
+定理\ref{ifc:thm:family}の $m=0$ の族を取り、
+$0\in\operatorname{Spec}R$ を $\Lambda=0$ とする。
+原点の商と残余圏を
+\[
+ A_0=(S_1\otimes S_2)/(a_1\Omega_{1,0}+a_2\Omega_{2,0}),
+ \qquad \mathcal K_0=\Ku_{\mathrm{coh}}(A_0)
+\]
+と書く。
+各因子の点曲線の非零方程式を $f_i$ とし、
+$X_0=V(a_1f_1+a_2f_2)\subset\mathbb P^5$ と置く。
+補題\ref{ebk:lem:boundary}は、この $\mathcal K_0$ と $\Ku(X_0)$ の間に
+実際の dg Morita 同値 $E$ と
+\begin{equation}\label{ifk:eq:marked-origin}
+ E\rho_0\simeq\rho_{X_0}E
+\end{equation}
+を、指定三乗周期とともに与える。
+同補題は二捩れ因子を許すので $S_2=S(1,1,\tau)$ に適用できる。
+この入力は単なる非標識 Morita 同値より強い。
+
+\begin{proposition}[九方向の非幾何的成分の消滅]
+\label{ifk:prop:clifford-geometric-ks}
+定理\ref{iff:thm:smooth-neighborhood}の実相対模型に対し、
+原点における残余圏の Kodaira--Spencer 写像は
+\begin{equation}\label{ifk:eq:clifford-ks}
+ \operatorname{Mat}_3(\C)
+   \xrightarrow{\ \operatorname{KS}_{\mathcal K}\ }
+ \mathrm{HH}^2(\mathcal K_0)
+   \xrightarrow{\ E_*\ }
+ \mathrm{HH}^2(\Ku(X_0))
+\end{equation}
+の像を $\operatorname{im}\eta_{X_0}\simeq(J_{a_1f_1+a_2f_2})_3$ に持つ。
+特に、二つの非恒等 rotation 固有空間への射影は
+九方向全てについて零である。
+\end{proposition}
+
+\begin{proof}
+定理\ref{iff:thm:smooth-neighborhood}により、
+原点を含む開集合上に実相対 smooth proper 模型と
+内部 shift から来る自己同値 $\rho$ がある。
+その Artin 底変更により、任意の
+$\Lambda_{ab}=\epsilon M_{ab}$ に対して
+$\mathcal K_0$ の実際の Morita 変形と $\rho_0$ の持上げを得る。
+任意の $M$ に補題\paperref{main}{ifk:lem:lifted-autoequivalence}を適用すると、
+$\operatorname{KS}_{\mathcal K}(M)$ は $\rho_0$ に固定される。
+式\eqref{ifk:eq:marked-origin}は、実際の可逆双加群による共役作用を
+intertwine するので、その $E_*$ 像は $\rho_{X_0}$ に固定される。
+命題\paperref{main}{ifk:prop:geometric-fixed-part}から結論を得る。
+\end{proof}
+
+\begin{corollary}[四次元九変数族の原点近傍における可換比較]
+\label{ifk:cor:clifford-fourfold-neighborhood}
+$m=0$ の九変数族について、原点を含む Zariski 開集合
+$V\subset\mathbb A^9_\Lambda$ が存在し、
+各複素点の全 coherent Kuznetsov 成分は、
+滑らかな可換三次四様体の Kuznetsov 成分に dg Morita 同値である。
+
+具体的には、式\eqref{ifk:eq:marked-origin}の実際の核 $E$ を固定すると、
+原点の \'etale 近傍 $V'\to\mathbb A^9_\Lambda$ 上に、
+$X_0$ を延長する滑らかな三次四様体族と、
+$E$ を延長する perfect な実 Morita 比較核を構成できる。
+この同値は任意の導来底変更に保たれる。
+\end{corollary}
+
+\begin{proof}
+定理\ref{iff:thm:smooth-neighborhood}は、原点を含む実開集合上に
+相対 smooth proper な残余圏族と、その実際の相対自己同値 $\rho$ を与える。
+補題\ref{ebk:lem:boundary}の核 $E$ は
+式\eqref{ifk:eq:marked-origin}を満たす。
+従って主稿の定理\paperref{main}{ifk:thm:rotation-neighborhood}の
+全ての仮定が満たされ、その結論を適用できる。
+複素ファイバーで残余模型が全 coherent 残余圏に一致することも、
+定理\ref{iff:thm:smooth-neighborhood}の結論である。
+\end{proof}
+
+\begin{remark}[接類と局所比較の範囲]
+\label{ifk:rem:tangent-scope}
+命題\ref{ifc:prop:tangent}は周囲代数の
+$\mathrm{HH}^2(S_1\otimes S_2)_{(-2,2)}$ における九方向の独立性を証明する。
+命題\ref{ifk:prop:clifford-geometric-ks}は残余圏への像の位置を制限するものであり、
+写像\eqref{ifk:eq:clifford-ks}の単射性や rank 九を証明するものではない。
+実相対残余模型は代数の次数別自由性だけから得たのではなく、
+定理\ref{iff:thm:smooth-neighborhood}の相対 perfect 対角と
+実自己同値の構成を用いている。
+
+系\ref{ifk:cor:clifford-fourfold-neighborhood}では、一次成分の消滅だけを
+全次数の比較へ置き換えたのではない。
+主稿の定理\paperref{main}{ifk:thm:rotation-formal}による
+有限位数作用の固定形式部分の認識と、
+比較核スタックの有限表示を合わせて、実際の近傍の核を得ている。
+全ての smooth 係数への延長、境界での比較核の保持、
+および核による全 rotation・周期・中心作用の同時保存は、依然として別の課題である。
+\end{remark}

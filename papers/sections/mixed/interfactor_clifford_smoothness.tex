@@ -1,0 +1,388 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v62.
+\subsection{Clifford 混合族の実相対対角と滑らかな近傍}
+\label{iff:subsec:smoothness}
+
+定理\ref{ifc:thm:family}の九変数族について、分離した原点を含む開集合上で
+実際の smooth proper な残余圏族を構成する。
+ここでは通常の二重次数 coherent 対角を使う。
+特殊ファイバーの有限複体を任意に持ち上げるのではなく、既に全係数上にある
+対角の線束解消を有限段で分裂させることが要点である。
+四次元型にもこの議論は適用できる。
+この小節では $n\ne4$ の可換実現の開性定理を五次元型へ適用し、
+四次元型は後続の系\ref{ifk:cor:clifford-fourfold-neighborhood}で
+rotation を用いて扱う。
+
+係数環を $R_0=\C[\Lambda_{ab}:1\leq a,b\leq3]$ と書き、
+$o=V(\Lambda_{ab})$ とする。
+以下の二つの場合を同時に扱う：
+\begin{equation}\label{iff:eq:families}
+ \begin{array}{c|c|c|c}
+  m&B&A&n\\ \hline
+  0&\mathcal B_\Lambda&\mathcal B_\Lambda/(w_\Lambda)&4\\
+  1&\mathcal B_\Lambda[u]&
+      \mathcal B_\Lambda[u]/(w_\Lambda+cu^3)&5
+ \end{array}
+ \qquad c\in\C^\times .
+\end{equation}
+$m=1$ の $c$ は固定し、$N=6+m$、$a=N-3$、$n=N-2$ と置く。
+第一因子は引き続き任意の滑らかな標準 Sklyanin 因子でよい。
+以下で使う代数的入力は、定理\ref{ifr:thm:ambient-regularity}、
+系\ref{ifr:cor:central-extension}、\ref{ifr:cor:noetherian-envelope}の
+相対 Koszul 解消、augmentation 双対、包絡環の noetherian 性と、
+定理\ref{ifc:thm:family}の次数別自由性である。
+
+\subsubsection{proper な線束模型と通常の射影積}
+
+\begin{proposition}[有限線束模型と係数変更]
+\label{iff:prop:proper-model}
+$E=\bigoplus_{i=0}^{N-1}\mathcal O(i)$ とし、
+$G=L_{\mathcal O}\cdots L_{\mathcal O(a-1)}E$ と置く。
+全線束の厚生成圏とその残余圏は、それぞれ
+\[
+ \operatorname{Perf}(\Sigma_{R_0}),\qquad
+ \operatorname{Perf}(\Gamma_{R_0}),\qquad
+ \Sigma_{R_0}=R\operatorname{End}(E),\quad
+ \Gamma_{R_0}=R\operatorname{End}(G)
+\]
+と表示され、両 dg 代数は $R_0$-perfect である。
+有限型可換 $R_0$-代数とその局所化への係数変更は、
+これらの模型、例外列、mutation、および内部 shift を対応する模型へ移す。
+特に非被約な局所 Artin 環への変更も含む。
+底上の導来 tensor による圏族は任意の導来底変更に対して定義される。
+この段階では残余線束圏と全 coherent 残余圏を同一視しない。
+\end{proposition}
+
+\begin{proof}
+上に挙げた入力と中心三次の二項解消から、両側で
+\[
+ R\underline{\operatorname{Hom}}_B(R_0,B)=R_0(N)[-N],
+ \qquad
+ R\underline{\operatorname{Hom}}_A(R_0,A)=R_0(a)[-N+1]
+\]
+を得る。補題\paperref{main}{lp:lem:local-cohomology}の
+augmentation 解消による計算は特殊ファイバーの可換性を使わないので、
+本族にも適用できる。従って
+\begin{equation}\label{iff:eq:line-hom}
+ \operatorname{Ext}^q(\mathcal O(i),\mathcal O(j))=
+ \begin{cases}
+  A_{j-i},&q=0,\\
+  (A_{i-j-a})^\vee,&q=n,\\
+  0,&\text{その他}
+ \end{cases}
+\end{equation}
+であり、各項は有限自由な係数加群である。
+ここで $(-)^\vee$ は係数環上の双対である。
+ambient の長さ $N$ の augmentation 解消を $A$ へ tensor すると、
+cohomology は $R_0$ と $R_0(-3)$ のみである。
+両者は torsion なので tails における有限完全複体を得る。
+その両端の線束を順に解けば、連続した $N$ 本の線束が全 twist を厚生成する。
+式\eqref{iff:eq:line-hom}と有限 mutation から properness が従う。
+
+係数変更は Hom の次元だけによる判定ではなく、計算複体に対して行う。
+ambient の相対解消は内部次数別に係数環上分裂している。
+$A$ の二項 ambient 解消も、その余核が次数別自由なので同じ性質を持つ。
+augmentation 双対から得られる ambient の導来 saturation と、その二項複体への
+適用は、従って通常の任意の係数変更と両立する。
+有限個の線束 Hom、evaluation、cone で作る模型と mutation にもこれを適用できる。
+これにより Artin 底変更を含む主張を得る。
+\end{proof}
+
+$R$ を $R_0$ の正則な局所化、原点の正則局所環を
+正則パラメータの一部で割った環、または任意の複素ファイバーの係数環とする。
+対応する代数を再び $A,B$ と書き、
+\[
+ C=A^{\mathrm{op}}\otimes_R A,\qquad
+ D=B^{\mathrm{op}}\otimes_R B
+\]
+に二重内部次数を入れる。
+$\operatorname{QGr}^{(2)}C$ は、各元が十分大きい
+$C_{\geq r,\geq r}$ によって消える加群を除いた商とする。
+その noetherian 対象を $\operatorname{qgr}^{(2)}C$ と書く。
+これは \cite[Definitions~3.16, 3.18]{CMOBallardFarman} の通常の射影積である。
+
+\begin{lemma}[正則な係数環上の射影積の有限性]
+\label{iff:lem:projective-product}
+この射影積では、線束 $\mathcal O(i,j)$ が非有界導来圏の
+compact generator の集合をなし、任意の通常の対象 $Q$ に対して
+\[
+ \operatorname{Ext}^q(\mathcal O(i,j),Q)=0
+       \qquad(q>2(N-1))
+\]
+である。coherent な $Q$ に対する線束からの導来 Hom は $R$-perfect であり、
+coherent な $M,Q$ に対する各 $\operatorname{Ext}^q(M,Q)$ は有限 $R$-加群である。
+これらの Ext は中心的な局所化と両立する。
+$Q$ が次数別 $R$-flat な graded 加群で表示される場合、線束 Hom の計算は
+正則パラメータの商を含む係数変更と両立する。
+一変数の射影圏についても同じ結論が成り立ち、上界は $N-1$ でよい。
+\end{lemma}
+
+\begin{proof}
+noetherian 性は $B$ 自身だけでなく $D$ にも必要であり、
+系\ref{ifr:cor:noetherian-envelope}を使う。
+その根拠は主稿の補題\paperref{main}{mbnp:lem:noetherian}の
+多重 THCR の証明を、二つの因子とその opposite の四因子へ適用することである。
+個々の因子の strong noetherian 性だけから tensor 積の noetherian 性を推論しない。
+
+$B_{<r}=B/B_{\geq r}$ と置く。
+中心三次商の二項解消による
+$\operatorname{Tor}_1^B(A,B_{<r})$ は内部次数 $r,r+1,r+2$ のみにあり、
+$r'\geq r+3$ の遷移は零である。
+従って graded $A$-injective で計算した torsion の正次数部分は
+直極限で消え、$A$-加群上で
+\begin{equation}\label{iff:eq:torsion-independence}
+ R\tau_A=R\tau_B,\qquad RQ_A=RQ_B
+\end{equation}
+となる。これは係数環上の flatness と中心元の正則性による計算である。
+相対対角解消を $R$-free な $B_{<r}$ へ tensor すると、
+$\operatorname{pd}_B B_{<r}\leq N$ を得る。
+noetherian 性により有限生成射影項で計算できるから、
+$R\tau_B$ は coproduct と可換であり、cohomological dimension は高々 $N$ である。
+$RQ_B$ の正次数は $N-1$ 以下となる。
+
+二つの truncation による saturation の合成は
+\cite[Proposition~3.41]{CMOBallardFarman} の計算と同じく
+\[
+ RQ_C=RQ_{A^{\mathrm{op}}}\,RQ_A
+       =RQ_{B^{\mathrm{op}}}\,RQ_B
+\]
+を与える。相対計算では tensor を導来 tensor とする。
+両因子の $R$-flatness は restriction が injective を保つために使い、
+truncation の有限射影解消と coproduct の可換性は直前の議論を使う。
+この合成の内部次数成分が線束からの Hom なので、表示した上界と compact 性を得る。
+全成分が零なら導来 saturation 自体が零であるため、生成性も成り立つ。
+
+$d=\operatorname{gldim}R$ と置く。
+$D$ の相対対角解消の長さは $2N$ であり、
+$\operatorname{gldim}D\leq2N+d$ である。
+有限生成 $C$-加群は有限生成 $D$-加群でもあるから、
+有限生成二重次数射影 $D$-加群による有限解消を持つ。
+この解消に二つの ambient saturation を適用する。
+ambient 線束の cohomology は各因子で次数零と $N-1$ にのみあり、
+各内部次数の群は有限射影 $R$-加群である。
+従って線束から coherent 対象への Hom は有界で有限 $R$-cohomology を持つ。
+$R$ の正則性から、これは $R$-perfect である。
+次数別 $R$-flat な対象の解消では全 syzygy が次数別 $R$-flat なので、
+この計算は係数変更を保つ。
+
+一般の coherent な $M$ には有限線束和による上に有界な解消を使う。
+各全次数に寄与する hyper-Ext spectral sequence の項は有限個であり、
+直前の有限性から各 $\operatorname{Ext}^q(M,Q)$ は有限となる。
+同じ計算は中心的な局所化と可換である。
+有限複体を始域または終域に置いてもこの局所化の主張は変わらない。
+\end{proof}
+
+\subsubsection{正則局所底における compact 性の持上げ}
+
+\begin{lemma}[通常の平坦対象の有限線束複体への retract]
+\label{iff:lem:regular-base-compact-lift}
+$(R,\mathfrak m,k)$ を上の族から得られる正則局所環とし、
+$\mathcal C_R$ を一変数または二変数の射影圏とする。
+coherent な $M\in\mathcal C_R$ が次数別 $R$-flat な有限生成 graded 加群で表示され、
+閉ファイバー $M_k$ が $D(\mathcal C_k)$ で compact であるとする。
+このとき $M$ は有限線束和からなる有界複体の直和因子であり、compact である。
+\end{lemma}
+
+\begin{proof}
+$d=\dim R$ に関する帰納法を行う。
+$d=0$ では仮定の compact 性から下と同じ一様 Ext 上界を得て、
+証明末尾の線束解消の切断を行えばよい。
+$d>0$ のとき正則パラメータ $t\in\mathfrak m$ を選ぶ。
+$\bar R=R/(t)$ と $\bar M=M\otimes_R\bar R$ は同じ仮定を満たすので、
+帰納法により $\bar M$ は compact である。
+補題\ref{iff:lem:projective-product}の線束の一様な cohomological bound と、
+compact 対象が有限個の線束の有限な cone と直和因子から得られることにより、
+ある $b$ があって全ての coherent な $\bar Q$ について
+\begin{equation}\label{iff:eq:uniform-ext-bound}
+ \operatorname{Ext}^q_{\mathcal C_{\bar R}}(\bar M,\bar Q)=0
+                \qquad(q>b)
+\end{equation}
+となる。$b$ は $\bar Q$ に依存しない。
+
+まず $Q$ も次数別 $R$-flat な加群で表示されるとする。
+中心的な係数商 $i$ について、graded 加群上の導来 tensor--restriction 随伴は
+torsion を保つので射影圏へ降りる。
+$M$ の flatness から
+\[
+ R\operatorname{Hom}_{\mathcal C_R}(M,i_*\bar Q)
+   =R\operatorname{Hom}_{\mathcal C_{\bar R}}(\bar M,\bar Q)
+\]
+を得る。$0\to Q\xrightarrow{t}Q\to i_*\bar Q\to0$ と
+式\eqref{iff:eq:uniform-ext-bound}により、$q>b$ のとき
+$t:\operatorname{Ext}^q(M,Q)\to\operatorname{Ext}^q(M,Q)$ は全射である。
+この Ext は有限 $R$-加群であり、$t\in\mathfrak m$ なので、
+Nakayama により零である。
+
+一般の coherent な $Q$ に対しては、その有限生成 graded 代表を選び、
+有限 graded free 加群による解消の最初の $d$ 段を取る。
+各 free 項は次数別 $R$-flat である。
+$\operatorname{gldim}R=d$ と Tor の dimension shifting により、
+第 $d$ syzygy も次数別 $R$-flat となる。
+これらを tails へ移し、直前の消滅と長完全列を順に使うと、
+全ての coherent な $Q$ に対して $\operatorname{Ext}^q(M,Q)=0$ を $q>b$ で得る。
+特に、$d>1$ の場合に free 加群の最初の核を flat と仮定してはいない。
+
+今度は $M$ 自身に有限線束和から順に全射を取り、$r>b$ に対して
+\[
+ 0\longrightarrow K_r\longrightarrow P_{r-1}\longrightarrow\cdots
+ \longrightarrow P_0\longrightarrow M\longrightarrow0
+\]
+を作る。noetherian 性から $K_r$ は coherent である。
+この実際の解消が定める境界射 $M\to K_r[r]$ は
+$\operatorname{Ext}^r(M,K_r)=0$ により零である。
+従って $M$ は $[P_{r-1}\to\cdots\to P_0]$ の直和因子である。
+各線束は compact なので主張を得る。
+これは特殊ファイバー上の cone や idempotent の形式的持上げではなく、
+$R$ 上にある解消の境界射の消滅である。完備化や代数化を使わない。
+\end{proof}
+
+\subsubsection{実対角の spread と五次元型の比較核}
+
+\begin{theorem}[分離点を含む相対 smooth proper な開集合]
+\label{iff:thm:smooth-neighborhood}
+式\eqref{iff:eq:families}の各族に対して、$o$ を含む Zariski 開集合
+$U\subset\operatorname{Spec}R_0$ が存在し、$\Sigma_U$ と $\Gamma_U$ は
+相対 smooth proper である。特に
+\[
+ \Sigma_U\in\operatorname{Perf}
+  (\Sigma_U^{\mathrm{op}}\otimes_U^{\mathbf L}\Sigma_U),\qquad
+ \Gamma_U\in\operatorname{Perf}
+  (\Gamma_U^{\mathrm{op}}\otimes_U^{\mathbf L}\Gamma_U)
+\]
+という実際の相対 perfect 対角を持つ。
+各複素点 $s\in U$ では線束模型は全 coherent 圏に一致し、
+残余模型は全 coherent Kuznetsov 成分を与える。
+
+必要なら $U$ をさらに縮めることで、
+$\rho=L_{\mathcal O}\circ(1)$ は残余模型の相対自己同値となる。
+これは $o$ における通常の rotation を持ち上げ、
+Artin 環を含む底変更と両立する。
+\end{theorem}
+
+\begin{proof}
+$R=(R_0)_{\mathfrak m_o}$ と置く。
+通常の二重次数対角を
+\[
+ (\Delta_A^+)_{i,j}=A_{i+j}\quad(i,j\geq0),\qquad
+ \mathcal D_A=\pi\Delta_A^+
+\]
+とする。左右乗法が $C=A^{\mathrm{op}}\otimes_R A$ の作用を与える。
+$A$ は次数一で生成されるので、$\Delta_A^+$ は $(0,0)$ の元 $1$ で生成される。
+従って $\mathcal D_A$ は通常の coherent 対象であり、
+その表示加群は各二重次数で有限自由である。
+
+$E^\vee=\bigoplus_{i=0}^{N-1}\mathcal O_{A^{\mathrm{op}}}(-i)$、
+$F=E^\vee\boxtimes_RE$ とする。
+正則な $R$ 上では ambient は有限大域次元を持ち、
+中心正則三次による商 $A$ は左右有限入射次元を持つ。
+有限生成 torsion 加群の次数濾過の商は、有限 $R$-加群 $T_j$ を
+内部次数 $j$ に置いた augmentation 加群である。
+$R$ の正則性と augmentation 双対から、その導来双対も
+有限個の内部次数にのみ存在する。
+従ってこの Gorenstein 双対は torsion を torsion に移し、
+線束 $\mathcal O_A(i)$ を $\mathcal O_{A^{\mathrm{op}}}(-i)$ に移すため、
+線束の厚生成圏へ降りる。
+有限線束模型の双対、外積と対角の evaluation は写像
+\begin{equation}\label{iff:eq:actual-diagonal}
+ \Sigma_R^{\mathrm{op}}\otimes_R^{\mathbf L}\Sigma_R
+       \longrightarrow R\operatorname{End}(F),\qquad
+ \Sigma_R\longrightarrow R\operatorname{Hom}(F,\mathcal D_A)
+\end{equation}
+を与える。後者は両側作用を持つ写像である。
+これらは graded tensor--Hom evaluation を二つの導来 saturation に通して作る。
+補題\ref{iff:lem:projective-product}により各辺は $R$-perfect で、
+閉ファイバーへの底変更を保つ。
+閉ファイバーでは、左右の noetherian 性、augmentation 双対による $\chi$、
+有限 torsion dimension を満たすため、
+\cite[Proposition~3.42, Lemma~4.9, Corollary~4.12,
+Proposition~4.14, Theorem~4.15, Remark~4.17]{CMOBallardFarman}
+の対角計算が適用され、両写像は同型となる。
+従って cone に対する導来 Nakayama から、式\eqref{iff:eq:actual-diagonal}は
+$R$ 上でも同型である。
+ここで文献の体上の定理を、仮定を確認せず相対基底に適用してはいない。
+全外積線束は $F$ によって厚生成されるので、$F$ は射影積の compact generator である。
+
+$m=0$ の閉ファイバーの残余圏は補題\ref{ebk:lem:boundary}により
+滑らかな可換三次四様体の Kuznetsov 成分に実際に同値である。
+$m=1$ では、$cu^3$ の Jacobian 環が有限次元なので、
+主稿の定理\paperref{main}{csc:thm:comparison}を適用できる。
+どちらも残余圏は smooth proper である。
+例外列との接着の Hom は体上 perfect であり、残余圏の smoothness により
+接着双加群も perfect なので、有限例外列を加えた全線束圏も smooth proper となる。
+従って閉ファイバーの式\eqref{iff:eq:actual-diagonal}の下で
+$\mathcal D_{A_o}$ は compact である。
+補題\ref{iff:lem:regular-base-compact-lift}を $\mathcal D_A$ に適用すると、
+有限線束複体 $P$ と
+\[
+ \mathcal D_A\xrightarrow{s}P\xrightarrow{r}\mathcal D_A,
+                  \qquad rs=1
+\]
+を得る。これを compact generator $F$ で移せば、
+$\Sigma_R$ の相対 perfect 対角を得る。
+
+この構成を原点を含む実開集合へ移す。
+より具体的には、$\Delta_A^+$ の有限 graded free 項による解消を最初から $R_0$ 上で選ぶ。
+局所環上の証明が与える Ext 上界より大きい $r$ で切れば、
+その境界類は
+\[
+ e\in\operatorname{Ext}^r_{\operatorname{QGr}^{(2)}C_{R_0}}
+              (\mathcal D_A,\mathcal K_r),\qquad e_{\mathfrak m_o}=0
+\]
+となる。補題\ref{iff:lem:projective-product}の有限性と局所化の互換性から、
+ある $f\in R_0\setminus\mathfrak m_o$ がこの類を消す。
+従って $R_0[f^{-1}]$ 上で同じ有界線束複体への retract が存在する。
+特殊ファイバー上の複体の微分や idempotent を別途持ち上げる必要はない。
+式\eqref{iff:eq:actual-diagonal}の同型も、その proper な cone を消す同じ形の開集合上に広がる。
+従って $U=D(f)$ 上に実際の有限複体と retract が存在し、
+$\Sigma_U$ は相対 smooth となる。
+有限例外列の admissible な直交成分に smooth proper 性が移るため、
+$\Gamma_U$ も相対 smooth proper である。
+
+各複素ファイバーで全 coherent 圏との一致を確認する。
+coherent な $M$ に対し、補題\ref{iff:lem:projective-product}の一変数版から
+$R\operatorname{Hom}(E,M)$ は体上 perfect である。
+smooth な $\Sigma_s$ 上では、体上 perfect な dg 加群は
+perfect な対角との tensor により $\Sigma_s$-perfect となる。
+$E$ の compact 生成性から $M$ 自身が compact であり、
+逆向きは有限線束複体が有界 coherent cohomology を持つことによる。
+有限 mutation で残余成分にも同じ結論を得る。
+
+最後に $L_{\mathcal O}\circ(1)$ は、例外列の半直交性から残余線束圏を保ち、
+有限線束模型上の実関手として全係数上に定義される。
+$U$ 上では、その graph 双加群は生成対象で評価すると底上 perfect であり、
+smooth proper な $\Gamma_U^{\mathrm{op}}\otimes_U^{\mathbf L}\Gamma_U$ 上でも perfect となる。
+従って相対双対による左右随伴が存在し、底変更を保つ。
+原点での関手は既知の rotation 自己同値なので、単位と余単位の cone は原点で零である。
+有限生成対象上で評価した cone は底上 perfect だから、
+原点を含むさらに小さい Zariski 開で両者が零となる。
+これで相対自己同値を得る。
+\end{proof}
+
+\begin{corollary}[五次元 Clifford 混合族の可換実現を持つ開集合]
+\label{iff:cor:cubic-fivefold-open}
+$m=1$、$c\ne0$ とする。
+原点を含む Zariski 開集合 $V\subset\mathbb A^9_\Lambda$ が存在し、
+各複素点の全 coherent Kuznetsov 成分は滑らかな可換三次五様体の
+Kuznetsov 成分に dg Morita 同値となる。
+$V$ 上では \'etale 局所的に滑らかな可換三次族と実際の perfect 比較核が存在する。
+原点における分離型比較核を固定すれば、その核を原点の \'etale 近傍へ延長できる。
+\end{corollary}
+
+\begin{proof}
+定理\ref{iff:thm:smooth-neighborhood}は、主稿の
+定理\paperref{main}{grl:thm:open-locus}に必要な実相対 smooth proper 模型を与える。
+原点には定理\paperref{main}{csc:thm:comparison}の比較核がある。
+$n=5\ne4$ なので開性定理を適用し、原点を含む可換実現 locus を $V$ とすればよい。
+\end{proof}
+
+\begin{remark}[結論の範囲]
+この開集合の構成は対角の有限解消と分母払いによる存在証明であり、
+補集合の方程式や全 smooth locus は計算していない。
+従って任意の $\Lambda$、または任意の滑らかな $\Lambda$ に対する可換比較ではない。
+$m=0$ に対する本小節の結論は相対 smooth proper な九変数近傍と rotation の持上げである。
+四次元を除外する開性定理はここへ適用せず、四次元での比較は
+系\ref{ifk:cor:clifford-fourfold-neighborhood}の rotation を用いる議論で扱う。
+比較核について rotation、指定周期、中心作用を全て同時に保存する主張も含めない。
+通常の非被約底上で全 coherent 圏を線束模型と同一視することは、
+有限型の dg 底変更模型を持つという主張とは別である。
+\end{remark}

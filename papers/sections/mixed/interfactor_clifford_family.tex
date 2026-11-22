@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-22 / v61.
+% Current result: 2026-11-22 / v62.
 \subsection{Clifford 中心平方による次数零混合類の実積分}
 \label{ifc:subsec:clifford-family}
 
@@ -241,11 +241,14 @@ $\C[\mathbf u]$ と $g$ の係数環を tensor し、同じ基底の議論を適
 また、この $F$ は第一因子だけの次数濾過であり、
 固定 tensor 境界の中心一次・二次補正を扱う前小節の active 濾過とは異なる。
 PBW 基底、係数環上の自由性、中心持上げとその正則性がここでの結論である。
-周囲代数の AS-regular 性・CY 性、射影中心商や残余圏の smoothness、
-および可換三次への Ku 比較核は本小節では確認していない。
-中心変数を加えない Hilbert 型は四次元三次に対応するため、
-主稿の $n\ne4$ という仮定を持つ開性定理
-（定理\paperref{main}{grl:thm:open-locus}）をそのまま用いることもできない。
-一つの中心変数と非零三乗項を加えた五次元型では、この次元上の制約はなくなるが、
-同定理に必要な実 smooth proper 圏族などの入力は別途確認しなければならない。
+後続の定理\ref{ifr:thm:ambient-regularity}では全係数の周囲代数の
+相対 Koszul 性と非捩れ CY 双対性を、
+定理\ref{iff:thm:smooth-neighborhood}では原点近傍の実相対 perfect 対角を証明する。
+中心変数なしの四次元型には、$n\ne4$ を仮定する
+定理\paperref{main}{grl:thm:open-locus}を流用しない。
+その可換比較は、rotation を持ち上げる変形の形式認識を用い、
+系\ref{ifk:cor:clifford-fourfold-neighborhood}で与える。
+一つの中心変数と非零三乗項を加えた五次元型の比較は
+系\ref{iff:cor:cubic-fivefold-open}による。
+これらの近傍での結果から、全ての smooth 係数での比較を結論しない。
 \end{remark}

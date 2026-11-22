@@ -1,6 +1,20 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月22日 / v61。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月22日 / v62。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+
+## Clifford族の正則性・実smooth近傍・四様体のrotation形式認識
+
+主稿 `papers/sections/rotation_preserving_deformations.tex` と、混合稿の `interfactor_clifford_regularity.tex`, `interfactor_clifford_smoothness.tex`, `interfactor_clifford_kodaira_spencer.tex` に証明を記載した。主担当は各証明を読み、正則性・実smooth近傍・rotation形式認識は執筆者以外の独立読解でも確認した。以下は本文にある証明と内部点検の状態であり、形式証明器、外部査読、網羅的な新規性調査の完了を意味しない。
+
+- **任意係数環の相対Koszul・CY性：** 内部次数ごとに有限なbar濾過と固定C線型縮約の有限摂動から、canonical Koszul空間の自由性・直和因子性・任意底変更を得る段階を確認した。反転双対濾過、最高成分のtrace、完全対合のannihilator公式、Nakayamaの濾過保存を区別した。実符号対合により残るshearが消えることと、双加群Koszul複体の自己双対の微分符号を確認した。非被約係数環を複素閉点検査で代用していない。有限型係数環でのenveloping algebraのnoetherian性は、主稿の多重THCR補題を四因子へ適用する証明に依存する。
+- **実smooth proper近傍：** 全九変数環上の有限line模型、実際の通常coherent対角、原点の正則局所環上の高次Ext消滅、Yoneda境界の局所化による有限複体retract、両側Gorenstein双対とtorsion保存による実評価写像の構成、dg対角への輸送を独立読解した。一般のcoherent対象は局所環の次元と同じ段数のfree解消でflat syzygyへ帰着する。特殊fiberのcone・idempotentの無条件の持上げを使わない。四・五次元型の原点開を扱い、全smooth locusや開集合の補集合の方程式を計算したとはしない。
+- **四様体の固定接空間：** BFKのCorollary5.41・Theorem6.5はHochschild homologyの公式として読み、rotation固定の2-CY volumeとのcap同型によってcohomologyへ移した。固有値1,ζ,ζ²の重複度20,1,1、幾何的KSの単射性、固定部分との一致を確認した。
+- **通常Artinの全次数認識：** 既存22次元hull、偶数shiftの恒等共役、有限C₃作用の同変形式座標、固定部分の20次元形式円板、全Artin自然変換への形式逆写像定理という順序を確認した。固定部分スキームと不変環による商は区別する。Lurieのtame比較の(−1)-truncated性を用い、実変形からhullへのπ₀単射とπ₁比較を介して実際の圏へ戻る。持上げが存在する対象の充満な一次切断群oidを分類し、選択したrotation・周期を追加標識した高次群oidや導来Artin基底は結論に含めない。
+- **実際の局所比較核：** 比較核スタックの小拡大問題で、既存のP_Aにも新しいintertwinerを要求せず、充満部分群oidの完全忠実性からその核自体を持ち上げる段階を独立読解した。有限表示とsmooth atlasから指定点を通るétale近傍を得る。Clifford原点の入力は、二捩れ因子も含む既存のrotation付き実核 `ebk:lem:boundary` である。延長核による全基底上のrotation・周期・中心標識の同時保存は主張しない。
+
+一次資料として、Berger–Marconnet Theorem6.3・Proposition6.4、He–Van Oystaeyen–Zhang Lemmas1.1–1.2、BFK Corollary5.41・Theorem6.5、Huybrechts–Rennemo Proposition3.5・Remark3.8を照合した。Lurie DAG X Remarks5.3.9/5.1.11、Theorem5.1.9、Definition5.3.20、Proposition5.3.21とBKP §§3.3,4.3は別担当も一次本文で確認した。射影積の入力はBallard–FarmanのProposition3.41・3.42、Lemma4.9、Corollary4.12、Proposition4.14・Theorem4.15・Remark4.17に照合した。近接するLin–Zhang arXiv:2611.05915v1のTheorem2.2・Proposition2.4・Remark3.9も一次本文で確認し、通常HH²への幾何的KS全射を用いる同論文が四様体を除外することと、本稿のrotation固定形式部分との違いをIntroduction・本文・ノートへ記した。これらの一般機構自体の新規性は主張しない。
+
+九変数のambient HH²接類の独立性と、残余KuのKS写像の単射性は別である。今回得たのは幾何的20次元部分への包含と実局所比較であり、残余KSのrank、可換方程式、全smooth係数への延長は未解決として保持する。今回の追加定理には新規の有限計算証明書を作成しておらず、下記の既存検算器を再実行したともしていない。
 
 ## 因子間PBW分解・中心障害・Clifford混合族の確認範囲
 
@@ -9,10 +23,10 @@
 - **有限PBW分解：** Der₋₁=0とZ₁=0の有限C線型単射、PBW自由基底によるI-adic係数抽出、I/I²の異なる因子別次数によるcross一次消滅、内部他因子出力の消滅、I²/I³によるcross定数消滅、各因子自身のPBW性を全文読解した。任意可換係数環と非被約底変更、Koszul性を要しない一般二次代数への系も確認した。
 - **比較の適用：** 指定中心三次の存在を別途仮定し、因子分解→emc/mcp全中心正規形→複素係数でmcb smooth判定→一般中央flag→全coherent/perfect核という適用鎖を独立読解した。m=1への任意係数環版はmcpの証明を一変数へ適用することを明記した。X_polと逐次実標的を同一視していない。
 - **一次中心障害：** 有限Koszul双加群解消のKünneth、負次数cocycle自体の純因子性と全gauge、勾配正則列によるHH¹₀=C Euler、全HH²₀=P⊕E⊕C、任意混合三次補正を許した中心障害を読解した。Euler像のordered(3,0)成分と追加(1,2)成分を区別し、dim C=9|I₂|(k−1)とker ob=(pure kernel)⊕Cを確認した。全混合核の同時積分は主張していない。
-- **九変数族：** 普遍定数PBW係数のClifford中心平方への代入、非可換因子との中心balanced tensor積、第一因子だけの次数濾過、中心初項の左右正則性、主idealのstrict性、商の斉次自由基底と任意底変更を全文読解した。全Koszul cochainのbidegree(−2,2)でC¹=0、cocycle=Hom(R₁,Z(S₂)₂)を確認し、全次数零gaugeに対する九接類の独立性を得た。AS正則性・CY性・smoothness・Ku比較は未確認である。
+- **九変数族：** 普遍定数PBW係数のClifford中心平方への代入、非可換因子との中心balanced tensor積、第一因子だけの次数濾過、中心初項の左右正則性、主idealのstrict性、商の斉次自由基底と任意底変更を全文読解した。全Koszul cochainのbidegree(−2,2)でC¹=0、cocycle=Hom(R₁,Z(S₂)₂)を確認し、全次数零gaugeに対する九接類の独立性を得た。AS正則性・CY性と原点近傍のsmoothness・Ku比較は上節の証明による。
 - **一次文献：** Walton–Witherspoon, J. Algebra504(2018),536–567 の著者稿Hypothesis2.6、Proposition6.2、Problem7.2を確認した。定数scalar混合補正の消滅は近接既知結果、Clifford追加方向は非中心群元値であり本稿と異なる。Witherspoonの書籍Theorem3.1.2の有限生成自由双加群解消という仮定、BGのLemma3.3と§§3.6,4.3も一次資料で確認した。中心への係数代入は通常の構成原理であり、その原理自体を新規成果とはしない。
 
-### 因子間関係の厳密検算
+### 保持する因子間関係の厳密検算
 
 Python3.12.14、SymPy1.14.0で、執筆担当と主担当が次の二実行をそれぞれ確認した。
 
@@ -57,13 +71,11 @@ Python3.12.14、SymPy1.14.0で、執筆担当と主担当が次の二実行を�
 
 ### 現行ソース・組版・表示
 
-主稿・混合稿はv61、モジュライ稿の本文はv50を保持する。方針・ノート・README・AGENTS・両稿の概要と序論へ因子間PBW分解、次数零中心障害、Clifford九変数族と未確認事項を統合した。source checkは125ファイル・1968一意ラベルで成功した（主稿33/477、モジュライ稿45/874、混合稿51/617）。入力・他稿参照・引用・author欄・rootの検査とgit diff --checkを確認した。
+主稿・混合稿はv62、モジュライ稿の本文はv50を保持する。方針・ノート・README・AGENTS・両稿の概要と序論へ、全係数の相対Koszul・CY性、実smooth近傍、rotation形式認識、四・五次元の局所比較と残る範囲を統合した。source checkは129ファイル・2016一意ラベルで成功した（主稿34/491、モジュライ稿45/874、混合稿54/651）。入力・他稿参照・引用・author欄・rootの検査とgit diff --checkを確認した。
 
-最終本文について三稿のLuaLaTeX組版が成功し、二巡で稿間参照が収束した（終了コード0）。主稿184頁・モジュライ稿456頁・混合稿290頁。主稿概要の最終配置調整後にも必要な再組版を行い、全newlabel/bibcite文字列が調整前後で完全一致することを確認した。三稿とも未定義参照・未定義引用・重複ラベル・missing character・overfull/underfull boxは0件。小さい数式字体の代替と旧font命令の既存警告は保持し、混合稿には既存のatop警告もある（警告見出しは順に9/1/10件）。警告ゼロとは主張しない。
+現行本文の三稿LuaLaTeX組版と稿間参照の収束、追加箇所のPDF表示点検は実施中であり、完了はまだ記録しない。実行環境のフォーマット・日本語組版資産・書込み可能な相対フォントキャッシュを用意し、追加節の未定義略記一箇所を修正した。再生成入口は `python3 scripts/build_papers.py` である。PDF・キャッシュ・中間生成物はGitで追跡しない。
 
-PDFをPNGへ描画して実表示し、主稿1・2・5・7・163・182–184頁、モジュライ稿454–456頁、混合稿1・2・4・6・8・9・11・191・227–240・269・288–289頁の計36頁を確認した。第20節の全文、概要・現在の課題・追加文献・前後の節境界を含む。主稿概要は1頁内へ収まり、最終表示に数式切れ・重なり・文字欠落・参照の疑問符・異常改ページは見つからなかった。これは指定した36頁の表示点検であり、全930頁の画像による再読ではない。PDF・中間生成物はGitで追跡しない。
-
-上の多中心の三検算器は保持する確認済み入力であり、因子間分解の変更では再実行していない。今回実行したものは新しい因子間検算器の二つの固定入力である。
+上の有限検算器は保持する確認済み入力であり、今回の相対双対性・smoothness・形式認識の追加では再実行していない。今回の数学的な確認は、本文の証明と一次資料の読解である。
 
 ## 任意固定楕円因子の全係数比較の確認範囲
 

@@ -1,0 +1,394 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-22 / v62.
+\subsection{中心平方混合族の相対 Koszul 性と非捩れ双対性}
+\label{ifr:subsec:regularity}
+
+定理\ref{ifc:thm:family}の周囲代数には、全係数で有限な自己双対
+Koszul 双加群解消が存在する。ここでは係数環の正則性も被約性も仮定しない。
+一方、複素ファイバーの AS 正則性と、係数環上の相対的な双対性は区別する。
+Koszul 双対の Frobenius 形式から双加群の Nakayama twist を計算する方法は
+\cite[Theorem~6.3, Proposition~6.4]{IFRBergerMarconnet}および
+\cite[Lemmas~1.1--1.2]{IFRHeVanOystaeyenZhang}に基づく。
+以下では、一般の可換係数環へその結論だけを移すのではなく、
+有限自由解消と双対写像を構成する。
+
+\begin{theorem}[全係数での相対正則性と非捩れ Calabi--Yau 双対性]
+\label{ifr:thm:ambient-regularity}
+定理\ref{ifc:thm:family}の二因子 $S_1,S_2$ を固定する。
+$R$ を任意の可換 $\C$-代数、$\Lambda_{ab}\in R$ とし、
+同定理の底変更を $B=\mathcal B_\Lambda\otimes_{\C[\Lambda]}R$ と書く。
+$B$ の augmentation は全ての $x_a,y_b$ を零に写すものとし、
+$B_R^{\mathrm e}=B\otimes_R B^{\mathrm{op}}$ と置く。
+次が成り立ち、表示する解消と双対同型は任意の可換係数変更と両立する。
+\begin{enumerate}
+ \item $B$ は $R$ 上相対 Koszul である。すなわち $V=B_1=R^6$ と
+ $\mathcal R_B=\ker(V^{\otimes_R2}\to B_2)$ に対し、
+ \[
+ K_0=R,\quad K_1=V,\quad
+ K_i=\bigcap_{a+b=i-2}
+       V^{\otimes_R a}\otimes_R\mathcal R_B\otimes_RV^{\otimes_R b}
+           \ \subset V^{\otimes_R i}\quad(i\ge2)
+ \]
+ は階数 $\binom6i$ の有限自由 $R$-加群であり、$i>6$ では零となる。
+ $B\otimes_RK_i$ は $R$ の左線形自由解消を、
+ $K_i\otimes_RB$ は右線形自由解消を与える。
+ \item $P_i=B\otimes_RK_i\otimes_RB$ を項とする長さ六の
+ Koszul 双加群複体 $P_\bullet\to B$ は有限自由
+ $B_R^{\mathrm e}$-解消である。従って $B$ は $R$ 上 homologically smooth である。
+ \item 内部次数付き双対について
+ \begin{equation}\label{ifr:eq:bimodule-duality}
+  \mathbf R\underline{\operatorname{Hom}}_{B_R^{\mathrm e}}
+              (B,B_R^{\mathrm e})\simeq B(6)[-6]
+ \end{equation}
+ が成り立つ。右 $B_R^{\mathrm e}$-加群は外側二作用を交換して
+ $B$-双加群と見る。右辺に Nakayama twist はない。また両側で
+ \begin{equation}\label{ifr:eq:augmentation-duality}
+  \mathbf R\underline{\operatorname{Hom}}_B(R,B)\simeq R(6)[-6],
+  \qquad
+  \mathbf R\underline{\operatorname{Hom}}_{B^{\mathrm{op}}}(R,B)
+                 \simeq R(6)[-6]
+ \end{equation}
+ である。
+ \item $R=\C$ の各ファイバーは大域次元六、AS index 六の
+ Koszul AS-regular 代数であり、非捩れ $6$-Calabi--Yau 代数である。
+ Hilbert 級数は $(1-t)^{-6}$、GK 次元は六である。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\textbf{第一因子の濾過と、底変更に安定な Koszul 空間。}
+$x_a$ の濾過次数を一、$y_b$ の濾過次数を零とする増大濾過を $F$ とする。
+定理\ref{ifc:thm:family}の積基底の証明から
+\begin{equation}\label{ifr:eq:associated}
+ \operatorname{gr}_F B=D\otimes_\C R,
+ \qquad D=S_1\otimes_\C S_2
+\end{equation}
+であり、各内部次数 $d$ では $0=F_{-1}B_d\subset F_0B_d
+\subset\cdots\subset F_dB_d=B_d$ という有限濾過になる。
+各 associated graded は固定した有限次元 $\C$-空間の $R$ への拡大である。
+両 $S_i$ は quadratic Koszul かつ非捩れ $3$-Calabi--Yau であり、
+それらの解消の tensor 積から $D$ は Koszul である。
+滑らかな標準 Sklyanin 因子の AS 正則性と Koszul 性は既に用いた一因子入力であり、
+その巡回 potential 表示と\cite[Corollary~2.9]{MoriSmith}が非捩れ $3$-CY 性を与える。
+Clifford 因子も補題\ref{eco:lem:clifford-input}の仮定に入る。
+
+被約 bar 複体 $C_\bullet(B)=\operatorname{Bar}_R(R,B,R)$ を取る。
+内部次数 $d$ の部分は
+\[
+ C_i(B)_d=
+  \bigoplus_{d_1+\cdots+d_i=d,\ d_j>0}
+          B_{d_1}\otimes_R\cdots\otimes_RB_{d_i}
+\]
+で、$0\le i\le d$ の有限自由 $R$-加群の複体である。
+総 $x$-次数で濾過すると、その associated graded は
+$C_\bullet(D)_d\otimes_\C R$ となる。
+$D$ の Koszul 性から、その homology は homological degree $d$ だけにあり、
+\[
+ H_d(C_\bullet(D)_d)=K_d(D),\qquad
+ \dim_\C K_d(D)=\binom6d
+\]
+である。特に $d>6$ では全体が acyclic である。
+
+この有限濾過の議論は非被約環上でも分裂する。
+実際、各 $d$ と各 $x$-次数で、$\C$ 上の bar 複体を
+その homology と可縮な二項複体の直和へ分け、縮約を一つ固定する。
+積基底を用いて $C_\bullet(B)_d$ の底加群を
+$C_\bullet(D)_d\otimes R$ と同定すると、微分の差 $\delta$ は
+$x$-濾過を真に下げる。固定した縮約の homotopy は $x$-次数を保つので、
+摂動縮約に現れる $h\delta,\delta h$ の冪級数は有限和である。
+転送された微分は唯一の homological degree $d$ から次数を一下げるため零となる。
+従って $C_\bullet(B)_d$ の homology は
+$K_d(D)\otimes R$ と濾過付きで同型であり、その associated graded の同型は
+式\eqref{ifr:eq:associated}から来る自然なものに一致する。
+この構成は $\C$ 上で固定した線形分裂と係数の有限演算だけを用いるので、
+任意の $R\to R'$ と両立する。
+
+bar の最上項は $C_d(B)_d=V^{\otimes_Rd}$ で、そこへ入る微分はない。
+その微分の核は、隣接二文字の積の全てが零となる部分、すなわち上記の $K_d$ である。
+従って各 $K_d$ は $V^{\otimes_Rd}$ の直和因子であり、
+\begin{equation}\label{ifr:eq:k-associated}
+  \operatorname{gr}_F K_d=K_d(D)\otimes_\C R.
+\end{equation}
+その各 $x$-重み成分は
+$K_p(S_1)\otimes_\C K_{d-p}(S_2)\otimes_\C R$ と同型である。
+交叉の形成が一般に底変更と可換だと仮定したのではなく、
+以上の分裂した bar 計算によって、ここでの $K_d$ に対してそれを得た。
+
+Koszul 複体の微分を具体的に記す。
+$K_i$ の切断余積を
+\[
+ \Delta_{1,i-1}(k)=\sum_s v_s\otimes k_s,\qquad
+ \Delta_{i-1,1}(k)=\sum_s k'_s\otimes v_s
+\]
+と書けば、双加群微分は
+\begin{equation}\label{ifr:eq:koszul-differential}
+ d_i(b\otimes k\otimes c)=
+  \sum_s bv_s\otimes k_s\otimes c
+       +(-1)^i\sum_s b\otimes k'_s\otimes v_sc.
+\end{equation}
+余積が $K$ の tensor 積に入ることは、上の交叉表示と直和因子性から従う。
+二次関係により $d^2=0$ である。
+その associated graded は $D$ の Koszul 双加群解消を $R$ へ拡大したものとなる。
+各内部次数で有限濾過を用いれば完全性が従う。
+同じ議論を片側の複体に適用する。
+係数変更後も式\eqref{ifr:eq:associated}と\eqref{ifr:eq:k-associated}が成立するため、
+これらは任意の底変更後にも解消である。
+
+\textbf{反転双対濾過と Frobenius 形式。}
+$E_i=\operatorname{Hom}_R(K_i,R)$、$E=\bigoplus_{i=0}^6E_i$ と置き、
+切断余積の双対を積とする。この相対 Koszul 双対は
+通常の次数に関する符号同型を通じて
+$\operatorname{Ext}_B^*(R,R)$ に一致する。
+包含 $K_i\subset V^{\otimes_Ri}$ は分裂しているので、
+$(V^*)^{\otimes_R i}\to E_i$ は全射であり、$E$ は $E_1$ で生成される。
+ここでの $E_i$ の次数 $i$ は Ext 次数を表し、内部双対次数は $-i$ である。
+
+$E_i$ には増大する反転双対濾過
+\begin{equation}\label{ifr:eq:dual-filtration}
+ F^!_qE_i=\{e\in E_i:e(F_{i-q-1}K_i)=0\}
+\end{equation}
+を入れる。$x_a^*=\xi_a$ の重みは零、$y_b^*=\eta_b$ の重みは一となる。
+切断余積の濾過互換性から $F^!_qE_i\,F^!_rE_j\subset F^!_{q+r}E_{i+j}$ であり、
+\begin{equation}\label{ifr:eq:dual-associated}
+ \operatorname{gr}_{F^!}E
+   =(S_1^!\widehat\otimes_\C S_2^!)\otimes_\C R.
+\end{equation}
+$\widehat\otimes$ は Ext 次数の Koszul 符号を持つ tensor 積を表す。
+式\eqref{ifr:eq:k-associated}を双対化すると、より具体的に
+\[
+ \operatorname{gr}_{q}^{F^!}E_i
+  =(S_1^!)_{i-q}\otimes_\C(S_2^!)_q\otimes_\C R
+\]
+である。従って全ての濾過商は固定された $\C$-空間の拡大であり、有限自由である。
+
+各 $S_j^!$ の次数三の向きを固定する。
+$E_6$ には重み三だけが存在するので
+\[
+ F^!_2E_6=0,\qquad F^!_3E_6=E_6,
+ \qquad E_6\xrightarrow{\sim}\operatorname{gr}^{F^!}_3E_6\xrightarrow{\sim}R
+\]
+により trace $t:E_6\to R$ が自然に定まる。
+他次数では $t$ を零とする。この trace は上の向きを固定すれば係数変更と両立する。
+$S_j$ の非捩れ $3$-CY 双対性により $S_j^!$ は graded symmetric Frobenius である。
+従って式\eqref{ifr:eq:dual-associated}の積対合は、次数 $i,6-i$、
+重み $q,3-q$ の間で完全である。
+
+実際の対合
+\begin{equation}\label{ifr:eq:frobenius-pairing}
+       E_i\otimes_R E_{6-i}\longrightarrow R,\qquad (e,f)\longmapsto t(ef)
+\end{equation}
+も完全である。これを係数環の閉点でだけ検査する必要はない。
+相手側の双対へ
+$\operatorname{Ann}(F^!_{2-q}E_{6-i})$ という濾過を入れると、
+左および右の対合写像は濾過を保ち、その associated graded は上の完全対合となる。
+有限濾過の帰納により両写像は濾過付き同型である。
+特に左右いずれの対合についても
+\begin{equation}\label{ifr:eq:annihilator}
+ F^!_qE_i
+  =\{e\in E_i:t(eF^!_{2-q}E_{6-i})=0\}
+  =\{e\in E_i:t(F^!_{2-q}E_{6-i}e)=0\}
+\end{equation}
+となる。これは任意の可換 $R$ 上の有限自由加群の主張である。
+
+\textbf{符号対合による Nakayama shear の消去。}
+完全対合により一意に定まる graded Frobenius Nakayama 自己同型 $\mu$ を
+\[
+                       t(ef)=t(f\mu(e))
+\]
+で正規化する。結合則と完全性から $\mu$ は代数自己同型であり、
+式\eqref{ifr:eq:annihilator}から $F^!$ を保つ。
+associated graded の trace は次数六の graded symmetric trace なので、
+その Nakayama 自己同型は次数一で $-1$ である。
+従って或る $c_{ba}\in R$ に対し
+\begin{equation}\label{ifr:eq:possible-shear}
+ \mu(\xi_a)=-\xi_a,\qquad
+ \mu(\eta_b)=-\eta_b+\sum_a c_{ba}\xi_a
+\end{equation}
+としかなり得ない。
+
+表示\eqref{ifc:eq:presentation}には実際の自己同型
+\[
+        \sigma(x_a)=-x_a,\qquad \sigma(y_b)=y_b
+\]
+がある。各 $r_{1,a}$ と $z_a$ が二次であることがここで必要である。
+双対上では $\sigma(\xi_a)=-\xi_a$、$\sigma(\eta_b)=\eta_b$ となり、
+唯一の top 重み成分 $(S_1^!)_3\otimes(S_2^!)_3$ 上では $-1$ を掛ける。
+従って $t\sigma=-t$ である。
+trace を単元倍する自己同型は、その Frobenius Nakayama 自己同型と可換する。
+ここでは直接
+\[
+ t(\sigma(e)f)
+    =-t(e\sigma^{-1}(f))
+    =-t(\sigma^{-1}(f)\mu(e))
+    =t(f\sigma\mu(e))
+\]
+を用い、完全性から $\mu\sigma=\sigma\mu$ と分かる。
+式\eqref{ifr:eq:possible-shear}に代入すると $2c_{ba}=0$ であり、
+$R$ は $\C$-代数なので全ての $c_{ba}$ は零となる。
+$E$ は $E_1$ で生成されるから、$\mu|_{E_i}=(-1)^i$ である。
+従って
+\begin{equation}\label{ifr:eq:graded-symmetry}
+          t(ef)=(-1)^{ij}t(fe)\qquad(e\in E_i,\ f\in E_j).
+\end{equation}
+$i+j\ne6$ のとき両辺は零であり、$i+j=6$ では
+$i\equiv i(6-i)\pmod2$ を使った。
+
+\textbf{有限自由複体の自己双対。}
+最後に、非被約係数環上でも twist がないことを複体上で確かめる。
+trace 対合から同型
+\[
+ \theta_i:E_i\longrightarrow K_{6-i},\qquad
+          \theta_i(e)(f)=t(ef)\quad(f\in E_{6-i})
+\]
+を得る。内部次数の差は六である。
+$v_s$ を $V$ の基底、$e_s$ を $E_1$ の双対基底とする。
+双加群複体 $P$ の Hom 双対を外側二因子を交換して
+$B\otimes_RE_i\otimes_RB$ と書く。
+標準 Hom 微分 $\delta_i(f)=(-1)^{i+1}f d_{i+1}$ はこの表示で
+\[
+ \delta_i(b\otimes e\otimes c)=
+  \sum_s bv_s\otimes ee_s\otimes c
+       +(-1)^{i+1}\sum_s b\otimes e_se\otimes v_sc
+\]
+である。一方、$\theta_i(e)$ の左右切断余積は
+\[
+ \Delta_{1,5-i}\theta_i(e)
+       =\sum_s v_s\otimes\theta_{i+1}(ee_s),\qquad
+ \Delta_{5-i,1}\theta_i(e)
+       =-\sum_s\theta_{i+1}(e_se)\otimes v_s.
+\]
+ここでは $0\le i\le5$ とする。
+第二式では $t(efe_s)=-t(e_sef)$、すなわち
+式\eqref{ifr:eq:graded-symmetry}の総次数五と一の交換を用いた。
+これを式\eqref{ifr:eq:koszul-differential}へ代入すると
+$1\otimes\theta_i\otimes1$ は
+\[
+ \underline{\operatorname{Hom}}_{B_R^{\mathrm e}}(P_\bullet,B_R^{\mathrm e})
+                     \xrightarrow{\sim}P_\bullet(6)[-6]
+\]
+という複体同型を与える。
+従って式\eqref{ifr:eq:bimodule-duality}が従う。
+構成に現れる全ての項は有限自由であり、対合と trace は底変更と両立する。
+
+$P_\bullet\to B$ は左または右の $B$-加群として分裂した解消である。
+実際、各項はその側で自由で、終項 $B$ も自由なので、短完全列を順に分裂できる。
+上の双対同型の外側一因子へ augmentation を施すと、
+左 Koszul 解消の Hom 双対が右 Koszul 解消の六次 shift に同定される。
+これが式\eqref{ifr:eq:augmentation-duality}を与える。
+
+$R=\C$ では、任意の左 $B$-加群 $M$ について
+$P_\bullet\otimes_BM\to M$ は長さ六の自由解消である。
+従って大域次元は高々六で、augmentation の第六 Ext が非零なので丁度六となる。
+両側の AS-Gorenstein 条件と index は
+式\eqref{ifr:eq:augmentation-duality}による。
+Hilbert 級数から GK 次元も六であり、AS 正則性が従う。
+双加群解消と式\eqref{ifr:eq:bimodule-duality}は非捩れ CY 条件そのものである。
+\end{proof}
+
+\begin{corollary}[Noetherian 性と enveloping algebra の相対有限解消]
+\label{ifr:cor:noetherian-envelope}
+定理\ref{ifr:thm:ambient-regularity}の記号を用いる。
+$R$ が有限生成可換 $\C$-代数の局所化なら、$B$ と $B_R^{\mathrm e}$ は左右 Noetherian である。
+任意の可換 $R$ について、$B_R^{\mathrm e}$ 自身にも長さ十二の
+有限自由な相対 Koszul 双加群解消が存在する。
+従って $R$ が大域次元 $r<\infty$ を持つなら
+\[
+ \operatorname{gldim} B\le6+r,\qquad
+ \operatorname{gldim} B_R^{\mathrm e}\le12+r
+\]
+が左右で成り立つ。
+\end{corollary}
+
+\begin{proof}
+補題\paperref{main}{mbnp:lem:noetherian}を二因子、および
+$S_1,S_2,S_1^{\mathrm{op}},S_2^{\mathrm{op}}$ の四因子に適用する。
+同補題の multi-homogeneous coordinate ring と中心正則列による証明は、
+Clifford 因子と opposite 因子にも適用できる。
+従って $D$ と $D\otimes_\C D^{\mathrm{op}}$ は左右 Noetherian である。
+有限生成可換係数環への拡大とその局所化は、中心多項式拡大・商・中心局所化であるから、
+\[
+ D\otimes_\C R,\qquad
+ (D\otimes_\C D^{\mathrm{op}})\otimes_\C R
+\]
+も左右 Noetherian である。
+式\eqref{ifr:eq:associated}と、二つの $x$-濾過の和を用いた
+\[
+ \operatorname{gr}_F B_R^{\mathrm e}
+              =(D\otimes_\C D^{\mathrm{op}})\otimes_\C R
+\]
+から、先頭項の持上げにより $B,B_R^{\mathrm e}$ の主張が従う。
+ここで tensor の associated graded は、各濾過商が $R$ 自由であるため上の表示になる。
+
+$B$ と $B^{\mathrm{op}}$ の有限自由相対 Koszul 双加群解消を $R$ 上で
+tensor すれば、$B_R^{\mathrm e}$ の長さ十二の解消を得る。
+完全性と任意の底変更は、両解消が $R$-加群として分裂していることから従う。
+最後に、$P_\bullet\otimes_BM$ の各項は $B\otimes_RM$ の有限直和である。
+$R$-加群 $M$ の長さ $r$ の射影解消を $R$-自由な $B$ へ誘導すれば、
+この各項の $B$-射影次元は高々 $r$ となる。
+従って長さ六の複体全体から上界 $6+r$ を得る。
+enveloping algebra にも長さ十二の解消を使って同じ議論を適用する。
+\end{proof}
+
+\begin{corollary}[中心多項式拡大と正則三次商の augmentation 双対性]
+\label{ifr:cor:central-extension}
+任意の可換 $R$ 上で $m\ge0$ とし、
+$B^{(m)}=B[u_1,\ldots,u_m]$、$\deg u_j=1$ と置く。
+この代数には任意の底変更と両立する長さ $N=6+m$ の有限自由 Koszul 双加群解消があり、
+\[
+ \mathbf R\underline{\operatorname{Hom}}_{(B^{(m)})_R^{\mathrm e}}
+       (B^{(m)},(B^{(m)})_R^{\mathrm e})\simeq B^{(m)}(N)[-N],
+ \qquad
+ \mathbf R\underline{\operatorname{Hom}}_{B^{(m)}}(R,B^{(m)})
+                      \simeq R(N)[-N]
+\]
+である。augmentation の式は右側にも成り立つ。
+任意の $g\in R[u_1,\ldots,u_m]_3$ に対し、
+系\ref{ifc:cor:central-variables}の中心正則元
+$\widetilde w=w_\Lambda+g$ と商 $A=B^{(m)}/(\widetilde w)$ を取ると、
+\begin{equation}\label{ifr:eq:quotient-augmentation}
+ \mathbf R\underline{\operatorname{Hom}}_A(R,A)
+       \simeq R(3+m)[-(5+m)],\qquad
+ \mathbf R\underline{\operatorname{Hom}}_{A^{\mathrm{op}}}(R,A)
+       \simeq R(3+m)[-(5+m)]
+\end{equation}
+であり、任意の底変更と両立する。
+$R$ が有限生成 $\C$-代数の局所化なら
+$B^{(m)},(B^{(m)})_R^{\mathrm e},A,A_R^{\mathrm e}$ は左右 Noetherian である。
+\end{corollary}
+
+\begin{proof}
+定理\ref{ifr:thm:ambient-regularity}の解消と通常の多項式環の Koszul 解消を
+$R$ 上で tensor する。top trace の符号付き tensor 積は graded symmetric であり、
+その自己双対は表示した $N$ 次元の非捩れ双対性を与える。
+$\widetilde w$ の左右正則性と商の $R$-自由性は
+系\ref{ifc:cor:central-variables}による。
+二項解消 $B^{(m)}(-3)\xrightarrow{\widetilde w}B^{(m)}$ から
+\[
+ \mathbf R\underline{\operatorname{Hom}}_{B^{(m)}}(A,B^{(m)})
+                    \simeq A(3)[-1]
+\]
+を得る。change-of-rings 随伴により
+\[
+ \mathbf R\underline{\operatorname{Hom}}_{B^{(m)}}(R,B^{(m)})
+   \simeq
+ \mathbf R\underline{\operatorname{Hom}}_A(R,A)(3)[-1],
+\]
+従って式\eqref{ifr:eq:quotient-augmentation}となる。
+任意の $R\to R'$ に対して change-of-rings 随伴の底変更図式を取る。
+$B^{(m)}$ 側の augmentation 双対の底変更射は有限自由 Koszul 解消により同型であり、
+$\mathbf R\underline{\operatorname{Hom}}_{B^{(m)}}(A,B^{(m)})$ の底変更射も
+任意の底変更で完全な上記の二項解消により同型である。
+従って同じ図式の $A$ 側の augmentation 双対の底変更射も同型となる。
+Noetherian 性は系\ref{ifr:cor:noetherian-envelope}から中心多項式拡大と商で従う。
+\end{proof}
+
+\begin{remark}[相対結論と射影中心商の滑らかさの区別]
+\label{ifr:rem:scope}
+定理\ref{ifr:thm:ambient-regularity}は、全 $\Lambda$ に対する周囲代数の結果である。
+任意の係数環 $R$ 上での相対 smoothness は、特異な $R$ を基礎とした
+$\C$ 上の絶対 smoothness や有限大域次元を主張するものではない。
+また、三次商 $A$ の augmentation 双対性だけから
+$\mathrm D^b(\operatorname{qgr}A)$ または残余圏の smoothness は従わない。
+中心商の相対 perfect 対角、可換 Ku への比較、全混合障害核の同時積分は、
+それぞれ別の入力または構成を要する。
+\end{remark}

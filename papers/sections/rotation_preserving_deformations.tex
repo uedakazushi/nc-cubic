@@ -1,0 +1,376 @@
+% !TEX root = ../nc-cubic.tex
+% Current result: 2026-11-22 / v62.
+\section{rotation を持つ三次四様体残余圏の変形}
+\label{ifk:sec:rotation-deformations}
+\label{ifk:subsec:kodaira-spencer}
+
+三次四様体では残余圏の $\mathrm{HH}^2$ は二十二次元であり、
+可換三次の変形が与える二十次元部分のほかに二方向がある。
+本節では、内部 shift に対応する rotation を持ち上げられる変形を扱う。
+まず既知の sector 公式から、rotation の固定接空間が幾何的変形の像に一致することを確認する。
+次に、通常の Artin 基底上の形式 hull における有限位数作用を用い、
+この一致を全次数の形式認識へ延長する。
+実際の相対 smooth proper 模型と原点の rotation 付き比較があれば、
+局所的な可換三次族と perfect 比較核を得る。
+
+\subsection{自己同値を持ち上げる一次変形}
+
+\begin{lemma}[持ち上がる自己同値と Kodaira--Spencer 類]
+\label{ifk:lem:lifted-autoequivalence}
+$\mathcal C$ を $\C$ 上の smooth proper dg 圏とし、
+$D=\C[\epsilon]/(\epsilon^2)$ とする。
+$\mathcal C_D$ を特殊ファイバーの同定を備えた $\mathcal C$ の
+$D$ 上の Morita 変形とし、その接類を
+$\kappa(\mathcal C_D)\in\mathrm{HH}^2(\mathcal C)$ と書く。
+dg Morita 自己同値 $\rho$ が $D$ 線型自己同値
+$\rho_D$ へ持ち上がり、その特殊ファイバーが $\rho$ と同定されるならば、
+\begin{equation}\label{ifk:eq:ks-invariant}
+ \rho_*\kappa(\mathcal C_D)=\kappa(\mathcal C_D)
+\end{equation}
+である。ここで $\rho_*$ は自己同値による
+Hochschild cohomology の共役作用である。
+\end{lemma}
+
+\begin{proof}
+標識付き変形の群oidで、特殊ファイバーの標識を $\rho$ によって
+変更する操作を考える。この操作が接空間
+$\mathrm{HH}^2(\mathcal C)$ に誘導する写像は $\rho_*$ である。
+これは Hochschild 複体による変形理論の Morita 自然性であり、
+可逆双加群による両側の導来 tensor 積が、
+対角双加群の自己拡張を共役することからも分かる。
+Hochschild 複体とその高次構造の Morita 自然性については
+\cite[Section~3.2]{CMOKellerHochschild}を参照する。
+
+持上げ $\rho_D$ 自身が、元の標識付き変形と
+この標識変更後の変形との同値を与える。
+したがって両者は接空間で同じ点を定め、
+式\eqref{ifk:eq:ks-invariant}を得る。
+この議論で要求しているのは実際の $D$ 線型自己同値であり、
+特殊ファイバーだけの自己同値やその数値的作用ではない。
+また、$\rho$ の有限位数性や周期同型の持上げはこの補題には不要である。
+\end{proof}
+
+\subsection{可換三次四様体の固定接空間}
+
+$X=V(F)\subset\mathbb P^5$ を滑らかな三次四様体とし、
+$\mathcal K_X=\Ku(X)$、$J_F=\C[x_1,\ldots,x_6]/(\partial F)$ とする。
+rotation を $\rho_X=L_{\OO_X}\circ(-\otimes\OO_X(1))$ と書く。
+これは graded MF 模型では内部 shift $(1)$ である。
+
+\begin{proposition}[rotation 固定部分と幾何的変形]
+\label{ifk:prop:geometric-fixed-part}
+幾何的 Kodaira--Spencer 写像の像は、rotation の固定部分と一致する：
+\begin{equation}\label{ifk:eq:geometric-fixed}
+ \operatorname{im}\bigl(
+ H^1(X,T_X)\xrightarrow{\eta_X}\mathrm{HH}^2(\mathcal K_X)\bigr)
+   =\mathrm{HH}^2(\mathcal K_X)^{\rho_X}
+   \simeq (J_F)_3.
+\end{equation}
+この部分の次元は二十である。
+その補空間は、$\zeta^3=1$、$\zeta\ne1$ に対する
+固有値 $\zeta$ と $\zeta^2$ の一次元空間の和であり、
+\begin{equation}\label{ifk:eq:projector}
+ e_{\mathrm{geom}}
+   =\frac{1+\rho_{X,*}+\rho_{X,*}^{2}}3
+\end{equation}
+は幾何的変形部分への射影を与える。
+\end{proposition}
+
+\begin{proof}
+まず Hochschild homology 上の作用を計算する。
+\cite[Corollary~5.41]{NFBFKKernels}を六変数三次へ適用すると、
+\[
+ \mathrm{HH}_0(\mathcal K_X)
+     =(J_F)_3\oplus\C_{\zeta}\oplus\C_{\zeta^2},
+ \qquad
+ \dim\mathrm{HH}_{2}(\mathcal K_X)
+   =\dim\mathrm{HH}_{-2}(\mathcal K_X)=1
+\]
+を得る。添字 $\zeta,\zeta^2$ はこの段階では
+$\ker(t\mapsto t^3)=\mu_3$ の非恒等 sector を表す。
+$\mathrm{HH}_{\pm2}$ はともに恒等 sector だけから来る。
+各非恒等元の固定空間は原点なので、非恒等 sector は
+$\mathrm{HH}_0$ にのみ一次元ずつ寄与する。
+
+内部 shift は $\mathbf G_m$ の基本 character による twist である。
+\cite[Theorem~6.5]{NFBFKKernels}によれば、character $\chi$ の twist は
+$g$ sector の Hochschild homology 上で $\chi(g)^{-1}$ 倍として作用する。
+従って $\rho_X$ の $\mathrm{HH}_0$ 上の固有値と重複度は
+$1,\zeta,\zeta^2$、それぞれ $20,1,1$ であり、
+$\mathrm{HH}_{\pm2}$ 上の作用は恒等である。
+内部 shift と character の符号規約を逆にすると
+二つの非恒等固有値が入れ替わるだけで、固定部分は変わらない。
+
+ここで同文献 Theorem~6.5 は homology の公式なので、
+それをそのまま cohomology の公式として引用しない。
+$\mathcal K_X$ は smooth proper な二次元 Calabi--Yau 圏である。
+対角双加群を $\Delta$、逆双対化双加群を $\Delta^!$ とすると、
+二次元 Calabi--Yau 同型 $\Delta^!\simeq\Delta[-2]$ は
+非退化類 $\omega\in\mathrm{HH}_2(\mathcal K_X)$ を与え、
+これとの cap 積は同型
+\[
+ \mathrm{HH}^q(\mathcal K_X)
+      \xrightarrow{\ -\mathbin{\cap}\omega\ }
+ \mathrm{HH}_{2-q}(\mathcal K_X)
+\]
+である。具体的には
+$\mathrm{HH}^q=\operatorname{Hom}(\Delta,\Delta[q])$ と
+$\mathrm{HH}_{2-q}=\operatorname{Hom}(\Delta^!,\Delta[q-2])$ の間で、
+この双加群同型との合成を取っている。
+先の計算により $\rho_{X,*}\omega=\omega$ である。
+可逆双加群による共役はこの合成と可換するので、
+$q=2$ の cap 同型は $\rho_X$ 同変である。
+よって $\mathrm{HH}^2$ 上でも固有値の重複度は $20,1,1$ となる。
+
+一方、$X$ の任意の一次変形は、偏極 $\OO_X(1)$ とともに
+三次方程式の一次変形として表せる。
+その相対 graded MF 圏には内部 shift が存在するため、
+補題\ref{ifk:lem:lifted-autoequivalence}から
+$\operatorname{im}\eta_X\subset\mathrm{HH}^2(\mathcal K_X)^{\rho_X}$ を得る。
+命題\ref{prop:nf-hh}で確認した実幾何的写像
+$\eta_X$ は単射であり、$\dim H^1(X,T_X)=\dim(J_F)_3=20$ である。
+従ってこの包含は等号となる。
+最後に固有値分解から式\eqref{ifk:eq:projector}が従う。
+\end{proof}
+
+\begin{remark}[既知計算との関係]
+\label{ifk:rem:known-calculation}
+上の固定部分の計算は、既知の sector 公式と character 作用の帰結である。
+\cite[Proposition~3.5 and Remark~3.8]{NFHuybrechtsRennemo}も
+可換三次四様体の Jacobian 三次部分と
+二十二次元の $\mathrm{HH}^2$ との差を明記している。
+同文献 Definition~3.6 の内部 shift から作る次数付き代数と、
+通常の $\mathrm{HH}^2$ の固定部分は定義が異なるため、
+式\eqref{ifk:eq:geometric-fixed}では実際の自己同値作用と
+幾何的 Kodaira--Spencer 写像を通して比較した。
+以下ではこの固定部分を全次数の形式変形へ延長し、実際の比較核の局所的な存在へ結び付ける。
+近接する Lin--Zhang\cite[Theorem~2.2, Proposition~2.4]{NFMLinZhangPartners}は、
+幾何的 Kodaira--Spencer 写像が通常の $HH^2$ 全体へ全射する場合に、
+小拡大での比較核の持上げと実際の smooth な核族を構成する。
+同文献 Remark~3.9 は、三次四様体では次元が二十対二十二となり、
+その定理を適用できないことを明記する。
+以下では rotation の持上げによって固定形式部分へ制限する。
+核の代数的スタックから局所族を得る機構は既知であり、
+本節の仮定と結論の組合せについて文献上の初出は未確認である。
+\end{remark}
+
+\subsection{有限位数作用による全次数の形式認識}
+
+$\mathcal D_X=\operatorname{Ind}(\mathcal K_X)$ とし、
+定理\ref{thm:nf-residual-formal}と同じ
+compactly generated な圏の標識付き変形空間を用いる。
+通常の局所 Artin $\C$-代数 $A$ に対し、
+\[
+ \mathcal F_{\rho_X}(A)\subset
+   \tau_{\le1}\operatorname{CatDef}^c_{\mathcal D_X}(A)
+\]
+を、$\rho_X$ が実際の $A$ 線型自己同値へ持ち上がる対象の
+\emph{充満}部分群oidと定める。
+ここでは持上げそのものや、その三乗周期との比較射は追加の標識としない。
+従って射にも、選んだ持上げとの同変性は要求しない。
+
+\begin{theorem}[rotation を持ち上げられる四様体残余圏の Artin 形式認識]
+\label{ifk:thm:rotation-formal}
+$X$ を滑らかな複素三次四様体とする。
+通常の局所 Artin $\C$-代数上で、自然な残余操作は群oidの同値
+\begin{equation}\label{ifk:eq:formal-recognition}
+       \operatorname{Def}_X\xrightarrow{\sim}\mathcal F_{\rho_X}
+\end{equation}
+を与える。両辺では特殊ファイバーを固定する。
+特に、実際の圏の変形が $\rho_X$ の自己同値を持ち上げるなら、
+その全ての Artin 厚化は滑らかな三次四様体の残余圏として実現される。
+
+形式 hull の同型類関手に対する $\rho_X$ の作用は位数三を割り、
+その固定点部分関手は二十次元の滑らかな形式円板である。
+この固定点部分関手は $\operatorname{Def}_X$ と同型である。
+\end{theorem}
+
+\begin{proof}
+\textbf{hull 上の作用。}
+命題\ref{prop:nf-fourfold-obstruction}により、通常の Artin 基底上で
+形式 hull の同型類関手は
+\[
+  H_X=\pi_0\operatorname{CatDef}^{\wedge}_{\mathcal D_X}
+       \simeq\operatorname{Spf}\C[[t_1,\ldots,t_{22}]]
+\]
+である。Morita 自己同値による標識変更は hull に自然に作用し、
+その微分は Hochschild cohomology の共役作用である。
+また $\rho_X^3\simeq[2]$ である。
+
+この偶数 shift は hull の全体に恒等として作用する。
+実際、compact 生成対象から dg 代数模型 $A$ を選ぶと、
+この自己同値を表す可逆双加群は $A[2]$、逆は $A[-2]$ である。
+双加群圏上の共役
+\[
+ M\longmapsto A[-2]\otimes_A^{\mathbf L}M
+                          \otimes_A^{\mathbf L}A[2]
+\]
+は、二つの偶数 shift を相殺する標準同型により恒等関手と同定され、
+その tensor 合成の比較にも Koszul 符号は生じない。
+対角双加群の自己準同型複体へ制限すると、これは
+Hochschild 複体とその高次演算の恒等作用を与える。
+従って、それが支配する形式 hull の同型類への作用も恒等である。
+この議論は hull の点が実際の圏の変形として実現されることを前提にしない。
+よって標識変更による $\rho_X$ の作用は、
+$H_X$ 上の巡回群 $C_3$ の作用を定める。
+ここで必要なのは同型類関手上の作用であり、
+$\rho_X$ の持上げに三乗周期の coherence を選ぶことではない。
+
+\textbf{固定点形式部分の滑らかさ。}
+$H_X=\operatorname{Spf}B$、$\mathfrak m=\mathfrak m_B$ と書く。
+$\mathfrak m/\mathfrak m^2$ から $\mathfrak m$ への
+$\C$ 線型切断を一つ取り、$C_3$ について平均すれば、
+同変な切断を得る。その座標により
+\[
+ \widehat{\operatorname{Sym}}_{\C}(\mathfrak m/\mathfrak m^2)
+                 \xrightarrow{\sim}B
+\]
+という同変な形式座標同型を得る。
+接写像が同型であることと形式逆写像定理を用いた。
+
+従って固定点部分関手は
+\begin{equation}\label{ifk:eq:fixed-formal-subscheme}
+ H_X^{\rho_X}
+   =\operatorname{Spf}\bigl(B/(g(b)-b:\ g\in C_3,\ b\in B)\bigr)
+                 \simeq\operatorname{Spf}\C[[u_1,\ldots,u_{20}]]
+\end{equation}
+となる。ここで用いたのは固定点部分スキームであり、
+不変環 $B^{C_3}$ が定める商空間ではない。
+実際、命題\ref{ifk:prop:geometric-fixed-part}により、
+接空間の固定部分の次元は二十、残る二座標の固有値は
+$\zeta,\zeta^2$ である。同変な形式座標では、この二座標を零とすればよい。
+
+\textbf{幾何的変形との同定。}
+三次の任意の Artin 変形では相対 graded MF の内部 shift が存在する。
+従って幾何的な残余操作は
+\[
+       \operatorname{Def}_X\longrightarrow H_X^{\rho_X}
+\]
+へ因子化する。この写像は全 Artin 基底上で定義された自然変換である。
+源は補題\ref{lem:nf-geometric-smooth}の二十次元形式円板であり、
+命題\ref{ifk:prop:geometric-fixed-part}から接写像は同型である。
+形式逆写像定理により、この自然変換は同型となる。
+接空間が一致することだけで高次の幾何化を推論しているのではなく、
+式\eqref{ifk:eq:fixed-formal-subscheme}による固定部分自体の滑らかさを使っている。
+
+\textbf{実際の圏の変形への復帰。}
+定理\ref{thm:nf-residual-formal}の証明で用いた
+\[
+ \theta:\operatorname{CatDef}^c_{\mathcal D_X}
+       \longrightarrow\operatorname{CatDef}^{\wedge}_{\mathcal D_X}
+\]
+の $(-1)$-truncated 性は、$n\ne4$ を必要としない。
+その入力は $\mathcal D_X$ が tamely compactly generated であることであり、
+ここでも proper な compact 圏による生成から従う。
+compactly generated な変形と全ての線型圏の変形は、
+\cite[Remarks~5.3.9 and~5.1.11]{NFDAGX}の比較により同じ形式 hull を持つ。
+具体的な外部入力は
+\cite[Theorems~5.1.9, 5.3.16, Proposition~5.3.21]{NFDAGX}と
+\cite[Sections~3.3 and~4.3]{NFBKP}である。
+従って $\theta$ は $\pi_0$ 上単射であり、
+存在する対象での $\pi_1$ を保つ。
+
+$\rho_X$ の持上げを持つ実際の変形の hull 類は、
+その持上げ自身によって標識変更後の類と一致するため、
+$H_X^{\rho_X}$ に属する。
+上で得た同型により、この類を与える幾何的変形 $X_A$ が存在し、
+$\theta$ の $\pi_0$ 上の単射性から、
+元の変形は実際に $\operatorname{Ind}\operatorname{Ku}(X_A)$ と同値である。
+逆に幾何的変形には既に rotation の持上げがある。
+通常の Artin 基底上では $HH^1(\mathcal K_X)=0$ であり、
+命題\ref{prop:nf-fourfold-obstruction}の極小模型から hull の $\pi_1$ は零である。
+これと $\theta$ の比較により、式\eqref{ifk:eq:formal-recognition}は
+同型類だけでなく、表示した一次切断群oidの同値となる。
+\end{proof}
+
+\begin{remark}[追加標識と高次群oid]
+\label{ifk:rem:formal-scope}
+定理\ref{ifk:thm:rotation-formal}では、
+持ち上げた自己同値や三乗周期の選択を固定した変形群oidを分類していない。
+得られる同値は underlying category の実際の同値である。
+$HH^0=\C$ に由来する高次 scalar は残るため、
+未切断の圏の変形空間を $\operatorname{Def}_X$ と同一視していない。
+導来 Artin 基底についても、同じ主張をしているのではない。
+\end{remark}
+
+\subsection{実相対族における比較核の延長}
+
+\begin{theorem}[rotation を持つ四様体型の局所可換比較]
+\label{ifk:thm:rotation-neighborhood}
+$S$ を有限型 $\C$-スキーム、
+$\mathcal C_S$ を\ref{grl:sec:geometric-locus}節の意味での
+相対 smooth proper な dg 圏族とする。
+$S$ 線型の実際の dg Morita 自己同値 $\rho_S$ を仮定する。
+$s\in S(\C)$、滑らかな三次四様体 $X_s$ と、
+実際の perfect 比較核
+\[
+ P_s:\mathcal C_s\xrightarrow{\sim}\operatorname{Ku}(X_s)
+\]
+が与えられ、$P_s\rho_s\simeq\rho_{X_s}P_s$ とする。
+
+このとき $s$ の \'etale 近傍 $S'\to S$ 上に、
+$X_s$ を延長する滑らかな三次四様体族と、
+$P_s$ を延長する perfect な実 Morita 比較核が存在する。
+その像は $s$ を含む Zariski 開近傍であり、
+その上の全ての幾何的ファイバーは滑らかな可換三次四様体の
+Kuznetsov 成分に同値である。
+構成した同値は任意の導来底変更に保たれる。
+\end{theorem}
+
+\begin{proof}
+補題\ref{grl:lem:comparison-stack}を $n=4$ に適用し、
+三次族と perfect 比較核の Artin スタック
+$q:\mathcal E\to S$ を取る。
+この補題の有限表示と核の代数性は $n\ne4$ を仮定していない。
+$e=(X_s,P_s)$ における形式的滑らかさを示す。
+
+剰余体 $\C$ を持つ小拡大 $A'\twoheadrightarrow A$ と
+$\operatorname{Spec}A'\to S$、および特殊ファイバーが $e$ である
+$(X_A,P_A)\in\mathcal E(A)$ を取る。
+$P_s$ で特殊ファイバーを標識した
+$\operatorname{Ind}\mathcal C_{A'}$ には、
+$\rho_S|_{A'}$ が $\rho_{X_s}$ の持上げを与える。
+従って定理\ref{ifk:thm:rotation-formal}を適用でき、
+三次四様体の変形 $X_{A'}$ と実際の圏同値
+\[
+ Q_{A'}:\mathcal C_{A'}\xrightarrow{\sim}
+                         \operatorname{Ku}(X_{A'})
+\]
+を得る。相対 Morita 理論により、これは perfect 双加群で表される。
+
+$A$ 上では $P_AQ_{A'}^{-1}|_A$ が二つの幾何的変形の残余圏間の射を与える。
+同じ定理の群oidとしての完全忠実性により、
+これを特殊ファイバー上恒等な幾何的同型
+$X_{A'}|_A\simeq X_A$ で実現できる。
+同定後には $Q_{A'}|_A\simeq P_A$ という実際の核の同型を選べる。
+ここで既に与えられた $P_A$ に rotation の intertwiner を要求する必要はない。
+定理\ref{ifk:thm:rotation-formal}の部分群oidを充満に取ったことが
+この段階で必要である。
+核の scalar 自己同型を消去することもしていない。
+
+$\OO_{X_A}(1)$ とその切断の基底を $A'$ へ延長すれば、
+$X_{A'}$ は指定された埋込み三次の $A$-点を持ち上げる。
+従って比較核スタックの持上げ問題が解ける。
+定理\ref{grl:thm:open-locus}の証明の最後と同じく、
+$e$ 上の点 $u$ を持つ有限型 smooth atlas $U\to\mathcal E$ を取り、
+局所有限表示と Artin 小拡大による滑らかさの判定を使うと、
+$U\to S$ は $u$ で滑らかである。
+$u$ を通る \'etale 局所切断から、
+指定された $X_s,P_s$ の延長を得る。
+$S'\to S$ の像は $s$ の Zariski 開近傍である。
+perfect 核と逆核の単位・余単位は導来底変更に保たれるので、
+最後の主張も従う。
+\end{proof}
+
+\begin{remark}[この局所定理の仮定と結論]
+\label{ifk:rem:neighborhood-scope}
+定理\ref{ifk:thm:rotation-neighborhood}は、
+四次元の任意の smooth proper 圏族について可換実現 locus 全体の開性を
+主張するものではない。
+相対的な自己同値 $\rho_S$ と、指定した点での
+rotation を保つ実際の比較核を仮定している。
+また、延長した比較核が全基底上で rotation、指定三乗周期、
+中心作用その他の標識を同時に保つことは結論に含めない。
+全族の三乗周期を仮定せずに、underlying 圏の比較核を構成した結果である。
+\end{remark}
+

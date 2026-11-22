@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月22日 / v61。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月22日 / v62。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -8,7 +8,7 @@
 
 rank8^kの臨界代数で全係数のsmoothnessを判定する。任意固定tの一般αでは8^k個の相異なる悪いcと、各可換標的の唯一の通常二重点がある。全係数・固定tの判別超曲面は既約被約で、臨界点のaffine空間が正規化を与える。一変数特殊化の重複根は許す。同一S(1,−1,−1)では純ブロックJac₂像・七定数形・κ_k²=27/28を保持し、残る六定数は未数値化。一般因子へこのκ値を流用しない。任意中心数の全因子別表示でK_A smooth ⇔ X_pol smoothを示し、一般中央flagの存在から全smooth対象を比較した。横断二項Bは可逆で、各固定一次係数の一般二次係数では2^(3k+m−1)個の単純悪値を得る。X_polへの実核、因子moduli上の核選択・降下、全intrinsic被覆、h一般点核のdefect零特殊化は残る。指定二ブロックのP64・norm全64根・局所型も保持する。
 
-最高active二次関係が固定したtensor Sklyanin境界で、中心一次変数を厳密に可換に保つ全quadratic PBW表示は、因子間可換を事前に課さなくても元の生成元で因子別に分解する（`ifp:thm:factorization`）。従って、指定中心三次の最高項が非零重みのΣa_iΩ_iである範囲では既存の全許容表示・全smooth比較へ戻る。残る混合問題は境界二次関係自体を動かす変形にある。その次数零一次中心障害を計算し、Clifford因子の中心平方に由来する一組の九方向を、自由な二次代数族と中心正則三次商へ実積分した（`ifh:prop:central-mixed-obstruction`, `ifc:thm:family`）。この新族のAS正則性・CY性・smoothness・Ku比較は未確認であり、全intrinsic被覆を得たとはしない。
+最高active二次関係が固定したtensor Sklyanin境界で、中心一次変数を厳密に可換に保つ全quadratic PBW表示は、因子間可換を事前に課さなくても元の生成元で因子別に分解する（`ifp:thm:factorization`）。従って、指定中心三次の最高項が非零重みのΣa_iΩ_iである範囲では既存の全許容表示・全smooth比較へ戻る。残る混合問題は境界二次関係自体を動かす変形にある。その次数零一次中心障害を計算し、Clifford因子の中心平方に由来する一組の九方向を、自由な二次代数族と中心正則三次商へ実積分した（`ifh:prop:central-mixed-obstruction`, `ifc:thm:family`）。この周囲代数は全係数で相対Koszul・untwisted相対6-CYであり、複素fiberはAS-regular dimension/index6となる。四・五次元型の原点近傍には実相対smooth proper模型とétale局所perfect Ku核を得た（`ifr:thm:ambient-regularity`, `iff:thm:smooth-neighborhood`, `ifk:cor:clifford-fourfold-neighborhood`, `iff:cor:cubic-fivefold-open`）。四次元には主稿のrotation付きArtin形式認識を用いる。全smooth係数への延長と全intrinsic被覆は未解決である。
 
 C上n≥3を基本とし、generic・全固定点・全族・一般体上の降下を区別する。全intrinsic対象の認識やpoint functorの表現可能性は未完成であり、既知の局所表示だけを全対象と定義して済ませない。可換候補の方程式・判別集合・局所特異点の一致と、その候補への実際の比較核の存在も区別する。
 
@@ -28,7 +28,7 @@ point/Poisson不一致は本文の補助例として扱う。三様体の例の�
 
 研究方針・研究ノート・共通preamble・書誌は三稿で共有し、数学的な本文は複製しない。三稿への整理は編集と参照の再構成であり、既存の数学全体の再証明ではない。以下の点検・計算に関する記述は各結果の既存の確認範囲であり、今回のソース保持・組版・表示確認とは区別する。実際の確認状態は [検証範囲](validation.md) を参照する。
 
-研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。固定tensor境界・厳密中心作用の全PBW表示は因子別に分解するので、この範囲の混合関係の分類を未解決へ戻さない。P0は全intrinsic被覆と境界二次関係を動かす表示の認識に置き、まずClifford九変数族のAS正則性・CY性・中心商のsmoothnessを調べ、Ku比較へ進める条件を切り分ける。Δ≡0は既存のsmooth二中心対象では起こらない。偏極標的への実核と全中心作用、因子moduli上のPicard/周期降下も残る。比較係数の数値化は存在結果の具体化として進め、h核の良い特殊化は固定点の同値の存在と分ける。
+研究を進める作業単位は、使用する定理・仮定・証明所在・未解決箇所・達成基準を一度に追える範囲とする。固定tensor境界・厳密中心作用の全PBW表示は因子別に分解するので、この範囲の混合関係の分類を未解決へ戻さない。P0は全intrinsic被覆と境界二次関係を動かす表示の認識に置く。Clifford九変数族では原点近傍の四・五次元Ku比較まで得たので、残余KS写像の階数・像、可換方程式の具体化、全smooth係数への核の延長を次の具体課題とする。Δ≡0は既存のsmooth二中心対象では起こらない。偏極標的への実核と全中心作用、因子moduli上のPicard/周期降下も残る。比較係数の数値化は存在結果の具体化として進め、h核の良い特殊化は固定点の同値の存在と分ける。
 
 ### 満支持型における同時存在
 
@@ -433,9 +433,35 @@ Khan, *Algebraic K-theory of quasi-smooth blow-ups and cdh descent*, Ann.Henri L
 
 原点の接写像はMat₃(C)≅HH²(S₁⊗S₂)_{(−2,2)}=HH²(S₁)₋₂⊗Z(S₂)₂である（`ifc:prop:tangent`）。全代数S₁⊗S₂のHochschild cohomologyを計算するKoszul双加群複体の双次数(−2,2)では、一次cochainが零、二cocycleはHom(R₁,Z(S₂)₂)となる。従って九方向の独立性は純因子gaugeだけを割った計算ではない。この一つのordered pairの障害核を全次数へ同時積分したが、逆方向・他のordered pair・純因子次数零変形との任意の同時積分までは示していない。ここでのPBW濾過はxだけの次数であり、全active最高二次関係を固定する `ifp` の濾過とは異なる。従ってこの族は固定境界分解の反例ではない。
 
-次の着手は、まず𝒝_Λの相対Koszul解消と双対を調べ、AS正則性・untwisted CY性がどの係数で成立するかを確定することである。その後、正則中心商の線束模型・残余圏のsmoothnessと実smooth proper族の構成を調べる。自由基底と正則三次だけからこれらを済ませない。
+### 九変数族の全係数でのKoszul・Calabi–Yau性
 
-二因子・中心変数なしの𝒜_Λは三次四様体のHilbert型、n=4であり、n≠4を仮定する既存の可換実現開性 `grl:thm:open-locus` は適用できない。最初の比較対象としては `ifc:cor:central-variables` でm=1、g(u)=cu³、c≠0を加えたn=5の族を用いる。このΛ=0では既存の分離型比較がある。AS/CY・実相対smooth proper模型などの入力と開性定理の全仮定を先に確認し、原点近傍の比較から着手する。開性だけで全Λの比較を結論しない。直接の境界比較・球面制限へ接続できるかも別に検討する。固定tensor境界を越える全intrinsic被覆と、一般の次数零混合変形の分類は未完成である。
+証明の正本は [interfactor_clifford_regularity.tex](../papers/sections/mixed/interfactor_clifford_regularity.tex) の `ifr:thm:ambient-regularity`。任意の可換C-係数環と任意Λについて、長さ6、項の階数binom(6,i)の相対Koszul双加群解消を持つ。内部次数付き逆双対化は B(6)[−6] で、Nakayama twistはない。複素fiberでは大域次元6、AS index6、GK次元6となる。中心変数m個の追加後は次元/index6+m、中心正則三次商のaugmentation双対はR(3+m)[−(5+m)]である。特異な係数環上の相対双対性を、その環を含む絶対C代数の有限大域次元とは同一視しない。
+
+証明の要点は、xのみの次数濾過を内部次数ごとに有限化し、固定C-bar複体の分裂に有限摂動を施すことである。これによりKoszul空間K_iの自由性と任意底変更を同時に得る。双対Eの反転濾過ではξ_xの重み0、η_yの重み1、E₆は重み3のrank1である。最高成分のtraceの完全対合を濾過から持ち上げると、Frobenius Nakayamaはμ(ξ)=−ξ、μ(η)=−η+Cξまで制限される。実自己同型x↦−x,y↦yはtop traceを−1倍しμと可換するため、C=0となる。このgraded symmetric traceでKoszul双加群複体を明示的に自己双対化する。単にPBWやAS正則性からuntwisted性を結論していない。
+
+有限型係数環の局所化ではBとB^eも左右noetherianである（`ifr:cor:noetherian-envelope`）。主稿 `mbnp:lem:noetherian` の多重THCRの証明をS₁,S₂とそのoppositeの四因子へ適用し、濾過から戻す。個々の因子のstrong noetherian性だけを根拠にしない。Koszul双対のFrobenius形式による双対性判定はBerger–Marconnet Theorem6.3/Proposition6.4、He–Van Oystaeyen–Zhang Lemmas1.1–1.2の既知機構であり、本族について任意底の有限解消と符号対称性を確認したことを区別する。
+
+### 通常のcoherent対角から得るsmooth proper近傍
+
+正本は [interfactor_clifford_smoothness.tex](../papers/sections/mixed/interfactor_clifford_smoothness.tex)。m=0の四次元型と、m=1,g=cu³,c≠0の五次元型を扱う。全九変数環上にN=6+m本の線束からなるproper模型Σと、有限mutationで得る残余模型Γを構成する。非被約Artin底でもHomの計算複体・mutation・内部shiftが底変更を保つ。
+
+`iff:thm:smooth-neighborhood` はΛ=0を含む実Zariski開でΣ,Γの相対対角をperfectにする。通常の二重次数対角Δ⁺_{i,j}=A_{i+j}はcyclic coherentかつ係数環上次数別自由である。原点局所環の次元9に関する帰納法で、flat対象間の高次Extを正則パラメータとNakayamaによって消す。一般の対象には9段のgraded free解消を使い、最後のsyzygyのflatnessから戻す。最初の核がflatだとは仮定しない。全係数環で既に存在する対角の線束解消を十分長く切ったYoneda境界が局所的に零となり、有限Extの局所化互換性で分母を払えば、その開上で有限複体のretractを得る。特殊fiberの微分やidempotentを無条件に持ち上げる議論ではない。
+
+得られた相対smooth proper模型では、各複素fiberの全coherent圏と線束模型が一致する。rotation=L_O∘(1)は先に実関手として定義し、smooth開上でgraph双加群のperfect性・相対双対から随伴を作り、原点で零のunit/counit coneを消す開へ縮めて自己同値とする。全族の三乗周期coherenceはこの段階で仮定・主張していない。開集合の補集合の方程式と全smooth locusは未算出である。
+
+### 四次元のrotationを持ち上げる変形と局所可換比較
+
+一般論の正本は主稿 [rotation_preserving_deformations.tex](../papers/sections/rotation_preserving_deformations.tex)。BFK Corollary5.41とTheorem6.5はhomologyのsectorとcharacter作用を与える。三次四様体ではHH₀=Jac(F)₃⊕C_ζ⊕C_ζ²、HH±₂は恒等sectorの各一次元である。rotation固定の2-CY volumeによるcap同型を通して、HH²の固有値は1,ζ,ζ²、重複度は20,1,1となる。幾何的KSの単射性と次元比較から、固定接空間は正確に幾何的なJac(F)₃である。Huybrechts–Rennemoの内部shiftから作る次数付きHochschild代数と、この固定部分は定義を混同しない。
+
+`ifk:thm:rotation-formal` はこれを通常Artinの全次数へ進める。既存 `prop:nf-fourfold-obstruction` の22次元形式hullには標識変更によるρ作用がある。ρ³≃[2]と偶数shiftによるHochschild複体の恒等共役から、同型類関手上ではC₃作用になる。cotangentの切断を有限群について平均すると同変な形式座標を取れ、固定点部分は非固定の二座標を零とした20次元形式円板になる。これは不変環による商空間ではない。幾何的変形の全次数自然変換はそこへ入り、接同型と形式逆写像から同型となる。tameな実catdefからhullへの写像の(−1)-truncated性を使い、rotationの持上げが存在する実変形は幾何的Kuへ戻る。分類するのは持上げの存在を条件とする充満部分群oidであり、持上げ自体や三乗周期を追加標識した高次群oidではない。
+
+`ifk:thm:rotation-neighborhood` は実相対smooth proper族、実相対自己同値ρ、一点のrotation付きperfect核を入力として、その核をétale近傍へ延ばす。比較核スタックの小拡大問題に上の充満部分群oidの認識を使うので、既に指定されたP_Aへ新たにrotation同変性を要求せず持ち上げられる。有限表示・smooth atlas・étale局所切断から、実際の滑らかな三次族と核を得る。全基底上で核が全rotation・周期・中心標識を同時保存することは結論しない。
+
+近接文献はLin–Zhang, *Categorical Torelli and Fourier–Mukai partners of hypersurfaces*, [arXiv:2611.05915v1](https://arxiv.org/abs/2611.05915v1)のTheorem2.2・Proposition2.4・Remark3.9である。幾何的KSの通常HH²全体への全射を使い、小拡大での核持上げから実際のsmoothな核族を得る。同文献は三次四様体を20対22のため明示的に除外する。ここでは全HH²への全射を仮定せず、rotationが持ち上がる変形を固定形式円板へ制限する。核スタックの代数化機構自体は既知であり、この仮定・結論の組合せの初出は未確認である。
+
+Clifford族への適用は [interfactor_clifford_kodaira_spencer.tex](../papers/sections/mixed/interfactor_clifford_kodaira_spencer.tex)。原点の `ebk:lem:boundary` は任意固定因子、二捩れを含めてrotation付き実核を与える。従ってm=0にも原点を含む可換Ku実現開とétale局所perfect核がある（`ifk:cor:clifford-fourfold-neighborhood`）。m=1はn≠4の既存開性を使う `iff:cor:cubic-fivefold-open` による。いずれも原点開の存在であり、全smooth係数への比較ではない。
+
+九方向の残余KSは幾何的20次元部分へ入り、二つの非恒等sectorへの射影は零である。ただしambient HH²での独立性から残余KSのrank9は従わない。次の具体的な着手は、原点の周期付き因子核とKoszul–Shamash模型を用いてMat₃(C)→Jac(a₁f₁+a₂f₂)₃を計算し、そのrank・像と可換方程式の一次項を決めることである。その後に高次方程式、開の補集合、境界核のdefectを調べる。逆向き・複数ordered pairの同時積分、全intrinsic被覆も未完成である。既知の形式変形・有限群・核スタックの機構と、この族への適用の新規性を区別し、文献上の初出は未確認とする。
 
 近接する先行研究と今回の適用範囲は次の通りである。
 

@@ -23,6 +23,15 @@ $HH^3$ の消滅に依存しないため、$HH^3=\C^2$ となる $n=7$ も含む
 Lurie \cite{NFDAGX} の tame 圏に対する結果を用いる。
 未切断の高次群oidや導来 Artin 基底上での同値は主張しない。
 
+四次元でも、rotation を実際の自己同値として持ち上げられる変形については、
+定理\ref{ifk:thm:rotation-formal}が幾何的変形との同値を与える。
+二十二次元形式 hull の $C_3$ 固定点部分は滑らかな二十次元形式空間であり、
+幾何的変形からの接写像同型を全 Artin 次数へ延ばすことができる。
+持ち上げた自己同値自体や周期の coherence を標識する群oidではなく、
+持上げの存在を条件とする充満部分群oidについての主張である。
+定理\ref{ifk:thm:rotation-neighborhood}は、実相対 rotation と
+一点での rotation 付き比較から、その点の \'etale 近傍で実比較核を構成する。
+
 rotation $\mathsf R$ と Serre 関手 $S$ の既知の関係は
 $\mathsf R^3=[2]$、$S=\mathsf R^{-(n-1)}[n]$ である。
 $n\not\equiv1\pmod3$ では rotation を Serre と shift から回復できるが、
@@ -132,8 +141,16 @@ $h=1$ の DVR 上の perfect 整延長は
 通常の周囲代数の derived Morita 比較と、形式的な $h$ 進核の
 $h=1$ への無条件な代入は、この手順の代わりにならない。
 可換実現 locus の開性だけでは全 smooth locus への拡張は従わない。
+最高次の二次境界を動かす Clifford 九変数族では、
+定理\paperref{mixed}{ifr:thm:ambient-regularity}が全係数の相対 Koszul・非捩れ CY 性を与え、
+定理\paperref{mixed}{iff:thm:smooth-neighborhood}が原点を含む実 smooth proper 開を与える。
+四次元型と五次元型はそれぞれ
+系\paperref{mixed}{ifk:cor:clifford-fourfold-neighborhood}と
+系\paperref{mixed}{iff:cor:cubic-fivefold-open}により、原点の \'etale 近傍で
+可換三次への perfect 比較核を持つ。
 次の中心課題は、全 intrinsic 成分の認識と表示被覆、
-最高次の二次境界を変える混合族の比較、偏極標的 $X_{\mathrm{pol}}$ への実比較核、
+この混合族の残余 Kodaira--Spencer 写像の階数と可換方程式の具体化、
+全 smooth 係数への延長、偏極標的 $X_{\mathrm{pol}}$ への実比較核、
 および因子自体を動かす族での核の選択と降下である。
 
 精密な降下の側には、周期位相の他の境界での分岐、正準位相体上の scalar index、

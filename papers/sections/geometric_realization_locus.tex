@@ -156,8 +156,11 @@ $u$ の相対座標を持つ $S$ の切断に沿って引き戻せばよい。
 
 四次元では命題\ref{prop:nf-fourfold-obstruction}の二つの余分な
 Hochschild 変形方向があるため、この証明を適用できない。
-指定された中心三次・rotation の追加構造が幾何的変形方向を保つことを示す経路と、
-満支持二ブロックの直接比較は、別々の有効な方法として保持する。
+rotation が実際の自己同値として持ち上がる場合は、
+定理\ref{ifk:thm:rotation-formal}が固定形式空間を幾何的変形と同定する。
+その結果、定理\ref{ifk:thm:rotation-neighborhood}では
+相対 rotation と原点の rotation 付き核を入力として、四次元の局所比較を得る。
+これは本定理の $n\ne4$ を無条件に除くものではない。
 また本節では相対 smooth proper 性を入力とし、
 任意の Abel 圏変形の飽和性や全 $D^b(\mathrm{coh})$ との一致を証明したとはしない。
 
@@ -273,18 +276,22 @@ $R/(t)$ は二項有限自由分解を持つので、$P$ は perfect 双加群�
 従って問題は有限底変更の有無だけでなく、適切な核の整格子の構成にある。
 \end{example}
 
-\begin{remark}[指定混合族で残る入力]
+\begin{remark}[指定混合族の比較と選択済み一般点核の特殊化]
 \label{grl:rem:mixed-trait-inputs}
-指定混合族で $c=c_0$ を調べるとき、まず
-$R=\C[c]_{(c-c_0)}$ 上の残余生成代数と、滑らかな可換三次候補の
-残余生成代数を取る。
-両者の smooth proper 性は上の命題の核の存在仮定を代用しない。
-必要な未完了の段階は、候補への一般点での実際の同値、
-その perfect 双加群としての整延長、および二つの cone の特殊化での零性である。
-判別式の一致、Hochschild 次元の一致、一般点での数値的不変量の一致だけから
-これらの三段階を結論しない。
-指定 $c=0$ のみについては、
-定理\paperref{mixed}{cmo:thm:fixed-zero-commutative-kernel}が
-球面境界から直接に実核を構成する。
-これは $c$-族の一般点核を選び、その特殊化を調べる方法とは独立である。
+指定された中心係数 $c$ の族については、
+定理\paperref{mixed}{cmo:thm:all-central-commutative-kernel}が
+滑らかな範囲全体で可換三次への実比較核を与える。
+$c=0$ での直接構成は
+定理\paperref{mixed}{cmo:thm:fixed-zero-commutative-kernel}である。
+従って、各滑らかな $c$ における Ku 同値の存在を、
+一般点核の特殊化に関する未解決問題として扱わない。
+
+別に、非 PI 変形の $h$-族について選択済みの一般点核を固定した場合は、
+定理\paperref{mixed}{mix:thm:h-exact-candidate}が一般点での実同値を、
+定理\paperref{mixed}{mix:thm:h-integral-kernel}が perfect な整延長を与える。
+この延長について残るのは、一般点での指定を保ちながら、
+$h=1$ における unit と counit の cone がともに零となるように
+整核を選べるかという点である。
+これは特殊ファイバーにおける同値そのものの存在とは異なる条件であり、
+smooth proper 性、判別式の一致、Hochschild 次元の一致だけからは従わない。
 \end{remark}

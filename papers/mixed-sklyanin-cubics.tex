@@ -5,7 +5,7 @@
 \title{混合 Sklyanin 三次の滑らかさと残余圏\\
 \large 有限中心・局所代数・楕円因子と多中心の比較核}
 \author{}
-\date{2026年11月22日・研究稿 v61}
+\date{2026年11月22日・研究稿 v62}
 \hypersetup{pdftitle={混合 Sklyanin 三次の滑らかさと残余圏},
 pdfsubject={有限中心・局所代数・楕円因子と多中心の比較核}}
 
@@ -87,7 +87,11 @@ Euler 混合類を全て排除する一方、Clifford 因子の中心平方に�
 二捩れ因子の数を $q$ とすると、この混合核の次元は $9q(k-1)$ である。
 その一つの ordered pair の九方向を全係数上の自由な二次代数族へ積分し、
 正則中心三次と自由な商を構成する。
-この二次境界変形族についての smoothness と Ku 比較は未確認である。
+周囲代数の有限自由 Koszul 双加群解消を構成し、
+符号対称性から全係数で非捩れ相対 $6$-Calabi--Yau 性を得る。
+中心変数なしの四次元型と、中心変数および非零三乗項を一つ加えた五次元型について、
+原点を含む実相対 smooth proper 開と \'etale 局所 perfect 比較核を構成する。
+四次元の比較には、主稿の rotation を持ち上げる変形の全次数形式認識を用いる。
 二つの軸の切断が同一でも全体の smoothness が異なる例は、混合情報の必要性を示す。
 さらに交換子パラメータの族に、零と一を含む半局所底上の
 相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
@@ -112,6 +116,7 @@ Euler 混合類を全て排除する一方、Clifford 因子の中心平方に�
 次に調べるべき具体的な対象となる。
 本稿は、中心一次変数を共有する固定楕円 Sklyanin 因子の
 固定 tensor 境界を持つ全 PBW・中心三次変形を扱う。
+さらに、二次境界自体を動かす Clifford 九変数族の原点近傍比較を扱う。
 因子間可換性は PBW 条件から証明する。一中心では全許容係数を比較し、
 任意個の中心では全 smooth 対象の良い中央 flag を構成して実比較を得る。
 中心と局所代数を明示できる $S(1,-1,-1)$ の定数型から記法を定め、
@@ -301,7 +306,13 @@ $\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
  $\bigoplus_{i\ne j,\,j\in I_2}\operatorname{HH}^2(S_i)_{-2}\otimes Z(S_j)_2$
  と決定する。次元は $9|I_2|(k-1)$ であり、二捩れがなければ零である。
  定理\ref{ifc:thm:family}は一つの ordered pair の九方向を実際の全係数族へ積分する。
- その中心三次商の自由性を示すが、この新しい族の smoothness と Ku 比較は未確認である。
+ 定理\ref{ifr:thm:ambient-regularity}はその周囲代数の全係数での
+ 相対 Koszul 性と非捩れ $6$-CY 双対性を与える。
+ 定理\ref{iff:thm:smooth-neighborhood}は原点を含む実相対 smooth proper 開を構成し、
+ 系\ref{iff:cor:cubic-fivefold-open}、\ref{ifk:cor:clifford-fourfold-neighborhood}は
+ 五次元型と四次元型に \'etale 局所的な可換三次族と実比較核を与える。
+ 四次元では主稿の定理\paperref{main}{ifk:thm:rotation-formal}を用いる。
+ 全 smooth 係数への延長と、残余 Kodaira--Spencer 写像の階数は未確定である。
 
  \item \emph{零係数の実際の可換比較核。}
  $c=0$ では定理\ref{cmo:thm:eckardt-root-residual}により、
@@ -392,7 +403,15 @@ Hochschild の tensor 積公式自体は既知
 \cite[Theorem~3.1.2]{CMOWitherspoonHochschild}であり、
 本稿では内部次数と指定中心三次の障害を分離して混合核を求める。
 その Clifford 部分の一方向を、定数型普遍係数の中心平方への代入で積分する。
-この因子分解・混合核・具体的積分族の文献上の初出は未確認である。
+Koszul 双対の Frobenius 形式と Nakayama 自己同型による双対性の判定は
+\cite[Theorem~6.3, Proposition~6.4]{IFRBergerMarconnet}と
+\cite[Lemmas~1.1--1.2]{IFRHeVanOystaeyenZhang}に基づく既知の方法である。
+本稿ではこの九変数族の符号対称性を使って twist を消し、
+非被約底変更にも安定な相対解消を明示する。
+原点近傍の滑らかさには通常の coherent 対角と有限 Ext を用い、
+体上の射影核理論\cite{CMOBallardFarman}を相対解消へ接続する。
+四次元の比較は、主稿で扱う rotation 固定形式空間の認識を入力とする。
+この因子分解・混合核・具体的積分族とその近傍比較の文献上の初出は未確認である。
 
 Sklyanin 代数の斉次中心の生成は Smith--Tate
 \cite[Theorems~3.7, 4.8]{GRSklyaninST}、
@@ -675,8 +694,10 @@ perfect 整延長が存在する。
 他の位数六因子での中心・局所 order・単純加群の明示分類は残る。
 固定 tensor 境界の全 PBW 表示は因子別に分解し、指定中心三次商の比較は得た。
 一方、最高次の二次境界を変える表示と全 intrinsic 対象の被覆は未完成である。
-まず定理\ref{ifc:thm:family}の九変数族について、周囲代数の正則性・双対性、
-中心商の smoothness と実 Ku 核を調べる必要がある。
+定理\ref{ifc:thm:family}の九変数族では、周囲代数の全係数正則性・双対性と、
+四・五次元型の原点近傍の smoothness・実 Ku 比較を得た。
+次の課題は、残余 Kodaira--Spencer 写像の階数と可換方程式の具体化、
+全 smooth 係数への核の延長、および逆向き・複数の ordered pair の同時積分である。
 全線形 PBW 族の可換 Ku 比較は得たが、その一般の中心環・PI 性の分類は別問題である。
 実 Morita 同値は積分数値 Grothendieck 群の同型も与えるが、
 表示した二対象がその積分基底となることや、核の作用の基底表示は未計算である。
