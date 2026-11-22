@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月23日 / v71。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月23日 / v72。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -683,11 +683,15 @@ Heisenberg対称性だけでは二次写像Sym²V→V*が五次元、三次不�
 
 となる（`ifj:thm:twelve-coefficients`）。βの四個とγの八個は固定した因子・重み・原点比較の係数であり、新しい十二変形パラメータではない。**その数値、消滅・非消滅は未計算である。**
 
-最小の計算入口は、E₀₀、第一行和R₀、第一列和C₀、I₃という四つの一変数族Λ=tAである。[t²]v₀₀の評価行列式は−1、[t³]z_iの不変式評価行列式は1で、`ifj:prop:minimal-probes`と`ifj:eq:probe-table`から十二係数を回収できる。四つの三次不変式の係数回収には最低四方向、さらにPBWの二次摂動を持つ方向が最低二つ必要なので、選択は両下限を達成する。各制限では中心持上げ・実核・Jacobian補空間への射影を三次まで追う必要があり、normや点曲線の形式だけを可換方程式と見なすことはできない。
+最小の計算入口は、E₀₀、第一行和R₀、第一列和C₀、I₃という四つの一変数族Λ=tAである。[t²]v₀₀の評価行列式は−1、[t³]z_iの不変式評価行列式は1で、`ifj:prop:minimal-probes`と`ifj:eq:probe-table`から十二係数を回収できる。四つの三次不変式の係数回収には最低四方向、さらにPBWの二次摂動を持つ方向が最低二つ必要なので、選択は両下限を達成する。各制限では中心持上げ・実核から三次までの可換側原式を取り出す必要があり、normや点曲線の形式だけを比較方程式と見なすことはできない。固定切片への射影と座標正規化自体は次の明示公式で処理する。
+
+**Jacobian 切片の構成的正規化（証明済みの有限代数）：** `ifj:prop:explicit-jacobian-projector` は h_i=(2+τ_i³)/(3τ_i), t_i=3a_iτ_i, r_{i,a}=Z_{i,a}²−h_i Z_{i,a+1}Z_{i,a+2} により、全56三次単項式を固定20単項式の射影Πと36次元のJacobian方向への明示的な右逆𝒥に分解する。純三乗の射影は h_iP_i、純重複二変数 Z_{i,a}²Z_{i,b} (a≠b) は0、混合重複 Z_{i,a}²Z_{j,b} (i≠j) は h_i Z_{i,a+1}Z_{i,a+2}Z_{j,b}。その他の切片単項式はそのままである。Jacobian 方向は係数 t_i と (1−h_i³) の有理式で解け、Π+𝒟_F𝒥=1、𝒥𝒟_F=1 が成立する。これは原点比較核の存在・形式的変形の幾何化とは独立な多項式線型代数である。
+
+`ifj:prop:explicit-third-normalization` は原式 F+sG₁+s²G₂+s³G₃ について座標補正 T=I+sA₁+s²A₂+s³A₃ を三次まで再帰的に構成する。各段階のJacobian 成分を A_j=−𝒥(R_j) で消し、切片係数を H_j=Π(R_j) とする。一次項が既に C にある場合でも H₃=Π(G₃−D_{𝒥(G₂)}G₁) であり、G₃ を単独で射影してはいけない。実際、純代数的な例 G₁=X₀Y₁Y₂,G₂=X₀²Y₀,G₃=0 は、正規化後 H₃=−P_Y/t₁ を与える（`ifj:ex:third-coordinate-artifact`）。これは未計算の γ の実値ではない。局所計算では全56単項式の一般記号分解、20単項式基底、τ₁=2,τ₂=3での三次座標代入、非零三次補正の4群を厳密確認した。`computations/verify_hesse_slice_transfer.py` はその再現器である。実際の比較核と周期から原式 G₁,G₂,G₃ を計算する部分が残る。
 
 任意の標的形式座標変更なら全高次項を消して(κΛ,0,0)へ移せるが、これは固定した多項式切片の係数を計算したことにはならない（`ifj:prop:formal-straightening`）。一方、一次部分が恒等の同変な源座標変更の最初の補正は四次なので、上の二次・三次係数は変わらない。形式座標に関するこの区別を計算時にも維持する。
 
-**残る具体課題と到達基準。** 第一に四制限の実比較を三次まで計算し、固定切片の十二係数を求める。第二に階数一のD(h)内で、Azumaya norm特異点と二次形式退化部分を分けて残余smooth locusの方程式を調べる。A₂例は除外すべき係数を既に与えるが、全判別式ではない。第三に、構成済みの有限étale比較被覆がどの残余smooth係数まで延長できるかを実核のperfect性と同値性で判定する。尺度θの三次被覆だけから全核の降下を結論しない。一般の非Clifford第一因子の尺度、任意の複数ordered pairの同時積分、全intrinsic表示被覆も残る。
+**残る具体課題と到達基準。** 第一に四制限について原点のreal perfect kernelから周期付き収縮と可換側の原式 G₁,G₂,G₃ を求め、既存の明示Π,𝒥正規化を適用して固定切片の十二係数を決定する。第二に階数一のD(h)内で、Azumaya norm特異点と二次形式退化部分を分けて残余smooth locusの方程式を調べる。A₂例は除外すべき係数を既に与えるが、全判別式ではない。第三に、構成済みの有限étale比較被覆がどの残余smooth係数まで延長できるかを実核のperfect性と同値性で判定する。尺度θの三次被覆だけから全核の降下を結論しない。一般の非Clifford第一因子の尺度、任意の複数ordered pairの同時積分、全intrinsic表示被覆も残る。
 
 有限計算の入口は `verify_clifford_morse_scale.py`（随伴行列・moment・三乗尺度）、`verify_clifford_rank_one.py`（h・norm局所式・Hessian・有理係数例）、`verify_clifford_jets.py`（全低次同変空間・反転・最小四制限・Hesse補空間）である。いずれも厳密な有限代数計算であり、実核・coherent飽和・指定周期・高次十二係数の数値を機械検証したとはしない。実行と組版・保存の状態は `validation.md` を正本とする。
 
