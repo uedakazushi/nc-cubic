@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v72.
+% Current result: 2026-11-23 / v73.
 \subsection{固定した三次形式の切片と高次係数の有限還元}
 \label{ifj:subsec:jets}
 
@@ -230,6 +230,121 @@ $(\mathcal J(G_2)Z)_{X_0}=Y_0/t_1$ なので
 これは比較核から導いた非可換族の値ではなく、
 正規化の不可避な補正を示す例である。
 \end{example}
+
+\begin{proposition}[最小四 probe に対する高次係数の直接読出し]
+\label{ifj:prop:direct-probe-readout}
+定理\ref{ifj:thm:twelve-coefficients}で選んだ原点核と
+$\kappa$ の枝を固定する。$A$ を四方向
+$E_{00},R_0,C'_0,D_0$ の一つとし、
+最初の一次座標正規化を終えた任意の三次式の形式族を
+\[
+ G_A(s)=F+s\kappa\sum_{a,b}A_{ab}X_aY_{b+1}Y_{b+2}
+                 +s^2G_{2,A}+s^3G_{3,A}+O(s^4)
+\]
+と書く。$G_{2,A},G_{3,A}$ は任意の三次形式でよく、
+この段階ではまだ切片 $C$ にあるとは仮定しない。
+三次形式 $T$ の単項式 $M$ の係数を $[M]T$ とする。
+$h_i,t_i=3a_i\tau_i$ は命題
+\ref{ifj:prop:explicit-jacobian-projector}の規約とする。
+次の三つの scalar を定める：
+\begin{equation}\label{ifj:eq:direct-jet-observables}
+\begin{aligned}
+ B_A={}&[X_1X_2Y_0]G_{2,A}
+                 +h_1[X_0^2Y_0]G_{2,A},\\
+ U_A={}&[P_X]G_{3,A}+h_1\sum_a[X_a^3]G_{3,A},\\
+ V_A={}&[P_Y]G_{3,A}+h_2\sum_b[Y_b^3]G_{3,A}\\
+       &-\frac{\kappa}{t_1}
+              \sum_{a,b}A_{ab}[X_a^2Y_b]G_{2,A}.
+\end{aligned}
+\end{equation}
+このとき切片へ三次まで正規化した式の係数は
+\[
+ [s^2]v_{00}(sA)=B_A,\qquad
+ [s^3]z_1(sA)=U_A,\qquad [s^3]z_2(sA)=V_A
+\]
+である。特に純 $X$ 三次方向には二次座標補正の寄与がなく、
+純 $Y$ 三次方向にだけ式
+\eqref{ifj:eq:direct-jet-observables}の明示的な対合補正が残る。
+
+四つの方向を $E=E_{00},R=R_0,C=C'_0,D=D_0$ と略記し、
+$T_{1,A}=U_A$、$T_{2,A}=V_A$ と置けば、
+十二係数を次の公式だけで求められる：
+\begin{equation}\label{ifj:eq:direct-twelve-readout}
+\begin{array}{llll}
+ \beta_0=B_E,& \beta_r=B_C-B_E,&
+ \beta_c=B_R-B_E,&\beta_d=B_D-B_E,\\
+ \gamma_{i0}=T_{i,E},&
+ \gamma_{ir}=T_{i,R}-3T_{i,E},&
+ \gamma_{ic}=T_{i,C}-3T_{i,E},&
+ \gamma_{id}=T_{i,D}-3T_{i,E}\quad(i=1,2).
+\end{array}
+\end{equation}
+従って四方向の $G_{2,A},G_{3,A}$ について、
+各方向の全 $56+56$ 係数を取得する必要はない。
+式\eqref{ifj:eq:direct-jet-observables}に現れる
+\emph{単項式係数の読出し枠}は、
+四方向を通算して二次 $14$ 枠、三次 $32$ 枠、計 $46$ 枠で足りる。
+ここでは方向の違う係数を別の枠として数える。
+\end{proposition}
+
+\begin{proof}
+$G_{1,A}\in C_{12}$ なので、命題
+\ref{ifj:prop:explicit-third-normalization}から
+\[
+ H_{2,A}=\Pi(G_{2,A}),\qquad
+ H_{3,A}=\Pi\bigl(G_{3,A}
+          -D_{\mathcal J(G_{2,A})}G_{1,A}\bigr)
+\]
+が成り立つ。
+命題\ref{ifj:prop:explicit-jacobian-projector}の射影表で
+$X_1X_2Y_0$ の係数を読むと $B_A$ を得る。
+同表により $[P_X]\Pi(G_{3,A})=U_A$、
+$[P_Y]\Pi(G_{3,A})
+ =[P_Y]G_{3,A}+h_2\sum_b[Y_b^3]G_{3,A}$ である。
+
+二次補正の微分を考える。
+$G_{1,A}$ は $(\deg_X,\deg_Y)=(1,2)$ なので、
+一次線型座標変換でその純 $X$ 次数を三へ増やすことはできない。
+一方、純 $Y$ 三次式を作る項は、$X$ 座標行に
+$Y$ 座標列を持つ $\mathcal J(G_{2,A})$ の成分だけである。
+命題\ref{ifj:prop:explicit-jacobian-projector}の全単項式表より
+この成分は正確に
+\[
+  \bigl(\mathcal J(G_{2,A})Z\bigr)_{X_a}
+     =\frac1{t_1}\sum_b
+           [X_a^2Y_b]G_{2,A}\,Y_b
+       +\text{$X$ に線型な項}
+\]
+となる。
+これを $\partial_{X_a}G_{1,A}
+=\kappa\sum_c A_{ac}Y_{c+1}Y_{c+2}$ に代入する。
+$Y_bY_{c+1}Y_{c+2}$ は、$b=c$ でのみ
+$\Pi$ の純 $Y$ 三次項 $P_Y$ を持ち、
+$b\ne c$ では反復添字を持つ純三次単項式なので
+その射影は零である。
+従って $[P_Y]\Pi(D_{\mathcal J(G_{2,A})}G_{1,A})$
+は $\kappa t_1^{-1}\sum_{a,b}A_{ab}[X_a^2Y_b]G_{2,A}$
+であり、$V_A$ の公式が従う。
+式\eqref{ifj:eq:direct-twelve-readout}は命題
+\ref{ifj:prop:minimal-probes}の二つの可逆評価行列を
+逆に解いただけである。
+
+最後に、全四方向の $A$ の支持の大きさは $1,3,3,3$。
+二次では $[X_1X_2Y_0]G_{2,A}$ に各一枠、
+$[X_a^2Y_b]G_{2,A}$ に各支持一枠が必要で、
+$[X_0^2Y_0]G_{2,A}$ は全支持に含まれる。
+従って $4+(1+3+3+3)=14$ 枠である。
+三次では各方向に $[P_X]$ と $[P_Y]$、
+さらに三つずつの純立方の計八枠、合計 $32$ 枠となる。
+この四十六枠は十分な入力の個数であり、
+未知の比較核に起因する係数関係の不存在や
+他の回収法における絶対的最小性を主張しない。
+\end{proof}
+
+この直接読出し式の全五十六単項式と四方向にわたる
+有限検算は \texttt{computations/verify\_hesse\_probe\_readout.py}
+に置く。実際の比較核から $G_{2,A},G_{3,A}$ を構成したり、
+そこに現れる十二 scalar の数値を決定したわけではない。
 
 この手続きの有限検算は
 \texttt{computations/verify\_hesse\_slice\_transfer.py} に置く。
