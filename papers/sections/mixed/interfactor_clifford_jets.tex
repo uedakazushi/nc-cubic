@@ -1495,7 +1495,11 @@ $b,\delta$ は単元であり、同じ恒等式が成立する。
 となる。その $(\xi,Y)=(0,0)$ の二次部分は
 $Y^2-\delta\xi^2$ で非退化であり、通常二重点を持つ。
 $\eta=Y/\xi$ は $\eta^2=g(\xi^2)$ を満たして整である。
-$B$ は滑らかなアフィン曲線の環なので正規であり、
+$B$ の方程式 $H=\eta^2-g(\xi^2)$ の偏微分は
+$2\eta$ と $-4\xi(\xi^2-a)$ である。これらが同時に零なら
+$\eta=\xi=0$ または $\eta=0,\xi^2=a$ となるが、
+前者は $\delta\ne0$、後者は $b\ne0$ に反する。
+従って $B$ は滑らかなアフィン曲線の環で正規であり、
 同じ関数体を持つ有限拡大として整閉包となる。
 \end{proof}
 
@@ -1527,8 +1531,10 @@ $S=K[X,Y,Z]$、$R_h=S/(F_{\alpha,\beta})$ とすると、
          \longrightarrow S(-2)\oplus S(-3)
 \]
 は、次数三の斉次行列分解である。
-$R_h$ 上の余核は次数付きイデアル $(X,Y)$ と同型で、
-楕円曲線 $V(F_{\alpha,\beta})$ 上では
+$R_h$ 上の余核は次数付きイデアル $(X,Y)$ と同型である。
+以下の層の記述では $\beta(\alpha^2-4\beta)\ne0$、
+すなわち $V(F_{\alpha,\beta})$ が滑らかな楕円曲線と仮定する。
+その上では
 \[
  \widetilde{\operatorname{coker}\mathsf A_{\alpha,\beta}}
    \simeq\OO(-p_{\alpha,\beta}),\quad
@@ -1598,13 +1604,19 @@ Koszul--Shamash 比較核を構成するための入力である。
 曲率付き核、rotation 比較射、三乗周期、
 四 probe の原式四十六係数、十二比較係数を
 計算したものではない。
+厳密な有限恒等式の再現は
+\texttt{computations/verify\_clifford\_double\_cover\_mf.py}
+に置く。
 \end{corollary}
 
 \begin{proof}
 符号固有加群は $I=(X,Y)$ であり、
 $B$ への引戻しは $\xi,\eta$ で生成される。
 表示した恒等式からその全体が単位イデアルとなり、
-引戻しは階数一自由である。
+引戻しは階数一自由である。大域的にも
+$\varphi_\tau$ の有限 \'{e}tale $\mu_2$-torsor に対応する
+符号線束をその torsor 自身へ引き戻せば自明となるので、
+同じ結論が $E_\tau$ 全体へ延長する。
 deck は $\xi,\eta$ に負号を掛けるので、
 この自明化は自明文字の線型化ではない。
 \end{proof}
