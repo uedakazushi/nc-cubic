@@ -7,13 +7,20 @@
 同じ二次代数族へ積分できる。
 一方向族に用いた $x$ 次数濾過は双方向族には適用しない。
 代わりに、中心平方上の Clifford 表示と、
-可換二次完全交叉の cocycle twist となる二次双対を用いる。
+可換な六二次式商の cocycle twist となる二次双対を用いる。
 これにより、一つの resultant 開上で相対 Koszul 解消と非捩れ双対性を得る。
 
 graded skew Clifford 代数の正則性と二次系との関係は
 Cassidy--Vancliff\cite[Theorem~4.2 and its proof]{IFBCassidyVancliff}の既知理論である。
 その base-point 条件には訂正
 \cite[Proposition~10, Corollary~11]{IFBCassidyVancliffCorr}を含める必要がある。
+通常の graded Clifford 代数と可換二次完全交叉の双対性は
+Hu--Mori\cite[Theorems~3.21, 3.28]{IFBHuMori}にも整理されている。
+本節の代数はブロック間を可換にした graded \emph{skew} Clifford 型であり、
+二次双対のブロック間の符号を保持する。
+通常の偶数次元 Clifford quantum polynomial algebra は CY ではない
+\cite[Corollary~3.13]{IFBHuMori}ため、
+以下の六次元での非捩れ性にはこの符号計算が必要である。
 以下では、対応する二次系の商が有限であることを明示的に示し、
 さらに係数環上の有限射影複体と trace を構成する。
 したがって、体上の正則性を任意の非被約底へそのまま外挿していない。
@@ -162,7 +169,7 @@ $\operatorname{Tor}^{R_c}_1(A_c,N)=0$ となり、平坦性が従う。
 $V=B_1$ とし、$u_a=x_a^*$、$v_b=y_b^*$ を二次双対の生成元とする。
 これらの内部双対次数とは別に、以下の表示次数を全て一とする。
 
-\begin{proposition}[可換二次完全交叉の cocycle twist]
+\begin{proposition}[可換六二次式商の cocycle twist]
 \label{ifb:prop:dual}
 $B$ の二次双対 $E=B^!$ は、
 同一ブロック内では可換、異なるブロック間では反可換という代数

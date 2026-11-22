@@ -30,7 +30,7 @@
 
 中心変数なしの四次元型と、m=1,g=cu³,c≠0の五次元型の九変数族には、分離原点を含む実相対smooth proper開とétale局所perfect比較核がある（`iff:thm:smooth-neighborhood`）。四次元ではrotationを持ち上げる通常Artin変形の全次数認識を用いる（主稿 `ifk:thm:rotation-formal`）。残余KSはJac(f₁)₁⊗Jac(f₂)₂への同型で階数9、幾何的な20次元形式変形空間への形式像は余次元11である（`ift:thm:rank-nine`, `ift:cor:first-jet`）。
 
-両因子がCliffordの場合には双方向十八変数を積分し、全係数で中心平方上の自由階数64の二次代数を得る。二次双対は可換六二次完全交叉のcocycle twistであり、そのresultant Δが非零の領域が周囲代数の有限大域次元・AS-regular領域と正確に一致する。ここで次元/index6、任意底変更に保たれる有限射影Koszul解消とuntwisted相対6-CYを持つ（`ifb:thm:regularity`, `ifb:cor:exact-regular-locus`）。別の明示的主開D(c)上で中心三次は普遍正則、商は平坦となる。τ₁=τ₂=2、Λ=M=I₃ではΔ=0・大域次元無限で、a₁=a₂=1ならc=196≠0である。この例により、平坦性・Hilbert級数・中心三次正則性だけで周囲のAS-regular性を結論しない。
+両因子がCliffordの場合には双方向十八変数を積分し、全係数で中心平方上の自由階数64の二次代数を得る。二次双対は可換六二次式商のcocycle twistである。この可換商は六二次式のresultant開D(Δ)上で完全交叉となり、この開が周囲代数の有限大域次元・AS-regular領域と正確に一致する。ここで次元/index6、任意底変更に保たれる有限射影Koszul解消とuntwisted相対6-CYを持つ（`ifb:thm:regularity`, `ifb:cor:exact-regular-locus`）。別の明示的主開D(c)上で中心三次は普遍正則、商は平坦となる。τ₁=τ₂=2、Λ=M=I₃ではΔ=0・大域次元無限で、a₁=a₂=1ならc=196≠0である。この例により、平坦性・Hilbert級数・中心三次正則性だけで周囲のAS-regular性を結論しない。
 
 十八変数の四・五次元型には、分離原点近傍の実相対smooth proper残余模型とétale局所perfect Ku核がある。四次元のKSは階数18、二つの混合Jacobian成分への同型で、形式像は余次元2である（`ifg:thm:smooth-neighborhood`, `ifg:cor:local-comparison`, `ifg:cor:rank-eighteen`）。さらにτ₁,τ₂を動かす二十変数族は、任意の許容分離点の完備化で幾何的変形空間と同型になり、局所分類写像は滑らかな三次四様体のモジュライスタックへétaleとなる（`ifv:thm:versal`）。これは実相対二捩れwindowとPicard比較から純因子の二方向を計算した結論である。一般の非標識圏変形は22次元のままであり、全intrinsic対象や全smooth係数を被覆したとはしない。
 
