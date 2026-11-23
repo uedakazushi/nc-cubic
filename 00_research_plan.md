@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：可換 Ku 実現を中心とする研究方針
 
-2026年11月23日 / v80。再開時は本書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。正本は `uedakazushi/nc-cubic` の `main`、主公表原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)（日本語LuaLaTeX、著者欄空欄）。
+2026年11月23日 / v81。再開時は本書を最初に読む。研究全体の入口は [research-hub](https://github.com/uedakazushi/research-hub)。正本は `uedakazushi/nc-cubic` の `main`、主公表原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)（日本語LuaLaTeX、著者欄空欄）。
 
 ## 公表用原稿と証明の正本
 
@@ -54,6 +54,8 @@ Heisenberg同変核を選ぶと、残余一次式の写像はL(e_a)=ℓX_a、Q(y
 
 二捩れPicard線束M=O(p−o)を直接余核として与える、対称3×3線形行列分解を構成した（`ifj:prop:picard-symmetric-linear-mf`）。Weierstrass三次F=Y²Z−X(X²+aXZ+bZ²)に対しL=[[X,Y,0],[Y,aX+bZ,X],[0,X,−Z]]、det L=F、L adjL=F I3、coker(O(-2)^3→O(-1)^3)=i_*M。以前の2×2 MF余核O(−p)に必要だった一点捩れO(o)を、この3×3模型では別操作なしに線束として内蔵する。M(1)=O(p+2o)の基底s=(−Y/X,1,X/Z)でM²≅Oの乗法をu=X/Zで規格化すると、積の対称行列は正確に−adjLであり、D=diag(−1,1,1)がY反転を二つのMF微分と二乗評価に厳密に持ち上げる。一般の対称線形表示はBeauville (2000) Propositions3.1,4.2とBuchweitz–Pavlov (2024) Theorem Aの既知機構で、本研究の有効な入力はCliffordの固定係数・二捩れ点・二乗scalar・反転の明示式。元のHesse一次式W,T,Sを代入するとdetLτ=4cτ² fτで、(4cτ²)⁻¹ adjLτを第二微分にすれば余分な三乗根なしで指定fτのMFとなる（`ifj:cor:picard-symmetric-hesse-family`）。動くa(s),b(s)の三次jetも行列の代入・微分で処理できる。一方、最小四混合probeはτ_i固定だから、このPicard行列はs-定数であり、それだけから未計算β,γの値は出ない。有限被覆・Picardの単独精密化をこれ以上P0の代わりにせず、混合PBW曲率・原点Koszul–Shamash比較核・unit/counit・指定rotation/periodの本体へ進む。
 
+対称三階Picard行列分解のアフィン縮約を明示した（`ifj:prop:picard-affine-bridge`）。Weierstrass三次のZ=1で可逆な三角行列Tを取り、TLTᵗ=S⊕(−1)、対応する随伴を(−adj S)⊕(−f)に分割する。coker SはI=(x,y)、βが単元ならI²=xAで、M²のx規格化はI⊗I→A、r⊗s↦rs/xと符号まで一致する。これは有限二重被覆B=R⊕Iの符号成分の積そのものであり、xを逆にする必要はない。可縮一階因子の除去はZ≠0に限るため、斉次線束の一点捩れ・rotation/三乗周期・非可換Koszul--Shamash核を得たとはしない。有限恒等式は`verify_clifford_picard_affine_bridge.py`の8群で厳密検算した。四probeの46原式・12高次係数は依然として未計算。
+
 同一S(1,−1,−1)の既存結果では、指定規約でκ_k²=27/28、κ_k=3√21/14を保持する（`mcs:cor:universal-scale`）。Heisenberg同変な一次像は純ブロックJac₂の直和で、比較の七定数形のうち六定数χ_k,A_k,…,E_kは未数値化（`lec:thm:seven-scalar-form`）。一般の異なる因子へこの数値κを流用しない。指定二ブロックのP64・norm全64根・有限中心と局所型も保持する。残る核心は、全intrinsic対象の認識と表示被覆、最高次の二次境界を変える混合族の比較の具体化・全smooth係数への延長、偏極標的への実比較核、因子moduli上の核選択・降下である。一般の比較係数、一般PBW族のPI性・有限中心性、選択済みh一般点核のdefect零特殊化も未解決。
 
 **「任意」をgenericへ置き換えない。** 全対象の内在的な定義・認識、全O-marked moduliの代数性と表示による被覆は未完成である。少なくとも既存のAS正則周囲代数Bの中心三次商A=B/(w)は、良い開の外も研究対象とする。既知の一ブロック局所型stackの対象を全nc cubicと定義し直して主予想を解いたとはしない。point functorの表現可能性・表示独立性も必要な範囲で解く。主予想の定式化の正本は主原稿の `conj:nc-main` である。
@@ -103,6 +105,7 @@ Heisenberg同変核を選ぶと、残余一次式の写像はL(e_a)=ℓX_a、Q(y
 | 相対二重被覆・Picardの2×2MF | B=R⊕I、I²=(X)、deck符号、有限étale・整閉包、源と標的の2×2斉次MFを明示 | 余核O(−p)には一点捩れO(o)が必要。Ku実比較核・46原式係数は未構成 | `ifj:prop:double-cover-algebra`, `ifj:prop:two-torsion-matrix-factorization`, `ifj:cor:double-cover-sign-descent` |
 | 二重被覆のtrace/Casimirと相対HH収縮 | IをR²の明示射影P_Iとして実現、B=im diag(1,P_I)。Θの平方1と対角分離冪等元e±、trace双対枠、HH_R^{>0}(B,M)=0。a(s),b(s)の三次変形に同じ公式が適用可能 | 収縮は有限étale被覆側の相対HHであり、curved Koszul–Shamash比較のspecial retractではない。Ku 12係数は未取得 | `ifj:prop:cover-trace-casimir`, `ifj:cor:cover-hochschild-contraction`, `verify_clifford_cover_trace_casimir.py` |
 | Picard二捩れの対称3×3線形MF | L=[[X,Y,0],[Y,aX+bZ,X],[0,X,−Z]]、detL=F、cokerL=M=O(p−o)を直接実現。−adjLはu=X/Zで規格化したM²の積行列、反転D=diag(−1,1,1)と両立。Hesse fτへ単元4cτ²のみで移送 | Beauville/Buchweitz–Pavlovの一般原理は既知。四混合probeではPicard MFはs-定数、実nc比較核・46原式係数・βγ12値は未計算 | `ifj:prop:picard-symmetric-linear-mf`, `ifj:cor:picard-symmetric-hesse-family`, `verify_clifford_picard_linear_mf.py` |
+| 対称Picard MFと二重被覆の符号積のアフィン接続 | Z=1で三角congruenceにより3×3 MFが2×2理想I=(x,y)のMFと可縮一階因子へ分解。規格化M²積=rs/xがB=R⊕Iの符号積に一致 | β単元。大域斉次MFの同一視、nc Ku核の移送、12高次係数は未完成 | `ifj:prop:picard-affine-bridge`, `verify_clifford_picard_affine_bridge.py` |
 | 周囲AS-regular域内部の残余特異点 | rank-one sliceの正則域はh≠0。τ₁=τ₂=2、λ=μ=−6、a₁=a₂=1ではh=−527、c=196だが射影Azumaya局所型はA₂で残余非smooth | D(Δc)と残余smooth域は一致しない。全境界の分類ではなく、主予想のsmooth仮定を満たす反例でもない | `ifd:prop:ambient-locus`, `ifd:thm:residual-a2` |
 | 三次四様体のrotationを持ち上げる変形 | HH²固定部分20次元＝幾何的接空間。C3固定形式空間を使い通常Artin全次数で幾何的変形と認識、標識付き原点からétale局所核へ | 持上げ自体や周期coherenceを追加標識する高次群oid、一般の22次元変形全部の幾何化ではない | 主稿 `ifk:prop:geometric-fixed-part`, `ifk:thm:rotation-formal`, `ifk:thm:rotation-neighborhood` |
 | 固定smooth境界の全横断係数 | Bは同型、二次・三次係数は三角多項式同型。各固定一次係数の一般二次係数で2^(3k+m−1)個の単純悪値と各唯一ODP。判別は既約被約、affine正規化 | 特殊二次係数の多重根を許す。可換標的の局所型から非可換中心の局所型は結論しない | `mtb:prop:transverse-iso`, `mtb:cor:many-centers`, `mtd:thm:normalization`, `mtd:cor:many-centers` |
