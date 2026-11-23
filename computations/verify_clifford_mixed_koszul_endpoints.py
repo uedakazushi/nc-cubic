@@ -136,7 +136,7 @@ assert len(topx)==len(topy)==15
 for syzygy in (topx,topy):
     for i in range(6):
         assert tadd(*(tmul(columns[j][i],syzygy[j]) for j in range(15)))==zero,(i,syzygy is topy)
-print('PASS 4b: two explicit columns of d3 satisfy d2*d3=0 at all 18 mixing coefficients')
+print('PASS 5: two explicit columns of d3 satisfy d2*d3=0 at all 18 mixing coefficients')
 
 
 # For each Clifford triple, u_i = alpha/6 * [x_{i+1},x_{i+2}].
@@ -148,7 +148,7 @@ for c,u,alpha in ((cx,ux,alpha1),(cy,uy,alpha2)):
     right=c.plus(*(c.mul(u[i],c.word(i+1)) for i in range(3)))
     assert c.equal(left,c.times(alpha,c.volume()))
     assert c.equal(right,c.times(alpha,c.volume()))
-print('PASS 5: six exact left/right curvature primitives in the mixed algebra, all s')
+print('PASS 6: six exact left/right curvature primitives in the mixed algebra, all s')
 
 mixed_u=[liftx(u) for u in ux]+[lifty(u) for u in uy]
 w=tadd(scale_t(alpha1,liftx(cx.volume())),scale_t(alpha2,lifty(cy.volume())))
@@ -166,14 +166,14 @@ for i,v in enumerate(uy):
     assert all(cp(S.diff(cc,s,2))==0 for cc in v.values())
     difference=cy.plus(v,cy.times(-1,{w:cc.subs(s,0) for w,cc in v.items()}))
     assert cy.equal(difference,cy.scalar((-1 if i!=1 else 1)*alpha2*s*K[i]/6))
-print('PASS 6: all six Shamash boundary entries have explicit linear s-corrections')
+print('PASS 7: all six Shamash boundary entries have explicit linear s-corrections')
 
 # The correction to d2 is genuinely mixed: at s=0, x-only rows cannot
 # remove a nonzero pure y^2 defect, and symmetrically for the y-relations.
 assert all(S.Poly(L[i],*Y).total_degree()==1 for i in range(3))
 assert all(S.Poly(K[i],*X).total_degree()==1 for i in range(3))
 assert all(cp(S.diff(L[i],X[j]))==0 for i,j in product(range(3),repeat=2))
-print('PASS 7: x/y mixing corrections cannot be omitted in the tensor presentation')
+print('PASS 8: x/y mixing corrections cannot be omitted in the tensor presentation')
 
 # Enumerate S3 x S3 coefficient-monomial orbits for future 32|32 lifting.
 cells=list(product(range(3),repeat=2));G=list(product(permutations(range(3)),repeat=2))
@@ -196,7 +196,7 @@ for degree in (1,2,3):
     else:
         print('    degree 3 orbit reps:',[''.join('u%d%d'% (i+1,j+1) for i,j in r) for r,_,_ in reps])
 assert counts==[1,4,10]
-print('PASS 8: one-way U-parameter orbit reps are 1, 4, 10 at degrees 1, 2, 3')
+print('PASS 9: one-way U-parameter orbit reps are 1, 4, 10 at degrees 1, 2, 3')
 
 # Full two-way family: S3 x S3 acts on U by rows/cols and on V by cols/rows.
 perms=[{1:2,2:3,3:1},{1:2,2:1,3:3}]
@@ -218,10 +218,10 @@ for xside in (True,False):
             for (i,j),val in qy.items():
                 assert cp(val.xreplace(sub)-qy[tuple(sorted((p[i],p[j])))] )==0
             for val in qx.values():assert cp(val.xreplace(sub)-val)==0
-print('PASS 9: full two-way 18-parameter Clifford Gram matrices are S3 x S3 covariant')
+print('PASS 10: full two-way 18-parameter Clifford Gram matrices are S3 x S3 covariant')
 # Signed transposition (-P) and unsigned 3-cycle have determinant +1.
 for p, sign in ((perms[0],1),(perms[1],-1)):
     inversions=sum(p[i]>p[j] for i in range(1,4) for j in range(i+1,4))
     assert sign**3 * (-1)**inversions == 1
-print('PASS 10: cyclic and signed-reflection generators preserve Clifford volume orientations')
-print('10 PASS + top syzygies: exact 18-parameter Koszul stage; full higher MF and Ku comparison unconstructed')
+print('PASS 11: cyclic and signed-reflection generators preserve Clifford volume orientations')
+print('11 PASS: exact 18-parameter Koszul stage; full higher MF and Ku comparison unconstructed')
