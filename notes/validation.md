@@ -1,8 +1,10 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v81。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v82。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
+
+- **Clifford曲率付きPBWのHochschild二次障害と高次整合（v82）：** `ifj:prop:pbw-curved-mc` に∂m₂=m₁∘m₁、三・四次のMC恒等式、中心曲率ω₀+sω₁の4次数交換子恒等式、非線形二probeの非零証人(m₁∘m₁)(e₂,e₃,e₁₂)=L₁L₃を証明記載。二次primitive m₂は全8×8積で4枠のみ、他の二probeでは消滅。ローカルPython 3/SymPy1.14で `computations/verify_clifford_curved_pbw_mc.py`とバイト同一のコードを実行し**厳密10群PASS、終了コード0**（512組×5結合律次数、中心32検査、障害80非零係数枠と非零証人、四probe）。保存済みGitHub blob SHA=`0a473624b4805e3375225126ab7ec45aaf510131`はローカル`git hash-object`と一致、ローカルSHA-256=`ddc8af01539ef73b11d18ddf9cb6535981144ffa0ce14b4e69d44630c3ad1ba8`。追加命題の日本語LuaLaTeX簡約独立抜粋は**1頁の組版・終了コード0**、他節参照はwrapper中で未定義（保存済み混合稿全文や三稿全体の組版ではない）。通常のClifford結合律が既知であることと本固定PBW規約の具体計算を区別する。曲率付きKS比較核・special retract・unit/counit・rotation/period・12高次係数、形式証明器・外部査読・一般的新規性監査は未完了。
 
 - **対称Picard MFのアフィン縮約と被覆符号積の同一視（v81）：** 混合稿`ifj:prop:picard-affine-bridge`に、Z=1で三角TによりTLTᵗ=S⊕(−1)、随伴の対応、cokerS≃I=(x,y)、β単元でI²=xAとM²規格化積rs/xを明示する命題・証明を統合。標的二重被覆B=R⊕Iの符号成分の積と同じ係数・符号で一致し、反転にも両立。`computations/verify_clifford_picard_affine_bridge.py`と同内容のローカルPython3/SymPy厳密検算は**8群PASS・終了コード0**。GitHubで読み戻した保存コードのblob SHA=`4fe5d27de316e5a72c0a1bf2ee2092b09b630b5e`と、8群を実行したローカルファイルの`git hash-object`が一致。実行ファイルのSHA-256=`5c8213728b7d6024111e6c0330ee333488874049ab44c78d64f18171948c71a7`。独立した日本語補題・証明の簡約抜粋はltjsarticle/LuaLaTeXで**1頁の組版・終了コード0**（全稿や保存済み節全文の組版、PDF表示点検ではない）。非可換Koszul--Shamash比較核・unit/counit・指定周期・四probeの46原式係数と12値・全原稿組版は未実施。新命題の一般的新規性・一次文献比較は未確認。
 
