@@ -1,0 +1,200 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v89.
+\subsubsection{一方向混合族の Shamash 一次 homotopy の最初の中間成分}
+\label{ifj:subsubsec:mixed-shamash-first-middle}
+
+双方向混合族では上位の Koszul 微分を Frobenius 積で指定した。
+ここでは中心曲率に対する higher homotopy を実際に一段進める。
+一方向の九係数族では、二因子の細分次数を変形係数にも与えると、
+最初の中間 homotopy の $s$-次数に一様な上限がある。
+これは一つの係数点だけの観察ではなく、全九変数族での存在定理である。
+
+\begin{proposition}[九変数族の中間 nullhomotopy と二次次数上限]
+\label{ifj:prop:mixed-shamash-first-middle}
+二つの許容 Clifford 因子 $S(1,1,\tau_i)$ と非零の中心重み
+$a_i$ を固定する。$V=0$、$\Lambda=sU$ とした
+一方向九変数族 $B_s$ を考える。
+$P_0=B_s$、$P_1=B_s(-1)^6$、
+$P_2=B_s(-2)^{15}$ とし、微分 $d_1,d_2$ は
+命題\ref{ifj:prop:mixed-koszul-endpoints}のものを用いる。
+指定中心三次を $w_s=w_s^x+w^y$ と分ける：
+\[
+ w_s^x=\alpha_1\omega_x(s),\quad w^y=\alpha_2\omega_y,
+ \qquad \alpha_i=2a_i(1-\tau_i^3).
+\]
+命題\ref{ifj:prop:mixed-koszul-endpoints}の六成分列を
+$\mathbf u=\mathbf u^x+\mathbf u^y$ と分ける。
+このとき、内部次数二の成分を持つ右 $B_s$-線型写像
+\[
+ H(s):P_1\longrightarrow P_2(3)
+\]
+を、九つの $U_{ab}$ の全係数に対して
+\begin{equation}\label{ifj:eq:mixed-shamash-first-middle}
+ \boxed{\ d_2(s)H(s)+\mathbf u(s)d_1=w_s\mathbf1_6\ }
+\end{equation}
+となるように選べる。
+しかも $H$ は
+\begin{equation}\label{ifj:eq:mixed-shamash-quadratic-bound}
+ H(s)=H_0+sH_1(U)+s^2H_2(U)
+\end{equation}
+と取ることができ、$H_k$ の係数は $U_{ab}$ の
+斉次 $k$ 次多項式である。
+$\mathbf u^y$ と $w^y$ に対応する成分は $s$-定数に選べる。
+さらに $s=0$ で分離原点の既存の
+$S_3\times S_3$ 同変 Shamash 模型
+（命題\ref{ifj:prop:clifford-explicit-shamash}の外積）と一致し、
+全九係数上で $S_3\times S_3$ 同変となるようにも選べる。
+ここでの結論は $s_1$ の\emph{最初の中間成分}に関するもので、
+$s_1$ の他の四成分や $s_2,\ldots$ を構成したとは主張しない。
+\end{proposition}
+
+\begin{proof}
+まず係数環を $\C[\Lambda_{ab}]$ として議論する。
+一方向の全九係数上の相対 Koszul 完全性は
+定理\ref{ifr:thm:ambient-regularity}による。
+特に $P_2\to P_1\to P_0$ は各内部次数で完全で、
+任意の係数変更後にも完全性を保つ。
+$\mathbf u^x,\mathbf u^y$ はそれぞれ
+\[
+ d_1\mathbf u^x=w_s^x,\qquad d_1\mathbf u^y=w^y
+\]
+を満たす。$w_s^x,w^y$ は個別に中心的なので、
+$w_s^\bullet\mathbf1_6-\mathbf u^\bullet d_1$ は
+$d_1$ の核に入る。従って Koszul 完全性から、
+その各々に対し $d_2H^\bullet
+ =w_s^\bullet\mathbf1_6-\mathbf u^\bullet d_1$ の解を得る。
+ここで $H=H^x+H^y$ と置く。
+
+次数上限を確認するため、係数環と全生成元へ
+\[
+ \deg(x_a)=(1,0),\quad \deg(y_b)=(0,1),\quad
+ \deg(\Lambda_{ab})=(2,-2)
+\]
+という $\mathbb Z^2$ 次数を与える。
+元の $x$-関係、$y$-関係、交差関係はそれぞれ
+$(2,0),(0,2),(1,1)$ の斉次式となり、
+$w_s^x,w^y$ はそれぞれ $(3,0),(0,3)$ の斉次式である。
+$P_1$ の基底 $e_j$ の次数を $\deg z_j$、
+$P_2$ の関係基底 $e_r$ の次数を $\deg r$ とすれば、
+$H^\bullet_{rj}$ は
+\[
+  \deg H^\bullet_{rj}
+       =\deg z_j+\deg w^\bullet-\deg r
+\]
+を満たすように斉次解を選べる。
+この式の右辺の第一成分は $H^x$ では高々四、
+$H^y$ では高々一である。
+一方、内部次数二の任意の単項式で、
+$\Lambda$ を $m$ 個、$x$ を $p$ 個、$y$ を $2-p$ 個含むものの
+$\mathbb Z^2$ 次数は
+\[
+                    (2m+p,\,2-2m-p),
+                    \qquad 0\le p\le2.
+\]
+従って $H^x$ では $m\le2$、$H^y$ では $m=0$ である。
+解は係数環上の有限多項式なので、この制限は各成分に厳密に成り立つ。
+$\Lambda=sU$ を代入すれば
+式\eqref{ifj:eq:mixed-shamash-quadratic-bound}を得る。
+
+最後に原点の規格化を合わせる。
+上記の $H(0)$ と既存の分離型 $H_0^{\rm ref}$ は
+同じ $d_2$ 方程式を解くため、その差は $d_2$ の核に入る。
+原点の Koszul 完全性からその差を $d_3(0)$ の像として表せる。
+定理\ref{ifj:thm:mixed-koszul-full-third}の一方向 $d_3(s)$ は
+$s$ に一次以下なので、その係数を延長して $d_3(s)$ の像を
+$H(s)$ に加えれば $H(0)=H_0^{\rm ref}$ にでき、
+二次上限も保つ。
+前命題\ref{ifj:lem:mixed-clifford-s3-family}の
+$S_3\times S_3$ 作用は全方程式を保つので、
+三十六元の Reynolds 平均を取れば原点と次数上限を保ったまま
+同変な解を選べる。
+ここでは Koszul 完全性によって\emph{解の存在}を既に得てから
+平均操作を行っている。
+\end{proof}
+
+\begin{proposition}[標準二因子の全九係数に対する厳密有理数係数構成]
+\label{ifj:prop:mixed-shamash-nine-parameter-certificate}
+$\tau_1=\tau_2=2$、$a_1=a_2=1$ と置く。
+順序 Clifford PBW を使うと、$B_2$ は
+六つの中心平方と十五の平方なし二文字の計21基底、
+$B_3$ は中心平方と一次生成元の36基底と
+平方なし三文字の20基底、計56基底を持つ。
+この基底に関して、$d_2$ の左乗法は
+\[
+ \mathcal L(s,U):(B_2)^{15}\to(B_3)^6,
+ \qquad \mathcal L(s,U)=\mathcal L_0+s\mathcal L_1(U)
+\]
+であり、$336\times315$ の有理数係数行列となる。
+原点での階数は $210$ である。
+式\eqref{ifj:eq:mixed-shamash-first-middle}の右辺を
+$\mathcal B(s,U)=\mathcal B_0+s\mathcal B_1(U)$ と書く。
+
+$\mathcal L_0$ の固定した $210\times210$ の可逆小行列を
+$M=\pi\mathcal L_0\iota$ とし、
+$T=\iota M^{-1}\pi$ と置く。
+このとき
+\begin{equation}\label{ifj:eq:mixed-shamash-reconstruction}
+ \begin{aligned}
+ H_0&=T\mathcal B_0,\\
+ H_1(U)&=T\bigl(\mathcal B_1(U)-\mathcal L_1(U)H_0\bigr),\\
+ H_2(U)&=-T\mathcal L_1(U)H_1(U)
+ \end{aligned}
+\end{equation}
+は、各列を $B_2$ の21基底に展開することによって
+実際の係数を一意に指定する有限有理数算法となる。
+$M$ と $T$ の選択を
+\texttt{computations/verify\_clifford\_mixed\_shamash\_first\_middle.py}
+に固定すると、上式の構成は、
+九つの係数 $U_{ab}$ を独立に保ったまま
+\begin{equation}\label{ifj:eq:mixed-shamash-certificate-identities}
+ \begin{gathered}
+ \mathcal L_0H_0=\mathcal B_0,\qquad
+ \mathcal L_0H_1+\mathcal L_1H_0=\mathcal B_1,\\
+ \mathcal L_0H_2+\mathcal L_1H_1=0,\qquad
+ \boxed{\mathcal L_1H_2=0}
+ \end{gathered}
+\end{equation}
+を満たす。従ってこれは
+式\eqref{ifj:eq:mixed-shamash-first-middle}の\emph{全次数で厳密な二次多項式解}である。
+\end{proposition}
+
+\begin{proof}
+原点の次数四の Koszul 複体の階数を数えると、
+$\dim(B_2)^{15}=315$、
+$\dim(P_3)_4=20\cdot6=120$、
+$\dim(P_4)_4=15$ なので
+$\operatorname{rank}\mathcal L_0=315-(120-15)=210$。
+固定した行・列集合からなる $M$ の可逆性を
+有理数演算で検査し、その逆を式\eqref{ifj:eq:mixed-shamash-reconstruction}に用いる。
+
+証明書では九つの単位行列方向について
+$\mathcal L_1$ と $\mathcal B_1$ を独立に構成する。
+$H_1$ の九方向各六列（54列）と、$H_2$ の
+四十五個の二次単項式各六列（270列）の
+\emph{全336成分}について
+式\eqref{ifj:eq:mixed-shamash-certificate-identities}の最初の三式を
+確認する。最後の式は九変数の三次単項式165個それぞれに対し、
+全六列の336成分を正確に比較して零と確認する。
+数値標本や浮動小数点階数に依存せず、
+選択した小行列の可逆性も厳密に検査する。
+特に四つの最小 probe $E_{00},R_0,C'_0,D_0$ への代入でも
+式\eqref{ifj:eq:mixed-shamash-certificate-identities}が成立する。
+ここで求めたのは選択した有理数係数のひとつのゲージであり、
+原点の $S_3\times S_3$ 規格化は必要なら前命題の方法で選び直す。
+\end{proof}
+
+\begin{remark}[現行の到達範囲]
+この結果は、全九変数の一方向混合に対して
+$P_1\to P_2(3)$ の Shamash 一次 higher homotopy の
+中間成分を具体化したものである。
+既存の端点 $P_0\to P_1(3)$ と合わせて
+$P_1$ の曲率恒等式が成立する。
+ただし $P_2,\ldots,P_5$ に対する同じ等式、
+$s_1^2$ を消す higher homotopy $s_2$、
+混合 $32\mid32$ 行列分解全体はまだ構成していない。
+今回の固定 $\tau_i=2$ の九変数係数を、
+一般 $\tau_i$ の明示数値と同一視しない。
+実 Ku 比較の Hom 特殊収縮 $(i,p,h)$、unit/counit、
+rotation・指定三乗周期と四 probe の
+四十六原式係数・十二高次係数も未計算である。
+\end{remark}
