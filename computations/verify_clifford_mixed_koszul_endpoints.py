@@ -129,6 +129,17 @@ print('PASS 3: both x and y tensor relation columns have exact s*L and s*K defec
 assert len(columns[6:])==9
 print('PASS 4: nine cross-commutator columns remain unchanged')
 
+# Two explicit length-three Koszul syzygies, extending each factor's top class.
+topx=[z[a] for a in range(3)]+[zero for _ in range(3)]+[scale_t(-s*U[a,b],z[3+b]) for a in range(3) for b in range(3)]
+topy=[zero for _ in range(3)]+[z[3+b] for b in range(3)]+[scale_t(s*V[b,a],z[a]) for a in range(3) for b in range(3)]
+assert len(topx)==len(topy)==15
+for syzygy in (topx,topy):
+    for i in range(6):
+        assert tadd(*(tmul(columns[j][i],syzygy[j]) for j in range(15)))==zero,(i,syzygy is topy)
+print('PASS 4b: two explicit columns of d3 satisfy d2*d3=0 at all 18 mixing coefficients')
+
+
+
 # For each Clifford triple, u_i = alpha/6 * [x_{i+1},x_{i+2}].
 def make_u(c,alpha):
     return [c.times(alpha*S.Rational(1,6), c.comm(((i+1)%3)+1,((i+2)%3)+1)) for i in range(3)]
@@ -214,4 +225,4 @@ for p, sign in ((perms[0],1),(perms[1],-1)):
     inversions=sum(p[i]>p[j] for i in range(1,4) for j in range(i+1,4))
     assert sign**3 * (-1)**inversions == 1
 print('PASS 10: cyclic and signed-reflection generators preserve Clifford volume orientations')
-print('10 PASS: exact 18-parameter Koszul endpoints; higher MF and Ku comparison unconstructed')
+print('10 PASS + top syzygies: exact 18-parameter Koszul stage; full higher MF and Ku comparison unconstructed')
