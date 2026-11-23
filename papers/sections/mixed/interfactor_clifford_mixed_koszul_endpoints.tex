@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v89.
+% Current result: 2026-11-23 / v90.
 \subsubsection{混合 Clifford の Koszul 初段と中心曲率の端点 homotopy}
 \label{ifj:subsubsec:mixed-koszul-endpoints}
 
@@ -248,6 +248,7 @@ $9,45,165=\binom{11}{3}$ となる。
 \end{proof}
 
 \input{papers/sections/mixed/interfactor_clifford_mixed_shamash_first_middle.tex}
+\input{papers/sections/mixed/interfactor_clifford_mixed_shamash_second_middle.tex}
 
 \begin{remark}[構成の到達範囲]
 式\eqref{ifj:eq:mixed-koszul-first-two}は二つの真正な微分と
@@ -259,15 +260,19 @@ $9,45,165=\binom{11}{3}$ となる。
 resultant 正則開では $d_4,d_5,d_6$ を二次双対の
 Frobenius 積から構成し、全長六の自由 Koszul 解消を得た。
 ただし resultant の零集合でこれらの自由基底が延長するとは限らない。
-命題\ref{ifj:prop:mixed-shamash-first-middle}により一方向九変数族では
-$s_1:P_1\to P_2(3)$ の最初の中間成分を
-全係数上で $s$ に二次以下に選べる。
-標準 $\tau_i=2$ では命題
-\ref{ifj:prop:mixed-shamash-nine-parameter-certificate}が
-具体的な全九係数有理数算法と厳密証明書を与える。
-なお双方向の同成分、$P_2,\ldots,P_5$ での $s_1$、
-$s_2,\ldots$ と曲率付き $32\mid32$ の
-混合微分の全持上げは未完成である。
+命題\ref{ifj:prop:mixed-shamash-first-middle}と
+\ref{ifj:prop:mixed-shamash-second-middle}により一方向九変数族では
+$s_1:P_1\to P_2(3)$ と $P_2\to P_3(3)$ の二中間成分を
+全許容係数上で $s$ に二次以下に選べる。
+標準 $\tau_i=2$ ではそれぞれ命題
+\ref{ifj:prop:mixed-shamash-nine-parameter-certificate}と
+\ref{ifj:prop:mixed-shamash-second-nine-certificate}が
+全九係数の実際の有理数算法と厳密証明書を与える。
+系\ref{ifj:cor:mixed-shamash-entire-first-degree-bound}は
+残る $s_1$ 全成分の二次上限と抽象的存在を与えるが、
+$P_3,P_4,P_5$ の係数は未構成である。
+また双方向族の同成分、$s_2,\ldots$ と曲率付き
+$32\mid32$ の混合微分の全持上げも未完成である。
 一因子 $4\times4$ の直積を混合係数のままで用いることはできない。
 四probeの高次可換式と固定 Hesse 切片の十二係数の計算には、
 なお比較 Hom の特別な収縮と unit/counit、rotation と周期の情報を要する。
@@ -278,6 +283,8 @@ $s_2,\ldots$ と曲率付き $32\mid32$ の
 resultant 開の上位微分の検算は
 \texttt{computations/verify\_clifford\_mixed\_koszul\_frobenius.py}、
 九変数の最初の中間 homotopy は
-\texttt{computations/verify\_clifford\_mixed\_shamash\_first\_middle.py}
+\texttt{computations/verify\_clifford\_mixed\_shamash\_first\_middle.py}、
+第二中間成分は
+\texttt{computations/verify\_clifford\_mixed\_shamash\_second\_middle.py}
 に置く。
 \end{remark}
