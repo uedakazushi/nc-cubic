@@ -1,8 +1,10 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v82。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v83。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
+
+- **原点Clifford augmentationの明示4×4 Shamash MF（v83）：** [命題`ifj:prop:clifford-explicit-shamash`](../papers/sections/mixed/interfactor_clifford_explicit_shamash.tex)で一因子Koszul長さ3のd₁,d₂,d₃と、中心Ωτ=2(1−τ³)ωを指定するhigher homotopies s₁=(u,A,uᵗ)、s₂=vを多項式表示。ds₁+s₁d=Ωτ、ds₂+s₂d=−s₁²と二つの4×4 MF積ΩτI₄、巡回C₃共変、内部三周期、scalar aの重み(1,2)を証明として記載。非零証人のx₁⁴係数2τ(τ³−1)²/9によりs₂が必要。二因子の標準Koszul外積は原点の32|32のaugmentation MF（一般のShamash folding/windowは主稿既知結果）。**今回ローカルのPython3/SymPy 1.14検算器を実行し、10群PASS・終了コード0。** そのGit blob SHA=`3d76370cb87e9c9366a528b465d0b020b2bd1ca6`、SHA-256=`69e1f74557219b3754aa329bb502a14272d32afdca64e36983f487ce0cb9891a`、GitHub保存コードblobを読み戻してバイト同一性を照合。日本語の命題全文を独立`ltjsarticle`でLuaLaTeX二巡・2頁、終了コード0、overfullエラーなし；2頁のPNGをレンダリングし目視確認した。保存した本文TeX blob SHA=`40fcfcb06bf4a6a849b29299bd3df6e11800e5ab`が独立組版したTeXソースと一致。**混合稿全体・三稿全体の組版は未実施**。非可換一因子・分離原点の構成であり、混合変形の実Ku比較核・Hom special retract(i,p,h)・unit/counit・rotationの比較coherence・46原式枠・12scalarは未構成。新規性の網羅確認・形式証明・外部査読も未実施。
 
 - **Clifford曲率付きPBWのHochschild二次障害と高次整合（v82）：** `ifj:prop:pbw-curved-mc` に∂m₂=m₁∘m₁、三・四次のMC恒等式、中心曲率ω₀+sω₁の4次数交換子恒等式、非線形二probeの非零証人(m₁∘m₁)(e₂,e₃,e₁₂)=L₁L₃を証明記載。二次primitive m₂は全8×8積で4枠のみ、他の二probeでは消滅。ローカルPython 3/SymPy1.14で `computations/verify_clifford_curved_pbw_mc.py`とバイト同一のコードを実行し**厳密10群PASS、終了コード0**（512組×5結合律次数、中心32検査、障害80非零係数枠と非零証人、四probe）。保存済みGitHub blob SHA=`0a473624b4805e3375225126ab7ec45aaf510131`はローカル`git hash-object`と一致、ローカルSHA-256=`ddc8af01539ef73b11d18ddf9cb6535981144ffa0ce14b4e69d44630c3ad1ba8`。追加命題の日本語LuaLaTeX簡約独立抜粋は**1頁の組版・終了コード0**、他節参照はwrapper中で未定義（保存済み混合稿全文や三稿全体の組版ではない）。通常のClifford結合律が既知であることと本固定PBW規約の具体計算を区別する。曲率付きKS比較核・special retract・unit/counit・rotation/period・12高次係数、形式証明器・外部査読・一般的新規性監査は未完了。
 
