@@ -1,0 +1,244 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v90.
+\subsubsection{一方向混合族の一次 Shamash homotopy の第二中間成分}
+\label{ifj:subsubsec:mixed-shamash-second-middle}
+
+前節では九つの一方向混合係数を全て独立にしたまま、
+一次 higher homotopy の $P_1\to P_2(3)$ 成分を
+$s$ の二次以下で構成した。
+ここでは既に明示した $d_3$ の二十列を使って、次の段階
+$P_2\to P_3(3)$ を同じ精度で解く。
+可解性、次数上限、実際の有理係数構成を別々に述べる。
+
+\begin{proposition}[九変数一方向族における第二中間成分の存在と二次次数上限]
+\label{ifj:prop:mixed-shamash-second-middle}
+二つの許容 Clifford 因子 $S(1,1,\tau_i)$ と
+非零の中心重み $a_i$ を固定し、$V=0$、$\Lambda=sU$ とする。
+$P_i=B_s(-i)^{\binom6i}$ は一方向混合代数の
+長さ六の Koszul 解消であり、$d_1,d_2,d_3$ は
+命題\ref{ifj:prop:mixed-koszul-endpoints}、
+定理\ref{ifj:thm:mixed-koszul-full-third}の規約で固定する。
+命題\ref{ifj:prop:mixed-shamash-first-middle}による
+最初の中間成分を
+\[
+ H(s):P_1\longrightarrow P_2(3),\qquad
+ d_2H+\mathbf u d_1=w_s\mathbf1_6
+\]
+とする。$H$ は $w_x(s)$ と $w_y$ に対して斉次に選んでおく。
+すると
+\begin{equation}\label{ifj:eq:mixed-shamash-second-equation}
+ \boxed{\quad d_3(s)G(s)+H(s)d_2(s)=w_s\mathbf1_{15}\quad}
+\end{equation}
+を満たす右 $B_s$-線型写像
+$G:P_2\to P_3(3)$ を、全九係数の上で選べる。
+しかも
+\begin{equation}\label{ifj:eq:mixed-shamash-second-quadratic}
+ G(s,U)=G_0+sG_1(U)+s^2G_2(U)
+\end{equation}
+とでき、$G_k$ の PBW 係数は九つの $U_{ab}$ の
+斉次 $k$ 次多項式である。
+$w_x$ に対応する部分には $s^2$ 項まで必要であり得るが、
+$w_y$ に対応する部分は $s$ に一次以下に選べる。
+原点の分離 Shamash 模型および $S_3\times S_3$ の
+規格化に両立する同変解も存在する。
+この主張は最初の二つの中間成分を越える
+$P_3,\ldots,P_5$ の明示行列や $s_2$ を与えない。
+\end{proposition}
+
+\begin{proof}
+まず $w_s$ は中心的で、$d_1d_2=0$ であるから
+\[
+ \begin{split}
+ d_2\bigl(w_s\mathbf1_{15}-Hd_2\bigr)
+ &=w_sd_2-(w_s\mathbf1_6-\mathbf u d_1)d_2
+ =\mathbf u d_1d_2=0.
+ \end{split}
+\]
+定理\ref{ifr:thm:ambient-regularity}の一方向九変数族は、
+全係数環上で相対 Koszul であり、各次数の完全性は
+任意の可換底変更と両立する。従って
+$\ker d_2=\operatorname{im}d_3$ により、
+式\eqref{ifj:eq:mixed-shamash-second-equation}に解がある。
+$w_s=w_x(s)+w_y$ の各成分はそれぞれ中心的であり、
+$H=H^x+H^y$ をこの二つの細分次数に分けて選べるので、
+同じ議論を二つの部分へ別々に適用できる。
+
+$s$ の次数については、前節の細分次数
+\[
+ \deg x_a=(1,0),\quad \deg y_b=(0,1),\quad
+ \deg\Lambda_{ab}=(2,-2)
+\]
+を用いる。$P_2$ の十五関係基底の細分次数は
+$(2,0),(1,1),(0,2)$、$P_3$ の二十基底は
+定理\ref{ifj:thm:mixed-koszul-full-third}より
+$(3,0),(2,1),(1,2),(0,3)$ である。
+二次式係数 $G^x_{\nu r}$ の第一次数は
+\[
+  p_r+3-p_\nu\le5,
+   \qquad 0\le p_r\le2,\quad0\le p_\nu\le3.
+\]
+$G^y_{\nu r}$ の第一次数は
+$p_r-p_\nu\le2$ である。
+一方、$\Lambda$ を $m$ 個含む
+内部次数二の単項式の第一次数は $2m+p$、
+$0\le p\le2$ である。
+よって $G^x$ では $m\le2$、$G^y$ では $m\le1$。
+各成分をこの $\mathbb Z^2$ 次数に沿って解くことができるので、
+式\eqref{ifj:eq:mixed-shamash-second-quadratic}を得る。
+
+原点の既知 Shamash 規格化を使いたい場合、
+原点での二つの解の差は $\ker d_3=\operatorname{im}d_4$ にある。
+一方向族の Koszul 基底は前述の細分次数に適合して選べるので、
+原点の同次補正をこの基底へ持ち上げて
+解を取り直すことができる。
+最後に $S_3\times S_3$ は元の方程式・係数細分次数・
+原点の指定規格化を保つ。
+解が存在することを確認した後で三十六元平均すれば、
+次数上限を変えずに同変解を得る。
+\end{proof}
+
+\begin{proposition}[標準係数における九変数全体の二次多項式証明書]
+\label{ifj:prop:mixed-shamash-second-nine-certificate}
+$\tau_1=\tau_2=2$、$a_1=a_2=1$ とする。
+命題\ref{ifj:prop:mixed-shamash-nine-parameter-certificate}の
+具体的な有理数係数の $H=H_0+sH_1+s^2H_2$ を固定する。
+$B_2$ の PBW 基底は二十一次、$B_3$ の基底は五十六次なので、
+式\eqref{ifj:eq:mixed-shamash-second-equation}の $G$ に関する
+線形作用素は
+\begin{equation}\label{ifj:eq:mixed-shamash-second-pbw-sizes}
+ \mathcal D_3(s,U):(B_2)^{20}\to(B_3)^{15},
+ \qquad840\times420
+\end{equation}
+の有理数係数行列となる。
+元の PBW 規約で
+\[
+ \mathcal D_3(s,U)=\mathcal D_{3,0}
+           +s\sum_{a=1}^9U_a\mathcal D_{3,1,a}
+\]
+であり、$U_a$ は $U_{ab}$ を一列に並べた記号とする。
+
+$\mathcal D_{3,0}$ を二因子の細分次数で分割すると、
+入力空間・出力空間・階数は次のとおりである：
+\begin{equation}\label{ifj:eq:mixed-shamash-second-block-ranks}
+ \begin{array}{c|rrrrrr}
+  x\text{ 次数}&0&1&2&3&4&5\\\hline
+  \text{入力次元}&6&63&141&141&63&6\\
+  \text{出力次元}&30&144&246&246&144&30\\
+  \operatorname{rank}&6&54&108&108&54&6
+ \end{array}
+\end{equation}
+特に階数は $336$ である。
+各ブロックで指定した可逆小行列の逆を使って
+$\mathcal D_{3,0}$ の像への右逆 $T_3$ を固定する。
+
+$\mathcal R=w_s\mathbf1_{15}-Hd_2$ と書くと、
+PBW 展開は
+\[
+ \mathcal R=\mathcal R_0
+  +s\sum_aU_a\mathcal R_{1,a}
+  +s^2\sum_{a\le b}U_aU_b\mathcal R_{2,ab}
+\]
+であり、$s^3,s^4$ の係数は厳密に零である。
+次の有理数係数演算で $G$ を定める：
+\begin{equation}\label{ifj:eq:mixed-shamash-second-reconstruction}
+ \begin{aligned}
+ G_0&=T_3\mathcal R_0,\\
+ G_{1,a}&=T_3\bigl(\mathcal R_{1,a}-\mathcal D_{3,1,a}G_0\bigr),\\
+ G_{2,ab}&=T_3\bigl(\mathcal R_{2,ab}
+   -\mathcal D_{3,1,a}G_{1,b}
+   -\mathbf1_{a\ne b}\mathcal D_{3,1,b}G_{1,a}\bigr),
+       \qquad a\le b.
+ \end{aligned}
+\end{equation}
+この式の各右辺は実際に $\operatorname{im}\mathcal D_{3,0}$ にあり、
+全九つの一次単項式・四十五の二次単項式の
+各十五列について、八百四十の係数が一致する。
+さらにすべての三次単項式 $U_aU_bU_c$ に対して
+\begin{equation}\label{ifj:eq:mixed-shamash-second-cubic-zero}
+ \boxed{\displaystyle
+  \sum_{d\in\operatorname{supp}\{a,b,c\}}
+     \mathcal D_{3,1,d}\,
+       G_{2,\{a,b,c\}\setminus\{d\}}=0}
+\end{equation}
+が成立する。従って
+式\eqref{ifj:eq:mixed-shamash-second-reconstruction}は
+式\eqref{ifj:eq:mixed-shamash-second-equation}の
+全九係数に関する\emph{厳密な二次多項式解}を与える。
+\end{proposition}
+
+\begin{proof}
+\texttt{computations/verify\_clifford\_mixed\_shamash\_second\_middle.py}
+は、前段の係数を再計算してから
+$B_2$ と $B_3$ の全PBW積、既存の
+定理\ref{ifj:thm:mixed-koszul-full-third}の二十列に基づく
+$\mathcal D_{3,0}$ と $\mathcal D_{3,1,a}$ を構成する。
+全ての行列成分は $\mathbb Q$ の整数・有理数演算であり、
+可逆性は浮動小数点で推測せず、六ブロックの行基本変形と
+各小行列の逆行列によって厳密に確認する。
+
+最初に実際の $d_2d_3=0$ と
+$\mathcal R$ のPBW係数を検査する。
+$\mathcal R$ には零次一単項式、九一次単項式、四十五二次単項式の
+みが現れ、三次・四次は消える。
+次に式\eqref{ifj:eq:mixed-shamash-second-reconstruction}を
+各単項式の十五列に適用し、右辺が
+$\mathcal D_{3,0}$ の像に入ることを八百四十行で確認する。
+最終的に三次の百六十五単項式について
+式\eqref{ifj:eq:mixed-shamash-second-cubic-zero}を
+十五列×八百四十行にわたり有理数演算で確認する。
+
+この段階までの検査は九係数を独立に保つ\emph{係数比較}である。
+さらに構成した $G$ を実際のClifford乗法へ代入し、
+四つの最小probe $E_{00},R_0,C'_0,D_0$ と
+独立な整数九係数の例について、
+$15\times15$ の全非可換行列恒等式を別経路で検査する。
+原点で選んだ $T_3$ は一つのゲージであり、
+その選択によって係数の疎密は変わり得るが、
+成立した恒等式と三次障害の消滅は変わらない。
+\end{proof}
+
+\begin{corollary}[一方向九変数族の全一次 Shamash homotopy の次数上限]
+\label{ifj:cor:mixed-shamash-entire-first-degree-bound}
+一般の許容 $\tau_i,a_i$ に対し、一方向混合族の
+長さ六の Koszul 解消上で、中心曲率 $w_s$ の
+一次 higher homotopy $s_1$ は、各成分
+$s_{1,i}:P_i\to P_{i+1}(3)$（$0\le i\le5$）が
+$s$ に\emph{高々二次}となるように選べる。
+これは抽象的な可解性と次数上限の主張であり、
+$i\ge3$ に対する現行の実係数は未計算である。
+\end{corollary}
+
+\begin{proof}
+前二命題と同じ Koszul 完全性を使い、
+$ds_1+s_1d=w_s$ をホモロジー次数順に解く。
+各段の障害は、前段の式と中心性によって閉じており、
+$P_i$ の正次数完全性により次段で解ける。
+$w_x$ と $w_y$ はそれぞれ中心的なので
+各次数成分を別々に斉次に選べる。
+$K_i$ の基底は一方向族の二因子細分次数に関して
+$(p,i-p)$（$\max(0,i-3)\le p\le\min(3,i)$）
+を持つように選べる。
+$w_x$-成分の $s_{1,i}$ の係数の第一次数は
+$p+3-p'$、$w_y$-成分は $p-p'$ であり、
+$p'$ は $K_{i+1}$ の第一次数である。
+$0\le i\le5$ について前者の最大値は順に
+$3,4,5,5,4,3$、後者は
+$0,1,2,2,1,0$ である。
+一方、内部次数二の係数は、$\Lambda^m$ が現れれば
+第一次数が $2m+p''$（$0\le p''\le2$）となる。
+従って全段階で $m\le2$ であり、
+$w_y$-成分ではさらに $m\le1$ となる。
+$P_6$ における最後の式は、$d_6$ の単射性と
+一段下の式から従う。
+この存在論証は、$s_2$ の構成や混合行列分解の具体化ではない。
+\end{proof}
+
+\begin{remark}[到達範囲]
+一般許容 $\tau_i$ の二次次数上限と全 $s_1$ の存在、
+標準係数 $\tau_i=2$ での $s_{1,2}$ の有理数係数構成、全九係数の厳密三次障害消滅を区別する。
+$P_3,P_4,P_5$ の $s_1$ を明示的に計算したことにはならず、
+$s_2$ 以降、混合 $32\mid32$ 行列分解、実 Ku 比較 Hom の
+special retract $(i,p,h)$、unit/counit、rotation・三乗周期、
+四probeの四十六原式係数・固定 Hesse 切片の十二の高次値は
+引き続き未完成である。
+\end{remark}
