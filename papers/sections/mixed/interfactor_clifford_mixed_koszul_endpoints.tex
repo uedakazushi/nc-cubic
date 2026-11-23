@@ -133,6 +133,64 @@ $[x_i,x_j]=2x_ix_j-2q^x_{ij}$ を用いれば、
 $S_3\times S_3$ と両立する理由である。
 \end{proof}
 
+\begin{corollary}[十八係数上で持ち上がる二つの三次 Koszul syzygy]
+\label{ifj:cor:mixed-koszul-two-top-syzygies}
+命題\ref{ifj:prop:mixed-koszul-endpoints}の関係空間を、
+$x$ 三関係のテンソル $r^x_a$、$y$ 三関係の $r^y_b$、
+交差関係の $c_{ab}=x_a\otimes y_b-y_b\otimes x_a$ とする。
+自由テンソル代数の三次部分 $V^{\otimes3}$ では、
+全混合係数について次の二つの等式が成立する：
+\begin{equation}\label{ifj:eq:mixed-koszul-top-syzygy-x}
+ \sum_a x_a\otimes r^x_a+s\sum_{a,b}U_{ab}y_b\otimes c_{ab}
+ =\sum_a r^x_a\otimes x_a-s\sum_{a,b}U_{ab}c_{ab}\otimes y_b,
+\end{equation}
+\begin{equation}\label{ifj:eq:mixed-koszul-top-syzygy-y}
+ \sum_b y_b\otimes r^y_b-s\sum_{b,a}V_{ba}x_a\otimes c_{ab}
+ =\sum_b r^y_b\otimes y_b+s\sum_{b,a}V_{ba}c_{ab}\otimes x_a.
+\end{equation}
+従って、上の $P_2$ の基底を $(r^x_a,r^y_b,c_{ab})$ の順に取ると、
+\begin{equation}\label{ifj:eq:mixed-koszul-d3-two-columns}
+ d_3^{(x)}=\bigl(x_a;\ 0_b;\ -sU_{ab}y_b\bigr)^{\mathsf t},\qquad
+ d_3^{(y)}=\bigl(0_a;\ y_b;\ +sV_{ba}x_a\bigr)^{\mathsf t}
+\end{equation}
+は $P_2$ の十五成分列であり、
+\[
+ d_2d_3^{(x)}=d_2d_3^{(y)}=0
+\]
+を満たす。原点では二つの三変数 Koszul 解消の
+最高次 syzygy に特殊化し、全係数上でも独立である。
+巡回作用と反転の下では、$d_3^{(x)}$ は
+$x$ 側の最上 Koszul 線の符号、$d_3^{(y)}$ は
+$y$ 側の最上 Koszul 線の符号をそれぞれ保持する。
+これは必要な二十列のうち\emph{二列}の具体化であり、
+残る十八列の構成を意味しない。
+\end{corollary}
+
+\begin{proof}
+分離した三関係の巡回性から
+$\sum_a x_ar^x_{a,0}=\sum_a r^x_{a,0}x_a$、
+$\sum_b y_br^y_{b,0}=\sum_b r^y_{b,0}y_b$ が
+自由テンソル代数で成立する。
+また、その三次部分に
+\[
+ x_ay_b^2-y_b^2x_a=c_{ab}y_b+y_bc_{ab},\qquad
+ y_bx_a^2-x_a^2y_b=-c_{ab}x_a-x_ac_{ab}
+\]
+という厳密恒等式がある。
+$r^x_a=r^x_{a,0}-s\sum_bU_{ab}y_b^2$ と
+$r^y_b=r^y_{b,0}-s\sum_aV_{ba}x_a^2$ を代入すれば、
+式\eqref{ifj:eq:mixed-koszul-top-syzygy-x}と
+\eqref{ifj:eq:mixed-koszul-top-syzygy-y}が従う。
+それぞれの左辺は $V\otimes R_2$、右辺は $R_2\otimes V$ に属し、
+同じ三次テンソルを表す。右辺の関係基底係数が
+式\eqref{ifj:eq:mixed-koszul-d3-two-columns}であるため
+$d_2d_3^{(x)}=d_2d_3^{(y)}=0$。
+三関係の係数 $x_1,y_1$ を比較すれば二列は独立である。
+巡回・負置換反転で $r^x_a,r^y_b$ は添字置換し、
+$x_a,y_b$ はそれぞれ対応する符号付き置換で変わる。
+従って一因子の最上 Koszul 線の符号と一致する。
+\end{proof}
+
 \begin{lemma}[一方向九係数の三次までの有限群軌道数]
 \label{ifj:lem:mixed-koszul-parameter-orbits}
 $V=0$ とし、$S_3\times S_3$ が
