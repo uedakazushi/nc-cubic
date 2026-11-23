@@ -156,4 +156,18 @@ for val in (sp.Integer(2),sp.Integer(-1),sp.Rational(1,2)):
                 for c in entry.values():
                     assert not sp.denom(sp.cancel(c)).has(tau)
 print('PASS 8: polynomial tau-formulas require no tau^3-1 denominator')
-print('8 PASS: explicit one-factor Shamash stabilization; not the mixed Ku retract or 12 scalars.')
+# Scalar rescaling: s1 -> a*s1, s2 -> a^2*s2, curvature -> a*Omega.
+a=sp.symbols('a')
+Dpa=[[d1[0][0],d1[0][1],d1[0][2],z()]]
+Dpa += [[scale(A[i][j],a) for j in range(3)]+[d3[i][0]] for i in range(3)]
+Dma=[[scale(u[i],a),*d2[i]] for i in range(3)]+[[scale(v,a*a),*[scale(u[i],a) for i in range(3)]]]
+assert_m(mm(Dpa,Dma),mdiag(scale(Omega,a),4))
+assert_m(mm(Dma,Dpa),mdiag(scale(Omega,a),4))
+print('PASS 9: scalar a rescales homotopies as (a*u,a*A,a^2*v) and curvature a*Omega')
+
+Au=mm(A,uc)[0][0]
+witness=sp.expand(Au.get((),0)).coeff(X[1],2)
+assert sp.expand(witness-2*tau*Delta**2/9)==0
+assert witness.subs(tau,2)!=0
+print('PASS 10: explicit nonzero s1^2 witness 2*tau*(tau^3-1)^2*x1^4/9')
+print('10 PASS: explicit one-factor Shamash stabilization; not the mixed Ku retract or 12 scalars.')
