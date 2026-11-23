@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v78.
+% Current result: 2026-11-23 / v79.
 \subsection{固定した三次形式の切片と高次係数の有限還元}
 \label{ifj:subsec:jets}
 
@@ -1619,6 +1619,225 @@ $\varphi_\tau$ の有限 \'{e}tale $\mu_2$-torsor に対応する
 同じ結論が $E_\tau$ 全体へ延長する。
 deck は $\xi,\eta$ に負号を掛けるので、
 この自明化は自明文字の線型化ではない。
+\end{proof}
+
+\subsubsection{二重被覆の trace、分離冪等元と相対 Hochschild 収縮}
+\label{ifj:subsubsec:cover-trace-casimir}
+
+命題\ref{ifj:prop:double-cover-algebra}では符号固有線束を
+相対有限 \'{e}tale 被覆 $B=R\oplus I$ として具体化した。
+この被覆の対角・trace・Hochschild 収縮も
+$X^{-1}$ を用いない有限公式を持つ。
+以下の unit/counit は可換な有限被覆の随伴を表し、
+曲率付き Koszul--Shamash 比較の unit/counit ではない。
+
+\begin{proposition}[非自明な線束の射影行列と被覆の trace/Casimir]
+\label{ifj:prop:cover-trace-casimir}
+命題\ref{ifj:prop:double-cover-algebra}の $K,R,B$ と
+\[
+ \delta=a^2-4b\in K^\times,\qquad
+ g(X)=X(X-2a)+\delta,\quad
+ I=(X,Y)\subset R,\quad
+ \sigma(\xi,\eta)=(-\xi,-\eta)
+\]
+を用いる。このとき $I$ を $R^2$ の直和因子として表す
+階数一の冪等行列は
+\begin{equation}\label{ifj:eq:cover-picard-idempotent}
+ P_I=\frac1\delta
+ \begin{pmatrix}
+ -X(X-2a)&-Y(X-2a)\\
+ Y&g(X)
+ \end{pmatrix},
+ \qquad P_I^2=P_I,\quad
+ \operatorname{tr}(P_I)=1,\qquad
+ I\simeq\operatorname{Im}(P_I).
+\end{equation}
+従って有限被覆の係数加群は
+\[
+ B\simeq R\oplus I
+ \simeq\operatorname{Im}
+ \begin{pmatrix}1&0\\0&P_I\end{pmatrix}
+ \subset R^3
+\]
+という明示的な階数二有限射影模型を持つ。
+これは $I$ が自由であるという主張ではない。
+
+$B\otimes_RB$ の中で
+$\xi_1=\xi\otimes1,\xi_2=1\otimes\xi$、
+$\eta_1=\eta\otimes1,\eta_2=1\otimes\eta$ と置く。
+\begin{equation}\label{ifj:eq:cover-separability-casimir}
+ \Theta=\frac{\eta_1\eta_2-(X-2a)\xi_1\xi_2}{\delta},
+ \qquad
+ e_+=\frac{1\otimes1+\Theta}{2},\qquad
+ e_-=\frac{1\otimes1-\Theta}{2}
+\end{equation}
+とすれば
+\[
+ \Theta^2=1,\quad
+ e_\pm^2=e_\pm,\quad e_+e_-=0,\quad e_++e_-=1.
+\]
+さらに、二つの積写像による同型
+\[
+ B\otimes_RB\xrightarrow{\sim}B\times B,\qquad
+ u\otimes v\longmapsto(uv,u\sigma(v))
+\]
+の下で $\Theta\mapsto(1,-1)$、
+$e_+\mapsto(1,0)$、$e_-\mapsto(0,1)$ となる。
+従って $e_+$ は対角の
+\emph{分離冪等元}であり、
+\begin{equation}\label{ifj:eq:cover-diagonal-splitting}
+ (z\otimes1)e_+=(1\otimes z)e_+,\quad
+ \mu(e_+)=1,\qquad
+ B\longrightarrow B\otimes_RB,\quad
+ z\longmapsto(z\otimes1)e_+
+\end{equation}
+は乗法 $\mu$ の $B$-双加群線型な section である。
+
+相対 trace は $\operatorname{Tr}_{B/R}(z)=z+\sigma(z)$ で、
+$\operatorname{Tr}(1)=2$、$\operatorname{Tr}(\xi)
+=\operatorname{Tr}(\eta)=0$ を満たす。
+すべての $z\in B$ について
+\begin{equation}\label{ifj:eq:cover-trace-dual-frame}
+ z=\frac12\operatorname{Tr}(z)
+   +\frac1{2\delta}\left(
+      \eta\,\operatorname{Tr}(\eta z)
+       -(X-2a)\xi\,\operatorname{Tr}(\xi z)
+     \right)
+\end{equation}
+が成り立つ。
+式\eqref{ifj:eq:cover-separability-casimir}の $e_+$ は
+この trace pairing の双対 Casimir 元にも等しい。
+以上の恒等式は $K$ の任意の可換代数への底変更と両立する。
+\end{proposition}
+
+\begin{proof}
+$R^2\to I$ を $(r_1,r_2)\mapsto Xr_1+Yr_2$ で定める。
+$YI\subset XR$ と $Y^2=Xg(X)$ に注意すると、
+\[
+ I\longrightarrow R^2,\qquad
+ z\longmapsto
+   \left(-\frac{(X-2a)z}{\delta},
+                \frac{Yz}{X\delta}\right)
+\]
+は $R$-線型であり、第二成分は $z\in I$ で正則である。
+二射の合成 $I\to I$ は
+$[g(X)-X(X-2a)]/\delta=1$ により恒等。
+逆順に合成すると $P_I$ となり、
+式\eqref{ifj:eq:cover-picard-idempotent}を得る。
+
+二重被覆の環では
+$\xi^2=X,\eta^2=g(X),\xi\eta=Y$ だから
+\[
+ \begin{split}
+ [\eta_1\eta_2-(X-2a)\xi_1\xi_2]^2
+ &=g(X)^2-2(X-2a)Y^2+(X-2a)^2X^2\\
+ &=[g(X)-X(X-2a)]^2=\delta^2.
+ \end{split}
+\]
+また第一・第二の積写像における $\Theta$ の値は
+それぞれ $1,-1$。
+既に証明した有限 \'{e}tale な二重 Galois 被覆では
+$B\otimes_RB\simeq B\times B$ であるので、
+式\eqref{ifj:eq:cover-separability-casimir}から
+式\eqref{ifj:eq:cover-diagonal-splitting}が従う。
+この分離元は $X$ の平方根の局所選択を使わない。
+
+trace の右辺は $R$-線型であり、
+$1,\xi,\eta$ は $B$ を $R$ 上生成する。
+$z=1$ では直ちに一致する。
+$z=\xi$ の場合、
+$\operatorname{Tr}(\eta\xi)=2Y$、
+$\operatorname{Tr}(\xi^2)=2X$ と
+$Y\eta=g(X)\xi$ によって $\xi$ を復元する。
+$z=\eta$ では
+$\operatorname{Tr}(\eta^2)=2g(X)$、
+$\operatorname{Tr}(\xi\eta)=2Y$ と
+$Y\xi=X\eta$ によって $\eta$ を復元する。
+従って式\eqref{ifj:eq:cover-trace-dual-frame}が成立し、
+その双対テンソルは表示した $e_+$ である。
+\end{proof}
+
+\begin{corollary}[相対 Hochschild の明示収縮と三次までの形式的持上げ]
+\label{ifj:cor:cover-hochschild-contraction}
+任意の $B$-双加群 $M$ を取り、相対 Hochschild cochain
+$C_R^n(B,M)=\operatorname{Hom}_R(B^{\otimes_R n},M)$ を考える。
+$n\ge1$ について
+\begin{equation}\label{ifj:eq:cover-hochschild-homotopy}
+ \begin{split}
+ (h_nf)(z_1,\ldots,z_{n-1})
+   ={}&\frac12f(1,z_1,\ldots,z_{n-1})\\
+     &+\frac1{2\delta}\bigl[
+       \eta\,f(\eta,z_1,\ldots,z_{n-1})\\
+     &\hspace{47pt}-(X-2a)\xi
+                 f(\xi,z_1,\ldots,z_{n-1})\bigr]
+ \end{split}
+\end{equation}
+と置く。係数は $M$ の左 $B$-作用によって掛ける。
+Hochschild 微分 $d_{\rm Hoch}$ に対し、
+正次数では
+\[
+ d_{\rm Hoch}h+hd_{\rm Hoch}=1,\qquad
+ \operatorname{HH}_R^n(B,M)=0\quad(n\ge1)
+\]
+が成り立つ。$M$ の左右作用が異なっていてもよい。
+
+さらに $s$-進で $a(s),b(s)$ を動かし、
+$b(0)\ne0$、$\delta_0=a(0)^2-4b(0)\ne0$ とする。
+$R_s,B_s$ を同じ式で作れば、
+各 $s^{m+1}=0$ への切断は有限 \'{e}tale であり、
+原点の被覆と deck 指定の持上げは
+固定した $R_s$ 上で同型を除いて一意である。
+最後の一意性は有限 \'{e}tale 被覆の
+nilpotent thickening による不変性
+\cite{IFJStacksFiniteEtaleThickening}の既知結果である。
+
+$\delta(s)=\delta_0+s\delta_1+s^2\delta_2+s^3\delta_3+O(s^4)$
+と書けば
+\begin{equation}\label{ifj:eq:cover-cubic-separability-jets}
+ \begin{split}
+ \frac1{\delta(s)}
+  ={}&\frac1{\delta_0}
+   -\frac{\delta_1}{\delta_0^2}s
+   +\frac{\delta_1^2-\delta_0\delta_2}{\delta_0^3}s^2\\
+   &+\frac{-\delta_1^3+2\delta_0\delta_1\delta_2
+                -\delta_0^2\delta_3}{\delta_0^4}s^3
+     +O(s^4).
+ \end{split}
+\end{equation}
+これを式\eqref{ifj:eq:cover-picard-idempotent}と
+式\eqref{ifj:eq:cover-separability-casimir}へ代入すれば、
+deck/Picard \emph{有限被覆側}の射影・trace・分離元を
+三次まで追加の未定定数なしに得られる。
+
+ただしこの $h$ は可換有限被覆の相対 Hochschild 収縮であり、
+補題\ref{ifj:lem:pbw-hpl}で仮定した曲率付き
+Koszul--Shamash 複体の special deformation retract の
+$h$ ではない。
+非可換側の比較核、$\OO(o)$ の一点捩れ、
+rotation・三乗周期・unit/counit を
+これだけで構成したとは主張しない。
+従って四 probe の四十六原式係数と十二比較係数はなお未計算である。
+\end{corollary}
+
+\begin{proof}
+式\eqref{ifj:eq:cover-hochschild-homotopy}は
+$e_+=\sum_j u_j\otimes v_j$ による標準の
+$h(f)=\sum_j u_jf(v_j,-)$ の具体形である。
+$\sum_j u_jv_j=1$ と
+$(z\otimes1)e_+=e_+(1\otimes z)$ を用い、
+Hochschild の交代和を展開すれば
+$d_{\rm Hoch}h+hd_{\rm Hoch}=1$ が正次数で成り立つ。
+同じ演算は任意の $B$-双加群に作用し、
+左右の作用を同一視していない。
+
+$b(0),\delta_0$ が単元なら
+各 Artin 切断上でも $b(s),\delta(s)$ は単元なので
+命題\ref{ifj:prop:double-cover-algebra}を適用できる。
+有限 \'{e}tale 被覆の持上げの一意性には
+同定済みの原点被覆と deck 対合を固定する。
+逆元の三次展開は
+$\delta(s)\delta(s)^{-1}=1\bmod s^4$ の係数比較であり、
+全次数での分離恒等式と底変更互換性も保たれる。
 \end{proof}
 
 \begin{corollary}[CM 自己 isogeny でも残る二捩れ障害]
