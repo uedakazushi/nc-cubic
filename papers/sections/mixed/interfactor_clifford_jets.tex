@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v79.
+% Current result: 2026-11-23 / v80.
 \subsection{固定した三次形式の切片と高次係数の有限還元}
 \label{ifj:subsec:jets}
 
@@ -1581,6 +1581,200 @@ $\OO(1)=\OO(3o)$ なので次数付き shift の
 次数増分は三の倍数であり、
 次数 $-1$ から次数零への補正 $\OO(o)$ は
 整数 shift では実現できない。
+\end{proof}
+
+\begin{proposition}[二捩れ Picard 線束を直接表す対称三階線形行列分解]
+\label{ifj:prop:picard-symmetric-linear-mf}
+命題\ref{ifj:prop:two-torsion-matrix-factorization}の
+$F_{\alpha,\beta}=Y^2Z-X(X^2+\alpha XZ+\beta Z^2)$ に対し、
+$\beta(\alpha^2-4\beta)\ne0$ を仮定する。
+$E=V(F_{\alpha,\beta})$、
+$o=(0:1:0)$、$p=(0:0:1)$、
+$M=\OO_E(p-o)$ と書く。
+\[
+ \mathsf L_{\alpha,\beta}
+ =\begin{pmatrix}
+ X&Y&0\\
+ Y&\alpha X+\beta Z&X\\
+ 0&X&-Z
+ \end{pmatrix},\qquad
+ \mathsf Q_{\alpha,\beta}
+   =\operatorname{adj}(\mathsf L_{\alpha,\beta})
+\]
+を取ると、両行列は対称で、
+\begin{equation}\label{ifj:eq:picard-symmetric-linear-mf}
+ \det\mathsf L_{\alpha,\beta}=F_{\alpha,\beta},
+ \qquad
+ \mathsf L_{\alpha,\beta}\mathsf Q_{\alpha,\beta}
+ =\mathsf Q_{\alpha,\beta}\mathsf L_{\alpha,\beta}
+ =F_{\alpha,\beta}\mathbf1_3
+\end{equation}
+が成立する。次数付き行列分解の第一射の余核は
+\begin{equation}\label{ifj:eq:picard-symmetric-cokernel}
+ 0\longrightarrow\OO_{\mathbb P^2}(-2)^3
+   \xrightarrow{\mathsf L_{\alpha,\beta}}
+    \OO_{\mathbb P^2}(-1)^3
+   \longrightarrow i_*M\longrightarrow0
+\end{equation}
+となる。従って、前命題の二階行列分解が表す
+$\OO_E(-p)$ から別途 $\OO_E(o)$ を捩らなくても、
+この三階線形模型は所望の次数零線束 $M$ を\emph{直接}表す。
+このような線形・対称表示の一般的存在と線束対応は
+Beauville の既知結果
+\cite[Propositions~3.1 and~4.2]{IFJBeauvilleDeterminantal}、
+Hesse--Moore 行列の一般的分類は
+\cite[Theorem~A]{IFMBuchweitzPavlov}による。
+ここでは二捩れ点、係数、自己双対の scalar を明示した。
+
+その正規化を具体化する。
+$u=X/Z,\ v=Y/X$ を $E$ 上の有理関数とすると
+$uv^2=u^2+\alpha u+\beta$ であり、
+$M(1)=\OO_E(p+2o)$ の大域切断は
+\begin{equation}\label{ifj:eq:picard-symmetric-section-basis}
+ s_0=-v,\qquad s_1=1,\qquad s_2=u
+\end{equation}
+を基底とする。
+$\operatorname{div}(u)=2p-2o$ によって
+$M^{\otimes2}\simeq\OO_E$ を\emph{$u$ の乗法}
+で規格化すると、$s_i\otimes s_j$ の積に対応する
+$\OO_E(2)$-値の対称行列は
+\begin{equation}\label{ifj:eq:picard-symmetric-square-pairing}
+ \begin{pmatrix}
+ X^2+\alpha XZ+\beta Z^2&-YZ&-XY\\
+ -YZ&XZ&X^2\\
+ -XY&X^2&Y^2-\alpha X^2-\beta XZ
+ \end{pmatrix}
+        =-\operatorname{adj}(\mathsf L_{\alpha,\beta}).
+\end{equation}
+つまりこの三階線形表示の随伴行列は、
+二捩れ Picard 線束の二乗評価の scalar と符号を
+指定した座標で正確に符号化する。
+
+曲線反転 $\iota(X:Y:Z)=(X:-Y:Z)$ と
+$D=\operatorname{diag}(-1,1,1)$ に対して、
+\begin{equation}\label{ifj:eq:picard-symmetric-reflection}
+ \mathsf L_{\alpha,\beta}(X,-Y,Z)
+     =D\mathsf L_{\alpha,\beta}(X,Y,Z)D,
+ \qquad
+ \mathsf Q_{\alpha,\beta}(X,-Y,Z)
+     =D\mathsf Q_{\alpha,\beta}(X,Y,Z)D,\quad D^2=1
+\end{equation}
+が成立する。従って点曲線の反転はこの
+\emph{可換}行列分解で厳密な位数二の線型化を持ち、
+規格化した二乗評価とも両立する。
+
+全ての恒等式は $\alpha,\beta$ の多項式恒等式であるため、
+命題\ref{ifj:prop:double-cover-algebra}の相対係数環 $K$
+で源 $(\alpha,\beta)=(a,b)$ と標的
+$(\alpha,\beta)=(-2a,\delta)$ の双方へ適用でき、
+任意の許容底変更でも成立する。
+\end{proposition}
+
+\begin{proof}
+行列式と随伴行列の恒等式は直接計算する。
+$E$ の Weierstrass 関数は
+\[
+ \operatorname{div}(u)=2p-2o,\qquad
+ \operatorname{ord}_o(v)=-1,\quad
+ \operatorname{ord}_p(v)=-1
+\]
+を満たす。従って式\eqref{ifj:eq:picard-symmetric-section-basis}の
+三関数は $H^0(E,\OO_E(p+2o))$ に入り、
+$o$ での極位数がそれぞれ $1,0,2$ と異なる。
+Riemann--Roch によりこの空間は三次元なので基底となる。
+$Z=1$ の chart で三つの関係
+\[
+ u(-v)+uv=0,\quad
+ uv(-v)+(\alpha u+\beta)+u^2=0,\quad
+ u-u=0
+\]
+は正確に $(s_0,s_1,s_2)\mathsf L_{\alpha,\beta}=0$
+を意味する。これらは斉次化により
+$S(-2)^3\to S(-1)^3$ の関係となる。
+$\det\mathsf L=F$ かつ $E$ は滑らかなので、
+$E$ 上で $\mathsf L$ の階数は常に二である。
+実際、階数が一以下なら全ての二次小行列式が零になり、
+行列式 $F$ の全偏微分も零となって滑らかさに反する。
+従って余核は $E$ 上の線束である。
+その Hilbert 多項式は
+$3\chi(\OO_{\mathbb P^2}(n-1))
+ -3\chi(\OO_{\mathbb P^2}(n-2))=3n$
+だから次数は零である。
+上の三切断による $\operatorname{coker}\mathsf L\to i_*M$
+は非零な線束の射で、同じ次数零なので同型となる。
+これで式\eqref{ifj:eq:picard-symmetric-cokernel}を得る。
+
+$M^2=\OO_E(2p-2o)$ の自明化は、
+この有理因子を持つ関数 $u$ の乗法で与えられる。
+従って切断 $s_i,s_j$ の積は $us_is_j$ であり、
+関係式 $uv^2=u^2+\alpha u+\beta$ と
+$Y^2Z=X(X^2+\alpha XZ+\beta Z^2)$ を用いて
+二次形式へ書き直すと、
+式\eqref{ifj:eq:picard-symmetric-square-pairing}の
+九成分となる。随伴行列との等式は全多項式環で成立する。
+反転では $u$ が不変、$v$ が負号を受けるので
+切断基底の作用は $D$ となる。
+行列へ代入すると
+式\eqref{ifj:eq:picard-symmetric-reflection}が成立する。
+\end{proof}
+
+\begin{corollary}[原の Hesse 方程式と三次までの Picard 行列移送]
+\label{ifj:cor:picard-symmetric-hesse-family}
+命題\ref{ifj:prop:two-isogeny-cubic-sextet}の
+$W,T,S$ と $c=c_\tau\in K^\times$ を用い、
+\[
+ \mathsf L_\tau
+  =\mathsf L_{a,b}(T,S,W),\qquad
+ \mathsf Q_\tau
+  =\frac1{4c_\tau^2}
+          \operatorname{adj}(\mathsf L_\tau)
+\]
+とすれば
+\begin{equation}\label{ifj:eq:picard-symmetric-hesse-mf}
+ \mathsf L_\tau\mathsf Q_\tau
+ =\mathsf Q_\tau\mathsf L_\tau
+ =f_\tau(Z_0,Z_1,Z_2)\mathbf1_3
+\end{equation}
+が\emph{元の指定 Hesse 方程式そのもの}に対して成立する。
+$\mathsf L_\tau$ と $\mathsf Q_\tau$ はともに対称で、
+$Z_0\leftrightarrow Z_1$ に伴う反転にも両立する。
+係数を規格化するために三乗根を添加する必要はない。
+$\tau^\vee=-2/\tau$ の標的側でも同様である。
+
+また一般の形式係数 $\alpha(s),\beta(s)$ に対し、
+\[
+ \frac{d}{ds}\mathsf L_{\alpha(s),\beta(s)}
+ =\begin{pmatrix}
+ 0&0&0\\
+ 0&\alpha'(s)X+\beta'(s)Z&0\\
+ 0&0&0
+ \end{pmatrix}
+\]
+であり、$\operatorname{adj}\mathsf L$ の三次までの
+すべての Taylor 係数は
+式\eqref{ifj:eq:picard-symmetric-linear-mf}を
+微分することで一意に定まる。
+しかし定理\ref{ifj:thm:twelve-coefficients}の
+\emph{四つの混合 probe} では両 $\tau_i$ を固定しているので、
+この Picard 因子の行列は $s$ に依存しない。
+従って同模型の $s$-微分だけからは
+未計算の $\beta,\gamma$ は得られず、
+混合 PBW 積・中心曲率・実比較核の
+unit/counit と周期の高次移送を依然として計算する必要がある。
+この可換行列の反転 $P$ を、
+Clifford 生成元の $-P$ および最上 Koszul 線の符号へ
+そのまま読み替えない。
+\end{corollary}
+
+\begin{proof}
+式\eqref{ifj:eq:cubic-sextet-weierstrass}は
+$F_{a,b}(T,S,W)=4c_\tau^2f_\tau$ である。
+命題\ref{ifj:prop:picard-symmetric-linear-mf}を代入すると
+式\eqref{ifj:eq:picard-symmetric-hesse-mf}が従う。
+$W,T$ は $Z_0,Z_1$ の交換で不変、$S$ は符号反転し、
+規格化因子は $K$ の単元だから反転も保たれる。
+残りは係数 $\alpha(s),\beta(s)$ の通常微分と、
+固定した四混合 probe の定義から従う。
 \end{proof}
 
 \begin{corollary}[標的符号線束の自明化と残る降下文字]
