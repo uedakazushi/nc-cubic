@@ -106,14 +106,17 @@ print('PASS 2: exact central cubic Omega=2(1-tau^3)*omega, cyclic invariant')
 # Cyclic choice of the first homotopy s1=(u,A,u^t).
 u=[add(scale(prod(sigma(i),sigma2(i)),-2*Delta/3),
        scale(sq(i),-tau*Delta/3)) for i in (1,2,3)]
+# The reflection-equivariant choice; kappa=(4-tau^3)/6.
+kappa=(4-tau**3)/6
 A=[[z() for _ in (1,2,3)] for _ in (1,2,3)]
 for i in (1,2,3):
     j,k=sigma(i),sigma2(i)
-    A[i-1][i-1]=add(scale(sq(i),-2*Delta/3),scale(prod(j,k),-tau**2))
-    A[i-1][j-1]=add(scale(sq(k),tau),scale(prod(i,j),-(tau**3-4)/3))
-    A[j-1][i-1]=scale(sq(k),-tau)
-v=add(scale(Omega,(tau**3-4)/6),
-      *(scale(raw((i,i,i)),-tau*Delta*(tau**3+8)/18) for i in (1,2,3)))
+    A[i-1][i-1]=add(scale(sq(i),-tau**3/sp.Integer(2)),
+                     scale(prod(j,k),-tau**2))
+    A[i-1][j-1]=add(scale(sq(k),tau),scale(prod(i,j),kappa))
+    A[j-1][i-1]=add(scale(sq(k),-tau),scale(prod(j,i),-kappa))
+v=scale(add(*(raw((i,i,i)) for i in (1,2,3))),
+        -tau*Delta*(tau**3+8)/18)
 uc=[[u[i]] for i in range(3)]
 ur=[u]
 assert_m(mm(d1,uc),[[Omega]])
@@ -167,7 +170,68 @@ print('PASS 9: scalar a rescales homotopies as (a*u,a*A,a^2*v) and curvature a*O
 
 Au=mm(A,uc)[0][0]
 witness=sp.expand(Au.get((),0)).coeff(X[1],2)
-assert sp.expand(witness-2*tau*Delta**2/9)==0
+assert sp.expand(witness-tau*Delta*(tau**3+8)/18)==0
 assert witness.subs(tau,2)!=0
-print('PASS 10: explicit nonzero s1^2 witness 2*tau*(tau^3-1)^2*x1^4/9')
-print('10 PASS: explicit one-factor Shamash stabilization; not the mixed Ku retract or 12 scalars.')
+print('PASS 10: explicit nonzero s1^2 witness tau*(tau^3-1)*(tau^3+8)*x1^4/18')
+
+# Reflection sigma=-P on active generators, while the point curve uses P.
+# Its chain linearizations are (T0,T1,T2,T3)=(1,-P,P,-1).
+perm={1:2,2:1,3:3}
+Xperm={X[1]:X[2],X[2]:X[1],X[3]:X[3]}
+def reflect(e):
+    result=z()
+    for word,coeff in e.items():
+        image=unit()
+        for k in word:
+            image=mul(image,scale(E(perm[k]),-1))
+        result=add(result,scale(image,coeff.xreplace(Xperm)))
+    return result
+assert not sub(reflect(Omega),Omega)
+for j in (1,2,3):
+    assert not sub(reflect(u[j-1]),scale(u[perm[j]-1],-1))
+assert not add(reflect(v),v)
+print('PASS 11: reflection fixes the specified central cubic and acts by -1 on s2')
+
+P=sp.Matrix([[0,1,0],[1,0,0],[0,0,1]])
+G=-P
+for i in range(3):
+    for j in range(3):
+        assert not sub(reflect(A[i][j]),scale(A[perm[i+1]-1][perm[j+1]-1],-1)),(i,j)
+assert not sub(reflect(v),neg(v))
+print('PASS 12: all nine second-stage homotopies strictly intertwine -P')
+
+def test_intertwining(matrix, left, right, action):
+    assert left.shape==(4,4) and right.shape==(4,4)
+    for i in range(4):
+        for j in range(4):
+            val=add(*(scale(matrix[k][l],left[i,k]*right[l,j])
+                      for k in range(4) for l in range(4)
+                      if left[i,k]*right[l,j]!=0))
+            assert not sub(action(matrix[i][j]),val),(i,j,action.__name__)
+
+Te=sp.diag(sp.Matrix([[1]]),P)   # P0 (+), P2 (+P)
+To=sp.diag(G,sp.Matrix([[-1]])) # P1 (-P), P3 (-)
+test_intertwining(Dplus,Te,To.inv(),reflect)
+test_intertwining(Dminus,To,Te.inv(),reflect)
+assert To*To==sp.eye(4) and Te*Te==sp.eye(4)
+print('PASS 13: strict reflection on both MF differentials; top Koszul line has sign -1')
+
+C=sp.Matrix([[0,0,1],[1,0,0],[0,1,0]])
+Ce=sp.diag(sp.Matrix([[1]]),C.inv())
+Co=sp.diag(C.inv(),sp.Matrix([[1]]))
+test_intertwining(Dplus,Ce,Co.inv(),rotate)
+test_intertwining(Dminus,Co,Ce.inv(),rotate)
+assert P*C*P==C.inv() and C**3==sp.eye(3)
+assert Ce**3==Co**3==sp.eye(4)
+assert Te*Ce*Te==Ce.inv() and To*Co*To==Co.inv()
+print('PASS 14: strict cyclic action and S3 relations on both MF terms')
+
+for val in (sp.Integer(2),sp.Integer(-1),sp.Rational(1,2)):
+    for d in (Dplus,Dminus):
+        for row in d:
+            for elem in row:
+                for c in elem.values():
+                    assert not sp.denom(sp.cancel(c)).has(tau)
+assert sp.cancel(kappa-(4-tau**3)/6)==0
+print('PASS 15: no new tau-inversions from strict S3 symmetrization')
+print('15 PASS: strict cyclic/reflection source Shamash MF; not a mixed Ku comparison kernel.')
