@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月23日 / v85。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月23日 / v86。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -40,6 +40,8 @@
 **非可換PBW源の二次障害と中心曲率をHochschild複体で明示した。** [混合稿の命題](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:prop:pbw-curved-mc`）で、m_s=m₀+sm₁+s²m₂の厳密な結合律から∂m₂=m₁∘m₁、三・四次整合式を導き、中心体積元ω₀+sω₁の交換子を各次数で零と証明した。非線形二probeでは`(m₁∘m₁)(e₂,e₃,e₁₂)=L₁L₃≠0`であり、既知の四つのm₂成分が必須の二次補正である。源Cliffordの8基底について512 triple×5次数と曲率4次数を[厳密記号検算](computations/verify_clifford_curved_pbw_mc.py)で10群PASS。これは実Ku比較核の原点収縮(i,p,h)・比較のunit/counit・rotation/period・12高次係数を求める前の入力である。
 
 **分離原点のS₃厳密同変Shamash模型と九変数混合族のS₃×S₃対称性。** [現行命題・補題](papers/sections/mixed/interfactor_clifford_explicit_shamash.tex)（`ifj:prop:clifford-explicit-shamash`, `ifj:lem:mixed-clifford-s3-family`）では、Clifford augmentationの4×4 MFを巡回・反転同変に規格化し、反転−Pに対するKoszul四項の作用(1,−P,P,−1)、最上線の符号−1を決定した。二因子32|32外積を保ち、九混合係数Λの行・列を同時に置換するS₃×S₃作用が二次関係と中心wを固定することを証明した。選択済み同変(n−1)次MF jetのn次持上げ方程式が可解なら、解を36元平均して同変化できるが、**可解性は未証明**。一因子の[15群厳密検算](computations/verify_clifford_explicit_shamash.py)、九変数族の[8群検算](computations/verify_clifford_family_s3.py)はいずれもPASS。現行TeXの独立LuaLaTeX二巡・3頁組版、表示点検済み。実Ku核・比較Hom special retract(i,p,h)・unit/counit・rotation/三乗period・46原式/12高次係数は未構成。
+
+**双方向十八変数で混合 Koszul 解消の初段と中心曲率の端点を構成した。** [命題と証明](papers/sections/mixed/interfactor_clifford_mixed_koszul_endpoints.tex)（`ifj:prop:mixed-koszul-endpoints`）は、六生成元のd₁と15二次関係のd₂を明示し、混合関係列の相手因子成分−sUy,−sVxによって全係数でd₁d₂=0となることを示す。分離原点の無補正外積ではsL_a,sK_bの誤差が残る。六つの曲率端点u_i=α_i[z_{i+1},z_{i+2}]/6では左右の積がともに指定中心w_sとなり、順序PBW規約の混合一次符号(−,+,−)も決定した。一方向九変数のS₃×S₃係数単項式軌道は次数1,2,3で1,4,10（`ifj:lem:mixed-koszul-parameter-orbits`）。[再現検算](computations/verify_clifford_mixed_koszul_endpoints.py)はSymPy10群PASS。これらは混合32|32の完全なShamash微分や比較Hom特殊収縮・12高次係数ではない。
 
 **Clifford 中心normは明示できるが、可換Ku標的そのものではない。** [全九変数の中心norm三次展開](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:prop:central-norm-jets`）では、体積元の平方`ω_x(s)²=−det q_x(s)`を三次まで厳密に計算した。Hesse射影の二次同変係数は一つの三次Heisenberg不変式𝒮のgradient、三次純Y係数は(∂𝒮/∂τ₁)/4で、最小四probeのうち列和と対角の二つにだけ非零の三次normがある。一方、平方中心変数を可換Hesse座標と文字どおり同定すると一次像はC₂₁であり、実Ku比較の一次像C₁₂と一致しない（`ifj:cor:central-norm-probes`）。従ってこの計算は未決定のβ・γの値ではなく、実核・周期付き移送を省略できないことの具体的な証拠である。[厳密記号検算](computations/verify_clifford_central_norm_jets.py)は7群PASS。GitHub保存済み本文を読み戻して復元・再実行し、同じ7群PASS・終了コード0を確認した（再取得ファイルのSHA-256は[検証記録](notes/validation.md)）。
 
