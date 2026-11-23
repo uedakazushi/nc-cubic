@@ -1,0 +1,200 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v86.
+\subsubsection{混合 Clifford の Koszul 初段と中心曲率の端点 homotopy}
+\label{ifj:subsubsec:mixed-koszul-endpoints}
+
+分離原点の Shamash 模型を混合族へ移すとき、最初の障害は既に
+二次関係の段階に現れる。以下では、双方向十八係数でも成立する
+最初の二つの Koszul 微分と曲率の明示的な左右分解を構成する。
+これらは全 Koszul 複体の残る微分や比較核の存在を仮定しない。
+
+\begin{proposition}[双方向混合 Clifford の最初の Koszul 微分と曲率の左右分解]
+\label{ifj:prop:mixed-koszul-endpoints}
+命題\ref{ifb:prop:family}の二因子を固定し、
+$\tau_i(\tau_i^3-1)(\tau_i^3+8)\ne0$、$a_i\ne0$ とする。
+$R=\C[s,U_{ab},V_{ba}]$、$\Lambda=sU$、$M=sV$ とし、
+$B_s$ を指定した双方向 Clifford 族とする。
+\[
+ L_a=\sum_bU_{ab}y_b^2,\qquad K_b=\sum_aV_{ba}x_a^2,
+ \qquad \alpha_i=2a_i(1-\tau_i^3).
+\]
+一次生成元を $z=(x_1,x_2,x_3,y_1,y_2,y_3)$ とし、
+$P_0=B_s$、$P_1=B_s(-1)^6$、$P_2=B_s(-2)^{15}$ を取る。
+$D_x,D_y$ はそれぞれ
+\[
+ D_x=\begin{pmatrix}
+ \tau_1x_1&x_3&x_2\\
+ x_3&\tau_1x_2&x_1\\
+ x_2&x_1&\tau_1x_3
+ \end{pmatrix},\qquad
+ D_y=D_x\big|_{\mathbf x\mapsto\mathbf y,\ \tau_1\mapsto\tau_2}
+\]
+とし、$C_x,C_y$ を九つの列 $(a,b)$ ごとに
+$C_x^{(a,b)}=y_be_a$、$C_y^{(a,b)}=-x_ae_b$ と定義する。
+また $T_{ba}=U_{ab}y_b$、$W_{ab}=V_{ba}x_a$ と置く。
+このとき次数零の右 $B_s$-加群射を
+\begin{equation}\label{ifj:eq:mixed-koszul-first-two}
+ d_1=(x_1,x_2,x_3,y_1,y_2,y_3),\qquad
+ d_2=\begin{pmatrix}
+       D_x&-sW&C_x\\
+       -sT&D_y&C_y
+      \end{pmatrix}
+\end{equation}
+と定めれば、全係数上で
+\begin{equation}\label{ifj:eq:mixed-koszul-d1d2}
+                         d_1d_2=0
+\end{equation}
+が厳密に成立する。$s=0$ の分離型の $d_2$ を変えないまま
+$B_s$ に移すと、最初の三関係列には $sL_a$、
+次の三関係列には $sK_b$ が残る。
+従って一般の混合係数では $-sT$ と $-sW$ を
+省略した単純な外積微分は複体にならない。
+定理\ref{ifb:thm:regularity}の resultant が非零である開上では
+式\eqref{ifj:eq:mixed-koszul-first-two}は augmentation の
+実 Koszul 解消の最初の二つの微分を与える。
+正則開の外では、この二項の恒等式から全解消の完全性を結論しない。
+
+各因子の Clifford 体積元を
+\begin{equation}\label{ifj:eq:mixed-koszul-alternating-volume}
+ \omega_x=\frac16\sum_{\pi\in S_3}\operatorname{sgn}(\pi)
+     x_{\pi(1)}x_{\pi(2)}x_{\pi(3)},\qquad
+ \omega_y=\frac16\sum_{\pi\in S_3}\operatorname{sgn}(\pi)
+     y_{\pi(1)}y_{\pi(2)}y_{\pi(3)}
+\end{equation}
+と規格化する。これらは命題\ref{ifb:prop:family}の
+指定した $\omega_x,\omega_y$ と一致する。
+$w_s=\alpha_1\omega_x+\alpha_2\omega_y$ とし、
+次の六成分の次数二列を取る：
+\begin{equation}\label{ifj:eq:mixed-koszul-curvature-primitive}
+ u^x_a=\frac{\alpha_1}{6}[x_{a+1},x_{a+2}],\qquad
+ u^y_b=\frac{\alpha_2}{6}[y_{b+1},y_{b+2}],\qquad
+ \mathbf u=(u^x_1,u^x_2,u^x_3,u^y_1,u^y_2,u^y_3)^{\mathsf t}.
+\end{equation}
+この列は正規化を追加せず、すべての係数に対して
+\begin{equation}\label{ifj:eq:mixed-koszul-curvature-endpoints}
+      d_1\mathbf u=\mathbf u^{\mathsf t}d_1^{\mathsf t}=w_s
+\end{equation}
+を満たす。
+特に、六段 Koszul 解消の Shamash higher homotopy が存在するとき、
+その最初の端点 $P_0\to P_1(3)$ は上の列で選べる。
+これは中間次数での homotopy の構成を意味しない。
+
+一方向 $V=0$ では第二因子の列は $s$ に依らない。
+第一因子の順序 PBW 基底を $(1,x_i,x_ix_j,x_1x_2x_3)$ ($i<j$)
+に固定すると、$s$ に関する $u^x$ の係数は
+\begin{equation}\label{ifj:eq:mixed-koszul-ordered-jet}
+ [u^x_a(s)-u^x_a(0)]_{\rm PBW}
+  =\frac{\alpha_1s}{6}\varepsilon_a L_a,
+              \qquad(\varepsilon_1,\varepsilon_2,\varepsilon_3)=(-1,+1,-1).
+\end{equation}
+従ってこの端点の混合依存は厳密に一次である。
+この符号列は順序 PBW 規約に由来し、
+反転同変性を破るものではない。
+以上の $d_1,d_2,\mathbf u$ は $S_3\times S_3$ 作用と両立する。
+具体的には $U_{ab}\mapsto U_{\pi_1(a),\pi_2(b)}$ と同時に
+$V_{ba}\mapsto V_{\pi_2(b),\pi_1(a)}$ とすればよい。
+一方向 $V=0$ では補題\ref{ifj:lem:mixed-clifford-s3-family}を回復する。
+\end{proposition}
+
+\begin{proof}
+各 $a$ について、$d_1$ と $d_2$ の $x$-関係列の積は
+\[
+ \{x_{a+1},x_{a+2}\}+\tau_1x_a^2-sL_a=0
+\]
+である。$y$-関係列も同様に
+$\{y_{b+1},y_{b+2}\}+\tau_2y_b^2-sK_b=0$ となる。
+九つの交差関係列は $[x_a,y_b]=0$ に一致する。
+これで式\eqref{ifj:eq:mixed-koszul-d1d2}を得る。
+分離型の微分だけを用いたときの誤差は、
+対応する係数列 $sL_a,sK_b$ そのものである。
+特に原点の tensor 積の $x$-次数で考えると、
+$x$-行だけの次数一次補正は純粋な $y_b^2$ を生成できない。
+この意味でも混合行の補正は不可避である。
+正則開上での Koszul 完全性は
+定理\ref{ifb:thm:regularity}の相対 Koszul 性を用いる。
+
+Clifford 代数の関係 $z_iz_j+z_jz_i=2q_{ij}$ を用いて
+式\eqref{ifj:eq:mixed-koszul-alternating-volume}を順序基底へ整列すると
+$z_1z_2z_3-q_{12}z_3+q_{13}z_2-q_{23}z_1$ となる。
+この恒等式は $q_{ij}$ が他方の因子の平方を含んでも成立する。
+式\eqref{ifj:eq:mixed-koszul-curvature-primitive}の各成分を
+左から $z_i$ 倍すると、各因子ごとに
+三回の正負交代和を一回ずつ得るため、
+式\eqref{ifj:eq:mixed-koszul-curvature-endpoints}の左の等式が成立する。
+右から掛ける場合は三文字の巡回置換が偶置換であるため、
+同じ交代和になる。
+また $q^x_{a+1,a+2}=(-\tau_1x_a^2+sL_a)/2$ と
+$[x_i,x_j]=2x_ix_j-2q^x_{ij}$ を用いれば、
+順序を整える際に第二成分でだけ符号が変わり、
+式\eqref{ifj:eq:mixed-koszul-ordered-jet}を得る。
+両端の正規形は $z_i$ の交代積と関係列から自然に定まる。
+また、巡回作用と負の置換反転は全て二次関係を行・列で置換し、
+両体積元を固定する。これが上の $V$ にも作用させた
+$S_3\times S_3$ と両立する理由である。
+\end{proof}
+
+\begin{lemma}[一方向九係数の三次までの有限群軌道数]
+\label{ifj:lem:mixed-koszul-parameter-orbits}
+$V=0$ とし、$S_3\times S_3$ が
+$U_{ab}\mapsto U_{\pi_1(a),\pi_2(b)}$ で作用する。
+次数 $d=1,2,3$ の単項式集合の軌道数はそれぞれ
+\begin{equation}\label{ifj:eq:mixed-koszul-orbit-counts}
+  \begin{array}{c|ccc}
+   d&1&2&3\\\hline
+   \text{単項式数}&9&45&165\\
+   \text{軌道数}&1&4&10
+  \end{array}
+\end{equation}
+である。次数二の代表は
+$U_{11}^2,U_{11}U_{12},U_{11}U_{21},U_{11}U_{22}$、
+その軌道の大きさは $9,9,9,18$ である。
+次数三の十軌道の代表と大きさは
+\[
+ \begin{array}{c|l|r}
+  &\text{代表}&\text{大きさ}\\\hline
+ 1&U_{11}^3&9\\
+ 2&U_{11}^2U_{12}&18\\
+ 3&U_{11}^2U_{21}&18\\
+ 4&U_{11}^2U_{22}&36\\
+ 5&U_{11}U_{12}U_{13}&3\\
+ 6&U_{11}U_{12}U_{21}&36\\
+ 7&U_{11}U_{12}U_{23}&18\\
+ 8&U_{11}U_{21}U_{31}&3\\
+ 9&U_{11}U_{21}U_{32}&18\\
+ 10&U_{11}U_{22}U_{33}&6
+ \end{array}
+\]
+で与えられる。
+従って $S_3\times S_3$-同変な形式的な持上げ方程式を
+$s$ の次数三まで係数比較するとき、
+各単項式軌道の一つの係数を検査すれば十分である。
+ただし係数値は対象 Hom 空間の群表現に属し、
+軌道代表の安定化群に関する不変条件も必要である。
+この縮小は Hom 複体の可解性や Ku 同値の証明ではない。
+\end{lemma}
+
+\begin{proof}
+各 $U_{ab}$ を二部グラフの左頂点 $a$ と右頂点 $b$ の
+辺とみなすと、$d$ 次単項式は重複を許す $d$ 本の辺の多重集合である。
+行・列の置換は二部グラフの両側の頂点名の付替えに等しい。
+$d\le3$ の場合分けで表示した代表が全ての型を尽くし、
+その軌道の大きさを加えるとそれぞれ
+$9,45,165=\binom{11}{3}$ となる。
+これは全単項式数 $\binom{8+d}{d}$ と一致するので漏れはない。
+同変係数に関する最後の主張は、各軌道の係数が
+群作用で移り合うことから従う。
+\end{proof}
+
+\begin{remark}[構成の到達範囲]
+式\eqref{ifj:eq:mixed-koszul-first-two}は二つの真正な微分と
+式\eqref{ifj:eq:mixed-koszul-curvature-endpoints}は
+曲率 null-homotopy の端点を与える。
+これで解けたのは $d_1d_2=0$ と $d_1u=w_s$ に対応する部分であり、
+中間 $d_3,\ldots,d_6$、$s_1$ の他の成分、$s_2,\ldots$ と
+曲率付き $32\mid32$ の混合微分の全持上げは未完成である。
+一因子 $4\times4$ の直積を混合係数のままで用いることはできない。
+四probeの高次可換式と固定 Hesse 切片の十二係数の計算には、
+なお比較 Hom の特別な収縮と unit/counit、rotation と周期の情報を要する。
+全係数上の厳密恒等式と軌道数の再現は
+\texttt{computations/verify\_clifford\_mixed\_koszul\_endpoints.py} に置く。
+\end{remark}
