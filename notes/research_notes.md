@@ -1,8 +1,11 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月23日 / v91。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月24日 / v92。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
+
+**現在有効な問題**は全称可換Ku実現予想（広い定式化と変形連結条件付きの両方が否定済み）の修正ではなく、可換実現可能な対象の特徴付けである。五次元には内在的 $R_j=\operatorname{Hom}(\Delta,S^{-j}[3j])$ とその三重積の必要条件があり、$T=\mathbb A^1\setminus V(27b^6+64)$ の実smooth proper族で可換実現可能な係数はちょうど $b\ne0$。$b=0$ の余核は不変Jacobian環の $[x_1x_2x_3]$ で、通常HHの次元は族全体で不変。重要なのは成立領域の分類と乗法・自然変換環の独立監査であり、HH一致や変形連結性だけを十分条件として使わない。原稿の証明の所在は `nft:prop:jacobian-necessary`, `nft:cor:nonclosed-cubic-locus`、新規性は未網羅確認。
+
 
 狭い全称命題は五次元で否定される。$F_b=\sum_i(u_ix_i^2+u_i^3)+w^3+bx_1x_2x_3$ の偶符号作用を非自明な乗数で同変化すると、$b=2$ は可換 Ku に同値で $b=0$ はどの可換 Ku にも同値でない。家族の両点は同じ smooth proper 開にある。$b=0$ で三つの閉 Clifford 演算子に Pauli 行列を掛けた偶積は一次の rotation 変換であり、対称行列の階数一関係を作る。五様体では rotation は無標識でも保存される。[反例の証明](../papers/sections/narrow_fivefold_counterexample.tex)。
 
@@ -17,7 +20,7 @@
 **広い定式化への三次元の反例。** [量子 Fermat 中心三次商の定理](../papers/sections/quantum_fermat_obstruction.tex) は、次元・指数 5 の AS 正則な量子多項式環の中心正則三次商で、全 coherent 圏が smooth proper かつ残余圏の `(dim HH₁, dim HH₀)=(1,10)` となる例を与える。滑らかな可換三次三様体ではこの組は常に `(5,2)` である。主予想はこの滑らかな中心三次商を含む広い定式化で扱い、上の例で否定される。同じ周囲代数の全中心三次は七項で尽くされ、係数射影空間の滑らかな開集合全体で同じ障害が成り立つ（同節の系 `qfo:cor:central-family`）。Perry の相対 Hochschild 底変更定理から、そこに属する残余圏と可換三次三様体の残余圏は連結な smooth proper 圏族で結べない（`qfo:cor:deformation-separation`）。
 
 
-主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現することである。一つの共有中心変数・任意の固定smooth標準Sklyanin因子の組（k≥2）について、指定境界を保つ全因子別PBW・中心持上げを可換三次と全係数でMorita比較した（`emc:prop:coverage`, `euk:thm:universal-kernel`）。非二捩れの正規化線形Pと二捩れの中心平方βを一次係数tとする。標的はG+uQ(t)+u²(𝔄α+R₂(t))+u³(κc+R₁,₁(t,α)+R₃(t))、𝔄可逆、κ≠0であり、可換smooth開では相対perfect核・全coherent Ku同値を得る。定数3k方向のBocksteinは同型、一次3k方向は単射だが、存在比較は後者を仮定しない。
+否定された旧主予想は任意の滑らかなnc cubicのKuを同次元の滑らかな可換cubicで実現することだった。一つの共有中心変数・任意の固定smooth標準Sklyanin因子の組（k≥2）について、指定境界を保つ全因子別PBW・中心持上げを可換三次と全係数でMorita比較した（`emc:prop:coverage`, `euk:thm:universal-kernel`）。非二捩れの正規化線形Pと二捩れの中心平方βを一次係数tとする。標的はG+uQ(t)+u²(𝔄α+R₂(t))+u³(κc+R₁,₁(t,α)+R₃(t))、𝔄可逆、κ≠0であり、可換smooth開では相対perfect核・全coherent Ku同値を得る。定数3k方向のBocksteinは同型、一次3k方向は単射だが、存在比較は後者を仮定しない。
 
 rank8^kの臨界代数で全係数のsmoothnessを判定する。任意固定tの一般αでは8^k個の相異なる悪いcと、各可換標的の唯一の通常二重点がある。全係数・固定tの判別超曲面は既約被約で、臨界点のaffine空間が正規化を与える。一変数特殊化の重複根は許す。同一S(1,−1,−1)では純ブロックJac₂像・七定数形・κ_k²=27/28を保持し、残る六定数は未数値化。一般因子へこのκ値を流用しない。任意中心数の全因子別表示でK_A smooth ⇔ X_pol smoothを示し、一般中央flagの存在から全smooth対象を比較した。横断二項Bは可逆で、各固定一次係数の一般二次係数では2^(3k+m−1)個の単純悪値を得る。X_polへの実核、因子moduli上の核選択・降下、全intrinsic被覆、h一般点核のdefect零特殊化は残る。指定二ブロックのP64・norm全64根・局所型も保持する。
 
@@ -25,7 +28,7 @@ rank8^kの臨界代数で全係数のsmoothnessを判定する。任意固定t�
 
 両Cliffordの双方向十八変数では、周囲のAS-regular領域が正確にresultant開D(Δ)となり、その原点近傍に実残余族・局所perfect核を得る（`ifb:cor:exact-regular-locus`, `ifg:cor:local-comparison`）。二つのτも動かす二十変数族は、各分離点で幾何的20次元形式変形空間を与える（`ifv:thm:versal`）。実étale chartを有限化することで、係数空間の非空開の有限étale被覆上の比較、一般係数体の有限分離拡大上の比較、三次四様体モジュライの稠密開の実現まで得る（`ifv:cor:generic-comparison`）。混合尺度は一般の異なるClifford因子でも三乗を決定し、残る比はθ³=(τ₁³−1)/(τ₂³−1)という非自明な三次被覆で記述する（`ifm:thm:scale-cubes`, `ifm:cor:kummer-scale`）。一方向族の固定切片での二次・三次項は、反転を保つ実核を選んだ場合に未計算の4+8係数へ還元した（`ifj:thm:twelve-coefficients`）。他方、階数一の双方向スライスにはAS正則域内の残余A₂特異点があり、D(Δc)全体を残余smooth locusとすることはできない（`ifd:thm:residual-a2`）。全smooth係数への同じ核の延長と全intrinsic被覆は未解決である。
 
-**一方向Cliffordの上位曲率模型で再利用できる計算法。** 全9係数U、V=0の相対Koszul複体でPBW実x次数を濾過すると、s正次数の変形微分δ_sはx次数を2以上下げる。分離原点の二因子細分次数を保つspecial contraction h₀から、固定内部次数N>0でh_s=h₀Σ_{r≤⌊N/2⌋}(−δ_s h₀)^rを**有限**に計算できる。既存のH,Gを保持したP₃→P₄のJはh_{3,s}^{(6)}(wI−Gd₃)とすればよく、原点線形作用のサイズ1120×315・rank280（x次数別0,18,72,100,72,18,0）、次段のrank120,21がKoszul完全性から決まる。s₂,s₃も同じ収縮で帰納的に指定でき、内部次数を忘れた源32|32曲率MFの有限算法になる（正本：混合稿`ifj:lem:filtered-koszul-contraction`, `ifj:prop:shamash-fourth-finite-formula`, `ifj:cor:finite-shamash-source-mf`）。これは基本摂動補題とShamash高次homotopyの既知理論のClifford-PBW規約での有限化であり、一般原理を新規成果と扱わない。実PBW行列の全成分、原点S₃×S₃ゲージとの一致、相対period、Ku比較Homのspecial retract(i,p,h)を得たわけではない。次は280ピボットの実構成と20×20全九係数の乗法検算を最優先とする。出典はCrainic, *On the perturbation lemma, and deformations*, arXiv:math/0403266, Theorem2.3; Eisenbud–Peeva, *Minimal Free Resolutions over Complete Intersections* (2016), §§3.4,4.1。
+**一方向Cliffordの上位曲率模型で再利用できる計算法。** 全9係数U、V=0の相対Koszul複体でPBW実x次数を濾過すると、s正次数の変形微分δ_sはx次数を2以上下げる。分離原点の二因子細分次数を保つspecial contraction h₀から、固定内部次数N>0でh_s=h₀Σ_{r≤⌊N/2⌋}(−δ_s h₀)^rを**有限**に計算できる。既存のH,Gを保持したP₃→P₄のJはh_{3,s}^{(6)}(wI−Gd₃)とすればよく、原点線形作用のサイズ1120×315・rank280（x次数別0,18,72,100,72,18,0）、次段のrank120,21がKoszul完全性から決まる。s₂,s₃も同じ収縮で帰納的に指定でき、内部次数を忘れた源32|32曲率MFの有限算法になる（正本：混合稿`ifj:lem:filtered-koszul-contraction`, `ifj:prop:shamash-fourth-finite-formula`, `ifj:cor:finite-shamash-source-mf`）。これは基本摂動補題とShamash高次homotopyの既知理論のClifford-PBW規約での有限化であり、一般原理を新規成果と扱わない。実PBW行列の全成分、原点S₃×S₃ゲージとの一致、相対period、Ku比較Homのspecial retract(i,p,h)を得たわけではない。次の計算課題は280ピボットの実構成と20×20全九係数の乗法検算である。ただし反例の圏論的独立監査と成立可能領域の特徴付けを優先する。出典はCrainic, *On the perturbation lemma, and deformations*, arXiv:math/0403266, Theorem2.3; Eisenbud–Peeva, *Minimal Free Resolutions over Complete Intersections* (2016), §§3.4,4.1。
 
 C上n≥3を基本とし、generic・全固定点・全族・一般体上の降下を区別する。全intrinsic対象の認識やpoint functorの表現可能性は未完成であり、既知の局所表示だけを全対象と定義して済ませない。可換候補の方程式・判別集合・局所特異点の一致と、その候補への実際の比較核の存在も区別する。
 

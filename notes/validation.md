@@ -15,7 +15,15 @@
 - **一方向 Clifford の三つ目の中間成分。** `ifj:prop:third-middle-certificate` の有理 PBW 検算を `computations/verify_clifford_mixed_shamash_third_middle.py --certificate FILE` で実行した。独立行・列は 280 個、九変数の係数次数 0/1/2 の非零項は 122/516/450 個。これは選択したゲージの $J$ と全二十列の恒等式の計算である。
 
 
-2026年11月23日 / v91。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月24日 / v92。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+
+## 現行の二反例と内在的判定の監査範囲
+
+- **三次元量子FermatのHH**：独立した有限群\(\mathbb F_3^2\)の固有値列挙により、非零8元のうち4元は射影固定楕円曲線＋空の2点、4元は各3点からなる二つの軌道を持つことを再確認した。identity sector の不変 \(HH_1\) は1、\(HH_0\) は4、非恒等の寄与は \(HH_0\) に8で、残余例外対を除くと \((\dim HH_1,\dim HH_0)=(1,10)\)。これは固定点データの独立計算でありtwisted orbifold HH公式の独立証明ではない。Baranovsky--Petrov原著 *Brauer groups and crepant resolutions*, Adv. Math. 209 (2007), §5 の適用箇所は **Theorem 6**。Theorem 5は非同変なAzumayaの場合の別定理。Tabuada--Van den Bergh (2018), Corollary 1.34も同じ引用番号を明記する。Perry (2022) Theorem 3.5の滑らかなproper圏族のHHの局所自由性・底変更を一次PDFの該当頁で確認した。
+- **五次元三重積**：独立のSymPy 1.14有理数計算で、\(F_0\) と \(F_2\) の次数3の偶符号不変単項式はいずれも33、一次偏微分に一次式を掛けた不変関係は19独立、Jacobian不変次数3は14。四中心変数だけの三次単項式像はそれぞれ13と14。3つの非恒等sectorは各7次元という原稿の有限計算と整合し、全三重積の階数34/35を支持する。相対twisted MF対角核のsector分解、生成性、Serre公式と乗法まで一括して形式検証したのではない。
+- **新しい帰結**：`nft:cor:nonclosed-cubic-locus` は既存 `nsf:thm:all-dimensions`, `nfc:thm:counterexample`, `nft:prop:triple` の論理的系。`nft:prop:jacobian-necessary` はLin--Zhang (Math. Ann. 391 (2025); arXiv:2310.09927v2)のSerre代数・Jacobian環の次数1--3の比較と、正則列・Euler恒等式から得る必要条件。共通零点がないことと積の全射性は可換実現の必要条件であり、十分性は主張しない。これらを独立した新規定理の初出確定とはしない。
+- **未実行の確認**：当該GitHub保存コードの全再実行、全体のLuaLaTeX参照収束、完全なDG/MF証明の再検証、形式証明器、外部査読・網羅的先行研究調査。以前の計算PASS記録を今回の実行結果として報告しない。
+
 
 **一方向九変数の有限PBW濾過収縮（v91）の確認範囲。** [本文節](../papers/sections/mixed/interfactor_clifford_filtered_shamash.tex)（`ifj:lem:filtered-koszul-contraction`, `ifj:prop:shamash-fourth-finite-formula`, `ifj:cor:finite-shamash-source-mf`）には既知の相対Koszul完全性とPBWの細分次数に基づく有限収縮式、P₃→P₄の既存H,Gゲージを固定した有限算法、s₂,s₃を含む内部次数を忘れた32|32源MFの数学的証明を記載した。基礎のhomological perturbation lemmaとShamash再帰は既知（Crainic; Eisenbud–Peeva）。**今回実行した検算：** `python3 computations/verify_shamash_dimension_table.py`と同じローカルコードが、原点D₄の1120×315・階数280、q別0,18,72,100,72,18,0、D₅の840×126・rank120、D₆の336×21・rank21を整数組合せ式で計算して4群PASS・終了コード0。これは完全性を入力とした次元算術の検算で、実際のPBW D₄行列のpivot 280個や高次J,s₂,s₃の係数は**計算未実施**。**組版：** 該当の日本語TeX節についてローカル独立ltjsarticle wrapperをLuaLaTeXで二巡し、3頁・終了コード0・未解決参照警告なし、PNG全頁をまとめて表示確認した。これは引用用stubを持つ独立wrapperであり、GitHub保存の混合稿全文や三稿全文の組版・全ラベル・文献相互参照の確認ではない。新節と検算器のGitHub保存blobを読み戻し、ローカルの組版・実行ソースの `git hash-object` と一致を確認した（節 `62d3c58baed4d717f17657f88c4778306e14c0fe`、コード `94adb7aba440c50a9defc2b0f78eeeea15433865`）。**未検証：** 原点S₃×S₃を保つ既存外積とのゲージ一致、graded window・三乗period、比較Hom(i,p,h)、unit/counit、46原式・12比較係数、形式証明、査読・網羅的初出調査。
 

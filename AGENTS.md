@@ -1,13 +1,13 @@
 # Research instructions — nc-cubic
 
-2026-11-23 / v91。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-24 / v92。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
-- **Main conjecture:** 任意の滑らかなnc cubic 𝒳について、同じ次元の滑らかな可換cubic XとKu(𝒳)≃Ku(X)が存在する。
-- まずC上、n≥3の存在を最優先とする。「任意」をgenericや既知の良い表示へ弱めない。全intrinsic対象の定義・認識と表示被覆は未完成として明記する。point functorの表現可能性・表示独立性も必要な範囲で検証する。
+- **最優先問題:** 全称的な可換Ku実現予想は広い定式化で三次元、smooth proper変形連結を仮定した狭い版でも五次元で否定された。以後は可換Ku実現可能な対象の内在的な特徴付け（HH・Serre自然変換環・表示・境界・実比較核）と二反例の独立監査を中心にする。
+- C上、n≥3。旧全称命題は反例を認めるため保持しない。既存の固定Sklyanin因子別smooth比較とClifford20変数・対角三様体の肯定結果は各仮定の範囲で保持し、一般化しない。全intrinsic対象の認識・表示被覆は、実現可能な部分を分類するため継続する。
 - `cmm:thm:universal-kernel` は同一S(1,−1,−1)の任意個k≥2、固定非零重み、任意α,cで残余線束圏の普遍Morita比較を与える。可換smooth開で相対perfect核・全coherent Ku比較となる。`mcs:cor:universal-scale` は全kでκ_k²=27/28を証明し、符号を選んでκ_k=3√21/14とする。一因子のAzumaya Morse点から非smooth係数の包含を先に得て、構成済みの全係数比較・判別次数・非零二次momentで較正する。κの数値から因子追加に対する核の全標識互換性を結論しない。rank8^k判別行列は特殊化後の多重根・非被約臨界点を許す。3|kでは対称rotation分裂を仮定せず全次数格子と文字遷移を保持する。指定二ブロックの全smooth c・norm全64根の明示比較を保持する。全線形族は下記lcc定理で扱う。
-- 主予想の正本は主原稿の `conj:nc-main`。同じ可換Ku標的上でPt(𝒳)≃Z_X(π)も選べるという素朴な期待は一般には成り立たず、独立した予想や主予想と同格の最優先目標にしない。本文の注意 `ppz:rem:naive-expectation` と不一致の例として説明し、Introductionから参照する。既存の定理・証明・計算は保持し、修正版の予想探しを自動的にP0へ戻さない。零スキームの非被約構造を含め、point shiftの固定点とは区別する。
+- 否定された旧全称命題と反例の正本は主原稿の `conj:nc-main`, `qfo:thm:obstruction`, `nfc:thm:counterexample`。`nft:prop:jacobian-necessary` は可換実現の必要条件、`nft:cor:nonclosed-cubic-locus` は五次元smooth proper変形族での実現locusを与える。同じ可換Ku標的上でPt(𝒳)≃Z_X(π)も選べるという素朴な期待は一般には成り立たず、独立した予想や主予想と同格の最優先目標にしない。本文の注意 `ppz:rem:naive-expectation` と不一致の例として説明し、Introductionから参照する。既存の定理・証明・計算は保持し、修正版の予想探しを自動的にP0へ戻さない。零スキームの非被約構造を含め、point shiftの固定点とは区別する。
 
 ## 現行結果の範囲と研究上の注意
 
