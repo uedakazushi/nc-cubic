@@ -152,7 +152,7 @@ $\operatorname{rank}D_{6,0}=21$ を得る。
 \label{ifj:cor:finite-shamash-source-mf}
 許容因子を固定した一方向九変数族の Koszul 複体には、
 全係数にわたり $D_{\mathrm{MF}}^2=w_s$ を満たす
-非可換源の $\Z/2$-次数付き自由 $32\mid32$ 行列分解を、
+非可換源の $\ZZ/2$-次数付き自由 $32\mid32$ 行列分解を、
 式\eqref{ifj:eq:finite-pbw-contraction}を用いる有限算法で指定できる。
 これは各行列成分を印刷した閉式ではなく、
 内部次数 $N\le10$ の有限個の原点行列逆と PBW 積による構成である。
@@ -202,3 +202,43 @@ rotation と指定三乗周期の coherence を与えない。
 式\eqref{ifj:eq:fourth-hpl-formula}の九変数係数と
 非可換 $20\times20$ 恒等式を独立の厳密検算器で照合する。
 \end{remark}
+
+\begin{proposition}[標準係数での $J$ の有理 PBW 証明書]
+\label{ifj:prop:third-middle-certificate}
+$\tau_1=\tau_2=2$, $a_1=a_2=1$ とし、先行する二つの検算器の $H,G$ を選ぶ。
+$D_{4,0}$ の各二重次数ブロックで、原点行列の独立列と、これに制限した
+行列の独立行を辞書式順に選ぶ。この小行列による切断を使った $J$ の
+非零 PBW 係数数は、$\Lambda$ の次数 $0,1,2$ で順に $122,516,450$ である。
+このゲージでは $d_4J+Gd_3=w\mathbf1_{20}$ を全九係数上で満たす。
+\end{proposition}
+
+\begin{proof}
+定理\ref{ifj:thm:mixed-koszul-frobenius-upper}の六次 trace を具体化する。
+一因子の三次 trace を $T(u_1u_2u_3)=1$ で規格化すると
+$T(u_i^3)=2$, $T(u_i^2u_j)=0$ ($i\ne j$) である。後式は
+$u_i^2=2u_ju_k$ を巡回して $1-2^3\ne0$ を使えば従う。
+一方向では六式の Jacobian はブロック三角形である。
+各対角行列式を $2^{-3}$ で正規化すると分離因子では $-7u_1u_2u_3$
+および $-7v_1v_2v_3$ となる。後者の混合補正には $u$ が二つ以上あるため
+前者との積で消える。よって六次 socle の規格化係数は $49$ である。
+$u$ 次数 $3$ の trace は両因子の $T$ の積を $49$ で割った値となる。
+$u$ 次数 $>3$ の単項式は零であり、偶数次の trace は
+$u\mapsto-u$ に対する socle の反変性で零となる。
+
+残る $u$ 次数 $1$ では $u_i$ と $v$ の五次単項式の積を扱う。
+三次の $v$ 単項式 $m$ を各関係
+$v_b^2-2v_{b+1}v_{b+2}=-\sum_a\Lambda_{ab}q^x_a$ に掛けると、
+右辺の trace は $-\sum_a\Lambda_{ab}T(u_iq_a^x)T(m)/49$。
+五次単項式は $21$ 個、方程式は $30$ 本となる。
+有理行列は階数 $21$、各右辺は全行で整合する。
+これで $d_4$ の trace が九係数に一次以下で確定し、twist の交差符号を付けて
+式\eqref{ifj:eq:mixed-frobenius-d4}を得る。
+PBW 積で $B_2\to B_3$ の作用行列を作り、小行列を使って $J$ を
+係数次数ごとに解く。原点小行列の階数は順に $18,72,100,72,18$。
+$J$ の二次までを右辺に戻して、PBW 全行で四次までの係数を照合する。
+$d_4$ の作用は二次以下、$Gd_3$ の PBW 積は四次以下なのでこれで尽きる。
+付属検算器 \texttt{verify\_clifford\_mixed\_shamash\_third\_middle.py} は、
+全二十列を有理数上で照合し、オプションでピボットの行列添字・行列式と
+$J$ の全非零係数を JSON として出力する。この切断と
+式\eqref{ifj:eq:filtered-koszul-hodge}の直交切断との一致は用いない。
+\end{proof}
