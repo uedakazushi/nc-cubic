@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月23日 / v80。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月23日 / v81。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -50,6 +50,8 @@
 **二重被覆のtrace・対角分離元と相対HH収縮を完全表示した。** [新命題と証明](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:prop:cover-trace-casimir`, `ifj:cor:cover-hochschild-contraction`）は、符号固有線束I=(X,Y)を冪等行列P_I=δ⁻¹[[-X(X−2a),−Y(X−2a)],[Y,g]]の像として扱い、BをR³の階数2直和因子にする。被覆のΘ=(η⊗η−(X−2a)ξ⊗ξ)/δはΘ²=1で、e+=(1+Θ)/2がB⊗_R Bの対角を切り出すtrace-Casimir/分離冪等元となる。これにより有限被覆のunit/counitに必要な分裂と、任意のB-双加群係数でHH_R^{>0}(B,M)=0を示す明示Hochschild収縮が得られる。形式的a(s),b(s)の三次jetではδ(s)⁻¹を直接展開すればよく、有限étale被覆のArtin持上げの一意性は[Stacks Tag 0BQB](https://stacks.math.columbia.edu/tag/0BQB)の既知結果。[厳密計算](computations/verify_clifford_cover_trace_casimir.py)はGitHub保存済みソースを独立に復元・実行し、SymPy 9群PASS・終了コード0、Git blob SHA一致まで確認した。ただしこれは**Ku側の曲率付きKoszul–Shamash HPL収縮ではなく**、rotation・三乗周期と46原式係数、12数値は未完成。
 
 **二捩れPicardの一点捩れを直接的な対称線形MFで内蔵した。** [新命題と系](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:prop:picard-symmetric-linear-mf`, `ifj:cor:picard-symmetric-hesse-family`）では、Weierstrass三次F=Y²Z−X(X²+aXZ+bZ²)に対してL=[[X,Y,0],[Y,aX+bZ,X],[0,X,−Z]]の行列式をFとし、余核がM=O_E(p−o)となる対称3×3線形MFを構成した。従来の2×2 MFが余核O(−p)だったのに対し、今回は一点捩れO(o)を別操作なしで次数零線束として保持する。−adjLはu=X/Zで規格化したM²≃Oの対称積行列であり、反転D=diag(−1,1,1)と厳密両立する。元のClifford Hesse fτへの座標変換ではdetLτ=4cτ² fτ、第二微分(4cτ²)⁻¹ adjLτで指定方程式を分解し、別途μ₃枝を追加しない。一般的な線形対称表示はBeauville・Buchweitz–Pavlovの既知結果として一次資料を引用。[厳密検算コード](computations/verify_clifford_picard_linear_mf.py)は10群PASS、ローカル独立LuaLaTeX簡約抜粋1頁を2巡組版・表示確認。**ただし四混合probeではPicard MFはsに依存しないため、実Ku核・12係数の数値はまだ未構成**。
+
+**対称Picard行列分解から有限被覆の符号積へのアフィン接続を明示した。** [命題と証明](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:prop:picard-affine-bridge`）では、3×3対称行列分解LをZ=1で三角共役し、2×2行列S=[[x,y],[y,x²+αx+β]]と可縮な一階因子に分解する。coker S≃I=(x,y)、β可逆ならI²=xAなので規格化したM²積はrs/xとなり、二重被覆B=R⊕Iの符号成分の積と一致する。反転も厳密に保たれ、xの逆元は使わない。[有限恒等式の検算コード](computations/verify_clifford_picard_affine_bridge.py)は8群PASS。これはアフィン上の縮約で、斉次Picard線束の一点捩れ・非可換Ku比較核・rotation・三乗周期および12高次係数を決めたものではない。
 
 **固定tensor境界の全PBW表示まで、因子別比較の適用範囲が広がった。** [因子間変形の節](papers/sections/mixed/interfactor_deformations.tex)では、任意の可換係数環と厳密な中心変数の下で、因子間の一次・定数補正と内部関係の他因子出力が全て零になることを証明した（`ifp:thm:factorization`）。因子別分解は元の生成元で成立し、形式的gaugeや被約性を要しない。指定中心三次があれば全許容正規形へ入り、smoothness判定・一般中央flag・全coherent Ku比較を適用できる（`ifp:cor:central-comparison`）。固定した最高次境界とPBW性は仮定として残る。
 
