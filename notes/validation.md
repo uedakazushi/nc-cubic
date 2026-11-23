@@ -1,5 +1,7 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
+- **二捩れの分類と Clifford 比較。** `computations/verify_diagonal_sign_sectors.py` は 432 個の三成分のアフィン座標枠で四つの楕円 sector を確認する。`computations/verify_diagonal_clifford_dual.py` は不変偶代数の積と中心性、二つの底曲率の一致、Koszul 微分と二つの閉演算子、ねじれた奇生成元の Clifford 関係を多項式恒等式として検算する。全対象の生成・滑らかさ・同変降下と直交部分の同定は本文 `ndc:thm:dual`, `nsf:thm:all-dimensions` の証明による。
+
 - **五変数での指数制約。** `computations/verify_diagonal_quantum_support.py` は全 3,125 写像を 47 軌道に分け、Smith 不変因子と指数四が現れる唯一の軌道を検算する。位数四を実際に除く幾何学的な理由は主稿 `nds:cor:six` の直線上の偏導関数の計算による。
 
 - **巡回五頂点型の可換実現。** `computations/verify_cyclic_fermat_sector_comparison.py` は三つの Hochschild 次数における 19,683 成分、130 平面の三種のねじれ、729 通りの合成障害、四つの差ベクトル上の交換子形式を整数算術で検算する。比較関手の存在は主稿の二変数 tilting 対象、共通次数への降下、群作用付き同値と誘導・制限に依存する（`nqr:thm:cyclic-fermat`）。

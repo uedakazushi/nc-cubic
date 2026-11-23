@@ -1,0 +1,146 @@
+% !TEX root = ../nc-cubic.tex
+\subsection{直線からの射影と二捩れ型の可換実現}
+\label{ndc:sec:dual}
+本節の係数は、量子式を行列不変環に移した\emph{後}の
+可換式の係数とする。とくに行列基底に由来する $xyz$ の定数倍を含む。
+$G=(\mathbb Z/2)^2$ は $x,y,z$ の偶数個の符号を変え、
+$\alpha$ は非自明な交換子を持つ乗数とする。
+\begin{theorem}\label{ndc:thm:dual}
+定理\ref{nds:thm:signs}の型 II の可換被覆を
+\[
+ Y=V\bigl(L_1x^2+L_2y^2+L_3z^2+\lambda xyz+g\bigr)
+\]
+と書く。ここで $L_i,g$ は $u,v$ の式である。
+$Y$ が滑らかなら
+\[
+ Y^\vee=V\left(L_1x'^2+L_2y'^2-L_3z'^2
+                  +\lambda x'y'z'+g+4L_1L_2L_3/\lambda^2\right)
+\]
+も滑らかで、$\Ku(Y)^{G,\alpha}\simeq\Ku(Y^\vee)$ という
+$\C$-線型 dg Morita 同値がある。
+\end{theorem}
+\begin{proof}
+\emph{滑らかさ。}
+$P=L_1L_2L_3$, $h=g+4P/\lambda^2$ と置く。
+$\lambda\ne0$、各 $L_i\ne0$ の下で、滑らかさは
+$g,h$ がともに平方因子を持たず、$g,P$ が射影直線上に共通零点を
+持たないことと同値である。
+実際、$u=v=0$ では三つの active 偏導関数の消滅から
+$x,y,z$ のうち一座標だけが非零であり、対応する $dL_i$ は零でない。
+$(u,v)\ne(0,0)$ で active 座標がすべて零なら特異点の条件は $dg=0$。
+一つだけ非零、例えば $x$ なら $L_1=g=0$ かつ $dg+x^2dL_1=0$ である。
+二つの二変数斉次式が同じ点で消えればそこでの勾配は同一の一次元空間に入る。
+従ってこの共通零点では、$dg\ne0$ なら $x\ne0$ を選べ、
+$dg=0$ なら全 active 座標を零にできる。二座標だけが非零の場合は
+第三の偏導関数が消えない。三座標がすべて非零の場合には
+$L_i\ne0$ で、停留条件は $x_i^2=4L_jL_k/\lambda^2$ と
+$\lambda xyz=-8P/\lambda^2$ となる。逆に $P\ne0$ なら
+この積に合う平方根を選べる。残る二つの偏導関数はちょうど $dh$ である。
+Euler 恒等式も用いれば滑らかさの判定が従う。
+双対式で $g,h$ は交換し $P$ は $-P$ となり、$P=0$ では $h=g$ なので判定は不変である。
+
+\emph{比較する偶 Clifford 代数。}
+$Y$ 内の直線 $\ell=\{z=u=v=0\}$ は $G$-不変である。
+ここからの射影の conic bundle は底 $\PP^2_{z,u,v}$ 上で
+\[
+ L_1 X^2+2r X Y_0+L_2 Y_0^2+C T^2,\qquad
+ r=\lambda z/2,\qquad C=g+4L_3r^2/\lambda^2
+\]
+を持つ。
+これは $[x:y:z:u:v]=[X:Y_0:Tz:Tu:Tv]$ を代入し
+例外因子 $T$ を一度除いた式である。
+以後 $p=L_1,q=L_2$ と略記する。
+底の斉次環 $R=\C[u,v,r]$ 上で偶 Clifford 代数を $B$ とし、
+$r$ は次数一とする。Clifford 記号 $e_1,e_2,e_3$ はそれぞれ
+平方 $p,q,C$ を持ち、最初の二つの反交換子は $2r$、
+残る二つの反交換子は零とする。すると
+\[
+ 1,\quad a=e_1e_2-r,\quad b=e_1e_3,\quad c=e_2e_3
+\]
+は次数 $0,1,2,2$ の自由 $R$-基底であり、層化は円錐曲線束の
+偶 Clifford 代数 $\mathcal B_0$ である。積は
+\begin{gather*}
+ a^2=r^2-pq,\qquad b^2=-pC,\qquad c^2=-qC,\\
+ ab=-ba=rb-pc,\qquad ac=-ca=qb-rc,\\
+ bc=-(r+a)C,\qquad cb=-(r-a)C .
+\end{gather*}
+$e_1,e_2$ は $x,y$ の符号指標を持つ。底の $r$ はその積の指標を持ち、
+$e_3$ は斉次錐上で自明な指標を持つ。これは線 $\mathcal O(-1)$ の
+標準線型化を底の座標 $(z,u,v)$ に用いた記述である。
+
+$V$ を $G$ の唯一の既約 $\alpha$-射影表現とする。
+$\operatorname{End}(V)$ の共役作用の各固有線に
+$x,y$ の指標の $J,K$、積の指標の $M=JK$ を選ぶ。
+$J^2=K^2=1$, $JK=-KJ$, $M^2=-1$ である。
+$D=(B\otimes\operatorname{End}V)^G$ の中に、tensor 記号を略して
+\[
+ s=aM,\qquad a'=rM,\qquad b'=bJ,\qquad c'=cK
+\]
+を取る。$s$ は中心的で $s^2=pq-r^2$ である。
+先の積の表は $(r,a,b,c)\mapsto(s,a',b',c')$ としても成立する。
+例えば $a'b'=-rbK=s b'-p c'$、$b'c'=-(s+a')C$ である。
+この表は $C$ や $r$ を反転することなく成立する。
+
+これらが $D$ 全体を与えることも次数付きで確かめる。
+$R_0=\C[u,v,r^2]$ 上の基底は、四つの Clifford 基底と $1,r$ の
+八つの組に、それぞれ逆指標の行列を掛けたものである。
+具体的には $1,s,b',c',rM,ra,rbK,rcJ$ となる。
+$s a'=-ra$, $s b'=-rbK+p c'$, $s c'=q b'-rcJ$ だから
+$1,a',b',c'$ とその $s$ 倍への基底変更は単元行列式を持つ。
+また $R_0[s]=\C[u,v,s]$ である。従って新たな多項式底の上での
+$D$ は、交差係数 $s$、対角係数 $p,q$ と
+\[
+ C=h-4L_3s^2/\lambda^2
+\]
+を持つ円錐曲線束の偶 Clifford 代数そのものである。
+$s=\lambda z'/2$ とすれば、これは $Y^\vee$ の
+$x',y'$ の直線からの射影である。各元の次数も保たれる。
+
+\emph{全加群圏と残余成分。}
+$R$ 上有限な次数付き代数 $B$ の有限生成右加群の tails は
+$\operatorname{coh}(\PP^2,\mathcal B_0)$ と同値である。
+実際、可換底上の Serre 対応の層化と高次数切断加群に
+$B$ の作用を保持すればよく、$B$ 自体の次数一生成は要らない。
+有限群作用もこの対応を保つ。具体的に、$\alpha$-同変層から
+$\oplus_{j\ge0}H^0(\mathcal F(j))$ を取れば、その次数付き持上げには
+同じ乗数の線型化がある。
+$\alpha$-同変な次数付き $B$ 加群では $V\otimes B$ の全次数 shift が
+射影生成族であり、次数付き自己準同型代数は $D$ である。
+実際、有限次元の斉次生成空間を $G$-安定に取れば $V$ の直和になる。
+この Hom は各次数で $\operatorname{Hom}_{G,\alpha}(V,-)$ で計算され
+完全で忠実であるから、有限次元加群は正確に有限次元加群へ移る。
+従って tails で同値となり、$V\otimes\mathcal B_0$ は
+双対円錐曲線束の正則右加群 $\mathcal B_0^\vee$ に移る。
+ここで上付き $\vee$ は双対三様体側の代数を意味する。
+
+滑らかな三次三様体の直線からの射影について
+\cite[Section~2.1, Proposition~2.9]{NFMThreefoldCategoricalTorelli}は
+$\Ku(Y)$ を $D^b(\PP^2,\mathcal B_0)$ の奇 Clifford 加群
+$\mathcal B_1$ の右直交に同定し、Serre 関手は
+$\mathcal B_1$ を $\mathcal B_0[2]$ に送る。
+ゆえに $\Ku(Y)$ を $\mathcal B_0$ の右直交としても取れる。
+この同値は上の $G$-作用に関して合成則を保つ。
+実際、同論文の式 (2.2)--(2.9) の核は tautological section の
+Clifford 乗法の余核、blow-up の引戻し・押出し、および線型化した
+超平面束・例外因子の評価写像による mutation で構成される。
+いずれも直線と方程式を保つ線型作用に対して合成則を保つ構成である。
+Serre 関手も双対双加群で自然に可換する。例外対象の線型化の
+指標による違いは $V$ と tensor すれば同型になる。
+よってねじれ同変化した右直交は $V\otimes\mathcal B_0$ の右直交である。
+これは有限群の平均化と、例外成分のねじれ同変化が
+$\operatorname{Rep}^\alpha(G)=\langle V\rangle$ であることによる。
+上の完全同値はこの直交を $\mathcal B_0^\vee$ の右直交に移す。
+双対側にも同じ射影定理を適用して結論を得る。
+加群の完全同値、導来核、mutation はいずれも dg 模型を持つ。
+\end{proof}
+
+\begin{corollary}[五変数の全対角交換型]\label{ndc:cor:five-diagonal}
+複素数体上の任意の五変数対角量子多項式環と非零の中心三次式を取り、
+商の全 coherent 圏は smooth proper とする。この全表示族で狭い主予想が成立する。
+\end{corollary}
+\begin{proof}
+系\ref{nds:cor:six}で交換係数は六乗根に限られる。三成分だけなら
+定理\ref{nqr:thm:cyclic-fermat}で結論する。二成分もあれば
+定理\ref{nds:thm:signs}で型 II の純符号に帰着し、その量子残余圏は
+行列不変環表示により $\Ku(Y)^{G,\alpha}$ なので定理\ref{ndc:thm:dual}を適用する。
+\end{proof}

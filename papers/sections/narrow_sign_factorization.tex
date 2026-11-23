@@ -1,0 +1,127 @@
+% !TEX root = ../nc-cubic.tex
+\subsection{任意個の中心変数に対する二捩れ型の比較}
+\label{nsf:sec:general}
+\begin{theorem}\label{nsf:thm:all-dimensions}
+$m\ge2$、$U=(u_1,\ldots,u_m)$ とし、$p,q,l$ は $U$ の非零一次式、
+$g$ は $U$ の三次式、$\lambda\ne0$ とする。$G,\alpha$ は前節のものとし、
+$G$ は $U$ を固定する。$F=px^2+qy^2+lz^2+\lambda xyz+g$ に対して
+\[
+ F'=px'^2+qy'^2-lz'^2+\lambda x'y'z'+g+4pql/\lambda^2
+\]
+と置く。$V(F)\subset\PP^{m+2}$ が滑らかなら $V(F')$ も滑らかであり、
+\[
+ \Ku(V(F))^{G,\alpha}\simeq\Ku(V(F'))
+\]
+という $\C$-線型 dg Morita 同値がある。左辺は三つの反可換変数と
+$m$ 個の中心変数を持つ対応する量子中心三次商の全 coherent 残余圏である。
+\end{theorem}
+\begin{proof}
+滑らかさの計算は底の次元に依らず次の形になる。
+$P=pql$, $h=g+4P/\lambda^2$ とする。
+$U\ne0$ で active 座標が零個または三個の特異条件は、
+それぞれ $dg=0$ または $P\ne0,\ dh=0$ である。
+一個だけの場合を零個の場合と合わせれば、いずれかの $L=p,q,l$ に対して
+$g=L=0$ かつ $dg$ が $dL$ のスカラー倍となることも排除すべきである。
+二個だけの場合と $U=0$ は前定理と同じである。
+$L=0$ 上で $h=g$、$dh-dg$ は $dL$ のスカラー倍なので、
+全条件は $(g,h,l)\mapsto(h,g,-l)$ で不変となる。
+
+Orlov の整数次数付き行列因子化模型を使う。
+同変側の同値でも、次数による切り詰め、自由加群による射影および
+線束の例外部分は $G$-線型作用を保つ。有限群の同変化は
+中心拡大の指定文字成分として取る。
+全 coherent 圏について量子表示との同定は定理\ref{nqt:thm:reduction}の
+行列不変環と全次数シフトの射影生成族の証明による。
+非退化な乗数により各例外部分で既約射影表現は一つである。
+
+$r=\lambda z/2$, $s=\lambda z'/2$ とし、共通の係数環
+$H=\C[U,d]$ において $\deg d=2$ とする。
+二つの多項式底 $R=\C[U,r]$, $R'=\C[U,s]$ は
+$d\mapsto r^2$, $d\mapsto pq-s^2$ でそれぞれ $H$ 上自由階数二である。
+$C=g+4ld/\lambda^2$ を共通の曲率とする。残る二変数の二次部分は
+$Q=px^2+2rxy+qy^2$ および $Q'=px'^2+2sx'y'+qy'^2$ である。
+
+\emph{有限生成対象。}
+二重次数（コホモロジー次数、内部次数）で周期元 $t,t^{-1}$ を用い、
+$|t|=(2,-3)$、曲率は $tF$ とする。これは二つの自由加群を
+$(3)=[2]$ により並べた通常の graded MF である。
+$F=\sum_j A_jB_j$ の Koszul 因子化の微分を
+$\sum_j(A_j\iota_j+t B_j\epsilon_j)$ と書く。
+$\epsilon_j$ は外積で次数 $(-1,\deg A_j)$、$\iota_j$ はその収縮である。
+$A_j$ が周囲環で正則列なら、この因子化はその列の商加群の
+stabilization である。実際、通常の Koszul 解消に $\sum B_j\epsilon_j$
+という平方零の乗法ホモトピーを入れた Shamash 解消を作ると、
+十分先の二周期部分がこの微分になる。
+
+$K_C$ は $H$ 上で $(U,d)$ の Koszul 因子化とする。
+$g=\sum u_i g_i$ と書き最後の係数を $4l/\lambda^2$ とすればよい。
+$K_Q$ は $R[x,y]$ 上で $(x,y)$ と $(px+ry,rx+qy)$ を用いるものとする。
+$K=K_Q\otimes_H K_C$（自然な周期元を共通に取る）は $F$ の因子化で、
+$G$ は $K_C$ を固定する。これは $(x,y,U,r^2)$ の商
+$M=\C[r]/(r^2)$ の stabilization である。
+双対側にも $K'=K_{Q'}\otimes_H K_C$ があり、
+$(x',y',U,pq-s^2)$ の商 $M'=\C[s]/(s^2)$ を与える。
+
+$K'$ の内部シフト全体は双対側の全 MF を厚生成する。
+実際、$F'$ は $s$ 軸全体で消える。この軸の環 $\C[s]$ の次数付き
+導来圏で $s:M'(-1)\to M'$ の cone は、その二つのコホモロジーの
+shift の直和である。これは $\C[s]$ の大域次元が一であるためで、
+いずれも原点の剰余体のシフトである。軸からの加群の制限と
+特異圏への射影はこの分裂を保つ。
+滑らかな射影超曲面では剰余体の内部シフトが全 graded 特異圏を生成する。
+実際、Jacobian イデアルは各変数のある冪を含み、微分行列を微分すると
+その偏導関数の乗法は MF 上 null-homotopic である。
+各変数のその冪による Koszul 複体を対象に tensor すれば元の対象は
+そのシフトを含む直和の因子になる。一方、この複体で切った対象は
+特異圏に移す前に原点支持の有限長コホモロジーを持ち、剰余体から生成される。
+源側でも同じ議論で、作用を忘れた $K$ のシフトが生成する。
+ねじれ誘導・忘却と平均化により $K\otimes V$ のシフトは
+$\alpha$-同変全圏を生成する。ここで $K$ 自身は通常の $G$-線型化を持ち、
+ねじれ誘導は $K$ とねじれ正則表現 $V^{\oplus2}$ の tensor である。
+
+\emph{二変数の微分付き自己準同型。}
+$Q_{ij}$ を行列 $\left(\begin{smallmatrix}p&r\\r&q\end{smallmatrix}\right)$
+の成分とし、$\theta_i=\iota_i-t\sum_j Q_{ij}\epsilon_j$ と置く。
+$\operatorname{End}(K_Q)$ の超交換子微分では
+$\partial\epsilon_1=x,\ \partial\epsilon_2=y,\ \partial\theta_i=0$ である。
+$\theta_i$ の生成する Clifford 代数 $D_r$ は係数 $R[t^{\pm1}]$ 上
+反交換子 $-2tQ_{ij}$ を持つ。零微分の $D_r$ からの包含
+\[
+             D_r\longrightarrow\operatorname{End}(K_Q)
+\]
+は二重次数付き dg 準同型である。
+実際、右辺は $R[x,y,t^{\pm1}]$ 上の基底
+$\epsilon^I\theta^J$ を持つ。これは通常の $\epsilon^I\iota^J$ から
+収縮の個数による三角基底変更で得られる。
+係数複体は各 $J$ で $(x,y)$ の Koszul 複体なので、その
+$R[t^{\pm1}]$ への収縮は $R[t^{\pm1}]$-線型に取れる。
+一変数では $x^i\mapsto x^{i-1}\epsilon$ ($i>0$) でよく、二つを tensor する。
+従って $\operatorname{End}_H(K_C)$ を周期元を共有して tensor した後も
+包含は準同型である。全自己準同型がこの tensor 積となるのは、
+両因子が有限自由で外積の微分が二つの微分の和だからである。
+この証明は内部シフト間の全 Hom を同時に保つ。
+$K\otimes V$ の同変自己準同型ではさらに $\operatorname{End}V$ を
+tensor して不変部分を取る。有限群の平均化によりこの操作は完全である。
+
+\emph{乗数を含む Clifford 同型。}
+$\tau=-t$ とし、$a=\theta_1\theta_2/\tau-r$ と置けば $a^2=r^2-pq$。
+前節の $J,K,M$ を用いる（ここでは $K$ の文字を行列に使う）。
+$(D_r\otimes\operatorname{End}V)^G$ の中で中心的な $s=aM$ は
+$s^2=pq-r^2$ を満たす。
+$\theta'_1=\theta_1J,\ \theta'_2=\theta_2K$ は
+平方 $\tau p,\tau q$、反交換子 $2\tau s$ を持つ。
+従って双対二変数の Clifford 代数 $D_s$ から
+$(D_r\otimes\operatorname{End}V)^G$ への射がある。
+これは $H[t^{\pm1}]$ 上の次数を保つ同型である。
+実際、$a'=\theta'_1\theta'_2/\tau-s=rM$ とすると、
+前節の基底変更と同じく $1,a',\theta'_1,\theta'_2$ と
+その $s$ 倍は不変部分の八項基底になる。
+具体的には $sa'=-ra$, $s\theta'_1=-r\theta_1 K+p\theta'_2$、
+$s\theta'_2=q\theta'_1-r\theta_2J$ である。
+$d$ の像は両側で同じであり、$\operatorname{End}_H(K_C)$ の底変更にも
+この同型を適用できる。ここで $G$ はこの最後の因子に自明に作用し、
+その各項は $H[t^{\pm1}]$ 上自由なので不変部分と tensor 積は可換する。
+以上の同型と準同型で、両側の生成対象の内部シフト間の
+すべての Hom と積が対応する。これらの dg 部分圏の厚生成・冪等完備化により
+主張の実際の dg Morita 同値が得られる。
+\end{proof}
