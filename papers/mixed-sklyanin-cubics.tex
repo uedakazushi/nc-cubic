@@ -148,7 +148,7 @@ trace pairingの双対Casimirと対角分離冪等元、相対Hochschild収縮�
 余分な一点捩れの処理を省くことができ、随伴行列が二捩れの二乗評価のscalarを明示する。
 固定Hesse方程式へは単元で正規化でき、三乗根を追加する必要がない。
 さらに分離 Clifford 因子の augmentation 解消から指定中心三次の二段 higher homotopies を多項式で明示し、巡回と反転の $S_3$ 作用を厳密に保つ四階 Koszul--Shamash 行列分解を構成する。非可換生成元への反転 $-P$ に対し最上 Koszul 線は符号 $-1$ を持ち、可換点曲線の $P$ の行列式と一致する。二因子の外積は原点の次数付き $32\mid32$ 模型を与える。さらに九変数の一方向混合 Clifford 族全体へ $S_3\times S_3$ が係数行列の行列置換を通じて作用し、二次関係と指定中心三次を保つことを証明する。混合行列分解の各次数の持上げが解を持てば、有限群平均で同変な解を選べる。ただし実比較核の存在とその Hom 収縮を得たわけではない。
-さらに双方向十八変数族の六生成元 augmentation に対し、
+さらに双方向十八変数族の六生成元 augmentation について、
 最初の二つの Koszul 微分を $6\times15$ 行列で明示し、
 全係数で $d_1d_2=0$ を証明する。中心体積元の完全交代表示から、
 指定中心三次の左右 null-homotopy の六端点も構成する。
@@ -160,7 +160,156 @@ trace pairingの双対Casimirと対角分離冪等元、相対Hochschild収縮�
 九変数の同変形式係数は次数一・二・三で一・四・十軌道に減る。
 一方、$d_4,d_5,d_6$ と中間 higher homotopy、混合 $32\mid32$ 行列分解、
 比較 Hom 収縮の実係数化は未完成である。
-相対 Koszul--Tate 模型へ移し、対象ごとに異なる homotopy を許しても
+数値比較には実核・指定周期を保つ収縮からこれらの原式係数を求める必要がある。
+二つの軸の切断が同一でも全体の smoothness が異なる例は、混合情報の必要性を示す。
+さらに交換子パラメータの族に、零と一を含む半局所底上の
+相対 smooth proper 模型と、選択済み一般点核の perfect 整延長を構成する。
+相対模型から非可換側の Hochschild 対合指標も決定する。
+交換子族の選択済み一般点核を固定値の核へ可逆な族で結ぶことは未解決である。
+一方、分離型比較と可換実現 locus の開性を用いれば、
+任意の固定した定数型混合係数に対する余有限の可換 Ku 実現は得られる。
+点スキームと Poisson 零スキームの一致を一般に期待できないことも、
+被約な孤立定常点を持つ例として本文で説明する。
+\end{abstract}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\section{序論}
+\label{mix:sec:introduction}
+
+\subsection{対象と比較問題}
+
+非可換三次の Kuznetsov 成分を可換三次の成分として実現する問題では、
+二次関係に中心変数が現れる混合表示が、楕円因子の分離テンソル比較の
+次に調べるべき具体的な対象となる。
+本稿は、中心一次変数を共有する固定楕円 Sklyanin 因子の
+固定 tensor 境界を持つ全 PBW・中心三次変形を扱う。
+さらに、二次境界自体を動かす Clifford 九・十八変数族と、
+因子係数も含む二十変数族の分離点近傍比較を扱う。
+因子間可換性は PBW 条件から証明する。一中心では全許容係数を比較し、
+任意個の中心では全 smooth 対象の良い中央 flag を構成して実比較を得る。
+中心と局所代数を明示できる $S(1,-1,-1)$ の定数型から記法を定め、
+線形補正、さらに異なる因子を許す全係数比較へ進む。
+基礎体は $\C$ とし、$\alpha=(\alpha_1,\alpha_2,\alpha_3)\in\C^3$ に対して
+\[
+ \mathcal B_\alpha
+ =\C\langle x,y,z,u\rangle/
+ \bigl([y,z]-x^2+\alpha_1u^2,\,
+       [z,x]-y^2+\alpha_2u^2,\,
+       [x,y]-z^2+\alpha_3u^2,\,
+       [u,x],[u,y],[u,z]\bigr)
+\]
+と置く。各生成元の内部次数は一である。
+式\eqref{cmo:eq:mixed-center}の正則な三次中心元を $\Omega_\alpha$ とし、
+$k\ge2$、$a_i\in\C^\times$ に対して
+\[
+ A_c=
+ \left(\bigotimes_{\C[u],\,i=1}^k\mathcal B_{\alpha^{(i)}}\right)
+ \Big/\left(\sum_i a_i\Omega_{\alpha^{(i)}}+cu^3\right)
+ \qquad(c\in\C)
+\]
+を考える。滑らかな場合の次元は $n=3k-1$ である。
+アファイン中心 chart の一因子を
+$D_\alpha=\mathcal B_\alpha/(u-1)$ と書く。
+
+$D^b(\operatorname{qgr}A_c)$ の全 coherent 残余圏と、
+有限個の線束から生成する圏の残余部分は区別する。
+前者を $\Ku_{\mathrm{coh}}(A_c)$ と書き、
+$\langle\OO,\OO(1),\ldots,\OO(n-2)\rangle$ の右直交で定める。
+後者の smoothness を証明した後に coherent 飽和を適用するのが、
+本稿の可換比較と滑らかさの議論の順序である。
+有限次元 chart 加群の射影次元、全 coherent 圏の proper 性、
+線束生成圏の smoothness も同一の条件として扱わない。
+
+\subsection{中心結果と成立範囲}
+
+本稿の中心結果は次の十項目に分かれる。
+完全な仮定と証明は各参照先に置く。
+
+\begin{enumerate}
+ \item \emph{全定数型変形の中心と、指定因子の局所構造。}
+ 定理\ref{cmo:thm:finite-center}は全 $\alpha\in\C^3$ に対して中心の生成元と
+ 有限中心性を与え、命題\ref{cmo:prop:center-hypersurface-degree}と
+ 定理\ref{cmo:thm:azumaya-regular}は PI 次数六と正則中心上の Azumaya 性を与える。
+ さらに $\alpha^{(1)}=(1,4,9)$、$\alpha^{(2)}=(16,25,49)$ について、
+ 定理\ref{cmo:thm:fourteen-node-orders}は各因子の全十四節点で
+ 完備局所代数を $\operatorname{End}_R(R^{\oplus a}\oplus I^{\oplus b})$、
+ $a+b=6$ と決定する。これにより単純加群と中央切断を調べる。
+
+ \item \emph{指定五様体族の smooth locus と残余不変量。}
+ 上の二因子と重み $1,100$ を固定する。
+ 定理\ref{cmo:thm:exact-sixty-four}は
+ $D^b(\operatorname{qgr}A_c)$ と $\Ku_{\mathrm{coh}}(A_c)$ が
+ smooth proper である条件を、明示的な次数六十四多項式 $P_{64}$ による
+ $P_{64}(c)\ne0$ と同値にする。
+ この $P_{64}$ は、定常点の出現を測る有限 norm $N$ とは互いに素である。
+ 命題\ref{cmo:prop:full-relative-hh}は
+ $U=\mathbb A^1\setminus V(P_{64})$ 全体で相対 smooth proper な模型を構成し、
+ 全 $c\in U$ に対して $HH_0=\C^2$、$HH_{\pm1}=\C^{21}$、
+ 他次数零を与える。系\ref{cmo:cor:rational-euler-comparison}の
+ 有理数値 Euler 形式も、後述の可換候補と一致する。
+
+ \item \emph{全中心係数の実比較核。}
+ 系\ref{cmo:cor:cofinite}は任意の固定した
+ $k\ge2$、$\alpha^{(i)}\in\C^3$、$a_i\ne0$ に対し、
+ 有限個を除く $c$ で何らかの滑らかな可換三次への Ku 同値を与える。
+ 他方、定理\ref{cmo:thm:commutative-discriminant-candidate}は指定五様体族について
+ 同じ $P_{64}$ と局所通常二重点を持つ明示的な可換族 $X_c$ を構成する。
+ 定理\ref{cmo:thm:all-central-commutative-kernel}は、この指定族の
+ $U=\mathbb A^1\setminus V(P_{64})$ 全体に相対 perfect 核を構成し、
+ \[
+   \Ku_{\mathrm{coh}}(A_c)\simeq
+   \Ku\bigl(V(\lambda(G-u^2L)+cu^3)\bigr)
+       \qquad(c\in U)
+ \]
+ を与える。中心超平面制限の twist は $\varrho_S^2$ であり、
+ underlying comonad は $\mathbf1\oplus\varrho_S^2[-1]$ に分裂する。
+ 二項のクラスは六つの混合係数、三項のクラスは非零定数倍の $c$ に等しい。
+ それらを普遍係数上で比較した後の全高次比較は一意である。
+ 特異係数では proper な残余線束圏の同値を先に構成し、
+ その smoothness の保存から尺度を決める。
+ 従って、判別集合の一致から同値の存在を推論する論法ではない。
+ 系\ref{cmo:cor:norm-commutative-kernel}は定常 norm の全六十四根に適用される。
+
+ \item \emph{任意ブロック数の普遍比較と判別行列。}
+ 定理\ref{cmm:thm:universal-kernel}は同一 $S(1,-1,-1)$ の任意個 $k\ge2$、
+ 固定した非零重み、全定数補正と中心係数を扱い、
+ $V(G-u^2L+\kappa_kcu^3)$ への残余線束圏の普遍 Morita 比較を構成する。
+ 二項の $3k$ 個の係数と三項の一係数以外には高次比較の自由度が残らない。
+ 可換 smooth 開では相対 perfect 核と各複素ファイバーの全 coherent Ku 比較を得る。
+ 系\ref{cmm:cor:determinantal-discriminant}は、その開を階数 $8^k$ の
+ 普遍臨界代数の乗法行列式で判定する。
+ 系\ref{cmm:cor:generic-nodal-discriminant}は一般の定数補正で
+ 正確に $8^k$ 個の相異なる特異中心係数があり、
+ 各可換標的に唯一の通常二重点があることを示す。
+ 系\ref{mcs:cor:universal-scale}は、一因子の八つの Azumaya Morse 点を任意個組み合わせ、
+ 全係数の比較と非零二次 moment から $\kappa_k^2=27/28$ を決定する。
+ 残る符号を選び、全ての $k$ で $\kappa_k=3\sqrt{21}/14$ とできる。
+ 特殊係数における臨界値の衝突は引き続き許される。
+ 指定した二ブロックについては、系\ref{cmo:cor:all-alpha-central-kernel}が、
+ 同じ二つの $S(1,-1,-1)$ と重み $1,100$ について
+ 全 $\alpha\in\C^6,c\in\C$ 上の残余線束圏の比較を与える。
+ 可換三次が滑らかな開上では相対 perfect 核となり、
+ 各複素ファイバーの全 coherent Ku へ移る。
+ また補題\ref{cmo:lem:odd-normal-quadric}は
+ 零係数の反変接空間を三次三様体の二次 Jacobian 成分に同定し、
+ $[u^3]$ を法方向の二次類として記述する。
+ 補題\ref{cmo:lem:cotwist-normal-quadric}は同じ類を
+ rank 一 Kn\"orrer 核上の明示 homotopy で計算する。
+
+ \item \emph{全線形 PBW 補正の正規形と可換比較。}
+ 命題\ref{mix:prop:linear-pbw-normal-form}は一次補正行列が対称であることを
+ PBW 性の必要十分条件とし、平行移動で対角成分を取り除く。
+ 定理\ref{mix:thm:linear-pbw-central-cubic}は残る三つの線形係数と
+ 任意の定数補正に対して、中心三次を全係数で明示する。
+ 系\ref{mix:cor:linear-pbw-multiblock-family}は任意ブロック数の
+ 正則中心商と次数別自由性を与える。
+ 式\eqref{mix:eq:linear-pbw-hochschild}では
+ $\operatorname{HH}^2_{-1}(S)\simeq\C^3$ を計算し、
+ 三つの対角外方向がこの空間全体を与える。
+ 定理\ref{mix:thm:linear-bockstein-injection}は、実際の自己交叉 class を
+ 相対 Koszul--Tate 模型へ移し、対象ごとに異なる homotopy を許しても
  これら $3k$ 方向が残余 Bockstein として消えないことを証明する。
  定理\ref{lcc:thm:universal-linear-kernel}は、非分裂 counit 上の比較群を計算し、
  全線形 PBW 族の残余線束圏を三角な多項式係数変更により可換三次へ比較する。
