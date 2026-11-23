@@ -6,7 +6,7 @@
 
 | 公表用原稿 | 役割と証明の範囲 |
 | --- | --- |
-| [nc-cubic.tex](papers/nc-cubic.tex) | 主予想、完備MF移送と一般点可換復元、楕円因子の基礎・分離型の直接Ku比較、残余圏の認識と可換実現の開性、三様体の点スキーム不一致例。 |
+| [nc-cubic.tex](papers/nc-cubic.tex) | 否定された旧全称命題・二反例とSerre--Jacobian必要条件、完備MF移送と一般点可換復元、楕円因子の基礎・分離型の直接Ku比較、残余圏の認識と可換実現の開性、三様体の点スキーム不一致例。 |
 | [cubic-moduli-descent.tex](papers/cubic-moduli-descent.tex) | 構造対象付きモジュライと表示認識、相対点関手・Poissonモジュライ、精密なPicard/Brauer/Kummer降下、周期位相と最小比較次数。 |
 | [mixed-sklyanin-cubics.tex](papers/mixed-sklyanin-cubics.tex) | 混合Sklyanin族の有限中心・局所代数・全smooth locus、任意固定楕円因子の全許容PBW・中心比較、全smooth多中心対象の比較と中央Bertini、固定tensor境界のPBW分解とClifford混合族、零係数の球面接着と有限MF模型、指定h候補の一般点核・整延長、被約point/Poisson不一致例。 |
 
@@ -80,7 +80,7 @@
 
 **固定tensor境界の全PBW表示まで、因子別比較の適用範囲が広がった。** [因子間変形の節](papers/sections/mixed/interfactor_deformations.tex)では、任意の可換係数環と厳密な中心変数の下で、因子間の一次・定数補正と内部関係の他因子出力が全て零になることを証明した（`ifp:thm:factorization`）。因子別分解は元の生成元で成立し、形式的gaugeや被約性を要しない。指定中心三次があれば全許容正規形へ入り、smoothness判定・一般中央flag・全coherent Ku比較を適用できる（`ifp:cor:central-comparison`）。固定した最高次境界とPBW性は仮定として残る。
 
-**主予想**は、任意の滑らかな非可換三次n-fold 𝒳に対し、同じ次元の滑らかな可換cubic XとKu(𝒳)≃Ku(X)が存在すること。任意に固定した滑らかな標準Sklyanin因子の組、k≥2、固定非零重み、一つの共有中心変数について、指定境界を保つ全ての因子別PBW・中心三次補正の残余線束圏を可換三次と普遍Morita比較した（`emc:prop:coverage`, `euk:thm:universal-kernel`）。異なるj、同種・CM、二捩れ、有限位数・無限位数を許す。二捩れでない因子は平行移動後の関係式の線形三方向、二捩れ因子は中心へ加えるu倍の平方三方向を一次係数tとする。標的はX=V(G+uQ(t)+u²L(t,α)+u³C(t,α,c))、L=𝔄α+R₂(t)、C=κc+R₁,₁(t,α)+R₃(t)で、𝔄は可逆、κ≠0。可換smooth開では相対perfect核と全coherent Ku同値を得る。定数Bocksteinは3k次元の同型、一次Bocksteinは3k方向で単射だが、比較の存在は単射性を前提としない。各固定tの一般αに対して8^k個の相異なる悪いcと各可換標的の唯一の通常二重点を得て、全係数・各固定tの判別超曲面は既約被約、臨界点のaffine空間が正規化となる。固定(t,α)の一変数特殊化には重複根を許す。
+**否定された旧全称命題**は、任意の滑らかな非可換三次n-fold 𝒳に対し、同じ次元の滑らかな可換cubic XとKu(𝒳)≃Ku(X)が存在すること。任意に固定した滑らかな標準Sklyanin因子の組、k≥2、固定非零重み、一つの共有中心変数について、指定境界を保つ全ての因子別PBW・中心三次補正の残余線束圏を可換三次と普遍Morita比較した（`emc:prop:coverage`, `euk:thm:universal-kernel`）。異なるj、同種・CM、二捩れ、有限位数・無限位数を許す。二捩れでない因子は平行移動後の関係式の線形三方向、二捩れ因子は中心へ加えるu倍の平方三方向を一次係数tとする。標的はX=V(G+uQ(t)+u²L(t,α)+u³C(t,α,c))、L=𝔄α+R₂(t)、C=κc+R₁,₁(t,α)+R₃(t)で、𝔄は可逆、κ≠0。可換smooth開では相対perfect核と全coherent Ku同値を得る。定数Bocksteinは3k次元の同型、一次Bocksteinは3k方向で単射だが、比較の存在は単射性を前提としない。各固定tの一般αに対して8^k個の相異なる悪いcと各可換標的の唯一の通常二重点を得て、全係数・各固定tの判別超曲面は既約被約、臨界点のaffine空間が正規化となる。固定(t,α)の一変数特殊化には重複根を許す。
 
 任意個の共有中心変数m≥1を持つ全許容因子別表示で、残余線束圏がsmoothであることと、一中心の係数多項式を偏極した可換三次X_polが滑らかであることを同値とした（`mcb:thm:smooth-locus`）。厳密な中心作用から作る原点blow-up圏、KhanのArtin stack上の分解、各chartへの一中心普遍核、絶対対角のZariski局所性を使い、有限中心性を仮定しない。滑らかな対象には各中間商もsmoothな一般中央flagが存在する（`mcb:thm:central-flags`）。従って、固定因子k≥2・非零重み・任意mの全smooth対象について、次元n=3k+m−2の滑らかな可換三次への全coherent Ku同値を得る（`mcb:cor:all-smooth-comparison`）。ここで実比較の標的は逐次構成のX_itであり、X_polへの実核を同定したとはしない。
 
@@ -92,7 +92,7 @@
 
 周囲のresultant開D(Δ)、中心三次の正則性を保証するD(c)、残余圏のsmooth proper開は別の領域である。上記A₂例はD(Δc)内部にも残余非smooth点があることを示すが、残余smooth locusの全境界はまだ明示していない。一般係数の有限étale比較を全smooth係数への比較へ拡張したとはしない。十八・二十変数族と尺度・jet・境界の証明の正本は上記の混合稿の各節に置き、研究ノートには再開に必要な要点と残る障害を保持する。
 
-まずC上、n≥3の主予想を最優先にする。genericな表示のみへ「任意」を弱めず、全intrinsic対象の認識と被覆を課題として残す。両Cliffordの二十変数族の形式完全性・モジュライの稠密開・一般係数の有限étale比較、および一般混合尺度の三乗は証明済みの入力とする。次は固定切片の十二係数の最初の非零値を実計算し、比較核のKummer三枝の選択と降下、残余smooth locusの境界と核延長を調べる。偏極標的への実核、全比較核のgerbe、全smooth係数への比較、選択済みh核のdefect零特殊化も継続する。原稿・独立読解・計算・組版・保存の確認状態は [検証範囲](notes/validation.md) を参照する。
+C上、n≥3の可換Ku実現可能なクラスの特徴付けを最優先にする。旧全称命題は反例で否定済みであり、全intrinsic対象の認識と被覆は成立可能な領域と障害を理解するために継続する。両Cliffordの二十変数族の形式完全性・モジュライの稠密開・一般係数の有限étale比較、および一般混合尺度の三乗は証明済みの入力とする。次は固定切片の十二係数の最初の非零値を実計算し、比較核のKummer三枝の選択と降下、残余smooth locusの境界と核延長を調べる。偏極標的への実核、全比較核のgerbe、全smooth係数への比較、選択済みh核のdefect零特殊化も継続する。原稿・独立読解・計算・組版・保存の確認状態は [検証範囲](notes/validation.md) を参照する。
 
 - **多中心の全smooth対象と中央Bertini。** [多中心比較](papers/sections/mixed/multicentral_comparison.tex)が入口。[正規形](papers/sections/mixed/multicentral_pbw.tex)が全中心列の正則性を与え、[実blow-up](papers/sections/mixed/multicentral_blowup.tex)が射影方向の圏とOrlov分解を構成する。[smooth locusと中央flag](papers/sections/mixed/multicentral_bertini.tex)でK_A smooth ⇔ X_pol smoothを示し、一般flagから[逐次核](papers/sections/mixed/multicentral_iterated_comparison.tex)を全smooth因子別対象へ適用する。有限中心性を必要としない。
 - **横断二項の全階数と最後の中心値。** [Bockstein](papers/sections/mixed/multicentral_transverse_bockstein.tex)は定数関係の曲率と中心一次式のunary微分を分離し、Bの可逆性を証明する。[横断判別](papers/sections/mixed/multicentral_transverse_discriminant.tex)は各固定一次係数の一般二次係数に対する2^(3k+m−1)個の単純悪値、各唯一ODP、判別因子の既約被約性とaffine正規化を与える。

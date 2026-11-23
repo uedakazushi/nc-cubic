@@ -6,7 +6,7 @@
 
 | 原稿 | 役割 |
 | --- | --- |
-| [nc-cubic.tex](papers/nc-cubic.tex) | 本文を持つ主稿。主予想、一般点可換復元、楕円windowと分離比較、残余圏の認識・可換実現の開性、三様体の点スキーム不一致例。 |
+| [nc-cubic.tex](papers/nc-cubic.tex) | 本文を持つ主稿。否定された旧全称命題・二反例と内在的な必要条件、一般点可換復元、楕円windowと分離比較、残余圏の認識・可換実現の開性、三様体の点スキーム不一致例。 |
 | [cubic-moduli-descent.tex](papers/cubic-moduli-descent.tex) | 構造対象付きモジュライ、表示認識、相対点・Poisson幾何、Picard/Brauer/Kummer降下、周期位相と比較次数。 |
 | [mixed-sklyanin-cubics.tex](papers/mixed-sklyanin-cubics.tex) | 混合族の中心・局所代数・全smooth locus、任意固定楕円因子の全許容PBW・中心比較、全smooth多中心対象の比較と中央Bertini、固定tensor境界のPBW分解とClifford混合族、零係数の球面接着と有限MF模型、指定h候補の一般点核と整延長、被約point/Poisson不一致例。 |
 
@@ -31,7 +31,7 @@
 
 **否定された旧全称命題（広い定式化には反例がある）**：任意の滑らかな非可換三次 n-fold 𝒳 に対して、同じ次元の滑らかな可換三次超曲面 X が存在し、Ku(𝒳)≃Ku(X) となる。
 
-まず基礎体をC、次元をn≥3とし、通常のC線型dg Morita同値の存在を最優先にする。任意に固定した滑らかな標準Sklyanin因子の組、k≥2、固定非零重み、一つの共有中心変数について、指定境界を保つ全ての因子別PBW・中心三次補正の残余線束圏を可換三次と普遍Morita比較した（`emc:prop:coverage`, `euk:thm:universal-kernel`）。異なるj、同種・CM、二捩れ、有限位数・無限位数を許す。二捩れでない因子は平行移動後の関係式の線形三方向、二捩れ因子は中心へ加えるu倍の平方三方向を一次係数tとする。標的はX=V(G+uQ(t)+u²L(t,α)+u³C(t,α,c))、L=𝔄α+R₂(t)、C=κc+R₁,₁(t,α)+R₃(t)で、𝔄は可逆、κ≠0。可換smooth開では相対perfect核と全coherent Ku同値を得る。定数Bocksteinは3k次元の同型、一次Bocksteinは3k方向で単射だが、比較の存在は単射性を前提としない。各固定tの一般αに対して8^k個の相異なる悪いcと各可換標的の唯一の通常二重点を得て、全係数・各固定tの判別超曲面は既約被約、臨界点のaffine空間が正規化となる。固定(t,α)の一変数特殊化には重複根を許す。
+まず基礎体をC、次元をn≥3とし、成立可能な指定クラスごとに通常のC線型dg Morita同値を構成する。任意に固定した滑らかな標準Sklyanin因子の組、k≥2、固定非零重み、一つの共有中心変数について、指定境界を保つ全ての因子別PBW・中心三次補正の残余線束圏を可換三次と普遍Morita比較した（`emc:prop:coverage`, `euk:thm:universal-kernel`）。異なるj、同種・CM、二捩れ、有限位数・無限位数を許す。二捩れでない因子は平行移動後の関係式の線形三方向、二捩れ因子は中心へ加えるu倍の平方三方向を一次係数tとする。標的はX=V(G+uQ(t)+u²L(t,α)+u³C(t,α,c))、L=𝔄α+R₂(t)、C=κc+R₁,₁(t,α)+R₃(t)で、𝔄は可逆、κ≠0。可換smooth開では相対perfect核と全coherent Ku同値を得る。定数Bocksteinは3k次元の同型、一次Bocksteinは3k方向で単射だが、比較の存在は単射性を前提としない。各固定tの一般αに対して8^k個の相異なる悪いcと各可換標的の唯一の通常二重点を得て、全係数・各固定tの判別超曲面は既約被約、臨界点のaffine空間が正規化となる。固定(t,α)の一変数特殊化には重複根を許す。
 
 任意個の共有中心変数m≥1を持つ全許容因子別表示で、残余線束圏がsmoothであることと、一中心の係数多項式を偏極した可換三次X_polが滑らかであることを同値とした（`mcb:thm:smooth-locus`）。厳密な中心作用から作る原点blow-up圏、KhanのArtin stack上の分解、各chartへの一中心普遍核、絶対対角のZariski局所性を使い、有限中心性を仮定しない。滑らかな対象には各中間商もsmoothな一般中央flagが存在する（`mcb:thm:central-flags`）。従って、固定因子k≥2・非零重み・任意mの全smooth対象について、次元n=3k+m−2の滑らかな可換三次への全coherent Ku同値を得る（`mcb:cor:all-smooth-comparison`）。ここで実比較の標的は逐次構成のX_itであり、X_polへの実核を同定したとはしない。
 
@@ -79,13 +79,13 @@ Heisenberg同変核を選ぶと、残余一次式の写像はL(e_a)=ℓX_a、Q(y
 
 同一S(1,−1,−1)の既存結果では、指定規約でκ_k²=27/28、κ_k=3√21/14を保持する（`mcs:cor:universal-scale`）。Heisenberg同変な一次像は純ブロックJac₂の直和で、比較の七定数形のうち六定数χ_k,A_k,…,E_kは未数値化（`lec:thm:seven-scalar-form`）。一般の異なる因子へこの数値κを流用しない。指定二ブロックのP64・norm全64根・有限中心と局所型も保持する。残る核心は、全intrinsic対象の認識と表示被覆、最高次の二次境界を変える混合族の比較の具体化・全smooth係数への延長、偏極標的への実比較核、因子moduli上の核選択・降下である。一般の比較係数、一般PBW族のPI性・有限中心性、選択済みh一般点核のdefect零特殊化も未解決。
 
-**旧全称命題は否定済みであり、可換実現問題は成立範囲を分類する問題へ変更する。** 全対象の内在的な定義・認識、全O-marked moduliの代数性と表示による被覆は未完成である。少なくとも既存のAS正則周囲代数Bの中心三次商A=B/(w)は、良い開の外も研究対象とする。既知の一ブロック局所型stackの対象を全nc cubicと定義し直して主予想を解いたとはしない。point functorの表現可能性・表示独立性も必要な範囲で解く。主予想の定式化の正本は主原稿の `conj:nc-main` である。
+**旧全称命題は否定済みであり、可換実現問題は成立範囲を分類する問題へ変更する。** 全対象の内在的な定義・認識、全O-marked moduliの代数性と表示による被覆は未完成である。少なくとも既存のAS正則周囲代数Bの中心三次商A=B/(w)は、良い開の外も研究対象とする。既知の一ブロック局所型stackの対象を全nc cubicと同一視しない。point functorの表現可能性・表示独立性も必要な範囲で解く。旧全称命題の記録と反例の正本は主原稿の `conj:nc-main`, `qfo:thm:obstruction`, `nfc:thm:counterexample` である。
 
 ## 研究の進め方と達成基準
 
-個別の族について、実際のKu比較を構成できる対象範囲を調べる。O-markedモジュライ、点対応からの復元、残余Poisson射、全O同値・中心作用の認識は、そのための手段として位置付ける。比較次数・位相・全自己同値の精密化は、可換実現の存在と対象範囲に関わる障害を解消するときに優先する。point/Poisson一致への素朴な期待が失敗する例は、主予想の意味を明確にする補助的な内容として本文に置き、Introductionから参照する。
+個別の族について、実際のKu比較を構成できる対象範囲を調べる。O-markedモジュライ、点対応からの復元、残余Poisson射、全O同値・中心作用の認識は、そのための手段として位置付ける。比較次数・位相・全自己同値の精密化は、可換実現の存在と対象範囲に関わる障害を解消するときに優先する。point/Poisson一致への素朴な期待が失敗する例は、Ku実現と付加的な幾何構造を区別する補助的な内容として本文に置き、Introductionから参照する。
 
-個別の族での肯定結果の達成基準は、対象範囲と仮定を明記し、実際のKu同値を構成することである。point/Poisson一致を併せて述べる場合は、同じXについてpoint schemeと零スキームの同型まで証明する。不一致の例では全候補を排除できる範囲とその入力を明記し、可換Ku比較を必要とする三様体の論法と、全可換五様体を一括排除する論法を区別する。楕円成分のjの一致、点集合の一致、有限jet、幾何学的一般点だけの同値を全主予想の解決と扱わない。一般体上の核降下や全族の大域核sectionは、C上の存在とは別の強化として扱う。
+個別の族での肯定結果の達成基準は、対象範囲と仮定を明記し、実際のKu同値を構成することである。point/Poisson一致を併せて述べる場合は、同じXについてpoint schemeと零スキームの同型まで証明する。不一致の例では全候補を排除できる範囲とその入力を明記し、可換Ku比較を必要とする三様体の論法と、全可換五様体を一括排除する論法を区別する。楕円成分のjの一致、点集合の一致、有限jet、幾何学的一般点だけの同値を全対象のKu実現と扱わない。一般体上の核降下や全族の大域核sectionは、C上の存在とは別の強化として扱う。
 
 一般点可換復元・一ブロックモジュライ・満支持型比較は有効な部分結果として保持する。一つの中心変数を共有する任意の固定楕円因子の全許容PBW表示では全係数核を得ており、多中心ではsmoothness判定と一般中央flagから全smooth因子別対象を比較できる。固定tensor境界のPBW分解に続き、二次境界を動かす両Cliffordの十八変数族にも局所比較を得た。二十変数族の幾何的形式完全性、モジュライの稠密開と一般係数の有限étale比較、一般混合尺度の三乗を既知の入力として使う。次は固定切片の十二係数の最初の非零値を実計算し、比較核のKummer三枝の選択・降下と残余smooth locusの境界を調べる。全smooth係数への核延長、全比較核のgerbe、未被覆の内在的対象は残る。元の全intrinsic対象という目標は変えず、全中心作用を保つ比較と因子moduli上の降下も継続する。
 
@@ -105,7 +105,7 @@ Heisenberg同変核を選ぶと、残余一次式の写像はL(e_a)=ℓX_a、Q(y
 
 ## 現在の到達点と適用範囲
 
-| 対象・結果 | 主予想への到達点 | 関連する幾何と比較の限界 | 正本 |
+| 対象・結果 | 可換Ku実現への到達点 | 関連する幾何と比較の限界 | 正本 |
 | --- | --- | --- | --- |
 | 任意固定楕円因子の全許容PBW・中心三次 | 全係数の残余線束Morita比較、可換smooth開の相対perfect核・全coherent Ku。二捩れβも含む | 固定因子のC上の存在。因子moduli上の核選択・全intrinsic被覆は残る | `emc:prop:coverage`, `ebk:lem:boundary`, `ebc:prop:constant-iso`, `ebc:thm:first-injection`, `euk:thm:universal-kernel` |
 | 固定tensor境界の全二次PBW表示 | 任意可換係数環上で元の生成元のまま厳密な因子別分解。中心三次があれば従来の全許容正規形へ入る | 厳密な中心変数と固定した最高次境界を仮定。全intrinsic被覆は含まない | `ifp:thm:factorization`, `ifp:cor:central-comparison` |
@@ -179,7 +179,7 @@ Heisenberg同変核を選ぶと、残余一次式の写像はL(e_a)=ℓX_a、Q(y
 
 ### P2-A：point/Poisson一致・不一致の例の検証
 
-以下は本文の例と補助的な幾何比較を支える課題であり、主予想と並ぶ存在予想や最優先の研究目標には置かない。既知の証明と計算を保持し、公表に必要な依存関係・適用範囲・文献比較を点検する。
+以下は本文の例と補助的な幾何比較を支える課題であり、可換Ku実現の判定と並ぶ最優先の研究目標には置かない。既知の証明と計算を保持し、公表に必要な依存関係・適用範囲・文献比較を点検する。
 
 1. **孤立零点定理と被約反例の外部検証・新規性調査。** 全Poisson構造への適用は `poisson-cubic` commit `9f91efa3465f18219c36c31750f1e66220faeaa7` の `thm:pg-normal` に依存する。表示・Jacobi延長・Hessianの基点自由性・Lie代数の根基排除を含む入力と、そこからの孤立零点排除・0次元CIの証明を分けて検証する。五様体では全標的を一括して排除でき、実比較核を持つnorm全64根でも不一致が成立する。不一致の証明と実Ku核の証明の依存を分けて点検する。正式な新規性の確認と外部査読・形式証明は未完了である。
 2. **三様体の全スキーム反例と実Ku比較を保持・点検する。** h=1の因子、指定Ω、THCR、分離MF積・Picard補正・周期同期、coherent飽和を入口とする。局所長さ8/埋込み次元3からHessian階数2への帰着、12点の制限三次、Mayanskiyの全Poisson分類、BMMSのcategorical Torelliが全標的排除の依存である。形式復元とspreadは必要入力ではない。この例の自然pairの被約一致は有効だが、全対象での被約point/Poisson一致へ一般化しない。
@@ -188,7 +188,7 @@ Heisenberg同変核を選ぶと、残余一次式の写像はL(e_a)=ℓX_a、Q(y
 
 ### P2-B：保持する精密算術・分類・公表作業
 
-既存の成果・証明・計算資産は削らない。次の補助課題は、主予想の比較核や表示範囲に関わる障害を解消する場合に優先度を上げる。詳細は研究ノートと各節が正本である。
+既存の成果・証明・計算資産は削らない。次の補助課題は、可換実現可能な表示範囲や実比較核に関わる障害を解消する場合に優先度を上げる。詳細は研究ノートと各節が正本である。
 
 - 中心作用の無限共役軌道のGalois降下、同種二因子のPell混合核・反転核の定義体、gerbeとperiod multiplier。全中心同変核判定はk≥3なら同種・CMも含み、k=2では幾何学的非同種の場合に適用する。
 - scalar和α=Σδ_iと自然位相Cube(v_i(p_i))の同時最小次数。自然周期q(ω³)=−1/v_ω(p)は決定済み。中心標識を忘れた最小次数の低下は未証明。
@@ -203,7 +203,7 @@ Heisenberg同変核を選ぶと、残余一次式の写像はL(e_a)=ℓX_a、Q(y
 
 孤立零点定理が使う正規形は `poisson-cubic` commit `9f91efa3465f18219c36c31750f1e66220faeaa7` の `papers/support/papers/sections/poisson_geometry.tex`、`thm:pg-normal` に固定する。これは本研究群の未公表入力であり、公表済み分類定理として扱わない。
 
-再開順序は本書 → 適用AGENTS.md → 研究ノートの主予想と該当節 → 該当する稿の証明 → 検証範囲。本文に証明がある既存内容は、planへ全文を重複しない。一般性はgeneralな稠密Zariski開、very general、全固定幾何点を区別し、Brauer–Severi ambientとsplit ambient、実O(1)と偏極類も区別する。
+再開順序は本書 → 適用AGENTS.md → 研究ノートの反例・成立範囲と該当節 → 該当する稿の証明 → 検証範囲。本文に証明がある既存内容は、planへ全文を重複しない。一般性はgeneralな稠密Zariski開、very general、全固定幾何点を区別し、Brauer–Severi ambientとsplit ambient、実O(1)と偏極類も区別する。
 
 基本確認は `python3 scripts/check_sources.py`、`python3 scripts/build_papers.py`。三稿の他稿参照も含めて組版する。必要な計算の入口はREADMEと検証範囲。PDFは `build/nc-cubic.pdf`、`build/cubic-moduli-descent.pdf`、`build/mixed-sklyanin-cubics.pdf`、SyncTeXも同じ出力先に置く。VS Code/LaTeX Workshopの三稿レシピを使う。GitHub反映は通常commitとmainへのfast-forward、認証できない経路を迂回して権限を広げない。保存の成否と数学的確認を分ける。
 
@@ -231,7 +231,7 @@ Heisenberg係数の有限証明書は `python3 computations/verify_mixed_equivar
 
 明示可換候補の再現入口は `python3 computations/verify_mixed_commutative_candidate.py`（9 PASS）。有理係数Jacobi環から臨界値・Hessian・P64の一致を厳密に検算する。これはKu比較核や全Poisson分類の計算検証ではない。
 
-比較不変量の再現入口は `python3 computations/verify_mixed_comparison_invariants.py`（9 PASS）。c=0候補のJacobian次数二・三の固有部分の有理階数、residueのdeterminant符号、同変HHの算術、pr(O(4)),pr(O(5))のEuler行列を確認する。全Uの相対smoothness・HHの階数一定性・根スタックの圏模型・affine MF比較は本文の証明による。特にaffine MFは全smooth領域で零であり、主予想には内部次数を保持した核が必要である。
+比較不変量の再現入口は `python3 computations/verify_mixed_comparison_invariants.py`（9 PASS）。c=0候補のJacobian次数二・三の固有部分の有理階数、residueのdeterminant符号、同変HHの算術、pr(O(4)),pr(O(5))のEuler行列を確認する。全Uの相対smoothness・HHの階数一定性・根スタックの圏模型・affine MF比較は本文の証明による。特にaffine MFは全smooth領域で零であり、射影Kuの比較には内部次数を保持した核が必要である。
 
 ## 研究全体に共通する一般原則と保存許可
 

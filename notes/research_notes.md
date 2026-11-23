@@ -581,7 +581,7 @@ Clifford族への適用は [interfactor_clifford_kodaira_spencer.tex](../papers/
 
 となる。有限中心の射影模型に単純加群を延長した一点対象の自己Ext級数は(1+z)⁵/(1−z²)。有限例外mutation後も高次自己Extの次元16が残るため、全coherent残余圏は非proper、properな残余線束圏は非smoothである。次数を忘れたaffine MFの比較から射影Kuへ外挿した結論ではない。
 
-有理数係数例はτ=2、Λ=M=−6E₁₁であり、h=−527、c=196、両行列式−16、横Hessian行列式2401となる（`ifd:ex:rational-a2`）。これによりD(Δc)全体を残余smooth locusとする可能性は排除される。二次形式の退化部分まで含めた正確な残余判別式、norm三次への実Ku核は未構成である。このsource自体は非smoothなので、滑らかなnc cubicに関する主予想の反例ではない。
+有理数係数例はτ=2、Λ=M=−6E₁₁であり、h=−527、c=196、両行列式−16、横Hessian行列式2401となる（`ifd:ex:rational-a2`）。これによりD(Δc)全体を残余smooth locusとする可能性は排除される。二次形式の退化部分まで含めた正確な残余判別式、norm三次への実Ku核は未構成である。このsource自体は非smoothなので、滑らかなnc cubicの可換実現可能性を論じる反例ではない。
 
 ### 二つの因子係数を動かす二十変数と尺度較正
 
