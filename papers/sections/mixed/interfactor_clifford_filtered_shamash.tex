@@ -1,0 +1,201 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v91.
+\subsubsection{PBW 濾過による有限収縮と上位 Shamash 成分の構成式}
+\label{ifj:subsubsec:filtered-shamash}
+
+ここでは前節の $H=P_1\to P_2(3)$、$G=P_2\to P_3(3)$ を保持し、
+残る一次 homotopy と higher homotopy を\emph{有限行列の逆と積による式}に還元する。
+これによって行列全成分を表示した、あるいは比較 Ku 核を得たとは主張しない。
+用いる収縮は非可換源の Koszul 複体のもので、
+比較対象間の Hom の special retract とは異なる。
+
+\begin{lemma}[一方向 PBW 濾過の有限摂動収縮]
+\label{ifj:lem:filtered-koszul-contraction}
+許容 $\tau_1,\tau_2$ を固定し、$V=0$, $\Lambda=sU$ とする。
+一方向の六段 Koszul 複体 $P_\bullet(s)$ の内部次数 $N>0$ の部分を
+$C_\bullet^{(N)}(s)$ と書く。
+六つの中心平方と平方なし Clifford 語からなる PBW 基底を用いて
+$C_\bullet^{(N)}(s)$ を $C_\bullet^{(N)}(0)\otimes\C[U,s]$ と同一視する。
+原点微分を $D_0$、変形微分を $D_s=D_0+\delta_s$ とする。
+
+$C_\bullet^{(N)}(0)$ の $\C$-線型収縮
+$h_0:C_i^{(N)}(0)\to C_{i+1}^{(N)}(0)$ を
+$D_0h_0+h_0D_0=1$, $h_0^2=0$、かつ二因子の $x$ 次数を保つように選ぶ。
+このとき
+\begin{equation}\label{ifj:eq:finite-pbw-contraction}
+ \boxed{\displaystyle
+ h_s=h_0(1+\delta_sh_0)^{-1}
+    =h_0\sum_{r=0}^{\lfloor N/2\rfloor}(-\delta_sh_0)^r}
+\end{equation}
+は $\C[U,s]$-線型な収縮で、
+$D_sh_s+h_sD_s=1$, $h_s^2=0$ を厳密に満たす。
+特に式\eqref{ifj:eq:finite-pbw-contraction}は形式無限級数ではない。
+
+標準係数 $\tau_1=\tau_2=2$ では、各 $x$ 次数ブロックの
+原点微分行列を $D_{i,0}$ とし、通常の有理 PBW 基底における転置を使えば、
+\begin{equation}\label{ifj:eq:filtered-koszul-hodge}
+ \Delta_i=D_{i+1,0}D_{i+1,0}^{\mathsf T}
+              +D_{i,0}^{\mathsf T}D_{i,0},
+ \qquad h_{i,0}=D_{i+1,0}^{\mathsf T}\Delta_i^{-1}
+\end{equation}
+とすることができる。$N>0$ では $\Delta_i$ は有理数上可逆であり、
+式\eqref{ifj:eq:finite-pbw-contraction}の係数は有限回の有理数演算だけで指定される。
+\end{lemma}
+
+\begin{proof}
+分離原点は二つの三生成元 Koszul 複体の tensor 積である。
+内部次数 $N>0$ では augmentation の次数零ホモロジーも存在せず、
+各 $x$ 次数ごとに完全な有限次元複体となる。
+したがって各ブロックで像と補空間を選べば、$h_0^2=0$ を持つ収縮がある。
+標準係数の式\eqref{ifj:eq:filtered-koszul-hodge}は有限次元 Hodge 分解である。
+複体の完全性と有理実行列性から $\Delta_i$ は正定値、
+よって逆行列は有理数成分を持ち、指定恒等式を満たす。
+
+PBW 語の実際の $x$ 次数は中心平方 $x_a^2$ を二つ、$x_a$ を一つとして数える。
+一方向の二次関係で $sU$ が出るたび、$x$ 二文字を $y$ 側の中心平方へ置換する。
+既存の細分次数 $\deg U_{ab}=(2,-2)$ と、
+全 Koszul 基底の細分次数により、$\delta_s$ の $s^r$ 係数は
+この\emph{実際の} $x$ 次数を少なくとも $2r$ 下げる。
+$h_0$ はその次数を保つため、固定した総内部次数 $N$ では
+$(\delta_sh_0)^{\lfloor N/2\rfloor+1}=0$ となる。
+
+$D_s^2=D_0^2=0$ と $D_0h_0+h_0D_0=1$ から
+\[
+ D_s(1+\delta_sh_0)=(1+\delta_sh_0)D_0
+\]
+が従う。これと $h_0^2=0$ を使うと
+$D_sh_s+h_sD_s=1$, $h_s^2=0$ が直接従う。
+この操作は Koszul 複体の有限次元 $\C$-線型操作であって、
+$h_s$ 自身の右 $B_s$-線型性は主張しない。
+\end{proof}
+
+\begin{proposition}[$P_3\to P_4$ の有限有理行列構成式]
+\label{ifj:prop:shamash-fourth-finite-formula}
+前二節の $H(s),G(s)$ をそのまま固定する。
+$K_3$ の二十基底を $e_\nu$ とし、$N=6$ の式
+\eqref{ifj:eq:finite-pbw-contraction}の $C_3^{(6)}\to C_4^{(6)}$ 成分を
+$h_{3,s}^{(6)}$ とする。このとき
+\begin{equation}\label{ifj:eq:fourth-hpl-formula}
+ \boxed{\displaystyle
+ J(s)e_\nu
+ =h_{3,s}^{(6)}\bigl((w_s\mathbf1_{20}-G(s)d_3(s))e_\nu\bigr),
+ \qquad 1\le\nu\le20}
+\end{equation}
+を各列に適用し、右 $B_s$-線型に延長すると、
+\[
+ d_4(s)J(s)+G(s)d_3(s)=w_s\mathbf1_{20}
+\]
+が\emph{全九変数の多項式恒等式}として成立する。
+$J(s)$ は $s$ の高々二次であり、$w_y$ 由来の部分は一次以下である。
+$\tau_1=\tau_2=2$, $a_1=a_2=1$ で前節の有理数証明書を入力すると、
+式\eqref{ifj:eq:fourth-hpl-formula}は、既存の $H,G$ のゲージを保った
+$J$ の全係数を有限有理行列逆によって\emph{一意に指定する算法}となる。
+ここではその係数を $1120\times315$ の行列として展開・計算実行していない。
+
+原点の作用素 $D_{4,0}:(B_2)^{15}\to(B_3)^{20}$ は
+$1120\times315$、階数 $280$ である。
+原点の $x$ 次数 $q$ ごとの行列サイズ・階数は
+\begin{equation}\label{ifj:eq:fourth-origin-block-ranks}
+\begin{array}{c|rrrrrrr}
+q&0&1&2&3&4&5&6\\\hline
+\dim C_4^{(6)}(q)&0&18&81&117&81&18&0\\
+\dim C_3^{(6)}(q)&10&108&270&344&270&108&10\\
+\operatorname{rank}D_{4,0}(q)&0&18&72&100&72&18&0
+\end{array}
+\end{equation}
+である。続く一次成分の原点作用素
+$D_{5,0}:(B_2)^6\to(B_3)^{15}$ と
+$D_{6,0}:B_2\to(B_3)^6$ はそれぞれ
+$840\times126$（階数 $120$）、$336\times21$（階数 $21$）となる。
+これらの階数は Koszul 完全性からの\emph{理論計算}であり、
+指定したピボット小行列の数値検算ではない。
+\end{proposition}
+
+\begin{proof}
+$d_3G+Hd_2=w_s\mathbf1_{15}$ と $d_2d_3=0$ より
+\[
+ d_3(w_s\mathbf1_{20}-Gd_3)
+ =w_sd_3-(w_s\mathbf1_{15}-Hd_2)d_3=0.
+\]
+補題\ref{ifj:lem:filtered-koszul-contraction}を各列へ適用すれば
+式\eqref{ifj:eq:fourth-hpl-formula}が厳密に解を与える。
+$N=6$ では収縮の和は $r\le3$ で停止する。
+$x$-曲率の各係数の $x$ 次数は $p+3-p'$、
+$y$-曲率では $p-p'$（$p$ は $K_3$、$p'$ は $K_4$ の $x$ 次数）で、
+それぞれ最大 $5$、$2$ である。
+内部次数二の PBW 係数に $s^mU^m$ が含まれるには
+実際の $x$ 次数 $p''\ge0$ に対して $2m+p''$ を必要とする。
+従って $m\le2$、$y$-部分では $m\le1$ である。
+
+原点の $B_0$ の二重 Hilbert 級数は
+$(1-t_x)^{-3}(1-t_y)^{-3}$ で、
+$K_i$ の $x$ 次数 $p$ の基底数は
+$\binom3p\binom3{i-p}$ である。
+よって
+\[
+ \dim C_i^{(N)}(q)=
+ \sum_p\binom3p\binom3{i-p}
+ \binom{q-p+2}{2}\binom{N-i-q+p+2}{2},
+\]
+ただし負の次数に対応する項を零とする。
+$N>0$ の Koszul 完全性と最高段 $P_6$ の単射性から
+$\operatorname{rank}D_{4,0}(q)
+=\dim C_4^{(6)}(q)-\dim C_5^{(6)}(q)+\dim C_6^{(6)}(q)$。
+これを各 $q$ に適用すれば表示の表と階数 $280$ を得る。
+同様に $N=7,8$ で $\operatorname{rank}D_{5,0}=120$、
+$\operatorname{rank}D_{6,0}=21$ を得る。
+\end{proof}
+
+\begin{corollary}[源の $32\mid32$ 曲率模型を指定する有限算法]
+\label{ifj:cor:finite-shamash-source-mf}
+許容因子を固定した一方向九変数族の Koszul 複体には、
+全係数にわたり $D_{\mathrm{MF}}^2=w_s$ を満たす
+非可換源の $\Z/2$-次数付き自由 $32\mid32$ 行列分解を、
+式\eqref{ifj:eq:finite-pbw-contraction}を用いる有限算法で指定できる。
+これは各行列成分を印刷した閉式ではなく、
+内部次数 $N\le10$ の有限個の原点行列逆と PBW 積による構成である。
+\end{corollary}
+
+\begin{proof}
+前命題の $J=s_{1,3}$ に続き、$i=4,5$ で
+$R_{1,i}=w_s\mathbf1-s_{1,i-1}d_i$ を列ごとに収縮して
+$s_{1,i}:P_i\to P_{i+1}(3)$ とする。
+これで $ds_1+s_1d=w_s$ が成立する（$P_6$ の式は $d_6$ の単射性による）。
+$s_0=d$ とし、$r=2,3$ に対して
+\begin{equation}\label{ifj:eq:higher-shamash-recursion}
+ R_{r,i}=-\sum_{a=1}^{r-1}s_{a,i+2(r-a)-1}s_{r-a,i}
+          -s_{r,i-1}d_i,
+ \qquad s_{r,i}(e)=h_{i+2r-2,s}^{(i+3r)}(R_{r,i}(e))
+\end{equation}
+と置く。存在する添字だけを用い、$s_{r,-1}=0$ とする。
+式の右辺の合成は $P_i\to P_{i+2r-2}$ であり、
+既に得た $s_a$ の方程式と中心性から $dR_{r,i}=0$。
+各基底に有限収縮を適用し右線型に延長すれば
+\[
+ ds_r+s_rd=-\sum_{a=1}^{r-1}s_as_{r-a}
+\]
+を得る。$r=2$ の対象は $0\le i\le3$、
+$r=3$ では $0\le i\le1$ に限られる。
+残る最上段の恒等式は $d_6$ の単射性から従う。
+$r=4$ の障害 $s_1s_3+s_2^2+s_3s_1$ は
+$P_0\to P_6$ の成分だけを持ち、$d_6$ との合成が零なので零である。
+$r\ge5$ の障害は長さ六から自動的に零になる。
+したがって $D_{\mathrm{MF}}=d+s_1+s_2+s_3$ の偶奇折畳みは
+$D_{\mathrm{MF}}^2=w_s\mathbf1$ を満たし、
+自由rankは $1+15+15+1=32$ と $6+20+6=32$ になる。
+相対三周期に必要な内部shiftは通常の Shamash 折畳みで付ける。
+\end{proof}
+
+\begin{remark}[証明範囲と次の計算]
+式\eqref{ifj:eq:higher-shamash-recursion}は\emph{有限線型代数による厳密な指定}であるが、
+今回 $J,s_2,s_3$ の全 PBW 行列を有理数で評価したわけではない。
+原点の指定 $S_3\times S_3$ 外積模型との厳密なゲージ同定、
+高次 homotopy の群同変化、完備な係数証明書も未実行である。
+特に、この源の $32\mid32$ 行列分解は実 Ku 比較核、
+その Hom の special retract $(i,p,h)$、unit/counit、
+rotation と指定三乗周期の coherence を与えない。
+固定 Hesse 切片の四十六原式係数・十二比較係数の数値も未計算である。
+次は $N=6$ の $280$ ピボットを実際に指定し、
+式\eqref{ifj:eq:fourth-hpl-formula}の九変数係数と
+非可換 $20\times20$ 恒等式を独立の厳密検算器で照合する。
+\end{remark}
