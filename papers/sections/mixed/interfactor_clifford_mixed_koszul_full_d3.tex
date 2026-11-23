@@ -1,0 +1,203 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v87.
+\begin{theorem}[双方向混合 Clifford の三次 Koszul 微分の全二十列]
+\label{ifj:thm:mixed-koszul-full-third}
+命題\ref{ifj:prop:mixed-koszul-endpoints}の双方向十八係数環
+$R=\C[s,U_{ab},V_{ba}]$ と $B_s$ を固定する。
+$\delta_x=1-\tau_1^3$、$\delta_y=1-\tau_2^3$ と書く。
+$P_2=B_s(-2)^{15}$ の基底を、三つの $x$ 関係に対応する
+$e_a^x$、三つの $y$ 関係に対応する $e_b^y$、
+九つの $c_{ab}=x_ay_b-y_bx_a$ に対応する $e_{ab}^c$ とし、
+\[
+       A_{ia}=(D_x)_{ia},\qquad B_{jb}=(D_y)_{jb}
+\]
+を命題\ref{ifj:prop:mixed-koszul-endpoints}の一次形式とする。
+互いに異なる $i,j\in\{1,2,3\}$ に対し、$k$ を残る添字として
+\begin{equation}\label{ifj:eq:mixed-d3-cycle-triples}
+ \mathcal H^{(t)}_{ij}
+  =\{(i,k,1),(k,j,t),(j,i,t^2)\}
+\end{equation}
+と置く。三つ組 $(j,\ell,\lambda)$ は添字二個と scalar
+$\lambda$ を表す。
+
+各 $a,b=1,2,3$ に対し、$P_2$ の次数一次係数を持つ列
+\begin{equation}\label{ifj:eq:mixed-d3-nine-xxy}
+\begin{aligned}
+ E^{xxy}_{ab}={}&e_a^x y_b-\sum_i e_{ib}^c A_{ia}\\
+ &-\frac{s}{\delta_y}\sum_{c\ne b}U_{ac}
+  \sum_{(j,\ell,\lambda)\in\mathcal H^{(\tau_2)}_{cb}}
+    \lambda\left(
+       e_\ell^y y_j+s\sum_iV_{\ell i}e_{ij}^c x_i
+                \right),
+\end{aligned}
+\end{equation}
+\begin{equation}\label{ifj:eq:mixed-d3-nine-xyy}
+\begin{aligned}
+ E^{xyy}_{ba}={}&e_b^y x_a+\sum_j e_{aj}^c B_{jb}\\
+ &-\frac{s}{\delta_x}\sum_{d\ne a}V_{bd}
+  \sum_{(j,\ell,\lambda)\in\mathcal H^{(\tau_1)}_{da}}
+    \lambda\left(
+       e_\ell^x x_j-s\sum_eU_{\ell e}e_{je}^c y_e
+               \right)
+\end{aligned}
+\end{equation}
+を定める。さらに従来の二つの最上列を
+\[
+ E^{xxx}=\sum_a e_a^x x_a-s\sum_{a,b}U_{ab}e_{ab}^c y_b,
+ \qquad
+ E^{yyy}=\sum_b e_b^y y_b+s\sum_{b,a}V_{ba}e_{ab}^c x_a
+\]
+と書く。このとき次が成立する。
+
+\begin{enumerate}
+\item 二十列
+$E^{xxx},E^{yyy},(E^{xxy}_{ab})_{a,b},(E^{xyy}_{ba})_{b,a}$
+は、自由テンソル代数の三次二次関係 syzygy を定める。
+すなわち $d_2$ による像は $B_s$ 上すべて零である。
+\item この二十列は、全十八係数上の三次 Koszul 空間
+\[
+ \mathcal K_3=(W\otimes_R\mathcal R_2)
+                      \cap(\mathcal R_2\otimes_RW)
+                     \subset W^{\otimes_R3},
+ \quad W=R^6,\quad \mathcal R_2=R^{15}
+\]
+の $R$-自由基底となる。従って $d_3$ を
+$B_s(-3)^{20}\to B_s(-2)^{15}$ の上記二十列で定めると
+\begin{equation}\label{ifj:eq:mixed-d3-complete}
+                  d_2d_3=0
+\end{equation}
+が全係数上、任意の可換係数変更後にも成立する。
+定理\ref{ifb:thm:regularity}の周囲 AS 正則開では、
+これは augmentation の Koszul 解消の真正な第三微分である。
+\item 固定したこの基底で $d_3$ の $s$-次数は高々二次で、
+二次係数は $UV$ の積だけからなる。
+一方向 $V=0$ または $U=0$ では厳密に一次以下になる。
+一方、一般の双方向係数では $E^{xxy}_{11}$ の
+$e_{12}^c x_1$ の二次係数は
+\begin{equation}\label{ifj:eq:mixed-d3-quadratic-witness}
+ -\frac{U_{12}V_{31}+\tau_2U_{13}V_{11}}{1-\tau_2^3}
+\end{equation}
+であり、零とは限らない。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+三次テンソルの恒等式を直接証明する。
+$z_1,z_2,z_3$ を一つの因子の生成元とし、
+$r_i^0=\{z_{i+1},z_{i+2}\}+t z_i^2$ と置く。
+異なる二添字 $i,j$ と残りの $k$ について、
+$[z_i^2,z_j]=[z_i,r_k^0]+t[z_k^2,z_i]$ を巡回して三回用いると
+\begin{equation}\label{ifj:eq:mixed-d3-square-commutator}
+ (1-t^3)[z_i^2,z_j]
+   =[z_i,r_k^0]+t[z_k,r_j^0]+t^2[z_j,r_i^0]
+\end{equation}
+を得る。これは\emph{自由}テンソル代数の恒等式であり、
+正則性や商での消滅を仮定しない。
+
+$r_a^x=r_{a,0}^x-s\sum_cU_{ac}y_c^2$ とし、
+$c_{ib}=x_iy_b-y_bx_i$ と書く。
+関係 $r_{a,0}^x=\sum_i x_iA_{ia}=\sum_iA_{ia}x_i$ から
+\[
+ r_a^xy_b-y_br_a^x
+  =\sum_i(c_{ib}A_{ia}+A_{ia}c_{ib})
+                        -s\sum_cU_{ac}[y_c^2,y_b]
+\]
+が成立する。$c=b$ の項は零なので、
+式\eqref{ifj:eq:mixed-d3-square-commutator}を $y$ 因子に適用する。
+ここで真の関係
+$r_\ell^y=r_{\ell,0}^y-s\sum_iV_{\ell i}x_i^2$ を使うと
+\[
+ [y_j,r_{\ell,0}^y]
+ =[y_j,r_\ell^y]
+       -s\sum_iV_{\ell i}(c_{ij}x_i+x_ic_{ij})
+\]
+となる。式を代入して
+\[
+ \begin{split}
+ &r_a^xy_b-\sum_i c_{ib}A_{ia}
+ -\frac{s}{\delta_y}\sum_{c\ne b}U_{ac}
+  \sum_{(j,\ell,\lambda)\in\mathcal H^{(\tau_2)}_{cb}}
+ \lambda\left(r_\ell^yy_j+s\sum_iV_{\ell i}c_{ij}x_i\right)\\
+ &\qquad=
+ y_br_a^x+\sum_i A_{ia}c_{ib}
+ -\frac{s}{\delta_y}\sum_{c\ne b}U_{ac}
+  \sum_{(j,\ell,\lambda)\in\mathcal H^{(\tau_2)}_{cb}}
+ \lambda\left(y_jr_\ell^y-s\sum_iV_{\ell i}x_ic_{ij}\right).
+ \end{split}
+\]
+左辺は $\mathcal R_2\otimes W$、右辺は
+$W\otimes\mathcal R_2$ に属し、左辺の右係数が
+式\eqref{ifj:eq:mixed-d3-nine-xxy}である。
+
+同様に $r_b^y=r_{b,0}^y-s\sum_dV_{bd}x_d^2$ とし、
+$[x_j,y_e^2]=c_{je}y_e+y_ec_{je}$ を使うと
+\[
+ [x_j,r_{\ell,0}^x]
+ =[x_j,r_\ell^x]
+       +s\sum_eU_{\ell e}(c_{je}y_e+y_ec_{je})
+\]
+となる。これを $x$ 側の
+式\eqref{ifj:eq:mixed-d3-square-commutator}へ適用すれば
+式\eqref{ifj:eq:mixed-d3-nine-xyy}の二つの三次テンソル表示が一致する。
+残る二列は系\ref{ifj:cor:mixed-koszul-two-top-syzygies}の
+自由テンソル恒等式で既に確認した。これで第一項が従う。
+
+第二項のために、二十列の $\mathcal R_2\otimes W$ 表示に対して
+次の二十の係数を順に取り出す：
+\[
+ (r_1^x\otimes x_1),\quad (r_1^y\otimes y_1),\quad
+ (r_a^x\otimes y_b)_{a,b},\quad(r_b^y\otimes x_a)_{b,a}.
+\]
+その $20\times20$ 係数行列は、表示から\emph{厳密に単位行列}である。
+これにより二十列は全係数環上で直和因子をなす。
+これらが三次 syzygy の全体であることを示す。
+$\mathcal R_2$ は二次自由テンソル空間 $W^{\otimes2}$ の直和因子である。
+実際、各 $x,y$ 関係の巡回交差単項式と九つの $x_ay_b$ を
+独立な leading word として選べる。
+従って $W\otimes\mathcal R_2$ と
+$\mathcal R_2\otimes W$ はともに自由階数 $6\cdot15=90$ である。
+既存の PBW 自由性（命題\ref{ifb:prop:family}）から
+$(B_s)_3$ は $R$-自由階数 $\binom83=56$ であり、
+$W^{\otimes3}$ は自由階数 $216$ である。
+従って三次関係イデアル
+$J_3=(W\otimes\mathcal R_2)+(\mathcal R_2\otimes W)$ は
+$W^{\otimes3}\twoheadrightarrow(B_s)_3$ の分裂核であり、
+有限射影で階数 $160$ となる。
+全射
+\[
+ (W\otimes\mathcal R_2)\oplus(\mathcal R_2\otimes W)
+     \longrightarrow J_3,
+     \qquad (u,v)\longmapsto u-v
+\]
+の核は $\mathcal K_3$ に同型で、有限射影階数
+$180-160=20$ である。
+上記単位小行列の二十の係数汎関数は
+$\mathcal K_3\to R^{20}$ の左逆を与えるので、
+$\mathcal K_3\simeq R^{20}\oplus Q$、$Q$ は階数零の有限射影。
+ゆえに $Q=0$ であり、表示した二十列は全ての基底をなす。
+この分裂は任意底変更後も残る。
+周囲正則開での Koszul 解消の完全性は
+既存の定理\ref{ifb:thm:regularity}を入力とするので、
+正則開の外へ完全性を外挿しない。
+
+最後に式\eqref{ifj:eq:mixed-d3-nine-xxy}と
+\eqref{ifj:eq:mixed-d3-nine-xyy}を係数比較すると、
+二次項は $UV$ の積に限り、一方向では消える。
+式\eqref{ifj:eq:mixed-d3-quadratic-witness}も
+$(a,b)=(1,1)$、交差関係 $(i,j)=(1,2)$ の係数を
+直接読むことで得られる。
+\end{proof}
+
+\begin{remark}[計算した範囲と次の微分]
+\label{ifj:rem:mixed-d3-scope}
+本定理は全十八係数に関する三次 Koszul 空間の\emph{大域基底}を
+構成する。これまでの二列を含め $d_3$ の二十列すべてが明示された。
+この段階では $d_4,d_5,d_6$ や曲率に関する
+Shamash の中間 higher homotopies はまだ明示していない。
+全係数の三次テンソル恒等式、単位小行列、
+一方向における一次化と双方向の非零二次係数は
+\texttt{computations/verify\_clifford\_mixed\_koszul\_full\_d3.py}
+によって厳密に再現できる。
+可換 Ku 比較核、unit/counit、rotation と三乗周期、
+四 probe の原式四十六枠と十二高次係数は未構成である。
+\end{remark}
