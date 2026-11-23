@@ -1718,6 +1718,106 @@ $Y^2Z=X(X^2+\alpha XZ+\beta Z^2)$ を用いて
 式\eqref{ifj:eq:picard-symmetric-reflection}が成立する。
 \end{proof}
 
+
+\begin{proposition}[対称 Picard 行列分解のアフィン縮約と被覆の符号積]
+\label{ifj:prop:picard-affine-bridge}
+命題\ref{ifj:prop:picard-symmetric-linear-mf}の係数環 $K$ 上で
+$\beta\in K^\times$ とする。$Z\ne0$ のチャートで
+\[
+ x=X/Z,\quad y=Y/Z,\quad
+ g=x^2+\alpha x+\beta,\quad f=y^2-xg,\quad
+ A=K[x,y]/(f),\quad I=(x,y)\subset A
+\]
+と置く。次の行列は $x$ を逆にせずに定義できる：
+\[
+ T=\begin{pmatrix}1&0&0\\0&1&x\\0&0&1\end{pmatrix},\qquad
+ S=\begin{pmatrix}x&y\\y&g\end{pmatrix},\qquad
+ H=\operatorname{adj}S=\begin{pmatrix}g&-y\\-y&x\end{pmatrix}.
+\]
+先の対称行列 $\mathsf L=\mathsf L_{\alpha,\beta}$、
+$\mathsf Q=\operatorname{adj}\mathsf L$ について
+\begin{equation}\label{ifj:eq:picard-affine-bridge}
+ T\mathsf L(x,y,1)T^{\mathsf t}=S\oplus(-1),\qquad
+ T^{-\mathsf t}\mathsf Q(x,y,1)T^{-1}=(-H)\oplus(-f),
+ \qquad S(-H)=(-H)S=f\mathbf1_2
+\end{equation}
+が成り立つ。従って斉次三階MFのアフィン制限は、
+二階MF $(S,-H)$ と可縮な一階MF $(-1,-f)$ の直和である。
+さらに $\operatorname{coker}_A S\simeq I$ は
+$(r,s)\mapsto yr-xs$ による同型であり、
+先の二階表示 $\mathsf A_{\alpha,\beta}$ の $Z=1$ 制限にも
+定数の基底変換で一致する。
+
+$M=\mathcal O_E(p-o)$ のアフィン制限を前命題の
+切断基底 $(-y/x,1,x)$ から $I$ へ送る写像は
+有理関数 $-x$ の乗法である。この同型の下で、
+$M^{\otimes2}\simeq\mathcal O_E$ の前命題の
+$x$ による規格化は
+\begin{equation}\label{ifj:eq:picard-affine-square}
+ I^{\otimes_A2}\xrightarrow{\ \sim\ }A,
+ \qquad r\otimes s\longmapsto rs/x
+\end{equation}
+に\emph{scalar も符号も変えずに}一致する。
+この積を $I$ の生成元 $(y,-x)$ で記述した対称行列は
+ちょうど $H$ である。反転 $y\mapsto-y$ に対しても
+$D_2=\operatorname{diag}(-1,1)$ で同変である。
+
+特に命題\ref{ifj:prop:double-cover-algebra}の標的側
+$(\alpha,\beta)=(-2a,\delta)$ では、
+二重被覆 $B=R\oplus I$ の符号成分の積 $I^2=(x)$、
+$(r,s)\mapsto rs/x$ は上の正規化した Picard 積と\emph{同じ}である。
+この同定は $x^{-1}$ を環の元として要求せず、
+許容係数の底変更と反転に両立する。
+一方 $T$ は $X/Z$ を用いるので、これは斉次次数・
+$\mathcal O_E(o)$ の一点捩れを保つ大域的な二階縮約ではない。
+曲率付き非可換 Koszul--Shamash 核とその
+rotation・三乗周期・四probeの高次係数の計算も含まない。
+\end{proposition}
+
+\begin{proof}
+$-1$ を右下成分に持つ $\mathsf L(x,y,1)$ で
+Schur 補元を取ると、式\eqref{ifj:eq:picard-affine-bridge}の
+第一等式が得られる。$\det T=1$、
+$\det S=xg-y^2=-f$ であるから、
+随伴行列の変換則から第二等式が従う。
+$-1$ は単元なので、最後の一階MFは可縮である。
+
+$A^2\to I$ を $(r,s)\mapsto yr-xs$ とすれば、
+$(y,-x)S=(0,f)$ から $S$ の列は関係となる。
+任意の関係を $K[x,y]$ に持ち上げて
+$yr-xs=h(y^2-xg)$ と書くと
+$y(r-hy)-x(s-hg)=0$ となる。
+$K[x,y]$ の正則列 $(x,y)$ の Koszul 関係により
+$(r,s)=t(x,y)+h(y,g)$ となるので、これらは全関係である。
+また
+\[
+ \mathsf A_{\alpha,\beta}(x,y,1)
+ =\begin{pmatrix}0&1\\-1&0\end{pmatrix}
+ S\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+\]
+である。元の三階表示から $I$ への射は
+$(y,-x,-x^2)$ であり、これは $T^{-1}$ によって
+$(y,-x,0)$ に移る。前命題の切断
+$(-y/x,1,x)$ の $-x$ 倍なので、線束とその積の規格化も一致する。
+
+$y^2=xg$ により
+$I^2=(x^2,xy,y^2)=x(x,y,g)=xA$ である。
+最後の等号は $g=x^2+\alpha x+\beta$ と
+$\beta\in K^\times$ による。$A$ は $K[x]$ 上
+基底 $(1,y)$ の自由加群なので $x$ は非零因子であり、
+$I(I/x)=A$ から $I$ は可逆加群、
+式\eqref{ifj:eq:picard-affine-square}は正則で同型である。
+生成元 $(y,-x)$ の積を $x$ で割った行列は
+$\bigl(\begin{smallmatrix}g&-y\\-y&x\end{smallmatrix}\bigr)=H$。
+$T$ は $D=\operatorname{diag}(-1,1,1)$ と可換で、
+$S(x,-y)=D_2S(x,y)D_2$、
+$H(x,-y)=D_2H(x,y)D_2$ となる。
+標的の $B=R\oplus I$ では、既存の同定
+$x\mapsto\xi,\ y\mapsto\eta$ の下で
+$\xi^2=x,\ \xi\eta=y,\ \eta^2=g$ だから、
+符号成分の積は同じ $rs/x$ である。
+\end{proof}
+
 \begin{corollary}[原の Hesse 方程式と三次までの Picard 行列移送]
 \label{ifj:cor:picard-symmetric-hesse-family}
 命題\ref{ifj:prop:two-isogeny-cubic-sextet}の
