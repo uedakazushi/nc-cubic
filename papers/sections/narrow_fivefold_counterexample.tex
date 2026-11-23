@@ -1,0 +1,186 @@
+% !TEX root = ../nc-cubic.tex
+\section{連結な smooth proper 圏族の仮定を満たす五次元反例}
+\label{nfc:sec:counterexample}
+\begin{theorem}\label{nfc:thm:counterexample}
+$B$ を次数一の $x_1,x_2,x_3,u_1,u_2,u_3,w$ で生成し、
+$x_1,x_2,x_3$ は対ごとに反可換、$u_1,u_2,u_3,w$ は中心である量子多項式環とする。
+\[
+ A=B/(f),\qquad f=\sum_{i=1}^3(u_i x_i^2+u_i^3)+w^3 .
+\]
+この中心三次商の全 coherent 圏は smooth proper である。
+その全残余 dg 圏 $\mathcal Q$ は、滑らかな可換三次五様体の
+残余圏と連結な複素曲線上の smooth proper 線型圏族のファイバーとして結ばれる。
+一方、どの滑らかな可換三次五様体 $X$ に対しても
+$\mathcal Q$ と $\Ku(X)$ は $\C$-線型 dg Morita 同値でない。
+従って予想\ref{nqt:conj:narrow}の全称命題は成立しない。
+\end{theorem}
+
+\begin{proof}
+\emph{対象と変形族。}
+$B$ は七変数の skew polynomial 環で、次数付き Ore 拡大と量子 Koszul
+解消から AS 正則、次元・指数七の整域である。$f$ は非零の中心正則元である。
+可換座標でも同じ文字を使い、
+\[
+ g=u_1^3+u_2^3+u_3^3+w^3,\qquad
+ F_b=\sum_i u_i x_i^2+g+b x_1x_2x_3,\qquad Y_b=V(F_b)\subset\PP^6
+\]
+と置く。$G=(\mathbb Z/2)^2$ は $x_i$ の偶数個の符号を変え、
+$U=(u_1,u_2,u_3,w)$ を固定する。
+$V$ を $G$ の非自明な乗数 $\alpha$ の二次元既約射影表現とする。
+$\operatorname{End}V$ の共役作用で $x_i$ と同じ指標を持つ
+$P_i$ を $P_i^2=1$, $P_iP_j=-P_jP_i$ ($i\ne j$) と取る。
+例えば $J^2=K^2=1$, $JK=-KJ$ に対し $J,K,\sqrt{-1}JK$ を取れる。
+$x_i\mapsto x_i\otimes P_i$ により $A$ は可換商の行列不変環と一致する。
+各単項式を相殺する行列固有空間が一次元であり、平方の行列因子は恒等だからである。
+全次数付き加群で $V$ を tensor した自由加群のシフトが射影生成族であり、
+有限次元性も検出するので、この同定は tails で
+$\operatorname{qgr}A\simeq\operatorname{coh}_{G,\alpha}Y_0$ を与える。
+標準例外列の四項は $\mathcal O(j)\otimes V$ ($0\le j\le3$) に対応する。
+従って $\mathcal Q=\Ku(Y_0)^{G,\alpha}$ である。
+
+$Y_0$ は滑らかである。偏導関数 $2u_i x_i,x_i^2+3u_i^2,3w^2$
+が同時に零になるのはアフィン原点だけである。
+$b\ne0$ では定理\ref{nsf:thm:all-dimensions}の勾配計算により、
+座標超平面上の $g$ の切断は滑らかであり、残る条件は
+$h_b=g+4u_1u_2u_3/b^2$ の射影切断の滑らかさである。
+$w=0$ での三つの Hesse 偏導関数の積を取ると特異条件は
+$(4/b^2)^3=-27$ となる。従って
+$T=\mathbb A^1\setminus V(27b^6+64)$ 上で $Y_T$ は smooth projective である。
+有限中心拡大を使って $\alpha$-同変圏を
+$\Perf([Y_T/\widetilde G])$ の中心文字直和因子として取る。
+これは相対 smooth proper であり、標準線束は線型化される。
+$\mathcal O(j)\otimes V$ の相対例外列の右直交を取れば、
+底変更と可換する実際の smooth proper 線型圏族が得られる。
+特に原点の全 coherent 圏も smooth proper である。
+この既約な曲線には $0$ と $2$ が含まれる。
+定理\ref{nsf:thm:all-dimensions}で $p=u_1,q=u_2,l=u_3,\lambda=2$
+とすれば、$2$ のファイバーは滑らかな可換五様体
+\[
+ V\bigl(u_1x_1'^2+u_2x_2'^2-u_3x_3'^2
+          +2x'_1x'_2x'_3+g+u_1u_2u_3\bigr)
+\]
+の全残余圏に dg Morita 同値である。
+
+変形連結性には独立な第二の確認もある。命題\ref{nds:prop:sign-path}の
+一次元 Clifford 係数族 $S_t$ と体積元 $\omega_t$ を用い、
+四つの中心変数 $U$ を付けて
+\[
+ (1-t/2)\sum_i u_ix_i^2+g+t\omega_t
+\]
+で割る。$t=0$ は $A$、$t=2$ は $2\omega_2+g$ の分離型であり、
+後者は定理\ref{csc:thm:comparison}に直接該当する。
+同命題の有限中心での開性の証明はここでも適用できる。
+実際、$S_t$ は三平方上自由階数八で、許容各 $t$ で domain、
+表示式は $w^3$ の係数が一で各次数の商は底上平坦である。
+二次 Veronese は七つの平方の中心多項式環上有限で、
+その層は $\PP^6$ 上の底平坦な有限代数となる。
+両端で全 coherent 圏は smooth proper かつ線束生成である。
+$t=0$ では上のねじれ同変層の表示に対し Serre 生成と有界な Ext、
+$t=2$ では分離比較を使う。よって有限代数の対角は両端で perfect であり、
+命題\ref{nds:prop:sign-path}の正則パラメータに沿う射影次元の持上げと
+射影的な底への非 perfect locus の閉像により、両端を含む連結開上で
+相対 smooth proper 性が従う。相対例外四項を除いても底変更を保つ。
+この経路では定理\ref{nsf:thm:all-dimensions}の双対式を用いない。
+
+\emph{無標識同値が保存すべき積。}
+$\rho$ を整数次数付き MF の内部シフト $(1)$ とし、
+$R_j(\mathcal D)=H^0\operatorname{RHom}_{\mathcal D^e}
+(\Delta,\rho^j)$ と書く。右辺で関手をその双加群で表す。
+$\mathcal Q$ と可換五様体の両方で Serre 関手は
+\[
+ S=(-7)[7]=\rho^{-1}[3],\qquad \rho=S^{-1}[3].
+\]
+実際、Orlov window は上記の線型作用に自然である。
+$\mathbb G_m$ の整数次数に有限中心拡大を加えた同変 MF の
+Serre 公式 \cite[Theorem~2.18]{NQRFaveroKelly}では、有限群の行列式は
+一で、方程式の有限指標も自明である。臨界点は原点で、曲率指標の核は有限である。
+指定の中心文字成分への制限にも同じ式が成立する。最後に $(3)=[2]$ を用いた。
+従って任意の dg Morita 同値はこの $\rho$ を保つ。比較同型を反復すれば
+$R_1$ とその積 $R_1\otimes R_1\to R_2$ を同時に保つ。
+可換五様体 $X=V(H)$ に対しては命題\ref{prop:ej-geometric-low-degree}
+（\cite[Theorem~3.5, Remark~3.6, Proposition~3.7]{LZ}）により、
+この積は $\operatorname{Jac}(H)_1$ からの通常積である。
+$R_1$ は七次元で、対称積上の核は七つの独立な二次偏導関数の空間であり、
+それらの射影共通零点は空である。
+
+\emph{反例の圏内の六つの変換。}
+周期元 $t$ の二重次数を $(2,-3)$、微分の次数を $(1,0)$ とする
+定理\ref{nsf:thm:all-dimensions}の模型を使う。
+$Q=\sum u_i x_i^2$ の Koszul 因子化 $K_Q$ の微分は
+$\sum(x_i\iota_i+t u_ix_i\epsilon_i)$ である。
+$g$ の因子化 $K_g$ は $U$ とその各座標の平方から作る。
+$K_Q\otimes K_g$ は原点の剰余体の stabilization であり、
+$E=K_Q\otimes K_g\otimes V$ の内部シフト全体は $\mathcal Q$ を厚生成する。
+これは孤立臨界点での剰余体生成と有限群の誘導・平均化による。
+
+$\theta_i=\iota_i-tu_i\epsilon_i$ は次数 $(1,-1)$ の閉演算子で、
+$\theta_i^2=-tu_i$、異なる二つは反交換する。
+その Clifford 代数 $D$ の $\operatorname{End}(K_Q)$ への包含は
+$\C[U,t^{\pm1}]$ 上の dg 準同型である。順序基底
+$\epsilon^I\theta^J$ に沿って微分は各 $J$ ごとに三変数 $x_i$ の
+Koszul 微分であり、定数項への収縮を底線型に選べるからである。
+従って $\operatorname{End}(K_g)$ を tensor し $\operatorname{End}V$ を加えて
+$G$ 不変部分を取った後も準同型である。これは全内部シフト間の Hom と合成を保つ。
+ここで $G$ は $K_g$ と底に自明に作用する。
+$(D\otimes\operatorname{End}V)^G$ は底上の順序基底
+$\eta^I$ ($\eta_i=\theta_iP_i$, $I\subset\{1,2,3\}$) を持つ。
+Clifford 単項式ごとに逆指標の行列固有空間が一次元だからである。
+二つの反交換符号が相殺し、$\eta_i$ は通常の積で互いに可換である。
+
+従って
+\[
+ d_i=u_i,\qquad z_{ij}=-t^{-1}\eta_i\eta_j\quad(i<j)
+\]
+は、上の準同型で得た生成 dg 圏の模型で偶な中心元になる。
+後者は $\operatorname{End}(K_g)$ とも Koszul 符号なしで可換する。
+これらの次数は $(0,1)$ であるから、全 $E(j)$ 上での同じ乗法により
+内部シフトへの dg 自然変換を与える。具体的には各生成対象の成分が
+全 Hom 複体と厳密に可換し、したがって対角から shift 双加群への射となる。
+Morita 完備化により $R_1(\mathcal Q)$ の元であり、この同定は積を保つ。
+
+六元は一次独立である。関係を $E$ に評価し、得た MF の写像を
+アフィン原点での自由加群のファイバーに制限する。
+微分は原点で零だから null-homotopic な写像はここで零になる。
+$d_i$ は零に、$z_{ij}$ は $-t^{-1}\iota_i\iota_j P_iP_j$ に移る。
+外積の各二元基底に作用させると、後の三写像は独立である。
+残った $\sum c_i u_i$ が同変圏の双加群の射として零なら、ねじれ誘導の
+後にこの変換を適用し、さらに作用を忘れても零である。
+忘却と誘導の合成は $\bigoplus_{a\in G}a^*$ であり、その単位元成分への
+包含と射影を合成すれば、通常の $\Ku(Y_0)$ での $\sum c_i u_i$ の
+多項式乗法が零となる。上記 Jacobian 計算では次数一の多項式に関係はなく、
+$c_i=0$ が従う。この最後の判定は生成対象への評価だけでは得られない。
+
+\emph{勾配空間との矛盾。}
+$\eta_i^2=-tu_i$ により、$R_2(\mathcal Q)$ では
+\[
+ z_{ij}^2=d_id_j,\qquad z_{ij}z_{ik}=d_i z_{jk}
+ \quad(i,j,k\text{ は相異なり } z_{ji}=z_{ij})
+\]
+が成り立つ。これは対角が $d_i$、非対角が $z_{ij}$ である
+対称三行三列行列の二次小行列式六つである。
+六元を独立な形式変数とすれば六関係は一次独立である。
+三つの平方と三つの異なる非対角変数の積がそれぞれ区別されるからである。
+
+同値があればこの六元は可換五様体側の七つの一次座標の最初の六つに取れる。
+従って七次元の勾配空間はこの六つの小行列式ともう一つの二次式で張られる。
+しかし最初の六式の共通零点には $(d_i,z_{ij})=(a_i^2,a_i a_j)$、
+第七座標は自由という四次元アフィン錐が含まれる。
+平方写像の各ファイバーは有限なので次元は四である。
+もう一つの斉次二次式を課してもこの錐に次元三以上の零点が残る。
+これは滑らかな三次式の勾配に射影共通零点がないことに反する。
+\end{proof}
+
+\begin{remark}[可換側の方程式による照合]
+$b\ne0$ で得た可換双対五様体の式に $y_i=bx'_i/2$ を代入し、
+全体に $b^2/4$ を掛ける。さらに
+$(y_1,y_2,y_3)=(\sqrt{-1}z_{23},-\sqrt{-1}z_{13},z_{12})$ と書けば
+\[
+ \det\begin{pmatrix}
+ u_1&z_{12}&z_{13}\\z_{12}&u_2&z_{23}\\z_{13}&z_{23}&u_3
+ \end{pmatrix}+\frac{b^2}{4}g
+\]
+となる。極限の行列式の六つの偏導関数は、上で圏から独立に得た
+六つの小行列式の非零倍である。この特定の可換模型の極限が特異である
+ことだけでは、別の滑らかな標的の不存在は従わない。
+定理では無標識同値で保たれる二次関係から、すべての標的を排除した。
+\end{remark}

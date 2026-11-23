@@ -1,5 +1,7 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
+- **変形連結な五次元反例。** `computations/verify_narrow_fivefold_counterexample.py` は有理係数 Gröbner 基底で源の二点と可換標的の勾配イデアルが零次元であることを確認する。外積・Pauli 行列で三演算子の閉性と積、六つの二次関係、原点値の階数三を記号計算し、二次関係の独立性と Veronese パラメータの次元も検算する。Serre 関手の内在性、生成と dg 自然性、全圏の変形連結性は本文 `nfc:thm:counterexample` の証明による。
+
 - **二捩れの分類と Clifford 比較。** `computations/verify_diagonal_sign_sectors.py` は 432 個の三成分のアフィン座標枠で四つの楕円 sector を確認する。`computations/verify_diagonal_clifford_dual.py` は不変偶代数の積と中心性、二つの底曲率の一致、Koszul 微分と二つの閉演算子、ねじれた奇生成元の Clifford 関係を多項式恒等式として検算する。全対象の生成・滑らかさ・同変降下と直交部分の同定は本文 `ndc:thm:dual`, `nsf:thm:all-dimensions` の証明による。
 
 - **五変数での指数制約。** `computations/verify_diagonal_quantum_support.py` は全 3,125 写像を 47 軌道に分け、Smith 不変因子と指数四が現れる唯一の軌道を検算する。位数四を実際に除く幾何学的な理由は主稿 `nds:cor:six` の直線上の偏導関数の計算による。
