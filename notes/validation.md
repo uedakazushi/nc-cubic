@@ -1,6 +1,6 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-- **量子 Fermat 三様体の全称命題への障害。** `qfo:thm:obstruction` は次数付き射影生成族によるねじれ同変層との同定、標準例外対、Baranovsky–Petrov 定理 5 と Griffiths 留数計算を用いる。有限計算器 `computations/verify_quantum_fermat_obstruction.py` の九元の文字射影を再現し、残余圏の $(\dim HH_1,\dim HH_0)=(1,10)$ を確認。比較対象の任意の可換三次三様体は $(5,2)$。内在的定義でこの中心三次商を除く場合には、その定義で別途判定が必要。
+- **量子 Fermat 三様体の全称命題への障害。** `qfo:thm:obstruction` は次数付き射影生成族によるねじれ同変層との同定、標準例外対、Baranovsky–Petrov 定理 5 と Griffiths 留数計算を用いる。有限計算器 `computations/verify_quantum_fermat_obstruction.py` の九元の文字射影を再現し、残余圏の $(\dim HH_1,\dim HH_0)=(1,10)$ を確認。比較対象の任意の可換三次三様体は $(5,2)$。同じ検算器で中心三次の全 7 単項式を抽出し、二つの二変数勾配環の Gröbner 正規形から 16 次の臨界行列式 `e(e+L)^3(e+M)^3(e+L+M)^9` を有理関数体上で記号検算した。変形不変性は Perry 定理 3.5 と系 `qfo:cor:deformation-separation` による。
 - **一方向 Clifford の三つ目の中間成分。** `ifj:prop:third-middle-certificate` の有理 PBW 検算を `computations/verify_clifford_mixed_shamash_third_middle.py --certificate FILE` で実行した。独立行・列は 280 個、九変数の係数次数 0/1/2 の非零項は 122/516/450 個。これは選択したゲージの $J$ と全二十列の恒等式の計算である。
 
 

@@ -100,7 +100,75 @@ $\langle g\rangle$ である。$\chi_g$ はここに自明なので、
 $(5,2)$ を与える。Hochschild ホモロジーの dg Morita 不変性で結論が従う。
 \end{proof}
 
-この定理は、AS 正則な量子多項式環の滑らかな中心三次商をすべて許す
-解釈での予想\ref{conj:nc-main}に対する反例を与える。
-全対象の内在的な定義が別途定まる場合には、この明示的中心商が
-その定義を満たすかを検査する必要がある。
+
+\begin{corollary}[固定した量子多項式環の全中心三次商]
+\label{qfo:cor:central-family}
+定理\ref{qfo:thm:obstruction}の $B$ を固定する。
+非零な中心三次式は、$t=z_5$ と書けば
+\[
+ f=a z_1^3+b z_2^3+c z_3^3+d z_4^3+e t^3
+       +\lambda z_1z_2t+\mu z_3z_4t
+\]
+で尽くされる。$D^b(\operatorname{qgr}(B/(f)))$ が smooth proper となる
+必要十分条件は、$abcd\ne0$ かつ
+\[
+ e,\quad e+L,\quad e+M,\quad e+L+M\quad\text{がすべて非零},
+ \qquad L=\frac{\lambda^3}{27ab},\quad M=\frac{\mu^3}{27cd}
+\]
+である。この $\PP^6$ の非空開集合の各点で残余圏は
+$(\dim HH_1,\dim HH_0)=(1,10)$ を持つ。
+\end{corollary}
+
+\begin{proof}
+PBW 単項式の総重みを $w$ とすると、これと $z_i$ の交換比は
+$\zeta^{\det(w,w_i)}$ である。異なる単項式に同一の $z_i$ を掛けても
+PBW 指数は異なるので、中心元に現れる各単項式は重み零である。
+三次では指数条件 $k_1-k_2=k_3-k_4=0\pmod 3$ が記載の七項を与える。
+前定理の表示では各項の行列因子は $1$ であるから、
+同じ可換式の零点 $Y_f$ に対して、特異な場合も
+$\operatorname{qgr}(B/(f))\simeq\operatorname{coh}_{G,\alpha}(Y_f)$ を得る。
+
+$a,b,c,d$ のいずれかが零なら対応する座標点が特異である。
+すべて非零なら $t=0$ に特異点はない。$t=1$ で
+$g(x,y)=a x^3+b y^3+\lambda xy$ と置く。
+停留方程式 $3ax^2=-\lambda y$, $3by^2=-\lambda x$ は、
+原点では臨界値零、原点以外では $xy=\lambda^2/(9ab)$ と
+$g=\lambda^3/(27ab)$ を与える。$\lambda\ne0$ なら
+$x^3=-\lambda^3/(27a^2b)$ と $y=-3ax^2/\lambda$ により後者が実現する。
+$\lambda=0$ なら臨界値集合は $\{0\}$ である。
+他方の二変数にも同じ計算を行えば、表示した四条件を得る。
+
+$Y_f$ が滑らかなら前定理と同じく全 coherent 圏は smooth proper。
+逆に特異な閉点 $p\in Y_f$ では剰余体の極小自由解消は無限であり、
+$\operatorname{Ext}^i_{Y_f}(k_p,k_p)$ は無限個の次数で非零である
+（点支持ゆえ局所自己 Ext に一致する）。
+ねじれ付き誘導 $I_\alpha$ は忘却の完全左随伴で、
+忘却した $I_\alpha k_p$ は $\bigoplus_{g\in G}g^*k_p$ である。
+従って $I_\alpha k_p$ の自己 Ext は $k_p$ の自己 Ext を直和因子に持ち、
+全 coherent 導来圏は proper でない。
+
+滑らかな係数開は射影空間の非空開で連結である。この上の普遍可換族は
+滑らかかつ射影的で、有限 Heisenberg 群の商の指定中心文字成分は
+相対 smooth proper 圏をなす（全商の対角と Hom の完全性は有限
+\'etale atlas によって従い、中心文字冪等元は直和因子を切り出す）。
+Perry \cite[Theorem~3.5]{QFOPerryHodge} の底変更定理により
+各相対 Hochschild ホモロジー層は有限局所自由で、各ファイバーの
+Hochschild ホモロジーに制限される。従って全圏の二つの階数は
+Fermat 点と同じである。全滑らかなファイバーで
+$\mathcal O_{Y_f}\otimes V,\mathcal O_{Y_f}(1)\otimes V$ が例外対なので、
+加法性により主張の残余階数を得る。
+\end{proof}
+
+\begin{corollary}[可換三次からの滑らかな変形に対する障害]
+\label{qfo:cor:deformation-separation}
+上の係数開のどの残余圏も、連結な複素スキーム上の smooth proper な
+線型圏の族で、滑らかな可換三次三様体の残余圏と結ぶことはできない。
+同じ結論はそのような族を有限回つないだ場合にも成立する。
+\end{corollary}
+\begin{proof}
+同じ底変更定理により $\dim HH_1$ は各連結な底上で一定である。
+両端ではそれぞれ $1$ と $5$ なので、族の鎖に沿った一定性と矛盾する。
+\end{proof}
+
+従って、AS 正則な周囲代数の滑らかな中心三次商を含む広い定式化では、
+定理\ref{qfo:thm:obstruction}が予想\ref{conj:nc-main}の反例である。

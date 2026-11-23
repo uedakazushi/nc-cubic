@@ -68,3 +68,45 @@ h1,h0 = map(sum,zip(*counts))
 assert (h1,h0-2) == (1,10)
 print("Nine sectors (HH1, HH0):", list(zip(G,counts)))
 print("Residual (HH1, HH0): quantum (1,10), commutative (5,2).")
+
+
+def check_full_center():
+    from itertools import combinations_with_replacement
+
+    central = [word for word in combinations_with_replacement(range(5), 3)
+               if all(sum(weights[i][j] for i in word) % 3 == 0 for j in range(2))]
+    assert set(central) == {(i,i,i) for i in range(5)} | {(0,1,4),(2,3,4)}
+
+
+def check_critical_values():
+    """Compute multiplication by the affine equation in its gradient algebra."""
+    import sympy as sp
+
+    x, y = sp.symbols('x y')
+    a, b, c, d, e, lam, mu = sp.symbols('a b c d e lam mu')
+    basis = (1, x, y, x*y)
+
+    def critical_operator(A, B, mix):
+        field = sp.QQ.frac_field(A, B, mix)
+        cubic = A*x**3+B*y**3+mix*x*y
+        gb = sp.groebner([sp.diff(cubic,x),sp.diff(cubic,y)],
+                         x,y,order='grlex',domain=field)
+        columns = []
+        for mon in basis:
+            remainder = sp.Poly(gb.reduce(cubic*mon)[1],x,y)
+            columns.append(sp.Matrix([remainder.coeff_monomial(term) for term in basis]))
+        return sp.Matrix.hstack(*columns)
+
+    # The two gradient ideals use disjoint variables; the quotient is a tensor product.
+    first = critical_operator(a,b,lam)
+    second = critical_operator(c,d,mu)
+    operator = (e*sp.eye(16) + sp.kronecker_product(first,sp.eye(4))
+                + sp.kronecker_product(sp.eye(4),second))
+    L, M = lam**3/(27*a*b), mu**3/(27*c*d)
+    expected = e*(e+L)**3*(e+M)**3*(e+L+M)**9
+    assert sp.factor(operator.det()-expected) == 0
+
+
+check_full_center()
+check_critical_values()
+print("Seven central monomials and the exact degree-16 critical determinant verified.")

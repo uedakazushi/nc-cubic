@@ -18,7 +18,7 @@
 
 ## 最優先目標と現在の到達点
 
-**全称命題の適用範囲を左右する三次元の反例。** [量子 Fermat 中心三次商の定理](papers/sections/quantum_fermat_obstruction.tex) は、次元・指数 5 の AS 正則な量子多項式環の中心正則三次商で、全 coherent 圏が smooth proper かつ残余圏の `(dim HH₁, dim HH₀)=(1,10)` となる例を与える。滑らかな可換三次三様体ではこの組は常に `(5,2)` である。従ってこの種の滑らかな中心三次商をすべて許す定式化は成立しない。三次元で対象を別の内在的なクラスに限定する場合は、この表示が除かれるかをその定義から確認する必要がある。
+**広い定式化への三次元の反例。** [量子 Fermat 中心三次商の定理](papers/sections/quantum_fermat_obstruction.tex) は、次元・指数 5 の AS 正則な量子多項式環の中心正則三次商で、全 coherent 圏が smooth proper かつ残余圏の `(dim HH₁, dim HH₀)=(1,10)` となる例を与える。滑らかな可換三次三様体ではこの組は常に `(5,2)` である。主予想はこの滑らかな中心三次商を含む広い定式化で扱い、上の例で否定される。同じ周囲代数の全中心三次は七項で尽くされ、係数射影空間の滑らかな開集合全体で同じ障害が成り立つ（同節の系 `qfo:cor:central-family`）。Perry の相対 Hochschild 底変更定理から、そこに属する残余圏と可換三次三様体の残余圏は連結な smooth proper 圏族で結べない（`qfo:cor:deformation-separation`）。
 
 
 **二十変数のClifford族は、幾何的形式変形の全体とモジュライの稠密開を実現する。** 両Clifford因子の十八の混合係数に、二つの因子係数τ₁,τ₂を加えた族を構成した。[二十変数族の局所完全性](papers/sections/mixed/interfactor_clifford_versal.tex)は、任意の許容分離点で残余KSが三次四様体の幾何的20次元接空間への同型となり、原点を標識した形式変形空間そのものが同型になることを証明する（`ifv:thm:versal`）。さらに係数空間の非空稠密開Uの有限étale全射V→U上に、滑らかな可換三次族と実相対perfect比較核を得る。分類写像V→𝔐₄^cubはétaleで、像はモジュライスタックの稠密開となる（`ifv:cor:generic-comparison`）。一般係数体でも有限分離拡大上に全coherent Ku比較がある。有限化したUが指定分離点を含むとは限らず、全22次元の非標識圏変形、粗モジュライへのétale性、全三次四様体・全smooth係数・全intrinsic対象の被覆は結論しない。
