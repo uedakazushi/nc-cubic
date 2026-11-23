@@ -101,6 +101,13 @@ class Cliff:
             assert not e,e
         return cols
 
+    def volume(self,shift):
+        i,j,k=shift,shift+1,shift+2
+        return add(self.word(i,j,k),
+                   scale(self.mul(self.q[i,j],self.z[k]),-1),
+                   self.mul(self.q[i,k],self.z[j]),
+                   scale(self.mul(self.q[j,k],self.z[i]),-1))
+
     def get_u_w(self):
         # alpha = 2*(1-2^3)=-14 for both factors
         u=[]
@@ -110,6 +117,9 @@ class Cliff:
                 u.append(scale(self.comm(ii,jj),F(-7,3)))
         w=add(*(self.mul(self.z[i],u[i]) for i in range(6)))
         assert w==add(*(self.mul(u[i],self.z[i]) for i in range(6)))
+        assert w==scale(add(self.volume(0),self.volume(3)),-14)
+        for generator in self.z:
+            assert self.mul(w,generator)==self.mul(generator,w)
         return u,w
 
     def stage_matrix(self,cols):
