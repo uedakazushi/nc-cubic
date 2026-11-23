@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月23日 / v90。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月23日 / v91。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -13,6 +13,8 @@
 各数学的な節の本文は一つの稿を正本とし、他稿では稿名と定理番号を付けて参照する。組版設定は `papers/common/preamble.tex`、書誌は `papers/references.tex` を共有する。混合稿の本文は `papers/sections/mixed/` に置く。三稿の整理は、既存の数学全体を新たに証明・検証したという意味ではない。
 
 全次元・全ブロックの代数的量子化は [cubic-quantization](https://github.com/uedakazushi/cubic-quantization)、古典的Poisson正規形・退化・モジュライは [poisson-cubic](https://github.com/uedakazushi/poisson-cubic) を参照する。
+
+**一方向九変数Cliffordの次段の有限構成（v91）：** [PBW濾過によるShamash収縮](papers/sections/mixed/interfactor_clifford_filtered_shamash.tex)で、分離原点Koszul複体の二因子細分次数を保つ収縮を有限摂動し、既存H,Gゲージを保ったP₃→P₄のhomotopyを全係数の有限逆行列公式で指定する。原点d₄の作用は1120×315、階数280（q別0,18,72,100,72,18,0）。続くd₅とd₆の階数は120,21。さらに高次Shamash再帰で、内部次数を忘れた非可換源32|32曲率MFを有限算法として得る。[階数算術の検算器](computations/verify_shamash_dimension_table.py)は実行済み。一方、全PBW行列の具体計算、S₃×S₃原点ゲージとgraded周期の照合、実Ku比較核・Hom収縮・固定Hesse12係数は未完成。新節単独の日本語LuaLaTeX二巡3頁を確認し、三稿全文の組版は未実施。詳細な検証範囲は[検証ノート](notes/validation.md)。
 
 ## 最優先目標と現在の到達点
 
