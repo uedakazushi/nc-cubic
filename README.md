@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月23日 / v88。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月23日 / v89。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -42,6 +42,8 @@
 **分離原点のS₃厳密同変Shamash模型と九変数混合族のS₃×S₃対称性。** [現行命題・補題](papers/sections/mixed/interfactor_clifford_explicit_shamash.tex)（`ifj:prop:clifford-explicit-shamash`, `ifj:lem:mixed-clifford-s3-family`）では、Clifford augmentationの4×4 MFを巡回・反転同変に規格化し、反転−Pに対するKoszul四項の作用(1,−P,P,−1)、最上線の符号−1を決定した。二因子32|32外積を保ち、九混合係数Λの行・列を同時に置換するS₃×S₃作用が二次関係と中心wを固定することを証明した。選択済み同変(n−1)次MF jetのn次持上げ方程式が可解なら、解を36元平均して同変化できるが、**可解性は未証明**。一因子の[15群厳密検算](computations/verify_clifford_explicit_shamash.py)、九変数族の[8群検算](computations/verify_clifford_family_s3.py)はいずれもPASS。現行TeXの独立LuaLaTeX二巡・3頁組版、表示点検済み。実Ku核・比較Hom special retract(i,p,h)・unit/counit・rotation/三乗period・46原式/12高次係数は未構成。
 
 **双方向Clifford混合族の全六段Koszul微分を正則resultant開で構成した。** [初段・中心primitive](papers/sections/mixed/interfactor_clifford_mixed_koszul_endpoints.tex)（`ifj:prop:mixed-koszul-endpoints`）でd₁,d₂、[三次全20列](papers/sections/mixed/interfactor_clifford_mixed_koszul_full_d3.tex)（`ifj:thm:mixed-koszul-full-third`）で全係数上の大域自由基底K₃(20)を構成した。**[Frobenius上位微分の定理](papers/sections/mixed/interfactor_clifford_mixed_koszul_frobenius.tex)**（`ifj:thm:mixed-koszul-frobenius-upper`）は、二次双対E=D^χのE₂(15),E₃(20)の平方なし積を全係数上で基底化し、resultant開Δ_res≠0では正規化socle γと完全積対合からK₄=E₂,K₅=E₁,K₆=E₀を自由基底にする。d₄の全300成分を `Σ_j z_j t(mν ζ_j q_r)`、d₅をE₂の二次積、d₆を六生成元列として**有限計算式**で指定し、d₃d₄=d₄d₅=d₅d₆=0を証明。全六段の完全性は既存`ifb:thm:regularity`を入力とする。新しい[厳密計算器](computations/verify_clifford_mixed_koszul_frobenius.py)はτ_i=2,U₁₁=V₁₁=1,s=1の非自明な双方向例でγ=33u₁u₂u₃v₁v₂v₃、d₄のy₁/33成分、既存d₃の20列一致と三合成零を検証（新12群＋依存d₃の9群PASS）。**Δ_res=0への基底延長や、Shamash中間・高次homotopies、混合32|32MF、Ku比較Hom・unit/counit・rotation/period・12高次値は未完成。**
+
+**一方向Clifford九変数族のShamash一次homotopyをP₁→P₂まで具体化した。** [新命題・厳密構成](papers/sections/mixed/interfactor_clifford_mixed_shamash_first_middle.tex)（`ifj:prop:mixed-shamash-first-middle`, `ifj:prop:mixed-shamash-nine-parameter-certificate`）では、全許容τ_iの九変数Λ=sUで、既知中心primitive uに対する`d₂H+u d₁=w_s I₆`が、**厳密にH₀+sH₁(U)+s²H₂(U)**を解にもつことを相対Koszul完全性・二因子細分次数から証明した。w_y側はs定数、原点の厳密S₃×S₃規格化も選べる。τ_i=2,a_i=1の場合には、B₂=21/B₃=56のPBW基底と336×315の階数210の有理数線形系からHの全九係数を構成。全9方向の一次、45個の二次、165個の三次単項式の厳密係数比較により二次多項式が**全sで厳密**に成立する。[検算器](computations/verify_clifford_mixed_shamash_first_middle.py)はSymPy7群PASS・終了0、固定Hesseの四probeでも確認。これは最初の中間成分のみで、P₂以降のs₁、s₂以降・混合32|32 MF・実Ku比較Hom/period/12高次係数は未完成。
 
 **Clifford 中心normは明示できるが、可換Ku標的そのものではない。** [全九変数の中心norm三次展開](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:prop:central-norm-jets`）では、体積元の平方`ω_x(s)²=−det q_x(s)`を三次まで厳密に計算した。Hesse射影の二次同変係数は一つの三次Heisenberg不変式𝒮のgradient、三次純Y係数は(∂𝒮/∂τ₁)/4で、最小四probeのうち列和と対角の二つにだけ非零の三次normがある。一方、平方中心変数を可換Hesse座標と文字どおり同定すると一次像はC₂₁であり、実Ku比較の一次像C₁₂と一致しない（`ifj:cor:central-norm-probes`）。従ってこの計算は未決定のβ・γの値ではなく、実核・周期付き移送を省略できないことの具体的な証拠である。[厳密記号検算](computations/verify_clifford_central_norm_jets.py)は7群PASS。GitHub保存済み本文を読み戻して復元・再実行し、同じ7群PASS・終了コード0を確認した（再取得ファイルのSHA-256は[検証記録](notes/validation.md)）。
 
