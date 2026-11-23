@@ -139,7 +139,6 @@ for syzygy in (topx,topy):
 print('PASS 4b: two explicit columns of d3 satisfy d2*d3=0 at all 18 mixing coefficients')
 
 
-
 # For each Clifford triple, u_i = alpha/6 * [x_{i+1},x_{i+2}].
 def make_u(c,alpha):
     return [c.times(alpha*S.Rational(1,6), c.comm(((i+1)%3)+1,((i+2)%3)+1)) for i in range(3)]
