@@ -94,4 +94,20 @@ assert s.simplify(LM*LM.adjugate()-FM*s.eye(3))==s.zeros(3)
 assert s.simplify(LM.adjugate()*LM-FM*s.eye(3))==s.zeros(3)
 assert s.simplify(LM.diff(sym)-s.Matrix([[0,0,0],[0,aa.diff(sym)*X+bb.diff(sym)*Z,0],[0,0,0]]))==s.zeros(3)
 print('PASS 9: exact third-order Picard MF jets and their factorizations for formal parameter variation')
-print('9 PASS: no curved noncommutative comparison kernel, Ku rotation or twelve beta/gamma values computed.')
+# Continued with Hesse-coordinate check below.
+
+# Original Hesse coordinates: the normalization factor 4 c_q^2 is a unit,
+# so the adjugate divided by this factor gives an MF of the exact fixed f_q.
+z0,z1,z2=s.symbols('z0 z1 z2')
+cq=4*(q**3-1)**2*(q**3+8)/(27*q**2)
+rq=1/(q**3+8)
+W=3*q*(z0+z1)+(2+q**3)*z2
+T=cq*(z2-rq*W)
+V=cq*(z0-z1)
+LH=L.subs({X:T,Y:V,Z:W,a:aq,b:bq},simultaneous=True)
+fH=q*(z0**3+z1**3+z2**3)-(2+q**3)*z0*z1*z2
+assert s.factor(LH.det()-4*cq**2*fH)==0
+assert s.simplify(LH*LH.adjugate()-4*cq**2*fH*s.eye(3))==s.zeros(3)
+assert s.simplify(LH.subs({z0:z1,z1:z0},simultaneous=True)-D*LH*D)==s.zeros(3)
+print('PASS 10: exact original Hesse f_q MF, no cube root, and Hesse reflection')
+print('10 PASS total: no actual noncommutative Ku kernel or twelve comparison scalars.')
