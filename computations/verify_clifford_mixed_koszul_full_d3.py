@@ -213,4 +213,4 @@ print('PASS 8: concrete s^2 U V coefficient is nonzero for generic bidirectional
 assert 6**3==216 and 6*15==90 and 2*90-(216-56)==20
 assert S.binomial(8,3)==56
 print('PASS 9: projective-rank arithmetic 180-(216-56)=20; basis proof also uses PBW freeness')
-print('9 PASS: all 20 cubic Koszul columns over full 18-parameter base; d4--d6 and Ku still open.')
+print('9 PASS: universal 20-column d3; d4--d6 are provided by the separate Frobenius theorem on the resultant open.')
