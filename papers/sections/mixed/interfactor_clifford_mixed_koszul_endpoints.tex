@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v87.
+% Current result: 2026-11-23 / v88.
 \subsubsection{混合 Clifford の Koszul 初段と中心曲率の端点 homotopy}
 \label{ifj:subsubsec:mixed-koszul-endpoints}
 
@@ -193,6 +193,7 @@ $x_a,y_b$ はそれぞれ対応する符号付き置換で変わる。
 \end{proof}
 
 \input{papers/sections/mixed/interfactor_clifford_mixed_koszul_full_d3.tex}
+\input{papers/sections/mixed/interfactor_clifford_mixed_koszul_frobenius.tex}
 
 \begin{lemma}[一方向九係数の三次までの有限群軌道数]
 \label{ifj:lem:mixed-koszul-parameter-orbits}
@@ -252,7 +253,11 @@ $9,45,165=\binom{11}{3}$ となる。
 曲率 null-homotopy の端点を与える。
 定理\ref{ifj:thm:mixed-koszul-full-third}により $d_3$ は二十列すべて
 全係数上で明示され、三次 Koszul 空間の大域基底も得られた。
-なお $d_4,d_5,d_6$ と $s_1$ の中間成分、$s_2,\ldots$、
+さらに定理\ref{ifj:thm:mixed-koszul-frobenius-upper}により
+resultant 正則開では $d_4,d_5,d_6$ を二次双対の
+Frobenius 積から構成し、全長六の自由 Koszul 解消を得た。
+ただし resultant の零集合でこれらの自由基底が延長するとは限らない。
+中心曲率の $s_1$ 中間成分と $s_2,\ldots$、
 曲率付き $32\mid32$ の混合微分の全持上げは未完成である。
 一因子 $4\times4$ の直積を混合係数のままで用いることはできない。
 四probeの高次可換式と固定 Hesse 切片の十二係数の計算には、
@@ -260,5 +265,7 @@ $9,45,165=\binom{11}{3}$ となる。
 全係数の初段・曲率・軌道数の検算は
 \texttt{computations/verify\_clifford\_mixed\_koszul\_endpoints.py}、
 三次の全二十列・大域基底の検算は
-\texttt{computations/verify\_clifford\_mixed\_koszul\_full\_d3.py} に置く。
+\texttt{computations/verify\_clifford\_mixed\_koszul\_full\_d3.py}、
+resultant 開の上位微分の検算は
+\texttt{computations/verify\_clifford\_mixed\_koszul\_frobenius.py} に置く。
 \end{remark}
