@@ -1,0 +1,196 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v88.
+\subsubsection{二次双対の Frobenius 対合による上位 Koszul 微分}
+\label{ifj:subsubsec:mixed-koszul-frobenius}
+
+三次微分の全二十列を得た後、四次以上を巨大な syzygy 方程式として
+直接解く代わりに、既存の二次双対の積と socle を用いる。
+ここで構成するのは周囲代数の相対 AS 正則開における
+\emph{実際の全 Koszul 微分}である。
+有限次元 Frobenius 代数での係数抽出により行列を指定し、
+全三百の一次成分を多項式として個別に展開することはしない。
+
+\begin{theorem}[双方向 Clifford の上位 Koszul 微分の Frobenius 表示]
+\label{ifj:thm:mixed-koszul-frobenius-upper}
+定理\ref{ifj:thm:mixed-koszul-full-third}の全係数環
+$R=\C[s,U_{ab},V_{ba}]$ と双方向混合 Clifford 代数 $B_s$ を取る。
+定理\ref{ifb:thm:regularity}の resultant を
+$\Delta_{\rm res}$ とし、$R^\circ=R[\Delta_{\rm res}^{-1}]$ と置く。
+二次双対を $E=(B_s^!)\otimes_RR^\circ$ とする。
+式\eqref{ifb:eq:dual-x}、\eqref{ifb:eq:dual-y}の可換六二次式
+$g_{x,a},g_{y,b}$ に対して
+\[
+ D=R^\circ[u_1,u_2,u_3,v_1,v_2,v_3]/(g_{x,a},g_{y,b}),
+ \qquad E=D^\chi
+\]
+であり、$\chi((r,s),(r',s'))=(-1)^{sr'}$ は二因子間の
+cocycle twist である。$E$ の次数一の生成元を
+$\zeta=(u_1,u_2,u_3,v_1,v_2,v_3)$ と記す。
+
+$E_2$ の次の十五元を、記した順に $q_r$ とする：
+\begin{equation}\label{ifj:eq:mixed-frobenius-E2-basis}
+ q_a^x=u_{a+1}u_{a+2},\qquad
+ q_b^y=v_{b+1}v_{b+2},\qquad
+ q_{ab}^c=u_av_b \quad(1\le a,b\le3).
+\end{equation}
+$E_3$ の次の二十元を、記した順に $m_\nu$ とする：
+\begin{equation}\label{ifj:eq:mixed-frobenius-E3-basis}
+ m^{xxx}=u_1u_2u_3,\quad m^{yyy}=v_1v_2v_3,\quad
+ m^{xxy}_{ab}=q_a^xv_b,\quad
+ m^{xyy}_{ba}=q_b^yu_a.
+\end{equation}
+添字は三を法として循環し、積は常に $E$ での積とする。
+これらはそれぞれ $E_2$、$E_3$ の自由基底である。
+特に $m_\nu$ の双対基底
+$e_\nu^{(3)}\in K_3=\operatorname{Hom}_{R^\circ}(E_3,R^\circ)$ は、
+前定理の二つの最上列、九つの $xxy$ 列、九つの $xyy$ 列と\emph{同じ基底}である。
+
+六変数を $z=(\mathbf u,\mathbf v)$ と並べ、
+\begin{equation}\label{ifj:eq:mixed-frobenius-socle}
+ \gamma=2^{-6}\det\left(\frac{\partial g_i}{\partial z_j}\right)
+             \in D_6=E_6,
+ \qquad t:E_6\xrightarrow{\sim}R^\circ,\quad t(\gamma)=1
+\end{equation}
+とする。$q\in E_2$、$\xi\in E_1$、$1\in E_0$ に対し、
+$\deg h=6-\deg q$ のとき
+\[
+ k_q(h)=t(hq),\qquad k_\xi(h)=t(h\xi),\qquad k_1(h)=t(h)
+\]
+と定めると、$k_{q_r}$、$k_{\zeta_i}$、$k_1$ は
+$K_4,K_5,K_6$ の自由基底をなす。
+従って $R^\circ$ 上の全 Koszul 空間は、階数順に
+\begin{equation}\label{ifj:eq:mixed-frobenius-free-ranks}
+ (\operatorname{rank}K_0,\ldots,\operatorname{rank}K_6)
+              =(1,6,15,20,15,6,1)
+\end{equation}
+の\emph{自由}加群である。
+
+右 $B_s$-線型微分をこれらの基底で行列表示すると、
+四次微分の全 $20\times15$ 成分は
+\begin{equation}\label{ifj:eq:mixed-frobenius-d4}
+ \boxed{\displaystyle
+ (d_4)_{\nu r}=\sum_{j=1}^6z_j\,t(m_\nu\zeta_jq_r).}
+\end{equation}
+五次微分は、$[q_r](e)$ を $e\in E_2$ の $q_r$ 係数として
+\begin{equation}\label{ifj:eq:mixed-frobenius-d5}
+ (d_5)_{ri}=\sum_{j=1}^6z_j\,[q_r](\zeta_j\zeta_i),
+ \qquad d_6=(z_1,\ldots,z_6)^{\mathsf t}
+\end{equation}
+で与えられる。$d_5$ の係数は二次双対の明示関係
+\begin{equation}\label{ifj:eq:mixed-frobenius-E2-products}
+ \begin{gathered}
+ u_a^2=\tau_1q_a^x-s\sum_bV_{ba}q_b^y,\qquad
+ v_b^2=\tau_2q_b^y-s\sum_aU_{ab}q_a^x,\\
+ u_au_{a'}=u_{a'}u_a,\quad v_bv_{b'}=v_{b'}v_b,\quad
+ v_bu_a=-u_av_b=-q^c_{ab}
+ \end{gathered}
+\end{equation}
+だけから一意に決まる。
+式\eqref{ifj:eq:mixed-frobenius-d4}の各係数は
+$D$ の六次成分を $\gamma$ で割った scalar と
+$\chi$ の符号によって\emph{有限回の代数演算}で求まる。
+
+これらの微分は、前定理の $d_1,d_2,d_3$ と連結して
+\[
+ d_3d_4=d_4d_5=d_5d_6=0
+\]
+を満たす。$D(\Delta_{\rm res})$ 上では既存の
+定理\ref{ifb:thm:regularity}により長さ六の
+augmentation の Koszul 自由解消となる。
+この主張は resultant の零集合での全解消完全性や、
+混合曲率の Shamash higher homotopies を含まない。
+\end{theorem}
+
+\begin{proof}
+二次双対の六式は、次数二の六つの平方を
+式\eqref{ifj:eq:mixed-frobenius-E2-products}によって消去する。
+従って十五の異なる二文字積
+式\eqref{ifj:eq:mixed-frobenius-E2-basis}は
+任意の係数環上で $E_2$ の自由基底である。
+前定理の $K_3\subset\mathcal R_2\otimes W$ は、
+$(r_1^x\otimes x_1)$、$(r_1^y\otimes y_1)$、
+$(r_a^x\otimes y_b)$、$(r_b^y\otimes x_a)$ の二十座標への
+射影が恒等となる基底を持つ。
+これらの座標の双対は、$E_2\cdot E_1\to E_3$ の下で
+式\eqref{ifj:eq:mixed-frobenius-E3-basis}の二十元に一致する。
+よって $E_3=K_3^*$ も表示した自由基底を持つ。
+異因子間の符号は $E=D^\chi$ の積によって含まれている。
+
+相対完全交叉の補題\ref{ifb:lem:relative-ci}から、
+$D_6=R^\circ\gamma$ と、全次数の完全な積の対合
+$E_i\otimes E_{6-i}\to E_6$ を得る。
+従って $E_4^*\simeq E_2$、$E_5^*\simeq E_1$、
+$E_6^*\simeq E_0$ は、すべて $h\mapsto t(hq)$ による同型である。
+$K_i=E_i^*$ とこれまでの自由基底を使えば
+式\eqref{ifj:eq:mixed-frobenius-free-ranks}が従う。
+特に、一般に有限射影としていた四次以上の Koszul 空間は、
+この resultant 開上では表示した自然な基底により自由である。
+
+最後に、右加群の Koszul 微分の向きを固定して係数を計算する。
+$\varphi\in E_i^*$ と $b\in E_{i-1}$ に対し
+\[
+ (\partial_j\varphi)(b)=\varphi(b\zeta_j)
+\]
+と置くと、$d_i$ は $\sum_jz_j\partial_j$、すなわち
+$K_i\hookrightarrow K_{i-1}\otimes W$ の右切断余積で与えられる。
+ここに $k_{q_r}(b)=t(bq_r)$ を代入し、
+$\partial_j k_{q_r}$ を $e_\nu^{(3)}$ 上で評価すると
+$t(m_\nu\zeta_jq_r)$ を得る。
+これが式\eqref{ifj:eq:mixed-frobenius-d4}である。
+同様に $\partial_jk_{\zeta_i}=k_{\zeta_j\zeta_i}$ と
+$\partial_jk_1=k_{\zeta_j}$ が成り立ち、
+式\eqref{ifj:eq:mixed-frobenius-d5}と
+\eqref{ifj:eq:mixed-frobenius-E2-products}が従う。
+ここで $\zeta_i\zeta_j$ と $\zeta_j\zeta_i$ を取り違えると、
+二因子間の cocycle 符号が逆になる。
+
+これらはすべて $E$ の積を双対にした Koszul 微分である。
+二次関係の直交性により隣接微分の合成は零となり、
+定理\ref{ifb:thm:regularity}から正則開で完全性を得る。
+基底の形成と完全対合は同定理により任意の $R^\circ$-代数への
+底変更に両立する。
+\end{proof}
+
+\begin{example}[双方向混合の非自明な有理係数検算]
+\label{ifj:ex:mixed-frobenius-numeric}
+$\tau_1=\tau_2=2$、$s=1$、$U_{11}=V_{11}=1$、
+他の混合係数を零とする。
+この場合、一次元スライスの周囲正則性の式で
+$h=(1-8)^2-2^4=33\ne0$ となる。
+可換二次双対の六式は
+\[
+ \begin{aligned}
+ g_{x,1}&=u_1^2-2u_2u_3+v_2v_3,&
+ g_{y,1}&=v_1^2-2v_2v_3+u_2u_3,\\
+ g_{x,2}&=u_2^2-2u_3u_1,&
+ g_{y,2}&=v_2^2-2v_3v_1,\\
+ g_{x,3}&=u_3^2-2u_1u_2,&
+ g_{y,3}&=v_3^2-2v_1v_2.
+ \end{aligned}
+\]
+この商で $\gamma=33u_1u_2u_3v_1v_2v_3$ であり、
+式\eqref{ifj:eq:mixed-frobenius-d4}に従う
+$20\times15$ 行列の $e^{xxx}$ 行・$q^y_1$ 列の成分は
+$y_1/33$ となる。
+計算器
+\texttt{computations/verify\_clifford\_mixed\_koszul\_frobenius.py}
+は有理数上の Groebner 正規形と cocycle 符号により
+全二十列の既存 $d_3$ との一致、Frobenius 積対合、
+および $B_2$ の二十一基底係数すべてについて
+$d_3d_4=d_4d_5=d_5d_6=0$ を厳密に検査する。
+これは\emph{一つの非自明な双方向係数点}での検算であり、
+全係数上の定理は上の Koszul 双対と対合の証明による。
+\end{example}
+
+\begin{remark}[上位微分と Ku 比較の区別]
+\label{ifj:rem:mixed-frobenius-scope}
+今回得たのは resultant 正則開での Koszul 自由解消の
+上位三微分の\emph{有限係数抽出式}である。
+式の三百成分を全十八係数の多項式として展開したわけではない。
+また、$\Delta_{\rm res}=0$ 上へこの Frobenius 基底を延長できるとは
+主張しない。$d_1,\ldots,d_6$ を得ても
+中心曲率 $w_s$ に対する Shamash の中間・高次 homotopies、
+混合 $32\mid32$ 行列分解、Ku 比較 Hom の special retract
+$(i,p,h)$ と unit/counit、rotation と指定三乗周期の整合、
+四つの probe の四十六原式枠・十二高次係数の計算は残っている。
+\end{remark}
