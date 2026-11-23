@@ -1,6 +1,6 @@
 # Research instructions — nc-cubic
 
-2026-11-23 / v81。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-23 / v82。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
@@ -31,6 +31,7 @@
 - `ifj:prop:cover-trace-casimir` は非自明な固有線束Iの2×2冪等行列P_IとBの3×3有限射影、Θ²=1、e±=(1±Θ)/2による二重被覆の対角・反対角分裂、trace pairingの双対Casimirを明示。`ifj:cor:cover-hochschild-contraction` は相対HH正次数の任意双加群に対する明示cochain収縮とa(s),b(s)の三次jetを与える。nilpotent厚化上の有限étale持上げの一意性はStacks 0BQB。`verify_clifford_cover_trace_casimir.py`はGitHub保存済みコードそのものを独立にローカル復元し、SymPy9群PASS・終了コード0、Git blob SHA一致を確認済み。ただし、**このhは非可換曲率付きKoszul–Shamash模型のspecial HPL収縮ではない**。実kernelのunit/counit、rotation・三乗period、46原式係数・12値は未完成。
 - `ifj:prop:picard-symmetric-linear-mf` は源/標的二捩れPicard M=O(p−o)をcoker Lそのものとして表す対称3×3線形MF、−adjLによるu=X/Zで規格化したM²の評価と、D=diag(−1,1,1)による厳密反転を構成する。`ifj:cor:picard-symmetric-hesse-family` は元のHesse fτに対してdetLτ=4cτ² fτ、第二微分(4cτ²)⁻¹adjLτとして追加三乗根なしに指定方程式を分解する。一般理論はBeauville Propositions3.1/4.2・Buchweitz–Pavlov TheoremAが既知。`verify_clifford_picard_linear_mf.py` は10群厳密多項式検算。これは可換因子側の有限モデルであり、四混合probeではτ_i固定でs-定数。次は混合PBW m1,m2、原点の実Koszul–Shamash比較核の(i,p,h)、unit/counit、rotation・三乗periodで46係数を抽出する。これ以上因子Picardの単独計算だけをKuの高次比較と取り違えない。
 - `ifj:prop:picard-affine-bridge` は対称3×3 Picard MFをZ=1で明示的に2×2理想I=(x,y)のMFと可縮一階因子に縮約し、β単元の下でI²=xA、積rs/xが二重被覆B=R⊕Iの符号成分の積と同一規格化で一致すると証明する。反転とも両立しx^{-1}は使わない。これはアフィン局所の結果であり、斉次一点捩れ、nc曲率付きKoszul--Shamash比較核、rotation・指定三乗周期、46原式・12高次係数には拡張しない。`computations/verify_clifford_picard_affine_bridge.py`は厳密8群の計算器である。
+- `ifj:prop:pbw-curved-mc` は一方向Cliffordの全PBW積m=m₀+sm₁+s²m₂について、∂m₂=m₁∘m₁、三・四次の結合律、曲率ω₀+sω₁の中心整合式を全係数で証明。`(m₁∘m₁)(e₂,e₃,e₁₂)=L₁L₃` は非線形二probeで非零なので、固定したPBW規約では四枠のm₂が必要。`computations/verify_clifford_curved_pbw_mc.py` は8基底の512 triple×5次数と曲率4次数の厳密10群PASS（GitHub保存コードとローカル実行コードのblob一致）。これは非可換curved Koszul--Shamash模型のspecial retract(i,p,h)、比較unit/counit、rotationと三乗period・12係数の数値を構成しない。次に実比較核の収縮を有限模型から実際に構成する。
 - `verify_interfactor_pbw.py` のdefaultと`--clifford`は各6 PASSの有理数上の有限証明書。全90一次・15定数係数を先に許してBG行列を作り、cross消滅を入力にしない。一般因子定理、Clifford中心持上げ、相対対角やKu比較を計算確認したとしない。n=4の近傍比較は上のrotation付き認識によるもので、n≠4の開性定理の仮定を外したものではない。
 - 全中心数m≥1について `mcb:thm:smooth-locus` はK_A smooth ⇔ X_pol smoothを与える。`mbl:lem:strict-action` の厳密な中心作用、KhanのArtin stack blow-up分解、各chartの一中心普遍核、絶対対角のZariski局所性を使う。有限中心性や局所比較核の貼合せを仮定しない。一般中央flagの全中間商はsmooth（`mcb:thm:central-flags`）なので、任意mの全smooth因子別表示へ逐次実核と全coherent Ku比較を適用できる。二中心ではsmooth⇒Δ≢0でありΔの次数は3·8^k。全intrinsic対象の被覆を得たとはしない。
 - X_polは全smooth locusを判定するが、実比較の標的は逐次構成のX_itであり、その両者への同じ核や全中心作用の同時保存は未証明。`mtb:prop:transverse-iso` と `mtb:cor:many-centers` は、固定smooth境界と実核の下で横断二項Bの可逆性を与える。各固定一次係数の一般二次係数では最後の悪い値が2^(3k+m−1)個の単根で各唯一ODP、判別因子は既約被約でaffine正規化を持つ（`mtd:thm:normalization`, `mtd:cor:many-centers`）。特殊係数の多重根を許す。同一二軸でも全体のsmoothnessが異なる `tcr:ex:same-axes` を保持し、有限Koszul加群解消から全associative balancing towerの有限性を結論しない。
