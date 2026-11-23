@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v80.
+% Current result: 2026-11-23 / v82.
 \subsection{固定した三次形式の切片と高次係数の有限還元}
 \label{ifj:subsec:jets}
 
@@ -764,6 +764,97 @@ Clifford の整列恒等式である。
 四行列の $L_a$ を代入すると、
 $L_1L_3$ が非零なのは表示した二方向だけであり、
 それぞれの式を得る。
+\end{proof}
+
+\begin{proposition}[Clifford 混合 PBW の曲率付き変形恒等式と二次障害の明示的な消去]
+\label{ifj:prop:pbw-curved-mc}
+命題\ref{ifj:prop:pbw-jet-degree}の一方向族を考え、
+中心係数環 $Z$ 上の順序 PBW 基底を固定する。
+$q_{ij}(s)=q_{ij}(0)+sd_{ij}$ と書くと
+\[
+ d_{12}=L_3/2,\qquad d_{13}=L_2/2,\qquad d_{23}=L_1/2.
+\]
+積を $m_s=m_0+sm_1+s^2m_2$ と書き、
+$Z$-双線型写像 $f,g$ に対して
+\[
+ (f\circ g)(a,b,c)=f(g(a,b),c)-f(a,g(b,c)),
+\]
+\[
+ (\partial_0 f)(a,b,c)
+ =m_0(a,f(b,c))-f(m_0(a,b),c)
+  +f(a,m_0(b,c))-m_0(f(a,b),c)
+\]
+と定める。このとき次の多項式恒等式が成立する：
+\begin{equation}\label{ifj:eq:pbw-curved-mc}
+ \begin{gathered}
+ \partial_0m_1=0,\qquad \partial_0m_2=m_1\circ m_1,\\
+ m_1\circ m_2+m_2\circ m_1=0,\qquad m_2\circ m_2=0.
+ \end{gathered}
+\end{equation}
+特に $m_1\circ m_1$ は $Z$-係数の Hochschild 三余鎖
+として明示的に完全であり、その原始 $m_2$ は
+式\eqref{ifj:eq:quadratic-pbw-four}の四つの入力組にのみ非零で、
+いずれの出力係数も $-L_1L_3$ である。
+
+さらに $\omega_x(s)=\omega_0+s\omega_1$ を
+式\eqref{ifj:eq:curvature-linear}の中心体積元とし、
+$c_m(u)(a)=m(u,a)-m(a,u)$ と書けば、
+\begin{equation}\label{ifj:eq:pbw-curvature-mc}
+ \begin{gathered}
+ c_{m_0}(\omega_0)=0,\quad
+ c_{m_0}(\omega_1)+c_{m_1}(\omega_0)=0,\\
+ c_{m_1}(\omega_1)+c_{m_2}(\omega_0)=0,\quad
+ c_{m_2}(\omega_1)=0.
+ \end{gathered}
+\end{equation}
+従って $w_s=\alpha_1\omega_x(s)+\alpha_2\omega_y$ の
+中心性も、積と曲率の上記の有限データだけから確認できる。
+
+とくに
+\begin{equation}\label{ifj:eq:pbw-mc-obstruction-witness}
+ (m_1\circ m_1)(e_2,e_3,e_{12})
+ =4d_{12}d_{23}\,e_\varnothing
+ =L_1L_3\,e_\varnothing.
+\end{equation}
+したがって $C'_0,D_0$ の二つの非線形 probe では、
+指定 PBW 自明化の $m_1$ を固定したまま $m_2=0$ と
+することはできない。$E_{00},R_0$ の二方向では
+$L_1L_3=0$ であり、$m_2=0$ かつ $m_1\circ m_1=0$ である。
+ここでの完全性と二次項の必要性は通常の PBW 乗法に関するもので、
+実比較核の高次移送や十二係数の計算ではない。
+\end{proposition}
+
+\begin{proof}
+任意の可換係数環上で対称形式 $q(s)$ の Clifford 代数は、
+順序 PBW 基底に関して自由であり、積 $m_s$ は厳密に結合的である。
+従って $m_s\circ m_s=0$ を $s$ の次数ごとに比較すれば
+式\eqref{ifj:eq:pbw-curved-mc}を得る。
+二次積 $m_2$ の支持と四係数は命題
+\ref{ifj:prop:pbw-jet-degree}の整列計算で既に明示した。
+また奇数次 Clifford 代数の体積元
+\[
+ \omega_x(s)=e_{123}-q_{12}(s)e_3
+                       +q_{13}(s)e_2-q_{23}(s)e_1
+\]
+は全係数上で中心的である。
+恒等式 $c_{m_s}(\omega_x(s))=0$ を
+$s^0,s^1,s^2,s^3$ で比較して
+式\eqref{ifj:eq:pbw-curvature-mc}を得る。
+第二因子は固定され第一因子と可換であるから、
+$w_s$ に対しても同じ等式が成立する。
+
+最後に、整列基底で直接
+\[
+ m_1(e_2,e_3)=0,\qquad
+ m_1(e_3,e_{12})=-2d_{23}e_1+2d_{13}e_2,
+ \qquad m_1(e_2,e_1)=2d_{12}e_\varnothing,
+ \quad m_1(e_2,e_2)=0
+\]
+となる。これを $m_1\circ m_1$ の定義へ代入すると
+式\eqref{ifj:eq:pbw-mc-obstruction-witness}を得る。
+二次・三次・四次の全結合律と中心性の恒等式は
+\texttt{computations/verify\_clifford\_curved\_pbw\_mc.py} でも
+独立な記号係数にわたり厳密に検査できる。
 \end{proof}
 
 \subsubsection{Clifford 中心 norm の三次 jet と実比較係数の区別}
