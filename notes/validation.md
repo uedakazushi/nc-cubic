@@ -1,6 +1,8 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v90。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v91。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+
+**一方向九変数の有限PBW濾過収縮（v91）の確認範囲。** [本文節](../papers/sections/mixed/interfactor_clifford_filtered_shamash.tex)（`ifj:lem:filtered-koszul-contraction`, `ifj:prop:shamash-fourth-finite-formula`, `ifj:cor:finite-shamash-source-mf`）には既知の相対Koszul完全性とPBWの細分次数に基づく有限収縮式、P₃→P₄の既存H,Gゲージを固定した有限算法、s₂,s₃を含む内部次数を忘れた32|32源MFの数学的証明を記載した。基礎のhomological perturbation lemmaとShamash再帰は既知（Crainic; Eisenbud–Peeva）。**今回実行した検算：** `python3 computations/verify_shamash_dimension_table.py`と同じローカルコードが、原点D₄の1120×315・階数280、q別0,18,72,100,72,18,0、D₅の840×126・rank120、D₆の336×21・rank21を整数組合せ式で計算して4群PASS・終了コード0。これは完全性を入力とした次元算術の検算で、実際のPBW D₄行列のpivot 280個や高次J,s₂,s₃の係数は**計算未実施**。**組版：** 該当の日本語TeX節についてローカル独立ltjsarticle wrapperをLuaLaTeXで二巡し、3頁・終了コード0・未解決参照警告なし、PNG全頁をまとめて表示確認した。これは引用用stubを持つ独立wrapperであり、GitHub保存の混合稿全文や三稿全文の組版・全ラベル・文献相互参照の確認ではない。新節の内容に対応するローカル版を組版したが、保存Git blobとソースのバイト同一性の独立照合は未実施。**未検証：** 原点S₃×S₃を保つ既存外積とのゲージ一致、graded window・三乗period、比較Hom(i,p,h)、unit/counit、46原式・12比較係数、形式証明、査読・網羅的初出調査。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
 
