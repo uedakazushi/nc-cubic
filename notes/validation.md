@@ -1,8 +1,10 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
-2026年11月23日 / v79。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
+2026年11月23日 / v80。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 ## 混合尺度・階数一の残余特異点・固定切片の高次係数
+
+- **二捩れPicardの対称3×3線形MFと正規化された二乗評価（v80）：** `ifj:prop:picard-symmetric-linear-mf` でF=Y²Z−X(X²+aXZ+bZ²)の対称線形行列L、detL=F、L adjL=F·I₃、cokerL=O_E(p−o)を証明。M(1)の基底(-Y/X,1,X/Z)とu=X/ZによるM²≃Oの規格化で、対称積行列が−adjLと一致する。反転Y→−Yの厳密D共変も証明。`ifj:cor:picard-symmetric-hesse-family` はHesse座標のdetLτ=4cτ²fτから三乗根なしで指定fτそのもののMFを与える。Beauville (2000) Props3.1,4.2、Buchweitz–Pavlov (2024) ThmAの一般既知結果を一次PDFで確認し、Clifford固定係数・二乗scalarの具体化と区別した。ローカル`python3 /mnt/data/nc_cubic_v80/verify_clifford_picard_linear_mf.py`はSymPyで**10群PASS・終了コード0**。SHA-256=`b65c0d09164303083486670af40c095e39c64a298e11ddf3ff0b78a6460680aa`、Git blob SHA=`d110b426c2625cf72b39618a6f1f6b14ea3d60eb`で保存済みGitHubコードと一致。独立の簡約した原式・Hesse正規化抜粋をltjsarticle/LuaLaTeXで二巡組版し1頁PDFをレンダリング表示確認したが、**保存された混合稿の新節全文または三稿全体の組版ではない**。今回の一次PDFはBeauville Prop3.1/4.2とBuchweitz–Pavlov ThmAの該当頁を確認した。可換因子のPicard二乗評価のみであり、nc比較核・period・46原式係数・12 scalarの数値化は未実施。
 
 - **相対有限被覆のtrace/CasimirとHochschild収縮（v79）：** `ifj:prop:cover-trace-casimir` にI=(X,Y)の2×2冪等行列P_I²=P_I、B≃im diag(1,P_I)⊂R³、Θ=(η⊗η−(X−2a)ξ⊗ξ)/δ、Θ²=1、e±=(1±Θ)/2によるB⊗_R Bの対角・反対角の分離とtrace双対枠を証明。`ifj:cor:cover-hochschild-contraction` に任意のB-bimoduleの相対Hochschild正次数の明示cochain収縮・HH消滅、形式a(s),b(s)の三次δ逆数展開、有限étale Artin持上げの一意性（Stacks Tag0BQB）を証明・引用。ローカルPython3/SymPy1.14の厳密スクリプトは9群PASS・終了コード0（P、dual frame、Θ、trace、左右対称および非対称双加群のHochschild n=1..4、三次δ逆数、非定数三次路）。GitHub保存済みの再現器`computations/verify_clifford_cover_trace_casimir.py`を独立にローカルで復元して実行し、9群すべてPASS・終了コード0を確認。保存Git blob SHA=`88028e6b66ef2fefb29d60d7b1462f16a0bd422f`、実行ファイルのGit blob SHAも同一。実行ファイルSHA-256=`d97be70dfb3539cf06078c9c200048753318f7f2b980ec960569adb33301eb38`。有限被覆のHH収縮をcurved Koszul–Shamash HPLのhと混同しない。実比較核・rotation/period・46原式係数・12値は未完成。改訂3稿の統合LuaLaTeX組版・PDF表示、形式証明・外部査読は未実施。
 
