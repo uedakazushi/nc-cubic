@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v86.
+% Current result: 2026-11-23 / v87.
 \subsubsection{混合 Clifford の Koszul 初段と中心曲率の端点 homotopy}
 \label{ifj:subsubsec:mixed-koszul-endpoints}
 
@@ -162,8 +162,9 @@ $x$ 三関係のテンソル $r^x_a$、$y$ 三関係の $r^y_b$、
 巡回作用と反転の下では、$d_3^{(x)}$ は
 $x$ 側の最上 Koszul 線の符号、$d_3^{(y)}$ は
 $y$ 側の最上 Koszul 線の符号をそれぞれ保持する。
-これは必要な二十列のうち\emph{二列}の具体化であり、
-残る十八列の構成を意味しない。
+これは三次 Koszul 空間の二つの最上列であり、
+残る十八列と大域基底性は直後の
+定理\ref{ifj:thm:mixed-koszul-full-third}で与える。
 \end{corollary}
 
 \begin{proof}
@@ -190,6 +191,8 @@ $d_2d_3^{(x)}=d_2d_3^{(y)}=0$。
 $x_a,y_b$ はそれぞれ対応する符号付き置換で変わる。
 従って一因子の最上 Koszul 線の符号と一致する。
 \end{proof}
+
+\input{papers/sections/mixed/interfactor_clifford_mixed_koszul_full_d3.tex}
 
 \begin{lemma}[一方向九係数の三次までの有限群軌道数]
 \label{ifj:lem:mixed-koszul-parameter-orbits}
@@ -247,12 +250,15 @@ $9,45,165=\binom{11}{3}$ となる。
 式\eqref{ifj:eq:mixed-koszul-first-two}は二つの真正な微分と
 式\eqref{ifj:eq:mixed-koszul-curvature-endpoints}は
 曲率 null-homotopy の端点を与える。
-これで解けたのは $d_1d_2=0$ と $d_1u=w_s$ に対応する部分であり、
-中間 $d_3,\ldots,d_6$、$s_1$ の他の成分、$s_2,\ldots$ と
+定理\ref{ifj:thm:mixed-koszul-full-third}により $d_3$ は二十列すべて
+全係数上で明示され、三次 Koszul 空間の大域基底も得られた。
+なお $d_4,d_5,d_6$ と $s_1$ の中間成分、$s_2,\ldots$、
 曲率付き $32\mid32$ の混合微分の全持上げは未完成である。
 一因子 $4\times4$ の直積を混合係数のままで用いることはできない。
 四probeの高次可換式と固定 Hesse 切片の十二係数の計算には、
 なお比較 Hom の特別な収縮と unit/counit、rotation と周期の情報を要する。
-全係数上の厳密恒等式と軌道数の再現は
-\texttt{computations/verify\_clifford\_mixed\_koszul\_endpoints.py} に置く。
+全係数の初段・曲率・軌道数の検算は
+\texttt{computations/verify\_clifford\_mixed\_koszul\_endpoints.py}、
+三次の全二十列・大域基底の検算は
+\texttt{computations/verify\_clifford\_mixed\_koszul\_full\_d3.py} に置く。
 \end{remark}
