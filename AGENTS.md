@@ -1,6 +1,6 @@
 # Research instructions — nc-cubic
 
-2026-11-23 / v84。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
+2026-11-23 / v85。研究全体の入口は https://github.com/uedakazushi/research-hub 。再開時はhubの該当項目、本repoの `00_research_plan.md`、このAGENTS、研究ノートと必要な証明を読む。
 
 ## 最優先目標
 
@@ -33,6 +33,7 @@
 - `ifj:prop:picard-affine-bridge` は対称3×3 Picard MFをZ=1で明示的に2×2理想I=(x,y)のMFと可縮一階因子に縮約し、β単元の下でI²=xA、積rs/xが二重被覆B=R⊕Iの符号成分の積と同一規格化で一致すると証明する。反転とも両立しx^{-1}は使わない。これはアフィン局所の結果であり、斉次一点捩れ、nc曲率付きKoszul--Shamash比較核、rotation・指定三乗周期、46原式・12高次係数には拡張しない。`computations/verify_clifford_picard_affine_bridge.py`は厳密8群の計算器である。
 - `ifj:prop:pbw-curved-mc` は一方向Cliffordの全PBW積m=m₀+sm₁+s²m₂について、∂m₂=m₁∘m₁、三・四次の結合律、曲率ω₀+sω₁の中心整合式を全係数で証明。`(m₁∘m₁)(e₂,e₃,e₁₂)=L₁L₃` は非線形二probeで非零なので、固定したPBW規約では四枠のm₂が必要。`computations/verify_clifford_curved_pbw_mc.py` は8基底の512 triple×5次数と曲率4次数の厳密10群PASS（GitHub保存コードとローカル実行コードのblob一致）。これは非可換curved Koszul--Shamash模型のspecial retract(i,p,h)、比較unit/counit、rotationと三乗period・12係数の数値を構成しない。次に実比較核の収縮を有限模型から実際に構成する。
 - `ifj:prop:clifford-explicit-shamash`（`papers/sections/mixed/interfactor_clifford_explicit_shamash.tex`）の現行規格化はκ=(4−τ³)/6、A_ii=−τ³x_i²/2−τ²x_{i+1}x_{i+2}、A_{i,i+1}=τx_{i+2}²+κx_ix_{i+1}、A_{i+1,i}=−τx_{i+2}²−κx_{i+1}x_i、v=−τ(τ³−1)(τ³+8)Σx_i³/18。これでd₊d₋=d₋d₊=ΩτI₄、巡回C₃と反転σ(x)=−Pxの厳密S₃線型化を実現。Koszul段階P₀,P₁,P₂,P₃への反転は(1,−P,P,−1)、最上線符号−1は可換点曲線のPのdetと一致。s₁²のx₁⁴非零係数τ(τ³−1)(τ³+8)/18を保持。中心scalar aのs₁→as₁、s₂→a²s₂と内部3周期も厳密。二因子32|32は原点の**非可換源**augmentation MFで、実Ku比較核・Hom特殊収縮・rotation三乗coherence・46原式/12係数を解決したものではない。`computations/verify_clifford_explicit_shamash.py`は更新後15群SymPy厳密検算、GitHub保存blobとローカル実行blob同一。次はこのS₃×S₃基底で実混合微分と比較核を計算する。一般Shamash folding/windowは既知理論と区別。
+- `ifj:lem:mixed-clifford-s3-family` は二因子Cliffordの九変数一方向族 B_Λ にS₃×S₃が作用し、中心平方Y_bと係数行列Λの行・列を同時に置換して二次関係・体積元ω_x,ω_y・指定中心三次w_Λを保つことを証明。原点32|32の源MFはv84の厳密S₃線型化の外積。選んだn−1次の同変MF jetが解を持ってn次へ延びるなら、n次補正は有限群36元のReynolds平均により同変な解へ変更可能。ただし持上げの**可解性自体**や実Ku核は未証明。`computations/verify_clifford_family_s3.py`は全九U係数とGram・体積・中心の厳密8群PASS。次はこの作用を保ったまま混合MF微分・Hom special retract・unit/counit・periodを解く。
 - `verify_interfactor_pbw.py` のdefaultと`--clifford`は各6 PASSの有理数上の有限証明書。全90一次・15定数係数を先に許してBG行列を作り、cross消滅を入力にしない。一般因子定理、Clifford中心持上げ、相対対角やKu比較を計算確認したとしない。n=4の近傍比較は上のrotation付き認識によるもので、n≠4の開性定理の仮定を外したものではない。
 - 全中心数m≥1について `mcb:thm:smooth-locus` はK_A smooth ⇔ X_pol smoothを与える。`mbl:lem:strict-action` の厳密な中心作用、KhanのArtin stack blow-up分解、各chartの一中心普遍核、絶対対角のZariski局所性を使う。有限中心性や局所比較核の貼合せを仮定しない。一般中央flagの全中間商はsmooth（`mcb:thm:central-flags`）なので、任意mの全smooth因子別表示へ逐次実核と全coherent Ku比較を適用できる。二中心ではsmooth⇒Δ≢0でありΔの次数は3·8^k。全intrinsic対象の被覆を得たとはしない。
 - X_polは全smooth locusを判定するが、実比較の標的は逐次構成のX_itであり、その両者への同じ核や全中心作用の同時保存は未証明。`mtb:prop:transverse-iso` と `mtb:cor:many-centers` は、固定smooth境界と実核の下で横断二項Bの可逆性を与える。各固定一次係数の一般二次係数では最後の悪い値が2^(3k+m−1)個の単根で各唯一ODP、判別因子は既約被約でaffine正規化を持つ（`mtd:thm:normalization`, `mtd:cor:many-centers`）。特殊係数の多重根を許す。同一二軸でも全体のsmoothnessが異なる `tcr:ex:same-axes` を保持し、有限Koszul加群解消から全associative balancing towerの有限性を結論しない。
