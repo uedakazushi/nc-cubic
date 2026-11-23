@@ -16,6 +16,8 @@
 
 **連結な smooth proper 圏族を仮定しても、狭い主予想には五次元の反例がある。** 三つの反可換変数と四つの中心変数を持つ商の全残余圏は、可換五様体の Ku と実際に変形連結である。この次元では rotation は Serre 関手と shift から復元できる。rotation への六つの独立な自然変換が満たす対称三行三列行列の六つの二次小行列式は、滑らかな三次式の七次元の勾配空間に入らない。従ってどの可換五様体の Ku にも同値でない。[五次元反例の式・変形族・証明](papers/sections/narrow_fivefold_counterexample.tex)・[厳密検算](computations/verify_narrow_fivefold_counterexample.py)。
 
+同じ反例には三重積による独立な検証がある。一次・三次の自然変換空間の次元は族の全点で 7・35 だが、一次変換の三重積の階数は可換ファイバーで 35、反例で 34 となる。余核は同時符号反転で符号の変わる $x_1x_2x_3$ の一方向である。[固定点ごとの計算](papers/sections/narrow_fivefold_cubic_product.tex)。
+
 **五変数の対角量子多項式環の中心三次商で、狭い主予想が成立する。** 交換係数は任意の複素数でよい。全 coherent 圏が smooth proper なら交換係数は六乗根に限られる。三乗根の場合は三型に帰着し、巡回五頂点型は Fermat 三様体で実現する。二捩れ成分があれば、独立な二符号反転型では残余 $\dim HH_1=0$ または $4$ となり、可換三次三様体と変形連結にならない。残る偶符号型では、三変数の反可換な中心商の全残余圏を滑らかな可換三次の圏で実現した。[有限位数制約](papers/sections/narrow_diagonal_support.tex)・[三乗根での比較](papers/sections/narrow_fermat_root_equivalence.tex)・[二捩れの分類](papers/sections/narrow_diagonal_signs.tex)・[全対角型の帰結](papers/sections/narrow_diagonal_clifford.tex)。
 
 偶符号型の可換被覆の方程式を $p x^2+q y^2+l z^2+\lambda xyz+g$ とすると、比較先は $l$ を $-l$ に、$g$ を $g+4pql/\lambda^2$ に替えた三次式である。三様体では直線からの円錐曲線束の偶 Clifford 代数を同定した。[次数付き行列因子化による証明](papers/sections/narrow_sign_factorization.tex) は中心変数が任意個の同じ型にも適用できる。五次元の反例は同じ反可換三変数でも $\lambda=0$ にある。

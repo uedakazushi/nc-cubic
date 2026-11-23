@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Exact checks for the deformation-connected fivefold and its rotation products."""
-from itertools import combinations
+from itertools import combinations, combinations_with_replacement
 
 import sympy as sy
 
@@ -87,7 +87,72 @@ def verify_smooth_fibers():
     print("The three endpoint equations have zero-dimensional affine gradient scheme over Q.")
 
 
+def invariant_jacobian_piece(polynomial, variables, signs, active_count, degree):
+    """Ranks of the invariant quotient, central products, and odd active part."""
+    def products(size):
+        return list(combinations_with_replacement(range(len(variables)), size))
+
+    indices = []
+    for factors in products(degree):
+        character = 0
+        for index in factors:
+            character ^= signs[index]
+        if character == 0:
+            indices.append(factors)
+    monomials = [sy.prod(variables[i] for i in factors) for factors in indices]
+    relations = []
+    if degree >= 2:
+        for i, variable in enumerate(variables):
+            for factors in products(degree-2):
+                character = signs[i]
+                for j in factors:
+                    character ^= signs[j]
+                if character == 0:
+                    poly = sy.Poly(polynomial.diff(variable) *
+                                   sy.prod(variables[j] for j in factors), *variables)
+                    relations.append([poly.coeff_monomial(m) for m in monomials])
+    ideal = sy.Matrix(relations) if relations else sy.zeros(0, len(indices))
+    standard = sy.eye(len(indices))
+    central = [j for j, factors in enumerate(indices)
+               if all(i >= active_count for i in factors)]
+    odd = [j for j, factors in enumerate(indices)
+           if sum(i < active_count for i in factors) % 2]
+
+    def image_dimension(rows):
+        return ideal.col_join(standard[rows, :]).rank() - ideal.rank()
+
+    return len(indices)-ideal.rank(), image_dimension(central), image_dimension(odd)
+
+
+def verify_sector_triple_products():
+    active = sy.symbols("x1:4")
+    central = sy.symbols("u1:4") + (sy.Symbol("w"),)
+    cubic = sum(v**3 for v in central)
+    products = sum(u*x**2 for u,x in zip(central, active))
+    for parameter, expected_rank in ((0, 34), (2, 35)):
+        polynomial = cubic + products + parameter*sy.prod(active)
+        ranks = {}
+        for degree in (1,3):
+            ranks[degree] = [
+                invariant_jacobian_piece(polynomial, active+central,
+                                         (1,2,3,0,0,0,0), 3, degree)]
+            for i, x in enumerate(active):
+                fixed = cubic + central[i]*x**2
+                # After the determinant and multiplier characters cancel,
+                # each moving pair contributes fixed degree degree-1.
+                ranks[degree].append(invariant_jacobian_piece(
+                    fixed, (x,)+central, (i+1,0,0,0,0), 1, degree-1))
+        assert sum(dim for dim, _, _ in ranks[1]) == 7
+        assert sum(dim for dim, _, _ in ranks[3]) == 35
+        assert sum(span for _, span, _ in ranks[3]) == expected_rank
+        if parameter == 0:
+            assert all(odd == 0 for _, _, odd in ranks[1])
+            assert [odd for _, _, odd in ranks[3]] == [1, 0, 0, 0]
+        print(f"b={parameter}: four Jacobian sectors, triple product rank {expected_rank}/35.")
+
+
 if __name__ == "__main__":
     verify_clifford_products()
     verify_quadrics()
     verify_smooth_fibers()
+    verify_sector_triple_products()
