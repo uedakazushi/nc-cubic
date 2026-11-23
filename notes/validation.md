@@ -1,5 +1,9 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
+- **量子 Fermat 三様体の全称命題への障害。** `qfo:thm:obstruction` は次数付き射影生成族によるねじれ同変層との同定、標準例外対、Baranovsky–Petrov 定理 5 と Griffiths 留数計算を用いる。有限計算器 `computations/verify_quantum_fermat_obstruction.py` の九元の文字射影を再現し、残余圏の $(\dim HH_1,\dim HH_0)=(1,10)$ を確認。比較対象の任意の可換三次三様体は $(5,2)$。内在的定義でこの中心三次商を除く場合には、その定義で別途判定が必要。
+- **一方向 Clifford の三つ目の中間成分。** `ifj:prop:third-middle-certificate` の有理 PBW 検算を `computations/verify_clifford_mixed_shamash_third_middle.py --certificate FILE` で実行した。独立行・列は 280 個、九変数の係数次数 0/1/2 の非零項は 122/516/450 個。これは選択したゲージの $J$ と全二十列の恒等式の計算である。
+
+
 2026年11月23日 / v91。正本はGitHub main。証明記載、独立読解、厳密計算、組版、表示確認、保存を区別する。
 
 **一方向九変数の有限PBW濾過収縮（v91）の確認範囲。** [本文節](../papers/sections/mixed/interfactor_clifford_filtered_shamash.tex)（`ifj:lem:filtered-koszul-contraction`, `ifj:prop:shamash-fourth-finite-formula`, `ifj:cor:finite-shamash-source-mf`）には既知の相対Koszul完全性とPBWの細分次数に基づく有限収縮式、P₃→P₄の既存H,Gゲージを固定した有限算法、s₂,s₃を含む内部次数を忘れた32|32源MFの数学的証明を記載した。基礎のhomological perturbation lemmaとShamash再帰は既知（Crainic; Eisenbud–Peeva）。**今回実行した検算：** `python3 computations/verify_shamash_dimension_table.py`と同じローカルコードが、原点D₄の1120×315・階数280、q別0,18,72,100,72,18,0、D₅の840×126・rank120、D₆の336×21・rank21を整数組合せ式で計算して4群PASS・終了コード0。これは完全性を入力とした次元算術の検算で、実際のPBW D₄行列のpivot 280個や高次J,s₂,s₃の係数は**計算未実施**。**組版：** 該当の日本語TeX節についてローカル独立ltjsarticle wrapperをLuaLaTeXで二巡し、3頁・終了コード0・未解決参照警告なし、PNG全頁をまとめて表示確認した。これは引用用stubを持つ独立wrapperであり、GitHub保存の混合稿全文や三稿全文の組版・全ラベル・文献相互参照の確認ではない。新節と検算器のGitHub保存blobを読み戻し、ローカルの組版・実行ソースの `git hash-object` と一致を確認した（節 `62d3c58baed4d717f17657f88c4778306e14c0fe`、コード `94adb7aba440c50a9defc2b0f78eeeea15433865`）。**未検証：** 原点S₃×S₃を保つ既存外積とのゲージ一致、graded window・三乗period、比較Hom(i,p,h)、unit/counit、46原式・12比較係数、形式証明、査読・網羅的初出調査。

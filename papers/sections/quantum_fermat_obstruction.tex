@@ -1,0 +1,106 @@
+% !TEX root = ../nc-cubic.tex
+\section{中心三次商全体に対する三次元の障害}
+\label{qfo:sec:obstruction}
+
+\begin{theorem}\label{qfo:thm:obstruction}
+$\zeta$ を原始三乗根、$w_i$ を順に
+$(1,0),(-1,0),(0,1),(0,-1),(0,0)\in\mathbb F_3^2$ とする。
+複素数体上で
+\[
+ B=\C\langle z_1,\ldots,z_5\rangle/
+ (z_i z_j-\zeta^{\det(w_i,w_j)}z_j z_i\mid i<j),\qquad
+ A=B/(z_1^3+\cdots+z_5^3)
+\]
+と置く。$B$ は次元・指数 $5$ の AS 正則代数であり、表示した三次式は
+中心正則元である。$D^b(\operatorname{qgr}A)$ は smooth proper であり、
+その標準例外対 $\mathcal O_A,\mathcal O_A(1)$ の右直交 $\cK_A$ は
+\[
+ \dim_\C HH_1(\cK_A)=1,\qquad \dim_\C HH_0(\cK_A)=10
+\]
+を満たす。特にどの滑らかな可換三次三様体 $X$ に対しても
+$\cK_A\not\simeq\Ku(X)$ である。
+\end{theorem}
+
+\begin{proof}
+$B$ は対角自己同型による五段の次数付き Ore 多項式拡大であり、
+量子多項式環の Koszul 解消は五変数の量子外積代数に双対である。
+従って Hilbert 級数は $(1-t)^{-5}$、大域次元と AS 指数は $5$ となる。
+各 $z_i^3$ は中心に属し、PBW 基底と整域性から
+$F=\sum_i z_i^3$ は非零正則である。
+さらに $\sum_i w_i=0$ より交換行列の各行の積は $1$ である。
+
+$G=\mathbb F_3^2$ とし、可換環 $S=\C[x_1,\ldots,x_5]$ に
+$g(x_i)=\zeta^{g\cdot w_i}x_i$ で作用させる。
+$Y=V(\sum_i x_i^3)\subset\PP^4$ は滑らかな Fermat 三様体である。
+$V=\C^3$ 上で $P e_j=\zeta^j e_j$, $Qe_j=e_{j+1}$（添字は法 $3$）とすると
+$PQ=\zeta QP$ であり、$\rho(a,b)=P^aQ^b$ は乗数 $\alpha$ の射影表現である。
+九つの $P^rQ^s$ は $\operatorname{End}V$ の基底であり、
+ねじれ群環 $\C^\alpha G$ は $\operatorname{Mat}_3(\C)$ となる。
+よってこの乗数の既約射影表現は $V$ 一つだけである。
+$w=(u,v)$ に対して $M_w=P^vQ^{-u}$ とすれば
+$\operatorname{Ad}\rho(g)(M_w)=\zeta^{-g\cdot w}M_w$。
+$z_i\mapsto x_i\otimes M_{w_i}$ は
+\[
+ B\simeq (S\otimes\operatorname{End}V)^G
+\]
+を与える。実際、可換単項式ごとに相殺する行列の重み空間は一次元であり、
+順序付き量子単項式はその基底に移る。交換比は上記の行列式から与えられる。
+$M_{w_i}^3=1$ なので、$F$ は $(\sum_i x_i^3)\otimes 1$ に移る。
+不変部分は完全関手であるから、$R=S/(\sum_i x_i^3)$ とすれば
+$A\simeq(R\otimes\operatorname{End}V)^G$ である。
+
+この同定が与えるのは全 coherent 圏の比較である。
+次数付き $\alpha$-同変 $R$-加群の圏で、$R\otimes V$ の全次数シフトは
+射影生成族をなす。実際 $\operatorname{Hom}$ の完全性は各次数成分での
+射影表現圏の半単純性に従う。有限個の斉次生成元の $G$-軌道が張る
+有限次元射影表現は $V$ の直和であり、これから必要な全射が得られる。
+この生成族の全次数自己準同型環は $A$ であり、次数付き Morita 同値が従う。
+次数成分は $V$ の重複度空間で対応するため、有限次元加群も対応する。
+可換側での層化は同変であり、逆は十分高い全 twist の切断を取って得る。
+従って $\operatorname{qgr}A\simeq\operatorname{coh}_{G,\alpha}(Y)$ である。
+$\mathcal O_A(k)$ は $\mathcal O_Y(k)\otimes V$ に移る。
+また $G$ の五次元表現の行列式と Fermat 方程式の指標はともに自明なので
+$\omega_Y=\mathcal O_Y(-2)$ は同変な同型である。有限群の不変部分は完全であり、
+同変 Serre 双対性から全 coherent 圏のホモロジー次元は $3$、
+特に $\operatorname{Ext}^3(\mathcal O_A,\mathcal O_A(-2))=\C$ となる。
+有限 Heisenberg 中心拡大 $\langle P,Q,\zeta I\rangle$ の商スタックは
+滑らかかつ固有である。その perfect 圏は中心文字ごとの直和に分解し、
+$\alpha$-成分は $D^b(\operatorname{coh}_{G,\alpha}(Y))$ であるため smooth proper となる。
+$H^*(Y,\mathcal O_Y)=\C$, $H^*(Y,\mathcal O_Y(-1))=0$ と
+$(\operatorname{End}V)^G=\C$ から上の二対象は例外対となる。
+
+Baranovsky--Petrov の定理 5 \cite{QFOBaranovskyPetrov} により
+\[
+ HH_i(\operatorname{coh}_{G,\alpha}Y)
+ =\bigoplus_{g\in G}(HH_i(Y^g)\otimes\chi_g)^G,\qquad
+ \chi_g(h)=\alpha(g,h)/\alpha(h,g)=\zeta^{\det(g,h)}.
+\]
+ここで左辺の $HH$ は有界導来圏の標準 dg 圏について取る。
+恒等元では HKR と Griffiths の留数表示 \cite{QFOGriffiths} により
+$HH_1(Y)=H^{2,1}(Y)\simeq\operatorname{Jac}(F)_1$。
+その作用には留数分子の行列式も現れるが、ここでは $\sum_iw_i=0$ なので
+この因子は自明である。五つの線形形式のうち不変なものは $x_5$ のみである。
+$HH_0(Y)^G$ は超平面類の累乗の張る四次元空間である。
+
+四つの非零軸上元の固定軌跡はそれぞれ平面 Fermat 楕円曲線 $E$ である。
+残る二つの一次元固有空間の射影点は $Y$ の外にある。
+$E$ の三つの座標に対する $G$ の行列式は $1$ であり、三次方程式も不変なので、
+随伴公式の留数により $G$ は $HH_1(E)=H^0(E,\Omega_E^1)$ に自明に作用する。
+$HH_0(E)$ にも自明に作用する。$g\ne0$ では $\chi_g$ が非自明なので
+この四項はいずれの次数にも寄与しない。
+両座標が非零の四元では、固有空間次元は $2,2,1$ であり、
+固定軌跡は二つの射影直線上の三点ずつで尽くされる。
+各三点は単一の $G$-軌道である。実際、二座標の重みの差は非零であり、
+$g$ と直交するからその文字の核、すなわち各点の固定群は
+$\langle g\rangle$ である。$\chi_g$ はここに自明なので、
+各軌道の置換表現から $HH_0$ に一次元ずつ寄与する。
+点の $HH_1$ は零である。従って全圏の $(\dim HH_1,\dim HH_0)=(1,12)$。
+半直交分解の加法性によって例外対を除くと $(1,10)$ となる。
+一方、任意の滑らかな可換三次三様体で同じ留数計算と例外対の除去は
+$(5,2)$ を与える。Hochschild ホモロジーの dg Morita 不変性で結論が従う。
+\end{proof}
+
+この定理は、AS 正則な量子多項式環の滑らかな中心三次商をすべて許す
+解釈での予想\ref{conj:nc-main}に対する反例を与える。
+全対象の内在的な定義が別途定まる場合には、この明示的中心商が
+その定義を満たすかを検査する必要がある。

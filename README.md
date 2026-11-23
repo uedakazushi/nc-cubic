@@ -18,6 +18,9 @@
 
 ## 最優先目標と現在の到達点
 
+**全称命題の適用範囲を左右する三次元の反例。** [量子 Fermat 中心三次商の定理](papers/sections/quantum_fermat_obstruction.tex) は、次元・指数 5 の AS 正則な量子多項式環の中心正則三次商で、全 coherent 圏が smooth proper かつ残余圏の `(dim HH₁, dim HH₀)=(1,10)` となる例を与える。滑らかな可換三次三様体ではこの組は常に `(5,2)` である。従ってこの種の滑らかな中心三次商をすべて許す定式化は成立しない。三次元で対象を別の内在的なクラスに限定する場合は、この表示が除かれるかをその定義から確認する必要がある。
+
+
 **二十変数のClifford族は、幾何的形式変形の全体とモジュライの稠密開を実現する。** 両Clifford因子の十八の混合係数に、二つの因子係数τ₁,τ₂を加えた族を構成した。[二十変数族の局所完全性](papers/sections/mixed/interfactor_clifford_versal.tex)は、任意の許容分離点で残余KSが三次四様体の幾何的20次元接空間への同型となり、原点を標識した形式変形空間そのものが同型になることを証明する（`ifv:thm:versal`）。さらに係数空間の非空稠密開Uの有限étale全射V→U上に、滑らかな可換三次族と実相対perfect比較核を得る。分類写像V→𝔐₄^cubはétaleで、像はモジュライスタックの稠密開となる（`ifv:cor:generic-comparison`）。一般係数体でも有限分離拡大上に全coherent Ku比較がある。有限化したUが指定分離点を含むとは限らず、全22次元の非標識圏変形、粗モジュライへのétale性、全三次四様体・全smooth係数・全intrinsic対象の被覆は結論しない。
 
 **十八変数の周囲代数の正則領域を正確に決定した。** [双方向積分と相対正則性](papers/sections/mixed/interfactor_clifford_bidirectional.tex)では、全係数で中心平方上のClifford tensor表示と自由階数64を得る。二次双対は可換六二次式商のcocycle twistである。この可換商は六二次式のresultant開D(Δ)上で完全交叉となり、Δ≠0が有限大域次元・AS-regular性の正確な領域である。ここでは次元/index6、任意底変更に保たれる有限射影Koszul双加群解消とuntwisted相対6-CYを持つ（`ifb:thm:regularity`, `ifb:cor:exact-regular-locus`）。別の明示的な主開D(c)では指定中心三次が普遍正則で、その商は平坦である。τ₁=τ₂=2、Λ=M=I₃はΔ=0で大域次元が無限となる例で、a₁=a₂=1ならc=196≠0となる。平坦性とHilbert級数だけではAS-regular性を判定できない。
