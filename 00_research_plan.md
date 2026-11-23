@@ -14,6 +14,9 @@
 
 ## 主予想の反例と個別の族での可換実現
 
+**狭い主予想を研究中。** [連結な smooth proper 圏族の仮定と三乗根交換型の分類](papers/sections/narrow_quantum_threefolds.tex)。三次三様体の全五変数量子多項式環で、交換係数が三乗根、中心三次商の全 coherent 圏が smooth proper の場合に、行和零への twist 後の階数が二以下なら狭い主予想が成立する。全階数で未決の表示は一つの巡回五頂点型に帰着する。その型で可換標的が存在すれば Fermat 三様体に限られる。この型の変形連結性と実同値、他の周囲代数および一般次元の狭い主予想は未解決。
+
+
 **広い定式化への三次元の反例。** [量子 Fermat 中心三次商の定理](papers/sections/quantum_fermat_obstruction.tex) は、次元・指数 5 の AS 正則な量子多項式環の中心正則三次商で、全 coherent 圏が smooth proper かつ残余圏の `(dim HH₁, dim HH₀)=(1,10)` となる例を与える。滑らかな可換三次三様体ではこの組は常に `(5,2)` である。主予想はこの滑らかな中心三次商を含む広い定式化で扱い、上の例で否定される。同じ周囲代数の全中心三次は七項で尽くされ、係数射影空間の滑らかな開集合全体で同じ障害が成り立つ（同節の系 `qfo:cor:central-family`）。Perry の相対 Hochschild 底変更定理から、そこに属する残余圏と可換三次三様体の残余圏は連結な smooth proper 圏族で結べない（`qfo:cor:deformation-separation`）。
 
 

@@ -1,0 +1,183 @@
+% !TEX root = ../nc-cubic.tex
+\section{狭い主予想と三乗根交換型三様体}
+\label{nqt:sec:narrow}
+基礎体を $\C$ とする。全 coherent 残余圏を使う。
+\begin{conjecture}[狭い主予想]\label{nqt:conj:narrow}
+滑らかな非可換三次 $n$-fold $\mathcal X$（$n\ge3$）に対し、
+$\Ku(\mathcal X)$ と滑らかな可換三次 $n$-fold の残余圏が、ある連結な
+複素スキーム上の smooth proper 線型圏族の二つのファイバーであるとする。
+このとき同次元の滑らかな可換三次 $X$ と
+$\C$-線型 dg Morita 同値 $\Ku(\mathcal X)\simeq\Ku(X)$ が存在する。
+\end{conjecture}
+相対 rotation や各ファイバーの三次表示を族の標識とする仮定は置かない。
+
+五変数の量子多項式環 $B_D$ を
+$z_i z_j=\zeta^{D_{ij}}z_j z_i$ で定める。
+$D$ は $\mathbb F_3$ 上の交代行列であり、$\zeta$ は原始三乗根である。
+任意の非零中心三次 $f$ を取り、
+$D^b(\operatorname{qgr}(B_D/(f)))$ は smooth proper とする。
+
+\begin{theorem}\label{nqt:thm:reduction}
+$D$ を後述の次数付き twist で行和零の $D'$ に規格化する。
+$\operatorname{rank} D'\le2$ なら、この全表示族について狭い主予想が成立する。
+全階数を許しても、残るのは変数の置換と再尺度化、次数付き twist を除き
+\[
+ D_{ij}=1\quad(j-i=1,2\bmod 5),\qquad
+ D_{ij}=-1\quad(j-i=3,4\bmod 5),\qquad f=\sum_{i=1}^5 z_i^3
+\]
+という一つの残余圏だけである。この圏が狭い仮定を満たすか、あるいは
+可換三次で実現されるかはこの定理では決定しない。
+\end{theorem}
+
+\begin{proof}
+\emph{行和の規格化。}
+$\mathbf1=(1,1,1,1,1)^t$, $s=D\mathbf1/5$ とし、
+$\sigma(z_i)=\zeta^{s_i}z_i$ と置く。
+積 $x*y=x\sigma^{\deg x}(y)$ の Zhang twist では
+$D'_{ij}=D_{ij}+s_j-s_i$ となる。$\sum s_i=0$ により $D'\mathbf1=0$。
+PBW 指数 $m$ の中心単項式は $Dm=0$ を満たし、
+$s^t m=-\mathbf1^tDm/5=0$ である。従って $\sigma(f)=f$。
+$\deg f=3$, $\sigma^3=1$ より $f$ は twist 後も中心で、商と twist は可換である。
+次数付き右加群の twist 同値 \cite{TBPZhangTwist} は有限次元加群と
+各自由加群のシフトを保つ（$B^\sigma(k)\to B(k)^\sigma$ の同定は $\sigma^{-k}$）。
+従って全 coherent 圏、例外対およびその右直交が対応する。以下 $D'$
+を $D$ と略記する。
+
+\emph{固定点公式。}
+$W=\mathbb F_3^5/\ker D$ に誘導される非退化交代形式を $b$、
+標準基底の像を $w_i$、双対群を $G=W^*$ とする。
+$\sum w_i=0$ である。$G$ を $x_i$ に重み $w_i$ で作用させる。
+定理\ref{qfo:thm:obstruction}の行列表示を各 symplectic 対について
+tensor すると、ある射影表現 $V$ が得られる。
+具体的に $\operatorname{End}(V)$ は $M_w$ ($w\in W$) を基底とし、
+その交換比は $\zeta^{b(w,v)}$。
+$g\in G$ に $b(t_g,w)=-g(w)$ で $t_g\in W$ を対応させ、
+$\rho(g)=M_{t_g}$ とすれば $\operatorname{Ad}\rho(g)$ は $M_w$ を
+$\zeta^{-g(w)}$ 倍する。乗数を $\alpha$ とすれば
+$\C^\alpha G=\operatorname{End}(V)$ である。
+$z_i\mapsto x_i\otimes M_{w_i}$ により前定理と同様の不変環表示を得る。
+全中心三次は、単項式ごとに三乗根の係数を掛けて
+全重み零の可換三次と一対一に対応する。
+その可換零点を $Y$ とすると、前定理の射影生成族から
+$\operatorname{qgr}(B_D/(f))\simeq\operatorname{coh}_{G,\alpha}(Y)$。
+特異点の剰余体を誘導する系\ref{qfo:cor:central-family}の議論から、
+全 coherent 圏が proper なら $Y$ は滑らかである。
+不変三次の滑らかな係数開は射影空間の非空開として連結で、Fermat 点を含む。
+その上の同変圏は有限中心拡大の相対商の中心文字成分として smooth proper。
+例外対を除いても $HH_1$ は変わらないので、
+\cite[Theorem~3.5]{QFOPerryHodge} により $HH_1$ は Fermat 点で計算できる。
+
+三元部分集合 $T\subset\{1,\ldots,5\}$ の指示ベクトルを $1_T$ とし
+$v_T=D1_T$ とする。このとき
+\begin{equation}\label{nqt:eq:hh-one}
+ \dim HH_1=\#\{i:De_i=0\}
+ +\#\{T:|T|=3,\ v_T\ne0,\ T\text{ が }v_T\text{ の一つの値の全レベル集合}\}.
+\end{equation}
+実際、恒等 sector の留数の行列式指標は自明で、一次式の重み零部分が
+第一項を与える。全五座標にスカラーで作用する $g$ は
+$5\ne0\pmod3$ と $\sum w_i=0$ より恒等元のみである。
+他の sector の固定軌跡は各固有空間内の Fermat 切断の直和で、
+四座標なら三次曲面、二座標なら三点、一座標なら空である。
+いずれも $HH_1=0$。ちょうど三座標の固有空間だけが平面楕円曲線を与える。
+その正則一形式の留数指標は $\sum_{i\in T} w_i$。
+\cite[Theorem~5]{QFOBaranovskyPetrov}のねじれ指標は
+$h\mapsto\zeta^{b(t_g,t_h)}=\zeta^{h(t_g)}$。
+相殺には $t_g=-\sum_{i\in T}w_i$ が必要十分で、$g$ は一意である。
+その五つの固有指数は $-v_T$ であり、ちょうど $T$ が固有空間を占める条件と
+$g\ne0$ の条件を合わせれば式\eqref{nqt:eq:hh-one}となる。
+逆の指標規約でも全指数が反転するだけで個数は同じである。
+
+\emph{有限分類。}
+連結な smooth proper 族で可換三次三様体の圏に届くには
+系\ref{qfo:cor:deformation-separation}の議論から $\dim HH_1=5$ が必要である。
+行和零の交代行列は左上 $4\times4$ の六つの上三角成分で自由に決まり、
+行列の階数はこの小行列の階数に等しい。
+式\eqref{nqt:eq:hh-one}で得る行列数は次の通りである。
+\[
+\begin{array}{c|rrrrrr}
+ &0&1&2&3&4&5\\\hline
+\operatorname{rank}D=0&0&0&0&0&0&1\\
+\operatorname{rank}D=2&60&90&30&0&60&20\\
+\operatorname{rank}D=4&144&120&120&0&60&24
+\end{array}
+\]
+再現法は各六成分を $0,1,2$ で走らせ、各行の負の和を第五列に入れ、
+十個の $T$ それぞれで列和 $D1_T$ を三で還元して
+その第一の選択座標と同値の添字集合を $T$ と照合する。
+最後の列の階数二の二十行列は、三頂点上の向き付き三角形
+$D_{12}=D_{23}=D_{31}=1$、他の独立成分零の置換軌道である。
+階数四の二十四行列は定理に表示した五頂点巡回行列の置換軌道である。
+添付計算器 \texttt{verify\_narrow\_quantum\_threefolds.py} は
+各軌道を $5!$ 個の置換から列挙し、実際に集合の等号を検証する。
+階数四では $\ker D=\mathbb F_3\mathbf1$。三次の非負指数が
+この核に法三で属するには三乗単項式であるしかない。
+滑らかさには全係数が非零でなければならず、変数の再尺度化で Fermat 式を得る。
+
+\emph{階数二で残る場合の比較。}
+階数零では規格化した代数自体が可換である。
+三角形型では二つの孤立頂点が中心変数 $u,v$ を与える。
+他の三頂点の重みを $p,q,-p-q$ と書くと $p,q$ は独立であり、
+全中心三次は
+\[
+ ax^3+by^3+cz^3+\lambda xyz+g(u,v)
+\]
+で尽くされる。三変数因子は可換三変数環の
+$\theta=\operatorname{diag}(1,\zeta,\zeta^2)$ による Zhang twist
+である。右 twist 規約で $x*y*z=\zeta^2 xyz$、
+各元の三乗は通常積と同じである。従って三変数の中心商は
+可換な平面式 $f_0=ax^3+by^3+cz^3+\zeta^2\lambda xyz$ の商環の twist である。
+先の同変表示で得た可換零点の方程式は、これと $xyz$ の係数の三乗根倍だけが
+異なる場合があるが、一変数の三乗根倍の変更で一致する。
+従って $V(f_0+g)$ は滑らかである。
+分離和の勾配から $E=V(f_0)\subset\PP^2$ は滑らかな楕円曲線で、
+$g$ の affine 臨界点は原点だけである。特に $abc\ne0$。
+$\theta$ の三つの射影固定点は $E$ の外にあるので、その制限は
+非零三捩れ点による平行移動である（平行移動でない楕円自己同型は
+$1-\varphi$ の全射性により固定点を持つ）。
+平面三次の切断環の twist は、積の定義から
+$B(E,\mathcal O_E(1),\theta|_E)$ である
+（逆の pullback 規約では逆平行移動）。
+これで定理\ref{csc:thm:comparison}の実楕円因子と中心二変数の仮定を
+満たし、滑らかな三次 $V(f_0+g)$ への全 coherent Ku 同値が従う。
+\end{proof}
+
+\begin{proposition}[巡回五頂点型の可換標的候補]
+\label{nqt:prop:fermat-target}
+定理\ref{nqt:thm:reduction}で残る巡回五頂点型の残余圏に対し、
+滑らかな可換三次三様体への Ku 実現があれば、その三様体は
+可換 Fermat 三様体と同型である。
+\end{proposition}
+\begin{proof}
+同変表示の指標群 $\widehat G$ はねじれ同変構造に指標を tensor して作用する。
+$V$ が唯一の既約 $\alpha$-射影表現なので $V\otimes\chi\simeq V$。
+この自己同値は二つの例外対象の各同型類を保ち、残余圏に制限できる。
+固定点公式の $g$-sector では指標 twist は $\chi(g)$ 倍（逆規約ではその逆）である。
+実際、有限中心拡大を用いた固定点分解ではループを表す元への
+一次元表現の trace が作用し、中心文字成分に制限しても同じである。
+
+添字を $0,\ldots,4$ とする。巡回行列で式\eqref{nqt:eq:hh-one}に寄与する
+五つの三元集合は $\{0,1,3\}$ の巡回移動である。
+その $D1_T$ は $T=\{0,1,3\}$ で $(0,0,-1,0,1)^t$、
+他の四つはその巡回移動である。これらは五頂点を結ぶ連結な閉路の有向辺の
+差ベクトルであり、成分和零の四次元空間全体を張る。
+$G=W^*$ は固有指数によってまさにこの空間と同定される。
+従って $HH_1$ への作用だけで $\widehat G\simeq(\mathbb Z/3)^4$ が
+忠実に検出される。実際の dg Morita 同値を通してこの群を
+$\Ku(X)$ へ移せば全て Fourier--Mukai 型自己同値となる。
+これは admissible 包含と射影を合成した $\Perf(X)$ の dg 準関手が
+$X\times X$ の核で表されることによる。
+Liu の定理 \cite[Theorem~1.1]{NFMLiuCubicThreefoldAut}では Fourier--Mukai 型自己同値群は
+$\mathbb Z\times\operatorname{Aut}(X)$ であるため、$\operatorname{Aut}(X)$ が
+$(\mathbb Z/3)^4$ を含む。
+
+$\operatorname{Pic}(X)=\mathbb Z[\mathcal O_X(1)]$ によりこの作用は
+$\operatorname{PGL}_5$ の忠実な射影作用である。
+生成元を三乗 $1$ の五次行列に持ち上げる。各交換子はスカラーで、
+行列式により五乗 $1$、生成元の三乗により三乗 $1$ だから $1$ である。
+同時対角化でき、位数から射影対角三乗根群の全体を得る。
+$X$ の方程式はその半不変式である。全対角三乗根作用で三次単項式の
+指標が一致するのは、指数が成分ごとに法三で一致する場合である。
+三乗以外の各単項式はそれ単独の固有空間を張り、単項式一つで滑らかな
+三次三様体を定義できない。従って方程式は五つの三乗の線型結合となる。
+滑らかさから全係数は非零で、再尺度化すれば Fermat 式である。
+\end{proof}
