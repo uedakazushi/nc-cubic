@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月23日 / v90。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月23日 / v91。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -11,6 +11,8 @@ rank8^kの臨界代数で全係数のsmoothnessを判定する。任意固定t�
 最高active二次関係が固定したtensor Sklyanin境界で、中心一次変数を厳密に可換に保つ全quadratic PBW表示は、因子間可換を事前に課さなくても元の生成元で因子別に分解する（`ifp:thm:factorization`）。従って、指定中心三次の最高項が非零重みのΣa_iΩ_iである範囲では既存の全許容表示・全smooth比較へ戻る。残る混合問題は境界二次関係自体を動かす変形にある。その次数零一次中心障害を計算し、Clifford因子の中心平方に由来する一組の九方向を、自由な二次代数族と中心正則三次商へ実積分した（`ifh:prop:central-mixed-obstruction`, `ifc:thm:family`）。この周囲代数は全係数で相対Koszul・untwisted相対6-CYであり、複素fiberはAS-regular dimension/index6となる。四・五次元型の原点近傍には実相対smooth proper模型とétale局所perfect Ku核を得た（`ifr:thm:ambient-regularity`, `iff:thm:smooth-neighborhood`, `ifk:cor:clifford-fourfold-neighborhood`, `iff:cor:cubic-fivefold-open`）。四次元には主稿のrotation付きArtin形式認識を用いる。
 
 両Cliffordの双方向十八変数では、周囲のAS-regular領域が正確にresultant開D(Δ)となり、その原点近傍に実残余族・局所perfect核を得る（`ifb:cor:exact-regular-locus`, `ifg:cor:local-comparison`）。二つのτも動かす二十変数族は、各分離点で幾何的20次元形式変形空間を与える（`ifv:thm:versal`）。実étale chartを有限化することで、係数空間の非空開の有限étale被覆上の比較、一般係数体の有限分離拡大上の比較、三次四様体モジュライの稠密開の実現まで得る（`ifv:cor:generic-comparison`）。混合尺度は一般の異なるClifford因子でも三乗を決定し、残る比はθ³=(τ₁³−1)/(τ₂³−1)という非自明な三次被覆で記述する（`ifm:thm:scale-cubes`, `ifm:cor:kummer-scale`）。一方向族の固定切片での二次・三次項は、反転を保つ実核を選んだ場合に未計算の4+8係数へ還元した（`ifj:thm:twelve-coefficients`）。他方、階数一の双方向スライスにはAS正則域内の残余A₂特異点があり、D(Δc)全体を残余smooth locusとすることはできない（`ifd:thm:residual-a2`）。全smooth係数への同じ核の延長と全intrinsic被覆は未解決である。
+
+**一方向Cliffordの上位曲率模型で再利用できる計算法。** 全9係数U、V=0の相対Koszul複体でPBW実x次数を濾過すると、s正次数の変形微分δ_sはx次数を2以上下げる。分離原点の二因子細分次数を保つspecial contraction h₀から、固定内部次数N>0でh_s=h₀Σ_{r≤⌊N/2⌋}(−δ_s h₀)^rを**有限**に計算できる。既存のH,Gを保持したP₃→P₄のJはh_{3,s}^{(6)}(wI−Gd₃)とすればよく、原点線形作用のサイズ1120×315・rank280（x次数別0,18,72,100,72,18,0）、次段のrank120,21がKoszul完全性から決まる。s₂,s₃も同じ収縮で帰納的に指定でき、内部次数を忘れた源32|32曲率MFの有限算法になる（正本：混合稿`ifj:lem:filtered-koszul-contraction`, `ifj:prop:shamash-fourth-finite-formula`, `ifj:cor:finite-shamash-source-mf`）。これは基本摂動補題とShamash高次homotopyの既知理論のClifford-PBW規約での有限化であり、一般原理を新規成果と扱わない。実PBW行列の全成分、原点S₃×S₃ゲージとの一致、相対period、Ku比較Homのspecial retract(i,p,h)を得たわけではない。次は280ピボットの実構成と20×20全九係数の乗法検算を最優先とする。出典はCrainic, *On the perturbation lemma, and deformations*, arXiv:math/0403266, Theorem2.3; Eisenbud–Peeva, *Minimal Free Resolutions over Complete Intersections* (2016), §§3.4,4.1。
 
 C上n≥3を基本とし、generic・全固定点・全族・一般体上の降下を区別する。全intrinsic対象の認識やpoint functorの表現可能性は未完成であり、既知の局所表示だけを全対象と定義して済ませない。可換候補の方程式・判別集合・局所特異点の一致と、その候補への実際の比較核の存在も区別する。
 
