@@ -1,6 +1,6 @@
 # 非可換三次超曲面の可換復元とモジュライ
 
-2026年11月23日 / v78。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
+2026年11月23日 / v79。日本語LuaLaTeXによる公表用三稿と再現資料。再開時は [研究方針](00_research_plan.md) を最初に読む。
 
 **本文を持つ主原稿は [papers/nc-cubic.tex](papers/nc-cubic.tex)。** 研究方針とノートを共有し、公表用本文は中心問題ごとの三稿に分ける。
 
@@ -46,6 +46,8 @@
 **二重 isogeny の6次元線型系を元の平面上の三次式で表示した。** [三次式とdeck行列の命題](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:prop:two-isogeny-cubic-sextet`）では、適切な線型座標W,T,Sにより点曲線をWS²=T³+aWT²+bW²Tと書き、六つの三次式W²T,W²S,WT²,WTS,T³,T²Sが共通基点因子2o+pを持ち、これを除くとφ*O(1)=O(2)⊗Mの切断空間を与えることを証明した。deck変換はU=T/W,V=S/W上で`D(g)=U⁴g(b/U,−bV/U²)/b²`となり、正負3次元の明示固有基底を得る。正の三次式から標的のHesse座標を再構成し、次数9の多項式恒等式と反転同変性を確認した。二重被覆の負固有線束は標的のM_{τ∨}に一致する。[8群厳密検算コード](computations/verify_clifford_isogeny_cubics.py)をGitHub保存後にblob同一性を確認済み。これは**実Ku比較核や46個の原式係数を求めたことではない**。
 
 **Picard二捩れの有限相対模型。** [相対二重被覆とPicard MF](papers/sections/mixed/interfactor_clifford_jets.tex) において、B=K[ξ,η]/(η²−g(ξ²))、R=K[X,Y]/(Y²−Xg(X))、X=ξ²、Y=ξη、deck同時符号反転という相対有限étale二重被覆を得た。符号成分はI=(X,Y)でI²=(X)、B=R⊕I、積はij/Xと厳密に書ける（`ifj:prop:double-cover-algebra`）。素朴な√X被覆には偽の節点があり、η=Y/ξによる正規化が必須。源Mτと標的Mτ∨の二捩れPicardを同形の斉次2×2行列分解から得るが、その余核層O(−p)をO(p−o)へ変える一点捩れO(o)は整数次数shiftではない（`ifj:prop:two-torsion-matrix-factorization`）。標的符号線束は被覆に引き戻すと自明だがdeck符号が残る。保存された[11群の厳密検算](computations/verify_clifford_double_cover_mf.py)は実行したコードとGit blob SHAが一致する。非可換Ku比較核と46原式係数・12係数の数値は未完成。
+
+**二重被覆のtrace・対角分離元と相対HH収縮を完全表示した。** [新命題と証明](papers/sections/mixed/interfactor_clifford_jets.tex)（`ifj:prop:cover-trace-casimir`, `ifj:cor:cover-hochschild-contraction`）は、符号固有線束I=(X,Y)を冪等行列P_I=δ⁻¹[[-X(X−2a),−Y(X−2a)],[Y,g]]の像として扱い、BをR³の階数2直和因子にする。被覆のΘ=(η⊗η−(X−2a)ξ⊗ξ)/δはΘ²=1で、e+=(1+Θ)/2がB⊗_R Bの対角を切り出すtrace-Casimir/分離冪等元となる。これにより有限被覆のunit/counitに必要な分裂と、任意のB-双加群係数でHH_R^{>0}(B,M)=0を示す明示Hochschild収縮が得られる。形式的a(s),b(s)の三次jetではδ(s)⁻¹を直接展開すればよく、有限étale被覆のArtin持上げの一意性は[Stacks Tag 0BQB](https://stacks.math.columbia.edu/tag/0BQB)の既知結果。ローカルの[厳密計算](computations/verify_clifford_cover_trace_casimir.py)は9群PASS。ただしこれは**Ku側の曲率付きKoszul–Shamash HPL収縮ではなく**、rotation・三乗周期と46原式係数、12数値は未完成。
 
 **固定tensor境界の全PBW表示まで、因子別比較の適用範囲が広がった。** [因子間変形の節](papers/sections/mixed/interfactor_deformations.tex)では、任意の可換係数環と厳密な中心変数の下で、因子間の一次・定数補正と内部関係の他因子出力が全て零になることを証明した（`ifp:thm:factorization`）。因子別分解は元の生成元で成立し、形式的gaugeや被約性を要しない。指定中心三次があれば全許容正規形へ入り、smoothness判定・一般中央flag・全coherent Ku比較を適用できる（`ifp:cor:central-comparison`）。固定した最高次境界とPBW性は仮定として残る。
 
