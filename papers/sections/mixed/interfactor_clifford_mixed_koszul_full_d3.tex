@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v87.
+% Current result: 2026-11-23 / v88.
 \begin{theorem}[双方向混合 Clifford の三次 Koszul 微分の全二十列]
 \label{ifj:thm:mixed-koszul-full-third}
 命題\ref{ifj:prop:mixed-koszul-endpoints}の双方向十八係数環
@@ -192,8 +192,10 @@ $(a,b)=(1,1)$、交差関係 $(i,j)=(1,2)$ の係数を
 \label{ifj:rem:mixed-d3-scope}
 本定理は全十八係数に関する三次 Koszul 空間の\emph{大域基底}を
 構成する。これまでの二列を含め $d_3$ の二十列すべてが明示された。
-この段階では $d_4,d_5,d_6$ や曲率に関する
-Shamash の中間 higher homotopies はまだ明示していない。
+続く定理\ref{ifj:thm:mixed-koszul-frobenius-upper}は
+resultant 正則開で $d_4,d_5,d_6$ の Frobenius 係数抽出式を与える。
+一方、曲率に関する Shamash の中間 higher homotopies は
+依然として未構成である。
 全係数の三次テンソル恒等式、単位小行列、
 一方向における一次化と双方向の非零二次係数は
 \texttt{computations/verify\_clifford\_mixed\_koszul\_full\_d3.py}
