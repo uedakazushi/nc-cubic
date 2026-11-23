@@ -18,7 +18,9 @@
 
 ## 最優先目標と現在の到達点
 
-**狭い主予想を研究中。** [連結な smooth proper 圏族の仮定と三乗根交換型の分類](papers/sections/narrow_quantum_threefolds.tex)。三次三様体の全五変数量子多項式環で、交換係数が三乗根、中心三次商の全 coherent 圏が smooth proper の場合に、行和零への twist 後の階数が二以下なら狭い主予想が成立する。全階数で未決の表示は一つの巡回五頂点型に帰着する。その型で可換標的が存在すれば Fermat 三様体に限られる。この型の変形連結性と実同値、他の周囲代数および一般次元の狭い主予想は未解決。
+**狭い主予想は五変数・三乗根交換型で成立する。** 交換係数が三乗根の量子多項式環の任意の非零中心三次商で、全 coherent 圏が smooth proper の場合を扱った。可換三様体の Ku と変形連結なら、729 個の規格化行列は零・三角形・巡回五頂点の三つの置換型に絞られる。最後の型には二変数三次の同値を四回用いて可換 Fermat 三様体への dg Morita 同値を構成した。他の周囲代数と一般次元の全対象は未解決。[三型への帰着](papers/sections/narrow_quantum_threefolds.tex)・[群作用の計算](papers/sections/narrow_fermat_sector_comparison.tex)・[同値の構成](papers/sections/narrow_fermat_root_equivalence.tex)。
+
+交換係数が任意の複素数の場合も、全 coherent 圏の proper 性から各座標に単項式 $z_i^2 z_j$ が必要になる（$j=i$ を許す）。五変数では 47 個の写像の置換型と位数四の排除により、全交換係数が六乗根になる。三乗根で尽くされない場合の可換実現は未解決。[座標点での自己 Ext と有限位数への帰着](papers/sections/narrow_diagonal_support.tex)。
 
 
 **広い定式化への三次元の反例。** [量子 Fermat 中心三次商の定理](papers/sections/quantum_fermat_obstruction.tex) は、次元・指数 5 の AS 正則な量子多項式環の中心正則三次商で、全 coherent 圏が smooth proper かつ残余圏の `(dim HH₁, dim HH₀)=(1,10)` となる例を与える。滑らかな可換三次三様体ではこの組は常に `(5,2)` である。主予想はこの滑らかな中心三次商を含む広い定式化で扱い、上の例で否定される。同じ周囲代数の全中心三次は七項で尽くされ、係数射影空間の滑らかな開集合全体で同じ障害が成り立つ（同節の系 `qfo:cor:central-family`）。Perry の相対 Hochschild 底変更定理から、そこに属する残余圏と可換三次三様体の残余圏は連結な smooth proper 圏族で結べない（`qfo:cor:deformation-separation`）。

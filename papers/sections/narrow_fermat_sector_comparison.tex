@@ -1,0 +1,106 @@
+% !TEX root = ../nc-cubic.tex
+\subsection{巡回五頂点型で同時に必要となる作用のねじれ}
+\label{nqs:sec:coherence}
+$Y=V(\sum x_i^3)\subset\PP^4$, $\mathcal C=\Ku(Y)$ とする。
+$P=\{a\in\mathbb F_3^5:\sum a_i=0\}$ は、内積によりその指標群とも同一視する
+（$5\ne0\pmod3$）。座標は $0$ から数える。
+定理\ref{nqt:thm:reduction}の巡回行列を $D$ とし、
+$g$ に対し $Dt_g=g$, $t_g\in P$ で $t_g$ を定める。
+$A(g,h)=t_g\cdot h$ は交代形式である。
+射影作用の乗数 $\alpha$ は交換子が $\zeta^{A(g,h)}$ であるものを取る。
+量子残余圏を $\mathcal Q$ とすると
+\[
+ \mathcal Q=\mathcal C^{P,\alpha}.
+\]
+実際、$Y$ 上の標準半直交分解は $P$ に保たれ、
+ねじれ同変化した各例外部分は $\operatorname{Rep}^\alpha(P)$ となる。
+$A$ は非退化でこれは単純対象一つの半単純圏であり、
+前節で取り除いた例外対と一致する。
+$\mathcal Q$ 上の $T_a$ を、線型化に $g\mapsto\zeta^{-a\cdot g}$ を
+tensor する指標作用とする。$v=(0,0,-1,0,1)$、$v_j$ をその左巡回移動とし、
+$L(a)_j=a\cdot v_j$ とする。比較先の対角作用は座標の順序を合わせて $L(a)$
+と書ける。実際、この規約で $HH_1$ 上の五指標は命題\ref{nqt:prop:fermat-target}
+の $-g=D1_T$ であり、$L(a)\in P$ は行列式一の代表である。
+
+\begin{proposition}\label{nqs:prop:plane-coherence}
+$\mathcal Q\simeq\mathcal C$ という dg Morita 同値が存在すると仮定する。
+指標作用をこれで運んだ際に標準対角作用と比較する射影的な合成のずれを、
+次の規約で交代形式 $B$ と書く。部分群 $K\subset P$ をさらに乗数 $\gamma$ で
+同変化したとき、標的側の交換子形式は $B|_K+\operatorname{alt}(\gamma)$ とする
+（指数は法三）。$a$ の最初の四成分を座標とする基底では
+\[
+ B_{ij}=1\quad(0\le i<j\le3).
+\]
+これは非退化である。この一つの形式を用いると、全ての $K$ と全ての
+$\gamma$ に対する同変残余圏の Hochschild ホモロジーの次元検査は通る。
+\end{proposition}
+
+\begin{proof}
+Liu の定理により輸送した各指標関手の同型類は幾何的自己同型である。
+ここではその同定を核について使える。逆の幾何的自己同型を合成してから
+$\Perf(Y)$ へ射影・包含を合成すると恒等残余関手の射影核に帰着し、
+その一意性は \cite[Proposition~3.5, Example~3.7]{NFMLiuCubicThreefoldAut}
+による。この射影核は第一射影に沿って平坦な安定層の族の一定 shift である。
+よって自己負 Ext は消え、各ファイバーの自己準同型はスカラーである。
+相対自己 Hom の次数零部分は、負 Ext の消滅と底変更、および恒等写像により
+$\mathcal O_Y$ である。射影と包含を合成する埋込みは残余自己双加群の
+Hom を保つので、$HH^0(\mathcal C)=H^0(Y,\mathcal O_Y)=\C$、
+$HH^{<0}(\mathcal C)=0$ を得る。従って
+同じ核についての二つの群合成則の差はスカラー $2$-cocycle であり、
+比較同型の変更は coboundary となる。
+有限基本可換群の $\C^\times$-係数の $H^2$ は交換子交代形式で識別できる。
+実際、交換子零の中心拡大では各基底の持上げの三乗をスカラーで補正して
+可換な位数三の持上げを選べる。各交代形式は上三角部分から構成できる。
+
+$R_i(g,h)$ を $HH_i(Y^g)$ 上の $h$ の trace とし、$i=0$ では
+そこから $2$ を引く。この減算は任意のねじれで例外部分二つを除く操作に
+対応する。固定点公式を点に適用すると、各例外部分の寄与は
+交換子形式の radical の位数である。
+$g$ の固有指数のレベル集合 $I$ ごとに以下を足せば $R_i$ を得る。
+$h_I=\sum_{j\in I}h_j$ と書く。
+\[
+\begin{array}{c|c|c}
+ |I| & HH_1\text{ の trace}&HH_0\text{ の trace（減算前）}\\\hline
+5&\sum_j\zeta^{h_j}&4\\
+4&0&3+\sum_{j<k\in I}\zeta^{h_I+h_j+h_k}\\
+3&\zeta^{h_I}&2\\
+2&0&3\,\mathbf1_{h_j=h_k}\quad(I=\{j,k\})\\
+0,1&0&0
+\end{array}
+\]
+四座標の行では三次曲面の原始 $(1,1)$ が平方なし二次単項式六つの
+留数に対応する。$HH_{-1}$ は $HH_1$ の複素共役で、他の次数は零である。
+
+次の有限和を $i=-1,0,1$ で定義する。
+\[
+ F_i(a,b)=\frac1{81}\sum_{g,h\in P}
+ \zeta^{A(g,h)+a\cdot h-b\cdot g}R_i(g,h).
+\]
+$K$ で二段目の同変化を行うと、
+$P\times K$ の $Y$ への作用は第一射影を経由し、交換子指数は
+$A(g,h)+a\cdot h-b\cdot g+\operatorname{alt}(\gamma)(a,b)$ である。
+これは $T_a$ の線型化写像が $P$ の表示行列と可換する際に
+$\zeta^{a\cdot h}$ を得ることから従う。従って
+\cite[Theorem~5]{QFOBaranovskyPetrov}と例外部分の減算により次元は
+$|K|^{-1}\sum_{a,b\in K}\zeta^{\operatorname{alt}(\gamma)(a,b)} F_i(a,b)$。
+標的では同じ式の $F_i(a,b)$ を
+$\zeta^{B(a,b)}R_i(L(a),L(b))$ に置き換える。
+
+全平面とその三種類のねじれについて二つの次元を照合する。
+計算は $\mathbb Z[\zeta]$ で行い、付属検算器
+\texttt{verify\_cyclic\_fermat\_sector\_comparison.py} が全入力を構成する。
+独立な $u,v$ の張る位数九の部分群を重複除去し $130$ 平面を得る。
+各平面上のねじれは基底の面積形式の $0,1,2$ 倍である。
+候補 $3^6=729$ から、ねじれ零で $HH_0,HH_1$ を全平面同時に
+一致させるものは上三角成分がすべて $1$ またはすべて $-1$ の二つ。
+三種を用いると各平面の制限が一意となり、全体では表示の一候補だけが残る。
+Pfaffian は $1-1+1=1$ である。
+さらにこの候補で
+\[
+ F_i(a,b)=\zeta^{B(a,b)}R_i(L(a),L(b))
+ \quad (a,b\in P,\ i=-1,0,1)
+\]
+の $19683$ 成分を整数算術で照合した。
+従ってどの部分群でどのねじれを用いて平均しても等式が成立する。
+この計算は比較核や smooth proper 圏族の存在を前提とせず実行できる。
+\end{proof}

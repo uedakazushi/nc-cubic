@@ -1,5 +1,9 @@
 # 非可換三次超曲面：現行稿の検証範囲
 
+- **五変数での指数制約。** `computations/verify_diagonal_quantum_support.py` は全 3,125 写像を 47 軌道に分け、Smith 不変因子と指数四が現れる唯一の軌道を検算する。位数四を実際に除く幾何学的な理由は主稿 `nds:cor:six` の直線上の偏導関数の計算による。
+
+- **巡回五頂点型の可換実現。** `computations/verify_cyclic_fermat_sector_comparison.py` は三つの Hochschild 次数における 19,683 成分、130 平面の三種のねじれ、729 通りの合成障害、四つの差ベクトル上の交換子形式を整数算術で検算する。比較関手の存在は主稿の二変数 tilting 対象、共通次数への降下、群作用付き同値と誘導・制限に依存する（`nqr:thm:cyclic-fermat`）。
+
 - **狭い主予想・五変数三乗根交換型。** `computations/verify_narrow_quantum_threefolds.py` は行和零の交代行列729個と各十組の三元部分集合を全列挙する。$\dim HH_1=5$ となる階数0/2/4の行列はそれぞれ1/20/24個で、三つの置換軌道と一致する。巡回五頂点型の五 sector が階数四の全群を張ることも検算した。固定点公式、楕円因子比較、可換候補の一意性は主稿の `nqt:thm:reduction` と `nqt:prop:fermat-target` の数学的証明による。
 
 

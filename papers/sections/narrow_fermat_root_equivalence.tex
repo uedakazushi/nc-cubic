@@ -1,0 +1,194 @@
+% !TEX root = ../nc-cubic.tex
+\subsection{二変数因子の同値と巡回五頂点型の可換実現}
+\label{nqr:sec:roots}
+本節では実際に圏同値を構成する。直前の次元検査は、先に構成した
+同値における群作用の合成則を判定する箇所だけに用いる。
+
+\begin{lemma}[二変数三次の巡回同変化]\label{nqr:lem:binary}
+$\mathcal B=\MF^{\mathbb Z}(x^3+y^3)$ とし、$H=\mathbb Z/3$ の生成元は
+$(x,y)\mapsto(\zeta x,\zeta^{-1}y)$ で作用するとする。
+$\mathcal B^H\simeq\mathcal B$ という dg Morita 同値が存在し、
+内部 shift と、両辺で指定した $(3)\simeq[2]$ の周期を保つように取れる。
+\end{lemma}
+\begin{proof}
+$R=\C[x,y]/(x^3+y^3)$、三つの線形因子を $l_i$、$M_i=R/(l_i)$ とする。
+$k=R/(x,y)$ と各 $M_i$ を次数付き特異圏で考える。
+Orlov の parameter $-1$、window $i=0$ の分解
+\cite[Theorem~2.5(ii) and its proof]{NFMOrlovSingularities}は
+$k$ と三点の切断加群の次数 $\ge1$ の部分で全圏を生成する。
+各点における非零一次式の乗法により、この部分は $M_i(-1)$ と同型である。
+$0\to M_i(-1)\to M_i\to k\to0$ から $k,M_1,M_2,M_3$ も生成する。
+
+$M_i$ の完全自由解消は $l_i,(x^3+y^3)/l_i$ が交互に作用し、
+第 $2m,2m+1$ 項の生成次数は $3m,3m+1$ である。従って
+$\RHom(M_i,k)=\C$ は次数零のみで、$\RHom(M_i,k(1))=0$。
+$M_j$ に値を取る次数零 Hom 複体では、非零な線形または二次式は
+$\C[t]$ の対応する二つの非負次数成分の間の同型となる。
+$i=j$ のとき線形微分は零、$i\ne j$ のとき二次微分が零であり、
+$\RHom(M_i,M_j)=\delta_{ij}\C$ を得る。
+$k$ は上の分解で例外的である。
+Serre 関手は $(1)$ なので $\RHom(k,M_i)=0$ でもある。
+実際、\cite[Theorem~2.18]{NQRFaveroKelly} の同変 Serre 関手は
+この二変数の場合 $(-2)[2]=(1)$ であり、$H$ を付けても
+$dx\wedge dy$ の $H$-指標は自明で同じ式が成立する。
+同定理の核群はここでは有限群、臨界軌跡は原点である。
+
+以上より $\oplus M_i\oplus k$ は tilting 対象であり、
+矢は三つの自然な剰余写像 $M_i\to k$ である。
+$H$ は三つの枝を巡回し、$k$ には標準線型化がある。
+$\mathcal B^H$ では誘導対象 $U=\operatorname{Ind}_H M_1$ と
+$k$ の三つの指標付き対象 $k_\chi$ が生成する。
+これは忘却後の生成と、平均化による誘導忘却の直和因子表示から従う。
+随伴で計算すると矢は $U\to k_\chi$ の三本、各一次元で、
+自己恒等以外の他の Hom と非零次数の Hom は消える。
+従って同変化によって星型四頂点 quiver の矢が逆転する。
+
+元の圏でも $N=\operatorname{Cone}(\oplus M_i\to k)[-1]$ を使えば
+同じ向きの tilting 表示を得る。三角から $\RHom(N,M_i)=\C$、
+$\RHom(M_i,N)=0$、$\RHom(N,N)=\C$ である。
+いずれの生成代数も次数零にのみコホモロジーを持つため
+通常の切断によって道代数に dg 準同型の列で結ばれる。
+$U\leftrightarrow N$, $k_\chi\leftrightarrow M_i$ が所要の同値を与える。
+両辺で内部 shift が Serre 関手であることから、同値はその可逆双加群を
+共役する。比較同型の三乗と指定周期との差は星型道代数の中心の単元
+$\C^\times$ であり、三乗根による補正で周期を同期できる。
+\end{proof}
+
+\begin{corollary}[任意次元の分離した二変数対]\label{nqr:cor:separated-pairs}
+$n\ge3$、$n+2=2t+m$, $t,m\ge1$ とし、$g$ を $m$ 変数の三次斉次式で
+アフィン臨界点が原点だけのものとする。
+$X=V(\sum_{a=1}^t(x_a^3+y_a^3)+g)\subset\PP^{n+1}$ と置く。
+$H=(\mathbb Z/3)^t$ の第 $a$ 生成元は第 $a$ 対だけを
+$(\zeta x_a,\zeta^{-1}y_a)$ に移す。このとき
+$\Ku(X)^H\simeq\Ku(X)$ という $\C$-線型 dg Morita 同値がある。
+\end{corollary}
+\begin{proof}
+分離和の勾配より $X$ は滑らかであり、Orlov の同値で全残余圏を
+通常の整数次数付き MF で計算できる。切断、次数による切り詰めおよび
+自由加群の window は各座標対の線型作用と可換する。
+第零ブロックを $g$、残りを二変数対として
+$\Lambda=\mathbb Z^{t+1}/\langle 3(e_a-e_0)\rangle_{a=1}^t$ と置く。
+各ブロックの整数次数付き MF の Morita tensor 積は、分離和の
+$\Lambda$ 次数付き MF である
+\cite[Corollary~2.40 and (3.5)]{MBRDBFKFurther}。
+外積の構成は各ブロックの引戻しと可換する。
+$\Lambda\to\mathbb Z$ の核は $e_a-e_0$ の張る $(\mathbb Z/3)^t$ であり、
+各生成元は二つの内部 shift の比として作用する。
+この次数差の群で同変化すると整数次数付き MF が復元される。
+実際、次数を粗くするのは次数差の shift による軌道圏の冪等完備化であり
+\cite[Proposition~4.5, Corollary~4.6]{MBRDBFKFurther}、
+有限群の位数が可逆なので誘導対象の Hom と平均化からこの圏は同変圏と同値である。
+各比の三乗の自明化は両因子での $(3)=[2]$ の差で与えられる。
+したがって同変化は各二変数因子での $H_a$ の同変化と交換できる。
+$H_a$ は他の因子を固定するので、$H$-同変化した積は
+$\mathcal B^{H_a}$ の各因子と $g$ の因子との積となる
+（誘導生成対象の自己準同型でも従う）。
+補題\ref{nqr:lem:binary}の同値を各因子で tensor する。
+各比較は指定三乗を保ち、異なる因子の比較は互いに可換するから、
+すべての次数差の合成則を保つ。よって通常の次数に降下して結論を得る。
+\end{proof}
+
+\begin{lemma}[一つの差ベクトルでの群作用付き同値]
+\label{nqr:lem:one-root}
+$P,Y,\mathcal C$ を前節のものとする。$r=e_i-e_j$, $H=\langle r\rangle$、
+$J=H^\perp\subset P$ とすれば $r\cdot r=2$ より $P=H\oplus J$ である。
+$\mathcal C^H$ に $P$ を作用させる際、$a=a_H+a_J$ に対して
+$a_J$ は幾何的作用、$a_H$ は $h\mapsto\zeta^{-a_H\cdot h}$ の指標作用を用いる。
+この作用を持つ $\mathcal C^H$ と標準対角作用を持つ $\mathcal C$ の間に、
+合成則まで保つ $P$-同変 dg Morita 同値が存在する。
+\end{lemma}
+\begin{proof}
+$r=e_0-e_1$ としてよい。系\ref{nqr:cor:separated-pairs}に
+$t=1$, $g=x_2^3+x_3^3+x_4^3$ を代入し、
+群作用を忘れた同値 $\mathcal C^H\simeq\mathcal C$ を得る。
+
+次に $P$ を運ぶ。$HH_1(\mathcal C^H)$ の恒等 sector から
+$b_2,b_3,b_4$ の三つの指標が来る。$u=\pm r$ の各 sector は残り三座標の
+平面楕円曲線であり、その指標指数は
+$\sum_{j=2}^4(b_J)_j-b_H\cdot u=(b_J)_0-b_H\cdot u$ だから、
+残る二つは $b_0,b_1$ である。
+よって忠実な $P$-作用である。Liu の定理と
+命題\ref{nqt:prop:fermat-target}の同時対角化により、輸送像を
+Fermat 三様体の標準対角群へ共役できる。
+対角座標の再尺度化で Fermat 方程式を戻せるので、共役は両端の
+Fermat 三様体の幾何的同型で行える。五つの $HH_1$ 指標が標準のものに
+一致するため、座標置換の後に、個々の $b$ の作用は標準の $b$ と同型になる。
+核の一意性とスカラーの合成障害は命題\ref{nqs:prop:plane-coherence}の
+証明と同じである。
+
+最後に、こうして得た作用の合成のずれ $B_H$ が零であることを確認する。
+前節と同じ固定点公式で、今回は
+\[
+ F_i^H(a,b)=\frac13\sum_{u,v\in H}\zeta^{a\cdot v-b\cdot u}
+ R_i(a_J+u,b_J+v)
+\]
+を用いる。二段目の部分群 $K$ に対する平均公式は
+$H\times K$ が $Y$ に $(u,a)\mapsto u+a_J$ を通して作用し、
+交換子に $a\cdot v-b\cdot u$ が付くことから従う。
+前節と同じ整数検算器が全ての組で $F_i^H(a,b)=R_i(a,b)$ を検査する。
+さらに $130$ 平面について $HH_0,HH_1$ のねじれなしの平均を照合すると、
+$729$ 個の $B_H$ のうち等式を保つのは零だけである。
+これは既に存在する同値についての合成障害の計算である。
+$B_H=0$ なら相違するスカラー cocycle は coboundary なので、
+比較同型をその $1$-cochain で補正すれば群合成を保つ。
+負の Hochschild コホモロジーが消えているため、核の同型の間に
+さらに選択すべき高次ホモトピーはない。
+\end{proof}
+
+\begin{lemma}[差ベクトルを加えるときの乗数]\label{nqr:lem:enlargement}
+$K\subset P$, $H\cap K=0$ とし、$B_K$ を $K$ 上の乗数の交換子形式とする。
+$\mathcal C^{K,B_K}$ は $\mathcal C^{H+K,B'}$ と同値である。
+ここでは上付き形式はその形式を持つ任意の乗数を表し、
+$B'|_K=B_K$, $B'(r,k)=-r\cdot k$ とする。
+\end{lemma}
+\begin{proof}
+$K$ の $J$ への射影を $S$ とし、$K=\{s+\ell(s):s\in S\}$ と書く。
+$H+K=H\oplus S$ 上で、$S$ に $B_K$ を移した形式と、
+$B'(a,s)=-a\cdot\ell(s)$ ($a\in H$) を使う。
+$K$ に戻すと交差項が内積の対称性で相殺され、表示の $B'$ となる。
+
+$(\mathcal C^H)^{H\oplus S,B'}$ を二段の線型化として書く。
+第一段の $U_h$ は幾何的 $H$-作用、第二段の $V_a$ は指標作用の線型化、
+$W_s$ は幾何的 $S$-作用の線型化を表す。
+$B'$ の代表は $H$ 上自明に選び、$V_a$ を通常の可換な位数三の作用素とする。
+$V_aU_h=\zeta^{a\cdot h}U_hV_a$ および
+$V_aW_s=\zeta^{-a\cdot\ell(s)}W_sV_a$ である
+（幾何的作用の pullback を含めた合成の記法）。
+$W_s$ は第一段の $H$-線型化と可換する。
+$V_a$ の同時固有成分を $d\in H$、固有指標を $a\mapsto\zeta^{a\cdot d}$
+で表示すると、$U_h$ は成分を $h$ だけ、$W_s$ は $-\ell(s)$ だけ移す。
+そこで成分 $0$ には $U_{\ell(s)}W_s$ が作用する。
+幾何的作用は $s+\ell(s)$、その積の乗数は指定した $K$ の乗数である。
+この成分を取る操作は同値である。逆は成分 $0$ から全 $H$-移動の
+直和を誘導することであり、線型化は上記交換則と $K$-線型化で与えられる。
+これは有限群の推移的な成分集合に対する安定化部分群との誘導・制限で、
+標数零の指標冪等元は dg Morita 圏でも分裂する。
+従って二段圏は $\mathcal C^{K,B_K}$ である。
+一方、補題\ref{nqr:lem:one-root}により同じ二段圏は
+$\mathcal C^{H\oplus S,B'}$ に同値となる。
+\end{proof}
+
+\begin{theorem}[巡回五頂点型の Fermat 実現]\label{nqr:thm:cyclic-fermat}
+巡回五頂点型の $\mathcal Q$ は可換 Fermat 三様体の $\mathcal C$ と
+$\C$-線型 dg Morita 同値である。特に定理\ref{nqt:thm:reduction}の
+五変数・交換係数が三乗根の全表示族で狭い主予想が成立する。
+\end{theorem}
+\begin{proof}
+次の順で差ベクトルを取る。
+\[
+ r_1=e_0-e_1,\quad r_2=e_0-e_3,\quad
+ r_3=e_1-e_2,\quad r_4=e_1-e_4 .
+\]
+五頂点を結ぶ木の四辺なので $P$ の基底である。
+零部分群から補題\ref{nqr:lem:enlargement}を四回適用すると
+最終形式は $i<j$ で $B'(r_i,r_j)=r_i\cdot r_j$ となる。
+この基底で $A(g,h)=(D^{-1}g)\cdot h$ と直接比較すると、両者はともに
+\[
+ \begin{pmatrix}0&1&-1&-1\\-1&0&0&0\\1&0&0&1\\1&0&-1&0\end{pmatrix}
+ \pmod3
+\]
+である。よって四つの同値の合成は
+$\mathcal C\simeq\mathcal C^{P,\alpha}=\mathcal Q$ を与える。
+定理\ref{nqt:thm:reduction}と合わせれば全表示族で結論する。
+他の周囲代数や他次元の全対象への拡張は未解決である。
+\end{proof}
