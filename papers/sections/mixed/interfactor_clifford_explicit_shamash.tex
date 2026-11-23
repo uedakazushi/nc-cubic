@@ -1,5 +1,5 @@
 % !TEX root = ../../mixed-sklyanin-cubics.tex
-% Current result: 2026-11-23 / v83.
+% Current result: 2026-11-23 / v84.
 \subsubsection{分離原点の Clifford augmentation に対する明示的な Shamash 模型}
 \label{ifj:subsubsec:explicit-shamash}
 
@@ -8,7 +8,7 @@
 その存在だけでなく、指定中心三次の scalar と内部次数を保持した
 有限行列を明示する。以下では右加群の行列を左乗法で記す。
 
-\begin{proposition}[Clifford 因子の明示的な四階 Shamash 行列分解]
+\begin{proposition}[反転・巡回同変な Clifford 因子の四階 Shamash 行列分解]
 \label{ifj:prop:clifford-explicit-shamash}
 $\tau(\tau^3-1)(\tau^3+8)\ne0$ とし、
 \[
@@ -36,19 +36,17 @@ $S_\tau$ の augmentation の三段 Koszul 分解を
  \tau x_1&x_3&x_2\\x_3&\tau x_2&x_1\\x_2&x_1&\tau x_3
  \end{pmatrix},\qquad d_3=d_1^{\mathsf t}.
 \]
-次の次数二の列 $u=(u_i)_{i=1}^3$ と三階行列 $A$、
-次数三の元 $v$ を定める：
+次数二の列 $u=(u_i)_{i=1}^3$ と三階行列 $A$、
+次数三の元 $v$ を、$\kappa=(4-\tau^3)/6$ を使って定める：
 \begin{equation}\label{ifj:eq:explicit-shamash-data}
  \begin{aligned}
  u_i&=-\frac{\Delta}{3}
             (2x_{i+1}x_{i+2}+\tau x_i^2),\\
- A_{ii}&=-\frac{2\Delta}{3}x_i^2
+ A_{ii}&=-\frac{\tau^3}{2}x_i^2
                 -\tau^2x_{i+1}x_{i+2},\\
- A_{i,i+1}&=\tau x_{i+2}^2
-              -\frac{\tau^3-4}{3}x_ix_{i+1},
- & A_{i+1,i}&=-\tau x_{i+2}^2,\\
- v&=\frac{\tau^3-4}{6}\Omega
-       -\frac{\tau\Delta(\tau^3+8)}{18}
+ A_{i,i+1}&=\tau x_{i+2}^2+\kappa x_ix_{i+1},
+ & A_{i+1,i}&=-\tau x_{i+2}^2-\kappa x_{i+1}x_i,\\
+ v&=-\frac{\tau\Delta(\tau^3+8)}{18}
                          (x_1^3+x_2^3+x_3^3).
  \end{aligned}
 \end{equation}
@@ -79,7 +77,29 @@ $D_+:F^{-1}\to F^0$、$D_-:F^0\to F^{-1}(3)$ であり、
 となる。従ってこの $4\times4$ 行列分解は
 $\operatorname{stab}_{S_\tau,\Omega}(\C)$ を表し、
 指定した中心三次による内部三周期を保持する。
-さらに $x_i\mapsto x_{i+1}$ の巡回置換に対して厳密同変である。
+さらに巡回写像 $\rho:x_i\mapsto x_{i+1}$ と反転
+\begin{equation}\label{ifj:eq:explicit-shamash-reflection}
+ \sigma:(x_1,x_2,x_3)\longmapsto(-x_2,-x_1,-x_3)
+\end{equation}
+に対し、両微分と higher homotopies が厳密同変である。
+$P$ を第一、第二座標の交換行列とすると、
+$\sigma$ は Koszul 複体の四項に
+\begin{equation}\label{ifj:eq:explicit-shamash-top-sign}
+ (T_0,T_1,T_2,T_3)=(1,-P,P,-1)
+\end{equation}
+として作用し、特に最上 syzygy 線では $-1$ である。
+$E_0=\operatorname{diag}(1,P)$、
+$E_1=\operatorname{diag}(-P,-1)$ とすれば、
+\begin{equation}\label{ifj:eq:explicit-shamash-equivariant-differentials}
+ \sigma(D_+)=E_0D_+E_1^{-1},\qquad
+ \sigma(D_-)=E_1D_-E_0^{-1}.
+\end{equation}
+$\rho^3=\sigma^2=1$、$\sigma\rho\sigma=\rho^{-1}$ も
+これらの複体作用として厳密に成立する。
+可換点曲線に作用する反転は $P$ であって $-P$ ではないが、
+その最上 Koszul 線の符号 $\det P=-1$ と
+式\eqref{ifj:eq:explicit-shamash-top-sign}の符号は一致する。
+ここから比較核自体の同変性はまだ結論しない。
 
 任意の中心 scalar $a$ に対して
 $(u,A,v)\mapsto(au,aA,a^2v)$ とすれば、
@@ -117,7 +137,7 @@ $3\times3$ の二つの式および次数四の二つの式を確認する。
 実際、$Au$ の第一成分の単位 PBW 成分に含まれる
 $x_1^4$ の係数は
 \[
- \frac{2\tau(\tau^3-1)^2}{9}\ne0
+ \frac{\tau(\tau^3-1)(\tau^3+8)}{18}\ne0
 \]
 なので、ここで選んだ巡回同変な $s_1$ では
 $s_1^2$ を零とみなせない。
@@ -129,8 +149,23 @@ augmentation stabilization の同定が従う。
 各項の内部次数は $d_1,d_2,d_3$ が一次、
 $u,A$ が二次、$v,\Omega$ が三次であり、
 表示した $F^0,F^{-1}$ と整合する。
-全式が巡回的なので、巡回置換は $P_\bullet$ と
-higher homotopies を厳密に保つ。
+さらに $\sigma$ は関係 $r_i$ を $r_{P(i)}$ に送る一方で、
+生成元 $x_i$ を $-x_{P(i)}$ に送る。従って
+$\sigma(d_1)=d_1(-P)$、
+$\sigma(d_2)=(-P)d_2P$、
+$\sigma(d_3)=(-P)d_3$ であり、
+式\eqref{ifj:eq:explicit-shamash-top-sign}は複体写像の条件から従う。
+また式\eqref{ifj:eq:explicit-shamash-data}を整列すれば
+\[
+ \sigma(u)=(-P)u,\qquad
+ \sigma(A)=P A(-P),\qquad \sigma(v)=-v
+\]
+を得る。ここで $x_ix_j$ と $x_jx_i$ を安易に交換せず、
+二次関係を使っている。
+これを折り畳んだ行列が
+式\eqref{ifj:eq:explicit-shamash-equivariant-differentials}である。
+巡回置換についても同様で、行列の積で
+$\sigma\rho\sigma=\rho^{-1}$ を確認する。
 最後の外積は両因子の奇次数写像の交差項を
 Koszul 符号で打ち消す標準構成である。
 \end{proof}
@@ -138,14 +173,15 @@ Koszul 符号で打ち消す標準構成である。
 \begin{remark}[明示した範囲]
 この行列分解は原点の\emph{非可換側}に存在する
 実有限 Koszul--Shamash 模型である。
-新しく構成したのは $s_1,s_2$ とその規格化された行列であり、
+新しく構成したのは反転と巡回を同時に厳密に保つ $s_1,s_2$ と
+その規格化された行列、最上 Koszul 線の符号であり、
 一般的な Shamash folding は既知理論である。
 分離因子の既存 window 同値における
 $\operatorname{stab}(\C)\leftrightarrow\OO_E[1]$ には
 主稿の系\paperref{main}{mbrn:cor:factor-boundary}を用いる。
 この有限 MF 自体から、混合族の比較 kernel、
 その Hom 複体の special retract $(i,p,h)$、
-unit/counit、rotation の全整合、三乗 period の比較同型、
+unit/counit、comparison の rotation と三乗 period の整合、
 四つの probe の原式46枠と十二係数はまだ得られない。
 有限多項式恒等式の再現は
 \texttt{computations/verify\_clifford\_explicit\_shamash.py} に置く。
