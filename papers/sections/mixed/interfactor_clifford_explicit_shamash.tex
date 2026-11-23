@@ -1,0 +1,152 @@
+% !TEX root = ../../mixed-sklyanin-cubics.tex
+% Current result: 2026-11-23 / v83.
+\subsubsection{分離原点の Clifford augmentation に対する明示的な Shamash 模型}
+\label{ifj:subsubsec:explicit-shamash}
+
+混合係数が零のとき、原点の因子比較には
+一因子の augmentation stabilization を使用する。
+その存在だけでなく、指定中心三次の scalar と内部次数を保持した
+有限行列を明示する。以下では右加群の行列を左乗法で記す。
+
+\begin{proposition}[Clifford 因子の明示的な四階 Shamash 行列分解]
+\label{ifj:prop:clifford-explicit-shamash}
+$\tau(\tau^3-1)(\tau^3+8)\ne0$ とし、
+\[
+ S_\tau=\C\langle x_1,x_2,x_3\rangle/
+ (x_{i+1}x_{i+2}+x_{i+2}x_{i+1}+\tau x_i^2)_{i\in\mathbb Z/3}
+\]
+と置く（添字は巡回的に読む）。$\Delta=\tau^3-1$、
+\[
+ \omega=x_1x_2x_3+\frac{\tau}{2}(x_1^3-x_2^3+x_3^3),
+ \qquad \Omega=2(1-\tau^3)\omega=-2\Delta\omega
+\]
+を指定中心三次とする。
+$S_\tau$ の augmentation の三段 Koszul 分解を
+\[
+ P_\bullet:\quad
+ 0\longrightarrow S_\tau(-3)
+ \xrightarrow{d_3}S_\tau(-2)^3
+ \xrightarrow{d_2}S_\tau(-1)^3
+ \xrightarrow{d_1}S_\tau\longrightarrow\C\longrightarrow0
+\]
+と書く。ただし
+\[
+ d_1=(x_1\ \ x_2\ \ x_3),\qquad
+ d_2=\begin{pmatrix}
+ \tau x_1&x_3&x_2\\x_3&\tau x_2&x_1\\x_2&x_1&\tau x_3
+ \end{pmatrix},\qquad d_3=d_1^{\mathsf t}.
+\]
+次の次数二の列 $u=(u_i)_{i=1}^3$ と三階行列 $A$、
+次数三の元 $v$ を定める：
+\begin{equation}\label{ifj:eq:explicit-shamash-data}
+ \begin{aligned}
+ u_i&=-\frac{\Delta}{3}
+            (2x_{i+1}x_{i+2}+\tau x_i^2),\\
+ A_{ii}&=-\frac{2\Delta}{3}x_i^2
+                -\tau^2x_{i+1}x_{i+2},\\
+ A_{i,i+1}&=\tau x_{i+2}^2
+              -\frac{\tau^3-4}{3}x_ix_{i+1},
+ & A_{i+1,i}&=-\tau x_{i+2}^2,\\
+ v&=\frac{\tau^3-4}{6}\Omega
+       -\frac{\tau\Delta(\tau^3+8)}{18}
+                         (x_1^3+x_2^3+x_3^3).
+ \end{aligned}
+\end{equation}
+すると以下の恒等式が $S_\tau$ の中で厳密に成立する：
+\begin{equation}\label{ifj:eq:explicit-shamash-identities}
+ \begin{gathered}
+ d_1u=u^{\mathsf t}d_3=\Omega,\\
+ d_2A+ud_1=A d_2+d_3u^{\mathsf t}=\Omega\mathbf1_3,\\
+ Au+d_3v=0,\qquad u^{\mathsf t}A+vd_1=0.
+ \end{gathered}
+\end{equation}
+特に、$s_0=d$、$s_1=(u,A,u^{\mathsf t})$、$s_2=v$ は
+指定中心元 $\Omega$ に対する higher homotopies である。
+
+$F^0=S_\tau\oplus S_\tau(1)^3$、
+$F^{-1}=S_\tau(-1)^3\oplus S_\tau$ と置き、
+\begin{equation}\label{ifj:eq:explicit-shamash-mf}
+ D_+=\begin{pmatrix}d_1&0\\A&d_3\end{pmatrix},
+ \qquad
+ D_-=\begin{pmatrix}u&d_2\\v&u^{\mathsf t}\end{pmatrix}
+\end{equation}
+とする。これらはそれぞれ次数零の射
+$D_+:F^{-1}\to F^0$、$D_-:F^0\to F^{-1}(3)$ であり、
+適切な twist を省略した行列の積は
+\[
+ D_+D_-=D_-D_+=\Omega\mathbf1_4
+\]
+となる。従ってこの $4\times4$ 行列分解は
+$\operatorname{stab}_{S_\tau,\Omega}(\C)$ を表し、
+指定した中心三次による内部三周期を保持する。
+さらに $x_i\mapsto x_{i+1}$ の巡回置換に対して厳密同変である。
+
+任意の中心 scalar $a$ に対して
+$(u,A,v)\mapsto(au,aA,a^2v)$ とすれば、
+曲率 $a\Omega$ の同じ模型となる。
+従って分離二因子 $S_{\tau_1}\otimes S_{\tau_2}$ と
+$w_0=a_1\Omega_{\tau_1}+a_2\Omega_{\tau_2}$ に対し、
+二つのこの模型の Koszul 符号付き外積は
+共通の三周期を同定した次数付き $32\mid32$ の
+augmentation 行列分解を与える。
+ただし、これを混合係数を動かした実 Ku 比較核と
+同一視するものではない。
+\end{proposition}
+
+\begin{proof}
+$S_\tau$ の滑らかな Sklyanin 領域では三段 Koszul 分解が完全であり、
+$d_1d_2=d_2d_3=0$ は表示した三つの二次関係そのものである。
+中心元 $\Omega$ の式と正則性は既存の Clifford 中心計算による。
+
+式\eqref{ifj:eq:explicit-shamash-identities}は
+$x_jx_i=-x_ix_j-\tau x_k^2$（$i<j$、$k$ は残る添字）および
+中心平方 $x_i^2$ を使って順序 PBW 基底
+\[
+ 1,x_1,x_2,x_3,x_1x_2,x_1x_3,x_2x_3,x_1x_2x_3
+\]
+へ整列して得る。
+例えば巡回平均の恒等式
+\[
+ \omega=\frac13\sum_{i=1}^3
+   \left(x_ix_{i+1}x_{i+2}+\frac{\tau}{2}x_i^3\right)
+\]
+から $d_1u=\Omega$ が直ちに従う。
+同じ整列で $u^{\mathsf t}d_3=\Omega$、
+$3\times3$ の二つの式および次数四の二つの式を確認する。
+後二式は $s_1^2$ の nullhomotopy が $s_2=v$ であることを示す。
+実際、$Au$ の第一成分の単位 PBW 成分に含まれる
+$x_1^4$ の係数は
+\[
+ \frac{2\tau(\tau^3-1)^2}{9}\ne0
+\]
+なので、ここで選んだ巡回同変な $s_1$ では
+$s_1^2$ を零とみなせない。
+三段複体では $s_1s_2+s_2s_1=s_2^2=0$ が次数の理由で成立する。
+従って主稿の Shamash folding の補題
+\paperref{main}{mbnp:lem:shamash}を適用でき、
+式\eqref{ifj:eq:explicit-shamash-mf}の二つの行列積と
+augmentation stabilization の同定が従う。
+各項の内部次数は $d_1,d_2,d_3$ が一次、
+$u,A$ が二次、$v,\Omega$ が三次であり、
+表示した $F^0,F^{-1}$ と整合する。
+全式が巡回的なので、巡回置換は $P_\bullet$ と
+higher homotopies を厳密に保つ。
+最後の外積は両因子の奇次数写像の交差項を
+Koszul 符号で打ち消す標準構成である。
+\end{proof}
+
+\begin{remark}[明示した範囲]
+この行列分解は原点の\emph{非可換側}に存在する
+実有限 Koszul--Shamash 模型である。
+新しく構成したのは $s_1,s_2$ とその規格化された行列であり、
+一般的な Shamash folding は既知理論である。
+分離因子の既存 window 同値における
+$\operatorname{stab}(\C)\leftrightarrow\OO_E[1]$ には
+主稿の系\paperref{main}{mbrn:cor:factor-boundary}を用いる。
+この有限 MF 自体から、混合族の比較 kernel、
+その Hom 複体の special retract $(i,p,h)$、
+unit/counit、rotation の全整合、三乗 period の比較同型、
+四つの probe の原式46枠と十二係数はまだ得られない。
+有限多項式恒等式の再現は
+\texttt{computations/verify\_clifford\_explicit\_shamash.py} に置く。
+\end{remark}
