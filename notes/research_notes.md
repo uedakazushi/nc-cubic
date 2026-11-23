@@ -1,6 +1,6 @@
 # 非可換三次 n-fold：現行研究ノート
 
-2026年11月23日 / v81。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
+2026年11月23日 / v82。研究方針は `../00_research_plan.md`。公表結果の証明は三本の現行論文に置き、このノートは可換復元・モジュライの依存・適用範囲・障害・再現の入口をまとめる。代数的量子化の現行知識は [量子化ノート](https://github.com/uedakazushi/cubic-quantization/blob/main/notes/cubic_quantization.md)、その独立論文は [量子化原稿](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を参照する。
 
 ## 可換 Ku 実現を中心とする研究の入口
 
@@ -655,6 +655,8 @@ t³≠−2,u³≠4なら特異点は全て通常二重点、各枝の節点数�
 ### 最小四probeのcurved PBW摂動と三次HPLへの有限還元
 
 正本は [interfactor_clifford_jets.tex](../papers/sections/mixed/interfactor_clifford_jets.tex) の `ifj:prop:pbw-jet-degree`、`ifj:lem:pbw-hpl`。1〜3添字のCliffordで q23=−τ₁X₁/2+sL₁/2, q13=−τ₁X₂/2+sL₂/2, q12=−τ₁X₃/2+sL₃/2（L_a=Σ_b U_abY_b）。8つの順序PBW基底の全64組の積の非線形項は q12 q23 に由来する4つだけで、源m_s=m0+s m1+s² m2のm2はこの4出力に−L₁L₃を掛けたもの。ω_x=e123−q12e3+q13e2−q23e1なので中心w_s=w0+s w1は全probeで厳密に一次。最小四方向 E00,R0,C0,I3 のうち E00,R0 の2つはm2=0、C0,I3の2つはm2≠0（固定した順序PBWでの性質）。
+
+**曲率付きPBWのHochschild障害が四つの積成分で消える（証明済み、`ifj:prop:pbw-curved-mc`）：** 変形q_ij(s)=q_ij(0)+sd_ij（d12=L3/2,d13=L2/2,d23=L1/2）の8基底積m=m0+s m1+s²m2に対し、∂m1=0、∂m2=m1∘m1、m1∘m2+m2∘m1=m2∘m2=0。m2は四つのPBW出力枠に−L1L3を持つ。二次障害の具体証人は(m1∘m1)(e2,e3,e12)=L1L3·1で、E00,R0では零、C0,I3では非零。中心ω_x(s)=ω0+sω1について[ω0,−]m0=0、[ω1,−]m0+[ω0,−]m1=0、[ω1,−]m1+[ω0,−]m2=0、[ω1,−]m2=0。`../computations/verify_clifford_curved_pbw_mc.py`はm0,m1,m2を全8×8基底で構成し、全512 triple×5次数、中心4次数、80非零障害枠、四probeを厳密10群PASSで確認した。一般Cliffordの結合律・中心性は既知だが、この規約での4-slot原始と非零証人を具体化した。原点Koszul--Shamash比較のspecial retract(i,p,h)はこの普通のHochschild積複体とは異なり未構成；46原式・12比較値も未計算。
 
 原点s進curved bar模型 d_s=d0+s d1+s²d2 と原点収縮 (i,p,h), d0h+hd0=1−ip を選ぶと、三次移送の増分は s p d1 i+s²p(d2−d1hd1)i+s³p(−d1hd2−d2hd1+d1hd1hd1)i+O(s⁴)。従って必要な源摂動演算はd1,d2のみで、二つの線形probeではd2=0かつd1²=0。これは移送「微分」の演算式であり、Hesse切片のβ・γを直接与えるものではない。現行の次の実計算は、既存の原点perfect核・Shamash縮約・Picard/rotation周期から(i,p,h)を実際に取り、同じJacobian切片へ高次積まで移すこと。自由な標的再座標化でβ・γを消す操作は採用しない。再現は [verify_clifford_jet_transfer.py](../computations/verify_clifford_jet_transfer.py)。既知のHPLはGugenheim--Lambe--Stasheff (1991)と区別する。
 
