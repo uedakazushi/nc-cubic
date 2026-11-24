@@ -8,6 +8,8 @@
 
 本文の引用文献の書誌とURLは `papers/references.tex`。以下は議論に直結する確認箇所と、ノートだけの補助経路の一次資料であり、全論文を監査したという一覧ではない。
 
+Lin–Rennemo–Zhang は滑らかな Veronese double cone について Ku からの偶数 Jacobian 部分の復元、勾配イデアルの復元と Fourier–Mukai 型 categorical Torelli を証明している。主稿では、偶符号五様体から次数一 del Pezzo 三様体への実核を先に構成し、その像を判定する際にこの Torelli を用いる。[arXiv:2408.08266v1, Theorem 4.3, Proposition 4.11, Theorem 4.12](https://arxiv.org/abs/2408.08266v1)
+
 - Dyckerhoff, *Compact generators in categories of matrix factorizations*, Duke Math.J.159(2011),223–274、[arXiv:0904.4713v5](https://arxiv.org/pdf/0904.4713)、§5.6、Theorem5.8（著者版p.31）。2026-11-22に一次PDFで、一変数W=Σr_i x^iのunital minimal A∞模型のm_i(θ,…,θ)=±r_iを確認した。中央因子cu³の三項係数に用い、本文では2×2行列により直接再検算する。非可換ambient全体のformalityをこの定理から導いていない。既存keyは `ROGDyckerhoff`。
 - Willumsgaard, *Obstructions for Associativity in Stable Homotopy Theory*, [arXiv:2605.11390v1](https://arxiv.org/abs/2605.11390v1)（2026）、Theorem3.3、Lemma3.11。確認済みの固定unitのA_n障害塔を、安定な境界核圏のoppositeを通じて固定counitへ適用する。非空fiberのhomotopy群がH^(2−n−i)RHom(K,J^n)となるshiftを保持する。一般理論と、本族でarity二・三だけが残るsector計算を区別する。keyは `CMOWillumsgaardAssociativity`。
 - Christ, *Spherical monadic adjunctions of stable infinity categories*, [arXiv:2010.05294v3](https://arxiv.org/abs/2010.05294v3)（2022）、Proposition1.11、Theorem4.1、§4.1、Example4.10。確認済みのstable Kleisli模型と、underlying monadおよびunitだけでは乗法が決まらない例を参照する。本族では実随伴とsplit-generationからcoKleisli代数を作り、全coherenceの比較を別に証明する。keyは `CMOChristSphericalMonadic`。

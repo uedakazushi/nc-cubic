@@ -18,6 +18,8 @@ python3 computations/verify_diagonal_sign_sectors.py
 python3 computations/verify_diagonal_clifford_dual.py
 ```
 
+偶符号五様体の全環の 23 関係、重み付き六次式の偶数 Jacobian 部分、socle への乗法対、次数一 del Pezzo 比較の 64 基底積・Koszul 共役・五つの非恒等 sector、Hesse 切片と Fermat 六次式の符号部分群は `verify_narrow_fivefold_counterexample.py` で再現する。
+
 五様体の二平面条件の 45 個の線型制約と接写像の階数 24 は `verify_two_elliptic_fivefold_relations.py` で再現する。楕円因子の Bockstein の単射性に使う有限行列は `python3 computations/verify_elliptic_bockstein.py` で検算する。
 
 ## 証明書・追加モード

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Exact checks for the deformation-connected fivefold and its rotation products."""
-from itertools import combinations, combinations_with_replacement
+from collections import Counter
+from functools import lru_cache
+from itertools import combinations, combinations_with_replacement, permutations, product
+from math import comb
 
 import sympy as sy
 
@@ -215,9 +218,16 @@ def verify_sector_hilbert_series():
     print("All four averaged sector series sum to (1+z)^7.")
 
 
-def verify_odd_invariant_generators():
-    from itertools import product
+def standard_monomials(basis):
+    leading = [p.LM(order=basis.order).exponents for p in basis.polys]
+    assert basis.is_zero_dimensional
+    bounds = [min(m[i] for m in leading if m[i] and sum(m) == m[i])
+              for i in range(len(basis.gens))]
+    return [m for m in product(*(range(bound) for bound in bounds))
+            if not any(all(a >= b for a, b in zip(m, term)) for term in leading)]
 
+
+def verify_odd_invariant_generators():
     active = sy.symbols("x1:4")
     central = sy.symbols("u1:4") + (sy.Symbol("w"),)
     variables = active + central
@@ -228,14 +238,9 @@ def verify_odd_invariant_generators():
         cubic = g + sum(u*x**2 for u, x in zip(central, active))
         gb = sy.groebner([cubic.diff(v) for v in variables], *variables,
                          order="lex", domain=sy.QQ)
-        leading = [p.LM(order=gb.order).exponents for p in gb.polys]
-        bounds = [min(m[i] for m in leading if m[i] and sum(m) == m[i])
-                  for i in range(len(variables))]
         identity_even = 0
         odd_words = []
-        for powers in product(*(range(bound) for bound in bounds)):
-            if any(all(a >= b for a, b in zip(powers, m)) for m in leading):
-                continue
+        for powers in standard_monomials(gb):
             parity = [v % 2 for v in powers[:3]]
             if parity == [0, 0, 0]:
                 identity_even += 1
@@ -244,6 +249,158 @@ def verify_odd_invariant_generators():
         assert identity_even == 54 and set(odd_words) == {primitive, primitive*w}
         assert gb.reduce(primitive**2 + sy.prod(g.diff(u) for u in central[:3]))[1] == 0
     print("Two full gradient algebras: the two missing invariant monomials are P and wP.")
+
+
+def verify_weighted_presentation():
+    u = sy.symbols("u1:4")
+    w, p = sy.symbols("w p")
+    z12, z13, z23 = sy.symbols("z12 z13 z23")
+    d = sy.Matrix([[u[0], z12, z13], [z12, u[1], z23], [z13, z23, u[2]]])
+    pairs = list(combinations(range(3), 2))
+    minors = [d.extract(rows, cols).det() for i, rows in enumerate(pairs) for cols in pairs[i:]]
+    variables = (p, z12, z13, z23) + u + (w,)
+    v = sy.symbols("v1:4")
+    pullback = dict(zip(u, [x**2 for x in v]))
+    for extra in (0, u[0]**2*w):
+        g = sum(x**3 for x in u) + w**3 + extra
+        gradients = [g.diff(x) for x in u]
+        cubic = [d[i,j]*gradients[i] for i in range(3) for j in range(3)]
+        quartic = [p*d[i,j] for i in range(3) for j in range(i,3)]
+        relations = minors + [g.diff(w)] + cubic + quartic + [p**2 + sy.prod(gradients)]
+        gb = sy.groebner(relations, *variables, order="lex", domain=sy.QQ)
+        monomials = standard_monomials(gb)
+        degree = lambda m: 3*m[0] + sum(m[1:])
+        full = Counter(degree(m) for m in monomials)
+        assert full == {i: comb(7,i) for i in range(8)}
+        assert gb.reduce(w*p**2)[1] != 0
+        h = g.xreplace(pullback)
+        weighted = sy.groebner([h.diff(x) for x in v + (w,)], *v, w, order="lex", domain=sy.QQ)
+        weights = [sum(m[:3])+2*m[3] for m in standard_monomials(weighted)]
+        even = Counter(n//2 for n in weights if n % 2 == 0)
+        assert full == even + Counter({3: 1, 4: 1})
+        # Read the product pairings from rational normal forms in the
+        # presented algebra, independently of its sector decomposition.
+        ring, *_ = sy.polys.rings.ring(variables, sy.QQ, order="lex")
+        divisors = [ring.from_dict(poly.rep.to_dict()) for poly in gb.polys]
+        socle, = [m for m in monomials if degree(m) == 7]
+
+        @lru_cache(maxsize=None)
+        def top_coefficient(exponents):
+            remainder = ring.from_dict({exponents: sy.QQ.one}).rem(divisors)
+            return remainder.get(socle, 0)
+
+        for i in range(4):
+            left = [m for m in monomials if degree(m) == i]
+            right = [m for m in monomials if degree(m) == 7-i]
+            pairing = sy.Matrix([[top_coefficient(tuple(a+b for a, b in zip(x, y)))
+                                  for y in right] for x in left])
+            assert pairing.to_DM().rank() == comb(7, i)
+    print("Two sextic presentations: dimensions 126 and 128; pairing ranks 1, 7, 21, 35.")
+
+
+def verify_hesse_nonrealizable_slice():
+    v = sy.symbols("v1:4")
+    direction = sy.symbols("b1:4")
+    kappa, lam = sy.symbols("kappa lambda")
+    h = sum(x**6 for x in v) + kappa*sy.prod(v)**2
+    polar = h
+    for _ in range(3):
+        polar = sum(b*polar.diff(x) for b, x in zip(direction, v))
+    coefficients = sy.Poly(polar, *v)
+    for i, x in enumerate(v):
+        assert coefficients.coeff_monomial(x**3) == 120*direction[i]**3
+        for j, y in enumerate(v):
+            if i != j:
+                k = 3-i-j
+                assert coefficients.coeff_monomial(x**2*y) == 12*kappa*direction[j]*direction[k]**2
+    assert coefficients.coeff_monomial(sy.prod(v)) == 48*kappa*sy.prod(direction)
+
+    # Direct gradient checks for the two excluded components at lambda = 2.
+    u = sy.symbols("u1:4")
+    w = sy.Symbol("w")
+    cubic = (sum(c*x**2 + c**3 for c, x in zip(u, v)) + w**3
+             + kappa*sy.prod(u) + lam*sy.prod(v))
+    for parameter, x in ((-3, 0), (-4, -1)):
+        point = dict.fromkeys(u, 1) | dict.fromkeys(v, x) | {w: 0, kappa: parameter, lam: 2}
+        assert all(cubic.diff(y).subs(point) == 0 for y in u + v + (w,))
+    print("Hesse slice: ten polar coefficients and singular points on both components verified.")
+
+
+def verify_degree_one_kernel():
+    # eta_I maps to (-T)^floor(|I|/2) v_I theta^(|I| mod 2).
+    # Record the period, odd generator and three square exponents separately.
+    def image(mask):
+        size = mask.bit_count()
+        return size//2, size % 2, tuple((mask >> i) & 1 for i in range(3))
+
+    for left, right in product(range(8), repeat=2):
+        lp, lt, lv = image(left)
+        rp, rt, rv = image(right)
+        n, h, v = image(left ^ right)
+        overlap = left & right
+        assert lp + rp + (lt+rt)//2 == n + overlap.bit_count()
+        assert (lt+rt) % 2 == h
+        assert tuple(a+b for a, b in zip(lv, rv)) == tuple(
+            v[i]+2*((overlap >> i) & 1) for i in range(3))
+        assert -6*lp - 3*lt + sum(lv) == -2*left.bit_count()
+
+    # Removing the dual coefficient of a zero slot by exterior conjugation.
+    x, t, a, c = sy.symbols("x T A C")
+    wedges = []
+    for i in range(2):
+        wedge = sy.zeros(4)
+        for mask in range(4):
+            if not mask & (1 << i):
+                wedge[mask | (1 << i), mask] = (-1)**((mask % (1 << i)).bit_count())
+        wedges.append(wedge)
+    e, f = wedges
+    n = t*c*e*f
+    simple = x*e.T + t*a*e
+    original = simple + t*x*c*f
+    assert n*n == sy.zeros(4)
+    assert equal((sy.eye(4)+n)*original*(sy.eye(4)-n), simple)
+    # The nonidentity scalar sectors have fixed w, fixed s, or only the origin.
+    weights = (1, 1, 1, 2, 3)
+    correction = {}
+    for power in range(1, 6):
+        moving = [wt for wt in weights if power*wt % 6]
+        if len(moving) % 2 == 0:
+            correction[power] = sum(moving)-6*(len(moving)//2)
+    assert correction == {2: -7, 3: -6, 4: -7}
+    assert [degree for degree in range(8) if 2*degree+correction[3] in (0,2)] == [3,4]
+    print("Degree-one kernel: 64 Clifford products, Koszul conjugation and all five scalar sectors.")
+
+
+def verify_fermat_sign_markings():
+    # Represent a projective monomial matrix by sixth-root exponents with
+    # last exponent zero and by the column of the nonzero entry in each row.
+    identity = ((0, 0, 0), (0, 1, 2))
+    group = [((a, b, 0), perm) for a, b in product(range(6), repeat=2)
+             for perm in permutations(range(3))]
+
+    def multiply(left, right):
+        a, perm = left
+        b, other = right
+        exponents = [a[i] + b[perm[i]] for i in range(3)]
+        return (tuple((e-exponents[2]) % 6 for e in exponents),
+                tuple(other[i] for i in perm))
+
+    involutions = [x for x in group if x != identity and multiply(x, x) == identity]
+    klein = {frozenset((identity, x, y, multiply(x, y))) for x, y in combinations(involutions, 2)
+             if multiply(x, y) == multiply(y, x)}
+    inverses = {x: next(y for y in group if multiply(x, y) == identity) for x in group}
+    sizes = []
+    while klein:
+        representative = next(iter(klein))
+        orbit = {frozenset(multiply(multiply(x, h), inverses[x]) for h in representative)
+                 for x in group}
+        assert orbit <= klein
+        sizes.append(len(orbit))
+        klein.difference_update(orbit)
+    assert sorted(sizes) == [1, 9]
+    x, y = sy.symbols("x y")
+    assert sy.expand((x+y)**6 + (x-y)**6) == 2*x**6 + 30*x**4*y**2 + 30*x**2*y**4 + 2*y**6
+    print("Fermat sextic: ten Klein four subgroups in two orbits of sizes 1 and 9.")
 
 
 def verify_exceptional_projection():
@@ -272,4 +429,8 @@ if __name__ == "__main__":
     verify_sector_triple_products()
     verify_sector_hilbert_series()
     verify_odd_invariant_generators()
+    verify_weighted_presentation()
+    verify_hesse_nonrealizable_slice()
+    verify_fermat_sign_markings()
+    verify_degree_one_kernel()
     verify_exceptional_projection()
