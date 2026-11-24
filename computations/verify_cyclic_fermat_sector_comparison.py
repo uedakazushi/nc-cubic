@@ -97,6 +97,23 @@ def trace_average(kernel, subgroup, twist):
 
 
 raw = fixed_traces()
+def verify_residue_product(traces):
+    """Expand the five local factors, including the empty level's constant."""
+    for row, geometric in enumerate(points):
+        coefficients = {i: np.zeros((2, order), dtype=int) for i in traces}
+        for level in range(3):
+            fixed = np.flatnonzero(geometric == level)
+            for signs in product((1, -1), repeat=len(fixed)):
+                degree = sum(signs)
+                if degree % 3 == 0:
+                    weight = points[:, fixed] @ np.asarray(signs, dtype=int)
+                    coefficients[degree // 3] += np.array(roots(weight))
+        for i, pair in traces.items():
+            assert np.array_equal(coefficients[i], [component[row] for component in pair])
+
+
+verify_residue_product(raw)
+print("Laurent product agrees with geometric traces on all 6561 ordered pairs.")
 source = {i: transformed(k) for i,k in raw.items()}
 target = {i: restrict(k,target_index) for i,k in raw.items()}
 upper = np.triu(np.ones((4,4),dtype=int), 1)
