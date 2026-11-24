@@ -9,6 +9,8 @@
 **現在有効な問題**は全称可換Ku実現予想（広い定式化と変形連結条件付きの両方が否定済み）の修正ではなく、可換実現可能な対象の特徴付けである。五次元には内在的 $R_j=\operatorname{Hom}(\Delta,S^{-j}[3j])$ とその三重積の必要条件があり、$T=\mathbb A^1\setminus V(27b^6+64)$ の実smooth proper族で可換実現可能な係数はちょうど $b\ne0$。$b=0$ の余核は不変Jacobian環の $[x_1x_2x_3]$ で、通常HHの次元は族全体で不変。重要なのは成立領域の分類と乗法・自然変換環の独立監査であり、HH一致や変形連結性だけを十分条件として使わない。原稿の証明の所在は `nft:prop:jacobian-necessary`, `nft:cor:nonclosed-cubic-locus`、新規性は未網羅確認。
 
 
+二楕円因子の分離五様体では、内在的な二次関係を積分して得た滑らかな三次式の最細分解が、重複込みの非順序 j 対を決める。異なる j 対は無標識でも非同値であり、等しい対には分離比較核と標的の射影同型が実同値を与える。一中心変形のうち $u^2L+du^3$ の切片では、$L$ の台と一次元成分の例外から最細分解を計算できる。[二因子五様体の証明](../papers/sections/two_elliptic_fivefold_relations.tex)
+
 狭い全称命題は五次元で否定される。$F_b=\sum_i(u_ix_i^2+u_i^3)+w^3+bx_1x_2x_3$ の偶符号作用を非自明な乗数で同変化すると、$b=2$ は可換 Ku に同値で $b=0$ はどの可換 Ku にも同値でない。家族の両点は同じ smooth proper 開にある。$b=0$ で三つの閉 Clifford 演算子に Pauli 行列を掛けた偶積は一次の rotation 変換であり、対称行列の階数一関係を作る。五様体では rotation は無標識でも保存される。[反例の証明](../papers/sections/narrow_fivefold_counterexample.tex)。
 
 全次数の $R_j$ の Hilbert 級数も族全体で $(1+z)^7$ となる。偏微分の正則列の指標を固定部分ごとに平均する計算は [三重積の証明](../papers/sections/narrow_fivefold_cubic_product.tex) に置いた。非零係数の比較では二重原点加群の軸上の cone が剰余体を直和因子に持ち、三つの内部シフトの直和が厚生成する。五次元族の相対射影は例外四項を 3,2,1,0 の順で左変異する合成であり、perfect 複体の底変更と可換する。

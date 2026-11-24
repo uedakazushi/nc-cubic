@@ -10,6 +10,7 @@ Python 3、requirements.txt（NumPy、SymPy）、必要に応じ C++17 コンパ
 python3 -m pip install -r requirements.txt
 python3 computations/verify_quantum_fermat_obstruction.py
 python3 computations/verify_narrow_fivefold_counterexample.py
+python3 computations/verify_two_elliptic_fivefold_relations.py
 python3 computations/verify_narrow_quantum_threefolds.py
 python3 computations/verify_cyclic_fermat_sector_comparison.py
 python3 computations/verify_diagonal_quantum_support.py

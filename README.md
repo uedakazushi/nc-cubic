@@ -18,6 +18,8 @@
 
 巡回五頂点型で使う一対輸送の指標恒等式は、固定点の原始留数を積に書き、動く二座標の有限 Fourier 変換を取ることで証明できる。[輸送と周期の証明](papers/sections/narrow_fermat_root_equivalence.tex)
 
+二楕円因子と一中心の分離五様体は非順序の j 対で無標識分類される。線型結合切片の二次関係から分離型を判定でき、境界が Fermat 二因子でも全ての非零 j を持つ対 {0,j} が現れる。[証明と条件](papers/sections/two_elliptic_fivefold_relations.tex)
+
 研究の優先順位は **P0：反例の独立監査 → P1：可換実現の内在的特徴付け → P2：実現領域・比較核・降下 → P3：公表単位の再設計と推敲** とする。詳細・着手方法は `00_research_plan.md` を正本とする。
 
 ## 読む順序
