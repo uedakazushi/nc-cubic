@@ -46,3 +46,32 @@ assert sy.cancel(256**3 / (16*sy.discriminant(rhs, X)) +
                  4096/(d**2*(16+27*d**2))) == 0
 print("Seven smooth fibers: symmetrizer dimensions 3, 2, 1, 7, 7, 5, 1.")
 print("Fermat slice: ternary equation, Weierstrass discriminant and j-map verified.")
+
+# Keep the original two boundary blocks fixed. Work in the pure quadratic
+# complement of the gradient quadrics of the ternary J.
+left, right = coords[:3], coords[3:6]
+boundary = sum(x**3 for x in coords[:6]) + sy.prod(left) + sy.prod(right)
+for quadratic, linear, constant, expected in [
+    (left[0]*left[1] + right[0]*right[1], 0, 1, 1),
+    (left[0]*left[1], right[0], 1, 1),
+    (left[0]*left[1], 0, 1, 2),
+    (left[0]*left[1], 3*left[2], 0, 3),
+]:
+    target = boundary + u*quadratic + u**2*linear + constant*u**3
+    assert symmetrizer_dimension(target) == expected
+
+x, y, z = left
+m = sy.Symbol("m")
+on_curve = x**3+y**3+z**3+(z+u)*x*y + m*u**2*z + (3*m-m**2)*u**3/9
+split = (x**3+y**3+(z+u)*x*y + m*(z+u)**3/(m+3)
+         + 3*(z-m*u/3)**3/(m+3))
+assert sy.cancel(on_curve-split) == 0
+print("Quadratic slice: symmetrizer dimensions 1, 1, 2, 3 and the splitting parabola verified.")
+
+h1 = z**3 + m*z + d
+h2 = h1 + (z+1)**3/27
+discriminants = [sy.discriminant(h, z) for h in (h1, h2)]
+assert all(delta.subs({m: 0, d: 1}) != 0 for delta in discriminants)
+restricted = sy.prod(discriminants).subs(d, (3*m-m**2)/9)
+assert sy.Poly(restricted, m).sqf_part().monic() == sy.Poly(m*(m+3)*(m+sy.Rational(3,28)), m)
+print("Both cubic discriminants cut precisely three excluded points on the parabola.")
