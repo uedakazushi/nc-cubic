@@ -46,6 +46,19 @@ def verify_clifford_products():
     for a in range(3):
         b,c = [i for i in range(3) if i != a]
         assert equal(entry(a,b)*entry(a,c), u[a]*entry(b,c))
+    # Conjugation on End(V) transports the character twist on the generator.
+    # Recover the graph label of each z_ab from all four twist eigenvalues.
+    lifts = (sy.eye(2), j, k, sy.I*j*k)
+    for a, b in pairs:
+        factor = lifts[a+1]*lifts[b+1]
+        remaining_coordinate = 3 - a - b
+        label = lifts[remaining_coordinate + 1]
+        for index, coordinate in enumerate(lifts[1:]):
+            assert (label*coordinate == coordinate*label) == (index == remaining_coordinate)
+        for lift in lifts:
+            sign = 1 if lift*label == label*lift else -1
+            assert lift*factor*lift.inv() == sign*factor
+    print("All four dual twists match the three nonidentity graph labels.")
     origin = {h:0 for h in u} | {period:1}
     evaluations = [matrix.subs(origin).reshape(256,1) for matrix in z.values()]
     assert sy.Matrix.hstack(*evaluations).rank() == 3
@@ -202,6 +215,37 @@ def verify_sector_hilbert_series():
     print("All four averaged sector series sum to (1+z)^7.")
 
 
+def verify_odd_invariant_generators():
+    from itertools import product
+
+    active = sy.symbols("x1:4")
+    central = sy.symbols("u1:4") + (sy.Symbol("w"),)
+    variables = active + central
+    w = central[-1]
+    primitive = sy.prod(active)
+    for extra in (0, central[0]**2*w):
+        g = sum(v**3 for v in central) + extra
+        cubic = g + sum(u*x**2 for u, x in zip(central, active))
+        gb = sy.groebner([cubic.diff(v) for v in variables], *variables,
+                         order="lex", domain=sy.QQ)
+        leading = [p.LM(order=gb.order).exponents for p in gb.polys]
+        bounds = [min(m[i] for m in leading if m[i] and sum(m) == m[i])
+                  for i in range(len(variables))]
+        identity_even = 0
+        odd_words = []
+        for powers in product(*(range(bound) for bound in bounds)):
+            if any(all(a >= b for a, b in zip(powers, m)) for m in leading):
+                continue
+            parity = [v % 2 for v in powers[:3]]
+            if parity == [0, 0, 0]:
+                identity_even += 1
+            if parity == [1, 1, 1]:
+                odd_words.append(sy.prod(x**n for x, n in zip(variables, powers)))
+        assert identity_even == 54 and set(odd_words) == {primitive, primitive*w}
+        assert gb.reduce(primitive**2 + sy.prod(g.diff(u) for u in central[:3]))[1] == 0
+    print("Two full gradient algebras: the two missing invariant monomials are P and wP.")
+
+
 def verify_exceptional_projection():
     # End(V) is the regular G-representation, so the invariant multiplicity
     # equals the ordinary section dimension. Use the cubic hypersurface sequence.
@@ -227,4 +271,5 @@ if __name__ == "__main__":
     verify_smooth_fibers()
     verify_sector_triple_products()
     verify_sector_hilbert_series()
+    verify_odd_invariant_generators()
     verify_exceptional_projection()

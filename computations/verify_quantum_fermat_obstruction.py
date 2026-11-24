@@ -78,6 +78,64 @@ def check_full_center():
     assert set(central) == {(i,i,i) for i in range(5)} | {(0,1,4),(2,3,4)}
 
 
+def check_double_fixed_euler():
+    """Compute the Euler trace from common projective eigenspaces, for all 81 pairs."""
+    totals = [0, 0, 0]
+    for g, h in product(G, repeat=2):
+        blocks = defaultdict(list)
+        for index, weight in enumerate(weights):
+            blocks[dot(g, weight), dot(h, weight)].append(index)
+        for block in blocks.values():
+            # The whole threefold has Euler number -6. An axis plane cuts a
+            # smooth genus-one curve, an eigenline three points, and a single
+            # coordinate point misses the hypersurface on the smooth locus.
+            if len(block) == 3:
+                assert set(block) in ({0, 1, 4}, {2, 3, 4})
+            if len(block) == 2:
+                assert 4 not in block
+            totals[commutator(g, h)] += {1: 0, 2: 3, 3: 0, 5: -6}[len(block)]
+    assert totals == [90, 0, 0]
+    assert totals[0] // len(G) - 2 == 8
+    print("Common fixed strata for 81 pairs give residual Euler characteristic 8.")
+
+
+def check_heisenberg_cover():
+    # (a,b,c) represents zeta^c P^a Q^b. Use the ordinary conjugacy
+    # classes, independent of the twisted character projections above.
+    group = list(product(range(3), repeat=3))
+
+    def multiply(x, y):
+        a, b, c = x
+        r, s, t = y
+        return (a+r) % 3, (b+s) % 3, (c+t-b*r) % 3
+
+    def inverse(x):
+        a, b, c = x
+        return -a % 3, -b % 3, (-c-a*b) % 3
+
+    remaining = set(group)
+    total = [0, 0]
+    sizes = []
+    while remaining:
+        x = min(remaining)
+        orbit = {multiply(multiply(y, x), inverse(y)) for y in group}
+        centralizer = {y[:2] for y in group if multiply(x, y) == multiply(y, x)}
+        remaining.difference_update(orbit)
+        sizes.append(len(orbit))
+        if x[:2] == (0, 0):
+            assert centralizer == set(G)
+            contribution = (1, 4)
+        else:
+            assert centralizer == {(n*x[0] % 3, n*x[1] % 3) for n in range(3)}
+            contribution = (1, 2) if 0 in x[:2] else (0, 6)
+        for i, value in enumerate(contribution):
+            total[i] += value
+    assert sorted(sizes) == [1]*3 + [3]*8 and total == [7, 44]
+    ordinary = [1+4, 4+4*2+4*2]
+    assert [a-b for a, b in zip(total, ordinary)] == [2, 24]
+    print("Untwisted central extension gives (7,44), trivial central character (5,20).")
+
+
 def check_critical_values():
     """Compute multiplication by the affine equation in its gradient algebra."""
     import sympy as sp
@@ -108,5 +166,7 @@ def check_critical_values():
 
 
 check_full_center()
+check_double_fixed_euler()
+check_heisenberg_cover()
 check_critical_values()
 print("Seven central monomials and the exact degree-16 critical determinant verified.")

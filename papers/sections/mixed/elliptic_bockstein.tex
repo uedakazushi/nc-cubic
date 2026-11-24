@@ -465,6 +465,49 @@ $[m_2,h_1]$ から残るのは $h_1\circ m_2$ だけである。
 逆に $\mathbf t=0$ なら $S_\epsilon=S[\epsilon]/(\epsilon^2)$ なので一次 class は零である。
 \end{proof}
 
+\begin{corollary}[固定楕円因子ごとの一次像]\label{ebc:cor:pure-image}
+補題\ref{ebk:lem:boundary}の外積から作った境界核と rotation 比較を用いると、
+$\mathfrak b_1$ は各 $\C^3_{\mathbf t_i}$ を
+$\operatorname{Jac}(f_i)_2\subset\operatorname{Jac}(G)_2$ に同型に写す。
+従ってその像はこれらの直和である。$\mathfrak b_2$ も各
+$\C^3_{\alpha^{(i)}}$ を第 $i$ ブロックの一次式全体に同型に写す。
+\end{corollary}
+\begin{proof}
+基準因子 $b$ を固定する。$H_b=\{(s_i)\in\mu_3^k:s_b=1\}$
+はブロック別スカラーの射影群 $Z_0$ へ同型に写る。
+$x_i\mapsto s_i x_i$（各ブロックの三変数すべて）、$u\mapsto u$ とし、
+同じ持上げで両側の内部 shift と可換させる。この線型化が対応する理由は、
+境界補題の積模型で内部 shift の持上げが全次数格子の $e_b$、
+すなわち $R_b$ だからである。$e_b$ の文字は $H_b$ 上自明であり、
+余分な文字 twist はない。同補題の $FR_{b,p_b}\simeq R_{b,0}F$ は
+各 $R_i^{-1}R_b$ の比較射と可換する。従って二重同変化して得る
+rotation 比較もこの線型化を保つ。三乗周期を定める各方程式は $s_i^3=1$ により不変である。
+
+この代入を変形環の間の同型とみる。非二捩れ因子では二次関係を
+$s_i^2$ で割ると、$u$ を伴う一次式の係数は $s_i^{-1}\mathbf t_i$、
+定数補正は $s_i^{-2}\alpha^{(i)}$ になる。
+指定中心持上げも同じ代入で移る。実際、最高項と純 $u^3$ 係数の規格化は
+不変であり、系\ref{eco:cor:non-clifford-lift}の一意性が適用できる。
+二捩れ因子では体積元は不変（各項のブロック次数は三、または
+$u^2\alpha^{(i)}$ を用いて同じ文字になる）で、中心平方の補正係数は
+$s_i^2\mathbf t_i$ になる。従って両型で $\mathbf t_i$ の文字は $s_i^2$、
+$\alpha^{(i)}$ の文字は $s_i$ である。
+法線 $u$（定数方向では $v=u^2$）を固定する同型は、補題\ref{ebc:lem:full-tate}の
+二側 bar の積の差を法線で割った類をそのまま運ぶ。これと上の
+線型化から両 Bockstein は $H_b$-同変である。
+恒等 sector の多項式乗法に対する作用も同じ代入である。
+
+$\operatorname{Jac}(G)=\bigotimes_i\operatorname{Jac}(f_i)$ の次数二は
+各純二次部分（文字 $s_i^2$）と、各異なる二因子の一次部分の積
+（文字 $s_i s_j$、$i<j$）に分解する。$s_b=1$、残りの文字は
+独立な位数三の生成元なので、純部分の文字は互いに異なり、
+いずれも混合部分に現れない。各純部分の次元は
+$6-3=3$ である。滑らかな平面三次の三偏微分は独立だからである。
+定理\ref{ebc:thm:first-injection}の単射性で各像はその文字空間を尽くす。
+次数一の文字は $s_i$ で互いに異なり、命題\ref{ebc:prop:constant-iso}が
+定数方向の主張を与える。
+\end{proof}
+
 \begin{remark}[検算と結論の範囲]
 \label{ebc:rem:scope}
 \path{computations/verify_elliptic_bockstein.py} は、
@@ -477,8 +520,7 @@ Clifford の二項検査では、関係三列・交代三列・中心対角三�
 これらは有限線型代数の証明書であり、実自己交叉から full cochain への比較、
 Tate 局所化、残余圏への移送は本文の証明による。
 
-式\eqref{ebc:eq:first-injection}は像の $3k$ 次元性を与えるが、
-選んだ一般境界比較での $\operatorname{Jac}(G)_2$ 内の具体的座標までは決定しない。
+系\ref{ebc:cor:pure-image}は外積境界比較での像を決定する。各三次元ブロック内の行列は未決定である。
 同様に式\eqref{ebc:eq:constant-iso}は可逆な線型写像を与え、
 異なる因子の共通 scalar や因子モジュライ上の標準的な正規化を与えるものではない。
 後続の実比較の存在そのものと、これらのパラメータ非退化性を区別する。

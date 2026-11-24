@@ -75,3 +75,34 @@ assert all(delta.subs({m: 0, d: 1}) != 0 for delta in discriminants)
 restricted = sy.prod(discriminants).subs(d, (3*m-m**2)/9)
 assert sy.Poly(restricted, m).sqf_part().monic() == sy.Poly(m*(m+3)*(m+sy.Rational(3,28)), m)
 print("Both cubic discriminants cut precisely three excluded points on the parabola.")
+
+
+def check_plane_incidence():
+    # A polynomial coefficient is forbidden exactly when both triples occur.
+    from itertools import combinations_with_replacement
+
+    monomials = list(combinations_with_replacement(range(7), 3))
+    mixed = [indices for indices in monomials
+             if any(i < 3 for i in indices) and any(3 <= i < 6 for i in indices)]
+    assert len(monomials) == 84 and len(mixed) == 45
+
+    # Differential of the mixed-polar condition for a fixed equation. Keep
+    # the third argument fixed and vary the first and second planes as graphs.
+    target = sum(x**3 for x in coords) + 2*u*(coords[0]*coords[1] + coords[3]*coords[4])
+    hessians = [sy.hessian(target.diff(w), coords) for w in coords]
+    graphs = (sy.Matrix(4, 3, sy.symbols("p0:12")), sy.Matrix(4, 3, sy.symbols("q0:12")))
+    first, second = graphs
+    equations = []
+    for hessian in hessians:
+        for i in range(3):
+            for j in range(3):
+                assert hessian[i, 3+j] == 0
+                vary_first = hessian.extract([3, 4, 5, 6], [3+j]).dot(first[:, i])
+                vary_second = hessian.extract([i], [0, 1, 2, 6]).dot(second[:, j])
+                equations.append(vary_first + vary_second)
+    differential = sy.Matrix(equations).jacobian(list(first) + list(second))
+    assert differential.to_DM().rank() == 24
+    print("Plane incidence: 45 independent monomial conditions and tangent rank 24.")
+
+
+check_plane_incidence()

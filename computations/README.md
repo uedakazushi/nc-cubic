@@ -18,6 +18,8 @@ python3 computations/verify_diagonal_sign_sectors.py
 python3 computations/verify_diagonal_clifford_dual.py
 ```
 
+五様体の二平面条件の 45 個の線型制約と接写像の階数 24 は `verify_two_elliptic_fivefold_relations.py` で再現する。楕円因子の Bockstein の単射性に使う有限行列は `python3 computations/verify_elliptic_bockstein.py` で検算する。
+
 ## 証明書・追加モード
 
 ```sh
@@ -50,7 +52,7 @@ python3 computations/verify_jacobi_rank.py --verify build/jacobi_rank_certificat
 - [verify_diagonal_sign_sectors.py](verify_diagonal_sign_sectors.py)
 - [verify_narrow_fivefold_counterexample.py](verify_narrow_fivefold_counterexample.py)
 - [verify_narrow_quantum_threefolds.py](verify_narrow_quantum_threefolds.py) は三乗根型の分類に加え、三角形型の行列因子・勾配 resultant・変曲接線を厳密検算する。
-- [verify_quantum_fermat_obstruction.py](verify_quantum_fermat_obstruction.py)
+- [verify_quantum_fermat_obstruction.py](verify_quantum_fermat_obstruction.py) はねじれ指標の九元、中心拡大の共役類、二重固定軌跡の 81 組を別々に計算する。
 
 ### Clifford・Shamash・混合変形
 
