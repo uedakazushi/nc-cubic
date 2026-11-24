@@ -67,6 +67,33 @@ def verify_quadrics():
     print("Six independent quadrics vanish on a three-dimensional affine Veronese cone.")
 
 
+def verify_integrable_cubics():
+    # Columns are cubics; each row is one coefficient of one restricted
+    # partial derivative on the Veronese cone with a square-zero coordinate.
+    a, b, c, w = sy.symbols("a b c w")
+    coords = sy.symbols("d1 d2 d3 z12 z13 z23 w")
+    restriction = dict(zip(coords, (a*a, b*b, c*c, a*b, a*c, b*c, w)))
+    monomials = [sy.prod(m) for m in combinations_with_replacement(coords, 3)]
+    rows = {}
+    for column, monomial in enumerate(monomials):
+        for i, x in enumerate(coords):
+            derivative = sy.Poly(monomial.diff(x).xreplace(restriction), a,b,c,w)
+            for powers, coefficient in derivative.terms():
+                if coefficient and powers[-1] < 2:
+                    rows.setdefault((i, powers), {})[column] = coefficient
+    constraints = sy.zeros(len(rows), len(monomials))
+    for row, entries in enumerate(rows.values()):
+        for col, value in entries.items():
+            constraints[row, col] = value
+    assert constraints.shape[1] == 84 and constraints.rank() == 82
+    d1,d2,d3,z12,z13,z23,_ = coords
+    det = sy.Matrix([[d1,z12,z13],[z12,d2,z23],[z13,z23,d3]]).det()
+    for solution in (det, w**3):
+        poly = sy.Poly(solution, *coords)
+        assert (constraints * sy.Matrix([poly.coeff_monomial(m) for m in monomials])).is_zero_matrix
+    print("Cubic integration: rank 82 on 84 coefficients; kernel spanned by det and w^3.")
+
+
 def verify_smooth_fibers():
     x,y,z,u,v,h,w = variables = sy.symbols("x y z u v h w")
     g = u**3+v**3+h**3+w**3
@@ -132,7 +159,7 @@ def verify_sector_triple_products():
     for parameter, expected_rank in ((0, 34), (2, 35)):
         polynomial = cubic + products + parameter*sy.prod(active)
         ranks = {}
-        for degree in (1,3):
+        for degree in (1,2,3):
             ranks[degree] = [
                 invariant_jacobian_piece(polynomial, active+central,
                                          (1,2,3,0,0,0,0), 3, degree)]
@@ -143,6 +170,7 @@ def verify_sector_triple_products():
                 ranks[degree].append(invariant_jacobian_piece(
                     fixed, (x,)+central, (i+1,0,0,0,0), 1, degree-1))
         assert sum(dim for dim, _, _ in ranks[1]) == 7
+        assert [(dim, span) for dim, span, _ in ranks[2]] == [(9,9)] + [(4,4)]*3
         assert sum(dim for dim, _, _ in ranks[3]) == 35
         assert sum(span for _, span, _ in ranks[3]) == expected_rank
         if parameter == 0:
@@ -188,6 +216,7 @@ def verify_exceptional_projection():
 if __name__ == "__main__":
     verify_clifford_products()
     verify_quadrics()
+    verify_integrable_cubics()
     verify_smooth_fibers()
     verify_sector_triple_products()
     verify_sector_hilbert_series()

@@ -10,6 +10,8 @@
 
 五次元の例では全次数の自然変換空間の Hilbert 級数も可換側と一致し、三重積の階数が原点を区別する。非零係数での比較の生成対象と、五次元族の相対残余射影が各ファイバーの全残余圏を与えることも主稿で確認した。[原典との照合範囲](notes/validation.md)
 
+四中心変数の偶符号五様体では、滑らかな被覆の全係数で、Serre 自然変換の二次関係の射影共通零点が空であることが可換実現の必要十分条件になる。特定の非実現ファイバーではこのスキームは Veronese 曲面の平方零拡大である。[二次関係の決定](papers/sections/narrow_fivefold_cubic_product.tex)
+
 五変数の対角量子多項式環の中心三次商で全 coherent 圏が smooth proper なら、残余圏の HH₁ 次元が五であることは滑らかな可換三次三様体による実現の必要十分条件である。[各型の実同値への帰着](papers/sections/narrow_diagonal_clifford.tex)
 
 三角形型では三変数部分の係数と二変数三次の判別式から全 smooth proper 領域が決まり、楕円因子の比較線束は二つの変曲点の差で書ける。[係数判別と比較線束](papers/sections/narrow_quantum_threefolds.tex)
