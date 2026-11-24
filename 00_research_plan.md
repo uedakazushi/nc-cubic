@@ -1,6 +1,6 @@
 # 研究方針：非可換三次超曲面の可換実現と障害
 
-2026-11-24 / v93。正本：本リポジトリ main。まず本書と [AGENTS.md](AGENTS.md) を読み、詳細は [主題別研究ノート](notes/research_notes.md) に進む。
+2026-11-25 / v94。正本：本リポジトリ main。まず本書と [AGENTS.md](AGENTS.md) を読み、詳細は [主題別研究ノート](notes/research_notes.md) に進む。
 
 ## 1. 研究目標・達成基準（研究固有）
 
@@ -26,21 +26,29 @@
 
 ## 3. 優先順位と着手方法
 
-### P0：反例・内在的判定の独立監査
+以下の P0 → P1 → P2 → P3 を研究の優先順位とする。P0 の重大な未解決依存を残したまま例の追加や公表準備を優先しない。監査で誤りが見つかれば依存する主張を訂正し、必要なら方針を改める。
+
+### P0：五次元・三次元反例の独立監査
 
 1. 五次元：`nfc:thm:counterexample`、`nft:prop:triple`、`nft:prop:jacobian-necessary`、`nft:cor:nonclosed-cubic-locus`。Serre 自己同値の内在性、twisted MF 対角核の sector、自然変換環と乗法、生成性、相対 smooth proper 性を原典と照合する。通常 HH の一定性と三重積の非一定性を区別する。
 2. 三次元：`qfo:thm:obstruction` の射影生成・twisted sector・例外対と対角三様体の肯定比較（`ndc:cor:five-diagonal`）を別々に点検する。Baranovsky–Petrov のねじれ HH は定理6。Lin–Zhang の Serre 代数と Perry の HH 底変更の適用条件を確認する。
-3. Serre 自然変換環の積・生成次数・Jacobian 完全交叉性等の内在的条件を用い、実現可能クラスの候補と必要条件の限界を調べる。十分性は再構成・実核を伴う場合に述べる。入口は [ku-realization.md](notes/ku-realization.md) と [優先検算](computations/README.md)。
 
-### P1：実現可能領域・実比較核・認識と降下
+### P1：可換実現可能性の内在的特徴付け
+
+- Serre 自然変換環の積・生成次数・Jacobian 完全交叉性・勾配の積分可能性を精密化する。まず具体的 Sklyanin / Clifford 族で必要条件の十分性を検討し、反例があれば追加の内在的不変量を探す。
+- 十分性は再構成と実比較核を伴う場合にのみ主張する。通常 HH の一致や smooth proper 変形連結性だけを十分条件としない。入口は [ku-realization.md](notes/ku-realization.md) と [優先検算](computations/README.md)。
+
+### P2：実現可能領域の幾何・実比較核・認識と降下
 
 - Sklyanin / Clifford の肯定的結果を、全 O 標識の認識・表示の被覆に結び付ける。`ifd:thm:residual-a2` の中心チャートと unit/counit defect から残余 smooth locus の境界と核延長を調べる。
 - Clifford：固定 Hesse 切片の十二係数を求める。選択した模型の一方向 Shamash の前三中間成分は構成・検算の記録がある（`ifj:prop:third-middle-certificate`）。残る成分と高次 homotopies、実比較核の special retract、四 probe の読出しを進める。計算設計・規格化は [clifford-deformations.md](notes/clifford-deformations.md) に集約する。
 - 多中心：`mbl:cor:chart-kernel` の局所核を重なりへ制限し、自己同値・周期位相・Čech coherence を計算する。軸データから全比較を決めない。[mixed-sklyanin.md](notes/mixed-sklyanin.md)。
 - 比較核の Kummer 三枝、因子 moduli 上の降下、標識付き核 gerbe・最小次数を調べる。尺度 torsor と核 gerbe を区別する。全 O 認識、相対双対・coherent 飽和、点関手の表示独立性も必要な範囲で検討する。[moduli-descent.md](notes/moduli-descent.md)。
+- Clifford 二十変数族の全 smooth 係数への比較と、実現 locus の境界を重点課題とする。
 
-### P2：補足と公表
+### P3：公表単位の再設計と推敲
 
+- 五次元反例・実現 locus の非閉性・Serre–Jacobian 必要条件を中心とする独立論文を第一候補として検討する。三次元反例は論理的まとまりに応じて同稿または独立稿とする。P0 の監査結果を踏まえて決定し、既存の有効な証明を失わず、重複を避ける。
 - point / Poisson スキームの一致・不一致は可換実現から得られる幾何学的情報の限界を示す補助例。成立範囲の検証は [ku-realization.md](notes/ku-realization.md) に置き、独立の最優先予想にしない。
 - 精密算術・中心作用・Picard 障害・周期の課題は [moduli-descent.md](notes/moduli-descent.md) を参照し、実現可能性の特徴付けに必要なら優先度を上げる。
 - 三稿を各々公表可能な形に推敲する。先行研究と一次資料・適用範囲・論理依存を確認し、反例と構成結果を適切に関連付ける。新規性の網羅的確認・外部査読・形式証明は未完了。
