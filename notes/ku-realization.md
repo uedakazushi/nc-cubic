@@ -11,7 +11,7 @@
 
 狭い全称命題は五次元で否定される。$F_b=\sum_i(u_ix_i^2+u_i^3)+w^3+bx_1x_2x_3$ の偶符号作用を非自明な乗数で同変化すると、$b=2$ は可換 Ku に同値で $b=0$ はどの可換 Ku にも同値でない。家族の両点は同じ smooth proper 開にある。$b=0$ で三つの閉 Clifford 演算子に Pauli 行列を掛けた偶積は一次の rotation 変換であり、対称行列の階数一関係を作る。五様体では rotation は無標識でも保存される。[反例の証明](../papers/sections/narrow_fivefold_counterexample.tex)。
 
-全次数の $R_j$ の Hilbert 級数も族全体で $(1+z)^7$ となる。偏微分の正則列の指標を固定部分ごとに平均する計算は [三重積の証明](../papers/sections/narrow_fivefold_cubic_product.tex) に置いた。次の監査対象は非零係数での比較核の厚生成と相対底変更である。
+全次数の $R_j$ の Hilbert 級数も族全体で $(1+z)^7$ となる。偏微分の正則列の指標を固定部分ごとに平均する計算は [三重積の証明](../papers/sections/narrow_fivefold_cubic_product.tex) に置いた。非零係数の比較では二重原点加群の軸上の cone が剰余体を直和因子に持ち、三つの内部シフトの直和が厚生成する。五次元族の相対射影は例外四項を 3,2,1,0 の順で左変異する合成であり、perfect 複体の底変更と可換する。
 
 同じ反例には三重積による独立な検証がある。一次・三次の自然変換空間の次元は族の全点で 7・35 だが、一次変換の三重積の階数は可換ファイバーで 35、反例で 34 となる。余核は同時符号反転で符号の変わる $x_1x_2x_3$ の一方向である。[固定点ごとの計算](../papers/sections/narrow_fivefold_cubic_product.tex)。
 

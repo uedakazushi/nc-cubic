@@ -33,7 +33,7 @@
 1. 五次元：`nfc:thm:counterexample`、`nft:prop:triple`、`nft:prop:jacobian-necessary`、`nft:cor:nonclosed-cubic-locus`。Serre 自己同値の内在性、twisted MF 対角核の sector、自然変換環と乗法、生成性、相対 smooth proper 性を原典と照合する。通常 HH の一定性と三重積の非一定性を区別する。
 2. 三次元：`qfo:thm:obstruction` の射影生成・twisted sector・例外対と対角三様体の肯定比較（`ndc:cor:five-diagonal`）を別々に点検する。Baranovsky–Petrov のねじれ HH は定理6。Lin–Zhang の Serre 代数と Perry の HH 底変更の適用条件を確認する。
 
-五次元の Koszul 偶奇・全次数の次元・Serre 公式の仮定の照合は [検証範囲](notes/validation.md) に記録した。P0 の次の焦点は非零係数の生成対象と相対残余射影の底変更。
+五次元の Koszul 偶奇・全次数の次元・Serre 公式の仮定の照合は [検証範囲](notes/validation.md) に記録した。非零係数での厚生成と相対残余射影の底変更も主稿で確認した。次は三次元の射影生成と対角三様体の肯定比較を別々に監査する。
 
 ### P1：可換実現可能性の内在的特徴付け
 

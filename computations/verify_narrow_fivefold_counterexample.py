@@ -167,9 +167,28 @@ def verify_sector_hilbert_series():
     print("All four averaged sector series sum to (1+z)^7.")
 
 
+def verify_exceptional_projection():
+    # End(V) is the regular G-representation, so the invariant multiplicity
+    # equals the ordinary section dimension. Use the cubic hypersurface sequence.
+    def section_count(degree):
+        if degree < 0:
+            return 0
+        return sy.binomial(6 + degree, 6)
+
+    gram = sy.Matrix(4, 4, lambda i, j: section_count(j-i) - section_count(j-i-3))
+    assert list(gram.row(0)) == [1, 7, 28, 83]
+    # Act on the four relative Euler pairings with an arbitrary input object.
+    projector = sy.eye(4)
+    for j in reversed(range(4)):
+        projector = (sy.eye(4) - gram.col(j) * sy.eye(4).row(j)) * projector
+    assert projector == sy.zeros(4)
+    print("Reverse-order mutations annihilate all four exceptional Euler pairings.")
+
+
 if __name__ == "__main__":
     verify_clifford_products()
     verify_quadrics()
     verify_smooth_fibers()
     verify_sector_triple_products()
     verify_sector_hilbert_series()
+    verify_exceptional_projection()
