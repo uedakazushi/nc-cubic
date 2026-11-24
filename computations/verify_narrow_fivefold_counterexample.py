@@ -151,8 +151,25 @@ def verify_sector_triple_products():
         print(f"b={parameter}: four Jacobian sectors, triple product rank {expected_rank}/35.")
 
 
+def verify_sector_hilbert_series():
+    """Average traces of the gradient Koszul resolution on each fixed space."""
+    z = sy.symbols("z")
+    total = 0
+    for sector in range(4):
+        # Nonzero characters label the three active coordinates.
+        fixed = [0] * 4 + [c for c in range(1, 4)
+                            if (c & sector).bit_count() % 2 == 0]
+        for element in range(4):
+            signs = [(-1) ** ((c & element).bit_count() % 2) for c in fixed]
+            trace = sy.prod((1 - sign*z**2)/(1 - sign*z) for sign in signs)
+            total += trace * (z if sector else 1) / 4
+    assert sy.cancel(total - (1 + z)**7) == 0
+    print("All four averaged sector series sum to (1+z)^7.")
+
+
 if __name__ == "__main__":
     verify_clifford_products()
     verify_quadrics()
     verify_smooth_fibers()
     verify_sector_triple_products()
+    verify_sector_hilbert_series()
