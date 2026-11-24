@@ -144,3 +144,30 @@ $\operatorname{Rep}^\alpha(G)=\langle V\rangle$ であることによる。
 定理\ref{nds:thm:signs}で型 II の純符号に帰着し、その量子残余圏は
 行列不変環表示により $\Ku(Y)^{G,\alpha}$ なので定理\ref{ndc:thm:dual}を適用する。
 \end{proof}
+
+\begin{corollary}[対角三様体における $HH_1$ 判定]\label{ndc:cor:hh-characterization}
+系\ref{ndc:cor:five-diagonal}と同じ五変数の全表示族で、
+全残余 dg 圏を $\mathcal Q$ とする。次の三条件は同値である。
+\begin{enumerate}
+\item $\dim_{\C}HH_1(\mathcal Q)=5$。
+\item ある滑らかな可換三次三様体 $X$ に対し
+$\mathcal Q\simeq\Ku(X)$ が $\C$-線型 dg Morita 同値として成立する。
+\item $\mathcal Q$ はそのような可換残余圏と連結な smooth proper 圏族で結ばれる。
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+第二条件からは定数族で第三条件が従う。第三条件から第一条件は
+\cite[Theorem~3.5]{QFOPerryHodge}と可換三次三様体の留数計算による。
+
+逆に第一条件だけを仮定する。系\ref{nds:cor:six}の六乗根制約は
+全 coherent 圏の proper 性から従う。三乗根型では
+式\eqref{nqt:eq:hh-one}の分類表の最終列により、規格化後の行列は
+零、三角形、巡回五頂点のいずれかである。零なら可換、
+三角形なら定理\ref{nqt:thm:reduction}の分離比較、
+巡回型なら定理\ref{nqr:thm:cyclic-fermat}が実同値を与える。
+二捩れを含む場合、定理\ref{nds:thm:signs}の証明で変形連結性を使うのは
+型 I の $HH_1$ 次元 $0,4$ を除く箇所だけである。
+第一条件で同じ二型が除かれ、残る型 II は三成分を twist で消せる。
+そこで定理\ref{ndc:thm:dual}、あるいは
+定理\ref{nsf:thm:all-dimensions}の $m=2$ の場合が実同値を与える。
+\end{proof}
