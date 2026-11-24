@@ -74,24 +74,31 @@ def verify_integrable_cubics():
     coords = sy.symbols("d1 d2 d3 z12 z13 z23 w")
     restriction = dict(zip(coords, (a*a, b*b, c*c, a*b, a*c, b*c, w)))
     monomials = [sy.prod(m) for m in combinations_with_replacement(coords, 3)]
-    rows = {}
-    for column, monomial in enumerate(monomials):
-        for i, x in enumerate(coords):
-            derivative = sy.Poly(monomial.diff(x).xreplace(restriction), a,b,c,w)
-            for powers, coefficient in derivative.terms():
-                if coefficient and powers[-1] < 2:
-                    rows.setdefault((i, powers), {})[column] = coefficient
-    constraints = sy.zeros(len(rows), len(monomials))
-    for row, entries in enumerate(rows.values()):
-        for col, value in entries.items():
-            constraints[row, col] = value
+    def constraints_mod(w_squared):
+        rows = {}
+        for column, monomial in enumerate(monomials):
+            for i, x in enumerate(coords):
+                restricted = monomial.diff(x).xreplace(restriction)
+                derivative = sy.Poly(restricted.subs(w**2, w_squared), a,b,c,w)
+                for powers, coefficient in derivative.terms():
+                    if coefficient:
+                        rows.setdefault((i, powers), {})[column] = coefficient
+        constraints = sy.zeros(len(rows), len(monomials))
+        for row, entries in enumerate(rows.values()):
+            for col, value in entries.items():
+                constraints[row, col] = value
+        return constraints
+
+    constraints = constraints_mod(0)
     assert constraints.shape[1] == 84 and constraints.rank() == 82
+    rank_two = constraints_mod(-a**4 / 3)  # q = 3w^2 + u1^2
+    assert rank_two.rank() == 83
     d1,d2,d3,z12,z13,z23,_ = coords
     det = sy.Matrix([[d1,z12,z13],[z12,d2,z23],[z13,z23,d3]]).det()
     for solution in (det, w**3):
         poly = sy.Poly(solution, *coords)
         assert (constraints * sy.Matrix([poly.coeff_monomial(m) for m in monomials])).is_zero_matrix
-    print("Cubic integration: rank 82 on 84 coefficients; kernel spanned by det and w^3.")
+    print("Cubic integration on 84 coefficients: constraint ranks 82 (rank-one q) and 83 (rank-two q).")
 
 
 def verify_smooth_fibers():
