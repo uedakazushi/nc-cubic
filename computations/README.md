@@ -48,7 +48,7 @@ python3 computations/verify_jacobi_rank.py --verify build/jacobi_rank_certificat
 - [verify_diagonal_quantum_support.py](verify_diagonal_quantum_support.py)
 - [verify_diagonal_sign_sectors.py](verify_diagonal_sign_sectors.py)
 - [verify_narrow_fivefold_counterexample.py](verify_narrow_fivefold_counterexample.py)
-- [verify_narrow_quantum_threefolds.py](verify_narrow_quantum_threefolds.py)
+- [verify_narrow_quantum_threefolds.py](verify_narrow_quantum_threefolds.py) は三乗根型の分類に加え、三角形型の行列因子・勾配 resultant・変曲接線を厳密検算する。
 - [verify_quantum_fermat_obstruction.py](verify_quantum_fermat_obstruction.py)
 
 ### Clifford・Shamash・混合変形

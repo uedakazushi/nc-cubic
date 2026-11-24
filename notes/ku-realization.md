@@ -19,6 +19,8 @@
 
 五変数の全対角交換型では二捩れ成分も解決した。三座標の偶符号作用の非自明な乗数を、Pauli 行列を tensor した Clifford 固有空間の積で扱う。比較先は $l\mapsto-l$、$g\mapsto g+4pql/\lambda^2$ で与えられる。三様体では円錐曲線束の偶代数と正則右加群を比較する。任意個の中心変数では、中心係数 $d=r^2=pq-s^2$ を共有する Koszul 因子化の積を用いる。二重原点加群の内部シフトが生成することを軸上の分裂から確認した。[三様体の同値](../papers/sections/narrow_diagonal_clifford.tex)・[全次元での指定二捩れ型](../papers/sections/narrow_sign_factorization.tex)。
 
+三角形型の PBW 係数を $(a,b,c,\lambda,g)$ とすると、可換標的は $f_0+g$、$f_0=ax^3+by^3+cz^3+\zeta^2\lambda xyz$。全 coherent 圏の smooth proper 領域は $abc(27abc+\lambda^3)\operatorname{disc}(g)\ne0$ であり、$t^3=-a/b$ の一点 $o_t=(1:t:0)$ に対して $M=\mathcal O_E(o_{\zeta t}-o_t)$ が分離比較の線束を与える。[主稿の証明](../papers/sections/narrow_quantum_threefolds.tex)
+
 巡回型の一対輸送では、五つの Fermat 座標の留数因子を乗じると、空の固有値レベルが例外対を除いた対角 Hodge 成分の補正をちょうど与える。二座標の有限 Fourier 変換は指示関数と文字の添字を交換するため、この積の必要な係数が保存される。
 
 五変数三乗根交換型では、連結な smooth proper 族の条件から残る三つの型すべてで可換実現を得た。巡回五頂点型では二変数因子の星型 quiver の変異で同値を作り、一つの座標対について群作用の合成障害が零であることを調べる。四つの座標対で順次同変化すると必要な乗数になる。任意次元でも互いに交わらない二変数対が分離した三次式は、指定した対ごとの位数三の作用で同変化しても同じ残余圏を与える。[同値の構成と適用条件](../papers/sections/narrow_fermat_root_equivalence.tex)。

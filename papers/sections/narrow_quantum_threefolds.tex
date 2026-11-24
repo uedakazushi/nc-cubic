@@ -127,8 +127,12 @@ $\theta=\operatorname{diag}(1,\zeta,\zeta^2)$ による Zhang twist
 である。右 twist 規約で $x*y*z=\zeta^2 xyz$、
 各元の三乗は通常積と同じである。従って三変数の中心商は
 可換な平面式 $f_0=ax^3+by^3+cz^3+\zeta^2\lambda xyz$ の商環の twist である。
-先の同変表示で得た可換零点の方程式は、これと $xyz$ の係数の三乗根倍だけが
-異なる場合があるが、一変数の三乗根倍の変更で一致する。
+行列表示の係数も固定できる。$P^3=Q^3=1$, $PQ=\zeta QP$ とし、
+三つの行列因子を順に $P,Q,(PQ)^{-1}$ と取る。
+各三乗と順序積は $1$、三つの巡回交換比は $\zeta$ である。
+共役作用の指標は三つの座標重みの逆となるよう双対群を同定する。
+従って同変被覆の可換方程式では $xyz$ の係数は $\lambda$ であり、
+$z\mapsto\zeta^2 z$ の代入が $f_0+g$ を与える。
 従って $V(f_0+g)$ は滑らかである。
 分離和の勾配から $E=V(f_0)\subset\PP^2$ は滑らかな楕円曲線で、
 $g$ の affine 臨界点は原点だけである。特に $abc\ne0$。
@@ -138,8 +142,63 @@ $1-\varphi$ の全射性により固定点を持つ）。
 平面三次の切断環の twist は、積の定義から
 $B(E,\mathcal O_E(1),\theta|_E)$ である
 （逆の pullback 規約では逆平行移動）。
+実際 $L=\mathcal O_E(1)$ は対角行列からの線型化を持ち、
+$L\otimes\theta^*L\otimes\cdots\otimes(\theta^{n-1})^*L\simeq L^n$ となる。
+平面の超曲面列と $H^1(\PP^2,\mathcal O(n-3))=0$ より全次数で
+切断環は $\C[x,y,z]/(f_0)$ であり、切断の積は右 twist の
+$s*t=s\,(\theta^{\deg s})^*t$ に一致する。三変数の周囲環は
+量子多項式環で Koszul AS 正則、次元・指数三、三変数部分の
+非零中心三次は整域内の正則元である。
 これで定理\ref{csc:thm:comparison}の実楕円因子と中心二変数の仮定を
 満たし、滑らかな三次 $V(f_0+g)$ への全 coherent Ku 同値が従う。
+\end{proof}
+
+\begin{corollary}[三角形型の係数判別と比較線束]\label{nqt:cor:triangle-audit}
+上の規約で $d=\zeta^2\lambda$ とする。三角形型の全 coherent 圏が
+smooth proper となる係数は正確に
+\[
+ abc(27abc+\lambda^3)\operatorname{disc}(g)\ne0
+\]
+である。標的 $V(f_0+g)$ の五つの二次偏微分の resultant は
+非零定数倍を除いて
+\[
+ (abc)^4(27abc+\lambda^3)^{12}\operatorname{disc}(g)^8
+\]
+である。この開上で $t^3=-a/b$, $o_t=(1:t:0)$ と取ると、
+平行移動に対応する比較線束は
+$M=\mathcal O_E(o_{\zeta t}-o_t)$ と取れる。
+\end{corollary}
+\begin{proof}
+前定理の不変環表示と特異点の誘導により、全 coherent 圏の proper 性は
+被覆の滑らかさを必要とする。逆に滑らかな射影被覆なら有限商スタックの
+perfect 圏の中心文字成分は smooth proper である。
+二つの変数群が分離するので勾配の共通零点が原点だけである条件は
+双方で独立である。
+
+三変数部分の resultant を求める。$abd\ne0$ の稠密開で $z=1$ とすると、
+最初の二偏微分は $3ax^2+dy,3by^2+dx$ である。無限遠に共通零点はなく、
+四単点のうち原点以外の三点は $xy=d^2/(9ab)$ を満たす
+（$y=-3ax^2/d$ を代入すれば $x^3=-d^3/(27a^2b)$）。
+第三偏微分 $3c+dxy$ の四点での積は $3c(3c+d^3/(9ab))^3$。
+resultant の積公式でこれに無限遠の二式の resultant の二乗
+$(3a)^4(3b)^4$ を掛けると $abc(27abc+d^3)^3$ の非零定数倍になる。
+多項式恒等式なので $abd=0$ でも成立する。
+
+互いに素な変数群の三本と二本の二次式の結合 resultant は、
+各組の resultant の四乗と八乗の積である。実際、独立な普遍係数で
+射影共通零点の存在はどちらかの組の射影共通零点の存在と同値で、
+各普遍 resultant は既約である。各二次式の係数での次数は結合後 $16$、
+結合前はそれぞれ $4,2$ なので指数が決まる。二変数の勾配 resultant は
+二変数三次の判別式の非零定数倍であり、$d^3=\lambda^3$ で結論を得る。
+
+最後に $E$ 上で $\theta(o_t)=o_{\zeta t}$ である。
+接線 $\ell_t=3ax+3bt^2y+dtz$ 上に $y=tx-dz/(3bt)$ を代入すると、
+$f_0$ は $(c+d^3/(27ab))z^3$ になる。従って接線切断の因子は
+$3o_t$ であり、$\ell_{\zeta t}/\ell_t$ の因子は $3(o_{\zeta t}-o_t)$ である。
+二点は異なるので $M$ は位数三で、$[M]$ は $\theta$ の平行移動点を表す。
+補題\ref{mbrc:lem:factor-correction}をこの $M$ に適用し、比較同型を
+非零スカラーの三乗根で補正すれば、指定した中心元の周期とも両立する。
+中心二変数の $g$ の因子には恒等関手を用いる。
 \end{proof}
 
 \begin{proposition}[巡回五頂点型の可換標的候補]

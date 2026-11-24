@@ -80,3 +80,38 @@ span = {tuple(sum(a*v[i] for a,v in zip(coeffs,levels)) % 3 for i in indices)
         for coeffs in product(range(3),repeat=5)}
 assert len(span) == 81 and all(sum(v) % 3 == 0 for v in span)
 print("The five sectors span the entire group of order 81.")
+
+
+def check_triangle_coefficients():
+    from sympy import Matrix, Poly, cancel, eye, groebner, sympify, symbols
+
+    root, x, y, z, a, b, c, d, t = symbols("root x y z a b c d t")
+    # Polynomial entries in the cyclotomic ring; Z=(PQ)^-1=(PQ)^2.
+    clock = Matrix.diag(1, root, root**2)
+    shift = Matrix([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+    third = (clock * shift)**2
+    for left, right in ((clock, shift), (shift, third), (third, clock)):
+        for entry in list(left*right-root*right*left) + list(left**3-eye(3)):
+            assert Poly(entry, root).rem(Poly(root**2+root+1, root)).is_zero
+    for entry in clock*shift*third-eye(3):
+        assert Poly(entry, root).rem(Poly(root**2+root+1, root)).is_zero
+
+    # Compute the norm from normal forms, without assuming the four critical values.
+    relations = groebner([3*a*x*x+d*y, 3*b*y*y+d*x], x, y,
+                         order="grlex", domain="QQ(a,b,c,d)")
+    basis = [sympify(1), x, y, x*y]
+    columns = []
+    for monomial in basis:
+        remainder = relations.reduce((monomial*(3*c+d*x*y)).expand())[1]
+        normal_form = Poly(remainder, x, y)
+        columns.append([normal_form.coeff_monomial(m) for m in basis])
+    norm = Matrix(columns).det()
+    assert cancel((3*a)**4*(3*b)**4*norm - 27*a*b*c*(27*a*b*c+d**3)**3) == 0
+
+    cubic = a*x**3+b*y**3+c*z**3+d*x*y*z
+    tangent = cubic.subs(y, t*x-d*z/(3*b*t)).subs(a, -b*t**3)
+    assert cancel(tangent - (c-d**3/(27*b*b*t**3))*z**3) == 0
+    print("Triangle: clock-shift coefficients, ternary gradient resultant and flex tangent verified.")
+
+
+check_triangle_coefficients()

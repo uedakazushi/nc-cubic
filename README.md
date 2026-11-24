@@ -12,6 +12,8 @@
 
 五変数の対角量子多項式環の中心三次商で全 coherent 圏が smooth proper なら、残余圏の HH₁ 次元が五であることは滑らかな可換三次三様体による実現の必要十分条件である。[各型の実同値への帰着](papers/sections/narrow_diagonal_clifford.tex)
 
+三角形型では三変数部分の係数と二変数三次の判別式から全 smooth proper 領域が決まり、楕円因子の比較線束は二つの変曲点の差で書ける。[係数判別と比較線束](papers/sections/narrow_quantum_threefolds.tex)
+
 巡回五頂点型で使う一対輸送の指標恒等式は、固定点の原始留数を積に書き、動く二座標の有限 Fourier 変換を取ることで証明できる。[輸送と周期の証明](papers/sections/narrow_fermat_root_equivalence.tex)
 
 研究の優先順位は **P0：反例の独立監査 → P1：可換実現の内在的特徴付け → P2：実現領域・比較核・降下 → P3：公表単位の再設計と推敲** とする。詳細・着手方法は `00_research_plan.md` を正本とする。
