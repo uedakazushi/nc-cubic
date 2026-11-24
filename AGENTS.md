@@ -1,8 +1,10 @@
 # Research instructions — nc-cubic
 
-2026-11-24 / v93。
+2026-11-25 / v94。
 
 ## 再開と研究の現在地
+
+- 研究の優先順位は **P0：反例の独立監査 → P1：可換実現の内在的特徴付け → P2：実現領域・比較核・降下 → P3：公表単位の再設計と推敲** とする。詳細・着手方法は `00_research_plan.md` を正本とする。
 
 - [research-hub](https://github.com/uedakazushi/research-hub) の nc-cubic 項目、`00_research_plan.md`、本書、`notes/research_notes.md` を読む。中心課題は可換実現可能なクラスの内在的特徴付け。旧全称予想は三次元・五次元の反例により否定された。
 - まず三次元のねじれ HH と五次元の Serre 自然変換環の圏論的同定を独立に監査する。因子別 PBW、Clifford 比較は各定理の仮定を維持する。周囲正則域、残余 smooth locus、実比較核、有限検算を区別する。
