@@ -1,0 +1,408 @@
+% !TEX root = ../nc-cubic.tex
+\subsection{境界を自明束に移す水平線束による mutation}
+\label{vbm:sec:mutation}
+定理\ref{vcd:thm:boundary-parity}で奇数階数を検出した境界値は、
+二次曲面束の別の半直交成分を使うと変更できる。
+$\eta:\mathfrak Q_H\to\bar B$ を二次曲面束、$\nu:\widetilde E_H\to\mathfrak Q_H$
+を頂点切断の blow-up とする。平面を $\PP(V)$ と書き、
+$0\to Q^\vee\to V^*\otimes\mathcal O\to L\to0$ を双対 tautological 列とする。
+$\Theta:\Ku(Z_H)\to\operatorname{Perf}(\mathfrak Q_H)$ は
+$b^*$、中心被覆の右加群 Morita 関手、$\Phi_{0,0}$ の合成である。
+\begin{theorem}\label{vbm:thm:horizontal}
+任意の滑らかな $Z_H$ に対し
+\[
+ J=\eta^*(L\mathcal T)^{-1},\qquad
+ \Psi'(K)=\nu^*\mathbf L_J\Theta(K)
+\]
+は完全忠実な核関手である。粗境界の厳密変換 $S$ 上で自然に
+\[
+ {\bf L}i_S^*\Psi'(K)\simeq
+       \mathcal O_S\otimes_{\C}V^*\otimes_{\C}{\bf L}i_p^*K .
+\]
+特に根スタック $\mathcal S$ への引戻しは、もう一成分 $\mathcal Y$ 上の
+自明束に同じ基点ファイバーを tensor したものの制限に一致する。
+\end{theorem}
+\begin{proof}
+$\eta^*\operatorname{Perf}(\bar B)$ は $\Phi_{0,0}$ の像の左側に置ける。
+実際、定理\ref{vcd:thm:quadric-component}の半直交分解の最後のブロック
+$\eta^*\operatorname{Perf}(\bar B)(2)$ を Serre 関手で先頭に移す。
+相対標準束の射影次数が $-2$ であり、底の線束とシフトはブロックを保つ。
+$J$ は例外的であり、$\operatorname{RHom}(\Theta K,J)=0$ なので、
+$\mathbf L_J$ はこの像の上で完全忠実である。$\nu^*$ も完全忠実で、
+mutation は評価の cone を核として持つ。
+
+頂点切断を $j:\PP^2\to\mathfrak Q_H$ とする。$\mathcal T|_\Sigma=L^{-2}$
+なので $j^*J=L$ である。重要なのは評価の係数の自然な制限
+\[
+ \operatorname{RHom}_{\mathfrak Q_H}(J,\Theta K)\longrightarrow
+ \operatorname{RHom}_{\PP^2}(L,Q^\vee\otimes K_p),\qquad K_p={\bf L}i_p^*K ,
+ \tag{*}
+\]
+が擬同型であることである。これを大域的に示す。
+$\Phi_{0,0}$ の左加群核の射影束上の二項表示
+\cite[Lemmas~4.5, 4.7, Remark~4.8]{NFMKuznetsovQuadric}を押し出すと、
+$\mathcal O(-1)$ 項の直像は全て零で、$\mathcal O$ 項は正則加群
+$\mathcal B_0$ を与える。頂点への制限はこの項の自然な商
+$\mathcal B_0\to\operatorname{End}(Q)$ である
+（命題\ref{vcd:prop:boundary-fiber}）。右加群と導来 tensor し、
+射影公式と有限中心被覆 $\pi$ を用いると、(*) は $\bar Z$ での複体
+\[
+ F=b^*K\otimes Q^\vee\otimes \pi^*(L\mathcal T)
+\]
+から $D_\infty$ への導来制限が誘導する大域切断の写像である。
+ここで $\pi^*L=b^*H(-D_\infty)$、$\pi^*\mathcal T=\mathcal O(2D_\infty)$、
+$H=\mathcal O_{Z_H}(1)$ である。第一式は基点を除去した三つの切断による
+平面への射、第二式は $\Sigma$ での分岐による。
+
+従って (*) の fiber は $\mathbf R\Gamma(\bar Z,b^*(K\otimes H)\otimes Q^\vee)$
+である。双対 tautological 列と blow-up の
+$\mathbf R b_*\mathcal O=\mathcal O,\ \mathbf R b_*\mathcal O(-D_\infty)=\mathcal I_p$
+を適用すると、これは $K$ と
+\[
+ P=\ker\big(V^*\otimes H\longrightarrow H^2\mathcal I_p\big)
+\]
+の導来 tensor の大域切断になる。三つの重み一切断の共通零スキームは
+正則な点 $p$ で、三切断はその点で正則パラメータ系をなす。
+従ってその Koszul 分解を $H^2$ で twist して
+\[
+ 0\longrightarrow \bigwedge^3 V^*\otimes H^{-1}\longrightarrow
+    \bigwedge^2 V^*\otimes\mathcal O\longrightarrow P\longrightarrow0
+\]
+を得る。$\Ku(Z_H)=\langle\mathcal O,H\rangle^\perp$ より
+$\mathbf R\Gamma(K)=\mathbf R\Gamma(K\otimes H^{-1})=0$ であり、fiber は消える。
+
+このように (*) は自然な制限自体が擬同型である。従って mutation の
+三角を頂点へ引き戻すと、$Q^\vee$ の $L$ に関する左 mutation の三角に
+$K_p$ を tensor したものになる。双対 tautological 列の接続射は
+$\operatorname{Ext}^1(L,Q^\vee)=\C$ を生成し、他の次数の Ext は零である。
+実際、同列を $L^{-1}$ で twist すれば $\mathcal O(-1)$ は全コホモロジーが
+消え、単位の接続像を得る。従って評価の cone は $V^*\otimes\mathcal O$ である。
+$S$ からの射は頂点切断を通るので所要の関手公式が従う。
+\end{proof}
+
+\begin{corollary}[底の線束一つによる補正の一意性]\label{vbm:cor:unique-line}
+$\eta^*G$ による左 mutation で、全ての $K$ の被約境界値が
+$\langle\mathcal O_S\rangle$ に入るような $\bar B$ 上の線束 $G$ は、
+定理の $(L\mathcal T)^{-1}$ に限られる。
+\end{corollary}
+\begin{proof}
+$G=L^a\mathcal T^b,\ m=a-2b$ と書けば、境界では $L^m$ が補正に現れる。
+$\chi_G(K)=\chi(\eta^*G,\Theta K)$、$r=\operatorname{rk}K$ とすると、
+補正後の $K_0$ 類は平面からの引戻しで
+\[
+              r(3-[L])-\chi_G(K)[L]^m
+\]
+となる。$S$ は平面の射影束なのでこの引戻しは単射である。
+階数零で $c_1(K)=k c_1(H)$ なら $\chi_G(K)=k(a^2-1)$ である。
+実際、$P_K(t)=\chi(K\otimes H^t)$ は Riemann--Roch と $P_K(-1)=P_K(0)=0$
+から $k t(t+1)/2$ である。$Q^\vee$ の Euler 列で
+$\chi_G(K)=3P_K(-a)-P_K(1-a)$ を得る。
+この計算では $\mathbf R b_*\mathcal O(jD_\infty)$ と $\mathcal O$ の
+$K_0$ 類の差は点に支持され、$K$ の階数が零なので寄与しない。
+後述の命題\ref{vbm:prop:extra-components}で $k=-1$ の対象を明示する。
+
+$m=0$ では階数一の対象上で $3-[L]$ の非定数項を消せない。
+従って $m\ne0$ であり、階数零の上記の対象に必要な条件は $a^2=1$ である。
+次に階数一の点の射影を使う。$x=[L]-1$ として
+$K_0(\PP^2)=\mathbb Z[x]/(x^3)$ の $x,x^2$ 係数は
+$-1-m\chi_G(K)$ と $-\binom m2\chi_G(K)$ である。
+両方が消えるには $m=1,\ \chi_G(K)=-1$ が必要である。
+従って候補は $G=L$ と $G=L^{-1}\mathcal T^{-1}$ の二つだけである。
+前者では $\mathbf R b_*L^{-1}=H^{-1}$ と Euler 列から
+$\chi_G(K)=3P_K(-1)-P_K(0)=0$ となる。
+後者は前定理で全ての対象と射に対し所要の値を与えた。
+\end{proof}
+
+\begin{corollary}[二成分の制限図式での完全忠実な比較]\label{vbm:cor:matching}
+$\mathcal S\to S\hookrightarrow\widetilde E_H$ と
+$\mathcal S\hookrightarrow\mathcal Y$ に沿う導来引戻しを用いて、dg 圏の
+homotopy fiber product
+\[
+ \mathcal G=\operatorname{Perf}(\widetilde E_H)
+      \mathop{\times}^{h}_{\operatorname{Perf}(\mathcal S)}
+                          \operatorname{Perf}(\mathcal Y)
+\]
+を取る。上の $\Psi'(K)$ と
+$\mathcal O_{\mathcal Y}\otimes V^*\otimes K_p$ はこの圏への
+完全忠実な関手を定める。
+\end{corollary}
+\begin{proof}
+前定理の自然同型を貼合せの射に取る。制限
+$\mathbf R\Gamma(\mathcal Y,\mathcal O)\to\mathbf R\Gamma(\mathcal S,\mathcal O)$ は
+$\C\to\C$ の恒等である。後者は標数零の根スタックの粗化の構造層直像と、
+二つの射影束の直像による。前者について $\mathcal Y\to X_*$ の
+導来構造層直像は $\mathcal O_{X_*}$ であることを確認する。
+特異軌跡に沿う各 $d_{ii}=1$ のアフィンチャートでは、平面方向を除くと
+$\mathcal Y$ は $\mathcal P=(q(n)+w^3=0)\subset\PP(2,3,3,3)$ の
+tautological 線の全空間である。ここでは重み付き射影スタックを取る。
+$\mathcal P$ の各 $\mathcal O(k)$ ($k\ge0$) には高次コホモロジーがなく、
+大域切断の直和は錐の座標環である。これは超曲面列の $k-6,k$ の各項に対する
+重み付き多項式環の標準 Čech 複体による。三次のコホモロジーには四変数の
+全ての指数が負の単項式が必要で、重みは高々 $-11$ である。
+特異軌跡の外では射は同型であり、$X_*$ 自身には $\PP^6$ の三次超曲面列を
+使えばよい。
+
+よって任意の二対象について $\mathcal Y$ 側の二つの値の間の Hom 複体は
+$\mathcal S$ 上の二つの値の間の Hom 複体に擬同型で移る。
+homotopy fiber product での Hom を取ると、残るのは
+$\widetilde E_H$ 側の Hom であり、前定理により元の Hom に一致する。
+\end{proof}
+$\mathcal G$ は解消から粗境界を経て根スタックに引き戻す比較図式である。
+これを元の全空間の特殊ファイバーの perfect 圏と同定するには、
+例外成分のスタック上への核の移送と、実際の導来交わりでの比較が必要である。
+一般ファイバーへの相対核とその smooth proper 性はこの図式の外に残る。
+
+\begin{theorem}[半安定モデル内の二成分への実核]\label{vbm:thm:semistable-pair}
+命題\ref{vcd:prop:cubic-arc}の重み付き blow-up の粗全空間を、
+その被約特異軌跡で正規化 blow-up する。原点を含む係数直線の開集合で
+得られる全空間は滑らかで、中央ファイバーは重複度一の単純正規交叉因子である。
+その四成分のうち元の二成分の厳密変換を $\widetilde E_H,Y'$ とすると、
+交わりは $S$ で、閉部分スキーム $W_H=\widetilde E_H\cup_S Y'$ に
+完全忠実な核関手
+\[
+                     \Ku(Z_H)\longrightarrow\operatorname{Perf}(W_H)
+\]
+がある。その両側への導来制限は $\Psi'$ と
+$K\mapsto\mathcal O_{Y'}\otimes V^*\otimes K_p$ である。
+\end{theorem}
+\begin{proof}
+局所的な正規化 blow-up を記述する。$n_i\ne0$ の重み三のチャートでは
+その三乗根を選び、動径座標を $\delta$、重み一、二の射影座標を $r,z$
+とする。係数パラメータは $e=r\delta$ である。円錐曲線束 $q(n)=0$
+上ではその横座標に関する初期式の微分が単元であるから、全方程式から
+この変数をエタール局所的に消去できる。残る局所モデルは滑らかな三方向と
+\[
+        \mathbb A^3_{r,z,\delta}/\mu_3(2,1,1)
+\]
+の積である。ここでは生成元を逆に取ったので元の重み $(1,2,-1)$ と一致する。
+非自明安定化群は三変数の原点だけに現れる。他のチャートでも全空間は
+中央ファイバーの近くでスタックとして滑らかである。実際、拡大した
+$r\ne0$ のチャートでは特殊方程式 $q+H$ の零点は滑らかで、
+$r=0,\ z\ne0$ では $q(n)\ne0$、$r=z=0$ では先の消去が使える。
+$\delta\ne0$ の中央成分では中心の外で元の射影三次が滑らかである。
+従って粗全空間の被約特異軌跡はこの滑らかな円錐曲線束である。
+一般ファイバーの滑らかさと射影性を用い、他の特異係数は基底から除ける。
+
+商の錐の格子は $\mathbb Z^3+\mathbb Z(2,1,1)/3$ である。原点の不変単項式
+イデアルの極小生成元は $r^3,rz,r\delta,z^3,z^2\delta,z\delta^2,\delta^3$。
+その正規化 blow-up は各単項式の重みの最小値が線型になる錐への分割である。
+実際、単項式の一つを選ぶアフィン blow-up チャートは他の生成元との商を加えた
+半群環で、その正規化は半群の飽和を取ればよい。非負付値を $(R,B,D)$、
+$m=\min(B,D)$ と書くと最小値は $\min(3R,R+m,3m)$ である。
+座標軸を $a,b,c$ とし、$v=(1,2,2)/3,\ v'=(2,1,1)/3$ と置くと、
+最大錐は次の五つになる。
+\[
+  (a,v',c),\quad (a,b,v'),\quad(v,v',c),\quad(v',b,v),\quad(v,b,c).
+\]
+行列式の絶対値はすべて $1/3$ で、これはこの格子の基本領域の体積である。
+従って全空間は滑らかである。$e=r\delta$ の付値 $R+D$ は
+$a,c,v,v'$ で一、$b$ で零なので、中央ファイバーは各チャートで異なる
+座標の積の零点になる。二つの新しい ray は $r,\delta$ のラベルを保つ
+遷移で区別され、それぞれ既約な中心を支配する一成分を与える。
+
+$c$ の星をその ray で割ると $(2,1)/3,(1,2)/3$ が入り、
+命題\ref{vcd:prop:exceptional-resolution}の三つの $A_2$ 解消チャートになる。
+従って元の例外成分の厳密変換は上の $\widetilde E_H$ である。
+実際、両者の有理同型は滑らかな部分で恒等であり、
+$\alpha,\beta,\gamma$ の同じ三チャートで両向きに延長するので貼り合う。
+$a$ の星では $(1,1)/3$ だけが入り、もう一成分の横断
+$\mathbb A^2/\mu_3(1,1)$ を解消する。二面 $(a,c)$ は分割されず、
+交わりはもとの被約粗境界 $S$ と同型である。これは商格子の残りの一方向が
+$z^3$ を座標とすることからも分かる。単純正規交叉なので二成分の
+スキーム論的交わりもこの被約な $S$ である。
+
+$Y'$ の構造層の導来大域切断は $\C$ である。粗中央成分への射の
+上記の局所曲面解消は $\mathcal O_{\PP^1}(-3)$ の全空間で、
+$\mathcal O_{\PP^1}(3k)$ ($k\ge0$) の高次コホモロジー消滅により
+導来構造層直像は商の構造層である。元の粗中央成分の構造層直像は、
+標数零の粗化と系\ref{vbm:cor:matching}の計算から従う。
+従って $Y'\to S$ の意味での制限、すなわち
+$\mathbf R\Gamma(Y',\mathcal O)\to\mathbf R\Gamma(S,\mathcal O)$ は擬同型である。
+
+定理\ref{vbm:thm:horizontal}の自然同型により、二成分の値を今度は粗境界 $S$
+上で貼る。具体的には両成分からの閉埋込みによる押出しの直和から
+交わり上の値の押出しへ二つの制限の差を取り、その homotopy fiber を
+$W_H$ 上で取る。これは perfect で、各側へ導来制限すると指定した値に戻る。
+この事実は茎で直接示せる。二成分の局所環を $B,C$、交わりの環を $D$ とすると
+$A=\mathcal O_{W_H}=B\times_D C$ で両写像は全射である。両側の perfect
+複体の有界極小自由模型は $D$ 上でも極小である。指定した比較擬同型は
+自由模型間の鎖写像で表せ、剰余体に落とすと次数ごとの同型なので
+$D$ 上でも各項は可逆である。可逆行列を局所環へ持ち上げて基底を揃えれば、
+上の fiber は次数ごとに自由な $A$ 加群を貼り合わせた有界複体になる。
+Hom の複体も構造層の差の完全列により両側の Hom の homotopy fiber product
+となる。$Y'$ 側の Hom は $S$ 上と同じなので完全忠実性を得る。
+関手は核でも構成できる。$\operatorname{Perf}(Z_H)$ から先に残余射影を合成し、
+二つの関手核とその自然同型を $Z_H$ との積上で同じ差の fiber に取る。
+自然同型は上の評価と射影公式の双加群の射から成り、積上でも局所自由模型の
+貼合せが適用できる。
+\end{proof}
+この実核は中央ファイバーの指定した二成分の和に達する。
+新しく現れた二成分上に値を与えて三重点の比較を揃えること、
+さらに平滑化方向に核を延長することは別の条件である。
+
+\begin{proposition}[追加二成分での次数の不一致]\label{vbm:prop:extra-components}
+定理\ref{vbm:thm:semistable-pair}で指定した $W_H$ 上の関手値には、
+四成分の中央ファイバー全体の perfect 複体の制限にならないものがある。
+具体的には $\operatorname{rk}K=0,\ c_1(K)=-c_1(H)$ の下記の対象が検出する。
+\end{proposition}
+\begin{proof}
+一般の平面方向とその上の円錐曲線の一点を固定する。
+追加成分 $v,v'$ のこの点での曲面ファイバーをそれぞれ $B,P$ とする。
+$v$ の星では $v',b,c$ が原始三方向で $v'+b+c=2v$ なので $B=\PP^2$。
+$v'$ の星では $a,c,v,b$ が巡回し、$a+v=2v'$、$b+c=2v-v'$。
+従って $P$ は平面方向の点上で Hirzebruch 曲面 $\mathbb F_2$ であり、
+$a,v$ に対応する二境界は同じ射影直線束の二つの切断、
+$c$ の境界はそのファイバーである（商格子で $\bar a=-\bar v$ の方向を
+さらに割ればこの射影を得る）。$B$ 上では $v',c$ の境界はいずれも直線である。
+
+まず $\widetilde E_H$ 側の二本の曲線上で制限の次数を計算する。
+ここで次数は perfect 複体の行列式の次数とする。
+$c$ の星を平面に射影すると $v'$ は $a$ と $v$ の間にあり、
+命題\ref{vcd:prop:exceptional-resolution}の三チャートで、$v'$ の曲線は
+$t=0$ の二次錐の母線の厳密変換、$v$ の曲線は $T=0$ で $[N]$ を固定し
+$[t:W]$ を動かす切断である。実際、頂点 blow-up 前の $W=N_i=1$ の
+チャートでは $\alpha=t^2T,\ \gamma=tT$ なので、$t=0$ は
+$(\operatorname{ord}\alpha,\operatorname{ord}\gamma)=(2,1)$、
+$T=0$ は $(1,1)$ を与える。これはそれぞれ $v',v$ である。
+
+前者の曲線では $\bar B$ への射は点を通る。Clifford 関手の底線型性により
+その値は、分岐点の二重ファイバー $\operatorname{Spec}\C[\sigma]/(\sigma^2)$
+に制限した $b^*K$ の完全複体を通る。この局所環の perfect な $K_0$ は階数で
+$\mathbb Z$ なので、階数零なら曲線上の類も零である。
+mutation の補正も $\operatorname{RHom}(J,\Theta K)\simeq K_p[-1]$
+を係数とするので、その $K_0$ 類は零である。
+
+後者の曲線を $C_1$ とし、$\bar Z$ の同じ平面方向へのファイバーを $D_1$ とする。
+一般方向では $D_1$ は滑らかで、二重射 $f:D_1\to C_1=\PP^1$ を持つ。
+この切断上の Clifford 関手は、$b^*K|_{D_1}$ に線束を tensor して $f$ で
+押し出す関手になることを確かめる。切断の isotropic ベクトルは
+非零冪零二次行列 $n_0$ の線で、第四成分は恒等的に零である。
+三変数部分の体積元は可逆な奇元なので、偶加群に入る普遍ベクトルによる
+乗法の像は、局所的に分裂中心上の行列環で $n_0$ を右から掛けた左イデアルである。
+実際、奇部分を三変数体積元の左倍で偶部分に同定すれば、
+体積元と $n_0$ の積は三変数の行列表現で $n_0$ の単元倍になる。
+$n_0$ は階数一であり、固定された平面方向の三変数形式は非退化なので、
+Morita 縮小後の余核は分岐点も含め中心上で階数一局所自由である。
+核が二次曲面束上 $\mathcal O$ 局所自由であることと、入力が perfect であることから
+この計算は導来制限を与える。
+$\pi^*L=b^*H(-D_\infty)$ と $D_1$ が無限遠の分岐切断に一点で横断することから
+$\deg_{D_1}b^*H=1$。従って仮定の階数零の $K$ では線束 twist は次数を変えず、
+Riemann--Roch により $f_*$ 後の次数も $-1$ である。mutation 項の類は再び零である。
+
+中央ファイバーに延長できれば、その行列式を $P$ に制限する。
+$c$ 側のファイバーで上記の次数は零なので、この線束は底の $\PP^1$ から引き戻される。
+$a$ 側の切断には $Y'$ の定数複体が来るので次数は零であり、$v$ 側の切断でも零となる。
+一方 $B=\PP^2$ では二直線の次数は等しくなければならず、
+$c$ 側で得た $-1$ と両立しない。
+
+最後に対象の存在を示す。二つの一般な $H$ 切断の完全交叉曲線 $D$ は
+算術種数一、$H$ 次数一である（随伴公式と $H^3=1$）。
+$\operatorname{pr}=\mathbf L_{\mathcal O}\mathbf L_H$ とすると
+$\chi(\mathcal O_D)=0,\ \chi(\mathcal O_D(-H))=-1,\ \chi(H)=3$ より
+$[\operatorname{pr}\mathcal O_D]=[\mathcal O_D]+[H]-3[\mathcal O]$。
+定理\ref{vcd:thm:boundary-parity}の点対象を二個加えた
+$K=\operatorname{pr}\mathcal O_D\oplus(\operatorname{pr} k(z))^{\oplus2}$
+が階数零、第一 Chern 類 $-c_1(H)$ を持つ。
+これは $W_H$ 上の指定した関手値の延長への障害である。
+$Y'$ 側の関手や $\widetilde E_H$ 側の埋込みを変更した相対核の可能性は残る。
+\end{proof}
+
+\begin{corollary}\label{vbm:cor:rigid-side}
+$W_H$ への完全忠実な関手で $\widetilde E_H$ への制限が $\Psi'$ と自然同型に
+なるものは、$Y'$ 側の値を取り替えても、四成分全体へは延長できない。
+\end{corollary}
+\begin{proof}
+$Y'$ 側の値を $F_K$ とする。$W_H$ と $\widetilde E_H$ の両側で完全忠実なので、
+貼合せの Hom の fiber 記述により
+\[
+ \operatorname{RHom}_{Y'}(F_K,F_{K'})\longrightarrow
+ \operatorname{RHom}_{S}(F_K|_S,F_{K'}|_S)
+\]
+は擬同型である。実際この写像の fiber は $W_H$ から $\widetilde E_H$ への
+Hom 制限の fiber と同じである。従って $F_K$ が生成する厚部分圏で
+$S$ への制限は完全忠実である。像は自明束の厚包に含まれ、非零である
+（階数一の点の射影を取ればよい）。$\mathcal O_S$ は例外的なので、
+像の冪等完備性からこの厚包の全体を得る。特に $Y'$ 上のある例外対象 $A$
+が $\mathcal O_S$ に移り、$F_K\simeq A\otimes V^*\otimes K_p$ となる。
+階数零の検出対象では $[F_K]=0$ なので、$P$ の $a$ 側の切断での次数は
+依然として零である。命題\ref{vbm:prop:extra-components}の二直線の
+次数の矛盾がそのまま残る。これは $\widetilde E_H$ 上でこの埋込みを固定し、
+かつ二成分の和への制限にも完全忠実性を要求した結果である。
+\end{proof}
+
+\begin{proposition}[完全忠実性を仮定しない場合の必要な行列式]\label{vbm:prop:required-line}
+$\widetilde E_H$ 側の値を $\Psi'(K)$ とし、
+$r=\operatorname{rk}K,\ c_1(K)=k c_1(H)$ とする。
+半安定モデルの四成分に compatible な perfect 複体が存在するなら、
+$Y'$ 側の値 $F_K$ には
+\[
+                    \det F_K=\mathcal O_{Y'}((k-r)Z_0)
+              \quad\text{in }\operatorname{Pic}(Y')
+\]
+が必要である。ここで $Z_0$ は $X_*$ の $w=0$ の厳密変換で、
+$Z_0\cap S=\varnothing$ である。この必要な線束は実際に存在する。
+\end{proposition}
+\begin{proof}
+直前の計算を任意の階数で行う。横の曲線 $C_1$ 上の普遍ベクトルの像は、
+正則加群 $\operatorname{End}(Q)\otimes f_*\mathcal O_{D_1}$ 内で
+$n_0$ を右から掛けた像である。$Q$ と $[n_0]$ はこの方向で固定されるので、
+Morita 縮小後の商は定数線を除き $\mathcal O_{D_1}$ そのものである。
+従って種数一の $D_1$ と $\PP^1$ の Riemann--Roch より
+$\Theta K$ の次数は $k-2r$。補正に使う $J$ の次数は $-1$ で、
+評価係数の Euler 数は $-r$ なので補正後は $k-3r$ となる。
+
+縦の曲線（$P$ の $c$ 側）では Artin 環
+$R=\C[\sigma]/(\sigma^2)$ 上の入力は $K_0$ で階数 $r$ 倍である。
+階数一の自由入力で左加群核を計算する。三変数の可逆な体積元で奇部を
+偶部に移し、$n_0$ を二次の Jordan 基底で書くと、母線の座標 $[x:y]$ 上で
+右乗法は、非零定数の規格化を除き
+\[
+         x\begin{pmatrix}0&1\\0&0\end{pmatrix}+y\sigma I_2
+\]
+となる。これはベクトル $x n_0+y e_4$ と体積元の積であり、
+第四生成元の項は中心元である。行ベクトルの商で二生成元を $p_0,q_0$ とすると
+$xq_0+y\sigma p_0=0,\ y\sigma q_0=x\sigma q_0=0$ であり、$\sigma q_0=0$。
+従って基礎ベクトル束は $\mathcal O p_0$ と
+$(\mathcal O q_0\oplus\mathcal O\sigma p_0)/\mathcal O(-1)$ の直和で、
+次数は一である。$J$ は底からの引戻しなので補正後もこの曲線の次数は $r$。
+$\mathbb F_2$ の $v$ 側の切断は $a$ 側の切断から二ファイバーを引いた類である
+（$b+c=2v-v'$ より $v$ 側の自己交叉は $-2$）。
+従って $Y'$ の例外 $\PP^1$ 上の必要次数を $d$ とすると
+$d-2r=k-3r$、すなわち $d=k-r$ である。
+
+これが $Y'$ 全体の線束を決める。$\widehat H$ を元の三次の超平面の引戻し、
+$D'=Y'\cap\{v'\text{ の成分}\}$ とする。
+$\operatorname{Pic}(Y')$ は $\widehat H,S,D'$ で自由に生成される。
+実際、もとの Veronese 曲面を除く補集合の因子類群は
+定理\ref{vcd:thm:boundary-parity}の計算により超平面で生成され、
+$S,D'$ は二つの例外素因子である。例外因子のみを因子に持つ有理関数は、
+正規射影多様体 $X_*$ 上余次元一で零も極も持たず、定数になる。
+$S=\PP(N)$ 上で $h=\mathcal O_S(1),\ l=d_S^*L$ とする（$d_S:S\to\PP^2$）。
+$\widehat H,D'$ の制限は $2l,\,2h+6l$ であり、後者は横断円錐曲線束の式から得る。
+$S$ の $\widetilde E_H$ 内での法線は $-h-4l$ である。実際に blow-up
+した頂点切断の法束は $\operatorname{End}_0Q\otimes M|_\Sigma=N\otimes L^{-4}$
+であり、その射影束の tautological 線を取る。
+半安定ファイバーの全因子が主因子であることを $S$ に制限すると、
+$Y'$ 内での $S$ の法線は $-h-2l$ となる。
+よって $\operatorname{Pic}(Y')\to\operatorname{Pic}(S)$ の核は
+$2S+D'-\widehat H$ で生成される。元の $w$ の全変換は
+$Z_0+2S+D'$ である。局所式 $\delta^2 z$ の $c,v'$ に沿う付値が
+それぞれ二、一であるためである。$Z_0$ は $z=0$ の厳密変換で、
+$a$ の星には $b,c$ が同じ錐に入る場所がなく、$S$ と交わらない。
+$D'$ のファイバーでは $S$ は一点、$D'$ の自己制限は
+$\mathcal O_{\PP^1}(-3)$ なので、核の生成元 $-Z_0$ の次数は $-1$。
+$S$ 上の $\Psi'(K)$ の行列式は自明であり、必要次数 $k-r$ から結論を得る。
+
+たとえば $Y'$ 側の候補値として、前の定数項に
+\[
+ \mathcal O_{Z_0}\otimes_{\C}
+       \big(\mathbf R\Gamma(Z_H,K\otimes H)\oplus K_p[1]^{\oplus2}\big)
+\]
+を直和すれば、$S$ 上の値を保ったまま指定の行列式を得る。
+実際 $\chi(K\otimes H)=r+k$ である。これは $P_K(-1)=P_K(0)=0$、
+三次係数 $r/6$、二次係数 $(r+k)/2$ を使う Riemann--Roch による。
+$i_*\mathcal O_{Z_0}$ の行列式は $\mathcal O(Z_0)$ である
+（式中では閉埋込みの押出しを省略した）。
+この補正は行列式と $S$ 上の値を実現する。追加成分での複体・射そのものの
+貼合せや全体への完全忠実性はここからは従わない。
+\end{proof}

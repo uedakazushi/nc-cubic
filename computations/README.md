@@ -1,6 +1,6 @@
 # 計算の再現
 
-2026-11-24 / v93。実行はリポジトリのルートから。有限代数の計算は原稿の圏論的証明全体を自動的に検証するものではない。検算の仮定・結果・実行済み範囲は [検証範囲](../notes/validation.md)、主張の正本は [論文一覧](../README.md)。
+2026-11-25 / v95。実行はリポジトリのルートから。有限代数の計算は原稿の圏論的証明全体を自動的に検証するものではない。検算の仮定・結果・実行済み範囲は [検証範囲](../notes/validation.md)、主張の正本は [論文一覧](../README.md)。
 
 ## 環境と優先する検算
 
@@ -8,6 +8,8 @@ Python 3、requirements.txt（NumPy、SymPy）、必要に応じ C++17 コンパ
 
 ```sh
 python3 -m pip install -r requirements.txt
+python3 computations/verify_cubic_orbit_generator.py
+python3 computations/verify_veronese_boundary_mutation.py
 python3 computations/verify_quantum_fermat_obstruction.py
 python3 computations/verify_narrow_fivefold_counterexample.py
 python3 computations/verify_two_elliptic_fivefold_relations.py

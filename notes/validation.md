@@ -1,6 +1,17 @@
 # 非可換三次超曲面：検証範囲
 
-2026-11-24 / v93。以下は現行の主張に関する検証の範囲。資料整理時に計算・三稿組版・数学的独立監査を一括再実行したものではない。個別検算の実施範囲を区別し、過去の版に固有の未実施事項はその検算の範囲として読む。
+2026-11-25 / v95。以下は現行の主張に関する検証の範囲。資料整理時に計算・三稿組版・数学的独立監査を一括再実行したものではない。個別検算の実施範囲を区別し、過去の版に固有の未実施事項はその検算の範囲として読む。
+
+## P0 と P1 の証拠の対応
+
+| 対象 | 原典と主稿で確認した依存 | 独立な計算または比較 |
+|---|---|---|
+| 五次元反例 | BFK の対角核の Koszul 偶奇、Serre 公式、非零係数での厚生成、相対残余射影の底変更。各監査と原典の定理番号は下記。 | 指標 sector と生成対象上の Clifford 行列を照合。三重積の像は原点 34、可換点 35。[乗法](../papers/sections/narrow_fivefold_cubic_product.tex) |
+| 三次元量子 Fermat | 中心文字成分の射影生成、Baranovsky–Petrov のねじれ固定点公式と例外対の除去。Perry の相対 HH の仮定を確認。 | 位数 27 の中心拡大と位数 9 の商に通常の固定点公式を別々に適用。残余の $(\dim HH_1,\dim HH_0)$ は $(1,10)$、可換三様体は $(5,2)$。[二つの証明](../papers/sections/quantum_fermat_obstruction.tex) |
+| 対角三様体の肯定比較 | 三角形型の線束比較、巡回型の Liu の核と Elagin の作用持上げ、Clifford 双対を各仮定の下で点検。 | 判別式と有限群の指標・積を検算。分類と実核により、全 coherent 圏が smooth proper な指定対角族では $\dim HH_1=5$ が必要十分。[分類からの帰結](../papers/sections/narrow_diagonal_clifford.tex) |
+| P1 の抽象判定 | Keller の極小模型・Morita 比較、Dyckerhoff の安定化、次数付き Orlov 比較に照合。相対 Koszul 双加群分解で全 arity の障害群を計算。 | 二生成元の正規化 bar 複体を有理数上で直接計算し、三・四・五項の次元は 4,0,0。三変数の十個の三次単項式と混合式で安定化の四恒等式と Massey 符号を記号行列で確認。[再現](../computations/verify_cubic_orbit_generator.py)・[証明](../papers/sections/cubic_orbit_generator.tex) |
+
+今回の再実行は三次元の六検算、五次元の反例・二楕円因子・三重積核の三検算、Veronese 退化と境界 mutation の二検算、対角符号 sector と上記の軌道生成対象の検算を合わせて十三件。境界では Euler 拡大、正規化 blow-up の錐・重複度、追加二成分上の直線の次数を照合した。一般次元の高次積の消滅、厚生成、実比較核の完全忠実性は主稿の証明による。[境界検算](../computations/verify_veronese_boundary_mutation.py)・[Keller](https://arxiv.org/abs/math/9910179)・[Dyckerhoff](https://arxiv.org/abs/0904.4713)・[Orlov](https://arxiv.org/abs/math/0503632)
 
 ## 反例と内在的判定
 
