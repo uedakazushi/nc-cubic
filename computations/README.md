@@ -18,6 +18,8 @@ python3 computations/verify_diagonal_sign_sectors.py
 python3 computations/verify_diagonal_clifford_dual.py
 ```
 
+行列式三次の横断切片、重み付き拡大チャート、中心被覆と分裂 Clifford 代数、偶符号の底変更、非偶符号例の滑らかさ、横断特異点の解消の検算は `python3 computations/verify_veronese_cubic_degeneration.py` で再現する。
+
 次数一三様体の三重積からの復元、退化因子の Smith 標準形と被覆対合の Hochschild 指標は `python3 computations/verify_fivefold_triple_kernel.py` で検算する。三様体の型 II の判別式上の四例と滑らかな対照例について、勾配の零点・通常二重点と、別の鉛筆の判別式のノルム計算は `python3 computations/verify_threefold_discriminant.py` で行う。
 
 偶符号五様体の全環の 23 関係、重み付き六次式の偶数 Jacobian 部分、socle への乗法対、次数一 del Pezzo 比較の 64 基底積・Koszul 共役・五つの非恒等 sector、Hesse 切片と Fermat 六次式の符号部分群は `verify_narrow_fivefold_counterexample.py` で再現する。

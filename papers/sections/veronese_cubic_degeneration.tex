@@ -1,0 +1,463 @@
+% !TEX root = ../nc-cubic.tex
+\subsection{任意の次数一三様体に伴う三次五様体の退化}
+\label{vcd:sec:degeneration}
+$Z_H=(s^2+H=0)$ は定理\ref{nft:thm:triple-kernel}の滑らかな三様体とする。
+$D=(d_{ij})$ を三次対称行列とし、$A(D),C(D)$ をそれぞれ二次、三次式で
+$A(vv^t)=B_4(v),\ C(vv^t)=B_6(v)$ となるものとする。
+任意の偶数次の単項式は二次ずつに分割できるので、これらは常に存在する。
+\begin{proposition}\label{vcd:prop:cubic-arc}
+任意のこの持上げに対し、$\PP^6$ の三次五様体族
+\[
+ \det D+w^3+e^4 w A(D)+e^6 C(D)=0
+\]
+は平坦で、幾何学的一般ファイバーは滑らかである。
+特殊ファイバーの被約特異軌跡は $w=0$ の Veronese 曲面である。
+この曲面上の各アフィン座標で、法方向を重み三、$w$ を重み二で拡大した
+チャートの特殊方程式は
+\[
+             XZ-Y^2+W^3+WB_4(1,a,b)+B_6(1,a,b)=0 .
+\]
+特にこの項は持上げの選択によらない。
+\end{proposition}
+\begin{proof}
+方程式は $w$ にモニックで、斉次環は係数直線上平坦である。
+特殊方程式の偏微分は $3w^2$ と余因子（非対角ではその二倍）である。
+階数一対称行列は少なくとも一つの対角成分が非零なので、添字を置換して
+$d_{11}=1$ のチャートを使える。ここで
+\[
+ D=\begin{pmatrix}1&a&b\\a&a^2+x&ab+y\\b&ab+y&b^2+z\end{pmatrix},
+ \qquad \det D=xz-y^2 .
+\]
+$(x,y,z)=e^3(X,Y,Z)$、$w=e^2W$ を代入して $e^6$ で割ると主張の
+特殊方程式を得る。このチャートは $e\ne0$ 上で元のアフィンチャートと同型である。
+
+一般ファイバーが特異なら、射影性により付値環の有限分岐拡大の後で
+特異点を上記曲面の点に特殊化できる。$x,y,z,a,b$ はその環に属する。
+$w$ 偏微分より $3w^2=-e^4 A(D)$ なので $w/e^2$ は整である。
+$x,y,z$ 偏微分から $(z,-2y,x)$ はすべて $(e^6)$ に入る。
+従って拡大チャートに持ち上がり、$X,Y,Z$ は剰余体で零となる。
+一般点での方程式と $a,b,W$ 偏微分を特殊化すれば $H(1,a,b,W)=0$ と
+この三つの偏微分の消滅を得る。これは $Z_H$ の $s=0$ での滑らかさに反する。
+\end{proof}
+
+偶符号表示がある場合はこの構成と既存の実比較を直接照合できる。
+$A,C$ が $D$ の対角成分 $u_i$ のみを使う持上げを選ぶ。
+定理\ref{nsf:thm:all-dimensions}の双対三次式で
+\[
+ d_{12}=-\lambda z'/2,\qquad d_{13}=\sqrt{-1}\lambda y'/2,\qquad
+ d_{23}=\sqrt{-1}\lambda x'/2
+\]
+とすると、双対方程式は $4\det D/\lambda^2+g(u,w_{\rm old})=0$ である。
+ここでは規格化後の $g=w_{\rm old}^3+w_{\rm old}A(u)+C(u)$ を使う。
+$\lambda=2e^3,\ w_{\rm old}=e^{-2}w$ により、$e\ne0$ で上の族に一致する。
+従ってこの部分族では既存の smooth proper 圏族とその比較双加群を引き戻せる。
+系\ref{nft:cor:reduced-product-divisor}の三重積の余核の局所表示も、
+この分岐底変更の後では $\mathcal O/(e^3)$ となる。
+一般の $A,C$ について命題が与えるのは三次五様体の幾何的退化である。
+
+\begin{proposition}[退化三次の横断切片と重み付き方向]\label{vcd:prop:normal-slice}
+$F_*=\det D+w^3$ の射影座標変換軌道に対する法空間は
+\[
+  \operatorname{Sym}^4(\C^3)^*\oplus\operatorname{Sym}^6(\C^3)^*
+\]
+と同定される。四次・六次式の線型な持上げを固定すれば
+$F_*+wA(D)+C(D)$ は方程式空間の滑らかな横断切片を与える。
+この法空間の対 $(B_4,B_6)$ に重み $(2,3)$ でスカラーを作用させる。
+対応する $Z_H$ が滑らかな対について、射影安定化群とこのスカラー作用の軌道は
+ちょうど $\Ku(Z_H)$ の dg Morita 同値類である。
+\end{proposition}
+\begin{proof}
+軌道の接空間は七変数の一次式と偏微分との積の像である。
+Euler 式で方程式自体もその像に入るので、射影方程式空間での余核は
+$\operatorname{Jac}(F_*)_3$ である。偏微分は $w^2$ と六つの対称二次小行列式である。
+小行列式による商は Veronese の斉次環なので、この余核は
+$w B_4(v)+B_6(v)$ の空間で、次元は $15+28=43$ となる。
+従って軌道の次元は $83-43=40$。
+射影線型群の単位で安定化群に横断する滑らかな局所部分多様体を選ぶ。
+それと指定した線型切片から方程式空間への作用写像は微分が同型なので、
+基点でエタールである。ここでの切片は方程式の変形に対するものである。
+
+射影安定化群は被約特異軌跡の張る超平面 $w=0$ を保ち、
+その中で偏極 Veronese 曲面の自己同型を誘導する。
+従って線型持上げは $D\mapsto MDM^t+wK,\ w\mapsto aw$ の形を取る。
+方程式の $w$ の一次項では $\operatorname{tr}(\operatorname{adj}(MDM^t)K)=0$
+が必要で、六つの余因子の線型独立性より $K=0$。残る条件は
+$(\det M)^2=a^3$ である。射影スカラーを使って $a=1$ とし、$M$ の符号を
+選んで $\det M=1$ とすれば、この代表は一意である。よって安定化群は
+$\mathrm{SL}_3$ であり、法空間に作用する際の三変数の置換は $v\mapsto Mv$ である。
+
+一方、二つの規格化した滑らかな $Z_H$ の同型は ample な Picard 生成元を保つため、
+その切断環で $v\mapsto Nv,\ w\mapsto aw+Q_2(v),\ s\mapsto bs+Q_3(v,w)$ を誘導する。
+$s$ の一次項と $w^2$ の係数より $Q_3=Q_2=0$ である。
+残る条件は二つの式の間の $b^2=a^3$、
+$B'_4(Nv)=a^2 B_4(v)$、$B'_6(Nv)=a^3B_6(v)$ である。
+$N$ のスカラー部分は同じ重み $(2,3)$ の作用に吸収できるので、
+これが上記の軌道関係である。逆に軌道が一致すれば $s$ の尺度の平方根を
+選んで座標同型を得る。圏同値との一致は定理\ref{nft:thm:triple-kernel}による。
+命題\ref{vcd:prop:cubic-arc}はこの重み付き方向のパラメータを $e^2$ とした弧である。
+\end{proof}
+
+\begin{theorem}[法方向の二次曲面束とその残余圏]\label{vcd:thm:quadric-component}
+命題\ref{vcd:prop:cubic-arc}の拡大チャートの特殊方程式は
+滑らかな射影五様体 $\mathfrak Q_H$ のアフィンチャートとしてコンパクト化できる。
+$\mathfrak Q_H$ は $\PP^2$ 上の $\PP^1$ 束を底とする平坦な二次曲面束であり、
+その偶 Clifford 代数の中心被覆は $Z_H$ の基点 $p=(v_1=v_2=v_3=0)$ での
+blow-up である。偶 Clifford 代数はこの被覆上で分裂する。
+$\operatorname{Perf}(\mathfrak Q_H)$ は $\Ku(Z_H)$ と十六個の例外対象による
+半直交分解を持ち、前者の埋込みは比較核で与えられる。
+\end{theorem}
+\begin{proof}
+$L=\mathcal O_{\PP^2}(1)$、$Q$ を階数二の tautological 商束とする。
+$\bar B=\PP_{\PP^2}(\mathcal O\oplus L^2)$ は直線をパラメータ化し、
+$\mathcal T=\mathcal O_{\bar B}(1)$ と置く。二つの射影への成分を
+$t,W$ と書くと、それぞれ $\mathcal T,\mathcal T L^2$ の切断である。
+底からの引戻しは記号を省略する。
+\[
+ M=\mathcal T^2L^3,\qquad
+ h=t\big(W^3+t^2WB_4+t^3B_6\big)\ \in H^0(\bar B,M^2).
+\]
+$\Sigma=\{t=0\}$ と括弧内の零因子は交わらない。後者は $t\ne0$ で
+$H=0$ であり、滑らかな $Z_H$ の仮定から滑らかである。
+$E=(\operatorname{End}_0 Q\otimes M)\oplus\mathcal O$ 上の $M^2$ 値二次形式を
+\[
+                   (N,T)\longmapsto\det N+hT^2
+\]
+と定め、射影零点を $\mathfrak Q_H\subset\PP_{\bar B}(E)$ とする。
+トレース零の二次行列の行列式は非退化な三変数二次形式である。
+従って二次曲面束は平坦で、退化は滑らかな因子 $h=0$ 上の余階数一のみである。
+頂点での底方向の微分は $dh$ の非零倍なので全空間も滑らかである。
+$t=T=1$ で枠を選ぶと $\det N=XZ-Y^2$ と書け、上のアフィンモデルに一致する。
+三次元空間の体積形式を固定すれば、Veronese 埋込みの法束は
+$L^2\operatorname{Sym}^2Q\simeq L^3\operatorname{End}_0 Q$ である。
+実際、点 $\langle v^2\rangle$ で接方向 $v\cdot V$ を除くと
+$\operatorname{Hom}(\langle v^2\rangle,\operatorname{Sym}^2(V/\langle v\rangle))$
+が残る。二次の行列式はこの法方向上の二次主部で、上の局所表示と両立する。
+
+偶 Clifford 代数を $\mathcal B_0$ とする。$M^2$ 値の形式を $M^{-1}$ で
+規格化すると、非退化三変数部分は $\operatorname{End}_0Q$ 上の $\det$ となる。
+Cayley--Hamilton により $N\mapsto\sqrt{-1}N$ はその Clifford 表現で、
+偶部分は $\operatorname{End}(Q)$ に同型である。実際、局所的にトレース零の
+三つの基底行列の対ごとの積と単位が全行列環を張り、両者の階数は四である。
+四変数の体積元は中心的で、三変数部分の体積元は局所的に可逆である。
+したがって四変数体積元と三変数偶部分との積は、三変数奇部分に第四の生成元を
+掛けた補部分全体を与える。これは $h=0$ 上でも基底の等式である。
+$\det(\operatorname{End}_0Q)$ は共役作用で自明、第四の線は $M^{-1}$ なので、
+中心の第二成分は $M^{-1}$ である。体積元の平方は $h$ の非零定数倍であり、
+複素定数で規格化すれば
+\[
+ \mathcal B_0\simeq\operatorname{End}(Q)\otimes\pi_*\mathcal O_{\bar Z},
+ \qquad \pi:\bar Z=(\sigma^2=-h)\longrightarrow\bar B .
+\]
+従って分裂束は $\pi^*Q$ であり、有限被覆とこの束による Morita 同値が
+$\operatorname{Perf}(\bar B,\mathcal B_0)\simeq\operatorname{Perf}(\bar Z)$ を与える。
+
+$\bar Z$ を同定する。$[v_1:v_2:v_3]$ のグラフ閉包は基点イデアルの
+blow-up である。$p$ では $w,s$ が非零で、三つの $v_i$ が局所正則パラメータと
+なる（重み二、三の共通安定化群は自明で $s$ 偏微分も非零）。
+平面方向の一座標を一として $v=r(1,a,b)$ と書く。グラフ閉包上の
+重み $(1,2,3)$ の座標 $[r:w:s]$ の方程式は
+\[
+ s^2+w^3+r^4w B_4(1,a,b)+r^6B_6(1,a,b)=0 .
+\]
+これは $r\ne0$ のグラフの閉包で、$r=0$ には各方向に一点がある。
+$[t:W]=[r^2:w]$ と取る。$r\ne0$ では被覆座標は $s/r^3$、
+$w\ne0$ では $\xi=r^2/w,\ \eta=rs/w^2$ を取る。後者の次数零局所環は
+$\xi,\eta$ で底上生成され（$s^2/w^3$ は方程式で消去できる）、
+\[
+              \eta^2=-\xi(1+\xi^2 B_4+\xi^3 B_6).
+\]
+これは $W$ チャートでの同じ中心被覆である。重なりでは
+$\eta=\xi^2(s/r^3)$ なので二つの記述が貼り合わさり、
+$\bar Z\simeq\operatorname{Bl}_p Z_H$ となる。
+
+最後に \cite[Theorem~4.2]{NFMKuznetsovQuadric} の Clifford 核は
+この偶代数圏を埋め込み、残りは $\operatorname{Perf}(\bar B)$ の二コピーである。
+各コピーは射影束公式で六例外対象を持つ。$\bar Z$ には点の余次元三の
+blow-up 公式 \cite[Theorem~4.3]{CMOOrlovBlowup}で二例外対象と
+$\operatorname{Perf}(Z_H)$ があり、後者から例外対を除くと $\Ku(Z_H)$ を得る。
+この包含、blow-up の引戻し、分裂束による Morita 同値、Clifford 核を合成した
+ものが主張の実比較核である。
+\end{proof}
+
+\begin{proposition}[重み付き例外成分の解消]\label{vcd:prop:exceptional-resolution}
+全三次族を中心の Veronese 曲面で、$(e,w,x,y,z)$ に重み $(1,2,3,3,3)$ を付けて
+blow-up する。その例外成分の粗空間を $E_H$ とする。
+$\mathfrak Q_H$ の無限遠の頂点切断 $\PP^2$ を blow-up すると、
+$E_H$ の crepant 解消 $\widetilde E_H$ が得られる。
+$\operatorname{Perf}(\widetilde E_H)$ は $\Ku(Z_H)$ と二十二個の例外対象からなる
+半直交分解を持つ。
+\end{proposition}
+\begin{proof}
+$x,y,z$ は法イデアルの局所生成元で、別の対角チャートでは可逆な線型項と
+そのイデアルの二乗以上で変換される。$w$ は単元倍、$e$ は不変なので、
+付けた重みによるフィルトレーションは貼り合う。例外成分の方程式は重み六の
+初期形式である。局所的に重み付き多項式環でこの初期形式は非零因子なので、
+主イデアルの随伴次数環にも追加の関係はない。
+平面方向を固定して、例外成分の重み付き座標を $[r:w:n]$、重みを
+$(1,2,3)$（$n$ は三成分）と書けば方程式は
+\[
+ q(n)+w^3+r^4w B_4+r^6B_6=0,\qquad q(n)=\det n .
+\]
+$r\ne0$ で得た開集合上の同型を使い、$\mathfrak Q_H$ からこの粗空間への
+有理写像を考える。平面上で束を自明化し、前定理の記号を用いる。
+$tT\ne0$ では $[r:w:n]=[1:W/t:N/(t^2T)]$。
+重み六の Veronese 表示へ移るとその斉次座標は
+\[
+ \begin{gathered}
+ t^4T^2,\quad t^3WT^2,\quad t^2W^2T^2,\quad tW^3T^2,\\
+ t^2T N_i,\quad tWT N_i,\quad N_iN_j .
+ \end{gathered}
+\]
+これらは $r^6,r^4w,r^2w^2,w^3,r^3n_i,rwn_i,n_i n_j$ に対応し、
+重み六の倍数の単項式はこれらの積に分けられる。
+実際、$n$ を二個ずつ除いた後一個残れば、残りから $r^3$ または $rw$
+を除ける。あとは重み一、二の単項式の分割である。
+写像の基点は $t=N=0$ の頂点切断のみである。そこでは $W=T=1$ とでき、
+$t(1+t^2B_4+t^3B_6)=-q(N)$ により $t\in(N)^2$ である。
+上の座標が生成するイデアルは従って $(N)^2$ と一致する。$(N)$ の
+blow-up で写像は射になり、各自明化での射は稠密開で一致するので貼り合う。
+
+$n_i\ne0$ の局所で、粗空間の法方向の三関数を
+$\alpha=r^3/n_i,\ \beta=w^3/n_i^2,\ \gamma=rw/n_i$ と取る。
+$\alpha\beta=\gamma^3$ である。$r=w=0$ 上では $[n]$ は滑らかな
+射影円錐曲線 $q(n)=0$ 上にあり、その方程式の非零微分で他の一変数が消去できる。
+実際、$n_i$ の三乗根を選んだチャートは残留 $\mu_3$ の重み $(1,2)$ の
+二方向を持ち、それ以外の方向は不変である。
+従って粗空間の横断特異点は $A_2$ である。$r\ne0$ ではアフィン式と
+$H=0$ の滑らかさを用い、$r=0,w\ne0$ では $q(n)=-w^3\ne0$ で
+安定化群も消える。これらの点で粗空間は滑らかである。
+
+上の射の局所式を記す。$N_i=1$ とし、$t=1$ のチャートでは
+$(\alpha,\beta,\gamma)=(T,W^3T^2,WT)$ となる。
+$W=1$ では $(t^2T,tT^2,tT)$ である。頂点の blow-up の
+$W=T=1,\ N=s'm,\ m_i=1$ のチャートでは $\beta=t/(s')^2$ が正則で、
+三関数は $((s')^3\beta^2,\beta,s'\beta)$ となる。ここで $\beta$ と
+$m$ は $\beta(1+t^2B_4+t^3B_6)=-q(m)$ に従い、
+$q(m)=0$ の近傍では円錐曲線の横座標を $\beta$ で置き換えられる。
+これらは $A_2$ の極小解消の三チャートである。例えば標準形式
+$d\alpha\wedge d\gamma/\alpha$ は順に、二座標の面積形式の非零定数倍になり、
+例外因子上に零も極も持たない。解消は特異軌跡以外で同型である。
+$r\ne0$ の場合は初めの式の逆を使い、$r=0,\ w\ne0$ の場合は
+$\beta\ne0$ の最後のチャートで $s'=\gamma/\beta$、
+$m_j=n_j/n_i$ と復元する。以上で crepant 性も従う。
+頂点切断の余次元は三なので、blow-up 公式により $\PP^2$ の二コピー、
+計六例外対象が定理\ref{vcd:thm:quadric-component}の分解に加わる。
+\end{proof}
+
+この構成で特殊ファイバーの実際の例外成分の解消に $\Ku(Z_H)$ の比較核が得られた。
+一般の $H$ でこれを三次の一般ファイバーと結ぶには、特殊ファイバーのもう一つの
+成分との交わりで射影核を比較し、相対残余圏の smooth proper 性を示す必要がある。
+
+\begin{corollary}[無限遠への制限が保持する局所環]\label{vcd:cor:jet-boundary}
+$b:\bar Z\to Z_H$ を上の blow-up、$D_\infty=b^{-1}(p)$ とする。
+$\bar B$ の無限遠因子 $\Sigma$ の $k$ 重化への Clifford 成分の制限を考える。
+$k\ge1$、$A_k=\mathcal O_{Z_H,p}/\mathfrak m_p^{2k}$ とすると、
+$\operatorname{Perf}(A_k)$ はその境界 Clifford 成分に完全忠実に入り、
+像は分裂 Morita 同値で $\mathcal O_{2kD_\infty}$ に対応する一対象の厚包である。
+$\Ku(Z_H)$ の各対象の境界像は、その $A_k$ への導来制限からこの関手で得られる。
+\end{corollary}
+\begin{proof}
+枝因子 $\Sigma$ では他方の枝が単元なので $\pi^*(k\Sigma)=2kD_\infty$。
+分裂した偶 Clifford 代数の同定はこの非被約底変更にも両立する。
+$b^*\mathfrak m_p\cdot\mathcal O_{\bar Z}=\mathcal O_{\bar Z}(-D_\infty)$ より
+制限は $j:2kD_\infty\to\operatorname{Spec} A_k$ に因子化する。
+$\mathcal O_{2kD_\infty}$ の因子イデアルによる各次数商は
+$\mathcal O_{\PP^2}(a)$ ($0\le a<2k$) である。高次コホモロジーは消え、
+$\mathfrak m_p^a/\mathfrak m_p^{a+1}\to H^0(\PP^2,\mathcal O(a))$ は
+正則な点の blow-up の座標により余接空間の $a$ 次対称冪の恒等写像になる。
+従って自然な単位 $A_k\to{\bf R}j_*\mathcal O_{2kD_\infty}$ は擬同型である。
+射影公式により $\mathbf L j^*$ は perfect 上完全忠実で、像は単位の厚包である。
+$\Ku(Z_H)$ からの関手が $b^*$ を通ることより、境界への制限の記述を得る。
+特に $k=1$ で保持される環は長さ四の
+$\C\oplus(\mathfrak m_p/\mathfrak m_p^2)$（後者の平方は零）である。
+これは無限遠の制限を記述するもので、他方の成分からの制限関手の同定は残る。
+\end{proof}
+
+\begin{proposition}[厳密変換された共通境界上の比較核]\label{vcd:prop:boundary-fiber}
+重み付き blow-up の中央ファイバーの二成分の交わりは、例外成分上で $r=0$ と
+なる。その被約粗空間の厳密変換 $S\subset\widetilde E_H$ は
+平面上の $\PP^2$ 束で、射影を $d:S\to\PP^2$ とする。
+定理\ref{vcd:thm:quadric-component}で Kuznetsov の $\Phi_{0,0}$ を用い、
+それを $\widetilde E_H$ に引き戻した埋込みを $\Psi$ とすると、
+任意の $K\in\Ku(Z_H)$ に対し自然に
+\[
+       {\bf L}i_S^*\Psi(K)\simeq
+       d^*(Q^\vee)\otimes_{\C}{\bf L}i_p^*K .
+\]
+従ってこの境界への制限はただ一つの例外対象の生成する部分圏に入る。
+\end{proposition}
+\begin{proof}
+重み一のパラメータ $e$ の全変換から例外因子を一度除くと、その例外因子への
+制限は重み一の斉次座標 $r$ である。$r=0$ の方程式は $q(n)+w^3=0$ で、
+$n\ne0$ である。粗座標は $[n]$ で尽くされる。実際 $n_i\ne0$ の
+次数零環は $n_j/n_i,\ w^3/n_i^2$ で生成され、後者は方程式で消せる。
+命題\ref{vcd:prop:exceptional-resolution}の頂点 blow-up の例外因子は
+$[m]=[n]$ でこの粗境界と同型であり、その稠密開 $q(n)\ne0$ からの
+厳密変換を与える。重み付き射影スタックの境界を取るなら、
+$n_i$ の三乗根を選んだチャートで $w$ に $\mu_3$ が重み二で作用し、
+$w^3=-q(n)$ となる。これは粗境界の滑らかな円錐曲線束 $q(n)=0$
+に沿う三乗根スタックである。実際 $w$ が定める Cartier 因子の三倍は
+粗境界の同因子の引戻しであり、誘導される根スタックへの射はこれらの
+チャートで同型となる。以下の式は粗境界の厳密変換について述べる。
+$S$ から $\mathfrak Q_H$ への射は頂点切断を通る。
+
+頂点切断における Clifford 核を計算する。
+\cite[Lemmas~4.5, 4.7, Remark~4.8]{NFMKuznetsovQuadric} の
+$\Phi_{0,0}$ の左加群核は、普遍ベクトルを右から掛ける
+$\mathcal O(-1)\otimes\mathcal B_{-1}\to\mathcal B_0$ の余核で、
+二次曲面束上では基礎 $\mathcal O$ 加群が局所自由である。
+従って頂点切断への導来引戻しは通常の余核で計算できる。
+頂点のベクトルは第四の基底元で、その平方は零である。
+Clifford の順序基底でこの乗法の像は第四の元を含む偶単項式の張る部分、
+すなわち体積元 $\sigma$ のイデアルである。
+残る左加群は $\mathcal B_0/(\sigma)=\operatorname{End}(Q)$ 自身である。
+これは規格化した三変数偶部分の大域同定で、$\Phi_{0,0}$ の標的自由項に
+射影線束の twist はない。
+
+右加群への Morita 関手を $F\mapsto\pi_*(F\otimes\pi^*Q^\vee)$ と取る。
+この完全な右加群を左加群核と導来 tensor して頂点に引き戻すと、
+中心被覆上の $F$ の被約分岐切断への導来制限に $Q^\vee$ を tensor したものを得る。
+これは局所自由な右 $\mathcal B_0$ 加群で確認してから直和因子と cone に移せる。
+$F=b^*K$ に対して分岐切断から $Z_H$ への射は $p$ を通るので主張の式となる。
+$Q^\vee=\Omega_{\PP^2}^1(1)$ は Euler 列から例外的であり、
+射影束の $d^*$ は完全忠実なのでその引戻しも例外的である。
+系\ref{vcd:cor:jet-boundary}の非被約中心を通る段階と、頂点で $\sigma$ を
+零にする段階とが、この二つの制限の違いを与える。
+\end{proof}
+
+\begin{theorem}[もう一成分への境界核の行列式障害]\label{vcd:thm:boundary-parity}
+重み付き blow-up のスタックで $X_*=(F_*=0)$ の厳密変換を $\mathcal Y$、
+その境界を $\mathcal S$ とする。これは命題\ref{vcd:prop:boundary-fiber}の
+$S=\PP(N)$ に沿う記述で、$N=L^3\operatorname{End}_0Q$、
+$\mathcal S\to S$ は円錐曲線束に沿う三乗根スタックである。このとき
+\[
+ \operatorname{Pic}(\mathcal S)/
+ \operatorname{im}\big(\operatorname{Pic}(\mathcal Y)\to
+                           \operatorname{Pic}(\mathcal S)\big)
+       \simeq \mathbb Z/2 .
+\]
+上の粗境界での核の公式を $\mathcal S$ に引き戻したままでは、
+$\mathcal Y$ 上の perfect な関手値と全 $K\in\Ku(Z_H)$ について貼り合わせることは
+できない。この障害は境界核全体の線束 twist および分岐円錐曲線束上に支持された変更の後も残る。
+\end{theorem}
+\begin{proof}
+$X_*$ は超曲面で余次元三の特異軌跡を持つ正規多様体である。
+$d_{11}\ne0$ のチャートの環は
+$\C[a,b,x,y,z,w]/(xz-y^2+w^3)$ である。$x$ は素元で
+（$y^2-w^3$ が既約）、$x$ で局所化すれば Laurent 多項式環となる。
+従って素因子の局所化完全列によりこのチャートの因子類群は零である。
+補超平面 $d_{11}=0$ の方程式は
+$-d_{12}^2 d_{33}+2d_{12}d_{13}d_{23}-d_{13}^2d_{22}+w^3$ で、
+$d_{33}$ の原始一次式なので既約である。従って
+$\operatorname{Cl}(X_*)=\mathbb Z[\mathcal O(1)]$ である。
+非捩れ性は超平面束の ample 性から従う。
+Veronese 曲面を除いた滑らかな開集合でも因子類群は同じである。
+
+$\mathcal Y$ はこの開集合上同型で、その補集合には既約因子 $\mathcal S$ が一つある。
+局所的には横断方程式 $q(n)+w^3=0$ の頂点の重み付き blow-up で、境界近くでは
+重み付き射影超曲面スタック上の tautological 線の全空間である。
+このスタックは滑らかで、$\mathcal S$ の法線は重み付き $\mathcal O(-1)$ である。
+従って $\mathcal Y$ の任意の線束は超平面束の引戻しと $\mathcal O(\mathcal S)$
+の冪で生成される。実際、開集合で前者の冪を除いて有理自明化を選ぶと、
+その Cartier 因子は境界の整数倍である。
+
+$\mathcal S$ 上で $l=d^*L,\ u=\mathcal O_{\mathcal S}(1)$ を加法記法で書く
+（$d$ には粗化射も合成する）。$h=\mathcal O_{\PP(N)}(1)$ の引戻しは $3u$、
+分岐円錐曲線の三乗根線は $w$ の零因子の線で $2u+2l$ である。
+射影束の Picard 群は $l,h$ で生成され、根スタックではこれに根線を加えればよい。
+後者は分岐での安定化群の文字を根線の冪で消した線束が粗空間へ降りることによる。
+従って $l,u$ が生成し、ファイバー上の $u$ の非零な有理次数と
+底からの引戻しの単射性により独立である。$\mathcal Y$ からの二生成元は
+それぞれ $2l,-u$ へ移る。前者は Veronese 偏極による。これで商群を得る。
+
+$K$ の粗境界像を引き戻した完全複体の行列式は、
+基点での定数線を除き $-\operatorname{rk}(K)\,l$ となる。
+奇数階数の対象は実際に存在する。任意の閉点 $z$ に対し
+$K=\mathbf L_{\mathcal O}\mathbf L_{\mathcal O(1)}k(z)$
+（$\mathbf L$ は左 mutation）を取る。$K$ は例外対の右直交にあり、
+$\chi(\mathcal O(1),k(z))=1$、$\chi(\mathcal O,\mathcal O(1))=3$
+（重み一の三切断と Kodaira 消滅）なので
+$[K]=[k(z)]-[\mathcal O(1)]+2[\mathcal O]$、従って階数一である。
+より一般に分裂した中心被覆の任意の $F\in\operatorname{Perf}(\bar Z)$ でも、
+頂点での制限は $Q^\vee\otimes^{\mathbf L}{\bf L}i_{D_\infty}^*F$ である。
+その行列式類は $-\operatorname{rk}(F)l+2c_1({\bf L}i_{D_\infty}^*F)$ で、
+商では階数の偶奇だけに等しい。特に $b^*K$ を blow-up の例外因子に
+支持された対象で mutation しても階数は不変であり、奇数階数は残る。
+この境界像の行列式は上記の商で非零だから、$\mathcal Y$ の perfect 複体の
+制限になれない。境界像の階数は $2\operatorname{rk}(K)$ で常に偶数なので、
+線束 twist による行列式の変化はこの商では零である。
+さらに二つの perfect 複体が分岐円錐曲線束の補集合で同型なら、
+行列式の差はその既約因子の整数倍である。この因子の類 $2u+2l$ は
+$\mathcal Y$ からの像に入る。よって補集合上で同じ境界値を保つ変更でも
+この不一致は消えない。貼合せには境界のこの開集合上で値を変える操作、
+または別の比較模型が必要である。
+\end{proof}
+
+\begin{proposition}[表示を指定しない次数一三様体での法方向の形式実現]
+\label{vcd:prop:formal-contact}
+任意の滑らかな $Z_H$ と任意の $r\ge1$ について、
+$\operatorname{Ind}\Ku(Z_H)$ の標識付き一変数形式変形で、
+被覆対合が $\C[t]/(t^r)$ 上までは持ち上がり
+$\C[t]/(t^{r+1})$ 上で持ち上がらないものが存在する。
+全厚化を単一の $\C[[t]]$ 線型結合的導来代数の底変更で表せ、
+その基礎複体は $\C[[t]]$ 上 perfect である。
+\end{proposition}
+\begin{proof}
+定理\ref{nft:thm:deck-formal}の同変形式座標を $z_1,\ldots,z_{34},u$ とし、
+固定点部分を $u=0$ とする。この同型類の形式円板の弧
+$z_i=0,\ u=t^r$ を取る。各 Artin 商の compatible な同型類は
+hull の一変数点へ持ち上がる。実際、塔の各段で代表と一段前への比較同値を
+順に選べば homotopy limit の点を得る。ここで使用するのは通常の一変数の塔である。
+$\Ku(Z_H)$ は admissible なので滑らかな射影多様体の compact 生成対象の射影が
+古典生成対象であり、proper 性によりその compact 対象間の高い Ext は消える。
+従って Blanc--Katzarkov--Pandit
+\cite[Theorem~4.27, Proposition~4.28, Theorem~4.29]{NFBKP}の仮定を満たす。
+第一の定理で弧は compactly generated な圏の実際の compatible な塔となり、
+後二者で生成対象を取り替えた自己準同型代数の compatible な変形 $B_n$ が得られる。
+生成対象の取替えは原典の $k[u]$ 作用に対する $E\to E[2]$ の fiber である
+（この Hochschild 作用の変数と形式座標 $u$ は別である）。
+各段の hull の同型類が固定されることと実変形に対合が持ち上がることは
+定理\ref{nft:thm:deck-formal}による。弧に沿う固定部分のイデアルは $(t^r)$
+なので所要の最大厚化が従う。座標選択を変えてもこのイデアルの引戻しは変わらない。
+
+$R_n=\C[t]/(t^n)$ と置く。$B_n\otimes_{R_n}^{\mathbf L}\C$ は
+proper な特殊ファイバーの生成対象の自己 Hom で、体上有界有限次元である。
+$R_n$ の剰余体による有限フィルトレーションを tensor すれば
+$B_n$ 自身も有界有限コホモロジーを持つ。局所環上の極小自由分解を
+剰余体に落とすと微分が零になるので、この還元の有界性から $B_n$ は perfect
+となる。各次数の極小自由項の階数は全 $n$ で同じである。
+このような compatible な perfect 複体は $R=\C[[t]]$ 上に戻る。
+実際、各段の極小模型間の還元後の擬同型は局所 Nakayama により次数ごとの
+同型であり、基底を順に持ち上げて微分行列の逆極限を取れる。
+perfect 複体間の導来 Hom も有限自由複体で計算でき、還元の homotopy limit
+と一致する。従ってこの効果性は写像空間について完全忠実で、tensor 冪とも両立する。
+結合的代数対象の積と全高次整合を戻すと求める $R$ 上の代数を得る。
+ここで得た一変数形式変形の一般ファイバーを命題\ref{vcd:prop:cubic-arc}の
+三次の残余圏に同定する比較核は、一般の $H$ では未構成である。
+\end{proof}
+
+\begin{example}\label{vcd:ex:non-sign}
+$B_4=5v_1^3v_2,\ B_6=v_1^6+v_2^6+v_3^6$ と取る。
+標数五では $H$ の四偏微分が各変数の純冪の単元倍となるので、
+射影臨界軌跡の固有性により標数零で滑らかである。
+この $Z_H$ は偶符号像に入らない。実際、四次式の三重直線と単直線は
+いずれも一意である。ある座標系で四次式が各座標の平方の多項式になれば、
+両直線の定義一次式は全座標符号作用の共通固有ベクトル、従って異なる
+二座標の定数倍となる。しかしその三乗と一乗の積は各座標反転で不変にならない。
+系\ref{nft:cor:sign-target-locus}が適用できる。
+この例の持上げは $A=5d_{11}d_{12},\ C=\sum_i d_{ii}^3$ と取れる。
+$e=1$ も滑らかな三次五様体を与える。標数五で $w$ 偏微分から $w=0$。
+全対角成分が零なら対角三偏微分から非対角成分も零となる。
+対角成分が一つ非零なら対称性から $d_{11}=1$ と置き、
+$b=d_{12},c=d_{13},u=d_{22},v=d_{33}$ とする。$d_{23}$ 偏微分から
+$d_{23}=bc$、残る偏微分から
+\[
+ uv-b^2c^2+3=0,\quad c^2=v+3u^2,\quad b^2=u+3v^2,
+ \quad b u^2=c v^2=0
+\]
+を得る。$bc\ne0$ なら $u=v=0$ となって矛盾する。
+$b\ne0,\ c=0$ なら $u=v=0$ から $b^2=0$、もう一方も同様である。
+$b=c=0$ なら $uv=-3$、また $v=-3u^2,\ u=-3v^2$ から $uv=1/9$ となり、
+標数五で相容れない。従って標数五の代数閉包上で射影特異点がなく、主張を得る。
+この具体例でも三次側への相対 Ku 核は未構成である。
+\end{example}
